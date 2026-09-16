@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.1.1",
+    date: "2026-09-16",
+    entries: [
+      {
+        type: "FIX",
+        text: "The footer's two-column navigation fills top-to-bottom, so the header's order survives: Canon → Blueprints down the left, Missions and Debt on the right. It was zigzagging across.",
+      },
+    ],
+  },
+  {
     version: "v0.1.0",
     date: "2026-09-16",
     entries: [

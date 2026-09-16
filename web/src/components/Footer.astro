@@ -33,6 +33,9 @@ const LICENSE_URL = `${REPO_URL}/blob/main/REUSE.toml`;
 // Navigation in two columns once it is long: eight stacked links is a
 // footer nobody scrolls to the end of.
 const twoColumns = navItems.length > 4;
+// Filled top-to-bottom so the header's order survives: down the first
+// column, then the second.
+const rows = Math.ceil(navItems.length / 2);
 
 const link =
   "flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:justify-start sm:py-1";
@@ -55,7 +58,7 @@ const heading = "mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-d
       <!-- Navigation -->
       <nav aria-label={t("footer.navigation")} class="flex flex-col gap-2">
         <span class={heading}>{t("footer.navigation")}</span>
-        <div class:list={["grid gap-x-6", twoColumns ? "grid-cols-2" : "grid-cols-1"]}>
+        <div class:list={["grid gap-x-6", twoColumns ? "grid-cols-2 grid-flow-col" : "grid-cols-1"]} style={twoColumns ? `grid-template-rows: repeat(${rows}, auto)` : undefined}>
           {navItems.map((item) => (
             <a href={item.href} class={link}>{item.label}</a>
           ))}
