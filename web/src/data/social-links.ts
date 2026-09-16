@@ -1,15 +1,15 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The house's social accounts, the same on the three sites (numinia.org,
-// numinia.com, numen.games). Empty until the Oracle hands over the company
-// URLs (X, Discord, GitHub): with an empty list the footer draws no Social
-// column. The two personal accounts that sat here until 2026-09-16 were a
-// placeholder — a person's profile is not the house's address.
+// The house's social accounts, the same list on the four sites (a copy
+// per repository, no shared package yet). GitHub is the organisation's; X
+// and Discord are added when the Oracle hands over the company URLs.
+// Never personal accounts.
 export interface SocialLink {
   readonly label: string;
   readonly href: string;
-  readonly icon: string;
 }
 
-export const socialLinks: readonly SocialLink[] = [];
+export const socialLinks: readonly SocialLink[] = [
+  { label: "GitHub", href: "https://github.com/numengames" },
+];

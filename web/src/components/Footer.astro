@@ -1,150 +1,128 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
+//
+// The house footer, the same shape on the four sites (numinia.org,
+// numinia.com, numen.games, nwos.numen.games — Oracle instruction,
+// 2026-09-16). Its job is to reduce uncertainty: where am I, where else
+// can I go, what is this thing, which build am I reading.
+//
+//   brand + one line     Navigation      Numen Games      Legal
+//                        (two columns    (the four        Social
+//                         when > 4)       sites)
+//   ─────────────────────────────────────────────────────────────
+//   scarab  by Numen Games — we build for a better future.
+//           licence · telemetry · version · commit
+//
+// No copyright line and no "all rights reserved": licences are per file,
+// declared in REUSE.toml — a blanket claim in the footer would contradict
+// the manifest (CAN-005). The signature is brand voice and is never
+// translated.
 import { navItems } from "@/data/navigation";
 import { socialLinks } from "@/data/social-links";
+import { HOUSE_LINKS, THIS_SITE } from "@/data/house-links";
 import { VERSION, COMMIT_SHA, COMMIT_URL, REPO_URL } from "@/lib/build-info";
 import { useT } from "@/i18n/ui";
 // The scarab closes every piece, never opens it — its one canonical home on
-// the site is the foot of the page. Same mark as numinia.com and numen.games.
+// the site is the foot of the page.
 import scarab from "@/brand/Khepri_Logo.svg?raw";
+
 const t = useT();
 const LICENSE_URL = `${REPO_URL}/blob/main/REUSE.toml`;
-const CHANGELOG_URL = `${REPO_URL}/blob/main/CHANGELOG.md`;
+
+// Navigation in two columns once it is long: eight stacked links is a
+// footer nobody scrolls to the end of.
+const twoColumns = navItems.length > 4;
+
+const link =
+  "flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:justify-start sm:py-1";
+const heading = "mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim";
 ---
 
 <footer class="border-t border-border">
   <div class="mx-auto max-w-[1100px] px-6 py-12">
-    <div class="flex flex-col items-center justify-between gap-8 sm:flex-row sm:items-start">
-      <!-- Brand -->
+    <div class="grid grid-cols-1 gap-8 text-center sm:grid-cols-[1.4fr_1.2fr_1fr_1fr] sm:text-left">
+      <!-- Brand: the site's name written, and one line saying what it is -->
       <div>
-        <a href="/" class="inline-flex min-h-[44px] items-center font-display text-2xl text-foreground">
-          NW<em class="text-accent">OS</em>
+        <a href="/" class="inline-flex min-h-[44px] items-center font-display text-xl text-foreground">
+          Narrative Work OS
         </a>
-        <p class="mt-2 max-w-xs text-sm text-muted-foreground">
-          Narrative Work OS — by Numen Games.
+        <p class="mt-2 max-w-xs text-sm text-muted-foreground sm:mx-0 mx-auto">
+          The archive of Numen Games, built in public: canon, decisions, standards and missions, as files.
         </p>
       </div>
 
-      <!-- Nav links -->
-      <div class="flex flex-col gap-2 text-center sm:text-left">
-        <span class="mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{t("footer.navigation")}</span>
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:justify-start sm:py-1"
-          >
-            {item.label}
-          </a>
-        ))}
-      </div>
-
-      <!-- Legal -->
-      <div class="flex flex-col gap-2 text-center sm:text-left">
-        <span class="mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{t("footer.legal")}</span>
-        <a
-          href="/legal/terminos"
-          class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:justify-start sm:py-1"
-        >
-          Terms and conditions
-        </a>
-        <a
-          href="/legal/privacidad"
-          class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-foreground sm:min-h-0 sm:justify-start sm:py-1"
-        >
-          Privacy policy
-        </a>
-      </div>
-
-      <!-- Social links: the column exists only once the house has accounts -->
-      {socialLinks.length > 0 && (
-        <div class="flex flex-col gap-2 text-center sm:text-left">
-          <span class="mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{t("footer.social")}</span>
-          {socialLinks.map((link) => (
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-accent sm:min-h-0 sm:justify-start sm:py-1"
-            >
-              {link.label}
-            </a>
+      <!-- Navigation -->
+      <nav aria-label={t("footer.navigation")} class="flex flex-col gap-2">
+        <span class={heading}>{t("footer.navigation")}</span>
+        <div class:list={["grid gap-x-6", twoColumns ? "grid-cols-2" : "grid-cols-1"]}>
+          {navItems.map((item) => (
+            <a href={item.href} class={link}>{item.label}</a>
           ))}
         </div>
-      )}
+      </nav>
+
+      <!-- Numen Games: the four sites of the house, this one as text -->
+      <nav aria-label={t("footer.house")} class="flex flex-col gap-2">
+        <span class={heading}>{t("footer.house")}</span>
+        {HOUSE_LINKS.map((site) =>
+          site.id === THIS_SITE ? (
+            <span class="flex items-center justify-center gap-2 text-sm text-foreground sm:justify-start sm:py-1" aria-current="page">
+              {site.label}
+              <span class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim">{t("footer.thisSite")}</span>
+            </span>
+          ) : (
+            <a href={site.href} target="_blank" rel="noopener noreferrer" class={link} title={site.what}>
+              {site.label}
+            </a>
+          )
+        )}
+      </nav>
+
+      <!-- Legal, then Social -->
+      <div class="flex flex-col gap-2">
+        <nav aria-label={t("footer.legal")} class="flex flex-col gap-2">
+          <span class={heading}>{t("footer.legal")}</span>
+          <a href="/legal/terms" class={link}>{t("footer.terms")}</a>
+          <a href="/legal/privacy" class={link}>{t("footer.privacy")}</a>
+        </nav>
+        {socialLinks.length > 0 && (
+          <nav aria-label={t("footer.social")} class="mt-4 flex flex-col gap-2">
+            <span class={heading}>{t("footer.social")}</span>
+            {socialLinks.map((s) => (
+              <a href={s.href} target="_blank" rel="noopener noreferrer" class={link}>{s.label}</a>
+            ))}
+          </nav>
+        )}
+      </div>
     </div>
 
-    <!-- Signature -->
-    <!--
-      No copyright line, and no "all rights reserved": this repository reserves
-      almost nothing. Licences differ by folder and every file declares its own
-      SPDX identifier, resolved through REUSE.toml — a blanket claim in the
-      footer would contradict C-005 and the REUSE manifest at once.
-
-      The shape is the house's, the same on numinia.com and numen.games: the
-      scarab, a signature, then the build line (licence · telemetry · version
-      · commit). Same sentence, because it is the same house.
-    -->
-    <div class="mt-12 border-t border-border/50 pt-6 text-center">
+    <!-- The closing line: scarab, signature, build -->
+    <div class="mt-12 flex flex-col items-center gap-4 border-t border-border/50 pt-6 text-center sm:flex-row sm:text-left">
       <span class="escarabajo inline-flex text-dim" aria-hidden="true" set:html={scarab} />
-      <p class="mt-3 text-sm text-muted-foreground">
-        by <a
-          href="https://numen.games"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-foreground transition-colors hover:text-accent"
-        >Numen Games</a> — we build for a better future.
-      </p>
-      <p class="mt-2 font-mono text-[0.65rem] text-dim">
-        <!--
-          The link goes to the map, not to the doctrine: a reader who clicks
-          "which licence?" wants the answer, and REUSE.toml is the answer per
-          path. The regimes are spelled out in the tooltip; CAN-005 is one
-          hop away from the map's own comments.
-        -->
-        <a
-          href={LICENSE_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="transition-colors hover:text-accent"
-          title="Code MIT · corpus CC0 · standards CC-BY-4.0 · legal texts and brand reserved. The per-path map is REUSE.toml"
-        >Open by licence, per file</a>
-        {" · "}
-        <!--
-          Telemetry sits on the build line, not in the Navigation column, and
-          the placement is the argument: /telemetry is not a section of the
-          corpus, it is a measurement of it. It belongs beside the version and
-          the commit — the other two facts about the artefact you are reading,
-          rather than about what the artefact says. (MIS-141)
-        -->
-        <a
-          href="/telemetry"
-          class="transition-colors hover:text-accent"
-          title="Figures measured from this corpus, each with the predicate it is true of"
-        >{t("footer.telemetry")}</a>
-        {" · "}
-        <a
-          href={CHANGELOG_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="transition-colors hover:text-accent"
-          title="See the changelog"
-        >{VERSION}</a>
-        {" · "}
-        {COMMIT_URL ? (
-          <a
-            href={COMMIT_URL}
+      <div>
+        <p class="text-sm text-muted-foreground">
+          by <a
+            href="https://numen.games"
             target="_blank"
             rel="noopener noreferrer"
-            class="transition-colors hover:text-accent"
-            title="See this commit on GitHub"
-          >
-            {COMMIT_SHA}
-          </a>
-        ) : (
-          COMMIT_SHA
-        )}
-      </p>
+            class="text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent"
+          >Numen Games</a> — we build for a better future.
+        </p>
+        <p class="mt-1 font-mono text-[0.65rem] text-dim">
+          <a href={LICENSE_URL} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-accent" title={t("footer.licenceTitle")}>{t("footer.licence")}</a>
+          {" · "}
+          <a href="/telemetry" class="transition-colors hover:text-accent" title={t("footer.telemetryTitle")}>{t("footer.telemetry")}</a>
+          {" · "}
+          <a href="/updates" class="transition-colors hover:text-accent" title={t("footer.versionTitle")}>{VERSION}</a>
+          {" · "}
+          {COMMIT_URL ? (
+            <a href={COMMIT_URL} target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-accent" title={t("footer.commitTitle")}>{COMMIT_SHA}</a>
+          ) : (
+            COMMIT_SHA
+          )}
+        </p>
+      </div>
     </div>
   </div>
 </footer>

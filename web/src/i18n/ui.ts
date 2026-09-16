@@ -21,9 +21,18 @@ const en = {
 
   // — footer —
   "footer.navigation": "Navigation",
+  "footer.house": "Numen Games",
   "footer.legal": "Legal",
+  "footer.terms": "Terms and conditions",
+  "footer.privacy": "Privacy policy",
   "footer.social": "Social",
+  "footer.licence": "Open by licence, per file",
+  "footer.licenceTitle": "Code MIT · corpus CC0 · standards CC-BY-4.0 · legal texts and brand reserved. The per-path map is REUSE.toml",
   "footer.telemetry": "Telemetry",
+  "footer.telemetryTitle": "Figures measured from this corpus, each with the predicate it is true of",
+  "footer.versionTitle": "What changed in each version",
+  "footer.commitTitle": "See this commit on GitHub",
+  "footer.thisSite": "you are here",
 
   // — site search (SiteSearch.astro) —
   "search.label": "Search",

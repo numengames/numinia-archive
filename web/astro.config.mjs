@@ -25,6 +25,11 @@ export default defineConfig({
 	// before push (72bff4c): the URL never went live, and the entry is about
 	// page weight, not a broken link. See DBT-004.
 	redirects: {
+		// 2026-09-16: legal slugs unified across the four sites of the house.
+		"/legal/terminos": "/legal/terms",
+		"/legal/privacidad": "/legal/privacy",
+		"/legal/terminos.md": "/legal/terms.md",
+		"/legal/privacidad.md": "/legal/privacy.md",
     // ADR-045: guilds/ retired; charters and rosters fold into CAN-004.
     '/corpus/guilds/alquimistas/gld-001-charter': '/corpus/canon/can-004-role-structure',
     '/corpus/guilds/exegetas/gld-002-charter': '/corpus/canon/can-004-role-structure',

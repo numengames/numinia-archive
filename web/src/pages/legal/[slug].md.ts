@@ -7,8 +7,8 @@ import type { APIRoute } from "astro";
 import { getEntry } from "astro:content";
 
 const SLUGS: Record<string, string> = {
-  terminos: "ops-004-terms-and-conditions-numengames",
-  privacidad: "ops-003-privacy-policy-numengames",
+  terms: "ops-004-terms-and-conditions-numengames",
+  privacy: "ops-003-privacy-policy-numengames",
 };
 
 export async function getStaticPaths() {
