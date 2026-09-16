@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "8df378b",
-  "corpus_hash": "876707b1324c10f0e1274b14f823c41e39427f53e74104709e2ac1bbea26e1f2",
+  "head": "7f5e03c",
+  "corpus_hash": "ac7547de2b69ce30a299adabf4db53c70e4e727f620fa4a52a551b85f4432aba",
   "root_dirty": 0,
-  "measured_at": "2026-09-16T10:46:10Z",
+  "measured_at": "2026-09-16T11:53:06Z",
   "families": [
     "corpus",
     "series",
@@ -16,14 +16,14 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 460,
+      "value": 464,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
     "corpus.files_by_ext": {
       "value": {
         "(none)": 2,
-        ".astro": 47,
+        ".astro": 48,
         ".css": 3,
         ".gitignore": 2,
         ".html": 2,
@@ -32,11 +32,11 @@
         ".js": 2,
         ".json": 13,
         ".md": 150,
-        ".mjs": 54,
+        ".mjs": 55,
         ".png": 36,
         ".svg": 70,
         ".toml": 4,
-        ".ts": 17,
+        ".ts": 19,
         ".tsx": 2,
         ".txt": 11,
         ".webp": 1,
@@ -105,19 +105,19 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 27,
+      "value": 28,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 27
+        "node": 28
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 14,
+      "value": 15,
       "unit": "files",
       "definition": "guards the runner runs in CI: registered scripts under `scripts/` (ENG-032)"
     },
@@ -316,7 +316,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 270420,
+      "value": 270790,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -331,7 +331,7 @@
         "operations": 21323,
         "templates": 15832,
         "protocols": 14384,
-        "": 13488,
+        "": 13858,
         "system": 9652,
         "decisions": 6189,
         "debt": 1544,
@@ -345,15 +345,15 @@
         "active": 113912,
         "draft": 97605,
         "done": 26350,
+        "(none)": 14178,
         "todo": 14103,
-        "(none)": 13808,
         "in-progress": 4642
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.11,
+      "value": 16.09,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -376,8 +376,8 @@
           8125
         ],
         [
-          "canon/CAN-002-brand-and-culture.md",
-          7403
+          "CHANGELOG.md",
+          7763
         ]
       ],
       "unit": "tokens",
@@ -667,6 +667,7 @@
       "value": [
         "scripts/check-internal-links.mjs",
         "scripts/check-orphan-content.mjs",
+        "scripts/check-version-bump.mjs",
         "scripts/telemetry.mjs",
         "tools/check-register.mjs"
       ],
@@ -692,7 +693,7 @@
           "3": 216
         },
         "OPS": {
-          "3": 38
+          "3": 39
         },
         "SYS": {
           "3": 19
@@ -764,7 +765,7 @@
           "id": "MIS-135#19",
           "severity": "A",
           "state": "open",
-          "where": "web/astro.config.mjs#L308",
+          "where": "web/astro.config.mjs#L313",
           "claim": "Parameterised redirect that check-url-lifecycle matches literally — neither verified nor expanded. Deferred: design choice."
         },
         {
