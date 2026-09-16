@@ -227,3 +227,13 @@ SPDX-License-Identifier = "CC0-1.0"
 path = ["web/**", "scripts/**", "tools/**", "packages/**", ".github/rulesets/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "MIT"
+
+# --- Brand mark → reserved (CAN-005, the fourth regime) --------------------
+# The scarab the footer closes with, copied from numinia-web
+# (packages/ui/src/assets/brand/Khepri_Logo.svg, reserved there too) so the
+# three sites close with the same mark. After web/** on purpose: the last
+# matching annotation wins, and the mark is not MIT.
+[[annotations]]
+path = "web/src/brand/**"
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"

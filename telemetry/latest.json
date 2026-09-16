@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "08bcf0e",
-  "corpus_hash": "2caea4c649b55a688536ab5338310ed3804586545cb7ec5f1267fa1cd8c698d9",
-  "root_dirty": 1,
-  "measured_at": "2026-09-11T15:15:36Z",
+  "head": "8df378b",
+  "corpus_hash": "876707b1324c10f0e1274b14f823c41e39427f53e74104709e2ac1bbea26e1f2",
+  "root_dirty": 0,
+  "measured_at": "2026-09-16T10:46:10Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 459,
+      "value": 460,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,7 +34,7 @@
         ".md": 150,
         ".mjs": 54,
         ".png": 36,
-        ".svg": 69,
+        ".svg": 70,
         ".toml": 4,
         ".ts": 17,
         ".tsx": 2,
@@ -316,7 +316,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 270095,
+      "value": 270420,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -331,7 +331,7 @@
         "operations": 21323,
         "templates": 15832,
         "protocols": 14384,
-        "": 13163,
+        "": 13488,
         "system": 9652,
         "decisions": 6189,
         "debt": 1544,
@@ -346,14 +346,14 @@
         "draft": 97605,
         "done": 26350,
         "todo": 14103,
-        "(none)": 13483,
+        "(none)": 13808,
         "in-progress": 4642
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.13,
+      "value": 16.11,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -676,14 +676,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 593
+          "3": 594
         },
         "MIS": {
           "3": 676,
           "4": 186
         },
         "CAN": {
-          "3": 148
+          "3": 149
         },
         "ADR": {
           "3": 349

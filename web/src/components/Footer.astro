@@ -5,7 +5,12 @@ import { navItems } from "@/data/navigation";
 import { socialLinks } from "@/data/social-links";
 import { VERSION, COMMIT_SHA, COMMIT_URL, REPO_URL } from "@/lib/build-info";
 import { useT } from "@/i18n/ui";
+// The scarab closes every piece, never opens it — its one canonical home on
+// the site is the foot of the page. Same mark as numinia.com and numen.games.
+import scarab from "@/brand/Khepri_Logo.svg?raw";
 const t = useT();
+const LICENSE_URL = `${REPO_URL}/blob/main/REUSE.toml`;
+const CHANGELOG_URL = `${REPO_URL}/blob/main/CHANGELOG.md`;
 ---
 
 <footer class="border-t border-border">
@@ -51,20 +56,22 @@ const t = useT();
         </a>
       </div>
 
-      <!-- Social links -->
-      <div class="flex flex-col gap-2 text-center sm:text-left">
-        <span class="mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{t("footer.social")}</span>
-        {socialLinks.map((link) => (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-accent sm:min-h-0 sm:justify-start sm:py-1"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
+      <!-- Social links: the column exists only once the house has accounts -->
+      {socialLinks.length > 0 && (
+        <div class="flex flex-col gap-2 text-center sm:text-left">
+          <span class="mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{t("footer.social")}</span>
+          {socialLinks.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex min-h-[44px] items-center justify-center text-sm text-muted-foreground transition-colors hover:text-accent sm:min-h-0 sm:justify-start sm:py-1"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </div>
 
     <!-- Signature -->
@@ -74,11 +81,13 @@ const t = useT();
       SPDX identifier, resolved through REUSE.toml — a blanket claim in the
       footer would contradict C-005 and the REUSE manifest at once.
 
-      The shape is numinia.com's: a signature, then the build. Same sentence,
-      because it is the same house.
+      The shape is the house's, the same on numinia.com and numen.games: the
+      scarab, a signature, then the build line (licence · telemetry · version
+      · commit). Same sentence, because it is the same house.
     -->
     <div class="mt-12 border-t border-border/50 pt-6 text-center">
-      <p class="text-sm text-muted-foreground">
+      <span class="escarabajo inline-flex text-dim" aria-hidden="true" set:html={scarab} />
+      <p class="mt-3 text-sm text-muted-foreground">
         by <a
           href="https://numen.games"
           target="_blank"
@@ -87,12 +96,18 @@ const t = useT();
         >Numen Games</a> — we build for a better future.
       </p>
       <p class="mt-2 font-mono text-[0.65rem] text-dim">
+        <!--
+          The link goes to the map, not to the doctrine: a reader who clicks
+          "which licence?" wants the answer, and REUSE.toml is the answer per
+          path. The regimes are spelled out in the tooltip; CAN-005 is one
+          hop away from the map's own comments.
+        -->
         <a
-          href={`${REPO_URL}/blob/main/canon/CAN-005-licensing.md`}
+          href={LICENSE_URL}
           target="_blank"
           rel="noopener noreferrer"
           class="transition-colors hover:text-accent"
-          title="Licensing is per file, declared in REUSE.toml"
+          title="Code MIT · corpus CC0 · standards CC-BY-4.0 · legal texts and brand reserved. The per-path map is REUSE.toml"
         >Open by licence, per file</a>
         {" · "}
         <!--
@@ -108,7 +123,13 @@ const t = useT();
           title="Figures measured from this corpus, each with the predicate it is true of"
         >{t("footer.telemetry")}</a>
         {" · "}
-        {VERSION}
+        <a
+          href={CHANGELOG_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="transition-colors hover:text-accent"
+          title="See the changelog"
+        >{VERSION}</a>
         {" · "}
         {COMMIT_URL ? (
           <a
@@ -116,7 +137,7 @@ const t = useT();
             target="_blank"
             rel="noopener noreferrer"
             class="transition-colors hover:text-accent"
-            title="Ver este commit en GitHub"
+            title="See this commit on GitHub"
           >
             {COMMIT_SHA}
           </a>
@@ -127,3 +148,11 @@ const t = useT();
     </div>
   </div>
 </footer>
+
+<style>
+  /* The mark in muted ink, 28px, never in colour. */
+  .escarabajo :global(svg) {
+    width: 28px;
+    height: 28px;
+  }
+</style>

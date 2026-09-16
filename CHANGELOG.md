@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-16 (web: the house footer, the same on the three sites)
+- `web/src/components/Footer.astro` takes the shape numinia.com and numen.games now share (Oracle instruction, 2026-09-16): brand · Navigation · Legal · Social, then the closing line — the scarab, `by Numen Games — we build for a better future.`, and the build line `licence · telemetry · version · commit`. The licence link moves from `CAN-005` to `REUSE.toml` (the map answers "which licence?" per path; the tooltip spells out the regimes); the version now links to this `CHANGELOG.md`; the commit keeps its GitHub link.
+- `web/src/data/social-links.ts` emptied: the two personal accounts it held were a placeholder, and the column is drawn only when the house has accounts. The company URLs (X, Discord, GitHub) arrive with the Oracle; then the same list goes to the three sites.
+- `web/src/brand/Khepri_Logo.svg` copied from `numinia-web/packages/ui/src/assets/brand/` and annotated reserved in `REUSE.toml` (after the `web/**` MIT block, last match wins). A copy, not an install: no brand package exists yet — `STD-023 §7` catalogues `Numen_Games_Horizontal_Word.svg` and `Khepri_NG_Logo.svg`, and neither file is in any of the three repositories. Recorded here as the gap it is.
+
 ### Removed — 2026-09-09 (guilds/ and infra/: two series without a consumer, ADR-045)
 - `guilds/` deleted (8 files: GLD-001..004 charters, GLD-005..008 rosters). Nothing read them — `corpus.ts` excluded the folder, `lint-frontmatter.mjs` validates `guild:` against a typed list — and the charters' branch tables contradicted `CAN-004` on every guild. The one live fact, agent → guild, now lives in `agents/<id>/AGENT.yaml` as `guild:` (Ursa → Alchemists, Talos → Sentinels, Byblos/Senet/Calliope → Exegetes; the five agents in no roster carry `null` for the Oracle). Eight `/corpus/guilds/...` URLs redirect to `CAN-004`.
 - `infra/` deleted; `ruleset-protect-main.json` moved to `.github/rulesets/protect-main.json` with a short README carrying the re-export command. The `INF` series (0 documents in 15 days) leaves the register; `MIS-0135` row 7 records the ruling.

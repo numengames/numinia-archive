@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-11T15:15:36Z"
+updated: "2026-09-16T10:46:10Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `08bcf0e`  · corpus_hash: `2caea4c649b55a68…`  · measured_at: 2026-09-11T15:15:36Z  · root_dirty: 1
+- head: `8df378b`  · corpus_hash: `876707b1324c10f0…`  · measured_at: 2026-09-16T10:46:10Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 459 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 460 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.md_total` | 150 | files | tracked `.md` anywhere, including `web/` |
 | `corpus.docs_total` | 148 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
@@ -54,7 +54,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .md | 150 |
 | .mjs | 54 |
 | .png | 36 |
-| .svg | 69 |
+| .svg | 70 |
 | .toml | 4 |
 | .ts | 17 |
 | .tsx | 2 |
@@ -201,10 +201,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 270095 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 270420 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 16.13 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 16.11 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -220,7 +220,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | operations | 21323 |
 | templates | 15832 |
 | protocols | 14384 |
-|  | 13163 |
+|  | 13488 |
 | system | 9652 |
 | decisions | 6189 |
 | debt | 1544 |
@@ -234,7 +234,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | draft | 97605 |
 | done | 26350 |
 | todo | 14103 |
-| (none) | 13483 |
+| (none) | 13808 |
 | in-progress | 4642 |
 
 ### `tokens.largest`
@@ -437,9 +437,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 593 |
+| STD | 594 |
 | MIS | 676 |
-| CAN | 148 |
+| CAN | 149 |
 | ADR | 349 |
 | PRO | 216 |
 | OPS | 38 |
