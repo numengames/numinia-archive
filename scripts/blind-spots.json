@@ -104,6 +104,34 @@
         }
       ]
     },
+    "check-version-bump": {
+      "script": "scripts/check-version-bump.mjs",
+      "build_guard": "verifies the change, not a rule — a site that changes without raising its version and writing what changed misreports itself to every returning reader, whatever any standard says (ENG-067 exception)",
+      "needs": "web/src/data/updates.ts",
+      "sees": "any diff under web/src/ between the PR head and its merge base with the base branch, and whether the newest version in web/src/data/updates.ts moved",
+      "blind_to": [
+        {
+          "spot": "whether the entry written is TRUE — it checks that a version was added, not that its text describes the change; a lazy line satisfies it",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "changes outside web/src that alter what the site shows (web/public, web/astro.config.mjs redirects, the corpus itself) — those are not the viewer's version",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "a version raised by more than one minor, or lowered — it compares equality, not order",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "runs outside a PR (no base ref) — it skips with a printed line rather than guess a base",
+          "covered_by": "npm run build in CI runs it with --base origin/<base_ref> on every pull request",
+          "debt": null
+        }
+      ]
+    },
     "check-url-lifecycle": {
       "script": "scripts/check-url-lifecycle.mjs",
       "build_guard": "verifies the built output, not a rule — a public URL that dies without a redirect is a broken promise to a reader, not a breach of a draft (ENG-067 exception)",

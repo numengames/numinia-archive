@@ -64,6 +64,12 @@ jobs:
       - name: tests
         run: npm test
 
+      # A change to the site must say what it changed: any diff under
+      # web/src/ needs a new entry (and version) in web/src/data/updates.ts.
+      # The footer prints that version and links to /updates.
+      - name: version bump
+        run: node scripts/check-version-bump.mjs --base origin/${{ github.base_ref || 'main' }}
+
       # Dependencies of the Astro site, from the lockfile. Not a check.
       - name: install
         run: npm ci

@@ -14,6 +14,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-16 (web: footer round two, /updates, legal slugs, version-bump guard)
+- `web/src/components/Footer.astro` takes the final house shape the Oracle approved: brand as written name + one line; Navigation in two columns when > 4; a **Numen Games** column naming the four sites (numen.games, numinia.com, numinia.org, nwos.numen.games) with this one as text; Legal; Social (GitHub org now, X/Discord when the accounts exist); closing line unchanged. Data: `web/src/data/house-links.ts`, `web/src/data/social-links.ts`.
+- `/updates` (new, `web/src/pages/updates.astro`): the SITE's version timeline, newest first, with a Pending block — modelled on numinia.com/updates and mirrored on the other sites. The footer's version now comes from `web/src/data/updates.ts` (`v0.1.0`), not from `web/package.json` (`0.0.1`, never raised).
+- `scripts/check-version-bump.mjs` (new build guard, registered in `scripts/blind-spots.json`, step `version bump` in `ci.yml`): a PR that changes `web/src/**` must add an entry and raise the version in `updates.ts`, or CI refuses it. The Oracle's rule: each production push raises the minor.
+- Legal slugs unified with the other sites: `/legal/terms`, `/legal/privacy` (and `.md`); `/legal/terminos`, `/legal/privacidad` redirect (`web/astro.config.mjs`). `OPS-002` CON-004 keeps its dated "current state" line as the record it is.
+
 ### Changed — 2026-09-16 (web: the house footer, the same on the three sites)
 - `web/src/components/Footer.astro` takes the shape numinia.com and numen.games now share (Oracle instruction, 2026-09-16): brand · Navigation · Legal · Social, then the closing line — the scarab, `by Numen Games — we build for a better future.`, and the build line `licence · telemetry · version · commit`. The licence link moves from `CAN-005` to `REUSE.toml` (the map answers "which licence?" per path; the tooltip spells out the regimes); the version now links to this `CHANGELOG.md`; the commit keeps its GitHub link.
 - `web/src/data/social-links.ts` emptied: the two personal accounts it held were a placeholder, and the column is drawn only when the house has accounts. The company URLs (X, Discord, GitHub) arrive with the Oracle; then the same list goes to the three sites.

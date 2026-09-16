@@ -18,10 +18,14 @@
 // Local builds have no SHA. That is normal, not an error: it degrades to "dev"
 // rather than failing the build, because a developer running `astro dev`
 // should not need CI variables present.
-import pkg from "../../package.json";
+import { CURRENT_VERSION } from "../data/updates";
 
-/** Semver from package.json. The one place the number is maintained. */
-export const VERSION: string = `v${pkg.version}`;
+/**
+ * The newest entry of the site's timeline (web/src/data/updates.ts). The one
+ * place the number is maintained — package.json's stays at 0.0.1 and is not
+ * what the footer prints: a version with no entry beside it says nothing.
+ */
+export const VERSION: string = CURRENT_VERSION;
 
 /** Short commit SHA of the build, or "dev" when built outside Workers Builds. */
 export const COMMIT_SHA: string = (() => {

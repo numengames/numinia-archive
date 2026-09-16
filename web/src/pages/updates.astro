@@ -1,0 +1,76 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /updates — the site's version timeline: what each production push
+// changed, and what is pending. The footer's version links here. The same
+// page exists on the other three sites of the house (decision of
+// 2026-09-16, modelled on numinia.com/updates). Data in
+// web/src/data/updates.ts; the rule that keeps it honest is in
+// scripts/check-version-bump.mjs.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import { UPDATES, PENDING } from "@/data/updates";
+import { COMMIT_SHA, COMMIT_URL } from "@/lib/build-info";
+
+const TYPE_LABEL: Record<string, string> = { ADD: "added", CHG: "changed", FIX: "fixed", DEL: "removed" };
+const STATUS_LABEL: Record<string, string> = { planned: "planned", blocked: "blocked" };
+---
+
+<Layout
+  title="NWOS — Updates"
+  description="What changed in each version of numinia.org, newest first, and what is still pending."
+  canonicalPath="/updates"
+  activeNav=""
+>
+  <PageHero
+    label="Updates"
+    title="What changed, and when"
+    description="The site's timeline, newest first. Every production push raises the version and leaves its line here; the footer prints the newest one. This is the viewer's record — the corpus has its own CHANGELOG in the repository."
+  />
+
+  <section class="pb-20">
+    <div class="mx-auto max-w-[800px] px-6">
+      {PENDING.length > 0 && (
+        <div class="mb-12 rounded-lg border border-border bg-card/40 p-6">
+          <h2 class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Pending</h2>
+          <ul class="mt-3 flex flex-col gap-2">
+            {PENDING.map((p) => (
+              <li class="flex gap-3 text-sm text-muted-foreground">
+                <span class:list={["mt-0.5 shrink-0 rounded px-1.5 font-mono text-[0.6rem] uppercase tracking-[0.1em]", p.status === "blocked" ? "bg-accent/15 text-accent" : "bg-border/60 text-dim"]}>
+                  {STATUS_LABEL[p.status]}
+                </span>
+                <span>{p.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <ol class="flex flex-col gap-10">
+        {UPDATES.map((u, i) => (
+          <li>
+            <h2 class="flex flex-wrap items-baseline gap-3">
+              <span class="font-display text-2xl text-foreground">{u.version}</span>
+              {i === 0 && <span class="rounded bg-accent/15 px-1.5 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-accent">latest</span>}
+              <time datetime={u.date} class="font-mono text-xs text-dim">{u.date}</time>
+              {i === 0 && (COMMIT_URL ? (
+                <a href={COMMIT_URL} target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-dim hover:text-accent" title="The commit this build came from">{COMMIT_SHA}</a>
+              ) : (
+                <span class="font-mono text-xs text-dim">{COMMIT_SHA}</span>
+              ))}
+            </h2>
+            <ul class="mt-4 flex flex-col gap-3">
+              {u.entries.map((e) => (
+                <li class="flex gap-3 text-sm text-muted-foreground">
+                  <span class="mt-0.5 shrink-0 rounded bg-border/60 px-1.5 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-dim">{TYPE_LABEL[e.type]}</span>
+                  <span>{e.text}</span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Layout>
