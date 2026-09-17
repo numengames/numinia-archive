@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "cef0949",
-  "corpus_hash": "9c8478a426da517b06dc02941fa33ca01aa2100c7e592586e22e4432f19124c1",
+  "head": "9edbbdf",
+  "corpus_hash": "0c252fbb9797bbec47215b380283820b9175808db3e8829d5f07ad1a4dd7c2bd",
   "root_dirty": 0,
-  "measured_at": "2026-09-16T14:15:50Z",
+  "measured_at": "2026-09-17T10:45:41Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 464,
+      "value": 480,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -28,10 +28,10 @@
         ".gitignore": 2,
         ".html": 2,
         ".ico": 1,
-        ".jpg": 1,
+        ".jpg": 2,
         ".js": 2,
         ".json": 13,
-        ".md": 150,
+        ".md": 165,
         ".mjs": 55,
         ".png": 36,
         ".svg": 70,
@@ -48,12 +48,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 150,
+      "value": 165,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 148,
+      "value": 163,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -66,6 +66,7 @@
         "canon": 8,
         "debt": 1,
         "decisions": 7,
+        "lore": 15,
         "missions": 11,
         "operations": 9,
         "protocols": 11,
@@ -79,7 +80,7 @@
     },
     "corpus.docs_by_type": {
       "value": {
-        "(none)": 9,
+        "(none)": 24,
         "adr": 8,
         "agent": 34,
         "blueprint": 11,
@@ -95,12 +96,12 @@
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
     },
     "corpus.docs_without_frontmatter": {
-      "value": 8,
+      "value": 23,
       "unit": "documents",
       "definition": "corpus documents with no `---` block at the top"
     },
     "corpus.apparatus": {
-      "value": 20,
+      "value": 23,
       "unit": "documents",
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
@@ -316,23 +317,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 270790,
+      "value": 581988,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
+        "lore": 310716,
         "missions": 43577,
         "standards": 38495,
         "canon": 29364,
-        "agents": 26732,
+        "agents": 26767,
         "reports": 26138,
         "blueprints": 22838,
         "operations": 21323,
         "templates": 15832,
         "protocols": 14384,
-        "": 13858,
-        "system": 9652,
+        "": 14325,
+        "system": 9632,
         "decisions": 6189,
         "debt": 1544,
         ".github": 864
@@ -342,10 +344,10 @@
     },
     "tokens.by_status": {
       "value": {
-        "active": 113912,
+        "(none)": 325361,
+        "active": 113927,
         "draft": 97605,
         "done": 26350,
-        "(none)": 14178,
         "todo": 14103,
         "in-progress": 4642
       },
@@ -353,31 +355,31 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 16.09,
+      "value": 7.49,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
     "tokens.largest": {
       "value": [
         [
+          "lore/game/manual-v0.6.0.md",
+          245886
+        ],
+        [
+          "lore/adventures/el-espejo-roto.md",
+          16792
+        ],
+        [
+          "lore/world/brand-and-culture.md",
+          11437
+        ],
+        [
+          "lore/codex/glosario.md",
+          11270
+        ],
+        [
           "reports/RPT-017-mvp-story.md",
           10721
-        ],
-        [
-          "missions/MIS-0127-entropy-reduction.md",
-          9440
-        ],
-        [
-          "missions/MIS-0121-header-baseline-burndown.md",
-          9015
-        ],
-        [
-          "standards/STD-023-design-values.md",
-          8125
-        ],
-        [
-          "CHANGELOG.md",
-          7763
         ]
       ],
       "unit": "tokens",
@@ -389,7 +391,7 @@
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
     "headers.docs_without_frontmatter": {
-      "value": 8,
+      "value": 23,
       "unit": "documents",
       "definition": "corpus docs minus docs_with_frontmatter"
     },
@@ -517,8 +519,8 @@
       "value": {
         "ai-persona": 102,
         "other": 24,
+        "no-frontmatter": 23,
         "ai-model": 8,
-        "no-frontmatter": 8,
         "human": 5,
         "no-author": 1
       },
@@ -680,14 +682,14 @@
           "3": 594
         },
         "MIS": {
-          "3": 676,
+          "3": 680,
           "4": 186
         },
         "CAN": {
-          "3": 149
+          "3": 151
         },
         "ADR": {
-          "3": 349
+          "3": 351
         },
         "PRO": {
           "3": 216
@@ -696,7 +698,7 @@
           "3": 39
         },
         "SYS": {
-          "3": 19
+          "3": 21
         },
         "RPT": {
           "3": 51,
@@ -780,7 +782,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 231,
+      "value": 268,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -790,6 +792,8 @@
         "missions/MIS-0121-header-baseline-burndown.md": 19,
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
+        "lore/world/brand-and-culture.md": 18,
+        "lore/game/manual-v0.6.0.md": 13,
         "canon/CAN-008-visual-identity.md": 11,
         "reports/RPT-017-mvp-story.md": 11,
         "operations/OPS-007-sales.md": 10,
@@ -798,9 +802,7 @@
         "missions/MIS-0135-normalisation-residue-register.md": 7,
         "operations/OPS-001-continuity.md": 7,
         "standards/STD-023-design-values.md": 7,
-        "blueprints/BLU-009-web-pieces.md": 6,
-        "blueprints/BLU-011-book-and-velo.md": 6,
-        "blueprints/BLU-010-pixel-register.md": 5
+        "blueprints/BLU-009-web-pieces.md": 6
       },
       "unit": "lines",
       "definition": "the fifteen docs with most such lines"
