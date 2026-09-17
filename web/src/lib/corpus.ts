@@ -184,7 +184,7 @@ const READING_ORDER: Record<string, string[]> = {
   // seven. The story lost three of its beats and kept the rest in order:
   // "how far they climb" is no longer its own document — Rank Specifications
   // was absorbed into CAN-003, so the ranks are now read where the attributes
-  // are; "how you get in" left for numinia-lore, because Session Zero is game
+  // are; "how you get in" left for lore/adventures/, because Session Zero is game
   // design, not governing canon; "what the archive sounds like" moved into
   // system/SYS-003 with the fondos it describes; and the cover page is gone.
   canon: [

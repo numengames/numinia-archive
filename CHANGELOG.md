@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-17 (lore/: the game comes home)
+- `lore/` — the world and the game, reserved regime (`REUSE.toml`, `CAN-005` fourth regime). Oracle instruction, 2026-09-17: "el lore tiene que vivir en numinia-nwos; el repo de lore ya no tiene sentido" — reversing the 2026-08-16 extraction (`numinia-web` ADR-020) and `ADR-036`'s "pointer only, never copied", which stand as the records they are. Four folders: `game/` (the manual v0.6.0, the attributes compendium), `adventures/` (Session Zero; *El Espejo Roto*, split out of the manual's tail — the manual keeps it too; `TEMPLATE.md` with the manual's chapter-7 structure for the next one), `world/` (welcome, brand and culture, role structure, epistemic relations), `codex/` (glossary, acknowledgments, character sheet + image, edition legal note). `seminal-legacy/` and the pre-v0.6.0 manual did not travel: superseded copies, still in `numinia-lore`'s history.
+- Guards: `lore/**` is outward of `std-004` and `std-020` (prose the archive holds, not documents it governs); `content.config.ts` does not mirror it (the viewer is public). Pointers repointed in `SYS-003`, `agents/senet/SOURCES.md`, `AGENTS.md`, `corpus.ts`.
+- Consumer: `numinia-web` reads `lore/` from this repository at build (`LORE_REPO` in its `fetch-lore.mjs`); its PR follows. Archiving `numengames/numinia-lore` on GitHub is an operator act.
+
 ### Changed — 2026-09-16 (web: footer round two, /updates, legal slugs, version-bump guard)
 - `web/src/components/Footer.astro` takes the final house shape the Oracle approved: brand as written name + one line; Navigation in two columns when > 4; a **Numen Games** column naming the four sites (numen.games, numinia.com, numinia.org, nwos.numen.games) with this one as text; Legal; Social (GitHub org now, X/Discord when the accounts exist); closing line unchanged. Data: `web/src/data/house-links.ts`, `web/src/data/social-links.ts`.
 - `/updates` (new, `web/src/pages/updates.astro`): the SITE's version timeline, newest first, with a Pending block — modelled on numinia.com/updates and mirrored on the other sites. The footer's version now comes from `web/src/data/updates.ts` (`v0.1.0`), not from `web/package.json` (`0.0.1`, never raised).

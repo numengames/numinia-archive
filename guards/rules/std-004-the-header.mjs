@@ -37,7 +37,10 @@ export const meta = {
 
 const RULES = loadRules();
 const GOVERNED = new Set(RULES.governed.dirs);
-const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\//;
+// lore/** is the reserved corpus (the RPG manual, the codex matter): prose
+// the archive HOLDS, not documents it governs — no series, no header ring.
+// Opaque to the rules, like reports/evidence/. Its regime is REUSE.toml's.
+const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\/|^lore\//;
 
 /* Closed vocabularies. They live in rules.json so every guard reads one copy:
    a vocabulary duplicated per guard drifts silently, one guard at a time. */

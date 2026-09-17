@@ -44,7 +44,10 @@ export const meta = { family: 'GIT', plates: ['GIT-026', 'GIT-045', 'GIT-048'] }
 
 const RULES = loadRules();
 const PREFIX_DIR = prefixToDir(RULES);   // includes retired prefixes (D-): they must keep resolving
-const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\//;
+// lore/** is the reserved corpus (the RPG manual, the codex matter): prose
+// the archive HOLDS, not documents it governs — no series, no header ring.
+// Opaque to the rules, like reports/evidence/. Its regime is REUSE.toml's.
+const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\/|^lore\//;
 
 /* ---------- GIT-048: the resolver ---------- */
 

@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.1.2",
+    date: "2026-09-17",
+    entries: [
+      {
+        type: "CHG",
+        text: "The game comes home: lore/ holds the RPG manual, the adventures (Session Zero, El Espejo Roto, and a template for the next), the world's identity texts and the Codex matter — reserved regime, not published by this viewer. numinia.com reads it from here at build. The numinia-lore repository retires.",
+      },
+    ],
+  },
+  {
     version: "v0.1.1",
     date: "2026-09-16",
     entries: [

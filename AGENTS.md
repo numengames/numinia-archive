@@ -27,8 +27,11 @@ The principal areas of this repository:
 - `agents/` — canonical definitions of persistent agents (`AGENT.yaml`,
   `SOUL.md`, `OPERATOR.md`, `SOURCES.md`, `adapters/`).
 - `canon/` — the world and the governing canons (CAN-001…CAN-007). Published
-  under CC0-1.0 since the April grant (ADR-036); the reserved lore lives in
-  `numinia-lore`, not here.
+  under CC0-1.0 since the April grant (ADR-036).
+- `lore/` — the game, reserved: the RPG manual (`game/`), the adventures
+  (`adventures/`), the world's identity texts (`world/`), the Codex edition
+  matter (`codex/`). Not a series; outward of the header guards. Home here
+  since 2026-09-17 (was `numinia-lore`).
 - `standards/` — the archive's own operative standards, including
   `STD-001-the-series.md` (the series) · `STD-016-header-fields.md` (the fields) and
   `STD-005-engineering-baseline.md` (the practices; `PRO-016` applies them).
@@ -42,7 +45,7 @@ The principal areas of this repository:
   numinia.org; `scripts/` — CI guards.
 
 There is no `domains/` or `shared/` tree: this repository IS the archive
-domain. RPG source material lives in the separate `numinia-lore` repository.
+domain. RPG source material is `lore/`.
 Do not infer a directory's purpose solely from its name when its function is
 not documented.
 
