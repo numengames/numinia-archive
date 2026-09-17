@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7445,
+  "chars": 7618,
   "apparatus": false,
   "archived": false,
-  "tokens": 1644
+  "tokens": 1704
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 27100,
+  "chars": 28472,
   "apparatus": false,
   "archived": false,
-  "tokens": 7763
+  "tokens": 8170
  },
  {
   "path": "CLAUDE.md",
@@ -412,10 +412,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1238,
+  "chars": 1351,
   "apparatus": false,
   "archived": false,
-  "tokens": 335
+  "tokens": 370
  },
  {
   "path": "agents/skills/numinia-nwos-pr/SKILL.md",
@@ -779,6 +779,171 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1169
+ },
+ {
+  "path": "lore/README.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1610,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 453
+ },
+ {
+  "path": "lore/adventures/README.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1572,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 421
+ },
+ {
+  "path": "lore/adventures/TEMPLATE.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1762,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 537
+ },
+ {
+  "path": "lore/adventures/el-espejo-roto.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 60016,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 16792
+ },
+ {
+  "path": "lore/adventures/session-zero.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 23663,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 5036
+ },
+ {
+  "path": "lore/codex/agradecimientos.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 488,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 144
+ },
+ {
+  "path": "lore/codex/glosario.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 38024,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 11270
+ },
+ {
+  "path": "lore/codex/hoja-de-personaje.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1989,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 922
+ },
+ {
+  "path": "lore/codex/legal.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 323,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 95
+ },
+ {
+  "path": "lore/game/attributes-and-ranks.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 8874,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1695
+ },
+ {
+  "path": "lore/game/manual-v0.6.0.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 873306,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 245886
+ },
+ {
+  "path": "lore/world/brand-and-culture.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 51304,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 11437
+ },
+ {
+  "path": "lore/world/epistemic-relations.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 13104,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2610
+ },
+ {
+  "path": "lore/world/role-structure.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 32509,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 6644
+ },
+ {
+  "path": "lore/world/welcome-to-numinia.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 29498,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 6774
  },
  {
   "path": "missions/ANNEX-mission-selection-draft.md",
@@ -1479,10 +1644,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 12382,
+  "chars": 12335,
   "apparatus": false,
   "archived": false,
-  "tokens": 3387
+  "tokens": 3367
  },
  {
   "path": "templates/ADR-TEMPLATE.md",

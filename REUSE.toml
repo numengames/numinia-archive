@@ -150,6 +150,20 @@ path = [
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
 
+# --- Lore → reserved (CAN-005, the fourth regime) --------------------------
+# The game: the RPG manual (game/), the adventures (adventures/), the
+# world's identity texts (world/), the Codex edition matter (codex/). Home
+# again in the archive (Oracle, 2026-09-17: "el lore tiene que vivir en
+# numinia-nwos").
+# Born reserved in numinia-lore on 2026-08-17 and never under any open
+# licence; the regime travels with the files. Consumers read it at build
+# (numinia-web fetch-lore.mjs) — a pointer, never a copy. The image in
+# codex/ is the character sheet, same regime.
+[[annotations]]
+path = ["lore/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"
+
 # Commercial strategy is born closed (C-005 §1) — MIS-071 phase 2,
 # Oracle-delegated regime decision 2026-08-17. Per-file since the flatten.
 [[annotations]]

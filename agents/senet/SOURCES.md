@@ -23,11 +23,11 @@ the repository is the source of truth and this file only says where to look.
 
 ## The game itself
 
-numinia-lore (separate repository) — the RPG manual and canonical lore; authoritative for mechanics, chronology, factions, geography
+lore/game/manual-v0.6.0.md — the RPG manual, reserved regime (home in this repository since 2026-09-17; before that, `numinia-lore`); authoritative for mechanics, chronology, factions, geography. lore/adventures/ — the modules; lore/world/ — identity texts
 
 ## Session Zero
 
-numinia-lore:seminal/About_Session_Zero.md — the four introductory escape rooms
+lore/adventures/session-zero.md — the four introductory escape rooms
 
 ## World identity
 

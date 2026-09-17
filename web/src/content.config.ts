@@ -159,6 +159,10 @@ const corpus = defineCollection({
       // with no field does not publish. Adding a file here no longer risks
       // publishing it; forgetting the field only makes it invisible.
       "debt/**/*.md",
+      // lore/ is NOT here on purpose: reserved regime (REUSE.toml), the RPG
+      // manual and the codex matter. The archive holds it; numinia.com
+      // renders it for citizens (fetch-lore.mjs reads it at build). This
+      // viewer is public and would publish the whole manual as a page.
     ],    base: "..",
   }),
   // Fully lax: agents/_template/STATUS.md carries `status:` as an object,

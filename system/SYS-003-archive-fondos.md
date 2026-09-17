@@ -37,8 +37,8 @@ fondos:
       - { nombre: "Pragmatic Numen System", desc: "The pragmatic framework underneath the system's epistemology.", file: "canon/CAN-007-pragmatic-numen-system.md" }
     documentos_relacionados:
       - { nombre: "Platform ranks", desc: "Ranks and permissions of the Digital Goods v2 platform. Left canon under ADR-035 — a platform spec, not world canon.", file: "standards/STD-003-platform-ranks.md" }
-      - { nombre: "About Session Zero", desc: "4 introductory escape rooms, seals, Prism Cells. Left canon under ADR-036 — game design, not governance.", file: "numinia-lore:seminal/About_Session_Zero.md" }
-      - { nombre: "Numinia — The Role-Playing Game", desc: "Complete RPG manual in Spanish, v0.6.0.", file: "numinia-lore:seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md" }
+      - { nombre: "About Session Zero", desc: "4 introductory escape rooms, seals, Prism Cells. Left canon under ADR-036 — game design, not governance.", file: "lore/adventures/session-zero.md" }
+      - { nombre: "Numinia — The Role-Playing Game", desc: "Complete RPG manual in Spanish, v0.6.0.", file: "lore/game/manual-v0.6.0.md" }
   - id: agents
     lore: "No son herramientas. Son funciones vivas que existen mientras operan dentro de sus reglas."
     titulo: "Agents"
