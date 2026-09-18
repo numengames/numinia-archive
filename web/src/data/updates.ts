@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.3.0",
+    date: "2026-09-18",
+    entries: [
+      {
+        type: "ADD",
+        text: "/legal/cookies — the Cookie Policy of Numen Games (OPS-010), written from a measured inventory of what each of the four sites stores: this one stores nothing. Linked from the footer. Closes the privacy policy's open reference to a cookie policy that did not exist.",
+      },
+      {
+        type: "DEL",
+        text: "The Umami analytics script (analytics.pablofm.com) is gone: it sent every visit to a personal server the policy did not name. Nothing leaves your browser from this site now.",
+      },
+    ],
+  },
+  {
     version: "v0.2.1",
     date: "2026-09-18",
     entries: [

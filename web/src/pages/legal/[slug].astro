@@ -12,11 +12,12 @@ import { getEntry, render } from "astro:content";
 const SLUGS: Record<string, string> = {
   terms: "ops-004-terms-and-conditions-numengames",
   privacy: "ops-003-privacy-policy-numengames",
+  cookies: "ops-010-cookie-policy-numengames",
 };
 
 // getStaticPaths is hoisted by Astro and cannot see SLUGS above.
 export async function getStaticPaths() {
-  return ["terms", "privacy"].map((slug) => ({ params: { slug } }));
+  return ["terms", "privacy", "cookies"].map((slug) => ({ params: { slug } }));
 }
 
 const { slug } = Astro.params;

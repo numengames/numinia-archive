@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-18 (a site says what it stores: OPS-010, DSN-015)
+- `operations/OPS-010-cookie-policy-numengames.md` (legal, reserved, pinned in `REUSE.toml` with OPS-003/004): the Cookie Policy of the four sites, written from a measured inventory per site — numinia.com's consent, session and preference entries; the other three store nothing. Resolves OPS-003's FLAG-4 (the cited policy exists now); opens OPS-010's FLAG-2 (OPS-003 §2 overstates).
+- `standards/STD-008-design-tokens.md` 7.2.0: DSN-015 — a site stores nothing and loads nothing third-party that the policy does not name; consent before anything not necessary; check `check-storage`.
+- `web/`: `/legal/cookies` served from the master (collection, slugs, footer link); the Umami script removed from every page (a personal analytics server the policy did not name). `/updates` v0.3.0.
+
 ### Fixed — 2026-09-18 (the home page said the service's line)
 - `web/src/views/HomeView.astro`: the home passed its own title and description ("Narrative Work OS — Numen Games", the service's line) over the layout's default; it reads the layout's now — the archive's row of STD-023 §19. `/updates` v0.2.1.
 

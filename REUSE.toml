@@ -142,10 +142,13 @@ SPDX-License-Identifier = "CC0-1.0"
 # silently standing in for. Same three files, same licence, no widening:
 # every one of them also declares LicenseRef-Numen-AllRightsReserved in its
 # own frontmatter, and guards/rules/std-010-licensing.mjs compares the two.
+# OPS-010 (2026-09-18) joins them: the cookie policy is the third legal
+# text of the website corpus, same regime, same per-file pin.
 [[annotations]]
 path = [
   "operations/OPS-003-privacy-policy-numengames.md",
   "operations/OPS-004-terms-and-conditions-numengames.md",
+  "operations/OPS-010-cookie-policy-numengames.md",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "LicenseRef-Numen-AllRightsReserved"

@@ -25,6 +25,7 @@ const en = {
   "footer.legal": "Legal",
   "footer.terms": "Terms and conditions",
   "footer.privacy": "Privacy policy",
+  "footer.cookies": "Cookies",
   "footer.social": "Social",
   "footer.licence": "Open by licence, per file",
   "footer.licenceTitle": "Code MIT · corpus CC0 · standards CC-BY-4.0 · legal texts and brand reserved. The per-path map is REUSE.toml",
