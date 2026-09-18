@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "astro dev",
     "check:license": "node ../guards/rules/std-010-licensing.mjs",
-    "build": "node ../guards/rules/std-010-licensing.mjs && astro build",
+    "build": "node ../guards/rules/std-010-licensing.mjs && node scripts/share-card.mjs && astro build",
     "preview": "astro preview",
     "check:responsive": "node ../tools/check-responsive.mjs",
     "astro": "astro"
@@ -33,10 +33,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro-pagefind": "^2.0.1",
     "pagefind": "^1.5.2",
-    "playwright-core": "^1.56.1"
+    "playwright-core": "^1.56.1",
+    "wawoff2": "^2.0.1"
   }
 }

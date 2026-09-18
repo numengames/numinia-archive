@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "8d7568b",
-  "corpus_hash": "45800b4b01063565a025f93964ab0e7196f07dcbaaa671d69c31df821e52e006",
+  "head": "3f4947e",
+  "corpus_hash": "e82906d9e4479315c7849a9a448746cd289a9262386ef62d4faf4e6df3248445",
   "root_dirty": 0,
-  "measured_at": "2026-09-18T11:48:24Z",
+  "measured_at": "2026-09-18T12:01:47Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 483,
+      "value": 481,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -27,14 +27,13 @@
         ".css": 3,
         ".gitignore": 2,
         ".html": 2,
-        ".ico": 1,
         ".jpg": 2,
         ".js": 2,
         ".json": 13,
         ".md": 166,
-        ".mjs": 55,
-        ".png": 36,
-        ".svg": 70,
+        ".mjs": 56,
+        ".png": 35,
+        ".svg": 69,
         ".toml": 4,
         ".ts": 19,
         ".tsx": 2,
@@ -317,7 +316,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 587237,
+      "value": 587480,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -331,8 +330,8 @@
         "reports": 26138,
         "blueprints": 22838,
         "operations": 21323,
+        "": 15876,
         "templates": 15832,
-        "": 15633,
         "protocols": 14384,
         "system": 9632,
         "decisions": 6189,
@@ -344,7 +343,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 326669,
+        "(none)": 326912,
         "active": 113927,
         "draft": 101546,
         "done": 26350,
@@ -679,7 +678,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 601
+          "3": 602
         },
         "MIS": {
           "3": 680,
