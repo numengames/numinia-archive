@@ -31,13 +31,28 @@ export function trackedFiles() {
 }
 
 /**
+ * Paths the corpus seal ignores: dependency manifests, lockfiles and the CI
+ * workflow files. A version bump there changes bytes the archive does not
+ * measure — every figure stays identical — yet it would shift the hash and
+ * turn every Dependabot pull request STALE at birth. ALTERED still guards
+ * the figures themselves: a workflow edit that changes `scripts_in_ci` is
+ * caught by the value comparison, not by the seal.
+ */
+export const SEAL_EXEMPT_RE = /(^|\/)(package\.json|package-lock\.json|npm-shrinkwrap\.json|pnpm-lock\.yaml|yarn\.lock)$|^\.github\/(workflows|dependabot\.yml)/;
+
+/**
  * SHA-256 over the INDEX (`git ls-files -s`: mode, blob, stage, path), telemetry/
- * excluded. The index, not HEAD's tree, so that a dataset can describe the very
- * commit it is committed in: stage everything, measure, add telemetry/, commit —
- * the hash names the resulting tree. `--check` in CI (index == HEAD) agrees.
+ * and SEAL_EXEMPT_RE excluded. The index, not HEAD's tree, so that a dataset
+ * can describe the very commit it is committed in: stage everything, measure,
+ * add telemetry/, commit — the hash names the resulting tree. `--check` in CI
+ * (index == HEAD) agrees.
  */
 export function corpusHash() {
-  const lines = git('ls-files', '-s').split('\n').filter((l) => l && !/\ttelemetry\//.test(l));
+  const lines = git('ls-files', '-s').split('\n').filter((l) => {
+    if (!l || /\ttelemetry\//.test(l)) return false;
+    const p = l.slice(l.indexOf('\t') + 1);
+    return !SEAL_EXEMPT_RE.test(p);
+  });
   return createHash('sha256').update(lines.join('\n')).digest('hex');
 }
 

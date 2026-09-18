@@ -1,0 +1,25 @@
+# Dependabot: keep every dependency at its latest version.
+# Oracle rule (2026-09-18): nothing stays pinned to an old release; the
+# checks decide, not a person. `dependabot-auto-merge.yml` approves and
+# merges each update once CI is green.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/web"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      # One PR per family, so a framework release does not arrive as six.
+      astro:
+        patterns: ["astro", "@astrojs/*"]
+      dev-tooling:
+        dependency-type: development
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: "ci(deps)"
