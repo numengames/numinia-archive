@@ -14,6 +14,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-18 (DSN-014 on numinia.org: a link presents itself)
+- `web/scripts/share-card.mjs`: draws the favicon set (`favicon.svg`, `favicon.png` 32, `apple-touch-icon.png` 180 — the canonical scarab, Marfil on Carbón) and the 1200×630 share card of STD-023 §19 into `web/public/` before `astro build`, with the house type embedded (Geist, Geist Mono; woff2 → TTF at render, no browser, no system font). `--check` is a CI step. The four files are build output, gitignored.
+- `web/src/layouts/Layout.astro`: default title and description are this site's row of §19 — the archive, not the service; `og:site_name`, PNG and Apple touch icons; `og:image` → `/og-card.png`.
+- Removed `web/public/og-default.png` (said "Numinia · Narrative Work OS", the service's line) and the Astro template favicon (a pink-and-cyan M).
+- `/updates` v0.2.0.
+
 ### Added — 2026-09-18 (dependencies: always the latest, merged by the checks)
 - `.github/dependabot.yml` (daily, npm in `web/` grouped by family + GitHub Actions) and `.github/workflows/dependabot-auto-merge.yml`: a Dependabot pull request is approved and set to auto-merge by the workflow, so it lands the moment the required checks are green and stays open for a human when one is red. Oracle rule, 2026-09-18: "quiero actualizar siempre las librerías, no deberíamos quedarnos anclados a ninguna versión anterior". Needs *Allow auto-merge* in the repository settings (operator act).
 - `scripts/lib/corpus.mjs`: the corpus seal (`corpus_hash`) no longer covers dependency manifests, lockfiles or workflow files (`SEAL_EXEMPT_RE`). A version bump changes no figure, yet it shifted the hash and every Dependabot PR was born `STALE` — the seal now names the corpus, not the toolchain. ALTERED still compares every figure. Test added.

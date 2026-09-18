@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.2.0",
+    date: "2026-09-18",
+    entries: [
+      {
+        type: "ADD",
+        text: "A link to this site presents itself (DSN-014): the scarab as favicon, a title and description that say this is the archive of Numen Games — not the service —, and a 1200×630 share card drawn at build from the house's type and colours. The Astro template's pink-and-cyan M is gone.",
+      },
+    ],
+  },
+  {
     version: "v0.1.2",
     date: "2026-09-17",
     entries: [

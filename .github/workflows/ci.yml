@@ -81,6 +81,13 @@ jobs:
         run: npm run build
         working-directory: web
 
+      # DSN-014 (STD-008): a link presents itself. The build above drew the
+      # favicon set and the 1200×630 share card into web/public; this proves
+      # the four files exist and the card has the size link previews need.
+      - name: share card
+        run: node scripts/share-card.mjs --check
+        working-directory: web
+
       # Every build guard: the built site and the committed telemetry are what
       # HEAD produces. These bite regardless of any standard's state. Red
       # means: a page, a link, a redirect or the dataset is broken. Fix a

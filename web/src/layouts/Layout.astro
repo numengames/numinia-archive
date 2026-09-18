@@ -15,9 +15,13 @@ interface Props {
   activeNav?: string;
 }
 
+// STD-023 §19 — this site's row: the same name and line the footer's
+// Numen Games column, the share card (scripts/share-card.mjs) and this head
+// read. Two sites never present alike; nwos.numen.games is the service,
+// this is the archive.
 const {
-  title = "NWOS — Narrative Work OS",
-  description = "A file-based operating system for organizations that need alignment, memory, and AI agent integration. No proprietary formats. No lock-in.",
+  title = "NWOS — the archive of Numen Games",
+  description = "The archive of Numen Games, built in public: canon, decisions, missions, how the work is done.",
   canonicalPath = "",
   ogImage,
   activeNav,
@@ -25,7 +29,7 @@ const {
 
 const siteUrl = "https://numinia.org";
 const canonical = `${siteUrl}${canonicalPath}`;
-const resolvedOgImage = ogImage ?? `${siteUrl}/og-default.png`;
+const resolvedOgImage = ogImage ?? `${siteUrl}/og-card.png`;
 // MIS-120(e) — one corpus, in English, and lang says so. This is the signal
 // the browser reads to offer its own translation; declaring anything else
 // suppresses the offer for the very readers who need it (DEC-006).
@@ -38,6 +42,8 @@ const ogLocale = "en_US";
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
@@ -46,6 +52,7 @@ const ogLocale = "en_US";
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NWOS — Numen Games" />
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
