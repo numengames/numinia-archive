@@ -5,16 +5,16 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.0.3"
+version: "1.1.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-17T16:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
 related: ["STD-008", "CAN-008", "ADR-044"]
-series_change: "1.0.3 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
+series_change: "1.1.0 — 2026-09-17: §18 The house footer and §19 The share card added — the values DSN-013 and DSN-014 point at: the footer's elements, the card's pattern, and the one table of the four sites (name, line, domain) that footer, head and card all read. Minor with STD-008 7.1.0. 1.0.3 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
 ---
 
 <!--
@@ -253,6 +253,72 @@ Behavior (canonized exactly as it stands in production): **175 stars**; drift of
 | **Aseprite · Indexed color and sprite sheets** | Igara Studio | Official documentation | [aseprite.org/docs](https://www.aseprite.org/docs/color-mode/) | Indexed workflow, closed palette and sprite-sheet export |
 | **Plutchik's wheel · Jung's archetypes** | — | Theoretical foundation | — | Emotion and personality of the Brand & Culture |
 | **Brand & Culture Numinia v0.1.2** | Numen Games | Internal | `2026_03_20-Numinia_Brand_and_Culture-v0.1.2.pdf` | Source of the identity |
+
+
+## 18. The house footer
+
+The one closing every public site of Numen Games serves (`DSN-013`).
+Adopted 2026-09-16 from numinia.org, the site that had it best; the four
+sites served it by 2026-09-17.
+
+```
+<site name, written>                      Navigation        Numen Games       Legal        Social
+<one line: what this site is>             …                 Numen Games       Terms        GitHub
+                                          (two columns      Numinia           Privacy      X
+                                           when > 4)        NWOS ← you are here            Discord
+                                                            NWOS for your organisation
+──────────────────────────────────────────────────────────────────────────────────────────────
+[scarab]  by Numen Games — we build for a better future.
+          Open by licence · Telemetry · v0.1.1 · 28e0656
+```
+
+| Element | Value |
+|---|---|
+| Site name | Written, never the logo alone; `Numinia_Word` only on numinia.com |
+| One line | The site's line from the share-card table below |
+| Navigation | The site's primary routes; two columns from five entries, reading down the first column then the second |
+| Numen Games column | The four sites, in the order of the share-card table, this one marked «you are here» and not linked |
+| Legal | Only texts published for this site's scope; none invented |
+| Social | Company accounts only; a missing account is a missing entry, never a personal one |
+| Signature | `by Numen Games — we build for a better future.` in English on every site; `Numen Games` opens numen.games in a new tab |
+| Build line | `licence · telemetry · vX.Y.Z · sha` — licence opens the repository's `REUSE.toml`; version opens `/updates`; sha opens the commit |
+| Never | A copyright line; `all rights reserved`; a year |
+
+Column headings translate with the site; the signature does not.
+
+## 19. The share card
+
+What a link to any of the four looks like when pasted anywhere
+(`DSN-014`). One pattern, four contents; generated from the repository at
+build time, never drawn by hand.
+
+```
+┌────────────────────────────────────────────────────────┐ 1200 × 630
+│                                          [scarab, Marfil]
+│  NUMEN GAMES · <SITE>                    ← Ámbar, Geist Mono, caps
+│  <Name>                                  ← Marfil, Geist 600, ~120 px
+│  <One line: what you will find.>         ← Marfil velada, Geist 400
+│  ────                                    ← Turquesa rule
+│  <domain>                                ← Geist Mono
+└────────────────────────────────────────────────────────┘
+```
+
+Ground Carbón `#14110F`; the sky (above) at low density behind. Margin
+90 px. Type from `/assets/fonts/`, embedded at render (`DSN-002`).
+
+| Site | Name | Line | Domain |
+|---|---|---|---|
+| The company | Numen Games | We design participatory experiences: narrative, game dynamics, live facilitation. | numen.games |
+| The game | Numinia | A world across three centuries. Its chronicle, its material culture — CC0 — and the game. | numinia.com |
+| The archive | NWOS | The archive of Numen Games, built in public: canon, decisions, missions, how the work is done. | numinia.org |
+| The service | NWOS for your organisation | A file-based operating system for organisations. Markdown, git, AI agents. Adopt it. | nwos.numen.games |
+
+The same four rows are each site's `<title>`, `description`, `og:title`,
+`og:description` and its entry in the footer's *Numen Games* column; the
+`house-links` file in each repository copies this table until the design
+kit serves it (`DSN-009`). The favicon is the canonical brandmark in Marfil on
+Carbón: `favicon.svg`, `favicon.png` 32×32 and `apple-touch-icon.png`
+180×180. `theme-color` is Carbón.
 
 ---
 
