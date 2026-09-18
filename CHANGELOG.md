@@ -14,6 +14,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-18 (dependencies: always the latest, merged by the checks)
+- `.github/dependabot.yml` (daily, npm in `web/` grouped by family + GitHub Actions) and `.github/workflows/dependabot-auto-merge.yml`: a Dependabot pull request is approved and set to auto-merge by the workflow, so it lands the moment the required checks are green and stays open for a human when one is red. Oracle rule, 2026-09-18: "quiero actualizar siempre las librerías, no deberíamos quedarnos anclados a ninguna versión anterior". Needs *Allow auto-merge* in the repository settings (operator act).
+- `scripts/lib/corpus.mjs`: the corpus seal (`corpus_hash`) no longer covers dependency manifests, lockfiles or workflow files (`SEAL_EXEMPT_RE`). A version bump changes no figure, yet it shifted the hash and every Dependabot PR was born `STALE` — the seal now names the corpus, not the toolchain. ALTERED still compares every figure. Test added.
+
 ### Added — 2026-09-18 (STD-026: the operative vocabulary comes to the archive)
 - `standards/STD-026-operative-vocabulary.md` (register): the twenty-five working terms — Web3, wallet, CC0, digital sovereignty, file over app, data dignity, digital and biological agent, active inference, VRM… — each in one row: what it is, what knowing it clears up, what it enables here. Written in English (`DOC-011`). Origin: `numinia-web/docs/conceptual-glossary.md`, Spanish, which is retired in that repository's clean-up: the consumers drink from the archive, they do not keep constitutions of their own (Oracle, 2026-09-18). Two vocabularies now, deliberately: this one is operative; the game's words stay in `lore/codex/glosario.md`, reserved, in the manual's language. The ES↔EN↔`id` naming table that travelled with it is not migrated: the English names are already in `CAN-003`/`CAN-004`, and the lower-case identifiers belong to the code that uses them.
 

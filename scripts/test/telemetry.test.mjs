@@ -124,6 +124,23 @@ check('fixture: corpus_hash changes when a tracked file changes, and --check the
     return before !== after || 'corpus_hash did not change';
   } finally { rmTree(clone); }
 });
+check('fixture: a dependency bump (web/package-lock.json) leaves corpus_hash unchanged, and --check still reports OK', () => {
+  const clone = scratchClone();
+  try {
+    execFileSync('node', [path.join(clone, 'scripts/telemetry.mjs')], { cwd: clone, stdio: 'ignore' });
+    execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
+    execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'telemetry'], { stdio: 'ignore' });
+    const before = JSON.parse(readFileSync(path.join(clone, 'telemetry/latest.json'), 'utf8')).corpus_hash;
+    const lock = path.join(clone, 'web/package-lock.json');
+    writeFileSync(lock, readFileSync(lock, 'utf8') + '\n');
+    writeFileSync(path.join(clone, '.github/workflows/ci.yml'), readFileSync(path.join(clone, '.github/workflows/ci.yml'), 'utf8') + '\n');
+    execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
+    execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'bump'], { stdio: 'ignore' });
+    const r = spawnSync('node', [path.join(clone, 'scripts/telemetry.mjs'), '--check'], { cwd: clone, encoding: 'utf8' });
+    if (r.status !== 0) return `expected OK after a manifest-only change, got ${r.status}: ${r.stderr.trim()}`;
+    return run(clone).corpus_hash === before || 'corpus_hash changed on a manifest-only commit';
+  } finally { rmTree(clone); }
+});
 
 function scratchClone() {
   // Fresh repo, never the worktree's .git pointer: a fixture `git add` must touch only the clone.

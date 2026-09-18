@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-18T07:55:09Z"
+updated: "2026-09-18T09:05:25Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `48893fe`  · corpus_hash: `faf64d909db9c714…`  · measured_at: 2026-09-18T07:55:09Z  · root_dirty: 0
+- head: `8c5d3c9+index`  · corpus_hash: `eaf4c12821c7b886…`  · measured_at: 2026-09-18T09:05:25Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 481 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 483 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.md_total` | 166 | files | tracked `.md` anywhere, including `web/` |
 | `corpus.docs_total` | 164 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
@@ -62,7 +62,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .webp | 1 |
 | .woff2 | 7 |
 | .yaml | 33 |
-| .yml | 2 |
+| .yml | 4 |
 
 ### `corpus.docs_by_dir`
 

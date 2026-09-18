@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "48893fe",
-  "corpus_hash": "faf64d909db9c7146396e10fcf49fe7f5020f87227be58056d7f0476c78b75b2",
+  "head": "8c5d3c9+index",
+  "corpus_hash": "eaf4c12821c7b886aa47a59c004aea804961c727e39fac429f2dace941debef1",
   "root_dirty": 0,
-  "measured_at": "2026-09-18T07:55:09Z",
+  "measured_at": "2026-09-18T09:05:25Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 481,
+      "value": 483,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -42,7 +42,7 @@
         ".webp": 1,
         ".woff2": 7,
         ".yaml": 33,
-        ".yml": 2
+        ".yml": 4
       },
       "unit": "files",
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
