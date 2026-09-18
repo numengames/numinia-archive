@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 29400,
+  "chars": 30351,
   "apparatus": false,
   "archived": false,
-  "tokens": 8394
+  "tokens": 8638
  },
  {
   "path": "CLAUDE.md",
@@ -1615,6 +1615,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1438
+ },
+ {
+  "path": "standards/STD-026-operative-vocabulary.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 10895,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2543
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
