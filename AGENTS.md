@@ -20,6 +20,47 @@ according to the scope and hierarchy defined by the repository.
 Platform-specific configuration, runtime memory, session state, or inferred
 knowledge does not automatically override repository canon.
 
+## Transition regime (MVP → alpha) — read this before any protocol
+
+Oracle instruction, 2026-09-18. Every protocol in this archive is
+`status: draft` (12 of 12) because the system is being cut down from the
+MVP to the alpha. While a document is draft it DESCRIBES a practice; it
+does not BIND. The ceremony below was written for the system in its
+place; today it only slows the operator and the agent down. Until the
+Oracle promotes a protocol out of draft, an agent working here or in a
+consumer repository (`numinia-web`, `numengames-web`, `nwos-deploy`)
+does NOT:
+
+- open or activate a mission card for a task the operator asked for in
+  chat (`PRO-003` MCY-001, MSN-002): the chat instruction is the
+  briefing, the pull request is the record;
+- write an ADR to set or reverse a decision the operator stated in chat:
+  the reversal goes in the `CHANGELOG.md` entry and the commit body, and
+  the old ADR stays as the photograph it is;
+- classify the task or cite practice plates in commits (`PRO-016`);
+- score its context load, write a `divergence_log`, or update `OPS-008`
+  at close (`PRO-001` SES-004, SES-005);
+- stop a second time before pushing: the operator's go on a plan covers
+  commits, push and the pull request.
+
+What still holds, because each rule protects something that can be seen:
+
+- one pull request per repository per cut; never self-merge, force-push,
+  delete a branch, rewrite a pushed commit, or change licences,
+  visibility or secrets;
+- CI green: guards, tests, the web build, and telemetry regenerated in
+  the last commit (`node scripts/telemetry.mjs`) — the check is
+  mechanical, not ceremony;
+- every pull request that changes a site adds its `/updates` entry and
+  raises the version (`scripts/check-version-bump.mjs`);
+- a `CHANGELOG.md` entry for what changed in this archive;
+- `lore/**` and the pinned `operations/` files stay reserved; canon
+  changes are said to the operator in chat before the branch exists —
+  his answer there is the consensus, no further ceremony.
+
+Promotion out of draft is the act that restores each rule; nothing
+restores them by default.
+
 ## Repository map
 
 The principal areas of this repository:
