@@ -14,6 +14,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-18 (STD-026: the operative vocabulary comes to the archive)
+- `standards/STD-026-operative-vocabulary.md` (register): the twenty-five working terms — Web3, wallet, CC0, digital sovereignty, file over app, data dignity, digital and biological agent, active inference, VRM… — each in one row: what it is, what knowing it clears up, what it enables here. Written in English (`DOC-011`). Origin: `numinia-web/docs/conceptual-glossary.md`, Spanish, which is retired in that repository's clean-up: the consumers drink from the archive, they do not keep constitutions of their own (Oracle, 2026-09-18). Two vocabularies now, deliberately: this one is operative; the game's words stay in `lore/codex/glosario.md`, reserved, in the manual's language. The ES↔EN↔`id` naming table that travelled with it is not migrated: the English names are already in `CAN-003`/`CAN-004`, and the lower-case identifiers belong to the code that uses them.
+
 ### Changed — 2026-09-18 (transition regime: draft describes, it does not bind)
 - `AGENTS.md` § Transition regime (MVP → alpha), pointed at from `CLAUDE.md`'s second instruction. Oracle instruction, 2026-09-18: the ceremony the draft protocols prescribe — mission card and activation commit per task (`PRO-003`), ADR per decision stated in chat, task classification and practice plates (`PRO-016`), load score, `divergence_log` and `OPS-008` at close (`PRO-001`) — "ahora mismo lo único que hacen es frenar y complicar la operativa". While a protocol is `status: draft` it describes; it binds again when the Oracle promotes it. The section lists what still holds (one PR per repo per cut, CI green with telemetry regenerated, `/updates` entry and version bump per site change, CHANGELOG entry, reserved regimes, canon discussed in chat). The protocols themselves are not edited: they are the target shape, not the current one.
 
