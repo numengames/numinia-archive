@@ -26,14 +26,14 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.460.0",
-    "react": "^19.2.4",
+    "react": "^19.3.0",
     "react-dom": "^19.2.4",
     "tailwind-merge": "^2.6.1",
     "tailwindcss": "^3.4.19",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.3.0",
     "@types/react-dom": "^19.2.3",
     "astro-pagefind": "^2.0.1",
     "pagefind": "^1.5.2",
