@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "9edbbdf",
-  "corpus_hash": "0c252fbb9797bbec47215b380283820b9175808db3e8829d5f07ad1a4dd7c2bd",
+  "head": "77b7cf7",
+  "corpus_hash": "202199d309247751447a35b49b4c337ca87c0363058da7620195590b381b3615",
   "root_dirty": 0,
-  "measured_at": "2026-09-17T10:45:41Z",
+  "measured_at": "2026-09-18T07:07:56Z",
   "families": [
     "corpus",
     "series",
@@ -317,7 +317,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 581988,
+      "value": 582817,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -332,8 +332,8 @@
         "blueprints": 22838,
         "operations": 21323,
         "templates": 15832,
+        "": 15154,
         "protocols": 14384,
-        "": 14325,
         "system": 9632,
         "decisions": 6189,
         "debt": 1544,
@@ -344,7 +344,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 325361,
+        "(none)": 326190,
         "active": 113927,
         "draft": 97605,
         "done": 26350,
@@ -355,7 +355,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.49,
+      "value": 7.48,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -685,17 +685,17 @@
           "3": 680,
           "4": 186
         },
+        "PRO": {
+          "3": 222
+        },
+        "OPS": {
+          "3": 41
+        },
         "CAN": {
           "3": 151
         },
         "ADR": {
           "3": 351
-        },
-        "PRO": {
-          "3": 216
-        },
-        "OPS": {
-          "3": 39
         },
         "SYS": {
           "3": 21
@@ -746,7 +746,7 @@
           "id": "MIS-135#3",
           "severity": "A",
           "state": "moved",
-          "where": "agents/calliope/OPERATOR.md",
+          "where": "AGENTS.md",
           "claim": "The protocol that governs how every series is named, renamed and closed — cited by ADR-005, STD-001 and the missions — is itself draft. Deferred: the Oracle signs."
         },
         {

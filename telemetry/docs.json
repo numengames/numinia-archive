@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 7618,
+  "chars": 9726,
   "apparatus": false,
   "archived": false,
-  "tokens": 1704
+  "tokens": 2225
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 28472,
+  "chars": 29400,
   "apparatus": false,
   "archived": false,
-  "tokens": 8170
+  "tokens": 8394
  },
  {
   "path": "CLAUDE.md",
@@ -60,10 +60,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8187,
+  "chars": 8560,
   "apparatus": false,
   "archived": false,
-  "tokens": 2088
+  "tokens": 2172
  },
  {
   "path": "CONTRIBUTING.md",

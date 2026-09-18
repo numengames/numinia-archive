@@ -4,6 +4,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **First instruction (AGT-001): audit the current branch state before assuming anything.** Never trust that the repo matches this file, a README, or a mission brief — read what is actually there first.
 
+**Second instruction: `AGENTS.md` § Transition regime applies.** While the protocols are `draft` they describe, they do not bind — no mission card, no activation commit, no ADR for a chat decision, no task classification, no load score. What still holds is listed there (one PR per repo, CI green, `/updates` entry + version, CHANGELOG entry, reserved regimes untouched).
+
 ## Engineering standards (ours, proven here)
 
 `standards/STD-005-engineering-baseline.md` is **this repository's own operative standard**, not a copy of anyone else's. Agents MUST follow `protocols/PRO-016-applying-the-engineering-standard.md`: classify every task as cosmetic or irreversible; when in doubt it is irreversible and needs Oracle sign-off. Never change LICENSE/SPDX/REUSE structure, repo visibility, or secrets autonomously; never weaken a check to make a task pass. Reference practice IDs (e.g. `SEC-007`, `ARC-003`) in commits that touch them. Numinia is NWOS's first client: practices are proven here and only then promoted to `numen-games-nwos-orgs/nwos-workspace-template` as a starting proposal that other organizations may adopt and then govern themselves (G-12). There is no upstream — changes to that document are a **local ADR + PR** in `decisions/`; never route them elsewhere. The mould's copy may diverge: that is adoption, not drift, and it is not to be synced (ADR-001 (formerly ADR-003)). Scorecard checks in scope here: all except those requiring org-level settings (tracked in MIS-070).
