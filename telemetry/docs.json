@@ -1424,10 +1424,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5425,
+  "chars": 6932,
   "apparatus": false,
   "archived": false,
-  "tokens": 1509
+  "tokens": 1907
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -1589,10 +1589,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 25117,
+  "chars": 29136,
   "apparatus": false,
   "archived": false,
-  "tokens": 8125
+  "tokens": 9125
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
