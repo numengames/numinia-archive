@@ -5,15 +5,15 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-11T16:45:00+02:00"
+updated: "2026-09-18T16:04:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, register, practices]
 license: "CC0-1.0"
-series_change: "1.2.0 — the Check column becomes machine-checkable and `[MANUAL]` is retired. Four forms replace it, each verifiable by tools/check-register.mjs: `[AUTO: <mechanism>]`, `[GATE: <machine evidence> → <the human act>]`, and `[DEBT: <what is missing> — <owner>, <date>]`. Measured before the change: of 29 rows claiming AUTO, 7 named a mechanism absent from the tree (no gitleaks, no knip, no .env.example, no .editorconfig, no eslint config, no roadmap file, no code of conduct), and 3 rows claimed MANUAL for work a guard already did (ARC-003 std-010-licensing, AGT-002 guards/lib/naming.mjs, DEV-005 prose-in-code.test.mjs) — a hand-written register drifts in both directions. Rows now stand at 23 AUTO, 4 GATE, 27 DEBT; the summary said 52 practices for a table of 54. TRC-006 is mechanical: an unregistered rule guard never runs and the run is green for not looking. Minor under VER-022: what the register requires of its own rows changed, no practice was reversed. The retirement of MANUAL reads as a reversal (VER-023) and is left for the Oracle to rank."
+series_change: "1.3.0 — the family pipeline: a section names the five repositories that run the same guards (the four sites and the resource depot), the steps in order, which of them fail a build and which only report while this register is draft (ENG-067), the literal job name the ruleset requires, the files kept identical across repositories and the security rules every workflow obeys. Measured on 2026-09-18 before the change: one repository required no status check at all, one wrote its pipeline in Spanish, one lacked lint, two lacked Scorecard, three lacked a REUSE step. Minor under VER-022: the register says what it already required, in a form a diff can check; no practice reversed. Oracle instruction, 2026-09-18: the guards look but do not bite while the standards are draft. 1.2.0 — the Check column becomes machine-checkable and `[MANUAL]` is retired. Four forms replace it, each verifiable by tools/check-register.mjs: `[AUTO: <mechanism>]`, `[GATE: <machine evidence> → <the human act>]`, and `[DEBT: <what is missing> — <owner>, <date>]`. Measured before the change: of 29 rows claiming AUTO, 7 named a mechanism absent from the tree (no gitleaks, no knip, no .env.example, no .editorconfig, no eslint config, no roadmap file, no code of conduct), and 3 rows claimed MANUAL for work a guard already did (ARC-003 std-010-licensing, AGT-002 guards/lib/naming.mjs, DEV-005 prose-in-code.test.mjs) — a hand-written register drifts in both directions. Rows now stand at 23 AUTO, 4 GATE, 27 DEBT; the summary said 52 practices for a table of 54. TRC-006 is mechanical: an unregistered rule guard never runs and the run is green for not looking. Minor under VER-022: what the register requires of its own rows changed, no practice was reversed. The retirement of MANUAL reads as a reversal (VER-023) and is left for the Oracle to rank."
 ---
 
 # Engineering checks
@@ -90,3 +90,42 @@ declares which checks are in scope); the shared CI workflow with coverage
 thresholds as failures and a REUSE step; one presence job for `CLAUDE.md`,
 `SECURITY.md`, `CONTRIBUTING.md`, CODEOWNERS, templates, `.env.example` and
 About fields; local hooks that are courtesy, skippable, never the authority.
+
+## The family pipeline
+
+Five repositories run the same guards: the four that each serve a site —
+`numinia-archive` (its `web/`, numinia.org), `numinia-web` (numinia.com),
+`numengames-web` (numen.games), `nwos-deploy` (nwos.numen.games) — and the
+resource depot `numinia-assets`. A guard is a CI step or a script that says
+whether something is wrong with the change under review. Two kinds, told
+apart by ENG-067:
+
+| Kind | Steps, in this order | Fails the build? |
+|---|---|---|
+| Artefact | install → type-check → lint → test → build → share card (`scripts/share-card.mjs --check`) → version bump (`scripts/check-version-bump.mjs`) | Yes. A page that does not build, a test that fails, a favicon that is missing or a version that did not move is a broken artefact whatever any standard says. |
+| Rule | presence of the files named above · REUSE lint · OpenSSF Scorecard · dependency audit | No, while this register is `draft`. The step runs on every pull request, prints every finding in the log and the job summary, and exits 0. Promoting this register to `active` is what turns them into failures. |
+
+- **One required check, literally named `build`.** The branch ruleset
+  (`.github/rulesets/protect-main.json`, copied to every repository) can
+  only require a check by name, so the name means the same everywhere.
+  Where the work is split across jobs, `build` is a job that depends on
+  the artefact jobs and passes only if all of them did; it never depends
+  on a job that only reports. Renaming it leaves the required check
+  pending forever and blocks every merge; a ruleset that requires no
+  check lets a red run merge — both were measured before this section.
+- **A depot has no site.** `numinia-assets` builds nothing: its artefact
+  guards are its own declaration checks (REUSE lint over every file, the
+  tests that prove a missing declaration is refused), and `build` is their
+  conjunction.
+- **Kept identical across the five, by hand until a package carries
+  them:** `scripts/check-version-bump.mjs` (only the two path constants
+  differ), `scripts/share-card.mjs`, `.github/dependabot.yml`,
+  `.github/workflows/dependabot-auto-merge.yml`,
+  `.github/workflows/scorecard.yml`. A `diff` between two copies shows the
+  paths and nothing else.
+- **Every workflow, every step:** third-party actions pinned by commit SHA
+  (SEC-007); `permissions: read-all` at the top of the file and write
+  granted per job to the job that needs it (SEC-008); no secret read by a
+  build (SEC-004 — publication is Cloudflare's, connected in its panel,
+  never a token in a workflow); and a comment above each step saying what
+  it checks and how to fix a red (DEV-005), in English.

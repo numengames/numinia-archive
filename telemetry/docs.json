@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 32132,
+  "chars": 33708,
   "apparatus": false,
   "archived": false,
-  "tokens": 9116
+  "tokens": 9516
  },
  {
   "path": "CLAUDE.md",
@@ -1501,10 +1501,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 11132,
+  "chars": 14590,
   "apparatus": false,
   "archived": false,
-  "tokens": 3126
+  "tokens": 3981
  },
  {
   "path": "standards/STD-016-header-fields.md",

@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "3f4947e",
-  "corpus_hash": "e82906d9e4479315c7849a9a448746cd289a9262386ef62d4faf4e6df3248445",
+  "head": "1cae568",
+  "corpus_hash": "08de4a25c37ca87b425aa2094b9b3652b391aecc8331c5ccd66b95a6e191226e",
   "root_dirty": 0,
-  "measured_at": "2026-09-18T12:01:47Z",
+  "measured_at": "2026-09-18T14:07:18Z",
   "families": [
     "corpus",
     "series",
@@ -316,7 +316,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 587480,
+      "value": 588735,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -324,13 +324,13 @@
       "value": {
         "lore": 310716,
         "missions": 43577,
-        "standards": 42436,
+        "standards": 43291,
         "canon": 29364,
         "agents": 26767,
         "reports": 26138,
         "blueprints": 22838,
         "operations": 21323,
-        "": 15876,
+        "": 16276,
         "templates": 15832,
         "protocols": 14384,
         "system": 9632,
@@ -343,9 +343,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 326912,
+        "(none)": 327312,
         "active": 113927,
-        "draft": 101546,
+        "draft": 102401,
         "done": 26350,
         "todo": 14103,
         "in-progress": 4642
@@ -354,7 +354,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.42,
+      "value": 7.4,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -649,7 +649,7 @@
       "definition": "status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 33,
+      "value": 34,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -668,7 +668,6 @@
       "value": [
         "scripts/check-internal-links.mjs",
         "scripts/check-orphan-content.mjs",
-        "scripts/check-version-bump.mjs",
         "scripts/telemetry.mjs",
         "tools/check-register.mjs"
       ],
@@ -678,7 +677,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 602
+          "3": 604
         },
         "MIS": {
           "3": 680,
