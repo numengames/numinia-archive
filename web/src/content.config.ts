@@ -100,7 +100,7 @@ const system = defineCollection({
 // collection selects the two legal documents by filename instead of by
 // folder. Their reserved regime is now pinned per-file in REUSE.toml.
 const legal = defineCollection({
-  loader: glob({ pattern: "OPS-00{3,4}-*.md", base: "../operations" }),
+  loader: glob({ pattern: "OPS-0{03,04,10}-*.md", base: "../operations" }),
   schema: z
     .object({
       id: z.string(),

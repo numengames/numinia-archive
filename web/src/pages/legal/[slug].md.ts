@@ -9,6 +9,7 @@ import { getEntry } from "astro:content";
 const SLUGS: Record<string, string> = {
   terms: "ops-004-terms-and-conditions-numengames",
   privacy: "ops-003-privacy-policy-numengames",
+  cookies: "ops-010-cookie-policy-numengames",
 };
 
 export async function getStaticPaths() {

@@ -5,16 +5,16 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "7.1.0"
+version: "7.2.0"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-17T16:30:00+02:00"
+updated: "2026-09-18T17:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 registration: registered
 related: ["CAN-008", "STD-023", "PRO-014", "STD-010", "ADR-044"]
 license: "CC0-1.0"
-series_change: "7.1.0 — 2026-09-17: two rules added, DSN-013 (one house, one footer) and DSN-014 (a link presents itself), with their checks; they write down what the four sites have served since 2026-09-16 and what the share cards will follow. Minor by VER-022 (new obligations); moved at the Oracle's word in session (VER-064). 7.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 7.0.0 — the standard takes the ADR-043 shape and splits four ways under ADR-044: 9,934 -> 470 words of body here, as twelve plated rules DSN-001..012 (the old DS-01..04 conformance checks are DSN-009..012, same checks); every closed list is the register STD-023; every recipe is a blueprint (BLU-009 web, BLU-010 pixel, BLU-011 book and Velo); the kit source is packages/design-kit. Major: sections §2-§17 were cited by CAN-008 and PRO-014 and no longer exist; those citations are repointed in the same change. Direction prose that CAN-008 §3 already holds is not carried."
+series_change: "7.2.0 — 2026-09-18: DSN-015 (a site says what it stores) with its check. Minor by VER-022; moved at the Oracle's word in session (VER-064). 7.1.0 — 2026-09-17: two rules added, DSN-013 (one house, one footer) and DSN-014 (a link presents itself), with their checks; they write down what the four sites have served since 2026-09-16 and what the share cards will follow. Minor by VER-022 (new obligations); moved at the Oracle's word in session (VER-064). 7.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 7.0.0 — the standard takes the ADR-043 shape and splits four ways under ADR-044: 9,934 -> 470 words of body here, as twelve plated rules DSN-001..012 (the old DS-01..04 conformance checks are DSN-009..012, same checks); every closed list is the register STD-023; every recipe is a blueprint (BLU-009 web, BLU-010 pixel, BLU-011 book and Velo); the kit source is packages/design-kit. Major: sections §2-§17 were cited by CAN-008 and PRO-014 and no longer exist; those citations are repointed in the same change. Direction prose that CAN-008 §3 already holds is not carried."
 ---
 
 <!--
@@ -27,8 +27,8 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Sixteen colours and no new hexes; three self-hosted
 > typefaces; a 4 px scale; two radii; one icon family; fourteen animations;
 > AA contrast, nothing by colour alone; one footer and one share card for
-> the four sites. The values are `STD-023` and the kit; this standard says
-> which are rules.
+> the four sites; a site says what it stores. The values are `STD-023` and
+> the kit; this standard says which are rules.
 > **Epistemic:** Which parts of the design system answer yes or no — and
 > are therefore checkable — as opposed to direction, which is judged.
 > **Pragmatic:** What an audit of any Numen Games surface can fail on.
@@ -105,6 +105,14 @@ that say what the reader will find, and a 1200×630 share card generated
 from the repository on the share-card pattern `STD-023` lays out. Two
 sites never present alike: the four names and lines are its table.
 
+**DSN-015 — A site says what it stores.** A public site stores nothing in
+the visitor's browser — no cookie, no local storage — and loads nothing
+from a third party that the published cookie policy (`OPS-010`) does not
+name, with its purpose and duration. What is not necessary for a service
+the visitor asked for waits for consent; a consent that predates a change
+in the inventory stops counting. No analytics that leaves the device
+without being named there.
+
 ## Check
 
 | Rule | Verified by |
@@ -115,11 +123,12 @@ sites never present alike: the four names and lines are its table.
 | DSN-002, DSN-004, DSN-006, DSN-007, DSN-008, DSN-012 | `PRO-014` checklist — visual review |
 | DSN-013 | `check-version-bump` in each site's CI — a change to `src/` moves the version and writes `/updates` |
 | DSN-014 | `check-share-card` in each site's CI — the card exists at 1200×630 and the head carries icon, title, description, `og:image` |
+| DSN-015 | `check-storage` in each site's CI — every `document.cookie`, `cookies.set`, `localStorage`/`sessionStorage` key and third-party `<script src>` in the source is listed in the site's storage inventory, which the policy page renders |
 
 ## Why
 
 A design system is mostly direction, and direction cannot fail a check.
-These fourteen are the exceptions: each is a number, a file or a DOM
+These fifteen are the exceptions: each is a number, a file or a DOM
 property that either holds or does not. Keeping them apart from the
 direction lets the direction change freely while the checks stay stable —
 and lets another organisation install the kit and keep the checks without
@@ -133,3 +142,4 @@ inheriting the taste.
 | `STD-023` | Design values | every closed list the rules point at |
 | `PRO-014` | Producing a design piece | the manual checks and their order |
 | `ADR-044` | Consumers install packages | why the kit is a package |
+| `OPS-010` | Cookie Policy — Numen Games | the inventory DSN-015 holds every site to |
