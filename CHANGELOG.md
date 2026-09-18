@@ -14,6 +14,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-18 (the home page said the service's line)
+- `web/src/views/HomeView.astro`: the home passed its own title and description ("Narrative Work OS — Numen Games", the service's line) over the layout's default; it reads the layout's now — the archive's row of STD-023 §19. `/updates` v0.2.1.
+
 ### Changed — 2026-09-18 (STD-015 1.3.0: the family pipeline — what every Numen repository runs)
 - `standards/STD-015-engineering-checks.md` gains a section naming the five repositories that run the same guards — the four sites (`numinia-archive/web`, `numinia-web`, `numengames-web`, `nwos-deploy`) and the resource depot `numinia-assets` — and what each of them runs: the artefact steps that fail a build (install → type-check → lint → test → build → share card → version bump), the rule steps that only report while the register is `draft` (presence, REUSE lint, Scorecard, dependency audit — ENG-067), the one required check literally named `build`, the files kept identical across repositories by hand, and the security rules every workflow obeys (actions pinned by SHA, read-only tokens, no secret read by a build, a comment on every step). Oracle instruction, 2026-09-18: coherence of the guards across the repositories, "miran pero no muerden" while the standards are draft.
 - Measured before the section, on fresh clones of `main`: `nwos-deploy`'s ruleset required no status check and its CI had no job named `build` (a red run could merge); `numengames-web`'s `ci.yml` and `check-version-bump.mjs` were written in Spanish and its pipeline had no lint; Scorecard ran only here and in `nwos-deploy`; REUSE lint ran only in `numinia-web`; `numinia-assets` (born today) had no ruleset, no Dependabot, no CODEOWNERS. The consumer pull requests follow, one per repository; the archive's own gaps (`astro check` and REUSE lint before the web build) are the next cut here.

@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.2.1",
+    date: "2026-09-18",
+    entries: [
+      {
+        type: "FIX",
+        text: "The home page's title and description were still the service's line (the page passed its own, over the layout's default). Now the home reads the layout's: the archive, not the service.",
+      },
+    ],
+  },
+  {
     version: "v0.2.0",
     date: "2026-09-18",
     entries: [
