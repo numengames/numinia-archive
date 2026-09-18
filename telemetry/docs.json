@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 34016,
+  "chars": 34871,
   "apparatus": false,
   "archived": false,
-  "tokens": 9603
+  "tokens": 9834
  },
  {
   "path": "CLAUDE.md",
@@ -1166,6 +1166,17 @@
   "tokens": 1380
  },
  {
+  "path": "operations/OPS-010-cookie-policy-numengames.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "legal",
+  "status": "draft",
+  "chars": 6378,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1627
+ },
+ {
   "path": "protocols/PRO-001-agent-session.md",
   "dir": "protocols",
   "series": "protocols",
@@ -1424,10 +1435,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6932,
+  "chars": 7894,
   "apparatus": false,
   "archived": false,
-  "tokens": 1907
+  "tokens": 2152
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
