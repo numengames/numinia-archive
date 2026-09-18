@@ -20,6 +20,7 @@
 // wawoff2 at render time. No browser, no system font: it runs on the
 // Cloudflare Workers Builds image, which has neither.
 
+import { Buffer } from "node:buffer";
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
