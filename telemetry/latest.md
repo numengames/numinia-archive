@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-18T12:01:47Z"
+updated: "2026-09-18T14:07:18Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `3f4947e`  · corpus_hash: `e82906d9e4479315…`  · measured_at: 2026-09-18T12:01:47Z  · root_dirty: 0
+- head: `1cae568`  · corpus_hash: `08de4a25c37ca87b…`  · measured_at: 2026-09-18T14:07:18Z  · root_dirty: 0
 
 ## corpus
 
@@ -201,10 +201,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 587480 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 588735 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 7.42 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 7.4 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -213,13 +213,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|
 | lore | 310716 |
 | missions | 43577 |
-| standards | 42436 |
+| standards | 43291 |
 | canon | 29364 |
 | agents | 26767 |
 | reports | 26138 |
 | blueprints | 22838 |
 | operations | 21323 |
-|  | 15876 |
+|  | 16276 |
 | templates | 15832 |
 | protocols | 14384 |
 | system | 9632 |
@@ -231,9 +231,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 326912 |
+| (none) | 327312 |
 | active | 113927 |
-| draft | 101546 |
+| draft | 102401 |
 | done | 26350 |
 | todo | 14103 |
 | in-progress | 4642 |
@@ -402,7 +402,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|---|---|
 | `contradictions.status_vocabulary_used` | (table below) | documents | frontmatter status values in the corpus with counts |
 | `contradictions.status_vocabulary_undeclared` | (table below) | documents | status values in use that scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary |
-| `contradictions.ci_markers_std001` | 33 | rows | table rows of STD-001 carrying `[CI]` |
+| `contradictions.ci_markers_std001` | 34 | rows | table rows of STD-001 carrying `[CI]` |
 | `contradictions.ci_marked_scripts_not_in_ci` | (table below) | scripts | scripts a Check row of a standard names that the runner does not run in CI — a norm claiming a machine check that does not happen |
 | `contradictions.ci_scripts_not_marked` | (table below) | scripts | scripts the runner runs in CI that no Check row of any standard names — a check the norm does not claim |
 | `contradictions.id_form_per_series` | (table below) | citations | per series prefix, citations by digit width (3 vs 4) across the corpus; S1 fixes 4 for MIS files, 3 in `id:` |
@@ -432,13 +432,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 ### `contradictions.ci_scripts_not_marked`
 
-5 rows (scripts) — in `latest.json`.
+4 rows (scripts) — in `latest.json`.
 
 ### `contradictions.id_form_per_series`
 
 | | 3 |
 |---|---|
-| STD | 602 |
+| STD | 604 |
 | MIS | 680 |
 | PRO | 222 |
 | OPS | 41 |
