@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 34871,
+  "chars": 35317,
   "apparatus": false,
   "archived": false,
-  "tokens": 9834
+  "tokens": 9931
  },
  {
   "path": "CLAUDE.md",
@@ -1670,6 +1670,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3367
+ },
+ {
+  "path": "system/SYS-005-digital-resource-register.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 18240,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 5610
  },
  {
   "path": "templates/ADR-TEMPLATE.md",
