@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-19 (ci: the web is type-checked and every file declares its licence — both report, neither bites yet)
+- `.github/workflows/ci.yml`, two steps between `install` and `build`, per STD-015 § The family pipeline: **type-check** (`npm run type-check` = `astro check` over `web/src`: a prop a component does not declare, a dictionary key that does not exist, an untyped map — what `astro build` renders as `undefined` without complaint) and **REUSE lint** (`reuse lint` 6.2.0: every file under a `REUSE.toml` annotation or an SPDX header, every named licence text in `LICENSES/`; the archive's own `std-010-licensing` reads documents' headers, not the web, the scripts or the images). Both print their findings in the log and the job summary and exit 0 — Oracle instruction, 2026-09-18: the guards look but do not bite while the standards are draft (ENG-067). `astro check` reports 12 pre-existing errors on this tree (`DocToolbar.astro` carries an HTML comment inside a JSX expression; `components/ui/button.tsx` and `card.tsx` import a `@/lib/utils` that was never created; `openclaw-test.astro` imports three.js from a URL; two untyped maps in `archive/[fondo].astro` and `MissionsView.astro`) — fixing them is the cut that turns the step into a gate.
+- `web/package.json`: `@astrojs/check` and `typescript@^6` as dev dependencies (TypeScript 7 does not expose the API `astro check` needs), script `type-check` (DEV-002: the same name in every repository).
+- `REUSE.toml`: `.github/dependabot.yml`, `.github/workflows/dependabot-auto-merge.yml` and the root `package.json` join the CC0 metadata annotation — the three files `reuse lint` found undeclared (474/477 → 477/477). No `web/src` change: no `/updates` entry due.
+
 ### Added — 2026-09-18 (first CC0 resource intake)
 - `system/SYS-005-digital-resource-register.md`: canonical intake record for all 32 legacy candidates. Avocado and Pot Vapor 02 have primary CC0 evidence and unchanged originals in the companion numinia-assets cut; the other 30 stay outside it with specific provenance questions. IDs and historical declarations remain explicit. No consumer cutover, private data, thumbnails or legacy cleanup.
 

@@ -220,9 +220,12 @@ SPDX-License-Identifier = "CC0-1.0"
 
 # --- Repo metadata → CC0-1.0 ---------------------------------------------
 # (.github workflow/template files carry their own SPDX headers;
-# CODEOWNERS cannot, so it is declared here.)
+# CODEOWNERS cannot, so it is declared here. dependabot.yml and the
+# auto-merge workflow were added without headers; package.json cannot
+# carry a comment at all — the three are declared here rather than
+# edited, so `reuse lint` reads 477/477.)
 [[annotations]]
-path = [".gitignore", ".github/CODEOWNERS"]
+path = [".gitignore", ".github/CODEOWNERS", ".github/dependabot.yml", ".github/workflows/dependabot-auto-merge.yml", "package.json"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
