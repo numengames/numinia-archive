@@ -75,6 +75,73 @@ jobs:
         run: npm ci
         working-directory: web
 
+      # `astro check`: the type checker over web/src. A component handed a
+      # prop it does not declare, a dictionary key that does not exist, a
+      # function returning something its caller does not expect — all of
+      # that fails here, not in the visitor's browser. `astro build` does
+      # NOT do this: it renders the page and prints `undefined` where the
+      # text was (numen.games, 2026-09-11: six dead dictionary keys, green
+      # build). REPORTS for now: the tree carries 12 pre-existing errors
+      # (a stray comment inside a JSX expression, two shadcn stubs importing
+      # a `@/lib/utils` that was never created, an untyped map), so
+      # findings go to the job summary as warnings and the step exits 0.
+      # It starts biting once those are fixed — delete the block after the
+      # `status` line and let `npm run type-check` decide. The archive's rule
+      # guards (std-004, std-020, …) are untouched by this step.
+      - name: type-check (reports until the 12 pre-existing errors are fixed)
+        working-directory: web
+        run: |
+          set +e
+          out="$(npm run type-check 2>&1)"; status=$?
+          set -e
+          echo "$out"
+          if [ "$status" -eq 0 ]; then
+            echo "astro check: clean." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          {
+            echo "### astro check — errors, not blocking until the pre-existing ones are fixed (STD-015 draft, ENG-067)"
+            echo
+            echo '```'
+            echo "$out" | grep -E ' - error ' | head -30
+            echo "$out" | grep -E '^- [0-9]+ (errors|warnings|hints)'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::warning::astro check found errors — see the job summary; not blocking yet"
+          exit 0
+
+      # ARC-003 (STD-015): REUSE 3.3 — every file names its licence, in a
+      # header or through REUSE.toml, and LICENSES/ holds the text of every
+      # licence the map names. The footer of the four sites says "Open by
+      # licence, per file" and links REUSE.toml: this step is what makes
+      # that sentence true. The archive's own std-010-licensing guard
+      # compares each document's `license:` header with the map; it does
+      # not look at files that are not documents (the web, scripts,
+      # images) nor at LICENSES/ — this does. Pinned version, the one the
+      # other repositories run. Reports while STD-015 is draft (ENG-067):
+      # the verdict goes to the job summary and the step exits 0.
+      - name: REUSE lint (every file declares its licence)
+        run: |
+          pipx install reuse==6.2.0
+          set +e
+          out="$(reuse lint 2>&1)"; status=$?
+          set -e
+          echo "$out"
+          if [ "$status" -eq 0 ]; then
+            echo "REUSE lint: compliant." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          {
+            echo "### REUSE lint — not compliant, not blocking while STD-015 is draft (ENG-067)"
+            echo
+            echo '```'
+            reuse lint --lines 2>/dev/null | head -40
+            echo "$out" | grep -E '^\* (Missing|Unused|Files with)'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          echo "::warning::reuse lint is not compliant — see the job summary"
+          exit 0
+
       # Builds web/dist. A page that fails to render fails here. Not a check,
       # but the build guards below read its output.
       - name: build
