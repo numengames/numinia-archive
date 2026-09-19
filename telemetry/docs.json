@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38157,
+  "chars": 39432,
   "apparatus": false,
   "archived": false,
-  "tokens": 10668
+  "tokens": 11008
  },
  {
   "path": "CLAUDE.md",
@@ -93,10 +93,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 1131,
+  "chars": 1134,
   "apparatus": false,
   "archived": false,
-  "tokens": 312
+  "tokens": 310
  },
  {
   "path": "TRADEMARKS.md",
@@ -423,10 +423,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 4330,
+  "chars": 4333,
   "apparatus": false,
   "archived": false,
-  "tokens": 1233
+  "tokens": 1231
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -1402,10 +1402,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7522,
+  "chars": 7525,
   "apparatus": false,
   "archived": false,
-  "tokens": 1996
+  "tokens": 1994
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -1512,10 +1512,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 14590,
+  "chars": 14605,
   "apparatus": false,
   "archived": false,
-  "tokens": 3981
+  "tokens": 3971
  },
  {
   "path": "standards/STD-016-header-fields.md",
