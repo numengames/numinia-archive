@@ -25,8 +25,8 @@ series_change: "1.3.0 — the family pipeline: a section names the five reposito
 | Profile | Plate | Practice | Level | Check |
 |---|---|---|---|---|
 | Security | SEC-001 | 2FA enforced at organisation level | MUST | `[AUTO: scorecard Maintained]` |
-| Security | SEC-002 | Secret scanning and push protection on every repository | MUST | `[AUTO: github repos/numengames/numinia-nwos]` |
-| Security | SEC-003 | Dependabot alerts and security updates on; merge only on green CI | MUST | `[AUTO: github repos/numengames/numinia-nwos/dependabot/alerts]` |
+| Security | SEC-002 | Secret scanning and push protection on every repository | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
+| Security | SEC-003 | Dependabot alerts and security updates on; merge only on green CI | MUST | `[AUTO: github repos/numengames/numinia-archive/dependabot/alerts]` |
 | Security | SEC-004 | No secret files in git history; secrets in GitHub Environments scoped `pre`/`prod` | MUST | `[DEBT: no gitleaks in the tree; push protection unverified — oracle, 2026-09-11]` |
 | Security | SEC-005 | Cloud deploy auth via OIDC, no long-lived tokens | MUST | `[DEBT: no Terraform in the tree, no OIDC policy to read — oracle, 2026-09-11]` |
 | Security | SEC-006 | Personal access tokens fine-grained, minimum scope, expiring, one per purpose | MUST | `[AUTO: github orgs/numengames]` |
@@ -35,7 +35,7 @@ series_change: "1.3.0 — the family pipeline: a section names the five reposito
 | Security | SEC-009 | `SECURITY.md` with disclosure policy in every public repository | MUST | `[AUTO: scorecard Security-Policy]` |
 | Security | SEC-010 | CODEOWNERS covering `LICENSE*`, `.github/workflows/`, auth packages | MUST | `[AUTO: tools/check-register.mjs]` |
 | Security | SEC-011 | Organisation base permission read; admin per repository, per need | MUST | `[AUTO: github orgs/numengames]` |
-| Security | SEC-012 | Commits to `main` verified | SHOULD | `[AUTO: github repos/numengames/numinia-nwos/commits]` |
+| Security | SEC-012 | Commits to `main` verified | SHOULD | `[AUTO: github repos/numengames/numinia-archive/commits]` |
 | Architecture | ARC-001 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[AUTO: .github/workflows/ci.yml]` |
 | Architecture | ARC-002 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: scorecard Branch-Protection]` |
 | Architecture | ARC-003 | Licence per the `STD-010` trichotomy; REUSE 3.3 compliance | MUST | `[AUTO: guards/rules/std-010-licensing.mjs]` |
@@ -44,9 +44,9 @@ series_change: "1.3.0 — the family pipeline: a section names the five reposito
 | Architecture | ARC-006 | Conventional commits, semver tags, GitHub Releases with notes | MUST | `[DEBT: no commitlint — oracle, 2026-09-11]` |
 | Architecture | ARC-007 | Infrastructure declarative only: Terraform and containers | MUST | `[DEBT: no Terraform in the tree, no drift detection — oracle, 2026-09-11]` |
 | Architecture | ARC-008 | Shared base config (tsconfig, eslint, prettier) imported from one package, never copied | MUST | `[DEBT: no knip and no shared base config package — oracle, 2026-09-11]` |
-| Architecture | ARC-009 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[GATE: github repos/numengames/numinia-nwos/dependabot/alerts → a person adopts the dependency]` |
+| Architecture | ARC-009 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[GATE: github repos/numengames/numinia-archive/dependabot/alerts → a person adopts the dependency]` |
 | Architecture | ARC-010 | WCAG 2.2 AA on every public route; tab order matches visual order; focus ring visible | MUST | `[DEBT: no axe-core in web/package.json — oracle, 2026-09-11]` |
-| Traceability | TRC-001 | Repository "About" complete: description, website, topics | MUST | `[AUTO: github repos/numengames/numinia-nwos]` |
+| Traceability | TRC-001 | Repository "About" complete: description, website, topics | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
 | Traceability | TRC-002 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: tools/check-register.mjs]` |
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[DEBT: no label-sync workflow — oracle, 2026-09-11]` |
 | Traceability | TRC-004 | `CHANGELOG.md` or releases generated from conventional commits | MUST | `[DEBT: CHANGELOG.md is written by hand, no release workflow — oracle, 2026-09-11]` |

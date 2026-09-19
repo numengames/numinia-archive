@@ -69,7 +69,7 @@ const manifest = {
   source: {
     package: pkg.name,
     path: "packages/design-kit",
-    url: "https://github.com/numengames/numinia-nwos/tree/main/packages/design-kit",
+    url: "https://github.com/numengames/numinia-archive/tree/main/packages/design-kit",
   },
   rules: {
     id: "STD-008",

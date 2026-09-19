@@ -23,8 +23,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { ROOT } from '../lib/frontmatter.mjs';
 
-// Built in two halves so this file does not match itself.
+// Built in two halves so this file does not match itself. The lookahead keeps
+// numengames/numinia-nwos-viewer (the old viewer, a different repository) out.
 const OLD_PATH = ['numengames', 'numinia-nwos'].join('/');
+const OLD_RE = `${OLD_PATH}(?![A-Za-z0-9-])`;
 
 const LIVE = [
   'package.json', 'README.md', 'SECURITY.md', 'CLAUDE.md', 'AGENTS.md', 'CONTRIBUTING.md', 'REUSE.toml',
@@ -35,7 +37,7 @@ const LIVE = [
 test('no live surface still spells the repository by its old name', () => {
   let out = '';
   try {
-    out = execFileSync('git', ['-C', ROOT, 'grep', '-l', '-F', OLD_PATH, '--', ...LIVE], { encoding: 'utf8' });
+    out = execFileSync('git', ['-C', ROOT, 'grep', '-l', '-P', OLD_RE, '--', ...LIVE], { encoding: 'utf8' });
   } catch (e) {
     // git grep exits 1 when nothing matches — that is the pass.
     if (e.status !== 1) throw e;

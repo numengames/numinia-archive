@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.3.1",
+    date: "2026-09-19",
+    entries: [
+      {
+        type: "FIX",
+        text: "Every link to the repository — the commit in the footer, the home, the continuity page, the Wardley map — now points at numengames/numinia-archive, the name the repository has had since 2026-09-17. They pointed at the old name, numinia-nwos, and worked only because GitHub redirects it.",
+      },
+    ],
+  },
+  {
     version: "v0.3.0",
     date: "2026-09-18",
     entries: [

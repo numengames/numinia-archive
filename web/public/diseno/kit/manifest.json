@@ -4,7 +4,7 @@
   "source": {
     "package": "@numengames/design-kit",
     "path": "packages/design-kit",
-    "url": "https://github.com/numengames/numinia-nwos/tree/main/packages/design-kit"
+    "url": "https://github.com/numengames/numinia-archive/tree/main/packages/design-kit"
   },
   "rules": {
     "id": "STD-008",

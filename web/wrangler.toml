@@ -15,11 +15,14 @@
 # the HEAD of main. The manual command still works and remains the fallback if
 # the connection drops again — which it did once, silently, and nothing warned.
 #
-# Naming convention: the worker is named after its repository
-# (numengames/numinia-nwos) so dashboard and GitHub stay 1:1.
+# The worker was named after its repository when both were numinia-nwos;
+# the repository is numengames/numinia-archive since 2026-09-17.
 # NOTE: deliberately not reusing the existing `numinia-web` worker
 # (nwos-web.pablofm.workers.dev), which may still be the only host
 # of the NWOS product (/velo, /api/registro).
+# Historical name of the DEPLOYED service. Changing it does not rename the
+# worker: wrangler creates a new, empty one and numinia.org goes dark. Do not
+# touch without a migration in the Cloudflare panel first.
 name = "numinia-nwos"
 compatibility_date = "2026-08-16"
 
