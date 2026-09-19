@@ -1,6 +1,6 @@
 ---
 name: numinia-nwos-pr
-description: "Use when opening a pull request in numengames/numinia-nwos. One PR at a time, guards before push, telemetry last, fixed reviewers; canon is discussed before any branch."
+description: "Use when opening a pull request in numengames/numinia-archive. One PR at a time, guards before push, telemetry last, fixed reviewers; canon is discussed before any branch."
 title: "SKILL — numinia-nwos-pr"
 type: agent
 status: active

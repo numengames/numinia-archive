@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-19 (the repository is numengames/numinia-archive on every live surface)
+- Fourteen live files still spelled the org/repo path as `numengames/numinia-nwos`, the name retired on 2026-09-17. The one that bit: `web/src/lib/build-info.ts` — `REPO_URL` and `COMMIT_URL` feed the footer of numinia.org, so every commit link went through GitHub's redirect and would land on a stranger's repository the day one called `numinia-nwos` exists. Also the ruleset snapshot, `SECURITY.md`, the PR skill's description, the design-kit package URL and manifest, `STD-005` Binds and five `STD-015` check paths, `tools/generate-design-kit.mjs`, `tools/ruleset-export.mjs`, `web/README.md`, `wardley.astro`, `ContinuityView`, `HomeView`. Site v0.3.1.
+- `web/wrangler.toml` keeps `name = "numinia-nwos"`: it is the deployed Cloudflare service, and changing the name creates a new empty worker instead of renaming this one. A comment above the line says so.
+- `scripts/test/rename-residue.test.mjs`: pins the live surfaces to the current name (`git grep` over code, configuration, standards, agents, the site). Records — closed missions, reports, operations, this changelog, telemetry, `lore/` — keep the name the repository had on their day. Written first; failed on 15 files.
+
 ### Fixed — 2026-09-19 (telemetry: main no longer turns red with the calendar)
 - `scripts/lib/families/provenance.mjs`: the four figures that compare `created:` with the day a commit added the file (`created_ahead_of_commit`, `created_ahead_list`, `created_behind_commit`, `regime_crossings_list`) carry `volatile: "commit-date"`. main is squash-merged, so the first-add day is the merge day, not the branch day: a document created on the 18th and merged on the 19th moved `created_behind_commit` from 28 to 29 between the branch and main with the same `corpus_hash`, and the build guard failed (#401). The figures are descriptive ("counted, not judged"), not invariants a contributor can restore.
 - `scripts/telemetry.mjs --check`: skips volatile figures in the equality and says how many it skipped. They stay in `latest.json`, `latest.md` and `history.jsonl`.

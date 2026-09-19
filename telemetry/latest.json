@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "26b0940",
-  "corpus_hash": "1a0da3dbd3eef0e53dd8bc0a2a540cd7d9391bdcc36d9fcb67d3427f254a3bb6",
+  "head": "45ad3b1",
+  "corpus_hash": "0c7f161a305bb264e2805850116290518f9d2e0165a5771f97967386a3632f62",
   "root_dirty": 0,
-  "measured_at": "2026-09-19T17:58:01Z",
+  "measured_at": "2026-09-19T18:36:57Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 483,
+      "value": 484,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".js": 2,
         ".json": 13,
         ".md": 168,
-        ".mjs": 56,
+        ".mjs": 57,
         ".png": 35,
         ".svg": 69,
         ".toml": 4,
@@ -105,13 +105,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 28,
+      "value": 29,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 28
+        "node": 29
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -316,7 +316,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 597369,
+      "value": 597693,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -324,13 +324,13 @@
       "value": {
         "lore": 310716,
         "missions": 43577,
-        "standards": 43536,
+        "standards": 43524,
         "canon": 29364,
-        "agents": 26767,
+        "agents": 26765,
         "reports": 26138,
         "operations": 22950,
         "blueprints": 22838,
-        "": 17428,
+        "": 17766,
         "templates": 15832,
         "system": 15242,
         "protocols": 14384,
@@ -343,9 +343,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 328464,
-        "active": 113927,
-        "draft": 109883,
+        "(none)": 328804,
+        "active": 113923,
+        "draft": 109871,
         "done": 26350,
         "todo": 14103,
         "in-progress": 4642
@@ -377,8 +377,8 @@
           11270
         ],
         [
-          "reports/RPT-017-mvp-story.md",
-          10721
+          "CHANGELOG.md",
+          11008
         ]
       ],
       "unit": "tokens",
@@ -681,7 +681,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 609
+          "3": 611
         },
         "MIS": {
           "3": 680,
@@ -784,7 +784,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 270,
+      "value": 271,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -798,9 +798,9 @@
         "lore/game/manual-v0.6.0.md": 13,
         "canon/CAN-008-visual-identity.md": 11,
         "reports/RPT-017-mvp-story.md": 11,
+        "CHANGELOG.md": 10,
         "operations/OPS-007-sales.md": 10,
         "reports/RPT-019-2026-w37.md": 10,
-        "CHANGELOG.md": 9,
         "missions/MIS-0135-normalisation-residue-register.md": 7,
         "operations/OPS-001-continuity.md": 7,
         "standards/STD-023-design-values.md": 7,

@@ -26,4 +26,4 @@ Ninguna. El visor no necesita secretos: se puede construir y desplegar sin varia
 ## Estructura
 
 - `src/pages/` — rutas estáticas (misiones, decisiones, planos, reportes, archive…)
-- `src/data/` — datos hardcodeados en TS. Las rutas de detalle de `/missions` se generan en build leyendo el `missions-index.json` **local** de este repo (fallback: API de GitHub contra `numengames/numinia-nwos` si se construye fuera del checkout). El tablero `/missions` y el contenido de detalle se hidratan en el navegador contra la API de GitHub (`numengames/numinia-nwos`) — hornear eso en build es una decisión de diseño pendiente.
+- `src/data/` — datos hardcodeados en TS. Las rutas de detalle de `/missions` se generan en build leyendo el `missions-index.json` **local** de este repo (fallback: API de GitHub contra `numengames/numinia-archive` si se construye fuera del checkout). El tablero `/missions` y el contenido de detalle se hidratan en el navegador contra la API de GitHub (`numengames/numinia-archive`) — hornear eso en build es una decisión de diseño pendiente.

@@ -41,14 +41,14 @@ export const HAS_SHA: boolean = COMMIT_SHA !== "dev";
 
 /** The commit this build came from, when known. */
 export const COMMIT_URL: string | null = HAS_SHA
-  ? `https://github.com/numengames/numinia-nwos/commit/${COMMIT_SHA}`
+  ? `https://github.com/numengames/numinia-archive/commit/${COMMIT_SHA}`
   : null;
 
 /** What the footer prints: "v0.0.1 · a1b2c3d". */
 export const BUILD_LABEL: string = `${VERSION} · ${COMMIT_SHA}`;
 
 /** The repository this site mirrors. */
-export const REPO_URL = "https://github.com/numengames/numinia-nwos";
+export const REPO_URL = "https://github.com/numengames/numinia-archive";
 
 /**
  * Link from a rendered page back to the file it was rendered from.

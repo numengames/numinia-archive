@@ -64,7 +64,7 @@ function shape(raw) {
 
 function fromPanel() {
   try {
-    const raw = execFileSync('gh', ['api', `repos/numengames/numinia-nwos/rulesets/${RULESET_ID}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    const raw = execFileSync('gh', ['api', `repos/numengames/numinia-archive/rulesets/${RULESET_ID}`], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
     return shape(JSON.parse(raw));
   } catch (e) {
     const why = /not found|404/i.test(String(e.stderr ?? e)) ? 'the credential cannot read rulesets (admin scope required)' : String(e.stderr ?? e.message).trim().split('\n')[0];

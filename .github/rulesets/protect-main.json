@@ -3,7 +3,7 @@
   "name": "protect-main",
   "target": "branch",
   "source_type": "Repository",
-  "source": "numengames/numinia-nwos",
+  "source": "numengames/numinia-archive",
   "enforcement": "active",
   "conditions": {
     "ref_name": {

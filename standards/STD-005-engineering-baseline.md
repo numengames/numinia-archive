@@ -30,7 +30,7 @@ series_change: "2.3.0 — ENG-031 and ENG-032 turned around: what runs is what i
 > asking what the house rules are.
 > **Audience:** Agents · Oracles
 
-**Binds:** `numengames/numinia-nwos`, edited here and downstream of nothing.
+**Binds:** `numengames/numinia-archive`, edited here and downstream of nothing.
 NWOS workspaces receive it at birth and own it; personal repositories SHOULD.
 **Does not bind:** documents (`STD-004`, `STD-009`); licences (`STD-010`);
 distance to external frameworks (`STD-011`); how an agent applies it to a

@@ -29,7 +29,7 @@ bug bounty programme.
 
 ## Scope
 
-- This repository (`numengames/numinia-nwos`): the NWOS workspace and
+- This repository (`numengames/numinia-archive`): the NWOS workspace and
   the Astro viewer in `web/`.
 - The deployed site: `numinia.org` / `www.numinia.org` (Cloudflare
   Workers, static assets only — the viewer holds no secrets and needs
