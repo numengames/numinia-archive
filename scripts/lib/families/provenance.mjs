@@ -20,6 +20,16 @@ import { regimeOf } from '../reuse.mjs';
 
 const git = (...a) => execFileSync('git', ['-C', ROOT, ...a], { encoding: 'utf8', maxBuffer: 1 << 26 }).trimEnd();
 const fig = (value, unit, definition) => ({ value, unit, definition });
+// A figure that compares `created:` with the day a commit added the file is
+// published but NOT compared by `--check`. The first-add day is not a property
+// of the tree: main is squash-merged, so the branch commits are replaced by one
+// dated at the merge. A document created on the 18th and merged on the 19th
+// moves from "same day" to "behind" between the branch, where latest.json was
+// regenerated, and main, where --check runs — same corpus_hash, one figure off
+// by one, main red with nobody at fault (#401). These figures are descriptive
+// ("counted, not judged"), not invariants anyone can restore, so they must not
+// be part of the equality that blocks a build. Do not remove the flag.
+const dated = (value, unit, definition) => ({ ...fig(value, unit, definition), volatile: 'commit-date' });
 const sorted = (o) => Object.fromEntries(Object.entries(o).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1)));
 const count = (m, k) => { m[k] = (m[k] ?? 0) + 1; };
 
@@ -103,11 +113,11 @@ export const provenance = {
     return {
       authorship: fig(sorted(byNature), 'documents', 'nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter'),
       dates_vs_commits_compared: fig(compared, 'documents', 'docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)'),
-      created_ahead_of_commit: fig(ahead.length, 'documents', 'created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set)'),
-      created_ahead_list: fig(ahead, 'documents', '[path, created, first-add] for created_ahead_of_commit'),
-      created_behind_commit: fig(behind.length, 'documents', 'created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged'),
+      created_ahead_of_commit: dated(ahead.length, 'documents', 'created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set)'),
+      created_ahead_list: dated(ahead, 'documents', '[path, created, first-add] for created_ahead_of_commit'),
+      created_behind_commit: dated(behind.length, 'documents', 'created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged'),
       regime_crossings: fig(crossings.length, 'renames', 'renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py'),
-      regime_crossings_list: fig(crossings, 'renames', '[from, to, regime change, date]'),
+      regime_crossings_list: dated(crossings, 'renames', '[from, to, regime change, date]'),
       protocol_anchor: fig(sorted(anchor), 'missions', 'P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible'),
     };
   },

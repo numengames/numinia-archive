@@ -162,3 +162,27 @@ function scratchClone() {
   return dir;
 }
 
+
+// #401: a document created on the 18th, merged on the 19th. Squash-merge (and rebase-merge) replace
+// the branch commits with one dated at the merge, so the first-add date every provenance figure
+// compares `created:` against moves between the branch — where latest.json was regenerated — and
+// main — where --check runs. Same corpus_hash, one figure off by one, main red with nobody at fault.
+// A figure that depends on a commit date is published but not compared.
+check('--check stays OK when the commits are squashed to a later date (first-add dates move, corpus does not)', () => {
+  const clone = scratchClone();
+  const git = (...a) => execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', ...a], { stdio: 'ignore', env: { ...process.env, GIT_AUTHOR_DATE: '2026-03-01T12:00:00+00:00', GIT_COMMITTER_DATE: '2026-03-01T12:00:00+00:00' } });
+  try {
+    // the branch: a doc whose created day equals its first-add day — neither ahead nor behind
+    writeFileSync(path.join(clone, 'debt/DBT-998-fixture.md'), '---\nid: "DBT-998"\ntype: documentation\nstatus: active\ncreated: "2026-03-01T10:00:00+02:00"\n---\n# f\n');
+    git('add', '-A'); git('commit', '-q', '-m', 'doc');
+    execFileSync('node', [path.join(clone, 'scripts/telemetry.mjs')], { cwd: clone, stdio: 'ignore' });
+    git('add', '-A'); git('commit', '-q', '-m', 'telemetry');
+    let r = spawnSync('node', [path.join(clone, 'scripts/telemetry.mjs'), '--check'], { cwd: clone, encoding: 'utf8' });
+    if (r.status !== 0) return `expected OK on the branch: ${r.stderr.trim()}`;
+    // the squash-merge, one day later: same tree, one commit, dated at the merge
+    git('reset', '--soft', 'HEAD~2');
+    execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'squash'], { stdio: 'ignore', env: { ...process.env, GIT_AUTHOR_DATE: '2026-03-02T09:00:00+00:00', GIT_COMMITTER_DATE: '2026-03-02T09:00:00+00:00' } });
+    r = spawnSync('node', [path.join(clone, 'scripts/telemetry.mjs'), '--check'], { cwd: clone, encoding: 'utf8' });
+    return r.status === 0 || `ALTERED after squash: ${r.stderr.trim()}`;
+  } finally { rmTree(clone); }
+});

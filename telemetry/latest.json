@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "8b03176",
-  "corpus_hash": "79d5a186ce49f3c205f9a84b307d83c3850a5b15668d0715c62a6e2e520e1e62",
+  "head": "26b0940",
+  "corpus_hash": "1a0da3dbd3eef0e53dd8bc0a2a540cd7d9391bdcc36d9fcb67d3427f254a3bb6",
   "root_dirty": 0,
-  "measured_at": "2026-09-19T06:59:28Z",
+  "measured_at": "2026-09-19T17:58:01Z",
   "families": [
     "corpus",
     "series",
@@ -316,7 +316,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 597095,
+      "value": 597369,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -330,7 +330,7 @@
         "reports": 26138,
         "operations": 22950,
         "blueprints": 22838,
-        "": 17154,
+        "": 17428,
         "templates": 15832,
         "system": 15242,
         "protocols": 14384,
@@ -343,7 +343,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 328190,
+        "(none)": 328464,
         "active": 113927,
         "draft": 109883,
         "done": 26350,
@@ -354,7 +354,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.3,
+      "value": 7.29,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -534,7 +534,8 @@
     "provenance.created_ahead_of_commit": {
       "value": 6,
       "unit": "documents",
-      "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)"
+      "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
+      "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
       "value": [
@@ -570,12 +571,14 @@
         ]
       ],
       "unit": "documents",
-      "definition": "[path, created, first-add] for created_ahead_of_commit"
+      "definition": "[path, created, first-add] for created_ahead_of_commit",
+      "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
       "value": 29,
       "unit": "documents",
-      "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged"
+      "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
+      "volatile": "commit-date"
     },
     "provenance.regime_crossings": {
       "value": 6,
@@ -622,7 +625,8 @@
         ]
       ],
       "unit": "renames",
-      "definition": "[from, to, regime change, date]"
+      "definition": "[from, to, regime change, date]",
+      "volatile": "commit-date"
     },
     "provenance.protocol_anchor": {
       "value": {

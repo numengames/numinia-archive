@@ -133,9 +133,13 @@ if (flag('--check')) {
   if (!existsSync(p)) { console.error('telemetry --check: telemetry/latest.json missing — run the instrument'); process.exit(1); }
   const prev = JSON.parse(readFileSync(p, 'utf8'));
   if (prev.corpus_hash !== latest.corpus_hash) { console.error(`telemetry --check: STALE — latest.json is for corpus ${prev.corpus_hash.slice(0, 12)} (head ${prev.head}), tree is ${latest.corpus_hash.slice(0, 12)} (head ${latest.head}). Re-run node scripts/telemetry.mjs.`); process.exit(1); }
-  const diff = Object.entries(values(latest)).filter(([k, v]) => JSON.stringify(v) !== JSON.stringify(prev.figures[k]?.value));
+  // Figures marked `volatile` depend on commit dates, which squash-merge rewrites between the
+  // branch and main (see provenance.mjs `dated`). They are published, never compared here.
+  const compared = Object.entries(latest.figures).filter(([, f]) => !f.volatile);
+  const diff = compared.filter(([k, f]) => JSON.stringify(f.value) !== JSON.stringify(prev.figures[k]?.value));
   if (diff.length) { console.error(`telemetry --check: ALTERED — same corpus, ${diff.length} figure(s) differ from a fresh run: ${diff.map(([k]) => k).join(', ')}`); process.exit(1); }
-  console.log(`telemetry --check: OK — latest.json matches HEAD ${latest.head} (${Object.keys(latest.figures).length} figures)`); process.exit(0);
+  const skipped = Object.keys(latest.figures).length - compared.length;
+  console.log(`telemetry --check: OK — latest.json matches HEAD ${latest.head} (${compared.length} figures compared, ${skipped} commit-dated figures published but not compared)`); process.exit(0);
 }
 
 mkdirSync(OUT, { recursive: true });
