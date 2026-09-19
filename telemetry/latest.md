@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-18T15:04:05Z"
+updated: "2026-09-19T06:59:28Z"
 author: "scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `telemetry/` is resolved by re-running, never by hand.
 
-- head: `d17942f`  · corpus_hash: `99405917ccb0059c…`  · measured_at: 2026-09-18T15:04:05Z  · root_dirty: 0
+- head: `8b03176`  · corpus_hash: `79d5a186ce49f3c2…`  · measured_at: 2026-09-19T06:59:28Z  · root_dirty: 0
 
 ## corpus
 
@@ -201,7 +201,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 596632 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 597095 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 7.3 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -219,7 +219,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | reports | 26138 |
 | operations | 22950 |
 | blueprints | 22838 |
-|  | 16691 |
+|  | 17154 |
 | templates | 15832 |
 | system | 15242 |
 | protocols | 14384 |
@@ -231,7 +231,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 327727 |
+| (none) | 328190 |
 | active | 113927 |
 | draft | 109883 |
 | done | 26350 |
@@ -365,7 +365,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `provenance.dates_vs_commits_compared` | 129 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
 | `provenance.created_ahead_of_commit` | 6 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
-| `provenance.created_behind_commit` | 28 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
+| `provenance.created_behind_commit` | 29 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
 | `provenance.regime_crossings` | 6 | renames | renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py |
 | `provenance.regime_crossings_list` | (table below) | renames | [from, to, regime change, date] |
 | `provenance.protocol_anchor` | (table below) | missions | P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible |
@@ -438,7 +438,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 608 |
+| STD | 609 |
 | MIS | 680 |
 | PRO | 222 |
 | OPS | 59 |
@@ -462,7 +462,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `figures.live` | 269 | lines | lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
+| `figures.live` | 270 | lines | lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
 | `figures.live_by_doc` | (table below) | lines | the fifteen docs with most such lines |
 | `figures.cited` | 0 | citations | citations in the §10.5 form `key = value @ head` across the corpus |
 | `figures.stale_citations` | (table below) | citations | cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true |
@@ -481,7 +481,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | reports/RPT-017-mvp-story.md | 11 |
 | operations/OPS-007-sales.md | 10 |
 | reports/RPT-019-2026-w37.md | 10 |
-| CHANGELOG.md | 8 |
+| CHANGELOG.md | 9 |
 | missions/MIS-0135-normalisation-residue-register.md | 7 |
 | operations/OPS-001-continuity.md | 7 |
 | standards/STD-023-design-values.md | 7 |
