@@ -14,6 +14,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-18 (first CC0 resource intake)
+- `system/SYS-005-digital-resource-register.md`: canonical intake record for all 32 legacy candidates. Avocado and Pot Vapor 02 have primary CC0 evidence and unchanged originals in the companion numinia-assets cut; the other 30 stay outside it with specific provenance questions. IDs and historical declarations remain explicit. No consumer cutover, private data, thumbnails or legacy cleanup.
+
 ### Added — 2026-09-18 (a site says what it stores: OPS-010, DSN-015)
 - `operations/OPS-010-cookie-policy-numengames.md` (legal, reserved, pinned in `REUSE.toml` with OPS-003/004): the Cookie Policy of the four sites, written from a measured inventory per site — numinia.com's consent, session and preference entries; the other three store nothing. Resolves OPS-003's FLAG-4 (the cited policy exists now); opens OPS-010's FLAG-2 (OPS-003 §2 overstates).
 - `standards/STD-008-design-tokens.md` 7.2.0: DSN-015 — a site stores nothing and loads nothing third-party that the policy does not name; consent before anything not necessary; check `check-storage`.
