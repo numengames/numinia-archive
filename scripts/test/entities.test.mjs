@@ -135,9 +135,12 @@ test('the real tree walks clean and every card is consistent with the catalogue 
       assert.ok(f.rights_holder, `${e.slug}/${f.role}: every form names its rights holder`);
       assert.ok(f.copies.length >= 1, `${e.slug}/${f.role}: a form with no copy has no bytes`);
       for (const c of f.copies) {
-        assert.match(c.sha256, /^[0-9a-f]{64}$/, `${e.slug}/${f.role}: sha256 is a hex digest`);
-        assert.ok(Number.isInteger(c.bytes) && c.bytes > 0, `${e.slug}/${f.role}: bytes is a size`);
-        assert.ok(c.url || (c.path && c.commit), `${e.slug}/${f.role}: a copy is a url, or a repo path pinned to a commit`);
+        assert.ok(c.url || (c.path && c.commit) || (c.path && c.repo === undefined),
+          `${e.slug}/${f.role}: a copy is a url, a repo path pinned to a commit, or a path in this repository`);
+        if (c.sha256 !== undefined) assert.match(c.sha256, /^[0-9a-f]{64}$/, `${e.slug}/${f.role}: sha256 is a hex digest`);
+        if (c.bytes !== undefined) assert.ok(Number.isInteger(c.bytes) && c.bytes > 0, `${e.slug}/${f.role}: bytes is a size`);
+        if (!c.url && !c.commit) assert.ok(existsSync(path.join(ROOT, c.path)),
+          `${e.slug}/${f.role}: path copy ${c.path} does not exist in this tree`);
       }
     }
   }
@@ -145,4 +148,50 @@ test('the real tree walks clean and every card is consistent with the catalogue 
   // so does this — a regenerated catalogue that is staged counts.
   const committed = JSON.parse(execSync('git show :objects/catalogue.json', { cwd: ROOT, encoding: 'utf8' }));
   assert.deepEqual(cat, committed, 'objects/catalogue.json on disk differs from the index — run node scripts/entities.mjs and git add it');
+});
+
+test('an agent card (agents/<name>/AGENT.md) is walked too, and a path copy in this repository is read from the tree', () => {
+  // The agents are entities as much as the objects: the card lives inside
+  // the agent's folder, beside the forms it indexes (SOUL, OPERATOR…). A
+  // copy that is a path with no commit is this repository's own file — git
+  // pins it, the card does not repeat the commit — and --check hashes what
+  // is on disk.
+  const dir = scratchTree();
+  try {
+    mkdirSync(path.join(dir, 'agents', 'probe'), { recursive: true });
+    writeFileSync(path.join(dir, 'agents', 'probe', 'SOUL.md'), '# Probe\n');
+    writeFileSync(path.join(dir, 'agents', 'probe', 'AGENT.md'), `---
+id: "probe"
+title: "Probe"
+type: entity
+status: draft
+version: "0.1.0"
+created: "2026-09-20T08:00:00Z"
+updated: "2026-09-20T08:00:00Z"
+license: "CC0-1.0"
+entity: agent
+type_execution: digital
+forms:
+  - role: soul
+    format: markdown
+    license: "CC0-1.0"
+    rights_holder: "Numen Games S.L."
+    copies:
+      - path: agents/probe/SOUL.md
+---
+
+A probe agent.
+`);
+    execSync('git add -A', { cwd: dir });
+    const r = run(dir, ['--check']);
+    assert.equal(r.code, 0, r.out);
+    const cat = JSON.parse(readFileSync(path.join(dir, 'objects', 'catalogue.json'), 'utf8'));
+    const agent = cat.entities.find((e) => e.id === 'probe');
+    assert.ok(agent, 'the agent card is in the catalogue');
+    assert.equal(agent.entity, 'agent');
+    assert.equal(agent.path, 'agents/probe/AGENT.md');
+    assert.equal(agent.slug, 'probe', 'the slug of an agent card is the folder name, not AGENT');
+    const md = readFileSync(path.join(dir, 'objects', 'CHECK.md'), 'utf8');
+    assert.match(md, /\| probe \| soul \| agents\/probe\/SOUL\.md \| ok \|/, 'a path copy with no commit is hashed from the tree and reported ok');
+  } finally { rmSync(dir, { recursive: true, force: true }); }
 });

@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 10353,
+  "chars": 10575,
   "apparatus": false,
   "archived": false,
-  "tokens": 2384
+  "tokens": 2446
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 46853,
+  "chars": 49142,
   "apparatus": false,
   "archived": false,
-  "tokens": 12935
+  "tokens": 13529
  },
  {
   "path": "CLAUDE.md",
@@ -115,10 +115,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 4696,
+  "chars": 4755,
   "apparatus": true,
   "archived": false,
-  "tokens": 1385
+  "tokens": 1398
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -462,12 +462,23 @@
   "tokens": 772
  },
  {
+  "path": "agents/ursa/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 4070,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1047
+ },
+ {
   "path": "agents/ursa/OPERATOR.md",
   "dir": "agents",
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1397,
+  "chars": 1395,
   "apparatus": false,
   "archived": false,
   "tokens": 347
@@ -1072,10 +1083,10 @@
   "series": null,
   "type": "meta",
   "status": "active",
-  "chars": 1150,
+  "chars": 1880,
   "apparatus": true,
   "archived": false,
-  "tokens": 371
+  "tokens": 653
  },
  {
   "path": "objects/avocado.md",

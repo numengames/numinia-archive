@@ -135,7 +135,7 @@
     "entities": {
       "script": "scripts/entities.mjs",
       "manual": "with --check it fetches every copy of every form from third-party hosts (the depot's raw URL, the legacy R2 bucket), so it is run by hand and its dated report is committed; CI never depends on a host being up (ENG-032's registry-discovery scope). Without --check it only regenerates objects/catalogue.json, and the test suite proves the committed catalogue matches the cards",
-      "sees": "every card under objects/: its header, forms and copies, into catalogue.json; with --check, the bytes at every copy — SHA-256 and size against the card, and the licence the file carries inside itself where the format has a slot (VRM meta, glTF extras) against the card's `embedded_license`",
+      "sees": "every card — objects/*.md and agents/*/AGENT.md: its header, forms and copies, into catalogue.json; with --check, the bytes at every copy — SHA-256 and size against the card for a url or a commit-pinned path, the hash and last commit recorded for a path in this repository (git pins it, the card repeats no hash) — and the licence the file carries inside itself where the format has a slot (VRM meta, glTF extras) against the card's `embedded_license`",
       "blind_to": [
         {
           "spot": "the truth of a licence — it compares the card's claim with the file's own claim and the depot's; whether Polygonal Mind or anyone else actually holds the rights is evidence in the intake record, not a hash",
@@ -158,7 +158,7 @@
           "debt": null
         },
         {
-          "spot": "a card's header rules — it parses what is there; whether the fields are the right ones is the future registry standard's question, and objects/ is not in the governed set while that standard does not exist",
+          "spot": "a card's header rules — it parses what is there; whether the fields are the right ones is the future registry standard's question. objects/ is not in the governed set while that standard does not exist; agents/ is, so an agent card collects the header guard's findings for `entity`, `forms` and `type: entity` until the vocabulary is registered — reported, not enforced, while the header standard is draft",
           "covered_by": "std-018-one-identifier, for a duplicated id across the tree",
           "debt": null
         }
