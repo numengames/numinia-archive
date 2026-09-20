@@ -34,7 +34,7 @@ import { declareBlindSpots } from "./lib/blindness.mjs";
 declareBlindSpots("check-orphan-content");
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const WEB = join(__dirname, "..", "web");
+const WEB = join(__dirname, "..", "..", "web");
 const PUBLIC = join(WEB, "public");
 const DIST = join(WEB, "dist");
 

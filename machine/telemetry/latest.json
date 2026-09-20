@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "c0fcc97+index",
-  "corpus_hash": "afa32548ffda3e097a19a4dde4a4cf8f31db5dd67a903998bbe84f9ce6884426",
+  "head": "3ff2f86+index",
+  "corpus_hash": "1d2b8ecc9ae17be4a293d9009a56c49d5a7bcab3369b454da5edb6b88b881b7f",
   "root_dirty": 0,
-  "measured_at": "2026-09-20T16:33:16Z",
+  "measured_at": "2026-09-20T16:41:29Z",
   "families": [
     "corpus",
     "series",
@@ -313,34 +313,79 @@
       "definition": "`started` written in `Z`"
     },
     "tokens.tokenizer": {
-      "value": null,
+      "value": "cl100k_base sha256:223921b76ee9",
       "unit": "identity",
-      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": null,
+      "value": 607705,
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
-      "value": null,
+      "value": {
+        "lore": 310720,
+        "standards": 45623,
+        "missions": 43636,
+        "canon": 29365,
+        "agents": 27835,
+        "reports": 26153,
+        "operations": 22950,
+        "blueprints": 22838,
+        "": 20773,
+        "machine": 15853,
+        "system": 15557,
+        "protocols": 14390,
+        "decisions": 7742,
+        "objects": 1835,
+        "debt": 1544,
+        ".github": 891
+      },
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "tokens per top-level dir, largest first"
     },
     "tokens.by_status": {
-      "value": null,
+      "value": {
+        "(none)": 331682,
+        "draft": 115755,
+        "active": 115114,
+        "done": 26389,
+        "todo": 14104,
+        "in-progress": 4661
+      },
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": null,
-      "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "value": 7.18,
+      "unit": "percent",
+      "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
     "tokens.largest": {
-      "value": null,
+      "value": [
+        [
+          "lore/game/manual-v0.6.0.md",
+          245886
+        ],
+        [
+          "lore/adventures/el-espejo-roto.md",
+          16792
+        ],
+        [
+          "CHANGELOG.md",
+          13607
+        ],
+        [
+          "lore/world/brand-and-culture.md",
+          11437
+        ],
+        [
+          "lore/codex/glosario.md",
+          11270
+        ]
+      ],
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
       "value": 148,
@@ -487,7 +532,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 130,
+      "value": 134,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -504,7 +549,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 128,
+      "value": 130,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"

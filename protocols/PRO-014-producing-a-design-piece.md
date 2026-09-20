@@ -97,7 +97,7 @@ Then the medium's Check: `BLU-009` web and product · `BLU-010` pixel ·
 | Step | Evidence |
 |---|---|
 | DSP-002 | the register, mode and level named in the piece's brief or commit |
-| DSP-003 | `node machine/scripts/generate-design-kit.mjs --check` passes; no hex outside the token file |
+| DSP-003 | `node machine/tools/generate-design-kit.mjs --check` passes; no hex outside the token file |
 | Checklist | the ticked list attached to the delivery |
 | Public route | the accessibility gate (`ARC-010`) green in both modes |
 

@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-20T16:33:16Z"
+updated: "2026-09-20T16:41:29Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `c0fcc97+index`  · corpus_hash: `afa32548ffda3e09…`  · measured_at: 2026-09-20T16:33:16Z  · root_dirty: 0
+- head: `3ff2f86+index`  · corpus_hash: `1d2b8ecc9ae17be4…`  · measured_at: 2026-09-20T16:41:29Z  · root_dirty: 0
 
 ## corpus
 
@@ -202,36 +202,48 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `tokens.tokenizer` | (table below) | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.total` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.by_dir` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.by_status` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.missions_share_pct` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.largest` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-
-### `tokens.tokenizer`
-
-(none — 0 rows)
-
-### `tokens.total`
-
-(none — 0 rows)
+| `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
+| `tokens.total` | 607705 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
+| `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
+| `tokens.missions_share_pct` | 7.18 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
-(none — 0 rows)
+| | tokens |
+|---|---|
+| lore | 310720 |
+| standards | 45623 |
+| missions | 43636 |
+| canon | 29365 |
+| agents | 27835 |
+| reports | 26153 |
+| operations | 22950 |
+| blueprints | 22838 |
+|  | 20773 |
+| machine | 15853 |
+| system | 15557 |
+| protocols | 14390 |
+| decisions | 7742 |
+| objects | 1835 |
+| debt | 1544 |
+| .github | 891 |
 
 ### `tokens.by_status`
 
-(none — 0 rows)
-
-### `tokens.missions_share_pct`
-
-(none — 0 rows)
+| | tokens |
+|---|---|
+| (none) | 331682 |
+| draft | 115755 |
+| active | 115114 |
+| done | 26389 |
+| todo | 14104 |
+| in-progress | 4661 |
 
 ### `tokens.largest`
 
-(none — 0 rows)
+5 rows (tokens) — in `latest.json`.
 
 ## headers
 
@@ -355,10 +367,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `provenance.authorship` | (table below) | documents | nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude\|gpt\|opus\|sonnet\|fable\|gemini\|llm) · other · no-author · no-frontmatter |
-| `provenance.dates_vs_commits_compared` | 130 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
+| `provenance.dates_vs_commits_compared` | 134 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
 | `provenance.created_ahead_of_commit` | 0 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
-| `provenance.created_behind_commit` | 128 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
+| `provenance.created_behind_commit` | 130 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
 | `provenance.regime_crossings` | 0 | renames | renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py |
 | `provenance.regime_crossings_list` | (table below) | renames | [from, to, regime change, date] |
 | `provenance.protocol_anchor` | (table below) | missions | P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible |

@@ -117,7 +117,7 @@ without being named there.
 
 | Rule | Verified by |
 |---|---|
-| DSN-009 | `machine/scripts/generate-design-kit.mjs --check` — byte-identical |
+| DSN-009 | `machine/tools/generate-design-kit.mjs --check` — byte-identical |
 | DSN-005, DSN-011 | axe + Playwright on every public route, both modes (`ARC-010`) |
 | DSN-001, DSN-003, DSN-010 | `PRO-014` step 3 — value lookup against the token file |
 | DSN-002, DSN-004, DSN-006, DSN-007, DSN-008, DSN-012 | `PRO-014` checklist — visual review |

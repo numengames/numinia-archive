@@ -13,7 +13,7 @@ before that, the `numinia-lore` repository, now archived; before that,
 
 | Folder | What | Read by |
 |---|---|---|
-| `game/` | The rules. `manual-v0.6.0.md` is the canonical text of the RPG (source of numinia.com's domain model and the Codex); `attributes-and-ranks.md` the compendium. | numinia.com Codex (`machine/scripts/fetch-lore.mjs`), Senet, `SYS-003` |
+| `game/` | The rules. `manual-v0.6.0.md` is the canonical text of the RPG (source of numinia.com's domain model and the Codex); `attributes-and-ranks.md` the compendium. | numinia.com Codex (`numinia-web: scripts/fetch-lore.mjs`), Senet, `SYS-003` |
 | `adventures/` | What is played: modules a Director runs at a table. Session Zero (the tutorial), *El Espejo Roto*, and `TEMPLATE.md` for the next one. | Directors, Senet |
 | `world/` | Who and what Numinia is: welcome, brand and culture, role structure, the epistemic relation with Numen Games. | Senet, Calliope, the company site |
 | `codex/` | Edition matter of the printed/EPUB Codex: glossary, acknowledgments, character sheet (text + image), legal note. | numinia.com Codex |

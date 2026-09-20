@@ -83,7 +83,7 @@ jobs:
           # machine/tools/test/<name>.test.mjs exists) — node cannot see inside a
           # child, so the figure omits it although it is tested. Untested:
           # neither. Only the last group is a gap.
-          find scripts guards tools -name '*.mjs' -not -path '*/test/*' -printf '%f\n' | sort -u > /tmp/all.txt
+          find machine/scripts machine/guards machine/tools -name '*.mjs' -not -path '*/test/*' -printf '%f\n' | sort -u > /tmp/all.txt
           echo "$out" | grep -oE '[A-Za-z0-9_-]+\.mjs +\|' | grep -oE '[A-Za-z0-9_-]+\.mjs' | sort -u > /tmp/loaded.txt
           find machine/scripts/test machine/guards/test machine/tools/test -name '*.test.mjs' -printf '%f\n' | sed 's/\.test\.mjs$/.mjs/' | sort -u > /tmp/tested.txt
           total=$(wc -l < /tmp/all.txt)
@@ -188,7 +188,7 @@ jobs:
       # favicon set and the 1200×630 share card into web/public; this proves
       # the four files exist and the card has the size link previews need.
       - name: share card
-        run: node machine/scripts/share-card.mjs --check
+        run: node scripts/share-card.mjs --check
         working-directory: web
 
       # Every build guard: the built site and the committed telemetry are what

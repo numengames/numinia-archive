@@ -103,7 +103,7 @@ apart by ENG-067:
 
 | Kind | Steps, in this order | Fails the build? |
 |---|---|---|
-| Artefact | install → type-check → lint → test → build → share card (`machine/scripts/share-card.mjs --check`) → version bump (`machine/scripts/check-version-bump.mjs`) | Yes. A page that does not build, a test that fails, a favicon that is missing or a version that did not move is a broken artefact whatever any standard says. |
+| Artefact | install → type-check → lint → test → build → share card (`web/scripts/share-card.mjs --check`) → version bump (`machine/scripts/check-version-bump.mjs`) | Yes. A page that does not build, a test that fails, a favicon that is missing or a version that did not move is a broken artefact whatever any standard says. |
 | Rule | presence of the files named above · REUSE lint · OpenSSF Scorecard · dependency audit | No, while this register is `draft`. The step runs on every pull request, prints every finding in the log and the job summary, and exits 0. Promoting this register to `active` is what turns them into failures. |
 
 - **One required check, literally named `build`.** The branch ruleset
@@ -120,7 +120,7 @@ apart by ENG-067:
   conjunction.
 - **Kept identical across the five, by hand until a package carries
   them:** `machine/scripts/check-version-bump.mjs` (only the two path constants
-  differ), `machine/scripts/share-card.mjs`, `.github/dependabot.yml`,
+  differ), `web/scripts/share-card.mjs`, `.github/dependabot.yml`,
   `.github/workflows/dependabot-auto-merge.yml`,
   `.github/workflows/scorecard.yml`. A `diff` between two copies shows the
   paths and nothing else.
