@@ -107,7 +107,7 @@ Representation of the original page's visual stack (top to bottom):
 
 - **🧠 Epistemic value:** The organization is not an object you can create directly. It is a pattern that emerges when all the components operate together over time. That is why 'deploying NWOS' is not enough — the system has to be lived.
 - **⚡ Pragmatic value:** When the cycle works (Biological activates → Digital executes → Archive receives → Biological reviews), the organization learns. Every completed mission makes the system slightly more intelligent. That is the promise of the NWOS.
-- **📍 Real case — Nimrod (measured 2026-04-12):** Numen Games had been operating with this system for 5 days: 54 documented missions, 32 PRs, 5 reports, 5 decisions. That is not a 5-day-old company — it is an organization with years of memory if the system is maintained. The figures are a dated snapshot, not a current count; `node scripts/telemetry.mjs` measures the corpus today.
+- **📍 Real case — Nimrod (measured 2026-04-12):** Numen Games had been operating with this system for 5 days: 54 documented missions, 32 PRs, 5 reports, 5 decisions. That is not a 5-day-old company — it is an organization with years of memory if the system is maintained. The figures are a dated snapshot, not a current count; `node machine/scripts/telemetry.mjs` measures the corpus today.
 
 ---
 

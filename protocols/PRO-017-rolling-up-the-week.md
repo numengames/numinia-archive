@@ -70,7 +70,7 @@ after the final content commit and `--check` MUST pass before push.
 
 1. Open or create `reports/RPT-NNN-<yyyy>-w<ww>.md`, `subtype: rollup`,
    with two sections: *Closed this week*, *Carried up*.
-2. `node scripts/check-deletable.mjs --candidates` lists what closed;
+2. `node machine/scripts/check-deletable.mjs --candidates` lists what closed;
    `git log --since=<monday>` is the daily record (`DEF-001`).
 3. One line per record (`RUP-001`), classified (`RUP-002`).
 4. `absorbs:` and redirects in `web/astro.config.mjs` (`RUP-003`).
@@ -91,7 +91,7 @@ whole (`DEF-005`); redirects are repointed; the lower reports are deleted.
 | Nothing broke | `check-references` 0 new · `check-url-lifecycle` 0 dead |
 | Nothing left behind | `check-deletable --candidates` empty for the period |
 | Nothing lost | `absorbs:` equals the set of deleted identifiers |
-| Nothing grew | `tokens.total` in `telemetry/latest.json` lower than before; if not, the PR says why |
+| Nothing grew | `tokens.total` in `machine/telemetry/latest.json` lower than before; if not, the PR says why |
 
 ## 5. Escalation
 

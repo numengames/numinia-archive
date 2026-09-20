@@ -14,7 +14,7 @@ territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, evidence, citation, audits]
 threshold: governed
-series_change: "1.1.2 — 2026-09-11: Check row repoints to guards/rules/std-021-evidence-and-citation.mjs (R3 fold of check-core-rules and check-section-citations). Patch: prose only. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §9 Citation and EVI-057 are one standard."
+series_change: "1.1.2 — 2026-09-11: Check row repoints to machine/guards/rules/std-021-evidence-and-citation.mjs (R3 fold of check-core-rules and check-section-citations). Patch: prose only. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §9 Citation and EVI-057 are one standard."
 ---
 
 # Evidence and citation
@@ -57,9 +57,9 @@ can name them without an ignore list.
 
 | Plate | Verified by |
 |---|---|
-| CIT-050 | `guards/rules/std-021-evidence-and-citation.mjs` — a standard cites no section by number; elsewhere a cited section must exist |
-| CIT-053 | `guards/rules/std-020-git-is-the-archive.mjs` exempts closed documents |
-| CIT-054 | `guards/rules/std-020-git-is-the-archive.mjs` (what it skips) |
+| CIT-050 | `machine/guards/rules/std-021-evidence-and-citation.mjs` — a standard cites no section by number; elsewhere a cited section must exist |
+| CIT-053 | `machine/guards/rules/std-020-git-is-the-archive.mjs` exempts closed documents |
+| CIT-054 | `machine/guards/rules/std-020-git-is-the-archive.mjs` (what it skips) |
 | CIT-051, CIT-052, EVI-057 | `[MANUAL]` — the layout, the proof and the denominator are prose |
 
 ## Why

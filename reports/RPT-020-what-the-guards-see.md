@@ -18,9 +18,9 @@ tags: [report, audit, guards, alpha, baseline]
 license: "CC-BY-4.0"
 visibility: "public"
 severity: high
-scope: "The 20 scripts under `scripts/`, run on the whole tree at `417aa68` after the normative axis went to draft (#352) and three baselines went to zero (#353). Not examined: whether each rule is right, and the web build's own tests."
+scope: "The 20 scripts under `machine/scripts/`, run on the whole tree at `417aa68` after the normative axis went to draft (#352) and three baselines went to zero (#353). Not examined: whether each rule is right, and the web build's own tests."
 evidence_head: "417aa68"
-evidence_script: "scripts/*.mjs --report"
+evidence_script: "machine/scripts/*.mjs --report"
 related: ["STD-005", "STD-007", "STD-020", "STD-006", "DBT-020"]
 ---
 
@@ -41,10 +41,10 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ## 1. Scope and method
 
-Every script in `scripts/` ran on `417aa68` with `--report` where the flag
+Every script in `machine/scripts/` ran on `417aa68` with `--report` where the flag
 exists: 16 guards, 3 tools that are not guards (`generate-design-kit`,
 `rename-series`, `check-responsive`), `telemetry`, and the 7 test suites
-under `scripts/test/`.
+under `machine/scripts/test/`.
 
 The regime (`ENG-067`, `STD-005`) was in force: a finding fails the build
 only while the standard holding its plate is `active`. After #352 none is.

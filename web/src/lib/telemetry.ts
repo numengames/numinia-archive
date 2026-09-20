@@ -19,8 +19,8 @@
 // Nothing, today. EXCLUDED_FAMILIES stays as the one place a family would be
 // kept out of the view, with its reason written beside it.
 
-import latestRaw from "../../../telemetry/latest.json";
-import historyRaw from "../../../telemetry/history.jsonl?raw";
+import latestRaw from "../../../machine/telemetry/latest.json";
+import historyRaw from "../../../machine/telemetry/history.jsonl?raw";
 import { COMMIT_SHA, HAS_SHA } from "./build-info";
 
 /** One measured figure, exactly as the instrument writes it. */

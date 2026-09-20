@@ -16,7 +16,7 @@ threshold: governed
 license: "CC0-1.0"
 tags: [standard, missions, board, lifecycle]
 related: ["STD-001", "STD-016", "STD-018", "PRO-003", "ADR-030"]
-series_change: "1.0.1 — 2026-09-11: Check rows name the folder a script lives in (scripts/, tools/, guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.0.0 — new standard, cut under ADR-043: the obligations PRO-003 carried on the mission artefact since v1 (states, stamps, immutability, one executor, parent and child, exit by deletion), now plated. PRO-003 keeps the briefing, the cycle and the coordination. CORE-36..39 and CORE-41 keep their numbers under MSN-."
+series_change: "1.0.1 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.0.0 — new standard, cut under ADR-043: the obligations PRO-003 carried on the mission artefact since v1 (states, stamps, immutability, one executor, parent and child, exit by deletion), now plated. PRO-003 keeps the briefing, the cycle and the coordination. CORE-36..39 and CORE-41 keep their numbers under MSN-."
 ---
 
 <!--
@@ -90,11 +90,11 @@ or deleted at the next review.
 | MSN-037 | manual — the section is checkable; whether it states a test is not |
 | MSN-041 | manual — no trace distinguishes a read from a skim |
 | MSN-001 | `web/src/content.config.ts` (build fails on any other value) |
-| MSN-002 | `guards/rules/std-004-the-header.mjs` — stamp present for the status |
-| MSN-039 | `guards/rules/std-004-the-header.mjs` — `freeze_reason` present when `frozen` |
+| MSN-002 | `machine/guards/rules/std-004-the-header.mjs` — stamp present for the status |
+| MSN-039 | `machine/guards/rules/std-004-the-header.mjs` — `freeze_reason` present when `frozen` |
 | MSN-003 | manual — `assigned_to` is one value; who edits is judgement |
 | MSN-038 | manual — parent and child are declared in prose |
-| MSN-004 | `tools/check-deletable.mjs` for the exit; the immutability is manual |
+| MSN-004 | `machine/tools/check-deletable.mjs` for the exit; the immutability is manual |
 
 ## Why
 

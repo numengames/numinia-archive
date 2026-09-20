@@ -64,7 +64,7 @@ anyone until its state says otherwise — this standard included.
 | Plate | Verified by |
 |---|---|
 | PRE-001..005 | `[MANUAL]` — recognising that two sources conflict, and which is the claim, is a judgement no parser makes |
-| PRE-006 | every guard on the R2 contract (`guards/lib/guard.mjs`) reads each standard's `status` and reports without failing while it is `draft`; every guard MUST behave so under `ENG-067` (`STD-005`) |
+| PRE-006 | every guard on the R2 contract (`machine/guards/lib/guard.mjs`) reads each standard's `status` and reports without failing while it is `draft`; every guard MUST behave so under `ENG-067` (`STD-005`) |
 
 ## Why
 

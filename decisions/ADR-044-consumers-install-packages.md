@@ -26,8 +26,8 @@ SPDX-License-Identifier: CC-BY-4.0
 # ADR-044 — Consumers install packages, never copy
 
 > **Summary:** What another repository needs to rebuild part of this system
-> is a versioned package under `packages/`, installed, never copied. The
-> design kit is the first: source in `packages/design-kit/`, published
+> is a versioned package under `machine/packages/`, installed, never copied. The
+> design kit is the first: source in `machine/packages/design-kit/`, published
 > output at `/diseno/kit/`.
 > **Epistemic:** Numinia is the first instance of NWOS; what it learns moves
 > to the generic system in `nwos-deploy`. A copy cannot move; a package can.
@@ -38,7 +38,7 @@ SPDX-License-Identifier: CC-BY-4.0
 ## 2. Decision
 
 **Anything a consumer outside this repository needs in order to rebuild a
-part of this system is published as a versioned package under `packages/`,
+part of this system is published as a versioned package under `machine/packages/`,
 and the consumer installs it. Copies are a breach.**
 
 The design system lives in five houses, each with one job:
@@ -49,7 +49,7 @@ The design system lives in five houses, each with one job:
 | `STD-008` | the rules that answer yes or no (`DSN-`) | reviewers, CI |
 | `STD-023` | the closed lists: palette, scales, animations, assets | the generator, which verifies register = tokens |
 | `blueprints/` | recipes, one per medium | the workspace template |
-| `packages/design-kit/` | `sistema.css`, `.js`, `.tokens.json`, `.prompt.txt`, versioned (MIT) | every site, by install |
+| `machine/packages/design-kit/` | `sistema.css`, `.js`, `.tokens.json`, `.prompt.txt`, versioned (MIT) | every site, by install |
 
 `web/public/diseno/kit/` stays as the published output with a sha256
 manifest; its URLs are a contract and do not move.
@@ -66,7 +66,7 @@ consumers copied anyway. A rule with no way to install is a wish.
 
 - **A `design/` folder.** A reader's convenience, still a copy for a
   consumer; a folder in another repository cannot be installed.
-- **Source in `scripts/` or `web/`.** Apparatus, or output edited in place.
+- **Source in `machine/scripts/` or `web/`.** Apparatus, or output edited in place.
 - **Publish from `nwos-deploy`.** The right final home; the values are
   decided here today and the package moves up when the instance stops
   learning.
@@ -78,4 +78,4 @@ consumers copied anyway. A rule with no way to install is a wish.
 - `nwos-deploy` and `numinia-web` replace their copies with the package —
   a change in each, reviewed there.
 - The same rule applies to whatever else the generic system takes from
-  here — `templates/`, the guards — when it is taken.
+  here — `machine/templates/`, the guards — when it is taken.

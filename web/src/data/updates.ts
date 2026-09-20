@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.5.0",
+    date: "2026-09-20",
+    entries: [
+      {
+        type: "CHG",
+        text: "The archive is now classified by function: one fond, six functions — Governance, Production, Assurance, Agency, Creation, Administration — and the activity under each that produces a series. The folders themselves did not move and no address changed; what changed is that the README and /corpus now say which activity produced what you are reading, instead of listing eleven folders with nothing grouping them. The scheme is published at /corpus/standards/std-027-the-classification-scheme, its reasoning at /decisiones/adr-046.",
+      },
+      {
+        type: "FIX",
+        text: "The archive pages called seven folders 'fondos'. In archival terms a fond is everything one producer generates — there is one fond here, and those seven are series of it. Corrected in the reference manual (/corpus/system/sys-003-archive-fondos); the /archive pages themselves still render the old model and are the next thing to redesign.",
+      },
+    ],
+  },
+  {
     version: "v0.4.0",
     date: "2026-09-20",
     entries: [

@@ -124,8 +124,8 @@ Falsifiable at base commit `e4b94e7`:
    matches
 ✓  grep -n "the constitution's" numinia-web/apps/store/e2e/a11y.spec.ts
    no matches                                (today, pre-mission: 1 match)
-✓  node scripts/lint-frontmatter.mjs && node scripts/lint-naming.mjs \
-   && node scripts/check-references.mjs      exit 0, no new violations
+✓  node machine/scripts/lint-frontmatter.mjs && node machine/scripts/lint-naming.mjs \
+   && node machine/scripts/check-references.mjs      exit 0, no new violations
 ✓  cd numinia-web && npx tsc --noEmit -p apps/store/tsconfig.json \
    | grep a11y.spec                          no new errors
 ✗  Design System document renamed             (out of scope — DBT-013)

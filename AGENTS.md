@@ -49,10 +49,10 @@ What still holds, because each rule protects something that can be seen:
   delete a branch, rewrite a pushed commit, or change licences,
   visibility or secrets;
 - CI green: guards, tests, the web build, and telemetry regenerated in
-  the last commit (`node scripts/telemetry.mjs`) — the check is
+  the last commit (`node machine/scripts/telemetry.mjs`) — the check is
   mechanical, not ceremony;
 - every pull request that changes a site adds its `/updates` entry and
-  raises the version (`scripts/check-version-bump.mjs`);
+  raises the version (`machine/scripts/check-version-bump.mjs`);
 - a `CHANGELOG.md` entry for what changed in this archive;
 - the test before the code (`STD-015` DEV-008): for a feature, a fix or a
   refactor, the test that describes the change is written first, run, and
@@ -86,13 +86,13 @@ The principal areas of this repository:
   `STD-001-the-series.md` (the series) · `STD-016-header-fields.md` (the fields) and
   `STD-005-engineering-baseline.md` (the practices; `PRO-016` applies them).
 - `protocols/` — procedures: session close, briefing, archiving.
-- `missions/` — the unit of work; `templates/MIS-TEMPLATE` defines the contract.
+- `missions/` — the unit of work; `machine/templates/MIS-TEMPLATE` defines the contract.
 - `decisions/` — ADRs; `debt/` — the register of what is known
   to be wrong; `reports/` — audits and evidence.
 - `operations/` — business records, one flat `OPS-` series (`OPS-003`,
   `OPS-004` and `OPS-007` are reserved, pinned per-file in `REUSE.toml`).
 - `blueprints/` — architecture documents; `web/` — the Astro viewer serving
-  numinia.org; `scripts/` — CI guards.
+  numinia.org; `machine/scripts/` — CI guards.
 
 There is no `domains/` or `shared/` tree: this repository IS the archive
 domain. RPG source material is `lore/`.

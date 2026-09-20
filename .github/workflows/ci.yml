@@ -10,7 +10,7 @@
 # only run after `build` — the runner exits 2 if that directory is missing, so
 # a misplaced step fails loudly instead of passing blind.
 #
-# The workflow names no guard. What runs is what scripts/run-guards.mjs finds
+# The workflow names no guard. What runs is what machine/scripts/run-guards.mjs finds
 # in the registry (ENG-032); a guard enters CI by being merged.
 #
 # Actions are pinned by commit SHA, not by tag: a tag can be moved by its
@@ -47,9 +47,9 @@ jobs:
       # its checksum. Without it the token figures are null and the next step
       # fails. Needs network egress to the tokenizer host.
       - name: telemetry — tokenizer rank file
-        run: node scripts/telemetry.mjs --fetch-tokenizer
+        run: node machine/scripts/telemetry.mjs --fetch-tokenizer
 
-      # Every rule guard named by scripts/blind-spots.json (ENG-032), wherever
+      # Every rule guard named by machine/scripts/blind-spots.json (ENG-032), wherever
       # its script sits. Each reports every finding it sees; whether one fails
       # the build is decided by the state of the standard that holds the rule
       # (ENG-067). Red means: a rule whose standard is active is broken — the
@@ -62,7 +62,7 @@ jobs:
       # throwaway clones. Red means: a guard or the instrument is broken, not
       # the tree.
       #
-      # Coverage over scripts/, guards/ and tools/ is measured on every run
+      # Coverage over machine/scripts/, machine/guards/ and machine/tools/ is measured on every run
       # (node --experimental-test-coverage) and two numbers go to the job
       # summary: node's figure, and how many source files no test loads —
       # node only reports files that ran, so the figure alone overstates
@@ -79,19 +79,19 @@ jobs:
         run: |
           out="$(cat /tmp/test-output.txt 2>/dev/null)"
           # Three groups. Loaded: node measured it. Tested as a process: a
-          # test spawns the script (scripts/test/<name>.test.mjs or
-          # tools/test/<name>.test.mjs exists) — node cannot see inside a
+          # test spawns the script (machine/scripts/test/<name>.test.mjs or
+          # machine/tools/test/<name>.test.mjs exists) — node cannot see inside a
           # child, so the figure omits it although it is tested. Untested:
           # neither. Only the last group is a gap.
-          find scripts guards tools -name '*.mjs' -not -path '*/test/*' -printf '%f\n' | sort -u > /tmp/all.txt
+          find machine/scripts machine/guards machine/tools -name '*.mjs' -not -path '*/test/*' -printf '%f\n' | sort -u > /tmp/all.txt
           echo "$out" | grep -oE '[A-Za-z0-9_-]+\.mjs +\|' | grep -oE '[A-Za-z0-9_-]+\.mjs' | sort -u > /tmp/loaded.txt
-          find scripts/test guards/test tools/test -name '*.test.mjs' -printf '%f\n' | sed 's/\.test\.mjs$/.mjs/' | sort -u > /tmp/tested.txt
+          find machine/scripts/test machine/guards/test machine/tools/test -name '*.test.mjs' -printf '%f\n' | sed 's/\.test\.mjs$/.mjs/' | sort -u > /tmp/tested.txt
           total=$(wc -l < /tmp/all.txt)
           loaded=$(comm -12 /tmp/all.txt /tmp/loaded.txt | wc -l)
           process=$(comm -23 /tmp/all.txt /tmp/loaded.txt | comm -12 - /tmp/tested.txt | wc -l)
           untested=$(comm -23 /tmp/all.txt /tmp/loaded.txt | comm -23 - /tmp/tested.txt | tr '\n' ' ')
           {
-            echo "### Coverage of scripts/, guards/, tools/ — seen, not enforced (STD-015 draft, ENG-067)"
+            echo "### Coverage of machine/scripts/, machine/guards/, machine/tools/ — seen, not enforced (STD-015 draft, ENG-067)"
             echo
             echo '```'
             echo "$out" | grep -E '^ℹ all files' | sed 's/^ℹ //' || echo "(no coverage line in the output)"
@@ -104,7 +104,7 @@ jobs:
       # web/src/ needs a new entry (and version) in web/src/data/updates.ts.
       # The footer prints that version and links to /updates.
       - name: version bump
-        run: node scripts/check-version-bump.mjs --base origin/${{ github.base_ref || 'main' }}
+        run: node machine/scripts/check-version-bump.mjs --base origin/${{ github.base_ref || 'main' }}
 
       # Dependencies of the Astro site, from the lockfile. Not a check.
       - name: install
@@ -194,7 +194,7 @@ jobs:
       # Every build guard: the built site and the committed telemetry are what
       # HEAD produces. These bite regardless of any standard's state. Red
       # means: a page, a link, a redirect or the dataset is broken. Fix a
-      # telemetry red by running `node scripts/telemetry.mjs` on the branch
-      # and committing telemetry/ — never by hand-editing latest.json.
+      # telemetry red by running `node machine/scripts/telemetry.mjs` on the branch
+      # and committing machine/telemetry/ — never by hand-editing latest.json.
       - name: build guards
         run: npm run guards -- --build

@@ -54,7 +54,7 @@ This report exists to save that narrative before the corpus does not carry
 it any more.
 
 **It stays `status: active`, not `closed`.** `STD-001` describes `reports/`
-as a `closed`-from-publication series — but `scripts/lib/rules.json`, the
+as a `closed`-from-publication series — but `machine/scripts/lib/rules.json`, the
 lifecycle the CI guard actually enforces, has no `report`-specific entry
 and falls through to the default `draft → active → closed`. Enforcement
 allows what the prose does not name. This report uses that room
@@ -256,8 +256,8 @@ Alpha. When the Oracle judges that transit complete, this report closes
 | 47 | MIS-115 | 2026-09-02 | TBA | Redesign the Mission Board so its order and cards say what is actionable |
 | 48 | MIS-125 | 2026-09-02 | Archive | The prefix register — four series carry identifiers no rule knows about |
 | 49 | MIS-129 | 2026-09-02 | Archive | Send each blueprint to the shelf its content belongs on, and open the two shelves that were missing |
-| 50 | MIS-144 | 2026-09-03 | Archive | Retire dead migration scripts and superseded one-shot fixes from scripts/ |
-| 51 | MIS-145 | 2026-09-04 | Archive | Series template library: every registered series gets a copy-from template in templates/ |
+| 50 | MIS-144 | 2026-09-03 | Archive | Retire dead migration scripts and superseded one-shot fixes from machine/scripts/ |
+| 51 | MIS-145 | 2026-09-04 | Archive | Series template library: every registered series gets a copy-from template in machine/templates/ |
 | 52 | MIS-147 | 2026-09-05 | Archive | Document the relations between the NWOS document genres |
 | 53 | MIS-072 | — | Platform | numinia-web foundations: monorepo, domain model, quality floor |
 | 54 | MIS-073 | — | Platform | The CC0 Archive: every public asset browsable in 5 locales |
@@ -285,7 +285,7 @@ Dated addition, v0.2.0. Nothing above is rewritten.
 deleted in two batches: 16 in PR #286, and the remaining 54 in the PR that
 carries this note. `missions/` goes from 133 files to 79; `done` goes to 0.
 Each deleted identifier is listed in this report's `absorbs:` front matter,
-so `scripts/check-references.mjs` resolves any citation of it to this
+so `machine/scripts/check-references.mjs` resolves any citation of it to this
 document, and each public address (`/missions/mis-NNNN` and its `/misiones/`
 alias) 301s here from `web/astro.config.mjs`. The mission bodies remain in
 git history at `2677f01` and earlier.
@@ -306,14 +306,14 @@ against the tree before deletion:
 
 - `MIS-136` — corrected the DEUDA-404 comment in `web/astro.config.mjs`.
   **Verified true** (the comment at line 24–25 reads as claimed).
-- `MIS-137` — claims `scripts/requirements-tools.txt` pinning `reuse==6.2.0`
+- `MIS-137` — claims `machine/scripts/requirements-tools.txt` pinning `reuse==6.2.0`
   and a CI step. **Neither exists** in `main`, in any branch, or in any
   commit (`git log --all -S`).
 - `MIS-139` — claims two legacy manual references repointed in
   `numinia-web`. **Not done**: the decisions log (line 111) and
   the onboarding report (line 23) in `numengames/numinia-web` still carry the
   retired name.
-- `MIS-140` — claims `scripts/check-published-coverage.mjs` and a CI step.
+- `MIS-140` — claims `machine/scripts/check-published-coverage.mjs` and a CI step.
   **Neither exists** anywhere in the repository's history.
 
 Three of the four `done` closures in #284 assert evidence the tree does not
@@ -432,7 +432,7 @@ parked: *if it is relevant it will be rediscovered when its time comes.*
 `missions/` goes from 41 to 18. Bodies remain in git history at `45d67fd`.
 
 **2 closed by the Oracle and deleted the same day.** `MIS-138` (the
-telemetry instrument, `scripts/telemetry.mjs`, 87 figures, `--check` in
+telemetry instrument, `machine/scripts/telemetry.mjs`, 87 figures, `--check` in
 CI) and `MIS-141` (the dataset published at `/telemetry/`) are `done` by
 Oracle decision, loose ends to be picked up if they surface. Together
 with Arc 5 above they close the measurement line this report was written

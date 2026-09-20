@@ -3,7 +3,7 @@ Copyright (c) 2026 Numen Games S.L.
 This repository holds work under several regimes, declared per path in
 REUSE.toml with full texts in LICENSES/ (Numinia canon CAN-005):
 
-  - Viewer and scripts (web/**, scripts/**)         MIT
+  - Viewer and scripts (web/**, machine/scripts/**)         MIT
   - Documentation, ADRs, specs, missions, reports   CC-BY-4.0
   - Repo metadata (.gitignore)                      CC0-1.0
   - The canon (canon/**), the standards (standards/**)

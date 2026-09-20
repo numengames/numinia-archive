@@ -9,10 +9,10 @@
   "scripts": {
     "dev": "astro dev",
     "type-check": "astro check",
-    "check:license": "node ../guards/rules/std-010-licensing.mjs",
-    "build": "node ../guards/rules/std-010-licensing.mjs && node scripts/share-card.mjs && astro build",
+    "check:license": "node ../machine/guards/rules/std-010-licensing.mjs",
+    "build": "node ../machine/guards/rules/std-010-licensing.mjs && node scripts/share-card.mjs && astro build",
     "preview": "astro preview",
-    "check:responsive": "node ../tools/check-responsive.mjs",
+    "check:responsive": "node ../machine/tools/check-responsive.mjs",
     "astro": "astro"
   },
   "dependencies": {

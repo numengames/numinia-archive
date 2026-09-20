@@ -60,7 +60,7 @@ Diurno; Píxel has no Diurno) → language level → tokens → grid → type sc
 at the level fixed → checklist. Out of order is taken again.
 
 **DSP-003 — Values are read, never quoted.** Tokens are read from the
-installed kit (`@numengames/design-kit`, source `packages/design-kit/`) and
+installed kit (`@numengames/design-kit`, source `machine/packages/design-kit/`) and
 the register `STD-023`. A value copied into prose drifts; a value not in
 either does not exist (`STD-008` DSN-010).
 
@@ -97,7 +97,7 @@ Then the medium's Check: `BLU-009` web and product · `BLU-010` pixel ·
 | Step | Evidence |
 |---|---|
 | DSP-002 | the register, mode and level named in the piece's brief or commit |
-| DSP-003 | `node scripts/generate-design-kit.mjs --check` passes; no hex outside the token file |
+| DSP-003 | `node machine/tools/generate-design-kit.mjs --check` passes; no hex outside the token file |
 | Checklist | the ticked list attached to the delivery |
 | Public route | the accessibility gate (`ARC-010`) green in both modes |
 

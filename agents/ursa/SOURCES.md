@@ -32,7 +32,7 @@ CLAUDE.md — Claude Code runtime context; AGENTS.md — the multi-platform cont
 
 ## The code
 
-web/ (Astro viewer), scripts/ (guards), .github/ (CI, rulesets)
+web/ (Astro viewer), machine/scripts/ (guards), .github/ (CI, rulesets)
 
 ## Decisions
 

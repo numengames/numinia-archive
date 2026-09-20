@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.2.1"
+version: "5.3.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-20T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,8 +16,8 @@ tags: [standards, series, register, archive]
 license: "CC0-1.0"
 ratified_by: "ADR-043"
 threshold: governed
-related: ["STD-024", "STD-016", "STD-018", "STD-007"]
-series_change: "5.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 5.0.0 — cut eleven under ADR-043. The glossary that was not a glossary becomes the register it always was: what series exist, what each holds, its prefix, its threshold, its budget, its mould. The rules moved to STD-024 (a series is a function), STD-021 (citing vs data), STD-015 (guard checks); the field vocabularies were already in STD-016. Section-numbered citations resolve in git."
+related: ["STD-024", "STD-016", "STD-018", "STD-007", "STD-027"]
+series_change: "5.3.0 — 2026-09-20: the Function · Activity column, and `lore/` and `objects/` registered as series they always were (ADR-046). The scheme itself lives in STD-027; this file keeps the table. Minor move: rows gained a column, none lost a claim. 5.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 5.0.0 — cut eleven under ADR-043. The glossary that was not a glossary becomes the register it always was: what series exist, what each holds, its prefix, its threshold, its budget, its mould. The rules moved to STD-024 (a series is a function), STD-021 (citing vs data), STD-015 (guard checks); the field vocabularies were already in STD-016. Section-numbered citations resolve in git."
 ---
 
 # The series
@@ -35,24 +35,30 @@ fields of the header — `STD-016`; the identifier — `STD-018`.
 
 ## Series
 
-| Series | Holds | Prefix | Threshold | Budget | Mould |
-|---|---|---|---|---|---|
-| `canon/` | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
-| `standards/` | what an **artifact** must comply with | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
-| `protocols/` | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
-| `decisions/` | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
-| `missions/` | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
-| `reports/` | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, retired) | `closed` | 1000 | `RPT-TEMPLATE.md` |
-| `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
-| `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
-| `operations/` | what sustains the business: legal, strategy | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
-| `system/` | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
-| `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
+| Series | Function · Activity | Holds | Prefix | Threshold | Budget | Mould |
+|---|---|---|---|---|---|---|
+| `canon/` | Governance · Founding | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
+| `standards/` | Governance · Standardising | what an **artifact** must comply with | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
+| `protocols/` | Governance · Prescribing | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
+| `decisions/` | Governance · Deciding | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
+| `missions/` | Production · Executing | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
+| `reports/` | Assurance · Observing | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, retired) | `closed` | 1000 | `RPT-TEMPLATE.md` |
+| `blueprints/` | Production · Planning | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
+| `debt/` | Assurance · Admitting | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
+| `operations/` | Administration · Sustaining | what sustains the business: legal, strategy | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
+| `system/` | Administration · Wiring | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
+| `agents/` | Agency · Constituting | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
+| `lore/` | Creation · Worldbuilding | the fiction and the game; a second fond (`ADR-046`) | — | `open` | — | `lore/adventures/TEMPLATE.md` |
+| `objects/` | Creation · Cataloguing | the objects the archive registers that are not documents | — | `open` | — | — |
 
 `canon/`, `standards/` and `protocols/` are the **axis**; the rest are
 **registers** (`STD-024`). Budgets are the body word counts `STD-007` measures.
-Moulds live in `templates/`, which is apparatus: never a member of a series,
-never published, CC0-1.0.
+The Function · Activity column is the classification scheme of `STD-027`: it
+says which activity produced a series, never what a change to it costs.
+
+Moulds live in `machine/templates/`. Everything under `machine/` is an
+**instrument**, not a record (`STD-027` CLS-002): never a member of a series,
+never published, never cited as evidence, CC0-1.0.
 
 ## Genre and folder
 

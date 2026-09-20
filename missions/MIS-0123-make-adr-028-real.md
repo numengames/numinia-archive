@@ -24,7 +24,7 @@ owner: "oracle"
 tags: [standards, frontmatter, guard, vocabulary, adr-028, tba]
 license: "CC0-1.0"
 
-paths: [scripts/lint-frontmatter.mjs, standards/STD-001-glossary.md, standards/STD-004-the-header.md]
+paths: [machine/scripts/lint-frontmatter.mjs, standards/STD-001-glossary.md, standards/STD-004-the-header.md]
 depends_on: [ADR-027, ADR-027 (formerly ADR-029)]
 blocked_by: null
 ---
@@ -139,7 +139,7 @@ in use are undeclared; six declared values are unused.
   audit). Criteria 1, 3 and 4 were already live before this closure:
   `guild`/`territory`/`type_execution` value checks (`HDR-033`, `HDR-036`,
   `HDR-034`), the `TBA` counter (never fatal), and `TBA`-requires-an-owner
-  (`HDR-032`) all run in `scripts/lint-frontmatter.mjs`, confirmed by running
+  (`HDR-032`) all run in `machine/scripts/lint-frontmatter.mjs`, confirmed by running
   it live (`0 findings, 0 baselined`). Criterion 5 (blindness declared) is
   present in the guard's own `BLIND TO (D-025)` output. Criterion 2
   (`visibility` vocabulary) was found declared in `STD-016` §"Header fields"
@@ -156,7 +156,7 @@ in use are undeclared; six declared values are unused.
   home; it actually lives in `STD-016`. Not corrected here — the check
   works, the citation in this closure note is accurate, and moving prose
   between standards is out of this closure's scope.
-- **Evidence:** `node scripts/lint-frontmatter.mjs` → `lint-frontmatter: 0
+- **Evidence:** `node machine/scripts/lint-frontmatter.mjs` → `lint-frontmatter: 0
   findings (0 baselined) — no new violations — the ratchet holds`, no
   `deferred values` line (zero live `TBA` in `territory`, confirmed by
   `telemetry.missions.territory_tba = 0`).

@@ -216,7 +216,7 @@ Two consequences worth recording:
   does not audit before merging"*) is live again, narrowly.
 - Nobody noticed for two weeks. The snapshot in `.github/rulesets/` stated the
   old values the whole time and nothing compared it to the panel. That gap is
-  now `node tools/ruleset-export.mjs --check`.
+  now `node machine/tools/ruleset-export.mjs --check`.
 
 Recorded, not decided: whether Workers Builds should be required again is the
 Oracle's call, and the remaining boxes are still org-admin work no agent can

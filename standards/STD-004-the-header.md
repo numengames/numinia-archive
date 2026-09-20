@@ -16,7 +16,7 @@ owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata]
-series_change: "3.1.5 — 2026-09-11: Check rows name the folder a script lives in (scripts/, tools/, guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 3.1.4 — 2026-09-11: Check rows repoint to guards/rules/std-004-the-header.mjs (R3 fold of lint-frontmatter and the HDR rules of check-core-rules). Patch: prose only. 3.1.3 — 2026-09-10: HDR-031 and the HDR-001..038 check row no longer speak of a baseline; there is none (STD-005 2.2.0). Patch: prose only. 3.1.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.1.0 — HDR-040, HDR-041 and HDR-043 are defined here, inside HDR-000, instead of in STD-009 (ADR-043 cut of STD-009). 3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
+series_change: "3.1.5 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 3.1.4 — 2026-09-11: Check rows repoint to machine/guards/rules/std-004-the-header.mjs (R3 fold of lint-frontmatter and the HDR rules of check-core-rules). Patch: prose only. 3.1.3 — 2026-09-10: HDR-031 and the HDR-001..038 check row no longer speak of a baseline; there is none (STD-005 2.2.0). Patch: prose only. 3.1.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.1.0 — HDR-040, HDR-041 and HDR-043 are defined here, inside HDR-000, instead of in STD-009 (ADR-043 cut of STD-009). 3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
 ---
 # The header
 
@@ -30,7 +30,7 @@ series_change: "3.1.5 — 2026-09-11: Check rows name the folder a script lives 
 > plate.
 > **Audience:** Agents · Oracles
 
-**Binds:** every Markdown file under the directories `scripts/lib/rules.json`
+**Binds:** every Markdown file under the directories `machine/scripts/lib/rules.json`
 lists as governed.
 **Does not bind:** the body (`STD-007`); the site pipeline's own schema,
 which is the renderer's.
@@ -79,9 +79,9 @@ known, and no relation is inferred from a shared folder, author or subject.
 
 | Plate | Verified by |
 |---|---|
-| HDR-000..009, 012..014, 017..020, 030..038, 040, 043, 044 | `guards/rules/std-004-the-header.mjs`, one plate per finding |
-| HDR-041 | `guards/rules/std-006-plain-text.mjs` (TXT-002 — a header that parses) |
-| HDR-010, 011, 015, 016 | `[MANUAL]` — presence only. No guard resolves frontmatter relations: `guards/rules/std-020-git-is-the-archive.mjs` reads the body, not the header |
+| HDR-000..009, 012..014, 017..020, 030..038, 040, 043, 044 | `machine/guards/rules/std-004-the-header.mjs`, one plate per finding |
+| HDR-041 | `machine/guards/rules/std-006-plain-text.mjs` (TXT-002 — a header that parses) |
+| HDR-010, 011, 015, 016 | `[MANUAL]` — presence only. No guard resolves frontmatter relations: `machine/guards/rules/std-020-git-is-the-archive.mjs` reads the body, not the header |
 | HDR-042 | `[MANUAL]` — review checks the register row and the decision |
 
 ## Why
