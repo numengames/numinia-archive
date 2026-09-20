@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "79593ac",
-  "corpus_hash": "5ec72fd055366fa8cf9a459945b7dc566e1e6f43c0ffdfe4b233e1a321c0db7f",
+  "head": "3c7d4f5",
+  "corpus_hash": "f2968de3b22046b4590dac3fbb20a015fd4006687bb3a6d823da8fbb53d8fe69",
   "root_dirty": 0,
-  "measured_at": "2026-09-20T06:49:28Z",
+  "measured_at": "2026-09-20T07:23:39Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 484,
+      "value": 485,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".js": 2,
         ".json": 13,
         ".md": 168,
-        ".mjs": 57,
+        ".mjs": 58,
         ".png": 35,
         ".svg": 69,
         ".toml": 4,
@@ -105,13 +105,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 29,
+      "value": 30,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 29
+        "node": 30
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -316,7 +316,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 598468,
+      "value": 598803,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -330,7 +330,7 @@
         "reports": 26138,
         "operations": 22950,
         "blueprints": 22838,
-        "": 18273,
+        "": 18608,
         "templates": 15832,
         "system": 15242,
         "protocols": 14384,
@@ -343,7 +343,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 329336,
+        "(none)": 329671,
         "active": 113923,
         "draft": 110114,
         "done": 26350,
@@ -369,12 +369,12 @@
           16792
         ],
         [
-          "lore/world/brand-and-culture.md",
-          11437
+          "CHANGELOG.md",
+          11691
         ],
         [
-          "CHANGELOG.md",
-          11356
+          "lore/world/brand-and-culture.md",
+          11437
         ],
         [
           "lore/codex/glosario.md",
@@ -681,7 +681,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 614
+          "3": 615
         },
         "MIS": {
           "3": 680,
@@ -784,7 +784,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 272,
+      "value": 273,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -796,7 +796,7 @@
         "reports/RPT-008-gaps-capability-map.md": 19,
         "lore/world/brand-and-culture.md": 18,
         "lore/game/manual-v0.6.0.md": 13,
-        "CHANGELOG.md": 11,
+        "CHANGELOG.md": 12,
         "canon/CAN-008-visual-identity.md": 11,
         "reports/RPT-017-mvp-story.md": 11,
         "operations/OPS-007-sales.md": 10,
