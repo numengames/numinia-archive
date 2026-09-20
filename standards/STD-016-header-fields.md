@@ -19,7 +19,7 @@ series_change: "2.0.0 — one lifecycle for everything that is not a mission: `d
 # Header fields
 
 > **Summary:** Every frontmatter field the corpus accepts, by ring: its
-> value, the plate `guards/rules/std-004-the-header.mjs` cites when it fails, and which
+> value, the plate `machine/guards/rules/std-004-the-header.mjs` cites when it fails, and which
 > series may carry it. A field not here fails `HDR-030`.
 
 ## Ring 1 — identity, every document

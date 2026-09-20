@@ -1,0 +1,714 @@
+{
+  "instrument": "machine/scripts/telemetry.mjs v0.5.0",
+  "head": "c0fcc97+index",
+  "corpus_hash": "afa32548ffda3e097a19a4dde4a4cf8f31db5dd67a903998bbe84f9ce6884426",
+  "root_dirty": 0,
+  "measured_at": "2026-09-20T16:33:16Z",
+  "families": [
+    "corpus",
+    "series",
+    "missions",
+    "tokens",
+    "headers",
+    "provenance",
+    "contradictions",
+    "figures"
+  ],
+  "figures": {
+    "corpus.files_total": {
+      "value": 494,
+      "unit": "files",
+      "definition": "`git ls-files` at HEAD, every path"
+    },
+    "corpus.files_by_ext": {
+      "value": {
+        "(none)": 2,
+        ".astro": 48,
+        ".css": 3,
+        ".gitignore": 2,
+        ".html": 2,
+        ".jpg": 2,
+        ".js": 2,
+        ".json": 14,
+        ".md": 173,
+        ".mjs": 62,
+        ".png": 35,
+        ".svg": 69,
+        ".toml": 4,
+        ".ts": 19,
+        ".tsx": 2,
+        ".txt": 11,
+        ".webp": 1,
+        ".woff2": 7,
+        ".yaml": 32,
+        ".yml": 4
+      },
+      "unit": "files",
+      "definition": "tracked files by lowercase extension; `(none)` when no extension"
+    },
+    "corpus.md_total": {
+      "value": 173,
+      "unit": "files",
+      "definition": "tracked `.md` anywhere, including `web/`"
+    },
+    "corpus.docs_total": {
+      "value": 171,
+      "unit": "documents",
+      "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
+    },
+    "corpus.docs_by_dir": {
+      "value": {
+        "(root)": 7,
+        ".github": 3,
+        "agents": 36,
+        "blueprints": 10,
+        "canon": 8,
+        "debt": 1,
+        "decisions": 8,
+        "lore": 15,
+        "machine": 13,
+        "missions": 11,
+        "objects": 2,
+        "operations": 10,
+        "protocols": 11,
+        "reports": 6,
+        "standards": 26,
+        "system": 4
+      },
+      "unit": "documents",
+      "definition": "corpus documents by top-level directory; root files under `(root)`"
+    },
+    "corpus.docs_by_type": {
+      "value": {
+        "(none)": 24,
+        "adr": 9,
+        "agent": 34,
+        "blueprint": 11,
+        "documentation": 44,
+        "entity": 2,
+        "legal": 3,
+        "meta": 3,
+        "mission": 12,
+        "protocol": 13,
+        "report": 7,
+        "seminal": 9
+      },
+      "unit": "documents",
+      "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
+    },
+    "corpus.docs_without_frontmatter": {
+      "value": 23,
+      "unit": "documents",
+      "definition": "corpus documents with no `---` block at the top"
+    },
+    "corpus.apparatus": {
+      "value": 24,
+      "unit": "documents",
+      "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
+    },
+    "corpus.scripts_total": {
+      "value": 34,
+      "unit": "files",
+      "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
+    },
+    "corpus.scripts_by_language": {
+      "value": {
+        "node": 34
+      },
+      "unit": "files",
+      "definition": "those scripts by language, from the extension"
+    },
+    "corpus.scripts_in_ci": {
+      "value": 15,
+      "unit": "files",
+      "definition": "guards the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)"
+    },
+    "series.registration": {
+      "value": {
+        "blueprints": {
+          "registered": 10,
+          "total": 10,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "canon": {
+          "registered": 8,
+          "total": 8,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "debt": {
+          "registered": 1,
+          "total": 1,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "decisions": {
+          "registered": 8,
+          "total": 8,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "missions": {
+          "registered": 10,
+          "total": 10,
+          "apparatus": 1,
+          "archived": 0,
+          "pct": 100
+        },
+        "operations": {
+          "registered": 10,
+          "total": 10,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "protocols": {
+          "registered": 11,
+          "total": 11,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "reports": {
+          "registered": 6,
+          "total": 6,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "standards": {
+          "registered": 26,
+          "total": 26,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "system": {
+          "registered": 4,
+          "total": 4,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        }
+      },
+      "unit": "documents",
+      "definition": "per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`."
+    },
+    "series.registered_total": {
+      "value": 94,
+      "unit": "documents",
+      "definition": "sum of `registration[*].registered`"
+    },
+    "series.registrable_total": {
+      "value": 94,
+      "unit": "documents",
+      "definition": "sum of `registration[*].total`"
+    },
+    "series.agents_folder_named": {
+      "value": 11,
+      "unit": "directories",
+      "definition": "directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0)"
+    },
+    "missions.total": {
+      "value": 10,
+      "unit": "missions",
+      "definition": "files `missions/MIS-NNNN-*.md` with a frontmatter block"
+    },
+    "missions.by_status": {
+      "value": {
+        "done": 5,
+        "in-progress": 1,
+        "todo": 4
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `status`"
+    },
+    "missions.by_guild": {
+      "value": {
+        "Alchemists": 6,
+        "Sentinels": 4
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `guild`; `(none)` when absent or null-like"
+    },
+    "missions.by_territory": {
+      "value": {
+        "Archive": 7,
+        "CAO": 1,
+        "Infrastructure": 2
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `territory`; `TBA` folds into `(none)`, reported separately as `territory_tba`"
+    },
+    "missions.by_priority": {
+      "value": {
+        "critical": 1,
+        "high": 7,
+        "medium": 2
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `priority`"
+    },
+    "missions.by_effort": {
+      "value": {
+        "L": 1,
+        "M": 4,
+        "S": 3,
+        "XL": 2
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `effort`"
+    },
+    "missions.by_assignee": {
+      "value": {
+        "(none)": 6,
+        "ursa": 4
+      },
+      "unit": "missions",
+      "definition": "by frontmatter `assigned_to`; `(none)` = unassigned"
+    },
+    "missions.territory_tba": {
+      "value": 0,
+      "unit": "missions",
+      "definition": "`territory: TBA` (ADR-028 deferral; owner MIS-124 closed 2026-09-09, zero territory TBA remains)"
+    },
+    "missions.unassigned": {
+      "value": 6,
+      "unit": "missions",
+      "definition": "`assigned_to` absent or null-like"
+    },
+    "missions.in_progress_unassigned": {
+      "value": 0,
+      "unit": "missions",
+      "definition": "`status: in-progress` with no `assigned_to`"
+    },
+    "missions.done_without_closure": {
+      "value": 1,
+      "unit": "missions",
+      "definition": "`status: done` with no `## Closure` heading (MIS-134 strict form)"
+    },
+    "missions.done_without_closure_tolerant": {
+      "value": 1,
+      "unit": "missions",
+      "definition": "`status: done` with none of the five closure headings MIS-134 tolerates"
+    },
+    "missions.without_author": {
+      "value": 0,
+      "unit": "missions",
+      "definition": "frontmatter `author` absent or null-like"
+    },
+    "missions.started_with_offset": {
+      "value": 1,
+      "unit": "missions",
+      "definition": "`started` written with a UTC offset instead of `Z`"
+    },
+    "missions.started_zulu": {
+      "value": 1,
+      "unit": "missions",
+      "definition": "`started` written in `Z`"
+    },
+    "tokens.tokenizer": {
+      "value": null,
+      "unit": "identity",
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+    },
+    "tokens.total": {
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+    },
+    "tokens.by_dir": {
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+    },
+    "tokens.by_status": {
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+    },
+    "tokens.missions_share_pct": {
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+    },
+    "tokens.largest": {
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+    },
+    "headers.docs_with_frontmatter": {
+      "value": 148,
+      "unit": "documents",
+      "definition": "docs whose text opens with a --- block the shared reader parses"
+    },
+    "headers.docs_without_frontmatter": {
+      "value": 23,
+      "unit": "documents",
+      "definition": "corpus docs minus docs_with_frontmatter"
+    },
+    "headers.field_usage": {
+      "value": {
+        "author": 147,
+        "created": 147,
+        "license": 147,
+        "status": 147,
+        "title": 147,
+        "type": 147,
+        "updated": 147,
+        "version": 147,
+        "owner": 146,
+        "tags": 144,
+        "id": 113,
+        "uid": 108,
+        "territory": 83,
+        "created_source": 69,
+        "created_confidence": 68,
+        "guild": 49,
+        "related": 44,
+        "registration": 43,
+        "subtype": 40,
+        "registration_reason": 39,
+        "agent": 33,
+        "threshold": 27,
+        "series_change": 25,
+        "extraction_note": 16,
+        "applies_to": 12,
+        "assigned_to": 12,
+        "completed": 12,
+        "effort": 12,
+        "priority": 12,
+        "type_execution": 12,
+        "mandatory": 11,
+        "role": 10,
+        "visibility": 10,
+        "related_missions": 9,
+        "former_id": 8,
+        "paths": 8,
+        "former_id_note": 7,
+        "provenance": 7,
+        "amends": 6,
+        "deciders": 6,
+        "depends_on": 6,
+        "ratified_by": 6,
+        "started": 6,
+        "absorbs": 5,
+        "requires_oracle_approval": 5,
+        "context": 4,
+        "parent_mission": 3,
+        "requested_by": 3,
+        "scope": 3,
+        "severity": 3,
+        "accuracy_warning": 2,
+        "consulted": 2,
+        "decision": 2,
+        "detected": 2,
+        "entity": 2,
+        "evidence_head": 2,
+        "evidence_script": 2,
+        "forms": 2,
+        "human_approval_score": 2,
+        "language": 2,
+        "name": 2,
+        "outcome": 2,
+        "restoration_note": 2,
+        "review_flags": 2,
+        "severity_reason": 2,
+        "sub_missions": 2,
+        "supersedes": 2,
+        "supersedes_version": 2,
+        "visibility_reason": 2,
+        "about": 1,
+        "blocked_by": 1,
+        "description": 1,
+        "fondos": 1,
+        "graph": 1,
+        "labels": 1,
+        "language_note": 1,
+        "mission": 1,
+        "opened_by": 1,
+        "period": 1,
+        "previous_name": 1,
+        "previous_name_note": 1,
+        "review_next": 1,
+        "source_title": 1,
+        "superseded_by": 1,
+        "supersedes_record_of": 1,
+        "translation_note": 1
+      },
+      "unit": "documents",
+      "definition": "per frontmatter key, the number of docs carrying it, most used first"
+    },
+    "headers.uid_present": {
+      "value": 0,
+      "unit": "documents",
+      "definition": "docs with a non-empty uid"
+    },
+    "headers.uid_collisions": {
+      "value": 0,
+      "unit": "collisions",
+      "definition": "Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts)"
+    },
+    "headers.uid_collision_values": {
+      "value": [],
+      "unit": "documents",
+      "definition": "the colliding uid values with their holder counts"
+    },
+    "headers.created_T000000Z": {
+      "value": 4,
+      "unit": "documents",
+      "definition": "created ending in the midnight-UTC placeholder"
+    },
+    "headers.hygiene": {
+      "value": {
+        "dates_without_time": 4,
+        "empty_values": 119,
+        "v_prefixed_versions": 0,
+        "placeholders": 7
+      },
+      "unit": "values",
+      "definition": "frontmatter-census.py §4: created/updated without time; empty values; version with v prefix; values matching TODO|TBD|FIXME|{{|<…>|xxx"
+    },
+    "provenance.authorship": {
+      "value": {
+        "ai-persona": 109,
+        "other": 25,
+        "no-frontmatter": 23,
+        "ai-model": 8,
+        "human": 5,
+        "no-author": 1
+      },
+      "unit": "documents",
+      "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
+    },
+    "provenance.dates_vs_commits_compared": {
+      "value": 130,
+      "unit": "documents",
+      "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
+    },
+    "provenance.created_ahead_of_commit": {
+      "value": 0,
+      "unit": "documents",
+      "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
+      "volatile": "commit-date"
+    },
+    "provenance.created_ahead_list": {
+      "value": [],
+      "unit": "documents",
+      "definition": "[path, created, first-add] for created_ahead_of_commit",
+      "volatile": "commit-date"
+    },
+    "provenance.created_behind_commit": {
+      "value": 128,
+      "unit": "documents",
+      "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
+      "volatile": "commit-date"
+    },
+    "provenance.regime_crossings": {
+      "value": 0,
+      "unit": "renames",
+      "definition": "renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py"
+    },
+    "provenance.regime_crossings_list": {
+      "value": [],
+      "unit": "renames",
+      "definition": "[from, to, regime change, date]",
+      "volatile": "commit-date"
+    },
+    "provenance.protocol_anchor": {
+      "value": {
+        "anchored": 5,
+        "not-oracle-state": 5
+      },
+      "unit": "missions",
+      "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
+    },
+    "contradictions.status_vocabulary_used": {
+      "value": {
+        "active": 69,
+        "draft": 66,
+        "done": 6,
+        "todo": 5,
+        "in-progress": 1
+      },
+      "unit": "documents",
+      "definition": "frontmatter status values in the corpus with counts"
+    },
+    "contradictions.status_vocabulary_undeclared": {
+      "value": {},
+      "unit": "documents",
+      "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
+    },
+    "contradictions.ci_markers_std001": {
+      "value": 36,
+      "unit": "rows",
+      "definition": "table rows of STD-001 carrying `[CI]`"
+    },
+    "contradictions.ci_marked_scripts_not_in_ci": {
+      "value": [
+        "machine/scripts/run-guards.mjs",
+        "machine/scripts/lib/regime.mjs",
+        "machine/guards/lib/guard.mjs",
+        "machine/tools/generate-design-kit.mjs",
+        "machine/tools/check-deletable.mjs"
+      ],
+      "unit": "scripts",
+      "definition": "scripts a Check row of a standard names that the runner does not run in CI — a norm claiming a machine check that does not happen"
+    },
+    "contradictions.ci_scripts_not_marked": {
+      "value": [
+        "machine/scripts/check-internal-links.mjs",
+        "machine/scripts/check-orphan-content.mjs",
+        "machine/scripts/telemetry.mjs"
+      ],
+      "unit": "scripts",
+      "definition": "scripts the runner runs in CI that no Check row of any standard names — a check the norm does not claim"
+    },
+    "contradictions.id_form_per_series": {
+      "value": {
+        "STD": {
+          "3": 657
+        },
+        "MIS": {
+          "3": 680,
+          "4": 186
+        },
+        "PRO": {
+          "3": 223
+        },
+        "OPS": {
+          "3": 59
+        },
+        "CAN": {
+          "3": 162
+        },
+        "ADR": {
+          "3": 365
+        },
+        "SYS": {
+          "3": 30
+        },
+        "RPT": {
+          "3": 51,
+          "4": 9
+        },
+        "DBT": {
+          "3": 73
+        },
+        "DEC": {
+          "3": 13
+        },
+        "BLU": {
+          "3": 116
+        }
+      },
+      "unit": "citations",
+      "definition": "per series prefix, citations by digit width (3 vs 4) across the corpus; S1 fixes 4 for MIS files, 3 in `id:`"
+    },
+    "contradictions.id_form_mixed": {
+      "value": [
+        "MIS",
+        "RPT"
+      ],
+      "unit": "prefixes",
+      "definition": "prefixes cited with more than one digit width — the class is contradictory for these"
+    },
+    "contradictions.claims_open": {
+      "value": 2,
+      "unit": "claims",
+      "definition": "claims.json entries whose exact quote is still at its path"
+    },
+    "contradictions.claims_resolved": {
+      "value": 2,
+      "unit": "claims",
+      "definition": "entries whose quote is no longer in any tracked .md"
+    },
+    "contradictions.claims_moved": {
+      "value": 1,
+      "unit": "claims",
+      "definition": "entries whose quote left its path and is found in another tracked .md — meaningful only for quotes unique to one file; a short quote (`status: draft`) can only be open or resolved at its own path"
+    },
+    "contradictions.claims": {
+      "value": [
+        {
+          "id": "MIS-135#3",
+          "severity": "A",
+          "state": "moved",
+          "where": "AGENTS.md",
+          "claim": "The protocol that governs how every series is named, renamed and closed — cited by ADR-005, STD-001 and the missions — is itself draft. Deferred: the Oracle signs."
+        },
+        {
+          "id": "MIS-135#10",
+          "severity": "B",
+          "state": "open",
+          "where": "standards/STD-016-header-fields.md#L63",
+          "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open. Anchor re-pointed 2026-09-09: the registry row moved whole into the register STD-016 under ADR-043."
+        },
+        {
+          "id": "MIS-135#15",
+          "severity": "B",
+          "state": "resolved",
+          "where": "REUSE.toml",
+          "claim": "web/** → MIT while MIS-065's criterion that no culture-branch content is matched by it is unverified. Deferred → DBT-005."
+        },
+        {
+          "id": "MIS-135#19",
+          "severity": "A",
+          "state": "open",
+          "where": "web/astro.config.mjs#L313",
+          "claim": "Parameterised redirect that check-url-lifecycle matches literally — neither verified nor expanded. Deferred: design choice."
+        },
+        {
+          "id": "MIS-135#20",
+          "severity": "B",
+          "state": "resolved",
+          "where": "missions/MIS-0134-closure-guard.md",
+          "claim": "done missions without a filled ## Closure — the guard is a proposal, not a guard; the count is missions.done_without_closure in this dataset. Deferred → MIS-134."
+        }
+      ],
+      "unit": "claims",
+      "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
+    },
+    "figures.live": {
+      "value": 274,
+      "unit": "lines",
+      "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
+    },
+    "figures.live_by_doc": {
+      "value": {
+        "missions/MIS-0127-entropy-reduction.md": 40,
+        "missions/MIS-0121-header-baseline-burndown.md": 19,
+        "operations/OPS-005-simulations.md": 19,
+        "reports/RPT-008-gaps-capability-map.md": 19,
+        "lore/world/brand-and-culture.md": 18,
+        "lore/game/manual-v0.6.0.md": 13,
+        "CHANGELOG.md": 12,
+        "canon/CAN-008-visual-identity.md": 11,
+        "reports/RPT-017-mvp-story.md": 11,
+        "operations/OPS-007-sales.md": 10,
+        "reports/RPT-019-2026-w37.md": 10,
+        "missions/MIS-0135-normalisation-residue-register.md": 7,
+        "operations/OPS-001-continuity.md": 7,
+        "standards/STD-023-design-values.md": 7,
+        "blueprints/BLU-009-web-pieces.md": 6
+      },
+      "unit": "lines",
+      "definition": "the fifteen docs with most such lines"
+    },
+    "figures.cited": {
+      "value": 0,
+      "unit": "citations",
+      "definition": "citations in the §10.5 form `key = value @ head` across the corpus"
+    },
+    "figures.stale_citations": {
+      "value": [],
+      "unit": "citations",
+      "definition": "cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true"
+    }
+  }
+}

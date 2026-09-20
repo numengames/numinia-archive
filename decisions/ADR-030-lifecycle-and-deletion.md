@@ -43,7 +43,7 @@ SPDX-License-Identifier: CC-BY-4.0
 1. **No living citer.** No living document depends on it normatively
    (`ADR-043` rule 8). Text-only mentions count; `check-references.mjs`.
 2. **No public address dies unredirected.** `check-url-lifecycle.mjs`
-   against `scripts/url-baseline.json`.
+   against `machine/scripts/url-baseline.json`.
 3. **A written resolution exists.** The one test no machine performs. A
    period roll-up report (`STD-012`) that carries the record's line is a
    written resolution (`ADR-042`).

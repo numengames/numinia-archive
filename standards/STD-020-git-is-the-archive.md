@@ -14,7 +14,7 @@ territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, git, archiving, redirects]
 threshold: governed
-series_change: "1.1.2 — 2026-09-11: Check rows name the folder a script lives in (scripts/, tools/, guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.1.1 — Check rows repoint to guards/rules/std-020-git-is-the-archive.mjs (R3, MIS guards-tests-ci-alpha): check-references and the GIT rules of check-core-rules fold into one guard; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §7 Git and §8 Archiving are one standard: retiring a document is a git operation."
+series_change: "1.1.2 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.1.1 — Check rows repoint to machine/guards/rules/std-020-git-is-the-archive.mjs (R3, MIS guards-tests-ci-alpha): check-references and the GIT rules of check-core-rules fold into one guard; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §7 Git and §8 Archiving are one standard: retiring a document is a git operation."
 ---
 
 # Git is the archive
@@ -73,10 +73,10 @@ declares its master.
 | Plate | Verified by |
 |---|---|
 | GIT-025, GIT-030 | branch protection, GitHub settings |
-| GIT-026, GIT-045 | `guards/rules/std-020-git-is-the-archive.mjs` |
-| GIT-027, GIT-028 | `scripts/telemetry.mjs --check`, `tools/generate-design-kit.mjs` |
-| GIT-046 | `scripts/check-url-lifecycle.mjs` |
-| GIT-048 | `guards/rules/std-020-git-is-the-archive.mjs`, `tools/check-deletable.mjs` |
+| GIT-026, GIT-045 | `machine/guards/rules/std-020-git-is-the-archive.mjs` |
+| GIT-027, GIT-028 | `machine/scripts/telemetry.mjs --check`, `machine/tools/generate-design-kit.mjs` |
+| GIT-046 | `machine/scripts/check-url-lifecycle.mjs` |
+| GIT-048 | `machine/guards/rules/std-020-git-is-the-archive.mjs`, `machine/tools/check-deletable.mjs` |
 | GIT-029, GIT-047 | `[MANUAL]` — a resolved conflict and a resolving redirect look like any other |
 | GIT-049 | `[MANUAL]` — a content-hash scan would catch it and does not exist |
 

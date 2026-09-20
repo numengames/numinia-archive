@@ -12,8 +12,8 @@ difference means the panel is right and this file is stale.
 ## Refresh it, and check it
 
 ```bash
-node tools/ruleset-export.mjs           # rewrite the snapshot from the panel
-node tools/ruleset-export.mjs --check   # exit 1 if the snapshot has drifted
+node machine/tools/ruleset-export.mjs           # rewrite the snapshot from the panel
+node machine/tools/ruleset-export.mjs --check   # exit 1 if the snapshot has drifted
 ```
 
 `--check` exits `0` when they agree, `1` when they differ — naming each

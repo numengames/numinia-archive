@@ -14,7 +14,7 @@ territory: "Archive"
 license: "CC0-1.0"
 tags: [archive, substrate, format, sovereignty, self-hosting]
 supersedes: ["ADR-001"]
-series_change: "2.0.3 — Check rows repoint to guards/rules/std-006-plain-text.mjs (R3, MIS guards-tests-ci-alpha): frontmatter-delimiter, frontmatter-yaml, prose-in-code and the shape half of lint-naming fold into one guard per standard; no plate, threshold or verdict changes. 2.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 2.0.0 — the standard takes the ADR-043 shape: 1,433 -> 340 words of body. The seven rules of the old conformance table are kept as TXT-001..007, with the same checks; the substrate, format and sovereignty sections and File Over App collapse into them. Major, not minor, because the section numbers other documents could cite (§2.1-2.3) no longer exist."
+series_change: "2.0.3 — Check rows repoint to machine/guards/rules/std-006-plain-text.mjs (R3, MIS guards-tests-ci-alpha): frontmatter-delimiter, frontmatter-yaml, prose-in-code and the shape half of lint-naming fold into one guard per standard; no plate, threshold or verdict changes. 2.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 2.0.0 — the standard takes the ADR-043 shape: 1,433 -> 340 words of body. The seven rules of the old conformance table are kept as TXT-001..007, with the same checks; the substrate, format and sovereignty sections and File Over App collapse into them. Major, not minor, because the section numbers other documents could cite (§2.1-2.3) no longer exist."
 ---
 
 # Plain text is sovereign
@@ -64,9 +64,9 @@ document that proposes the dependency, before adoption.
 
 | Plate | Verified by |
 |---|---|
-| TXT-001 | `guards/rules/std-006-plain-text.mjs` — root UPPERCASE, no version/date in a living name, kebab-case slug |
-| TXT-002 | `guards/rules/std-006-plain-text.mjs` — the fence closes on its own line; the header is structurally sound YAML |
-| TXT-003 | `guards/rules/std-006-plain-text.mjs` — partial: prose in components only |
+| TXT-001 | `machine/guards/rules/std-006-plain-text.mjs` — root UPPERCASE, no version/date in a living name, kebab-case slug |
+| TXT-002 | `machine/guards/rules/std-006-plain-text.mjs` — the fence closes on its own line; the header is structurally sound YAML |
+| TXT-003 | `machine/guards/rules/std-006-plain-text.mjs` — partial: prose in components only |
 | TXT-004, TXT-005 | `[MANUAL]` — whether a half could be cited alone, or an image is the record, is a judgement about meaning |
 | TXT-006 | `[MANUAL]` — fresh clone, no network, read; if anything must be fetched, failed |
 | TXT-007 | `[MANUAL]` — a gate before adoption, not an audit after |

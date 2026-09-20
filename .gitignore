@@ -6,7 +6,7 @@ dist/
 .env.*
 !.env.example
 
-# Generated views — produced by scripts/render-glossary.py.
+# Generated views — produced by machine/scripts/render-glossary.py.
 # The source is the .md; the view is rebuilt on demand and never committed,
 # so it cannot drift into a second source of truth.
 build/
@@ -18,6 +18,6 @@ web/.translation-cache/
 .venv-audit/
 .hermes/
 
-# MIS-138: cl100k rank file, fetched by `node scripts/telemetry.mjs --fetch-tokenizer`, pinned by sha256 in scripts/lib/cl100k.mjs
-scripts/lib/tokenizer/
+# MIS-138: cl100k rank file, fetched by `node machine/scripts/telemetry.mjs --fetch-tokenizer`, pinned by sha256 in machine/scripts/lib/cl100k.mjs
+machine/scripts/lib/tokenizer/
 .worktrees/

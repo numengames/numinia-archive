@@ -255,7 +255,7 @@ The typing — the flagship — has a **double era heritage**: it is the 1920 ty
 ## 4. What this canon does NOT define
 
 It does not give a single hex, size, curve or class name: every value is in
-the kit `packages/design-kit/` and the register `STD-023`, the rules about
+the kit `machine/packages/design-kit/` and the register `STD-023`, the rules about
 them are `STD-008`, and a value quoted here would drift (ADR-044). It does not say how a piece
 is produced: `PRO-014`. It does not license the assets: `STD-010`. It does not
 settle the world's narrative — `CAN-002` is brand and culture, and this canon

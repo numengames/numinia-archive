@@ -14,7 +14,7 @@ territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, identifiers, naming]
 threshold: governed
-series_change: "1.1.1 — Check rows repoint to guards/rules/std-018-one-identifier.mjs (R3, MIS guards-tests-ci-alpha): lint-naming N-04 and the IDN rules of check-core-rules fold into one guard; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
+series_change: "1.1.1 — Check rows repoint to machine/guards/rules/std-018-one-identifier.mjs (R3, MIS guards-tests-ci-alpha): lint-naming N-04 and the IDN rules of check-core-rules fold into one guard; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
 ---
 
 # One document, one identifier
@@ -60,8 +60,8 @@ Within a repository the bare identifier is correct.
 
 | Plate | Verified by |
 |---|---|
-| IDN-011 | `guards/rules/std-018-one-identifier.mjs` — the identifier the name carries, against the series scheme |
-| IDN-012, 013, 014 | `guards/rules/std-018-one-identifier.mjs` |
+| IDN-011 | `machine/guards/rules/std-018-one-identifier.mjs` — the identifier the name carries, against the series scheme |
+| IDN-012, 013, 014 | `machine/guards/rules/std-018-one-identifier.mjs` |
 | IDN-015 | `[MANUAL]` — resolved by commit order at the moment of collision |
 
 ## Why

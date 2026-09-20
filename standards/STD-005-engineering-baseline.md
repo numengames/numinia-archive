@@ -99,12 +99,12 @@ blindness entry.
 
 | Plate | Verified by |
 |---|---|
-| ENG-001, ENG-002 | `[MANUAL]` — `STD-015` is the table; `telemetry/` reports the `[MANUAL]` share |
+| ENG-001, ENG-002 | `[MANUAL]` — `STD-015` is the table; `machine/telemetry/` reports the `[MANUAL]` share |
 | ENG-003 | `[AUTO: branch protection]` — `STD-015` DEV-007, ARC-002 |
 | ENG-004 | `[AUTO: push protection + gitleaks]` — `STD-015` SEC-004 |
-| ENG-031, ENG-032 | `scripts/run-guards.mjs` runs every guard in the folder; `blindness.test.mjs` checks each one declares what it does not see |
+| ENG-031, ENG-032 | `machine/scripts/run-guards.mjs` runs every guard in the folder; `blindness.test.mjs` checks each one declares what it does not see |
 | ENG-005, 006, 007, 034, 035, 066 | `[MANUAL]` |
-| ENG-067 | `scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `[MANUAL]` for which guards have adopted it — read the imports, never a list (`ENG-032`) |
+| ENG-067 | `machine/scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `[MANUAL]` for which guards have adopted it — read the imports, never a list (`ENG-032`) |
 
 Nothing in this standard fails a build in this repository today; it is
 enforced by reading and by the checks it names running elsewhere (`DBT-020`).

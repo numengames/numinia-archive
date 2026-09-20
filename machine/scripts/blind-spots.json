@@ -1,0 +1,482 @@
+{
+  "$comment": "Blind-spot registry. Single source of truth for what each guard CANNOT see. Guards import machine/scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by machine/scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted. A guard that verifies the artefact rather than a rule carries `build_guard` with its reason: it bites whatever any standard's state (ENG-067 exception). A guard without that field answers to the regime and must use machine/scripts/lib/regime.mjs.",
+  "guards": {
+    "check-deletable": {
+      "script": "machine/tools/check-deletable.mjs",
+      "manual": "takes arguments (a path, or --candidates) and is run by hand, not by run-guards.mjs (ENG-032's registry-discovery scope)",
+      "sees": "whether a document has living inbound citers, whether it is sealed, and which public URLs it publishes (the three tests a deletion must pass, minus the judgment in test 3)",
+      "blind_to": [
+        {
+          "spot": "test 3 — whether a written resolution EXISTS and is adequate. It prints the prompt and never answers it: that is a judgment about meaning: whether a pointer is a citation or a mention lives in the sentence, not in the string",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "the citation/mention distinction itself — it counts a substring match, so a document MENTIONED as evidence in a fixed record counts the same as one CITED as a live pointer. It errs toward refusing, which is the safe direction",
+          "covered_by": null,
+          "debt": "D-048"
+        },
+        {
+          "spot": "consumers outside this repository — numinia-web's design-source.json pin, external inbound links, anything reading the raw GitHub URL. The same class of consumer that has forced a rename to be reverted before",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "consumers written in code (.ts, .astro, .json manifests) — it scans .md only, so a slug map or import.meta.glob referencing a document is invisible",
+          "covered_by": "npm run build + std-020-git-is-the-archive"
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`, so a citation from a .md that is not `git add`ed is never seen. It warns rather than passing silently",
+          "covered_by": "its own untracked-file warning",
+          "debt": "D-049"
+        }
+      ]
+    },
+    "check-internal-links": {
+      "script": "machine/scripts/check-internal-links.mjs",
+      "build_guard": "verifies the built output, not a rule — a broken href is a broken page whatever any standard says (ENG-067 exception)",
+      "needs": "web/dist",
+      "sees": "every internal href in web/dist, resolved against the built output the way a browser would — a file must exist at the other end (redirects count, Astro emits them as HTML)",
+      "blind_to": [
+        {
+          "spot": "external links — it never leaves the filesystem",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether the page at the other end is the RIGHT page, only that one exists",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "hrefs built at runtime by JavaScript",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "anchors (#fragment) — the file is checked, the fragment is not",
+          "covered_by": "std-021-evidence-and-citation, for §-citations between documents only",
+          "debt": null
+        }
+      ]
+    },
+    "check-orphan-content": {
+      "script": "machine/scripts/check-orphan-content.mjs",
+      "build_guard": "verifies the built output, not a rule — a file that reaches dist/ without the renderer is an artefact defect (ENG-067 exception)",
+      "needs": "web/dist",
+      "sees": "files in web/public/ that reach web/dist/ without the renderer",
+      "blind_to": [
+        {
+          "spot": "whether the RENDERED page is correct — it checks that content passed through the renderer, not what came out",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "content served from outside web/public/ — a route added directly in src/pages is not orphan content and is not examined here",
+          "covered_by": "npm run build",
+          "debt": null
+        }
+      ]
+    },
+    "check-templates": {
+      "script": "machine/scripts/check-templates.mjs",
+      "sees": "machine/templates/ against the contract of the series each mould scaffolds — name, destination licence, type, lifecycle, ring registry, SemVer, context card, and whether every registered series has a mould at all",
+      "blind_to": [
+        {
+          "spot": "whether the mould's PROSE teaches the right thing — it checks the frontmatter contract and the presence of the context card, not whether the guidance under it is sound or current",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether documents already in the corpus were created from these moulds — a template can be perfect and universally ignored, and this guard cannot tell",
+          "covered_by": "std-004-the-header and std-010-licensing, which read the documents themselves",
+          "debt": null
+        },
+        {
+          "spot": "the -EXAMPLE and -CHANGES companions past T-01/T-02/T-03: they document a real mission, so the destination contract does not apply to them and is not enforced",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "scaffolds that are not single files — agents/_template/ is a directory of five documents and is checked by nothing here",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
+    },
+    "check-version-bump": {
+      "script": "machine/scripts/check-version-bump.mjs",
+      "build_guard": "verifies the change, not a rule — a site that changes without raising its version and writing what changed misreports itself to every returning reader, whatever any standard says (ENG-067 exception)",
+      "needs": "web/src/data/updates.ts",
+      "sees": "any diff under web/src/ between the PR head and its merge base with the base branch, and whether the newest version in web/src/data/updates.ts moved",
+      "blind_to": [
+        {
+          "spot": "whether the entry written is TRUE — it checks that a version was added, not that its text describes the change; a lazy line satisfies it",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "changes outside web/src that alter what the site shows (web/public, web/astro.config.mjs redirects, the corpus itself) — those are not the viewer's version",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "a version raised by more than one minor, or lowered — it compares equality, not order",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "runs outside a PR (no base ref) — it skips with a printed line rather than guess a base",
+          "covered_by": "npm run build in CI runs it with --base origin/<base_ref> on every pull request",
+          "debt": null
+        }
+      ]
+    },
+    "entities": {
+      "script": "machine/scripts/entities.mjs",
+      "manual": "with --check it fetches every copy of every form from third-party hosts (the depot's raw URL, the legacy R2 bucket), so it is run by hand and its dated report is committed; CI never depends on a host being up (ENG-032's registry-discovery scope). Without --check it only regenerates objects/catalogue.json, and the test suite proves the committed catalogue matches the cards",
+      "sees": "every card — objects/*.md and agents/*/AGENT.md: its header, forms and copies, into catalogue.json; with --check, the bytes at every copy — SHA-256 and size against the card for a url or a commit-pinned path, the hash and last commit recorded for a path in this repository (git pins it, the card repeats no hash) — and the licence the file carries inside itself where the format has a slot (VRM meta, glTF extras) against the card's `embedded_license`",
+      "blind_to": [
+        {
+          "spot": "the truth of a licence — it compares the card's claim with the file's own claim and the depot's; whether Polygonal Mind or anyone else actually holds the rights is evidence in the intake record, not a hash",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "formats with no licence slot this reader knows — audio, images, video are hashed but their embedded metadata is not read yet; the report says `ok` for the bytes and nothing about what they carry inside",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a copy is STILL there tomorrow — the report is a photograph of one day at one commit; resilience is the count of copies that answered on that day, never a promise",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "the body of a card — description and history are prose for the table; the catalogue and the check read the header only",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "a card's header rules — it parses what is there; whether the fields are the right ones is the future registry standard's question. objects/ is not in the governed set while that standard does not exist; agents/ is, so an agent card collects the header guard's findings for `entity`, `forms` and `type: entity` until the vocabulary is registered — reported, not enforced, while the header standard is draft",
+          "covered_by": "std-018-one-identifier, for a duplicated id across the tree",
+          "debt": null
+        }
+      ]
+    },
+    "check-url-lifecycle": {
+      "script": "machine/scripts/check-url-lifecycle.mjs",
+      "build_guard": "verifies the built output, not a rule — a public URL that dies without a redirect is a broken promise to a reader, not a breach of a draft (ENG-067 exception)",
+      "needs": "web/dist",
+      "sees": "public URLs that stop being built without a redirect declared in web/astro.config.mjs",
+      "blind_to": [
+        {
+          "spot": "whether a redirect's TARGET actually answers the question the dead URL answered — a 301 to a section index silences this guard and still loses the content",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "inbound links from OUTSIDE the repository — search engines, other sites, the numinia-web repo, printed QR codes. It knows an address died; it cannot know who was walking to it",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "URLs that never entered the baseline because the build that would have published them failed or was never run — it measures web/dist, so it inherits that build's coverage exactly",
+          "covered_by": "npm run build in CI"
+        },
+        {
+          "spot": "redirect rules with Astro's [param] syntax (e.g. /misiones/[id]) — those are matched literally against the baseline, so a parameterised route is neither verified nor expanded",
+          "covered_by": null,
+          "debt": "D-028"
+        }
+      ]
+    },
+    "std-004-the-header": {
+      "script": "machine/guards/rules/std-004-the-header.mjs",
+      "sees": "governed scope (rules.json `governed.dirs`): HDR-000..038 — the ring contract, closed vocabularies, dates, retired fields, anti-entropy. Bound scope (not apparatus, not outward-facing): HDR-040 (a header exists), HDR-043 (licence declared), HDR-044 (no placeholder value).",
+      "blind_to": [
+        {
+          "spot": "whether a deferral is honest — HDR-032 checks a TBA names a mission, not that the mission is alive, funded, or ever worked on",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        },
+        {
+          "spot": "the deferral census (`TBA` counts per field) that std-004-the-header printed — dropped; HDR-032 still fires on an unowned TBA, and no deferral is left in the corpus",
+          "covered_by": null
+        }
+      ]
+    },
+    "std-006-plain-text": {
+      "script": "machine/guards/rules/std-006-plain-text.mjs",
+      "sees": "every tracked .md outside web/: the frontmatter fence closes on its own line, the header is structurally sound YAML, the file name's shape (root UPPERCASE, no version/date in a living name, kebab-case slug); and every .astro/.tsx under web/src that reads no .md: characters of prose living only there",
+      "blind_to": [
+        {
+          "spot": "files that do not open with --- at byte 0 — a document with no frontmatter is silently skipped, not reported as missing one",
+          "covered_by": "std-004-the-header",
+          "debt": null
+        },
+        {
+          "spot": "whether the parsed VALUES are right — a well-formed header full of wrong dates or invented sources parses clean",
+          "covered_by": "std-004-the-header (HDR-000…HDR-031), partially",
+          "debt": null
+        },
+        {
+          "spot": "whether the prose it counts SHOULD be in a .md. Page furniture (a section blurb, a button label, a legend) is prose by this measure and belongs in the component. The number is a ratchet, not a verdict — it says the quantity grew, never that the growth was wrong",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a page that DOES read a .md renders it faithfully. A file containing getCollection is exempt wholesale, so prose hardcoded beside an archive read is invisible here",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "prose in .ts/.js data modules and in web/scripts/ — the scan covers pages, views and components only, so content moved into a lib/ constant leaves the measure without leaving the codebase",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether an extracted .md is actually reachable on the site. It measures what left the code, not what arrived in the archive",
+          "covered_by": "check-orphan-content",
+          "debt": null
+        },
+        {
+          "spot": "whether a filename slug is meaningful — a name that keeps a dead prefix inside its slug still passes the shape check",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
+    },
+    "std-007-one-page": {
+      "script": "machine/guards/rules/std-007-one-page.mjs",
+      "sees": "every governed .md: title length, body word count against its series budget, the card, the scope line, plated rules, the References table; and in standards/*.md the prose: bare series IDs outside the References table, section pointers anywhere, IDs used but never listed",
+      "blind_to": [
+        {
+          "spot": "whether the words are the RIGHT words — it counts them; a document can be within budget and say nothing",
+          "covered_by": null
+        },
+        {
+          "spot": "budget overruns — reported as SHOULD, never handed to the regime, so a document can grow past its budget and merge",
+          "covered_by": null
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`, so a .md not `git add`ed is never measured",
+          "covered_by": "its own untracked-file warning (D-049)"
+        },
+        {
+          "spot": "whether the document is actually READABLE — PW-04 is an editorial judgment about whether a reader can finish without opening another document, and no script can measure it",
+          "covered_by": null
+        },
+        {
+          "spot": "whether the plain name a document uses is the RIGHT one — it checks that prose avoids the ID, not that 'the header standard' names the document the author meant",
+          "covered_by": null
+        },
+        {
+          "spot": "every series except standards/ — STD-007 binds only its own shelf, so canon/, protocols/ and decisions/ may cite by ID in prose and this guard never looks",
+          "covered_by": null
+        },
+        {
+          "spot": "IDs inside code fences and inline code spans — deliberately masked, because quoting a bad citation is how the rule is taught; a real violation hidden in backticks reads as green",
+          "covered_by": null
+        }
+      ]
+    },
+    "std-010-licensing": {
+      "script": "machine/guards/rules/std-010-licensing.mjs",
+      "sees": "frontmatter `license:` against the REUSE.toml regime",
+      "blind_to": [
+        {
+          "spot": "whether the licence is CORRECT for the content — this checks consistency between two declarations, not legal fit",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "files with no `license:` field at all — they are skipped, not flagged",
+          "covered_by": null,
+          "debt": null,
+          "fixture": "no-license-field"
+        },
+        {
+          "spot": "machine/templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it",
+          "covered_by": "machine/scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
+          "debt": null
+        }
+      ]
+    },
+    "std-018-one-identifier": {
+      "script": "machine/guards/rules/std-018-one-identifier.mjs",
+      "sees": "every tracked .md outside web/: the identifier a series filename carries against the series scheme (IDN-011, from lint-naming N-04); and, on the bound corpus (not apparatus, not outward-facing), a filename that encodes state or a version (IDN-012/013) and an id held by two documents (IDN-014)",
+      "blind_to": [
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        },
+        {
+          "spot": "whether the identifier in the NAME matches the `id:` in the header — the name is held to the scheme and the header to its own rules; they are never compared",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "IDN-015 — which of two colliding documents keeps the id is a judgement resolved by commit order, not a check",
+          "covered_by": "the Check table of STD-018 ([MANUAL])",
+          "debt": null
+        }
+      ]
+    },
+    "std-019-versions": {
+      "script": "machine/guards/rules/std-019-versions.mjs",
+      "sees": "on the bound corpus (tracked .md outside web/, not apparatus, not outward-facing): `version:` is bare SemVer (VER-021); where a document keeps a `## Version history`/`## Changelog`, its newest entry is the header's version and the log does not go backwards (VER-024, VER-021)",
+      "blind_to": [
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049"
+        },
+        {
+          "spot": "whether the version MOVED when an obligation moved (VER-022/023) — a diff that changes a MUST under the same version is invisible; the guard reads one commit, not two",
+          "covered_by": "the Check table of STD-019 ([MANUAL])",
+          "debt": null
+        },
+        {
+          "spot": "a change log kept under any other heading, or as a table — only `## Version history` / `## Changelog` with `- x.y.z` bullets is read",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "the opening value of a fresh document (0.1.0) — that is T-08 on templates",
+          "covered_by": "check-templates T-08",
+          "debt": null
+        }
+      ]
+    },
+    "std-020-git-is-the-archive": {
+      "script": "machine/guards/rules/std-020-git-is-the-archive.mjs",
+      "sees": "GIT-048 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted .md; closed records (CIT-053) are indexed but not walked as citers. GIT-045 on the bound corpus: an heir named by a record not withdrawn. GIT-026 on the last 400 commit subjects.",
+      "blind_to": [
+        {
+          "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
+          "covered_by": "npm run build",
+          "fixture": "ts-consumer"
+        },
+        {
+          "spot": "the FOLDER in a path citation: the resolver falls back to basename, so agents/guilds/x.md resolves against guilds/x.md and a wrong directory reads as green",
+          "covered_by": null,
+          "debt": "D-047",
+          "fixture": "wrong-folder"
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`, so a .md created but not `git add`ed is never scanned",
+          "covered_by": "its own untracked-file warning (D-049)",
+          "debt": "D-049",
+          "fixture": "untracked"
+        },
+        {
+          "spot": "GIT-045 reads `superseded_by` and `status` only — whether the named heir EXISTS is GIT-048's question, answered only if the heir is cited in the body, not in the header (HDR-016 is manual)",
+          "covered_by": null
+        },
+        {
+          "spot": "GIT-026 reads the last 400 commit subjects — an older multi-line subject is out of the window",
+          "covered_by": null
+        }
+      ]
+    },
+    "std-021-evidence-and-citation": {
+      "script": "machine/guards/rules/std-021-evidence-and-citation.mjs",
+      "sees": "CIT-050 twice: a standard (standards/, not apparatus, code stripped) cites no section by number; and everywhere else (every tracked .md outside web/dist, salida/, machine/templates/, history/) a `DOC-NNN §X.Y` resolves to a numbered heading DOC-NNN actually has, when DOC-NNN numbers its headings at all",
+      "blind_to": [
+        {
+          "spot": "a section that exists but no longer says what the citer meant — the number resolves, the meaning drifted",
+          "covered_by": null
+        },
+        {
+          "spot": "citations by heading text rather than section number — it only reads the § form",
+          "covered_by": null
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)"
+        },
+        {
+          "spot": "a citation inside a fenced code block is read like any other text on the resolve side; the norm side strips code first",
+          "covered_by": null
+        },
+        {
+          "spot": "the norm reading (a standard cites no §) stops at standards/; a canon or protocol citing `STD-004 §7` is only held to the section existing",
+          "covered_by": null
+        }
+      ]
+    },
+    "telemetry": {
+      "script": "machine/scripts/telemetry.mjs",
+      "build_guard": "verifies the artefact, not a rule — a stale machine/telemetry/latest.json misreports the tree whatever any standard says (ENG-067 exception)",
+      "needs": "machine/scripts/lib/tokenizer/cl100k_base.tiktoken",
+      "run": [
+        "--check"
+      ],
+      "sees": "the corpus, counted: files, series registration, mission states — every figure with unit, definition, HEAD and corpus_hash",
+      "blind_to": [
+        {
+          "spot": "whether a registered document is any GOOD — it counts conforming filenames, which is a measure of naming, not of content",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a figure that a document CITES matches the dataset — the instrument writes machine/telemetry/, it does not read the citers: a document restating a figure can go stale and nothing notices",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
+    },
+    "check-register": {
+      "script": "machine/tools/check-register.mjs",
+      "sees": "whether every row of the engineering register states a mechanism this tree can produce: a tracked file, an npm script, a real Scorecard check name, a GitHub setting, a gate with its human act named, or a debt with an owner and a date. Also whether every rule guard on disk is named by a registry entry, and whether the pipeline still invokes the runner and the tests",
+      "blind_to": [
+        {
+          "spot": "whether the named mechanism actually checks the practice the row describes. A row may cite a tracked script that tests something else entirely: the check proves the machine exists, not that it is the right machine",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "the GitHub settings rows, unless run with --github. Reading them needs a credential that administers the organisation, which CI does not have; without it those rows are unknown, which the summary line states rather than counting them as clean",
+          "covered_by": "a person runs it with --github",
+          "debt": null
+        },
+        {
+          "spot": "whether a DEBT entry is still true. An owner and a date make the debt answerable; nothing here notices that the thing was built and the row never updated. That is the drift that left three rows claiming a person checks what a guard had been checking for weeks",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "build guards. Discovery is checked for machine/guards/rules/ only, so a build guard added and never registered is not reported here",
+          "covered_by": "run-guards.mjs fails the run when --build finds no input",
+          "debt": null
+        }
+      ]
+    },
+    "ruleset-export": {
+      "script": "machine/tools/ruleset-export.mjs",
+      "manual": "reads the GitHub API, which needs a credential that administers the repository; CI's token cannot, so it is run by hand (ENG-032's registry-discovery scope)",
+      "sees": "whether the committed snapshot of the branch ruleset still equals the live one, naming each setting that differs",
+      "blind_to": [
+        {
+          "spot": "everything, without a credential. It exits 2 rather than reporting clean: an unanswered question is not a clean result",
+          "covered_by": "exit code 2 is distinct from both pass and fail",
+          "debt": null
+        },
+        {
+          "spot": "whether the live ruleset is CORRECT. It compares the file to the panel and says they agree; whether what the panel enforces is what the organisation wants is a judgment",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
+    }
+  }
+}

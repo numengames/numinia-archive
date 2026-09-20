@@ -43,21 +43,21 @@ before acting (`git fetch && git log -1 origin/main`, `gh pr list --state open`)
 1. `git checkout main && git pull && git branch -D <old-branch>`. Read and
    measure the document and its citers: `grep -rn <ID> --include=*.md`, plus
    `web/src/lib/corpus.ts`, `web/astro.config.mjs`, `REUSE.toml`,
-   `scripts/*.mjs`.
+   `machine/scripts/*.mjs`.
 2. Write the document. Keep the original header fields (`guild`, `territory`,
    `threshold`, `supersedes_record_of`, `license`); bump from the version that
    is actually in the file; keep the SPDX comment equal to `license:`.
 3. `git checkout -b <series>/<id>-shape`.
 4. `npm test` at the root — every suite.
 5. Guards, all of them: `npm run guards` at the root; then `cd web && npm run
-   build` and `node scripts/check-url-lifecycle.mjs`. A guard prints every
+   build` and `node machine/scripts/check-url-lifecycle.mjs`. A guard prints every
    finding on the tree and exits 1 only when its rule's holder is `active`
    (ENG-067); there is no baseline to refresh.
 6. Commit as the agent that did the work (`-c user.name=<Agent>
    -c user.email=<agent>@numinia.org`), with a long message that says what
    went out and where it now lives.
-7. **Telemetry last**: `node scripts/telemetry.mjs && git add telemetry` in its
-   own commit; `node scripts/telemetry.mjs --check` must report OK on HEAD.
+7. **Telemetry last**: `node machine/scripts/telemetry.mjs && git add telemetry` in its
+   own commit; `node machine/scripts/telemetry.mjs --check` must report OK on HEAD.
    Never regenerate before an amend (`RUP-005`).
 8. `git push -u origin <branch>`; `gh pr create --base main --body-file`;
    `gh pr edit N --add-reviewer PabloFMM,Christian-Numen,MariaGarciaJordan`;

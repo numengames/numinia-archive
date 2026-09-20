@@ -65,7 +65,7 @@ SPDX-License-Identifier: CC-BY-4.0
   the equivalence table lives in git at `9645477`. Retired plates stay as
   written where history mentions them (rule 8).
 - The guard blocks on form for new failures; the failures of the day it was
-  wired are frozen in `scripts/document-shape-baseline.json`, a list that
+  wired are frozen in `machine/scripts/document-shape-baseline.json`, a list that
   shrinks and never grows. Size is reported, never blocked.
 
 ## 4. Alternatives

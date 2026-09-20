@@ -80,7 +80,7 @@ action stated. Smaller work may start silently.
 
 | Step | Whose | What |
 |---|---|---|
-| 1 | Oracle | Open from `templates/MIS-TEMPLATE`, next free number verified after a pull (`IDN-015`), `todo`, pull request. |
+| 1 | Oracle | Open from `machine/templates/MIS-TEMPLATE`, next free number verified after a pull (`IDN-015`), `todo`, pull request. |
 | 2 | agent | Brief: read the whole card (`MSN-041`), answer the three questions (`MCY-002`), check blockers (`MCY-003`). |
 | 3 | agent | Activate: `in-progress`, `started`, commit (`MSN-002`). Announce if M+ (`MCY-007`). |
 | 4 | agent | Execute; record progress and any change of plan in the card. |

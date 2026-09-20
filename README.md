@@ -40,22 +40,30 @@ and what every field means — then whichever series they came for.
 
 ## Where things live
 
-Each folder answers one question. [`STD-001`](standards/STD-001-the-series.md) is the
-full definition; this is only the map.
+Each folder answers one question, and the folders group into six **functions**
+(`STD-027`). [`STD-001`](standards/STD-001-the-series.md) is the full
+definition; this is only the map.
 
-| Series | Answers |
-|---|---|
-| [`canon/`](canon/) | What the system **is** — foundational documents |
-| [`standards/`](standards/) | What an artifact must **comply with** |
-| [`protocols/`](protocols/) | What an actor **executes**, step by step |
-| [`agents/`](agents/) | **Who** acts — one folder per digital agent |
-| [`missions/`](missions/) | The **work**: promised, done, and with what evidence |
-| [`decisions/`](decisions/) | **Why** something was chosen |
-| [`blueprints/`](blueprints/) | What **could** be — designs not yet executed |
-| [`reports/`](reports/) | What was **observed**, on a date, by someone |
-| [`operations/`](operations/) | What **sustains** the business — legal, security |
-| [`debt/`](debt/) | What we know is **missing** |
-| [`web/`](web/) | **This folder serves [numinia.org](https://numinia.org)** |
+| Function | Series | Answers |
+|---|---|---|
+| **Governance** | [`canon/`](canon/) | What the system **is** — foundational documents |
+| | [`standards/`](standards/) | What an artifact must **comply with** |
+| | [`protocols/`](protocols/) | What an actor **executes**, step by step |
+| | [`decisions/`](decisions/) | **Why** something was chosen |
+| **Production** | [`blueprints/`](blueprints/) | What **could** be — designs not yet executed |
+| | [`missions/`](missions/) | The **work**: promised, done, and with what evidence |
+| **Assurance** | [`reports/`](reports/) | What was **observed**, on a date, by someone |
+| | [`debt/`](debt/) | What we know is **missing** |
+| **Agency** | [`agents/`](agents/) | **Who** acts — one folder per digital agent |
+| **Creation** | [`lore/`](lore/) | The **fiction** and the game — a second fond |
+| **Administration** | [`operations/`](operations/) | What **sustains** the business — legal, security |
+| | [`system/`](system/) | How the machine is **wired** |
+| — | [`machine/`](machine/) | The **instruments**: guards, tools, scripts, moulds, telemetry |
+| — | [`web/`](web/) | **This folder serves [numinia.org](https://numinia.org)** |
+
+`machine/` is not a series. What verifies, measures, moulds or packages the
+archive carries no identifier and is never cited as evidence (`STD-027`
+CLS-002) — which is why it is filed apart from the records.
 
 That last row is the one people miss. The public site is built from this
 repository on every deploy — the mission board, the decision log and the corpus
@@ -123,13 +131,13 @@ a licence from a neighbouring file.
 
 One rule in this repository is enforced by a machine: every document's declared
 licence must match `REUSE.toml`, checked by
-[`guards/rules/std-010-licensing.mjs`](guards/rules/std-010-licensing.mjs)
+[`machine/guards/rules/std-010-licensing.mjs`](machine/guards/rules/std-010-licensing.mjs)
 on every push through [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 The site build runs in the same pipeline, so a structural change that breaks
 [numinia.org](https://numinia.org) fails before it merges.
 
 **Naming, vocabularies, and identifiers now have guards; the states a
-mission may hold do not.** `guards/rules/std-004-the-header.mjs` and `guards/rules/std-018-one-identifier.mjs` run
+mission may hold do not.** `machine/guards/rules/std-004-the-header.mjs` and `machine/guards/rules/std-018-one-identifier.mjs` run
 on every push (closed `debt/D-001`, 2026-08-31). Register `debt/` was
 retired in full 2026-09-04 (Oracle instruction, `MIS-0127` absorbs what
 remains): the archive describes four levels of change control, and git

@@ -24,7 +24,7 @@ This repository is the canonical truth of the Numinia Digital Agents system.
 2. **Never include real credentials, IPs, or tokens** — use OPS-009-secrets-handling.md for structure
 3. **Commit messages in English** — always
 4. **One PR per logical change** — don't bundle unrelated modifications
-5. **Missions follow the `templates/MIS-TEMPLATE` format** — PRs rejected otherwise
+5. **Missions follow the `machine/templates/MIS-TEMPLATE` format** — PRs rejected otherwise
 
 ## Pull Request process
 

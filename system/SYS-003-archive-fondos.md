@@ -1,18 +1,18 @@
 ---
 id: "SYS-003"
 uid: ""
-title: "The Archive's Fondos"
+title: "The Archive's Fonds"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.2"
+version: "2.0.0"
 created: "2026-08-17T19:10:09Z"
 created_source: "git:715cc53"
 created_confidence: exact
-updated: "2026-09-09T15:10:00+02:00"
+updated: "2026-09-20T12:00:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
-tags: [system, archive, fondos, taxonomy]
+tags: [system, archive, fonds, taxonomy, classification]
 territory: "CAO"
 license: "CC0-1.0"
 extraction_note: "Extracted from web/src/pages/archive/[fondo].astro and archive/index.astro (MIS-065 phase C — File over App). Document paths corrected to the post-MIS-066 flat layout (agents flat, missions flat, P-001 English); 'Archive System' has no matching file in canon/ today — kept as declared, flagged for MIS-071. The per-fondo lore lines were folded into this file's fondos[].lore under ADR-036 (2026-09-01): canon/ became CC0, so the one-file-one-regime split that justified the separate lore file no longer applied and that file was retired. Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
@@ -138,43 +138,61 @@ graph:
     - [missions, blueprints]
     - [agents, missions]
 ---
-# BP — The Archive's Fondos
+# The Archive's Fonds
 
-> **Summary:** The Archive's taxonomy: the seven documentary fondos,
-> what each contains, who governs it, and how they relate to each
-> other. The data in this frontmatter feeds the viewer's `/archive`
-> pages — the archive is the source, the web the lens.
+> **Summary:** The Archive's taxonomy: one fond, six functions, the
+> activities under each, and the series each produces. The data in this
+> frontmatter feeds the viewer's `/archive` pages — the archive is the
+> source, the web the lens.
 > **Epistemic:** How the system's memory is organized.
-> **Pragmatic:** Canonical reference for the fondos and their relations.
+> **Pragmatic:** Canonical reference for the fonds and their relations.
 > **Audience:** Agents · Oracles
 
 ---
 
-## The seven fondos
+## One fond, six functions
 
-| Fondo | Subtitle | Governance |
-|---|---|---|
-| `canon/` | Immutable Memory | Oracle only. Blocking CODEOWNERS. |
-| `agents/` | Living Entities | SOUL/OPERATOR: Oracle. STATUS: the agent. |
-| `missions/` | Movement | Only the executor edits their active mission. |
-| `protocols/` | Operating Rituals | New version = new file. |
-| `decisions/` | Crystallized Will | Append-only. Never delete. |
-| `blueprints/` | Unmanifested Potential | Oracle approves the merge. |
-| `operations/` | Circulatory System | Oracle modifies; agents propose. |
+This document called seven folders "fondos" until 2026-09-20. They are
+**series of a single fond** — the whole output of one producer, Numen
+Games S.L. The scheme that groups them is `STD-027`; this is its manual.
+
+| Function | Activity | Series | Governance |
+|---|---|---|---|
+| **Governance** | Founding | `canon/` | Oracle only. Blocking CODEOWNERS. |
+| | Standardising | `standards/` | An ADR, or a PR the Oracle approves. |
+| | Prescribing | `protocols/` | New version = new file. |
+| | Deciding | `decisions/` | Append-only. Superseded, never deleted. |
+| **Production** | Planning | `blueprints/` | Oracle approves the merge. |
+| | Executing | `missions/` | Only the executor edits their active mission. |
+| **Assurance** | Observing | `reports/` | Closed: substance is not reopened. |
+| | Admitting | `debt/` | Open: a pull request. |
+| | Verifying | `machine/guards/` · `machine/tools/` · `machine/scripts/` | Instruments, not records. |
+| | Measuring | `machine/telemetry/` | Regenerated, never hand-edited. |
+| **Agency** | Constituting | `agents/` | SOUL/OPERATOR: Oracle. STATUS: the agent. |
+| **Creation** | Worldbuilding | `lore/` | A second fond (`ADR-046`). Reserved regime. |
+| | Cataloguing | `objects/` | Open: a pull request. |
+| **Administration** | Sustaining | `operations/` | Oracle modifies; agents propose. |
+| | Wiring | `system/` | An ADR, or an approved PR. |
+| | Templating | `machine/templates/` | Instruments, not records. |
+
+## The second fond
+
+`lore/` is recognised as a fond of its own: a different producer
+relationship and a different licence regime from the administrative
+corpus (`ADR-046`). It is listed here because the two fonds are read
+together, not because it belongs to the first.
 
 ## Relations
 
 ```
-            canon
-           /     \
-      agents ←→ missions ── decisions
-        |      /   |
-   protocols  /    blueprints
-        |    /
-    operations
+         Governance
+        /          \
+   Agency  ←→  Production ── Assurance
+      |        /    |
+ Administration    Creation
 ```
 
-The canon feeds agents and missions; the protocols ritualize both; the
-operations sustain them; missions crystallize into decisions and are
-born from blueprints. The exact positions and edges of the viewer's 3D
-diagram live in the frontmatter (`graph:`).
+Governance feeds agency and production; administration sustains them;
+production is observed by assurance and born from planning. The exact
+positions and edges of the viewer's 3D diagram live in the frontmatter
+(`graph:`).

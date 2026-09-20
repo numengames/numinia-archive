@@ -25,7 +25,7 @@ owner: "oracle"
 tags: [archive, frontmatter, s-004, migration, debt]
 license: "CC0-1.0"
 
-paths: [scripts/lint-frontmatter.mjs, scripts/frontmatter-baseline.json, standards/STD-004-the-header.md, debt/, missions/, web/src/content.config.ts]
+paths: [machine/scripts/lint-frontmatter.mjs, machine/scripts/frontmatter-baseline.json, standards/STD-004-the-header.md, debt/, missions/, web/src/content.config.ts]
 ---
 # MIS-121 — Burn the header baseline down
 
@@ -58,7 +58,7 @@ At `bc76270`: guard written but **not wired**, baseline **844**.
 
 ## Scope
 
-The frontmatter of every tracked `.md` file that `scripts/lint-frontmatter.mjs`
+The frontmatter of every tracked `.md` file that `machine/scripts/lint-frontmatter.mjs`
 inspects, and the standards, decisions and web schema that a header migration
 forces to move with it.
 
@@ -84,7 +84,7 @@ Each check is one class of violation, sized from the baseline at `843`.
 Order is deliberate: mechanically safe first, contested last.
 
 ```
-✓  node scripts/lint-frontmatter.mjs --report | grep -c '^H-'   returns 0
+✓  node machine/scripts/lint-frontmatter.mjs --report | grep -c '^H-'   returns 0
    (at bc76270: 844 · today: 843)
 
    There is no floor. Emptying the 34 written uid values is in scope
@@ -111,7 +111,7 @@ Order is deliberate: mechanically safe first, contested last.
       #143): templates fixed at source, then exempted from HDR-006/HDR-007 for
       their placeholder dates — the placeholder IS the template's content.
       Today they emit 0.*
-      `templates/MIS-TEMPLATE`, `templates/MIS-TEMPLATE-EXAMPLE`, `templates/MIS-TEMPLATE-CHANGES`. First
+      `machine/templates/MIS-TEMPLATE`, `machine/templates/MIS-TEMPLATE-EXAMPLE`, `machine/templates/MIS-TEMPLATE-CHANGES`. First
       because every mission copied from them inherits what they carry: fixing
       them last means draining a baseline that refills from its own source.
       `area → territory` ×2, placeholder dates given a real ISO time ×6,
@@ -302,7 +302,7 @@ guard — all in CI, all tested in both directions (PRO-013).
       timestamp would replace an obvious lie with a plausible one — which is
       `D-021`'s exact failure mode, and worse than the defect.
 
-      **How it was resolved, 2026-08-30.** `scripts/backfill-dates.py` writes
+      **How it was resolved, 2026-08-30.** `machine/scripts/backfill-dates.py` writes
       three fields, never one: the date, the commit it came from
       (`created_source: "git:<sha>"`) and whether the trail crossed a rename
       (`created_confidence: exact | inferred`). The shared timestamps survive
@@ -331,7 +331,7 @@ guard — all in CI, all tested in both directions (PRO-013).
 Every criterion above is falsifiable by:
 
 ```bash
-node scripts/lint-frontmatter.mjs --report | grep -c '^H-NN '
+node machine/scripts/lint-frontmatter.mjs --report | grep -c '^H-NN '
 ```
 
 ## Sizing — 798 decisions, 45 substitutions
@@ -380,10 +380,10 @@ outside `missions/`; the other fourteen are text-only.**
 | `web/src/content.config.ts` | `area` in 3 collections (`missions`, `blueprints`, `decisions`) | **`HDR-031`** — rename `area → territory` without the schema and the build drops the field |
 | `web/src/views/MissionsView.astro` | `status`, maps `draft → backlog`, four columns | **`HDR-004`** — rename `backlog` and a live column empties |
 | `web/src/lib/corpus.ts` | `visibility` in `debt/` only | nothing here — it never reads `status` |
-| `scripts/count-evidence.py` | `area`, `status`, `uid`, `created` | reports the old names; it measures, so it degrades quietly rather than failing |
-| `scripts/check-references.mjs` | frontmatter `id` | **`HDR-001`** — inventing ids creates references that must then resolve |
-| `scripts/check-license-frontmatter.mjs` | `license` vs `REUSE.toml` | **`HDR-008`** — 2 findings, already at the edge of this guard |
-| `scripts/lint-frontmatter.mjs` | everything | itself; the baseline is the ledger |
+| `machine/scripts/count-evidence.py` | `area`, `status`, `uid`, `created` | reports the old names; it measures, so it degrades quietly rather than failing |
+| `machine/scripts/check-references.mjs` | frontmatter `id` | **`HDR-001`** — inventing ids creates references that must then resolve |
+| `machine/scripts/check-license-frontmatter.mjs` | `license` vs `REUSE.toml` | **`HDR-008`** — 2 findings, already at the edge of this guard |
+| `machine/scripts/lint-frontmatter.mjs` | everything | itself; the baseline is the ledger |
 
 **300 files carry at least one finding**, out of 322 tracked `.md`. By
 folder: `missions/` 124, `debt/` 38, `reports/` 25, `agents/` 25,
@@ -465,7 +465,7 @@ hides its decisions makes the next reader guess.
    series was already using informally becomes the one the standard names.
    No new lifecycle is minted. Check **B** below.
 3. **The template family still emits violations.** Three files —
-   `templates/MIS-TEMPLATE`, `templates/MIS-TEMPLATE-EXAMPLE`, `templates/MIS-TEMPLATE-CHANGES` — produce
+   `machine/templates/MIS-TEMPLATE`, `machine/templates/MIS-TEMPLATE-EXAMPLE`, `machine/templates/MIS-TEMPLATE-CHANGES` — produce
    **9 findings** between them, and every mission copied from them inherits
    the defects: `area:` retired (×2), placeholder dates that are not ISO
    times (×6), `type: standard` in `missions/` (×1).
@@ -507,7 +507,7 @@ hides its decisions makes the next reader guess.
 
 *(Fill when the mission closes. Not before, and not with intentions.)*
 
-- **What was done:** the baseline is gone. `scripts/lint-frontmatter.mjs`
+- **What was done:** the baseline is gone. `machine/scripts/lint-frontmatter.mjs`
   at `4a60735` reports **0 findings (0 baselined)** — from 843 frozen
   violations at `fd4d045`. The mechanical classes went by script in the
   lots recorded above; the judgement classes went one by one across the
@@ -521,8 +521,8 @@ hides its decisions makes the next reader guess.
   under `ADR-040` before anyone opened them. A violation in a file that
   no longer exists is not fixed, it is gone — the count is honest about
   that, the mission does not claim repair work it did not do.
-- **Evidence:** `node scripts/lint-frontmatter.mjs` → `0 findings (0
-  baselined)`; `scripts/frontmatter-baseline.json` empty; CI green on
+- **Evidence:** `node machine/scripts/lint-frontmatter.mjs` → `0 findings (0
+  baselined)`; `machine/scripts/frontmatter-baseline.json` empty; CI green on
   `main` at `4a60735`.
 - **Closed:** 2026-09-08 · **by:** Oracle (instruction "ok hacerlas"),
   executed by Ursa.

@@ -26,7 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** Every closed list of the design system, as values: colours
 > and contrasts, type and space scales, icon subset, brand inventory,
-> animations, sky and pixel grids. `packages/design-kit/` carries the same
+> animations, sky and pixel grids. `machine/packages/design-kit/` carries the same
 > values as tokens; where they differ, the generator fails.
 > **Epistemic:** What the values are. Why they are what they are is
 > `CAN-008`; what a builder must do with them is `STD-008`.
@@ -147,7 +147,7 @@ Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50p
 ## 11. The icon subset
 
 
-**The house subset [CANON — audited in production, 5.0.0].** Of Phosphor's ~1,500 glyphs, the organization uses **twenty-six**, self-hosted in `packages/ui/src/icons/` and served as inline SVG with `currentColor`. This is the vocabulary, not a sample of someone else's catalogue: `archive · bell · book-open · caret-down · caret-left · chart-bar · download-simple · flame · flame-light · gear · github-logo · globe-hemisphere-west · globe-hemisphere-west-light · house · magnifying-glass · moon · moon-stars · music-notes · package · sign-out · sun · sword · sword-light · user · users · x-logo`. Expanding it is a decision, not an oversight: a new icon enters the subset with its concept declared.
+**The house subset [CANON — audited in production, 5.0.0].** Of Phosphor's ~1,500 glyphs, the organization uses **twenty-six**, self-hosted in `machine/packages/ui/src/icons/` and served as inline SVG with `currentColor`. This is the vocabulary, not a sample of someone else's catalogue: `archive · bell · book-open · caret-down · caret-left · chart-bar · download-simple · flame · flame-light · gear · github-logo · globe-hemisphere-west · globe-hemisphere-west-light · house · magnifying-glass · moon · moon-stars · music-notes · package · sign-out · sun · sword · sword-light · user · users · x-logo`. Expanding it is a decision, not an oversight: a new icon enters the subset with its concept declared.
 
 ## 12. Brand inventory
 

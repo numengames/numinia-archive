@@ -20,7 +20,7 @@ This is the Numinia NWOS workspace: canon, lore, missions, protocols and operati
 - `npm run build` — production build to `web/dist/`
 - `npm run build:pdf` — after build: prints every `/print/*` page to `web/dist/pdf/*.pdf` with Chromium and removes `dist/print/` (MIS-088). Deploy flow is build → build:pdf → `npx wrangler deploy`; CI runs build only.
 
-CI (`.github/workflows/ci.yml`) runs on every push/PR: `npm run guards -- --rules` (every guard registered in `scripts/blind-spots.json` — `guards/rules/std-NNN-*.mjs` on the R2 contract, one per standard, plus `scripts/check-templates.mjs`, which reads the moulds against five standards at once and stays its own guard), `npm test` (`scripts/test/*.test.mjs` + `guards/test/*.test.mjs`), the web build, then `npm run guards -- --build` (the ratchets that need `web/dist`). OpenSSF Scorecard runs weekly. Node ≥ 22.12 required.
+CI (`.github/workflows/ci.yml`) runs on every push/PR: `npm run guards -- --rules` (every guard registered in `machine/scripts/blind-spots.json` — `machine/guards/rules/std-NNN-*.mjs` on the R2 contract, one per standard, plus `machine/scripts/check-templates.mjs`, which reads the moulds against five standards at once and stays its own guard), `npm test` (`machine/scripts/test/*.test.mjs` + `machine/guards/test/*.test.mjs`), the web build, then `npm run guards -- --build` (the ratchets that need `web/dist`). OpenSSF Scorecard runs weekly. Node ≥ 22.12 required.
 
 ## Stack & architecture (`web/`)
 
@@ -35,7 +35,7 @@ None. The viewer needs no secrets to build or run.
 
 ## Licensing — from Numinia STD-010 (source of truth; do not edit here)
 
-**Emit:** `packages/*` — library/SDK/types/tokens/script/CI/infra → `MIT` ·
+**Emit:** `machine/packages/*` — library/SDK/types/tokens/script/CI/infra → `MIT` ·
 `apps/*` — deployable app that *decides* (identity, progression, billing) →
 `AGPL-3.0-only` · code on a third-party strong-copyleft engine, **separate repo** →
 the engine's · assets/data/metadata/design tokens → `CC0-1.0` · docs/ADRs/specs →

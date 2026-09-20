@@ -1,0 +1,50 @@
+{
+  "_comment": "MIS-138 D1.1 — the classifiers the guards and the telemetry instrument share. Data, not code: any language reads this file. Each block names the ruling it transcribes; change the ruling, change the block, every consumer follows. Before 2026-09-02 three private copies of `series` and three of `apparatus` lived in count-evidence.py, lint-naming.mjs and lint-frontmatter.mjs and drifted (CHANGELOG 2026-09-02, naming-baseline 2 → 0).",
+  "series": {
+    "_comment": "MIRROR of the STD-001 Series table for prefix, digits and threshold (rules.test.mjs compares thresholds). ADR-005 v1.2.0 register, by top-level directory. `prefix` may list alternatives. `dailyDate`: RPT-YYYY-MM-DD is legal for `subtype: daily` only (ADR-004 rule 3). history/ and agents/ deliberately absent (ADR-035 §2; ADR-005 v1.1.0 reversal). `naming`: false = no filename scheme is enforced (agents/ is folder-named but its frontmatter id is still checked: none legal).",
+    "missions":   { "prefix": ["MIS"],        "digits": 4, "threshold": "closed" },
+    "decisions":  { "prefix": ["ADR", "DEC"], "digits": 3, "threshold": "governed" },
+    "protocols":  { "prefix": ["PRO"],        "digits": 3, "threshold": "governed" },
+    "debt":       { "prefix": ["DBT"],        "digits": 3, "threshold": "open" },
+    "standards":  { "prefix": ["STD"],        "digits": 3, "threshold": "governed" },
+    "canon":      { "prefix": ["CAN"],        "digits": 3, "threshold": "governed" },
+    "operations": { "prefix": ["OPS"],        "digits": 3, "threshold": "open" },
+    "reports":    { "prefix": ["RPT"],        "digits": 3, "threshold": "closed", "dailyDate": true },
+    "blueprints": { "prefix": ["BLU"],        "digits": 3, "threshold": "open" },
+    "system":     { "prefix": ["SYS"],        "digits": 3, "threshold": "governed" },
+    "agents":     { "prefix": [],             "digits": 0, "threshold": "live", "naming": false }
+  },
+  "retiredPrefixes": {
+    "_comment": "Prefixes that no longer name a series but still appear in prose and must resolve for reference checking (std-020-git-is-the-archive ID_RE). D- closed 2026-08-31 (RPT-001 §12). S- (standards, pre-MIS-109) and P- (protocols, pre-MIS-125) added 2026-09-03 — same shape as D-, found during the standards/ refactor: 168 and 287 live citations respectively, invisible to this guard until now.",
+    "D": "debt",
+    "S": "standards",
+    "P": "protocols"
+  },
+  "apparatus": {
+    "_comment": "D-014: scaffolding around a series, not a member of it. A document is apparatus if `type: meta`, or its basename is listed here, or its path matches a pattern. lint-naming, lint-frontmatter (IS_TEMPLATE) and count-evidence each held a partial copy of this list.",
+    "basenames": ["README.md", "INDEX.md", "TEMPLATE.md", "TEMPLATE-EXAMPLE.md", "TEMPLATE-CHANGES.md", "STANDARDS.md", "APPROVAL-REQUEST-template.md"],
+    "pathPatterns": ["/_template/", "^agents/_template/", "^missions/TEMPLATE-", "^machine/templates/"],
+    "templatePatterns": ["^agents/_template/", "^missions/TEMPLATE(\\.md$|-)", "^machine/templates/"]
+  },
+  "types": {
+    "_comment": "STD-004 §5 HDR-003 closed type vocabulary; HDR-017 type ↔ series, strict except `lax`.",
+    "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "documentation", "meta", "agent"],
+    "series": { "mission": "missions", "adr": "decisions", "protocol": "protocols", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "legal": "canon", "agent": "agents" },
+    "lax": ["documentation", "meta"]
+  },
+  "status": {
+    "_comment": "MIRROR of STD-016 'Status lifecycles' — the table there is the declaration; rules.test.mjs fails when this block and that table differ. Two lifecycles: a mission's, and everyone else's. One terminal state (`withdrawn`); an heir is the field `superseded_by`, never a second state (relation model — ISO stage codes, RFC 2026 `Obsoletes:`, NIST CSRC). `closed` and `superseded` retired 2026-09-09. `_terminal` is the set every guard reads for 'closed record, a photograph' (CIT-053).",
+    "mission": ["todo", "in-progress", "in-review", "done", "frozen"],
+    "_default": ["draft", "active", "withdrawn"],
+    "_terminal": ["withdrawn", "done", "frozen"]
+  },
+  "subtypes": {
+    "_comment": "STD-004 §5 HDR-018; `report` closed since ADR-005 v1.2.0.",
+    "report": ["audit", "analysis", "proposal", "rollup"],
+    "documentation": ["standard", "register", "guide", "reference"]
+  },
+  "governed": {
+    "_comment": "STD-004 §10: the top-level directories whose tracked .md files std-004-the-header governs. Everything else (web/, machine/scripts/, root, .github/) is out of its scope.",
+    "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "operations", "system"]
+  }
+}

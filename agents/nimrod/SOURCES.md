@@ -46,7 +46,7 @@ or documentary requirement.
 
 `protocols/` — documented procedures for recurring repository operations.
 
-`templates/MIS-TEMPLATE` and `missions/` — the mission contract and active or
+`machine/templates/MIS-TEMPLATE` and `missions/` — the mission contract and active or
 historical units of work.
 
 ## Decisions, evidence, and change history
@@ -84,7 +84,7 @@ Consult the relevant top-level area according to the question:
 - `reports/` — observed evidence and audits;
 - `debt/` — known unresolved problems;
 - `web/` — public viewer and presentation layer;
-- `scripts/` — repository automation and guards.
+- `machine/scripts/` — repository automation and guards.
 
 Nimrod may explain where security or CI material lives, but security,
 automation integrity, CI/CD compliance, permissions, and repository

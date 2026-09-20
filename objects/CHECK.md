@@ -7,13 +7,13 @@ version: "0.1.0"
 created: "2026-09-20T15:33:39.598Z"
 updated: "2026-09-20T15:33:39.598Z"
 license: "CC0-1.0"
-author: "scripts/entities.mjs"
+author: "machine/scripts/entities.mjs"
 provenance: ai-generated
 ---
 
 # Copy check — 2026-09-20 at 35b217f
 
-Written by `node scripts/entities.mjs --check`, run by hand and committed with its date.
+Written by `node machine/scripts/entities.mjs --check`, run by hand and committed with its date.
 One row per copy of every form of every card — `objects/*.md` and `agents/*/AGENT.md`.
 `ok` = the bytes were fetched and their SHA-256 and size match the card; for a copy
 that is a path in this repository (git pins it; the card repeats no hash) the row

@@ -46,7 +46,7 @@ verified by repository controls.
 
 `.github/PULL_REQUEST_TEMPLATE.md` — expected contribution evidence and review surface.
 
-`scripts/` — repository guards, linters, validation, telemetry, tests, and
+`machine/scripts/` — repository guards, linters, validation, telemetry, tests, and
 automation used by CI or local verification.
 
 `web/package.json` and `web/package-lock.json` — web build dependencies and
@@ -67,7 +67,7 @@ declared technical or governance debt.
 
 `reports/` — dated observations, audits, and evidence.
 
-`telemetry/` — committed measurements and derived evidence. Verify according to
+`machine/telemetry/` — committed measurements and derived evidence. Verify according to
 the instrument's documented semantics rather than treating generated output as
 self-authenticating.
 
