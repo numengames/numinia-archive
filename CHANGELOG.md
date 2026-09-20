@@ -14,6 +14,13 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-19 (DEV-008: the test before the code)
+- `standards/STD-015-engineering-checks.md` 1.4.0: row DEV-008 (Ergonomics, MUST) — the test that describes a change is written, run and seen to fail before the code, and the pull request shows the test commit before the code commit. Check: `[GATE: .github/PULL_REQUEST_TEMPLATE.md → the reviewer reads the commit order before approving]`. A diff cannot tell the order; the history can. Born draft: read at review, fails no build (ENG-067). Register now 55 rows (23 AUTO, 5 GATE, 27 DEBT).
+- `.github/PULL_REQUEST_TEMPLATE.md`: a Definition-of-Done line asks for it.
+- `AGENTS.md`: the rule in the transition regime's "what still holds" list, so every runtime and the three consumer repositories read it.
+- `tools/test/check-register.test.mjs`: the row exists, is a gate on the template, and the template asks; the summary count follows. Written first; failed with "STD-015 has no DEV-008 row".
+- Measured before the row, 2026-09-19: five repositories, each with a test runner in CI (≈636 tests, all green), none with a written rule on when the test is written; numinia-web at 100 % of what it measures under a per-file threshold, the archive at 94.7 % lines by habit, numengames-web and nwos-deploy at 27 % and 15 % of their logic.
+
 ### Fixed — 2026-09-19 (the repository is numengames/numinia-archive on every live surface)
 - Fourteen live files still spelled the org/repo path as `numengames/numinia-nwos`, the name retired on 2026-09-17. The one that bit: `web/src/lib/build-info.ts` — `REPO_URL` and `COMMIT_URL` feed the footer of numinia.org, so every commit link went through GitHub's redirect and would land on a stranger's repository the day one called `numinia-nwos` exists. Also the ruleset snapshot, `SECURITY.md`, the PR skill's description, the design-kit package URL and manifest, `STD-005` Binds and five `STD-015` check paths, `tools/generate-design-kit.mjs`, `tools/ruleset-export.mjs`, `web/README.md`, `wardley.astro`, `ContinuityView`, `HomeView`. Site v0.3.1.
 - `web/wrangler.toml` keeps `name = "numinia-nwos"`: it is the deployed Cloudflare service, and changing the name creates a new empty worker instead of renaming this one. A comment above the line says so.
