@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "3c7d4f5",
-  "corpus_hash": "f2968de3b22046b4590dac3fbb20a015fd4006687bb3a6d823da8fbb53d8fe69",
+  "head": "3d5126b",
+  "corpus_hash": "03b4b1be830806c8ad1dbf01e3da42cd104a66c86ba31b9b81c4912fd8234095",
   "root_dirty": 0,
-  "measured_at": "2026-09-20T07:23:39Z",
+  "measured_at": "2026-09-20T07:51:52Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 485,
+      "value": 486,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".js": 2,
         ".json": 13,
         ".md": 168,
-        ".mjs": 58,
+        ".mjs": 59,
         ".png": 35,
         ".svg": 69,
         ".toml": 4,
@@ -105,13 +105,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 30,
+      "value": 31,
       "unit": "files",
       "definition": "files under `scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 30
+        "node": 31
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -316,7 +316,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 598803,
+      "value": 599087,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -330,7 +330,7 @@
         "reports": 26138,
         "operations": 22950,
         "blueprints": 22838,
-        "": 18608,
+        "": 18892,
         "templates": 15832,
         "system": 15242,
         "protocols": 14384,
@@ -343,7 +343,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 329671,
+        "(none)": 329955,
         "active": 113923,
         "draft": 110114,
         "done": 26350,
@@ -354,7 +354,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.28,
+      "value": 7.27,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -370,7 +370,7 @@
         ],
         [
           "CHANGELOG.md",
-          11691
+          11975
         ],
         [
           "lore/world/brand-and-culture.md",

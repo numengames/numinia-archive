@@ -44,5 +44,9 @@ test('CI publishes the figure AND the files no test loads', () => {
   assert.match(step, /run: npm test/, 'the tests step must still say `run: npm test` — the register checker looks for that line');
   assert.match(step, /GITHUB_STEP_SUMMARY/, 'the tests step writes nothing to the job summary');
   assert.match(step, /all files/, 'the summary does not carry node\'s coverage line');
-  assert.match(step, /never loaded|not loaded|no test loads/, 'the summary does not say how many source files no test loads — the figure alone overstates');
+  assert.match(step, /never loaded|not loaded|no test loads|no test:/, 'the summary does not say how many source files no test loads — the figure alone overstates');
+  // A guard driven by its test as a child process (check-templates,
+  // check-register, rename-series, ruleset-export) is tested but invisible
+  // to node's coverage. Lumping it with the untested ones misreports.
+  assert.match(step, /tested as a process|as a child process|run by a test as a process/, 'the summary does not separate files tested as a child process from files no test touches');
 });

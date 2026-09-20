@@ -78,14 +78,25 @@ jobs:
         if: always()
         run: |
           out="$(cat /tmp/test-output.txt 2>/dev/null)"
-          total=$(find scripts guards tools -name '*.mjs' -not -path '*/test/*' | wc -l)
-          loaded=$(echo "$out" | grep -oE '[A-Za-z0-9_-]+\.mjs +\|' | sort -u | wc -l)
+          # Three groups. Loaded: node measured it. Tested as a process: a
+          # test spawns the script (scripts/test/<name>.test.mjs or
+          # tools/test/<name>.test.mjs exists) — node cannot see inside a
+          # child, so the figure omits it although it is tested. Untested:
+          # neither. Only the last group is a gap.
+          find scripts guards tools -name '*.mjs' -not -path '*/test/*' -printf '%f\n' | sort -u > /tmp/all.txt
+          echo "$out" | grep -oE '[A-Za-z0-9_-]+\.mjs +\|' | grep -oE '[A-Za-z0-9_-]+\.mjs' | sort -u > /tmp/loaded.txt
+          find scripts/test guards/test tools/test -name '*.test.mjs' -printf '%f\n' | sed 's/\.test\.mjs$/.mjs/' | sort -u > /tmp/tested.txt
+          total=$(wc -l < /tmp/all.txt)
+          loaded=$(comm -12 /tmp/all.txt /tmp/loaded.txt | wc -l)
+          process=$(comm -23 /tmp/all.txt /tmp/loaded.txt | comm -12 - /tmp/tested.txt | wc -l)
+          untested=$(comm -23 /tmp/all.txt /tmp/loaded.txt | comm -23 - /tmp/tested.txt | tr '\n' ' ')
           {
             echo "### Coverage of scripts/, guards/, tools/ — seen, not enforced (STD-015 draft, ENG-067)"
             echo
             echo '```'
             echo "$out" | grep -E '^ℹ all files' | sed 's/^ℹ //' || echo "(no coverage line in the output)"
-            echo "source files: $total · loaded by a test: $loaded · never loaded: $((total - loaded)) (at 0 %, outside the figure)"
+            echo "source files: $total · loaded by a test: $loaded · tested as a process (outside the figure): $process · no test: $((total - loaded - process))"
+            [ -n "$untested" ] && echo "no test: $untested"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
