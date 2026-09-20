@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 45101,
+  "chars": 43170,
   "apparatus": false,
   "archived": false,
-  "tokens": 12492
+  "tokens": 11975
  },
  {
   "path": "CLAUDE.md",
@@ -1065,28 +1065,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1459
- },
- {
-  "path": "objects/CHECK.md",
-  "dir": "objects",
-  "series": null,
-  "type": "meta",
-  "status": "active",
-  "chars": 1150,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 371
- },
- {
-  "path": "objects/avocado.md",
-  "dir": "objects",
-  "series": null,
-  "type": "entity",
-  "status": "active",
-  "chars": 3509,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1058
  },
  {
   "path": "operations/OPS-001-continuity.md",
