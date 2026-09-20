@@ -1864,10 +1864,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 13460,
+  "chars": 3817,
   "apparatus": false,
   "archived": false,
-  "tokens": 3681
+  "tokens": 1030
  },
  {
   "path": "system/SYS-005-digital-resource-register.md",
