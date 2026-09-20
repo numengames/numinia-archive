@@ -14,6 +14,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-20 (coverage of the guards and tools is seen in CI, not enforced)
+- `package.json` `test`: `node --test --experimental-test-coverage` over `scripts/`, `guards/` and `tools/`, the tests themselves excluded. No threshold: while `STD-015` is draft the guard sees and does not bite (ENG-067); the threshold arrives with the register `active`, pinned to the value measured then.
+- `.github/workflows/ci.yml`: the tests step keeps its output; a second step (`if: always()`) writes two numbers to the job summary — node's figure, and how many source files no test loads. Node only reports files that ran, so the figure alone overstates: on 2026-09-20, `all files 95.81 %` lines over 25 files loaded, and **12 of 37 never loaded** (`check-templates`, `check-orphan-content`, `check-url-lifecycle`, `check-deletable`, `check-responsive`, `check-internal-links`, `check-register`, `check-version-bump`, `run-guards`, `rename-series`, `ruleset-export`, `generate-design-kit`). Three of those (`check-register`, `rename-series`, `ruleset-export`) have tests that run them as a child process, which node's coverage cannot see; the other nine have none.
+- `scripts/test/coverage-visible.test.mjs`: pins the flags, the absence of a threshold, and a summary that carries both numbers. Written first; failed 2 of 3.
+
 ### Added — 2026-09-19 (DEV-008: the test before the code)
 - `standards/STD-015-engineering-checks.md` 1.4.0: row DEV-008 (Ergonomics, MUST) — the test that describes a change is written, run and seen to fail before the code, and the pull request shows the test commit before the code commit. Check: `[GATE: .github/PULL_REQUEST_TEMPLATE.md → the reviewer reads the commit order before approving]`. A diff cannot tell the order; the history can. Born draft: read at review, fails no build (ENG-067). Register now 55 rows (23 AUTO, 5 GATE, 27 DEBT).
 - `.github/PULL_REQUEST_TEMPLATE.md`: a Definition-of-Done line asks for it.

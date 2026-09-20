@@ -61,8 +61,33 @@ jobs:
       # The guards' own tests, and the telemetry instrument's self-tests on
       # throwaway clones. Red means: a guard or the instrument is broken, not
       # the tree.
+      #
+      # Coverage over scripts/, guards/ and tools/ is measured on every run
+      # (node --experimental-test-coverage) and two numbers go to the job
+      # summary: node's figure, and how many source files no test loads —
+      # node only reports files that ran, so the figure alone overstates
+      # (12 of 37 on 2026-09-19). No threshold: while STD-015 is draft the
+      # figure is seen, not enforced (ENG-067). A failing test still fails
+      # this step.
       - name: tests
-        run: npm test
+        run: npm test 2>&1 | tee /tmp/test-output.txt
+
+      # Reads the output the step above saved. Runs even when a test failed
+      # (`if: always()`), so a red run still shows its coverage.
+      - name: tests — coverage to the job summary
+        if: always()
+        run: |
+          out="$(cat /tmp/test-output.txt 2>/dev/null)"
+          total=$(find scripts guards tools -name '*.mjs' -not -path '*/test/*' | wc -l)
+          loaded=$(echo "$out" | grep -oE '[A-Za-z0-9_-]+\.mjs +\|' | sort -u | wc -l)
+          {
+            echo "### Coverage of scripts/, guards/, tools/ — seen, not enforced (STD-015 draft, ENG-067)"
+            echo
+            echo '```'
+            echo "$out" | grep -E '^ℹ all files' | sed 's/^ℹ //' || echo "(no coverage line in the output)"
+            echo "source files: $total · loaded by a test: $loaded · never loaded: $((total - loaded)) (at 0 %, outside the figure)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
 
       # A change to the site must say what it changed: any diff under
       # web/src/ needs a new entry (and version) in web/src/data/updates.ts.
