@@ -77,8 +77,11 @@ const blueprints = defineCollection({
 });
 
 // system/ — reference manuals of how the system works today (ADR-035).
-// SYS-003 carries the fondos + graph data the /archive pages render, which is
-// why this collection is typed rather than left to the lax corpus mirror.
+// Typed rather than left to the lax corpus mirror because /corpus/system/ is
+// a section index and its rows want a title and a status they can trust.
+// Until 2026-09-20 SYS-003 also carried the `fondos:` + `graph:` data the
+// /archive pages rendered; ADR-046 retired that model and the pages read
+// STD-027 and STD-001 now (web/src/lib/classification.ts).
 const system = defineCollection({
   loader: glob({ pattern: ["SYS-*.md"], base: "../system" }),
   schema: z
