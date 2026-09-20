@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.7.0",
+    date: "2026-09-20",
+    entries: [
+      {
+        type: "CHG",
+        text: "Every document now lives at one address, and that address is its folder plus its name: /standards/std-028-one-document-one-address, /canon/can-001-welcome-to-numinia, /decisions/adr-047. The /corpus/ segment in front of half of them is gone. It stood before four folders and not the other four — the standards were at /corpus/standards but the decisions at /decisions — so nobody could work out an address without looking it up, and the word itself told a reader nothing: every page here is the archive. 111 addresses lost the segment. The rule is written down at /standards/std-028-one-document-one-address and the reasoning at /decisions/adr-047.",
+      },
+      {
+        type: "DEL",
+        text: "482 addresses were removed. 373 of them were redirects that answered nothing: 262 landed on one report saying a batch of missions had been cancelled, 45 on the debt register, 37 on the index of reports — a reader following any of them found a notice, not the document they came for. 40 more were Spanish paths (/misiones/…, /decisiones/…) duplicating an English one, and 35 pointed at pages this site no longer builds. The site went from 774 addresses to 292: 166 pages and 126 redirects, every one of the 126 leading to a document that answers the question the old address answered. Anything else now meets the 404 page, which offers search and a way back.",
+      },
+      {
+        type: "DEL",
+        text: "The repository's own files stopped being published as pages: /readme, /changelog, /claude, /contributing, /security, /trademarks. They are the repository's furniture, not documents of a series, and they are read on GitHub where they belong. The full corpus index at /corpus went with them — with every folder reachable from the top bar and from /archive, a seventh page meaning 'all of them at once' was a second answer to a question already answered.",
+      },
+      {
+        type: "ADD",
+        text: "A new check runs on every build and refuses to publish an address that breaks the rule: a folder nobody registered, a path naming a function instead of a series, two addresses for one document, a Spanish segment, or a redirect that leads to an index, to another redirect, or to a page that does not exist. 15 tests, and each rule was disabled one at a time to prove the tests catch it.",
+      },
+    ],
+  },
+  {
     version: "v0.6.0",
     date: "2026-09-20",
     entries: [

@@ -434,9 +434,12 @@ const mechData = mechanics;
           Once validated, this becomes <strong class="text-foreground">DEC-006</strong> — a decision that modifies the NWOS architecture to include the two-dial system as a standard configuration parameter.
         </p>
         <div class="flex flex-wrap gap-3 mt-4">
-          <a href="/missions/mis-055" class="font-mono text-[0.65rem] text-accent hover:text-accent/80 transition-colors">MIS-055 →</a>
+          <!-- MIS-055 was deleted in the alpha-focus cut (RPT-017 v0.4.0) and
+               its redirect led to that report, which says nothing about the
+               two-dial system. ADR-047 removed such redirects, so this link
+               had nowhere left to go. -->
           <a href="/decisions" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">Decision Registry →</a>
-          <a href="/planos/nwos-system" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">NWOS overview →</a>
+          <a href="/blueprints/nwos-system" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">NWOS overview →</a>
           <a href="https://nwos.numen.games/workspace/faro-austral" target="_blank" rel="noopener noreferrer" class="font-mono text-[0.65rem] text-dim hover:text-foreground transition-colors">See a demo workspace →</a>
         </div>
       </div>

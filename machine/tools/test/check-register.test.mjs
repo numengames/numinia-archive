@@ -145,8 +145,16 @@ test('a pipeline that stops running the guards is reported', () => {
 test('the summary counts the rows it actually has', () => {
   const dir = scratch();
   try {
+    // The expected figures are READ from the register, not written here: a
+    // literal pins today's row count and turns red on the next practice
+    // added, which is the drift this guard exists to catch, one level up.
+    const before = Number(
+      /\*\*Summary:\*\*\s*The (\d+) practices/.exec(
+        readFileSync(path.join(dir, REGISTER), 'utf8').replace(/\n>\s*/g, ' '),
+      )[1],
+    );
     edit(dir, REGISTER, (t) => t.replace(/^(\| Legal \| LEG-001 .*)$/m, '$1\n| Legal | LEG-002 | Probe row | MUST | `[DEBT: probe — oracle, 2026-09-11]` |'));
-    assert.match(run(dir).out, /says 55 practices, table has 56/);
+    assert.match(run(dir).out, new RegExp(`says ${before} practices, table has ${before + 1}`));
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 

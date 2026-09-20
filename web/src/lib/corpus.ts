@@ -88,22 +88,20 @@ export async function getPublicCorpus(): Promise<Entry[]> {
 export interface Section {
   /** path prefix inside the corpus collection */
   prefix: string;
-  /** route segment under /corpus/ */
+  /** route segment: the address is /<slug>, STD-028 URL-001 */
   slug: string;
   label: string;
   /** what a reader finds here */
   blurb: string;
   /**
-   * Where this section's documents actually live.
+   * Which collection holds this section's documents.
    *
-   * Four sections resolve under /corpus/<path>. Two do NOT: decisions and
-   * blueprints are typed collections with their own detail routes
-   * (/decisiones/<id>, /planos/<id>), predating this model. An index that
-   * linked them under /corpus/ would 404 on every row — measured, not assumed:
-   * /decisiones has 12 pages and /planos 18, none of them under /corpus/.
-   *
-   * So a section index is not always a listing of its own subtree. It is a
-   * listing of a family of documents, wherever the site decided to serve them.
+   * Until 2026-09-20 this field carried a confession: four sections resolved
+   * under /corpus/ and two did not, "predating this model", so an index could
+   * not derive its own rows' addresses. ADR-047 removed the prefix — every
+   * series is served at /<series>/<id> now — and what remains here is the
+   * ordinary fact that a section may draw from a typed collection rather than
+   * the corpus mirror. Its address is the same either way.
    */
   collection: "corpus" | "decisions" | "blueprints";
 }
@@ -155,7 +153,7 @@ export function sectionOf(entry: Entry): Section | undefined {
 
 // A section index sorted by identifier is sorted by the order things HAPPENED
 // TO BE WRITTEN. CAN-001 came before CAN-002 because someone typed it first, and
-// the reader who lands on /corpus/canon/ inherits that accident as if it were
+// the reader who lands on /canon/ inherits that accident as if it were
 // an argument. It is not one: "Welcome to Numinia" followed by "Brand and
 // Culture" tells a stranger nothing, because the second document answers a
 // question the first has not yet made them ask.
@@ -188,13 +186,13 @@ const READING_ORDER: Record<string, string[]> = {
   // design, not governing canon; "what the archive sounds like" moved into
   // system/SYS-003 with the fondos it describes; and the cover page is gone.
   canon: [
-    "/corpus/canon/can-001-welcome-to-numinia",
-    "/corpus/canon/can-006-epistemic-relations",
-    "/corpus/canon/can-007-pragmatic-numen-system",
-    "/corpus/canon/can-002-brand-and-culture",
-    "/corpus/canon/can-004-role-structure",
-    "/corpus/canon/can-003-attributes-and-ranks",
-    "/corpus/canon/can-005-licensing",
+    "/canon/can-001-welcome-to-numinia",
+    "/canon/can-006-epistemic-relations",
+    "/canon/can-007-pragmatic-numen-system",
+    "/canon/can-002-brand-and-culture",
+    "/canon/can-004-role-structure",
+    "/canon/can-003-attributes-and-ranks",
+    "/canon/can-005-licensing",
   ],
 
   // The life of a document, in the order the archive had to decide it:
@@ -202,7 +200,7 @@ const READING_ORDER: Record<string, string[]> = {
   // words mean → what its header must declare → who owns it and where debt
   // is kept → how it dies.
   decisions: [
-    "/decisiones/adr-030",
+    "/decisions/adr-030",
   ],
 
   // Language first, because nothing below can be read without it. Then power:
@@ -213,60 +211,60 @@ const READING_ORDER: Record<string, string[]> = {
   // vocabulary. It was merged into CAN-004 on 2026-09-03: it translated names,
   // it never bound anything, and the canon already held the structure it named.
   standards: [
-    "/corpus/standards/std-001-the-series",
-    "/corpus/standards/std-024-a-series-is-a-function",
-    "/corpus/standards/std-004-the-header",
-    "/corpus/standards/std-016-header-fields",
-    "/corpus/standards/std-003-platform-ranks",
-    "/corpus/standards/std-005-engineering-baseline",
-    "/corpus/standards/std-015-engineering-checks",
-    "/corpus/standards/std-006-plain-text-is-sovereign",
-    "/corpus/standards/std-007-one-page-per-document",
-    "/corpus/standards/std-008-design-tokens",
-    "/corpus/standards/std-023-design-values",
-    "/corpus/standards/std-009-which-rule-wins",
-    "/corpus/standards/std-017-who-may-change-what",
-    "/corpus/standards/std-018-one-document-one-identifier",
-    "/corpus/standards/std-019-versions",
-    "/corpus/standards/std-020-git-is-the-archive",
-    "/corpus/standards/std-021-evidence-and-citation",
-    "/corpus/standards/std-022-secrets",
-    "/corpus/standards/std-010-licensing",
-    "/corpus/standards/std-014-publishing-gates",
-    "/corpus/standards/std-013-licence-allowlist-and-fields",
-    "/corpus/standards/std-011-external-standards",
-    "/corpus/standards/std-012-corpus-does-not-grow",
+    "/standards/std-001-the-series",
+    "/standards/std-024-a-series-is-a-function",
+    "/standards/std-004-the-header",
+    "/standards/std-016-header-fields",
+    "/standards/std-003-platform-ranks",
+    "/standards/std-005-engineering-baseline",
+    "/standards/std-015-engineering-checks",
+    "/standards/std-006-plain-text-is-sovereign",
+    "/standards/std-007-one-page-per-document",
+    "/standards/std-008-design-tokens",
+    "/standards/std-023-design-values",
+    "/standards/std-009-which-rule-wins",
+    "/standards/std-017-who-may-change-what",
+    "/standards/std-018-one-document-one-identifier",
+    "/standards/std-019-versions",
+    "/standards/std-020-git-is-the-archive",
+    "/standards/std-021-evidence-and-citation",
+    "/standards/std-022-secrets",
+    "/standards/std-010-licensing",
+    "/standards/std-014-publishing-gates",
+    "/standards/std-013-licence-allowlist-and-fields",
+    "/standards/std-011-external-standards",
+    "/standards/std-012-corpus-does-not-grow",
   ],
 
   // One working day, in order: you sit down → you take a mission → you need a
   // ruling → it is stuck, you escalate → you file the result → you audit what
   // you built → you hand the check to CI so nobody has to remember it.
   protocols: [
-    "/corpus/protocols/pro-001-agent-session",
-    "/corpus/protocols/pro-003-mission-cycle",
-    "/corpus/protocols/pro-008-decision",
-    "/corpus/protocols/pro-005-escalation",
-    "/corpus/protocols/pro-011-security-audit",
-    "/corpus/protocols/pro-013-handing-a-guard-to-ci",
-    "/corpus/protocols/pro-018-publishing-a-repository",
+    "/protocols/pro-001-agent-session",
+    "/protocols/pro-003-mission-cycle",
+    "/protocols/pro-008-decision",
+    "/protocols/pro-005-escalation",
+    "/protocols/pro-011-security-audit",
+    "/protocols/pro-013-handing-a-guard-to-ci",
+    "/protocols/pro-018-publishing-a-repository",
   ],
 
   // Three manuals, read outside in: the shape of the whole machine → the
   // loop one agent actually runs inside it → the shelves where everything
   // it produces ends up.
   system: [
-    "/corpus/system/sys-001-cao-architecture",
-    "/corpus/system/sys-002-agent-cycle",
-    "/corpus/system/sys-003-archive-fondos",
+    "/system/sys-001-cao-architecture",
+    "/system/sys-002-agent-cycle",
+    "/system/sys-003-archive-fondos",
   ],
 
   // Three survivors, after ADR-035 moved the manuals to system/ and MIS-129
   // retired BLU-001 and BLU-003: the system as a whole, then the vocabulary it
   // has to speak, then how anyone can tell it is working.
   blueprints: [
-    "/planos/nwos-system",
-    "/planos/dual-nomenclature",
-    "/planos/business-metrics",
+    "/blueprints/nwos-system",
+    "/blueprints/dual-nomenclature",
+    "/blueprints/business-metrics",
   ],
 };
 
@@ -311,7 +309,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
     docs = (await getCollection("decisions")).map((e) => {
       const f = e.data as Record<string, unknown>;
       return {
-        href: `/decisiones/${String(f.id).toLowerCase()}`,
+        href: `/decisions/${String(f.id).toLowerCase()}`,
         title: str(f.title) ?? String(f.id),
         docId: str(f.id),
         status: str(f.status),
@@ -322,7 +320,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
     docs = (await getCollection("blueprints")).map((e) => {
       const f = e.data as Record<string, unknown>;
       return {
-        href: `/planos/${String(e.id).replace(/^BLU-\d+-/i, "").toLowerCase()}`,
+        href: `/blueprints/${String(e.id).replace(/^BLU-\d+-/i, "").toLowerCase()}`,
         title: str(f.title) ?? String(f.id),
         docId: str(f.id),
         status: str(f.status),
@@ -335,7 +333,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
       .map((e) => {
         const f = e.data as Record<string, unknown>;
         return {
-          href: `/corpus/${e.id}`,
+          href: `/${e.id}`,
           title: str(f.title) ?? e.id.split("/").pop() ?? e.id,
           docId: str(f.id),
           status: str(f.status),
@@ -364,7 +362,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
       .map((e) => {
         const f = e.data as Record<string, unknown>;
         return {
-          href: `/corpus/${e.id}`,
+          href: `/${e.id}`,
           title: str(f.title) ?? e.id.split("/").pop() ?? e.id,
           docId: str(f.id),
           status: str(f.status),

@@ -20,17 +20,17 @@ export const navItems: NavItem[] = [
   // everything last. Not invented here — it mirrors the change-threshold table
   // in S-001 §2.1 (governed → open, canon first), and @/lib/corpus SECTIONS holds
   // the same order with the reasoning written out.
-  { label: "Canon", href: "/corpus/canon/", id: "canon", section: "canon" },
-  { label: "Decisions", href: "/corpus/decisions/", id: "decisiones", section: "decisions" },
-  { label: "Standards", href: "/corpus/standards/", id: "standards", section: "standards" },
-  { label: "Protocols", href: "/corpus/protocols/", id: "protocols", section: "protocols" },
+  { label: "Canon", href: "/canon/", id: "canon", section: "canon" },
+  { label: "Decisions", href: "/decisions/", id: "decisiones", section: "decisions" },
+  { label: "Standards", href: "/standards/", id: "standards", section: "standards" },
+  { label: "Protocols", href: "/protocols/", id: "protocols", section: "protocols" },
   // System: reference manuals of how the machine works TODAY (ADR-035). It sits
   // after Protocols and before Blueprints on purpose — it is the hinge between
   // what is prescribed and what is merely proposed: this is what runs.
-  { label: "System", href: "/corpus/system/", id: "system", section: "system" },
-  { label: "Blueprints", href: "/corpus/blueprints/", id: "planos", section: "blueprints" },
+  { label: "System", href: "/system/", id: "system", section: "system" },
+  { label: "Blueprints", href: "/blueprints/", id: "planos", section: "blueprints" },
   { label: "Missions", href: "/missions", id: "missions" },
-  { label: "Debt", href: "/corpus/debt/", id: "debt", section: "debt" },
+  { label: "Debt", href: "/debt/", id: "debt", section: "debt" },
   // /corpus is no longer listed either: with the six folders in the bar, a
   // seventh entry meaning "all of them at once" is a second answer to a
   // question the bar already answers. Every section index still links to it.

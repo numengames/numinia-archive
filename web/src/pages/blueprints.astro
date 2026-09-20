@@ -42,7 +42,7 @@ const planos = (await getCollection("blueprints")).sort((a, b) =>
           const sem = SEMAFORO[(p.data.semaforo as string) || ""];
           return (
             <a
-              href={"/planos/" + slug(p.id as string)}
+              href={"/blueprints/" + slug(p.id as string)}
               class="block rounded-xl border border-border bg-card p-6 hover:bg-card-hover transition-colors"
             >
               <div class="flex flex-wrap items-center gap-3 mb-2">

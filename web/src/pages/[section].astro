@@ -4,9 +4,9 @@
 //
 // MIS-111 — a real index per corpus section.
 //
-// Before this, /corpus/canon/ existed with a <title> reading "Canon — Index"
+// Before this, /canon/ existed with a <title> reading "Canon — Index"
 // and ZERO links to its 12 documents: an artefact of the catch-all detail
-// route, not a written page. /corpus/protocols/ did not exist at all — the
+// route, not a written page. /protocols/ did not exist at all — the
 // asymmetry that proved these were never indexes.
 //
 // Every row is derived from the corpus at build time. Nothing is listed by
@@ -32,6 +32,7 @@ const note = READING_NOTE[section.slug];
 <Layout
   title={`${section.label} — Corpus NWOS`}
   description={section.blurb}
+  canonicalPath={`/${section.slug}/`}
 >
   <PageHero
     label="CAO · NWOS"
@@ -79,7 +80,7 @@ const note = READING_NOTE[section.slug];
         <div class="flex flex-wrap gap-2">
           {SECTIONS.map((s) => (
             <a
-              href={`/corpus/${s.slug}/`}
+              href={`/${s.slug}/`}
               class={
                 "inline-flex min-h-[44px] items-center rounded-lg border px-3 font-mono text-[0.7rem] transition-colors " +
                 (s.slug === section.slug
@@ -91,7 +92,7 @@ const note = READING_NOTE[section.slug];
             </a>
           ))}
           <a
-            href="/corpus/"
+            href="/"
             class="inline-flex min-h-[44px] items-center rounded-lg border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
           >
             The whole corpus

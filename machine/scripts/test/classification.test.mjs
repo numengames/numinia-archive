@@ -120,7 +120,7 @@ test('a series row carries what STD-001 says it holds', () => {
   assert.equal(canon.holds, 'what the system is');
   assert.equal(canon.prefix, 'CAN-NNN');
   assert.equal(canon.threshold, 'governed');
-  assert.equal(canon.href, '/corpus/canon/');
+  assert.equal(canon.href, '/canon/');
   rmSync(dir, { recursive: true, force: true });
 });
 

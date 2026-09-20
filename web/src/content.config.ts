@@ -77,7 +77,7 @@ const blueprints = defineCollection({
 });
 
 // system/ — reference manuals of how the system works today (ADR-035).
-// Typed rather than left to the lax corpus mirror because /corpus/system/ is
+// Typed rather than left to the lax corpus mirror because /system/ is
 // a section index and its rows want a title and a status they can trust.
 // Until 2026-09-20 SYS-003 also carried the `fondos:` + `graph:` data the
 // /archive pages rendered; ADR-046 retired that model and the pages read
@@ -123,7 +123,13 @@ const legal = defineCollection({
 const corpus = defineCollection({
   loader: glob({
     pattern: [
-      "*.md",
+      // The repository's own files — README, CLAUDE.md, CONTRIBUTING,
+      // SECURITY, TRADEMARKS, the CHANGELOG — are NOT published (ADR-047).
+      // They addressed /changelog, /readme, /claude and so on: top-level
+      // addresses naming no series, which STD-028 URL-001 does not admit,
+      // and every one of them is read on GitHub where it belongs. The
+      // archive publishes documents of a series; a repository's furniture
+      // is not one.
       "agents/**/*.md",
       "canon/**/*.md",
       "operations/**/*.md",

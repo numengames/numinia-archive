@@ -88,18 +88,18 @@ export interface Fn {
 // classified, so they appear in the table; they are not published, so they
 // have no address.
 const SERVED_AT: Record<string, { href: string | null; unpublished?: string }> = {
-  "canon/": { href: "/corpus/canon/" },
-  "standards/": { href: "/corpus/standards/" },
-  "protocols/": { href: "/corpus/protocols/" },
-  "decisions/": { href: "/corpus/decisions/" },
-  "blueprints/": { href: "/corpus/blueprints/" },
+  "canon/": { href: "/canon/" },
+  "standards/": { href: "/standards/" },
+  "protocols/": { href: "/protocols/" },
+  "decisions/": { href: "/decisions/" },
+  "blueprints/": { href: "/blueprints/" },
   "missions/": { href: "/missions" },
   "reports/": { href: "/reports" },
-  "debt/": { href: "/corpus/debt/" },
-  "agents/": { href: "/corpus/agents" },
-  "objects/": { href: "/corpus/objects/avocado" },
-  "operations/": { href: "/corpus/operations/ops-001-continuity" },
-  "system/": { href: "/corpus/system/" },
+  "debt/": { href: "/debt/" },
+  "agents/": { href: "/agents" },
+  "objects/": { href: "/objects/avocado" },
+  "operations/": { href: "/operations/ops-001-continuity" },
+  "system/": { href: "/system/" },
   "lore/": {
     href: null,
     unpublished:
