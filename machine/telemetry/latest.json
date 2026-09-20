@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "361b8a5",
-  "corpus_hash": "4766d45e974d58ef9f515f41b8e5bfd37a156847e8b0e409002dc3b61775e165",
+  "head": "0d2e9ee",
+  "corpus_hash": "1cf42415b9db67070210c8e837238309aac12da3327ce0388696af428509a5a9",
   "root_dirty": 0,
-  "measured_at": "2026-09-20T17:23:45Z",
+  "measured_at": "2026-09-20T17:24:20Z",
   "families": [
     "corpus",
     "series",
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 605054,
+      "value": 605951,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -332,7 +332,7 @@
         "reports": 26153,
         "operations": 22950,
         "blueprints": 22838,
-        "": 20773,
+        "": 21670,
         "machine": 15853,
         "protocols": 14390,
         "system": 12906,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 331682,
+        "(none)": 332579,
         "draft": 115755,
         "active": 112463,
         "done": 26389,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.21,
+      "value": 7.2,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -373,7 +373,7 @@
         ],
         [
           "CHANGELOG.md",
-          13607
+          14504
         ],
         [
           "lore/world/brand-and-culture.md",
@@ -683,7 +683,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 660
+          "3": 663
         },
         "MIS": {
           "3": 675,
@@ -699,10 +699,10 @@
           "3": 155
         },
         "ADR": {
-          "3": 356
+          "3": 358
         },
         "SYS": {
-          "3": 30
+          "3": 32
         },
         "RPT": {
           "3": 51,
