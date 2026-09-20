@@ -30,7 +30,7 @@ const f = {
 };
 const rel = (entry.filePath as string).replace(/\\/g, "/");
 const mdFilename = rel.split("/").pop()!;
-const mdUrl = `/corpus/${entry.id}.md`;
+const mdUrl = `/${entry.id}.md`;
 const repoUrl = repoFileUrl(rel);
 // Group from filePath, not id: the loader maps INDEX.md to the bare
 // directory id, which would mislabel section indexes as root files.
@@ -56,14 +56,14 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
 <Layout
   title={`${title} — Corpus NWOS`}
   description={title}
-  canonicalPath={`/corpus/${entry.id}`}
+  canonicalPath={`/${entry.id}`}
 >
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
 
-      <a href="/corpus" class="inline-flex min-h-[44px] items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-6">
+      <a href="/archive" class="inline-flex min-h-[44px] items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-6">
         <Icon name="caret-left" size={12} />
-        Corpus
+        The archive
       </a>
 
       <div class="flex flex-wrap items-center gap-2 mb-4">

@@ -34,7 +34,7 @@ const decisions = (await getCollection("decisions")).sort((a, b) =>
     <div class="mx-auto max-w-[800px] px-6 space-y-4">
       {decisions.map((d) => (
         <a
-          href={"/decisiones/" + (d.data.id as string).toLowerCase()}
+          href={"/decisions/" + (d.data.id as string).toLowerCase()}
           class="block rounded-xl border border-border bg-card p-6 hover:bg-card-hover transition-colors"
         >
           <div class="flex flex-wrap items-center gap-3 mb-2">

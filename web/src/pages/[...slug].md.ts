@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 // Raw-markdown static endpoint: serves each corpus document's canonical
-// .md file (frontmatter included) at /corpus/<path>.md for copy/download.
+// .md file (frontmatter included) at /<path>.md for copy/download.
 import fs from "node:fs";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";

@@ -166,9 +166,9 @@
     },
     "check-url-lifecycle": {
       "script": "machine/scripts/check-url-lifecycle.mjs",
-      "build_guard": "verifies the built output, not a rule — a public URL that dies without a redirect is a broken promise to a reader, not a breach of a draft (ENG-067 exception)",
+      "build_guard": "REPORTS ONLY since ADR-047: it counts the addresses a cut removed and prints them, and no longer fails the build. The refactor deletes what no longer serves, and under the old rule an honest deletion added a redirect instead of removing an address. The biting half is check-url-shape, which rejects a redirect that leads to an index, to another redirect, or to a page the build does not publish.",
       "needs": "web/dist",
-      "sees": "public URLs that stop being built without a redirect declared in web/astro.config.mjs",
+      "sees": "public URLs that stop being built, and whether a redirect for them is declared in web/astro.config.mjs — reported as a figure the PR must state, not enforced",
       "blind_to": [
         {
           "spot": "whether a redirect's TARGET actually answers the question the dead URL answered — a 301 to a section index silences this guard and still loses the content",
@@ -188,6 +188,44 @@
           "spot": "redirect rules with Astro's [param] syntax (e.g. /misiones/[id]) — those are matched literally against the baseline, so a parameterised route is neither verified nor expanded",
           "covered_by": null,
           "debt": "D-028"
+        },
+        {
+          "spot": "whether removing an address was the right call. It counts what went; the judgement that the question was withdrawn rather than moved is the PR's, read in review (STD-028 URL-005)",
+          "covered_by": "review",
+          "debt": null
+        }
+      ]
+    },
+    "check-url-shape": {
+      "script": "machine/scripts/check-url-shape.mjs",
+      "build_guard": "verifies the built address space, not a rule in prose — an address whose shape contradicts STD-028 is a broken promise to a reader and to every citation, not a breach of a draft (ENG-067 exception)",
+      "needs": "web/dist",
+      "sees": "the shape of every published address against STD-001's series register and STD-027's scheme: a first segment that is neither a series nor a declared standalone page, a function or activity named in a path, two addresses declaring one canonical, a retired Spanish segment, a redirect that leads to an index or to another redirect",
+      "blind_to": [
+        {
+          "spot": "whether a redirect's target answers the SAME question the dead address answered. It rejects a target that is an index, which is the mechanical half; a redirect to the wrong document is a 200 that lies and reads as green here",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "addresses nobody publishes any more. It measures web/dist; an address deleted in this cut is simply absent, and who was walking to it from outside — a search result, another site, a printed link — is not knowable from here",
+          "covered_by": null,
+          "debt": "D-028"
+        },
+        {
+          "spot": "STANDALONE, the list of top-level pages that are not documents, is hand-kept in the guard. A new page added there is admitted without argument; the guard checks the shape of document addresses, not whether a page deserved its address",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "URL-006 — how a document is cited in prose. That is text a reader writes, not an address the build emits; it is read in review",
+          "covered_by": "review",
+          "debt": null
+        },
+        {
+          "spot": "URL-003 is measured from the canonical each page declares. Two addresses serving one document while declaring different canonicals are two documents as far as this guard can tell",
+          "covered_by": null,
+          "debt": null
         }
       ]
     },

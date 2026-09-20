@@ -202,12 +202,32 @@ if (REPORT) {
 }
 
 if (dead.length > 0) {
-  console.error(`check-url-lifecycle: ${dead.length} published URL(s) died without a redirect (D-028).\n`);
-  for (const u of dead) console.error(`  DEAD  https://numinia.org${u}`);
-  console.error(`\nA deleted document may not take a public address with it (P-010 §5, ADR-033 §2).`);
-  console.error(`Run --propose for the redirect lines, put them in web/astro.config.mjs,`);
-  console.error(`then rebuild and --write-baseline in the same commit as the deletion.`);
-  process.exit(1);
+  // REPORTS, DOES NOT BITE — ADR-047.
+  //
+  // This ratchet was written under ADR-030, where no published address could
+  // die. That rule held while the archive only grew. It does not hold during
+  // the refactor: the Oracle's instruction of 2026-09-20 is that what no
+  // longer serves is deleted, and under ADR-030 an honest deletion ADDED an
+  // address (a redirect) instead of removing one — which is how the site came
+  // to publish 599 redirects against 175 pages, 344 of them leading to a page
+  // that answered nothing.
+  //
+  // So the count is printed and the run stays green. What replaces the
+  // blocking half is check-url-shape.mjs, which bites: a redirect that leads
+  // to an index, to another redirect or to a page the build does not publish
+  // is rejected. Losing an address is now a decision a PR states; keeping a
+  // lying one is still a defect.
+  //
+  // Restore the exit code when the Oracle says the refactor is over.
+  console.log(`check-url-lifecycle: ${dead.length} published URL(s) are gone with no redirect.\n`);
+  for (const u of dead) console.log(`  GONE  https://numinia.org${u}`);
+  console.log(`\nReporting, not failing (ADR-047): during the refactor a retired address may be`);
+  console.log(`removed rather than redirected. Two things are still required of the PR that`);
+  console.log(`does it — say the figure in its body, and re-run --write-baseline in the same`);
+  console.log(`commit, so the next cut measures against what this one left.`);
+  console.log(`A redirect that survives must lead to the document answering the question`);
+  console.log(`(STD-028 URL-005); check-url-shape.mjs enforces that half.`);
+  process.exit(0);
 }
 
 console.log(
