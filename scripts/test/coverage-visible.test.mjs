@@ -37,7 +37,11 @@ test('npm test has no coverage threshold: sees, does not bite (STD-015 draft, EN
 });
 
 test('CI publishes the figure AND the files no test loads', () => {
-  const step = ci.slice(ci.indexOf('- name: tests'), ci.indexOf('- name:', ci.indexOf('- name: tests') + 1));
+  // the tests step and the summary step that reads its output, together
+  const start = ci.indexOf('- name: tests');
+  const after = ci.indexOf('- name:', ci.indexOf('- name:', start + 1) + 1);
+  const step = ci.slice(start, after);
+  assert.match(step, /run: npm test/, 'the tests step must still say `run: npm test` — the register checker looks for that line');
   assert.match(step, /GITHUB_STEP_SUMMARY/, 'the tests step writes nothing to the job summary');
   assert.match(step, /all files/, 'the summary does not carry node\'s coverage line');
   assert.match(step, /never loaded|not loaded|no test loads/, 'the summary does not say how many source files no test loads — the figure alone overstates');
