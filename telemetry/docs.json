@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 46226,
+  "chars": 46853,
   "apparatus": false,
   "archived": false,
-  "tokens": 12776
+  "tokens": 12935
  },
  {
   "path": "CLAUDE.md",
@@ -1082,11 +1082,11 @@
   "dir": "objects",
   "series": null,
   "type": "entity",
-  "status": "active",
-  "chars": 3509,
+  "status": "draft",
+  "chars": 4010,
   "apparatus": false,
   "archived": false,
-  "tokens": 1058
+  "tokens": 1180
  },
  {
   "path": "operations/OPS-001-continuity.md",

@@ -4,14 +4,14 @@ title: "Copy check — 2026-09-20"
 type: meta
 status: active
 version: "0.1.0"
-created: "2026-09-20T08:54:01.706Z"
-updated: "2026-09-20T08:54:01.706Z"
+created: "2026-09-20T09:10:13.842Z"
+updated: "2026-09-20T09:10:13.842Z"
 license: "CC0-1.0"
 author: "scripts/entities.mjs"
 provenance: ai-generated
 ---
 
-# Copy check — 2026-09-20 at 322a293
+# Copy check — 2026-09-20 at c3fb073
 
 Written by `node scripts/entities.mjs --check`, run by hand and committed with its date.
 One row per copy of every form of every card in `objects/`. `ok` = the bytes were

@@ -1,9 +1,9 @@
 {
   "instrument": "scripts/telemetry.mjs v0.5.0",
-  "head": "5302fa6",
-  "corpus_hash": "1cd8acf427ea43b6dbad4261f0de8170c704fc601d31176f5f12d0bf80892940",
+  "head": "b131b79",
+  "corpus_hash": "d95853dc4be5229150c07b62e81e6d015dbf005e2ffb11b1a2bf25029ae9aae0",
   "root_dirty": 0,
-  "measured_at": "2026-09-20T08:58:39Z",
+  "measured_at": "2026-09-20T09:10:37Z",
   "families": [
     "corpus",
     "series",
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 601317,
+      "value": 601598,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -332,13 +332,13 @@
         "reports": 26138,
         "operations": 22950,
         "blueprints": 22838,
-        "": 19693,
+        "": 19852,
         "templates": 15832,
         "system": 15242,
         "protocols": 14384,
         "decisions": 6189,
+        "objects": 1551,
         "debt": 1544,
-        "objects": 1429,
         ".github": 889
       },
       "unit": "tokens",
@@ -346,9 +346,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 330756,
-        "active": 115352,
-        "draft": 110114,
+        "(none)": 330915,
+        "active": 114294,
+        "draft": 111294,
         "done": 26350,
         "todo": 14103,
         "in-progress": 4642
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.25,
+      "value": 7.24,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -373,7 +373,7 @@
         ],
         [
           "CHANGELOG.md",
-          12776
+          12935
         ],
         [
           "lore/world/brand-and-culture.md",
@@ -643,8 +643,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 70,
-        "draft": 62,
+        "active": 69,
+        "draft": 63,
         "todo": 5,
         "done": 6,
         "in-progress": 1
