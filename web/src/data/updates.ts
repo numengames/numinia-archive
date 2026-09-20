@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.4.0",
+    date: "2026-09-20",
+    entries: [
+      {
+        type: "ADD",
+        text: "/corpus/objects/avocado — the first entity card of the archive: a thing that is not a document (here, the Avocado avatar by Polygonal Mind, CC0). The card is an index, not a copy: what the thing is, its history, each of its forms with its own licence and rights holder, and every place its bytes are, with their hash and size. Beside it, /corpus/objects/CHECK — the dated report of the last time every copy was fetched and its hash compared. One card today; the folder is not a section of the corpus index yet.",
+      },
+    ],
+  },
+  {
     version: "v0.3.1",
     date: "2026-09-19",
     entries: [

@@ -96,6 +96,18 @@ path = ["system/**", "history/**"]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
+# objects/ — the entity cards (Oracle decision, 2026-09-19: everything is
+# CC0 in the first version of the system, the game included). This
+# annotation covers the CARD TEXT and the two generated files
+# (catalogue.json, CHECK.md). The things a card describes are not here: a
+# form (a model, a portrait, a sound) carries its own licence and rights
+# holder in the card's `forms` list, and its bytes live in the depot
+# (numengames/numinia-assets) under that depot's own declarations.
+[[annotations]]
+path = ["objects/**"]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
+
 # The Wardley map moved from blueprints/ to reports/ (ADR-035, MIS-129),
 # crossing from the CC0-1.0 regime into reports/'s CC-BY-4.0. C-005 holds a
 # published CC0 waiver irrevocable, so the file keeps CC0 on its new shelf.
