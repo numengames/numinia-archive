@@ -144,6 +144,15 @@ const corpus = defineCollection({
       // their own, so the corpus mirror is where they become readable —
       // and it is where MIS-129's redirects send the retired addresses.
       "system/**/*.md",
+      // objects/ — the entity cards (2026-09-20): one Markdown per thing the
+      // archive registers that is not a document — an avatar, a model, later
+      // a place. The card is an index (entity → forms → copies); the bytes
+      // live in the depot. Rendered as any corpus document; the folder is
+      // not a /corpus section yet — that is decided when there are enough
+      // cards to name what the section contains in one sentence.
+      // CHECK.md is the dated copy-check report; it renders too, on purpose:
+      // the count it carries is the resilience figure a reader may want.
+      "objects/**/*.md",
       "history/**/*.md",
       "missions/**/*.md",
       "!missions/MIS-*.md",

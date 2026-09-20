@@ -132,6 +132,38 @@
         }
       ]
     },
+    "entities": {
+      "script": "scripts/entities.mjs",
+      "manual": "with --check it fetches every copy of every form from third-party hosts (the depot's raw URL, the legacy R2 bucket), so it is run by hand and its dated report is committed; CI never depends on a host being up (ENG-032's registry-discovery scope). Without --check it only regenerates objects/catalogue.json, and the test suite proves the committed catalogue matches the cards",
+      "sees": "every card under objects/: its header, forms and copies, into catalogue.json; with --check, the bytes at every copy — SHA-256 and size against the card, and the licence the file carries inside itself where the format has a slot (VRM meta, glTF extras) against the card's `embedded_license`",
+      "blind_to": [
+        {
+          "spot": "the truth of a licence — it compares the card's claim with the file's own claim and the depot's; whether Polygonal Mind or anyone else actually holds the rights is evidence in the intake record, not a hash",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "formats with no licence slot this reader knows — audio, images, video are hashed but their embedded metadata is not read yet; the report says `ok` for the bytes and nothing about what they carry inside",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a copy is STILL there tomorrow — the report is a photograph of one day at one commit; resilience is the count of copies that answered on that day, never a promise",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "the body of a card — description and history are prose for the table; the catalogue and the check read the header only",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "a card's header rules — it parses what is there; whether the fields are the right ones is the future registry standard's question, and objects/ is not in the governed set while that standard does not exist",
+          "covered_by": "std-018-one-identifier, for a duplicated id across the tree",
+          "debt": null
+        }
+      ]
+    },
     "check-url-lifecycle": {
       "script": "scripts/check-url-lifecycle.mjs",
       "build_guard": "verifies the built output, not a rule — a public URL that dies without a redirect is a broken promise to a reader, not a breach of a draft (ENG-067 exception)",

@@ -141,6 +141,8 @@ test('the real tree walks clean and every card is consistent with the catalogue 
       }
     }
   }
-  const committed = JSON.parse(execSync('git show HEAD:objects/catalogue.json', { cwd: ROOT, encoding: 'utf8' }));
-  assert.deepEqual(cat, committed, 'objects/catalogue.json on disk differs from HEAD — run node scripts/entities.mjs and commit');
+  // The index, not HEAD: the archive's guards read what is `git add`ed, and
+  // so does this — a regenerated catalogue that is staged counts.
+  const committed = JSON.parse(execSync('git show :objects/catalogue.json', { cwd: ROOT, encoding: 'utf8' }));
+  assert.deepEqual(cat, committed, 'objects/catalogue.json on disk differs from the index — run node scripts/entities.mjs and git add it');
 });
