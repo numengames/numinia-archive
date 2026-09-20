@@ -2,10 +2,10 @@
 id: "ndg-019d4075-9ece-7d3e-aafa-41f81370eb63"
 title: "Avocado"
 type: entity
-status: active
+status: draft
 version: "0.1.0"
 created: "2026-09-20T08:20:00Z"
-updated: "2026-09-20T08:20:00Z"
+updated: "2026-09-20T11:30:00Z"
 license: "CC0-1.0"
 author: "ursa"
 owner: "oracle"
@@ -37,11 +37,15 @@ forms:
 # Avocado
 
 > **Summary:** A green avatar with a pit for a face — the 88th of Polygonal Mind's *100 Avatars*, offered under CC0 and carried into Numinia unchanged.
-> **Epistemic:** The first entity card of the archive. Its shape (entity → forms → copies) is the one the registry standard will be distilled from; nothing here is yet a rule.
+> **Epistemic:** The first entity card of the archive, and a draft like the model it tests: the shape (entity → forms → copies) is what the registry standard will be distilled from; nothing here is yet a rule, and the card is not yet admitted — `draft` says so.
 > **Pragmatic:** What a visitor, a site or an agent needs to use the Avocado: what it is, who made it, under which terms, and where the exact bytes are.
 > **Audience:** Citizens · Agents · Oracles
 
 ---
+
+## Why draft
+
+The bytes are verified (see `CHECK.md`) and the licence is inside the file. What is not settled is the card itself: what a history must contain, which forms an avatar has beyond its model (a portrait, a voice), and who admits an entity and how. Until an admission procedure exists, no card is `active` — the Oracle's ruling on 2026-09-20. This card moves to `active` the day that procedure admits it.
 
 ## Description
 
