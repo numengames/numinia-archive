@@ -5,20 +5,20 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-18T16:04:00+02:00"
+updated: "2026-09-19T21:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, register, practices]
 license: "CC0-1.0"
-series_change: "1.3.0 — the family pipeline: a section names the five repositories that run the same guards (the four sites and the resource depot), the steps in order, which of them fail a build and which only report while this register is draft (ENG-067), the literal job name the ruleset requires, the files kept identical across repositories and the security rules every workflow obeys. Measured on 2026-09-18 before the change: one repository required no status check at all, one wrote its pipeline in Spanish, one lacked lint, two lacked Scorecard, three lacked a REUSE step. Minor under VER-022: the register says what it already required, in a form a diff can check; no practice reversed. Oracle instruction, 2026-09-18: the guards look but do not bite while the standards are draft. 1.2.0 — the Check column becomes machine-checkable and `[MANUAL]` is retired. Four forms replace it, each verifiable by tools/check-register.mjs: `[AUTO: <mechanism>]`, `[GATE: <machine evidence> → <the human act>]`, and `[DEBT: <what is missing> — <owner>, <date>]`. Measured before the change: of 29 rows claiming AUTO, 7 named a mechanism absent from the tree (no gitleaks, no knip, no .env.example, no .editorconfig, no eslint config, no roadmap file, no code of conduct), and 3 rows claimed MANUAL for work a guard already did (ARC-003 std-010-licensing, AGT-002 guards/lib/naming.mjs, DEV-005 prose-in-code.test.mjs) — a hand-written register drifts in both directions. Rows now stand at 23 AUTO, 4 GATE, 27 DEBT; the summary said 52 practices for a table of 54. TRC-006 is mechanical: an unregistered rule guard never runs and the run is green for not looking. Minor under VER-022: what the register requires of its own rows changed, no practice was reversed. The retirement of MANUAL reads as a reversal (VER-023) and is left for the Oracle to rank."
+series_change: "1.4.0 — DEV-008, test first: the test that describes a change is written, run and seen to fail before the code, and the pull request shows that order in its commits. A diff cannot tell whether a test was written before or after; the history can, so the check is a gate — the pull request template asks, the reviewer reads the commit order. Measured on 2026-09-19 before the row: five repositories, every one with a test runner in CI, none with a written rule on when the test is written; two sites with the logic that matters between 15 % and 27 % covered. Minor under VER-022: a new obligation, none reversed. Oracle instruction, 2026-09-19: the row is born draft like the register — it is read at review, it fails no build. 1.3.0 — the family pipeline: a section names the five repositories that run the same guards (the four sites and the resource depot), the steps in order, which of them fail a build and which only report while this register is draft (ENG-067), the literal job name the ruleset requires, the files kept identical across repositories and the security rules every workflow obeys. Measured on 2026-09-18 before the change: one repository required no status check at all, one wrote its pipeline in Spanish, one lacked lint, two lacked Scorecard, three lacked a REUSE step. Minor under VER-022: the register says what it already required, in a form a diff can check; no practice reversed. Oracle instruction, 2026-09-18: the guards look but do not bite while the standards are draft. 1.2.0 — the Check column becomes machine-checkable and `[MANUAL]` is retired. Four forms replace it, each verifiable by tools/check-register.mjs: `[AUTO: <mechanism>]`, `[GATE: <machine evidence> → <the human act>]`, and `[DEBT: <what is missing> — <owner>, <date>]`. Measured before the change: of 29 rows claiming AUTO, 7 named a mechanism absent from the tree (no gitleaks, no knip, no .env.example, no .editorconfig, no eslint config, no roadmap file, no code of conduct), and 3 rows claimed MANUAL for work a guard already did (ARC-003 std-010-licensing, AGT-002 guards/lib/naming.mjs, DEV-005 prose-in-code.test.mjs) — a hand-written register drifts in both directions. Rows now stand at 23 AUTO, 4 GATE, 27 DEBT; the summary said 52 practices for a table of 54. TRC-006 is mechanical: an unregistered rule guard never runs and the run is green for not looking. Minor under VER-022: what the register requires of its own rows changed, no practice was reversed. The retirement of MANUAL reads as a reversal (VER-023) and is left for the Oracle to rank."
 ---
 
 # Engineering checks
 
-> **Summary:** The 54 practices `STD-005` requires, by profile, each with its
+> **Summary:** The 55 practices `STD-005` requires, by profile, each with its
 > level and the machine that checks it. `[MANUAL]` is debt; a `[MANUAL]` row
 > naming `DBT-020` is declared automatic and executed by nobody.
 
@@ -60,6 +60,7 @@ series_change: "1.3.0 — the family pipeline: a section names the five reposito
 | Ergonomics | DEV-005 | Comments in English explaining *why*; TSDoc on every exported API | MUST | `[AUTO: scripts/test/prose-in-code.test.mjs]` |
 | Ergonomics | DEV-006 | Small pull requests with what, why and how to verify | SHOULD | `[GATE: .github/PULL_REQUEST_TEMPLATE.md → a reviewer approves the pull request]` |
 | Ergonomics | DEV-007 | At least one approval before `main` | MUST | `[AUTO: .github/rulesets/protect-main.json]` |
+| Ergonomics | DEV-008 | The test that describes a change is written, run and seen to fail before the code; the pull request shows the test commit before the code commit | MUST | `[GATE: .github/PULL_REQUEST_TEMPLATE.md → the reviewer reads the commit order before approving]` |
 | Operations | SRE-001 | Documented, rehearsed rollback for every deployable | MUST | `[DEBT: no rehearsal job and no documented rollback — oracle, 2026-09-11]` |
 | Operations | SRE-002 | Health-check endpoint on every deployed service | MUST | `[DEBT: no health endpoint and no post-deploy probe — oracle, 2026-09-11]` |
 | Operations | SRE-003 | Structured JSON logs; no `console.log` in production | MUST | `[DEBT: no eslint configuration in the tree — oracle, 2026-09-11]` |
