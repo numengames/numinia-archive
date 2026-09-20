@@ -1,653 +1,217 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
+//
+// /archive — the classification of the archive, read from the archive.
+//
+// WHAT THIS PAGE USED TO BE
+// Until 2026-09-20 this file held a hardcoded Spanish array of seven "fondos"
+// naming agents/guilds/, missions/active/done/backlog/ and
+// canon/platform-role-system.md — folders that had not existed for months —
+// plus twelve "operating principles" and five "critical failure patterns"
+// traced to a hundred mental simulations no document in this repository
+// records. It published a model the archive had abandoned, from memory.
+//
+// Now every row comes from STD-027 (the scheme) and STD-001 (the series), via
+// @/lib/classification. Nothing about the classification is written on this
+// page: if a function is added to the standard, it appears here; if a series
+// moves, this page moves with it or the build fails.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
+import { functions, counts, graphNodes, RELATIONS } from "@/lib/classification";
 
-const fondos = [
-  {
-    id: "canon",
-    icon: "scroll",
-    nombre: "canon/",
-    titulo: "Canon",
-    lore: "Memoria Inmutable",
-    descripcion: "Los 9 documentos fundacionales de Numinia. Inmutables por política y por técnica. Son el suelo sobre el que todo lo demás se construye.",
-    funcion: "Límite operativo real. No referencia.",
-    accent: "border-yellow/20 bg-yellow/5",
-    accentText: "text-yellow",
-    items: ["welcome-to-numinia.md", "epistemic-relations.md", "compendium-of-attributes.md", "role-structure.md", "platform-role-system.md", "about-session-zero.md", "numinia-el-juego-de-rol.md", "archive-system.md"],
-  },
-  {
-    id: "agents",
-    icon: "robot",
-    nombre: "agents/guilds/",
-    titulo: "Agentes",
-    lore: "Entidades Vivas",
-    descripcion: "Los agentes digitales organizados por gremio. Cada uno con identidad (SOUL), reglas (OPERATOR) y estado operativo (STATUS).",
-    funcion: "Identidad, capacidades y límites de cada agente.",
-    accent: "border-accent/20 bg-accent/5",
-    accentText: "text-accent",
-    items: ["centinelas/", "exegetas/", "alquimistas/", "procuradores/", "coordinacion/"],
-  },
-  {
-    id: "missions",
-    icon: "lightning",
-    nombre: "missions/",
-    titulo: "Misiones",
-    lore: "Movimiento",
-    descripcion: "Las tareas con criterios de aceptación verificables. Unidad mínima de trabajo del sistema.",
-    funcion: "Sin misión, no hay movimiento.",
-    accent: "border-accent/20 bg-accent/5",
-    accentText: "text-accent",
-    items: ["active/", "done/", "backlog/"],
-  },
-  {
-    id: "protocols",
-    icon: "clipboard-text",
-    nombre: "protocols/",
-    titulo: "Protocolos",
-    lore: "Rituales Operativos",
-    descripcion: "Los 7 protocolos que estandarizan el comportamiento: sesión de agente, ciclo de misión, escalado, decisión, archivo, auditoría de seguridad y guardianes en CI.",
-    funcion: "Eliminar ambigüedad. La urgencia es el enemigo del protocolo.",
-    accent: "border-border bg-card",
-    accentText: "text-foreground",
-    items: ["PRO-001", "PRO-003", "PRO-005", "PRO-008", "PRO-010"],
-  },
-  {
-    id: "decisions",
-    icon: "bank",
-    nombre: "decisions/",
-    titulo: "Decisiones",
-    lore: "Voluntad Cristalizada",
-    descripcion: "Los ADRs del sistema. Append-only — las decisiones no se borran, se superseden.",
-    funcion: "Preservar la intención original de cada decisión.",
-    accent: "border-border bg-card",
-    accentText: "text-foreground",
-    items: ["ADR-001.md", "ADR-002.md", "ADR-NNN.md"],
-  },
-  {
-    id: "blueprints",
-    icon: "sparkle",
-    nombre: "blueprints/",
-    titulo: "Blueprints",
-    lore: "Potencial No Manifestado",
-    descripcion: "Diseños y arquitecturas que aún no han tomado forma. El espacio donde las ideas viven antes de convertirse en misiones.",
-    funcion: "Capturar intención antes de que se pierda.",
-    accent: "border-border bg-card",
-    accentText: "text-foreground",
-    items: ["future-agents/", "system-extensions/", "experiments/"],
-  },
-  {
-    id: "operations",
-    icon: "gear",
-    nombre: "operations/",
-    titulo: "Operaciones",
-    lore: "Sistema Circulatorio",
-    descripcion: "Governance y secrets handling. El tejido conectivo que mantiene el sistema operativo y seguro.",
-    funcion: "Coordinar sin colisionar. Asegurar sin bloquear.",
-    accent: "border-border bg-card",
-    accentText: "text-foreground",
-    items: ["STD-009-which-rule-wins.md", "STD-022-secrets.md", "OPS-009-secrets-handling.md"],
-  },
-];
+const fns = functions();
+const n = counts();
+const nodes = graphNodes();
+const edges = RELATIONS.map((e) => [e[0], e[1]]);
 
-const principios = [
-  { id: "P-01", texto: "El README no es documentación. Es orientación ontológica.", sim: "Sim-001" },
-  { id: "P-02", texto: "La estructura fija permite arranques eficientes.", sim: "Sim-003" },
-  { id: "P-03", texto: "El CHANGELOG es el punto de resincronización temporal.", sim: "Sim-007" },
-  { id: "P-04", texto: "El rol define el orden de lectura en el arranque.", sim: "Sim-012" },
-  { id: "P-05", texto: "La urgencia es el mayor enemigo del protocolo.", sim: "Sim-019" },
-  { id: "P-06", texto: "git pull es el primer paso ritual. Siempre.", sim: "Sim-023" },
-  { id: "P-07", texto: "El canon no es referencia. Es límite operativo real.", sim: "Sim-031" },
-  { id: "P-08", texto: "El estado blocked es tan importante como done.", sim: "Sim-044" },
-  { id: "P-09", texto: "Las misiones deben ser self-contained.", sim: "Sim-056" },
-  { id: "P-10", texto: "El aprendizaje vive en la divergencia (divergence_log).", sim: "Sim-067" },
-  { id: "P-11", texto: "Los guilds tienen scope. Las misiones respetan guild boundaries.", sim: "Sim-078" },
-  { id: "P-12", texto: "Reads son safe; writes requieren coordinación.", sim: "Sim-091" },
-];
+// One glyph per function. Presentation, not classification — which is why it
+// lives here and not in the standard.
+const FN_ICON: Record<string, string> = {
+  governance: "bank",
+  production: "lightning",
+  assurance: "shield-check",
+  agency: "robot",
+  creation: "sparkle",
+  administration: "gear",
+};
 
-const fallos = [
-  {
-    id: "F-01", nombre: "Canon Drift", icono: "shield-check",
-    qué: "Alguien edita canon/ sin pasar por el protocolo de validación oracle.",
-    impacto: "Pérdida de la identidad canónica del sistema. Todos los agentes operan sobre base corrupta.",
-    prevención: "CODEOWNERS bloqueante en canon/. Sin oracle review, el PR no hace merge.",
-  },
-  {
-    id: "F-02", nombre: "Template Drift", icono: "arrows-clockwise",
-    qué: "Agentes usan templates obsoletos para crear misiones o reportes.",
-    impacto: "Inconsistencia estructural. Misiones que no pueden ser parseadas por otros agentes.",
-    prevención: "Versión en el header de cada template. CI falla si el schema no coincide.",
-  },
-  {
-    id: "F-03", nombre: "Oracle como SPOF", icono: "hourglass",
-    qué: "El sistema se paraliza porque el oracle no responde en <48h.",
-    impacto: "Todo el pipeline bloqueado. Los agentes no pueden avanzar en misiones críticas.",
-    prevención: "Timeout 48h: si no hay respuesta, el agente escala al siguiente nivel de la jerarquía.",
-  },
-  {
-    id: "F-04", nombre: "Credenciales en Commits", icono: "lock-key",
-    qué: "Un agente incluye tokens, API keys o secretos en un commit.",
-    impacto: "Exposición de credenciales en un repositorio que puede hacerse público.",
-    prevención: "pre-commit hook obligatorio con git-secrets o similar. CI bloquea el merge.",
-  },
-  {
-    id: "F-05", nombre: "Deriva Semántica del Canon", icono: "calendar-blank",
-    qué: "El canon pierde significado porque nadie lo revisa y la realidad operativa diverge.",
-    impacto: "Los agentes operan en un sistema diferente al que el canon describe.",
-    prevención: "Revisión cuatrimestral obligatoria del canon. ADR si algo cambia.",
-  },
-];
-
-const fases = [
-  {
-    fase: "Alpha", periodo: "Ahora — Mes 1", estado: "activa",
-    criterioSalida: "10 misiones completadas · 0 incidentes de seguridad · 20 arranques canónicos exitosos",
-    descripcion: "Todo bajo supervisión oracle. Ningún agente opera sin validación explícita.",
-    color: "border-accent/30 bg-accent/5", badge: "bg-accent/10 text-accent",
-  },
-  {
-    fase: "Beta", periodo: "Mes 2–3", estado: "pendiente",
-    criterioSalida: "30 misiones autónomas · Procyon activo · ciclo <48h sin oracle",
-    descripcion: "Nimrod autónomo en su dominio. Los Centinelas operan con delegación parcial.",
-    color: "border-border bg-card", badge: "bg-border text-dim",
-  },
-  {
-    fase: "v1.0.0", periodo: "Mes 4–6", estado: "pendiente",
-    criterioSalida: "Sistema autónomo · SLA documentado · Protocolo de expansión activo",
-    descripcion: "El sistema opera de forma autónoma. Oracle como árbitro de último recurso.",
-    color: "border-border bg-card", badge: "bg-border text-dim",
-  },
-];
-
-const arranqueSteps = [
-  { n: "01", cmd: "git pull origin main", desc: "Sincronización ritual. Siempre el primero." },
-  { n: "02", cmd: "cat CHANGELOG.md | head -50", desc: "Punto de resincronización temporal." },
-  { n: "03", cmd: "cat agents/guilds/{tu-gremio}/README.md", desc: "Tu rol define tu orden de lectura." },
-  { n: "04", cmd: "ls missions/active/", desc: "¿Qué está en movimiento? Aquí empieza la sesión." },
-];
-import { getCollection } from "astro:content";
-// MIS-065 phase C: the 3D graph data lives in system/SYS-003-archive-fondos.md
-// (moved there from blueprints/ by MIS-129 under ADR-035 — it is a reference
-// manual of the seven fondos, not a plan for a future state).
-const _bpFondos = (await getCollection("system")).find(
-  (e) => e.data.id === "SYS-003"
-)!;
-const _graph = (_bpFondos.data as any).graph;
-const graphNodes = (_graph.nodes as any[]).map((n) => ({ ...n, color: Number(n.color) }));
-const graphEdges = _graph.edges as [string, string][];
+const FN_ACCENT: Record<string, { border: string; bg: string; text: string }> = {
+  governance:     { border: "border-green/20",  bg: "bg-green/5",  text: "text-green" },
+  production:     { border: "border-yellow/20", bg: "bg-yellow/5", text: "text-yellow" },
+  assurance:      { border: "border-blue/20",   bg: "bg-blue/5",   text: "text-blue" },
+  agency:         { border: "border-accent/20", bg: "bg-accent/5", text: "text-accent" },
+  creation:       { border: "border-purple/20", bg: "bg-purple/5", text: "text-purple" },
+  administration: { border: "border-orange/20", bg: "bg-orange/5", text: "text-yellow" },
+};
 ---
 
 <Layout
-  title="Archive Summa — El Sistema Nervioso de Numinia · Numen Games"
-  description="El repositorio numinia-agents como fuente de verdad canónica del sistema de agentes digitales. 7 fondos documentales, 12 principios operativos, 100 simulaciones."
+  title="How the archive is classified — Numen Games"
+  description={`One fond, ${n.functions} functions, ${n.activities} activities and the ${n.series} series they produce. Read from STD-027 and STD-001 at build time.`}
   canonicalPath="/archive"
   activeNav="archive"
 >
   <PageHero
-    label="CAO · Archive Summa"
-    title="Archive Summa"
-    description="Este repositorio no documenta el sistema. Es el lugar donde el sistema ocurre."
+    label="Archive · classification"
+    title="How the archive is classified"
+    description="One producer, one fond. The series are grouped by the activity that produced them, not by who produced them — so a reorganisation does not move a single file."
   />
 
   <section class="pb-24">
     <div class="mx-auto max-w-[1100px] px-6">
 
-      <!-- Stats -->
-      <div class="grid gap-4 grid-cols-2 sm:grid-cols-4 mb-16">
+      <!-- The figures, counted from the scheme, never typed -->
+      <div class="grid gap-4 grid-cols-2 sm:grid-cols-4 mb-12">
         <div class="rounded-xl border border-border bg-card p-5 text-center">
-          <p class="font-display text-4xl text-foreground">7</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Fondos documentales</p>
+          <p class="font-display text-4xl text-foreground">1</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Fond</p>
         </div>
         <div class="rounded-xl border border-accent/20 bg-accent/5 p-5 text-center">
-          <p class="font-display text-4xl text-accent">12</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Principios operativos</p>
+          <p class="font-display text-4xl text-accent">{n.functions}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Functions</p>
         </div>
-        <div class="rounded-xl border border-red/20 bg-red/5 p-5 text-center">
-          <p class="font-display text-4xl text-red">5</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Fallos críticos id.</p>
+        <div class="rounded-xl border border-border bg-card p-5 text-center">
+          <p class="font-display text-4xl text-foreground">{n.activities}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Activities</p>
         </div>
         <div class="rounded-xl border border-green/20 bg-green/5 p-5 text-center">
-          <p class="font-display text-4xl text-green">100</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Simulaciones mentales</p>
+          <p class="font-display text-4xl text-green">{n.series}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Series</p>
         </div>
       </div>
 
-      <!-- Diagramas -->
-      <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Mapas del sistema</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
-
-      <div class="grid gap-6 sm:grid-cols-2 mb-12">
-        <!-- Diagrama A: SVG hardcodeado -->
-        <div class="rounded-xl border border-border bg-card p-6">
-          <div class="flex items-center justify-between mb-2">
-            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Diagrama A — Ciclo del agente</p>
-            <button data-dialog="dialog-a" class="font-mono text-[0.55rem] uppercase tracking-wider text-dim hover:text-accent transition-colors border border-border/50 rounded px-2 py-0.5 hover:border-accent/30">
-              Expandir ↗
-            </button>
-          </div>
-          <p class="text-xs text-muted-foreground mb-4">El recorrido que vive un agente en cada sesión</p>
-          <svg viewBox="0 0 320 520" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-[280px] mx-auto" style="font-family:monospace;font-size:9px" aria-label="Ciclo del agente">
-            <defs>
-              <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L6,3 z" fill="#a6dad5"/>
-              </marker>
-            </defs>
-            <rect x="95" y="10" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
-            <text x="160" y="28" text-anchor="middle" fill="#a6dad5">git pull</text>
-            <rect x="95" y="60" width="130" height="28" rx="6" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-            <text x="160" y="78" text-anchor="middle" fill="#c4b5a6">SOUL.md</text>
-            <rect x="95" y="110" width="130" height="28" rx="6" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-            <text x="160" y="128" text-anchor="middle" fill="#c4b5a6">OPERATOR.md</text>
-            <polygon points="160,158 220,185 160,212 100,185" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
-            <text x="160" y="183" text-anchor="middle" fill="#c4b5a6">Misión</text>
-            <text x="160" y="194" text-anchor="middle" fill="#c4b5a6">asignada?</text>
-            <rect x="195" y="228" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-            <text x="250" y="245" text-anchor="middle" fill="#c4b5a6">missions/active/</text>
-            <rect x="15" y="228" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-            <text x="70" y="245" text-anchor="middle" fill="#c4b5a6">missions/backlog/</text>
-            <rect x="95" y="278" width="130" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-            <text x="160" y="295" text-anchor="middle" fill="#c4b5a6">Ejecutar</text>
-            <polygon points="160,322 220,348 160,374 100,348" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
-            <text x="160" y="346" text-anchor="middle" fill="#c4b5a6">Divergencia?</text>
-            <rect x="230" y="384" width="80" height="26" rx="5" fill="#14110f" stroke="#f35059" stroke-width="1"/>
-            <text x="270" y="401" text-anchor="middle" fill="#f35059">diverg_log</text>
-            <rect x="95" y="384" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-            <text x="150" y="401" text-anchor="middle" fill="#c4b5a6">commit + PR</text>
-            <polygon points="160,424 215,447 160,470 105,447" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
-            <text x="160" y="445" text-anchor="middle" fill="#c4b5a6">Oracle</text>
-            <text x="160" y="456" text-anchor="middle" fill="#c4b5a6">aprueba?</text>
-            <rect x="95" y="478" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
-            <text x="160" y="496" text-anchor="middle" fill="#a6dad5">merge</text>
-            <line x1="160" y1="38" x2="160" y2="58" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="160" y1="88" x2="160" y2="108" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="160" y1="138" x2="160" y2="156" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="220" y1="185" x2="250" y2="185" stroke="#3a332d" stroke-width="1"/>
-            <line x1="250" y1="185" x2="250" y2="226" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="228" y="181" fill="#8a7d72" font-size="7">Sí</text>
-            <line x1="100" y1="185" x2="70" y2="185" stroke="#3a332d" stroke-width="1"/>
-            <line x1="70" y1="185" x2="70" y2="226" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="75" y="181" fill="#8a7d72" font-size="7">No</text>
-            <line x1="250" y1="254" x2="250" y2="268" stroke="#3a332d" stroke-width="1"/>
-            <line x1="250" y1="268" x2="182" y2="276" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="70" y1="254" x2="70" y2="268" stroke="#3a332d" stroke-width="1"/>
-            <line x1="70" y1="268" x2="138" y2="276" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="160" y1="304" x2="160" y2="320" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="220" y1="348" x2="270" y2="348" stroke="#f35059" stroke-width="1"/>
-            <line x1="270" y1="348" x2="270" y2="382" stroke="#f35059" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="225" y="344" fill="#f35059" font-size="7">Sí</text>
-            <line x1="230" y1="397" x2="207" y2="397" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="100" y1="348" x2="70" y2="348" stroke="#3a332d" stroke-width="1"/>
-            <line x1="70" y1="348" x2="70" y2="397" stroke="#3a332d" stroke-width="1"/>
-            <line x1="70" y1="397" x2="93" y2="397" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="75" y="344" fill="#8a7d72" font-size="7">No</text>
-            <line x1="160" y1="410" x2="160" y2="422" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <line x1="160" y1="470" x2="160" y2="476" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="165" y="474" fill="#a6dad5" font-size="7">Sí</text>
-            <line x1="215" y1="447" x2="298" y2="447" stroke="#3a332d" stroke-width="1"/>
-            <line x1="298" y1="447" x2="298" y2="291" stroke="#3a332d" stroke-width="1"/>
-            <line x1="298" y1="291" x2="227" y2="291" stroke="#3a332d" stroke-width="1" marker-end="url(#arr)"/>
-            <text x="218" y="443" fill="#8a7d72" font-size="7">No→</text>
-          </svg>
-        </div>
-
-        <!-- Diagrama B: Three.js 3D -->
-        <div class="rounded-xl border border-border bg-card p-6 relative">
-          <div class="flex items-center justify-between mb-2">
-            <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Diagrama B — Relaciones entre fondos</p>
-            <button data-dialog="dialog-b" class="font-mono text-[0.55rem] uppercase tracking-wider text-dim hover:text-accent transition-colors border border-border/50 rounded px-2 py-0.5 hover:border-accent/30">
-              Expandir ↗
-            </button>
-          </div>
-          <p class="text-xs text-muted-foreground mb-4">Cómo se relacionan los 7 fondos documentales</p>
-          <div id="archive-3d" style="width:100%;height:300px;"></div>
-          <div id="archive-3d-tooltip" style="position:absolute;display:none;pointer-events:none;" class="font-mono text-[0.65rem] text-accent bg-black/80 border border-accent/30 rounded px-2 py-1 z-10 whitespace-nowrap"></div>
-        </div>
-      </div>
-
-      <!-- Los 7 Fondos — clickables -->
-      <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Los 7 fondos documentales</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
-
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mb-16">
-        {fondos.map((f) => (
-          <a href={`/archive/${f.id}`} class={`rounded-xl border p-5 ${f.accent} hover:border-accent/50 transition-all group block`}>
-            <div class="flex items-start justify-between mb-3">
-              <span class={f.accentText}><Icon name={f.icon} size={22} /></span>
-              <span class={`font-mono text-[0.55rem] uppercase tracking-[0.15em] ${f.accentText} opacity-70`}>{f.lore}</span>
-            </div>
-            <h3 class={`font-mono text-sm font-medium mb-1 ${f.accentText}`}>{f.nombre}</h3>
-            <p class="text-xs text-muted-foreground leading-relaxed mb-3">{f.descripcion}</p>
-            <div class="border-t border-border/50 pt-3">
-              <p class="font-mono text-[0.6rem] text-dim italic">{f.funcion}</p>
-            </div>
-            <div class="mt-3 flex flex-wrap gap-1">
-              {f.items.map((item) => (
-                <span class="font-mono text-[0.5rem] bg-background/50 border border-border/50 rounded px-1.5 py-0.5 text-dim">{item}</span>
-              ))}
-            </div>
-            <p class="mt-3 font-mono text-[0.55rem] text-accent opacity-0 group-hover:opacity-100 transition-opacity">Ver fondo →</p>
-          </a>
-        ))}
-      </div>
-
-      <!-- Arranque Canónico -->
-      <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Protocolo de arranque canónico</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
-
-      <div class="rounded-xl border border-accent/20 bg-accent/5 p-6 mb-16">
-        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-5">4 pasos. Sin excepción. Sin atajos.</p>
-        <div class="grid gap-3 sm:grid-cols-2">
-          {arranqueSteps.map((step) => (
-            <div class="rounded-lg border border-border/50 bg-background/60 p-4">
-              <div class="flex items-center gap-3 mb-2">
-                <span class="font-mono text-[0.65rem] text-accent font-bold">{step.n}</span>
-                <code class="font-mono text-xs text-foreground bg-black/20 rounded px-2 py-0.5 flex-1">{step.cmd}</code>
-              </div>
-              <p class="font-mono text-[0.6rem] text-dim pl-6">{step.desc}</p>
-            </div>
-          ))}
-        </div>
-        <p class="font-mono text-[0.6rem] text-dim mt-4 italic">
-          P-06: git pull es el primer paso ritual. Siempre. · P-03: El CHANGELOG es el punto de resincronización temporal.
+      <div class="rounded-xl border border-border bg-card p-6 mb-12 max-w-[780px]">
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          A <strong class="text-foreground">fond</strong> is everything one producer generates — here,
+          Numen Games S.L. A <strong class="text-foreground">function</strong> is something the
+          organisation does, named with a noun; an <strong class="text-foreground">activity</strong> is
+          the verb under it; a <strong class="text-foreground">series</strong> is the folder of documents
+          that activity produces. The identifier of a document names its series and never its function,
+          so functions can be regrouped without moving a file or breaking a citation.
+        </p>
+        <p class="text-sm text-muted-foreground leading-relaxed mt-3">
+          This page is generated from the two documents that own the scheme:
+          <a href="/corpus/standards/std-027-the-classification-scheme" class="text-accent hover:underline">STD-027</a>
+          holds the functions and their activities,
+          <a href="/corpus/standards/std-001-the-series" class="text-accent hover:underline">STD-001</a>
+          holds what each series contains. The decision that cut them is
+          <a href="/decisions/adr-046" class="text-accent hover:underline">ADR-046</a>.
         </p>
       </div>
 
-      <!-- Jerarquía de Delegación -->
+      <!-- Relations between the functions -->
       <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Jerarquía de delegación</span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">How the functions relate</span>
         <span class="h-px flex-1 bg-border"></span>
       </div>
 
-      <div class="grid gap-4 sm:grid-cols-3 mb-16">
-        {fases.map((f) => (
-          <div class={`rounded-xl border p-6 ${f.color}`}>
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="font-display text-2xl text-foreground">{f.fase}</h3>
-              <span class={`inline-flex rounded-full px-2 py-0.5 font-mono text-[0.55rem] font-medium ${f.badge}`}>
-                {f.estado === "activa" ? "● activa" : "○ pendiente"}
-              </span>
-            </div>
-            <p class="font-mono text-[0.65rem] text-dim mb-3">{f.periodo}</p>
-            <p class="text-sm text-muted-foreground leading-relaxed mb-4">{f.descripcion}</p>
-            <div class="border-t border-border/50 pt-4">
-              <p class="font-mono text-[0.55rem] text-dim uppercase tracking-[0.1em] mb-1">Criterios de salida</p>
-              <p class="font-mono text-[0.6rem] text-foreground leading-relaxed">{f.criterioSalida}</p>
-            </div>
-          </div>
-        ))}
+      <div class="rounded-xl border border-border bg-card p-6 mb-12 relative">
+        <p class="text-xs text-muted-foreground mb-4">
+          Governance feeds agency and production; administration sustains them; production is observed by
+          assurance and born from planning; creation supplies what production builds with.
+        </p>
+        <div id="archive-3d" style="width:100%;height:320px;"></div>
       </div>
 
-      <!-- Principios Operativos — accordion -->
+      <!-- The six functions -->
       <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Principios operativos</span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">The {n.functions} functions</span>
         <span class="h-px flex-1 bg-border"></span>
-        <span class="font-mono text-[0.6rem] text-dim">12 principios · 100 simulaciones</span>
-      </div>
-
-      <div class="rounded-xl border border-border bg-card mb-16 divide-y divide-border/50 overflow-hidden">
-        {principios.map((p) => (
-          <details class="group">
-            <summary class="flex items-center gap-4 px-5 py-3.5 cursor-pointer list-none hover:bg-accent/5 transition-colors select-none">
-              <span class="font-mono text-[0.65rem] text-accent font-bold shrink-0">{p.id}</span>
-              <p class="text-sm text-foreground flex-1 leading-relaxed">{p.texto}</p>
-              <span class="font-mono text-[0.5rem] text-dim shrink-0 opacity-50 hidden sm:block">{p.sim}</span>
-              <span class="font-mono text-[0.65rem] text-dim ml-1 transition-transform group-open:rotate-180 inline-block">▾</span>
-            </summary>
-            <div class="px-5 pb-4 pt-1 pl-16">
-              <p class="font-mono text-[0.6rem] text-dim mb-1.5">Simulación de referencia</p>
-              <span class="inline-flex rounded border border-accent/20 bg-accent/5 px-2 py-0.5 font-mono text-[0.6rem] text-accent">{p.sim}</span>
-              <p class="text-xs text-muted-foreground mt-2 leading-relaxed">
-                Principio emergido de {p.sim} y validado como regla operativa del sistema.
-              </p>
-            </div>
-          </details>
-        ))}
-      </div>
-
-      <!-- Fallos Críticos -->
-      <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-red">Patrones de fallo críticos</span>
-        <span class="h-px flex-1 bg-border"></span>
-        <span class="font-mono text-[0.6rem] text-dim">identificados en simulación</span>
+        <span class="font-mono text-[0.6rem] text-dim">{n.published} of {n.series} series published here</span>
       </div>
 
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-16">
-        {fallos.map((f) => (
-          <div class="rounded-xl border border-red/20 bg-red/5 p-5">
-            <div class="flex items-center gap-3 mb-3">
-              <span class="font-mono text-[0.6rem] text-red font-bold">{f.id}</span>
-              <h3 class="font-display text-lg text-foreground">{f.nombre}</h3>
-            </div>
-            <div class="space-y-3">
-              <div>
-                <p class="font-mono text-[0.55rem] text-red uppercase tracking-[0.1em] mb-1">Qué ocurre</p>
-                <p class="text-xs text-muted-foreground leading-relaxed">{f.qué}</p>
+        {fns.map((f) => {
+          const a = FN_ACCENT[f.slug] ?? FN_ACCENT.governance;
+          return (
+            <a href={`/archive/${f.slug}`} class={`rounded-xl border p-5 ${a.border} ${a.bg} hover:border-accent/50 transition-all group block`}>
+              <div class="flex items-start justify-between mb-3">
+                <span class={a.text}><Icon name={FN_ICON[f.slug] ?? "archive"} size={22} /></span>
+                <span class={`font-mono text-[0.55rem] uppercase tracking-[0.15em] ${a.text} opacity-70`}>
+                  {f.activities.length} {f.activities.length === 1 ? "activity" : "activities"}
+                </span>
               </div>
-              <div>
-                <p class="font-mono text-[0.55rem] text-red uppercase tracking-[0.1em] mb-1">Impacto</p>
-                <p class="text-xs text-muted-foreground leading-relaxed">{f.impacto}</p>
+              <h3 class={`font-display text-xl mb-2 ${a.text}`}>{f.name}</h3>
+              <p class="font-mono text-[0.65rem] text-dim leading-relaxed mb-3">
+                {f.activities.map((act) => act.name).join(" · ")}
+              </p>
+              <div class="flex flex-wrap gap-1 border-t border-border/50 pt-3">
+                {f.activities.flatMap((act) => act.series).map((s) => (
+                  <span class="font-mono text-[0.5rem] bg-background/50 border border-border/50 rounded px-1.5 py-0.5 text-dim">{s.folder}</span>
+                ))}
               </div>
-              <div class="border-t border-red/10 pt-3">
-                <div class="flex items-center gap-1.5 mb-1">
-                  <span class="text-green"><Icon name={f.icono} size={12} /></span>
-                  <p class="font-mono text-[0.55rem] text-green uppercase tracking-[0.1em]">El sistema previene esto</p>
-                </div>
-                <p class="text-xs text-muted-foreground leading-relaxed">{f.prevención}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+              <p class="mt-3 font-mono text-[0.55rem] text-accent opacity-0 group-hover:opacity-100 transition-opacity">See the function →</p>
+            </a>
+          );
+        })}
       </div>
 
-      <!-- El Manifiesto -->
+      <!-- The whole scheme, one row per series -->
       <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">El manifiesto fundacional</span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">The scheme in full</span>
         <span class="h-px flex-1 bg-border"></span>
       </div>
 
-      <div class="rounded-xl border border-green/20 bg-green/5 p-8">
-        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-green mb-6">numengames/numinia-agents · MANIFESTO.md</p>
-        <div class="space-y-5 max-w-[780px]">
-          <p class="font-display text-xl text-foreground leading-relaxed">
-            "Este repositorio no documenta el sistema. Es el lugar donde el sistema ocurre."
-          </p>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Numinia no es solo un juego. Es un mundo que existe en múltiples planos simultáneamente — narrativo,
-            técnico, organizacional. Los agentes que lo habitan no son herramientas. Son entidades con roles,
-            memoria y límites operativos.
-          </p>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            El Archive Summa es la fuente de verdad canónica de ese mundo. Diseñado mediante análisis A+B+C+D
-            y validado con 100 simulaciones mentales. No es un punto de partida — es el suelo sobre el que
-            todo lo demás se construye.
-          </p>
-          <p class="text-sm text-muted-foreground leading-relaxed">
-            Aquí viven las decisiones que no se negocian, los protocolos que no se omiten, y las misiones
-            que dan movimiento al sistema. Cada commit es un acto de voluntad. Cada PR es una propuesta
-            al canon. Cada merge es historia.
-          </p>
-          <div class="border-t border-green/20 pt-5">
-            <p class="font-display text-lg text-green italic">"No dejes para mañana lo que puedas hacer hoy."</p>
-            <p class="font-mono text-[0.65rem] text-dim mt-2">
-              Principio de Pablo · Nimrod, Guardián de las Puertas · CAO — Numen Games
-            </p>
-          </div>
-        </div>
-        <div class="mt-8 pt-6 border-t border-green/20">
-          <p class="font-mono text-[0.6rem] text-dim uppercase tracking-[0.15em] mb-3">El repositorio</p>
-          <a href="https://github.com/numengames/numinia-agents" target="_blank" rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 font-mono text-sm text-green hover:text-green/80 transition-colors">
-            <span>github.com/numengames/numinia-agents</span>
-            <span class="text-[0.7rem]">↗</span>
-          </a>
-        </div>
+      <div class="rounded-xl border border-border bg-card overflow-x-auto mb-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-border">
+              <th class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Function</th>
+              <th class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Activity</th>
+              <th class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Series</th>
+              <th class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Holds</th>
+            </tr>
+          </thead>
+          <tbody>
+            {fns.flatMap((f) =>
+              f.activities.flatMap((act, ai) =>
+                act.series.map((s, si) => (
+                  <tr class="border-b border-border/40 last:border-0">
+                    <td class="px-4 py-3 align-top font-mono text-[0.65rem] text-accent whitespace-nowrap">
+                      {ai === 0 && si === 0 ? f.name : ""}
+                    </td>
+                    <td class="px-4 py-3 align-top font-mono text-[0.65rem] text-foreground whitespace-nowrap">
+                      {si === 0 ? act.name : ""}
+                    </td>
+                    <td class="px-4 py-3 align-top whitespace-nowrap">
+                      {s.href
+                        ? <a href={s.href} class="font-mono text-[0.65rem] text-accent hover:underline">{s.folder}</a>
+                        : <span class="font-mono text-[0.65rem] text-dim">{s.folder}</span>}
+                    </td>
+                    <td class="px-4 py-3 align-top text-xs text-muted-foreground leading-relaxed">
+                      {s.holds || s.unpublished}
+                    </td>
+                  </tr>
+                )),
+              ),
+            )}
+          </tbody>
+        </table>
       </div>
 
-      {/*
-        Removed 2026-08-31 (MIS-127): the "Documentos — descarga directa"
-        block offered three archive-summa-*.md downloads. PR #170 deleted
-        those blueprints as closed April drafts — their surviving content
-        "became P-001..P-013, S-001 and the canon" — and this page kept
-        linking them, so all three downloads 404'd.
-
-        Not repointed, because there is no 1:1 successor: the content was
-        dissolved into the protocol and standard series, not moved. A
-        download button is a promise of a file; the honest version of that
-        promise here is no button.
-
-        Note for whoever adds downloads back: no guard would have caught
-        this. check-url-lifecycle watches the addresses this site PUBLISHES,
-        not the ones it LINKS TO, and check-references only reads .md. An
-        href in .astro pointing at a deleted file is nobody's job yet.
-      */}
+      <!-- The second fond -->
+      <div class="rounded-xl border border-purple/20 bg-purple/5 p-6 max-w-[780px]">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-purple mb-3">The second fond</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          <code class="font-mono text-xs text-foreground">lore/</code> is recognised as a fond of its own:
+          a different producer relationship and a different licence regime from the administrative corpus.
+          It is listed in the scheme because the two fonds are read together, not because it belongs to the
+          first. Separating it physically moves published addresses, so it waits for the URL standard.
+        </p>
+      </div>
 
     </div>
   </section>
-
-  <!-- Dialog A -->
-  <dialog id="dialog-a" class="archive-dialog">
-    <div class="archive-dialog-inner">
-      <div class="flex items-center justify-between mb-4">
-        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Diagrama A — Ciclo del agente</p>
-        <button data-close-dialog class="inline-flex items-center gap-1.5 font-mono text-xs text-dim hover:text-foreground transition-colors"><Icon name="x" size={12} /> Cerrar</button>
-      </div>
-      <svg viewBox="0 0 320 520" xmlns="http://www.w3.org/2000/svg" class="w-full max-w-[480px] mx-auto" style="font-family:monospace;font-size:9px">
-        <defs>
-          <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L0,6 L6,3 z" fill="#a6dad5"/>
-          </marker>
-        </defs>
-        <rect x="95" y="10" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
-        <text x="160" y="28" text-anchor="middle" fill="#a6dad5">git pull</text>
-        <rect x="95" y="60" width="130" height="28" rx="6" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-        <text x="160" y="78" text-anchor="middle" fill="#c4b5a6">SOUL.md</text>
-        <rect x="95" y="110" width="130" height="28" rx="6" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-        <text x="160" y="128" text-anchor="middle" fill="#c4b5a6">OPERATOR.md</text>
-        <polygon points="160,158 220,185 160,212 100,185" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
-        <text x="160" y="183" text-anchor="middle" fill="#c4b5a6">Misión asignada?</text>
-        <rect x="195" y="228" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-        <text x="250" y="245" text-anchor="middle" fill="#c4b5a6">missions/active/</text>
-        <rect x="15" y="228" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-        <text x="70" y="245" text-anchor="middle" fill="#c4b5a6">missions/backlog/</text>
-        <rect x="95" y="278" width="130" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-        <text x="160" y="295" text-anchor="middle" fill="#c4b5a6">Ejecutar</text>
-        <polygon points="160,322 220,348 160,374 100,348" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
-        <text x="160" y="346" text-anchor="middle" fill="#c4b5a6">Divergencia?</text>
-        <rect x="230" y="384" width="80" height="26" rx="5" fill="#14110f" stroke="#f35059" stroke-width="1"/>
-        <text x="270" y="401" text-anchor="middle" fill="#f35059">diverg_log</text>
-        <rect x="95" y="384" width="110" height="26" rx="5" fill="#14110f" stroke="#3a332d" stroke-width="1"/>
-        <text x="150" y="401" text-anchor="middle" fill="#c4b5a6">commit + PR</text>
-        <polygon points="160,424 215,447 160,470 105,447" fill="#1e1a17" stroke="#3a332d" stroke-width="1"/>
-        <text x="160" y="445" text-anchor="middle" fill="#c4b5a6">Oracle aprueba?</text>
-        <rect x="95" y="478" width="130" height="28" rx="14" fill="#14110f" stroke="#a6dad5" stroke-width="1.2"/>
-        <text x="160" y="496" text-anchor="middle" fill="#a6dad5">merge</text>
-        <line x1="160" y1="38" x2="160" y2="58" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="160" y1="88" x2="160" y2="108" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="160" y1="138" x2="160" y2="156" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="220" y1="185" x2="250" y2="185" stroke="#3a332d" stroke-width="1"/>
-        <line x1="250" y1="185" x2="250" y2="226" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="228" y="181" fill="#8a7d72" font-size="7">Sí</text>
-        <line x1="100" y1="185" x2="70" y2="185" stroke="#3a332d" stroke-width="1"/>
-        <line x1="70" y1="185" x2="70" y2="226" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="75" y="181" fill="#8a7d72" font-size="7">No</text>
-        <line x1="250" y1="254" x2="250" y2="268" stroke="#3a332d" stroke-width="1"/>
-        <line x1="250" y1="268" x2="182" y2="276" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="70" y1="254" x2="70" y2="268" stroke="#3a332d" stroke-width="1"/>
-        <line x1="70" y1="268" x2="138" y2="276" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="160" y1="304" x2="160" y2="320" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="220" y1="348" x2="270" y2="348" stroke="#f35059" stroke-width="1"/>
-        <line x1="270" y1="348" x2="270" y2="382" stroke="#f35059" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="225" y="344" fill="#f35059" font-size="7">Sí</text>
-        <line x1="230" y1="397" x2="207" y2="397" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="100" y1="348" x2="70" y2="348" stroke="#3a332d" stroke-width="1"/>
-        <line x1="70" y1="348" x2="70" y2="397" stroke="#3a332d" stroke-width="1"/>
-        <line x1="70" y1="397" x2="93" y2="397" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="75" y="344" fill="#8a7d72" font-size="7">No</text>
-        <line x1="160" y1="410" x2="160" y2="422" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <line x1="160" y1="470" x2="160" y2="476" stroke="#a6dad5" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="165" y="474" fill="#a6dad5" font-size="7">Sí</text>
-        <line x1="215" y1="447" x2="298" y2="447" stroke="#3a332d" stroke-width="1"/>
-        <line x1="298" y1="447" x2="298" y2="291" stroke="#3a332d" stroke-width="1"/>
-        <line x1="298" y1="291" x2="227" y2="291" stroke="#3a332d" stroke-width="1" marker-end="url(#arr2)"/>
-        <text x="218" y="443" fill="#8a7d72" font-size="7">No→</text>
-      </svg>
-    </div>
-  </dialog>
-
-  <!-- Dialog B: Three.js modal -->
-  <dialog id="dialog-b" class="archive-dialog">
-    <div class="archive-dialog-inner">
-      <div class="flex items-center justify-between mb-4">
-        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Diagrama B — Relaciones entre fondos (3D)</p>
-        <button data-close-dialog class="inline-flex items-center gap-1.5 font-mono text-xs text-dim hover:text-foreground transition-colors"><Icon name="x" size={12} /> Cerrar</button>
-      </div>
-      <div id="archive-3d-modal" style="width:100%;height:480px;"></div>
-    </div>
-  </dialog>
-
 </Layout>
 
-<style>
-  .archive-dialog {
-    background: transparent;
-    border: none;
-    padding: 0;
-    max-width: min(90vw, 720px);
-    max-height: 90vh;
-    width: 100%;
-  }
-  .archive-dialog::backdrop {
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(4px);
-  }
-  .archive-dialog-inner {
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    border-radius: 0.75rem;
-    padding: 1.5rem;
-    overflow: auto;
-    max-height: 88vh;
-  }
-</style>
-
-<script is:inline define:vars={{ graphNodes, graphEdges }}>
+<script is:inline define:vars={{ nodes, edges }}>
 (function () {
-  // Dialog open/close
-  document.querySelectorAll('[data-dialog]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var id = btn.getAttribute('data-dialog');
-      var dlg = document.getElementById(id);
-      if (dlg) dlg.showModal();
-    });
-  });
-  document.querySelectorAll('[data-close-dialog]').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var dlg = btn.closest('dialog');
-      if (dlg) dlg.close();
-    });
-  });
-  document.querySelectorAll('dialog.archive-dialog').forEach(function (dlg) {
-    dlg.addEventListener('click', function (e) {
-      if (e.target === dlg) dlg.close();
-    });
-  });
-
-  // Three.js 3D diagram
-  var nodesData = graphNodes;
-  var edgesData = graphEdges;
-
   function buildScene(THREE, el, w, h) {
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(55, w / h, 0.1, 100);
-    camera.position.set(0, 1, 7);
+    camera.position.set(0, 1, 7.5);
 
     var renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(w, h);
@@ -659,128 +223,77 @@ const graphEdges = _graph.edges as [string, string][];
     scene.add(group);
     scene.add(new THREE.AmbientLight(0xffffff, 0.3));
 
-    var meshMap = {};
     var posMap = {};
-
-    nodesData.forEach(function (n) {
-      var geo = new THREE.SphereGeometry(0.18, 20, 20);
-      var mat = new THREE.MeshStandardMaterial({ color: n.color, emissive: n.color, emissiveIntensity: 0.6 });
-      var mesh = new THREE.Mesh(geo, mat);
+    nodes.forEach(function (n) {
+      var mesh = new THREE.Mesh(
+        new THREE.SphereGeometry(0.18, 20, 20),
+        new THREE.MeshStandardMaterial({ color: n.color, emissive: n.color, emissiveIntensity: 0.6 })
+      );
       mesh.position.set(n.x, n.y, n.z);
-      mesh.userData = { label: n.label };
       group.add(mesh);
-      meshMap[n.id] = mesh;
       posMap[n.id] = new THREE.Vector3(n.x, n.y, n.z);
       var light = new THREE.PointLight(n.color, 0.4, 3);
       light.position.copy(mesh.position);
       group.add(light);
     });
 
-    edgesData.forEach(function (e) {
+    edges.forEach(function (e) {
       var a = posMap[e[0]], b = posMap[e[1]];
       if (!a || !b) return;
-      var geo = new THREE.BufferGeometry().setFromPoints([a.clone(), b.clone()]);
-      var mat = new THREE.LineBasicMaterial({ color: 0x334155, opacity: 0.5, transparent: true });
-      group.add(new THREE.Line(geo, mat));
+      group.add(new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints([a.clone(), b.clone()]),
+        new THREE.LineBasicMaterial({ color: 0x334155, opacity: 0.5, transparent: true })
+      ));
     });
 
-    // CSS2D labels — siempre visibles
-    var labelRenderer = new (function CSS2DRenderer() {
-      var domEl = document.createElement('div');
-      domEl.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;overflow:hidden;width:100%;height:100%;';
-      el.style.position = 'relative';
-      el.appendChild(domEl);
-      var labelEls = [];
-      this.render = function(sc, cam) {
-        // project each label
-        labelEls.forEach(function(item) {
-          var pos = item.pos.clone();
-          group.localToWorld(pos);
-          pos.project(cam);
-          var x = (pos.x * 0.5 + 0.5) * el.offsetWidth;
-          var y = (-pos.y * 0.5 + 0.5) * el.offsetHeight;
-          item.el.style.transform = 'translate(-50%, -120%) translate(' + x + 'px,' + y + 'px)';
-          item.el.style.display = pos.z < 1 ? 'block' : 'none';
-        });
-      };
-      this.addLabel = function(text, subtitle, color, worldPos) {
-        var div = document.createElement('div');
-        div.style.cssText = 'position:absolute;top:0;left:0;font-family:monospace;text-align:center;pointer-events:none;';
-        div.innerHTML = '<span style="display:block;font-size:10px;font-weight:bold;color:#' + color.toString(16).padStart(6,'0') + ';text-shadow:0 0 6px #000,0 0 3px #000;white-space:nowrap;">' + text + '</span>' +
-          '<span style="display:block;font-size:8px;color:#aaa;text-shadow:0 0 4px #000;white-space:nowrap;">' + subtitle + '</span>';
-        domEl.appendChild(div);
-        labelEls.push({ el: div, pos: worldPos.clone() });
-      };
-    })();
-
-    nodesData.forEach(function(n) {
-      labelRenderer.addLabel(n.label, n.subtitle, n.color, posMap[n.id]);
+    // Labels drawn in the DOM over the canvas — always legible, never occluded.
+    var layer = document.createElement('div');
+    layer.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;overflow:hidden;width:100%;height:100%;';
+    el.style.position = 'relative';
+    el.appendChild(layer);
+    var labels = [];
+    nodes.forEach(function (n) {
+      var div = document.createElement('div');
+      div.style.cssText = 'position:absolute;top:0;left:0;font-family:monospace;text-align:center;pointer-events:none;';
+      div.innerHTML =
+        '<span style="display:block;font-size:11px;font-weight:bold;color:#' + n.color.toString(16).padStart(6, '0') + ';text-shadow:0 0 6px #000,0 0 3px #000;white-space:nowrap;">' + n.label + '</span>' +
+        '<span style="display:block;font-size:8px;color:#aaa;text-shadow:0 0 4px #000;white-space:nowrap;">' + n.subtitle + '</span>';
+      layer.appendChild(div);
+      labels.push({ el: div, pos: posMap[n.id].clone() });
     });
 
-    // Panel de relaciones al hover
-    var panel = document.createElement('div');
-    panel.style.cssText = 'position:absolute;bottom:8px;left:8px;right:8px;background:rgba(0,0,0,0.75);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:8px 12px;font-family:monospace;font-size:11px;color:#fff;pointer-events:none;display:none;backdrop-filter:blur(4px);';
-    el.appendChild(panel);
-
-    var raycaster = new THREE.Raycaster();
-    var mouse = new THREE.Vector2();
-    var meshList = nodesData.map(function (n) { return meshMap[n.id]; });
-
-    el.addEventListener('mousemove', function (ev) {
-      var rect = el.getBoundingClientRect();
-      mouse.x = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
-      mouse.y = -((ev.clientY - rect.top) / rect.height) * 2 + 1;
-      raycaster.setFromCamera(mouse, camera);
-      var hits = raycaster.intersectObjects(meshList);
-      if (hits.length > 0) {
-        var nd = nodesData.find(function(n){ return meshMap[n.id] === hits[0].object; });
-        if (nd) {
-          var rels = nd.relations.length > 0 ? nd.relations.map(function(r){ return '<span style="color:#a6dad5">' + r + '/</span>'; }).join(', ') : '<span style="color:#666">ninguna saliente</span>';
-          panel.innerHTML = '<strong style="color:#' + nd.color.toString(16).padStart(6,'0') + '">' + nd.label + '</strong> <span style="color:#aaa">' + nd.subtitle + '</span><br>Conecta con: ' + rels;
-          panel.style.display = 'block';
-        }
-      } else {
-        panel.style.display = 'none';
-      }
-    });
-    el.addEventListener('mouseleave', function () {
-      panel.style.display = 'none';
-    });
+    function renderLabels() {
+      labels.forEach(function (item) {
+        var p = item.pos.clone();
+        group.localToWorld(p);
+        p.project(camera);
+        item.el.style.transform = 'translate(-50%, -140%) translate(' +
+          ((p.x * 0.5 + 0.5) * el.offsetWidth) + 'px,' + ((-p.y * 0.5 + 0.5) * el.offsetHeight) + 'px)';
+        item.el.style.display = p.z < 1 ? 'block' : 'none';
+      });
+    }
 
     new ResizeObserver(function (entries) {
-      var e = entries[0].contentRect;
-      camera.aspect = e.width / e.height;
+      var r = entries[0].contentRect;
+      camera.aspect = r.width / r.height;
       camera.updateProjectionMatrix();
-      renderer.setSize(e.width, e.height);
+      renderer.setSize(r.width, r.height);
     }).observe(el);
 
     var clock = new THREE.Clock();
     (function animate() {
       requestAnimationFrame(animate);
       var t = clock.getElapsedTime();
-      group.rotation.y = t * 0.18;
+      group.rotation.y = t * 0.16;
       group.rotation.x = Math.sin(t * 0.07) * 0.12;
       renderer.render(scene, camera);
-      labelRenderer.render(scene, camera);
+      renderLabels();
     })();
   }
 
   import('https://esm.sh/three@0.163.0').then(function (THREE) {
     var el = document.getElementById('archive-3d');
-    if (el) buildScene(THREE, el, el.offsetWidth || 400, 300);
-
-    var modalInited = false;
-    var openBtn = document.querySelector('[data-dialog="dialog-b"]');
-    if (openBtn) {
-      openBtn.addEventListener('click', function () {
-        if (!modalInited) {
-          setTimeout(function () {
-            var mel = document.getElementById('archive-3d-modal');
-            if (mel) { buildScene(THREE, mel, mel.offsetWidth || 600, 480); modalInited = true; }
-          }, 60);
-        }
-      });
-    }
+    if (el) buildScene(THREE, el, el.offsetWidth || 400, 320);
   });
 })();
 </script>

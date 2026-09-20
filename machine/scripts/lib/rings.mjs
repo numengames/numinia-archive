@@ -77,9 +77,7 @@ export const RING3 = {
     'absorbs',
     'resolved_by', 'question_status', 'visibility_was', 'scope', 'supersedes_pending'],
   'blueprints': ['extraction_note', 'restoration_note', 'semaforo',
-    // fondos/graph are read by web/src/pages/archive/ — checked BEFORE
-    // registering, the lesson the semaforo taught
-    'fondos', 'graph', 'score', 'score_prev', 'scope', 'mission', 'input',
+    'score', 'score_prev', 'scope', 'mission', 'input',
     'related_missions', 'contributors'],
   'operations': ['extraction_note', 'restoration_note',
     'language', 'language_note', 'review_flags', 'source_title'],
@@ -112,8 +110,14 @@ export const RING3 = {
   // record a renumbering under ADR-004 rule 4 — the old identifier is never
   // freed, so a moved document must say where it came from.
   // `accuracy_warning` declares known-stale content the move did not edit.
+  //
+  // `fondos` and `graph` were registered here while SYS-003's frontmatter was
+  // the database the /archive pages rendered. ADR-046 retired that model and
+  // the pages now read STD-027 and STD-001, so both fields are unregistered:
+  // a document that carries them again is restating a standard from memory,
+  // which is what this vocabulary exists to catch.
   'system': ['extraction_note', 'restoration_note', 'mission',
-    'fondos', 'graph', 'former_id', 'former_id_note', 'accuracy_warning'],
+    'former_id', 'former_id_note', 'accuracy_warning'],
   'history': ['former_id', 'former_id_note', 'supersedes_version'],
 };
 

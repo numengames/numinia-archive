@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.6.0",
+    date: "2026-09-20",
+    entries: [
+      {
+        type: "CHG",
+        text: "/archive is now the classification of the archive, and it reads it from the archive. The page used to carry its own copy of the model — a list of seven 'fondos' naming folders (agents/guilds/, missions/active/, missions/backlog/, canon/platform-role-system.md) that had not existed for months, plus twelve operating principles and five failure patterns no document in the repository records. All of it is gone. What you see now is generated at build time from the two documents that own the scheme: the classification standard (/corpus/standards/std-027-the-classification-scheme) and the series register (/corpus/standards/std-001-the-series). One fond, six functions, sixteen activities, eighteen series — and the figures are counted, not typed. If a folder is added to the standard and nobody says where this site serves it, the build stops instead of printing a row that links nowhere.",
+      },
+      {
+        type: "CHG",
+        text: "The seven pages under /archive were one per folder and are now one per function: /archive/governance, /archive/production, /archive/assurance, /archive/agency, /archive/creation, /archive/administration. Each lists its activities, the folders each activity produces, what each folder holds, its identifier prefix, what a change to it costs, and a link to read it — or, for the instruments under machine/ and for the lore, one line saying why it is not published here. Every old address keeps resolving: the five that asked 'what is in this folder' land on that folder's index in the corpus, and the two without one (agents/, operations/) land on the function that classifies them.",
+      },
+      {
+        type: "DEL",
+        text: "The reference manual of the archive (/corpus/system/sys-003-archive-fondos) no longer carries the page's data in its header. It held a seven-entry list and a diagram definition that this site rendered directly, so a manual doubled as a database and the two drifted apart. It is prose again; the standards are the source.",
+      },
+    ],
+  },
+  {
     version: "v0.5.0",
     date: "2026-09-20",
     entries: [

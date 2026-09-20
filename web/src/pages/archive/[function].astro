@@ -1,0 +1,154 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /archive/<function> — one function of the fond: its activities, the series
+// each produces, and where this site serves them.
+//
+// This route REPLACES /archive/<fondo>. The seven fondo addresses
+// (canon, agents, missions, protocols, decisions, blueprints, operations)
+// named series, not fonds, and rendered SYS-003's retired `fondos:` array —
+// a per-folder page duplicating the section index the corpus already serves.
+// Each of the seven now redirects: five to their section index, and the two
+// whose question was "which folder is this" to the function that classifies
+// them (ADR-030's four tests; web/astro.config.mjs holds the lines).
+import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
+import PageHero from "@/components/PageHero.astro";
+import { functions } from "@/lib/classification";
+
+export function getStaticPaths() {
+  return functions().map((fn) => ({ params: { function: fn.slug }, props: { fn } }));
+}
+
+const { fn } = Astro.props;
+const others = functions().filter((f) => f.slug !== fn.slug);
+
+const FN_ICON: Record<string, string> = {
+  governance: "bank",
+  production: "lightning",
+  assurance: "shield-check",
+  agency: "robot",
+  creation: "sparkle",
+  administration: "gear",
+};
+
+const FN_ACCENT: Record<string, { border: string; bg: string; text: string }> = {
+  governance:     { border: "border-green/20",  bg: "bg-green/5",  text: "text-green" },
+  production:     { border: "border-yellow/20", bg: "bg-yellow/5", text: "text-yellow" },
+  assurance:      { border: "border-blue/20",   bg: "bg-blue/5",   text: "text-blue" },
+  agency:         { border: "border-accent/20", bg: "bg-accent/5", text: "text-accent" },
+  creation:       { border: "border-purple/20", bg: "bg-purple/5", text: "text-purple" },
+  administration: { border: "border-orange/20", bg: "bg-orange/5", text: "text-yellow" },
+};
+
+const a = FN_ACCENT[fn.slug] ?? FN_ACCENT.governance;
+const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
+---
+
+<Layout
+  title={`${fn.name} — how the archive is classified · Numen Games`}
+  description={`${fn.name}: ${fn.activities.map((act) => act.name).join(", ")} — and the ${seriesCount} series these activities produce.`}
+  canonicalPath={`/archive/${fn.slug}`}
+  activeNav="archive"
+>
+  <PageHero
+    label="Archive · function"
+    title={fn.name}
+    description={fn.activities.map((act) => act.name).join(" · ")}
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[1100px] px-6">
+
+      <div class="mb-8">
+        <a href="/archive" class="inline-flex items-center gap-2 font-mono text-xs text-dim hover:text-foreground transition-colors">
+          <Icon name="caret-left" size={12} />
+          <span>How the archive is classified</span>
+        </a>
+      </div>
+
+      <div class="flex flex-col lg:flex-row gap-10">
+
+        <div class="flex-1 min-w-0">
+
+          <div class={`rounded-xl border ${a.border} ${a.bg} p-6 mb-8`}>
+            <div class="flex items-center gap-3 mb-3">
+              <span class={a.text}><Icon name={FN_ICON[fn.slug] ?? "archive"} size={20} /></span>
+              <p class={`font-mono text-[0.65rem] uppercase tracking-[0.2em] ${a.text}`}>
+                {fn.activities.length} {fn.activities.length === 1 ? "activity" : "activities"} · {seriesCount} {seriesCount === 1 ? "series" : "series"}
+              </p>
+            </div>
+            <p class="text-sm text-muted-foreground leading-relaxed">
+              A function is something this organisation does, named with a noun; the activities under it are
+              verbs, and each produces one or more series. A document's identifier names its series, never its
+              function — so this grouping can change without moving a file or breaking a citation.
+            </p>
+          </div>
+
+          {fn.activities.map((act) => (
+            <div class="mb-10">
+              <div class="mb-3 flex items-center gap-3">
+                <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">{act.name}</span>
+                <span class="h-px flex-1 bg-border"></span>
+              </div>
+
+              <div class="grid gap-4 sm:grid-cols-2">
+                {act.series.map((s) => (
+                  <div class="border border-border bg-card p-5 rounded-xl flex flex-col gap-3">
+                    <div class="flex items-start justify-between gap-2">
+                      <code class={`font-mono text-sm font-medium ${a.text}`}>{s.folder}</code>
+                      {s.prefix && (
+                        <span class="shrink-0 font-mono text-[0.55rem] text-dim bg-background/50 border border-border/50 rounded px-1.5 py-0.5">{s.prefix}</span>
+                      )}
+                    </div>
+                    <p class="text-xs text-muted-foreground leading-relaxed flex-1">
+                      {s.holds || s.unpublished}
+                    </p>
+                    <div class="flex items-center justify-between pt-2 border-t border-border/50">
+                      {s.threshold
+                        ? <span class="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-dim">{s.threshold}</span>
+                        : <span class="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-dim">instrument</span>}
+                      {s.href
+                        ? <a href={s.href} class={`font-mono text-[0.6rem] ${a.text} hover:opacity-70 transition-opacity`}>Read it →</a>
+                        : <span class="font-mono text-[0.55rem] text-dim opacity-50">not published here</span>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+        <aside class="lg:w-56 shrink-0">
+          <div class="sticky top-6">
+            <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim mb-3">Other functions</p>
+            <nav class="flex flex-col gap-1.5">
+              {others.map((f) => (
+                <a
+                  href={`/archive/${f.slug}`}
+                  class="flex items-center gap-2.5 rounded-lg border border-border bg-card px-3 py-2.5 hover:border-accent/50 hover:bg-accent/5 transition-all group"
+                >
+                  <span class="text-dim shrink-0"><Icon name={FN_ICON[f.slug] ?? "archive"} size={16} /></span>
+                  <div class="min-w-0">
+                    <p class="font-mono text-xs text-foreground group-hover:text-accent transition-colors truncate">{f.name}</p>
+                    <p class="font-mono text-[0.5rem] text-dim truncate">{f.activities.map((act) => act.name).join(" · ")}</p>
+                  </div>
+                </a>
+              ))}
+              <a
+                href="/archive"
+                class="flex items-center gap-2.5 rounded-lg border border-border/50 px-3 py-2.5 hover:border-accent/30 transition-all mt-2"
+              >
+                <span class="text-dim shrink-0"><Icon name="archive" size={16} /></span>
+                <p class="font-mono text-xs text-dim hover:text-foreground transition-colors">← The whole scheme</p>
+              </a>
+            </nav>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</Layout>

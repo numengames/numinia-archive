@@ -25,6 +25,22 @@ export default defineConfig({
 	// before push (72bff4c): the URL never went live, and the entry is about
 	// page weight, not a broken link. See DBT-004.
 	redirects: {
+		// 2026-09-20 (ADR-046): the seven /archive/<fondo> addresses. They named
+		// SERIES, not fonds — there is one fond here — and rendered SYS-003's
+		// retired `fondos:` array. ADR-030's four tests, applied one by one:
+		// five of them asked "what is in this folder", and the corpus section
+		// index answers that better than a per-folder page ever did; two named
+		// folders with no section index of their own (agents/, operations/), so
+		// they land on the function that classifies them, which is the question
+		// the page was really answering. No address dies: /archive itself is now
+		// the classification, and /archive/<function> is the new shelf.
+		"/archive/canon": "/corpus/canon/",
+		"/archive/protocols": "/corpus/protocols/",
+		"/archive/decisions": "/corpus/decisions/",
+		"/archive/blueprints": "/corpus/blueprints/",
+		"/archive/missions": "/missions",
+		"/archive/agents": "/archive/agency",
+		"/archive/operations": "/archive/administration",
 		// 2026-09-16: legal slugs unified across the four sites of the house.
 		"/legal/terminos": "/legal/terms",
 		"/legal/privacidad": "/legal/privacy",
