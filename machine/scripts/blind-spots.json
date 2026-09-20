@@ -166,7 +166,7 @@
     },
     "check-url-lifecycle": {
       "script": "machine/scripts/check-url-lifecycle.mjs",
-      "build_guard": "REPORTS ONLY since ADR-047: it counts the addresses a cut removed and prints them, and no longer fails the build. The refactor deletes what no longer serves, and under the old rule an honest deletion added a redirect instead of removing an address. The biting half is check-url-shape, which rejects a redirect that leads to an index, to another redirect, or to a page the build does not publish.",
+      "build_guard": "REPORTS ONLY: it counts the addresses a cut removed and prints them; it does not fail the build. While the archive only grew, a retired address could always be redirected; while it is being pruned, an honest deletion would ADD an address instead of removing one, which is how the site came to publish more redirects than pages. The biting half is check-url-shape, which rejects a redirect leading to an index, to another redirect, or to a page the build does not publish.",
       "needs": "web/dist",
       "sees": "public URLs that stop being built, and whether a redirect for them is declared in web/astro.config.mjs — reported as a figure the PR must state, not enforced",
       "blind_to": [
