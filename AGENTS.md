@@ -74,7 +74,7 @@ restores them by default.
 
 The principal areas of this repository:
 
-- `agents/` — canonical definitions of persistent agents (`AGENT.yaml`,
+- `agents/` — canonical definitions of persistent agents (`AGENT.md`,
   `SOUL.md`, `OPERATOR.md`, `SOURCES.md`, `adapters/`).
 - `canon/` — the world and the governing canons (CAN-001…CAN-007). Published
   under CC0-1.0 since the April grant (ADR-036).
@@ -117,7 +117,10 @@ silently reconciling it.
 
 Canonical definitions of persistent agents live under `agents/<agent>/`:
 
-- `AGENT.yaml` — structured identity, role, specialization, routing.
+- `AGENT.md` — the agent's entity card: identity, status, the index of its
+  forms (soul, operator, sources, adapters, skills) and when to route to it.
+  Replaces `AGENT.yaml`, which nothing read; agents not yet converted keep
+  their `AGENT.yaml` until their turn.
 - `SOUL.md` — identity, mission, criteria, communication, boundaries.
 - `OPERATOR.md` — authority, approvals, escalation, governance.
 - `SOURCES.md` — map of the authoritative sources the agent consults.
@@ -166,8 +169,8 @@ No layer silently redefines another layer outside its scope.
 
 When specialist judgment is required, prefer the appropriate persistent
 specialist rather than fabricating expertise. The roster and routing map
-live in `agents/INDEX.md`; each agent's `AGENT.yaml` carries its
-`routing.use_when` conditions.
+live in `agents/INDEX.md`; each agent's card (`AGENT.md`, or `AGENT.yaml`
+where not yet converted) says when to route to it.
 
 - **Ursa** — orchestration, systems, software engineering, Hermes.
 - **Antunj** — product strategy, meaning, narrative, framing.
@@ -202,7 +205,7 @@ them accessible.
 
 Changes to canonical agent identity, governance, institutional knowledge, or
 other authoritative content must be explicit, traceable, and
-version-controlled. Treat `AGENT.yaml`, `SOUL.md`, `OPERATOR.md`, canonical
+version-controlled. Treat `AGENT.md`, `SOUL.md`, `OPERATOR.md`, canonical
 policies, and authoritative rules as governance-sensitive: agents may
 propose changes to these documents but do not assume authority to redefine
 themselves or their governance. Canon (`canon/**`) requires formal

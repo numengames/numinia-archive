@@ -4,14 +4,24 @@
 //
 // entities — one walk over the entity cards, two outputs.
 //
-// An entity card (objects/<name>.md) is an index: an entity has forms (a
-// model, a portrait, a sound, a sheet), every form has its own licence and
-// rights holder, and every form has copies — where its bytes are, each with
-// a sha256 and a size. The card never holds the bytes; the depot does. The
-// card says what exists and where; this script says whether that is still
-// true.
+// An entity card is an index: an entity has forms (a model, a portrait, a
+// sound, a sheet — or, for an agent, a soul, an operator, an adapter), every
+// form has its own licence and rights holder, and every form has copies —
+// where its bytes are. The card never holds the bytes. The card says what
+// exists and where; this script says whether that is still true.
 //
-//   node scripts/entities.mjs          walks objects/, writes objects/catalogue.json
+// Two kinds of card, one shape:
+//   objects/<name>.md        a thing whose forms live outside (the depot)
+//   agents/<name>/AGENT.md   an agent, whose forms live beside the card
+//
+// Two kinds of copy:
+//   url / path+commit        outside this repository — sha256 and bytes are
+//                            declared in the card and compared on --check
+//   path (no commit)         this repository's own file — git pins it, so the
+//                            card does not repeat the commit or the hash;
+//                            --check hashes what is on disk and reports it
+//
+//   node scripts/entities.mjs          walks both, writes objects/catalogue.json
 //                                      (what numinia.com reads — header data only,
 //                                      never the body)
 //   node scripts/entities.mjs --check  also fetches every copy of every form,
@@ -52,16 +62,23 @@ if (!existsSync(DIR)) {
 
 /* ---------- the walk ---------- */
 
-const cards = readdirSync(DIR).filter((f) => f.endsWith('.md') && f !== 'CHECK.md' && f !== 'README.md').sort();
+const objectCards = readdirSync(DIR)
+  .filter((f) => f.endsWith('.md') && f !== 'CHECK.md' && f !== 'README.md')
+  .map((f) => ({ rel: `objects/${f}`, slug: f.replace(/\.md$/, '') }));
+const AGENTS = path.join(ROOT, 'agents');
+const agentCards = existsSync(AGENTS)
+  ? readdirSync(AGENTS, { withFileTypes: true })
+    .filter((d) => d.isDirectory() && !d.name.startsWith('_') && existsSync(path.join(AGENTS, d.name, 'AGENT.md')))
+    .map((d) => ({ rel: `agents/${d.name}/AGENT.md`, slug: d.name }))
+  : [];
+const cards = [...objectCards, ...agentCards].sort((a, b) => a.rel.localeCompare(b.rel));
 const entities = [];
 const problems = [];
 
-for (const file of cards) {
-  const rel = `objects/${file}`;
-  const text = readFileSync(path.join(DIR, file), 'utf8');
+for (const { rel, slug } of cards) {
+  const text = readFileSync(path.join(ROOT, rel), 'utf8');
   const fm = parseYamlFrontmatter(text);
   if (!fm) { problems.push(`${rel}: no frontmatter`); continue; }
-  const slug = file.replace(/\.md$/, '');
   const forms = Array.isArray(fm.forms) ? fm.forms : [];
   entities.push({
     slug,
@@ -69,6 +86,7 @@ for (const file of cards) {
     id: fm.id,
     title: fm.title,
     entity: fm.entity,
+    ...(fm.type_execution ? { type_execution: fm.type_execution } : {}),
     status: fm.status,
     version: fm.version,
     license: fm.license,
@@ -87,8 +105,8 @@ for (const file of cards) {
         ...(c.path ? { path: c.path } : {}),
         ...(c.commit ? { commit: c.commit } : {}),
         ...(c.repo ? { repo: c.repo } : {}),
-        sha256: c.sha256,
-        bytes: c.bytes,
+        ...(c.sha256 !== undefined ? { sha256: c.sha256 } : {}),
+        ...(c.bytes !== undefined ? { bytes: c.bytes } : {}),
         ...(c.note ? { note: c.note } : {}),
       })),
     })),
@@ -115,12 +133,14 @@ const rows = [];
 for (const e of entities) {
   for (const f of e.forms) {
     for (const c of f.copies) {
-      const where = c.url ?? `${c.repo ?? 'this repository'}:${c.path}@${c.commit}`;
+      const local = !c.url && c.path && !c.commit;
+      const where = c.url ?? (local ? c.path : `${c.repo ?? 'this repository'}:${c.path}@${c.commit}`);
       let verdict, detail = '';
       try {
         const bytes = await fetchCopy(c);
         const sha = createHash('sha256').update(bytes).digest('hex');
-        if (sha !== c.sha256) { verdict = 'mismatch'; detail = `got ${sha.slice(0, 12)}…`; }
+        if (local) { verdict = 'ok'; detail = `${sha.slice(0, 12)}… ${bytes.length} bytes at ${commitOf(c.path)}`; }
+        else if (sha !== c.sha256) { verdict = 'mismatch'; detail = `got ${sha.slice(0, 12)}…`; }
         else if (bytes.length !== c.bytes) { verdict = 'mismatch'; detail = `size ${bytes.length}, card says ${c.bytes}`; }
         else {
           verdict = 'ok';
@@ -163,8 +183,10 @@ const md = [
   `# Copy check — ${today} at ${commit}`,
   '',
   'Written by `node scripts/entities.mjs --check`, run by hand and committed with its date.',
-  'One row per copy of every form of every card in `objects/`. `ok` = the bytes were',
-  'fetched and their SHA-256 and size match the card. Where the format carries a',
+  'One row per copy of every form of every card — `objects/*.md` and `agents/*/AGENT.md`.',
+  '`ok` = the bytes were fetched and their SHA-256 and size match the card; for a copy',
+  'that is a path in this repository (git pins it; the card repeats no hash) the row',
+  'records the hash, size and last commit seen on disk. Where the format carries a',
   'licence inside the file (VRM meta, glTF extras), it is read and compared with the',
   'card\'s `embedded_license`. CI never runs this: a third-party host being down is',
   'not a defect of the archive, and the archive does not depend on it.',
@@ -198,7 +220,19 @@ async function fetchCopy(c) {
     if (c.repo) throw new Error('a path copy in another repository needs a url — use the raw url pinned to the commit');
     return execFileSync('git', ['show', `${c.commit}:${c.path}`], { cwd: ROOT, maxBuffer: 1 << 28 });
   }
-  throw new Error('a copy is a url, or a path pinned to a commit');
+  if (c.path) {
+    if (c.repo) throw new Error('a path copy in another repository needs a url — use the raw url pinned to the commit');
+    return readFileSync(path.join(ROOT, c.path));
+  }
+  throw new Error('a copy is a url, a path pinned to a commit, or a path in this repository');
+}
+
+/** The last commit that touched a path in this repository, or `uncommitted`. */
+function commitOf(rel) {
+  try {
+    const sha = execFileSync('git', ['log', '-1', '--format=%h', '--', rel], { cwd: ROOT, encoding: 'utf8' }).trim();
+    return sha || 'uncommitted';
+  } catch { return 'no-git'; }
 }
 
 /** The licence a file declares INSIDE itself, or null when the format has no

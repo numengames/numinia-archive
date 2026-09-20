@@ -20,7 +20,7 @@ registration_reason: "singular document, not a numbered series"
 > **Summary:** index of the digital agents defined in this archive.
 > **Epistemic:** who the agents are, what work routes to each, and how a
 > reader arriving from `git log` resolves a retired author name.
-> **Pragmatic:** the routing map — read `AGENT.yaml` for the card,
+> **Pragmatic:** the routing map — read `AGENT.md` for the card (`AGENT.yaml` where not yet converted),
 > `SOUL.md` for the identity, `adapters/hermes/` to instantiate.
 > **Audience:** Agents · Oracles
 
@@ -32,7 +32,7 @@ platform (Hermes, or any other) instantiates it from `adapters/`
 
 ```
 agents/{name}/
-├── AGENT.yaml            ← machine-readable card: status, role, routing
+├── AGENT.md              ← the entity card: status, forms, routing (AGENT.yaml until converted)
 ├── SOUL.md               ← identity, function, limits
 ├── OPERATOR.md           ← governance: authority, escalation
 ├── SOURCES.md            ← where its authoritative knowledge lives
@@ -90,7 +90,7 @@ See `D-027`.
 The pre-2026-08-28 roster (Nimrod, Adonaz, procurador-01, and the
 character-voiced Senet/Ursa personas, with their `STATUS.md`/`MEMORY.md`
 state files) was retired by `MIS-118` and remains in Git history. Runtime
-state no longer lives in the archive: `status:` is a field in `AGENT.yaml`,
+state no longer lives in the archive: `status:` is a field in `AGENT.md`,
 and session metrics belong to the platform, not the canon.
 
 ## Version history

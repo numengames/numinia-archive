@@ -7,7 +7,7 @@ version: "1.0.0"
 created: "2026-04-07T15:14:58Z"
 created_source: "git:78dbd77"
 created_confidence: exact
-updated: "2026-08-28T09:54:16Z"
+updated: "2026-09-20T12:00:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [agents, ursa]
@@ -38,7 +38,7 @@ Local inspection, builds, tests, linting, formatting, and non-destructive Git op
 ## Self-modification
 
 This agent may PROPOSE changes to its own `SOUL.md`, `OPERATOR.md` or
-`AGENT.yaml`, and never applies them: canonical identity changes require the
+`AGENT.md`, and never applies them: canonical identity changes require the
 operator's review (AGENTS.md, Canonical Changes).
 
 ## Traceability
