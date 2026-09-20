@@ -54,6 +54,15 @@ What still holds, because each rule protects something that can be seen:
 - every pull request that changes a site adds its `/updates` entry and
   raises the version (`scripts/check-version-bump.mjs`);
 - a `CHANGELOG.md` entry for what changed in this archive;
+- the test before the code (`STD-015` DEV-008): for a feature, a fix or a
+  refactor, the test that describes the change is written first, run, and
+  seen to fail for the right reason; then the code that makes it pass; then
+  the clean-up with everything green. The pull request shows that order —
+  a `test(...)` commit before the `feat`/`fix` commit — because a diff
+  cannot tell when a test was written and the history can. Behaviour that
+  already exists and has no test gets one when it is touched; a bug gets
+  the test that reproduces it before the fix. Read at review; it fails no
+  build while the register is draft;
 - `lore/**` and the pinned `operations/` files stay reserved; canon
   changes are said to the operator in chat before the branch exists —
   his answer there is the consensus, no further ceremony.

@@ -16,10 +16,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 708,
+  "chars": 810,
   "apparatus": false,
   "archived": false,
-  "tokens": 189
+  "tokens": 214
  },
  {
   "path": ".github/rulesets/README.md",
@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 9726,
+  "chars": 10353,
   "apparatus": false,
   "archived": false,
-  "tokens": 2225
+  "tokens": 2384
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 39432,
+  "chars": 40725,
   "apparatus": false,
   "archived": false,
-  "tokens": 11008
+  "tokens": 11356
  },
  {
   "path": "CLAUDE.md",
@@ -1512,10 +1512,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 14605,
+  "chars": 15610,
   "apparatus": false,
   "archived": false,
-  "tokens": 3971
+  "tokens": 4214
  },
  {
   "path": "standards/STD-016-header-fields.md",

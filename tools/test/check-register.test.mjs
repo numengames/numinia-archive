@@ -146,8 +146,23 @@ test('the summary counts the rows it actually has', () => {
   const dir = scratch();
   try {
     edit(dir, REGISTER, (t) => t.replace(/^(\| Legal \| LEG-001 .*)$/m, '$1\n| Legal | LEG-002 | Probe row | MUST | `[DEBT: probe — oracle, 2026-09-11]` |'));
-    assert.match(run(dir).out, /says 54 practices, table has 55/);
+    assert.match(run(dir).out, /says 55 practices, table has 56/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+/* DEV-008: the test that describes a change is written, and seen to fail,
+   before the code. A diff cannot tell the order; the pull request's history
+   can, so the check is a gate: the template asks, the reviewer looks. Both
+   halves must exist — a row that names a template line that is not there is
+   the MANUAL the register retired. */
+test('DEV-008 test-first is a gate on the pull request template, and the template asks', () => {
+  const register = readFileSync(path.join(ROOT, REGISTER), 'utf8');
+  const row = register.split('\n').find((l) => l.startsWith('| Ergonomics | DEV-008 |'));
+  assert.ok(row, 'STD-015 has no DEV-008 row');
+  assert.match(row, /test.*before.*code/i, 'DEV-008 must say the test comes before the code');
+  assert.match(row, /`\[GATE: \.github\/PULL_REQUEST_TEMPLATE\.md → /, 'DEV-008 is a gate whose machine half is the PR template');
+  const template = readFileSync(path.join(ROOT, '.github/PULL_REQUEST_TEMPLATE.md'), 'utf8');
+  assert.match(template, /^- \[ \] .*test.*(before|precedes).*(code|fix|feature)/im, 'the PR template has no Definition-of-Done line asking for the test commit first');
 });
 
 test('a scorecard row must name a real Scorecard check', () => {
