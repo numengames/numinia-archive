@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 53333,
+  "chars": 56956,
   "apparatus": false,
   "archived": false,
-  "tokens": 14504
+  "tokens": 15444
  },
  {
   "path": "CLAUDE.md",
@@ -801,6 +801,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1545
+ },
+ {
+  "path": "decisions/ADR-047-one-document-one-address.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 7118,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1827
  },
  {
   "path": "lore/README.md",
@@ -1699,10 +1710,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15730,
+  "chars": 16458,
   "apparatus": false,
   "archived": false,
-  "tokens": 4234
+  "tokens": 4410
  },
  {
   "path": "standards/STD-016-header-fields.md",
@@ -1835,6 +1846,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1444
+ },
+ {
+  "path": "standards/STD-028-one-document-one-address.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5141,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1321
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
