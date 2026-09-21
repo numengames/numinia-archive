@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
-import { navItems } from "@/data/navigation";
+import { navItems, barItems } from "@/data/navigation";
 import { useT, type UIKey } from "@/i18n/ui";
 
 interface Props {
@@ -56,7 +56,12 @@ const homeHref = "/";
     -->
     <div class="hidden items-center gap-1 lg:flex">
       <SiteSearch />
-      {navItems.map((item) => {
+      {/*
+        `barItems`, not `navItems`: the bar drops what does not fit (see
+        `inBar` in @/data/navigation). The MOBILE menu below keeps the full
+        list — it is a vertical stack and has no width to run out of.
+      */}
+      {barItems.map((item) => {
         if (sectionIds.has(item.id)) {
           return (
             <a

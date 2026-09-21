@@ -150,6 +150,23 @@ export const SECTIONS: Section[] = [
     question: "What do we already know is broken or missing?",
     emptyMeans: "Nothing is outstanding. No known defect is being carried — which is the state this register exists to make visible, not an error.",
     blurb: "What we know is broken or missing, admitted in writing before anyone else has to find it." },
+  // Operations and Objects close the last two holes in the mirror (2026-09-21).
+  // Both folders already published every one of their documents — ten under
+  // operations/, two under objects/ — and both answered 404 at the address of
+  // the folder itself. A reader who found /operations/ops-003-privacy-policy
+  // and cut the URL back to see what else was in there was told the folder did
+  // not exist. It did; only its door was missing.
+  //
+  // They sit after the six governed series because neither one BINDS anything.
+  // Operations records what the company is doing and what it has promised the
+  // public; objects registers things that are not documents at all.
+  { prefix: "operations/", slug: "operations", label: "Operations", collection: "corpus",
+    question: "What is the company actually doing right now, and what has it promised in writing?",
+    blurb: "The live record of the business: where work stands, what contradicts what, and the legal texts the public sites are bound by." },
+  { prefix: "objects/",    slug: "objects",    label: "Objects",    collection: "corpus",
+    question: "What does the archive hold that is not a document — and where do its bytes actually live?",
+    emptyMeans: "No thing is registered yet. The folder exists and its cards are read at build time, so the first card to land appears here on its own.",
+    blurb: "Cards for the things that are not documents — an avatar, a model, later a place. The card is the index; the bytes live in the asset depot." },
 ];
 
 // NOT sections, and why — recorded so the next reader does not re-litigate it:
@@ -164,12 +181,18 @@ export const SECTIONS: Section[] = [
 //               listing them as "Missions" beside a board of 111 would be a
 //               second, poorer answer to the same question.
 //
-//   agents/     Per-agent state files (MEMORY, STATUS, SOUL). Infrastructure.
-//   operations/ Live operational records, not a reading family.
-//   reports/    Dated dailies; chronological, and /reportes already serves them.
+//   agents/     Per-agent state files (MEMORY, STATUS, SOUL). Infrastructure
+//               for the roster at /agents, which is the door to that folder.
+//   reports/    Dated dailies; chronological, and /reports already serves them.
+//
+// operations/ was on this list until 2026-09-21, described as "live operational
+// records, not a reading family". That was wrong in the only way that matters:
+// every one of its ten documents was already published and linked, so it WAS
+// being read — as ten loose pages with no folder to return to. The OPS- series
+// passes the test below: what it holds fits in one sentence.
 //
 // A folder can graduate to a section later. Each addition is a decision, made
-// here, and the reason for the current six is that a reader can name what each
+// here, and the reason for the current eight is that a reader can name what each
 // one contains in a single sentence — the `blurb` above is the test.
 
 /**
@@ -302,6 +325,33 @@ const READING_ORDER: Record<string, string[]> = {
     "/system/sys-003-archive-fondos",
   ],
 
+  // The company looking at itself, from the inside out: how it survives its own
+  // failures → what it has not resolved → where the work was left → what the
+  // failures would look like if they ran → what is being done about them → who
+  // would pay for it → how the keys are handled → and last the three texts a
+  // stranger can hold the company to, which are the only ones written for
+  // someone outside it.
+  operations: [
+    "/operations/ops-001-continuity",
+    "/operations/ops-002-contradictions",
+    "/operations/ops-008-session-state",
+    "/operations/ops-005-simulations",
+    "/operations/ops-006-solutions",
+    "/operations/ops-007-sales",
+    "/operations/ops-009-secrets-handling",
+    "/operations/ops-003-privacy-policy-numengames",
+    "/operations/ops-004-terms-and-conditions-numengames",
+    "/operations/ops-010-cookie-policy-numengames",
+  ],
+
+  // The card first, then the audit of whether its bytes are still where the
+  // card says they are. Two rows today; the order is the one that survives
+  // growth, because the check report always belongs after what it checks.
+  objects: [
+    "/objects/avocado",
+    "/objects/check",
+  ],
+
   // Three survivors, after ADR-035 moved the manuals to system/ and MIS-129
   // retired BLU-001 and BLU-003: the system as a whole, then the vocabulary it
   // has to speak, then how anyone can tell it is working.
@@ -323,6 +373,8 @@ export const READING_NOTE: Record<string, string> = {
   blueprints: "What does not exist yet, in the order you would have to argue it: the system as a whole, then the words it has to speak, then how anyone could tell it is working.",
   system: "Not what we plan to build — what is running. Widest first: the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
+  operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, the handling of keys, and last the three legal texts, the only documents here written for someone outside the company.",
+  objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",
 };
 
 /** One row of a section index. */
