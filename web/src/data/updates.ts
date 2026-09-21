@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.11.0",
+    date: "2026-09-21",
+    entries: [
+      {
+        type: "ADD",
+        text: "The lore is on the site. /lore serves eleven documents — who Numinia is and why its fiction does real work, the two adventures a Director can run at a table, the attributes compendium, and the Codex matter: glossary, character sheet, legal note, acknowledgements. Until today the viewer withheld all of it, on the reasoning that serving a page is what makes a text public. It is not: the repository is public, so every one of these files was already readable on GitHub by anyone. Withholding them hid them from readers of this site and from nobody else.",
+      },
+      {
+        type: "ADD",
+        text: "The lore index opens with a rights notice, in amber, before any link: all rights reserved. Nothing about the licence changed — the regime is the same one REUSE.toml has always declared, and showing a text is not licensing it, exactly as the site already does with the privacy policy and the terms. But every other section here is CC0 or CC-BY, so a lore page that looked identical to them would let a reader assume wrongly. Read it, cite it, link to it; copying or republishing needs written permission.",
+      },
+      {
+        type: "FIX",
+        text: "The lore documents are listed by their real titles. They came from a PDF conversion and carry no title field, so the index would have shown filenames — 'welcome-to-numinia', 'hoja-de-personaje'. The page now reads the title out of each document's opening line, and for the two where that line is not a title (one starts with a section heading, another with a version stamp) the site declares the caption it prints, with a check that fails the build if the document it names ever moves.",
+      },
+      {
+        type: "FIX",
+        text: "The RPG manual is not published yet, and this is why: it embeds four images that were never committed to the repository. The build refuses it outright rather than render a document full of gaps. The manual has been incomplete since it arrived — nothing displayed it, so nothing noticed. It appears the day the four images land or the embeds come out, which is a change to a reserved text and so the Oracle's to make.",
+      },
+    ],
+  },
+  {
     version: "v0.10.0",
     date: "2026-09-21",
     entries: [
