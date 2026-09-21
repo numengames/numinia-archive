@@ -4,16 +4,25 @@
 // Agent roster — an editorial RPG-style directory for the Numinia organization.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
+import { digitalAgents, biologicalAgents } from "@/lib/agents";
 
-const agents = [
-  { id: "ursa", name: "Ursa", role: "Technical Architect & Orchestrator", className: "Systems architect", color: "#a6dad5", icon: "⌁", quote: "Turn a technical objective into a reliable system.", route: "software · architecture · Hermes · orchestration", stats: [["Systems", "S+"], ["Precision", "A"], ["Tempo", "A"]], specialties: ["Software architecture", "Code review", "Automation", "Security", "Testing", "Systems integration"], bio: "Ursa turns ambiguity into executable structure. She chooses when to orchestrate, when to delegate and when to take the keyboard herself — then verifies the result." },
-  { id: "byblos", name: "Byblos", role: "Records Manager & Information Governance", className: "Archive keeper", color: "#efa517", icon: "▤", quote: "If it cannot be found, it cannot govern.", route: "classification · lifecycle · archive governance", stats: [["Memory", "S+"], ["Order", "S"], ["Patience", "A"]], specialties: ["Records management", "Classification", "Versioning", "Naming", "Information lifecycle"], bio: "Byblos protects the organization’s memory. She makes knowledge legible, durable and findable — so a decision can outlive the session that produced it." },
-  { id: "antunj", name: "Antunj", role: "Product Strategist & Narrative Architect", className: "Meaning smith", color: "#a98be0", icon: "✦", quote: "Make the thing mean something before making more of it.", route: "positioning · product narrative · coherence", stats: [["Framing", "S+"], ["Taste", "A"], ["Clarity", "S"]], specialties: ["Product definition", "Positioning", "Naming", "Narrative", "Strategic coherence"], bio: "Antunj gives projects a reason to exist in public. He connects product, language and intention until the organization can explain what it is building — and why." },
-  { id: "lexa", name: "Lexa", role: "Legal & Regulatory Analyst", className: "Boundary reader", color: "#d33440", icon: "◈", quote: "Find the edge before the edge finds us.", route: "digital law · licensing · crypto/Web3 · compliance", stats: [["Risk sense", "S+"], ["Diligence", "S"], ["Scope", "A"]], specialties: ["Digital law", "Licensing", "Crypto / Web3", "Privacy", "Compliance risk"], bio: "Lexa reads the boundary conditions. She surfaces legal and regulatory risk early, separating what is possible, what is permitted and what needs a human decision." },
-  { id: "senet", name: "Senet", role: "Game Master & Interactive Designer", className: "Experience shaper", color: "#8fc46b", icon: "◇", quote: "A rule is a promise about what can happen next.", route: "RPG · mechanics · puzzles · encounters", stats: [["Play", "S+"], ["Systems", "A"], ["Surprise", "S"]], specialties: ["TTRPG", "Game mechanics", "Puzzles", "Encounters", "Interactive design"], bio: "Senet turns systems into experiences. She designs the rules, friction and moments of discovery that make Numinia something people can enter, not just something they can read." },
-  { id: "procyon", name: "Procyon", role: "Ambassador & Onboarding Guide", className: "Wayfinder", color: "#5d9bd6", icon: "↗", quote: "The first five minutes decide whether a door feels open.", route: "orientation · onboarding · stakeholder guidance", stats: [["Welcome", "S+"], ["Signal", "A"], ["Empathy", "A"]], specialties: ["Onboarding", "Orientation", "Explanations", "Stakeholder guidance", "Representation"], bio: "Procyon makes the unfamiliar navigable. He translates the archive, the roles and the rituals for people arriving at the edge of the organization." },
-  { id: "doulos", name: "Doulos", role: "General-Purpose Execution Worker", className: "Reliable hand", color: "#c4b5a6", icon: "+", quote: "Small, clear work is still work worth doing well.", route: "bounded · repetitive · low-ambiguity work", stats: [["Reliability", "S"], ["Focus", "S"], ["Drama", "C"]], specialties: ["Bounded tasks", "Repetitive work", "Low ambiguity", "Execution", "Follow-through"], bio: "Doulos handles the work that should not consume a strategist. Clear brief in, finished artefact out — with no theatre between the two." },
-];
+// The roster is no longer written here. `agents/INDEX.md` owns it and
+// @/lib/agents reads that table at build time — see the note at the top of
+// that module for what the hand-written array cost us (three agents missing
+// for seventeen days). What stays here is layout; what an agent IS lives in
+// the archive.
+const agents = digitalAgents();
+const oracles = biologicalAgents();
+
+// The filter buckets. A category is a reading of the roster, not a fact about
+// the agent, so it belongs on this page — but unlike the old array it is keyed
+// by id and falls back, so a new agent joins "systems" rather than vanishing
+// from every filtered view.
+const CATEGORY: Record<string, string> = {
+  ursa: "systems", doulos: "systems", talos: "systems", nimrod: "systems",
+  antunj: "strategy", lexa: "strategy", byblos: "strategy",
+  senet: "experience", procyon: "experience", calliope: "experience",
+};
 ---
 
 <Layout title="The Agents — Numinia" description="Meet the biological and digital agents that make Numinia work." canonicalPath="/agent" activeNav="agent">
@@ -25,7 +34,7 @@ const agents = [
         <p class="hero-lede">Numinia is a living system of biological judgment and digital capability. These are the agents who give it memory, momentum and shape.</p>
         <div class="hero-actions">
           <a href="#digital" class="roster-button">Explore the roster <span>↓</span></a>
-          <span class="hero-note">7 digital agents · 1 shared mission</span>
+          <span class="hero-note">{agents.length} digital agents · {oracles.length} Oracles · 1 shared mission</span>
         </div>
       </div>
       <div class="hero-sigil" aria-hidden="true">
@@ -35,24 +44,52 @@ const agents = [
     </section>
 
     <section class="human-panel" id="biological">
-      <div class="section-index">00 <span></span> THE BIOLOGICAL AGENT</div>
+      <div class="section-index">00 <span></span> THE BIOLOGICAL AGENTS</div>
       <div class="human-grid">
-        <div><h2>The Oracle<br /><em>sets the direction.</em></h2></div>
+        <div><h2>The Oracles<br /><em>set the direction.</em></h2></div>
         <div class="human-copy"><p>Biological agents are the people who bring authority, intuition and lived context to the system. They decide, approve, notice what the documents cannot, and give the work a reason to matter.</p><p class="mono-small">The digital roster does not replace this layer. It makes its judgment more legible, more repeatable and easier to act on.</p><a href="/canon/can-004-role-structure" class="text-link">Read the role structure <span>↗</span></a></div>
       </div>
+      {/*
+        THE ORACLES, BY NAME.
+
+        This section used to describe the biological layer in the abstract and
+        name not one person, while CAN-002 has carried the table of who they
+        are all along. A roster that lists ten digital agents by name and
+        leaves the humans as a concept has its emphasis backwards — so the
+        names come from the canon, by the same rule as the digital side.
+      */}
+      <ul class="oracle-list">
+        {oracles.map((person) => (
+          <li class="oracle">
+            <span class="oracle-initial" aria-hidden="true">{person.name.charAt(0)}</span>
+            <span class="oracle-name">{person.name}</span>
+            <span class="oracle-role">{person.role}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="oracle-source">
+        Read from <a href="/canon/can-002-brand-and-culture">CAN-002</a> at build time — the canon names them, this page does not.
+      </p>
     </section>
 
     <section class="roster-section" id="digital">
       <div class="section-heading"><div><p class="section-index">01 <span></span> THE DIGITAL ROSTER</p><h2>Choose your <em>specialist.</em></h2></div><p class="section-intro">Not chatbots. Persistent roles with a defined domain, a route into the organization and a responsibility to leave the system stronger.</p></div>
-      <div class="roster-toolbar"><span class="roster-count">ACTIVE / 07</span><div class="filter-group" role="group" aria-label="Filter agents"><button class="filter active" data-filter="all">All agents</button><button class="filter" data-filter="strategy">Strategy</button><button class="filter" data-filter="systems">Systems</button><button class="filter" data-filter="experience">Experience</button></div></div>
+      <div class="roster-toolbar"><span class="roster-count">ACTIVE / {String(agents.length).padStart(2, "0")}</span><div class="filter-group" role="group" aria-label="Filter agents"><button class="filter active" data-filter="all">All agents</button><button class="filter" data-filter="strategy">Strategy</button><button class="filter" data-filter="systems">Systems</button><button class="filter" data-filter="experience">Experience</button></div></div>
       <div class="agent-grid">
         {agents.map((agent, index) => (
-          <article class="agent-card" data-agent={agent.id} data-category={agent.id === "ursa" || agent.id === "doulos" ? "systems" : agent.id === "antunj" || agent.id === "lexa" ? "strategy" : "experience"} style={`--agent-color: ${agent.color}; --delay: ${index * 70}ms`}>
+          <article class="agent-card" data-agent={agent.id} data-category={CATEGORY[agent.id] ?? "systems"} style={`--agent-color: ${agent.color}; --delay: ${index * 70}ms`}>
             <button class="agent-card-button" data-open={agent.id} aria-label={`Open ${agent.name} profile`}>
-              <div class="card-top"><span class="agent-mark">{agent.icon}</span><span class="agent-id">AGENT / {String(index + 1).padStart(2, "0")}</span><span class="status-dot"></span></div>
+              <div class="card-top"><span class="agent-mark">{agent.mark}</span><span class="agent-id">AGENT / {String(index + 1).padStart(2, "0")}</span><span class="status-dot"></span></div>
               <div class="card-main"><p class="agent-class">{agent.className}</p><h3>{agent.name}</h3><p class="agent-role">{agent.role}</p></div>
               <div class="card-bottom"><span>{agent.route}</span><span class="open-arrow">↗</span></div>
             </button>
+            {/*
+              The drawer is a preview; the agent's own page is the document.
+              A card whose only affordance opens a panel of prose written on
+              THIS page leaves the reader no way to reach SOUL, OPERATOR or
+              SOURCES — the files that actually define the agent.
+            */}
+            <a href={agent.href} class="agent-card-link">Open {agent.name}’s file <span aria-hidden="true">→</span></a>
           </article>
         ))}
       </div>
@@ -70,12 +107,17 @@ const agents = [
     const close = () => { drawer?.classList.remove('is-open'); drawer?.setAttribute('aria-hidden', 'true'); };
     cards.forEach((card) => card.addEventListener('click', () => {
       const agent = agents.find((item) => item.id === card.dataset.open); if (!agent || !content) return;
-      content.innerHTML = `<p class="eyebrow">AGENT PROFILE / ${agent.id.toUpperCase()}</p><div class="drawer-mark" style="color:${agent.color}">${agent.icon}</div><p class="agent-class">${agent.className}</p><h2>${agent.name}</h2><p class="drawer-role">${agent.role}</p><blockquote>“${agent.quote}”</blockquote><p class="drawer-bio">${agent.bio}</p><p class="eyebrow specialty-label">SPECIALIZATION</p><div class="specialties">${agent.specialties.map((item) => `<span>${item}</span>`).join('')}</div><div class="drawer-stats">${agent.stats.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join('')}</div>`;
+      content.innerHTML = `<p class="eyebrow">AGENT PROFILE / ${agent.id.toUpperCase()}</p><div class="drawer-mark" style="color:${agent.color}">${agent.mark}</div><p class="agent-class">${agent.className}</p><h2>${agent.name}</h2><p class="drawer-role">${agent.role}</p>${agent.quote ? `<blockquote>“${agent.quote}”</blockquote>` : ''}${agent.bio ? `<p class="drawer-bio">${agent.bio}</p>` : ''}<p class="eyebrow specialty-label">SPECIALIZATION</p><div class="specialties">${agent.specialties.map((item) => `<span>${item}</span>`).join('')}</div><div class="drawer-stats">${agent.stats.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join('')}</div><a class="drawer-file-link" href="${agent.href}">Open the full file →</a>`;
       drawer?.classList.add('is-open'); drawer?.setAttribute('aria-hidden', 'false');
     }));
     document.querySelectorAll('[data-close]').forEach((item) => item.addEventListener('click', close));
     document.addEventListener('keydown', (event) => { if (event.key === 'Escape') close(); });
-    document.querySelectorAll('.filter').forEach((filter) => filter.addEventListener('click', () => { document.querySelectorAll('.filter').forEach((button) => button.classList.remove('active')); filter.classList.add('active'); document.querySelectorAll('.agent-card').forEach((card) => { card.hidden = filter.dataset.filter !== 'all' && card.dataset.filter !== filter.dataset.filter; }); }));
+    // THE FILTER WAS READING AN ATTRIBUTE THAT DOES NOT EXIST.
+    // The card declares `data-category`; this line compared `card.dataset.filter`,
+    // which is always undefined — so every non-"all" filter hid the ENTIRE
+    // roster, including the agents it was meant to show. Nobody noticed because
+    // the failure looks like "no results" rather than like an error.
+    document.querySelectorAll('.filter').forEach((filter) => filter.addEventListener('click', () => { document.querySelectorAll('.filter').forEach((button) => button.classList.remove('active')); filter.classList.add('active'); document.querySelectorAll('.agent-card').forEach((card) => { card.hidden = filter.dataset.filter !== 'all' && card.dataset.category !== filter.dataset.filter; }); }));
   </script>
 </Layout>
 
@@ -99,9 +141,16 @@ const agents = [
   .human-panel { border-top: 1px solid rgb(var(--border)); border-bottom: 1px solid rgb(var(--border)); padding-top: 3rem; padding-bottom: 4.5rem; }
   .section-index { color: rgb(var(--text-dim)); display: flex; align-items: center; gap: .75rem; } .section-index span { width: 42px; height: 1px; background: rgb(var(--border)); display: inline-block; }
   .human-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2.5rem; } h2 { font-size: clamp(2.4rem, 5vw, 4.8rem); line-height: .95; letter-spacing: -.06em; margin: 0; } .human-copy { max-width: 480px; color: rgb(var(--text-muted)); line-height: 1.7; } .human-copy p:first-child { font-size: 1.18rem; color: rgb(var(--text)); } .text-link { color: rgb(var(--accent)); font: .68rem var(--font-mono); text-transform: uppercase; letter-spacing: .1em; }
+  /* The Oracles, named. One row each: initial, name, role. */
+  .oracle-list { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: rgb(var(--border)); border: 1px solid rgb(var(--border)); }
+  .oracle { background: rgb(var(--bg-card)); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: .9rem; flex-wrap: wrap; }
+  .oracle-initial { width: 34px; height: 34px; flex: none; display: grid; place-items: center; border: 1px solid rgba(239,165,23,.45); color: rgb(var(--ambar, var(--accent))); font: 1rem var(--font-mono); }
+  .oracle-name { color: rgb(var(--text)); font-size: .95rem; }
+  .oracle-role { color: rgb(var(--text-dim)); font: .58rem var(--font-mono); text-transform: uppercase; letter-spacing: .14em; margin-left: auto; }
+  .oracle-source { margin-top: 1rem; color: rgb(var(--text-dim)); font: .62rem/1.6 var(--font-mono); } .oracle-source a { color: rgb(var(--accent)); }
   .roster-section { padding-top: 6rem; padding-bottom: 6rem; } .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 3rem; } .section-heading h2 { margin-top: 1.2rem; } .section-intro { max-width: 350px; color: rgb(var(--text-muted)); line-height: 1.6; font-size: .92rem; }
   .roster-toolbar { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgb(var(--border)); border-bottom: 1px solid rgb(var(--border)); margin-top: 3.5rem; padding: .9rem 0; } .roster-count { color: rgb(var(--green)); } .filter-group { display: flex; gap: .35rem; flex-wrap: wrap; justify-content: end; } .filter { color: rgb(var(--text-dim)); background: transparent; border: 1px solid transparent; padding: .55rem .7rem; cursor: pointer; } .filter:hover, .filter.active { color: rgb(var(--accent)); border-color: rgba(166,218,213,.35); background: rgba(166,218,213,.06); }
-  .agent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgb(var(--border)); margin-top: 1px; } .agent-card { background: rgb(var(--bg-card)); min-height: 270px; transition: background .2s; } .agent-card:hover { background: rgb(var(--bg-card-hover)); } .agent-card-button { all: unset; box-sizing: border-box; width: 100%; height: 100%; padding: 1.4rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; color: inherit; } .card-top, .card-bottom { display: flex; align-items: center; gap: .7rem; } .agent-mark { color: var(--agent-color); font-size: 1.8rem; line-height: 1; } .agent-id { color: rgb(var(--text-dim)); } .status-dot { margin-left: auto; background: var(--agent-color); box-shadow: 0 0 10px var(--agent-color); } .agent-class { color: var(--agent-color); margin: 2.5rem 0 .55rem; } .card-main h3 { font-size: clamp(2.3rem, 5vw, 4rem); letter-spacing: -.07em; line-height: .9; margin: 0 0 .55rem; } .agent-role { color: rgb(var(--text-muted)); font-size: .86rem; max-width: 270px; } .card-bottom { color: rgb(var(--text-dim)); border-top: 1px solid rgb(var(--border)); padding-top: 1rem; justify-content: space-between; } .open-arrow { color: var(--agent-color); font-size: 1rem; }
+  .agent-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgb(var(--border)); margin-top: 1px; } .agent-card { background: rgb(var(--bg-card)); min-height: 270px; transition: background .2s; display: flex; flex-direction: column; } .agent-card:hover { background: rgb(var(--bg-card-hover)); } .agent-card-button { all: unset; box-sizing: border-box; width: 100%; flex: 1; padding: 1.4rem; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; color: inherit; } .agent-card-link { display: flex; align-items: center; gap: .4rem; min-height: 44px; padding: 0 1.4rem; border-top: 1px solid rgb(var(--border)); color: var(--agent-color); font: .6rem var(--font-mono); text-transform: uppercase; letter-spacing: .14em; } .agent-card-link:hover { background: rgba(255,255,255,.03); } .card-top, .card-bottom { display: flex; align-items: center; gap: .7rem; } .agent-mark { color: var(--agent-color); font-size: 1.8rem; line-height: 1; } .agent-id { color: rgb(var(--text-dim)); } .status-dot { margin-left: auto; background: var(--agent-color); box-shadow: 0 0 10px var(--agent-color); } .agent-class { color: var(--agent-color); margin: 2.5rem 0 .55rem; } .card-main h3 { font-size: clamp(2.3rem, 5vw, 4rem); letter-spacing: -.07em; line-height: .9; margin: 0 0 .55rem; } .agent-role { color: rgb(var(--text-muted)); font-size: .86rem; max-width: 270px; } .card-bottom { color: rgb(var(--text-dim)); border-top: 1px solid rgb(var(--border)); padding-top: 1rem; justify-content: space-between; } .open-arrow { color: var(--agent-color); font-size: 1rem; }
   .protocol-strip { padding-top: 3rem; padding-bottom: 5rem; border-top: 1px solid rgb(var(--border)); } .protocol-line { display: flex; align-items: baseline; gap: 1.1rem; margin-top: 2.2rem; flex-wrap: wrap; } .protocol-line strong { color: rgb(var(--accent)); font: 1.1rem var(--font-mono); letter-spacing: .08em; } .protocol-line span { color: rgb(var(--text-dim)); } .protocol-line p { color: rgb(var(--text-muted)); margin: 0 0 0 1rem; font-size: .9rem; }
   .profile-drawer { position: fixed; inset: 0; z-index: 100; visibility: hidden; transition: visibility .25s; } .profile-drawer.is-open { visibility: visible; } .drawer-backdrop { position: absolute; inset: 0; background: rgba(10,8,7,.72); backdrop-filter: blur(5px); opacity: 0; transition: opacity .25s; } .is-open .drawer-backdrop { opacity: 1; } .drawer-panel { position: absolute; right: 0; top: 0; height: 100%; width: min(520px, 100%); overflow-y: auto; background: rgb(var(--bg-card)); border-left: 1px solid rgb(var(--border)); padding: 4rem 3rem; transform: translateX(100%); transition: transform .3s ease; } .is-open .drawer-panel { transform: translateX(0); } .drawer-close { position: absolute; top: 1.3rem; right: 1.5rem; color: rgb(var(--text-muted)); background: none; border: 0; font-size: 2rem; cursor: pointer; } .drawer-mark { font-size: 4rem; margin: 3rem 0 1rem; } .drawer-panel h2 { font-size: 5rem; margin: .3rem 0; } .drawer-role { color: rgb(var(--text-muted)); } blockquote { border-left: 1px solid rgb(var(--accent)); color: rgb(var(--text)); font-size: 1.3rem; line-height: 1.4; margin: 2.5rem 0; padding-left: 1.2rem; } .drawer-bio { color: rgb(var(--text-muted)); line-height: 1.75; } .specialty-label { margin-top: 2.5rem; color: rgb(var(--text-dim)); } .specialties { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; } .specialties span { color: rgb(var(--text-muted)); border: 1px solid rgb(var(--border)); padding: .45rem .6rem; font: .65rem var(--font-mono); } .drawer-stats { border-top: 1px solid rgb(var(--border)); display: grid; grid-template-columns: repeat(3,1fr); margin-top: 2.5rem; padding-top: 1rem; gap: 1rem; } .drawer-stats div { display: flex; flex-direction: column; gap: .3rem; } .drawer-stats span { color: rgb(var(--text-dim)); font: .58rem var(--font-mono); text-transform: uppercase; } .drawer-stats strong { color: rgb(var(--agent-color, var(--accent))); font: 1.4rem var(--font-mono); }
   @media (max-width: 720px) { .agents-hero, .human-grid, .section-heading { grid-template-columns: 1fr; display: grid; gap: 2rem; } .agents-hero { min-height: auto; padding-top: 4rem; } .hero-sigil { height: 260px; order: -1; } .orbit-a { width: 210px; height: 95px; } .orbit-b { height: 220px; width: 120px; } .sigil-core { width: 82px; height: 82px; font-size: 3rem; } .label-top { top: 5%; } .label-bottom { bottom: 5%; } .agent-grid { grid-template-columns: 1fr; } .roster-toolbar { align-items: start; flex-direction: column; gap: 1rem; } .filter-group { justify-content: start; } .agents-hero, .human-panel, .roster-section, .protocol-strip { padding-left: 1.25rem; padding-right: 1.25rem; } .drawer-panel { padding: 3.5rem 1.5rem; } .drawer-panel h2 { font-size: 4rem; } }

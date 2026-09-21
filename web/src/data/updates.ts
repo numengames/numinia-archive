@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.9.0",
+    date: "2026-09-21",
+    entries: [
+      {
+        type: "FIX",
+        text: "The roster page was missing three of the ten agents. Calliope, Nimrod and Talos joined the archive on 4 September and never appeared on /agent, because that page carried its own hand-typed copy of the list instead of reading the one the archive keeps. For seventeen days the page answering 'who works here' named seven of the ten who do. The list is now read from the roster document itself at build time: add an agent there and the card appears, with nobody having to remember this page exists.",
+      },
+      {
+        type: "ADD",
+        text: "The Oracles are named. The section about the biological agents described the human layer in the abstract and named not one person, while the canon has carried the table of who they are all along — Clio Beruete, Daniel Garrido, Christian Martens and Pablo Fernandez-Maquieira. A page that lists ten digital agents by name and leaves the humans as a concept had its emphasis backwards. Same rule as the digital side: the canon names them, the page reads it.",
+      },
+      {
+        type: "ADD",
+        text: "Every agent now has a page of their own at /agents/ursa, /agents/byblos and so on. Each one gathers what that agent is for, when to bring it work, and its own documents — soul, operator and sources — each with its date and state. Those documents were already published and the folder that holds them was a 404, so the one address a reader would naturally guess was the only one that did not answer.",
+      },
+      {
+        type: "FIX",
+        text: "The filters on the roster hid every agent instead of narrowing to the ones you picked. The code compared a value the cards never carried, so the answer was always 'nothing matches'. It reads the right one now, and the buckets cover all ten agents rather than the seven that existed when it was written.",
+      },
+    ],
+  },
+  {
     version: "v0.8.0",
     date: "2026-09-21",
     entries: [

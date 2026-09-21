@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-21T17:13:17Z"
+updated: "2026-09-21T17:38:27Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `fa9ad70`  · corpus_hash: `46aa7006a36df698…`  · measured_at: 2026-09-21T17:13:17Z  · root_dirty: 0
+- head: `5a296d7`  · corpus_hash: `32f5653f7f05d19c…`  · measured_at: 2026-09-21T17:38:27Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 497 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 499 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.md_total` | 175 | files | tracked `.md` anywhere, including `web/` |
 | `corpus.docs_total` | 173 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
@@ -43,7 +43,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | files |
 |---|---|
 | (none) | 2 |
-| .astro | 45 |
+| .astro | 46 |
 | .css | 3 |
 | .gitignore | 2 |
 | .html | 2 |
@@ -55,7 +55,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .png | 35 |
 | .svg | 69 |
 | .toml | 4 |
-| .ts | 20 |
+| .ts | 21 |
 | .tsx | 2 |
 | .txt | 11 |
 | .webp | 1 |
