@@ -1,0 +1,202 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /agents/<name> — the front door of one agent's folder.
+//
+// WHY THIS ROUTE EXISTS
+// Every agent's documents were published — /agents/ursa/soul,
+// /agents/ursa/operator, /agents/ursa/sources all answered — and the folder
+// itself was a 404. So the ONE address a reader would guess, the one the
+// roster would naturally link to, and the one that reads like "tell me about
+// Ursa", was the only one that did not exist. The parts were reachable and
+// the whole was not.
+//
+// Nothing here is written by hand. The roster line comes from
+// agents/INDEX.md; the documents come from the corpus collection, filtered by
+// this agent's folder prefix. An agent added to the INDEX with a SOUL.md gets
+// this page with no edit to this file.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import { digitalAgents } from "@/lib/agents";
+import { getPublicCorpus } from "@/lib/corpus";
+
+export async function getStaticPaths() {
+  const corpus = await getPublicCorpus();
+
+  return digitalAgents().map((agent) => {
+    // The agent's own documents: everything under agents/<id>/ that the site
+    // publishes. `entry.id` is the address minus the leading slash, which is
+    // why the href below is a plain concatenation and not a second mapping.
+    const docs = corpus
+      .filter((e) => e.id.startsWith(`agents/${agent.id}/`))
+      .map((e) => {
+        const f = e.data as Record<string, unknown>;
+        const leaf = e.id.split("/").pop() ?? e.id;
+        return {
+          href: `/${e.id}`,
+          leaf,
+          title: typeof f.title === "string" ? f.title : leaf,
+          updated: typeof f.updated === "string" ? f.updated.slice(0, 10) : undefined,
+          status: typeof f.status === "string" ? f.status : undefined,
+        };
+      })
+      // SOUL first, then OPERATOR, then SOURCES, then anything else
+      // alphabetically. That is the reading order of an agent: who it is,
+      // who governs it, where its knowledge comes from — the order
+      // agents/INDEX.md itself recommends.
+      .sort((a, b) => {
+        const rank = (leaf: string) => {
+          const i = ["soul", "operator", "sources"].indexOf(leaf.toLowerCase());
+          return i === -1 ? 99 : i;
+        };
+        return rank(a.leaf) - rank(b.leaf) || a.leaf.localeCompare(b.leaf);
+      });
+
+    return { params: { agent: agent.id }, props: { agent, docs } };
+  });
+}
+
+// What each file is FOR, in one line. The filename says what it is called,
+// not what a reader would find inside it.
+const WHAT_IT_HOLDS: Record<string, string> = {
+  soul: "Who this agent is: its function, its voice and the limits it works within.",
+  operator: "Who governs it: the authority it holds, what it must escalate, and to whom.",
+  sources: "Where its authoritative knowledge lives — which documents it reads before acting.",
+  agent: "The entity card: status, the forms this agent takes, and how work routes to it.",
+};
+
+const { agent, docs } = Astro.props;
+const roster = digitalAgents();
+const others = roster.filter((a) => a.id !== agent.id);
+const position = roster.findIndex((a) => a.id === agent.id) + 1;
+---
+
+<Layout
+  title={`${agent.name} — ${agent.role} · Numinia`}
+  description={`${agent.name}: ${agent.role}. Route here for ${agent.route}. The agent's own documents — soul, operator and sources — as the archive holds them.`}
+  canonicalPath={`/agents/${agent.id}`}
+  activeNav="agents"
+>
+  <PageHero
+    label={`Agent · ${String(position).padStart(2, "0")} of ${roster.length}`}
+    title={agent.name}
+    description={agent.role}
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[800px] px-6 space-y-10">
+
+      <!-- The routing line: the single most useful fact about an agent is
+           when to bring it work. It comes verbatim from agents/INDEX.md. -->
+      <div
+        class="rounded-xl border px-5 py-4"
+        style={`border-color: ${agent.color}33; background: ${agent.color}0d;`}
+      >
+        <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] mb-1.5" style={`color: ${agent.color}`}>
+          Route here when
+        </p>
+        <p class="text-base leading-snug text-foreground">{agent.route}</p>
+        {agent.quote && (
+          <p class="mt-3 text-sm italic text-muted-foreground">“{agent.quote}”</p>
+        )}
+      </div>
+
+      {agent.bio && (
+        <p class="text-sm leading-relaxed text-muted-foreground border-l-2 pl-4" style={`border-color: ${agent.color}66`}>
+          {agent.bio}
+        </p>
+      )}
+
+      <!-- The documents. Same row shape as every section index on this site:
+           what it is, when it last moved, what state it declares. -->
+      <div>
+        <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">
+          The agent's documents
+        </h2>
+        {docs.length > 0 ? (
+          <div class="space-y-2">
+            {docs.map((doc) => (
+              <a
+                href={doc.href}
+                class="block rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
+              >
+                <div class="flex flex-wrap items-center gap-3 mb-1.5">
+                  <span class="font-mono text-[0.65rem] uppercase tracking-widest" style={`color: ${agent.color}`}>
+                    {doc.leaf}
+                  </span>
+                  {doc.updated && (
+                    <span class="font-mono text-[0.6rem] text-dim">{doc.updated}</span>
+                  )}
+                  {doc.status && (
+                    <span class="font-mono text-[0.6rem] uppercase tracking-widest text-dim">{doc.status}</span>
+                  )}
+                </div>
+                <span class="text-sm text-foreground leading-snug">
+                  {WHAT_IT_HOLDS[doc.leaf.toLowerCase()] ?? doc.title}
+                </span>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <p class="font-mono text-[0.7rem] text-dim leading-relaxed">
+            This agent is on the roster and publishes no documents yet. The folder
+            exists in the repository; nothing in it declares itself publishable.
+          </p>
+        )}
+      </div>
+
+      <!-- Specialties: the page's own reading, not the archive's. Shown only
+           when this site has one for the agent. -->
+      {agent.specialties.length > 0 && (
+        <div>
+          <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">
+            Specialization
+          </h2>
+          <div class="flex flex-wrap gap-2">
+            {agent.specialties.map((s) => (
+              <span class="rounded-lg border border-border bg-card px-3 py-2 font-mono text-[0.65rem] text-muted-foreground">
+                {s}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="rounded-xl border border-border bg-card px-5 py-4">
+        <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim mb-1.5">
+          On the roster since
+        </p>
+        <p class="font-mono text-sm text-foreground">{agent.since}</p>
+        <p class="mt-2 text-xs leading-relaxed text-muted-foreground">
+          The repository defines the agent; a platform instantiates it from
+          <code>adapters/</code>. An agent that has committed never loses its
+          previous name — see <a href="/agents" class="text-accent">the roster</a> for renames.
+        </p>
+      </div>
+
+      <nav class="border-t border-border/50 pt-6">
+        <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">
+          The other agents
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          {others.map((a) => (
+            <a
+              href={a.href}
+              class="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
+            >
+              <span style={`color: ${a.color}`}>{a.mark}</span>
+              {a.name}
+            </a>
+          ))}
+          <a
+            href="/agent"
+            class="inline-flex min-h-[44px] items-center rounded-lg border border-accent/40 bg-accent/10 px-3 font-mono text-[0.7rem] text-accent hover:bg-accent/20 transition-colors"
+          >
+            The whole roster
+          </a>
+        </div>
+      </nav>
+    </div>
+  </section>
+</Layout>
