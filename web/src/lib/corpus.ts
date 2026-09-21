@@ -113,6 +113,17 @@ export interface Section {
    */
   emptyMeans?: string;
   /**
+   * The rights regime a reader has to know BEFORE reading, when it is not the
+   * archive's default.
+   *
+   * Almost everything here is CC0 or CC-BY: take it, fork it, reuse it. Lore is
+   * the one section where that is false, and a page that looks exactly like the
+   * open ones while being reserved lets a reader assume wrongly. Displaying is
+   * not licensing — so the page says so, in the reader's words, rather than
+   * leaving REUSE.toml to be the only place that knows.
+   */
+  rights?: string;
+  /**
    * Which collection holds this section's documents.
    *
    * Until 2026-09-20 this field carried a confession: four sections resolved
@@ -167,6 +178,15 @@ export const SECTIONS: Section[] = [
     question: "What does the archive hold that is not a document — and where do its bytes actually live?",
     emptyMeans: "No thing is registered yet. The folder exists and its cards are read at build time, so the first card to land appears here on its own.",
     blurb: "Cards for the things that are not documents — an avatar, a model, later a place. The card is the index; the bytes live in the asset depot." },
+  // Lore — the second fond (ADR-046), and the only section whose documents
+  // are RESERVED rather than open. It is served for reading and licensed to
+  // nobody; the reasoning is in content.config.ts where the glob admits it.
+  // Last on purpose: everything above governs how the archive works, and this
+  // is the thing the archive was built to hold.
+  { prefix: "lore/",       slug: "lore",       label: "Lore",       collection: "corpus",
+    question: "What is the world of Numinia, and how is the game in it actually played?",
+    rights: "All rights reserved. This is the one part of the archive Numen Games does not license: read it here, cite it, link to it — but copying, adapting or republishing it needs written permission, unlike everything else on this site.",
+    blurb: "The fiction and the game: the RPG manual, the adventures a Director runs at a table, who Numinia is, and the Codex matter. All rights reserved — read it here, take nothing from it." },
 ];
 
 // NOT sections, and why — recorded so the next reader does not re-litigate it:
@@ -360,6 +380,25 @@ const READING_ORDER: Record<string, string[]> = {
     "/blueprints/dual-nomenclature",
     "/blueprints/business-metrics",
   ],
+  // The world before the game, and the game before its edition matter: who
+  // Numinia is and why the fiction does real work → how a table actually plays
+  // it, tutorial first → the reference shelf a Director reaches for mid-session.
+  //
+  // The RPG manual is absent because the build cannot render it: it embeds four
+  // images that were never committed. See content.config.ts.
+  lore: [
+    "/lore/world/welcome-to-numinia",
+    "/lore/world/epistemic-relations",
+    "/lore/world/brand-and-culture",
+    "/lore/world/role-structure",
+    "/lore/adventures/session-zero",
+    "/lore/adventures/el-espejo-roto",
+    "/lore/game/attributes-and-ranks",
+    "/lore/codex/glosario",
+    "/lore/codex/hoja-de-personaje",
+    "/lore/codex/legal",
+    "/lore/codex/agradecimientos",
+  ],
 };
 
 // A story the reader cannot see is just a list in an unusual order. Each
@@ -375,6 +414,7 @@ export const READING_NOTE: Record<string, string> = {
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
   operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, the handling of keys, and last the three legal texts, the only documents here written for someone outside the company.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",
+  lore: "The world first, then the table, then the shelf: who Numinia is and why its fiction does real work, then how a game is actually played in it — the tutorial before the adventure — and last the reference matter a Director reaches for mid-session.",
 };
 
 /** One row of a section index. */
@@ -387,6 +427,71 @@ export interface SectionDoc {
 }
 
 const str = (v: unknown) => (typeof v === "string" ? v : undefined);
+
+/**
+ * Titles for documents that carry none — the one hand-kept table in this file,
+ * and here is why it earns the exception.
+ *
+ * `titleOf` reads the document first: frontmatter, then a heading-like opening
+ * line. That gets nine of the eleven lore documents right. Two it cannot:
+ *
+ *   welcome-to-numinia   opens with "Introduction to the Gamified System",
+ *                        which is its first SECTION, not its title.
+ *   brand-and-culture    opens with "V.0.1.2" — a version stamp from the
+ *                        PDF's cover page.
+ *
+ * No amount of cleverness fixes that: the information is not in the file. The
+ * real repair is a `title` in the document, but these are reserved texts and
+ * editing them is the Oracle's call, not a build's. So the viewer declares
+ * what it displays, out loud, keyed by address — and `getSectionDocs` throws
+ * if a key here stops matching a document, exactly as it does for a stale
+ * reading order. A silent override is a lie; a checked one is a caption.
+ */
+const TITLE_OVERRIDE: Record<string, string> = {
+  "/lore/world/welcome-to-numinia": "Welcome to Numinia",
+  "/lore/world/brand-and-culture": "Brand and Culture",
+};
+
+/**
+ * The title of a corpus document, in order of trust.
+ *
+ * 1. `title` in the frontmatter. Most of the archive declares one.
+ * 2. THE FIRST HEADING OF THE BODY — `# Heading`, or a bare first line that
+ *    behaves like one. The lore documents carry no frontmatter at all: they
+ *    arrived as prose converted from a PDF, and the conversion kept their
+ *    opening title as plain text ("ABOUT SESSION ZERO") rather than as a
+ *    Markdown heading. Without this a section index lists them by filename,
+ *    and "welcome-to-numinia" is a slug wearing the coat of a title.
+ *
+ *    "Behaves like one" is deliberately strict — short, no closing full stop,
+ *    not a list item or a quote. A first PARAGRAPH matching that by accident
+ *    would be printed as the title, which is why the test errs toward the
+ *    honest slug rather than toward a clever guess.
+ * 3. The filename, unchanged. Better an honest slug than a guess: title-casing
+ *    a slug turns "hoja-de-personaje" into "Hoja De Personaje", which is a
+ *    mistake a machine made and a reader has to forgive.
+ *
+ * Read from the document, never from a list kept here: a hand-written table of
+ * titles is one more thing to forget when a file is renamed.
+ */
+function titleOf(entry: Entry): string {
+  const override = TITLE_OVERRIDE[`/${entry.id}`];
+  if (override) return override;
+  const fm = str((entry.data as Record<string, unknown>).title);
+  if (fm) return fm;
+  const body = typeof entry.body === "string" ? entry.body : "";
+  // Markdown bold inside a heading survives conversion from PDF: `# **INTRO**`.
+  const h1 = body.match(/^#\s+(.+?)\s*$/m)?.[1]?.replace(/\*\*/g, "").trim();
+  if (h1) return h1;
+  const first = body.split("\n").map((l) => l.trim()).find(Boolean) ?? "";
+  const headingLike =
+    first.length > 0 &&
+    first.length <= 70 &&
+    !/[.:;,]$/.test(first) &&
+    !/^[-*>|#[!]/.test(first);
+  if (headingLike) return first.replace(/\*\*/g, "");
+  return entry.id.split("/").pop() ?? entry.id;
+}
 
 /**
  * The documents of one section, ready to list, sorted by identifier.
@@ -430,7 +535,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
         const f = e.data as Record<string, unknown>;
         return {
           href: `/${e.id}`,
-          title: str(f.title) ?? e.id.split("/").pop() ?? e.id,
+          title: titleOf(e),
           docId: str(f.id),
           status: str(f.status),
           updated: str(f.updated)?.slice(0, 10),
@@ -459,7 +564,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
         const f = e.data as Record<string, unknown>;
         return {
           href: `/${e.id}`,
-          title: str(f.title) ?? e.id.split("/").pop() ?? e.id,
+          title: titleOf(e),
           docId: str(f.id),
           status: str(f.status),
           updated: str(f.updated)?.slice(0, 10),
@@ -487,6 +592,22 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
         `READING_ORDER["${slug}"] points at ${dead.length} slug(s) that no ` +
           `longer exist: ${dead.join(", ")}. Update the order in ` +
           `web/src/lib/corpus.ts — the documents renamed, the story did not.`,
+      );
+    }
+
+    // The same check for TITLE_OVERRIDE, and for the same reason: a caption
+    // whose document moved away stops being applied and nothing says so — the
+    // page quietly falls back to the slug it was written to replace.
+    const mine = Object.keys(TITLE_OVERRIDE).filter((href) =>
+      href.startsWith(`/${slug}/`),
+    );
+    const orphans = mine.filter((href) => !live.has(href));
+    if (orphans.length) {
+      throw new Error(
+        `TITLE_OVERRIDE holds ${orphans.length} key(s) that match no document ` +
+          `in "${slug}": ${orphans.join(", ")}. Either the file was renamed or ` +
+          `it now declares its own title — update the table in ` +
+          `web/src/lib/corpus.ts.`,
       );
     }
   }

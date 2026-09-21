@@ -177,10 +177,57 @@ const corpus = defineCollection({
       // with no field does not publish. Adding a file here no longer risks
       // publishing it; forgetting the field only makes it invisible.
       "debt/**/*.md",
-      // lore/ is NOT here on purpose: reserved regime (REUSE.toml), the RPG
-      // manual and the codex matter. The archive holds it; numinia.com
-      // renders it for citizens (fetch-lore.mjs reads it at build). This
-      // viewer is public and would publish the whole manual as a page.
+      // lore/ — the game and the world (2026-09-21).
+      //
+      // This glob carried the opposite line for months: "lore/ is NOT here on
+      // purpose: reserved regime, the RPG manual and the codex matter". The
+      // premise under it was that serving a page is what makes a text public.
+      // It is not, and three facts settle it:
+      //
+      //   1. THE REPOSITORY IS PUBLIC. Every file under lore/ is readable at
+      //      github.com/numengames/numinia-archive today, by anyone, with no
+      //      account. Withholding it from the viewer hid it from readers of
+      //      the site and from nobody else.
+      //   2. DISPLAYING IS NOT LICENSING. The regime stays exactly as it is —
+      //      LicenseRef-Numen-AllRightsReserved in REUSE.toml, unchanged by
+      //      this commit. The site already does this for the three legal
+      //      texts (OPS-003/004/010): reserved rights, rendered for reading.
+      //      A reader may read; no right is granted by the reading.
+      //   3. STD-014 DOES NOT BIND THIS. Its own scope line: it binds
+      //      permanent publication (Arweave) and a private-to-public change
+      //      of a repository, and expressly "does not bind: publication to a
+      //      CDN, which can be withdrawn". numinia.org is a CDN worker. The
+      //      irreversible act — making the repository public — already
+      //      happened and was not this.
+      //
+      // So nothing is conceded here that was not conceded already, and the
+      // reversible half stays reversible: deleting this line takes the pages
+      // down again.
+      //
+      // ADR-046 registered lore/ as a series in STD-001, so /lore/<id> is an
+      // address URL-001 admits.
+      "lore/**/*.md",
+      // …except the RPG manual, and this exclusion is a FINDING, not a policy.
+      //
+      // manual-v0.6.0.md embeds four images by relative path —
+      // `images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-13-0.png` and three
+      // siblings, extracted when the PDF was converted to Markdown. No
+      // `lore/game/images/` directory was ever committed, so the build fails
+      // outright (`ImageNotFound`) rather than rendering a gap. The document
+      // has been incomplete since it arrived; nothing rendered it, so nothing
+      // said so.
+      //
+      // Excluded so the other thirteen lore documents publish today. The fix
+      // is to commit the four images (or drop the embeds) — a change to a
+      // reserved text, which is the Oracle's to make, not a build workaround.
+      "!lore/game/manual-v0.6.0.md",
+      // The folder's own README and the adventure TEMPLATE stay out, for the
+      // same reason README.md and CONTRIBUTING.md at the root do (ADR-047):
+      // they are the furniture of a directory, not documents of the series.
+      // Both are read on GitHub, where a README belongs.
+      "!lore/README.md",
+      "!lore/adventures/README.md",
+      "!lore/adventures/TEMPLATE.md",
     ],    base: "..",
   }),
   // Fully lax: agents/_template/STATUS.md carries `status:` as an object,

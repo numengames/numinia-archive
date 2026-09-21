@@ -47,6 +47,9 @@ export const navItems: NavItem[] = [
   // collapsing into one entry), drop this flag and they return.
   { label: "Operations", href: "/operations/", id: "operations", section: "operations", inBar: false },
   { label: "Objects", href: "/objects/", id: "objects", section: "objects", inBar: false },
+  // Lore (2026-09-21): the world and the game, served for reading under
+  // reserved rights. Out of the bar for the same width reason as the two above.
+  { label: "Lore", href: "/lore/", id: "lore", section: "lore", inBar: false },
   // Agents and Archive were reachable ONLY by typing the URL. Both are real,
   // built pages — /agents is the roster read from agents/INDEX.md, /archive is
   // the classification scheme generated from STD-027 — and neither appeared in

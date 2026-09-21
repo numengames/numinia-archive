@@ -90,6 +90,21 @@ const note = READING_NOTE[section.slug];
       </div>
 
       {/*
+        The rights regime, when it is not the archive's default. It sits
+        directly under the question and above the rows, because it changes what
+        a reader may DO with what follows and is worthless after they have read
+        it. Amber, not green: this is a limit, not a permission.
+      */}
+      {section.rights && (
+        <div class="rounded-xl border border-yellow/30 bg-yellow/5 px-5 py-4">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-yellow mb-1.5">
+            Rights
+          </p>
+          <p class="text-sm leading-relaxed text-muted-foreground">{section.rights}</p>
+        </div>
+      )}
+
+      {/*
         The rows below are NOT in identifier order (see READING_ORDER in
         lib/corpus.ts). Without this line a reader assumes the list is
         arbitrary, or worse, broken. One sentence turns a reordering into
