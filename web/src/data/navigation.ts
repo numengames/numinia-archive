@@ -8,11 +8,11 @@ export type NavChild = {
 
 export type NavItem =
   // a plain link
-  | { label: string; href: string; id: string; children?: never; section?: never }
+  | { label: string; href: string; id: string; children?: never; section?: never; inBar?: boolean }
   // a hand-written dropdown
-  | { label: string; href?: never; id: string; children: NavChild[]; section?: never }
+  | { label: string; href?: never; id: string; children: NavChild[]; section?: never; inBar?: boolean }
   // a corpus section: the dropdown is its folder, listed at build time
-  | { label: string; href: string; id: string; section: string; children?: never };
+  | { label: string; href: string; id: string; section: string; children?: never; inBar?: boolean };
 
 export const navItems: NavItem[] = [
   // One entry per top-level folder of the repository that publishes documents,
@@ -31,6 +31,22 @@ export const navItems: NavItem[] = [
   { label: "Blueprints", href: "/blueprints/", id: "planos", section: "blueprints" },
   { label: "Missions", href: "/missions", id: "missions" },
   { label: "Debt", href: "/debt/", id: "debt", section: "debt" },
+  // Operations and Objects (2026-09-21): the last two repository folders that
+  // publish documents and had no door. They come after Debt because neither
+  // binds anything — Operations records what the company is doing, Objects
+  // registers the things that are not documents.
+  //
+  // `inBar: false` — THE BAR IS FULL, and that is a measurement, not a taste.
+  // The comment above the desktop nav records that at 768 px seven entries
+  // plus the search field already overflowed their column, which is why the
+  // breakpoint is `lg`. Ten entries fit at 1024 px; twelve do not. So these
+  // two live in the footer's navigation column and in the section strip at
+  // the foot of every section index — both reachable from any page, neither
+  // pushing the bar into the overflow the `lg` breakpoint exists to avoid.
+  // When the bar is reworked to hold more (a "More" group, or the sections
+  // collapsing into one entry), drop this flag and they return.
+  { label: "Operations", href: "/operations/", id: "operations", section: "operations", inBar: false },
+  { label: "Objects", href: "/objects/", id: "objects", section: "objects", inBar: false },
   // Agents and Archive were reachable ONLY by typing the URL. Both are real,
   // built pages — /agents is the roster read from agents/INDEX.md, /archive is
   // the classification scheme generated from STD-027 — and neither appeared in
@@ -49,3 +65,13 @@ export const navItems: NavItem[] = [
   // its URL — as with the thirteen MIS-110 retired, this removes the nav entry,
   // not the route.
 ];
+
+/**
+ * What the top bar shows — every entry except the ones marked `inBar: false`.
+ *
+ * The FOOTER keeps `navItems` whole. That split is the point: the bar is a
+ * width-limited surface and has to choose; the footer is a list and does not.
+ * A section that does not fit in the bar is still one click away from every
+ * page of the site, which is the promise that matters.
+ */
+export const barItems: NavItem[] = navItems.filter((i) => i.inBar !== false);

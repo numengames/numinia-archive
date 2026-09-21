@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.10.0",
+    date: "2026-09-21",
+    entries: [
+      {
+        type: "ADD",
+        text: "Operations has a front page at /operations. Its ten documents were all published and all reachable one by one, but the folder itself answered 404: anyone who found the privacy policy and trimmed the address back to see what else lived there was told the folder did not exist. It now lists all ten with their number, date and state, in the order the company reads itself — how it survives its own failures, what it has not resolved, where the work was left, then the strategy, the handling of keys, and last the three legal texts, which are the only documents there written for someone outside the company.",
+      },
+      {
+        type: "ADD",
+        text: "Objects has a front page at /objects. Two cards today — the Avocado avatar and the copy check that verifies its files are still where the card says — and the same 404 as Operations until now. A card registers something that is not a document: it says what the thing is and where its bytes live, which are kept in the asset depot, never in the archive. With these two pages every folder of the repository that publishes anything finally has a door on the web.",
+      },
+      {
+        type: "CHG",
+        text: "Operations and Objects are in the footer and in the section strip at the foot of every index, but not in the top bar. The bar was already at its limit — it switches to a hamburger below 1024px precisely because the entries stopped fitting — and two more would have pushed it into overflow, hiding its own last entries with nothing to say so. On a phone the menu lists all twelve; on a desktop the two new ones are one click away from any page, at the bottom.",
+      },
+    ],
+  },
+  {
     version: "v0.9.0",
     date: "2026-09-21",
     entries: [
