@@ -12,20 +12,55 @@
 // Every row is derived from the corpus at build time. Nothing is listed by
 // hand: a hand-written index is D-031 again, and it goes stale the first time
 // a document is added.
+//
+// WHAT THIS PAGE GAINED ON 2026-09-21
+// Two things the registry at /decisions already had and these six did not:
+//
+//   1. THE ROW CARRIES ITS METADATA. `getSectionDocs` has always returned
+//      `docId`, `status` and `updated`; the template rendered only the title
+//      and threw the rest away. So a reader could see that STD-014 exists but
+//      not whether it is active, draft or withdrawn — the single most useful
+//      fact about a governing document, sitting one property away, unprinted.
+//
+//   2. THE SECTION SAYS WHAT QUESTION IT ANSWERS, and what its own silence
+//      means. Every document here opens with its purpose; the folder had no
+//      equivalent, which is why an empty /debt/ read as a broken page rather
+//      than as good news.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
-import { SECTIONS, getSectionDocs, READING_NOTE } from "@/lib/corpus";
+import { SECTIONS, getSectionDocs, countWithheld, READING_NOTE } from "@/lib/corpus";
 
 export async function getStaticPaths() {
   return Promise.all(
     SECTIONS.map(async (section) => ({
       params: { section: section.slug },
-      props: { section, docs: await getSectionDocs(section.slug) },
+      props: {
+        section,
+        docs: await getSectionDocs(section.slug),
+        withheld: await countWithheld(section.slug),
+      },
     })),
   );
 }
 
-const { section, docs } = Astro.props;
+// The same three colours the decision registry uses, and for the same reason:
+// a status is a traffic light, not a word to read. `active` and `done` are the
+// green of "this governs / this happened"; `draft` and `proposed` the amber of
+// "not yet"; `withdrawn` and `superseded` the grey of "no longer".
+const STATUS_COLOR: Record<string, string> = {
+  active: "text-green",
+  done: "text-green",
+  accepted: "text-green",
+  draft: "text-yellow",
+  proposed: "text-yellow",
+  review: "text-yellow",
+  withdrawn: "text-dim",
+  superseded: "text-dim",
+  deprecated: "text-dim",
+  retired: "text-dim",
+};
+
+const { section, docs, withheld } = Astro.props;
 const note = READING_NOTE[section.slug];
 ---
 
@@ -43,6 +78,18 @@ const note = READING_NOTE[section.slug];
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6 space-y-10">
       {/*
+        The question the folder answers, in the reader's words. It sits above
+        everything else because it is what decides whether the reader is in the
+        right folder at all — including when the list below is empty.
+      */}
+      <div class="rounded-xl border border-accent/20 bg-accent/5 px-5 py-4">
+        <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-accent mb-1.5">
+          The question this answers
+        </p>
+        <p class="text-base leading-snug text-foreground">{section.question}</p>
+      </div>
+
+      {/*
         The rows below are NOT in identifier order (see READING_ORDER in
         lib/corpus.ts). Without this line a reader assumes the list is
         arbitrary, or worse, broken. One sentence turns a reordering into
@@ -54,23 +101,75 @@ const note = READING_NOTE[section.slug];
         </p>
       )}
 
-      <div class="space-y-2">
-        {docs.map((item) => (
-          <a
-            href={item.href}
-            class="block rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
-          >
-            <span class="text-sm text-foreground leading-snug">{item.title}</span>
-          </a>
-        ))}
-      </div>
+      {docs.length > 0 && (
+        <div class="space-y-2">
+          {docs.map((item) => (
+            <a
+              href={item.href}
+              class="block rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
+            >
+              {/*
+                Identifier, date and status on one line above the title — the
+                shape the decision registry has always used. Each cell is
+                omitted when the document does not carry the field rather than
+                rendered empty: a blank slot reads as missing data, and most
+                of these documents simply have no status to report.
+              */}
+              {(item.docId || item.updated || item.status) && (
+                <div class="flex flex-wrap items-center gap-3 mb-1.5">
+                  {item.docId && (
+                    <span class="font-mono text-[0.65rem] text-accent">{item.docId}</span>
+                  )}
+                  {item.updated && (
+                    <span class="font-mono text-[0.6rem] text-dim">{item.updated}</span>
+                  )}
+                  {item.status && (
+                    <span
+                      class={
+                        "font-mono text-[0.6rem] uppercase tracking-widest " +
+                        (STATUS_COLOR[item.status.toLowerCase()] || "text-dim")
+                      }
+                    >
+                      {item.status}
+                    </span>
+                  )}
+                </div>
+              )}
+              <span class="text-sm text-foreground leading-snug">{item.title}</span>
+            </a>
+          ))}
+        </div>
+      )}
 
-      {docs.length === 0 && (
+      {/*
+        AN EMPTY SECTION IS TWO DIFFERENT FACTS, and they must not be printed
+        with the same words.
+
+        `withheld > 0`  the documents exist and are not published. Saying
+                        "nothing is outstanding" here would be false.
+        `withheld = 0`  the folder is genuinely empty. For debt and blueprints
+                        that is a legitimate, even good, state — so the section
+                        says so in its own words instead of looking broken.
+      */}
+      {docs.length === 0 && withheld > 0 && (
         <p class="font-mono text-[0.7rem] text-dim leading-relaxed">
-          This section publishes nothing yet. That is not a fault of this page:
-          the documents exist in the repository and do not declare
+          This section holds {withheld} document{withheld === 1 ? "" : "s"} that this
+          site does not publish: they exist in the repository and do not declare
           <code>visibility: public</code>, so the build does not serve them (MIS-114).
+          Nothing here is missing — it is withheld, and this line is the record of that.
         </p>
+      )}
+
+      {docs.length === 0 && withheld === 0 && (
+        <div class="rounded-xl border border-green/20 bg-green/5 px-5 py-4">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-green mb-1.5">
+            Empty, and that is the answer
+          </p>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            {section.emptyMeans ??
+              "This section publishes nothing yet. The folder exists and the page is built from it, so the day a document lands here it appears on its own."}
+          </p>
+        </div>
       )}
 
       <nav class="border-t border-border/50 pt-6 space-y-2">

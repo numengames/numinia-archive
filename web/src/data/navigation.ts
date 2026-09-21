@@ -31,6 +31,17 @@ export const navItems: NavItem[] = [
   { label: "Blueprints", href: "/blueprints/", id: "planos", section: "blueprints" },
   { label: "Missions", href: "/missions", id: "missions" },
   { label: "Debt", href: "/debt/", id: "debt", section: "debt" },
+  // Agents and Archive were reachable ONLY by typing the URL. Both are real,
+  // built pages — /agents is the roster read from agents/INDEX.md, /archive is
+  // the classification scheme generated from STD-027 — and neither appeared in
+  // the bar, in the footer, or in any section index. A page nobody can reach
+  // is a page that does not exist, however well it is written.
+  //
+  // They sit after the corpus folders, not among them: those seven are series
+  // of documents; these two answer "who acts" and "how is this filed", which
+  // are questions ABOUT the corpus rather than parts of it.
+  { label: "Agents", href: "/agents/", id: "agents" },
+  { label: "Archive", href: "/archive", id: "archive" },
   // /corpus is no longer listed either: with the six folders in the bar, a
   // seventh entry meaning "all of them at once" is a second answer to a
   // question the bar already answers. Every section index still links to it.
