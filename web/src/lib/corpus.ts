@@ -94,6 +94,25 @@ export interface Section {
   /** what a reader finds here */
   blurb: string;
   /**
+   * The question this series answers, in the reader's words.
+   *
+   * Every document in this archive opens with what it is for; a folder had no
+   * equivalent, so a reader landing on a section index saw a list of titles
+   * and had to infer why the folder exists. This is that missing line — and it
+   * is what makes an EMPTY section legible: "nothing is broken right now"
+   * reads very differently from a page that simply shows nothing.
+   */
+  question: string;
+  /**
+   * What an empty section MEANS — because it does not mean the same thing twice.
+   *
+   * An empty `debt/` is good news: nothing outstanding is admitted. An empty
+   * `standards/` would be an alarm. Only the sections where emptiness is a
+   * legitimate state carry a line here; the rest fall back to the generic
+   * "this publishes nothing yet" notice, which is the correct tone for them.
+   */
+  emptyMeans?: string;
+  /**
    * Which collection holds this section's documents.
    *
    * Until 2026-09-20 this field carried a confession: four sections resolved
@@ -108,18 +127,28 @@ export interface Section {
 
 export const SECTIONS: Section[] = [
   { prefix: "canon/",      slug: "canon",      label: "Canon",      collection: "corpus",
+    question: "What is Numinia, before anyone argues about how to build it?",
     blurb: "The ground the rest stands on: what Numinia is, before anyone argues about how to build it." },
   { prefix: "decisions/",  slug: "decisions",  label: "Decisions",  collection: "decisions",
+    question: "Why did we go this way and not the other one?",
+    emptyMeans: "Nothing has been decided here yet — not that decisions are being made off the record.",
     blurb: "Why we went this way and not the other, written down while the reasons were still alive." },
   { prefix: "standards/",  slug: "standards",  label: "Standards",  collection: "corpus",
+    question: "What does an artifact have to clear before it counts as done?",
     blurb: "The bar every artifact has to clear before it counts as done, and who checks that." },
   { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  collection: "corpus",
+    question: "What steps do I follow, in order, so this job comes out the same way twice?",
     blurb: "The steps an actor follows, in order, so the same job comes out the same way twice." },
   { prefix: "system/",     slug: "system",     label: "System",     collection: "corpus",
+    question: "How is the machine actually wired today?",
     blurb: "How the machine is actually wired today: the manual you read when you need it to work, not to argue." },
   { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", collection: "blueprints",
+    question: "What could be built, argued through on paper before anyone commits to it?",
+    emptyMeans: "Nothing is on the drawing board right now. Everything proposed has either been decided or dropped.",
     blurb: "Designs that could be built: argued through on paper, waiting for a decision that turns them real." },
   { prefix: "debt/",       slug: "debt",       label: "Debt",       collection: "corpus",
+    question: "What do we already know is broken or missing?",
+    emptyMeans: "Nothing is outstanding. No known defect is being carried — which is the state this register exists to make visible, not an error.",
     blurb: "What we know is broken or missing, admitted in writing before anyone else has to find it." },
 ];
 
@@ -142,6 +171,21 @@ export const SECTIONS: Section[] = [
 // A folder can graduate to a section later. Each addition is a decision, made
 // here, and the reason for the current six is that a reader can name what each
 // one contains in a single sentence — the `blurb` above is the test.
+
+/**
+ * How many documents this section holds that the build does NOT publish.
+ *
+ * Without this number an empty index cannot tell the truth. `debt/` today
+ * holds one entry marked `restricted-oracle`, so "nothing is outstanding"
+ * would be a lie — the debt exists, the reader just may not read it. With the
+ * count, the page says which of the two silences it is looking at.
+ */
+export async function countWithheld(slug: string): Promise<number> {
+  const section = SECTIONS.find((s) => s.slug === slug);
+  if (!section) return 0;
+  const all = await getCollection("corpus");
+  return all.filter((e) => e.id.startsWith(section.prefix) && !isPublishable(e)).length;
+}
 
 export function sectionOf(entry: Entry): Section | undefined {
   return SECTIONS.find((s) => entry.id.startsWith(s.prefix));

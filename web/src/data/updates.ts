@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.8.0",
+    date: "2026-09-21",
+    entries: [
+      {
+        type: "CHG",
+        text: "Every folder index now shows what the decision registry has always shown: the identifier, the date and the status of each document, colour-coded — green for what governs, amber for a draft, grey for what has been withdrawn. Until today /standards, /canon, /protocols and /system printed a bare list of titles, so you could see that a standard existed but not whether it was still in force. The data was already being calculated for every row and thrown away one line before it reached the page. A warning that comes with it: all 27 standards, all 8 canon documents and all 11 protocols declare themselves as drafts in their own headers, so those pages are amber from top to bottom. That is what the archive says about itself right now, and the fix belongs in the documents, not here.",
+      },
+      {
+        type: "ADD",
+        text: "Each folder says what question it answers, at the top of its index — the same line every document carries in its header, which folders never had. /debt opens with 'What do we already know is broken or missing?'. And an empty folder now explains itself instead of looking broken: if there is genuinely nothing, it says so in green ('Nothing is outstanding') because an empty debt register is good news; if documents exist but are not published, it says how many are being withheld and why. Those two silences used to print the same sentence, and only one of them was true.",
+      },
+      {
+        type: "ADD",
+        text: "The agent roster and the archive's classification are now in the top bar. Both pages were finished, built and served — /agents lists who works here, /archive shows the six functions the whole archive is classified under — and neither was linked from anywhere on this site. The only way to reach them was to already know the address.",
+      },
+    ],
+  },
+  {
     version: "v0.7.0",
     date: "2026-09-20",
     entries: [
