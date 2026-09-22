@@ -30,6 +30,9 @@ supersedes: "canon/CAN-001-welcome-to-numinia.md section 8"
 > gate is met.
 > **Audience:** Everyone
 
+**Binds:** whoever brings a person into Numinia, and whoever lets one go.
+**Does not bind:** what a rank is (`CAN-003`); who may change what (`STD-017`).
+
 A gate is a condition, not a suggestion: the next phase does not begin until it
 is met. The name in brackets after a checklist item is who owns it.
 

@@ -60,14 +60,42 @@ test("a rule's scope is quoted from its own Binds line, never invented", () => {
 });
 
 test('a document with no Binds line is declared, not guessed', () => {
-  // 15 of 46 never say whom they bind — the eight canon by design, plus seven
-  // standards and one protocol. The index must show the hole, because an
-  // invented scope is worse than a stated gap.
   const rows = buildIndex(ROOT).rows;
   const none = rows.filter((r) => r.binds === null);
   assert.ok(none.length > 0, 'the fixture has changed: no document lacks a Binds line');
   for (const r of none)
-    assert.match(r.cell, /no scope line/, `${r.id} has no Binds line and the index does not say so`);
+    assert.ok(r.cell && r.cell !== '', `${r.id} has no Binds line and the index says nothing at all`);
+});
+
+test('a gap explains itself: an exemption is named, an omission is not dressed up', () => {
+  // 14 of the 46 carry no scope line and every one is STD-007 working as
+  // written — the guard asks for `Binds:` in standards/ and protocols/ only,
+  // and skips `subtype: register` inside them. Printing `no scope line`
+  // fourteen times accuses the corpus of defects it does not have, and sends
+  // a reader nowhere. Naming the exemption sends them to the standard that
+  // cites the register.
+  const rows = buildIndex(ROOT).rows;
+  for (const r of rows.filter((x) => x.binds === null)) {
+    const text = readFileSync(path.join(ROOT, r.file), 'utf8');
+    const isRegister = /^subtype:\s*register\s*$/m.test(text.slice(0, text.indexOf('\n---', 4)));
+    if (isRegister) assert.match(r.cell, /^register —/, `${r.id} is a register and the index does not say so`);
+    else if (r.file.startsWith('canon/')) assert.match(r.cell, /^canon —/, `${r.id} is canon and the index does not say so`);
+    else assert.equal(r.cell, 'no scope line', `${r.id} has no exemption: the gap must be stated plainly, not explained away`);
+  }
+});
+
+test('the footnote counts what the table shows', () => {
+  const { rows, block } = buildIndex(ROOT);
+  const foot = block.split('\n').at(-2);
+  const count = (re) => rows.filter((r) => re.test(r.cell)).length;
+  assert.match(foot, new RegExp(`^${rows.length} rule documents`), 'the footnote miscounts the corpus');
+  const reg = count(/^register —/);
+  if (reg) assert.match(foot, new RegExp(`${reg} are registers`), `the footnote does not report ${reg} registers`);
+  const can = count(/^canon —/);
+  if (can) assert.match(foot, new RegExp(`${can} are canon`), `the footnote does not report ${can} canon`);
+  // The honest half: unexplained gaps are reported as such, or their absence is.
+  const gaps = count(/^no scope line$/);
+  assert.match(foot, gaps ? new RegExp(`${gaps} declare no scope`) : /every other document names whom it binds/);
 });
 
 test('--check passes on the committed tree', () => {
