@@ -704,6 +704,17 @@
   "tokens": 1544
  },
  {
+  "path": "debt/DBT-021-pages-that-hold-their-own-content.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5319,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1384
+ },
+ {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
   "dir": "decisions",
   "series": "decisions",
