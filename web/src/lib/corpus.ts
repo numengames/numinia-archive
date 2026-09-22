@@ -336,13 +336,19 @@ const READING_ORDER: Record<string, string[]> = {
     "/protocols/pro-018-publishing-a-repository",
   ],
 
-  // Three manuals, read outside in: the shape of the whole machine → the
-  // loop one agent actually runs inside it → the shelves where everything
-  // it produces ends up.
+  // Five manuals, read outside in: what the system is, for someone who has
+  // never opened it → the shape of the whole machine → the loop one agent
+  // actually runs inside it → the shelves where everything it produces ends
+  // up → the instruments that check those shelves.
+  //
+  // SYS-006 is the text that was the home page until 2026-09-21 (BLU-008,
+  // reshelved); SYS-007 is new the same day, the manual of machine/.
   system: [
+    "/system/sys-006-nwos-system",
     "/system/sys-001-cao-architecture",
     "/system/sys-002-agent-cycle",
     "/system/sys-003-archive-fondos",
+    "/system/sys-007-the-instruments",
   ],
 
   // The company looking at itself, from the inside out: how it survives its own
@@ -372,11 +378,12 @@ const READING_ORDER: Record<string, string[]> = {
     "/objects/check",
   ],
 
-  // Three survivors, after ADR-035 moved the manuals to system/ and MIS-129
-  // retired BLU-001 and BLU-003: the system as a whole, then the vocabulary it
-  // has to speak, then how anyone can tell it is working.
+  // Two survivors of the first shelf, after ADR-035 moved the manuals to
+  // system/, MIS-129 retired BLU-001 and BLU-003, and 2026-09-21 reshelved
+  // BLU-008 (the system description — it described what runs) as SYS-006:
+  // the vocabulary the system has to speak, then how anyone can tell it is
+  // working. The seven design recipes (BLU-009..015) follow by number.
   blueprints: [
-    "/blueprints/nwos-system",
     "/blueprints/dual-nomenclature",
     "/blueprints/business-metrics",
   ],
@@ -401,6 +408,48 @@ const READING_ORDER: Record<string, string[]> = {
   ],
 };
 
+/**
+ * Pages the SITE renders about a section, which are not documents of it.
+ *
+ * Eight pages under web/src/pages/system/ — a metrics dashboard, a sales
+ * guide, a hundred simulated adoptions, a gaps analysis, a Wardley map, the
+ * continuity proof, the narrative dial, the grouped solutions. Until
+ * 2026-09-21 they sat at the site root with no link from any page: built,
+ * served, unreachable. The Oracle's call: they belong to the System drawer,
+ * with appraisal of each one deferred ("las cosas en su cajón, y luego ya
+ * vemos qué hay dentro"). So they are filed here and the index lists them
+ * under its documents, plainly marked as views the site draws, not records
+ * of the series. Four are in Spanish and untouched since August; the index
+ * says so rather than hide it.
+ *
+ * CHECKED AT BUILD, like READING_ORDER: [section].astro globs the folder and
+ * fails when a page exists with no row here or a row names no page. A view
+ * that falls off this list goes back to being unreachable, which is the
+ * defect this table exists to end.
+ */
+export interface SectionView {
+  /** the route, under the section: /system/wardley */
+  href: string;
+  title: string;
+  /** one line, in the reader's words, including what is stale about it */
+  what: string;
+  /** the page's language when it is not the corpus's */
+  lang?: "es";
+}
+
+export const SECTION_VIEWS: Record<string, SectionView[]> = {
+  system: [
+    { href: "/system/wardley", title: "Wardley map", what: "A strategic map of the NWOS — what is visible, what is evolving, where the moat is. Rendered from its report." },
+    { href: "/system/gaps", title: "Gaps", what: "The blind spots of the NWOS from business, product and organisational theory. Rendered from its report." },
+    { href: "/system/continuity", title: "Continuity", what: "The proof that an agent can rebuild itself from the repository alone.", lang: "es" },
+    { href: "/system/language", title: "Narrative dial", what: "Two dials, five levels each: how much narrative and gamification an organisation chooses." },
+    { href: "/system/cao", title: "CAO dashboard", what: "Metrics of the autonomous organisation: agents, missions, costs. Hand-written in August 2026; not refreshed since.", lang: "es" },
+    { href: "/system/simulations", title: "100 simulations", what: "Results of a hundred simulated adoptions across five organisation archetypes. Hand-written in August 2026.", lang: "es" },
+    { href: "/system/solutions", title: "Solutions", what: "The gaps grouped into clusters and three proposed solutions per cluster. Hand-written in August 2026.", lang: "es" },
+    { href: "/system/sales", title: "Sales guide", what: "ICP, funnel, blockers and a pilot plan for the Oracles. Hand-written in August 2026.", lang: "es" },
+  ],
+};
+
 // A story the reader cannot see is just a list in an unusual order. Each
 // section gets one line of prose above its rows, in the same voice as the
 // blurb: what the sequence is doing, so the order reads as a choice.
@@ -409,8 +458,8 @@ export const READING_NOTE: Record<string, string> = {
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
   standards: "Language first — nothing below can be read without it. Then who may change what, then the shape a document takes, then how the thing gets built.",
   protocols: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
-  blueprints: "What does not exist yet, in the order you would have to argue it: the system as a whole, then the words it has to speak, then how anyone could tell it is working.",
-  system: "Not what we plan to build — what is running. Widest first: the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on.",
+  blueprints: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
+  system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the instruments that check those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
   operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, the handling of keys, and last the three legal texts, the only documents here written for someone outside the company.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",

@@ -124,13 +124,54 @@ test('a series row carries what STD-001 says it holds', () => {
   rmSync(dir, { recursive: true, force: true });
 });
 
-test('a series this site does not publish carries the reason, never a dead link', () => {
+test('a series links to its index, never to one document inside it', () => {
+  // The regression: on 2026-09-21 three rows of SERVED_AT pointed at one card
+  // (objects/), one document (operations/) and "not served here" (lore/) the
+  // day after all three had index pages. A series address ends at the folder.
+  const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
+  const r = ask(dir, 'm.allSeries().map((s) => [s.folder, s.href, s.note])');
+  assert.equal(r.code, 0, r.out);
+  const rows = JSON.parse(r.out);
+  assert.deepEqual(rows, [['canon/', '/canon/', null], ['missions/', '/missions', null], ['lore/', '/lore/', null]]);
+  rmSync(dir, { recursive: true, force: true });
+});
+
+test('a series carries the label the menu prints and the activity that produced it', () => {
+  // The navigation is derived from this module (web/src/data/navigation.ts):
+  // the label is the folder capitalised, the activity is the verb beside it.
+  const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
+  const r = ask(dir, 'm.allSeries().map((s) => [s.label, s.activity, s.instrument])');
+  assert.equal(r.code, 0, r.out);
+  assert.deepEqual(JSON.parse(r.out), [['Canon', 'Founding', false], ['Missions', 'Executing', false], ['Lore', 'Worldbuilding', false]]);
+  rmSync(dir, { recursive: true, force: true });
+});
+
+test('a dash in the register is "none", not a value', () => {
+  // STD-001 writes `—` where a series has no prefix, budget or mould. A page
+  // that printed the dash as the prefix would be restating a typographic
+  // convention as data.
   const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
   const r = ask(dir, 'm.allSeries().find((s) => s.folder === "lore/")');
   assert.equal(r.code, 0, r.out);
   const lore = JSON.parse(r.out);
-  assert.equal(lore.href, null);
-  assert.match(lore.unpublished, /reserved licence regime/);
+  assert.equal(lore.prefix, '');
+  assert.equal(lore.threshold, 'open');
+  rmSync(dir, { recursive: true, force: true });
+});
+
+test('placeOf says where a folder sits in the scheme, and nothing for one it does not classify', () => {
+  const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
+  const r = ask(dir, '[m.placeOf("missions/").fn.name, m.placeOf("missions/").activity.name, m.placeOf("bestiary/")]');
+  assert.equal(r.code, 0, r.out);
+  assert.deepEqual(JSON.parse(r.out), ['Production', 'Executing', null]);
+  rmSync(dir, { recursive: true, force: true });
+});
+
+test('a function carries the address of its own page', () => {
+  const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
+  const r = ask(dir, 'm.functions().map((f) => f.href)');
+  assert.equal(r.code, 0, r.out);
+  assert.deepEqual(JSON.parse(r.out), ['/archive/governance', '/archive/production', '/archive/creation']);
   rmSync(dir, { recursive: true, force: true });
 });
 
@@ -138,7 +179,7 @@ test('the counts are counted, not typed', () => {
   const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
   const r = ask(dir, 'm.counts()');
   assert.equal(r.code, 0, r.out);
-  assert.deepEqual(JSON.parse(r.out), { functions: 3, activities: 3, series: 3, published: 2 });
+  assert.deepEqual(JSON.parse(r.out), { functions: 3, activities: 3, series: 3, published: 3 });
   rmSync(dir, { recursive: true, force: true });
 });
 
@@ -214,7 +255,10 @@ test('one activity may produce several series, as the standard writes them', () 
   rmSync(dir, { recursive: true, force: true });
 });
 
-test('an instrument is classified but never published', () => {
+test('an instrument is classified, has no page of its own, and links to the manual with the reason beside it', () => {
+  // STD-027 CLS-002: an instrument is not a record. It appears in the scheme
+  // and the menu because an activity produced it; its address is the manual
+  // that explains it (SYS-007), anchored at the folder, and the row says why.
   const dir = scratch({
     scheme: SCHEME.replace(
       '| **Creation** | Worldbuilding | `lore/` |',
@@ -225,7 +269,9 @@ test('an instrument is classified but never published', () => {
   const r = ask(dir, 'm.allSeries().find((s) => s.folder === "machine/templates/")');
   assert.equal(r.code, 0, r.out);
   const moulds = JSON.parse(r.out);
-  assert.equal(moulds.href, null);
-  assert.match(moulds.unpublished, /instrument, not a record/);
+  assert.equal(moulds.instrument, true);
+  assert.equal(moulds.label, 'Templates');
+  assert.match(moulds.href, /^\/system\/sys-007-the-instruments#/);
+  assert.match(moulds.note, /instrument, not a record/);
   rmSync(dir, { recursive: true, force: true });
 });

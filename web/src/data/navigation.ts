@@ -1,80 +1,90 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-export type NavChild = {
-  label: string;
-  href: string;
-  id: string;
-};
+//
+// The navigation, derived from the classification.
+//
+// Until 2026-09-21 this file was a hand-written list of ten entries "ordered
+// by authority", with three more hidden in the footer because the bar was
+// full, and a comment block per entry explaining why it sat where it sat.
+// The archive is classified by function (STD-027); the site was navigated by
+// another logic, kept in sync by hand — the same drift the /archive page had
+// before it learned to read the standard. This is the same fix.
+//
+// Six entries, one per function, in the order STD-027 writes them. Each is a
+// menu of the series its activities produce. Nothing here is typed: a series
+// added to the standard appears in the menu on the next build, or the build
+// fails in @/lib/classification because nobody said where the site serves it.
+//
+// BLU-009 §12 recipe says "≤5 entries". This bar has six, by the Oracle's
+// word (2026-09-21): here the menu IS the scheme, and a scheme with six
+// functions gets six doors. The recipe's number is a recommendation for
+// corporate sites; the amendment is owed in BLU-009 and is named in the PR.
+import { functions, type Fn, type Series } from "@/lib/classification";
 
-export type NavItem =
-  // a plain link
-  | { label: string; href: string; id: string; children?: never; section?: never; inBar?: boolean }
-  // a hand-written dropdown
-  | { label: string; href?: never; id: string; children: NavChild[]; section?: never; inBar?: boolean }
-  // a corpus section: the dropdown is its folder, listed at build time
-  | { label: string; href: string; id: string; section: string; children?: never; inBar?: boolean };
+export interface NavEntry {
+  /** the series, as the menu prints it — "Standards" */
+  readonly label: string;
+  readonly href: string;
+  /** the activity (verb) beneath the label — "Standardising" */
+  readonly activity: string;
+  /** printed beside the row when set: why this one has no index of its own */
+  readonly note: string | null;
+  /** the folder, for the active-state match — "standards/" */
+  readonly folder: string;
+}
 
-export const navItems: NavItem[] = [
-  // One entry per top-level folder of the repository that publishes documents,
-  // ORDERED BY AUTHORITY: what binds the rest first, what is bound by
-  // everything last. Not invented here — it mirrors the change-threshold table
-  // in S-001 §2.1 (governed → open, canon first), and @/lib/corpus SECTIONS holds
-  // the same order with the reasoning written out.
-  { label: "Canon", href: "/canon/", id: "canon", section: "canon" },
-  { label: "Decisions", href: "/decisions/", id: "decisiones", section: "decisions" },
-  { label: "Standards", href: "/standards/", id: "standards", section: "standards" },
-  { label: "Protocols", href: "/protocols/", id: "protocols", section: "protocols" },
-  // System: reference manuals of how the machine works TODAY (ADR-035). It sits
-  // after Protocols and before Blueprints on purpose — it is the hinge between
-  // what is prescribed and what is merely proposed: this is what runs.
-  { label: "System", href: "/system/", id: "system", section: "system" },
-  { label: "Blueprints", href: "/blueprints/", id: "planos", section: "blueprints" },
-  { label: "Missions", href: "/missions", id: "missions" },
-  { label: "Debt", href: "/debt/", id: "debt", section: "debt" },
-  // Operations and Objects (2026-09-21): the last two repository folders that
-  // publish documents and had no door. They come after Debt because neither
-  // binds anything — Operations records what the company is doing, Objects
-  // registers the things that are not documents.
-  //
-  // `inBar: false` — THE BAR IS FULL, and that is a measurement, not a taste.
-  // The comment above the desktop nav records that at 768 px seven entries
-  // plus the search field already overflowed their column, which is why the
-  // breakpoint is `lg`. Ten entries fit at 1024 px; twelve do not. So these
-  // two live in the footer's navigation column and in the section strip at
-  // the foot of every section index — both reachable from any page, neither
-  // pushing the bar into the overflow the `lg` breakpoint exists to avoid.
-  // When the bar is reworked to hold more (a "More" group, or the sections
-  // collapsing into one entry), drop this flag and they return.
-  { label: "Operations", href: "/operations/", id: "operations", section: "operations", inBar: false },
-  { label: "Objects", href: "/objects/", id: "objects", section: "objects", inBar: false },
-  // Lore (2026-09-21): the world and the game, served for reading under
-  // reserved rights. Out of the bar for the same width reason as the two above.
-  { label: "Lore", href: "/lore/", id: "lore", section: "lore", inBar: false },
-  // Agents and Archive were reachable ONLY by typing the URL. Both are real,
-  // built pages — /agents is the roster read from agents/INDEX.md, /archive is
-  // the classification scheme generated from STD-027 — and neither appeared in
-  // the bar, in the footer, or in any section index. A page nobody can reach
-  // is a page that does not exist, however well it is written.
-  //
-  // They sit after the corpus folders, not among them: those seven are series
-  // of documents; these two answer "who acts" and "how is this filed", which
-  // are questions ABOUT the corpus rather than parts of it.
-  { label: "Agents", href: "/agents/", id: "agents" },
-  { label: "Archive", href: "/archive", id: "archive" },
-  // /corpus is no longer listed either: with the six folders in the bar, a
-  // seventh entry meaning "all of them at once" is a second answer to a
-  // question the bar already answers. Every section index still links to it.
-  // /reports is no longer listed. The page still builds and still answers at
-  // its URL — as with the thirteen MIS-110 retired, this removes the nav entry,
-  // not the route.
-];
+export interface NavGroup {
+  /** the function — "Governance" */
+  readonly label: string;
+  /** route segment and active-state key — "governance" */
+  readonly id: string;
+  /** the function's own page: /archive/<id> */
+  readonly href: string;
+  readonly entries: readonly NavEntry[];
+}
+
+function entryOf(s: Series): NavEntry {
+  if (s.href === null) {
+    // classification.ts lets a series be unpublished with a reason; the menu
+    // has nowhere to send a click, so it refuses rather than render a dead row.
+    throw new Error(
+      `navigation: the series "${s.folder}" has no address and cannot be a menu entry. ` +
+        `Give it an href in SERVED_AT (web/src/lib/classification.ts) or take it out of the scheme.`,
+    );
+  }
+  return { label: s.label, href: s.href, activity: s.activity, note: s.note, folder: s.folder };
+}
+
+function groupOf(fn: Fn): NavGroup {
+  return {
+    label: fn.name,
+    id: fn.slug,
+    href: fn.href,
+    entries: fn.activities.flatMap((a) => a.series.map(entryOf)),
+  };
+}
+
+/** The six menus, in the standard's order. Bar, mobile panel and footer all read this. */
+export const navGroups: readonly NavGroup[] = functions().map(groupOf);
 
 /**
- * What the top bar shows — every entry except the ones marked `inBar: false`.
- *
- * The FOOTER keeps `navItems` whole. That split is the point: the bar is a
- * width-limited surface and has to choose; the footer is a list and does not.
- * A section that does not fit in the bar is still one click away from every
- * page of the site, which is the promise that matters.
+ * Which function a page belongs to, from the folder it serves. Pages pass the
+ * folder ("standards/") or a function slug ("governance") as `activeNav`; both
+ * resolve here so the bar underlines the right door.
  */
-export const barItems: NavItem[] = navItems.filter((i) => i.inBar !== false);
+export function activeGroupOf(activeNav: string | undefined): string | undefined {
+  if (!activeNav) return undefined;
+  const byId = navGroups.find((g) => g.id === activeNav);
+  if (byId) return byId.id;
+  const byFolder = navGroups.find((g) => g.entries.some((e) => e.folder === activeNav || e.href === activeNav));
+  return byFolder?.id;
+}
+
+/**
+ * The site's own pages — not series, not functions, but doors a reader needs
+ * from every page. The footer prints them under the six functions.
+ */
+export const siteLinks: readonly { label: string; href: string }[] = [
+  { label: "Updates", href: "/updates" },
+  { label: "Telemetry", href: "/telemetry" },
+];

@@ -2,6 +2,9 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 import Layout from "@/layouts/Layout.astro";
+import { placeOf } from "@/lib/classification";
+// The drawer this index opens, from the scheme: "Assurance · Observing".
+const here = placeOf("missions/")!;
 import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
 import { getCollection } from "astro:content";
@@ -173,10 +176,10 @@ const stats = [
   title="Missions — Numen Games CAO"
   description="The work itself: what was promised, what got done, and the evidence that says so."
   canonicalPath="/missions"
-  activeNav="missions"
+  activeNav="missions/"
 >
   <PageHero
-    label="CAO · NWOS"
+    label={`${here.fn.name} · ${here.activity.name}`}
     title="Mission Board"
     description="The work itself: what was promised, what got done, and the evidence that says so."
   />

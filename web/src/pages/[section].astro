@@ -28,7 +28,29 @@
 //      than as good news.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
-import { SECTIONS, getSectionDocs, countWithheld, READING_NOTE } from "@/lib/corpus";
+import { SECTIONS, getSectionDocs, countWithheld, READING_NOTE, SECTION_VIEWS } from "@/lib/corpus";
+import { placeOf, functions } from "@/lib/classification";
+
+// The site's own pages under a section, checked against the folder that
+// holds them — see SECTION_VIEWS in @/lib/corpus. `import.meta.glob` is
+// resolved at build time: the keys are the files that exist.
+const builtViews = new Set(
+  Object.keys(import.meta.glob("/src/pages/*/*.astro")).map((f) => f.replace(/^\/src\/pages/, "").replace(/\.astro$/, "")),
+);
+for (const [slug, views] of Object.entries(SECTION_VIEWS)) {
+  const listed = new Set(views.map((v) => v.href));
+  const onDisk = [...builtViews].filter((f) => f.startsWith(`/${slug}/`) && !/\/\[/.test(f) && !f.endsWith("/index"));
+  const missing = onDisk.filter((f) => !listed.has(f));
+  const dead = [...listed].filter((f) => !builtViews.has(f));
+  if (missing.length || dead.length) {
+    throw new Error(
+      `SECTION_VIEWS["${slug}"] disagrees with web/src/pages/${slug}/: ` +
+        (missing.length ? `pages with no row (unreachable again): ${missing.join(", ")}. ` : "") +
+        (dead.length ? `rows with no page: ${dead.join(", ")}. ` : "") +
+        `Update the table in web/src/lib/corpus.ts.`,
+    );
+  }
+}
 
 export async function getStaticPaths() {
   return Promise.all(
@@ -41,6 +63,23 @@ export async function getStaticPaths() {
       },
     })),
   );
+}
+
+// WHERE THIS DRAWER SITS (2026-09-21). The label above the title used to
+// read "CAO · NWOS" on every index — the same words on every drawer, saying
+// nothing about which one is open. Now it is the place in the scheme:
+// "Governance · Standardising". Read from the classification, so a section
+// whose folder the scheme does not classify fails the build rather than
+// printing a label from memory.
+function place(prefix: string): { label: string; fnSlug: string; fnHref: string } {
+  const p = placeOf(prefix);
+  if (!p) {
+    throw new Error(
+      `[section].astro: the section "${prefix}" is not a series of STD-027 and the index cannot say ` +
+        `where it sits. Add it to the scheme or take it out of SECTIONS (web/src/lib/corpus.ts).`,
+    );
+  }
+  return { label: `${p.fn.name} · ${p.activity.name}`, fnSlug: p.fn.slug, fnHref: p.fn.href };
 }
 
 // The same three colours the decision registry uses, and for the same reason:
@@ -62,15 +101,25 @@ const STATUS_COLOR: Record<string, string> = {
 
 const { section, docs, withheld } = Astro.props;
 const note = READING_NOTE[section.slug];
+const here = place(section.prefix);
+const views = SECTION_VIEWS[section.slug] ?? [];
+// The strip at the foot groups every section by function, in the scheme's
+// order — the same six drawers the bar shows, so a reader who came in
+// through one door sees the others from any index.
+const strip = functions().map((fn) => ({
+  fn,
+  sections: fn.activities.flatMap((a) => a.series).map((s) => SECTIONS.find((sec) => sec.prefix === s.folder)).filter(Boolean),
+})).filter((g) => g.sections.length > 0);
 ---
 
 <Layout
-  title={`${section.label} — Corpus NWOS`}
+  title={`${section.label} — NWOS, the archive of Numen Games`}
   description={section.blurb}
   canonicalPath={`/${section.slug}/`}
+  activeNav={section.prefix}
 >
   <PageHero
-    label="CAO · NWOS"
+    label={here.label}
     title={section.label}
     description={section.blurb}
   />
@@ -166,6 +215,39 @@ const note = READING_NOTE[section.slug];
                         that is a legitimate, even good, state — so the section
                         says so in its own words instead of looking broken.
       */}
+      {/*
+        The site's own pages about this drawer — views it draws, not documents
+        of the series. Listed after the documents and said to be what they are,
+        so a reader does not take a dashboard for a record. See SECTION_VIEWS.
+      */}
+      {views.length > 0 && (
+        <div class="space-y-3 border-t border-border/50 pt-8">
+          <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-dim">
+            Views the site draws about this — not documents of the series
+          </h2>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Pages rendered by the site, some from reports, some written by hand. Filed in this drawer on
+            2026-09-21 so they can be reached; what to keep of each is still to be decided.
+          </p>
+          <div class="space-y-2">
+            {views.map((v) => (
+              <a
+                href={v.href}
+                hreflang={v.lang}
+                class="block rounded-lg border border-border/60 bg-card/60 px-4 py-3 hover:bg-card-hover transition-colors"
+              >
+                <div class="flex flex-wrap items-center gap-3 mb-1">
+                  <span class="font-mono text-[0.65rem] text-dim">{v.href}</span>
+                  {v.lang && <span class="font-mono text-[0.6rem] uppercase tracking-widest text-yellow">{v.lang}</span>}
+                </div>
+                <span class="text-sm text-foreground leading-snug">{v.title}</span>
+                <span class="block text-xs text-muted-foreground mt-1">{v.what}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
       {docs.length === 0 && withheld > 0 && (
         <p class="font-mono text-[0.7rem] text-dim leading-relaxed">
           This section holds {withheld} document{withheld === 1 ? "" : "s"} that this
@@ -187,31 +269,42 @@ const note = READING_NOTE[section.slug];
         </div>
       )}
 
-      <nav class="border-t border-border/50 pt-6 space-y-2">
-        <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">
-          Sections
+      <nav class="border-t border-border/50 pt-6 space-y-4" aria-label="Sections by function">
+        <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent">
+          The other drawers
         </h2>
-        <div class="flex flex-wrap gap-2">
-          {SECTIONS.map((s) => (
+        {strip.map((g) => (
+          <div class="flex flex-wrap items-center gap-2">
             <a
-              href={`/${s.slug}/`}
+              href={g.fn.href}
               class={
-                "inline-flex min-h-[44px] items-center rounded-lg border px-3 font-mono text-[0.7rem] transition-colors " +
-                (s.slug === section.slug
-                  ? "border-accent/40 bg-accent/10 text-accent"
-                  : "border-border bg-card text-dim hover:bg-card-hover")
+                "inline-flex min-h-[44px] items-center font-mono text-[0.6rem] uppercase tracking-[0.15em] mr-1 transition-colors " +
+                (g.fn.slug === here.fnSlug ? "text-foreground border-b-2 border-yellow" : "text-dim hover:text-foreground")
               }
             >
-              {s.label}
+              {g.fn.name}
             </a>
-          ))}
-          <a
-            href="/"
-            class="inline-flex min-h-[44px] items-center rounded-lg border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
-          >
-            The whole corpus
-          </a>
-        </div>
+            {g.sections.map((s) => (
+              <a
+                href={`/${s!.slug}/`}
+                class={
+                  "inline-flex min-h-[44px] items-center rounded-[6px] border px-3 font-mono text-[0.7rem] transition-colors " +
+                  (s!.slug === section.slug
+                    ? "border-accent/40 bg-accent/10 text-accent"
+                    : "border-border bg-card text-dim hover:bg-card-hover")
+                }
+              >
+                {s!.label}
+              </a>
+            ))}
+          </div>
+        ))}
+        <a
+          href="/"
+          class="inline-flex min-h-[44px] items-center font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim hover:text-foreground transition-colors"
+        >
+          ← How the archive is classified
+        </a>
       </nav>
     </div>
   </section>

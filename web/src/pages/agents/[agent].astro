@@ -76,7 +76,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
   title={`${agent.name} — ${agent.role} · Numinia`}
   description={`${agent.name}: ${agent.role}. Route here for ${agent.route}. The agent's own documents — soul, operator and sources — as the archive holds them.`}
   canonicalPath={`/agents/${agent.id}`}
-  activeNav="agents"
+  activeNav="agents/"
 >
   <PageHero
     label={`Agent · ${String(position).padStart(2, "0")} of ${roster.length}`}
