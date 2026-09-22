@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 11431,
+  "chars": 12015,
   "apparatus": false,
   "archived": false,
-  "tokens": 2889
+  "tokens": 3003
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 81017,
+  "chars": 83386,
   "apparatus": false,
   "archived": false,
-  "tokens": 21403
+  "tokens": 21987
  },
  {
   "path": "CLAUDE.md",
@@ -1457,10 +1457,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 11172,
+  "chars": 11327,
   "apparatus": false,
   "archived": false,
-  "tokens": 2730
+  "tokens": 2774
  },
  {
   "path": "protocols/PRO-016-applying-the-engineering-standard.md",
