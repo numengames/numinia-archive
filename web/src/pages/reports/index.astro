@@ -19,7 +19,7 @@ import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
 import { getCollection } from "astro:content";
 
-type Row = { id: string; docId: string; title: string; created: string; status: string; author?: string; tags: string[]; subtype: string };
+type Row = { id: string; docId: string; title: string; created: string; createdFull: string; status: string; author?: string; tags: string[]; subtype: string };
 
 const SUBTYPES: { key: string; label: string; blurb: string }[] = [
   { key: "audit",    label: "Audits",    blurb: "Verified diagnoses of the system against a norm." },
@@ -35,6 +35,7 @@ const rows: Row[] = (await getCollection("reports")).map((e) => {
     docId: String(f.id ?? e.id),
     title: String(f.title ?? e.id),
     created: String(f.created ?? "").slice(0, 10),
+    createdFull: String(f.created ?? ""),
     status: String(f.status ?? ""),
     author: typeof f.author === "string" ? f.author : undefined,
     tags: Array.isArray(f.tags) ? (f.tags as unknown[]).map(String) : [],
@@ -49,7 +50,19 @@ const groups = SUBTYPES.map((s) => ({ ...s, rows: rows.filter((r) => r.subtype =
 const known = new Set(SUBTYPES.map((s) => s.key));
 const other = rows.filter((r) => !known.has(r.subtype));
 if (other.length) groups.push({ key: "other", label: "Unclassified", blurb: "subtype missing or outside the registered vocabulary (STD-004 HDR-018).", rows: other });
-for (const g of groups) g.rows.sort((a, b) => b.created.localeCompare(a.created));
+// Sorting on the DATE alone leaves same-day reports tied, and a tie is
+// resolved by whatever order the collection arrived in — which is Astro's
+// business, not ours: the Astro 7 upgrade silently swapped RPT-017 and
+// RPT-018, both created 2026-09-08. Fall back to the full timestamp, then to
+// the identifier, so the order is a property of the documents and the same
+// build twice produces the same page.
+for (const g of groups)
+  g.rows.sort(
+    (a, b) =>
+      b.created.localeCompare(a.created) ||
+      b.createdFull.localeCompare(a.createdFull) ||
+      a.docId.localeCompare(b.docId),
+  );
 ---
 
 <Layout

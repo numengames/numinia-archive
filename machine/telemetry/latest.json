@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "b4c6242+index",
-  "corpus_hash": "9b0e6df390fef9ca955f40acd6cde0762acedca1638d7ce5e59ff6a6bf62eb92",
+  "head": "22eeb89+index",
+  "corpus_hash": "34888a0ec890c5df12fd92609f7362bfdb53449bd7c553b3752b1be2db824c2f",
   "root_dirty": 0,
-  "measured_at": "2026-09-22T10:54:33Z",
+  "measured_at": "2026-09-22T11:42:15Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 505,
+      "value": 504,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".js": 2,
         ".json": 14,
         ".md": 177,
-        ".mjs": 68,
+        ".mjs": 67,
         ".png": 35,
         ".svg": 69,
         ".toml": 4,
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 617826,
+      "value": 618574,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -329,7 +329,7 @@
         "missions": 43636,
         "canon": 29365,
         "agents": 27835,
-        "": 26486,
+        "": 27234,
         "reports": 26153,
         "operations": 22950,
         "blueprints": 20861,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 337395,
+        "(none)": 338143,
         "draft": 119367,
         "active": 115910,
         "done": 26389,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.06,
+      "value": 7.05,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -369,7 +369,7 @@
         ],
         [
           "CHANGELOG.md",
-          19320
+          20068
         ],
         [
           "lore/adventures/el-espejo-roto.md",
@@ -702,6 +702,10 @@
         "ADR": {
           "3": 379
         },
+        "RPT": {
+          "3": 55,
+          "4": 9
+        },
         "DBT": {
           "3": 76
         },
@@ -710,10 +714,6 @@
         },
         "SYS": {
           "3": 44
-        },
-        "RPT": {
-          "3": 53,
-          "4": 9
         },
         "DEC": {
           "3": 13
@@ -787,7 +787,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 273,
+      "value": 274,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -798,8 +798,8 @@
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
         "lore/world/brand-and-culture.md": 18,
+        "CHANGELOG.md": 13,
         "lore/game/manual-v0.6.0.md": 13,
-        "CHANGELOG.md": 12,
         "canon/CAN-008-visual-identity.md": 11,
         "reports/RPT-017-mvp-story.md": 11,
         "operations/OPS-007-sales.md": 10,

@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.15.0",
+    date: "2026-09-22",
+    entries: [
+      {
+        type: "CHG",
+        text: "The site is built with Astro 7 and Tailwind 4. The piece that joined the two — @astrojs/tailwind — was retired upstream and only ever accepted Astro 5, so every Astro update had been failing on it since. Tailwind now connects straight to the build tool, and its theme lives in the stylesheet instead of a config file. Nothing about how the site looks was meant to change: all 331 pages build, and the same addresses are served.",
+      },
+      {
+        type: "FIX",
+        text: "Two things the new stylesheet reset would have taken away, put back by hand: buttons keep the hand cursor when you point at them, and every hairline keeps drawing its colour from the site's one border variable instead of inheriting the text colour. Neither is a style decision — both are what the site already looked like.",
+      },
+    ],
+  },
+  {
     version: "v0.14.1",
     date: "2026-09-22",
     entries: [

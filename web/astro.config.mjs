@@ -5,7 +5,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import pagefind from "astro-pagefind";
 import { defineConfig } from "astro/config";
 import rehypeContextCard from "./src/lib/rehype-context-card.mjs";
@@ -204,7 +204,7 @@ export default defineConfig({
 	// they were served in production as a public half-feature. Removing the
 	// pages removes the reason for the sitemap filter that hid them: there
 	// is nothing left to exclude. See debt/D-035.
-	integrations: [react(), tailwind(), sitemap(), pagefind()],
+	integrations: [react(), sitemap(), pagefind()],
 	// Every corpus document opens with a Summary/Epistemic/Pragmatic/Audience
 	// blockquote. Markdown renders those four lines as one paragraph, which
 	// reads as a grey wall. rehypeContextCard turns that one blockquote shape
@@ -217,6 +217,10 @@ export default defineConfig({
 		rehypePlugins: [rehypeContextCard, rehypeShiftHeadings],
 	},
 	vite: {
+		// Tailwind 4 is a Vite plugin: the @astrojs/tailwind integration was
+		// retired upstream and never accepted Astro 6+. The theme now lives in
+		// src/styles/global.css (@theme), not in a tailwind.config file.
+		plugins: [tailwindcss()],
 		resolve: {
 			alias: {
 				"@": path.resolve(__dirname, "./src"),

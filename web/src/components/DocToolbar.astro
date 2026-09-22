@@ -49,12 +49,15 @@ const t = useT();
     <Icon name="download-simple" size={12} />
     .md
   </a>
+  <!--
+    The page is a rendering; the file is the document. Anyone who wants
+    history, blame, or to open a PR needs the original, and guessing the
+    path from the URL is not a navigation strategy.
+
+    The comment sits outside the expression: the Astro 7 compiler does not
+    accept an HTML comment as the first node of a `{cond && (...)}` block.
+  -->
   {repoUrl && (
-    <!--
-      The page is a rendering; the file is the document. Anyone who wants
-      history, blame, or to open a PR needs the original, and guessing the
-      path from the URL is not a navigation strategy.
-    -->
     <a
       href={repoUrl}
       target="_blank"
