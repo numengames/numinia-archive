@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.14.1",
+    date: "2026-09-22",
+    entries: [
+      {
+        type: "FIX",
+        text: "The listen button now works on the pages you arrive at. It reads the text out of the page, and it was looking for it in a wrapper that only document pages have — so on the home, the function pages, the indexes and the agent pages it found nothing, greyed itself out and said nothing about why. It now falls back to the page's main content, which every page has. The nine pages that were silent speak between 53 and 562 words; documents are unchanged.",
+      },
+      {
+        type: "ADD",
+        text: "A check now refuses to ship a listen button with nothing behind it. On every build, a page offering the button must have text the player can actually find — using the player's own logic, not a guess at it. Tested in both directions: it passes on the real site and fails on a copy of the home with its content wrapper removed. A button that is there but mute is worse than no button: it promises a reader who cannot read that the page can be heard.",
+      },
+    ],
+  },
+  {
     version: "v0.14.0",
     date: "2026-09-22",
     entries: [

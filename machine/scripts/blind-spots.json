@@ -520,11 +520,16 @@
       "script": "machine/scripts/check-md-portability.mjs",
       "build_guard": "verifies the built site, not a rule in prose — a page that cannot be taken out of the site is a broken promise to the reader, whatever the standards say (ENG-067 exception)",
       "needs": "web/dist",
-      "sees": "every built page that is not a redirect: that it carries a toolbar, that the .md the toolbar names was produced by the build, and that the file is not empty. Exempt pages are listed in the guard with a stated reason each",
+      "sees": "every built page that is not a redirect: that it carries a toolbar, that the .md the toolbar names was produced by the build and is not empty, and that the listen button has text to speak (the player's own selector chain: <article>, then <main id=\"main\">, 20-word floor). Exempt pages are listed in the guard with a stated reason each",
       "blind_to": [
         {
           "spot": "whether the markdown SAYS what the page shows. A generator emitting a well-formed file of the wrong content passes here — existence and cardinality are what a build can know",
           "covered_by": "web/src/lib/composed-md.ts tests, and review",
+          "debt": null
+        },
+        {
+          "spot": "whether the spoken text is the text a reader would want read. It counts words inside the element the player targets; a page whose <main> is mostly chrome passes with a high count",
+          "covered_by": "review",
           "debt": null
         },
         {
