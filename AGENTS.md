@@ -9,6 +9,13 @@ neutral layer. Hermes reads both (agent/coding_context.py: _CONTEXT_FILES).
 
 # Numinia NWOS — Agent Context
 
+**First instruction (AGT-001): audit the current branch state before assuming
+anything.** Never trust that the repository matches this file, a README or a
+mission brief — read what is actually there first.
+
+This file is the platform-neutral layer every runtime reads. `CLAUDE.md` is
+the Claude Code adapter and points here; it does not restate these rules.
+
 ## Purpose
 
 This repository is the canonical source of truth for Numinia's agent

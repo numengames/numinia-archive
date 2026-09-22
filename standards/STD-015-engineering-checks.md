@@ -73,12 +73,12 @@ series_change: "1.5.0 — TRC-008, the address of a document: every published ad
 | Community | OSS-003 | DCO or CLA per the licence regime (`STD-010`) | MUST | `[DEBT: no DCO or CLA bot — oracle, 2026-09-11]` |
 | Community | OSS-004 | Issue triage cadence declared | SHOULD | `[DEBT: triage cadence is declared nowhere a machine can read — oracle, 2026-09-11]` |
 | Community | OSS-005 | Social preview image set | SHOULD | `[DEBT: social preview image unset and unread — oracle, 2026-09-11]` |
-| Agents | AGT-001 | `CLAUDE.md` at the root; first instruction: audit the branch before assuming anything | MUST | `[AUTO: machine/tools/check-register.mjs]` |
+| Agents | AGT-001 | `AGENTS.md` at the root; first instruction: audit the branch before assuming anything | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Agents | AGT-002 | Deterministic naming and paths, so an agent never invents structure | MUST | `[AUTO: machine/guards/lib/naming.mjs]` |
 | Agents | AGT-003 | Everything normative also machine-readable: SPDX, DTCG, JSON Schema | MUST | `[DEBT: no check that normative documents ship machine-readable form — oracle, 2026-09-11]` |
 | Agents | AGT-004 | CI is the agent's feedback loop (Principle 1) | MUST | `[DEBT: Principle 1 is stated, nothing verifies CI is the agent's loop — oracle, 2026-09-11]` |
 | Agents | AGT-005 | Mission briefs in the standard format; a mission that produces software carries Gherkin acceptance criteria (`STD-011`) | MUST | `[DEBT: no guard reads missions/ for the standard format or Gherkin — oracle, 2026-09-11]` |
-| Agents | AGT-006 | AI stance per repository in `CLAUDE.md`: autonomous versus Oracle sign-off | MUST | `[DEBT: CLAUDE.md states the stance, no check reads it — oracle, 2026-09-11]` |
+| Agents | AGT-006 | AI stance per repository in `AGENTS.md`: autonomous versus Oracle sign-off | MUST | `[DEBT: AGENTS.md states the stance, no check reads it — oracle, 2026-09-11]` |
 | Legal | LEG-001 | Making a repository public is a gated Oracle act: licence correct, REUSE green, no secrets in history, `SECURITY.md` present | MUST | `[GATE: machine/guards/rules/std-010-licensing.mjs → the Oracle makes the repository public]` |
 
 **ARC-006 convention.** Seven types, nothing bespoke: `feat`, `fix`, `docs`,
@@ -87,9 +87,9 @@ folder. Retired types (`session`, `qa`, `standards`, `canon`, `debt`, `audit`)
 stay valid in old history only.
 
 **What a repository born from the mould ships with.** OpenSSF Scorecard weekly
-and on push to `main` (target ≥ 7 on public repositories; each `CLAUDE.md`
+and on push to `main` (target ≥ 7 on public repositories; each `AGENTS.md`
 declares which checks are in scope); the shared CI workflow with coverage
-thresholds as failures and a REUSE step; one presence job for `CLAUDE.md`,
+thresholds as failures and a REUSE step; one presence job for `AGENTS.md`,
 `SECURITY.md`, `CONTRIBUTING.md`, CODEOWNERS, templates, `.env.example` and
 About fields; local hooks that are courtesy, skippable, never the authority.
 

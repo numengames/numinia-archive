@@ -210,7 +210,7 @@ function checkPipelineInvokes(problems) {
 const PRESENCE = [
   ['SEC-010', ['.github/CODEOWNERS'], 'no file says who must review a change'],
   ['TRC-002', ['.github/PULL_REQUEST_TEMPLATE.md', '.github/ISSUE_TEMPLATE/task.md'], 'work arrives with no stated definition of done'],
-  ['AGT-001', ['CLAUDE.md'], 'an agent has no standing instruction to audit before assuming'],
+  ['AGT-001', ['AGENTS.md'], 'an agent has no standing instruction to audit before assuming'],
 ];
 
 function checkPresence(problems) {
@@ -219,14 +219,18 @@ function checkPresence(problems) {
       if (!tracked.has(f)) problems.push(`${plate}: ${f} is missing — ${why}`);
 
   /* AGT-001 is not satisfied by the file existing: the row says the FIRST
-     instruction is to audit the branch. A CLAUDE.md that opens with anything
-     else fails the practice while passing a presence check. */
-  const claude = readFileSync(path.join(ROOT, 'CLAUDE.md'), 'utf8');
-  const firstDirective = claude.split('\n').find((l) => /^\*\*First instruction/.test(l.trim()));
+     instruction is to audit the branch. An AGENTS.md that opens with anything
+     else fails the practice while passing a presence check.
+
+     The file read here is AGENTS.md, not CLAUDE.md. CLAUDE.md is one runtime's
+     adapter; AGENTS.md is the platform-neutral layer every runtime loads, and
+     guarding the adapter left the file the others read unguarded. */
+  const agents = readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf8');
+  const firstDirective = agents.split('\n').find((l) => /^\*\*First instruction/.test(l.trim()));
   if (!firstDirective)
-    problems.push('AGT-001: CLAUDE.md does not open with a **First instruction** line');
+    problems.push('AGT-001: AGENTS.md does not open with a **First instruction** line');
   else if (!/audit/i.test(firstDirective))
-    problems.push('AGT-001: CLAUDE.md\'s first instruction does not tell the agent to audit the branch');
+    problems.push('AGT-001: AGENTS.md\'s first instruction does not tell the agent to audit the branch');
 
   /* SEC-010 names the paths that must carry an owner. A rule covers a path if
      it is that path or a parent of it: `/.github/` owns `/.github/workflows/`.
