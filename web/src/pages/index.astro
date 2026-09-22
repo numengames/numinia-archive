@@ -173,7 +173,93 @@ const FN_DOOR: Record<string, string> = {
         </div>
       </div>
 
-      <!-- 3 · THE SIX DOORS. The functions, at a glance. -->
+      {/*
+        3 · START HERE. Four questions, before any door.
+
+        WHY IT EXISTS. A reader arriving with no context met the welcome, then
+        the pain, then six functions — and was classified before being told who
+        writes this, what the two names mean, what state it is in, or what they
+        may do with it. Those four answers existed, spread across CAN-001,
+        CAN-006 and SYS-006, in the technical register. This is the colloquial
+        level (CAN-002) of the same content: the answers, in the order a
+        stranger asks them, with the documents one click behind each.
+
+        `draft` is defined here rather than glossed, because it is the state
+        most of this archive is in and STD-016 is exact about it: "written, not
+        yet in force; binds nobody". Anything softer would be a nicer sentence
+        and a false one.
+      */}
+      <div class="mb-4 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Start here</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+
+      <div class="rounded-[8px] border border-border bg-card p-6 sm:p-8 mb-16 max-w-[780px]">
+        <h2 class="font-display text-2xl text-foreground mb-6">
+          Four questions, before you open any door
+        </h2>
+
+        <div class="flex flex-col gap-6">
+          <div>
+            <h3 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">
+              Who writes this?
+            </h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Numen Games S.L., a studio in Spain building a narrative operating system for the
+              way organisations work. We are the first organisation running on it, which makes
+              this archive our documentation and our evidence at once: if it does not work for
+              us, it does not work.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">
+              What is Numinia, and what is NWOS?
+            </h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Two names for one thing, seen from two sides. NWOS is the machine: files in a git
+              repository, one classification, checks that refuse a change breaking the rules.
+              Numinia is the story that machine is told through — a city where tasks are
+              missions, roles are characters, and the people doing the work are its citizens.
+              The machine keeps the work honest; the story keeps it worth doing.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">
+              What state is this in?
+            </h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Early, and openly so. Most of what you will read says <code class="font-mono text-xs text-foreground">draft</code>,
+              including the canon: written, not yet in force — it binds nobody
+              (<a href="/standards/std-016-header-fields" class="text-accent hover:underline">STD-016</a>).
+              A document is published the day it is written, not the day it is ratified, because
+              the alternative is an archive that only shows its finished parts. What is broken is
+              in <a href="/debt/" class="text-accent hover:underline">the debt register</a>; what
+              changed is in <a href="/updates/" class="text-accent hover:underline">Updates</a>; what
+              can be counted is in <a href="/telemetry" class="text-accent hover:underline">Telemetry</a>,
+              measured by an instrument and never typed.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">
+              What can you do with it?
+            </h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Read all of it — every page is a rendering of a real file, and every page hands you
+              that file to copy, download or open where it lives. Take it, too: everything outside
+              <a href="/lore/" class="font-mono text-xs text-foreground hover:text-accent">lore/</a> is
+              open by licence, so the scheme, the standards or the whole method can be lifted into
+              your own organisation. And if you would rather talk to us first, write to
+              <a href="mailto:hola@numengames.com" class="text-accent hover:underline">hola@numengames.com</a> —
+              a person answers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 · THE SIX DOORS. The functions, at a glance. -->
       <div class="mb-4 flex items-center gap-3">
         <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">What you will find</span>
         <span class="h-px flex-1 bg-border"></span>

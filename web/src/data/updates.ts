@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.16.0",
+    date: "2026-09-22",
+    entries: [
+      {
+        type: "ADD",
+        text: "The home answers four questions before it classifies anyone: who writes this, what Numinia and NWOS each are, what state the archive is in, and what a reader may do with it. All four answers already existed — in CAN-001, CAN-006 and SYS-006, in the technical register, three clicks deep. A stranger arriving with no context was welcomed, shown the pain, and then handed a filing scheme; they could read the whole site without learning that Numen Games is a studio in Spain, that this archive is the first organisation running on its own product, or that anything outside lore/ can be taken and used.",
+      },
+      {
+        type: "ADD",
+        text: "There is a way to reach a person. Until today the site offered no address at all: hola@numengames.com is in the fourth answer, and a reader who wants to use the method in their own organisation no longer has to work out who to ask.",
+      },
+      {
+        type: "ADD",
+        text: "What `draft` means, said where it is read. Most of the archive carries that status, the canon included, and a reader with no definition reads sixty-eight drafts as sixty-eight doubts. STD-016 is exact — written, not yet in force; it binds nobody — and that is now on the home and in full on /scheme, beside the argument for publishing the day a thing is written rather than the day it is ratified.",
+      },
+      {
+        type: "CHG",
+        text: "The markdown of both pages carries the new text. The home and /scheme have no file behind them: their .md is composed from the registers, so the four questions and the note on draft are written once and rendered twice. Both files now declare STD-016 among the documents they were read from.",
+      },
+    ],
+  },
+  {
     version: "v0.15.0",
     date: "2026-09-22",
     entries: [

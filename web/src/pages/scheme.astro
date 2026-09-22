@@ -143,6 +143,29 @@ const n = counts();
         </table>
       </div>
 
+      {/*
+        ON `draft`. The state most of this archive is in, defined rather than
+        excused. STD-016's words, quoted: "written, not yet in force; binds
+        nobody". A reader who does not know that reads 68 drafts as 68 doubts.
+      */}
+      <div class="rounded-[8px] border border-border bg-card p-6 mb-8 max-w-[780px]">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">On <code>draft</code></p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Most of this archive says <code class="font-mono text-xs text-foreground">draft</code>,
+          including the canon. That is not a warning label, it is a state with a definition:
+          <strong class="text-foreground">written, not yet in force — it binds nobody</strong>
+          (<a href="/standards/std-016-header-fields" class="text-accent hover:underline">STD-016</a>).
+          <code class="font-mono text-xs text-foreground">active</code> means in force;
+          <code class="font-mono text-xs text-foreground">withdrawn</code> means it no longer is,
+          and it is the only terminal state.
+        </p>
+        <p class="text-sm text-muted-foreground leading-relaxed mt-3">
+          A document is published the day it is written, not the day it is ratified. The
+          alternative — holding work private until it is perfect — is how an organisation ends up
+          not knowing itself, which is the thing this archive exists against.
+        </p>
+      </div>
+
       <!-- The second fond -->
       <div class="rounded-[8px] border border-purple/20 bg-purple/5 p-6 max-w-[780px]">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-purple mb-3">The second fond</p>

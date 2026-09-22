@@ -54,6 +54,8 @@ export interface ComposedPage {
 /** The two standards that own the classification. Used by most pages here. */
 const SCHEME_DOC = "standards/STD-027-the-classification-scheme.md";
 const SERIES_DOC = "standards/STD-001-the-series.md";
+/** The status lifecycles: what `draft`, `active` and `withdrawn` mean. */
+const STATUS_DOC = "standards/STD-016-header-fields.md";
 /** The roster: who acts, and when to route work to them. */
 const AGENTS_DOC = "agents/INDEX.md";
 
@@ -133,6 +135,17 @@ export function schemePage(): ComposedPage {
     "",
     table(["Function", "Activity", "Series", "Holds"], rows),
     "",
+    "## On `draft`",
+    "",
+    "Most of this archive says `draft`, including the canon. That is not a warning",
+    "label, it is a state with a definition: **written, not yet in force — it binds",
+    "nobody** (`STD-016`). `active` means in force; `withdrawn` means it no longer",
+    "is, and it is the only terminal state.",
+    "",
+    "A document is published the day it is written, not the day it is ratified. The",
+    "alternative — holding work private until it is perfect — is how an organisation",
+    "ends up not knowing itself, which is the thing this archive exists against.",
+    "",
     "## The second fond",
     "",
     "`lore/` is recognised as a fond of its own: a different producer relationship",
@@ -142,7 +155,7 @@ export function schemePage(): ComposedPage {
     "",
   ].join("\n");
 
-  return { route: "/scheme", filename: "scheme.md", sources: [SCHEME_DOC, SERIES_DOC], body };
+  return { route: "/scheme", filename: "scheme.md", sources: [SCHEME_DOC, SERIES_DOC, STATUS_DOC], body };
 }
 
 /** `/` — the threshold. */
@@ -166,6 +179,34 @@ export function homePage(): ComposedPage {
     "knowing itself. Not here. What is decided, what is built and what is agreed",
     "is written down, as files, in the open.",
     "",
+    "## Four questions, before you open any door",
+    "",
+    "**Who writes this?** Numen Games S.L., a studio in Spain building a narrative",
+    "operating system for the way organisations work. We are the first organisation",
+    "running on it, which makes this archive our documentation and our evidence at",
+    "once: if it does not work for us, it does not work.",
+    "",
+    "**What is Numinia, and what is NWOS?** Two names for one thing, seen from two",
+    "sides. NWOS is the machine: files in a git repository, one classification,",
+    "checks that refuse a change breaking the rules. Numinia is the story that",
+    "machine is told through — a city where tasks are missions, roles are",
+    "characters, and the people doing the work are its citizens. The machine keeps",
+    "the work honest; the story keeps it worth doing.",
+    "",
+    "**What state is this in?** Early, and openly so. Most of what you will read",
+    "says `draft`, including the canon: written, not yet in force — it binds nobody",
+    "(`STD-016`). A document is published the day it is written, not the day it is",
+    "ratified, because the alternative is an archive that only shows its finished",
+    "parts. What is broken is in `/debt/`; what changed is in `/updates/`; what can",
+    "be counted is in `/telemetry`, measured by an instrument and never typed.",
+    "",
+    "**What can you do with it?** Read all of it — every page is a rendering of a",
+    "real file, and every page hands you that file to copy, download or open where",
+    "it lives. Take it, too: everything outside `lore/` is open by licence, so the",
+    "scheme, the standards or the whole method can be lifted into your own",
+    "organisation. And if you would rather talk to us first, write to",
+    "hola@numengames.com — a person answers.",
+    "",
     "## What you will find",
     "",
     table(["Function", "Activities", "Address"], doors),
@@ -187,7 +228,7 @@ export function homePage(): ComposedPage {
     "",
   ].join("\n");
 
-  return { route: "", filename: "home.md", sources: [SCHEME_DOC, SERIES_DOC], body };
+  return { route: "", filename: "home.md", sources: [SCHEME_DOC, SERIES_DOC, STATUS_DOC], body };
 }
 
 /** `/archive/<function>` — one function of the fond. */
