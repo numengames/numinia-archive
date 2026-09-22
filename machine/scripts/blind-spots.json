@@ -548,6 +548,38 @@
           "debt": null
         }
       ]
+    },
+    "rule-index": {
+      "script": "machine/tools/rule-index.mjs",
+      "manual": "takes arguments (--check, --print) and is run by hand or by its test, not by run-guards.mjs (ENG-032's registry-discovery scope)",
+      "sees": "the `**Binds:**` line of every tracked document in standards/, protocols/ and canon/, and whether the block in AGENTS.md still quotes them",
+      "blind_to": [
+        {
+          "spot": "what a rule actually REQUIRES — it reads the Binds line, which says whom a document governs, and never the plated rules beneath it. A document can bind you and still not matter to your task, and this cannot tell the difference",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "the 15 documents with no Binds line (the eight canon by design, seven standards and one protocol). It reports them as `no scope line` and cannot say whether they apply — an agent in doubt must open them",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a Binds line is TRUE of the document it opens. It quotes the claim; nothing verifies the rest of the document stays inside the scope its own first line declares",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "consumers of the block outside this repository — the index is rendered on numinia.org from the same source, but a copy pasted anywhere else drifts unseen",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "untracked files — it enumerates through `git ls-files`, so a rule document written and not yet committed is absent from the index and from --check",
+          "covered_by": null,
+          "debt": "D-049"
+        }
+      ]
     }
   }
 }
