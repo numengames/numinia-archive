@@ -8,6 +8,8 @@ import { placeOf } from "@/lib/classification";
 // The drawer this index opens, from the scheme: "Assurance · Observing".
 const here = placeOf("decisions/")!;
 import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
 import { getCollection } from "astro:content";
 
 const STATUS_COLOR: Record<string, string> = {
@@ -35,6 +37,18 @@ const decisions = (await getCollection("decisions")).sort((a, b) =>
 
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6 space-y-4">
+      {/*
+        Listen, copy, download, source. Composed from the decisions
+        collection; `Source` opens the series register, which is what decides
+        that decisions/ holds why something was chosen and that an entry is
+        withdrawn by the next, never edited.
+      */}
+      <DocToolbar
+        mdUrl="/decisions.md"
+        filename="decisions.md"
+        repoUrl={repoFileUrl("standards/STD-001-the-series.md")}
+        lang="en"
+      />
       {decisions.map((d) => (
         <a
           href={"/decisions/" + (d.data.id as string).toLowerCase()}

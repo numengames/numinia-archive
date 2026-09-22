@@ -20,6 +20,8 @@
 // if a series moves, this page moves with it or the build fails.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
 import { functions, counts } from "@/lib/classification";
 
 const fns = functions();
@@ -39,6 +41,20 @@ const n = counts();
 
   <section class="pb-24">
     <div class="mx-auto max-w-[1100px] px-6">
+
+      {/*
+        Listen, copy, download, source. No file behind this page either: the
+        .md is composed by @/lib/composed-md from the same two standards the
+        table reads, and `Source` opens the scheme itself.
+      */}
+      <div class="mb-10">
+        <DocToolbar
+          mdUrl="/scheme.md"
+          filename="scheme.md"
+          repoUrl={repoFileUrl("standards/STD-027-the-classification-scheme.md")}
+          lang="en"
+        />
+      </div>
 
       <!-- The figures, counted from the scheme, never typed -->
       <div class="grid gap-4 grid-cols-2 sm:grid-cols-4 mb-12">

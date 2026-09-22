@@ -515,6 +515,34 @@
           "debt": null
         }
       ]
+    },
+    "check-md-portability": {
+      "script": "machine/scripts/check-md-portability.mjs",
+      "build_guard": "verifies the built site, not a rule in prose — a page that cannot be taken out of the site is a broken promise to the reader, whatever the standards say (ENG-067 exception)",
+      "needs": "web/dist",
+      "sees": "every built page that is not a redirect: that it carries a toolbar, that the .md the toolbar names was produced by the build, and that the file is not empty. Exempt pages are listed in the guard with a stated reason each",
+      "blind_to": [
+        {
+          "spot": "whether the markdown SAYS what the page shows. A generator emitting a well-formed file of the wrong content passes here — existence and cardinality are what a build can know",
+          "covered_by": "web/src/lib/composed-md.ts tests, and review",
+          "debt": null
+        },
+        {
+          "spot": "EXEMPT is hand-kept in the guard. A page added there is admitted without argument; the guard checks that pages offer markdown, not whether a page deserved its exemption",
+          "covered_by": "review",
+          "debt": null
+        },
+        {
+          "spot": "the eight views under /system/ — five of them hold their data in the template rather than in the corpus, which is why they are exempt rather than fixed. A .md generated from a hardcoded array would launder template data into something that reads like an archive record",
+          "covered_by": null,
+          "debt": "DBT-021"
+        },
+        {
+          "spot": "whether the SOURCE link points at the document that really governs the page. It is a URL in the toolbar like any other; that it leads to the right register is a judgement",
+          "covered_by": "review",
+          "debt": null
+        }
+      ]
     }
   }
 }

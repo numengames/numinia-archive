@@ -15,6 +15,8 @@ import { placeOf } from "@/lib/classification";
 // The drawer this index opens, from the scheme: "Assurance · Observing".
 const here = placeOf("reports/")!;
 import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
 import { getCollection } from "astro:content";
 
 type Row = { id: string; docId: string; title: string; created: string; status: string; author?: string; tags: string[]; subtype: string };
@@ -64,6 +66,18 @@ for (const g of groups) g.rows.sort((a, b) => b.created.localeCompare(a.created)
 
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6 space-y-12">
+      {/*
+        Listen, copy, download, source. Composed from the reports collection;
+        `Source` opens the series register, which is what decides that
+        reports/ holds what was observed on a date and that reports/evidence/
+        is never edited.
+      */}
+      <DocToolbar
+        mdUrl="/reports.md"
+        filename="reports.md"
+        repoUrl={repoFileUrl("standards/STD-001-the-series.md")}
+        lang="en"
+      />
       {groups.filter((g) => g.rows.length > 0).map((g) => (
         <div>
           <div class="mb-4 flex items-center gap-3">

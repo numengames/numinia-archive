@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "65e2745",
+  "head": "b657fd8",
   "corpus_hash": "2430087cd0b7ce1b48624403415b3266ceece92a8de5db163527df299f2cd663",
-  "root_dirty": 0,
-  "measured_at": "2026-09-22T09:50:27Z",
+  "root_dirty": 17,
+  "measured_at": "2026-09-22T10:22:48Z",
   "families": [
     "corpus",
     "series",
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 615034,
+      "value": 616080,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -330,7 +330,7 @@
         "canon": 29365,
         "agents": 27835,
         "reports": 26153,
-        "": 25078,
+        "": 26124,
         "operations": 22950,
         "blueprints": 20861,
         "system": 16946,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 335987,
+        "(none)": 337033,
         "draft": 119367,
         "active": 114526,
         "done": 26389,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.09,
+      "value": 7.08,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -369,7 +369,7 @@
         ],
         [
           "CHANGELOG.md",
-          17912
+          18958
         ],
         [
           "lore/adventures/el-espejo-roto.md",
@@ -683,7 +683,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 723
+          "3": 728
         },
         "MIS": {
           "3": 679,
@@ -693,13 +693,16 @@
           "3": 223
         },
         "OPS": {
-          "3": 58
+          "3": 61
         },
         "CAN": {
-          "3": 159
+          "3": 160
         },
         "ADR": {
           "3": 377
+        },
+        "DBT": {
+          "3": 74
         },
         "BLU": {
           "3": 121
@@ -710,9 +713,6 @@
         "RPT": {
           "3": 53,
           "4": 9
-        },
-        "DBT": {
-          "3": 73
         },
         "DEC": {
           "3": 13

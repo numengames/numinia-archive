@@ -1,0 +1,400 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The markdown of a page that has no file behind it.
+//
+// THE PROBLEM THIS SOLVES
+// Every document detail view offers the same four things: listen, copy the
+// raw markdown, download the canonical file, open the source (DocToolbar).
+// It works there because a document IS a file — `/[...slug].md.ts` serves
+// the .md straight off disk and the toolbar points at it.
+//
+// The home, /scheme, the six function pages and the section indexes have no
+// such file. They are COMPOSED at build time from the classification and the
+// corpus. So until today they offered none of it: 8 of 26 pages had the
+// toolbar and 18 did not, and the ones without were exactly the ones a
+// reader arrives at first.
+//
+// "File over app" (STD-006, and the house's own vocabulary) does not say
+// "documents are files". It says the data must be readable and portable
+// without the application. A page whose content only exists as HTML fails
+// that test even when every fact in it came from a file.
+//
+// WHAT A COMPOSED PAGE'S MARKDOWN IS, AND IS NOT
+// It is NOT a transcription of the rendered page. It is the same query,
+// answered in markdown: the rows the page draws, from the registers that own
+// them. Nothing here is written by hand and nothing is duplicated — if the
+// scheme changes, both the page and its .md change together, because both
+// read the same module.
+//
+// WHERE `Source` POINTS, AND WHY NOT AT THE .astro
+// At the DOCUMENT THAT GOVERNS, never at the template that draws it. The
+// source of truth of /archive/governance is STD-027, the classification
+// scheme — not `[function].astro`, which is a lens. Sending a reader who
+// wants to argue with the content to a rendering component is sending them
+// to the wrong argument. Where a page draws on two registers, `sources`
+// lists both and the toolbar links the first.
+import { getCollection } from "astro:content";
+import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
+import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
+import { digitalAgents, agentById } from "@/lib/agents";
+
+/** A composed page's markdown, and where the facts in it come from. */
+export interface ComposedPage {
+  /** Route this belongs to, no trailing slash: "", "/scheme", "/canon". */
+  route: string;
+  /** Filename offered on download. */
+  filename: string;
+  /** Repo-relative paths of the documents that govern this page's content. */
+  sources: string[];
+  /** The markdown itself. */
+  body: string;
+}
+
+/** The two standards that own the classification. Used by most pages here. */
+const SCHEME_DOC = "standards/STD-027-the-classification-scheme.md";
+const SERIES_DOC = "standards/STD-001-the-series.md";
+/** The roster: who acts, and when to route work to them. */
+const AGENTS_DOC = "agents/INDEX.md";
+
+/**
+ * The note every composed .md opens with.
+ *
+ * A reader who downloads this file must be able to tell it from a document of
+ * the corpus at a glance — it has no identifier, no frontmatter and no place
+ * in the scheme, because it is a VIEW, not a record. Saying so is cheaper
+ * than letting someone cite it as if it were canon.
+ */
+function preamble(sources: string[]): string {
+  const list = sources.map((s) => `\`${s}\``).join(", ");
+  return [
+    "<!--",
+    "  A composed view of the archive, generated at build time.",
+    "  This is not a document of the corpus: it has no identifier and no series.",
+    `  What it states is read from: ${sources.join(", ")}`,
+    "  Cite those, never this file.",
+    "-->",
+    "",
+    `> Generated from ${list}. Cite the source documents, not this view.`,
+    "",
+  ].join("\n");
+}
+
+/** A markdown table, given headers and rows. Empty rows render as a dash. */
+function table(headers: string[], rows: string[][]): string {
+  const head = `| ${headers.join(" | ")} |`;
+  const rule = `|${headers.map(() => "---").join("|")}|`;
+  const body = rows.map((r) => `| ${r.map((c) => c || "—").join(" | ")} |`).join("\n");
+  return [head, rule, body].join("\n");
+}
+
+// ---------------------------------------------------------------------------
+// THE PAGES
+// ---------------------------------------------------------------------------
+
+/** `/scheme` — the classification in full. */
+export function schemePage(): ComposedPage {
+  const n = counts();
+  const rows: string[][] = [];
+  for (const fn of functions()) {
+    for (const act of fn.activities) {
+      for (const s of act.series) {
+        rows.push([
+          fn.name,
+          act.name,
+          `\`${s.folder}\`${s.instrument ? " *(instrument)*" : ""}`,
+          s.holds || s.note || "",
+        ]);
+      }
+    }
+  }
+
+  const body = [
+    preamble([SCHEME_DOC, SERIES_DOC]),
+    "# The scheme in full",
+    "",
+    "Every series the archive keeps, the activity that fills it and the function",
+    "it answers to.",
+    "",
+    `- **1** fond`,
+    `- **${n.functions}** functions`,
+    `- **${n.activities}** activities`,
+    `- **${n.series}** series, of which **${n.published}** have an address on this site`,
+    "",
+    "## The vocabulary",
+    "",
+    "A **fond** is everything one producer generates. A **function** is something",
+    "the organisation does, named with a noun; an **activity** is the verb under",
+    "it; a **series** is the folder of documents that activity produces. The",
+    "identifier of a document names its series and never its function, so",
+    "functions can be regrouped without moving a file or breaking a citation.",
+    "",
+    "## Every series",
+    "",
+    table(["Function", "Activity", "Series", "Holds"], rows),
+    "",
+    "## The second fond",
+    "",
+    "`lore/` is recognised as a fond of its own: a different producer relationship",
+    "and a different licence regime from the administrative corpus. It is listed",
+    "in the scheme because the two fonds are read together, not because it belongs",
+    "to the first. It is served for reading, all rights reserved.",
+    "",
+  ].join("\n");
+
+  return { route: "/scheme", filename: "scheme.md", sources: [SCHEME_DOC, SERIES_DOC], body };
+}
+
+/** `/` — the threshold. */
+export function homePage(): ComposedPage {
+  const n = counts();
+  const doors = functions().map((f) => [
+    f.name,
+    f.activities.map((a) => a.name).join(" · "),
+    `/archive/${f.slug}`,
+  ]);
+
+  const body = [
+    preamble([SCHEME_DOC, SERIES_DOC]),
+    "# The archive",
+    "",
+    "This is where Numinia's source of truth lives. Everything decided, built and",
+    "agreed, written down and open to read.",
+    "",
+    "Working in an organisation hurts: the documents live scattered, there are",
+    "interests in some of them not being found, and the organisation ends up not",
+    "knowing itself. Not here. What is decided, what is built and what is agreed",
+    "is written down, as files, in the open.",
+    "",
+    "## What you will find",
+    "",
+    table(["Function", "Activities", "Address"], doors),
+    "",
+    `${n.published} of ${n.series} series have an address on this site.`,
+    "The classification in full is at \`/scheme\`.",
+    "",
+    "## How the functions relate",
+    "",
+    ...RELATIONS.map(([a, b]) => `- ${a} → ${b}`),
+    "",
+    "## What is not here",
+    "",
+    "Not everything is. There is protected matter that cannot live in the open —",
+    "what is under someone else's licence, what would expose a person, what is not",
+    "ours to publish. What does live here is everything that can be transparent,",
+    "which is nearly all of it. Where a document is withheld, the archive says so",
+    "instead of leaving a gap.",
+    "",
+  ].join("\n");
+
+  return { route: "", filename: "home.md", sources: [SCHEME_DOC, SERIES_DOC], body };
+}
+
+/** `/archive/<function>` — one function of the fond. */
+export function functionPage(slug: string): ComposedPage {
+  const fn = functions().find((f) => f.slug === slug);
+  if (!fn) {
+    throw new Error(
+      `functionPage("${slug}"): no such function in STD-027. ` +
+        `A route exists for a function the scheme does not name.`,
+    );
+  }
+
+  const rows = fn.activities.flatMap((act) =>
+    act.series.map((s) => [
+      act.name,
+      `\`${s.folder}\`${s.instrument ? " *(instrument)*" : ""}`,
+      s.holds || s.note || "",
+      s.href ?? "not served here",
+    ]),
+  );
+
+  const related = RELATIONS.filter(([a, b]) => a === slug || b === slug).map(
+    ([a, b]) => `- ${a} → ${b}`,
+  );
+
+  const body = [
+    preamble([SCHEME_DOC, SERIES_DOC]),
+    `# ${fn.name}`,
+    "",
+    `A function of the fond: ${fn.activities.length} ` +
+      `${fn.activities.length === 1 ? "activity" : "activities"}, and the series they produce.`,
+    "",
+    "## Activities and series",
+    "",
+    table(["Activity", "Series", "Holds", "Served at"], rows),
+    "",
+    ...(related.length ? ["## How it relates to the others", "", ...related, ""] : []),
+  ].join("\n");
+
+  return {
+    route: `/archive/${slug}`,
+    filename: `${slug}.md`,
+    sources: [SCHEME_DOC, SERIES_DOC],
+    body,
+  };
+}
+
+/** `/<section>` — a section index: what the folder answers, and its documents. */
+export async function sectionPage(slug: string): Promise<ComposedPage> {
+  const section = SECTIONS.find((s) => s.slug === slug);
+  if (!section) {
+    throw new Error(
+      `sectionPage("${slug}"): no such section in corpus.ts. ` +
+        `A route exists for a folder SECTIONS does not list.`,
+    );
+  }
+
+  const docs = await getSectionDocs(slug);
+  const withheld = await countWithheld(slug);
+  const place = allSeries().find((s) => s.folder === section.prefix);
+
+  const rows = docs.map((d) => [d.docId ?? "", d.title, d.status ?? "", d.updated ?? "", d.href]);
+
+  const body = [
+    preamble([SERIES_DOC, SCHEME_DOC]),
+    `# ${section.label}`,
+    "",
+    ...(place ? [`*${place.activity} — ${section.prefix}*`, ""] : []),
+    section.blurb,
+    "",
+    `**The question it answers:** ${section.question}`,
+    "",
+    ...(section.rights ? [`**Rights:** ${section.rights}`, ""] : []),
+    "## Documents",
+    "",
+    ...(docs.length
+      ? [table(["Id", "Title", "Status", "Updated", "Address"], rows)]
+      : [section.emptyMeans ?? "This section publishes nothing yet."]),
+    "",
+    ...(withheld > 0
+      ? [
+          `${withheld} document${withheld === 1 ? "" : "s"} in this folder ` +
+            `${withheld === 1 ? "is" : "are"} withheld and not listed above.`,
+          "",
+        ]
+      : []),
+  ].join("\n");
+
+  return {
+    route: `/${slug}`,
+    filename: `${slug}.md`,
+    sources: [SERIES_DOC, SCHEME_DOC],
+    body,
+  };
+}
+
+/**
+ * `/missions` and `/reports` — the two indexes whose documents live in a
+ * typed collection of their own rather than in `SECTIONS`.
+ *
+ * They are not an exception to the rule, they are the same rule reading a
+ * different shelf: the folder is a series of the scheme like any other, and
+ * `placeOf` is what says so. Leaving them out would have given the archive
+ * two index pages that cannot be downloaded — the two that move most.
+ */
+export async function collectionIndexPage(
+  slug: "missions" | "reports",
+): Promise<ComposedPage> {
+  const folder = `${slug}/`;
+  const place = allSeries().find((s) => s.folder === folder);
+  if (!place) {
+    throw new Error(
+      `collectionIndexPage("${slug}"): STD-001 does not register \`${folder}\`. ` +
+        `A page indexes a folder the series register does not know.`,
+    );
+  }
+
+  const entries = await getCollection(slug);
+  const rows = entries
+    .map((e) => {
+      const f = e.data as Record<string, unknown>;
+      const id = typeof f.id === "string" ? f.id : String(e.id);
+      const title = typeof f.title === "string" ? f.title : id;
+      const status = typeof f.status === "string" ? f.status : "";
+      const updated = typeof f.updated === "string" ? f.updated.slice(0, 10) : "";
+      return [id, title, status, updated, `/${slug}/${id.toLowerCase()}`];
+    })
+    .sort((a, b) => a[0].localeCompare(b[0]));
+
+  const body = [
+    preamble([SERIES_DOC, SCHEME_DOC]),
+    `# ${slug === "missions" ? "Missions" : "Reports"}`,
+    "",
+    `*${place.activity} — ${folder}*`,
+    "",
+    place.holds,
+    "",
+    "## Documents",
+    "",
+    rows.length
+      ? table(["Id", "Title", "Status", "Updated", "Address"], rows)
+      : "This section publishes nothing yet.",
+    "",
+  ].join("\n");
+
+  return {
+    route: `/${slug}`,
+    filename: `${slug}.md`,
+    sources: [SERIES_DOC, SCHEME_DOC],
+    body,
+  };
+}
+
+/**
+ * `/agents/<id>` — one agent's front door: the roster line, and the agent's
+ * own documents.
+ *
+ * The agent's SOUL, OPERATOR and SOURCES each have their own .md already.
+ * What this view adds, and what cannot be downloaded anywhere else, is the
+ * roster line — when to route work here — read from `agents/INDEX.md`.
+ */
+export function agentPage(id: string): ComposedPage {
+  const agent = agentById(id);
+  if (!agent) {
+    throw new Error(
+      `agentPage("${id}"): no such agent in agents/INDEX.md. ` +
+        `A route exists for an agent the roster does not list.`,
+    );
+  }
+
+  const body = [
+    preamble([AGENTS_DOC]),
+    `# ${agent.name}`,
+    "",
+    `*${agent.role}*`,
+    "",
+    `**Route here when:** ${agent.route}`,
+    "",
+    ...(agent.quote ? [`> ${agent.quote}`, ""] : []),
+    "## Its documents",
+    "",
+    "An agent is constituted by four files: who it is, who governs it, where",
+    "its knowledge comes from, and the state it is in. Each is a document of",
+    "the corpus with its own address and its own markdown.",
+    "",
+    `Served at \`/agents/${agent.id}\`.`,
+    "",
+  ].join("\n");
+
+  return {
+    route: `/agents/${agent.id}`,
+    filename: `${agent.id}.md`,
+    sources: [AGENTS_DOC],
+    body,
+  };
+}
+
+/**
+ * Every composed page, for the routes that serve them and for the guard that
+ * checks none is forgotten.
+ */
+export async function allComposedPages(): Promise<ComposedPage[]> {
+  const pages: ComposedPage[] = [homePage(), schemePage()];
+  for (const fn of functions()) pages.push(functionPage(fn.slug));
+  for (const s of SECTIONS) pages.push(await sectionPage(s.slug));
+  pages.push(await collectionIndexPage("missions"));
+  pages.push(await collectionIndexPage("reports"));
+  for (const a of digitalAgents()) pages.push(agentPage(a.id));
+  return pages;
+}
