@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "6c57002",
-  "corpus_hash": "92fd487b057f77b661b1cdf9899c3aaecbb7dc2e0791393f708f64c31b293441",
+  "head": "b4c6242+index",
+  "corpus_hash": "9b0e6df390fef9ca955f40acd6cde0762acedca1638d7ce5e59ff6a6bf62eb92",
   "root_dirty": 0,
-  "measured_at": "2026-09-22T10:51:31Z",
+  "measured_at": "2026-09-22T10:54:33Z",
   "families": [
     "corpus",
     "series",
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 617808,
+      "value": 617826,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -329,7 +329,7 @@
         "missions": 43636,
         "canon": 29365,
         "agents": 27835,
-        "": 26468,
+        "": 26486,
         "reports": 26153,
         "operations": 22950,
         "blueprints": 20861,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 337377,
+        "(none)": 337395,
         "draft": 119367,
         "active": 115910,
         "done": 26389,
@@ -369,7 +369,7 @@
         ],
         [
           "CHANGELOG.md",
-          19302
+          19320
         ],
         [
           "lore/adventures/el-espejo-roto.md",
