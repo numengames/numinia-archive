@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.17.0",
+    date: "2026-09-22",
+    entries: [
+      {
+        type: "CHG",
+        text: "The site is in one language. Nine pages had been written in Spanish while the rest moved to English, so a reader following a link changed language mid-click: the decisions register was titled 'Decisiones', the blueprints index 'Los Planos del Mundo', and four pages under /system/ — the agent dashboard, the solutions, the hundred simulations and the sales plan — were Spanish end to end. Translation only: every figure, date, amount, address and identifier is byte-identical, and the object keys stay as they were, because renaming them is a refactor and does not belong in the same commit as a translation.",
+      },
+      {
+        type: "FIX",
+        text: "The perspective chips on /system/solutions were drawn from a lookup keyed by the Spanish words, so translating the labels alone would have left every chip without its colour. Key and value moved together — Negocio, Producto and Teoría became Business, Product and Theory in the map, in the twenty gap records, in the forty-eight solutions and in the legend, which was hand-written apart from the map and would otherwise have kept printing the old three. Verified on the built HTML: 43 chips carry their colour, none renders 'undefined'.",
+      },
+      {
+        type: "CHG",
+        text: "What stays in Spanish, stays on purpose. The vocabulary table at /system/language holds the registers of Numinia — Gremio, Facción, Misión, Arconte — and those columns ARE the Spanish register; translating them would erase what the table exists to show. The same for the lore documents, written in Spanish and listed by their real titles, and for the status keys in the code, which are slugs and not prose.",
+      },
+    ],
+  },
+  {
     version: "v0.16.0",
     date: "2026-09-22",
     entries: [

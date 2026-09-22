@@ -1,10 +1,20 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
+//
+// ON THE LANGUAGE. This page was written in Spanish while the rest of the
+// site moved to English. The words are translated here, nothing else: the
+// same figures, the same date, the same signature. Object keys stay Spanish
+// (`nombre`, `rol`, `gremio`, `coste`) because renaming them is a refactor,
+// not a translation, and the two should not ride in one commit.
+//
+// ON THE FIGURES. Everything below is typed by hand and stamped 2026-04-07 —
+// it is not read from the instrument, unlike /telemetry. That is DBT-021: the
+// page holds its own content instead of the corpus holding it.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 
-// Métricas de la CAO — actualizadas por los agentes
+// CAO metrics — updated by the agents
 const metrics = {
   updated: "2026-04-07",
   period: "2026-04-02 / 2026-04-07",
@@ -12,8 +22,8 @@ const metrics = {
     {
       id: "nimrod",
       nombre: "Nimrod",
-      rol: "Guardián de las Puertas",
-      gremio: "Centinelas",
+      rol: "Keeper of the Gates",
+      gremio: "Sentinels",
       modelo: "claude-sonnet-4.6",
       estado: "activo",
       misiones: 58,
@@ -25,8 +35,8 @@ const metrics = {
     {
       id: "alquimista-01",
       nombre: "Alquimista-01",
-      rol: "CTO Digital",
-      gremio: "Alquimistas",
+      rol: "Digital CTO",
+      gremio: "Alchemists",
       modelo: "claude-sonnet-4.6",
       estado: "diseñado",
       misiones: 0,
@@ -39,7 +49,7 @@ const metrics = {
       id: "exegeta-01",
       nombre: "Exegeta-01",
       rol: "Content & Lore",
-      gremio: "Exegetas",
+      gremio: "Exegetes",
       modelo: "claude-haiku-3.5",
       estado: "diseñado",
       misiones: 0,
@@ -52,7 +62,7 @@ const metrics = {
       id: "procurador-01",
       nombre: "Procurador-01",
       rol: "Sales & BD",
-      gremio: "Procuradores",
+      gremio: "Procurators",
       modelo: "claude-haiku-3.5",
       estado: "diseñado",
       misiones: 0,
@@ -64,8 +74,8 @@ const metrics = {
     {
       id: "adonaz",
       nombre: "Adonaz",
-      rol: "Archivista General",
-      gremio: "Exégetas",
+      rol: "Archivist General",
+      gremio: "Exegetes",
       modelo: "claude-sonnet-4.6",
       estado: "activo",
       misiones: 2,
@@ -78,7 +88,7 @@ const metrics = {
       id: "procyon",
       nombre: "Procyon",
       rol: "CAO Coordinator",
-      gremio: "Coordinador",
+      gremio: "Coordinator",
       modelo: "claude-sonnet-4.6",
       estado: "previsto-2028",
       misiones: 0,
@@ -103,22 +113,22 @@ const estadoStyles: Record<string, string> = {
 };
 
 const estadoLabel: Record<string, string> = {
-  "activo": "Activo",
-  "diseñado": "Diseñado",
-  "previsto-2028": "Previsto 2028",
+  "activo": "Active",
+  "diseñado": "Designed",
+  "previsto-2028": "Planned 2028",
 };
 ---
 
 <Layout
   title="CAO Dashboard — Numen Games"
-  description="Panel de métricas de la Organización Autónoma Centralizada de Numen Games. Agentes digitales, misiones, costes y ROI."
+  description="Metrics panel of the Centralised Autonomous Organisation of Numen Games. Digital agents, missions, costs and ROI."
   canonicalPath="/system/cao"
   activeNav="system/"
 >
   <PageHero
     label="Numen Games · CAO"
-    title="Dashboard de Agentes"
-    description="Métricas en tiempo real de los agentes digitales de la Organización Autónoma Centralizada."
+    title="Agent Dashboard"
+    description="Live metrics of the digital agents of the Centralised Autonomous Organisation."
   />
 
   <section class="pb-20">
@@ -126,37 +136,37 @@ const estadoLabel: Record<string, string> = {
 
       <!-- Meta info -->
       <div class="mb-10 flex flex-wrap gap-6 font-mono text-[0.7rem] text-dim">
-        <span>Período <span class="text-muted-foreground">{metrics.period}</span></span>
-        <span>Actualizado <span class="text-muted-foreground">{metrics.updated}</span></span>
+        <span>Period <span class="text-muted-foreground">{metrics.period}</span></span>
+        <span>Updated <span class="text-muted-foreground">{metrics.updated}</span></span>
       </div>
 
-      <!-- KPIs globales -->
+      <!-- Global KPIs -->
       <div class="grid gap-4 sm:grid-cols-4 mb-12">
         <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Misiones</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Missions</p>
           <p class="font-display text-4xl text-foreground">{metrics.totales.misiones}</p>
-          <p class="text-xs text-muted-foreground mt-1">completadas</p>
+          <p class="text-xs text-muted-foreground mt-1">completed</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Coste total</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Total cost</p>
           <p class="font-display text-4xl text-foreground">${metrics.totales.coste}</p>
-          <p class="text-xs text-muted-foreground mt-1">USD en 3 días</p>
+          <p class="text-xs text-muted-foreground mt-1">USD over 3 days</p>
         </div>
         <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Agentes activos</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Active agents</p>
           <p class="font-display text-4xl text-foreground">{metrics.totales.activos}<span class="text-muted-foreground text-2xl">/{metrics.totales.total}</span></p>
-          <p class="text-xs text-muted-foreground mt-1">de {metrics.totales.total} diseñados</p>
+          <p class="text-xs text-muted-foreground mt-1">of {metrics.totales.total} designed</p>
         </div>
         <div class="rounded-xl border border-accent/20 bg-accent/5 p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-2">ROI estimado</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-2">Estimated ROI</p>
           <p class="font-display text-2xl text-foreground">+40x</p>
-          <p class="text-xs text-muted-foreground mt-1">infra valorada >$2K</p>
+          <p class="text-xs text-muted-foreground mt-1">infrastructure valued >$2K</p>
         </div>
       </div>
 
-      <!-- Agentes -->
+      <!-- Agents -->
       <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Agentes</span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Agents</span>
         <span class="h-px flex-1 bg-border"></span>
       </div>
 
@@ -176,7 +186,7 @@ const estadoLabel: Record<string, string> = {
 
             <div class="grid grid-cols-3 gap-3 border-t border-border pt-4">
               <div>
-                <p class="font-mono text-[0.6rem] text-dim mb-1">Misiones</p>
+                <p class="font-mono text-[0.6rem] text-dim mb-1">Missions</p>
                 <p class="font-display text-lg text-foreground">{agente.misiones}</p>
               </div>
               <div>
@@ -184,7 +194,7 @@ const estadoLabel: Record<string, string> = {
                 <p class="font-display text-lg text-foreground">{agente.prs}</p>
               </div>
               <div>
-                <p class="font-mono text-[0.6rem] text-dim mb-1">Coste</p>
+                <p class="font-mono text-[0.6rem] text-dim mb-1">Cost</p>
                 <p class="font-display text-lg text-foreground">${agente.coste}</p>
               </div>
             </div>
@@ -192,11 +202,11 @@ const estadoLabel: Record<string, string> = {
         ))}
       </div>
 
-      <!-- Nota -->
+      <!-- Note -->
       <div class="mt-12 rounded-xl border border-border/50 bg-card/50 p-6">
-        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-2">Sobre este dashboard</p>
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-2">About this dashboard</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
-          Métricas de la CAO (Organización Autónoma Centralizada) de Numen Games. Los agentes digitales operan 24/7 ejecutando misiones mientras los Oráculos descansan. Actualización automática en cada ciclo de reporting.
+          Metrics of the CAO (Centralised Autonomous Organisation) of Numen Games. The digital agents operate around the clock running missions while the Oracles rest. Updated automatically on each reporting cycle.
         </p>
       </div>
 
