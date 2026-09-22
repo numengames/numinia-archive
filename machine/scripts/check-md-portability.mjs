@@ -96,6 +96,36 @@ function isRedirect(html) {
   return /<meta\s+http-equiv="refresh"/i.test(html);
 }
 
+/**
+ * The text the listen button would speak, by the same selector chain the
+ * component uses: the declared selector, then <article>, then <main>.
+ *
+ * WHY THIS IS HERE AND NOT ONLY IN THE COMPONENT
+ * The toolbar shipped on 179 pages and the listen button was dead on 9 of
+ * them: SpeechPlayer looked for <article>, which only document views have.
+ * Nothing threw — the component disables a button it has no text for, which
+ * is correct behaviour for an empty page and indistinguishable from a bug.
+ * A toolbar that is present but mute is worse than an absent one: it
+ * promises a reader who cannot read that the page can be heard.
+ */
+function spokenWords(html) {
+  let seg = null;
+  const article = /<article\b[\s\S]*?<\/article>/i.exec(html);
+  if (article) seg = article[0];
+  else {
+    const main = /<main id="main">[\s\S]*?<\/main>/i.exec(html);
+    if (main) seg = main[0];
+  }
+  if (!seg) return 0;
+  const text = seg
+    .replace(/<(script|style|noscript|template|svg)\b[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<nav\b[\s\S]*?<\/nav>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return text ? text.split(" ").length : 0;
+}
+
 export function check() {
   const findings = [];
   const pages = builtPages();
@@ -137,6 +167,22 @@ export function check() {
       findings.push({
         plate: "PORT-003",
         what: `${mdUrl} was built but is empty`,
+        where: page.url,
+      });
+      continue;
+    }
+
+    // PORT-004 — the listen button is not decoration. A page carrying the
+    // toolbar must have text the player can find, or the button ships
+    // disabled and the promise of accessibility is a grey rectangle.
+    // 20 words is the floor: below it the page is a shell, not a reading.
+    const words = spokenWords(html);
+    if (words < 20) {
+      findings.push({
+        plate: "PORT-004",
+        what:
+          `offers a listen button but the player finds ${words} word(s) to speak. ` +
+          `SpeechPlayer reads <article>, then <main id="main"> — this page has neither with prose in it`,
         where: page.url,
       });
       continue;

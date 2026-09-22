@@ -107,9 +107,21 @@ const t = useT();
     // That map is what lets the amber dot sit above the word the voice is
     // on. Whitespace runs collapse to one space (mapped to no node); a block
     // boundary counts as whitespace so "</p><p>" never glues two words.
-    const target = document.querySelector<HTMLElement>(
-      root.dataset.textSelector || "article",
-    );
+    // MIS-119 assumed every page that can be listened to is a document, and
+    // a document view wraps its prose in <article>. The composed pages — the
+    // home, the function pages, the indexes — have no <article>: they are a
+    // <main> full of sections. Play found nothing, spoke nothing, and said
+    // nothing, because "no text" is a legitimate state for a page still
+    // hydrating. So the selector falls back through what the page actually
+    // has. `main` is the honest target: Layout gives every page one, and it
+    // excludes the header, the nav and the footer by construction.
+    const SELECTORS = [root.dataset.textSelector, "article", "main#main", "main"];
+    let target: HTMLElement | null = null;
+    for (const sel of SELECTORS) {
+      if (!sel) continue;
+      target = document.querySelector<HTMLElement>(sel);
+      if (target) break;
+    }
     const PRUNE = [".doc-toolbar", "nav", ".speech-player"];
     const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE", "svg", "SVG"]);
     type DocMap = { text: string; nodes: Text[]; nodeIdx: Int32Array; nodeOff: Int32Array };
@@ -277,8 +289,11 @@ const t = useT();
     // the document's natural end clears it; leaving the page does not.
     // chunks.length is stored as a fingerprint: if a deploy re-chunks the
     // text, the stale index is discarded instead of resuming mid-nonsense.
+    // Keyed by the selector that actually resolved, not the one asked for:
+    // a page whose <article> appears later must not resume at an index
+    // measured against <main>.
     const storeKey =
-      "sp:" + location.pathname + ":" + (root.dataset.textSelector || "article");
+      "sp:" + location.pathname + ":" + (target?.tagName.toLowerCase() ?? "none");
     const saveProgress = () => {
       try {
         sessionStorage.setItem(
