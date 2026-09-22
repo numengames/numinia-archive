@@ -9,235 +9,235 @@ import HighlightBox from "@/components/HighlightBox.astro";
 const clusters = [
   {
     id: "C1",
-    titulo: "Validación externa & burbuja fundacional",
-    descripcion: "El sistema solo ha sido probado por sus creadores. No existe evidencia de que funcione para nadie más, en ningún contexto, sin que los fundadores estén ahí para explicarlo.",
+    titulo: "External validation & founder bubble",
+    descripcion: "The system has only ever been tested by its creators. There is no evidence that it works for anyone else, in any context, without the founders being there to explain it.",
     gaps: [
-      { origen: "Negocio", label: "Ausencia de prueba de valor externa" },
-      { origen: "Producto", label: "Burbuja fundacional / Sesgo de supervivencia inverso" },
-      { origen: "Teoría", label: "Sesgo del fundador como único caso de prueba" },
+      { origen: "Business", label: "No external proof of value" },
+      { origen: "Product", label: "Founder bubble / Inverse survivorship bias" },
+      { origen: "Theory", label: "Founder bias as the only test case" },
     ],
     soluciones: [
       {
-        titulo: "Experimento de exposición ciega",
-        descripcion: "Diseñar un protocolo de onboarding de 48h sin intervención de fundadores: documentación sola, sin explicaciones orales, sin contexto previo. Medir cuánto comprende el participante, qué frustra y qué resuena. La primera persona que lo pase sola es la validación mínima real.",
-        agentes: ["Negocio", "Producto"],
+        titulo: "Blind exposure experiment",
+        descripcion: "Design a 48h onboarding protocol with no founder intervention: documentation alone, no spoken explanations, no prior context. Measure how much the participant understands, what frustrates them and what resonates. The first person to get through it alone is the real minimum validation.",
+        agentes: ["Business", "Product"],
       },
       {
-        titulo: "Embajador externo de confianza",
-        descripcion: "Identificar una persona de confianza fuera de Numen Games (no del ecosistema cercano) con perfil target real —manager de equipo en empresa de 20-100 personas— y darle acceso completo durante 2 semanas. Su feedback sin filtrar es más valioso que 6 meses de análisis interno.",
-        agentes: ["Negocio", "Teoría"],
+        titulo: "Trusted external ambassador",
+        descripcion: "Identify a trusted person outside Numen Games (not from the immediate ecosystem) with a genuine target profile — a team manager at a 20-100 person company — and give them full access for 2 weeks. Their unfiltered feedback is worth more than 6 months of internal analysis.",
+        agentes: ["Business", "Theory"],
       },
       {
-        titulo: "Separar 'el sistema funciona' de 'nosotros funcionamos'",
-        descripcion: "Diseñar un experimento controlado: el mismo equipo operando durante 4 semanas con NWOS y 4 semanas sin él, midiendo output, velocidad de decisión y engagement autopercibido. Si no hay diferencia medible, el sistema no está añadiendo valor — está el equipo.",
-        agentes: ["Producto", "Teoría"],
+        titulo: "Separate 'the system works' from 'we work'",
+        descripcion: "Design a controlled experiment: the same team operating for 4 weeks with NWOS and 4 weeks without it, measuring output, decision speed and self-reported engagement. If there is no measurable difference, the system is not adding value — the team is.",
+        agentes: ["Product", "Theory"],
       },
     ],
   },
   {
     id: "C2",
-    titulo: "Complejidad de adopción & coste cognitivo",
-    descripcion: "El vocabulario y las capas de abstracción del NWOS crean una barrera de entrada enorme. Lo que para los fundadores es fluido, para cualquier externo es un mundo completamente ajeno antes de obtener cualquier beneficio.",
+    titulo: "Adoption complexity & cognitive cost",
+    descripcion: "The NWOS vocabulary and its layers of abstraction create an enormous barrier to entry. What is fluid for the founders is a completely alien world to any outsider, before they get any benefit at all.",
     gaps: [
-      { origen: "Negocio", label: "Complejidad de adopción vs. inercia organizacional" },
-      { origen: "Producto", label: "Coste cognitivo de entrada vs. beneficio percibido" },
-      { origen: "Teoría", label: "Carga cognitiva y brecha de traducción filosófica-práctica" },
+      { origen: "Business", label: "Adoption complexity vs. organisational inertia" },
+      { origen: "Product", label: "Cognitive cost of entry vs. perceived benefit" },
+      { origen: "Theory", label: "Cognitive load and the philosophy-to-practice translation gap" },
     ],
     soluciones: [
       {
-        titulo: "Mínimo Vocabulario Viable (MVV)",
-        descripcion: "Identificar los 5 conceptos imprescindibles para que alguien sea operativo en su primer día. El resto puede llegar después. Si no puedes operar el sistema con 5 palabras, el sistema tiene demasiadas capas para su fase actual.",
-        agentes: ["Producto", "Teoría"],
+        titulo: "Minimum Viable Vocabulary (MVV)",
+        descripcion: "Identify the 5 indispensable concepts someone needs to be operational on their first day. The rest can come later. If you cannot operate the system with 5 words, the system has too many layers for its current phase.",
+        agentes: ["Product", "Theory"],
       },
       {
-        titulo: "Capa de traducción corporativa",
-        descripcion: "Crear un 'modo organización': las mismas estructuras del NWOS con vocabulario estándar (rol, proyecto, hito, equipo, decisión). El mundo narrativo de Numinia queda como capa profunda opcional, no como requisito de entrada. Mismo sistema, dos idiomas.",
-        agentes: ["Negocio", "Producto"],
+        titulo: "Corporate translation layer",
+        descripcion: "Create an 'organisation mode': the same NWOS structures with standard vocabulary (role, project, milestone, team, decision). The narrative world of Numinia remains an optional deep layer, not an entry requirement. Same system, two languages.",
+        agentes: ["Business", "Product"],
       },
       {
-        titulo: "Onboarding progresivo con valor en cada paso",
-        descripcion: "Reestructurar el onboarding para que cada nueva capa de vocabulario venga acompañada de un beneficio tangible inmediato. No se explica el sistema completo al principio: se revela a medida que la persona lo necesita. Inspirado en los mejores juegos de diseño progresivo.",
-        agentes: ["Producto", "Teoría"],
+        titulo: "Progressive onboarding with value at every step",
+        descripcion: "Restructure the onboarding so that each new layer of vocabulary arrives with an immediate tangible benefit. The whole system is not explained at the start: it is revealed as the person needs it. Inspired by the best games of progressive design.",
+        agentes: ["Product", "Theory"],
       },
     ],
   },
   {
     id: "C3",
-    titulo: "Modelo de negocio & comprador",
-    descripcion: "No hay ICP definido, no hay línea de presupuesto clara, no hay modelo de monetización operativo. El NWOS podría ser SaaS, consultoría, metodología licenciada o formación — y esa ambigüedad en fase bootstrapping es letal.",
+    titulo: "Business model & buyer",
+    descripcion: "There is no defined ICP, no clear budget line, no operational monetisation model. The NWOS could be SaaS, consultancy, a licensed methodology or training — and that ambiguity in the bootstrapping phase is lethal.",
     gaps: [
-      { origen: "Negocio", label: "El problema del comprador fantasma" },
-      { origen: "Negocio", label: "Modelo de negocio indeterminado en fase crítica" },
-      { origen: "Negocio", label: "Dependencia de evangelización vs. demanda orgánica" },
+      { origen: "Business", label: "The phantom buyer problem" },
+      { origen: "Business", label: "Undetermined business model at a critical phase" },
+      { origen: "Business", label: "Dependence on evangelism vs. organic demand" },
     ],
     soluciones: [
       {
-        titulo: "Apostar por un solo segmento ahora",
-        descripcion: "Elegir UN perfil de comprador para los próximos 6 meses y diseñar todo el go-to-market para él. Candidatos: CEO de startup de 15-50 personas que ya siente el problema de cultura, o CHRO de empresa tech que busca alternativa a los OKRs. La ambigüedad del ICP es el principal bloqueador de tracción.",
-        agentes: ["Negocio"],
+        titulo: "Bet on a single segment now",
+        descripcion: "Choose ONE buyer profile for the next 6 months and design the entire go-to-market around it. Candidates: the CEO of a 15-50 person startup who already feels the culture problem, or the CHRO of a tech company looking for an alternative to OKRs. ICP ambiguity is the main blocker to traction.",
+        agentes: ["Business"],
       },
       {
-        titulo: "Buscar demanda existente, no crear demanda nueva",
-        descripcion: "Mapear qué problemas están buscando resolver activamente las organizaciones hoy (herramientas de cultura, gestión del talento, onboarding de IA en equipos) y reformular el NWOS como solución a esos problemas. El mercado no busca 'Narrative Work OS' — busca retención, engagement y productividad.",
-        agentes: ["Negocio"],
+        titulo: "Look for existing demand, don't create new demand",
+        descripcion: "Map the problems organisations are actively trying to solve today (culture tools, talent management, onboarding AI into teams) and reframe the NWOS as a solution to those problems. The market is not looking for a 'Narrative Work OS' — it is looking for retention, engagement and productivity.",
+        agentes: ["Business"],
       },
       {
-        titulo: "Modelo híbrido: consultoría primero, producto después",
-        descripcion: "Las primeras 3 implementaciones externas como servicio de consultoría premium (no SaaS). Cada implementación genera aprendizaje sobre qué parte del sistema es realmente valiosa, qué se puede estandarizar y qué métrica usa el cliente para justificar el gasto. Ese conocimiento construye el producto.",
-        agentes: ["Negocio", "Producto"],
+        titulo: "Hybrid model: consultancy first, product later",
+        descripcion: "The first 3 external implementations as a premium consultancy service (not SaaS). Each implementation generates learning about which part of the system is genuinely valuable, what can be standardised and which metric the client uses to justify the spend. That knowledge builds the product.",
+        agentes: ["Business", "Product"],
       },
     ],
   },
   {
     id: "C4",
-    titulo: "Accountability & ciudadanía digital",
-    descripcion: "Equiparar LLMs y humanos en roles y misiones crea ambigüedad peligrosa sobre quién responde de qué. En organizaciones con estructura legal, HR y clientes externos, las cadenas de accountability tienen que ser inequívocas.",
+    titulo: "Accountability & digital citizenship",
+    descripcion: "Putting LLMs and humans on an equal footing in roles and missions creates dangerous ambiguity about who answers for what. In organisations with a legal structure, HR and external clients, chains of accountability have to be unambiguous.",
     gaps: [
-      { origen: "Producto", label: "Equivalencia LLM-Humano: el problema de accountability" },
-      { origen: "Teoría", label: "Asimetría de agencia en la ciudadanía digital" },
+      { origen: "Product", label: "LLM-human equivalence: the accountability problem" },
+      { origen: "Theory", label: "Asymmetry of agency in digital citizenship" },
     ],
     soluciones: [
       {
-        titulo: "Ciudadanía diferenciada con responsabilidad humana explícita",
-        descripcion: "Mantener la equivalencia narrativa (los agentes tienen rol, rango, misiones) pero añadir una capa de accountability: cada agente digital tiene un 'tutor humano' con nombre y apellidos que responde de sus decisiones. La narrativa iguala; el protocolo diferencia.",
-        agentes: ["Producto", "Teoría"],
+        titulo: "Differentiated citizenship with explicit human responsibility",
+        descripcion: "Keep the narrative equivalence (agents have a role, a rank, missions) but add a layer of accountability: every digital agent has a named 'human tutor' who answers for its decisions. The narrative levels; the protocol differentiates.",
+        agentes: ["Product", "Theory"],
       },
       {
-        titulo: "Protocolo de decisión con firma humana obligatoria",
-        descripcion: "Definir qué categorías de decisiones requieren firma humana en las Piedras del Camino, independientemente de quién haya ejecutado el análisis. El agente digital propone, el humano firma. Esto preserva la coherencia del mundo sin borrar la cadena de responsabilidad.",
-        agentes: ["Producto"],
+        titulo: "Decision protocol with mandatory human signature",
+        descripcion: "Define which categories of decision require a human signature in the Stones of the Path, regardless of who carried out the analysis. The digital agent proposes, the human signs. This preserves the coherence of the world without erasing the chain of responsibility.",
+        agentes: ["Product"],
       },
       {
-        titulo: "Separar el plano narrativo del plano legal-operativo",
-        descripcion: "Documentar explícitamente que la ciudadanía digital de los agentes existe en el plano narrativo (Numinia), no en el plano operativo (Numen Games S.L.). Los dos planos coexisten; uno no sustituye al otro. Esta separación hace el sistema defendible ante cualquier auditoría externa.",
-        agentes: ["Negocio", "Teoría"],
+        titulo: "Separate the narrative plane from the legal-operational plane",
+        descripcion: "Document explicitly that the digital citizenship of the agents exists on the narrative plane (Numinia), not on the operational plane (Numen Games S.L.). The two planes coexist; one does not replace the other. This separation makes the system defensible before any external audit.",
+        agentes: ["Business", "Theory"],
       },
     ],
   },
   {
     id: "C5",
-    titulo: "Autenticidad vs. performance & fatiga ritual",
-    descripcion: "Los rituales y rangos pueden degenerar en teatro: participación formal sin implicación real. La investigación en psicología organizacional es clara — los sistemas de identidad impuesta producen surface acting, no transformación genuina.",
+    titulo: "Authenticity vs. performance & ritual fatigue",
+    descripcion: "Rituals and ranks can degenerate into theatre: formal participation without real involvement. The research in organisational psychology is clear — imposed identity systems produce surface acting, not genuine transformation.",
     gaps: [
-      { origen: "Producto", label: "Fatiga ritual y teatro performativo" },
-      { origen: "Teoría", label: "La trampa del cumplimiento performativo (surface acting)" },
+      { origen: "Product", label: "Ritual fatigue and performative theatre" },
+      { origen: "Theory", label: "The performative compliance trap (surface acting)" },
     ],
     soluciones: [
       {
-        titulo: "Rituales opt-in con efecto real sobre el sistema",
-        descripcion: "Rediseñar los rituales para que la participación tenga consecuencias concretas en el estado del sistema (misiones desbloqueadas, decisiones activadas, recursos distribuidos), no solo valor simbólico. Cuando el ritual tiene peso operativo, la participación genuina y la performativa se distinguen solas.",
-        agentes: ["Producto", "Teoría"],
+        titulo: "Opt-in rituals with a real effect on the system",
+        descripcion: "Redesign the rituals so that participation has concrete consequences for the state of the system (missions unlocked, decisions activated, resources distributed), not merely symbolic value. When a ritual carries operational weight, genuine and performative participation tell themselves apart.",
+        agentes: ["Product", "Theory"],
       },
       {
-        titulo: "Métricas de autenticidad vs. cumplimiento",
-        descripcion: "Diseñar indicadores que distingan entre participación formal y engagement real: tiempo en el sistema fuera de rituales obligatorios, iniciativas no solicitadas, contribuciones al canon que nadie pidió. Si los únicos momentos de participación son los rituales, el sistema tiene un problema de motivación intrínseca.",
-        agentes: ["Producto", "Teoría"],
+        titulo: "Authenticity vs. compliance metrics",
+        descripcion: "Design indicators that distinguish formal participation from real engagement: time in the system outside mandatory rituals, unsolicited initiatives, contributions to the canon that nobody asked for. If the only moments of participation are the rituals, the system has a problem of intrinsic motivation.",
+        agentes: ["Product", "Theory"],
       },
       {
-        titulo: "Roles emergentes, no asignados",
-        descripcion: "Cambiar la lógica de asignación de gremios y rangos: en lugar de ser asignados o elegidos al inicio, que emerjan de los patrones de comportamiento real en el sistema. Quien hace trabajo de Alquimista recibe el reconocimiento de Alquimista — no al revés. Esto elimina el incentivo al surface acting.",
-        agentes: ["Teoría"],
+        titulo: "Emergent roles, not assigned ones",
+        descripcion: "Change the logic by which guilds and ranks are allocated: instead of being assigned or chosen at the start, let them emerge from real patterns of behaviour in the system. Whoever does Alchemist work receives Alchemist recognition — not the other way round. This removes the incentive to surface act.",
+        agentes: ["Theory"],
       },
     ],
   },
   {
     id: "C6",
-    titulo: "Métricas & demostrabilidad del valor",
-    descripcion: "El sistema no tiene mecanismos propios para medir si está funcionando. Sin indicadores propios, no puede demostrar ROI, no puede detectar su propio deterioro y no puede diferenciarse de 'el equipo fundador es simplemente bueno'.",
+    titulo: "Metrics & demonstrability of value",
+    descripcion: "The system has no mechanisms of its own for measuring whether it is working. Without its own indicators, it cannot demonstrate ROI, cannot detect its own decay and cannot tell itself apart from 'the founding team is simply good'.",
     gaps: [
-      { origen: "Producto", label: "Vacío métrico: ¿cómo sabe el sistema que funciona?" },
-      { origen: "Negocio", label: "Riesgo de obsolescencia por commoditización de LLMs" },
+      { origen: "Product", label: "Metric void: how does the system know it works?" },
+      { origen: "Business", label: "Obsolescence risk from the commoditisation of LLMs" },
     ],
     soluciones: [
       {
-        titulo: "Dashboard de salud del sistema",
-        descripcion: "Definir 5-7 indicadores propios del NWOS que vayan más allá del output de negocio estándar: velocidad media de cierre de misión, ratio de decisiones con documentación completa, participación en rituales vs. baseline, iniciativas bottom-up generadas, tiempo desde misión abierta hasta primer avance. Publicarlos internamente como contrato con uno mismo.",
-        agentes: ["Producto", "Negocio"],
+        titulo: "System health dashboard",
+        descripcion: "Define 5-7 NWOS-specific indicators that go beyond standard business output: average time to close a mission, ratio of decisions with complete documentation, ritual participation vs. baseline, bottom-up initiatives generated, time from a mission opening to first progress. Publish them internally as a contract with yourself.",
+        agentes: ["Product", "Business"],
       },
       {
-        titulo: "Moat metodológico, no tecnológico",
-        descripcion: "Aceptar que la ventaja tecnológica de integrar LLMs es temporalmente efímera y apostar por el moat real: el cuerpo de conocimiento sobre cómo diseñar, implementar y mantener un NWOS en una organización real. Ese conocimiento tácito no se puede copiar con un producto. La diferencia entre leer sobre yoga y ser un profesor de yoga con 10 años de práctica.",
-        agentes: ["Negocio"],
+        titulo: "A methodological moat, not a technological one",
+        descripcion: "Accept that the technological advantage of integrating LLMs is temporarily fleeting and bet on the real moat: the body of knowledge about how to design, implement and maintain an NWOS in a real organisation. That tacit knowledge cannot be copied with a product. The difference between reading about yoga and being a yoga teacher with 10 years of practice.",
+        agentes: ["Business"],
       },
       {
-        titulo: "Casos de uso comparables como prueba de concepto",
-        descripcion: "Documentar exhaustivamente el caso Numen Games como referencia: estado antes del NWOS (si se puede reconstruir), estado actual, indicadores concretos. Un caso real bien documentado vale más que 10 claims teóricos. Es el asset comercial más valioso que existe ahora mismo.",
-        agentes: ["Negocio", "Producto"],
+        titulo: "Comparable use cases as proof of concept",
+        descripcion: "Document the Numen Games case exhaustively as a reference: state before the NWOS (if it can be reconstructed), current state, concrete indicators. One well-documented real case is worth more than 10 theoretical claims. It is the most valuable commercial asset that exists right now.",
+        agentes: ["Business", "Product"],
       },
     ],
   },
   {
     id: "C7",
-    titulo: "Barrera cultural & universalismo no validado",
-    descripcion: "El vocabulario esotérico genera rechazo en contextos corporativos tradicionales. El fundamento junguiano asume estructuras psicológicas universales que la investigación transcultural no confirma para todos los perfiles.",
+    titulo: "Cultural barrier & unvalidated universalism",
+    descripcion: "The esoteric vocabulary provokes rejection in traditional corporate contexts. The Jungian foundation assumes universal psychological structures that cross-cultural research does not confirm for every profile.",
     gaps: [
-      { origen: "Negocio", label: "La metáfora como barrera de entrada" },
-      { origen: "Negocio", label: "Credibilidad institucional: el muro del mundo corporativo" },
-      { origen: "Teoría", label: "Universalismo junguiano vs. variación cultural y de personalidad" },
+      { origen: "Business", label: "The metaphor as a barrier to entry" },
+      { origen: "Business", label: "Institutional credibility: the corporate world's wall" },
+      { origen: "Theory", label: "Jungian universalism vs. cultural and personality variation" },
     ],
     soluciones: [
       {
-        titulo: "Perfiles de compatibilidad explícita",
-        descripcion: "Documentar para qué tipo de persona y organización el NWOS funciona mejor y para qué no. No intentar ser universal. El auto-filtrado es una fortaleza si es intencional: 'esto no es para todos' es una propuesta de valor, no una debilidad, si va dirigido al segmento correcto.",
-        agentes: ["Negocio", "Teoría"],
+        titulo: "Explicit compatibility profiles",
+        descripcion: "Document which kind of person and organisation the NWOS works best for, and which it does not. Do not try to be universal. Self-filtering is a strength if it is intentional: 'this is not for everyone' is a value proposition, not a weakness, if it is aimed at the right segment.",
+        agentes: ["Business", "Theory"],
       },
       {
-        titulo: "Interfaz cultural configurable",
-        descripcion: "Diseñar el NWOS con una capa superficial (vocabulario, nombres de rituales, estética narrativa) separable del núcleo estructural. Una organización japonesa o una firma de abogados pueden usar la misma gramática de roles/misiones/decisiones con su propio idioma cultural encima.",
-        agentes: ["Producto", "Teoría"],
+        titulo: "Configurable cultural interface",
+        descripcion: "Design the NWOS with a surface layer (vocabulary, ritual names, narrative aesthetics) that is separable from the structural core. A Japanese organisation or a law firm can use the same grammar of roles/missions/decisions with their own cultural language on top.",
+        agentes: ["Product", "Theory"],
       },
       {
-        titulo: "Validación empírica del fundamento teórico",
-        descripcion: "En lugar de citar a Peirce y Jung como fundamento incuestionable, diseñar un protocolo de investigación mínimo que pruebe las hipótesis centrales: ¿los roles narrativos producen mayor identificación que los títulos corporativos? ¿Los rituales con nombre generan más cohesión que las reuniones estándar? Datos propios > citas de autoridad.",
-        agentes: ["Teoría", "Negocio"],
+        titulo: "Empirical validation of the theoretical foundation",
+        descripcion: "Instead of citing Peirce and Jung as an unquestionable foundation, design a minimal research protocol that tests the central hypotheses: do narrative roles produce greater identification than corporate titles? Do named rituals generate more cohesion than standard meetings? Own data > appeals to authority.",
+        agentes: ["Theory", "Business"],
       },
     ],
   },
   {
     id: "C8",
-    titulo: "NWOS como analgésico & burnout estructural",
-    descripcion: "El NWOS interviene sobre la dimensión de valores y comunidad del burnout, pero no toca carga, control ni justicia — que en la mayoría de organizaciones son los drivers primarios. Riesgo: proporciona significado narrativo que enmascara problemas estructurales sin resolverlos.",
+    titulo: "NWOS as a painkiller & structural burnout",
+    descripcion: "The NWOS intervenes on the values and community dimension of burnout, but does not touch workload, control or fairness — which in most organisations are the primary drivers. Risk: it supplies narrative meaning that masks structural problems without resolving them.",
     gaps: [
-      { origen: "Teoría", label: "Malentendido causal sobre el burnout" },
-      { origen: "Producto", label: "Coherencia narrativa no escala sin infraestructura" },
+      { origen: "Theory", label: "Causal misunderstanding of burnout" },
+      { origen: "Product", label: "Narrative coherence does not scale without infrastructure" },
     ],
     soluciones: [
       {
-        titulo: "Diagnóstico previo obligatorio",
-        descripcion: "Antes de implementar el NWOS en cualquier organización, realizar un diagnóstico de las 6 dimensiones de Maslach. Si las dimensiones de carga, control o justicia están en rojo, documentar que el NWOS no es la intervención adecuada como primera capa. Esto protege al producto de ser culpado por problemas que no puede resolver.",
-        agentes: ["Teoría"],
+        titulo: "Mandatory prior diagnosis",
+        descripcion: "Before implementing the NWOS in any organisation, carry out a diagnosis of Maslach's 6 dimensions. If the workload, control or fairness dimensions are in the red, document that the NWOS is not the appropriate intervention as a first layer. This protects the product from being blamed for problems it cannot solve.",
+        agentes: ["Theory"],
       },
       {
-        titulo: "NWOS como amplificador, no como base",
-        descripcion: "Reformular el claim del producto: el NWOS no resuelve el burnout estructural, lo amplifica cuando las condiciones estructurales son sanas. Es un multiplicador del engagement, no un sustituto de la gestión organizacional básica. Este reencuadre es más honesto y más defendible.",
-        agentes: ["Negocio", "Teoría"],
+        titulo: "NWOS as an amplifier, not as a foundation",
+        descripcion: "Reframe the product claim: the NWOS does not resolve structural burnout, it amplifies where the structural conditions are healthy. It is a multiplier of engagement, not a substitute for basic organisational management. This reframing is more honest and more defensible.",
+        agentes: ["Business", "Theory"],
       },
       {
-        titulo: "Protocolo de mantenimiento del canon",
-        descripcion: "Diseñar un rol explícito de 'guardián del canon' con autoridad reconocida para arbitrar interpretaciones divergentes del sistema a medida que escala. Sin ese rol, la coherencia narrativa se fragmenta inevitablemente por encima de 10-15 personas.",
-        agentes: ["Producto"],
+        titulo: "Canon maintenance protocol",
+        descripcion: "Design an explicit 'canon keeper' role with recognised authority to arbitrate divergent interpretations of the system as it scales. Without that role, narrative coherence fragments inevitably beyond 10-15 people.",
+        agentes: ["Product"],
       },
     ],
   },
 ];
 
 const agentColors: Record<string, string> = {
-  Negocio: "bg-blue/10 text-blue border-blue/30",
-  Producto: "bg-purple/10 text-purple border-purple/30",
-  Teoría: "bg-teal/10 text-accent border-teal/30",
+  Business: "bg-blue/10 text-blue border-blue/30",
+  Product: "bg-purple/10 text-purple border-purple/30",
+  Theory: "bg-teal/10 text-accent border-teal/30",
 };
 ---
 
 <Layout
-  title="NWOS — Soluciones — Pablo FM"
-  description="Agrupación de gaps del Narrative Work OS y 3 soluciones propuestas por cluster. Firmadas por perspectiva de análisis."
+  title="NWOS — Solutions — Pablo FM"
+  description="Narrative Work OS gaps grouped, with 3 proposed solutions per cluster. Signed by perspective of analysis."
   canonicalPath="/system/solutions"
   activeNav="system/"
 >
   <PageHero
-    label="NWOS — Soluciones"
-    title="De los puntos ciegos a las respuestas"
-    description="20 gaps agrupados en 8 clusters. 3 soluciones por cluster. Cada solución firmada por el agente que la propone."
+    label="NWOS — Solutions"
+    title="From blind spots to answers"
+    description="20 gaps grouped into 8 clusters. 3 solutions per cluster. Each solution signed by the agent that proposes it."
   />
 
   <!-- Intro -->
@@ -245,19 +245,19 @@ const agentColors: Record<string, string> = {
     <div class="mx-auto max-w-[1100px] px-6">
       <div class="max-w-[720px] space-y-4 text-base leading-relaxed text-muted-foreground">
         <p>
-          El análisis anterior identificó 20 gaps desde tres perspectivas críticas. Muchos de ellos apuntan al mismo problema desde ángulos distintos. Este documento los agrupa en <strong class="text-foreground">8 clusters</strong> y propone <strong class="text-foreground">3 soluciones por cluster</strong> — ordenadas de más inmediata a más estructural.
+          The previous analysis identified 20 gaps from three critical perspectives. Many of them point at the same problem from different angles. This document groups them into <strong class="text-foreground">8 clusters</strong> and proposes <strong class="text-foreground">3 solutions per cluster</strong> — ordered from the most immediate to the most structural.
         </p>
         <p>
-          Cada solución lleva la firma de los agentes que la proponen. No todas las perspectivas tienen la misma opinión sobre cada problema.
+          Each solution carries the signature of the agents that propose it. Not all perspectives hold the same opinion on every problem.
         </p>
       </div>
 
-      <!-- Leyenda agentes -->
+      <!-- Agent legend -->
       <div class="mt-8 flex flex-wrap gap-3 text-xs">
-        <span class="rounded-full border px-3 py-1 bg-blue/10 text-blue border-blue/30 font-mono">Negocio</span>
-        <span class="rounded-full border px-3 py-1 bg-purple/10 text-purple border-purple/30 font-mono">Producto</span>
-        <span class="rounded-full border px-3 py-1 bg-teal/10 text-accent border-teal/30 font-mono">Teoría</span>
-        <span class="ml-2 text-muted-foreground/60 self-center">— perspectivas que firman cada solución</span>
+        <span class="rounded-full border px-3 py-1 bg-blue/10 text-blue border-blue/30 font-mono">Business</span>
+        <span class="rounded-full border px-3 py-1 bg-purple/10 text-purple border-purple/30 font-mono">Product</span>
+        <span class="rounded-full border px-3 py-1 bg-teal/10 text-accent border-teal/30 font-mono">Theory</span>
+        <span class="ml-2 text-muted-foreground/60 self-center">— perspectives that sign each solution</span>
       </div>
     </div>
   </section>
@@ -312,7 +312,7 @@ const agentColors: Record<string, string> = {
     <div class="mx-auto max-w-[1100px] px-6">
       <HighlightBox>
         <p class="text-sm leading-relaxed text-muted-foreground">
-          <strong class="text-accent">Prioridad de acción recomendada:</strong> Los clusters C1 (validación externa), C2 (complejidad de adopción) y C3 (modelo de negocio) son los únicos que bloquean todo lo demás. Sin validación externa, las soluciones a los otros clusters son prematura optimización. El resto — accountability digital, autenticidad ritual, métricas, barrera cultural, burnout estructural — son problemas de escala que solo se activan cuando hay algo que escalar.
+          <strong class="text-accent">Recommended action priority:</strong> Clusters C1 (external validation), C2 (adoption complexity) and C3 (business model) are the only ones that block everything else. Without external validation, the solutions to the other clusters are premature optimisation. The rest — digital accountability, ritual authenticity, metrics, cultural barrier, structural burnout — are problems of scale that only activate when there is something to scale.
         </p>
       </HighlightBox>
     </div>

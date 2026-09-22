@@ -1,13 +1,26 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
+//
+// /blueprints/meta — the mapping protocol: how a blueprint is made, kept and
+// versioned.
+//
+// ON THE LANGUAGE. This page was written in Spanish while the rest of the
+// site moved to English, so a reader following "The mapping protocol →" from
+// the blueprints index changed language mid-click. The words are translated
+// here, nothing else: the same sections, the same claims, the same signature.
+//
+// ON THE CONTENT. Every sentence below lives in this template rather than in
+// the corpus — that is DBT-021, and the reason the CC0 row still has to carry
+// its own correction inline instead of being read from LICENSE. Translating
+// it does not pay that debt; it stops the page changing language.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 ---
 
 <Layout
-  title="Protocolo de Cartografía CAO — Numen Games"
-  description="Cómo se crean, mantienen y versionan los Planos del Mundo de Numen Games."
+  title="The CAO mapping protocol — Numen Games"
+  description="How the blueprints of Numen Games are created, kept and versioned."
   canonicalPath="/blueprints/meta"
 >
   <section class="pb-20 pt-16">
@@ -15,29 +28,29 @@ import Icon from "@/components/Icon.astro";
 
       <a href="/blueprints" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
         <Icon name="caret-left" size={12} />
-        Los Planos del Mundo
+        Blueprints
       </a>
 
       <div class="mb-8">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Meta-plano</span>
-        <h1 class="font-display text-3xl sm:text-4xl text-foreground mt-2 mb-3">Protocolo de Cartografía CAO</h1>
-        <p class="font-mono text-sm text-dim italic">"Antes de construir Numinia, los Oráculos trazaron sus planos. Un mundo sin mapa es un mundo a ciegas."</p>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Meta-blueprint</span>
+        <h1 class="font-display text-3xl sm:text-4xl text-foreground mt-2 mb-3">The CAO mapping protocol</h1>
+        <p class="font-mono text-sm text-dim italic">"Before building Numinia, the Oracles drew its blueprints. A world without a map is a world walked blind."</p>
       </div>
 
       <div class="space-y-6">
 
         <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">¿Qué es un Plano?</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">What is a blueprint?</p>
           <p class="text-sm text-muted-foreground leading-relaxed mb-4">
-            Un Plano es un documento vivo que responde a las <strong class="text-foreground">5W del periodismo</strong> aplicadas a la arquitectura:
+            A blueprint is a living document that answers the <strong class="text-foreground">five W's of journalism</strong>, applied to architecture:
           </p>
           <div class="grid gap-3 sm:grid-cols-2">
             {[
-              { w: "What", q: "¿Qué existe y cómo funciona hoy?" },
-              { w: "Why", q: "¿Por qué se diseñó así y no de otra manera?" },
-              { w: "Who", q: "¿Quién lo usa, lo mantiene, lo necesita?" },
-              { w: "When", q: "¿Cuándo se creó, cuándo se revisará?" },
-              { w: "Where", q: "¿Dónde vive en el sistema?" },
+              { w: "What", q: "What exists, and how does it work today?" },
+              { w: "Why", q: "Why was it designed this way and not another?" },
+              { w: "Who", q: "Who uses it, maintains it, needs it?" },
+              { w: "When", q: "When was it created, when will it be reviewed?" },
+              { w: "Where", q: "Where does it live in the system?" },
             ].map((item) => (
               <div class="flex items-start gap-3">
                 <span class="font-mono text-xs text-accent flex-shrink-0 font-bold w-12">{item.w}</span>
@@ -48,12 +61,12 @@ import Icon from "@/components/Icon.astro";
         </div>
 
         <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Diferencia entre Plano, Misión y Reporte</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Blueprint, mission, report — the difference</p>
           <div class="space-y-3">
             {[
-              { tipo: "Plano", desc: "Arquitectura — cómo funciona el sistema. Permanente, vive con el sistema.", color: "text-accent" },
-              { tipo: "Misión", desc: "Acción — qué hay que hacer. Temporal, tiene inicio y fin.", color: "text-blue" },
-              { tipo: "Reporte", desc: "Memoria — qué pasó y qué aprendimos. Histórico, no se modifica tras publicar.", color: "text-purple" },
+              { tipo: "Blueprint", desc: "Architecture — how the system works. Permanent; it lives as long as the system does.", color: "text-accent" },
+              { tipo: "Mission", desc: "Action — what has to be done. Temporary; it has a beginning and an end.", color: "text-blue" },
+              { tipo: "Report", desc: "Memory — what happened and what we learnt. Historical; not edited once published.", color: "text-purple" },
             ].map((item) => (
               <div class="flex items-start gap-4">
                 <span class:list={["font-mono text-xs flex-shrink-0 w-16", item.color]}>{item.tipo}</span>
@@ -64,14 +77,14 @@ import Icon from "@/components/Icon.astro";
         </div>
 
         <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Estándares adoptados</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Adopted standards</p>
           <div class="space-y-2">
             {[
-              { area: ".md (Markdown)", razon: "File over app — legible por agentes y humanos, versionable en git" },
-              { area: "ASCII / Mermaid", razon: "Diagramas sin herramientas propietarias" },
-              { area: "SVG / WebP", razon: "Imágenes sin pérdida / web optimizado" },
-              { area: "OGG", razon: "Audio sin patentes, CC0 compatible" },
-              { area: "CC0", razon: "Construimos en público — sin derechos reservados. Superado el 2026-08-16 por C-005: régimen por rutas (CC0 queda solo para catálogo y datos), ver LICENSE y LEGAL_DEBT.md" },
+              { area: ".md (Markdown)", razon: "File over app — readable by agents and humans, versionable in git" },
+              { area: "ASCII / Mermaid", razon: "Diagrams without proprietary tools" },
+              { area: "SVG / WebP", razon: "Lossless images / optimised for the web" },
+              { area: "OGG", razon: "Patent-free audio, CC0 compatible" },
+              { area: "CC0", razon: "We build in public — no rights reserved. Superseded on 2026-08-16 by C-005: a per-path regime (CC0 now covers only the catalogue and the data), see LICENSE and LEGAL_DEBT.md" },
             ].map((item) => (
               <div class="flex items-start gap-4">
                 <span class="font-mono text-xs text-accent flex-shrink-0 w-32">{item.area}</span>
@@ -82,24 +95,24 @@ import Icon from "@/components/Icon.astro";
         </div>
 
         <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Versionado</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Versioning</p>
           <div class="font-mono text-sm text-muted-foreground space-y-1">
-            <p><span class="text-accent">v0.1.0</span> → Primera versión (borrador estructurado)</p>
-            <p><span class="text-accent">v0.2.0</span> → Revisado con el equipo</p>
-            <p><span class="text-accent">v0.X.0</span> → Iteraciones incrementales</p>
-            <p><span class="text-accent">v1.0.0</span> → Solo con aprobación explícita de un Oráculo</p>
+            <p><span class="text-accent">v0.1.0</span> → First version (a structured draft)</p>
+            <p><span class="text-accent">v0.2.0</span> → Reviewed with the team</p>
+            <p><span class="text-accent">v0.X.0</span> → Incremental iterations</p>
+            <p><span class="text-accent">v1.0.0</span> → Only with an Oracle's explicit approval</p>
           </div>
         </div>
 
         <div class="rounded-xl border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Criterios de Done</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Done criteria</p>
           <div class="space-y-2">
             {[
-              "Responde las 5W de forma clara",
-              "Tiene al menos una decisión de diseño justificada (ADR-style)",
-              "El delta está mapeado a misiones concretas",
-              "Ha sido revisado por al menos un Oráculo",
-              "Está versionado en el repo con formato plano-[nombre]-v0.X.0.md",
+              "It answers the five W's clearly",
+              "It carries at least one justified design decision (ADR-style)",
+              "The delta is mapped to concrete missions",
+              "It has been reviewed by at least one Oracle",
+              "It is versioned in the repo as plano-[name]-v0.X.0.md",
             ].map((c) => (
               <div class="flex items-start gap-3">
                 <span class="h-4 w-4 rounded border border-border flex-shrink-0 mt-0.5"></span>

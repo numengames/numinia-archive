@@ -11,151 +11,151 @@ import HighlightBox from "@/components/HighlightBox.astro";
 const icpRanking = [
   {
     rank: 1,
-    label: "Startup técnica 5–15p",
+    label: "Technical startup 5–15p",
     score: 92,
     adoptionRate: 85,
-    timeToValue: "2–4 sem",
+    timeToValue: "2–4 wks",
     buyerProfile: "CEO / CTO",
-    budget: "€500–2.000/mes",
-    painPoint: "Cultura de equipo se rompe al pasar de 5 a 10 personas",
-    signal: "Busca alternativas a Notion + Linear + reuniones de alineación",
-    verdict: "ICP ideal ahora",
+    budget: "€500–2.000/month",
+    painPoint: "Team culture breaks when going from 5 to 10 people",
+    signal: "Looking for alternatives to Notion + Linear + alignment meetings",
+    verdict: "Ideal ICP now",
     color: "teal",
   },
   {
     rank: 2,
-    label: "Startup mixta 15–50p",
+    label: "Mixed startup 15–50p",
     score: 74,
     adoptionRate: 75,
-    timeToValue: "4–8 sem",
+    timeToValue: "4–8 wks",
     buyerProfile: "CEO / Head of People",
-    budget: "€1.500–5.000/mes",
-    painPoint: "Perfiles técnicos y no-técnicos hablan idiomas distintos",
-    signal: "Ha probado OKRs y no funcionaron. Busca algo más vivo.",
-    verdict: "ICP de expansión",
+    budget: "€1.500–5.000/month",
+    painPoint: "Technical and non-technical profiles speak different languages",
+    signal: "Has tried OKRs and they did not work. Looking for something more alive.",
+    verdict: "Expansion ICP",
     color: "blue",
   },
   {
     rank: 3,
-    label: "Agencia creativa 10–30p",
+    label: "Creative agency 10–30p",
     score: 68,
     adoptionRate: 75,
-    timeToValue: "3–6 sem",
-    buyerProfile: "CEO / Director Creativo",
-    budget: "€800–3.000/mes",
-    painPoint: "Cada proyecto nuevo reinicia la cultura desde cero",
-    signal: "Menciona 'identidad de empresa' o 'cómo hacemos las cosas aquí'",
-    verdict: "ICP de oportunidad",
+    timeToValue: "3–6 wks",
+    buyerProfile: "CEO / Creative Director",
+    budget: "€800–3.000/month",
+    painPoint: "Every new project restarts the culture from scratch",
+    signal: "Mentions 'company identity' or 'how we do things here'",
+    verdict: "Opportunity ICP",
     color: "purple",
   },
   {
     rank: 4,
-    label: "PYME tradicional 50–150p",
+    label: "Traditional SME 50–150p",
     score: 31,
     adoptionRate: 35,
-    timeToValue: "6–12 mes",
-    buyerProfile: "CHRO / Director General",
-    budget: "€3.000–8.000/mes",
-    painPoint: "Rotación alta, desconexión con los valores de empresa",
-    signal: "Ha invertido en formación de liderazgo sin resultados",
-    verdict: "Evitar ahora",
+    timeToValue: "6–12 mo",
+    buyerProfile: "CHRO / Managing Director",
+    budget: "€3.000–8.000/month",
+    painPoint: "High turnover, disconnection from company values",
+    signal: "Has invested in leadership training with no results",
+    verdict: "Avoid for now",
     color: "orange",
   },
   {
     rank: 5,
-    label: "Equipo corporativo 100–500p",
+    label: "Corporate team 100–500p",
     score: 18,
     adoptionRate: 30,
-    timeToValue: "9–18 mes",
+    timeToValue: "9–18 mo",
     buyerProfile: "CHRO / VP People",
-    budget: "€10.000–40.000/mes",
-    painPoint: "Transformación cultural post-fusión o remote-first",
-    signal: "RFP activo, presupuesto anual de cultura aprobado",
-    verdict: "Evitar hasta Serie A",
+    budget: "€10.000–40.000/month",
+    painPoint: "Post-merger or remote-first cultural transformation",
+    signal: "Active RFP, annual culture budget approved",
+    verdict: "Avoid until Series A",
     color: "red",
   },
 ];
 
 // ── FUNNEL ──
 const funnelStages = [
-  { label: "Awareness", n: 1000, desc: "Contactos que saben que NWOS existe", color: "#a6dad5" },
-  { label: "Interés", n: 180, desc: "Han leído el one-pager o visitado /nwos", color: "#5d9bd6" },
-  { label: "Cualificado", n: 54, desc: "ICP correcto + dolor activo + decisor identificado", color: "#a98be0" },
-  { label: "Piloto", n: 18, desc: "Acuerdan un piloto de 8 semanas", color: "#efa517" },
-  { label: "Cliente", n: 9, desc: "Renuevan tras el piloto", color: "#8fc46b" },
+  { label: "Awareness", n: 1000, desc: "Contacts who know NWOS exists", color: "#a6dad5" },
+  { label: "Interest", n: 180, desc: "Have read the one-pager or visited /nwos", color: "#5d9bd6" },
+  { label: "Qualified", n: 54, desc: "Right ICP + active pain + decision-maker identified", color: "#a98be0" },
+  { label: "Pilot", n: 18, desc: "Agree to an 8-week pilot", color: "#efa517" },
+  { label: "Customer", n: 9, desc: "Renew after the pilot", color: "#8fc46b" },
 ];
 
 // ── BLOQUEADORES ──
 const blockers = [
   {
     id: "B1",
-    titulo: "No hay prueba externa",
+    titulo: "There is no external proof",
     urgencia: 10,
-    desc: "Nadie puede comprar lo que no ha visto funcionar fuera de los fundadores. Mientras no exista un caso real, el ciclo de ventas comienza con una pregunta sin respuesta.",
-    accion: "Protocolo de exposición ciega: 2 personas externas, 48h, sin contexto previo. Esta semana.",
+    desc: "Nobody can buy what they have not seen working outside the founders. As long as no real case exists, the sales cycle begins with an unanswered question.",
+    accion: "Blind exposure protocol: 2 external people, 48h, no prior context. This week.",
     dot: "bg-red",
   },
   {
     id: "B2",
-    titulo: "Sin ICP operativo",
+    titulo: "No operational ICP",
     urgencia: 9,
-    desc: "Sin saber quién firma el cheque, qué métrica justifica la compra y desde qué línea de presupuesto, no hay go-to-market. Solo esperanza.",
-    accion: "Apostar por UN perfil: CEO de startup técnica 5–15p. Diseñar todo el mensaje para él.",
+    desc: "Without knowing who signs the cheque, which metric justifies the purchase and from which budget line, there is no go-to-market. Only hope.",
+    accion: "Bet on ONE profile: CEO of a technical startup 5–15p. Design the whole message for them.",
     dot: "bg-red",
   },
   {
     id: "B3",
-    titulo: "Sin formato de venta",
+    titulo: "No sales format",
     urgencia: 9,
-    desc: "Si una empresa dice 'lo quiero' mañana, no hay nada que mandar, nada que cobrar, nadie libre para implementarlo.",
-    accion: "Definir el producto mínimo vendible: piloto de 8 semanas con precio fijo, entregables y criterio de éxito.",
+    desc: "If a company says 'I want it' tomorrow, there is nothing to send, nothing to charge for, nobody free to implement it.",
+    accion: "Define the minimum sellable product: an 8-week pilot with a fixed price, deliverables and a success criterion.",
     dot: "bg-red",
   },
   {
     id: "B4",
-    titulo: "Coste cognitivo de entrada",
+    titulo: "Cognitive cost of entry",
     urgencia: 7,
-    desc: "El vocabulario completo de NWOS en la primera reunión cierra puertas. La barrera de adopción ocurre antes de que el cliente haya sentido valor.",
-    accion: "Crear el deck de ventas con 5 conceptos máximo. Numinia es capa 3, no capa 1.",
+    desc: "The full NWOS vocabulary in the first meeting closes doors. The adoption barrier appears before the client has felt any value.",
+    accion: "Create the sales deck with 5 concepts maximum. Numinia is layer 3, not layer 1.",
     dot: "bg-yellow",
   },
   {
     id: "B5",
-    titulo: "Sin métricas de ROI para el decisor",
+    titulo: "No ROI metrics for the decision-maker",
     urgencia: 7,
-    desc: "Un CHRO o CEO no puede aprobar un gasto sin saber qué número mejora. 'Más significado' no es una métrica de negocio.",
-    accion: "Definir 3 KPIs pre-piloto que el cliente acuerda medir. Retención, velocidad de decisión, NPS interno.",
+    desc: "A CHRO or CEO cannot approve a spend without knowing which number improves. 'More meaning' is not a business metric.",
+    accion: "Define 3 pre-pilot KPIs the client agrees to measure. Retention, decision speed, internal NPS.",
     dot: "bg-yellow",
   },
 ];
 
 // ── PILOT PLAN ──
 const pilotWeeks = [
-  { week: "S1–S2", label: "Diagnóstico", tasks: ["Maslach organizacional", "Mapa de roles actuales", "3 KPIs acordados"], color: "teal" },
-  { week: "S3–S4", label: "MVV", tasks: ["5 conceptos instalados", "Primera misión en vivo", "Ritual semanal (30 min)"], color: "blue" },
-  { week: "S5–S6", label: "Expansión", tasks: ["Gremio asignado", "Primer agente digital", "Primera Piedra del Camino"], color: "purple" },
-  { week: "S7–S8", label: "Evaluación", tasks: ["Medición vs. KPIs", "Informe de adopción", "Decisión de renovación"], color: "orange" },
+  { week: "W1–W2", label: "Diagnosis", tasks: ["Organisational Maslach", "Map of current roles", "3 agreed KPIs"], color: "teal" },
+  { week: "W3–W4", label: "MVV", tasks: ["5 concepts installed", "First live mission", "Weekly ritual (30 min)"], color: "blue" },
+  { week: "W5–W6", label: "Expansion", tasks: ["Guild assigned", "First digital agent", "First Stone of the Path"], color: "purple" },
+  { week: "W7–W8", label: "Evaluation", tasks: ["Measurement vs. KPIs", "Adoption report", "Renewal decision"], color: "orange" },
 ];
 
 // ── VALUE PROP POR BUYER ──
 const valueProps = [
   {
-    buyer: "CEO startup técnica",
-    pain: "El equipo crece y la cultura se rompe",
-    message: "NWOS es la infraestructura de cultura que escala con el equipo. No es una herramienta más — es la gramática común que conecta a las personas con lo que construyen.",
-    metric: "Tiempo de onboarding cultural: de 3 meses a 3 semanas",
+    buyer: "CEO of a technical startup",
+    pain: "The team grows and the culture breaks",
+    message: "NWOS is the culture infrastructure that scales with the team. It is not one more tool — it is the common grammar that connects people with what they build.",
+    metric: "Cultural onboarding time: from 3 months to 3 weeks",
   },
   {
-    buyer: "Head of People startup mixta",
-    pain: "Los OKRs no funcionan y el equipo está desconectado",
-    message: "NWOS reemplaza la motivación por métricas con motivación por propósito. Las misiones tienen contexto. Las decisiones tienen memoria. Las personas saben por qué importa lo que hacen.",
-    metric: "eNPS: objetivo +20 puntos en 6 meses",
+    buyer: "Head of People of a mixed startup",
+    pain: "The OKRs do not work and the team is disconnected",
+    message: "NWOS replaces motivation by metrics with motivation by purpose. Missions have context. Decisions have memory. People know why what they do matters.",
+    metric: "eNPS: target +20 points in 6 months",
   },
   {
-    buyer: "Director Creativo agencia",
-    pain: "Cada cliente nuevo reinicia la identidad del equipo",
-    message: "NWOS da identidad permanente al equipo más allá de cada proyecto. El Archive es la memoria institucional que sobrevive a cada entrega.",
-    metric: "Retención de talento creativo senior: objetivo -50% rotación",
+    buyer: "Creative Director of an agency",
+    pain: "Every new client restarts the team's identity",
+    message: "NWOS gives the team a permanent identity beyond each project. The Archive is the institutional memory that survives every delivery.",
+    metric: "Senior creative talent retention: target -50% turnover",
   },
 ];
 
@@ -169,15 +169,15 @@ const colorMap: Record<string, string> = {
 ---
 
 <Layout
-  title="NWOS — Estrategia de Ventas — Pablo FM"
-  description="Guía de ventas del Narrative Work OS para los Oráculos de Numen Games. ICP, funnel, bloqueadores y plan de piloto."
+  title="NWOS — Sales Strategy — Pablo FM"
+  description="Sales guide for the Narrative Work OS for the Oracles of Numen Games. ICP, funnel, blockers and pilot plan."
   canonicalPath="/system/sales"
   activeNav="system/"
 >
   <PageHero
-    label="NWOS — Ventas"
-    title="Cómo conseguir los primeros clientes"
-    description="Guía operativa para los Oráculos. ICP definido, funnel de ventas, bloqueadores actuales y el plan de piloto de 8 semanas."
+    label="NWOS — Sales"
+    title="How to win the first clients"
+    description="Operational guide for the Oracles. Defined ICP, sales funnel, current blockers and the 8-week pilot plan."
   />
 
   <!-- Estado actual -->
@@ -185,7 +185,7 @@ const colorMap: Record<string, string> = {
     <div class="mx-auto max-w-[1100px] px-6">
       <HighlightBox>
         <p class="text-sm leading-relaxed text-muted-foreground">
-          <strong class="text-accent">Diagnóstico honesto (abril 2026):</strong> NWOS tiene coherencia teórica sólida, validación interna de 4 Oráculos y 0 clientes externos. La brecha entre ambos extremos no es de producto — es de secuencia. Primero validación externa, luego ICP, luego producto vendible. Este documento es el mapa para recorrer esa distancia.
+          <strong class="text-accent">Honest diagnosis (April 2026):</strong> NWOS has solid theoretical coherence, internal validation from 4 Oracles and 0 external clients. The gap between those two ends is not a product gap — it is a sequence gap. First external validation, then ICP, then a sellable product. This document is the map for covering that distance.
         </p>
       </HighlightBox>
     </div>
@@ -194,20 +194,20 @@ const colorMap: Record<string, string> = {
   <!-- BLOQUEADORES -->
   <section class="border-t border-border py-16">
     <div class="mx-auto max-w-[1100px] px-6">
-      <SectionHeader label="Los bloqueadores" title="Qué impide vender hoy" />
+      <SectionHeader label="The blockers" title="What prevents selling today" />
       <div class="mt-8 space-y-4">
         {blockers.map((b) => (
           <div class="rounded-xl border border-border bg-card p-5 flex gap-4">
-            <div class="shrink-0 pt-1.5"><span class={"inline-block h-2.5 w-2.5 rounded-full " + b.dot} title={"urgencia " + b.urgencia + "/10"}></span></div>
+            <div class="shrink-0 pt-1.5"><span class={"inline-block h-2.5 w-2.5 rounded-full " + b.dot} title={"urgency " + b.urgencia + "/10"}></span></div>
             <div class="flex-1 space-y-2">
               <div class="flex items-center gap-3">
                 <span class="font-mono text-xs text-muted-foreground/50">{b.id}</span>
                 <h3 class="font-display text-base text-foreground">{b.titulo}</h3>
-                <span class="ml-auto font-mono text-xs text-muted-foreground">urgencia {b.urgencia}/10</span>
+                <span class="ml-auto font-mono text-xs text-muted-foreground">urgency {b.urgencia}/10</span>
               </div>
               <p class="text-sm text-muted-foreground">{b.desc}</p>
               <div class="rounded-lg bg-accent/5 border border-accent/20 px-4 py-2.5">
-                <span class="text-xs text-accent font-mono uppercase tracking-wider">Acción concreta → </span>
+                <span class="text-xs text-accent font-mono uppercase tracking-wider">Concrete action → </span>
                 <span class="text-sm text-foreground">{b.accion}</span>
               </div>
             </div>
@@ -220,8 +220,8 @@ const colorMap: Record<string, string> = {
   <!-- ICP RANKING -->
   <section class="border-t border-border py-16">
     <div class="mx-auto max-w-[1100px] px-6">
-      <SectionHeader label="ICP — A quién vender" title="Ranking de perfiles objetivo" />
-      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Basado en las 100 simulaciones y el análisis de gaps. Puntuación combinada: tasa de adopción + velocidad de valor + accesibilidad del decisor.</p>
+      <SectionHeader label="ICP — Who to sell to" title="Ranking of target profiles" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Based on the 100 simulations and the gap analysis. Combined score: adoption rate + speed to value + accessibility of the decision-maker.</p>
 
       <!-- Gráfico barras horizontal -->
       <div class="mt-8 space-y-3 max-w-[680px]">
@@ -241,8 +241,8 @@ const colorMap: Record<string, string> = {
                 >
                 </div>
                 <div class="absolute inset-0 flex items-center px-3 justify-between">
-                  <span class="text-xs font-mono text-foreground/80">Adopción {icp.adoptionRate}%</span>
-                  <span class="text-xs font-mono text-foreground/80">{icp.timeToValue} tiempo a valor</span>
+                  <span class="text-xs font-mono text-foreground/80">Adoption {icp.adoptionRate}%</span>
+                  <span class="text-xs font-mono text-foreground/80">{icp.timeToValue} to value</span>
                 </div>
               </div>
             </div>
@@ -261,10 +261,10 @@ const colorMap: Record<string, string> = {
                 <h3 class="font-display text-base text-foreground">{icp.label}</h3>
               </div>
               <div class="space-y-2 text-sm text-muted-foreground">
-                <div><span class="text-foreground font-medium">Decisor:</span> {icp.buyerProfile}</div>
-                <div><span class="text-foreground font-medium">Presupuesto:</span> {icp.budget}</div>
-                <div><span class="text-foreground font-medium">Dolor:</span> {icp.painPoint}</div>
-                <div><span class="text-foreground font-medium">Señal de compra:</span> {icp.signal}</div>
+                <div><span class="text-foreground font-medium">Decision-maker:</span> {icp.buyerProfile}</div>
+                <div><span class="text-foreground font-medium">Budget:</span> {icp.budget}</div>
+                <div><span class="text-foreground font-medium">Pain:</span> {icp.painPoint}</div>
+                <div><span class="text-foreground font-medium">Buying signal:</span> {icp.signal}</div>
               </div>
             </div>
           );
@@ -276,23 +276,23 @@ const colorMap: Record<string, string> = {
   <!-- PROPUESTA DE VALOR POR BUYER -->
   <section class="border-t border-border py-16">
     <div class="mx-auto max-w-[1100px] px-6">
-      <SectionHeader label="Mensaje de ventas" title="Qué decir a cada decisor" />
+      <SectionHeader label="Sales message" title="What to say to each decision-maker" />
       <div class="mt-8 space-y-5">
         {valueProps.map((vp, i) => (
           <div class="rounded-xl border border-border bg-card p-6 grid sm:grid-cols-[200px_1fr] gap-6">
             <div>
-              <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Decisor</div>
+              <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Decision-maker</div>
               <div class="font-display text-base text-accent">{vp.buyer}</div>
-              <div class="mt-3 text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Su dolor</div>
+              <div class="mt-3 text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Their pain</div>
               <div class="text-sm text-muted-foreground italic">"{vp.pain}"</div>
             </div>
             <div class="space-y-3">
               <div>
-                <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Tu mensaje</div>
+                <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Your message</div>
                 <p class="text-sm text-foreground leading-relaxed">{vp.message}</p>
               </div>
               <div class="rounded-lg bg-teal/10 border border-teal/20 px-4 py-2.5">
-                <span class="text-xs text-accent font-mono uppercase tracking-wider">KPI prometido → </span>
+                <span class="text-xs text-accent font-mono uppercase tracking-wider">Promised KPI → </span>
                 <span class="text-sm text-foreground">{vp.metric}</span>
               </div>
             </div>
@@ -305,8 +305,8 @@ const colorMap: Record<string, string> = {
   <!-- FUNNEL -->
   <section class="border-t border-border py-16">
     <div class="mx-auto max-w-[1100px] px-6">
-      <SectionHeader label="Funnel de ventas" title="El embudo objetivo" />
-      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Proyección conservadora para los primeros 12 meses. Conversión awareness → cliente: ~0.9%.</p>
+      <SectionHeader label="Sales funnel" title="The target funnel" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">Conservative projection for the first 12 months. Awareness → customer conversion: ~0.9%.</p>
 
       <div class="mt-8 max-w-[560px] space-y-2">
         {funnelStages.map((stage, i) => {
@@ -333,10 +333,10 @@ const colorMap: Record<string, string> = {
 
       <!-- Conversion rates -->
       <div class="mt-6 flex flex-wrap gap-4 text-xs text-muted-foreground max-w-[560px]">
-        <span>Awareness → Interés: <strong class="text-foreground">18%</strong></span>
-        <span>Interés → Cualificado: <strong class="text-foreground">30%</strong></span>
-        <span>Cualificado → Piloto: <strong class="text-foreground">33%</strong></span>
-        <span>Piloto → Cliente: <strong class="text-foreground">50%</strong></span>
+        <span>Awareness → Interest: <strong class="text-foreground">18%</strong></span>
+        <span>Interest → Qualified: <strong class="text-foreground">30%</strong></span>
+        <span>Qualified → Pilot: <strong class="text-foreground">33%</strong></span>
+        <span>Pilot → Customer: <strong class="text-foreground">50%</strong></span>
       </div>
     </div>
   </section>
@@ -344,8 +344,8 @@ const colorMap: Record<string, string> = {
   <!-- PILOTO 8 SEMANAS -->
   <section class="border-t border-border py-16">
     <div class="mx-auto max-w-[1100px] px-6">
-      <SectionHeader label="El producto vendible" title="Piloto de 8 semanas" />
-      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">El formato de entrada. Precio fijo, entregables definidos, criterio de éxito acordado antes de empezar. Sin este formato, no hay nada que vender.</p>
+      <SectionHeader label="The sellable product" title="8-week pilot" />
+      <p class="mt-2 max-w-[640px] text-sm text-muted-foreground">The entry format. Fixed price, defined deliverables, success criterion agreed before starting. Without this format, there is nothing to sell.</p>
 
       <div class="mt-8 grid gap-4 sm:grid-cols-4">
         {pilotWeeks.map((phase) => {
@@ -374,18 +374,18 @@ const colorMap: Record<string, string> = {
         <div class="rounded-xl border border-border bg-card p-5 space-y-2">
           <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">Startup (&lt;15p)</div>
           <div class="text-2xl font-display font-bold text-foreground">€1.500</div>
-          <div class="text-xs text-muted-foreground">piloto 8 semanas · todo incluido</div>
+          <div class="text-xs text-muted-foreground">8-week pilot · everything included</div>
         </div>
         <div class="rounded-xl border border-accent/40 bg-accent/5 p-5 space-y-2 relative">
-          <div class="absolute -top-2.5 left-4 text-[0.6rem] font-mono uppercase tracking-wider bg-accent text-background px-2 py-0.5 rounded-full">Recomendado</div>
+          <div class="absolute -top-2.5 left-4 text-[0.6rem] font-mono uppercase tracking-wider bg-accent text-background px-2 py-0.5 rounded-full">Recommended</div>
           <div class="text-xs font-mono text-accent/70 uppercase tracking-wider">Startup (15–50p)</div>
           <div class="text-2xl font-display font-bold text-foreground">€3.500</div>
-          <div class="text-xs text-muted-foreground">piloto 8 semanas · con agente digital</div>
+          <div class="text-xs text-muted-foreground">8-week pilot · with digital agent</div>
         </div>
         <div class="rounded-xl border border-border bg-card p-5 space-y-2">
-          <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">Agencia / PYME</div>
+          <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">Agency / SME</div>
           <div class="text-2xl font-display font-bold text-foreground">€6.000</div>
-          <div class="text-xs text-muted-foreground">piloto 8 semanas · 2 agentes + modo corp.</div>
+          <div class="text-xs text-muted-foreground">8-week pilot · 2 agents + corp. mode</div>
         </div>
       </div>
     </div>
@@ -394,15 +394,15 @@ const colorMap: Record<string, string> = {
   <!-- PRÓXIMOS PASOS -->
   <section class="border-t border-border py-16">
     <div class="mx-auto max-w-[1100px] px-6">
-      <SectionHeader label="Plan de acción" title="Los próximos 30 días" />
+      <SectionHeader label="Action plan" title="The next 30 days" />
       <div class="mt-8 space-y-3 max-w-[720px]">
         {[
-          { n: "01", plazo: "Esta semana", accion: "Protocolo de exposición ciega: 2 personas externas, 48h sin contexto. Observar sin intervenir.", owner: "Pablo + Oráculo libre" },
-          { n: "02", plazo: "Esta semana", accion: "Confirmar ICP #1: CEO startup técnica 5–15p. Listar 10 contactos concretos que encajan.", owner: "Dark Council" },
-          { n: "03", plazo: "Semana 2", accion: "Crear el deck de ventas con máximo 5 conceptos. Sin Numinia en capa 1.", owner: "Alquimista-01" },
-          { n: "04", plazo: "Semana 2", accion: "Definir los 3 KPIs del piloto que el cliente va a medir. Sin esto no hay criterio de éxito.", owner: "Dark Council" },
-          { n: "05", plazo: "Semana 3", accion: "Primera conversación exploratoria con 3 contactos del ICP #1. No es una demo — es escucha.", owner: "Pablo" },
-          { n: "06", plazo: "Semana 4", accion: "Si hay señal positiva: propuesta de piloto formalizada. Precio, entregables, criterio. Firma.", owner: "Pablo + Oráculo legal" },
+          { n: "01", plazo: "This week", accion: "Blind exposure protocol: 2 external people, 48h with no context. Observe without intervening.", owner: "Pablo + free Oracle" },
+          { n: "02", plazo: "This week", accion: "Confirm ICP #1: CEO of a technical startup 5–15p. List 10 concrete contacts that fit.", owner: "Dark Council" },
+          { n: "03", plazo: "Week 2", accion: "Create the sales deck with 5 concepts maximum. No Numinia in layer 1.", owner: "Alchemist-01" },
+          { n: "04", plazo: "Week 2", accion: "Define the 3 pilot KPIs the client is going to measure. Without these there is no success criterion.", owner: "Dark Council" },
+          { n: "05", plazo: "Week 3", accion: "First exploratory conversation with 3 contacts from ICP #1. It is not a demo — it is listening.", owner: "Pablo" },
+          { n: "06", plazo: "Week 4", accion: "If there is a positive signal: formalised pilot proposal. Price, deliverables, criterion. Signature.", owner: "Pablo + legal Oracle" },
         ].map((step) => (
           <div class="flex gap-4 rounded-xl border border-border bg-card p-4">
             <div class="font-mono text-2xl font-bold text-accent/30 shrink-0 w-8 text-center">{step.n}</div>
@@ -427,10 +427,10 @@ const colorMap: Record<string, string> = {
       <HighlightBox>
         <div class="space-y-3 text-sm leading-relaxed text-muted-foreground">
           <p>
-            <strong class="text-accent">El único número que importa ahora mismo:</strong> 1. Un cliente externo real que haya pasado el piloto de 8 semanas y renovado. Ese caso convierte todo lo demás — el one-pager, el deck, las simulaciones, el análisis de gaps — de teoría en evidencia. Con evidencia, el ciclo de ventas se divide por tres.
+            <strong class="text-accent">The only number that matters right now:</strong> 1. One real external client that has gone through the 8-week pilot and renewed. That case turns everything else — the one-pager, the deck, the simulations, the gap analysis — from theory into evidence. With evidence, the sales cycle is divided by three.
           </p>
           <p>
-            La secuencia es: validación ciega → ICP confirmado → piloto vendido → caso documentado → escala. No hay atajo.
+            The sequence is: blind validation → confirmed ICP → pilot sold → case documented → scale. There is no shortcut.
           </p>
         </div>
       </HighlightBox>

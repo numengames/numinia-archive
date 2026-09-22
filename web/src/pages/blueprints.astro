@@ -13,9 +13,9 @@ import { repoFileUrl } from "@/lib/build-info";
 import { getCollection } from "astro:content";
 
 const SEMAFORO: Record<string, { dot: string; label: string }> = {
-  verde: { dot: "bg-green", label: "Verde" },
-  amarillo: { dot: "bg-yellow", label: "Amarillo" },
-  rojo: { dot: "bg-red", label: "Rojo" },
+  verde: { dot: "bg-green", label: "Green" },
+  amarillo: { dot: "bg-yellow", label: "Amber" },
+  rojo: { dot: "bg-red", label: "Red" },
 };
 
 const slug = (id: string) => id.replace(/^BLU-\d+-/i, "").toLowerCase();
@@ -26,15 +26,15 @@ const planos = (await getCollection("blueprints")).sort((a, b) =>
 ---
 
 <Layout
-  title="Planos — Numen Games CAO"
-  description="Los Planos del Mundo — documentos vivos de arquitectura del NWOS, renderizados desde blueprints/ en el repo canónico."
+  title="Blueprints — Numen Games CAO"
+  description="The blueprints — living architecture documents of the NWOS, rendered from blueprints/ in the canonical repo."
   canonicalPath="/blueprints"
   activeNav="blueprints/"
 >
   <PageHero
     label={`${here.fn.name} · ${here.activity.name}`}
-    title="Los Planos del Mundo"
-    description="Documentos vivos de arquitectura — cada plano es un .md en el repo."
+    title="Blueprints"
+    description="Living architecture documents — each blueprint is a .md in the repo."
   />
 
   <section class="pb-24">
@@ -54,7 +54,7 @@ const planos = (await getCollection("blueprints")).sort((a, b) =>
         />
       </div>
       <div class="mb-6 text-right">
-        <a href="/blueprints/meta" class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors">Protocolo de Cartografía →</a>
+        <a href="/blueprints/meta" class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors">The mapping protocol →</a>
       </div>
       <div class="space-y-4">
         {planos.map((p) => {

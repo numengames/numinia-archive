@@ -29,9 +29,9 @@ const repoUrl = repoFileUrl(entry.filePath as string);
 const mdUrl = `/blueprints/${slug(entry.id as string)}.md`;
 
 const SEMAFORO: Record<string, { dot: string; label: string }> = {
-  verde: { dot: "bg-green", label: "Verde" },
-  amarillo: { dot: "bg-yellow", label: "Amarillo" },
-  rojo: { dot: "bg-red", label: "Rojo" },
+  verde: { dot: "bg-green", label: "Green" },
+  amarillo: { dot: "bg-yellow", label: "Amber" },
+  rojo: { dot: "bg-red", label: "Red" },
 };
 const sem = SEMAFORO[(f.semaforo as string) || ""];
 ---
