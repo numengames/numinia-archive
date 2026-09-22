@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.14.0",
+    date: "2026-09-22",
+    entries: [
+      {
+        type: "ADD",
+        text: "Every page can now be taken out of the site. Listen, copy, download the markdown, open the source — the four things a document page has always offered — reach 179 pages instead of 8. The home, the six function pages, every section index, the mission board, the reports index, the decision and blueprint registries and every agent's front door now have their own .md.",
+      },
+      {
+        type: "ADD",
+        text: "Those pages have no file behind them: they are composed from the registers at build time. So their markdown is generated from the same registers the page itself reads — the same question, answered in markdown. If the classification scheme changes, the page and its file change together; neither can drift from the other. Each file opens saying which documents it was read from, and asking you to cite those rather than the file: it is a view, not a record.",
+      },
+      {
+        type: "ADD",
+        text: "A new check refuses to let this slip again. On every build, each published page must offer its markdown, that file must exist and it must not be empty. Thirteen pages are exempt and each one carries a written reason — and those reasons are themselves an admission, filed as debt: six pages hold their content inside the template instead of in the archive, and three of them ignore a document that already says the same thing better.",
+      },
+      {
+        type: "CHG",
+        text: "The Source button points at the document that governs the page, never at the template that draws it. On a function page it opens the classification scheme; on a section index, the series register; on an agent's page, the roster. A reader who wants to argue with what a page says is sent to the place where arguing changes something.",
+      },
+    ],
+  },
+  {
     version: "v0.13.0",
     date: "2026-09-22",
     entries: [

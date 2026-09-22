@@ -18,6 +18,8 @@
 // this page with no edit to this file.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
 import { digitalAgents } from "@/lib/agents";
 import { getPublicCorpus } from "@/lib/corpus";
 
@@ -86,6 +88,18 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
 
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6 space-y-10">
+
+      {/*
+        Listen, copy, download, source. The agent's own files each have their
+        .md already; what this view adds is the roster line, so `Source`
+        opens agents/INDEX.md, which is where it is written.
+      */}
+      <DocToolbar
+        mdUrl={`/agents/${agent.id}.md`}
+        filename={`${agent.id}.md`}
+        repoUrl={repoFileUrl("agents/INDEX.md")}
+        lang="en"
+      />
 
       <!-- The routing line: the single most useful fact about an agent is
            when to bring it work. It comes verbatim from agents/INDEX.md. -->

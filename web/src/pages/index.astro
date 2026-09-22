@@ -41,10 +41,11 @@
 // @/lib/classification, as before. The figures come from the instrument.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
 import { functions, counts, graphNodes, RELATIONS } from "@/lib/classification";
 import { headerOf } from "@/lib/doc-header";
 import { dataset } from "@/lib/telemetry";
-import { VERSION } from "@/lib/build-info";
+import { VERSION, repoFileUrl } from "@/lib/build-info";
 
 const fns = functions();
 const n = counts();
@@ -131,7 +132,7 @@ const FN_DOOR: Record<string, string> = {
   <section class="pb-24">
     <div class="mx-auto max-w-[1100px] px-6">
 
-      <!-- 2 · THE PAIN. Colloquial level. Two sentences, then the turn. -->
+      {/* 2 · THE PAIN. Colloquial level. Two sentences, then the turn. */}
       <div class="max-w-[780px] mb-16">
         <p class="text-base leading-relaxed text-muted-foreground">
           Working in an organisation hurts: the documents live scattered, there are interests in
@@ -155,6 +156,20 @@ const FN_DOOR: Record<string, string> = {
           >
             How it is classified →
           </a>
+        </div>
+        {/*
+          Listen, copy, download, source — the same four a document offers.
+          This page has no file: its .md is composed from the registers by
+          @/lib/composed-md, and `Source` points at the scheme that governs
+          what the page states, never at index.astro, which only draws it.
+        */}
+        <div class="mt-8">
+          <DocToolbar
+            mdUrl="/home.md"
+            filename="home.md"
+            repoUrl={repoFileUrl(SHOWN.path)}
+            lang="en"
+          />
         </div>
       </div>
 

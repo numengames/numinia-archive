@@ -8,6 +8,8 @@ import { placeOf } from "@/lib/classification";
 // The drawer this index opens, from the scheme: "Assurance · Observing".
 const here = placeOf("blueprints/")!;
 import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
 import { getCollection } from "astro:content";
 
 const SEMAFORO: Record<string, { dot: string; label: string }> = {
@@ -37,6 +39,20 @@ const planos = (await getCollection("blueprints")).sort((a, b) =>
 
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6">
+      {/*
+        Listen, copy, download, source. Composed from the blueprints
+        collection; `Source` opens the series register, which is what decides
+        that blueprints/ holds what could be and is not a report of what
+        happened.
+      */}
+      <div class="mb-6">
+        <DocToolbar
+          mdUrl="/blueprints.md"
+          filename="blueprints.md"
+          repoUrl={repoFileUrl("standards/STD-001-the-series.md")}
+          lang="en"
+        />
+      </div>
       <div class="mb-6 text-right">
         <a href="/blueprints/meta" class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors">Protocolo de Cartografía →</a>
       </div>
