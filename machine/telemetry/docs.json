@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 10607,
+  "chars": 10965,
   "apparatus": false,
   "archived": false,
-  "tokens": 2450
+  "tokens": 2529
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 75698,
+  "chars": 76706,
   "apparatus": false,
   "archived": false,
-  "tokens": 20068
+  "tokens": 20319
  },
  {
   "path": "CLAUDE.md",
@@ -60,10 +60,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8608,
+  "chars": 8821,
   "apparatus": false,
   "archived": false,
-  "tokens": 2180
+  "tokens": 2229
  },
  {
   "path": "CONTRIBUTING.md",
@@ -1710,10 +1710,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 16458,
+  "chars": 17387,
   "apparatus": false,
   "archived": false,
-  "tokens": 4410
+  "tokens": 4632
  },
  {
   "path": "standards/STD-016-header-fields.md",

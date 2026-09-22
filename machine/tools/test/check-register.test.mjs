@@ -25,7 +25,7 @@ const REGISTER = 'standards/STD-015-engineering-checks.md';
    prove a check bites would leave the repository wrong if a test threw. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'register-'));
-  for (const p of ['standards', 'machine/scripts', 'machine/guards', 'machine/tools', '.github', 'CLAUDE.md', 'package.json'])
+  for (const p of ['standards', 'machine/scripts', 'machine/guards', 'machine/tools', '.github', 'AGENTS.md', 'CLAUDE.md', 'package.json'])
     cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
   execSync('git init -q && git add -A && git -c user.email=t@t -c user.name=t commit -qm scratch', { cwd: dir });
   return dir;
@@ -179,4 +179,56 @@ test('a scorecard row must name a real Scorecard check', () => {
     edit(dir, REGISTER, (t) => t.replace('`[AUTO: scorecard Token-Permissions]`', '`[AUTO: scorecard Invented-Check]`'));
     assert.match(run(dir).out, /"Invented-Check" is not an OpenSSF Scorecard check name/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+/* AGT-001 names the file every runtime reads, and that file is `AGENTS.md`.
+   The row said `CLAUDE.md`, which is one vendor's adapter: the practice was
+   written when Claude Code was the only runtime here, and the presence check
+   below enforced the adapter while nothing at all guarded the file the other
+   runtimes load. The open format (agents.md, donated to the Agentic AI
+   Foundation in December 2025) is what the operator already runs against. */
+test('AGT-001 holds AGENTS.md, the file every runtime reads', () => {
+  const register = readFileSync(path.join(ROOT, REGISTER), 'utf8');
+  const row = register.split('\n').find((l) => l.startsWith('| Agents | AGT-001 |'));
+  assert.ok(row, 'STD-015 has no AGT-001 row');
+  assert.match(row, /`AGENTS\.md`/, 'AGT-001 must name AGENTS.md as the file it requires');
+  assert.match(row, /audit/i, 'AGT-001 must still require the audit-before-assuming instruction');
+  assert.match(row, /`\[AUTO: machine\/tools\/check-register\.mjs\]`/, 'AGT-001 stays machine-checked');
+});
+
+test('the presence check reads AGENTS.md, and its first instruction', () => {
+  // A row naming AGENTS.md while the script still opens CLAUDE.md is the
+  // drift this register exists to catch, one level up.
+  const dir = scratch();
+  try {
+    edit(dir, 'AGENTS.md', (t) => t.replace(/^\*\*First instruction.*$/m, '**First instruction: ship it.**'));
+    const { code, out } = run(dir);
+    assert.equal(code, 1);
+    assert.match(out, /AGT-001: AGENTS\.md's first instruction does not tell the agent to audit/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+
+  const dir2 = scratch();
+  try {
+    edit(dir2, 'AGENTS.md', (t) => t.replace(/^\*\*First instruction.*$/m, 'nothing directive here'));
+    assert.match(run(dir2).out, /AGT-001: AGENTS\.md does not open with a \*\*First instruction\*\* line/);
+  } finally { rmSync(dir2, { recursive: true, force: true }); }
+});
+
+/* AGT-006 is the other row that named the adapter. The stance — what an agent
+   may do alone and what needs the Oracle — is platform-neutral by nature, so
+   it belongs in the platform-neutral file. */
+test('AGT-006 puts the AI stance in AGENTS.md', () => {
+  const register = readFileSync(path.join(ROOT, REGISTER), 'utf8');
+  const row = register.split('\n').find((l) => l.startsWith('| Agents | AGT-006 |'));
+  assert.ok(row, 'STD-015 has no AGT-006 row');
+  assert.match(row, /`AGENTS\.md`/, 'AGT-006 must name AGENTS.md');
+  assert.doesNotMatch(row, /`CLAUDE\.md`/, 'AGT-006 must not name a single vendor adapter');
+});
+
+/* The adapter still has to exist and still has to point at the canonical file
+   rather than repeat it: a second copy of the operating rules is the drift
+   DBT-020 already records between CLAUDE.md and STD-010. */
+test('CLAUDE.md remains an adapter that points at AGENTS.md', () => {
+  const claude = readFileSync(path.join(ROOT, 'CLAUDE.md'), 'utf8');
+  assert.match(claude, /AGENTS\.md/, 'CLAUDE.md must point at AGENTS.md');
 });

@@ -2,7 +2,9 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-**First instruction (AGT-001): audit the current branch state before assuming anything.** Never trust that the repo matches this file, a README, or a mission brief — read what is actually there first.
+**`AGENTS.md` is the canonical agent context (AGT-001); this file is the Claude Code adapter.** Read `AGENTS.md` first — the branch audit, the transition regime and the repository map live there and are not restated here.
+
+**First instruction: audit the current branch state before assuming anything.** Never trust that the repo matches this file, a README, or a mission brief — read what is actually there first.
 
 **Second instruction: `AGENTS.md` § Transition regime applies.** While the protocols are `draft` they describe, they do not bind — no mission card, no activation commit, no ADR for a chat decision, no task classification, no load score. What still holds is listed there (one PR per repo, CI green, `/updates` entry + version, CHANGELOG entry, reserved regimes untouched).
 
