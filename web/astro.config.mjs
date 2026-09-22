@@ -52,6 +52,24 @@ export default defineConfig({
 		"/diseno/kit/5.1.0/sistema.js": "/diseno/kit/sistema.js",
 		"/diseno/kit/5.1.0/sistema.prompt.txt": "/diseno/kit/sistema.prompt.txt",
 		"/diseno/kit/5.1.0/sistema.tokens.json": "/diseno/kit/sistema.tokens.json",
+		// → / — the classification is the home (2026-09-21). /archive asked
+		// "how is this organised?"; the root now answers it. Its children keep
+		// their addresses (/archive/<function>).
+		"/archive": "/",
+		// → /system/… — eight site pages filed in the System drawer (2026-09-21).
+		// They stood at the root with no link from anywhere; same page, new
+		// address, and a door from /system/.
+		"/cao": "/system/cao",
+		"/continuity": "/system/continuity",
+		"/gaps": "/system/gaps",
+		"/language": "/system/language",
+		"/sales": "/system/sales",
+		"/simulations": "/system/simulations",
+		"/solutions": "/system/solutions",
+		"/wardley": "/system/wardley",
+		// → /system/sys-006 — BLU-008 reshelved as a reference manual (2026-09-21)
+		"/blueprints/nwos-system": "/system/sys-006-nwos-system",
+		"/blueprints/nwos-system.md": "/system/sys-006-nwos-system.md",
 		// → /archive — the fondo pages became function pages
 		"/archive/agents": "/archive/agency",
 		"/archive/blueprints": "/blueprints",
@@ -175,7 +193,9 @@ export default defineConfig({
 		"/standards/standards": "/decisions/adr-041",
 		// → reports
 		"/blueprints/wardley-map": "/reports/rpt-003-wardley-map",
-		"/gaps": "/reports/rpt-008-gaps-capability-map",
+		// "/gaps" → the report used to sit here too, unreachable: a built page at
+		// /gaps shadowed it. The page moved to /system/gaps (2026-09-21) and the
+		// rule above sends the old address there — same page, not the report.
 		"/reports/rpt-2026-04-07-gaps-capability-map": "/reports/rpt-008-gaps-capability-map",
 		"/reports/rpt-2026-04-07-wardley-map": "/reports/rpt-003-wardley-map",
 	},

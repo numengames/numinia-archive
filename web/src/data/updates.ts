@@ -32,6 +32,36 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.12.0",
+    date: "2026-09-21",
+    entries: [
+      {
+        type: "CHG",
+        text: "The home is the archive's own classification. Until today the front page was a product pitch — 'Narrative Work OS', five layers, six features — written by hand in August and restating a blueprint from memory, and the page that explains how the archive is organised sat at /archive, behind the tenth entry of the bar. They have swapped places: you now land on one fond, six functions, the activities under each and the series they produce, with the relation graph and the full table, all read from the two standards that own the scheme. The pitch is a reference manual in System (SYS-006). /archive redirects here.",
+      },
+      {
+        type: "CHG",
+        text: "The bar is the classification. Six entries — Governance, Production, Assurance, Agency, Creation, Administration — each a menu of the series its activities produce, with the activity verb beside each series ('Canon — Founding'). Nothing in the menu is typed by hand: it is derived at build time from the classification scheme, so a series added to the standard appears in the menu on the next build or the build fails. Operations, Objects and Lore, which were hidden in the footer because the old bar had run out of width, are back at one click. The footer's navigation column lists the same six doors plus Updates and Telemetry.",
+      },
+      {
+        type: "CHG",
+        text: "Every section index says which drawer you opened. The label above the title used to read 'CAO · NWOS' on every one of them; it now reads the place in the scheme — 'Governance · Standardising', 'Assurance · Observing' — and the strip at the foot groups the other sections by function. The instruments (guards, tools, scripts, templates) have a manual (SYS-007): what each one is, what it checks, how it runs, and a link to the folder on GitHub. The table on the home links each of them to its section of that manual instead of printing 'not published here'.",
+      },
+      {
+        type: "FIX",
+        text: "Three rows of the classification table were stale: objects/ linked to one card instead of its index, operations/ to one document instead of its index, and lore/ said 'served by numinia.com, not here' the day after /lore went live on this site. All three now lead to the folder's index page. A test covers it.",
+      },
+      {
+        type: "FIX",
+        text: "The relation graph no longer loads its 3D library from a third-party server at runtime, and no longer spins forever. The library ships in the site's own bundle; the scene is still by default and turns when you drag it; it surfaces once as it scrolls into view; with reduced motion on, it simply appears in place. Both were breaches of the design standard (self-hosted resources; no ambient loops outside the two the catalogue allows) that had been on the page since it was written.",
+      },
+      {
+        type: "CHG",
+        text: "Eight pages that no link on the site reached — the Wardley map, the gaps analysis, the continuity proof, the narrative dial, the CAO dashboard, the hundred simulations, the solutions and the sales guide — are filed under /system/ and listed at the foot of the System index, marked as views the site draws rather than documents of the series, with their language and their age stated. Four are in Spanish and untouched since August; what to keep of each is deferred, not decided here. Their old addresses redirect.",
+      },
+    ],
+  },
+  {
     version: "v0.11.0",
     date: "2026-09-21",
     entries: [

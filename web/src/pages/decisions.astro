@@ -4,6 +4,9 @@
 // Decision registry, rendered from the repo's decisions/ folder (MIS-065:
 // the folder is the source of truth — no hardcoded copy).
 import Layout from "@/layouts/Layout.astro";
+import { placeOf } from "@/lib/classification";
+// The drawer this index opens, from the scheme: "Assurance · Observing".
+const here = placeOf("decisions/")!;
 import PageHero from "@/components/PageHero.astro";
 import { getCollection } from "astro:content";
 
@@ -22,10 +25,10 @@ const decisions = (await getCollection("decisions")).sort((a, b) =>
   title="Decisiones — Numen Games CAO"
   description="Registro de decisiones arquitectónicas y estratégicas del NWOS, renderizado desde decisions/ en el repo canónico."
   canonicalPath="/decisions"
-  activeNav="decisiones"
+  activeNav="decisions/"
 >
   <PageHero
-    label="CAO · NWOS"
+    label={`${here.fn.name} · ${here.activity.name}`}
     title="Decisiones"
     description="Registro append-only de decisiones — cada una es un .md en el repo."
   />

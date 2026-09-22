@@ -26,6 +26,13 @@
 // with no entry in SERVED_AT fails the build rather than rendering a row that
 // links nowhere.
 //
+// Since 2026-09-21 this module is also the NAVIGATION. The bar, the footer,
+// the mobile panel and the section strips read `functions()`: six menus, one
+// per function, each listing the series its activities produce. The home page
+// is the scheme itself. A hand-written nav list (web/src/data/navigation.ts,
+// deleted) had drifted from the archive's own classification the same way the
+// old /archive page had — this is the same fix applied to the second copy.
+//
 // WHY PARSE MARKDOWN AND NOT A frontmatter BLOCK
 // ----------------------------------------------
 // The alternative was to keep the data in SYS-003's frontmatter and let the
@@ -54,16 +61,26 @@ export interface Activity {
 export interface Series {
   /** folder, as written in the archive — "standards/", "machine/guards/" */
   readonly folder: string;
+  /** what the menu prints — "Standards", "Guards" */
+  readonly label: string;
+  /** the activity (verb) that produced it — "Standardising" */
+  readonly activity: string;
   /** what it holds, from STD-001's table; empty for folders STD-001 does not list */
   readonly holds: string;
   /** identifier prefix from STD-001, e.g. "STD-NNN"; empty when the series has none */
   readonly prefix: string;
-  /** change threshold from STD-001: governed · open · closed · live */
+  /** change threshold from STD-001: governed · open · closed · live; empty for an instrument */
   readonly threshold: string;
   /** where this site serves it, or null when it is not published here */
   readonly href: string | null;
-  /** why it is not published here — set exactly when href is null */
-  readonly unpublished: string | null;
+  /**
+   * Printed beside the link: why this series has no page of its own here
+   * (an instrument, read in the repository), or why it is not published at
+   * all when href is null. Null for an ordinary series with an index page.
+   */
+  readonly note: string | null;
+  /** an instrument (STD-027 CLS-002): classified, never a document */
+  readonly instrument: boolean;
 }
 
 /** One function (noun) of the fond. */
@@ -72,6 +89,8 @@ export interface Fn {
   readonly name: string;
   /** route segment — "governance" */
   readonly slug: string;
+  /** the page that explains this function: /archive/<slug> */
+  readonly href: string;
   readonly activities: readonly Activity[];
 }
 
@@ -83,11 +102,24 @@ export interface Fn {
 // is a published statement — the page prints the reason — so a reader is never
 // shown a folder that silently goes nowhere.
 //
+// Every row here is also the navigation: the bar, the footer and the section
+// strips are derived from this map through `functions()`, so a series the
+// scheme names and this map forgets fails the build instead of vanishing
+// from the menu (2026-09-21).
+//
+// `label` is what the menu prints — the folder name, capitalised, unless a
+// page calls the folder something else. Today none does.
+//
 // Instruments (`machine/**`) are not records (STD-027 CLS-002): they carry no
 // identifier, are not appraised and are never cited as evidence. They are
-// classified, so they appear in the table; they are not published, so they
-// have no address.
-const SERVED_AT: Record<string, { href: string | null; unpublished?: string }> = {
+// classified, so they appear in the table and the menu; they have no page of
+// their own, so their address is the manual that explains them (SYS-007),
+// anchored at the folder. The reason is printed beside the link.
+//
+// THREE ROWS WERE STALE UNTIL 2026-09-21: `objects/` pointed at one card,
+// `operations/` at one document, and `lore/` said "not served here" the day
+// after /lore/ went live. The index pages existed; this map had not heard.
+const SERVED_AT: Record<string, { href: string | null; label?: string; unpublished?: string }> = {
   "canon/": { href: "/canon/" },
   "standards/": { href: "/standards/" },
   "protocols/": { href: "/protocols/" },
@@ -97,32 +129,33 @@ const SERVED_AT: Record<string, { href: string | null; unpublished?: string }> =
   "reports/": { href: "/reports" },
   "debt/": { href: "/debt/" },
   "agents/": { href: "/agents" },
-  "objects/": { href: "/objects/avocado" },
-  "operations/": { href: "/operations/ops-001-continuity" },
+  "objects/": { href: "/objects/" },
+  "operations/": { href: "/operations/" },
   "system/": { href: "/system/" },
-  "lore/": {
-    href: null,
-    unpublished:
-      "A second fond, under a reserved licence regime. This viewer is public; the fiction and the game manual are served to citizens by numinia.com, not here.",
-  },
+  "lore/": { href: "/lore/" },
   "machine/guards/": {
-    href: null,
-    unpublished: "An instrument, not a record — it verifies the archive and is read in the repository.",
+    href: "/system/sys-007-the-instruments#machineguards--verifying",
+    label: "Guards",
+    unpublished: "An instrument, not a record — the rules that run on every change; read in the repository, explained in the manual.",
   },
   "machine/tools/": {
-    href: null,
-    unpublished: "An instrument, not a record — it verifies the archive and is read in the repository.",
+    href: "/system/sys-007-the-instruments#machinetools--verifying",
+    label: "Tools",
+    unpublished: "An instrument, not a record — checks run by hand or against the registers; read in the repository, explained in the manual.",
   },
   "machine/scripts/": {
-    href: null,
-    unpublished: "An instrument, not a record — it verifies the archive and is read in the repository.",
+    href: "/system/sys-007-the-instruments#machinescripts--verifying",
+    label: "Scripts",
+    unpublished: "An instrument, not a record — the build and CI scripts; read in the repository, explained in the manual.",
   },
   "machine/telemetry/": {
     href: "/telemetry",
+    label: "Telemetry",
   },
   "machine/templates/": {
-    href: null,
-    unpublished: "An instrument, not a record — the moulds a document is cut from, read in the repository.",
+    href: "/system/sys-007-the-instruments#machinetemplates--templating",
+    label: "Templates",
+    unpublished: "An instrument, not a record — the moulds a document is cut from; read in the repository, explained in the manual.",
   },
 };
 
@@ -146,6 +179,12 @@ function cells(line: string): string[] | null {
 /** Strip Markdown emphasis and code spans: "**Governance**" -> "Governance". */
 function plain(cell: string): string {
   return cell.replace(/\*\*/g, "").replace(/`/g, "").trim();
+}
+
+/** The menu label of a folder: its last segment, capitalised — "standards/" -> "Standards". */
+function labelOf(folder: string): string {
+  const seg = folder.replace(/\/$/, "").split("/").pop() ?? folder;
+  return seg.charAt(0).toUpperCase() + seg.slice(1);
 }
 
 /** STD-001's series register: folder -> what it holds, its prefix, its threshold. */
@@ -181,6 +220,7 @@ function parseScheme(): Fn[] {
   interface Builder {
     name: string;
     slug: string;
+    href: string;
     activities: Activity[];
   }
   const built: Builder[] = [];
@@ -204,7 +244,8 @@ function parseScheme(): Fn[] {
     if (!inTable) continue;
 
     if (fnCell) {
-      current = { name: fnCell, slug: fnCell.toLowerCase(), activities: [] };
+      const slug = fnCell.toLowerCase();
+      current = { name: fnCell, slug, href: `/archive/${slug}`, activities: [] };
       built.push(current);
     }
     if (!current) {
@@ -229,13 +270,19 @@ function parseScheme(): Fn[] {
           );
         }
         const reg = register.get(folder);
+        const instrument = folder.startsWith("machine/");
+        // "—" in the register means "an instrument has none", not a value.
+        const cell = (v: string | undefined) => (v && v !== "—" ? v : "");
         return {
           folder,
-          holds: reg?.holds ?? "",
-          prefix: reg?.prefix ?? "",
-          threshold: reg?.threshold ?? "",
+          label: served.label ?? labelOf(folder),
+          activity: activityCell,
+          holds: cell(reg?.holds),
+          prefix: cell(reg?.prefix),
+          threshold: cell(reg?.threshold),
           href: served.href,
-          unpublished: served.href === null ? (served.unpublished ?? "Not published on this site.") : null,
+          note: served.href === null ? (served.unpublished ?? "Not published on this site.") : (served.unpublished ?? null),
+          instrument,
         };
       }),
     });
@@ -266,6 +313,22 @@ export function functionBySlug(slug: string): Fn | undefined {
 /** Every series of the scheme, in table order. */
 export function allSeries(): Series[] {
   return functions().flatMap((f) => f.activities.flatMap((a) => a.series));
+}
+
+/**
+ * Where a folder sits in the scheme: its function and the activity that
+ * produced it. A section index prints this above its title ("Governance ·
+ * Standardising") so a reader always knows which drawer they opened.
+ * Undefined for a folder the scheme does not classify.
+ */
+export function placeOf(folder: string): { fn: Fn; activity: Activity; series: Series } | undefined {
+  for (const fn of functions()) {
+    for (const activity of fn.activities) {
+      const series = activity.series.find((s) => s.folder === folder);
+      if (series) return { fn, activity, series };
+    }
+  }
+  return undefined;
 }
 
 /** How many folders the scheme classifies, and how many this site serves. */

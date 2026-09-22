@@ -73,12 +73,14 @@ const REPORT = process.argv.includes('--report');
 // address. Adding a page to this list is a deliberate act — it is the one
 // place a new top-level address is admitted.
 const STANDALONE = new Set([
-  '/',            // the home
-  '/archive',     // the classification (its children are functions, see URL-002)
+  '/',            // the home — since 2026-09-21 the classification itself
+  '/archive',     // the function pages (/archive/<function>, see URL-002); the bare address redirects to /
   '/updates',     // the site's own version timeline
   '/telemetry',   // the measured figures
-  '/wardley', '/gaps', '/cao', '/continuity', '/language',
-  '/agent', '/sales', '/simulations', '/solutions',
+  '/agent',       // the roster's detail view
+  // 2026-09-21: /wardley /gaps /cao /continuity /language /sales /simulations
+  // /solutions moved under /system/ — a series segment, so URL-001 admits
+  // them without a line here. Their old roots are redirects now.
   '/legal',       // the legal texts, published from operations/
   '/diseno',      // the design kit's served files
   '/404',

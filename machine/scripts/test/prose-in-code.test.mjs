@@ -22,7 +22,9 @@ import { bindsFor } from '../lib/regime.mjs';
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
 const GUARD = path.join(ROOT, 'machine', 'guards', 'rules', 'std-006-plain-text.mjs');
 const SCRATCH = path.join(ROOT, 'web', 'src', 'components', '_ProseFixture.astro');
-const PAGE = path.join(ROOT, 'web', 'src', 'pages', 'cao.astro');
+// The fixture page moved under pages/system/ on 2026-09-21 with the seven
+// other views the site draws about the System drawer; same prose, new path.
+const PAGE = path.join(ROOT, 'web', 'src', 'pages', 'system', 'cao.astro');
 
 const runGuard = (args = []) => {
   const r = spawnSync('node', [GUARD, ...args], { encoding: 'utf8' });

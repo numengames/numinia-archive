@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 56956,
+  "chars": 62371,
   "apparatus": false,
   "archived": false,
-  "tokens": 15444
+  "tokens": 16887
  },
  {
   "path": "CLAUDE.md",
@@ -526,17 +526,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2176
- },
- {
-  "path": "blueprints/BLU-008-nwos-system.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 8561,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1977
  },
  {
   "path": "blueprints/BLU-009-web-pieces.md",
@@ -1567,10 +1556,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5726,
+  "chars": 6790,
   "apparatus": false,
   "archived": false,
-  "tokens": 1752
+  "tokens": 2040
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -1901,5 +1890,27 @@
   "apparatus": false,
   "archived": false,
   "tokens": 5610
+ },
+ {
+  "path": "system/SYS-006-nwos-system.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "active",
+  "chars": 9646,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2246
+ },
+ {
+  "path": "system/SYS-007-the-instruments.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "active",
+  "chars": 6700,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1794
  }
 ]

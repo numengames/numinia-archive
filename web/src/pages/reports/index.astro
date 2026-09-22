@@ -11,6 +11,9 @@
 // /reports mirrored the rest: three heads for one folder. This is the
 // one that remains. /audits and /audits/<id> redirect here.
 import Layout from "@/layouts/Layout.astro";
+import { placeOf } from "@/lib/classification";
+// The drawer this index opens, from the scheme: "Assurance · Observing".
+const here = placeOf("reports/")!;
 import PageHero from "@/components/PageHero.astro";
 import { getCollection } from "astro:content";
 
@@ -51,10 +54,10 @@ for (const g of groups) g.rows.sort((a, b) => b.created.localeCompare(a.created)
   title="Reports — Numen Games CAO"
   description="Every report of the NWOS system — audits, analyses, proposals and dailies — rendered from the repo's reports/ folder."
   canonicalPath="/reports"
-  activeNav="reports"
+  activeNav="reports/"
 >
   <PageHero
-    label="CAO · NWOS"
+    label={`${here.fn.name} · ${here.activity.name}`}
     title="Reports"
     description={`${rows.length} documents, straight from the canonical repo. Built in public; third-party data and credentials are redacted at the source.`}
   />

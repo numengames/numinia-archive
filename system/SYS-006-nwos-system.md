@@ -1,22 +1,35 @@
 ---
-id: "BLU-008"
+id: "SYS-006"
 uid: ""
 title: "NWOS — System Description, Layers and Principles"
-type: blueprint
+type: documentation
+subtype: reference
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-08-27T22:02:10Z"
+updated: "2026-09-21T18:00:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
-tags: [blueprint, nwos, architecture, layers, principles]
+tags: [system, reference, nwos, architecture, layers, principles]
 territory: "CAO"
 license: "CC0-1.0"
+former_id: "BLU-008"
+former_id_note: "Reshelved 2026-09-21 under ADR-035's test: this text describes what runs — the layers, the features, the principles — not a design awaiting a decision. It was written as the home page of numinia.org and extracted from it (MIS-071); the home now shows the classification of the archive, and this is the manual behind what it used to say. Same move as BLU-005 → SYS-003. Minor: the body is unchanged, the header gains the card STD-007 asks for."
 extraction_note: "Extracted verbatim from web/src/pages/index.astro (MIS-071 phase 2 — File over App): feature descriptions, the L0-L4 layer architecture, the six operating principles, the implementation requirements and the Narrative Layer note."
+related: ["SYS-001", "SYS-003", "CAN-007"]
 ---
 # Narrative Work OS
+
+> **Summary:** What the NWOS is, as it runs: five layers from files to
+> narrative, six features a team gets on day one, six design principles and
+> the three things an organisation needs to adopt it.
+> **Epistemic:** The system described from the outside in — what a reader
+> who has never opened the repository should understand first.
+> **Pragmatic:** The reference behind the site's own description of itself;
+> onboarding text for a team evaluating the system.
+> **Audience:** Agents · Oracles · External collaborators
 
 > A structured, file-based operating system for organizations. Built on markdown, git, and AI agents. No proprietary formats. No lock-in.
 

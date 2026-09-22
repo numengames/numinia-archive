@@ -12,6 +12,12 @@
 // Each of the seven now redirects: five to their section index, and the two
 // whose question was "which folder is this" to the function that classifies
 // them (ADR-030's four tests; web/astro.config.mjs holds the lines).
+//
+// 2026-09-21: the scheme this page belongs to moved from /archive to /, and
+// /archive redirects there. These six pages keep their address: URL-002
+// forbids a function in a DOCUMENT's address, and check-url-shape declares
+// /archive/* as the one place a function may be named — it is ABOUT the
+// classification. The bar's six menus each link here.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import PageHero from "@/components/PageHero.astro";
@@ -50,10 +56,10 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
   title={`${fn.name} — how the archive is classified · Numen Games`}
   description={`${fn.name}: ${fn.activities.map((act) => act.name).join(", ")} — and the ${seriesCount} series these activities produce.`}
   canonicalPath={`/archive/${fn.slug}`}
-  activeNav="archive"
+  activeNav={fn.slug}
 >
   <PageHero
-    label="Archive · function"
+    label="The archive · function"
     title={fn.name}
     description={fn.activities.map((act) => act.name).join(" · ")}
   />
@@ -62,7 +68,7 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
     <div class="mx-auto max-w-[1100px] px-6">
 
       <div class="mb-8">
-        <a href="/archive" class="inline-flex items-center gap-2 font-mono text-xs text-dim hover:text-foreground transition-colors">
+        <a href="/" class="inline-flex items-center gap-2 font-mono text-xs text-dim hover:text-foreground transition-colors">
           <Icon name="caret-left" size={12} />
           <span>How the archive is classified</span>
         </a>
@@ -103,14 +109,15 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
                       )}
                     </div>
                     <p class="text-xs text-muted-foreground leading-relaxed flex-1">
-                      {s.holds || s.unpublished}
+                      {s.holds || s.note}
+                      {s.holds && s.note && <span class="block mt-1 text-dim">{s.note}</span>}
                     </p>
                     <div class="flex items-center justify-between pt-2 border-t border-border/50">
                       {s.threshold
                         ? <span class="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-dim">{s.threshold}</span>
                         : <span class="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-dim">instrument</span>}
                       {s.href
-                        ? <a href={s.href} class={`font-mono text-[0.6rem] ${a.text} hover:opacity-70 transition-opacity`}>Read it →</a>
+                        ? <a href={s.href} class={`font-mono text-[0.6rem] ${a.text} hover:opacity-70 transition-opacity`}>{s.instrument ? "The manual →" : "Read it →"}</a>
                         : <span class="font-mono text-[0.55rem] text-dim opacity-50">not published here</span>}
                     </div>
                   </div>
@@ -127,7 +134,7 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
             <nav class="flex flex-col gap-1.5">
               {others.map((f) => (
                 <a
-                  href={`/archive/${f.slug}`}
+                  href={f.href}
                   class="flex items-center gap-2.5 rounded-lg border border-border bg-card px-3 py-2.5 hover:border-accent/50 hover:bg-accent/5 transition-all group"
                 >
                   <span class="text-dim shrink-0"><Icon name={FN_ICON[f.slug] ?? "archive"} size={16} /></span>
@@ -138,7 +145,7 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
                 </a>
               ))}
               <a
-                href="/archive"
+                href="/"
                 class="flex items-center gap-2.5 rounded-lg border border-border/50 px-3 py-2.5 hover:border-accent/30 transition-all mt-2"
               >
                 <span class="text-dim shrink-0"><Icon name="archive" size={16} /></span>

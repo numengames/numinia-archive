@@ -1,270 +1,246 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
+//
+// The bar: six doors, one per function of the archive.
+//
+// WHAT CHANGED ON 2026-09-21
+// The bar held ten flat pills "ordered by authority" and hid three sections
+// in the footer because it had run out of width; /archive — the page that
+// explains how the archive is organised — was the tenth pill. The archive is
+// classified by function (STD-027), so the bar now IS that classification:
+// Governance · Production · Assurance · Agency · Creation · Administration,
+// each a menu of the series its activities produce. Nothing is typed here;
+// @/data/navigation derives the groups from the standard at build time.
+//
+// THE RECIPE (BLU-009 §12): wordmark left; entries in Mono uppercase; the
+// active entry with a 2 px Ámbar underline; utilities on the right; on mobile
+// a full-screen panel with the same entries and nothing else. Six entries,
+// not the recipe's ≤5 — the Oracle's word; see @/data/navigation.
+//
+// The menus open on hover and on click (the button toggles them for touch and
+// keyboard; Escape closes). The bridge div under each button keeps the panel
+// open across the gap. Reduced motion: no transition, the panel simply is.
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
-import { navItems, barItems } from "@/data/navigation";
-import { useT, type UIKey } from "@/i18n/ui";
+import { navGroups, activeGroupOf } from "@/data/navigation";
+import { useT } from "@/i18n/ui";
 
 interface Props {
   activeNav?: string;
 }
 
 const { activeNav } = Astro.props;
-
-const numaniaIds = navItems
-  .find((i) => i.id === "numinia")
-  ?.children?.map((c) => c.id) ?? [];
-const numaniaActive = numaniaIds.includes(activeNav ?? "");
-
-// Section entries are plain links. They lead to the folder's index page, which
-// is where a document gets chosen — one place to browse a folder, not two, and
-// no count in the bar: the number belongs on the page that lists the documents.
-const sectionIds = new Set(
-  navItems.filter((i) => "section" in i && i.section).map((i) => i.id),
-);
-
-// MIS-120(e) — one corpus, in English. No locale prefix, no selector: the
-// reader's browser offers the translation, and lang="en" is what triggers it.
-// nav item ids are historical (Spanish); the map bridges id → dictionary key.
+const active = activeGroupOf(activeNav);
 const t = useT("en");
-const NAV_KEY: Record<string, UIKey> = {
-  missions: "nav.missions",
-  corpus: "nav.corpus",
-  decisiones: "nav.decisions",
-  planos: "nav.blueprints",
-  reportes: "nav.reports",
-};
-const navLabel = (id: string, fallback: string) =>
-  NAV_KEY[id] ? t(NAV_KEY[id]) : fallback;
-const l = (href: string) => href;
 const homeHref = "/";
+
+// The bar's own text style: Mono, uppercase, tracked — type.etiqueta.
+const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
 ---
 
-<nav class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl">
+<nav class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl" aria-label="Primary">
   <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
     <a href={homeHref} class="flex min-h-[44px] items-center font-display text-xl text-foreground transition-colors hover:text-accent">
       NW<em class="text-accent">OS</em>
     </a>
 
     <!--
-      Desktop nav. The breakpoint is `lg`, not `sm`: measured at 768 px the
-      seven entries plus the search field ran to 774 px inside a 683 px
-      column and pushed the whole page 91 px wide. A bar that overflows is
-      worse than a hamburger — it hides its own last entries with no
-      affordance saying so.
+      Desktop bar. `lg` breakpoint, as before: measured at 768 px the entries
+      plus the search field overflowed their column. Six words in Mono at
+      0.7rem fit at 1024 px with the search field beside them; the DOM check
+      in scripts (grep the built HTML for the six labels) is the regression
+      test, not this comment.
     -->
     <div class="hidden items-center gap-1 lg:flex">
-      <SiteSearch />
-      {/*
-        `barItems`, not `navItems`: the bar drops what does not fit (see
-        `inBar` in @/data/navigation). The MOBILE menu below keeps the full
-        list — it is a vertical stack and has no width to run out of.
-      */}
-      {barItems.map((item) => {
-        if (sectionIds.has(item.id)) {
-          return (
-            <a
-              href={item.href}
-              class:list={[
-                "rounded-full px-3.5 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.12em] transition-all",
-                activeNav === item.id
-                  ? "border border-accent bg-accent/10 text-accent"
-                  : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
-              ]}
-            >
-              {item.label}
-            </a>
-          );
-        }
-        if (item.children) {
-          return (
-            <div class="relative" data-dropdown>
-              <button
-                data-dropdown-btn
-                class:list={[
-                  "flex items-center gap-1 rounded-full px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-all",
-                  numaniaActive
-                    ? "border border-accent bg-accent/10 text-accent"
-                    : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
-                ]}
-              >
-                {navLabel(item.id, item.label)}
-                <span data-chevron class="inline-flex transition-transform duration-200">
-                  <Icon name="caret-down" size={10} />
-                </span>
-              </button>
-              <!-- invisible bridge to prevent gap-triggered close -->
-              <div class="absolute right-0 top-full h-3 w-full" data-bridge></div>
-              <!-- Dropdown panel -->
-              <div
-                data-dropdown-panel
-                class="absolute right-0 top-full mt-3 hidden w-48 rounded-xl border border-border bg-background/95 py-2 shadow-xl backdrop-blur-xl"
-              >
-                {item.children.map((child) => (
-                  <a
-                    href={l(child.href)}
-                    class:list={[
-                      "block px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
-                      activeNav === child.id
-                        ? "bg-accent/10 text-accent"
-                        : "text-muted-foreground hover:bg-card hover:text-foreground",
-                    ]}
-                  >
-                    {navLabel(child.id, child.label)}
-                  </a>
-                ))}
-              </div>
-            </div>
-          );
-        }
-        return (
+      {navGroups.map((group) => (
+        <div class="relative" data-dropdown>
           <a
-            href={l(item.href)}
+            href={group.href}
+            data-dropdown-btn
+            aria-haspopup="true"
+            aria-expanded="false"
             class:list={[
-              "rounded-full px-4 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-all",
-              activeNav === item.id
-                ? "border border-accent bg-accent/10 text-accent"
-                : "border border-transparent text-muted-foreground hover:border-border hover:bg-card hover:text-foreground",
+              "flex min-h-[44px] items-center gap-1 px-3 transition-colors",
+              etiqueta,
+              active === group.id
+                ? "text-foreground border-b-2 border-yellow"
+                : "text-muted-foreground border-b-2 border-transparent hover:text-foreground",
             ]}
           >
-            {navLabel(item.id, item.label)}
+            {group.label}
+            <span data-chevron class="inline-flex transition-transform duration-200 motion-reduce:transition-none">
+              <Icon name="caret-down" size={10} />
+            </span>
           </a>
-        );
-      })}
+          <!-- invisible bridge so the pointer can cross the gap to the panel -->
+          <div class="absolute left-0 top-full h-3 w-full" data-bridge></div>
+          <div
+            data-dropdown-panel
+            class="absolute left-0 top-full mt-3 hidden w-64 rounded-[8px] border border-border bg-background/95 py-2 shadow-xl backdrop-blur-xl"
+          >
+            {group.entries.map((entry) => (
+              <a
+                href={entry.href}
+                title={entry.note ?? undefined}
+                class:list={[
+                  "flex items-baseline justify-between gap-3 px-4 py-2 transition-colors",
+                  activeNav === entry.folder || activeNav === entry.href
+                    ? "bg-accent/10 text-accent"
+                    : "text-foreground hover:bg-card",
+                ]}
+              >
+                <span class={etiqueta}>{entry.label}</span>
+                <span class="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-dim">{entry.activity}</span>
+              </a>
+            ))}
+            <a
+              href={group.href}
+              class="mt-1 flex items-center gap-2 border-t border-border/50 px-4 pt-2 font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim transition-colors hover:text-foreground"
+            >
+              {group.label} · the function →
+            </a>
+          </div>
+        </div>
+      ))}
+      <SiteSearch />
     </div>
 
-    <!-- Mobile hamburger -->
+    <!-- Mobile: the button that opens the full-screen panel -->
     <button
       id="mobile-menu-btn"
-      class="flex h-11 w-11 items-center justify-center rounded-lg border border-border text-muted-foreground transition-colors hover:bg-card hover:text-foreground lg:hidden"
+      class="flex h-11 w-11 items-center justify-center rounded-[6px] border border-border text-muted-foreground transition-colors hover:bg-card hover:text-foreground lg:hidden"
       aria-label={t("nav.openMenu")}
+      aria-controls="mobile-menu"
       aria-expanded="false"
     >
-      <Icon name="list" size={18} />
+      <span data-icon-open><Icon name="list" size={18} /></span>
+      <span data-icon-close class="hidden"><Icon name="x" size={18} /></span>
     </button>
   </div>
 
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden border-t border-border/50 bg-background/95 backdrop-blur-xl lg:hidden">
-    <div class="flex flex-col gap-1 px-6 py-4">
-      {navItems.map((item) => {
-        if (sectionIds.has(item.id)) {
-          return (
-            <a
-              href={item.href}
-              class:list={[
-                "flex min-h-[44px] items-center rounded-lg px-4 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
-                activeNav === item.id
-                  ? "bg-accent/10 text-accent"
-                  : "text-muted-foreground hover:bg-card hover:text-foreground",
-              ]}
-            >
-              {item.label}
-            </a>
-          );
-        }
-        if (item.children) {
-          return (
-            <div>
-              <div class:list={[
-                "rounded-lg px-4 py-2.5 font-mono text-[0.7rem] uppercase tracking-[0.15em]",
-                numaniaActive ? "text-accent" : "text-muted-foreground",
-              ]}>
-                {navLabel(item.id, item.label)}
-              </div>
-              <div class="ml-4 flex flex-col gap-1 border-l border-border/50 pl-3">
-                {item.children.map((child) => (
-                  <a
-                    href={l(child.href)}
-                    class:list={[
-                      "flex min-h-[44px] items-center rounded-lg px-3 font-mono text-[0.65rem] uppercase tracking-[0.15em] transition-colors",
-                      activeNav === child.id
-                        ? "bg-accent/10 text-accent"
-                        : "text-muted-foreground hover:bg-card hover:text-foreground",
-                    ]}
-                  >
-                    {navLabel(child.id, child.label)}
-                  </a>
-                ))}
-              </div>
-            </div>
-          );
-        }
-        return (
-          <a
-            href={l(item.href)}
+  <!--
+    Mobile panel: full-screen, the six functions as an accordion, the same
+    entries as the bar and nothing else (BLU-009 §12). Fixed below the bar so
+    the wordmark and the close button stay where the reader left them.
+  -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-x-0 bottom-0 top-14 z-40 hidden overflow-y-auto bg-background/95 backdrop-blur-xl lg:hidden"
+  >
+    <div class="mx-auto flex max-w-[1100px] flex-col gap-1 px-6 py-4">
+      <div class="mb-2"><SiteSearch /></div>
+      {navGroups.map((group) => (
+        <details class="group border-b border-border/50" open={active === group.id}>
+          <summary
             class:list={[
-              "flex min-h-[44px] items-center rounded-lg px-4 font-mono text-[0.7rem] uppercase tracking-[0.15em] transition-colors",
-              activeNav === item.id
-                ? "bg-accent/10 text-accent"
-                : "text-muted-foreground hover:bg-card hover:text-foreground",
+              "flex min-h-[44px] cursor-pointer list-none items-center justify-between",
+              etiqueta,
+              active === group.id ? "text-foreground" : "text-muted-foreground",
             ]}
           >
-            {navLabel(item.id, item.label)}
-          </a>
-        );
-      })}
+            <span class:list={[active === group.id && "border-b-2 border-yellow"]}>{group.label}</span>
+            <span class="inline-flex transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none">
+              <Icon name="caret-down" size={12} />
+            </span>
+          </summary>
+          <div class="flex flex-col pb-3">
+            {group.entries.map((entry) => (
+              <a
+                href={entry.href}
+                class:list={[
+                  "flex min-h-[44px] items-baseline justify-between gap-3 rounded-[6px] px-3 transition-colors",
+                  activeNav === entry.folder || activeNav === entry.href
+                    ? "bg-accent/10 text-accent"
+                    : "text-foreground hover:bg-card",
+                ]}
+              >
+                <span class={etiqueta}>{entry.label}</span>
+                <span class="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-dim">{entry.activity}</span>
+              </a>
+            ))}
+            <a href={group.href} class="flex min-h-[44px] items-center px-3 font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim hover:text-foreground">
+              {group.label} · the function →
+            </a>
+          </div>
+        </details>
+      ))}
     </div>
   </div>
 </nav>
 
 <script>
-  // Mobile menu toggle
+  // Mobile panel: toggle, swap the glyph, lock the page scroll while open.
   const btn = document.getElementById("mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");
   if (btn && menu) {
-    btn.addEventListener("click", () => {
-      const open = !menu.classList.contains("hidden");
-      menu.classList.toggle("hidden");
-      btn.setAttribute("aria-expanded", String(!open));
+    const openIcon = btn.querySelector<HTMLElement>("[data-icon-open]");
+    const closeIcon = btn.querySelector<HTMLElement>("[data-icon-close]");
+    const setOpen = (open: boolean) => {
+      menu.classList.toggle("hidden", !open);
+      btn.setAttribute("aria-expanded", String(open));
+      openIcon?.classList.toggle("hidden", open);
+      closeIcon?.classList.toggle("hidden", !open);
+      document.documentElement.classList.toggle("overflow-hidden", open);
+    };
+    btn.addEventListener("click", () => setOpen(menu.classList.contains("hidden")));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !menu.classList.contains("hidden")) setOpen(false);
     });
   }
 
-  // Desktop dropdowns
+  // Desktop menus: hover opens, click on the function label navigates on a
+  // second click and toggles on the first (so touch and keyboard can open the
+  // list without leaving the page), Escape and outside-click close.
   document.querySelectorAll<HTMLElement>("[data-dropdown]").forEach((dropdown) => {
-    const dropBtn = dropdown.querySelector<HTMLElement>("[data-dropdown-btn]");
+    const dropBtn = dropdown.querySelector<HTMLAnchorElement>("[data-dropdown-btn]");
     const panel = dropdown.querySelector<HTMLElement>("[data-dropdown-panel]");
     const bridge = dropdown.querySelector<HTMLElement>("[data-bridge]");
     const chevron = dropdown.querySelector<HTMLElement>("[data-chevron]");
-
     if (!dropBtn || !panel) return;
 
     let closeTimer: ReturnType<typeof setTimeout> | null = null;
+    const isOpen = () => !panel.classList.contains("hidden");
 
     function openPanel() {
       if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
       panel!.classList.remove("hidden");
-      if (bridge) bridge.classList.remove("hidden");
+      dropBtn!.setAttribute("aria-expanded", "true");
       chevron?.classList.add("rotate-180");
     }
-
+    function closePanel() {
+      panel!.classList.add("hidden");
+      dropBtn!.setAttribute("aria-expanded", "false");
+      chevron?.classList.remove("rotate-180");
+      closeTimer = null;
+    }
     function scheduleClose() {
-      closeTimer = setTimeout(() => {
-        panel!.classList.add("hidden");
-        if (bridge) bridge.classList.add("hidden");
-        chevron?.classList.remove("rotate-180");
-        closeTimer = null;
-      }, 120);
+      closeTimer = setTimeout(closePanel, 120);
     }
 
-    // Click toggle
-    dropBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      panel!.classList.contains("hidden") ? openPanel() : scheduleClose();
-    });
-
-    // Close on outside click
-    document.addEventListener("click", () => {
-      if (!panel!.classList.contains("hidden")) scheduleClose();
-    });
-    panel.addEventListener("click", (e) => e.stopPropagation());
-
-    // Hover — button, bridge and panel all keep it open
+    // Pointer: hover keeps it open across button, bridge and panel.
     [dropdown, bridge, panel].forEach((el) => {
       if (!el) return;
-      el.addEventListener("mouseenter", () => openPanel());
-      el.addEventListener("mouseleave", () => scheduleClose());
+      el.addEventListener("mouseenter", openPanel);
+      el.addEventListener("mouseleave", scheduleClose);
+    });
+
+    // Click / tap / Enter on the label: first opens, second follows the link.
+    dropBtn.addEventListener("click", (e) => {
+      if (window.matchMedia("(hover: hover)").matches && isOpen()) return; // a mouse user already sees it: navigate
+      if (!isOpen()) { e.preventDefault(); openPanel(); }
+    });
+    dropBtn.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowDown") { e.preventDefault(); openPanel(); panel.querySelector<HTMLElement>("a")?.focus(); }
+    });
+    panel.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") { closePanel(); dropBtn.focus(); }
+    });
+    document.addEventListener("click", (e) => {
+      if (isOpen() && !dropdown.contains(e.target as Node)) closePanel();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen()) closePanel();
     });
   });
 </script>
