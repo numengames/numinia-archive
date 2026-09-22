@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "3ec18f3",
+  "head": "ac88335",
   "corpus_hash": "10a0908f873b64246791c717e9ecdcb2ad22ed565c278a69950153181786e0d5",
   "root_dirty": 0,
-  "measured_at": "2026-09-22T17:41:04Z",
+  "measured_at": "2026-09-22T17:43:56Z",
   "families": [
     "corpus",
     "series",
@@ -535,30 +535,98 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 0,
+      "value": 6,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
-      "value": [],
+      "value": [
+        [
+          "README.md",
+          "2026-04-07",
+          "2026-04-06"
+        ],
+        [
+          "agents/nimrod/OPERATOR.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/nimrod/SOUL.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/skills/numinia-nwos-pr/SKILL.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "protocols/PRO-018-publishing-a-repository.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "reports/RPT-019-2026-w37.md",
+          "2026-09-09",
+          "2026-09-08"
+        ]
+      ],
       "unit": "documents",
       "definition": "[path, created, first-add] for created_ahead_of_commit",
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 137,
+      "value": 31,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
     },
     "provenance.regime_crossings": {
-      "value": 0,
+      "value": 6,
       "unit": "renames",
       "definition": "renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py"
     },
     "provenance.regime_crossings_list": {
-      "value": [],
+      "value": [
+        [
+          "blueprints/BLU-001-wardley-map.md",
+          "reports/RPT-2026-04-07-wardley-map.md",
+          "CC0-1.0→CC-BY-4.0",
+          "2026-08-31"
+        ],
+        [
+          "operations/legal/O-003-privacy-policy-numengames.md",
+          "operations/OPS-003-privacy-policy-numengames.md",
+          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
+          "2026-09-01"
+        ],
+        [
+          "operations/legal/O-004-terms-and-conditions-numengames.md",
+          "operations/OPS-004-terms-and-conditions-numengames.md",
+          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
+          "2026-09-01"
+        ],
+        [
+          "operations/strategy/O-007-sales.md",
+          "operations/OPS-007-sales.md",
+          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
+          "2026-09-01"
+        ],
+        [
+          "reports/audits/evidence/canon-2026-04-15/Epistemic-relations-v1-deleted-2026-04-15.md",
+          "history/2026_04_07-Epistemic_Relations-v1.0.0.md",
+          "CC-BY-4.0→CC0-1.0",
+          "2026-09-01"
+        ],
+        [
+          "reports/RPT-2026-04-07-wardley-map.md",
+          "reports/RPT-003-wardley-map.md",
+          "CC-BY-4.0→CC0-1.0",
+          "2026-09-01"
+        ]
+      ],
       "unit": "renames",
       "definition": "[from, to, regime change, date]",
       "volatile": "commit-date"
