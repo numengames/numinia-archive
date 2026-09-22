@@ -1,8 +1,105 @@
 /* SPDX-FileCopyrightText: 2026 Numen Games S.L.
    SPDX-License-Identifier: MIT */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* ── The theme ────────────────────────────────────────────────────────────
+   Tailwind 4 reads its theme from CSS, not from a config file: every
+   `--color-x` here mints the `bg-x` / `text-x` / `border-x` utilities, and
+   the alpha modifier (`bg-accent/20`) still works because the values are
+   plain colours. The RGB triplets below in :root stay as they are — every
+   hand-written rule in this file and in the views references them directly
+   as `rgb(var(--accent))`, so the two layers share one source of truth.
+   This block replaces web/tailwind.config.mjs (retired with
+   @astrojs/tailwind, which never accepted Astro 6+).
+   ──────────────────────────────────────────────────────────────────────── */
+@theme {
+	--color-border: rgb(var(--border));
+	--color-input: rgb(var(--input));
+	--color-ring: rgb(var(--ring));
+	--color-background: rgb(var(--background));
+	--color-foreground: rgb(var(--foreground));
+
+	--color-accent: rgb(var(--accent));
+	--color-accent-glow: var(--accent-glow);
+
+	--color-card: rgb(var(--card));
+	--color-card-hover: rgb(var(--bg-card-hover));
+	--color-card-foreground: rgb(var(--card-foreground));
+
+	--color-muted: rgb(var(--muted));
+	--color-muted-foreground: rgb(var(--muted-foreground));
+
+	--color-dim: rgb(var(--text-dim));
+	--color-green: rgb(var(--green));
+	--color-red: rgb(var(--red));
+	--color-yellow: rgb(var(--yellow));
+	--color-blue: rgb(var(--blue));
+	--color-purple: rgb(var(--purple));
+
+	/* Solarpunk mediterráneo */
+	--color-terracota: rgb(var(--terracota));
+	--color-ocre: rgb(var(--ocre));
+	--color-arena: rgb(var(--arena));
+	--color-azul-med: rgb(var(--azul-med));
+	--color-salvia: rgb(var(--salvia));
+	/* Steampunk */
+	--color-cobre: rgb(var(--cobre));
+	--color-bronce: rgb(var(--bronce));
+	/* Cyberpunk contenido */
+	--color-teal: rgb(var(--teal));
+	--color-ambar: rgb(var(--ambar));
+
+	--radius-lg: var(--radius);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-sm: calc(var(--radius) - 4px);
+
+	/* §4.1: Geist with the canonical system fallbacks. Declared here and not
+	   in :root below, because @theme emits them as :root variables anyway —
+	   two declarations of the same name would be one silent override. */
+	--font-display: "Geist Variable", Inter, Aptos, "Segoe UI", Arial, sans-serif;
+	--font-sans: "Geist Variable", Inter, Aptos, "Segoe UI", Arial, sans-serif;
+	--font-mono: "Geist Mono Variable", Consolas, "Courier New", monospace;
+
+	--shadow-accent-sm: 0 0 12px var(--accent-glow);
+	--shadow-accent-md: 0 0 24px var(--accent-glow);
+	--shadow-cobre-sm: 0 0 12px rgba(184, 115, 51, 0.3);
+	--shadow-cobre-md: 0 0 24px rgba(184, 115, 51, 0.4);
+
+	--animate-slide-up: slideUp 0.6s ease-out both;
+	--animate-slide-up-1: slideUp 0.7s ease-out 0.1s both;
+	--animate-slide-up-2: slideUp 0.7s ease-out 0.2s both;
+	--animate-slide-up-3: slideUp 0.7s ease-out 0.3s both;
+	--animate-slide-up-4: slideUp 0.7s ease-out 0.4s both;
+	--animate-twinkle: twinkle 3s ease-in-out infinite;
+}
+
+/* ── Two Tailwind 3 defaults the v4 reset dropped ─────────────────────────
+   Both were invisible until they were gone, and neither is a style choice:
+   they are what the previous 331 pages already looked like.
+
+   1. v3 gave every border the `border` palette entry; v4 gives it
+      currentColor. The archive draws every hairline from one variable, so
+      restore the default instead of annotating hundreds of elements.
+   2. v3's reset carried `button, [role=button] { cursor: pointer }`; v4
+      removed it to follow the native browser default. The site has 22
+      buttons that a reader clicks — the filters, the drawer, the copy
+      control — and on those the hand cursor is the only signal that they
+      are clickable at all.
+   ──────────────────────────────────────────────────────────────────────── */
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: rgb(var(--border));
+	}
+
+	button:not(:disabled),
+	[role="button"]:not(:disabled) {
+		cursor: pointer;
+	}
+}
 
 @layer base {
 	/* The starfield is `position: fixed` and purely decorative, and in mobile
@@ -16,12 +113,9 @@
 	}
 
 	:root {
-		/* Font stacks — §4.1: Geist con los fallbacks canónicos del sistema */
-		--font-display: "Geist Variable", Inter, Aptos, "Segoe UI", Arial, sans-serif;
-		--font-sans: "Geist Variable", Inter, Aptos, "Segoe UI", Arial, sans-serif;
-		--font-mono: "Geist Mono Variable", Consolas, "Courier New", monospace;
+		/* The font stacks live in the @theme block at the top of this file.
 
-		/* ── Core palette — RGB triplets for Tailwind opacity support ────────
+		   ── Core palette — RGB triplets for Tailwind opacity support ────────
 		   Canonical values from the Design System v5.0.0 §19.3 (MIS-092):
 		   Nocturno neutrals + Verdemar as the night link/accent voice. */
 
