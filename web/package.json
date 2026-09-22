@@ -41,8 +41,8 @@
     "@types/react-dom": "^19.2.3",
     "astro-pagefind": "^2.0.1",
     "pagefind": "^1.5.2",
-    "playwright-core": "^1.56.1",
-    "typescript": "^6.0.3",
+    "playwright-core": "^1.63.0",
+    "typescript": "^7.0.2",
     "wawoff2": "^2.0.1"
   }
 }
