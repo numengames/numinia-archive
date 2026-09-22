@@ -2,47 +2,73 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// / — the Summa: how the archive is classified, read from the archive.
+// / — the threshold: what this place is, why it exists, and the six doors in.
 //
-// WHAT THIS PAGE USED TO BE
-// Until 2026-09-21 the home was a hand-written product pitch ("Narrative
-// Work OS", five layers, six features, six principles, requirements) that
-// restated BLU-008 from memory; the classification of the archive — the one
-// page that says what this place holds and how it is organised — was
-// /archive, reachable from the tenth pill of the bar. The Oracle's call: the
-// classification carries the weight of a home, and the pitch is a reference
-// manual. So this is the old /archive page with a door on it, the pitch is
-// system/SYS-006-nwos-system.md, and /archive redirects here.
+// WHAT THIS PAGE USED TO BE, AND WHY IT CHANGED
+// Until today the home opened with "One producer, one fond, six functions"
+// and spent its next two screens on the filing vocabulary and a table of all
+// eighteen series. Every word of it was true and generated from the
+// standards, and it taught the plumbing before the house: a reader who does
+// not already know what a fond is met the word in the first line.
 //
-// Before that, /archive itself had been a hardcoded Spanish array of seven
-// "fondos" naming folders deleted months earlier. Every row here comes from
-// STD-027 (the scheme) and STD-001 (the series) via @/lib/classification.
-// Nothing about the classification is written on this page: if a function is
-// added to the standard, it appears here; if a series moves, this page moves
-// with it or the build fails.
+// `CAN-002` → Verbal Identity settles the register this page owes: the voice
+// is "cultivated, plain and clear", technicisms are avoided where possible,
+// and there are three declared levels of language — colloquial, literary,
+// technical. So the page DESCENDS: it opens literary (the threshold), lands
+// colloquial (the pain, the doors), and leaves the technical level where it
+// belongs, inside the documents.
 //
-// THE HERO is BLU-009 §12's skeleton: eyebrow, one typed sentence with one
-// word in Ámbar (the piece's only orchestrated moment, catalogue 01), the
-// site's own line, one primary action. The full text is in the DOM before
-// the typing starts (DSN-008); reduced motion shows it at once.
+// Two things it now says that it never said, both canon and both the reason
+// anyone stays past the first screen:
+//   - THE PAIN. Documents scattered, interests in keeping some unfindable,
+//     an organisation that stops knowing itself. Without it the archive reads
+//     as bureaucracy; with it, as the answer to something the reader has
+//     lived.
+//   - HOW A DOCUMENT ANNOUNCES ITSELF. Every file opens with Epistemic and
+//     Pragmatic — what you learn, what you can do with it (`STD-004`). The
+//     home now shows one real header, read from the file at build time
+//     (@/lib/doc-header), instead of describing the corpus in the abstract.
 //
-// THE GRAPH is the one picture of how the six functions relate. Until today
-// it loaded `three` from esm.sh at runtime and rotated forever — a
-// third-party request in production (DSN-002) and an ambient loop outside
-// the two the catalogue sanctions (DSN-012). Now: `three` is a dependency in
-// the site's own bundle; the scene is still; the reader turns it by dragging;
-// its entrance is one surfacing (catalogue 10) when it scrolls into view;
-// under reduced motion it appears already placed.
+// WHAT STAYED. The six functions as a first sweep and the relation graph: a
+// reader who thinks in structures enters through them, and the Oracle keeps
+// them deliberately. WHAT LEFT. The vocabulary block, the table of eighteen
+// rows and the second-fond note now live at /scheme — the same page, nothing
+// deleted, one click away, for the reader who has decided to evaluate rather
+// than to arrive.
+//
+// Nothing about the classification is written on this page: the functions,
+// their activities and their series all come from STD-027 and STD-001 via
+// @/lib/classification, as before. The figures come from the instrument.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import { functions, counts, graphNodes, RELATIONS } from "@/lib/classification";
-import { HOUSE_LINKS, THIS_SITE } from "@/data/house-links";
+import { headerOf } from "@/lib/doc-header";
+import { dataset } from "@/lib/telemetry";
+import { VERSION } from "@/lib/build-info";
 
 const fns = functions();
 const n = counts();
 const nodes = graphNodes();
 const edges = RELATIONS.map((e) => [e[0], e[1]]);
-const site = HOUSE_LINKS.find((s) => s.id === THIS_SITE)!;
+
+// The document the home shows as itself. The scheme is the right one: it is
+// the document this page is generated from, so the header the reader sees is
+// the header of the thing they are looking at.
+const SHOWN = {
+  path: "standards/STD-027-the-classification-scheme.md",
+  title: "The classification scheme",
+  id: "STD-027",
+  href: "/standards/std-027-the-classification-scheme",
+  series: "standards/",
+};
+const shown = headerOf(SHOWN.path);
+
+// Figures from the instrument, never typed. `find` returns undefined if the
+// instrument stops publishing a key — the block renders what it has.
+const figure = (k: string) => dataset.figures.find((f) => f.key === k);
+const docsTotal = figure("corpus.docs_total")?.value as number | undefined;
+const missionsTotal = figure("missions.total")?.value as number | undefined;
+const measuredAt = dataset.measured_at?.slice(0, 10);
 
 // One glyph per function. Presentation, not classification — which is why it
 // lives here and not in the standard. Same table as /archive/[function].
@@ -63,112 +89,78 @@ const FN_ACCENT: Record<string, { border: string; bg: string; text: string }> = 
   creation:       { border: "border-purple/20", bg: "bg-purple/5", text: "text-purple" },
   administration: { border: "border-yellow/20", bg: "bg-yellow/5", text: "text-yellow" },
 };
+
+// What each function is, in the language of someone who has just arrived.
+// The activities under it are the standard's words and are printed beneath;
+// this line is the door, and it is presentation, so it lives here.
+const FN_DOOR: Record<string, string> = {
+  governance: "What Numinia is, and what it has decided.",
+  production: "What is being built right now, and the plans behind it.",
+  assurance: "What has been observed — and what is known to be missing.",
+  agency: "Who acts here: digital agents and biological ones.",
+  creation: "The world, and everything the archive registers in it.",
+  administration: "What keeps the machine standing.",
+};
 ---
 
 <Layout
   title="NWOS — the archive of Numen Games"
-  description={`The archive of Numen Games, built in public: one fond, ${n.functions} functions, ${n.activities} activities and the ${n.series} series they produce — canon, decisions, missions, how the work is done.`}
+  description="The archive where Numinia's source of truth lives: what has been decided, what is being built, and how the work is done — as files, open to read."
   canonicalPath=""
 >
-  <!-- The hero: the thesis, typed; one word in Ámbar; one primary action -->
-  <section class="pb-12 pt-16 sm:pt-24">
+  <!-- 1 · THE THRESHOLD. Literary level (CAN-002): two lines, no vocabulary. -->
+  <section class="pb-10 pt-16 sm:pt-24">
     <div class="mx-auto max-w-[1100px] px-6">
       <span class="mb-4 inline-block font-mono text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent">
-        Numen Games · the archive
+        The archive
       </span>
       <h1
         id="thesis"
         data-tecleo
         class="font-display text-4xl tracking-tight text-foreground sm:text-5xl lg:text-6xl"
       >
-        One producer, one fond, <span class="text-yellow">six</span> functions.
+        Welcome, <span class="text-yellow">curious</span> explorer.
       </h1>
       <p class="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
-        {site.what.charAt(0).toUpperCase() + site.what.slice(1)}: what Numen Games is, what it has decided, what it is
-        building and how the work is done — as files, classified by the activity that produced them, not by who did.
+        This is where Numinia's source of truth lives. Everything decided, built and agreed,
+        written down and open to read.
       </p>
-      <div class="mt-8 flex flex-wrap items-center gap-4">
-        <a
-          href="/canon/"
-          class="inline-flex min-h-[44px] items-center gap-2 rounded-[6px] bg-accent px-5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-background transition-colors hover:bg-accent/85"
-        >
-          Read the canon
-          <Icon name="caret-left" size={12} class="rotate-180" />
-        </a>
-        <a
-          href="/system/sys-003-archive-fondos"
-          class="inline-flex min-h-[44px] items-center font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim transition-colors hover:text-foreground"
-        >
-          The manual behind this page →
-        </a>
-      </div>
     </div>
   </section>
 
   <section class="pb-24">
     <div class="mx-auto max-w-[1100px] px-6">
 
-      <!-- The figures, counted from the scheme, never typed -->
-      <div class="grid gap-4 grid-cols-2 sm:grid-cols-4 mb-12">
-        <div class="rounded-[8px] border border-border bg-card p-5 text-center">
-          <p class="font-display text-4xl text-foreground">1</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Fond</p>
-        </div>
-        <div class="rounded-[8px] border border-accent/20 bg-accent/5 p-5 text-center">
-          <p class="font-display text-4xl text-accent">{n.functions}</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Functions</p>
-        </div>
-        <div class="rounded-[8px] border border-border bg-card p-5 text-center">
-          <p class="font-display text-4xl text-foreground">{n.activities}</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Activities</p>
-        </div>
-        <div class="rounded-[8px] border border-green/20 bg-green/5 p-5 text-center">
-          <p class="font-display text-4xl text-green">{n.series}</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Series</p>
+      <!-- 2 · THE PAIN. Colloquial level. Two sentences, then the turn. -->
+      <div class="max-w-[780px] mb-16">
+        <p class="text-base leading-relaxed text-muted-foreground">
+          Working in an organisation hurts: the documents live scattered, there are interests in
+          some of them not being found, and the organisation ends up not knowing itself.
+        </p>
+        <p class="mt-3 text-base leading-relaxed text-foreground">
+          Not here. What is decided, what is built and what is agreed is written down, as files,
+          in the open.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <a
+            href="/canon/"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-[6px] bg-accent px-5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-background transition-colors hover:bg-accent/85"
+          >
+            Read the canon
+            <Icon name="caret-left" size={12} class="rotate-180" />
+          </a>
+          <a
+            href="/scheme"
+            class="inline-flex min-h-[44px] items-center font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim transition-colors hover:text-foreground"
+          >
+            How it is classified →
+          </a>
         </div>
       </div>
 
-      <div class="rounded-[8px] border border-border bg-card p-6 mb-12 max-w-[780px]">
-        <p class="text-sm text-muted-foreground leading-relaxed">
-          A <strong class="text-foreground">fond</strong> is everything one producer generates — here,
-          Numen Games S.L. A <strong class="text-foreground">function</strong> is something the
-          organisation does, named with a noun; an <strong class="text-foreground">activity</strong> is
-          the verb under it; a <strong class="text-foreground">series</strong> is the folder of documents
-          that activity produces. The identifier of a document names its series and never its function,
-          so functions can be regrouped without moving a file or breaking a citation.
-        </p>
-        <p class="text-sm text-muted-foreground leading-relaxed mt-3">
-          This page is generated from the two documents that own the scheme:
-          <a href="/standards/std-027-the-classification-scheme" class="text-accent hover:underline">the classification scheme</a>
-          holds the functions and their activities,
-          <a href="/standards/std-001-the-series" class="text-accent hover:underline">the series register</a>
-          holds what each series contains. The decision that cut them is
-          <a href="/decisions/adr-046" class="text-accent hover:underline">ADR-046</a>.
-        </p>
-      </div>
-
-      <!-- Relations between the functions -->
+      <!-- 3 · THE SIX DOORS. The functions, at a glance. -->
       <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">How the functions relate</span>
-        <span class="h-px flex-1 bg-border"></span>
-      </div>
-
-      <div class="rounded-[8px] border border-border bg-card p-6 mb-12 relative" data-surface>
-        <p class="text-xs text-muted-foreground mb-4">
-          Governance feeds agency and production; administration sustains them; production is observed by
-          assurance and born from planning; creation supplies what production builds with.
-          <span class="text-dim"> Drag to turn.</span>
-        </p>
-        <div id="archive-3d" class="cursor-grab active:cursor-grabbing" style="width:100%;height:320px;" aria-hidden="true"></div>
-        <!-- The same relations as text, for readers the canvas does not reach -->
-        <ul class="sr-only">
-          {RELATIONS.map(([a, b]) => <li>{a} → {b}</li>)}
-        </ul>
-      </div>
-
-      <!-- The six functions -->
-      <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">The {n.functions} functions</span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">What you will find</span>
         <span class="h-px flex-1 bg-border"></span>
         <span class="font-mono text-[0.6rem] text-dim">{n.published} of {n.series} series have an address here</span>
       </div>
@@ -185,74 +177,112 @@ const FN_ACCENT: Record<string, { border: string; bg: string; text: string }> = 
                 </span>
               </div>
               <h2 class={`font-display text-xl mb-2 ${a.text}`}>{f.name}</h2>
-              <p class="font-mono text-[0.65rem] text-dim leading-relaxed mb-3">
+              <p class="text-sm text-muted-foreground leading-relaxed mb-3">
+                {FN_DOOR[f.slug] ?? ""}
+              </p>
+              <p class="font-mono text-[0.6rem] text-dim leading-relaxed border-t border-border/50 pt-3">
                 {f.activities.map((act) => act.name).join(" · ")}
               </p>
-              <div class="flex flex-wrap gap-1 border-t border-border/50 pt-3">
-                {f.activities.flatMap((act) => act.series).map((s) => (
-                  <span class="font-mono text-[0.5rem] bg-background/50 border border-border/50 rounded-[6px] px-1.5 py-0.5 text-dim">{s.folder}</span>
-                ))}
-              </div>
               <p class="mt-3 font-mono text-[0.55rem] text-accent opacity-0 group-hover:opacity-100 transition-opacity">See the function →</p>
             </a>
           );
         })}
       </div>
 
-      <!-- The whole scheme, one row per series -->
+      <!-- Relations between the functions -->
       <div class="mb-4 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">The scheme in full</span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">How the functions relate</span>
         <span class="h-px flex-1 bg-border"></span>
       </div>
 
-      <div class="rounded-[8px] border border-border bg-card overflow-x-auto mb-8">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="border-b border-border">
-              <th scope="col" class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Function</th>
-              <th scope="col" class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Activity</th>
-              <th scope="col" class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Series</th>
-              <th scope="col" class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Holds</th>
-            </tr>
-          </thead>
-          <tbody>
-            {fns.flatMap((f) =>
-              f.activities.flatMap((act, ai) =>
-                act.series.map((s, si) => (
-                  <tr class="border-b border-border/40 last:border-0">
-                    <td class="px-4 py-3 align-top font-mono text-[0.65rem] text-accent whitespace-nowrap">
-                      {ai === 0 && si === 0 ? <a href={f.href} class="hover:underline">{f.name}</a> : ""}
-                    </td>
-                    <td class="px-4 py-3 align-top font-mono text-[0.65rem] text-foreground whitespace-nowrap">
-                      {si === 0 ? act.name : ""}
-                    </td>
-                    <td class="px-4 py-3 align-top whitespace-nowrap">
-                      {s.href
-                        ? <a href={s.href} class="font-mono text-[0.65rem] text-accent hover:underline">{s.folder}</a>
-                        : <span class="font-mono text-[0.65rem] text-dim">{s.folder}</span>}
-                      {s.instrument && (
-                        <span class="ml-2 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-dim">instrument</span>
-                      )}
-                    </td>
-                    <td class="px-4 py-3 align-top text-xs text-muted-foreground leading-relaxed">
-                      {s.holds || s.note}
-                    </td>
-                  </tr>
-                )),
-              ),
-            )}
-          </tbody>
-        </table>
+      <div class="rounded-[8px] border border-border bg-card p-6 mb-16 relative" data-surface>
+        <p class="text-xs text-muted-foreground mb-4">
+          Governance feeds agency and production; administration sustains them; production is observed by
+          assurance and born from planning; creation supplies what production builds with.
+          <span class="text-dim"> Drag to turn.</span>
+        </p>
+        <div id="archive-3d" class="cursor-grab active:cursor-grabbing" style="width:100%;height:320px;" aria-hidden="true"></div>
+        <!-- The same relations as text, for readers the canvas does not reach -->
+        <ul class="sr-only">
+          {RELATIONS.map(([a, b]) => <li>{a} → {b}</li>)}
+        </ul>
       </div>
 
-      <!-- The second fond -->
-      <div class="rounded-[8px] border border-purple/20 bg-purple/5 p-6 max-w-[780px]">
-        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-purple mb-3">The second fond</p>
+      <!-- 4 · HOW A DOCUMENT ANNOUNCES ITSELF. A real header, read from the file. -->
+      <div class="mb-4 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">How a document announces itself</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] mb-16 items-start">
+        <a href={SHOWN.href} class="rounded-[8px] border border-border bg-card p-6 block hover:border-accent/50 transition-colors group">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-2">{SHOWN.series}</p>
+          <h3 class="font-display text-xl text-foreground mb-4 group-hover:text-accent transition-colors">
+            {SHOWN.title} <span class="font-mono text-sm text-dim">({SHOWN.id})</span>
+          </h3>
+          <dl class="space-y-3 border-l-2 border-accent/30 pl-4">
+            <div>
+              <dt class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-accent mb-1">What it is</dt>
+              <dd class="text-sm text-muted-foreground leading-relaxed">{shown.summary}</dd>
+            </div>
+            <div>
+              <dt class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-accent mb-1">What you learn</dt>
+              <dd class="text-sm text-muted-foreground leading-relaxed">{shown.epistemic}</dd>
+            </div>
+            <div>
+              <dt class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-accent mb-1">What you can do with it</dt>
+              <dd class="text-sm text-muted-foreground leading-relaxed">{shown.pragmatic}</dd>
+            </div>
+          </dl>
+        </a>
+        <div class="text-sm text-muted-foreground leading-relaxed">
+          <p>
+            Every document here tells you, before you start, what you will learn from it and what it
+            lets you do. Nothing asks to be read on faith.
+          </p>
+          <p class="mt-3">
+            And every one of them can be copied, downloaded as its own file or opened where it lives.
+            The page is a rendering; the file is the document.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5 · WHAT IS NOT HERE. Said out loud, because silence reads as a lie. -->
+      <div class="rounded-[8px] border border-border bg-card p-6 mb-8 max-w-[780px]">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">What is not here</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
-          <a href="/lore/" class="font-mono text-xs text-foreground hover:text-accent">lore/</a> is recognised as a fond of its own:
-          a different producer relationship and a different licence regime from the administrative corpus.
-          It is listed in the scheme because the two fonds are read together, not because it belongs to the
-          first. It is served here for reading, all rights reserved.
+          Not everything is. There is protected matter that cannot live in the open — what is under
+          someone else's licence, what would expose a person, what is not ours to publish. What does
+          live here is everything that can be transparent, which is nearly all of it. Where a document
+          is withheld, the archive says so instead of leaving a gap.
+        </p>
+      </div>
+
+      <!-- 6 · UNDER CONSTRUCTION. Khepri, and the figures from the instrument. -->
+      <div class="rounded-[8px] border border-yellow/20 bg-yellow/5 p-6 mb-8 max-w-[780px]">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-yellow mb-3">Under construction</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          The city is being repopulated. Five years is not long. Khepri pushes the sun up every
+          morning and raises it again: nothing here is taken as finished, it is written again. What
+          you have done counts, your experience counts, your opinion counts.
+        </p>
+        <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-yellow/20 pt-4 font-mono text-[0.65rem] text-dim">
+          {docsTotal !== undefined && <span><span class="text-foreground">{docsTotal.toLocaleString("en-US")}</span> documents</span>}
+          {missionsTotal !== undefined && <span><span class="text-foreground">{missionsTotal.toLocaleString("en-US")}</span> missions</span>}
+          {measuredAt && <span>measured <span class="text-foreground">{measuredAt}</span></span>}
+          <span class="text-foreground">{VERSION}</span>
+          <a href="/telemetry" class="text-accent hover:underline">every figure →</a>
+        </div>
+      </div>
+
+      <!-- 7 · WHY. The purpose, and the line the house is judged by. -->
+      <div class="max-w-[780px]">
+        <p class="text-base leading-relaxed text-muted-foreground">
+          Because organisations can be more human while the machines help us build better and
+          faster. And because we want to leave something useful to the ones who come after.
+        </p>
+        <p class="mt-4 font-display text-2xl text-foreground">
+          Leave things better than we found them.
         </p>
       </div>
 

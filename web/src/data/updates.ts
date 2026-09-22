@@ -32,6 +32,40 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.13.0",
+    date: "2026-09-22",
+    entries: [
+      {
+        type: "CHG",
+        text: "The home welcomes you before it classifies you. It used to open with 'One producer, one fond, six functions' and spend its next two screens on the filing vocabulary — fond, function, activity, series — and a table of all eighteen series. Every word of it was true and every word of it assumed you already knew what a fond was. It now opens at the threshold: welcome, curious explorer, this is where Numinia's source of truth lives. Then it says out loud what the archive is an answer to — documents scattered, interests in some of them not being found, an organisation that stops knowing itself — and only then shows the six doors.",
+      },
+      {
+        type: "ADD",
+        text: "The home shows a real document instead of describing the corpus. Every file in the archive opens by saying what it is, what you learn by reading it and what you can do with it (the header standard). The home now renders that block for the classification scheme itself — read from the file at build time, so if the document's wording changes the home changes with it, and if the block disappears the build fails rather than printing a sentence that is no longer true.",
+      },
+      {
+        type: "ADD",
+        text: "What is not here, said on the page. The archive withholds protected matter — what is under someone else's licence, what would expose a person — and until today the home never mentioned it. Silence about an absence reads as a gap; now it is a statement.",
+      },
+      {
+        type: "ADD",
+        text: "The home ends where the house stands: the city is being repopulated, five years is not long, and Khepri pushes the sun up every morning. Beside it, the figures the instrument measured — documents, missions, the date of the measurement, the site version — and a link to every figure it publishes. Nothing in that strip is typed.",
+      },
+      {
+        type: "ADD",
+        text: "The classification in full moved to its own page, /scheme: the vocabulary, the table of all eighteen series with what each one holds, and the note on the second fond. Nothing was deleted and nothing was rewritten — the same rows, read from the same two standards. It is one click from the home, for a reader who has decided to evaluate the system rather than to arrive at it.",
+      },
+      {
+        type: "CHG",
+        text: "The six function cards lead with a sentence in plain words — 'What is being built right now, and the plans behind it' — and keep the activity verbs underneath. They used to print the folder names as chips, which repeated the table that sat two blocks below them.",
+      },
+      {
+        type: "CHG",
+        text: "A decision is cited by its name before its code: 'Classification by function (ADR-046)' rather than a bare identifier. The identifier is the citation and it stays; a reader should not have to resolve a code to know what was decided.",
+      },
+    ],
+  },
+  {
     version: "v0.12.0",
     date: "2026-09-21",
     entries: [

@@ -1,0 +1,143 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /scheme — the classification in full: the vocabulary, the table of every
+// series, and the second fond.
+//
+// WHY THIS PAGE EXISTS
+// These three blocks were the bottom two thirds of the home. They are the
+// most convincing thing the archive has for a reader who is evaluating the
+// system — eighteen series, each with an address and a sentence saying what
+// it holds — and the worst possible first paragraph for a reader who has
+// just arrived and does not yet know what a fond is. A home that opens with
+// its own filing vocabulary teaches the plumbing before the house.
+//
+// So the home keeps the door and the six functions; the scheme keeps the
+// evidence. Nothing here is written by hand: every row comes from STD-027
+// (the scheme) and STD-001 (the series) through @/lib/classification, as it
+// did on the home. If a function is added to the standard it appears here;
+// if a series moves, this page moves with it or the build fails.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import { functions, counts } from "@/lib/classification";
+
+const fns = functions();
+const n = counts();
+---
+
+<Layout
+  title="The scheme — NWOS"
+  description={`The classification of the archive in full: one fond, ${n.functions} functions, ${n.activities} activities and the ${n.series} series they produce.`}
+  canonicalPath="/scheme"
+>
+  <PageHero
+    label="The classification"
+    title="The scheme in full"
+    description="Every series the archive keeps, the activity that fills it and the function it answers to — read from the two standards that own it."
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[1100px] px-6">
+
+      <!-- The figures, counted from the scheme, never typed -->
+      <div class="grid gap-4 grid-cols-2 sm:grid-cols-4 mb-12">
+        <div class="rounded-[8px] border border-border bg-card p-5 text-center">
+          <p class="font-display text-4xl text-foreground">1</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Fond</p>
+        </div>
+        <div class="rounded-[8px] border border-accent/20 bg-accent/5 p-5 text-center">
+          <p class="font-display text-4xl text-accent">{n.functions}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Functions</p>
+        </div>
+        <div class="rounded-[8px] border border-border bg-card p-5 text-center">
+          <p class="font-display text-4xl text-foreground">{n.activities}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Activities</p>
+        </div>
+        <div class="rounded-[8px] border border-green/20 bg-green/5 p-5 text-center">
+          <p class="font-display text-4xl text-green">{n.series}</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Series</p>
+        </div>
+      </div>
+
+      <!-- The vocabulary. Four words, one sentence each. -->
+      <div class="rounded-[8px] border border-border bg-card p-6 mb-12 max-w-[780px]">
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          A <strong class="text-foreground">fond</strong> is everything one producer generates — here,
+          Numen Games S.L. A <strong class="text-foreground">function</strong> is something the
+          organisation does, named with a noun; an <strong class="text-foreground">activity</strong> is
+          the verb under it; a <strong class="text-foreground">series</strong> is the folder of documents
+          that activity produces. The identifier of a document names its series and never its function,
+          so functions can be regrouped without moving a file or breaking a citation.
+        </p>
+        <p class="text-sm text-muted-foreground leading-relaxed mt-3">
+          This page is generated from the two documents that own the scheme:
+          <a href="/standards/std-027-the-classification-scheme" class="text-accent hover:underline">the classification scheme</a>
+          holds the functions and their activities,
+          <a href="/standards/std-001-the-series" class="text-accent hover:underline">the series register</a>
+          holds what each series contains. The decision that cut them is
+          <a href="/decisions/adr-046" class="text-accent hover:underline">Classification by function <span class="text-dim">(ADR-046)</span></a>.
+        </p>
+      </div>
+
+      <!-- The whole scheme, one row per series -->
+      <div class="mb-4 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Every series</span>
+        <span class="h-px flex-1 bg-border"></span>
+        <span class="font-mono text-[0.6rem] text-dim">{n.published} of {n.series} series have an address here</span>
+      </div>
+
+      <div class="rounded-[8px] border border-border bg-card overflow-x-auto mb-8">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-border">
+              <th scope="col" class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Function</th>
+              <th scope="col" class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Activity</th>
+              <th scope="col" class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Series</th>
+              <th scope="col" class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim px-4 py-3">Holds</th>
+            </tr>
+          </thead>
+          <tbody>
+            {fns.flatMap((f) =>
+              f.activities.flatMap((act, ai) =>
+                act.series.map((s, si) => (
+                  <tr class="border-b border-border/40 last:border-0">
+                    <td class="px-4 py-3 align-top font-mono text-[0.65rem] text-accent whitespace-nowrap">
+                      {ai === 0 && si === 0 ? <a href={f.href} class="hover:underline">{f.name}</a> : ""}
+                    </td>
+                    <td class="px-4 py-3 align-top font-mono text-[0.65rem] text-foreground whitespace-nowrap">
+                      {si === 0 ? act.name : ""}
+                    </td>
+                    <td class="px-4 py-3 align-top whitespace-nowrap">
+                      {s.href
+                        ? <a href={s.href} class="font-mono text-[0.65rem] text-accent hover:underline">{s.folder}</a>
+                        : <span class="font-mono text-[0.65rem] text-dim">{s.folder}</span>}
+                      {s.instrument && (
+                        <span class="ml-2 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-dim">instrument</span>
+                      )}
+                    </td>
+                    <td class="px-4 py-3 align-top text-xs text-muted-foreground leading-relaxed">
+                      {s.holds || s.note}
+                    </td>
+                  </tr>
+                )),
+              ),
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- The second fond -->
+      <div class="rounded-[8px] border border-purple/20 bg-purple/5 p-6 max-w-[780px]">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-purple mb-3">The second fond</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          <a href="/lore/" class="font-mono text-xs text-foreground hover:text-accent">lore/</a> is recognised as a fond of its own:
+          a different producer relationship and a different licence regime from the administrative corpus.
+          It is listed in the scheme because the two fonds are read together, not because it belongs to the
+          first. It is served here for reading, all rights reserved.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</Layout>
