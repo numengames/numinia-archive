@@ -1,10 +1,10 @@
 <!--
 SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC-BY-4.0
-Multi-platform agent context (MIS-118). Supplied by the Oracle 2026-08-28;
-directory map corrected to the tree that actually exists in this repository.
+Multi-platform agent context (MIS-118). Supplied by the Oracle 2026-08-28.
 CLAUDE.md is the Claude Code runtime adapter; this file is the platform-
-neutral layer. Hermes reads both (agent/coding_context.py: _CONTEXT_FILES).
+neutral layer every runtime reads (AGT-001). Hermes reads both
+(agent/coding_context.py: _CONTEXT_FILES).
 -->
 
 # Numinia NWOS — Agent Context
@@ -16,21 +16,10 @@ mission brief — read what is actually there first.
 This file is the platform-neutral layer every runtime reads. `CLAUDE.md` is
 the Claude Code adapter and points here; it does not restate these rules.
 
-## Purpose
-
-This repository is the canonical source of truth for Numinia's agent
-definitions, institutional knowledge, and shared operational context.
-
-Agents and AI platforms must treat repository content as project authority
-according to the scope and hierarchy defined by the repository.
-
-Platform-specific configuration, runtime memory, session state, or inferred
-knowledge does not automatically override repository canon.
-
 ## Transition regime (MVP → alpha) — read this before any protocol
 
 Oracle instruction, 2026-09-18. Every protocol in this archive is
-`status: draft` (12 of 12) because the system is being cut down from the
+`status: draft` (11 of 11) because the system is being cut down from the
 MVP to the alpha. While a document is draft it DESCRIBES a practice; it
 does not BIND. The ceremony below was written for the system in its
 place; today it only slows the operator and the agent down. Until the
@@ -77,165 +66,74 @@ What still holds, because each rule protects something that can be seen:
 Promotion out of draft is the act that restores each rule; nothing
 restores them by default.
 
+## Commands
+
+Run from the repository root; Node ≥ 22.12.
+
+- `npm run guards -- --rules` — every registered guard over the corpus
+- `npm test` — the guard, script and tool test suites, with coverage
+- `node machine/scripts/telemetry.mjs` — regenerate `machine/telemetry/`
+  in the last commit of a cut. It needs the tokenizer rank file: without
+  it every token figure is silently written as `null`. Fetch it first with
+  `node machine/scripts/telemetry.mjs --fetch-tokenizer`.
+- `node machine/tools/check-register.mjs --check` — the STD-015 register
+  against the tree
+
+Inside `web/` (the Astro viewer serving numinia.org):
+
+- `npm run dev` · `npm run build` · `npm run type-check` · `npm run check:responsive`
+
+CI runs the guards, the tests, the web build, then the build-time ratchets.
+
 ## Repository map
 
-The principal areas of this repository:
-
-- `agents/` — canonical definitions of persistent agents (`AGENT.md`,
-  `SOUL.md`, `OPERATOR.md`, `SOURCES.md`, `adapters/`).
-- `canon/` — the world and the governing canons (CAN-001…CAN-007). Published
-  under CC0-1.0 since the April grant (ADR-036).
-- `lore/` — the game, reserved: the RPG manual (`game/`), the adventures
-  (`adventures/`), the world's identity texts (`world/`), the Codex edition
-  matter (`codex/`). Not a series; outward of the header guards. Home here
-  since 2026-09-17 (was `numinia-lore`).
-- `standards/` — the archive's own operative standards, including
-  `STD-001-the-series.md` (the series) · `STD-016-header-fields.md` (the fields) and
-  `STD-005-engineering-baseline.md` (the practices; `PRO-016` applies them).
+- `agents/` — canonical agent definitions, one folder each. `agents/INDEX.md`
+  owns the roster and the folder contract; read it there rather than here.
+- `canon/` — the world and the governing canons (CAN-001…CAN-008).
+- `lore/` — the game, reserved: RPG manual, adventures, world texts, codex.
+- `standards/` — this archive's operative standards (STD-001…STD-028).
 - `protocols/` — procedures: session close, briefing, archiving.
-- `missions/` — the unit of work; `machine/templates/MIS-TEMPLATE` defines the contract.
-- `decisions/` — ADRs; `debt/` — the register of what is known
-  to be wrong; `reports/` — audits and evidence.
-- `operations/` — business records, one flat `OPS-` series (`OPS-003`,
-  `OPS-004` and `OPS-007` are reserved, pinned per-file in `REUSE.toml`).
-- `blueprints/` — architecture documents; `web/` — the Astro viewer serving
-  numinia.org; `machine/scripts/` — CI guards.
+- `missions/` — the unit of work; `machine/templates/MIS-TEMPLATE` is the contract.
+- `decisions/` — ADRs · `debt/` — what is known to be wrong · `reports/` — audits.
+- `operations/` — business records, one flat `OPS-` series (`OPS-003`, `OPS-004`,
+  `OPS-007` and `OPS-010` are reserved, pinned per-file in `REUSE.toml`).
+- `objects/` — entity cards: one Markdown per registered thing that is not a
+  document (an avatar, a model). The bytes live in the depot.
+- `system/` — reference manuals of how the system works today.
+- `blueprints/` — architecture documents · `web/` — the Astro viewer ·
+  `machine/` — guards, scripts, tools and telemetry.
 
 There is no `domains/` or `shared/` tree: this repository IS the archive
-domain. RPG source material is `lore/`.
-Do not infer a directory's purpose solely from its name when its function is
-not documented.
+domain. Do not infer a directory's purpose from its name when its function
+is not documented.
 
-## Source authority
+## The rules that govern work here
 
-Use authoritative repository sources before relying on assumptions or
-remembered project-specific information.
+`standards/`, `protocols/` and `canon/` hold 46 rule documents. Each opens
+with a `**Binds:**` line saying whom it governs. Read that line before
+opening the document.
 
-Do not invent project-specific facts, rules, classifications, structures,
-terminology, lore, policies, permissions, or procedures when an
-authoritative source exists or can be consulted.
-
-When information is missing, state what is unknown.
-
-When authoritative sources conflict, identify the conflict rather than
-silently reconciling it.
-
-## Canonical agent definitions
-
-Canonical definitions of persistent agents live under `agents/<agent>/`:
-
-- `AGENT.md` — the agent's entity card: identity, status, the index of its
-  forms (soul, operator, sources, adapters, skills) and when to route to it.
-  Replaces `AGENT.yaml`, which nothing read; agents not yet converted keep
-  their `AGENT.yaml` until their turn.
-- `SOUL.md` — identity, mission, criteria, communication, boundaries.
-- `OPERATOR.md` — authority, approvals, escalation, governance.
-- `SOURCES.md` — map of the authoritative sources the agent consults.
-- `adapters/` — platform-specific configuration (`adapters/hermes/`).
-
-Optional, when earned: `MEMORY.md` (curated, reviewed, promoted knowledge —
-never auto-synced), `CHANGELOG.md`, `skills/`.
-
-## Platform independence
-
-The repository defines the agent. A platform executes an instance of it.
-
-Hermes, Anthropic, OpenAI, or any other runtime may maintain its own
-configuration, runtime memory, user profile, sessions, and tool state. These
-runtime elements are not canonical merely because an agent or platform
-created them. Platform adaptations stay distinguishable from the canonical
-definition: that is what `adapters/` is for.
-
-## Memory
-
-Runtime memory is provisional. Canonical memory is deliberate, reviewed,
-version-controlled knowledge stored in the repository.
-
-Information learned during operation may be proposed for promotion into an
-agent's canonical `MEMORY.md`, but runtime memory must not be synchronized
-into canonical memory automatically.
-
-Canonical identity documents must not be rewritten merely because a runtime
-agent has learned something new.
-
-## Context hierarchy
-
-```text
-Repository context (this file)
-        +
-Canonical agent definition (agents/<id>/)
-        +
-Platform adapter (agents/<id>/adapters/<platform>/, CLAUDE.md for Claude Code)
-        =
-Runtime agent instance
-```
-
-No layer silently redefines another layer outside its scope.
-
-## Specialist routing
-
-When specialist judgment is required, prefer the appropriate persistent
-specialist rather than fabricating expertise. The roster and routing map
-live in `agents/INDEX.md`; each agent's card (`AGENT.md`, or `AGENT.yaml`
-where not yet converted) says when to route to it.
-
-- **Ursa** — orchestration, systems, software engineering, Hermes.
-- **Antunj** — product strategy, meaning, narrative, framing.
-- **Byblos** — records management, archival governance, classification,
-  versioning, information lifecycle.
-- **Lexa** — legal analysis: digital law, privacy, crypto, Web3, licensing.
-- **Senet** — game mastering, RPG systems, mechanics, play experience.
-- **Procyon** — representation, onboarding, orientation, stakeholder-facing
-  guidance.
-- **Doulos** — simple, bounded, repetitive, low-judgment operational work.
-
-Routing does not transfer authority outside the specialist's domain. A
-specialist escalates or consults another specialist when a task materially
-exceeds its own authority or expertise.
-
-## Project knowledge
-
-Do not place large project corpora inside agent identity files merely to
-make them available. Manuals, legal memoranda, lore, policies, and other
-substantial knowledge remain in their authoritative locations; agents
-retrieve the relevant source when needed (`SOURCES.md` says where).
-
-## Skills
-
-Skills represent reusable procedures, not general knowledge repositories.
-Skills every agent uses live under `agents/skills/<skill>/SKILL.md`.
-Agent-specific portable skills may live under `agents/<agent>/skills/`.
-Do not convert bodies of reference knowledge into skills solely to make
-them accessible.
+Two that decide the rest: `STD-009` says which rule wins when two conflict;
+`STD-017` says who may change what. Licensing is `STD-010`: what we emit, what
+we may consume, and what needs the Oracle before it ships — read it before
+adding a dependency, changing a LICENSE or making anything public.
 
 ## Canonical changes
 
-Changes to canonical agent identity, governance, institutional knowledge, or
-other authoritative content must be explicit, traceable, and
-version-controlled. Treat `AGENT.md`, `SOUL.md`, `OPERATOR.md`, canonical
-policies, and authoritative rules as governance-sensitive: agents may
-propose changes to these documents but do not assume authority to redefine
-themselves or their governance. Canon (`canon/**`) requires formal
-consensus; see `standards/STD-005-engineering-baseline.md` §7 for the
-cosmetic-vs-irreversible protocol.
-
-## Traceability
-
-Prefer traceable operations for changes to authoritative content: Git
-commits, change histories, review records, approvals, documented decisions
-(`decisions/`). Git is the archive: a retired document is deleted, not kept
+Agents may propose changes to agent identity, governance and authoritative
+rules; they do not assume authority to redefine themselves or their
+governance. `canon/**` requires the operator's answer in chat before the
+branch exists. Git is the archive: a retired document is deleted, not kept
 as a copy (`ADR-041`).
 
-## Uncertainty
+Runtime memory is provisional and is never synchronised into an agent's
+canonical `MEMORY.md` automatically; promotion is deliberate and reviewed.
 
-Do not present inference as repository fact. When a required fact cannot be
-established from available authoritative sources: identify what is known,
-identify what is missing, consult the relevant source or specialist, and ask
-for clarification or authorization when necessary.
+## Specialist routing
 
-## Working principle
+When specialist judgment is required, prefer the persistent specialist over
+fabricating expertise. The roster, what routes to each agent and how to
+instantiate one live in `agents/INDEX.md` — it is the source the site itself
+reads, so it does not get a second copy here.
 
-The repository is the source of truth. Agents interpret and operate from
-that source. Platforms instantiate agents from that source. Runtime learning
-may enrich future canon, but it does not become canon until it is
-deliberately promoted and recorded.
+Routing does not transfer authority outside the specialist's domain.

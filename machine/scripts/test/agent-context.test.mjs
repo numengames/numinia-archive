@@ -83,9 +83,21 @@ test('the roster is not copied: agents/INDEX.md owns it', () => {
 });
 
 test('the commands AGENTS.md prints are commands this repository has', () => {
-  const pkg = JSON.parse(readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
-  for (const m of AGENTS.matchAll(/`npm run ([a-z:-]+)[^`]*`/g))
-    assert.ok(pkg.scripts?.[m[1]], `AGENTS.md prints \`npm run ${m[1]}\`, which package.json does not define`);
+  // Two package.json files: the root one holds the guards and the tests, and
+  // web/ holds the site's. A command is checked against the manifest that
+  // would run it — the file says which, by the heading it sits under.
+  const root = JSON.parse(readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+  const web = JSON.parse(readFileSync(path.join(ROOT, 'web/package.json'), 'utf8'));
+  const webSection = AGENTS.slice(AGENTS.indexOf('Inside `web/`'));
+  for (const m of AGENTS.matchAll(/`npm run ([a-z:-]+)[^`]*`/g)) {
+    const inWeb = m.index >= AGENTS.indexOf('Inside `web/`');
+    const pkg = inWeb ? web : root;
+    assert.ok(
+      pkg.scripts?.[m[1]],
+      `AGENTS.md prints \`npm run ${m[1]}\` ${inWeb ? 'under "Inside web/"' : 'as a root command'}, which that package.json does not define`,
+    );
+  }
+  assert.ok(webSection.length, 'AGENTS.md must say which commands run inside web/');
   for (const m of AGENTS.matchAll(/`node (machine\/[^\s`]+)[^`]*`/g))
     assert.ok(tracked.includes(m[1]), `AGENTS.md prints ${m[1]}, which is not tracked`);
 });
