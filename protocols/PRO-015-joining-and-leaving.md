@@ -4,9 +4,9 @@ uid: ""
 title: "Joining and leaving Numinia: the phases, the gates and who owns each step"
 type: protocol
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-22T17:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -29,6 +29,9 @@ supersedes: "canon/CAN-001-welcome-to-numinia.md section 8"
 > **Pragmatic:** Follow it in order. A phase does not start until the previous
 > gate is met.
 > **Audience:** Everyone
+
+**Binds:** whoever brings a person into Numinia, and whoever lets one go.
+**Does not bind:** what a rank is (`CAN-003`); who may change what (`STD-017`).
 
 A gate is a condition, not a suggestion: the next phase does not begin until it
 is met. The name in brackets after a checklist item is who owns it.

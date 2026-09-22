@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "4ff9054+index",
-  "corpus_hash": "2fa31d243f1996c69c8eb65b32b0d155e29f25c6db07364fe43588ce0cb99298",
+  "head": "4dec091+index",
+  "corpus_hash": "d7f63e6ff6fcddc88ad0d11898bfdfbeaf1896532689cf285a0c5c0a1f74255d",
   "root_dirty": 0,
-  "measured_at": "2026-09-22T15:21:44Z",
+  "measured_at": "2026-09-22T15:41:01Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 507,
+      "value": 508,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".js": 2,
         ".json": 14,
         ".md": 177,
-        ".mjs": 70,
+        ".mjs": 71,
         ".png": 35,
         ".svg": 69,
         ".toml": 4,
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 619216,
+      "value": 619958,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -328,14 +328,14 @@
         "standards": 47630,
         "missions": 43636,
         "canon": 29365,
+        "": 28352,
         "agents": 27835,
-        "": 27654,
         "reports": 26153,
         "operations": 22950,
         "blueprints": 20861,
         "system": 16946,
         "machine": 15853,
-        "protocols": 14390,
+        "protocols": 14434,
         "decisions": 9569,
         "debt": 2928,
         "objects": 1835,
@@ -346,8 +346,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 338563,
-        "draft": 119589,
+        "(none)": 339261,
+        "draft": 119633,
         "active": 115910,
         "done": 26389,
         "todo": 14104,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.05,
+      "value": 7.04,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -369,7 +369,7 @@
         ],
         [
           "CHANGELOG.md",
-          21403
+          21987
         ],
         [
           "lore/adventures/el-espejo-roto.md",
@@ -684,20 +684,20 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 772
+          "3": 779
         },
         "MIS": {
           "3": 677,
           "4": 183
         },
         "PRO": {
-          "3": 235
+          "3": 236
         },
         "OPS": {
           "3": 71
         },
         "CAN": {
-          "3": 173
+          "3": 175
         },
         "ADR": {
           "3": 377

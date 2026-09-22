@@ -98,6 +98,42 @@ function cleanTitle(raw, id) {
   return `${head.slice(0, head.lastIndexOf(' ')).replace(/[,;:]$/, '')}…`;
 }
 
+/** Why a document carries no scope line.
+ *
+ *  14 of 46 have none, and 14 of those 14 are STD-007 working as written:
+ *  the guard asks for `Binds:` in standards/ and protocols/ only, and skips
+ *  `subtype: register` inside them — `if (!register && NEEDS_PLATES.has(dir))`.
+ *
+ *  A register is a lookup table: STD-016 lists the header fields, STD-013 the
+ *  licence allowlist. It governs nobody by itself; the standard pointing at it
+ *  does. A canon says why things are as they are, and a reason binds everyone
+ *  who leans on it.
+ *
+ *  So the cell names the exemption instead of repeating `no scope line`
+ *  fourteen times. A reader who sees `register` knows to look for the standard
+ *  that cites it; a bare gap would have sent them nowhere. Anything else is an
+ *  omission, and `machine/guards/test/std-007-one-page.test.mjs` fails on it. */
+function whyNoScope(file, fm) {
+  if (fm.subtype === 'register') return 'register — scope belongs to the standard that cites it';
+  if (file.startsWith('canon/')) return 'canon — states why, binds whoever leans on it';
+  return 'no scope line';
+}
+
+/** The line under the table: what the gaps mean, in the corpus's own terms. */
+function footnote(rows) {
+  const n = (p) => rows.filter(p).length;
+  const reg = n((r) => r.binds === null && r.cell.startsWith('register'));
+  const can = n((r) => r.binds === null && r.cell.startsWith('canon'));
+  const gap = n((r) => r.cell === 'no scope line');
+  const parts = [`${rows.length} rule documents`];
+  if (reg) parts.push(`${reg} are registers and ${can ? 'take' : 'takes'} their scope from the standard that cites them`);
+  if (can) parts.push(`${can} are canon, which state why rather than whom`);
+  parts.push(gap
+    ? `${gap} declare no scope and no exemption covers ${gap === 1 ? 'it' : 'them'} — open ${gap === 1 ? 'it' : 'those'} when in doubt`
+    : 'every other document names whom it binds');
+  return `${parts.join('; ')}.`;
+}
+
 export function buildIndex(root = ROOT) {
   const files = execFileSync('git', ['-C', root, 'ls-files', ...DIRS.map((d) => `${d}/*.md`)], { encoding: 'utf8' })
     .split('\n').filter(Boolean);
@@ -112,11 +148,10 @@ export function buildIndex(root = ROOT) {
       file,
       binds,
       title: cleanTitle(fm.title, id),
-      cell: binds === null ? 'no scope line' : shorten(binds),
+      cell: binds === null ? whyNoScope(file, fm) : shorten(binds),
     });
   }
   rows.sort((a, b) => a.id.localeCompare(b.id));
-  const unscoped = rows.filter((r) => r.binds === null).length;
   const lines = [
     BEGIN,
     '',
@@ -124,7 +159,7 @@ export function buildIndex(root = ROOT) {
     '|---|---|---|',
     ...rows.map((r) => `| \`${r.id}\` | ${r.title} | ${r.cell} |`),
     '',
-    `${rows.length} rule documents; ${unscoped} never say whom they bind, and are marked \`no scope line\` — open those when in doubt rather than assuming they do not apply.`,
+    footnote(rows),
     END,
   ];
   return { rows, block: lines.join('\n') };

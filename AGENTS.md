@@ -122,14 +122,14 @@ adding a dependency, changing a LICENSE or making anything public.
 
 | Rule | What it rules | Binds |
 |---|---|---|
-| `CAN-001` | Welcome to Numinia | no scope line |
-| `CAN-002` | Numinia Brand and Culture | no scope line |
-| `CAN-003` | Compendium of Attributes and Ranks in Numinia | no scope line |
-| `CAN-004` | Role Structure in the Numinia System | no scope line |
-| `CAN-005` | Opening is an act | no scope line |
-| `CAN-006` | Epistemic Relations between Numen Games and… | no scope line |
-| `CAN-007` | Pragmatic Numen System | no scope line |
-| `CAN-008` | The visual identity is one system in four… | no scope line |
+| `CAN-001` | Welcome to Numinia | canon — states why, binds whoever leans on it |
+| `CAN-002` | Numinia Brand and Culture | canon — states why, binds whoever leans on it |
+| `CAN-003` | Compendium of Attributes and Ranks in Numinia | canon — states why, binds whoever leans on it |
+| `CAN-004` | Role Structure in the Numinia System | canon — states why, binds whoever leans on it |
+| `CAN-005` | Opening is an act | canon — states why, binds whoever leans on it |
+| `CAN-006` | Epistemic Relations between Numen Games and… | canon — states why, binds whoever leans on it |
+| `CAN-007` | Pragmatic Numen System | canon — states why, binds whoever leans on it |
+| `CAN-008` | The visual identity is one system in four… | canon — states why, binds whoever leans on it |
 | `PRO-001` | Opening and closing a session | every agent, in every session, whatever the mission |
 | `PRO-003` | Running a mission | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
 | `PRO-005` | Escalating to the Oracle | any agent facing a decision it may not, or cannot, take alone |
@@ -137,7 +137,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-011` | Auditing identity, authorization and secrets | any agent running a security audit over a Numinia scope, and the report it files |
 | `PRO-013` | Handing a guard to CI | any agent that writes a guard script, and the Oracle who wires it |
 | `PRO-014` | Producing a design piece | any agent producing a design piece in any medium |
-| `PRO-015` | Joining and leaving Numinia: the phases, the… | no scope line |
+| `PRO-015` | Joining and leaving Numinia: the phases, the… | whoever brings a person into Numinia, and whoever lets one go |
 | `PRO-016` | Applying the engineering standard | any agent executing a task in a repository that carries `STD-005` |
 | `PRO-017` | Rolling up the week | any agent executing a weekly, quarterly or annual roll-up |
 | `PRO-018` | Publishing a repository | any agent preparing a visibility change or a permanent publication of a Numen Games repository… |
@@ -150,26 +150,26 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-008` | Design tokens | every public surface of Numen Games and Numinia — web, product, document, deck, codex… |
 | `STD-009` | Which rule wins | every registered document of the corpus, and every reader of one |
 | `STD-010` | Licensing | every repository of Numen Games, Numinia's and NWOS's included |
-| `STD-011` | External standards | no scope line |
+| `STD-011` | External standards | register — scope belongs to the standard that cites it |
 | `STD-012` | The corpus does not grow | `missions/`, `reports/`, `debt/`, `blueprints/` |
-| `STD-013` | Licence allowlist and fields | no scope line |
+| `STD-013` | Licence allowlist and fields | register — scope belongs to the standard that cites it |
 | `STD-014` | Publishing gates | every permanent publication and every private-to-public change of a Numen Games repository |
-| `STD-015` | Engineering checks | no scope line |
-| `STD-016` | Header fields | no scope line |
+| `STD-015` | Engineering checks | register — scope belongs to the standard that cites it |
+| `STD-016` | Header fields | register — scope belongs to the standard that cites it |
 | `STD-017` | Who may change what | every change to a registered document |
 | `STD-018` | One document, one identifier | every registered document of the corpus |
 | `STD-019` | Versions | every registered document, and every artefact the corpus versions |
 | `STD-020` | Git is the archive | every commit to this repository and every retirement of a registered document |
 | `STD-021` | Evidence and citation | every registered document that cites another or makes a claim about the tree |
 | `STD-022` | Secrets | every file in this repository, and every report about it |
-| `STD-023` | Design values | no scope line |
+| `STD-023` | Design values | register — scope belongs to the standard that cites it |
 | `STD-024` | A series is a function | every folder of the corpus and every document in one |
 | `STD-025` | A mission is a card | every file in `missions/`, and whoever sets a field on one |
-| `STD-026` | Operative vocabulary | no scope line |
+| `STD-026` | Operative vocabulary | register — scope belongs to the standard that cites it |
 | `STD-027` | The archive is classified by function | every folder of the repository |
 | `STD-028` | One document, one address | every address numinia.org publishes for a document of the corpus |
 
-46 rule documents; 15 never say whom they bind, and are marked `no scope line` — open those when in doubt rather than assuming they do not apply.
+46 rule documents; 6 are registers and take their scope from the standard that cites them; 8 are canon, which state why rather than whom; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
