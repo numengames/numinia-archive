@@ -73,7 +73,8 @@ const REPORT = process.argv.includes('--report');
 // address. Adding a page to this list is a deliberate act — it is the one
 // place a new top-level address is admitted.
 const STANDALONE = new Set([
-  '/',            // the home — since 2026-09-21 the classification itself
+  '/',            // the home — the threshold: what this place is and the six doors in
+  '/scheme',      // the classification in full: vocabulary, every series, the second fond
   '/archive',     // the function pages (/archive/<function>, see URL-002); the bare address redirects to /
   '/updates',     // the site's own version timeline
   '/telemetry',   // the measured figures

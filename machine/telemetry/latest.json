@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "5c35d94",
-  "corpus_hash": "bed7141bfadc44eb02321a6da81db3ec27ccdbec9270a2ae3a5b8674aec2d5df",
+  "head": "65e2745",
+  "corpus_hash": "2430087cd0b7ce1b48624403415b3266ceece92a8de5db163527df299f2cd663",
   "root_dirty": 0,
-  "measured_at": "2026-09-22T08:18:05Z",
+  "measured_at": "2026-09-22T09:50:27Z",
   "families": [
     "corpus",
     "series",
@@ -16,14 +16,14 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 498,
+      "value": 501,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
     "corpus.files_by_ext": {
       "value": {
         "(none)": 2,
-        ".astro": 44,
+        ".astro": 45,
         ".css": 3,
         ".gitignore": 2,
         ".html": 2,
@@ -31,11 +31,11 @@
         ".js": 2,
         ".json": 14,
         ".md": 176,
-        ".mjs": 65,
+        ".mjs": 66,
         ".png": 35,
         ".svg": 69,
         ".toml": 4,
-        ".ts": 21,
+        ".ts": 22,
         ".tsx": 2,
         ".txt": 11,
         ".webp": 1,
@@ -107,13 +107,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 37,
+      "value": 38,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 37
+        "node": 38
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 614009,
+      "value": 615034,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -330,7 +330,7 @@
         "canon": 29365,
         "agents": 27835,
         "reports": 26153,
-        "": 24053,
+        "": 25078,
         "operations": 22950,
         "blueprints": 20861,
         "system": 16946,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 334962,
+        "(none)": 335987,
         "draft": 119367,
         "active": 114526,
         "done": 26389,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.11,
+      "value": 7.09,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -369,7 +369,7 @@
         ],
         [
           "CHANGELOG.md",
-          16887
+          17912
         ],
         [
           "lore/adventures/el-espejo-roto.md",
@@ -683,7 +683,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 718
+          "3": 723
         },
         "MIS": {
           "3": 679,
@@ -696,10 +696,10 @@
           "3": 58
         },
         "CAN": {
-          "3": 156
+          "3": 159
         },
         "ADR": {
-          "3": 376
+          "3": 377
         },
         "BLU": {
           "3": 121
