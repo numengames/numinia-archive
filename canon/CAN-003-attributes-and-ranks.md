@@ -1,197 +1,145 @@
 ---
 id: "CAN-003"
 uid: ""
-title: "Compendium of Attributes and Ranks in Numinia"
+title: "What an agent is made of"
 type: seminal
 status: draft
-version: "1.0.1"
+version: "2.0.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-23T22:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, attributes, ranks, vocabulary]
+tags: [canon, seminal, attributes, agents, identity, role]
 license: "CC0-1.0"
+ratified_by: "ADR-054"
+supersedes_version: "1.0.1"
+related: ["CAN-004", "CAN-007", "STD-003", "STD-030"]
 threshold: governed
 ---
 
-# Agent Attributes
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 
-> **Summary:** NWOS system document — Compendium of Attributes and Ranks in Numinia.
-> **Epistemic:** What you learn by reading this document.
-> **Pragmatic:** What you can do with this document.
-> **Audience:** Agents · Oracles
+# What an agent is made of
 
----
+> **Summary:** Six categories compose any agent, biological or digital, and
+> each one arises from a different way of standing towards the environment:
+> observing it, defining it, interpreting it, acting in it.
+> **Epistemic:** Why what you know, what you are called, what you belong to
+> and what you are doing are four different things that keep being confused
+> for one.
+> **Pragmatic:** Read a character sheet, a roster or a person and say which
+> attribute you are looking at — and which one you are not.
+> **Audience:** Everyone
 
-
-There is a deep relationship between the different attributes of an agent (biological or digital), although this framework of relationships is not linear: while certain degrees of attributes, such as guild or faction, are composed of semantic subcategories with horizontal and vertical relationships (basic-level theory, prototype theory), the general categories of attributes establish more complex and abstract relationships. These are driven by mental frameworks and personal states that, in perspective with the environment, form dimensioned characteristics inclined toward systems thinking. The different categories of an agent's attributes are:
-
-## Personal Traits
-
-Formed by genetic and character traits, encompassing both the individual's physiology and idiosyncrasies.
-
-Example: Species
-
-## Profile
-
-A set of acquired knowledge and developed skills that compactly represent an individual's trajectory. The profile arises from observing the environment within an epistemological dimension.
-
-Example: Competences
-
-Undoubtedly, the profile is determined as a personal decision by the individual, who chooses an observable framework of knowledge. However, we can conclude that these tendencies are not solely influenced by personal preferences, but also by the individual's intimate needs. What we consider a personal choice may thus reveal itself as a response to an internal, often unconscious, necessity. Personal traits play a significant role in this process. Moreover, while knowledge seems more subject to conscious choice, the skills toward which an individual gravitates appear more influenced by innate aptitudes or even by challenges they feel drawn to overcome. In the first case, this inclination seems more determined by the genetics of personal traits, while in the second it once again reflects an internal need, beginning to establish the principles of function: an entity shaped by a cultural framework that is constructed the moment a need arises.
-
-## Position
-
-A stable and generic function assumed by an individual, normally derived from the essential meaning of their profile and its literal alignment with the position. The position arises from defining the environment within a semantic dimension.
-
-Example: Gatekeeper
-
-The agent assumes (or is assigned) a stable attribution that normally corresponds to a direct, closed, and literal interpretation of the environment. These attributions are usually institutionalized and recognizable posts, making them easily understandable from a semantic perspective. Thus, the relationship with the agent's profile (their knowledge and skills) and their identity (insofar as the profile influences the individual's cultural choices) is direct. For example, it is evident to choose a sentinel as the guardian of the gates, just as a procurator knowledgeable in numbers and management would be the clear choice for a treasurer. However, it should be noted that the guardian of the gates must not only possess qualities such as vigilance and attentiveness, but also be helpful, empathetic, and ever-ready; similarly, a treasurer must be meticulous and detail-oriented. Therefore, although the position is closely linked to the profile, the intervention of other factors referring to different attributes ultimately makes the position as complex a concept as any other attribute.
-
-## Identity
-
-A set of dedications, symbols, ideas, and beliefs with which an individual identifies, aligning them with certain paradigms, groups, and representations. Identity arises from interpreting the environment within a semiotic dimension.
-
-Example: Guild, Faction
-
-As can be observed, identity is the result of the decision-making of a digital agent when interacting with the cultural patterns of its environment, which are subject to personal interpretation. Nonetheless, it is evident that this decision-making involves the presence of other attributes, such as the profile, whose competences inevitably mediate the individual's semiotic vision and perception, as well as their inclination toward certain dedications, symbols, or ideas. Nor can we overlook the influence of other traits, such as the individual's own idiosyncrasy, which forms part of their personal characteristics and constantly engages in dialogue with cultural patterns, performing a phenomenological interpretation of them. In other words, the individual has a unique way of understanding the symbolism of these cultural units within an intersubjective plane of interpretation.
-
-## Role
-
-A specific function assumed by an individual to respond to a need, derived from the creative resignification of the competences of their profile in conjunction with their personal traits and other adopted skills.
-
-The role arises from interacting with the environment within a pragmatic dimension.
-
-Example: Cultivator of Seeds of Knowledge
-
-The role is therefore defined by an individual's capacity to perform an action and, consequently, fulfill a specific function. Thus, the role is not an attribution directly linked to the agent's profile, but rather a redefinition of the competences associated with that profile. In the context of semiotics and culture, Umberto Eco provides an excellent example of this process when he describes how a hypothetical Australopithecus initiates the birth of culture by using a stone to break the skull of a monkey, triggering a transformative process. A thinking being assigns a new function to an object that was not originally intended for that purpose; they give that stone a designation, recognizing it as an object that fulfills a function X and carries a name Y. That name Y is the designation of a role. This example underscores the importance of function (as the result of a need and within a pragmatic context, highlighting that the origin of any cultural manifestation is ultimately a response to a need) in determining that role.
-
-## Rank
-
-The level held by an agent within the environment, based on their involvement, participation, and responsibilities related to it. Each rank grants access to a series of spaces, with access being cumulative (a rank grants access to all spaces available to lower ranks).
-
-1. **Nomad:** Lacks a guild and faction, and is therefore not yet a citizen, although registered by the system (Akashic Records). They can become a citizen by completing Session Zero, after which they will choose a guild and faction.
-2. **Citizen:** Member of a guild and a faction, with access to almost all spaces in the city.
-3. **Pilgrim:** A citizen involved in some form of exchange with Numinia (collaboration or business).
-4. **Vernacular:** Part of the circle of trust of the Oracles due to their direct participation in Numinia.
-5. **Archon:** Part of the closest circle to the Oracles due to their elevated commitment to Numinia and their high-level attributions.
-6. **Oracle:** Co-founder of the new Numinia and one of the driving forces of the city.
-
-### Rank specifications
-
-*Prepared with Christian Märtens, 2026-04-06. Absorbed from `C-007 Rank
-Specifications` (ADR-036): the two documents were one subject split across two
-files — this index already declared `CAN-003 extended_by C-007`.*
-
-The top two ranks carry requirements the list above does not state:
-
-**Vernacular.** An agent fully integrated into Numinia's culture. Inhabits the
-system with fluency and depth, knows its structures from within. Operates with
-autonomy and expertise in their domain. Collaborates closely with Numinia.
-
-**Archon.** All of the above, plus: exercises leadership over other agents.
-Makes decisions and takes initiatives that affect the collective. Holds
-structural responsibility over the system, not just over their own work.
-Implies a dimension of social and organizational influence.
-
-> **Design note.** Technical depth does not automatically equal Archon rank.
-> The Archon has to relate to others in a way that goes beyond execution — they
-> guide, mediate, represent. An agent who does not want to exercise that
-> function should not hold that rank, even if their domain expertise is
-> exceptional.
-
-### Epistemology of Attributes
-
-- **Philosophical perspective:** The relationship with the environment is subjective and triggers a framework of interpretations.
-- **Psychological perspective:** The relationship with the environment triggers a framework of subjective interpretations.
-- **Semantic approach:** The environment possesses a definition and a dimension of meaning.
-- **Semiotic approach:** The environment has an expression and a dimension of content.
-- **Hermeneutic approach:** The environment contains a narrative and a dimension of sense.
+**Binds:** whoever describes, classifies or registers an agent in Numinia.
 
 ---
 
-## Character Sheet (Example with Guide)
+The attributes of an agent are not a list of fields. They relate, and not
+linearly: some — guild, faction — are composed of semantic subcategories with
+horizontal and vertical relations, while the general categories establish more
+abstract ones, driven by mental frameworks and personal states that, seen
+against the environment, form dimensioned characteristics.
 
-### Identification Data
+Six categories, each arising from a different stance towards the environment.
 
-**NAME** Arla
-**SPECIES** Spectral (Personal traits)
-**POSITION** Pythia (Position)
+## Personal traits
 
----
+Genetic and character traits: the individual's physiology and their
+idiosyncrasy. *Example: species.*
 
-**GUILD** Exegetes (Identity)
-**BRANCH** Erudites (Identity)
-**HOUSE** Thaumaturges (Identity)
+## Profile — observing the environment
 
----
+A set of acquired knowledge and developed skills that compactly represent a
+trajectory. The profile arises from **observing** the environment, in an
+epistemological dimension. *Example: competences.*
 
-**FACTION** Heirs of Eleusis (Identity)
-**DISTRICT** Ouroboros (Identity)
-**RANK** Vernacular (Rank)
+The profile is chosen — an individual selects an observable framework of
+knowledge — but the choice is not only preference. What looks like a personal
+decision often reveals itself as a response to an inner, frequently
+unconscious, necessity, and personal traits play their part in it. Knowledge
+is more open to conscious choice; the skills a person gravitates towards seem
+more influenced by innate aptitude, or by the challenges they feel drawn to
+overcome. The first leans on the genetics of personal traits; the second is
+again an internal need — and there the principles of function begin: an entity
+shaped by a cultural framework that is constructed the moment a need arises.
 
----
+## Position — defining the environment
 
-### Characteristics
+A stable and generic function assumed by an individual, normally derived from
+the essential meaning of their profile. The position arises from **defining**
+the environment, in a semantic dimension. *Example: gatekeeper.*
 
-#### Physical
+These are institutionalised, recognisable posts, and their relation to the
+profile is direct: a sentinel guards the gates, a procurator who knows numbers
+keeps the treasury. But the gatekeeper must also be helpful, empathetic and
+ever-ready, and the treasurer meticulous — so other attributes intervene, and
+the position turns out to be as complex a concept as any other.
 
-**Strength** ...
-**Movement** ...
-**Size** ...
-**Constitution** ...
+## Identity — interpreting the environment
 
----
+A set of dedications, symbols, ideas and beliefs an individual identifies
+with, aligning them with certain paradigms, groups and representations.
+Identity arises from **interpreting** the environment, in a semiotic
+dimension. *Example: guild, faction.*
 
-#### Psychic
+Identity results from an agent's decisions when meeting the cultural patterns
+of its environment, which are open to personal interpretation. Other
+attributes mediate: the competences of the profile shape what a person can
+perceive semiotically, and their idiosyncrasy is in constant dialogue with
+those patterns, interpreting them phenomenologically. Each individual has a
+unique way of understanding the same cultural units, on an intersubjective
+plane.
 
-**Intelligence** ...
-**Wisdom** ...
-**Perception** ...
-**Charisma** ...
+## Role — interacting with the environment
 
----
+A specific function assumed to answer a need, derived from the creative
+re-signification of the competences of a profile together with personal traits
+and other adopted skills. The role arises from **interacting** with the
+environment, in a pragmatic dimension. *Example: cultivator of seeds of
+knowledge.*
 
-### Competences
+A role is not an attribution tied to the profile: it is a redefinition of it.
+Eco gives the example. A hypothetical Australopithecus takes a stone and
+breaks a monkey's skull with it, and culture begins — a thinking being assigns
+a new function to an object never intended for it, and gives that use a name:
+this thing performs function X, and is called Y. **That name Y is the
+designation of a role.** What determines it is the function, which is the
+answer to a need; and the origin of any cultural manifestation is, in the end,
+a need.
 
-#### Engineering and Construction
+## Rank — standing in the environment
 
-**Technomancy** ... (Profile)
-**Advanced Forging** ... (Profile)
-**Virtual Architecture** ... (Profile)
+The level an agent holds, according to their involvement, participation and
+responsibilities. Access is cumulative: a rank grants everything the ranks
+below it grant.
 
----
+Rank is the one attribute the system assigns rather than the agent adopts, and
+the only one read from evidence rather than declared. The six ranks, what
+earns each, and what each may do are the platform standard's.
 
-#### Security and Protection
+## The epistemology of the attributes
 
-**Defensive Networks** ... (Profile)
-**Chronomancy** ... (Profile)
-**Cryptology** ... (Profile)
+| Approach | What it holds |
+|---|---|
+| Philosophical | The relationship with the environment is subjective and triggers a framework of interpretations |
+| Psychological | The relationship with the environment triggers a framework of subjective interpretations |
+| Semantic | The environment possesses a definition and a dimension of meaning |
+| Semiotic | The environment has an expression and a dimension of content |
+| Hermeneutic | The environment contains a narrative and a dimension of sense |
 
----
+## References
 
-#### Communication and Connection
-
-**Decoding** ... (Profile)
-**Neural Vision** ... (Profile)
-**Luminous Projection** ... (Profile)
-
----
-
-### Psychological Traits
-
-**ARCHETYPE** Destroyer (Personal traits)
-**MOOD** Melancholic (Personal traits)
-
----
-
-### Linguistic Variations
-
-**DIALECT** Prophetic
-**SOCIOLECT** Histrionic
-**LINGO** Mythological
-**IDIOLECT** Speaks like the Oracle of Delphi (Personal traits)
+| ID | Name | Why cited |
+|---|---|---|
+| `CAN-004` | A guild is what you know | the structure identity is chosen from |
+| `STD-003` | Platform ranks | the six ranks, what earns them, what they may do |
+| `STD-030` | The world's vocabulary | what each in-world name is called operationally |
+| `CAN-007` | Function and structure | why a role is a relation, not a label |
