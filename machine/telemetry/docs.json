@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12404,
+  "chars": 12581,
   "apparatus": false,
   "archived": false,
-  "tokens": 3089
+  "tokens": 3129
  },
  {
   "path": "CHANGELOG.md",
@@ -676,10 +676,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 12156,
+  "chars": 8683,
   "apparatus": false,
   "archived": false,
-  "tokens": 2387
+  "tokens": 1853
  },
  {
   "path": "canon/CAN-008-visual-identity.md",
@@ -731,10 +731,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 3716,
+  "chars": 3784,
   "apparatus": false,
   "archived": false,
-  "tokens": 1193
+  "tokens": 1204
  },
  {
   "path": "decisions/ADR-041-git-is-the-archive.md",
@@ -845,6 +845,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1255
+ },
+ {
+  "path": "decisions/ADR-051-can-007-laid-out-as-its-argument.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6034,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1499
  },
  {
   "path": "lore/README.md",
