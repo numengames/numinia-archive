@@ -1,3 +1,13 @@
+# The archive of Numen Games — numinia.org
+#
+# Everything here is meant to be read, by people and by machines alike.
+# Every page is also served as the markdown file behind it: append `.md` to
+# any address and you get the document itself, frontmatter included.
+#
+# Start at /llms.txt — what this is, how to read it, and every document with
+# its own licence beside it. Rights are declared per document, never per
+# folder.
+
 User-agent: *
 Allow: /
 

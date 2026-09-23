@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.18.0",
+    date: "2026-09-23",
+    entries: [
+      {
+        type: "ADD",
+        text: "A door for machines. This site has always served every page twice — as HTML, and as the markdown file behind it at the same address plus '.md' — and said so nowhere: robots.txt offered a sitemap of 192 HTML addresses and not one of them mentioned the convention, so an arriving agent downloaded 77 KB of page to recover 3 KB of document, if it was patient. Three files now say it out loud. /llms.txt is prose for a reader that arrived with no schema: what this archive is, how to fetch the markdown, what 'draft' means, and every document listed with its own licence. /index.json is the same rows as data — for each address, its markdown address, its title, its state, its licence and whether it is a record or a view of records. /telemetry.json serves the measured dataset unchanged, so the figures can be read rather than scraped out of a table. robots.txt points at the first of them.",
+      },
+      {
+        type: "ADD",
+        text: "A guard that refuses an invented address. Route and index derive each document's URL in two different files, so they can drift apart with nothing failing: the first draft of this work emitted fifteen addresses that were never built — blueprints are served at their slug with the identifier stripped, reports at the entry id, and the index had assembled '/<series>/<frontmatter id>' for both. The build was green and the sitemap was right; only the invented rows were wrong, and nothing was looking at them. check-machine-index reads the built index back against web/dist and fails when a row names a page or a '.md' the build did not publish, when a document resolves to no licence at all, or when the index is empty. An index that invents addresses is worse than no index, because a machine believes it.",
+      },
+      {
+        type: "FIX",
+        text: "Eleven documents were published with no licence. The lore documents carry no frontmatter — they were converted from PDFs — so their rights come from the REUSE record for their path, and the reader of that record locates the repository from its own file path: correct under bare node, wrong once Vite bundles it, and silent either way because an absent REUSE.toml returns an empty map rather than an error. Every header-less document therefore resolved to null. It passed the unit tests, which run under bare node where the path is right, and was caught by reading the built index.json. The annotations are now read from the site root, and the test asserts the exact licence rather than merely a non-empty string, because a test that accepts any answer cannot tell 'resolved' from 'gave up'.",
+      },
+      {
+        type: "CHG",
+        text: "Rights are stated per document, never per folder. The licence of a file is the file's own: 121 documents are CC0-1.0, 28 are CC-BY-4.0 and four are all rights reserved, and they do not sort by directory — operations/ and reports/ each hold two different licences today. Nothing generated here summarises rights by folder, and a test fails the build on any sentence that binds a licence to a directory, because that kind of false claim is one a machine repeats downstream where nobody can correct it.",
+      },
+    ],
+  },
+  {
     version: "v0.17.0",
     date: "2026-09-22",
     entries: [

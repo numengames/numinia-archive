@@ -549,6 +549,29 @@
         }
       ]
     },
+    "check-machine-index": {
+      "script": "machine/scripts/check-machine-index.mjs",
+      "build_guard": "verifies the built artefact against itself, not a rule in prose — an index naming an address the build never published misdirects every machine that trusts it, whatever any standard says (ENG-067 exception)",
+      "needs": "web/dist",
+      "sees": "every row of the built index.json: that its page address and its .md address were both published and are not empty, that every document row resolves a licence, that the index is not empty, and that llms.txt exists and names the .md convention",
+      "blind_to": [
+        {
+          "spot": "whether the index is COMPLETE — a published document missing from it is invisible here. The rows are checked against the build; the build is not checked against the rows",
+          "covered_by": "web/src/lib/machine-surface.ts reads the same filtered collections every page reads",
+          "debt": null
+        },
+        {
+          "spot": "whether a licence is the RIGHT one. It checks that each document resolved to something, not that the something is correct; the header-vs-REUSE comparison is std-010-licensing's job",
+          "covered_by": "machine/guards/rules/std-010-licensing.mjs",
+          "debt": null
+        },
+        {
+          "spot": "whether llms.txt SAYS what is true. It verifies the .md convention is stated, not that the prose around it describes this archive",
+          "covered_by": "machine/scripts/test/machine-index.test.mjs, and review",
+          "debt": null
+        }
+      ]
+    },
     "rule-index": {
       "script": "machine/tools/rule-index.mjs",
       "manual": "takes arguments (--check, --print) and is run by hand or by its test, not by run-guards.mjs (ENG-032's registry-discovery scope)",
