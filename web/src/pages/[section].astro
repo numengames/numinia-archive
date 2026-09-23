@@ -155,6 +155,58 @@ const strip = functions().map((fn) => ({
       </div>
 
       {/*
+        What the reader understands after this folder, and what they can then
+        do with it — the same pair every document in the archive opens with.
+        A folder that only states its question tells you whether you are in
+        the right place; this tells you what you are leaving with.
+      */}
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground mb-1.5">
+            Epistemic
+          </p>
+          <p class="text-sm leading-relaxed text-muted-foreground">{section.epistemic}</p>
+        </div>
+        <div>
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground mb-1.5">
+            Pragmatic
+          </p>
+          <p class="text-sm leading-relaxed text-muted-foreground">{section.pragmatic}</p>
+        </div>
+      </div>
+
+      {/*
+        The axis note — canon, standards and protocols only.
+
+        `STD-024` SER-001 and SER-002 draw the line that decides whether a
+        sentence in this archive can put a reader in breach, and it cannot be
+        learnt from any single folder: it exists only in the comparison. So
+        the three that oblige carry it, and the eight that record stay quiet.
+
+        The middle sentence is SER-002 verbatim. It is a binding rule quoted
+        on a page, not a paraphrase — if the rule changes, this changes with
+        it.
+      */}
+      {section.axis && (
+        <div class="rounded-xl border border-border bg-card px-5 py-4 space-y-2">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground">
+            These three bind; the rest record
+          </p>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Canon says <em>why</em>, standards say <em>what</em>, protocols say <em>how</em>.
+          </p>
+          <p class="text-sm leading-relaxed text-foreground">
+            A standard is complied with by an artifact; a protocol is executed
+            by an actor. The boundary is the mechanism, not the topic.
+          </p>
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            Everywhere else in this archive records what happened, what was
+            decided or what exists — and a record cannot put you in breach.
+          </p>
+        </div>
+      )}
+
+      {/*
         The rights regime, when it is not the archive's default. It sits
         directly under the question and above the rows, because it changes what
         a reader may DO with what follows and is worthless after they have read
