@@ -4,24 +4,43 @@ uid: ""
 title: "Epistemic Relations between Numen Games and Numinia"
 type: seminal
 status: draft
-version: "1.0.1"
+version: "2.0.0"
 created: "2026-04-15T16:25:05Z"
 created_source: "git:89404d7"
 created_confidence: exact
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-23T18:00:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, peirce, semiotics]
+tags: [canon, seminal, peirce, semiotics, borromean-knot, archetype]
 license: "CC0-1.0"
 registration: registered
+related: ["CAN-001", "CAN-007", "STD-026"]
 former_id: "canon-epistemic-relations-v020"
 former_id_note: "Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md"
 threshold: governed
+ratified_by: "ADR-050"
+supersedes_version: "1.0.1"
 ---
 
 # Epistemic Relations between Numen Games and Numinia
+
+> **Summary:** Numen Games, its regulatory model and Numinia are not three
+> stages of one process but three interlinked rings: remove any one and the
+> other two come apart.
+> **Epistemic:** Why a working method has to be narrated in order to be
+> understood at all — read through Peirce's sign, where the germinal motive is
+> the object, the model the ground and Numinia the representamen.
+> **Pragmatic:** Apply the model to a project that is not this one. The
+> argument is deliberately general: any germinal motive admits its own
+> narrative projection over the same regulatory structure.
+> **Audience:** Everyone
+
+**Binds:** whoever reasons about how Numen Games, its model and Numinia
+relate.
+
+---
 
 To begin with, it is important to clearly establish the principle of the relationship between Numen Games and Numinia: Numen Games is a brand, a project aimed at creating a gamified operating system permeated by narrative, whether as a specific framework or an organizational body within any type of project under development. To this end, Numen Games has created the universe of the city of Numinia, which constitutes the narrative projection of the concept. Numinia is the environment in which “the game” unfolds, forming the gamification of the operational and organizational framework as a role-playing game. The imagery implied by the narrative of Numinia is designed to function as a decentralized organizational model with epistemological and pragmatic values, which can be replicated with different narrative elements to apply the same regulatory model to other projects. This can be better understood with the following scheme:
 
@@ -64,27 +83,3 @@ And this explains the order followed by the scheme, from an origin idea, the Ger
 We can now specify that Numinia is the paradigmatic and prototypical example of this Narrative Projection, with a literary foundation that combines elements from the early 20th century (1900–1920) and the early 21st century (2000–2020), drawing an analogy between the social, scientific, and technological phenomena of one era and another. From this perspective, the literary creation of Numinia incorporates elements of science fiction and fantasy, as well as influences from cultures such as steampunk and cyberpunk. The intention is that this literary and dimensioned framework, as a Narrative Projection, covers the needs of the Regulatory and organizational Model, in the same way that the latter covers the needs of the Germinal Motive. Therefore, the literary framework must be meticulously aligned with all the elements of the complex system it encompasses.
 
 And the purpose of this Narrative Projection of the Regulatory Model is for the Germinal Motive to become much more accessible and expansive through narrative and gameplay experience. Numen Games understands that if play is the basic principle of learning, and fiction (myth) constitutes the path to becoming aware of archetypal ideas, any executable task acquires dimension through the gameplay experience. Education, efficiency, and multiplicity sustain this Narrative Projection. Therefore, the function is not directly (or primarily) playful, but formative, educational, and operational; the fact that the gameplay experience is projected, by its nature, into a narrative experience more clearly constitutes its raison d’être and the teleological and axiological principles of its essentiality. Consciousness turns toward play, toward narrative, to learn, develop, expand, recognize itself, and realize itself.
-
-## Connection with the Structure of Numinia
-
-As seen, both Numen Games and Numinia constitute complex concepts that may be difficult to understand at first encounter. Anyone who has their first contact with Numen Games is already part of the Game, even without realizing it, just as any player who approaches Numinia with purely playful intentions will come into contact, even if unconsciously, with the epistemological and pragmatic foundations of Numen Games. Even those who are building the project are part of the Game. The gamification of the functional model is, therefore, a metagame, with Numen Games itself, as a brand, being an operating system that develops within a complex functional and organizational model with a dimensioned narrative projection called “Numinia.”
-
-In this way, Numen Games understands that the best way to come into contact with this scheme (expressed in the previous section), as represented by Numinia, is invariably through the gameplay experience. Any initial approach and understanding must occur as a mythic-narrative exercise, and not through flat explanations that fail to reach the pragmatic dimension and further confuse potential user-player-participants, diminishing their interest.
-
-As an imaginary city that exists in another dimension, Numinia develops in the metaverse. Different virtual spaces make up its tangible body.
-
-## Connection with the Numen Games Framework
-
-In principle, since Numen Games is itself a framework under a gamified Operating System and is enveloped by the imaginary of Numinia, connecting with Numen Games implies connecting with Numinia. However, there are certain particularities that develop on the Numen Games layer and are essential for interacting within its framework:
-
-The main work meetings in Numen Games revolve around two events: Dark Council and Lunar Coven.
-
-### Dark Council
-
-Focused on tasks related to project development.
-
-### Lunar Coven
-
-Dedicated to gameplay and generally organize events within a space that constitutes an adventure (such as an escape room).
-
-The Dark Councils take place on Mondays from 10:00 to 12:00 (UTC+1) at the Ateneo of Numinia. The Lunar Covens are held on Thursdays from 10:00 to 12:00 (UTC+1) in different spaces depending on that week’s adventure.

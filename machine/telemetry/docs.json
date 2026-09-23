@@ -665,10 +665,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 16442,
+  "chars": 14995,
   "apparatus": false,
   "archived": false,
-  "tokens": 3358
+  "tokens": 3108
  },
  {
   "path": "canon/CAN-007-pragmatic-numen-system.md",
@@ -834,6 +834,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1610
+ },
+ {
+  "path": "decisions/ADR-050-can-006-argument-and-appendices.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 4899,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1255
  },
  {
   "path": "lore/README.md",
