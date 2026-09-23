@@ -79,6 +79,7 @@ const STANDALONE = new Set([
   '/updates',     // the site's own version timeline
   '/telemetry',   // the measured figures
   '/agent',       // the roster's detail view
+  '/binding',     // what is in force while the rules are draft — the regime, from AGENTS.md
   // 2026-09-21: /wardley /gaps /cao /continuity /language /sales /simulations
   // /solutions moved under /system/ — a series segment, so URL-001 admits
   // them without a line here. Their old roots are redirects now.
