@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12789,
+  "chars": 12881,
   "apparatus": false,
   "archived": false,
-  "tokens": 3183
+  "tokens": 3203
  },
  {
   "path": "CHANGELOG.md",
@@ -632,10 +632,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 10602,
+  "chars": 6376,
   "apparatus": false,
   "archived": false,
-  "tokens": 2206
+  "tokens": 1446
  },
  {
   "path": "canon/CAN-004-role-structure.md",
@@ -878,6 +878,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1660
+ },
+ {
+  "path": "decisions/ADR-054-can-003-theory-of-attributes.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 5639,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1448
  },
  {
   "path": "lore/README.md",
@@ -1666,10 +1677,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4919,
+  "chars": 6134,
   "apparatus": false,
   "archived": false,
-  "tokens": 1282
+  "tokens": 1574
  },
  {
   "path": "standards/STD-004-the-header.md",
