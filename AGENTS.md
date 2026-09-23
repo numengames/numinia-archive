@@ -132,7 +132,7 @@ adding a dependency, changing a LICENSE or making anything public.
 |---|---|---|
 | `CAN-001` | You are already in the game | every document, artefact and agent that speaks in Numinia's name |
 | `CAN-002` | We build a game to work better | every piece of work that speaks, looks or behaves in Numinia's name |
-| `CAN-003` | Compendium of Attributes and Ranks in Numinia | canon — states why, binds whoever leans on it |
+| `CAN-003` | What an agent is made of | whoever describes, classifies or registers an agent in Numinia |
 | `CAN-004` | A guild is what you know; a faction is where… | whoever classifies a person, a role or a piece of work in Numinia |
 | `CAN-005` | Opening is an act | canon — states why, binds whoever leans on it |
 | `CAN-006` | Epistemic Relations between Numen Games and… | whoever reasons about how Numen Games, its model and Numinia relate |
@@ -178,8 +178,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-027` | The archive is classified by function | every folder of the repository |
 | `STD-028` | One document, one address | every address numinia.org publishes for a document of the corpus |
 | `STD-029` | How we treat each other in the commons | everyone in a Numinia community space — citizens, moderators, Oracles and digital agents alike |
+| `STD-030` | The world's vocabulary | register — scope belongs to the standard that cites it |
 
-48 rule documents; 6 are registers and take their scope from the standard that cites them; 3 are canon, which state why rather than whom; every other document names whom it binds.
+49 rule documents; 7 are registers and take their scope from the standard that cites them; 2 are canon, which state why rather than whom; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

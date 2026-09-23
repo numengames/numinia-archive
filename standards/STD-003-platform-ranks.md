@@ -5,7 +5,7 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.0.2"
+version: "3.1.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
@@ -60,6 +60,26 @@ only by editing the overrides file.
 **RNK-007 — The matrix and this page move together.** A platform change that
 alters the matrix MUST update this standard in the same change.
 
+**RNK-008 — The top two ranks are judged, not counted.** A promotion to
+Vernacular or Archon MUST be decided against the profiles below, never against
+volume of output alone.
+
+**Vernacular.** An agent fully integrated into Numinia's culture. Inhabits the
+system with fluency and depth, and knows its structures from within. Operates
+with autonomy and expertise in their domain. Collaborates closely with
+Numinia.
+
+**Archon.** All of the above, plus: exercises leadership over other agents.
+Makes decisions and takes initiatives that affect the collective. Holds
+structural responsibility over the system, not only over their own work.
+Implies a dimension of social and organisational influence.
+
+> Technical depth does not automatically equal Archon rank. The Archon has to
+> relate to others in a way that goes beyond execution — they guide, mediate,
+> represent. An agent who does not want to exercise that function should not
+> hold that rank, even if their domain expertise is exceptional. *(Prepared
+> with Christian Märtens, 2026-04-06; carried from `CAN-003` by `ADR-054`.)*
+
 | Rank | Earned by | Read from | Adds |
 |---|---|---|---|
 | Nomad | login with wallet or social account | `wallet_session` / `session` cookie | public gallery, CC0 downloads, search, own sheet read-only, favourites, NFT collections |
@@ -73,7 +93,7 @@ alters the matrix MUST update this standard in the same change.
 
 | Plate | Verified by |
 |---|---|
-| RNK-001 … RNK-006 | `[MANUAL]` — the matrix lives in platform code, outside this repository; the platform's test suite is the check |
+| RNK-001 … RNK-006, RNK-008 | `[MANUAL]` — the matrix lives in platform code, outside this repository; the platform's test suite is the check |
 | RNK-007 | `[MANUAL]` — a platform pull request that changes the matrix without a diff here |
 
 ## Why
@@ -82,8 +102,8 @@ A rank the member declares is a permission the member grants themselves.
 Reading rank from evidence — a cookie, a sheet, a purchase, an Oracle-only
 file — makes every permission traceable to an act. Cumulative ranks
 keep the matrix one column. The Oracle ceiling and the ban immunity keep
-governance from being captured inside the product. What a rank *is* stays
-in `CAN-004`.
+governance from being captured inside the product. What a rank *is* stays in `CAN-004`;
+what an attribute is, in `CAN-003`.
 
 > Nomad reads. Citizen edits their identity. Pilgrim buys. Vernacular creates.
 > Archon moderates. Oracle governs.
@@ -92,5 +112,6 @@ in `CAN-004`.
 
 | ID | Title | Relation |
 |---|---|---|
-| `CAN-004` | Role structure | names the ranks this standard regulates |
+| `CAN-004` | A guild is what you know | names the ranks this standard regulates |
+| `CAN-003` | What an agent is made of | rank as one of the six attributes |
 | `ADR-036` | Canon consolidation | records the move from the canon to this standard |
