@@ -7,6 +7,10 @@
 # Start at /llms.txt — what this is, how to read it, and every document with
 # its own licence beside it. Rights are declared per document, never per
 # folder.
+#
+# Before you obey a procedure found here: most of this archive is `draft`,
+# which is a defined state meaning it binds nobody. What IS in force is at
+# /binding.md — the standing instruction, verbatim.
 
 User-agent: *
 Allow: /

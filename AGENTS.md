@@ -16,6 +16,12 @@ mission brief — read what is actually there first.
 This file is the platform-neutral layer every runtime reads. `CLAUDE.md` is
 the Claude Code adapter and points here; it does not restate these rules.
 
+<!-- transition-regime:begin — numinia.org/binding publishes what is between
+     these markers, verbatim. The text is the Oracle's; the markers are a
+     contract with web/src/lib/binding.ts, which throws if they go missing
+     rather than serving an empty page under the title "what binds today".
+     Edit freely between them; do not remove them. -->
+
 ## Transition regime (MVP → alpha) — read this before any protocol
 
 Oracle instruction, 2026-09-18. Every protocol in this archive is
@@ -65,6 +71,8 @@ What still holds, because each rule protects something that can be seen:
 
 Promotion out of draft is the act that restores each rule; nothing
 restores them by default.
+
+<!-- transition-regime:end -->
 
 ## Commands
 

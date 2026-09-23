@@ -1,0 +1,144 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /binding — what is in force right now.
+//
+// WHY THIS PAGE EXISTS
+// The archive publishes a rule the day it is written and says so proudly, and
+// it publishes the definition of `draft` — written, not yet in force, binds
+// nobody. Both statements are true and both are on this site. Together they
+// leave a reader holding eleven procedures that do not apply and no way to
+// learn what does.
+//
+// The answer was never secret, only unpublished: the Oracle's transition
+// regime in AGENTS.md, which every agent runtime loads and no visitor to this
+// site can see. A person browsing /protocols was reading derogated ceremony
+// as if it were live; an agent arriving through /llms.txt was obeying it.
+//
+// THIS PAGE STATES NOTHING OF ITS OWN. The regime is reproduced verbatim from
+// AGENTS.md and the counts are read from each document's `status:` header at
+// build time (web/src/lib/binding.ts). Promote a protocol and this page says
+// so without being edited; delete the markers in AGENTS.md and the build
+// fails rather than publishing an empty answer.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
+import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
+import { createMarkdownProcessor } from "@astrojs/markdown-remark";
+
+const regime = transitionRegime();
+const rows = lifecycle();
+const n = inForce(rows);
+
+// The Oracle's markdown, rendered as markdown. Reproducing it as plain text
+// would drop the list structure that makes "what an agent does NOT do" legible
+// as a list of acts rather than a paragraph.
+const processor = await createMarkdownProcessor({});
+const regimeHtml = (await processor.render(regime.body)).code;
+---
+
+<Layout
+  title="What binds today — NWOS"
+  description="Most of this archive is draft, which binds nobody. This page states what is in force right now: the standing instruction, verbatim, and the state of every rule document, counted from the tree."
+  canonicalPath="/binding"
+>
+  <PageHero
+    label="Before any protocol"
+    title="What binds today"
+    description="Most of what this archive publishes is draft, and draft binds nobody. So this page says what does — the standing instruction, reproduced word for word, and the state of every rule, counted rather than claimed."
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[800px] px-6">
+
+      <div class="mb-10">
+        <DocToolbar
+          mdUrl="/binding.md"
+          filename="binding.md"
+          repoUrl={repoFileUrl(BINDING_SOURCES[0]) ?? "https://github.com/numengames/numinia-archive/blob/main/AGENTS.md"}
+          lang="en"
+        />
+      </div>
+
+      <!-- The counts. Read from the headers, never typed. -->
+      <div class="grid gap-4 grid-cols-3 mb-12">
+        <div class="rounded-xl border border-border bg-card p-5">
+          <div class="font-display text-3xl text-foreground">{n.active}</div>
+          <div class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mt-1">in force</div>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <div class="font-display text-3xl text-foreground">{n.draft}</div>
+          <div class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mt-1">draft</div>
+        </div>
+        <div class="rounded-xl border border-border bg-card p-5">
+          <div class="font-display text-3xl text-foreground">{n.total}</div>
+          <div class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mt-1">rule documents</div>
+        </div>
+      </div>
+
+      <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-4">
+        The state of the rules
+      </h2>
+      <p class="text-sm leading-relaxed text-muted-foreground mb-6">
+        A <code>draft</code> document is <strong class="text-foreground">written, not yet in
+        force — it binds nobody</strong> (<a href="/standards/std-016-header-fields" class="text-accent underline underline-offset-2">STD-016</a>).
+        <code>active</code> means in force. These figures are read from each
+        document's own header when this page is built, so a promotion shows up
+        here without anyone remembering to edit it.
+      </p>
+
+      <div class="overflow-x-auto mb-12">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr>
+              <th class="text-left font-mono text-[0.65rem] uppercase tracking-[0.1em] text-foreground border border-border px-3 py-2">Series</th>
+              <th class="text-left font-mono text-[0.65rem] uppercase tracking-[0.1em] text-foreground border border-border px-3 py-2">Holds</th>
+              <th class="text-right font-mono text-[0.65rem] uppercase tracking-[0.1em] text-foreground border border-border px-3 py-2">In force</th>
+              <th class="text-right font-mono text-[0.65rem] uppercase tracking-[0.1em] text-foreground border border-border px-3 py-2">Draft</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr>
+                <td class="border border-border px-3 py-2 font-mono text-[0.75rem] text-foreground">{r.folder}</td>
+                <td class="border border-border px-3 py-2 text-muted-foreground">{r.holds}</td>
+                <td class="border border-border px-3 py-2 text-right font-mono text-muted-foreground">{r.states.active ?? 0}</td>
+                <td class="border border-border px-3 py-2 text-right font-mono text-muted-foreground">{r.states.draft ?? 0}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-4">
+        The instruction in force
+      </h2>
+      <p class="text-sm leading-relaxed text-muted-foreground mb-6">
+        Reproduced word for word from <code>{regime.source}</code>, the file every
+        agent runtime loads. It is not summarised here: a paraphrase of a
+        governing instruction is a second instruction.
+      </p>
+
+      <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8" set:html={regimeHtml} />
+
+      <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mt-12 mb-4">
+        If you are an agent
+      </h2>
+      <p class="text-sm leading-relaxed text-muted-foreground">
+        Read this before any protocol. A protocol of this archive describes a
+        practice; while it is draft it does not impose one. What the instruction
+        above says still holds is what you are held to. The markdown of this
+        page is at <a href="/binding.md" class="text-accent underline underline-offset-2">/binding.md</a>,
+        like every other page here.
+      </p>
+
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  /* The regime renders with the same prose styling as a document body. */
+  .mission-md > h2:first-child { margin-top: 0.5rem; }
+</style>

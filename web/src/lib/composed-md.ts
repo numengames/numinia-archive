@@ -38,6 +38,7 @@ import { getCollection } from "astro:content";
 import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
+import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 
 /** A composed page's markdown, and where the facts in it come from. */
 export interface ComposedPage {
@@ -158,6 +159,66 @@ export function schemePage(): ComposedPage {
   return { route: "/scheme", filename: "scheme.md", sources: [SCHEME_DOC, SERIES_DOC, STATUS_DOC], body };
 }
 
+/** `/binding` — what governs while the rules are draft. */
+export function bindingPage(): ComposedPage {
+  const regime = transitionRegime();
+  const rows = lifecycle();
+  const n = inForce(rows);
+
+  const table_ = table(
+    ["Series", "Holds", "In force", "Draft", "Total"],
+    rows.map((r) => [
+      `\`${r.folder}\``,
+      r.holds,
+      String(r.states.active ?? 0),
+      String(r.states.draft ?? 0),
+      String(r.total),
+    ]),
+  );
+
+  const body = [
+    preamble([...BINDING_SOURCES]),
+    "# What binds today",
+    "",
+    "This archive publishes its rules the day they are written, not the day they",
+    "are ratified. That is deliberate, and it leaves a question the rest of the",
+    "site does not answer: if `draft` binds nobody, and most of this is draft,",
+    "what is actually in force right now?",
+    "",
+    "This page is that answer. It is not a summary of the rules — each document",
+    "still says what it says. It is the standing instruction about which of them",
+    "apply today, published here because until now it lived only in the",
+    `repository, in \`${regime.source}\`, where a reader of this site never saw it.`,
+    "",
+    "## The state of the rules, counted from the tree",
+    "",
+    table_,
+    "",
+    `${n.active} of ${n.total} rule documents are in force; ${n.draft} are draft.`,
+    "A `draft` document is **written, not yet in force — it binds nobody**",
+    "(`STD-016`). `active` means in force. Nothing here is counted by hand: the",
+    "figures are read from each document's own header at build time, so a",
+    "promotion changes this page and no one has to remember to edit it.",
+    "",
+    "## The instruction in force",
+    "",
+    `Verbatim from \`${regime.source}\`, the file every agent runtime loads. It is`,
+    "reproduced and not summarised, because a paraphrase of a governing",
+    "instruction is a second instruction.",
+    "",
+    regime.body,
+    "",
+    "## If you are an agent",
+    "",
+    "Read this page before any protocol. A protocol of this archive describes a",
+    "practice; while it is draft it does not impose one. What the section above",
+    "says still holds is what you are held to.",
+    "",
+  ].join("\n");
+
+  return { route: "/binding", filename: "binding.md", sources: [...BINDING_SOURCES], body };
+}
+
 /** `/` — the threshold. */
 export function homePage(): ComposedPage {
   const n = counts();
@@ -197,7 +258,9 @@ export function homePage(): ComposedPage {
     "says `draft`, including the canon: written, not yet in force — it binds nobody",
     "(`STD-016`). A document is published the day it is written, not the day it is",
     "ratified, because the alternative is an archive that only shows its finished",
-    "parts. What is broken is in `/debt/`; what changed is in `/updates/`; what can",
+    "parts. So if most of it does not bind, what does? `/binding` — the standing",
+    "instruction word for word, and the state of every rule, counted. What is broken",
+    "is in `/debt/`; what changed is in `/updates/`; what can",
     "be counted is in `/telemetry`, measured by an instrument and never typed.",
     "",
     "**What can you do with it?** Read all of it — every page is a rendering of a",
@@ -431,7 +494,7 @@ export function agentPage(id: string): ComposedPage {
  * checks none is forgotten.
  */
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [homePage(), schemePage()];
+  const pages: ComposedPage[] = [homePage(), schemePage(), bindingPage()];
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));
   pages.push(await collectionIndexPage("missions"));

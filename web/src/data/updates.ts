@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.19.0",
+    date: "2026-09-23",
+    entries: [
+      {
+        type: "ADD",
+        text: "What binds today. This site published two halves of a sentence and not the third: eleven protocols, twenty-seven standards and eight canons rendered in full, and the definition of 'draft' — written, not yet in force, it binds nobody — printed on the home, in llms.txt and in the scheme. What followed from those two was the question nobody could answer here: if none of it binds, what does? The answer had existed since 18 September as the Oracle's transition regime in AGENTS.md, which every agent runtime loads and no visitor to this site could see, so a person browsing /protocols was reading ceremony derogated months ago as if it were live and an arriving agent was obeying it. /binding now publishes that instruction word for word — not summarised, because a paraphrase of a governing instruction is a second instruction — beside the state of every rule document, counted from each file's own header at build time: 0 in force, 46 draft. The day a protocol is promoted the page says so with nothing edited. It is reached from the home's third question, from robots.txt, from llms.txt, from index.json, and from a band on every draft document that until now printed the bare word as a chip and left the reader to infer what it meant.",
+      },
+      {
+        type: "CHG",
+        text: "AGENTS.md carries the regime between two markers. The text is the Oracle's and he rewords it; anchoring the site's parser on its heading would have meant a reworded title silently emptying a page titled 'what binds today', which reads as 'nothing binds' — the most expensive possible lie for an archive about governance. The markers are the contract, the prose between them is his, and a build with the markers missing fails instead of publishing the empty answer.",
+      },
+    ],
+  },
+  {
     version: "v0.18.0",
     date: "2026-09-23",
     entries: [

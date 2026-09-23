@@ -39,6 +39,11 @@ const m = rel.match(
 );
 const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
 const title = str(raw.title) ?? mdFilename;
+// A draft document binds nobody (STD-016), and the corpus mirror renders the
+// canon, the standards and the protocols — the three folders where that fact
+// changes what a reader should do. Printing the bare word as a chip left them
+// to infer it; the band says it, and points at the rule that applies instead.
+const isDraft = f.status === "draft";
 // MIS-119 — the speech voice follows the document's language. The corpus is
 // mid-migration (ADR-024): honor an explicit declaration, else default to
 // the site language. "es-ES until…" style annotations reduce to their tag.
@@ -76,6 +81,17 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
       </div>
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{title}</h1>
+
+      {isDraft && (
+        <aside class="mb-6 rounded-xl border border-accent/30 bg-accent/5 p-4">
+          <p class="text-sm leading-relaxed text-muted-foreground">
+            <strong class="text-foreground">This document is <code>draft</code>: written, not yet in force — it binds nobody</strong>
+            (<a href="/standards/std-016-header-fields" class="text-accent underline underline-offset-2">STD-016</a>).
+            It describes a practice; it does not impose one. What is in force
+            right now is at <a href="/binding" class="text-accent underline underline-offset-2">what binds today</a>.
+          </p>
+        </aside>
+      )}
 
       <DocToolbar mdUrl={mdUrl} filename={mdFilename} lang={docLang} repoUrl={repoUrl} />
       <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">

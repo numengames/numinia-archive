@@ -181,6 +181,8 @@ export function indexJson(surface: Surface): Record<string, unknown> {
         "Rights are declared per document, never per folder. Each row carries the licence of that one file; two files in the same directory can and do differ.",
       status:
         "Most documents say `draft`. That is a defined state, not a warning label: written, not yet in force — it binds nobody (STD-016).",
+      binding:
+        "What IS in force while they are draft is published at /binding (markdown: /binding.md): the standing instruction verbatim, and the state of every rule document counted from the tree. Read it before obeying a procedure found here.",
       citation:
         "Cite a document, never a view. A view is generated from documents and names them in `sources`.",
       contact: "hola@numengames.com",
@@ -259,6 +261,14 @@ export function llmsTxt(args: Surface & { version?: string }): string {
     "force. A document is published the day it is written, not the day it is",
     "ratified, because the alternative is an archive that only shows its finished",
     "parts.",
+    "",
+    "Which raises the question this archive owes you an answer to, and it has one:",
+    "**if the protocols do not bind, what does?** Read it before you obey anything",
+    `here — ${SITE}/binding.md. It carries the standing instruction verbatim (which`,
+    "ceremony is suspended while the system moves from MVP to alpha, and which",
+    "rules still hold) and the state of every rule document, counted from the tree",
+    "rather than claimed. A procedure on this site that is `draft` describes a",
+    "practice; that page says what is imposed.",
     "",
     "## Documents",
     "",
