@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12608,
+  "chars": 12789,
   "apparatus": false,
   "archived": false,
-  "tokens": 3136
+  "tokens": 3183
  },
  {
   "path": "CHANGELOG.md",
@@ -643,10 +643,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 13599,
+  "chars": 5947,
   "apparatus": false,
   "archived": false,
-  "tokens": 3051
+  "tokens": 1539
  },
  {
   "path": "canon/CAN-005-licensing.md",
@@ -867,6 +867,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1700
+ },
+ {
+  "path": "decisions/ADR-053-lore-names-the-world.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6368,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1660
  },
  {
   "path": "lore/README.md",
@@ -1945,6 +1956,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 789
+ },
+ {
+  "path": "standards/STD-030-the-worlds-vocabulary.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 7109,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1569
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

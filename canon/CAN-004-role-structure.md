@@ -1,31 +1,45 @@
 ---
 id: "CAN-004"
 uid: ""
-title: "Role Structure in the Numinia System"
+title: "A guild is what you know; a faction is where you apply it"
 type: seminal
 status: draft
-version: "2.0.1"
+version: "3.0.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-23T21:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, roles, prototype-theory, semantics]
+tags: [canon, seminal, roles, guilds, factions, positions]
 license: "CC0-1.0"
+ratified_by: "ADR-053"
+supersedes_version: "2.0.1"
+related: ["CAN-001", "CAN-003", "CAN-007", "STD-003", "STD-030"]
 threshold: governed
 ---
-# Role Structure in the Numinia System
 
-> **Summary:** What a guild, a faction, a role, a position and a rank are, and
-> how the in-world names map to operational ones.
-> **Epistemic:** The reasoning that produced this structure — Rosch's basic
-> level and prototype theory, the EEM Institute's role system, Hjelmslev on
-> function — was retired from this canon on 2026-09-07: it justified the
-> structure, it did not decide it. Git holds it (`ADR-041`).
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
+# A guild is what you know; a faction is where you apply it
+
+> **Summary:** Guilds are qualifications and factions are fields of
+> development. They are different kinds of thing on different axes, and a role
+> is what appears when the two meet in a particular act.
+> **Epistemic:** Why nobody here *has* a role, and what a position costs the
+> person who takes one.
+> **Pragmatic:** Place any person, or any piece of work, without inventing a
+> category — and tell a role from a profile when the two get confused.
 > **Audience:** Everyone
+
+**Binds:** whoever classifies a person, a role or a piece of work in Numinia.
+
+---
 
 ## What this canon fixes
 
@@ -63,37 +77,46 @@ nail with a microscope.
 
 ## The guild hierarchy
 
-**Alchemists** — Superordinate level
-- **Branch A: Artisans** — Basic level
-  - House A.1: Project designers — Subordinate level
-  - House A.2: Aesthetes — Subordinate level
-- **Branch B: Engineers** — Basic level
-  - House B.1: Architects — Subordinate level
-  - House B.2: Automata — Subordinate level
+The branch is the basic level: the guild is too generic and the house too
+specific, so a branch is the most representative name for what someone does.
 
-**Exegetes** — Superordinate level
-- **Branch A: Chroniclers** — Basic level
-  - House A.1: Logographers — Subordinate level
-  - House A.2: Bards — Subordinate level
-- **Branch B: Erudites** — Basic level
-  - House B.1: Thaumaturges — Subordinate level
-  - House B.2: Hierophants — Subordinate level
+**Alchemists** — creative, scientific and artistic minds; inventors,
+discoverers, innovators.
 
-**Procurators** — Superordinate level
-- **Branch A: Legates** — Basic level
-  - House A.1: Legal rabbits — Subordinate level
-  - House A.2: Heralds — Subordinate level
-- **Branch B: Syndics** — Basic level
-  - House B.1: Mercurials — Subordinate level
-  - House B.2: Stewards — Subordinate level
+- **Branch A: Artificers** — the city's creative spirits
+  - House A.1: Project designers — designers at small and large scale
+  - House A.2: Aesthetes — artists of every kind
+- **Branch B: Engineers** — they work with code and chains of information
+  - House B.1: Architects — Numinia's digital architecture
+  - House B.2: Automata — virtual realities and artificial consciousnesses
 
-**Sentinels** — Superordinate level
-- **Branch A: Seraphim** — Basic level
-  - House A.1: Captains — Subordinate level
-  - House A.2: Guardians — Subordinate level
-- **Branch B: Archangels** — Basic level
-  - House B.1: Healers — Subordinate level
-  - House B.2: Pathfinders — Subordinate level
+**Exegetes** — those who live by letters, history and fantasy; keepers of
+culture, chroniclers of the ages.
+
+- **Branch A: Chroniclers** — they document the events of the city
+  - House A.1: Logographers — the diachronic view: legend and lasting record
+  - House A.2: Bards — the synchronic view: news and current chronicle
+- **Branch B: Erudites** — scholars and experts across disciplines
+  - House B.1: Hierophants — specialists in a given field
+  - House B.2: Thaumaturges — those who work at the edge of the known
+
+**Procurators** — the pragmatic minds of Numinia.
+
+- **Branch A: Legates** — the legal and diplomatic frame
+  - House A.1: Legal rabbits — the law as it applies inside the city
+  - House A.2: Heralds — the city represented before others
+- **Branch B: Syndics** — elected to protect the city's interests
+  - House B.1: Mercurials — everything touching the economy
+  - House B.2: Intendants — internal organisational affairs
+
+**Sentinels** — moderators, custodians and peacemakers.
+
+- **Branch A: Seraphim** — they keep order
+  - House A.1: Captains — they lead and organise
+  - House A.2: Guardians — norms and community conflict
+- **Branch B: Archangels** — they work with the community
+  - House B.1: Healers — care and personal process
+  - House B.2: Pathfinders — they guide whoever is finding their way
 
 ## The factions and their domains
 
@@ -104,111 +127,16 @@ nail with a microscope.
 | **Hermeticists** | Education | Peripheral |
 | **Neo-Atlantists** | Art | Itinerant |
 
-## Analogous terminology
+If a guild is a citizen's vocation, a faction is their view of the world: the
+community of ideals they belong to and the field where they exert influence.
+Each faction is bound to a district of the city, which is the territorial and
+functional manifestation of what guilds and factions represent.
 
-The names above are in-world names. Each one has an operational equivalent,
-and this table is the bridge between the two vocabularies: it says what a
-guild, a faction or a rank *is* when the fiction is set aside. It carries no
-obligation — nothing here is a rule, only a translation.
+## References
 
-**Merged into this document on 2026-09-03 (Oracle ruling).** The table lived
-apart, in `standards/`, under a dated filename that exempted it from
-registration. It was never a standard: it has no normative verbs and nothing
-in it can pass or fail. It is vocabulary of the world, and vocabulary that
-other documents rely on to classify people belongs to the canon, next to the
-structure it names.
-
-### Guilds — Alchemists
-
-| In-world name | Operational equivalent | What it does |
+| ID | Name | Why cited |
 |---|---|---|
-| **Alchemists** | Product / Technology / Creativity Area | They concentrate the creation of tangible value within the system, transforming ideas into products, solutions, and experiences. They constitute the core of construction and materialization. |
-| **Handcrafters** | Design and creative execution teams | They execute the creative layer applied to the product, turning concepts into visible and functional pieces. They operate at the intersection between idea and form. |
-| **Draftsmen** | Graphic designers / Concept designers | They define the visual and conceptual structure of ideas, translating needs into designed proposals. They act as a bridge between intention and representation. |
-| **Aesthetes** | Art direction / Branding / UX/UI / Artists | They build the visual and sensory identity of the system, ensuring aesthetic coherence and experience. They give character and perception to the product. |
-| **Engineers** | Technical and development teams | They sustain the technical foundation of the system through development and infrastructure maintenance. They ensure that what is designed can be executed properly. |
-| **Architects** | Systems architecture / Product Architects | They design the deep structure of the product and define how systems connect. They ensure scalability and technical coherence. |
-| **Automatons** | Developers / Software engineers | They implement concrete technical solutions through code, building functionalities and operational systems. They execute practical development. |
-
-### Guilds — Exegetes
-
-| In-world name | Operational equivalent | What it does |
-|---|---|---|
-| **Exegetes** | Brand / Communication / Strategy | They interpret and articulate the meaning of the system, building narrative and positioning. They connect what is done with what is communicated. |
-| **Chroniclers** | Content and narrative | They generate content that gives continuity to the narrative and document system activity. They keep the organizational narrative alive. |
-| **Logographers** | Copywriting / Documentation / Storytelling | They work language with precision and purpose, structuring written communication. They define how the organization expresses itself. |
-| **Bards** | Content / Social media / Audiovisual narrative | They disseminate the narrative outward, transforming content into accessible formats. They connect with the community and the audience. |
-| **Erudites** | Strategy and knowledge | They operate at the conceptual level of the system, analyzing and structuring knowledge. They sustain the intellectual foundation. |
-| **Thaumaturges** | Strategy / Innovation / Conceptualization | They generate new ideas and strategic frameworks, exploring future possibilities. They drive conceptual evolution. |
-| **Hierophants** | Training / Education / Knowledge management | They transmit knowledge within the system and structure learning processes. They ensure continuity in education. |
-
-### Guilds — Procurators
-
-| In-world name | Operational equivalent | What it does |
-|---|---|---|
-| **Procurators** | Legal / Institutional / Financial / Operational | They guarantee viability and sustainability, regulating and structuring the system. They connect operations with legal and economic frameworks. |
-| **Legates** | Legal and diplomacy | They operate in the external normative sphere, managing compliance and representation. They connect the organization with its legal environment. |
-| **Legal Rabbits** | Lawyers / Compliance | They apply and interpret the law within the system, ensuring regulatory compliance. They reduce legal risk. |
-| **Heralds** | Institutional relations / Alliances | They represent the organization before third parties and manage external agreements. They facilitate strategic connections. |
-| **Syndics** | Economy and organization | They supervise the economic and structural functioning of the system. They ensure operational stability. |
-| **Mercurials** | Finance / Revenue / Sales | They manage the flow of value by connecting internal economy with the market. They drive revenue and sustainability. |
-| **Intendants** | Operations / Project management | They organize the execution of work and coordinate resources. They ensure daily operation. |
-
-### Guilds — Sentinels
-
-| In-world name | Operational equivalent | What it does |
-|---|---|---|
-| **Sentinels** | People / Community / Support | They maintain the human balance of the system and safeguard coexistence. They sustain the internal experience. |
-| **Seraphs** | Operational supervision | They ensure proper structural functioning by supervising processes and teams. They maintain operational order. |
-| **Captains** | Managers / Team leads | They lead teams in daily execution, organizing tasks and priorities. They are directly responsible for performance. |
-| **Guardians** | Moderation / Conflict management | They manage conflicts and internal norms, protecting coexistence. They ensure operational compliance. |
-| **Archangels** | Well-being and support | They attend to the human dimension of the system and accompany personal development. They foster balance and well-being. |
-| **Healers** | HR / Coaching | They work on individual and collective well-being, supporting personal processes. They reduce human friction. |
-| **Pathfinders** | Community / Onboarding / User research | They connect with users and the community, guiding new members. They gather environmental insights. |
-
-### Factions
-
-| In-world name | Operational equivalent | What it does |
-|---|---|---|
-| **Hermeticists** | Education / Research | They develop and deepen knowledge within the system. They structure learning and thinking. |
-| **Heirs of Eleusis** | Gamification / Experience | They design game-based experiences that activate participation. They transform learning into lived experience. |
-| **Stellar Circle** | Governance / Organization | It defines the structural framework of the system and establishes norms. It sustains operational order. |
-| **Neo-Atlantists** | Art / Creativity | They generate aesthetic and cultural expression, exploring new creative forms. They build identity. |
-
-### Units of activity
-
-| In-world name | Operational equivalent | What it does |
-|---|---|---|
-| **Quest** | Unit of action | A basic element of activity that defines a concrete objective. It activates participation. |
-| **Mission** | Project / Task | A structured unit of work with defined objectives. It is the basis of operational production. |
-| **Adventure** | Experience / Event | An experience designed for interaction that fosters cohesion and learning. It introduces play. |
-| **Dark Council** | Weekly meeting / Sprint | An operational coordination space where progress is reviewed. It is the base rhythm of work. |
-| **Lunar Coven** | Community event | A non-operational space that reinforces bonds and culture. It fosters cohesion. |
-| **Seed of Knowledge** | Learning recognition | It indicates the acquisition of knowledge and cultural alignment. It measures individual growth. |
-| **Prism Cell** | Contribution recognition | It reflects practical contribution to the system through execution. It measures real impact. |
-
-### Membership and rank
-
-| In-world name | Operational equivalent | What it does |
-|---|---|---|
-| **Nomad** | Initial user | A person in the entry phase of the system without active belonging. They explore before integrating. |
-| **Citizen** | Active member | They participate within the system with a defined role. They are part of the structure. |
-| **Pilgrim** | Client / Partner | They interact by generating economic value within the system. They maintain an active relationship. |
-| **Vernacular** | Core member | A member with high involvement and proximity to the core. They participate recurrently. |
-| **Archon** | Operational leadership | They assume key responsibilities and manage areas or teams. They participate in relevant decisions. |
-| **Oracle** | Strategic leadership / Founders | They define the vision and direction of the system, making high-level decisions. They are the organizational driving force. |
-
-### Names that differ between the two vocabularies
-
-The hierarchy earlier in this document and the table above were written at
-different times and do not always use the same word for the same thing. The
-divergences are recorded, not resolved — naming the canon is the Oracle's
-call:
-
-| In the hierarchy | In the table |
-|---|---|
-| Branch A: Artisans | Handcrafters |
-| House A.1: Project designers | Draftsmen |
-| House B.2: Automata | Automatons |
-| Branch A: Seraphim | Seraphs |
-| House B.2: Stewards | Intendants |
+| `STD-030` | The world's vocabulary | what each name is called operationally |
+| `STD-003` | Platform ranks | the six ranks and what each may do |
+| `CAN-003` | Attributes and ranks | what a citizen is made of |
+| `CAN-007` | Function and structure | why a role is a relation, not a label |
