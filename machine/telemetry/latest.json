@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "ea2e3af",
-  "corpus_hash": "57957f51ba43b77ed5e74bdeb8c5c3d7b24c58b31ef05d280664c6d95458c276",
+  "head": "a6aa7ac",
+  "corpus_hash": "74a0eb3f58fb75a16b1ef5b54a9e61bc4d9d8cdb94673df31ac8c73fa7d2e907",
   "root_dirty": 0,
-  "measured_at": "2026-09-23T12:31:33Z",
+  "measured_at": "2026-09-23T12:58:17Z",
   "families": [
     "corpus",
     "series",
@@ -16,14 +16,14 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 515,
+      "value": 518,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
     "corpus.files_by_ext": {
       "value": {
         "(none)": 2,
-        ".astro": 45,
+        ".astro": 46,
         ".css": 3,
         ".gitignore": 2,
         ".html": 2,
@@ -31,11 +31,11 @@
         ".js": 2,
         ".json": 14,
         ".md": 177,
-        ".mjs": 73,
+        ".mjs": 74,
         ".png": 35,
         ".svg": 69,
         ".toml": 4,
-        ".ts": 28,
+        ".ts": 29,
         ".tsx": 2,
         ".txt": 11,
         ".webp": 1,
@@ -107,13 +107,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 43,
+      "value": 44,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 43
+        "node": 44
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 620599,
+      "value": 621256,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -327,8 +327,8 @@
         "lore": 310720,
         "standards": 47630,
         "missions": 43636,
+        "": 29650,
         "canon": 29365,
-        "": 28993,
         "agents": 27835,
         "reports": 26153,
         "operations": 22950,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 339902,
+        "(none)": 340559,
         "draft": 119633,
         "active": 115910,
         "done": 26389,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 7.03,
+      "value": 7.02,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -369,7 +369,7 @@
         ],
         [
           "CHANGELOG.md",
-          22628
+          23199
         ],
         [
           "lore/adventures/el-espejo-roto.md",
@@ -535,98 +535,30 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 6,
+      "value": 0,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
-      "value": [
-        [
-          "README.md",
-          "2026-04-07",
-          "2026-04-06"
-        ],
-        [
-          "agents/nimrod/OPERATOR.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/nimrod/SOUL.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/skills/numinia-nwos-pr/SKILL.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "protocols/PRO-018-publishing-a-repository.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "reports/RPT-019-2026-w37.md",
-          "2026-09-09",
-          "2026-09-08"
-        ]
-      ],
+      "value": [],
       "unit": "documents",
       "definition": "[path, created, first-add] for created_ahead_of_commit",
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 31,
+      "value": 138,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
     },
     "provenance.regime_crossings": {
-      "value": 6,
+      "value": 0,
       "unit": "renames",
       "definition": "renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py"
     },
     "provenance.regime_crossings_list": {
-      "value": [
-        [
-          "blueprints/BLU-001-wardley-map.md",
-          "reports/RPT-2026-04-07-wardley-map.md",
-          "CC0-1.0→CC-BY-4.0",
-          "2026-08-31"
-        ],
-        [
-          "operations/legal/O-003-privacy-policy-numengames.md",
-          "operations/OPS-003-privacy-policy-numengames.md",
-          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
-          "2026-09-01"
-        ],
-        [
-          "operations/legal/O-004-terms-and-conditions-numengames.md",
-          "operations/OPS-004-terms-and-conditions-numengames.md",
-          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
-          "2026-09-01"
-        ],
-        [
-          "operations/strategy/O-007-sales.md",
-          "operations/OPS-007-sales.md",
-          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
-          "2026-09-01"
-        ],
-        [
-          "reports/audits/evidence/canon-2026-04-15/Epistemic-relations-v1-deleted-2026-04-15.md",
-          "history/2026_04_07-Epistemic_Relations-v1.0.0.md",
-          "CC-BY-4.0→CC0-1.0",
-          "2026-09-01"
-        ],
-        [
-          "reports/RPT-2026-04-07-wardley-map.md",
-          "reports/RPT-003-wardley-map.md",
-          "CC-BY-4.0→CC0-1.0",
-          "2026-09-01"
-        ]
-      ],
+      "value": [],
       "unit": "renames",
       "definition": "[from, to, regime change, date]",
       "volatile": "commit-date"
@@ -685,7 +617,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 779
+          "3": 780
         },
         "MIS": {
           "3": 677,
@@ -701,7 +633,7 @@
           "3": 175
         },
         "ADR": {
-          "3": 377
+          "3": 378
         },
         "DBT": {
           "3": 78
