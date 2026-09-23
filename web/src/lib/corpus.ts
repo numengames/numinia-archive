@@ -104,6 +104,25 @@ export interface Section {
    */
   question: string;
   /**
+   * What a reader UNDERSTANDS after this section, and what they can then DO.
+   *
+   * Every document in this archive opens with that pair; the folders did not,
+   * so the archive described its pieces in a language it never used about
+   * itself. These are the folder's own `Epistemic` and `Pragmatic` lines.
+   */
+  epistemic: string;
+  pragmatic: string;
+  /**
+   * True for the three series that OBLIGE — canon, standards, protocols.
+   *
+   * The line between them (`STD-024` SER-001 and SER-002) decides whether a
+   * sentence in this archive can put a reader in breach, and it cannot be
+   * learnt from any single folder: it exists only in the comparison. So the
+   * three that bind carry it together, and the eight that record stay quiet —
+   * a register claiming a boundary it does not have is worse than silence.
+   */
+  axis?: true;
+  /**
    * What an empty section MEANS — because it does not mean the same thing twice.
    *
    * An empty `debt/` is good news: nothing outstanding is admitted. An empty
@@ -139,28 +158,52 @@ export interface Section {
 export const SECTIONS: Section[] = [
   { prefix: "canon/",      slug: "canon",      label: "Canon",      collection: "corpus",
     question: "What is Numinia, before anyone argues about how to build it?",
-    blurb: "The ground the rest stands on: what Numinia is, before anyone argues about how to build it." },
+    blurb: "The ground the rest stands on: what Numinia is, before anyone argues about how to build it.",
+    epistemic: "What this place is, and why it is told as a city rather than listed as a process.",
+    pragmatic: "Read it before asserting what Numinia is \u2014 or before inventing a structure, a name or a ritual the system does not have.",
+    axis: true,
+  },
   { prefix: "decisions/",  slug: "decisions",  label: "Decisions",  collection: "decisions",
     question: "Why did we go this way and not the other one?",
     emptyMeans: "Nothing has been decided here yet — not that decisions are being made off the record.",
-    blurb: "Why we went this way and not the other, written down while the reasons were still alive." },
+    blurb: "Why we went this way and not the other, written down while the reasons were still alive.",
+    epistemic: "Why the system is the way it is, and what was rejected to get here.",
+    pragmatic: "Reopen a settled question only with new evidence \u2014 or find out it was never settled at all.",
+  },
   { prefix: "standards/",  slug: "standards",  label: "Standards",  collection: "corpus",
     question: "What does an artifact have to clear before it counts as done?",
-    blurb: "The bar every artifact has to clear before it counts as done, and who checks that." },
+    blurb: "The bar every artifact has to clear before it counts as done, and who checks that.",
+    epistemic: "Which properties a thing must have here, and who verifies each one.",
+    pragmatic: "Check any artifact against a numbered rule, and know whether it passes without asking a person.",
+    axis: true,
+  },
   { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  collection: "corpus",
     question: "What steps do I follow, in order, so this job comes out the same way twice?",
-    blurb: "The steps an actor follows, in order, so the same job comes out the same way twice." },
+    blurb: "The steps an actor follows, in order, so the same job comes out the same way twice.",
+    epistemic: "Which situations recur often enough to be worth writing down, and what each one costs when improvised.",
+    pragmatic: "Execute the procedure, and show afterwards that you did.",
+    axis: true,
+  },
   { prefix: "system/",     slug: "system",     label: "System",     collection: "corpus",
     question: "How is the machine actually wired today?",
-    blurb: "How the machine is actually wired today: the manual you read when you need it to work, not to argue." },
+    blurb: "How the machine is actually wired today: the manual you read when you need it to work, not to argue.",
+    epistemic: "How the machine is wired today, as opposed to how it ought to be.",
+    pragmatic: "Fix, extend or operate it without reverse-engineering what someone already wrote down.",
+  },
   { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", collection: "blueprints",
     question: "What could be built, argued through on paper before anyone commits to it?",
     emptyMeans: "Nothing is on the drawing board right now. Everything proposed has either been decided or dropped.",
-    blurb: "Designs that could be built: argued through on paper, waiting for a decision that turns them real." },
+    blurb: "Designs that could be built: argued through on paper, waiting for a decision that turns them real.",
+    epistemic: "What could be built, argued through before anyone commits to it.",
+    pragmatic: "Judge a proposal on paper, where changing your mind is still cheap.",
+  },
   { prefix: "debt/",       slug: "debt",       label: "Debt",       collection: "corpus",
     question: "What do we already know is broken or missing?",
     emptyMeans: "Nothing is outstanding. No known defect is being carried — which is the state this register exists to make visible, not an error.",
-    blurb: "What we know is broken or missing, admitted in writing before anyone else has to find it." },
+    blurb: "What we know is broken or missing, admitted in writing before anyone else has to find it.",
+    epistemic: "What is known to be broken or missing, admitted rather than discovered.",
+    pragmatic: "Weigh a decision against what is already wrong, instead of finding out afterwards.",
+  },
   // Operations and Objects close the last two holes in the mirror (2026-09-21).
   // Both folders already published every one of their documents — ten under
   // operations/, two under objects/ — and both answered 404 at the address of
@@ -173,11 +216,17 @@ export const SECTIONS: Section[] = [
   // public; objects registers things that are not documents at all.
   { prefix: "operations/", slug: "operations", label: "Operations", collection: "corpus",
     question: "What is the company actually doing right now, and what has it promised in writing?",
-    blurb: "The live record of the business: where work stands, what contradicts what, and the legal texts the public sites are bound by." },
+    blurb: "The live record of the business: where work stands, what contradicts what, and the legal texts the public sites are bound by.",
+    epistemic: "What the company is doing right now, and what it has promised in public.",
+    pragmatic: "Act on the live state of the business \u2014 and read the terms the public sites are bound by.",
+  },
   { prefix: "objects/",    slug: "objects",    label: "Objects",    collection: "corpus",
     question: "What does the archive hold that is not a document — and where do its bytes actually live?",
     emptyMeans: "No thing is registered yet. The folder exists and its cards are read at build time, so the first card to land appears here on its own.",
-    blurb: "Cards for the things that are not documents — an avatar, a model, later a place. The card is the index; the bytes live in the asset depot." },
+    blurb: "Cards for the things that are not documents — an avatar, a model, later a place. The card is the index; the bytes live in the asset depot.",
+    epistemic: "What the archive holds that is not a document, and where its bytes actually live.",
+    pragmatic: "Find a thing, know its licence, and follow it to the depot that stores it.",
+  },
   // Lore — the second fond (ADR-046), and the only section whose documents
   // are RESERVED rather than open. It is served for reading and licensed to
   // nobody; the reasoning is in content.config.ts where the glob admits it.
@@ -186,7 +235,10 @@ export const SECTIONS: Section[] = [
   { prefix: "lore/",       slug: "lore",       label: "Lore",       collection: "corpus",
     question: "What is the world of Numinia, and how is the game in it actually played?",
     rights: "All rights reserved. This is the one part of the archive Numen Games does not license: read it here, cite it, link to it — but copying, adapting or republishing it needs written permission, unlike everything else on this site.",
-    blurb: "The fiction and the game: the RPG manual, the adventures a Director runs at a table, who Numinia is, and the Codex matter. All rights reserved — read it here, take nothing from it." },
+    blurb: "The fiction and the game: the RPG manual, the adventures a Director runs at a table, who Numinia is, and the Codex matter. All rights reserved — read it here, take nothing from it.",
+    epistemic: "The world of Numinia and how the game in it is played.",
+    pragmatic: "Run a session, write in the world, or settle what something in it is called.",
+  },
 ];
 
 // NOT sections, and why — recorded so the next reader does not re-litigate it:
