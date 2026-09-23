@@ -621,10 +621,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 6436,
+  "chars": 6505,
   "apparatus": false,
   "archived": false,
-  "tokens": 1524
+  "tokens": 1539
  },
  {
   "path": "canon/CAN-003-attributes-and-ranks.md",
