@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12881,
+  "chars": 12896,
   "apparatus": false,
   "archived": false,
-  "tokens": 3203
+  "tokens": 3204
  },
  {
   "path": "CHANGELOG.md",
@@ -654,10 +654,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4988,
+  "chars": 4662,
   "apparatus": false,
   "archived": false,
-  "tokens": 1347
+  "tokens": 1158
  },
  {
   "path": "canon/CAN-006-epistemic-relations.md",
@@ -889,6 +889,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1448
+ },
+ {
+  "path": "decisions/ADR-055-licensing-canon-states-direction.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 5889,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1466
  },
  {
   "path": "lore/README.md",
