@@ -610,10 +610,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 12226,
+  "chars": 5934,
   "apparatus": false,
   "archived": false,
-  "tokens": 2751
+  "tokens": 1517
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -812,6 +812,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1827
+ },
+ {
+  "path": "decisions/ADR-048-can-001-principle-and-rituals.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6564,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1710
  },
  {
   "path": "lore/README.md",
@@ -1494,6 +1505,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1310
+ },
+ {
+  "path": "protocols/PRO-019-holding-a-ritual.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 5306,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1396
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
