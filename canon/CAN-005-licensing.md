@@ -4,108 +4,113 @@ uid: ""
 title: "Opening is an act"
 type: seminal
 status: draft
-version: "3.0.1"
+version: "4.0.0"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-23T22:30:00+02:00"
 author: "oracle"
 owner: "oracle"
 guild: "Procurators"
 territory: "Archive"
-tags: [canon, seminal, licensing, legal, REUSE]
+tags: [canon, seminal, licensing, legal, openness]
 license: "CC0-1.0"
 registration: registered
+ratified_by: "ADR-055"
+supersedes_version: "3.0.1"
+related: ["CAN-002", "STD-010", "STD-014", "PRO-018"]
 former_id: "C-005"
 threshold: governed
 ---
 
-# CAN-005 — Opening is an act
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 
-> **Summary:** Every piece is born in the most closed regime that makes
-> sense and is opened only by a deliberate act; what is opened cannot be
-> closed again; the name is never opened.
-> **Epistemic:** Numen gives away the catalog, shares the edge, protects the
-> core with copyleft and keeps the world and the name. Four kinds of value,
-> four regimes, one direction of travel.
-> **Pragmatic:** Before licensing, publishing or reusing anything, this is
-> the why. What must be done — files, headers, gates, checks — is `STD-010`.
-> **Audience:** Agents · Oracles
+# Opening is an act
 
-*Binds:* every Numen Games repository, including Numinia's and NWOS's.
-*Does not bind:* the client workspaces our tools generate; the inventory of
-the inherited (`LIC-006`).
+> **Summary:** Every piece is born in the most closed regime that makes sense
+> and is opened only by a deliberate act. What is opened cannot be closed
+> again, and the name is never opened.
+> **Epistemic:** Why openness here is a decision with a direction, not a
+> default and not a mood.
+> **Pragmatic:** Before giving anything away, know what you are giving and
+> that you will not get it back.
+> **Audience:** Everyone
+
+**Binds:** every Numen Games repository, and whoever publishes from one.
 
 > This is not legal advice. It is the internal norm.
 
-## 2. The governing principle
+---
 
-**Every piece is born in the most closed regime that makes sense and is
+## The governing principle
+
+**Every piece is born in the most closed regime that makes sense, and is
 opened by deliberate acts, never by default.**
 
-Four regimes, one per kind of value:
+There are four kinds of value here and each one is held differently. The
+**catalogue** — the assets, the data, the design tokens — is given away
+outright, because it is how people arrive, not what we sell. The **edge** —
+the interfaces, the viewer, the tooling, the infrastructure — is shared, and
+its worth grows with every person who adopts it. The **core** — identity,
+progression, billing — is protected by copyleft: free to whoever shares back,
+paid by whoever will not. And the **world and the name** — the lore, the
+narrative, the brand — are kept, because they are the part nobody else could
+have made.
 
-| What | Regime | Why |
+## Silence does not declare
+
+A file with no licence is all rights reserved by law, and indistinguishable
+from an oversight. So what is reserved is declared as explicitly as what is
+open: a statement that no right is granted, in the same place and the same
+form as any other licence. Where protecting matters most is exactly where one
+can least afford to rely on a reader inferring correctly.
+
+## Opening only runs one way
+
+A version published openly stays open, and anyone may carry on from there. A
+waiver cannot be withdrawn. Room to manoeuvre therefore shrinks in one
+direction and never widens: reserved and unpublished, everything is still
+possible; under copyleft with a contributor agreement, it can still be opened
+further or licensed in parallel; under copyleft without one, each contributor
+holds a veto; published permissively, nothing practical remains; and once
+waived outright, nothing at all.
+
+This is why a piece meant to be born reserved is declared so **before** it is
+published, never after. A document added to an already-open folder inherits
+that folder's offer the moment it is pushed, and by the principle above the
+offer cannot then be taken back. The archive's own canon is open for exactly
+this reason: it was published under an open licence before any reservation
+existed, and no later decision could reach back over it.
+
+## A birth licence is not a publication
+
+A repository carries its licence from the first commit, and while it stays
+private that licence grants nothing to anyone. The grant is the act of making
+the work publicly available under it — no release, no distribution step, no
+permanent store required. That is why turning a repository public, and writing
+to a store that cannot be unwritten, are acts an Oracle signs rather than
+operations anyone runs.
+
+## The name is never opened
+
+No free licence surrenders a trademark. Outside every one of them remain
+**Numinia**, **Numen Games** and **Khepri** as identifiers of origin, together
+with the logo, the isotype and the signature wordmarks.
+
+Cite us, link to us, write about the project, say that your product uses
+Numinia assets: yes, all of it, gladly. Use our marks as your own brand,
+suggest we sponsor you, present a fork as the official one: no.
+
+*The system can be copied; one cannot claim to be Numen.*
+
+## References
+
+| ID | Name | Why cited |
 |---|---|---|
-| Catalog — assets, data, metadata, design tokens | `CC0-1.0` | Given away: it is the acquisition channel, not the product |
-| Edge — domain, UI, viewer, SDK, scripts, infrastructure | `MIT` | Shared: its value grows with adoption |
-| Core — identity, progression, billing | `AGPL-3.0-only` + CLA | Free for those who share; paid for those who close |
-| World and name — lore, narrative, brand | Reserved | The irreplicable is not licensed |
-
-**Silence does not declare.** A file with no licence is all rights reserved
-by law, yet indistinguishable from an oversight. So the reserved is declared
-exactly like the open — a `LICENSE` that says no right is granted, and
-`LicenseRef-Numen-AllRightsReserved` in `REUSE.toml`. Where protecting
-matters most is where one can least rely on the reader inferring correctly.
-
-**Opening is irreversible.** A version published under MIT is MIT forever
-and anyone may fork it from there; a CC0 waiver cannot be taken back. Room
-to manoeuvre shrinks in one direction only:
-
-| Position | Regime | Room |
-|---|---|---|
-| 1 | Reserved, unpublished | Total |
-| 2 | Copyleft with CLA | Total: may open further or license in parallel |
-| 3 | Copyleft without CLA | Partial: each contributor's permission |
-| 4 | Permissive, published | None in practice |
-| 5 | CC0, published | None: the waiver is irrevocable |
-
-**Birth licence is not publication.** A repository carries its `LICENSE`
-from the first commit; while private, it grants permission to no one. Making
-the work publicly available under a licence offer *is* the grant — no
-`npm publish`, no Arweave needed. That is why turning a repository public,
-and writing to a permanent store, are acts signed by an Oracle and not
-operations (`PUB-`, `STD-014`).
-
-**The name is never opened.** `CC0` does not surrender trademark. Outside
-every free licence remain **Numinia**, **Numen Games** and **Khepri** as
-identifiers of origin, the logo, the isotype and the signature wordmarks.
-Citing, linking, writing about the project, declaring that a product uses
-Numinia assets: yes. Using them as one's own brand, suggesting sponsorship,
-presenting a fork as official: no. *The system can be copied; one cannot
-claim to be Numen.*
-
-## 3. The exception this canon records
-
-The `canon/` corpus itself is `CC0-1.0`. The seven canon documents were
-published on 2026-04-07 (`f765b99`) under the repository's root `CC0-1.0`
-`LICENSE`, four months before the reservation regime existed. That grant is
-irrevocable, so the reservation applied to `canon/**` on 2026-08-16 never
-took effect on them. `REUSE.toml` declares what is true, not what was
-intended (`ADR-036`). The principle above still governs everything born
-after the cut — including the lore in `numinia-lore`, which was never under
-the open root licence.
-
-## 4. What this canon does NOT define
-
-- **Which licence each piece gets, and how it is declared** — the ordering
-  questions, branch tables, the generator and AI-provenance rules, SPDX
-  headers, `REUSE.toml`, per-format metadata, CLA/DCO: `STD-010` (`LIC-`).
-- **What we may depend on** — allow / isolate / never, the floor rule,
-  *present is not distributed*: `STD-010`.
-- **The publication gates and their checks** — `STD-014` (`PUB-`), run by
-  `PRO-018`.
-- **The inherited** — what was licensed before 2026-08-16 and how it is
-  reconciled: `LIC-006` and the debt entries tagged `legal`.
-- **The reasoning and the alternatives** — the Legal Book v0.6.1, archived
-  in git; this canon states the outcome.
+| `STD-010` | Licensing | which licence each piece carries and how it is declared |
+| `STD-014` | Publishing gates | the checks an Oracle-signed publication passes |
+| `PRO-018` | Publishing a repository | the act this canon says must be signed |
+| `CAN-002` | We build a game to work better | remix as a pillar of the house |
