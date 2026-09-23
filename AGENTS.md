@@ -130,13 +130,13 @@ adding a dependency, changing a LICENSE or making anything public.
 
 | Rule | What it rules | Binds |
 |---|---|---|
-| `CAN-001` | Welcome to Numinia | canon — states why, binds whoever leans on it |
+| `CAN-001` | You are already in the game | every document, artefact and agent that speaks in Numinia's name |
 | `CAN-002` | Numinia Brand and Culture | canon — states why, binds whoever leans on it |
 | `CAN-003` | Compendium of Attributes and Ranks in Numinia | canon — states why, binds whoever leans on it |
 | `CAN-004` | Role Structure in the Numinia System | canon — states why, binds whoever leans on it |
 | `CAN-005` | Opening is an act | canon — states why, binds whoever leans on it |
-| `CAN-006` | Epistemic Relations between Numen Games and… | canon — states why, binds whoever leans on it |
-| `CAN-007` | Pragmatic Numen System | canon — states why, binds whoever leans on it |
+| `CAN-006` | Epistemic Relations between Numen Games and… | whoever reasons about how Numen Games, its model and Numinia relate |
+| `CAN-007` | Function makes the system inhabitable… | whoever designs, renames or reorganises anything in this system |
 | `CAN-008` | The visual identity is one system in four… | canon — states why, binds whoever leans on it |
 | `PRO-001` | Opening and closing a session | every agent, in every session, whatever the mission |
 | `PRO-003` | Running a mission | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
@@ -149,6 +149,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-016` | Applying the engineering standard | any agent executing a task in a repository that carries `STD-005` |
 | `PRO-017` | Rolling up the week | any agent executing a weekly, quarterly or annual roll-up |
 | `PRO-018` | Publishing a repository | any agent preparing a visibility change or a permanent publication of a Numen Games repository… |
+| `PRO-019` | Holding a ritual | whoever convokes, prepares or records a ritual of Numinia |
 | `STD-001` | The series | every tracked document of the corpus |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | every Markdown file under the directories `machine/scripts/lib/rules.json` lists as governed |
@@ -177,7 +178,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-027` | The archive is classified by function | every folder of the repository |
 | `STD-028` | One document, one address | every address numinia.org publishes for a document of the corpus |
 
-46 rule documents; 6 are registers and take their scope from the standard that cites them; 8 are canon, which state why rather than whom; every other document names whom it binds.
+47 rule documents; 6 are registers and take their scope from the standard that cites them; 5 are canon, which state why rather than whom; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
