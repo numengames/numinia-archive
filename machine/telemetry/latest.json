@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "9ca035c+index",
+  "head": "0654a18",
   "corpus_hash": "5f79c280bcceebeffbcd55c4879b95404b2781a1487a8d7cfde9bafe98b62834",
   "root_dirty": 0,
-  "measured_at": "2026-09-23T15:04:35Z",
+  "measured_at": "2026-09-23T15:08:29Z",
   "families": [
     "corpus",
     "series",
@@ -530,7 +530,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 140,
+      "value": 141,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
