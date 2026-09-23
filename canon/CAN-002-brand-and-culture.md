@@ -142,13 +142,18 @@ Numen Games began in 2020, born of the Oracles' vision: a quest to level up
 organisations through digital interaction and play, inspired by role-playing
 adventures and a passion for shaping the future for those to come.
 
-The four Oracles — Clio Beruete, Daniel Garrido, Christian Märtens and Pablo
-Fernández-Maquieira — are united by family and friendship, with more than
-fifteen years of shared adventure and learning: two of them family, one a
-childhood friend, the others long-time colleagues. All are entrepreneurs, with
-projects in technology, innovation, storytelling and communication, and all
-share the tradition of fundamental learning through play — specifically
-role-playing, which is ingrained in the DNA of the team and of everything it
-creates.
+The four Oracles are united by family and friendship, with more than fifteen
+years of shared adventure and learning: two of them family, one a childhood
+friend, the others long-time colleagues. All are entrepreneurs, with projects
+in technology, innovation, storytelling and communication, and all share the
+tradition of fundamental learning through play — specifically role-playing,
+which is ingrained in the DNA of the team and of everything it creates.
+
+| Name | Role |
+|---|---|
+| Clio Beruete | Oracle |
+| Daniel Garrido | Oracle |
+| Christian Märtens | Oracle |
+| Pablo Fernández-Maquieira | Oracle |
 
 We are friends who play, build, learn and divulge. That order matters.
