@@ -115,11 +115,11 @@ The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: th
 ## 6. Brand: how yes, how no
 
 
-Arena over Nocturno, Noche over Diurno — **the signature has no color version**; color over the brand exists, but lives in another register: the brand play (CAN-008 §3.8). Respect area = the height of the «n» on all four sides. Minimums: wordmark 24 px / 12 mm; brandmark-favicon 16 px. Over image: veil `rgba(20,17,15,.72)` minimum. Over the circuit texture: only inside a **calm zone** (flat area equal to twice the respect area).
+Arena over Nocturno, Noche over Diurno — **the signature has no color version**; color over the brand exists, but lives in another register: the brand play (`CAN-008`). Respect area = the height of the «n» on all four sides. Minimums: wordmark 24 px / 12 mm; brandmark-favicon 16 px. Over image: veil `rgba(20,17,15,.72)` minimum. Over the circuit texture: only inside a **calm zone** (flat area equal to twice the respect area).
 
 ### How no
 
-DO NOT recolor to accents (the brand does not compete with the signal) · DO NOT rotate or tilt · NO shadows, gradients or reliefs · DO NOT deform proportions · DO NOT enclose in foreign shapes · NOT over an active background without veil · NO `Numinia_Word` signing the corporate · **DO NOT redraw the scarab**: the canonical path (below) is the only valid one — it replaces any previous reconstruction. Single closed exception: the canonical pixel sprite of CAN-008 §3.3, which is not redrawn either — the delivered one is used.
+DO NOT recolor to accents (the brand does not compete with the signal) · DO NOT rotate or tilt · NO shadows, gradients or reliefs · DO NOT deform proportions · DO NOT enclose in foreign shapes · NOT over an active background without veil · NO `Numinia_Word` signing the corporate · **DO NOT redraw the scarab**: the canonical path (below) is the only valid one — it replaces any previous reconstruction. Single closed exception: the canonical pixel sprite of the pixel register (`CAN-008`), which is not redrawn either — the delivered one is used.
 
 ## 7. Components
 

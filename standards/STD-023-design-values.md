@@ -5,7 +5,7 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.1.0"
+version: "1.2.0"
 created: "2026-09-09T11:00:00+02:00"
 updated: "2026-09-17T16:30:00+02:00"
 author: "ursa"
@@ -320,5 +320,41 @@ kit serves it (`DSN-009`). The favicon is the canonical brandmark in Marfil on
 Carbón: `favicon.svg`, `favicon.png` 32×32 and `apple-touch-icon.png`
 180×180. `theme-color` is Carbón.
 
----
+## 20. The Velo layer
 
+Every Velo value is a canonical with transparency: the register adds alpha,
+never a new hex. Carried from `CAN-008` by `ADR-056`, which left the canon
+without values.
+
+| Token | Value | Origin | Role |
+|---|---|---|---|
+| `velo.rejilla` | `rgba(166,218,213,.025)` · **40 px** cell | Verdemar at 2.5 % | The Akasha's grid, barely visible; the cell matches the Platform row (40 px) — archive and tool share the same beat `[DERIVED — verified in production, pablofm-web]` |
+| `velo.niebla` | `rgba(1,142,161,.06)` · radial from bottom-left | Turquesa at 6 % | The corridors' fog: the diffuse signal of the background `[DERIVED — verified in production]` |
+| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (the image veil and the modal, `BLU-009`) — unchanged; Jardín may lighten it (`BLU-009`) |
+| `velo.cristal` | `rgba(30,26,23,.65)` + `backdrop-filter: blur(12px)` | Basalto at 65 % | Glass surface: read through `[EXTENSION — validate]` |
+| `velo.cristal-borde` | `rgba(58,51,45,.5)` | Strong line at 50 % | The glass's edge `[EXTENSION — validate]` |
+| `velo.cielo` | 175 stars · weights `60/25/10/4/1` | the rarity scale above | The Velo's sky — verified in production, numinia.org |
+| `velo.lectura` | `blur(2.2px)` + mask `0→90 %` | — | What lies beyond the Umbral is seen and not read (`BLU-011`) |
+
+**Ceilings and placement.** Grid ≤ 3 % alpha, fog ≤ 8 % — more is scenery.
+Nocturno only: in Diurno the Velo does not exist, same logic as the relief.
+Grid and fog are background layers, never over reading text nor inside cards
+and elevated surfaces. `velo.cristal` only over a background that has grid,
+fog or veiled image behind it: blurring nothing is smoke, and text over glass
+is secondary minimum with AA verified against the worst background. Grid and
+circuit relief do not coexist — two meshes fight `[EXTENSION — validate]`;
+fog MAY settle over the relief at half its alpha.
+
+## 21. Motion and 3D budgets
+
+**Default curve** `cubic-bezier(.2,0,0,1)`.
+
+**Low-poly budget** `[EXTENSION — validate against the store's real assets]`:
+character 2,000–10,000 tris; prop 200–2,000; modular environment by pieces.
+House lighting is a warm Ámbar key with a cold Turquesa fill (`BLU-015`).
+Formats GLB/glTF.
+
+**Pixel outline.** In sprites of 12 px or less the outline MAY close
+completely: at that size the silhouette is all there is.
+
+---
