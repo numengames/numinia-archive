@@ -40,7 +40,8 @@ SPDX-License-Identifier: CC-BY-4.0
 
 **Two dated files were never photographs.** *Epistemic Relations* and
 *Pragmatic Numen System* carried dated filenames declaring them frozen while
-`CAN-007` §2.3 was being cited as active law. The Oracle ruled them living
+`CAN-007`'s rule that function and structure are distinguishable but not
+separable was being cited as active law. The Oracle ruled them living
 canon; they took `CAN-006` and `CAN-007`.
 
 **Two numbers were reused, deliberately.** `C-006` *Session Zero* and
