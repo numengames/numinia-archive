@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12581,
+  "chars": 12608,
   "apparatus": false,
   "archived": false,
-  "tokens": 3129
+  "tokens": 3136
  },
  {
   "path": "CHANGELOG.md",
@@ -621,10 +621,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 34514,
+  "chars": 6436,
   "apparatus": false,
   "archived": false,
-  "tokens": 7403
+  "tokens": 1524
  },
  {
   "path": "canon/CAN-003-attributes-and-ranks.md",
@@ -856,6 +856,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1499
+ },
+ {
+  "path": "decisions/ADR-052-can-002-split.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6743,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1700
  },
  {
   "path": "lore/README.md",
@@ -1419,6 +1430,17 @@
   "tokens": 1627
  },
  {
+  "path": "operations/OPS-011-positioning-and-market.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5620,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1298
+ },
+ {
   "path": "protocols/PRO-001-agent-session.md",
   "dir": "protocols",
   "series": "protocols",
@@ -1912,6 +1934,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1321
+ },
+ {
+  "path": "standards/STD-029-community-conduct.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3078,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 789
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
