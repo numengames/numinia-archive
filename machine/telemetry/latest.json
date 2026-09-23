@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "78eac2e",
-  "corpus_hash": "363c71c7e6c4392206144cb5402cc633d398badf261e7623cf94ec3009ea09df",
+  "head": "1c33435+index",
+  "corpus_hash": "583e257168a10805d303ad1c0b614ac0f54924eb6e791c29b0c8a1b48ec8b4c4",
   "root_dirty": 0,
-  "measured_at": "2026-09-23T14:13:09Z",
+  "measured_at": "2026-09-23T14:30:07Z",
   "families": [
     "corpus",
     "series",
@@ -318,7 +318,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 623128,
+      "value": 622938,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -328,15 +328,15 @@
         "standards": 47630,
         "missions": 43636,
         "": 29650,
-        "canon": 28131,
         "agents": 27835,
+        "canon": 27768,
         "reports": 26153,
         "operations": 22950,
         "blueprints": 20861,
         "system": 16946,
         "machine": 15853,
         "protocols": 15830,
-        "decisions": 11279,
+        "decisions": 11452,
         "debt": 2928,
         "objects": 1835,
         ".github": 891
@@ -347,7 +347,7 @@
     "tokens.by_status": {
       "value": {
         "(none)": 340559,
-        "draft": 121505,
+        "draft": 121315,
         "active": 115910,
         "done": 26389,
         "todo": 14104,
@@ -685,20 +685,20 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 785
+          "3": 783
         },
         "MIS": {
           "3": 677,
           "4": 183
         },
         "PRO": {
-          "3": 250
+          "3": 249
         },
         "OPS": {
           "3": 71
         },
         "CAN": {
-          "3": 215
+          "3": 206
         },
         "ADR": {
           "3": 383

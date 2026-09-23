@@ -610,10 +610,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 5934,
+  "chars": 4402,
   "apparatus": false,
   "archived": false,
-  "tokens": 1517
+  "tokens": 1154
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -819,10 +819,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 6564,
+  "chars": 7299,
   "apparatus": false,
   "archived": false,
-  "tokens": 1710
+  "tokens": 1883
  },
  {
   "path": "lore/README.md",
