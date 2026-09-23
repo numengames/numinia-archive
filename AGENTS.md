@@ -131,7 +131,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | Rule | What it rules | Binds |
 |---|---|---|
 | `CAN-001` | You are already in the game | every document, artefact and agent that speaks in Numinia's name |
-| `CAN-002` | Numinia Brand and Culture | canon — states why, binds whoever leans on it |
+| `CAN-002` | We build a game to work better | every piece of work that speaks, looks or behaves in Numinia's name |
 | `CAN-003` | Compendium of Attributes and Ranks in Numinia | canon — states why, binds whoever leans on it |
 | `CAN-004` | Role Structure in the Numinia System | canon — states why, binds whoever leans on it |
 | `CAN-005` | Opening is an act | canon — states why, binds whoever leans on it |
@@ -178,7 +178,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-027` | The archive is classified by function | every folder of the repository |
 | `STD-028` | One document, one address | every address numinia.org publishes for a document of the corpus |
 
-47 rule documents; 6 are registers and take their scope from the standard that cites them; 5 are canon, which state why rather than whom; every other document names whom it binds.
+47 rule documents; 6 are registers and take their scope from the standard that cites them; 4 are canon, which state why rather than whom; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
