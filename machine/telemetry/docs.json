@@ -610,10 +610,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 5934,
+  "chars": 4402,
   "apparatus": false,
   "archived": false,
-  "tokens": 1517
+  "tokens": 1154
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -819,10 +819,21 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 6564,
+  "chars": 6690,
   "apparatus": false,
   "archived": false,
-  "tokens": 1710
+  "tokens": 1738
+ },
+ {
+  "path": "decisions/ADR-049-canon-is-written-as-prose.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6494,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1610
  },
  {
   "path": "lore/README.md",
@@ -1017,10 +1028,10 @@
   "series": null,
   "type": "seminal",
   "status": "draft",
-  "chars": 3290,
+  "chars": 6448,
   "apparatus": true,
   "archived": false,
-  "tokens": 811
+  "tokens": 1647
  },
  {
   "path": "machine/templates/DBT-TEMPLATE.md",

@@ -15,7 +15,8 @@ tags: [decisions, adr, canon, rituals, refactor]
 license: "CC-BY-4.0"
 deciders: ["oracle"]
 consulted: ["ursa"]
-outcome: proposed
+outcome: superseded
+superseded_by: "ADR-049"
 decision: "CAN-001 is rewritten to the canon mould as one principle and its consequences; the guild, faction, mission and epistemic material it duplicated is left to the documents that own it; canon names no tool and holds no schedule; the rituals move to PRO-019, which covers every ritual and not only the weekly ones."
 amends: ["ADR-042"]
 related: ["CAN-001", "CAN-002", "CAN-004", "CAN-006", "PRO-019", "STD-007"]
@@ -134,6 +135,7 @@ roster row and `RIT-002` in `PRO-019`.
 
 ## 5. Status
 
-Proposed. It takes effect when the Oracle approves the pull request that
-carries it, which is the same pull request that rewrites `CAN-001` and adds
-`PRO-019`.
+Superseded by `ADR-049`, which replaced the four-section mould this record
+applied with three obligations of content. Its rules on tools and schedules
+remain in force, carried forward there; `PRO-019` and the retirement of the
+daily stand-up stand unchanged.
