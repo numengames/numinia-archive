@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.20.0",
+    date: "2026-09-23",
+    entries: [
+      {
+        type: "ADD",
+        text: "Every section index now says what you learn there and what you can then do with it. Each document in this archive opens with an Epistemic and a Pragmatic line; the folders holding them did not, so the archive was describing its pieces in a language it never used about itself — a reader landing on /operations or /debt got a question and a list, and had to infer the rest. All eleven indexes carry the same pair now, in the reader's words rather than the corpus's.",
+      },
+      {
+        type: "ADD",
+        text: "Canon, standards and protocols also carry the line between them: these three bind, the rest record — canon says why, standards say what, protocols say how, and a standard is complied with by an artifact while a protocol is executed by an actor, the boundary being the mechanism and not the topic. That middle sentence is SER-002 of the series standard, quoted rather than paraphrased. It appears on those three pages only, because the distinction exists in the comparison and nowhere else: a reader on any single folder cannot derive it, and the eight recording series stay quiet rather than claim a boundary they do not have.",
+      },
+    ],
+  },
+  {
     version: "v0.19.0",
     date: "2026-09-23",
     entries: [
