@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 117225,
+  "chars": 118377,
   "apparatus": false,
   "archived": false,
-  "tokens": 31129
+  "tokens": 31433
  },
  {
   "path": "CLAUDE.md",
@@ -412,10 +412,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1436,
+  "chars": 1552,
   "apparatus": false,
   "archived": false,
-  "tokens": 404
+  "tokens": 438
  },
  {
   "path": "agents/skills/numinia-nwos-pr/SKILL.md",
@@ -1039,10 +1039,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2023,
+  "chars": 2203,
   "apparatus": true,
   "archived": false,
-  "tokens": 573
+  "tokens": 618
  },
  {
   "path": "lore/adventures/README.md",
@@ -1050,13 +1050,24 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1769,
+  "chars": 1373,
   "apparatus": true,
   "archived": false,
-  "tokens": 485
+  "tokens": 352
  },
  {
-  "path": "lore/adventures/TEMPLATE.md",
+  "path": "lore/adventures/tabletop/README.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1362,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 367
+ },
+ {
+  "path": "lore/adventures/tabletop/TEMPLATE.md",
   "dir": "lore",
   "series": null,
   "type": null,
@@ -1067,7 +1078,7 @@
   "tokens": 534
  },
  {
-  "path": "lore/adventures/el-espejo-roto.md",
+  "path": "lore/adventures/tabletop/el-espejo-roto.md",
   "dir": "lore",
   "series": null,
   "type": null,
@@ -1078,18 +1089,7 @@
   "tokens": 16822
  },
  {
-  "path": "lore/adventures/session-zero.md",
-  "dir": "lore",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 23752,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 5066
- },
- {
-  "path": "lore/adventures/the-broken-mirror.md",
+  "path": "lore/adventures/tabletop/the-broken-mirror.md",
   "dir": "lore",
   "series": null,
   "type": null,
@@ -1098,6 +1098,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 12053
+ },
+ {
+  "path": "lore/adventures/virtual-worlds/README.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 806,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 208
+ },
+ {
+  "path": "lore/adventures/virtual-worlds/session-zero.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 23752,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 5066
  },
  {
   "path": "lore/codex/agradecimientos.md",
@@ -1281,10 +1303,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1637,
+  "chars": 1646,
   "apparatus": true,
   "archived": false,
-  "tokens": 431
+  "tokens": 433
  },
  {
   "path": "lore/game/manual/es/00-introduccion.md",
@@ -1380,10 +1402,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1279,
+  "chars": 1288,
   "apparatus": true,
   "archived": false,
-  "tokens": 428
+  "tokens": 430
  },
  {
   "path": "lore/game/manual/glossary-es-en.md",
@@ -2095,10 +2117,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6879,
+  "chars": 6888,
   "apparatus": false,
   "archived": false,
-  "tokens": 2070
+  "tokens": 2072
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2425,10 +2447,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6205,
+  "chars": 6214,
   "apparatus": false,
   "archived": false,
-  "tokens": 1661
+  "tokens": 1663
  },
  {
   "path": "standards/STD-033-charges-and-the-account.md",
