@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 109478,
+  "chars": 110087,
   "apparatus": false,
   "archived": false,
-  "tokens": 28998
+  "tokens": 29151
  },
  {
   "path": "CLAUDE.md",
@@ -2033,6 +2033,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2357
+ },
+ {
+  "path": "reports/RPT-021-four-sites-design-audit.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "active",
+  "chars": 9643,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3035
  },
  {
   "path": "standards/STD-001-the-series.md",
