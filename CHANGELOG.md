@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (CAN-010, leave things better than you found them, ADR-060)
+- **`canon/CAN-010-leave-things-better.md`** `0.1.0`, in draft and said so in its body: the sentence that closes every canon is the house's ethics, applied to people (`STD-029`), their data (`STD-026` data dignity, `OPS-010`), the commons (`CAN-005`, `STD-014`) and the acts of a digital agent (`CAN-009`). Inferred from the corpus at the Oracle's word; no rule of its own. Closes the reading order; `AGENTS.md` rule index regenerated.
+
+### Added — 2026-09-24 (CAN-009, the archive is the organisation, ADR-059)
+- **`canon/CAN-009-the-archive-is-the-organisation.md`** `1.0.0`: the memory is a text; a document is a claim and the history is the record; only the axis obliges; work is a change to the text; an agent is a citizen. States as canon the reasoning `STD-006`, `STD-020`, `STD-012`, `STD-024` and `STD-009` carried in their Why sections — no rule moves. 945 words. Enters the reading order fourth (`corpus.ts`), reading note rewritten; `AGENTS.md` rule index regenerated.
 ### Fixed — 2026-09-24 (STD-030 follows the translation glossary)
 - **`standards/STD-030-the-worlds-vocabulary.md`** `0.1.2`: five house and branch names take the English the manual's translation glossary fixes — the one numinia.com's code already shows players: Artisans (was Artificers), Projectors (Project designers), Scholars (Erudites), Legal Counsels (Legal rabbits), Explorers (Pathfinders). The register's note names the glossary as the source of the English. Oracle's word in session; ADR-053's rule (the manual names the world) applied to the translation.
 

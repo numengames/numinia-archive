@@ -32,6 +32,26 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.29.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "A canon for ethics, opened in draft. 'Leave things better than you found them' (CAN-010) takes the sentence every canon ends on and applies it to people, their data, the commons and the acts of a digital agent — four commitments already in force elsewhere, stated as one belief. Its body says it is a first statement to be argued with. It closes the canon sequence (ADR-060).",
+      },
+    ],
+  },
+  {
+    version: "v0.28.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "A canon for the work. 'The archive is the organisation' (CAN-009) says what no canon said: the company's memory is plain text in a public repository; a document is a claim and the history is the record; only canon, standards and protocols oblige; work is a change to the text; and a digital agent is a citizen bound by the same documents, with no last word. It reads fourth in the canon sequence, after function and structure and before the house (ADR-059).",
+      },
+    ],
+  },
+  {
     version: "v0.27.0",
     date: "2026-09-24",
     entries: [
