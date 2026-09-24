@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 91172,
+  "chars": 92027,
   "apparatus": false,
   "archived": false,
-  "tokens": 23981
+  "tokens": 24218
  },
  {
   "path": "CLAUDE.md",
@@ -412,10 +412,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1411,
+  "chars": 1436,
   "apparatus": false,
   "archived": false,
-  "tokens": 397
+  "tokens": 404
  },
  {
   "path": "agents/skills/numinia-nwos-pr/SKILL.md",
@@ -918,10 +918,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1711,
+  "chars": 1862,
   "apparatus": true,
   "archived": false,
-  "tokens": 490
+  "tokens": 534
  },
  {
   "path": "lore/adventures/README.md",
@@ -929,10 +929,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1545,
+  "chars": 1540,
   "apparatus": true,
   "archived": false,
-  "tokens": 418
+  "tokens": 419
  },
  {
   "path": "lore/adventures/TEMPLATE.md",
@@ -1023,15 +1023,103 @@
   "tokens": 1725
  },
  {
-  "path": "lore/game/manual-v0.6.0.md",
+  "path": "lore/game/manual/es/00-introduccion.md",
   "dir": "lore",
   "series": null,
   "type": null,
   "status": null,
-  "chars": 873306,
+  "chars": 10438,
   "apparatus": false,
   "archived": false,
-  "tokens": 245886
+  "tokens": 2968
+ },
+ {
+  "path": "lore/game/manual/es/01-bienvenidos-a-numinia.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 14250,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 4195
+ },
+ {
+  "path": "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 135750,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 38607
+ },
+ {
+  "path": "lore/game/manual/es/03-creacion-del-personaje.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 101421,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 30139
+ },
+ {
+  "path": "lore/game/manual/es/04-sistema-de-juego.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 99173,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 27960
+ },
+ {
+  "path": "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 122667,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 36362
+ },
+ {
+  "path": "lore/game/manual/es/06-inventario-y-bestiario.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 189404,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 51834
+ },
+ {
+  "path": "lore/game/manual/es/07-construyendo-la-aventura.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 140883,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 37267
+ },
+ {
+  "path": "lore/game/manual/es/README.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1133,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 382
  },
  {
   "path": "lore/world/brand-and-culture.md",
