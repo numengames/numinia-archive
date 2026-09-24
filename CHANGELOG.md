@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-24 (Nimrod is the Gatekeeper)
+- **`system/SYS-001-cao-architecture.md`** `0.2.1` and **`operations/OPS-001-continuity.md`** `1.0.1`: Nimrod's title follows the English the authors fixed for *Guardián de las Puertas* — **Gatekeeper** (was *Guardian of the Gates*). Oracle's word in session.
+
 ### Fixed — 2026-09-24 (the ledger carries staff in one line)
 - **`protocols/PRO-021-closing-the-month.md`** `0.2.0`: MON-002 and steps 1 and 3 — staff enter the ledger as one line per month for all staff (gross, employer's social security, headcount), no longer one line per person code. The ledger is public; a line per person would publish each one's pay, which `STD-033` LED-006 forbids. **`system/SYS-008-the-account.md`** `0.1.1` says the same.
 

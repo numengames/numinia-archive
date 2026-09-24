@@ -5,9 +5,9 @@ title: "CAO Architecture — Complete System Reference"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-08-31T22:20:00+02:00"
+updated: "2026-09-24T18:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, cao, architecture, agents, protocols, tools]
@@ -83,7 +83,7 @@ The CAO operates on a simple principle:
 
 | Agent | Guild / Branch | Model | Role | Session |
 |-------|---------------|-------|------|---------|
-| **Nimrod** | Sentinels / Archangel | claude-sonnet-4-6 | Guardian of the Gates — primary operations | Persistent (main) |
+| **Nimrod** | Sentinels / Archangel | claude-sonnet-4-6 | Gatekeeper — primary operations | Persistent (main) |
 | **Adonaz** | Exegetes / Chronicler | claude-haiku-3-5 | General Archivist — QA, documentation review | Ephemeral sub-agent |
 
 ### Designed agents (pending activation)
