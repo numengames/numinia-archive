@@ -581,8 +581,12 @@ function titleOf(entry: Entry): string {
   const fm = str((entry.data as Record<string, unknown>).title);
   if (fm) return fm;
   // The SPDX comment every document now opens with (`<!-- SPDX-… -->`) is
-  // the file's licence, not its first line: it is removed before looking.
-  const body = (typeof entry.body === "string" ? entry.body : "").replace(/<!--[\s\S]*?-->/g, "");
+  // the file's licence, not its first line: skip that one leading comment.
+  // Sliced by position, not by regex — this reads a title, it sanitises nothing.
+  const raw = typeof entry.body === "string" ? entry.body : "";
+  const lead = raw.trimStart();
+  const close = lead.startsWith("<!--") ? lead.indexOf("-->") : -1;
+  const body = close >= 0 ? lead.slice(close + 3) : raw;
   // Markdown bold inside a heading survives conversion from PDF: `# **INTRO**`.
   const h1 = body.match(/^#\s+(.+?)\s*$/m)?.[1]?.replace(/\*\*/g, "").trim();
   if (h1) return h1;
