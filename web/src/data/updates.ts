@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.36.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "The whole RPG manual is now in English: chapters 3 to 7 (Character creation, Game system, Geography and culture of Numinia, Inventory and bestiary, Building the adventure) join the introduction and chapters 1 and 2. Every chapter keeps the Spanish's headings, tables and footnotes, and the translation glossary gains the 504 names met on the way.",
+      },
+    ],
+  },
+  {
     version: "v0.35.0",
     date: "2026-09-24",
     entries: [
