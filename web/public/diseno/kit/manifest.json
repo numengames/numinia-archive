@@ -1,9 +1,9 @@
 {
   "sistema": "Numen Games · Sistema de Diseño",
-  "version": "6.0.1",
+  "version": "6.1.0",
   "source": {
     "package": "@numengames/design-kit",
-    "path": "packages/design-kit",
+    "path": "machine/packages/design-kit",
     "url": "https://github.com/numengames/numinia-archive/tree/main/packages/design-kit"
   },
   "rules": {
@@ -11,9 +11,9 @@
     "url": "https://numinia.org/corpus/standards/std-008-design-tokens"
   },
   "files": {
-    "sistema.css": "fa24799072bfbaea05c5368f089699860ae4d4f3d4a3b1c85815e5f6db2dd02c",
-    "sistema.js": "01a1e32eadfba05a89dba862c87ef02c80fa0e5f34e81b0eefe6d6b1b0c77433",
-    "sistema.tokens.json": "4816668a9576dd19dcee165889113740e490686436d3e6228f36208bb398a5ba",
-    "sistema.prompt.txt": "b1b2003ef7e6442cfa109b958cb83c1360f8f4a62438ea979c20647a86ff762f"
+    "sistema.css": "7df226d5ecca2a0574b8b9d3f93ccf47a3056e987c6d94d60231f9e34a01d46e",
+    "sistema.js": "11e8cc505c180349a67e993efe5f915d1a396932f2a9af6b5feaecad988e57ad",
+    "sistema.tokens.json": "910da4dcedc18fa7e4ccb891ac1a4a2d8321eefb28034a0842f5b91a8d73a294",
+    "sistema.prompt.txt": "fe790d5ae00bbd6676836ca0150ef76264a1090798486ff51de1564418008516"
   }
 }

@@ -520,12 +520,13 @@ const t = useT();
     const HL = "highlights" in CSS && typeof Highlight === "function";
     // v4 (2026-09-24, the Oracle): ink dries, it does not turn grey. Each
     // ink keeps its own colour — a Verdemar link stays Verdemar, a bold in
-    // Arena stays Arena — and only loses brightness: to 90 %, 82 %, then
-    // 75 % for text that has set. One highlight per (colour, step), its rule
+    // Arena stays Arena — and only loses brightness: to 80 %, 65 %, then
+    // 50 % for text that has set (the Oracle, same day: at 75 % the drying
+    // was too subtle to notice). One highlight per (colour, step), its rule
     // written once. The earlier version painted everything in one muted grey
     // at 50 %, and links stopped looking like links.
     // Readers who ask the system for more contrast get no drying at all.
-    const DRY = [0.9, 0.82, 0.75]; // wet · drying · set
+    const DRY = [0.8, 0.65, 0.5]; // wet · drying · set
     const moreContrast = matchMedia("(prefers-contrast: more)");
     const inkRules = document.createElement("style");
     document.head.appendChild(inkRules);

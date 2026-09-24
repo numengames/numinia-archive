@@ -31,7 +31,8 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pkgDir = path.join(root, "packages", "design-kit");
-const kitDir = path.join(root, "web", "public", "diseno", "kit");
+// root is machine/; the site lives beside it, at the repository root.
+const kitDir = path.join(root, "..", "web", "public", "diseno", "kit");
 const check = process.argv.includes("--check");
 
 const pkgPath = path.join(pkgDir, "package.json");

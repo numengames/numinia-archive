@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "58b299e",
-  "corpus_hash": "4590f183351177d6214cc6e4961d21656998ec555cc8538dde1563e2b2f422f1",
+  "head": "bd4ffe0+index",
+  "corpus_hash": "b12d355c0314921e55d187fe3d4bb7ef4667861df62c53fd12a9ab432663518f",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T12:11:38Z",
+  "measured_at": "2026-09-24T12:18:19Z",
   "families": [
     "corpus",
     "series",
@@ -318,14 +318,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 644524,
+      "value": 644845,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 304511,
-        "standards": 54683,
+        "standards": 55004,
         "missions": 43966,
         "decisions": 35122,
         "": 33232,
@@ -347,7 +347,7 @@
     "tokens.by_status": {
       "value": {
         "(none)": 337813,
-        "draft": 143667,
+        "draft": 143988,
         "active": 117590,
         "done": 26539,
         "todo": 14224,
@@ -535,50 +535,19 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 6,
+      "value": 0,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
-      "value": [
-        [
-          "README.md",
-          "2026-04-07",
-          "2026-04-06"
-        ],
-        [
-          "agents/nimrod/OPERATOR.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/nimrod/SOUL.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/skills/numinia-nwos-pr/SKILL.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "protocols/PRO-018-publishing-a-repository.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "reports/RPT-019-2026-w37.md",
-          "2026-09-09",
-          "2026-09-08"
-        ]
-      ],
+      "value": [],
       "unit": "documents",
       "definition": "[path, created, first-add] for created_ahead_of_commit",
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 31,
+      "value": 137,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -649,7 +618,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 911
+          "3": 912
         },
         "MIS": {
           "3": 677,
@@ -752,7 +721,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 280,
+      "value": 281,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -764,7 +733,7 @@
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
         "lore/world/brand-and-culture.md": 18,
-        "standards/STD-023-design-values.md": 16,
+        "standards/STD-023-design-values.md": 17,
         "lore/game/manual/es/03-creacion-del-personaje.md": 12,
         "reports/RPT-017-mvp-story.md": 11,
         "operations/OPS-007-sales.md": 10,
