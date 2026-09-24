@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-24T09:22:52Z"
+updated: "2026-09-24T10:04:54Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `724ebf4`  · corpus_hash: `22e33dc00307f9bd…`  · measured_at: 2026-09-24T09:22:52Z  · root_dirty: 0
+- head: `6de3eb0`  · corpus_hash: `67676dc423c30c10…`  · measured_at: 2026-09-24T10:04:54Z  · root_dirty: 0
 
 ## corpus
 
@@ -71,9 +71,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .github | 3 |
 | agents | 36 |
 | blueprints | 9 |
-| canon | 8 |
+| canon | 7 |
 | debt | 2 |
-| decisions | 18 |
+| decisions | 19 |
 | lore | 27 |
 | machine | 13 |
 | missions | 11 |
@@ -89,7 +89,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | documents |
 |---|---|
 | (none) | 36 |
-| adr | 19 |
+| adr | 20 |
 | agent | 34 |
 | blueprint | 10 |
 | documentation | 51 |
@@ -99,7 +99,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | mission | 12 |
 | protocol | 14 |
 | report | 7 |
-| seminal | 9 |
+| seminal | 8 |
 
 ### `corpus.scripts_by_language`
 
@@ -121,9 +121,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | registered | total | apparatus | archived | pct |
 |---|---|---|---|---|---|
 | blueprints | 9 | 9 | 0 | 0 | 100 |
-| canon | 8 | 8 | 0 | 0 | 100 |
+| canon | 7 | 7 | 0 | 0 | 100 |
 | debt | 2 | 2 | 0 | 0 | 100 |
-| decisions | 18 | 18 | 0 | 0 | 100 |
+| decisions | 19 | 19 | 0 | 0 | 100 |
 | missions | 10 | 10 | 1 | 0 | 100 |
 | operations | 11 | 11 | 0 | 0 | 100 |
 | protocols | 12 | 12 | 0 | 0 | 100 |
@@ -203,10 +203,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 626194 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 628676 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 7.02 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 6.99 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -214,18 +214,18 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 304511 |
-| standards | 52887 |
+| standards | 52986 |
 | missions | 43966 |
-|  | 31237 |
+|  | 31595 |
 | agents | 28902 |
 | reports | 26307 |
+| decisions | 25985 |
 | operations | 24533 |
-| decisions | 23382 |
 | blueprints | 20918 |
 | system | 17096 |
 | machine | 16636 |
 | protocols | 15860 |
-| canon | 14192 |
+| canon | 13614 |
 | debt | 2990 |
 | objects | 1865 |
 | .github | 912 |
@@ -234,8 +234,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 335818 |
-| draft | 127499 |
+| (none) | 336176 |
+| draft | 129623 |
 | active | 117423 |
 | done | 26539 |
 | todo | 14224 |
@@ -275,41 +275,41 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | id | 130 |
 | uid | 125 |
 | territory | 100 |
-| created_source | 69 |
 | related | 69 |
-| created_confidence | 68 |
+| created_source | 68 |
+| created_confidence | 67 |
 | guild | 65 |
 | subtype | 46 |
 | registration | 43 |
 | registration_reason | 39 |
 | agent | 33 |
-| threshold | 30 |
+| threshold | 29 |
 | series_change | 26 |
-| ratified_by | 18 |
-| deciders | 16 |
+| deciders | 17 |
+| ratified_by | 17 |
 | extraction_note | 16 |
 | applies_to | 13 |
+| consulted | 13 |
+| decision | 13 |
+| outcome | 13 |
 | assigned_to | 12 |
 | completed | 12 |
-| consulted | 12 |
-| decision | 12 |
 | effort | 12 |
-| outcome | 12 |
 | priority | 12 |
 | type_execution | 12 |
 | mandatory | 11 |
 | visibility | 11 |
 | role | 10 |
-| supersedes_version | 10 |
 | amends | 9 |
 | former_id | 9 |
 | related_missions | 9 |
+| supersedes_version | 9 |
 | former_id_note | 8 |
 | paths | 8 |
 | provenance | 7 |
+| absorbs | 6 |
 | depends_on | 6 |
 | started | 6 |
-| absorbs | 5 |
 | requires_oracle_approval | 5 |
 | context | 4 |
 | severity | 4 |
@@ -441,12 +441,12 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 826 |
+| STD | 838 |
 | MIS | 677 |
-| PRO | 262 |
+| PRO | 264 |
 | OPS | 78 |
-| CAN | 316 |
-| ADR | 440 |
+| CAN | 356 |
+| ADR | 450 |
 | SYS | 45 |
 | DBT | 78 |
 | RPT | 55 |
@@ -465,7 +465,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `figures.live` | 274 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
+| `figures.live` | 276 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
 | `figures.live_by_doc` | (table below) | lines | the fifteen docs with most such lines |
 | `figures.cited` | 0 | citations | citations in the §10.5 form `key = value @ head` across the corpus |
 | `figures.stale_citations` | (table below) | citations | cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true |

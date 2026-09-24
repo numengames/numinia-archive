@@ -132,8 +132,7 @@ adding a dependency, changing a LICENSE or making anything public.
 |---|---|---|
 | `CAN-001` | You are already in the game | every document, artefact and agent that speaks in Numinia's name |
 | `CAN-002` | We build a game to work better | every piece of work that speaks, looks or behaves in Numinia's name |
-| `CAN-003` | What an agent is made of | whoever describes, classifies or registers an agent in Numinia |
-| `CAN-004` | A guild is what you know; a faction is where… | whoever classifies a person, a role or a piece of work in Numinia |
+| `CAN-004` | Nobody here has a role; you are what you are… | whoever describes, classifies or registers a person, a role or a piece of work in Numinia |
 | `CAN-005` | Opening is an act | every Numen Games repository, and whoever publishes from one |
 | `CAN-006` | Epistemic Relations between Numen Games and… | whoever reasons about how Numen Games, its model and Numinia relate |
 | `CAN-007` | Function makes the system inhabitable… | whoever designs, renames or reorganises anything in this system |
@@ -180,7 +179,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-029` | How we treat each other in the commons | everyone in a Numinia community space — citizens, moderators, Oracles and digital agents alike |
 | `STD-030` | The world's vocabulary | register — scope belongs to the standard that cites it |
 
-49 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+48 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12907,
+  "chars": 12825,
   "apparatus": false,
   "archived": false,
-  "tokens": 3199
+  "tokens": 3175
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 93099,
+  "chars": 94363,
   "apparatus": false,
   "archived": false,
-  "tokens": 24496
+  "tokens": 24878
  },
  {
   "path": "CLAUDE.md",
@@ -610,10 +610,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4402,
+  "chars": 4391,
   "apparatus": false,
   "archived": false,
-  "tokens": 1154
+  "tokens": 1149
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -627,26 +627,15 @@
   "tokens": 1539
  },
  {
-  "path": "canon/CAN-003-attributes-and-ranks.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 6376,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1446
- },
- {
   "path": "canon/CAN-004-role-structure.md",
   "dir": "canon",
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 5947,
+  "chars": 9801,
   "apparatus": false,
   "archived": false,
-  "tokens": 1539
+  "tokens": 2412
  },
  {
   "path": "canon/CAN-005-licensing.md",
@@ -911,6 +900,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1426
+ },
+ {
+  "path": "decisions/ADR-057-can-004-absorbs-can-003.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 9761,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2603
  },
  {
   "path": "lore/README.md",
@@ -1831,10 +1831,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6223,
+  "chars": 6288,
   "apparatus": false,
   "archived": false,
-  "tokens": 1604
+  "tokens": 1630
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -1974,10 +1974,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6340,
+  "chars": 6581,
   "apparatus": false,
   "archived": false,
-  "tokens": 1904
+  "tokens": 1985
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -2084,10 +2084,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 10885,
+  "chars": 10900,
   "apparatus": false,
   "archived": false,
-  "tokens": 2541
+  "tokens": 2538
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -2128,10 +2128,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7109,
+  "chars": 7098,
   "apparatus": false,
   "archived": false,
-  "tokens": 1569
+  "tokens": 1564
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

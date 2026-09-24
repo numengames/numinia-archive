@@ -19,6 +19,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (CAN-004 absorbs CAN-003, ADR-057)
+- **`canon/CAN-004-role-structure.md`** rewritten at `4.0.0`, *Nobody here has a role; you are what you are doing*: the six attributes of `CAN-003`, Eco's opposition, Basic Level Theory for the guilds and Prototype Theory for the factions, the systems-thinking line between qualification, role and position, the six ranks by what each is, the five approaches. Out: the 4×2×2 guild tree (a register, `STD-030`), *positions belong to non-player characters* (obsolete, the Oracle's word), the character-sheet remainder, the district sentence. Function-is-not-utility is stated in two sentences and left to `CAN-007`.
+- **`canon/CAN-003-attributes-and-ranks.md` deleted.** `absorbs: ["CAN-003"]` on `CAN-004` keeps the identifier resolving; the site redirects the address and four older ones to the heir.
+- **`absorbs` registered for `canon/`** — `STD-016` `2.1.0` (Ring 3) and `machine/scripts/lib/rings.mjs`.
+- Citations repointed: `CAN-001` (`related:`), `STD-003` `3.1.1`, `STD-030` `0.1.1`, `STD-026` `0.1.1` (English names now sourced from the translation glossary), `PRO-015` `1.0.3`, `web/src/lib/corpus.ts` (reading order), `web/astro.config.mjs` (redirects), `AGENTS.md` (rule index regenerated).
+
 ### Added — 2026-09-24 (the manual in English: introduction and chapter 1)
 - **`lore/game/manual/en/`** starts: `00-introduction.md` and `01-welcome-to-numinia.md`, translated from `es/` following `glossary-es-en.md`, plus a README with the chapter status. Same headings, same paragraphs; each paragraph on one line (the Spanish keeps the PDF's line breaks). New names met on the way (Formrender, Etheric Wall, Mnemonic Eclipse…) are added to the glossary, section B2. CC0.
 

@@ -1,23 +1,24 @@
 ---
 id: "CAN-004"
 uid: ""
-title: "A guild is what you know; a faction is where you apply it"
+title: "Nobody here has a role; you are what you are doing"
 type: seminal
 status: draft
-version: "3.0.0"
+version: "4.0.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-23T21:00:00+02:00"
-author: "Centinela-01"
+updated: "2026-09-24T12:00:00+02:00"
+author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, roles, guilds, factions, positions]
+tags: [canon, seminal, roles, guilds, factions, positions, attributes, ranks]
 license: "CC0-1.0"
-ratified_by: "ADR-053"
-supersedes_version: "2.0.1"
-related: ["CAN-001", "CAN-003", "CAN-007", "STD-003", "STD-030"]
+ratified_by: "ADR-057"
+supersedes_version: "3.0.0"
+absorbs: ["CAN-003"]
+related: ["CAN-001", "CAN-007", "STD-003", "STD-030"]
 threshold: governed
 ---
 
@@ -26,117 +27,169 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# A guild is what you know; a faction is where you apply it
+# Nobody here has a role; you are what you are doing
 
-> **Summary:** Guilds are qualifications and factions are fields of
-> development. They are different kinds of thing on different axes, and a role
-> is what appears when the two meet in a particular act.
-> **Epistemic:** Why nobody here *has* a role, and what a position costs the
-> person who takes one.
-> **Pragmatic:** Place any person, or any piece of work, without inventing a
-> category — and tell a role from a profile when the two get confused.
+> **Summary:** What you know is a guild, where you apply it is a faction, and
+> a role is what appears when the two meet in an act. Six attributes make up
+> anyone in Numinia, human or digital, and only one of them is assigned by
+> the system.
+> **Epistemic:** Why guilds nest and factions do not, why play sits at the
+> centre, and why a role can never be written on a profile.
+> **Pragmatic:** Place any person or piece of work without inventing a
+> category; tell a role from a profile from a position; know which six things
+> a sheet or a roster is allowed to say about someone.
 > **Audience:** Everyone
 
-**Binds:** whoever classifies a person, a role or a piece of work in Numinia.
+**Binds:** whoever describes, classifies or registers a person, a role or a
+piece of work in Numinia.
 
 ---
 
-## What this canon fixes
+## Six things, not one
 
-**Four guilds.** They are qualifications — what a person is trained in. They
-nest: a guild contains branches, a branch contains houses. Moving down the
-levels is not moving between categories, only describing the same category
-more precisely.
+Ask what someone *is* here and you get six answers that keep being confused
+for one. What they were born with — physiology, temperament, species — are
+their **traits**. What they have learnt and can do is their **profile**; it
+comes from observing the world, and it is the one of the six a person chooses
+most freely. The stable post they hold, the one others can name — gatekeeper,
+treasurer — is their **position**; it comes from defining the world in
+recognisable terms. What they align themselves with — a guild, a faction, a
+set of symbols and beliefs — is their **identity**; it comes from interpreting
+the world, and no two people interpret the same culture the same way. What
+they are doing right now, to meet a need nobody had a post for, is their
+**role**; it comes from interacting with the world. And how far they have come
+is their **rank**.
 
-**Four factions.** They are fields of development — where the work happens.
-Play is the central domain, framework and education are peripheral, and art is
-itinerant, because art is the only function that turns its gaze on itself.
+Five of these the person adopts. Rank alone is assigned: the system reads it
+from what they have done, never from what they say, and each rank contains
+every rank below it. A Nomad has arrived and has no guild or faction yet. A
+Citizen has chosen both. A Pilgrim exchanges something with the city — work or
+trade. A Vernacular is inside the Oracles' circle of trust. An Archon is in
+the closest circle, with attributions to match. An Oracle is one of the
+founders of the new Numinia. What each rank earns and what it may do is the
+platform standard's; what each one *is* is this.
 
-**Guild and faction are not the same kind of thing** and do not sit on the same
-axis. A guild says what you know. A faction says where you apply it. A **role**
-is what appears when a specific house acts inside a specific faction.
+The rest of this canon is about three of the six — profile, identity, role —
+because those are the three the city is built from.
 
-**A role is dynamic; a position is a preferred role.** A role exists only in
-practice, at the moment someone takes charge of a function. A position is a
-role someone has settled into — more stable, more predictable, harder to leave,
-and it mediates every other role that person plays.
+## A guild is what you know
 
-**Positions belong preferentially to non-player characters.** A position is an
-anchor the community reads: others know what to expect from it. A player
-character taking a position should do so rarely and deliberately, because it
-constrains which other roles remain available to them.
+A guild is a qualification: what a person is trained in. There are four, and
+they are recognised the way any cultural unit is recognised — by what the
+others are not. An Alchemist builds; an Exegete keeps the word; a Procurator
+keeps the city viable; a Sentinel keeps the peace. Each is defined by the
+three it is not, and each needs the three it is not, because they hold what
+it lacks. Opposition here is a property of the categories, not of the people:
+piloting a plane and sailing a boat are opposed skills, and one person can be
+good at both, though never at the same moment. So a person may stand in two
+guilds. A guild may not stand in two places.
 
-**Profile is not role.** What someone is trained in — what systems thinking
-calls qualification — is their profile. It never defines their role. The role
-is the part played at a given moment.
+Each guild nests: a guild contains two branches, a branch contains two houses.
+These are not three kinds of thing. They are one thing described at three
+grades of detail, the way *animal*, *bird* and *magpie* are one animal named
+loosely, usefully, and exactly. The loose name — the guild — says too little
+to act on. The exact name — the house — says too much to remember. The middle
+one is the one people actually use, and that is why, when someone here says
+what they do, they name their branch: not an Alchemist, an Engineer. A guild
+is a shelf; a branch is the book you take down.
 
-**Function is not utility.** A function carries purposes, values and an end.
-Saying a thing has a use is a smaller and different claim, and the difference
-matters: a hammer defined only as *drives nails* leaves you unable to drive a
-nail with a microscope.
+## A faction is where you apply it
 
-## The guild hierarchy
+A faction is a field of development: the ground where knowledge is put to
+work. Not a kind of knowledge — every kind is needed on every field. There
+are four, and they do not nest at all. They sit side by side, and one of them
+sits in the middle.
 
-The branch is the basic level: the guild is too generic and the house too
-specific, so a branch is the most representative name for what someone does.
+**Play** is the centre, and the Heirs of Eleusis hold it. Not because it
+matters most, but because it is the most characteristic and the most
+workable: it is where a stranger recognises the city first. **Framework**,
+the Stellar Circle's field, and **education**, the Hermeticists', stand on
+either side of it, and both keep pointing back to it — a framework here is
+always a game's framework, and what is taught here is always learnt by
+playing. Between the two of them the connection is weaker and needs play to
+carry it. **Art**, the Neo-Atlantists' field, belongs to no side. It walks
+alongside the other three, sometimes inside them, sometimes as their voice,
+because it is the only function that can turn and look at itself. It is
+itinerant, and freeing it from the row is not demoting it.
 
-**Alchemists** — creative, scientific and artistic minds; inventors,
-discoverers, innovators.
+This is why everything here starts from play. One can go from framework to
+education without passing through it — people do, in most organisations — but
+whoever does has left Numinia, and the dimension the city adds has gone with
+them.
 
-- **Branch A: Artificers** — the city's creative spirits
-  - House A.1: Project designers — designers at small and large scale
-  - House A.2: Aesthetes — artists of every kind
-- **Branch B: Engineers** — they work with code and chains of information
-  - House B.1: Architects — Numinia's digital architecture
-  - House B.2: Automata — virtual realities and artificial consciousnesses
+Guilds and factions are not two columns of one table. A guild says what you
+know; a faction says where you apply it. They are different kinds of thing on
+different axes, and the city is what happens where the axes cross.
 
-**Exegetes** — those who live by letters, history and fantasy; keepers of
-culture, chroniclers of the ages.
+## A role is what appears where they cross
 
-- **Branch A: Chroniclers** — they document the events of the city
-  - House A.1: Logographers — the diachronic view: legend and lasting record
-  - House A.2: Bards — the synchronic view: news and current chronicle
-- **Branch B: Erudites** — scholars and experts across disciplines
-  - House B.1: Hierophants — specialists in a given field
-  - House B.2: Thaumaturges — those who work at the edge of the known
+A role is not written anywhere before it happens. Take the most exact grade of
+a guild — a house — and put it to work on a faction, and what results is a
+role: a specific qualification meeting a specific field, in an act. An
+Architect building on the field of play is one role; the same Architect
+building on the field of education is another. Nobody *has* a role. A role is
+the part being played right now, and it exists only while the play lasts.
 
-**Procurators** — the pragmatic minds of Numinia.
+An actor knows diction, movement, verse. None of that is their role; that is
+their training — what systems thinking calls qualification and this city calls
+profile. Their role is the character they are playing tonight. Confuse the two
+and you will cast by the CV forever.
 
-- **Branch A: Legates** — the legal and diplomatic frame
-  - House A.1: Legal rabbits — the law as it applies inside the city
-  - House A.2: Heralds — the city represented before others
-- **Branch B: Syndics** — elected to protect the city's interests
-  - House B.1: Mercurials — everything touching the economy
-  - House B.2: Intendants — internal organisational affairs
+What turns a profile into a role is not the profile. It is a need, and the
+re-signification a person makes of what they know to meet it. Eco tells it as
+the birth of culture: a hypothetical Australopithecus picks up a stone and
+breaks a skull with it, and in that instant a thinking being has given a new
+function to a thing never intended for it — and a name to the use. *This thing
+does X, and it is called Y.* That name Y is a role. Every role in Numinia is a
+stone somebody picked up.
 
-**Sentinels** — moderators, custodians and peacemakers.
+Function here is not utility. To say a hammer *drives nails* is to leave
+yourself unable to drive a nail with the microscope on your desk. Function is
+a matter of ends and of values — what something is for, and what it is worth —
+and the canon of function and structure is where that is argued.
 
-- **Branch A: Seraphim** — they keep order
-  - House A.1: Captains — they lead and organise
-  - House A.2: Guardians — norms and community conflict
-- **Branch B: Archangels** — they work with the community
-  - House B.1: Healers — care and personal process
-  - House B.2: Pathfinders — they guide whoever is finding their way
+A **position** is a role someone has settled into: the preferred role, taken
+one grade looser — a branch on a field rather than a house on a field. It is
+more stable, more predictable, harder to leave, and it mediates every other
+role that person plays: some it colours, some it prevents. That stability is
+its value to everyone else. A position is a landmark; others know what to
+expect from it and can steer by it. So take one rarely and on purpose, knowing
+what it will cost the rest of your repertoire.
 
-## The factions and their domains
+## What you can do with this
 
-| Faction | Field of development | Domain type |
-|---|---|---|
-| **Heirs of Eleusis** | Play | Prototype (central) |
-| **Stellar Circle** | Framework | Peripheral |
-| **Hermeticists** | Education | Peripheral |
-| **Neo-Atlantists** | Art | Itinerant |
+You can place any piece of work by asking two questions — what knowledge does
+it need, which field is it on — without inventing a category, because guild
+and faction between them exhaust the map.
 
-If a guild is a citizen's vocation, a faction is their view of the world: the
-community of ideals they belong to and the field where they exert influence.
-Each faction is bound to a district of the city, which is the territorial and
-functional manifestation of what guilds and factions represent.
+You can catch the commonest mistake in the city on sight: someone described by
+their profile as though it were their role. The test is tense. A profile is
+what someone *has*; a role is what someone *is doing*.
+
+You can read any sheet, roster or introduction and say which of the six
+attributes each line is — and notice which one is missing. And when a
+registry, a form or a system wants to record something about a person that is
+none of the six, you may ask what it is for.
+
+## The five approaches
+
+The six attributes arise from a relationship with the environment, and that
+relationship can be read five ways. They are listed because a reader will meet
+all five in the documents of this city and should know which lens is on.
+
+| Approach | What it holds |
+|---|---|
+| Philosophical | The relationship with the environment is subjective and triggers a framework of interpretations |
+| Psychological | The relationship with the environment triggers a framework of subjective interpretations |
+| Semantic | The environment possesses a definition and a dimension of meaning |
+| Semiotic | The environment has an expression and a dimension of content |
+| Hermeneutic | The environment contains a narrative and a dimension of sense |
 
 ## References
 
 | ID | Name | Why cited |
 |---|---|---|
-| `STD-030` | The world's vocabulary | what each name is called operationally |
-| `STD-003` | Platform ranks | the six ranks and what each may do |
-| `CAN-003` | Attributes and ranks | what a citizen is made of |
-| `CAN-007` | Function and structure | why a role is a relation, not a label |
+| `STD-030` | The world's vocabulary | every guild, branch, house and faction by name, with its operational equivalent |
+| `STD-003` | Platform ranks | what earns each rank and what it may do |
+| `CAN-007` | Function and structure | what function is, and why renaming is not transforming |
+| `CAN-001` | You are already in the game | why a name and a function are the same thing here |

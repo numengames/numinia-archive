@@ -322,13 +322,16 @@ const READING_ORDER: Record<string, string[]> = {
   // are; "how you get in" left for lore/adventures/, because Session Zero is game
   // design, not governing canon; "what the archive sounds like" moved into
   // system/SYS-003 with the fondos it describes; and the cover page is gone.
+  //
+  // 2026-09-24 (ADR-057): CAN-004 absorbed CAN-003, so "who lives here" and
+  // "what they are made of" are one document. Its address redirects to the
+  // heir (astro.config.mjs); the sequence loses a step, not a beat.
   canon: [
     "/canon/can-001-welcome-to-numinia",
     "/canon/can-006-epistemic-relations",
     "/canon/can-007-pragmatic-numen-system",
     "/canon/can-002-brand-and-culture",
     "/canon/can-004-role-structure",
-    "/canon/can-003-attributes-and-ranks",
     "/canon/can-005-licensing",
   ],
 
