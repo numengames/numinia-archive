@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 94363,
+  "chars": 95149,
   "apparatus": false,
   "archived": false,
-  "tokens": 24878
+  "tokens": 25074
  },
  {
   "path": "CLAUDE.md",
@@ -665,10 +665,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 8683,
+  "chars": 10549,
   "apparatus": false,
   "archived": false,
-  "tokens": 1853
+  "tokens": 2281
  },
  {
   "path": "canon/CAN-008-visual-identity.md",
@@ -911,6 +911,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2603
+ },
+ {
+  "path": "decisions/ADR-058-can-007-function-is-ends-and-values.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6100,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1544
  },
  {
   "path": "lore/README.md",
