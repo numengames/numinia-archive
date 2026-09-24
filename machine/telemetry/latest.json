@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "6152c01",
-  "corpus_hash": "5ac86dd0955f0f63b183bee4b2a34f377eec8b9c10b32b04ee46d2cf3ed6f91d",
+  "head": "a08774a",
+  "corpus_hash": "129bf5f7778dda6af29cbdd89ea9feaaf4ee54c0ec45838679b9cc70686706fe",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T16:29:55Z",
+  "measured_at": "2026-09-24T16:34:59Z",
   "families": [
     "corpus",
     "series",
@@ -320,7 +320,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 857692,
+      "value": 857866,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -330,14 +330,14 @@
         "standards": 58831,
         "missions": 45717,
         "decisions": 39440,
-        "": 37843,
+        "": 37977,
         "reports": 29342,
         "agents": 29069,
         "operations": 24533,
         "blueprints": 20933,
-        "system": 18735,
+        "system": 18748,
         "canon": 18667,
-        "protocols": 18027,
+        "protocols": 18054,
         "machine": 16059,
         "debt": 2990,
         "objects": 1865,
@@ -348,9 +348,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 532642,
-        "draft": 155531,
-        "active": 122314,
+        "(none)": 532776,
+        "draft": 155558,
+        "active": 122327,
         "done": 26539,
         "todo": 15975,
         "in-progress": 4691
@@ -439,11 +439,11 @@
         "visibility": 12,
         "mandatory": 11,
         "role": 10,
+        "supersedes_version": 10,
         "amends": 9,
         "former_id": 9,
         "paths": 9,
         "related_missions": 9,
-        "supersedes_version": 9,
         "former_id_note": 8,
         "provenance": 7,
         "absorbs": 6,
@@ -651,14 +651,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1006
+          "3": 1007
         },
         "MIS": {
           "3": 685,
           "4": 185
         },
         "PRO": {
-          "3": 288
+          "3": 289
         },
         "OPS": {
           "3": 82
@@ -670,7 +670,7 @@
           "3": 541
         },
         "SYS": {
-          "3": 55
+          "3": 56
         },
         "RPT": {
           "3": 58,

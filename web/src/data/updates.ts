@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.46.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "FIX",
+        text: "Closing the month (PRO-021) now puts all staff in one line per month, with the headcount, instead of one line per person. The ledger will be public, and with two or three people a line each would show what each one earns. The per-person figures stay with the company and the gestoría.",
+      },
+    ],
+  },
+  {
     version: "v0.45.0",
     date: "2026-09-24",
     entries: [

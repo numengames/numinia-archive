@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-24 (the ledger carries staff in one line)
+- **`protocols/PRO-021-closing-the-month.md`** `0.2.0`: MON-002 and steps 1 and 3 — staff enter the ledger as one line per month for all staff (gross, employer's social security, headcount), no longer one line per person code. The ledger is public; a line per person would publish each one's pay, which `STD-033` LED-006 forbids. **`system/SYS-008-the-account.md`** `0.1.1` says the same.
+
 ### Added — 2026-09-24 (the account, simulated)
 - **`web/src/pages/system/account.astro`**: the cost register the charges-and-account standard asks for (`STD-033` LED-001..003), with **simulated** lines until the first month closes (`PRO-021`). Four views from one ledger — anyone, CTO, finance and bank, gestoría — by day, week, month, quarter and year, consumed (spread over the period covered) or billed (on the document date), with or without people; profit and loss in the abbreviated PGC headings; cash and runway; the received-invoices book by quarter; support simulator; homage list, anonymous by default. Listed under System.
 - **`web/src/lib/account.ts`** reads the ledger for the page, the CSV route and the markdown view (`/system/account.md`, composed in `composed-md.ts`: consumed cost by year and concept, summed from the same lines).

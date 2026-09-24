@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 116462,
+  "chars": 116914,
   "apparatus": false,
   "archived": false,
-  "tokens": 30892
+  "tokens": 31026
  },
  {
   "path": "CLAUDE.md",
@@ -2007,10 +2007,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4161,
+  "chars": 4245,
   "apparatus": false,
   "archived": false,
-  "tokens": 1092
+  "tokens": 1119
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2513,9 +2513,9 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6460,
+  "chars": 6512,
   "apparatus": false,
   "archived": false,
-  "tokens": 1640
+  "tokens": 1653
  }
 ]
