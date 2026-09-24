@@ -478,6 +478,10 @@ const READING_ORDER: Record<string, string[]> = {
     "/protocols/pro-011-security-audit",
     "/protocols/pro-013-handing-a-guard-to-ci",
     "/protocols/pro-018-publishing-a-repository",
+    // 2026-09-24 (ADR-065): money, last — something goes on sale, then the
+    // month closes on what it brought in.
+    "/protocols/pro-020-putting-something-on-sale",
+    "/protocols/pro-021-closing-the-month",
   ],
 
   // Five manuals, read outside in: what the system is, for someone who has

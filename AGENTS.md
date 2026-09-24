@@ -117,7 +117,7 @@ is not documented.
 
 ## The rules that govern work here
 
-`standards/`, `protocols/` and `canon/` hold 52 rule documents. Each opens
+`standards/`, `protocols/` and `canon/` hold the rule documents. Each opens
 with a `**Binds:**` line saying whom it governs. Read that line before
 opening the document.
 
@@ -152,6 +152,8 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-017` | Rolling up the week | any agent executing a weekly, quarterly or annual roll-up |
 | `PRO-018` | Publishing a repository | any agent preparing a visibility change or a permanent publication of a Numen Games repository… |
 | `PRO-019` | Holding a ritual | whoever convokes, prepares or records a ritual of Numinia |
+| `PRO-020` | Putting something on sale | whoever prepares, approves, creates or withdraws something on sale in Numinia's or Numen Games'… |
+| `PRO-021` | Closing the month | whoever brings the month's documents, turns them into ledger lines, or reviews the close |
 | `STD-001` | The series | every tracked document of the corpus |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | every Markdown file under the directories `machine/scripts/lib/rules.json` lists as governed |
@@ -185,7 +187,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-032` | The Numinia Design System | register — scope belongs to the standard that cites it |
 | `STD-033` | Every charge delivers something; the account… | every site of Numinia and Numen Games that takes a payment, every record of something on sale… |
 
-54 rule documents; 8 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+56 rule documents; 8 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

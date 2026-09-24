@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.43.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "Two protocols for money, in draft. 'Putting something on sale' (PRO-020): the record in the archive first, then the Oracle creates the price and the payment link, the whole path is tested, and only then is it published; withdrawing keeps the record and what people bought. 'Closing the month' (PRO-021): each invoice, payroll total and payment report becomes a line — never the document itself — people only in aggregate, an open month marked provisional, a closed month corrected only by a new line, and each quarter handed to the gestoría (ADR-065).",
+      },
+    ],
+  },
+  {
     version: "v0.42.0",
     date: "2026-09-24",
     entries: [
