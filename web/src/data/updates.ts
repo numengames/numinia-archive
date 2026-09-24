@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.44.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "The standards read in five shelves. /standards/ now groups its 32 documents by what they are for, each under a Roman numeral and one line: I Living together, II Writing it down, III Showing it, IV What leaves the house, V What makes it last. The citizen comes first; what holds everything up comes last. No standard's text changes.",
+      },
+    ],
+  },
+  {
     version: "v0.43.0",
     date: "2026-09-24",
     entries: [

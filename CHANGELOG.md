@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (the standards read in five shelves)
+- **`/standards/` groups its 32 documents by purpose**, under a Roman numeral, a label and one line, like `/canon/` but in its own words: I *Living together* (STD-003, 029, 017, 030, 026) · II *Writing it down* (STD-001, 024, 027, 004, 016, 007, 031, 025, 018, 028, 019, 021, 009, 012) · III *Showing it* (STD-032, 008, 023) · IV *What leaves the house* (STD-010, 013, 014, 022, 033) · V *What makes it last* (STD-006, 020, 005, 015, 011). The citizen first; the ground last. Eight standards the old reading order never named now have a place. `READING_GROUPS_STANDARDS` in `web/src/lib/corpus.ts` is the source of the standards reading order and is checked at build. No standard's text changes. Oracle's word in session.
+
 ### Added — 2026-09-24 (PRO-020 and PRO-021, two protocols for money, ADR-065)
 - **`protocols/PRO-020-putting-something-on-sale.md`** `0.1.0`, draft: record, three questions, Oracle's approval, product and link in the processor, link back to the record, test-mode path, publish; withdrawal marks the record, deactivates the link, tells subscribers. SAL-001..004.
 - **`protocols/PRO-021-closing-the-month.md`** `0.1.0`, draft: documents to lines (never committed), staff by person code and published only aggregated, income from the processor's report, homage list as chosen, views recomputed and in agreement, one pull request per month; the quarter's received-invoices book exported for the gestoría. MON-001..004. Both close the protocols' reading order. `AGENTS.md` stops typing how many rule documents there are (it said 52 over 56).
