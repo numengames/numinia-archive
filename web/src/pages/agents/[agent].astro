@@ -105,7 +105,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
            when to bring it work. It comes verbatim from agents/INDEX.md. -->
       <div
         class="rounded-xl border px-5 py-4"
-        style={`border-color: ${agent.color}33; background: ${agent.color}0d;`}
+        style={`border-color: color-mix(in srgb, ${agent.color} 20%, transparent); background: color-mix(in srgb, ${agent.color} 5%, transparent);`}
       >
         <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] mb-1.5" style={`color: ${agent.color}`}>
           Route here when
@@ -117,7 +117,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
       </div>
 
       {agent.bio && (
-        <p class="text-sm leading-relaxed text-muted-foreground border-l-2 pl-4" style={`border-color: ${agent.color}66`}>
+        <p class="text-sm leading-relaxed text-muted-foreground border-l-2 pl-4" style={`border-color: color-mix(in srgb, ${agent.color} 40%, transparent)`}>
           {agent.bio}
         </p>
       )}

@@ -483,8 +483,8 @@ const FN_DOOR: Record<string, string> = {
       div.style.cssText = "position:absolute;top:0;left:0;font-family:var(--font-mono);text-align:center;pointer-events:none;";
       const hex = "#" + n.color.toString(16).padStart(6, "0");
       div.innerHTML =
-        `<span style="display:block;font-size:11px;font-weight:bold;color:${hex};text-shadow:0 0 6px #000,0 0 3px #000;white-space:nowrap;">${n.label}</span>` +
-        `<span style="display:block;font-size:8px;color:#aaa;text-shadow:0 0 4px #000;white-space:nowrap;">${n.subtitle}</span>`;
+        `<span class="graph-label" style="--node:${hex};display:block;font-size:11px;font-weight:bold;color:var(--node);white-space:nowrap;">${n.label}</span>` +
+        `<span class="graph-sub" style="display:block;font-size:8px;white-space:nowrap;">${n.subtitle}</span>`;
       layer.appendChild(div);
       labels.push({ el: div, pos: pos[n.id].clone() });
     }

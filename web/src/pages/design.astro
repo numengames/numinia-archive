@@ -217,7 +217,7 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
                     </div>
                   ))}
                 </div>
-                <div class="mt-3 rounded-[8px] border border-border bg-card p-4">
+                <div class="siempre-noche mt-3 rounded-[8px] border border-border bg-card p-4">
                   <p class="mb-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Rarity — never colour alone: the border grows and the name is written</p>
                   <div class="flex flex-wrap gap-2">
                     {v.rarity.map((s, i) => (
@@ -438,7 +438,7 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
                 <div class="rounded-[8px] border border-border bg-card p-5">
                   <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · elevation — by step, not by shadow</p>
                   <div class="flex gap-2">
-                    {v.night.slice(0, 3).map((s) => <span class="flex h-14 flex-1 items-end rounded-[8px] border border-border p-2 font-mono text-[0.55rem] text-dim" style={`background:${s.hex}`}>{s.name.replace("fondo ", "")}</span>)}
+                    {v.night.slice(0, 3).map((s) => <span class="siempre-noche flex h-14 flex-1 items-end rounded-[8px] border border-border p-2 font-mono text-[0.55rem] text-dim" style={`background:${s.hex}`}>{s.name.replace("fondo ", "")}</span>)}
                   </div>
                   <p class="mt-3 text-[0.65rem] text-muted-foreground">At night a surface rises one step lighter; the legendary halo is the only glow.</p>
                 </div>

@@ -38,16 +38,29 @@ const ogLocale = "en_US";
 ---
 
 <!doctype html>
-<html lang={locale} class="dark">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
+    <script is:inline>
+      /* Day and night (DSN-016), the numinia.com boot copied: runs before
+         first paint so a stored choice never flashes. Stored choice >
+         device preference. No attribute means Nocturno, the site as it was.
+         The key is the one the cookie policy names (numinia-modo). */
+      try {
+        const sm = localStorage.getItem("numinia-modo");
+        if (sm === "diurno" || (sm !== "nocturno" && matchMedia("(prefers-color-scheme: light)").matches)) document.documentElement.dataset.modo = "diurno";
+      } catch {
+        /* storage blocked: the page opens in Nocturno */
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#14110F" />
+    <meta name="theme-color" content="#14110F" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F9EBDC" media="(prefers-color-scheme: light)" />
     <link rel="canonical" href={canonical} />
 
     <!-- Open Graph -->
