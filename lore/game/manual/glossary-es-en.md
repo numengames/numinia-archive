@@ -316,6 +316,22 @@ nota solo aparece cuando la elección no es obvia.
 | El Espejo Roto | The Broken Mirror | Título del módulo. Propuesta: el módulo sigue en español. |
 | Fragmento (sección de capítulo) | Fragment |  |
 
+## B2. Añadidos al traducir — added while translating
+
+Nombres que salen al traducir un capítulo y no estaban arriba. Cada fila
+indica el capítulo donde aparece por primera vez.
+
+| Español | English | Capítulo |
+|---|---|---|
+| Anfiteatro Sumergido | Sunken Amphitheatre | 1 |
+| Aedólatra (archivo) | Aedolatra (archive) | 1 |
+| Desgarraformas | Formrender(s) | 1 (y 6, Bestiario) |
+| Muro Etérico | Etheric Wall | 1 |
+| Eclipse Mnémico | Mnemonic Eclipse | 1 |
+| Zócalo del Entendimiento | Plinth of Understanding | 1 |
+| Equilibrio (el) | the Balance | 1 |
+| Archivo Central | Central Archive | Introducción |
+
 ## C. Dudas abiertas — open questions
 
 - **Conejos Legales** (gremio de los Procuradores, capítulo 3). El manual y

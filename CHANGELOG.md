@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (the manual in English: introduction and chapter 1)
+- **`lore/game/manual/en/`** starts: `00-introduction.md` and `01-welcome-to-numinia.md`, translated from `es/` following `glossary-es-en.md`, plus a README with the chapter status. Same headings, same paragraphs; each paragraph on one line (the Spanish keeps the PDF's line breaks). New names met on the way (Formrender, Etheric Wall, Mnemonic Eclipse…) are added to the glossary, section B2. CC0.
+
 ### Added — 2026-09-24 (the translation glossary)
 - **`lore/game/manual/glossary-es-en.md`** fixes the English for every Numinia term before the manual is translated. Section A: 145 names numinia.com already shows in English (ranks, districts, factions, guilds, species, positions, competences, archetypes, humours, seals, places), taken verbatim from `numinia-web/packages/domain`. Section B: 81 of the manual's concepts, from the Codex glossary plus the game system. Section C: three open questions for the Oracle (*Conejos Legales*, *Game Director* vs *Game Master*, the module's title). CC0.
 

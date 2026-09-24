@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.26.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "The RPG manual begins to exist in English: the introduction ('The echoes of a virtual city') and chapter 1 ('Welcome to Numinia') are translated, in lore/game/manual/en/, using the glossary's fixed terms. The other six chapters follow one by one.",
+      },
+    ],
+  },
+  {
     version: "v0.25.0",
     date: "2026-09-24",
     entries: [
