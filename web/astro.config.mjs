@@ -197,6 +197,9 @@ export default defineConfig({
 		// rule above sends the old address there — same page, not the report.
 		"/reports/rpt-2026-04-07-gaps-capability-map": "/reports/rpt-008-gaps-capability-map",
 		"/reports/rpt-2026-04-07-wardley-map": "/reports/rpt-003-wardley-map",
+		// → lore — adventures split into tabletop/ and virtual-worlds/ (2026-09-24)
+		"/lore/adventures/el-espejo-roto": "/lore/adventures/tabletop/el-espejo-roto",
+		"/lore/adventures/session-zero": "/lore/adventures/virtual-worlds/session-zero",
 	},
 	// MIS-088's /print/* intermediates are gone (2026-08-31). They existed
 	// only as Chromium print targets for a PDF step the build never ran, so

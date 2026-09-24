@@ -69,7 +69,7 @@ the manual is downloaded on its own.
 | Languages | Sound | — | Not written yet: how Numinia sounds — music, effects, voice and silence. Today only the reading-aloud player is specified, in the design values |
 | Languages | Motion | `standards/STD-023-design-values.md` | The animation catalogue, the sky and the motion budgets; still inside Image |
 | Languages | Play | `lore/game/manual/en/07-building-the-adventure.md` | Read alongside: how the manual builds an adventure |
-| Languages | Play | `lore/adventures/TEMPLATE.md` | Read alongside: the mould of an adventure module |
+| Languages | Play | `lore/adventures/tabletop/TEMPLATE.md` | Read alongside: the mould of an adventure module |
 | Languages | Play | `lore/codex/hoja-de-personaje.md` | Read alongside: the character sheet |
 | Languages | Play | — | Not written yet: how a mission, a character or a place is designed as ours |
 | Recipes | Any piece | `protocols/PRO-014-producing-a-design-piece.md` | The order in which a piece's decisions are taken |

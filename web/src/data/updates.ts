@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.47.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "The adventures are on two shelves: tabletop, the modules a Game Director runs at a table with the manual (El Espejo Roto and its English, The Broken Mirror), and virtual worlds, what is played inside Numinia's 3D spaces (Session Zero, the city's tutorial). The two never share a page. The old addresses of Session Zero and El Espejo Roto take you to their new ones, and The Broken Mirror joins the lore's reading order.",
+      },
+    ],
+  },
+  {
     version: "v0.46.0",
     date: "2026-09-24",
     entries: [
