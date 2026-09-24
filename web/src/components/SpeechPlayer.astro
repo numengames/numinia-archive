@@ -124,10 +124,39 @@ const t = useT();
 </div>
 
 <script>
-  import { sentenceStart, locate, clock, duration, sectionAt, WPM, type Section } from "@/lib/speech-position";
+  import {
+    sentenceStart,
+    locate,
+    clock,
+    duration,
+    sectionAt,
+    sentences,
+    spokenWeight,
+    charAtSpoken,
+    RATES,
+    nextRate,
+    WPM,
+    type Section,
+  } from "@/lib/speech-position";
 
   // One controller per toolbar instance; pages can mount several toolbars.
-  const RATES = [1, 1.5, 2];
+  // The chosen speed follows the reader from document to document.
+  const RATE_KEY = "sp:rate";
+  const loadRate = (): number => {
+    try {
+      const r = Number(localStorage.getItem(RATE_KEY));
+      return (RATES as readonly number[]).includes(r) ? r : 1;
+    } catch {
+      return 1;
+    }
+  };
+  const storeRate = (r: number) => {
+    try {
+      localStorage.setItem(RATE_KEY, String(r));
+    } catch {
+      /* private mode: the speed lives for this page only */
+    }
+  };
 
   for (const root of document.querySelectorAll<HTMLElement>(".speech-player")) {
     // UI strings come pre-translated from the server as data-t-* attributes
@@ -195,13 +224,24 @@ const t = useT();
     }
     const PRUNE = [".doc-toolbar", "nav", ".speech-player", ".sp-dock"];
     const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE", "svg", "SVG"]);
-    type DocMap = { text: string; nodes: Text[]; nodeIdx: Int32Array; nodeOff: Int32Array; sections: Section[] };
+    type DocMap = {
+      text: string;
+      nodes: Text[];
+      nodeIdx: Int32Array;
+      nodeOff: Int32Array;
+      /** First and last character of `text` each node holds. */
+      nodeFirst: number[];
+      nodeLast: number[];
+      sections: Section[];
+    };
     const pageTitle = () => (document.querySelector("h1")?.textContent ?? "").trim();
     const EMPTY_MAP: DocMap = {
       text: "",
       nodes: [],
       nodeIdx: new Int32Array(0),
       nodeOff: new Int32Array(0),
+      nodeFirst: [],
+      nodeLast: [],
       sections: [],
     };
     const mapDocument = (): DocMap => {
@@ -259,7 +299,23 @@ const t = useT();
         if (block) pendingSpace = true;
       };
       walk(target);
-      return { text: out, nodes, nodeIdx: Int32Array.from(idx), nodeOff: Int32Array.from(off), sections };
+      const nodeFirst: number[] = new Array(nodes.length).fill(-1);
+      const nodeLast: number[] = new Array(nodes.length).fill(-1);
+      for (let i = 0; i < idx.length; i++) {
+        const n = idx[i];
+        if (n < 0) continue;
+        if (nodeFirst[n] < 0) nodeFirst[n] = i;
+        nodeLast[n] = i;
+      }
+      return {
+        text: out,
+        nodes,
+        nodeIdx: Int32Array.from(idx),
+        nodeOff: Int32Array.from(off),
+        nodeFirst,
+        nodeLast,
+        sections,
+      };
     };
     let docMap = mapDocument();
     const readDocument = () => mapDocument().text;
@@ -273,23 +329,13 @@ const t = useT();
       continue;
     }
 
-    // ---- chunking (sentence boundaries, ~280 chars) ----------------------
-    // Short chunks defeat the engine's long-utterance cutoff, make pause and
-    // stop feel immediate, and let rate changes land quickly.
-    const chunkText = (src: string): string[] => {
-      const out: string[] = [];
-      const sentences = src.match(/[^.!?…]+[.!?…]+[\s]*|[^.!?…]+$/g) ?? [src];
-      let buf = "";
-      for (const s of sentences) {
-        if (buf.length + s.length > 280 && buf) {
-          out.push(buf.trim());
-          buf = "";
-        }
-        buf += s;
-      }
-      if (buf.trim()) out.push(buf.trim());
-      return out;
-    };
+    // ---- the queue: one sentence per utterance ----------------------------
+    // Short utterances defeat the engine's long-utterance cutoff, make pause
+    // and stop feel immediate, and let rate changes land quickly. One
+    // sentence each (v4, 2026-09-24): every utterance's end is an exact,
+    // engine-reported moment, so the light re-syncs at every sentence and an
+    // estimate can never drift further than one (lib/speech-position.ts).
+    const chunkText = sentences;
     let chunks: string[] = chunkText(text);
     // Where each chunk starts in `text` — the bridge from an utterance's
     // charIndex back to a document position (marker, ruler, drying ink).
@@ -324,7 +370,8 @@ const t = useT();
     synth.addEventListener?.("voiceschanged", pickVoice);
 
     // ---- estimate --------------------------------------------------------
-    let rate = 1;
+    let rate = loadRate();
+    queueMicrotask(() => setRateLabel());
     const renderEst = () => {
       const mins = duration(words, rate) / 60;
       est.textContent = mins < 1 ? "· <1 " + T("Min", "min") : "· ~" + Math.round(mins) + " " + T("Min", "min");
@@ -356,8 +403,13 @@ const t = useT();
     const spokenInUtterance = () => {
       if (lastBoundary > 0) return lastBoundary; // exact, engine-reported
       if (!utterStart) return 0;
+      // Engines with no boundary events: walk the utterance by SPOKEN weight
+      // — a date or a figure takes what it takes to say, not to write (the
+      // light fell behind on numbers, v4). Slightly conservative: repeating
+      // a word beats skipping one never heard; the sentence's end re-syncs.
       const elapsed = (performance.now() - utterStart) / 1000;
-      return Math.max(0, Math.floor(elapsed * CPS * utterRate * 0.85));
+      const said = (chunks[queueIndex] ?? "").slice(charOffset);
+      return charAtSpoken(said, elapsed * CPS * utterRate * 0.94);
     };
     /** Absolute position of the voice in `text`. */
     const position = () => {
@@ -408,11 +460,8 @@ const t = useT();
       ) {
         queueIndex = saved.i;
         if (Number.isInteger(saved.o) && saved.o > 0 && saved.o < chunks[saved.i].length) charOffset = saved.o;
-        if (RATES.includes(saved.rate)) {
-          rate = saved.rate;
-          setRateLabel();
-          renderEst();
-        }
+        // The speed is the reader's, not the document's: it comes from
+        // localStorage (loadRate), whatever this page last played at.
       } else if (saved) {
         clearProgress(); // stale fingerprint: the text changed under it
       }
@@ -469,36 +518,75 @@ const t = useT();
     // above and a browser translation are never disturbed. Where the API is
     // missing, the text simply stays as it is.
     const HL = "highlights" in CSS && typeof Highlight === "function";
-    const inkSet = HL ? new Highlight() : null;
-    const inkMid = HL ? new Highlight() : null;
-    const inkWet = HL ? new Highlight() : null;
-    if (HL) {
-      CSS.highlights.set("sp-ink-set", inkSet!);
-      CSS.highlights.set("sp-ink-mid", inkMid!);
-      CSS.highlights.set("sp-ink-wet", inkWet!);
-    }
+    // v4 (2026-09-24, the Oracle): ink dries, it does not turn grey. Each
+    // ink keeps its own colour — a Verdemar link stays Verdemar, a bold in
+    // Arena stays Arena — and only loses brightness: to 90 %, 82 %, then
+    // 75 % for text that has set. One highlight per (colour, step), its rule
+    // written once. The earlier version painted everything in one muted grey
+    // at 50 %, and links stopped looking like links.
+    // Readers who ask the system for more contrast get no drying at all.
+    const DRY = [0.9, 0.82, 0.75]; // wet · drying · set
+    const moreContrast = matchMedia("(prefers-contrast: more)");
+    const inkRules = document.createElement("style");
+    document.head.appendChild(inkRules);
+    const inks = new Map<string, Highlight>();
+    const inkOf = new WeakMap<Element, string>();
+    const colourKey = (el: Element): string => {
+      let k = inkOf.get(el);
+      if (k) return k;
+      const m = getComputedStyle(el).color.match(/[\d.]+/g) ?? ["196", "181", "166", "1"];
+      k = m.slice(0, 3).join("-") + "-" + (m[3] ?? "1");
+      inkOf.set(el, k);
+      return k;
+    };
+    const inkFor = (key: string, step: number): Highlight => {
+      const name = "sp-ink-" + step + "-" + key.replace(/\./g, "_");
+      let h = inks.get(name);
+      if (h) return h;
+      h = new Highlight();
+      inks.set(name, h);
+      CSS.highlights.set(name, h);
+      const [r, g, b, a] = key.split("-").map(Number);
+      inkRules.sheet?.insertRule(
+        `::highlight(${name}){color:rgb(${r} ${g} ${b} / ${+(a * DRY[step]).toFixed(3)})}`,
+      );
+      return h;
+    };
     const wordsBack = (at: number, n: number): number => {
       let s = wordAt(at)[0];
       for (let k = 0; k < n && s > 1; k++) s = wordAt(s - 2)[0];
       return Math.max(0, s);
     };
+    /** Paint text [s, e) with drying step `step`, node by node, each in its own ink. */
+    const paint = (s: number, e: number, step: number) => {
+      const { nodes, nodeOff, nodeFirst, nodeLast } = docMap;
+      for (let n = 0; n < nodes.length; n++) {
+        const f = nodeFirst[n];
+        const l = nodeLast[n];
+        if (f < 0 || l < s || f >= e) continue;
+        const node = nodes[n];
+        if (!node.isConnected || !node.parentElement) continue;
+        let a = Math.max(s, f);
+        let z = Math.min(e - 1, l);
+        while (a <= z && docMap.nodeIdx[a] !== n) a++;
+        while (z >= a && docMap.nodeIdx[z] !== n) z--;
+        if (a > z) continue;
+        const r = document.createRange();
+        r.setStart(node, nodeOff[a]);
+        r.setEnd(node, nodeOff[z] + 1);
+        inkFor(colourKey(node.parentElement), step).add(r);
+      }
+    };
     const dry = (at: number) => {
       if (!HL) return;
-      inkSet!.clear();
-      inkMid!.clear();
-      inkWet!.clear();
-      if (at <= 0 || state === "idle") return;
+      for (const h of inks.values()) h.clear();
+      if (at <= 0 || state === "idle" || moreContrast.matches) return;
       const now = wordAt(at)[0];
       const wetFrom = wordsBack(at, 3);
       const midFrom = wordsBack(at, 9);
-      const add = (h: Highlight, s: number, e: number) => {
-        if (e <= s) return;
-        const r = rangeFor(s, e);
-        if (r) h.add(r);
-      };
-      add(inkSet!, 0, midFrom);
-      add(inkMid!, midFrom, wetFrom);
-      add(inkWet!, wetFrom, now);
+      paint(0, midFrom, 2);
+      paint(midFrom, wetFrom, 1);
+      paint(wetFrom, now, 0);
     };
 
     // ---- reading marker ----------------------------------------
@@ -570,7 +658,7 @@ const t = useT();
       curWord = s;
       curRange = rangeFor(s, e);
       wordT0 = performance.now();
-      wordDur = ((e - s + 1) / (CPS * rate)) * 1000;
+      wordDur = ((spokenWeight(docMap.text.slice(s, e)) + 1) / (CPS * rate)) * 1000;
       dry(s);
     };
     const frame = (now: number) => {
@@ -858,6 +946,7 @@ const t = useT();
       );
       const wasOn = dock.classList.contains("is-on");
       dock.classList.toggle("is-on", on);
+      document.body.classList.toggle("sp-on", on);
       if (on && !wasOn) requestAnimationFrame(drawRuler);
       document.body.style.paddingBottom = on ? dock.getBoundingClientRect().height + 34 + "px" : "";
       if (!on) {
@@ -1017,16 +1106,50 @@ const t = useT();
       dropMarker();
       dry(0);
       dock.remove();
-      document.body.classList.remove("sp-lost");
+      document.body.classList.remove("sp-lost", "sp-on");
       document.body.style.paddingBottom = "";
     };
+
+    // ---- touch a sentence to hear it (v4) ----------------------------------
+    // While the player is on, a click (or tap) on the text starts the voice
+    // at the head of that sentence. Links, buttons and a text selection keep
+    // their own meaning: selecting to copy is never hijacked.
+    const indexAt = (node: Node, offset: number): number => {
+      const n = docMap.nodes.indexOf(node as Text);
+      if (n < 0) return -1;
+      for (let i = docMap.nodeFirst[n]; i >= 0 && i <= docMap.nodeLast[n]; i++)
+        if (docMap.nodeIdx[i] === n && docMap.nodeOff[i] >= offset) return i;
+      return docMap.nodeLast[n];
+    };
+    target?.addEventListener("click", (e) => {
+      if (state === "idle") return;
+      const el = e.target as Element;
+      if (el.closest("a,button,input,textarea,select,summary,label,[role=button],.doc-toolbar")) return;
+      if (String(getSelection() ?? "").trim()) return;
+      const doc = document as Document & {
+        caretPositionFromPoint?: (x: number, y: number) => { offsetNode: Node; offset: number } | null;
+      };
+      let node: Node | null = null;
+      let off = 0;
+      if (doc.caretPositionFromPoint) {
+        const c = doc.caretPositionFromPoint(e.clientX, e.clientY);
+        if (c) [node, off] = [c.offsetNode, c.offset];
+      } else if (document.caretRangeFromPoint) {
+        const c = document.caretRangeFromPoint(e.clientX, e.clientY);
+        if (c) [node, off] = [c.startContainer, c.startOffset];
+      }
+      if (!node || node.nodeType !== Node.TEXT_NODE) return;
+      const at = indexAt(node, off);
+      if (at >= 0) seek(at);
+    });
 
     toggle.addEventListener("click", toggleRun);
     playBtn.addEventListener("click", toggleRun);
     stopBtn.addEventListener("click", stopAll);
 
     rateBtn.addEventListener("click", () => {
-      rate = RATES[(RATES.indexOf(rate) + 1) % RATES.length];
+      rate = nextRate(rate);
+      storeRate(rate);
       setRateLabel();
       renderEst();
       // Apply mid-run, keeping the word position — the reading continues
@@ -1057,15 +1180,15 @@ const t = useT();
 </script>
 
 <style is:global>
-  /* ---- drying ink: what the voice has passed fades behind it ---------- */
-  ::highlight(sp-ink-wet) {
-    color: rgb(var(--text-muted) / 0.78);
+  /* ---- drying ink: rules are written by the script, one per ink colour
+     and drying step (each ink keeps its colour, only loses brightness). */
+
+  /* While the voice is on, the text is a place you can touch to hear. */
+  .sp-on :is(p, li, blockquote, td, dd, h2, h3, h4) {
+    cursor: pointer;
   }
-  ::highlight(sp-ink-mid) {
-    color: rgb(var(--text-muted) / 0.62);
-  }
-  ::highlight(sp-ink-set) {
-    color: rgb(var(--text-muted) / 0.5);
+  .sp-on :is(a, button) {
+    cursor: pointer;
   }
 
   /* ---- reading marker: a diffuse light in Arena, with a trail --------- */
@@ -1098,8 +1221,25 @@ const t = useT();
     background: radial-gradient(circle, rgb(var(--text) / 0.55) 0, rgb(var(--text) / 0.22) 38%, transparent 70%);
     will-change: transform;
   }
+  /* The head: the same halo, with a small core of ink in its centre so the
+     eye has something to hold on to (v4 — easier to follow with low vision),
+     without turning back into a hard dot. Arena, never pure white. */
   .sp-marker > i:last-child {
-    background: radial-gradient(circle, rgb(var(--text) / 0.75) 0, rgb(var(--text) / 0.3) 35%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgb(var(--text) / 0.92) 0 1.6px,
+      rgb(var(--text) / 0.42) 2.8px,
+      rgb(var(--text) / 0.16) 45%,
+      transparent 70%
+    );
+  }
+  @media (prefers-contrast: more) {
+    .sp-marker > i:last-child {
+      background: radial-gradient(circle, rgb(var(--text)) 0 2.4px, rgb(var(--text) / 0.5) 3.6px, transparent 70%);
+    }
+    .sp-marker.is-paused {
+      opacity: 0.8;
+    }
   }
 
   /* ---- the dock: the document's card, in the Velo's glass -------------- */
@@ -1273,7 +1413,7 @@ const t = useT();
     left: -6px;
     top: -6px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgb(var(--text) / 0.85) 0 1.8px, rgb(var(--text) / 0.22) 2.6px, transparent 6px);
+    background: radial-gradient(circle, rgb(var(--text) / 0.92) 0 1.6px, rgb(var(--text) / 0.3) 2.8px, transparent 6px);
     transition: scale 120ms;
   }
   .sp-ruler:hover .sp-head::before,
@@ -1281,7 +1421,9 @@ const t = useT();
   .sp-ruler:focus-visible .sp-head::before {
     scale: 1.5;
   }
-  /* The preview speaks in the opposite mode, like every tooltip (BLU-009 §8). */
+  /* The preview is dark glass, like the dock it belongs to (v4, the Oracle:
+     the white paper dazzled in Nocturno). An exception to BLU-009 §8's
+     opposite-mode tooltip, recorded in STD-023 §22. */
   .sp-peek {
     position: absolute;
     bottom: calc(100% + 12px);
@@ -1291,8 +1433,11 @@ const t = useT();
     max-width: 250px;
     padding: 8px 10px;
     border-radius: 6px;
-    background: rgb(var(--text));
-    color: rgb(var(--bg));
+    background: rgb(var(--bg-card) / 0.9);
+    border: 1px solid rgb(var(--accent) / 0.22);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    color: rgb(var(--text));
     font: 0.75rem/1.4 var(--font-sans);
     pointer-events: none;
     opacity: 0;
@@ -1303,7 +1448,7 @@ const t = useT();
     font: 500 0.6rem var(--font-mono);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgb(var(--teal));
+    color: rgb(var(--accent));
     margin-bottom: 3px;
   }
   .sp-ruler.is-peek .sp-peek {

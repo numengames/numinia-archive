@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.31.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "FIX",
+        text: "Read text no longer turns grey. As the voice passes, each ink keeps its colour — a link stays a link, a bold stays bright — and only loses a little brightness, so you can still reread it.",
+      },
+      {
+        type: "FIX",
+        text: "The reading light keeps up with the voice on numbers and dates. A figure now counts for what it takes to say, and the light re-syncs at the end of every sentence, so it can never fall more than one sentence behind.",
+      },
+      {
+        type: "ADD",
+        text: "While listening, click any sentence and the voice reads from there. Links, buttons and selecting text to copy work as before.",
+      },
+      {
+        type: "CHG",
+        text: "Gentler speeds: 1×, 1.25×, 1.5×, 2× and 0.75×, and the speed you choose carries over to the next document. The reading light has a small core of ink so it is easier to follow, and the ruler's preview is dark glass instead of white paper. With 'more contrast' turned on in your system, read text does not fade.",
+      },
+    ],
+  },
+  {
     version: "v0.30.0",
     date: "2026-09-24",
     entries: [
