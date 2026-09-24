@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (the four sites against the design system)
+- **`reports/RPT-021-four-sites-design-audit.md`**: phase 1 of `MIS-154` (bring the four sites to the design system). The sixteen design rules against the source and the served home of numinia.org, numinia.com, numen.games and nwos.numen.games. Only numinia.com serves day and night; numen.games runs a draft palette and type of its own; nwos.numen.games animates outside the catalogue; numinia.com stores three keys the cookie policy does not name. numinia.org is recorded as the design lead: its departures go to the Oracle before any fix.
+
 ### Added — 2026-09-24 (the Codex's edition matter, in English)
 - **`lore/codex/en/glossary.md`**, **`acknowledgments.md`**, **`character-sheet.md`**: the English of the Codex's glossary (79 entries, re-sorted by English headword; same 81 headings), acknowledgments and character sheet (same 7 headings). Numinia terms from `lore/game/manual/glossary-es-en.md`; quotes reuse the wording of the English chapters. numinia.com's English Codex reads them. The Spanish stays the original. CC0.
 
