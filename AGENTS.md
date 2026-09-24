@@ -117,7 +117,7 @@ is not documented.
 
 ## The rules that govern work here
 
-`standards/`, `protocols/` and `canon/` hold 52 rule documents. Each opens
+`standards/`, `protocols/` and `canon/` hold the rule documents. Each opens
 with a `**Binds:**` line saying whom it governs. Read that line before
 opening the document.
 
