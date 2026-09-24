@@ -493,6 +493,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/system/sys-002-agent-cycle",
     "/system/sys-003-archive-fondos",
     "/system/sys-007-the-instruments",
+    // 2026-09-24: the account — where money comes from and goes, and who
+    // holds each key (STD-033).
+    "/system/sys-008-the-account",
   ],
 
   // The company looking at itself, from the inside out: how it survives its own

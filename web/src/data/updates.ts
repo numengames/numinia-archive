@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.42.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "How Numinia's money is wired, in the System section (SYS-008): the bank account, the payment processor, the gestoría, the invoices, the ledger and the four views — who holds each key, how a payment and a cost flow into the record, what a citizen, the CTO, a lender, the gestoría and an auditor each read, and which pieces are not wired yet.",
+      },
+    ],
+  },
+  {
     version: "v0.41.0",
     date: "2026-09-24",
     entries: [
