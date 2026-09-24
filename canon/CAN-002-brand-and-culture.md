@@ -4,20 +4,20 @@ uid: ""
 title: "We build a game to work better"
 type: seminal
 status: draft
-version: "3.0.0"
+version: "4.0.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-23T20:00:00+02:00"
-author: "Centinela-01"
+updated: "2026-09-24T19:00:00+02:00"
+author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, brand, culture, purpose, values]
+tags: [canon, seminal, brand, culture, purpose, values, play]
 license: "CC0-1.0"
-ratified_by: "ADR-052"
-supersedes_version: "2.0.1"
-related: ["CAN-001", "CAN-005", "CAN-008", "PRO-019", "STD-023"]
+ratified_by: "ADR-061"
+supersedes_version: "3.0.0"
+related: ["CAN-001", "CAN-005", "CAN-008", "CAN-010", "PRO-019", "STD-023"]
 threshold: governed
 ---
 
@@ -29,12 +29,13 @@ SPDX-License-Identifier: CC0-1.0
 # We build a game to work better
 
 > **Summary:** Numen Games exists to level up organisations so people relate
-> better inside them, and it does that by building games. Everything else —
-> the voice, the values, the symbols — follows from that sentence.
-> **Epistemic:** What this company believes, what it will not trade away, and
-> where its imagery comes from.
-> **Pragmatic:** Decide whether a piece of work sounds, looks and behaves like
-> Numinia before it ships.
+> better inside them, and it does that by building games — because play is
+> our first narrative, our first lesson and our first creative drive.
+> Everything else — the values, the voice, the name — follows from that.
+> **Epistemic:** What this company believes, why the game is the instrument
+> and not a metaphor, and what it will not trade away.
+> **Pragmatic:** Decide whether a piece of work sounds and behaves like
+> Numinia before it ships — and refuse one on the values when it does not.
 > **Audience:** Everyone
 
 **Binds:** every piece of work that speaks, looks or behaves in Numinia's
@@ -64,6 +65,22 @@ differently, with the focus on the human being and on the construction of
 fairer, stronger relations. Capitalism with heart has a place in the future;
 prosperity is the outcome of a happier, more balanced and fairer society, not
 its price.
+
+## Why a game
+
+**Play is our first narrative, our first lesson and our first creative
+drive.** Before anyone is taught anything they have played, and in playing
+they have already told a story, learnt a rule and made something up. A game
+is not a way of dressing work so that it hurts less. It is the oldest way
+human beings have of understanding a situation from inside it.
+
+That is why the game here is the instrument and not the packaging. A working
+framework can stand without one — most do — but it stands flat, with less
+dimension and fewer possibilities, and the story it needs turns up anyway,
+in sporadic brushstrokes nobody is aware of. Doing it on purpose, with a
+narrative and rules that are meant, is what gives the work its full size.
+The archetype turns to myth to become conscious; a way of working turns to a
+game for the same reason.
 
 ## What we will not trade away
 
@@ -96,15 +113,13 @@ human necessity to be organised in groups.
 Numinia focuses on the capacity of every individual to make a change through
 curiosity and creativity, leveling up relations within organisations.
 
-Numinia supports remix culture. Numinia understands art as a driver. Numinia
-believes that humans play to learn.
-
 We are convinced that our generation has the duty to propose new models for
 organisations — more balanced, closer to the human being. We want a better
 world for those who come after us, and we would not forgive ourselves for not
 trying.
 
-**Leave things better than we found them.**
+**Leave things better than we found them.** What that sentence obliges of an
+act is its own canon.
 
 ## How we sound
 
@@ -119,41 +134,22 @@ accessible. The **literary** belongs to the lore and the narrative, and
 invites the reader into fantasy. The **technical** carries Numinia's
 epistemological foundations, with more depth and less reach.
 
-## Where the imagery comes from
+## The name
 
-Three threads make the creative tapestry. **Mediterranean wisdom**, where myth
-meets the dawn of knowledge, and from which the archetypes of our civilisation
-come. **Steampunk and cyberpunk**, tracing the quantum leap between the Second
-Industrial Revolution and the new technological era — past revolutions echoing
-in future possibilities. And **Khepri**, the Egyptian solar scarab of creation
-and rebirth, who turns digital ruins into realms of endless creation.
-
-The symbols are the scarab and the moon in its phases: creation, the infinite
-cycle, rebirth. Behind them stand active inference and the free energy
-principle, Greek philosophy, anthropology, semiotics and hermeneutics — a
-fusion of the scientific and the fantastic universes.
-
-The name comes from *numen*, the Latin for divinity, divine presence or divine
+It comes from *numen*, the Latin for divinity, divine presence or divine
 will; the term sociologists use for the magical power residing in an object.
+The symbols are the scarab — Khepri, creation, cycle, rebirth — and the moon
+in its phases. Where the imagery comes from, and how the house looks, is the
+canon of visual identity's.
 
-## Who we are
+Numen Games is the Oracles' company, and it is friends who play, build, learn
+and divulge. That order matters.
 
-Numen Games began in 2020, born of the Oracles' vision: a quest to level up
-organisations through digital interaction and play, inspired by role-playing
-adventures and a passion for shaping the future for those to come.
+## References
 
-The four Oracles are united by family and friendship, with more than fifteen
-years of shared adventure and learning: two of them family, one a childhood
-friend, the others long-time colleagues. All are entrepreneurs, with projects
-in technology, innovation, storytelling and communication, and all share the
-tradition of fundamental learning through play — specifically role-playing,
-which is ingrained in the DNA of the team and of everything it creates.
-
-| Name | Role |
-|---|---|
-| Clio Beruete | Oracle |
-| Daniel Garrido | Oracle |
-| Christian Märtens | Oracle |
-| Pablo Fernández-Maquieira | Oracle |
-
-We are friends who play, build, learn and divulge. That order matters.
+| ID | Name | Why cited |
+|---|---|---|
+| `CAN-008` | The house looks one way | the imagery, the mix and the registers |
+| `CAN-005` | Opening is an act | what *remix* obliges |
+| `CAN-010` | Leave things better than you found them | what the closing sentence obliges |
+| `CAN-001` | You are already in the game | why the work is narrated at all |

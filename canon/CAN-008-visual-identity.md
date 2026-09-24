@@ -1,20 +1,20 @@
 ---
 id: "CAN-008"
 uid: ""
-title: "One identity, four registers"
+title: "One identity, three forces"
 type: seminal
 status: draft
-version: "2.0.0"
+version: "3.0.0"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-23T23:00:00+02:00"
+updated: "2026-09-24T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, brand, design, direction, registers]
+tags: [canon, seminal, brand, design, direction, forces, registers]
 license: "CC0-1.0"
-ratified_by: "ADR-056"
-supersedes_version: "1.1.1"
+ratified_by: "ADR-061"
+supersedes_version: "2.0.0"
 threshold: governed
 related: ["CAN-002", "STD-008", "STD-023", "PRO-014", "BLU-009", "BLU-010"]
 ---
@@ -24,40 +24,35 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# One identity, four registers
+# One identity, three forces
 
-> **Summary:** Numen Games has one visual identity that dresses in whatever
-> register a piece needs and stays recognisable across all of them, because
-> the foundation underneath never changes.
+> **Summary:** Numen Games has one visual identity that speaks through the
+> three forces of its world — the Umbral, the Velo and the Prisma — and stays
+> recognisable in all of them, because the foundation underneath never
+> changes.
 > **Epistemic:** Why this looks the way it does — the dosage, the century it
-> crosses, and what each register is for.
-> **Pragmatic:** Choose a register, and know when a piece has stopped being
-> ours. If it is decided here, it is not up for redesign in a piece.
+> crosses, and what each force is for.
+> **Pragmatic:** Name the force a piece lives in, and know when a piece has
+> stopped being ours. If it is decided here, it is not up for redesign in a
+> piece.
 > **Audience:** Everyone
 
 **Binds:** every piece that carries the Numen Games or Numinia mark.
 
 ---
 
-## Where it comes from
+## What the values oblige of a piece
 
-The identity is the house's purpose made visible: *leveling up organisations
-to build better relationships*, through games that make work better. Its cause
-is digital humanism — **humans are not the problem** — and its closing is the
-same as everything else here: leave things better than we found them. The
-emotion it aims for is joy, trust and interest; the archetypes behind it are
-the magician who heals, the caregiver and the explorer.
-
-The four values of the house each translate into a design obligation.
-**Cosmic harmony**: nothing exists as decoration — a resource that does not
-encode something true about the content is removed. **Equable**: accessibility
-is equity, not compliance. **Curiosity**, read through active inference:
-minimise surprise where the user acts, and maximise exploration where they
-discover. **Healthy environments**: the material lasts and weighs little.
-
-And the three pillars: **craft**, art as the engine; **learn**, because humans
-play to learn; **remix**, which is why this system is published openly for
-anyone to copy and better.
+The identity is the house's purpose made visible, and the canon of brand and
+culture says what that purpose and those values are. Here is only what each
+one obliges of a piece. **Cosmic harmony**: nothing exists as decoration — a
+resource that does not encode something true about the content is removed.
+**Equable**: accessibility is equity, not compliance. **Curiosity**, read
+through active inference: minimise surprise where the user acts, and
+maximise exploration where they discover. **Healthy environments**: the
+material lasts and weighs little. The emotion aimed for is joy, trust and
+interest; the archetypes behind it are the magician who heals, the caregiver
+and the explorer.
 
 ## The mix: forty, forty, twenty
 
@@ -105,22 +100,30 @@ that imitates.** Every register is a way of saying the same thing, and the
 moment a piece could be mistaken for another studio's, the register has been
 used wrong.
 
-## The four registers
+## The three forces
 
-The system speaks in four, ordered by importance, and every piece declares its
-own **before it declares its medium**.
+The world of Numinia moves by three forces, and the identity speaks through
+the same three. Where the Velo keeps, the Umbral manifests, and the Prisma
+unfolds. Every piece declares the force it lives in **before it declares its
+medium**.
 
-**The Umbral** is the general register, named for the border anyone can cross.
-It is the base system: websites, presentations, documents, invoices,
+**The Umbral** is the force of manifestation, named for the border anyone can
+cross. It is the base system: websites, presentations, documents, invoices,
 interface, events, email. It sets the priors of whoever arrives from outside,
-and it is the register that invoices.
+and it is the force that invoices.
 
-**The Velo** is the register of depth. In the world it is the symbolic skin
-that sustains the city, where knowledge orders itself upon being discovered;
-in the system it is the atmosphere seen behind and through things — archive,
+**The Velo** is the force of depth. In the world it is the symbolic skin that
+sustains the city, where knowledge orders itself upon being discovered; in
+the system it is the atmosphere seen behind and through things — archive,
 viewers, discovery surfaces. It makes visible how knowledge settles, as
 literal layers. Its single rule: **the Velo adds no new colour, only
 transparency.** Nothing enters the system through that door.
+
+**The Prisma** is the force of refraction: it creates no truths, it
+multiplies perspectives, and it lets each guild and faction project its own
+angle of the world. In the identity it is the force that gives the world a
+body, and it does so in two manifestations, each a way of looking chosen
+whole.
 
 **Low-poly** is the world's 3D body: environments, props, characters. **The
 mesh is honest as the pixel is honest** — the faceted geometry is shown, not
@@ -136,7 +139,11 @@ narrative scenes — never corporate communication, where the pixel would be
 costume rather than narrative. It lives in the night: a pixel scene inside a
 light piece keeps its dark canvas, framed, and is never recoloured.
 
-**The fusion rule.** Registers do not stack. A piece lives in one and may
+Where the Velo asks for rite and the Umbral for action, the Prisma asks for a
+choice — and that is why its two manifestations are entered and left
+completely: a refraction is an angle, and an angle is not mixed.
+
+**The fusion rule.** Forces do not stack. A piece lives in one and may
 **frame** content from another — a sprite inside a website, a viewer showing a
 3D asset — and the boundary between them must be visible.
 
@@ -174,21 +181,19 @@ with reduced motion everything simply appears. The typing is the flagship,
 and it carries a double heritage — the 1920 typewriter and the 2020 terminal
 at once, which is what makes it the most Numinian movement in the catalogue.
 
-The voice is cultivated, plain and clear: precision with a touch of fantasy,
-no jargon until it reaches the receiver.
+The voice and its three levels are the canon of brand and culture's. What a
+piece does with them: the colloquial for community, product and interface;
+the literary, which is the lore's, for home, covers, events and campaigns;
+the technical for documentation, proposals and contracts. A contract with
+lore in it is not signed; a home page full of metrics convenes nobody.
 
-Every piece declares its **level of language** and keeps it. The
-**colloquial** for community, product and interface; the **literary**, which
-is the lore's, for home, covers, events and campaigns; the **technical** for
-documentation, proposals and contracts. A contract with lore in it is not
-signed; a home page full of metrics convenes nobody.
-
-The world's vocabulary is level II's own, and in level III it is cited rather
-than narrated. Its names are written as they are, never translated, and no
-relatives are invented for them. Alongside it, each decade has words that
-smell of it — cenacle and bronze and correspondence for 1920, signal and
-invocation and terminal for 2020, garden and harvest and morning light for
-2120 — used as spices and not as the dish.
+The world's vocabulary is the literary level's own, and in the technical it
+is cited rather than narrated. Its names are written as the manual and its
+translation glossary fix them, and no relatives are invented for them.
+Alongside it, each decade has words that smell of it — cenacle and bronze
+and correspondence for 1920, signal and invocation and terminal for 2020,
+garden and harvest and morning light for 2120 — used as spices and not as
+the dish.
 
 ## What this canon does not define
 
@@ -207,4 +212,4 @@ this is how the house looks, not what the house is.
 | `STD-023` | Design values | every value this canon refuses to quote |
 | `STD-008` | Design tokens | the rules a builder applies |
 | `PRO-014` | Producing a design piece | how a piece is made and reviewed |
-| `CAN-002` | We build a game to work better | the house this identity dresses |
+| `CAN-002` | We build a game to work better | the purpose, the values and the voice this identity makes visible |

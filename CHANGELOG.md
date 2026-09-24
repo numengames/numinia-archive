@@ -19,6 +19,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (three canons of the house, ADR-061)
+- **`canon/CAN-002-brand-and-culture.md`** `4.0.0`: gains *Why a game* (play is our first narrative, first lesson and first creative drive — the manual's introduction, and the long role-structure text's opening in plain words); loses *Who we are* (history with a clock) and *Where the imagery comes from* (CAN-008 owns it); closes on CAN-010. 875 → 891 words.
+- **`canon/CAN-008-visual-identity.md`** `3.0.0`, retitled *One identity, three forces*: loses *Where it comes from* (CAN-002's purpose, values and pillars restated) and keeps what each value obliges of a piece; the four registers become the three forces of the manual — Umbral, Velo, Prisma — with low-poly and pixel as the Prisma's two manifestations; the voice defers to CAN-002; names follow the manual and its translation glossary. Every rule on low-poly and pixel unchanged. Three glyphs stay three. 1 436 → 1 497 words.
+- **`canon/CAN-005-licensing.md`** `5.0.0`: every thesis kept, rewritten around a reader who wants to use something of ours; five kinds of thing each with the reader it serves; a case per rule. No licence, regime or gate changes. 616 → 1 041 words.
+- **`agents/INDEX.md`** `3.1.0`: the Oracles table, carried from CAN-002 under a new *Oracles* heading; `web/src/lib/agents.ts` reads it there. `AGENTS.md` rule index regenerated.
+
 ### Added — 2026-09-24 (CAN-010, leave things better than you found them, ADR-060)
 - **`canon/CAN-010-leave-things-better.md`** `0.1.0`, in draft and said so in its body: the sentence that closes every canon is the house's ethics, applied to people (`STD-029`), their data (`STD-026` data dignity, `OPS-010`), the commons (`CAN-005`, `STD-014`) and the acts of a digital agent (`CAN-009`). Inferred from the corpus at the Oracle's word; no rule of its own. Closes the reading order; `AGENTS.md` rule index regenerated.
 
