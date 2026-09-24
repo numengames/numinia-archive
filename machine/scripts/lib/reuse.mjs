@@ -72,7 +72,9 @@ export function regimeOf(rel, annotations = loadAnnotations()) {
  */
 export function declaredIn(text) {
   const head = String(text).replace(/```[\s\S]*?```/g, '');
+  // REUSE-IgnoreStart
   const m = /SPDX-License-Identifier:\s*([^\s`|>*]+)/.exec(head);
+  // REUSE-IgnoreEnd
   return m ? m[1].trim() : null;
 }
 

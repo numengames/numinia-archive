@@ -6,7 +6,7 @@
 //
 // AGT-001 makes AGENTS.md the file every runtime reads, and until now nothing
 // read it back. It drifted exactly where a hand-written description always
-// drifts: it claimed 12 protocols over a folder of 11, omitted two top-level
+// drifts: it claimed a protocol count the folder contradicted, omitted two top-level
 // directories, named three reserved `operations/` files where REUSE.toml pins
 // four, and carried a copy of the roster that `agents/INDEX.md` owns — seven
 // agents where the tree has ten. Each is a count a machine can take.
@@ -37,14 +37,20 @@ test('AGT-001: AGENTS.md opens with the audit instruction', () => {
   assert.match(first, /audit/i);
 });
 
-test('the protocol count is the number of protocols', () => {
-  // "Every protocol in this archive is `status: draft` (N of N)" — the sentence
-  // the whole transition regime rests on. It said 12 over a folder of 11.
-  const n = countIn('protocols', 'PRO-');
-  const m = /\(\s*(\d+)\s+of\s+(\d+)\s*\)/.exec(AGENTS);
-  assert.ok(m, 'AGENTS.md states no "(N of N)" protocol count');
-  assert.equal(Number(m[2]), n, `AGENTS.md says ${m[2]} protocols, protocols/ holds ${n}`);
-  assert.equal(Number(m[1]), n, 'the two halves of the count disagree');
+test('every protocol is draft, as AGENTS.md says, and no count is typed', () => {
+  // "Every protocol in this archive is `status: draft`" — the sentence the
+  // whole transition regime rests on. It used to carry "(N of N)", and the
+  // number drifted twice (12 over 11, then 11 over 12). The Oracle's word
+  // (2026-09-24): do not state how many there are. So the file states no
+  // count, and this test checks the claim itself: every PRO- file is draft.
+  assert.match(AGENTS, /Every protocol in this archive is\s+`status: draft`/, 'the regime sentence is gone');
+  assert.ok(!/\(\s*\d+\s+of\s+\d+\s*\)/.test(AGENTS), 'AGENTS.md types a "(N of N)" count again');
+  const files = tracked.filter((f) => /^protocols\/PRO-/.test(f));
+  assert.ok(files.length > 0, 'no protocols found');
+  for (const f of files) {
+    const head = readFileSync(path.join(ROOT, f), 'utf8').slice(0, 2000);
+    assert.match(head, /status:\s*draft/, `${f} is not draft, but AGENTS.md says every protocol is`);
+  }
 });
 
 test('every top-level directory of the corpus appears in the map', () => {
