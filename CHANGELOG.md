@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (CAN-009, the archive is the organisation, ADR-059)
+- **`canon/CAN-009-the-archive-is-the-organisation.md`** `1.0.0`: the memory is a text; a document is a claim and the history is the record; only the axis obliges; work is a change to the text; an agent is a citizen. States as canon the reasoning `STD-006`, `STD-020`, `STD-012`, `STD-024` and `STD-009` carried in their Why sections — no rule moves. 945 words. Enters the reading order fourth (`corpus.ts`), reading note rewritten; `AGENTS.md` rule index regenerated.
+
 ### Changed — 2026-09-24 (CAN-007 says what function is, ADR-058)
 - **`canon/CAN-007-pragmatic-numen-system.md`** `2.1.0`: one new section, *Function is a frame of ends and values* — function answers *what is it for?* and *what is it worth?*; interpreting meaning is asking those two questions; a use is a fact about the object, a function a relation between object, need and value (the microscope drives the nail); function reaches into structure through dependency, and the need comes before both (the birds and the wings); the test of a functional intervention is whether the two questions were answered. Carried from the long role-structure text, where the canon of roles had kept the image and lost the argument. Card's Pragmatic line adds the two questions. 1 028 → 1 366 words.
 
