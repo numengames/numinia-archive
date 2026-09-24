@@ -99,6 +99,30 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
         download join them, and are rebuilt from them every time one changes.
       </p>
 
+      <!-- Who this page is for, in plain words -->
+      <div class="mb-10 grid max-w-[900px] gap-3 sm:grid-cols-3">
+        <div class="rounded-[8px] border border-border bg-card p-4">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">If you design something</p>
+          <p class="mt-1 text-xs leading-relaxed text-muted-foreground">Start here. Pick the recipe of your medium below; it tells you which colours, letters and motion to use and in what order.</p>
+        </div>
+        <div class="rounded-[8px] border border-border bg-card p-4">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">If you are an AI</p>
+          <p class="mt-1 text-xs leading-relaxed text-muted-foreground">Download the system: one document with every rule, plus the values in a file a machine reads (the <em>tokens</em>).</p>
+        </div>
+        <div class="rounded-[8px] border border-border bg-card p-4">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">If you check a site</p>
+          <p class="mt-1 text-xs leading-relaxed text-muted-foreground">The yes-or-no rules are in <a href="/standards/std-008-design-tokens" class="text-accent hover:underline">Design tokens</a>: every web has day and night, one footer, a closed palette.</p>
+        </div>
+      </div>
+
+      <!-- The three words the page uses without stopping -->
+      <dl class="mb-10 grid max-w-[900px] gap-x-6 gap-y-2 text-xs sm:grid-cols-2">
+        <div><dt class="inline text-foreground">Umbral, Velo, Prisma</dt> <dd class="inline text-muted-foreground">— the three forces: the everyday surface (a page, an invoice), the deep one (the archive, glass and fog), and the world's own body (pixel and low-poly).</dd></div>
+        <div><dt class="inline text-foreground">Nocturno, Diurno</dt> <dd class="inline text-muted-foreground">— night mode and day mode. Every web has both, with the moon and sun switch.</dd></div>
+        <div><dt class="inline text-foreground">Tokens</dt> <dd class="inline text-muted-foreground">— each value (a colour, a size, a duration) with a name, in a file tools and AIs read.</dd></div>
+        <div><dt class="inline text-foreground">Read alongside</dt> <dd class="inline text-muted-foreground">— a document linked from here but not part of the system, like the game manual.</dd></div>
+      </dl>
+
       <div class="mb-12 flex flex-wrap items-center gap-4">
         <a
           href={`/design/${ZIP_NAME}`}
@@ -378,6 +402,32 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
                 </div>
               </div>
 
+              <!-- The mode switch, live (STD-008 DSN-016) -->
+              <div class="rounded-[8px] border border-border bg-card p-5">
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · day and night — every web has both</p>
+                <div class="grid gap-4 md:grid-cols-[auto_1fr] md:items-center">
+                  <div class="ds-modes" data-modo-demo="nocturno">
+                    <div class="ds-mode-bar">
+                      <span class="ds-mode-name">numinia</span>
+                      <button type="button" class="ds-mode-btn" aria-label="Switch to day mode">
+                        <span class="ds-to-day"><Icon name="sun" size={20} /></span>
+                        <span class="ds-to-night"><Icon name="moon-stars" size={20} /></span>
+                      </button>
+                    </div>
+                    <p class="ds-mode-h">Leave things better than you found them.</p>
+                    <p class="ds-mode-b">A page in the mode you chose. The button shows where a tap takes you.</p>
+                    <span class="ds-mode-link">Read the recipe →</span>
+                  </div>
+                  <ul class="space-y-2 text-xs leading-relaxed text-muted-foreground">
+                    <li><span class="text-foreground">The icon shows where you go, not where you are:</span> the sun takes you to the day, the moon with stars to the night. Try it.</li>
+                    <li><span class="text-foreground">Until you choose, the page follows your device</span> — it turns to night when your phone does.</li>
+                    <li><span class="text-foreground">Once you choose, it remembers</span>, and paints the right mode from the first instant, with no flash.</li>
+                    <li><span class="text-foreground">Pixel scenes and the Velo keep their night</span> inside a day page, framed.</li>
+                    <li><a href="/blueprints/web-pieces" class="text-accent hover:underline">The switch in the web recipe →</a></li>
+                  </ul>
+                </div>
+              </div>
+
               <!-- Focus and elevation -->
               <div class="grid gap-3 md:grid-cols-2">
                 <div class="rounded-[8px] border border-border bg-card p-5">
@@ -474,4 +524,36 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
   @media (prefers-reduced-motion: reduce) {
     .ds-coin { animation: none; }
   }
+  /* The mode switch specimen: Nocturno and Diurno from STD-023 §2. */
+  .ds-modes {
+    --m-bg: #14110F; --m-surf: #1E1A17; --m-line: #3A332D; --m-ink: #F9EBDC; --m-ink2: #C4B5A6; --m-link: #A6DAD5;
+    width: min(360px, 100%); border: 1px solid var(--m-line); border-radius: 8px; background: var(--m-bg); color: var(--m-ink);
+    padding: 0 0 18px; transition: background 320ms linear, color 320ms linear, border-color 320ms linear;
+  }
+  .ds-modes[data-modo-demo="diurno"] {
+    --m-bg: #F9EBDC; --m-surf: #FDF6EE; --m-line: #E2D3C2; --m-ink: #14110F; --m-ink2: #4A423B; --m-link: #016E7D;
+  }
+  .ds-mode-bar { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid var(--m-line); background: var(--m-surf); border-radius: 8px 8px 0 0; }
+  .ds-mode-name { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
+  .ds-mode-btn { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 6px; color: var(--m-ink); }
+  .ds-mode-btn:focus-visible { outline: 2px solid #018EA1; outline-offset: 2px; }
+  .ds-to-night { display: none; }
+  .ds-modes[data-modo-demo="diurno"] .ds-to-day { display: none; }
+  .ds-modes[data-modo-demo="diurno"] .ds-to-night { display: inline-flex; }
+  .ds-mode-h { padding: 16px 16px 0; font-size: 1.05rem; }
+  .ds-mode-b { padding: 6px 16px 0; font-size: .75rem; color: var(--m-ink2); }
+  .ds-mode-link { display: inline-block; padding: 10px 16px 0; font-size: .75rem; color: var(--m-link); }
+  @media (prefers-reduced-motion: reduce) { .ds-modes { transition: none; } }
 </style>
+
+<script>
+  // The specimen switches itself only; the page stays in the site's mode.
+  document.querySelectorAll<HTMLElement>("[data-modo-demo]").forEach((box) => {
+    const btn = box.querySelector<HTMLButtonElement>(".ds-mode-btn")!;
+    btn.addEventListener("click", () => {
+      const day = box.dataset.modoDemo !== "diurno";
+      box.dataset.modoDemo = day ? "diurno" : "nocturno";
+      btn.setAttribute("aria-label", day ? "Switch to night mode" : "Switch to day mode");
+    });
+  });
+</script>

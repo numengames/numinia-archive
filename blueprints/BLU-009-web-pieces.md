@@ -4,9 +4,9 @@ uid: ""
 title: "Web pieces"
 type: blueprint
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-09T12:00:00+02:00"
+updated: "2026-09-24T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -110,7 +110,7 @@ Rules: one patina per piece; the patina does not change the palette — it inter
 A custom icon only if Phosphor does not cover the concept; it is drawn on its grid and proposed here as an extension. **The scarab and the Moon are not icons: they are marks** — the sequence marker's phases are built as a proper geometric glyph, not with Phosphor's `moon`.
 
 ### The mode switch
-The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: the icon shows the mode a tap leads to, not the mode you are in** — the moon with stars invites the Nocturno, the sun invites the Diurno. Only one visible at a time, in `regular` 20 px, among the bar's utilities (`BLU-009` §12). Behavior canonized from production: while nobody chooses, the page **follows the operating system** and changes with it at nightfall; an explicit choice ends the following and is remembered; the preference is applied **before painting** so the page does not flash. The state is written on the document as `data-modo`, and its **absence means Nocturno** — light mode is always declared explicitly.
+Every public web carries it (`STD-008` DSN-016). The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: the icon shows the mode a tap leads to, not the mode you are in** — the moon with stars invites the Nocturno, the sun invites the Diurno. Only one visible at a time, in `regular` 20 px, among the bar's utilities (`BLU-009` §12). Behavior canonized from production: while nobody chooses, the page **follows the operating system** and changes with it at nightfall; an explicit choice ends the following and is remembered; the preference is applied **before painting** so the page does not flash. The state is written on the document as `data-modo`, and its **absence means Nocturno** — light mode is always declared explicitly.
 
 ## 6. Brand: how yes, how no
 

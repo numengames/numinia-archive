@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.38.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "Every Numen Games website must now have a day mode and a night mode, with the sun and moon button: the sun takes you to the day, the moon to the night. The design system page shows the button working on a small sample page, says who the page is for, and explains the words it uses (Umbral, Velo, Prisma, tokens).",
+      },
+    ],
+  },
+  {
     version: "v0.37.0",
     date: "2026-09-24",
     entries: [
