@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "7a5484f",
-  "corpus_hash": "f3463ae1cd13cbb9a2cc5d087993d05120a8bd6c222613208b16aec2c6e495dc",
+  "head": "150cf53",
+  "corpus_hash": "9532f0a3fa4578da7f781dbabe0153b780a6c30a003b48634cdb497b8e39cd8d",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T14:03:38Z",
+  "measured_at": "2026-09-24T14:12:25Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 564,
+      "value": 565,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -30,7 +30,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 14,
-        ".md": 216,
+        ".md": 217,
         ".mjs": 76,
         ".png": 35,
         ".svg": 72,
@@ -47,12 +47,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 216,
+      "value": 217,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 215,
+      "value": 216,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -65,7 +65,7 @@
         "canon": 9,
         "debt": 2,
         "decisions": 24,
-        "lore": 33,
+        "lore": 34,
         "machine": 13,
         "missions": 11,
         "objects": 2,
@@ -80,7 +80,7 @@
     },
     "corpus.docs_by_type": {
       "value": {
-        "(none)": 42,
+        "(none)": 43,
         "adr": 25,
         "agent": 34,
         "blueprint": 10,
@@ -97,7 +97,7 @@
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
     },
     "corpus.docs_without_frontmatter": {
-      "value": 41,
+      "value": 42,
       "unit": "documents",
       "definition": "corpus documents with no `---` block at the top"
     },
@@ -318,17 +318,17 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 815657,
+      "value": 828991,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "lore": 472178,
+        "lore": 485347,
         "standards": 56771,
         "missions": 43966,
         "decisions": 35157,
-        "": 34576,
+        "": 34741,
         "agents": 29069,
         "reports": 26307,
         "operations": 24533,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 506824,
+        "(none)": 520158,
         "draft": 145755,
         "active": 117624,
         "done": 26539,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.39,
+      "value": 5.3,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -393,7 +393,7 @@
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
     "headers.docs_without_frontmatter": {
-      "value": 41,
+      "value": 42,
       "unit": "documents",
       "definition": "corpus docs minus docs_with_frontmatter"
     },
@@ -520,7 +520,7 @@
     "provenance.authorship": {
       "value": {
         "ai-persona": 136,
-        "no-frontmatter": 41,
+        "no-frontmatter": 42,
         "other": 25,
         "ai-model": 8,
         "human": 4,

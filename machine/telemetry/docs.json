@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 104756,
+  "chars": 105347,
   "apparatus": false,
   "archived": false,
-  "tokens": 27763
+  "tokens": 27928
  },
  {
   "path": "CLAUDE.md",
@@ -1006,10 +1006,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1540,
+  "chars": 1769,
   "apparatus": true,
   "archived": false,
-  "tokens": 419
+  "tokens": 485
  },
  {
   "path": "lore/adventures/TEMPLATE.md",
@@ -1043,6 +1043,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 5066
+ },
+ {
+  "path": "lore/adventures/the-broken-mirror.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 57443,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 12053
  },
  {
   "path": "lore/codex/agradecimientos.md",
@@ -1193,10 +1204,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1477,
+  "chars": 1637,
   "apparatus": true,
   "archived": false,
-  "tokens": 388
+  "tokens": 431
  },
  {
   "path": "lore/game/manual/es/00-introduccion.md",
@@ -1303,10 +1314,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38712,
+  "chars": 41829,
   "apparatus": false,
   "archived": false,
-  "tokens": 12473
+  "tokens": 13480
  },
  {
   "path": "lore/world/brand-and-culture.md",

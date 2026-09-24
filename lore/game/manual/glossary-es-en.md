@@ -864,6 +864,58 @@ indica el capítulo donde aparece por primera vez.
 | elementos culturizados | culturalised elements | 7 |
 | Tirada de Característica | Characteristic Roll | 7 |
 | Plantilla Modular | Modular Template | 7 |
+| Espejo Astillado | Splintered Mirror | El Espejo Roto |
+| Museo de Artes y Reliquias | Museum of Arts and Relics | El Espejo Roto |
+| Corredor de Möbius | Möbius Corridor | El Espejo Roto |
+| trakmósis | trakmósis | El Espejo Roto |
+| Cámara Velada | Veiled Chamber | El Espejo Roto |
+| Jardines Hiperglóticos | Hyperglottic Gardens | El Espejo Roto |
+| Cubículo Sensorial | Sensory Cubicle | El Espejo Roto |
+| Cámara de Disociación Fonosemántica | Chamber of Phonosemantic Dissociation | El Espejo Roto |
+| Archivo Espiral | Spiral Archive | El Espejo Roto |
+| El Testimonio Repetido | The Repeated Testimony | El Espejo Roto |
+| La Semilla Afásica | The Aphasic Seed | El Espejo Roto |
+| La Cédula de Acceso | The Access Pass | El Espejo Roto |
+| El Contramanual de Morfología | The Countermanual of Morphology | El Espejo Roto |
+| La Lengua Desollada | The Flayed Tongue | El Espejo Roto |
+| La Esquirla Mnémica | The Mnemonic Shard | El Espejo Roto |
+| Ludarca | Ludarch | El Espejo Roto |
+| Hierofante Botánica | Botanical Hierophant | El Espejo Roto |
+| Cantor Radicular | Root Cantor | El Espejo Roto |
+| Curador Fonético | Phonetic Curator | El Espejo Roto |
+| Documentalista crítica | Critical Documentalist | El Espejo Roto |
+| Etiologista | Aetiologist | El Espejo Roto |
+| Custodia de Sellos | Keeper of Seals | El Espejo Roto |
+| Morfóloga de Artefactos y Reliquias | Morphologist of Artefacts and Relics | El Espejo Roto |
+| Terraza de Vitral | Stained-Glass Terrace | El Espejo Roto |
+| Salón Invernal | Winter Hall | El Espejo Roto |
+| Raíces Orantes | Praying Roots | El Espejo Roto |
+| Sala de Gestación | Gestation Room | El Espejo Roto |
+| Sala de Conceptos | Hall of Concepts | El Espejo Roto |
+| Cámara de Drusa | Drusa's Chamber | El Espejo Roto |
+| Dependencias del Archivo Summa | Premises of the Summa Archive | El Espejo Roto |
+| Librería de la Sección Aleph | Aleph Section Library | El Espejo Roto |
+| Contramanual | Countermanual | El Espejo Roto |
+| Sinestesista Técnico | Technical Synaesthete | El Espejo Roto |
+| Traductora Sensorial | Sensory Translator | El Espejo Roto |
+| Director Semántico | Semantic Director | El Espejo Roto |
+| Cabina Gustativa Fracturada | Fractured Gustatory Booth | El Espejo Roto |
+| Conservador Liminal | Liminal Curator | El Espejo Roto |
+| Situaciones de Contención | Containment Situations | El Espejo Roto |
+| Oleaje de Pintura | Paint Swell | El Espejo Roto |
+| Cámara Ecoica | Echoic Chamber | El Espejo Roto |
+| La puerta que no sabía que era puerta | The door that did not know it was a door | El Espejo Roto |
+| Reloj de Distorsión | Distortion Clock | El Espejo Roto |
+| Consejo de Delegados | Council of Delegates | El Espejo Roto |
+| El Depósito Olvidado | The Forgotten Repository | El Espejo Roto |
+| Cicatrices del Espejo | Scars of the Mirror | El Espejo Roto |
+| Esfinge Tipográfica | Typographic Sphinx | El Espejo Roto |
+| Tirada Alética | Alethic Roll | El Espejo Roto |
+| Tirada Deóntica | Deontic Roll | El Espejo Roto |
+| Tirada Epistémica | Epistemic Roll | El Espejo Roto |
+| Tirada Axiológica | Axiological Roll | El Espejo Roto |
+| Balanza del Consejo | Balance of the Council | El Espejo Roto |
+| Drusa Malter | Drusa Malter | El Espejo Roto |
 
 ## C. Dudas abiertas — open questions
 
@@ -875,5 +927,3 @@ indica el capítulo donde aparece por primera vez.
   Master*, pero ese nombre ya lo tiene la Posición *Maestro de Juego*. Si
   se prefiere *Game Master* para el DJ, hay que renombrar la Posición en
   numinia.com.
-- ***El Espejo Roto* en inglés.** El módulo sigue en español por ahora. Si
-  se traduce, se llamaría *The Broken Mirror*.
