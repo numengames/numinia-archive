@@ -457,6 +457,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/standards/std-020-git-is-the-archive",
     "/standards/std-021-evidence-and-citation",
     "/standards/std-022-secrets",
+    // 2026-09-24 (ADR-064): charges and the account, beside secrets — both
+    // are about what the company holds that is not the archive's to show.
+    "/standards/std-033-charges-and-the-account",
     "/standards/std-010-licensing",
     "/standards/std-014-publishing-gates",
     "/standards/std-013-licence-allowlist-and-fields",

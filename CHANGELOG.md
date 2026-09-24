@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (STD-033, every charge delivers something; the account is one, ADR-064)
+- **`standards/STD-033-charges-and-the-account.md`** `0.1.0`, draft: PAY-001..009 for a charge (something in return, whole price with VAT, no record no charge, one account and the Oracle's keys, no card on our sites, leaving in one step, remembered by choice, open stays open, a resaleable token waits for legal review) and LED-001..008 for the account (one ledger of lines, four views that agree, billed and consumed, closed from documents, traceable to the paper for an auditor or the tax authority, people counted not named, documents out of the tree, kept six years and while a tax right can be checked). Reading order after `STD-022`.
+- **`standards/STD-003-platform-ranks.md`** `3.1.3`: payment points at `STD-033` instead of `operations/`. **`standards/STD-011-external-standards.md`**: two Funding rows, the Spanish accounting plan and FinOps FOCUS.
+
 ### Fixed — 2026-09-24 (the English glossary follows the Token correction)
 - **`lore/codex/en/glossary.md`**: the Tokens entry quotes the corrected manual — *They represent a bond, and may represent wealth as well* — as the Spanish glossary and both manuals do since `ADR-063`. It arrived with the old sentence from the branch that was open when the correction landed.
 
