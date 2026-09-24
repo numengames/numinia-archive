@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 113148,
+  "chars": 113729,
   "apparatus": false,
   "archived": false,
-  "tokens": 29984
+  "tokens": 30136
  },
  {
   "path": "CLAUDE.md",
@@ -2473,5 +2473,16 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1793
+ },
+ {
+  "path": "system/SYS-008-the-account.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "active",
+  "chars": 6460,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1640
  }
 ]
