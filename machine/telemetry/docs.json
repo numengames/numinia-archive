@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 105347,
+  "chars": 106556,
   "apparatus": false,
   "archived": false,
-  "tokens": 27928
+  "tokens": 28229
  },
  {
   "path": "CLAUDE.md",
@@ -2304,10 +2304,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5677,
+  "chars": 6205,
   "apparatus": false,
   "archived": false,
-  "tokens": 1544
+  "tokens": 1661
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
