@@ -13,6 +13,11 @@ license: "CC-BY-4.0"
 registration: exempt
 registration_reason: "singular document, not a numbered series"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
 # Security Policy
 
 ## Reporting a vulnerability

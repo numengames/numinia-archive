@@ -26,6 +26,11 @@ license: "CC0-1.0"
 requires_oracle_approval: true
 paths: [missions/MIS-0153-agent-roster-page.md, web/src/pages/agent.astro, web/src/views/AgentView.astro]
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # MIS-153 — Publish the Numinia agent roster as an organizational RPG directory
 
 > **Summary:** Create the public `/agent/` page as an organizational “who we are” directory for the biological and digital agents of Numinia.

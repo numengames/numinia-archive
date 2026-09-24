@@ -34,6 +34,11 @@ forms:
         note: "the legacy location (R2 bucket of the retired MVP); kept as a second copy while it answers"
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Avocado
 
 > **Summary:** A green avatar with a pit for a face — the 88th of Polygonal Mind's *100 Avatars*, offered under CC0 and carried into Numinia unchanged.

@@ -82,7 +82,7 @@ the contract of the series it scaffolds:
 | T-01 | frontmatter parses, and carries the whole of ring 1 |
 | T-02 | the filename is `PREFIX-TEMPLATE.md` for a registered prefix |
 | T-03 | no inline `#` comment after a value — the shape that corrupts it |
-| T-04 | `license:` matches the REUSE regime of the **destination** |
+| T-04 | `license:` names a licence with a text in `LICENSES/` |
 | T-05 | `type` belongs to the destination series (`STD-016`) |
 | T-06 | `status` is in the destination's lifecycle (`STD-016`) |
 | T-07 | every field is registered in some ring for the destination |
@@ -90,11 +90,9 @@ the contract of the series it scaffolds:
 | T-09 | the context card carries Summary, Epistemic and Pragmatic |
 | T-10 | every registered series has a mould |
 
-T-04 is the one no other guard can perform. `std-010-licensing` reads
-a file's *own* path, and every path here is `machine/templates/**` → CC0-1.0. So a
-mould could declare a licence that contradicts REUSE.toml for the folder it is
-copied to, and nothing would notice until a document built from it failed CI
-on its first commit. Six of them did, before 2026-09-04.
+T-04 used to hold a mould to the licence of the folder it is copied to. A
+folder has no licence any more: each document declares its own, so the mould
+can only be held to naming a licence the repository can grant.
 
 ---
 

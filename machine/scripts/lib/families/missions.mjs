@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
  * telemetry family `missions` — the board, counted. MIS-138 D3.
  * Predicates: `missions/MIS-*.md` by frontmatter; `## Closure` heading (MIS-134

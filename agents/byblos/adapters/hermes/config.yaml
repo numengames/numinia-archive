@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # Byblos — Hermes profile configuration
 # Secrets belong in .env, not in config.yaml.
 

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # Senet profile — recommended Hermes configuration additions
 # Merge these blocks into Senet's existing config.yaml.
 # Do not overwrite existing model/provider, gateway, integration, or secret configuration.

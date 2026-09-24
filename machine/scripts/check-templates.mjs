@@ -33,8 +33,10 @@
 //   T-02  the filename is <PREFIX>-TEMPLATE.md for a registered prefix
 //         (plus the sanctioned -EXAMPLE / -CHANGES companions, and README.md)
 //   T-03  no inline `# comment` after a scalar value — the D-009 shape
-//   T-04  `license:` matches the REUSE regime of the DESTINATION directory,
-//         not of machine/templates/
+//   T-04  `license:` names a licence this repository ships a text for
+//         (LICENSES/). A folder has no licence (Oracle, 2026-09-24), so
+//         the mould cannot be held to one: the author of each document
+//         picks its licence and declares it in the file.
 //   T-05  `type` matches what STD-004 §5 maps to the destination series
 //   T-06  `status` is in the destination series' lifecycle
 //   T-07  every frontmatter key is in ring 1, 2 or the destination's ring 3
@@ -46,10 +48,9 @@
 // Run from anywhere: node machine/scripts/check-templates.mjs
 
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, parseFM, rawFM, stripFM, loadRules, seriesDirs } from './lib/frontmatter.mjs';
-import { regimeOf } from './lib/reuse.mjs';
 import { RING1, RING2, RING3, RING3_ALL, lifecycleFor, isTerminalStatus } from './lib/rings.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
 import { Findings } from './lib/regime.mjs';
@@ -74,17 +75,12 @@ const EXEMPT = new Set(['README.md']);
 
 const SEMVER = /^\d+\.\d+\.\d+$/;
 
-// --- REUSE.toml, same parse as std-010-licensing ----------------------
+// --- the licences this repository can grant --------------------------------
 
-/* The licence a document created from this template will need. Probed with a
-   filename of the destination's own shape, because REUSE.toml discriminates by
-   path — operations/ splits its regime across two globs. */
-function destRegime(dir) {
-  const pfx = RULES.series[dir]?.prefix?.[0] ?? 'XXX';
-  const digits = RULES.series[dir]?.digits ?? 3;
-  const n = '9'.repeat(digits);
-  return regimeOf(`${dir}/${pfx}-${n}-probe.md`);
-}
+/* Every licence with a text in LICENSES/. A mould that names anything else
+   teaches a declaration `reuse lint` rejects. */
+const SHIPPED = new Set(readdirSync(path.join(ROOT, 'LICENSES'))
+  .filter((f) => f.endsWith('.txt')).map((f) => f.slice(0, -4)));
 
 // --- the check -------------------------------------------------------------
 /* ENG-067: each T-code answers to one plate, and the finding binds by the
@@ -139,10 +135,9 @@ for (const rel of files) {
   // mission, so the destination checks below do not apply to them.
   if (COMPANIONS[base]) continue;
 
-  // T-04: the licence of the DESTINATION, which no other guard can see.
-  const want = destRegime(dir);
-  if (want && fm.license !== want)
-    F('T-04', rel, `license "${fm.license}" is not the regime of ${dir}/ ("${want}") — a document copied from this mould fails the licence guard (std-010-licensing) on its first commit`);
+  // T-04: a licence the repository can actually grant.
+  if (!SHIPPED.has(fm.license))
+    F('T-04', rel, `license "${fm.license}" has no text in LICENSES/ — a document copied from this mould declares a licence the repository does not ship`);
 
   // T-05: type ↔ series, STD-004 §5.
   const allowedTypes = Object.entries(RULES.types.series)

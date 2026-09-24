@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Changelog — numinia-digital-agents
 
 > **Summary:** NWOS system document — CHANGELOG.
@@ -13,6 +18,12 @@ Format: [type] description — date — author
 ---
 
 ## [Unreleased]
+
+### Changed — 2026-09-24 (the licence is the file's)
+- **Every file declares its own licence; no folder does.** `REUSE.toml` used to hand licences to whole directories (`lore/**`, `canon/**`, `missions/**`, `web/**` …) and a file inherited its shelf's — a new file got a licence nobody chose, a moved file changed licence without being touched. Oracle, 2026-09-24: licences go per file. 154 text files that relied on a folder glob now carry an SPDX comment in their first lines (`<!-- -->` in Markdown, `//` in code, `#` in YAML/TOML/text). `REUSE.toml` keeps only the 155 files that cannot hold a comment — images, fonts, JSON, generated or pinned copies, the moulds, and the RPG manual numinia-web reads verbatim — by exact path, no globs. The two nested `REUSE.toml` (icons, fonts) are folded into the root one.
+- **No licence changed.** `reuse spdx` before and after, compared file by file: 525 → 526 files (the new test), 0 differences. `reuse lint` 526/526.
+- **Readers follow.** `machine/scripts/lib/reuse.mjs` gains `declaredIn()` and `licenceOfFile()` (own SPDX first, then `REUSE.toml` for that exact path); the licence guard, the machine index (`/index.json`, `/llms.txt`) and the tests read through it. `check-templates` T-04 now holds a mould to a licence with a text in `LICENSES/` — a destination folder has no licence to hold it to. New `machine/scripts/test/licence-per-file.test.mjs`: no glob in `REUSE.toml`, no nested `REUSE.toml`, no text file licensed from outside, every file resolves, header and SPDX agree.
+- **Prose follows.** `LICENSE`, `README.md`, `AGENTS.md`, `STD-010` (LIC-008, 1.2.0), `STD-013` (1.1.0), `STD-011`, the PR template, the footer link (now to `LICENSE`).
 
 ### Added — 2026-09-23 (what binds today)
 - **The archive publishes the rule that governs, not only the rules that are written.** Two statements were live on numinia.org and the sentence they imply was not: eleven protocols, twenty-seven standards and eight canons rendered in full, and the definition of `draft` — *written, not yet in force: it binds nobody* (`STD-016`) — printed on the home, in `/llms.txt` and in `/scheme.md`. Nothing anywhere answered the question that follows: **if none of it binds, what does?** The answer has existed since 2026-09-18 as the transition regime in `AGENTS.md`, a file the viewer does not serve (`ADR-047`: the repository's furniture is not a document of a series), so the only readers who ever saw it were the ones already inside the repository. Everyone else read derogated ceremony as if it were live — and an agent arriving through `/llms.txt`, the door this site advertises to machines, obeyed it. `/binding` now carries that instruction **verbatim**, beside the state of every rule document counted from each file's own `status:` header: 0 in force, 46 draft. A promotion changes the page with nothing edited.

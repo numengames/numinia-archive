@@ -16,6 +16,11 @@ license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/continuidad.astro (MIS-071 phase 2 — File over App). Covers system adaptability and critical failure patterns. Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # If Nimrod disappears tomorrow
 
 > **Summary:** Can an agent rebuild itself 100% on a new machine with access to the repository alone? This page documents the test that guarantees it — and the gaps we found while running it.

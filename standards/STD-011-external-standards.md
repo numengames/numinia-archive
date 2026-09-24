@@ -17,6 +17,11 @@ threshold: governed
 series_change: "1.0.0 — the register takes the ADR-043 shape: one table, no prose. Twenty-eight rows kept, sources kept; the reading notes that carried facts become a Notes column; the three sections that explained the table are gone. Distance 0 · 1 · 2 · 3 = enforced by a tool · written, unchecked · practised, unnamed · not considered."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # External standards
 
 > **Summary:** What the system obeys that it did not write: each standard
@@ -33,7 +38,7 @@ series_change: "1.0.0 — the register takes the ADR-043 shape: one table, no pr
 | CAO | ISO 22301 · continuity | <https://www.iso.org/standard/75106.html> | 3 | — | overlaps `PRO-001`, unreconciled |
 | CAO | ISO 9001 · quality | <https://www.iso.org/iso-9001-quality-management.html> | 3 | — | no anchor in any operating document |
 | Archive | SPDX | <https://spdx.dev/> | 0 | `STD-010` · `STD-004` HDR-008 | |
-| Archive | REUSE 3.3 | <https://reuse.software/spec-3.3/> | 1 | `STD-010` · `REUSE.toml` | `reuse lint` passes 593/593 by hand; no workflow runs it |
+| Archive | REUSE 3.3 | <https://reuse.software/spec-3.3/> | 1 | `STD-010` · `REUSE.toml` | `reuse lint` passes on every push (CI step, reporting); every text file declares its own licence, REUSE.toml names only files that cannot |
 | Archive | ISO 8601 | <https://www.iso.org/iso-8601-date-and-time-format.html> | 0 | `STD-004` HDR-006 · HDR-007 | |
 | Archive | Keep a Changelog | <https://keepachangelog.com/> | 2 | `CHANGELOG.md` | practised, unnamed |
 | Archive | ISO 15489 · records management | <https://www.iso.org/standard/62542.html> | 3 | — | overlaps `STD-024` (`SER-005/006`) / `ADR-030`, unreconciled |

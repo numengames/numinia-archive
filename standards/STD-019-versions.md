@@ -17,6 +17,11 @@ threshold: governed
 series_change: "1.0.3 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.0.2 — Check row repoints to machine/guards/rules/std-019-versions.mjs (R3, MIS guards-tests-ci-alpha): VER-021/024 leave check-core-rules; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Versions
 
 > **Summary:** Semantic Versioning 2.0.0, adopted as published. A changed

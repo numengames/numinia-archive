@@ -14,6 +14,11 @@ owner: "oracle"
 tags: [operations, contradictions, backlog, truth]
 license: "CC-BY-4.0"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
 # Pending contradictions — register
 
 > **Summary:** Contradictions detected between system sources that

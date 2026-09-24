@@ -35,7 +35,7 @@
 // covered by the build and by check-md-portability.
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { parseAnnotations, regimeOf } from "../../../machine/scripts/lib/reuse.mjs";
+import { parseAnnotations, licenceOfFile } from "../../../machine/scripts/lib/reuse.mjs";
 
 /**
  * REUSE.toml, read from the repository root — and read HERE rather than
@@ -55,10 +55,11 @@ import { parseAnnotations, regimeOf } from "../../../machine/scripts/lib/reuse.m
  * test harness), and hence the test that now asserts the exact licence rather
  * than merely a non-empty string.
  */
+const REPO_ROOT = path.resolve(process.cwd(), "..");
 const ANNOTATIONS = (() => {
   try {
     return parseAnnotations(
-      readFileSync(path.resolve(process.cwd(), "..", "REUSE.toml"), "utf8"),
+      readFileSync(path.join(REPO_ROOT, "REUSE.toml"), "utf8"),
     );
   } catch {
     return [];
@@ -115,10 +116,10 @@ export function repoPath(filePath: string): string {
  *
  * Order of trust, and both steps are per-file:
  *   1. the document's own `license:` header. 149 of 175 declare one.
- *   2. the regime REUSE.toml assigns to its exact path. The 14 lore documents
- *      carry no frontmatter at all (they were converted from PDFs), so this is
- *      the branch that answers for them — from the record, not from the folder
- *      they happen to sit in.
+ *   2. what the FILE declares in its own SPDX comment, and for a file that
+ *      cannot carry one, REUSE.toml's entry for that exact path. The lore
+ *      documents carry no frontmatter at all (they were converted from PDFs),
+ *      so their SPDX comment is the branch that answers for them.
  *
  * Returns null when neither answers. A null is honest and a reader can see it;
  * a guessed licence is a false permission, and false permissions are the one
@@ -127,7 +128,7 @@ export function repoPath(filePath: string): string {
 export function licenceOf(entry: DocEntry): string | null {
   const declared = typeof entry.license === "string" ? entry.license.trim() : "";
   if (declared) return declared;
-  return regimeOf(repoPath(entry.filePath), ANNOTATIONS) ?? null;
+  return licenceOfFile(repoPath(entry.filePath), { root: REPO_ROOT, annotations: ANNOTATIONS }) ?? null;
 }
 
 /** The markdown address of a page: the same address, plus `.md`. */

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # Nimrod — Hermes profile configuration
 # Secrets, API keys, and integration tokens belong in .env.
 

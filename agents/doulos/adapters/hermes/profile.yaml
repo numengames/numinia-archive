@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 description: >-
   Doulos is a low-cost general-purpose execution worker for simple, repetitive,
   bounded, and low-ambiguity tasks. Route work to Doulos when the task consists

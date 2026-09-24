@@ -17,6 +17,11 @@ threshold: governed
 series_change: "1.0.1 — LIC-060 retired as a duplicate of PUB-001 (ADR-043 cut of STD-009). 1.0.0 — new standard, split from STD-010 under ADR-043: the two gates of the old §4, as PUB-001..005. Wording kept; the checklist is the same four items."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Publishing gates
 
 > **Summary:** Two acts cannot be undone: writing to Arweave, and turning a

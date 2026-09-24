@@ -22,6 +22,11 @@ opened_by: "ursa"
 related: ["MIS-0146", "STD-005", "STD-010", "STD-011"]
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # DBT-020 — Declared automatic, executed by nobody
 
 > **Summary:** Four rules carried an `[AUTO: tool]` mark naming a tool that is

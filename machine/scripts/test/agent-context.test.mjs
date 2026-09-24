@@ -23,6 +23,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
+import { licenceOfFile } from '../lib/reuse.mjs';
 import { ROOT } from '../lib/frontmatter.mjs';
 
 const AGENTS = readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf8');
@@ -58,13 +59,15 @@ test('every top-level directory of the corpus appears in the map', () => {
   assert.deepEqual(missing, [], `the repository map never names: ${missing.join(', ')}`);
 });
 
-test('the reserved operations/ files are the ones REUSE.toml pins', () => {
-  const reuse = readFileSync(path.join(ROOT, 'REUSE.toml'), 'utf8');
-  const pinned = [...reuse.matchAll(/operations\/(OPS-\d{3})-/g)].map((m) => m[1]);
-  const unique = [...new Set(pinned)].sort();
-  assert.ok(unique.length, 'REUSE.toml pins no operations/ file');
-  // The map names them one by one; every pinned identifier must be there.
-  const absent = unique.filter((id) => !AGENTS.includes(id));
+test('the reserved operations/ files are the ones that declare themselves reserved', () => {
+  // Each file carries its own licence (Oracle, 2026-09-24); the reserved ones
+  // are found by reading them, not by reading a list kept somewhere else.
+  const reserved = readdirSync(path.join(ROOT, 'operations'))
+    .filter((f) => f.endsWith('.md'))
+    .filter((f) => licenceOfFile(`operations/${f}`) === 'LicenseRef-Numen-AllRightsReserved')
+    .map((f) => /^(OPS-\d{3})-/.exec(f)?.[1]).filter(Boolean);
+  assert.ok(reserved.length, 'no operations/ file declares itself reserved');
+  const absent = reserved.filter((id) => !AGENTS.includes(id));
   assert.deepEqual(absent, [], `AGENTS.md does not name the reserved ${absent.join(', ')}`);
 });
 

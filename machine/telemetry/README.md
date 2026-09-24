@@ -10,6 +10,11 @@ author: "ursa"
 license: "CC0-1.0"
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # machine/telemetry/
 
 The one place this repository *states* figures about itself. Everything here is written by `machine/scripts/telemetry.mjs` (MIS-138); nothing here is typed by hand except `claims.json`.

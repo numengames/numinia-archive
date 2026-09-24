@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: MIT
+-->
+
 # Numinia viewer
 
 Visor público del canon de Numinia / Numen Games. Extraído de [numinia-nwos-viewer](https://github.com/numengames/numinia-nwos-viewer) (y antes de [pablofm-web](https://github.com/PabloFMM/pablofm-web), donde vivió durante su fase de experimentación). El producto NWOS (`/velo`, `/api/registro`, `/workspace/[slug]`) se quedó en el repo de origen.

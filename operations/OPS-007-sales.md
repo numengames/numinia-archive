@@ -16,6 +16,11 @@ license: "LicenseRef-Numen-AllRightsReserved"
 extraction_note: "Extracted verbatim from web/src/pages/ventas.astro (MIS-071 phase 2 — File over App). Reserved regime: commercial strategy is born closed (C-005 §1; Oracle-delegated decision 2026-08-17). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+-->
+
 # How to get the first clients
 
 > **Summary:** Operational guide for the Oracles. Defined ICP, sales funnel, current blockers and the 8-week pilot plan.

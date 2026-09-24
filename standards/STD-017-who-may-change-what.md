@@ -17,6 +17,11 @@ threshold: governed
 series_change: "1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Who may change what
 
 > **Summary:** Canon and the axis move by a decision record or a pull request

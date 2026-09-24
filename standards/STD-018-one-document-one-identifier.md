@@ -17,6 +17,11 @@ threshold: governed
 series_change: "1.1.1 — Check rows repoint to machine/guards/rules/std-018-one-identifier.mjs (R3, MIS guards-tests-ci-alpha): lint-naming N-04 and the IDN rules of check-core-rules fold into one guard; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # One document, one identifier
 
 > **Summary:** Every document carries the identifier of its series, for life.

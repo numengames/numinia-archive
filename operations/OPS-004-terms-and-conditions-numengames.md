@@ -17,6 +17,11 @@ source_title: "2025_01_12-NUMEN - Terms and Conditions"
 provenance: "human"
 restoration_note: "Ingested 2026-08-17 from the original document. A find-and-replace corruption in the source (the string 'app' had been replaced by 'Website', producing non-words like 'Websitelicable', 'Websitely', 'Websiteroval', 'Websiteropriate', 'Websiterove') was reversed to restore the intended words (applicable, apply, approval, appropriate, approve); 'Webite' typo corrected; §14 'In any provision' corrected to 'If any provision'. No legal substance was altered. Verify against the original before external use."
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+-->
 # Terms and Conditions — Numen Games
 
 > **Summary:** The Terms and Conditions governing www.numen.games and its

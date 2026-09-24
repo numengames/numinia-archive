@@ -18,6 +18,11 @@ supersedes_version: "0.3.0"
 series_change: "1.1.3 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.1.2 — Check rows repoint to machine/guards/rules/std-007-one-page.mjs (R3, MIS guards-tests-ci-alpha): check-document-shape and check-plain-writing fold into one guard per standard; no plate, threshold or verdict changes. 1.1.1 and before — Was 'Standards read as prose, not as pointers' and bound standards only. Now binds every series with one shape: rule-shaped title, three-part card, plated rules before reasons, a body budget per series. First document written in the shape it prescribes."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # One page per document
 
 > **Summary:** A rule-shaped title, a three-part card, a one-line scope.

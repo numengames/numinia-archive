@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # Dependabot: keep every dependency at its latest version.
 # Oracle rule (2026-09-18): nothing stays pinned to an old release; the
 # checks decide, not a person. `dependabot-auto-merge.yml` approves and

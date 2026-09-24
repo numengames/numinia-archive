@@ -22,6 +22,6 @@ practice IDs from standards/STD-005-engineering-baseline.md when applicable
 - [ ] CI green (licence guard + build)
 - [ ] The test commit precedes the code commit, and the test failed before the code existed (DEV-008)
 - [ ] No content weakened a check to pass (§7.2.6)
-- [ ] New/moved files carry the right regime (REUSE.toml + frontmatter)
+- [ ] Every new file declares its own licence (SPDX comment in the file; `license:` too if it has a header; REUSE.toml only for files that cannot hold a comment)
 - [ ] Mission execution log updated, if this PR executes a mission
 - [ ] Nothing irreversible done without Oracle sign-off (§7.3)

@@ -1,29 +1,28 @@
 Copyright (c) 2026 Numen Games S.L.
 
-This repository holds work under several regimes, declared per path in
-REUSE.toml with full texts in LICENSES/ (Numinia canon CAN-005):
+This repository holds work under several licences. The licence is the
+FILE's, never the folder's: every text file declares its own in an SPDX
+comment in its first lines, and a document with a header also names it in
+its `license:` field. Files that cannot carry a comment — images, fonts,
+JSON, generated or pinned copies — are named one by one, by exact path, in
+REUSE.toml. Full texts of every licence used are in LICENSES/
+(Numinia canon CAN-005):
 
-  - Viewer and scripts (web/**, machine/scripts/**)         MIT
-  - Documentation, ADRs, specs, missions, reports   CC-BY-4.0
-  - Repo metadata (.gitignore)                      CC0-1.0
-  - The canon (canon/**), the standards (standards/**)
-    and the agent definitions (agents/**)           CC0-1.0
-  - Enforceable legal texts (operations/legal/**)   All rights reserved
-                                                    (LicenseRef-Numen-AllRightsReserved)
+  - CC0-1.0                             public domain dedication
+  - CC-BY-4.0                           attribution
+  - MIT                                 code
+  - OFL-1.1                             third-party fonts
+  - LicenseRef-Numen-AllRightsReserved  no rights granted
 
-The canon is CC0 because it was first published that way: every canon/
-document was released under this repository's CC0 root license in April 2026,
-before the reserved regime was introduced, and a CC0 grant cannot be revoked.
-ADR-036 (2026-09-01) corrected the annotation to say what was actually
-granted. The reserved lore lives in the numinia-lore repository.
+Two files side by side may carry different licences. Do not infer a
+file's licence from its neighbours or its folder: read the file.
 
-Where REUSE.toml declares no license for a path, no rights are granted:
-all rights reserved.
+A file that declares no licence grants no rights: all rights reserved.
 
 Grandfather clause. Until 2026-08-16 (through commit 0157be9) this
 repository was published with a root CC0-1.0 license. That waiver is
 irrevocable for the versions published under it and is not revoked or
 narrowed by this notice; it does not extend to versions published after
-that commit. See LEGAL_DEBT.md for the record.
+that commit. See debt/ for the record.
 
 Trademarks are not licensed; see TRADEMARKS.md.

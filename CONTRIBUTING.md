@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Contributing to the Archive Summa
 
 > **Summary:** NWOS system document — CONTRIBUTING.

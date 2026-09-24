@@ -30,6 +30,11 @@ parent_mission: null
 sub_missions: []
 depends_on: ["MIS-091"]
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # MIS-100 — The real gate
 
 > **Summary:** Three repositories now run a CI pipeline that nothing forces

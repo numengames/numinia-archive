@@ -30,6 +30,11 @@ parent_mission: null
 sub_missions: []
 depends_on: []
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # MIS-101 — The mould complies with itself
 
 > **Summary:** The repository that publishes the engineering standards is the

@@ -327,7 +327,7 @@
     },
     "std-010-licensing": {
       "script": "machine/guards/rules/std-010-licensing.mjs",
-      "sees": "frontmatter `license:` against the REUSE.toml regime",
+      "sees": "frontmatter `license:` against the SPDX declaration in the same file (REUSE.toml for a file with none)",
       "blind_to": [
         {
           "spot": "whether the licence is CORRECT for the content — this checks consistency between two declarations, not legal fit",

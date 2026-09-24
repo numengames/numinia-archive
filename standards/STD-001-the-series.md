@@ -20,6 +20,11 @@ related: ["STD-024", "STD-016", "STD-018", "STD-007", "STD-027"]
 series_change: "5.4.0 — 2026-09-21: the five instrument folders of `machine/` gain a row each, so the Holds column stops being blank where `STD-027` classifies them (Verifying · Measuring · Templating). Prefix, threshold, budget and mould are `—`: an instrument is not a document. Minor: rows added, none changed. 5.3.0 — 2026-09-20: the Function · Activity column, and `lore/` and `objects/` registered as series they always were (ADR-046). The scheme itself lives in STD-027; this file keeps the table. Minor move: rows gained a column, none lost a claim. 5.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 5.0.0 — cut eleven under ADR-043. The glossary that was not a glossary becomes the register it always was: what series exist, what each holds, its prefix, its threshold, its budget, its mould. The rules moved to STD-024 (a series is a function), STD-021 (citing vs data), STD-015 (guard checks); the field vocabularies were already in STD-016. Section-numbered citations resolve in git."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # The series
 
 > **Summary:** The folders of the corpus, one row each: what the folder holds,

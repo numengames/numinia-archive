@@ -16,6 +16,11 @@ license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/simulaciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # What happens when the Narrative Work OS meets the real world?
 
 > **Summary:** Results study of 100 implementation simulations across 5 organizational archetypes. Critical variables, success patterns and failure modes documented.

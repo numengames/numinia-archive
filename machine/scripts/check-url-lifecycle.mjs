@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
 /**
  * check-url-lifecycle.mjs — the URL ratchet (D-028, ADR-033, P-010 §5).
  *

@@ -32,11 +32,11 @@ import { ROOT } from '../lib/frontmatter.mjs';
 const rmTree = (p) => rmSync(p, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 });
 
 /* Everything the guard reads: the moulds, the standards (T-11), the rules and
-   readers under machine/scripts/lib, REUSE.toml (T-04). A git repo, because the guard
+   readers under machine/scripts/lib, LICENSES/ (T-04). A git repo, because the guard
    discovers files with `git ls-files`. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'templates-'));
-  for (const p of ['machine/templates', 'machine/scripts', 'machine/guards', 'standards', 'canon', 'protocols', 'REUSE.toml'])
+  for (const p of ['machine/templates', 'machine/scripts', 'machine/guards', 'standards', 'canon', 'protocols', 'LICENSES', 'REUSE.toml'])
     cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
   execFileSync('git', ['-C', dir, 'init', '-q'], { stdio: 'ignore' });
   execFileSync('git', ['-C', dir, 'add', '-A'], { stdio: 'ignore' });
@@ -107,12 +107,12 @@ check('T-03: an inline `# comment` after a value is the D-009 shape', (dir) => {
   assert.match(run(dir).log, /T-03 inline comment after "status"/);
 });
 
-check('T-04: a licence that is not the DESTINATION regime is reported — machine/templates/ itself is CC0', (dir) => {
-  // debt/ is CC-BY-4.0 per REUSE.toml. A mould that copied the licence of the
-  // folder it LIVES in (machine/templates/ is CC0-1.0) would be wrong for debt/ — the
-  // exact defect this guard was written for, invisible to the licence guard.
-  setFM(dir, 'machine/templates/DBT-TEMPLATE.md', 'license', '"CC0-1.0"');
-  assert.match(run(dir).log, /T-04 license "CC0-1\.0" is not the regime of debt\/ \("CC-BY-4\.0"\)/);
+check('T-04: a licence the repository ships no text for is reported', (dir) => {
+  // A folder has no licence (Oracle, 2026-09-24): the mould cannot be held to
+  // its destination's. What it can still get wrong is naming a licence the
+  // repository cannot grant — LICENSES/ has no text for it.
+  setFM(dir, 'machine/templates/DBT-TEMPLATE.md', 'license', '"GPL-3.0-only"');
+  assert.match(run(dir).log, /T-04 license "GPL-3\.0-only" has no text in LICENSES\//);
 });
 
 check('T-05: a type that does not belong to the destination series is reported', (dir) => {

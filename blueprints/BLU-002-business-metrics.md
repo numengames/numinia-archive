@@ -14,6 +14,11 @@ territory: "CAO"
 related_missions: ["MIS-057", "MIS-048"]
 license: "CC0-1.0"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # BP — Business Metrics Framework v0.1.0
 
 > **Summary:** Framework for measuring the business value of the NWOS digital agent system.

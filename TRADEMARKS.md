@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # Trademarks
 
 Per Numinia canon C-005 §7. In English per ADR-008: this is an enforceable

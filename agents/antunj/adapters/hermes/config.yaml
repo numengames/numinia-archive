@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # Antunj profile — recommended Hermes configuration additions
 # Merge these blocks into Antunj's existing config.yaml.
 # Do not overwrite existing model/provider, gateway, integration, or secret configuration.

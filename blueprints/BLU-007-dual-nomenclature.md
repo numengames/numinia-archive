@@ -17,6 +17,11 @@ license: "CC0-1.0"
 extraction_note: "Extracted verbatim from web/src/pages/idioma.astro (MIS-071 phase 2 — File over App). Related mission: MIS-055."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Two Dials. One System.
 
 > **Numen Games · NWOS · Adaptability**

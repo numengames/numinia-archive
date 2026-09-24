@@ -39,6 +39,11 @@ review_flags: |
   reproduce the typo, but the flag stays until the source is verified
   against the original.
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+-->
 # Privacy Policy — Numen Games
 
 > **Summary:** The Privacy Policy of www.numen.games (GDPR +

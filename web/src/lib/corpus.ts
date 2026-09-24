@@ -580,7 +580,9 @@ function titleOf(entry: Entry): string {
   if (override) return override;
   const fm = str((entry.data as Record<string, unknown>).title);
   if (fm) return fm;
-  const body = typeof entry.body === "string" ? entry.body : "";
+  // The SPDX comment every document now opens with (`<!-- SPDX-… -->`) is
+  // the file's licence, not its first line: it is removed before looking.
+  const body = (typeof entry.body === "string" ? entry.body : "").replace(/<!--[\s\S]*?-->/g, "");
   // Markdown bold inside a heading survives conversion from PDF: `# **INTRO**`.
   const h1 = body.match(/^#\s+(.+?)\s*$/m)?.[1]?.replace(/\*\*/g, "").trim();
   if (h1) return h1;

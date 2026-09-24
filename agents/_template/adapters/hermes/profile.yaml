@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # Hermes adapter — routing description for this agent.
 # This file is the platform's view of the agent, not its canon (ADR-026).
 description: >-

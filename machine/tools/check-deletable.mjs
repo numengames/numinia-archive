@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
 /**
  * check-deletable.mjs — may this document be deleted? (ADR-033, P-010 §5)
  *

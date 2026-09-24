@@ -20,6 +20,11 @@ former_id_note: "Reshelved 2026-09-21 under ADR-035's test: this text describes 
 extraction_note: "Extracted verbatim from web/src/pages/index.astro (MIS-071 phase 2 — File over App): feature descriptions, the L0-L4 layer architecture, the six operating principles, the implementation requirements and the Narrative Layer note."
 related: ["SYS-001", "SYS-003", "CAN-007"]
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # Narrative Work OS
 
 > **Summary:** What the NWOS is, as it runs: five layers from files to

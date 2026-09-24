@@ -17,6 +17,11 @@ threshold: governed
 series_change: "1.1.2 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.1.1 — Check rows repoint to machine/guards/rules/std-020-git-is-the-archive.mjs (R3, MIS guards-tests-ci-alpha): check-references and the GIT rules of check-core-rules fold into one guard; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §7 Git and §8 Archiving are one standard: retiring a document is a git operation."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Git is the archive
 
 > **Summary:** Work reaches `main` by pull request, shared history is never

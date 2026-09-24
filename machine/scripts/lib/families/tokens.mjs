@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
  * telemetry family `tokens` — how big, in cl100k_base tokens. MIS-138 D1.3, D3.
  * Whole file with frontmatter, the tracked .md outside web/ (loadDocs' set), like the
