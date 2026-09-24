@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.33.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "While listening, what has been read now fades more clearly: down to half its brightness instead of three quarters, still in its own colour. At three quarters the difference was too subtle to notice.",
+      },
+      {
+        type: "CHG",
+        text: "The design kit (numinia.org/diseno/kit) moves to 6.1.0 and now teaches what the reading player showed: the reader owns the scroll, the print ruler, ink that dries in its own colour, touch to hear, the gentle speeds, and the reading light as animation number 15.",
+      },
+    ],
+  },
+  {
     version: "v0.32.0",
     date: "2026-09-24",
     entries: [

@@ -35,7 +35,7 @@ relieve. El libro es Diurno con conmutador propio, la luna es el marcapáginas, 
 la factura no hereda nada de esto. Piezas editoriales en §9.9; iconos del libro en §7.5
 (rejilla 16, trazo 1.5) — fuera del libro manda Phosphor, subconjunto de §7.3, y el
 conmutador de modo muestra el modo AL QUE LLEVA un toque, no el actual.
-Animación, solo estas trece: tecleo 22ms/car con cursor de bloque (titulares hero, lore,
+Animación, solo estas catorce: tecleo 22ms/car con cursor de bloque (titulares hero, lore,
 cargas — la bandera, herencia de aventuras gráficas); revelado 320ms al entrar en
 viewport; barrido de señal 8s máx. uno; elevación 120ms sin desplazamiento; pulso
 legendario 2.4s ×2 solo al obtener; fase lunar 560ms/paso en cargas largas; puntos de
@@ -44,8 +44,18 @@ por pieza. Del Velo y el papel vivo (nunca en Umbral corporativo): afloramiento
 560ms (opacidad + blur 8→0 + 8px de ascenso, al descubrirse), cristalización 320ms
 (blur 0→12 + borde), trazo 1.6s (marcos de grabado que se dibujan, portada y capítulo),
 cielo (deriva ±0.06px + alfa .05–.85 — única excepción al veto de loops, solo fondo
-del Velo). La 12 está retirada: el códex no anima el paso de hoja. Prohibido: parallax,
-glitch, loops ambientales, animar foco o color de texto.
+del Velo). La 12 está retirada: el códex no anima el paso de hoja. Luz lectora (15):
+halo difuso Arena con núcleo de tinta, nunca blanco puro, sobre la palabra que suena,
+estela de 12 y muelle críticamente amortiguado; solo mientras suena una voz — el otro
+loop permitido, porque no es ambiental. Prohibido: parallax, glitch, loops ambientales,
+animar foco o color de texto.
+Leer en voz alta (STD-023 §22): el lector manda el scroll — seguir la voz solo hasta que
+él desplaza, luego «Volver a la lectura»; controles abajo en cristal del Velo al ancho
+de la columna; línea de tiempo = regla de imprenta 1920 (marcas finas, raya larga por
+sección, lo oído en trama de puntos Verdemar), soltar = inicio de frase; lo leído se
+SECA conservando su color (80/65/50 % del alfa de cada tinta, nunca gris, nunca
+animado; con prefers-contrast: more no se seca); clic en una frase = leer desde ahí;
+velocidades 1 · 1.25 · 1.5 · 2 · 0.75, recordadas entre documentos.
 prefers-reduced-motion: todo instantáneo, y el cielo se detiene a alfa media.
 Botones: relleno de acción #017C8D con blanco (uno por vista) y estados que OSCURECEN
 (hover #016E7D, active #015866; destructivo grana con hover #B02330, con confirmación y

@@ -5,16 +5,16 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "7.2.0"
+version: "7.2.1"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-18T17:10:00+02:00"
+updated: "2026-09-24T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 registration: registered
 related: ["CAN-008", "STD-023", "PRO-014", "STD-010", "ADR-044"]
 license: "CC0-1.0"
-series_change: "7.2.0 — 2026-09-18: DSN-015 (a site says what it stores) with its check. Minor by VER-022; moved at the Oracle's word in session (VER-064). 7.1.0 — 2026-09-17: two rules added, DSN-013 (one house, one footer) and DSN-014 (a link presents itself), with their checks; they write down what the four sites have served since 2026-09-16 and what the share cards will follow. Minor by VER-022 (new obligations); moved at the Oracle's word in session (VER-064). 7.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 7.0.0 — the standard takes the ADR-043 shape and splits four ways under ADR-044: 9,934 -> 470 words of body here, as twelve plated rules DSN-001..012 (the old DS-01..04 conformance checks are DSN-009..012, same checks); every closed list is the register STD-023; every recipe is a blueprint (BLU-009 web, BLU-010 pixel, BLU-011 book and Velo); the kit source is machine/packages/design-kit. Major: sections §2-§17 were cited by CAN-008 and PRO-014 and no longer exist; those citations are repointed in the same change. Direction prose that CAN-008 §3 already holds is not carried."
+series_change: "7.2.1 — 2026-09-24: DSN-012 counts fifteen animations (the reading light, STD-023 §14 no. 15); the reading light is not an ambient loop, so the sanctioned two are untouched. Patch: the rule is unchanged, only its count. 7.2.0 — 2026-09-18: DSN-015 (a site says what it stores) with its check. Minor by VER-022; moved at the Oracle's word in session (VER-064). 7.1.0 — 2026-09-17: two rules added, DSN-013 (one house, one footer) and DSN-014 (a link presents itself), with their checks; they write down what the four sites have served since 2026-09-16 and what the share cards will follow. Minor by VER-022 (new obligations); moved at the Oracle's word in session (VER-064). 7.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 7.0.0 — the standard takes the ADR-043 shape and splits four ways under ADR-044: 9,934 -> 470 words of body here, as twelve plated rules DSN-001..012 (the old DS-01..04 conformance checks are DSN-009..012, same checks); every closed list is the register STD-023; every recipe is a blueprint (BLU-009 web, BLU-010 pixel, BLU-011 book and Velo); the kit source is machine/packages/design-kit. Major: sections §2-§17 were cited by CAN-008 and PRO-014 and no longer exist; those citations are repointed in the same change. Direction prose that CAN-008 §3 already holds is not carried."
 ---
 
 <!--
@@ -25,7 +25,7 @@ SPDX-License-Identifier: CC0-1.0
 # Design tokens
 
 > **Summary:** Sixteen colours and no new hexes; three self-hosted
-> typefaces; a 4 px scale; two radii; one icon family; fourteen animations;
+> typefaces; a 4 px scale; two radii; one icon family; fifteen animations;
 > AA contrast, nothing by colour alone; one footer and one share card for
 > the four sites; a site says what it stores. The values are `STD-023` and
 > the kit; this standard says which are rules.
@@ -86,7 +86,7 @@ the token file or in `STD-023`; one that is in neither does not exist.
 **DSN-011 — Public routes pass AA.** Every public route passes the
 accessibility gate in both modes before it ships.
 
-**DSN-012 — Motion is catalogued.** Every animation is one of the fourteen
+**DSN-012 — Motion is catalogued.** Every animation is one of the fifteen
 in `STD-023`; parallax, glitch, ambient loops outside the sanctioned two,
 animated focus and autoplay with sound are forbidden.
 
