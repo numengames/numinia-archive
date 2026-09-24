@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13202,
+  "chars": 13331,
   "apparatus": false,
   "archived": false,
-  "tokens": 3271
+  "tokens": 3306
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 107574,
+  "chars": 108618,
   "apparatus": false,
   "archived": false,
-  "tokens": 28505
+  "tokens": 28779
  },
  {
   "path": "CLAUDE.md",
@@ -704,6 +704,17 @@
   "tokens": 1241
  },
  {
+  "path": "canon/CAN-011-value-makes-a-bond.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "draft",
+  "chars": 4925,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1266
+ },
+ {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
   "dir": "debt",
   "series": "debt",
@@ -990,6 +1001,17 @@
   "tokens": 1572
  },
  {
+  "path": "decisions/ADR-063-a-canon-for-money.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6197,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1571
+ },
+ {
   "path": "lore/README.md",
   "dir": "lore",
   "series": null,
@@ -1072,10 +1094,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38113,
+  "chars": 38176,
   "apparatus": false,
   "archived": false,
-  "tokens": 11300
+  "tokens": 11315
  },
  {
   "path": "lore/codex/hoja-de-personaje.md",
@@ -1182,10 +1204,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 183294,
+  "chars": 183269,
   "apparatus": false,
   "archived": false,
-  "tokens": 36603
+  "tokens": 36601
  },
  {
   "path": "lore/game/manual/en/07-building-the-adventure.md",
@@ -1281,10 +1303,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 189404,
+  "chars": 189392,
   "apparatus": false,
   "archived": false,
-  "tokens": 51834
+  "tokens": 51829
  },
  {
   "path": "lore/game/manual/es/07-construyendo-la-aventura.md",
