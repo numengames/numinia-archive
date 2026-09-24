@@ -285,6 +285,85 @@ export function sectionOf(entry: Entry): Section | undefined {
 }
 
 // ---------------------------------------------------------------------------
+// READING GROUPS — canon only
+// ---------------------------------------------------------------------------
+
+/**
+ * One group of a section index: a Roman numeral, a label, one memorable line,
+ * and the documents in it, in reading order.
+ *
+ * Roman numerals are the Oracle's choice (2026-09-24): the house speaks in
+ * the twenties of three centuries and the levels of language are II and III;
+ * a numeral on the shelf is one more Mediterranean thing in a Mediterranean
+ * house. The label names the thing in the city's own words — the city, the
+ * citizens, the Summa, the ground — never in ours (not "the company", not
+ * "the people", not "the work"). The line under it is copy: it has to be
+ * sayable, and it has to make the group's question obvious to someone who
+ * has read nothing.
+ *
+ * "The Summa" is the Archivo Summa of the manual — the city's institution
+ * for knowing what lies beyond — and the name this repository has always
+ * given its own changelog. "The ground" is Peirce's word for the referent in
+ * CAN-006, and the word the section blurb already uses; a reader who reaches
+ * the last group finds the label was a clue.
+ *
+ * CHECKED AT BUILD: `getSectionDocs` throws when a group names a slug that
+ * no longer exists, exactly as it does for READING_ORDER — of which, for
+ * canon, this table is the source.
+ */
+export interface ReadingGroup {
+  numeral: string;
+  label: string;
+  line: string;
+  hrefs: string[];
+}
+
+const READING_GROUPS_CANON: ReadingGroup[] = [
+  {
+    numeral: "I",
+    label: "The city",
+    line: "Nobody joins. One day you notice you were already inside.",
+    hrefs: ["/canon/can-001-welcome-to-numinia"],
+  },
+  {
+    numeral: "II",
+    label: "The citizens",
+    line: "Who lives here, and the terms they live by.",
+    // What a citizen is made of comes first, so the reader meets themselves
+    // before they meet anyone in particular. Then one citizen in full — the
+    // house that keeps this archive: what it believes, how it looks, what it
+    // gives away, and the sentence it closes on.
+    hrefs: [
+      "/canon/can-004-role-structure",
+      "/canon/can-002-brand-and-culture",
+      "/canon/can-008-visual-identity",
+      "/canon/can-005-licensing",
+      "/canon/can-010-leave-things-better",
+    ],
+  },
+  {
+    numeral: "III",
+    label: "The Summa",
+    line: "The city keeps its memory in writing. To act is to write.",
+    hrefs: ["/canon/can-009-the-archive-is-the-organisation"],
+  },
+  {
+    numeral: "IV",
+    label: "The ground",
+    line: "The theory underneath. Walk the city first.",
+    // The plainer argument first, the denser second.
+    hrefs: [
+      "/canon/can-007-pragmatic-numen-system",
+      "/canon/can-006-epistemic-relations",
+    ],
+  },
+];
+
+export const READING_GROUPS: Record<string, ReadingGroup[]> = {
+  canon: READING_GROUPS_CANON,
+};
+
+// ---------------------------------------------------------------------------
 // READING ORDER
 // ---------------------------------------------------------------------------
 
@@ -329,18 +408,14 @@ const READING_ORDER: Record<string, string[]> = {
   //
   // 2026-09-24 (ADR-059): CAN-009 enters after function and structure — how
   // the work is done, before what the house is.
-  canon: [
-    "/canon/can-001-welcome-to-numinia",
-    "/canon/can-006-epistemic-relations",
-    "/canon/can-007-pragmatic-numen-system",
-    "/canon/can-009-the-archive-is-the-organisation",
-    "/canon/can-002-brand-and-culture",
-    "/canon/can-004-role-structure",
-    "/canon/can-005-licensing",
-    // 2026-09-24 (ADR-060): the ethics closes the sequence — the sentence
-    // every canon ends on, as its own document, in draft.
-    "/canon/can-010-leave-things-better",
-  ],
+  //
+  // 2026-09-24, the Oracle's word: canon is read in FOUR GROUPS, in the order
+  // a stranger — person or digital agent — needs the answers: where am I →
+  // who is here, and may I be one → how is anything done here → why does it
+  // work. The theory goes LAST on purpose: it is the densest text and it is
+  // understood from inside the city, not before it. The order below is
+  // derived from READING_GROUPS so the two can never disagree.
+  canon: READING_GROUPS_CANON.flatMap((g) => g.hrefs),
 
   // The life of a document, in the order the archive had to decide it:
   // where it lives → what it is called → how it is registered → what the
@@ -514,7 +589,7 @@ export const SECTION_VIEWS: Record<string, SectionView[]> = {
 // section gets one line of prose above its rows, in the same voice as the
 // blurb: what the sequence is doing, so the order reads as a choice.
 export const READING_NOTE: Record<string, string> = {
-  canon: "Read top to bottom and the city builds itself: first what this place is, then why the fiction does real work and how the system works underneath, then how the work is done here, then what the house is and who lives in it, then what you are free to take with you — and last, the one sentence every canon ends on, as its own.",
+  canon: "Four shelves, in the order a stranger needs them: where you are, who is here, how anything gets done, and — last, once you have walked the city — why it works.",
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
   standards: "Language first — nothing below can be read without it. Then who may change what, then the shape a document takes, then how the thing gets built.",
   protocols: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",

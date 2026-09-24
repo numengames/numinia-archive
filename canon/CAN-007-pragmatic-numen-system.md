@@ -1,14 +1,14 @@
 ---
 id: "CAN-007"
 uid: ""
-title: "Function makes the system inhabitable; structure makes it work differently"
+title: "Renaming is not transforming"
 type: seminal
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-09-24T14:00:00+02:00"
+updated: "2026-09-24T21:00:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -29,7 +29,7 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# Function makes the system inhabitable; structure makes it work differently
+# Renaming is not transforming
 
 > **Summary:** Every organisation exists on two planes — what its elements
 > are, and how they relate. Renaming the first is not transforming the second,

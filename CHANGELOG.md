@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (the canon reads in four shelves)
+- **`/canon/` groups its documents** under a Roman numeral, a label in the city's words and one line each: I *The city* (CAN-001) · II *The citizens* (CAN-004, 002, 008, 005, 010) · III *The Summa* (CAN-009) · IV *The ground* (CAN-007, 006). The order a stranger needs; the theory last, on purpose. `READING_GROUPS` in `web/src/lib/corpus.ts` is the source of the canon reading order and is checked at build like it. Oracle's word in session.
+- **Three titles shortened to their claim** (DOC-001, the canon mould's title note), patch each: `CAN-004` 4.0.1 *You are what you are doing*; `CAN-006` 2.0.1 *The model needs a story*; `CAN-007` 2.1.1 *Renaming is not transforming*. References in `CAN-009` 1.0.1 and `STD-003` 3.1.2 follow. `AGENTS.md` rule index regenerated.
+
 ### Changed — 2026-09-24 (three canons of the house, ADR-061)
 - **`canon/CAN-002-brand-and-culture.md`** `4.0.0`: gains *Why a game* (play is our first narrative, first lesson and first creative drive — the manual's introduction, and the long role-structure text's opening in plain words); loses *Who we are* (history with a clock) and *Where the imagery comes from* (CAN-008 owns it); closes on CAN-010. 875 → 891 words.
 - **`canon/CAN-008-visual-identity.md`** `3.0.0`, retitled *One identity, three forces*: loses *Where it comes from* (CAN-002's purpose, values and pillars restated) and keeps what each value obliges of a piece; the four registers become the three forces of the manual — Umbral, Velo, Prisma — with low-poly and pixel as the Prisma's two manifestations; the voice defers to CAN-002; names follow the manual and its translation glossary. Every rule on low-poly and pixel unchanged. Three glyphs stay three. 1 436 → 1 497 words.

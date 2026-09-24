@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "190cb49",
-  "corpus_hash": "24d0c00232b976519c0df318aabdea46d1814ff129d3daf38c1a782f46532d24",
+  "head": "8090333",
+  "corpus_hash": "64640ffc3d7efb4204a7b53a7a86a16431bcca7755c17639a6b882e8f1a1d6b5",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T11:04:17Z",
+  "measured_at": "2026-09-24T11:56:09Z",
   "families": [
     "corpus",
     "series",
@@ -318,22 +318,22 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 641692,
+      "value": 641913,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 304511,
-        "standards": 53326,
+        "standards": 53327,
         "missions": 43966,
         "decisions": 33550,
-        "": 32713,
+        "": 32972,
         "agents": 29069,
         "reports": 26307,
         "operations": 24533,
         "blueprints": 20918,
-        "canon": 17440,
+        "canon": 17401,
         "system": 17096,
         "machine": 16636,
         "protocols": 15860,
@@ -346,8 +346,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 337294,
-        "draft": 141354,
+        "(none)": 337553,
+        "draft": 141316,
         "active": 117590,
         "done": 26539,
         "todo": 14224,
@@ -535,19 +535,50 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 0,
+      "value": 6,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
-      "value": [],
+      "value": [
+        [
+          "README.md",
+          "2026-04-07",
+          "2026-04-06"
+        ],
+        [
+          "agents/nimrod/OPERATOR.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/nimrod/SOUL.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/skills/numinia-nwos-pr/SKILL.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "protocols/PRO-018-publishing-a-repository.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "reports/RPT-019-2026-w37.md",
+          "2026-09-09",
+          "2026-09-08"
+        ]
+      ],
       "unit": "documents",
       "definition": "[path, created, first-add] for created_ahead_of_commit",
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 137,
+      "value": 31,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -617,7 +648,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 882
+          "3": 883
         },
         "MIS": {
           "3": 677,
@@ -630,7 +661,7 @@
           "3": 80
         },
         "CAN": {
-          "3": 465
+          "3": 473
         },
         "ADR": {
           "3": 489

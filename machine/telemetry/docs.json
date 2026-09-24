@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13103,
+  "chars": 13053,
   "apparatus": false,
   "archived": false,
-  "tokens": 3244
+  "tokens": 3231
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 98160,
+  "chars": 98991,
   "apparatus": false,
   "archived": false,
-  "tokens": 25927
+  "tokens": 26199
  },
  {
   "path": "CLAUDE.md",
@@ -632,10 +632,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 9801,
+  "chars": 9753,
   "apparatus": false,
   "archived": false,
-  "tokens": 2412
+  "tokens": 2400
  },
  {
   "path": "canon/CAN-005-licensing.md",
@@ -654,10 +654,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 15084,
+  "chars": 15028,
   "apparatus": false,
   "archived": false,
-  "tokens": 3138
+  "tokens": 3124
  },
  {
   "path": "canon/CAN-007-pragmatic-numen-system.md",
@@ -665,10 +665,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 10549,
+  "chars": 10457,
   "apparatus": false,
   "archived": false,
-  "tokens": 2281
+  "tokens": 2267
  },
  {
   "path": "canon/CAN-008-visual-identity.md",
@@ -687,10 +687,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 6146,
+  "chars": 6150,
   "apparatus": false,
   "archived": false,
-  "tokens": 1527
+  "tokens": 1528
  },
  {
   "path": "canon/CAN-010-leave-things-better.md",
@@ -1897,10 +1897,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6288,
+  "chars": 6292,
   "apparatus": false,
   "archived": false,
-  "tokens": 1630
+  "tokens": 1631
  },
  {
   "path": "standards/STD-004-the-header.md",

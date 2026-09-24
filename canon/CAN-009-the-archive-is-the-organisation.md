@@ -4,9 +4,9 @@ uid: ""
 title: "The archive is the organisation"
 type: seminal
 status: draft
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-09-24T16:00:00+02:00"
+updated: "2026-09-24T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -138,4 +138,4 @@ gap in the archive — not a reason to ask around.
 | `STD-009` | Which rule wins | the order of precedence this canon explains |
 | `STD-020` | Git is the archive | how history is protected and how a document dies |
 | `STD-006` | Plain text is sovereign | what the file must be so that it outlives its readers |
-| `CAN-004` | Nobody here has a role | what an agent is made of, and its rank |
+| `CAN-004` | You are what you are doing | what an agent is made of, and its rank |

@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-24T11:04:17Z"
+updated: "2026-09-24T11:56:09Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `190cb49`  · corpus_hash: `24d0c00232b97651…`  · measured_at: 2026-09-24T11:04:17Z  · root_dirty: 0
+- head: `8090333`  · corpus_hash: `64640ffc3d7efb42…`  · measured_at: 2026-09-24T11:56:09Z  · root_dirty: 0
 
 ## corpus
 
@@ -203,7 +203,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 641692 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 641913 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 6.85 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -214,15 +214,15 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 304511 |
-| standards | 53326 |
+| standards | 53327 |
 | missions | 43966 |
 | decisions | 33550 |
-|  | 32713 |
+|  | 32972 |
 | agents | 29069 |
 | reports | 26307 |
 | operations | 24533 |
 | blueprints | 20918 |
-| canon | 17440 |
+| canon | 17401 |
 | system | 17096 |
 | machine | 16636 |
 | protocols | 15860 |
@@ -234,8 +234,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 337294 |
-| draft | 141354 |
+| (none) | 337553 |
+| draft | 141316 |
 | active | 117590 |
 | done | 26539 |
 | todo | 14224 |
@@ -366,9 +366,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|---|---|
 | `provenance.authorship` | (table below) | documents | nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude\|gpt\|opus\|sonnet\|fable\|gemini\|llm) · other · no-author · no-frontmatter |
 | `provenance.dates_vs_commits_compared` | 157 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
-| `provenance.created_ahead_of_commit` | 0 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
+| `provenance.created_ahead_of_commit` | 6 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
-| `provenance.created_behind_commit` | 137 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
+| `provenance.created_behind_commit` | 31 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
 | `provenance.regime_crossings` | 0 | renames | renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py |
 | `provenance.regime_crossings_list` | (table below) | renames | [from, to, regime change, date] |
 | `provenance.protocol_anchor` | (table below) | missions | P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible |
@@ -386,7 +386,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 ### `provenance.created_ahead_list`
 
-0 rows (documents) — in `latest.json`.
+6 rows (documents) — in `latest.json`.
 
 ### `provenance.regime_crossings_list`
 
@@ -441,11 +441,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 882 |
+| STD | 883 |
 | MIS | 677 |
 | PRO | 265 |
 | OPS | 80 |
-| CAN | 465 |
+| CAN | 473 |
 | ADR | 489 |
 | SYS | 45 |
 | DBT | 78 |
