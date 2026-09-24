@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12993,
+  "chars": 13105,
   "apparatus": false,
   "archived": false,
-  "tokens": 3216
+  "tokens": 3244
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 95694,
+  "chars": 96214,
   "apparatus": false,
   "archived": false,
-  "tokens": 25233
+  "tokens": 25388
  },
  {
   "path": "CLAUDE.md",
@@ -693,6 +693,17 @@
   "tokens": 1527
  },
  {
+  "path": "canon/CAN-010-leave-things-better.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "draft",
+  "chars": 4907,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1241
+ },
+ {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
   "dir": "debt",
   "series": "debt",
@@ -944,6 +955,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1874
+ },
+ {
+  "path": "decisions/ADR-060-a-canon-for-ethics.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6163,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1624
  },
  {
   "path": "lore/README.md",
