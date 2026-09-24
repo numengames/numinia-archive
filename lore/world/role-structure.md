@@ -62,12 +62,12 @@ Roles, positions, and typologies in Numinia
 Everything said above will help us, then, to build the structure of roles in the context of Numinia. We must consider the capital importance of the semantic character of the guilds, subject to Basic Level Theory, and as a categorial structure that functions, apparently, in a horizontal dimension, but within which four categories are characterized that stipulate relations of dependence and mutual need, and which function, individually, as four vertical and hierarchical substructures (each of them as a category). And, on the other hand, the nature of the factions, a structure subject to Prototype Theory that functions in a purely horizontal dimension, with a central domain, two peripheral domains, and another itinerant domain (we may now recognize art as a domain subject to the aesthetic function, which, as regards its characterization in a sociocultural context, exhibits an eccentric behavior, without parallel, by virtue of its autonomous, immanent specificity and brought about by its reflexivity, being the only function of language that turns its gaze upon itself).
 We have already concluded that the guilds fit what systems thinking calls qualifications, and that the different levels of each guild do not represent different categories, but more general or more specific descriptions of the same category:
 Alchemists → Superordinate level
-• Branch A: Artisans → Basic level
-o House A.1: Project designers → Subordinate level
+• Branch A: Handcrafters → Basic level
+o House A.1: Draftsmen → Subordinate level
 o House A.2: Aesthetes → Subordinate level
 • Branch B: Engineers → Basic level
 o House B.1: Architects → Subordinate level
-o House B.2: Automata → Subordinate Level
+o House B.2: Automatons → Subordinate Level
 Exegetes → Superordinate level
 • Branch A: Chroniclers → Basic level
 o House A.1: Logographers → Subordinate level
@@ -77,13 +77,13 @@ o House B.1: Thaumaturges → Subordinate level
 o House B.2: Hierophants → Subordinate Level
 Procurators → Superordinate level
 • Branch A: Jurists → Basic level
-o House A.1: Legal rabbits → Subordinate level
+o House A.1: Legal Rabbits → Subordinate level
 o House A.2: Heralds → Subordinate level
-• Branch B: Syndics → Basic level
+• Branch B: Trustees → Basic level
 o House B.1: Treasurers → Subordinate level
 o House B.2: Councillors → Subordinate Level
 Sentinels → Superordinate level
-• Branch A: Seraphim → Basic level
+• Branch A: Seraphs → Basic level
 o House A.1: Captains → Subordinate level
 o House A.2: Guardians → Subordinate level
 • Branch B: Archangels → Basic level

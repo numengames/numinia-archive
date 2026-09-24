@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 111041,
+  "chars": 113148,
   "apparatus": false,
   "archived": false,
-  "tokens": 29404
+  "tokens": 29984
  },
  {
   "path": "CLAUDE.md",
@@ -1127,10 +1127,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 37618,
+  "chars": 37604,
   "apparatus": false,
   "archived": false,
-  "tokens": 8642
+  "tokens": 8641
  },
  {
   "path": "lore/codex/glosario.md",
@@ -1193,10 +1193,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13781,
+  "chars": 13759,
   "apparatus": false,
   "archived": false,
-  "tokens": 2970
+  "tokens": 2966
  },
  {
   "path": "lore/game/manual/en/02-history-and-legends-of-numinia.md",
@@ -1215,10 +1215,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 97225,
+  "chars": 97162,
   "apparatus": false,
   "archived": false,
-  "tokens": 22270
+  "tokens": 22250
  },
  {
   "path": "lore/game/manual/en/04-game-system.md",
@@ -1237,10 +1237,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 118091,
+  "chars": 118088,
   "apparatus": false,
   "archived": false,
-  "tokens": 25954
+  "tokens": 25953
  },
  {
   "path": "lore/game/manual/en/06-inventory-and-bestiary.md",
@@ -1248,10 +1248,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 183269,
+  "chars": 182742,
   "apparatus": false,
   "archived": false,
-  "tokens": 36601
+  "tokens": 36491
  },
  {
   "path": "lore/game/manual/en/07-building-the-adventure.md",
@@ -1259,10 +1259,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 135556,
+  "chars": 135545,
   "apparatus": false,
   "archived": false,
-  "tokens": 26684
+  "tokens": 26681
  },
  {
   "path": "lore/game/manual/en/README.md",
@@ -1314,10 +1314,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 101421,
+  "chars": 101380,
   "apparatus": false,
   "archived": false,
-  "tokens": 30139
+  "tokens": 30119
  },
  {
   "path": "lore/game/manual/es/04-sistema-de-juego.md",
@@ -1325,7 +1325,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 99173,
+  "chars": 99172,
   "apparatus": false,
   "archived": false,
   "tokens": 27960
@@ -1336,7 +1336,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 122667,
+  "chars": 122666,
   "apparatus": false,
   "archived": false,
   "tokens": 36362
@@ -1347,10 +1347,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 189392,
+  "chars": 188893,
   "apparatus": false,
   "archived": false,
-  "tokens": 51829
+  "tokens": 51702
  },
  {
   "path": "lore/game/manual/es/07-construyendo-la-aventura.md",
@@ -1380,10 +1380,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 41829,
+  "chars": 41939,
   "apparatus": false,
   "archived": false,
-  "tokens": 13480
+  "tokens": 13493
  },
  {
   "path": "lore/world/brand-and-culture.md",
@@ -1413,10 +1413,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 32598,
+  "chars": 32596,
   "apparatus": false,
   "archived": false,
-  "tokens": 6674
+  "tokens": 6677
  },
  {
   "path": "lore/world/welcome-to-numinia.md",
@@ -2370,10 +2370,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7187,
+  "chars": 7189,
   "apparatus": false,
   "archived": false,
-  "tokens": 1585
+  "tokens": 1587
  },
  {
   "path": "standards/STD-031-a-canon-states.md",

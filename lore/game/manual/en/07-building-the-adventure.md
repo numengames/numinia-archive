@@ -583,7 +583,7 @@ These lenses do not add a roll, nor do they automatically grant a mechanical adv
 
 Example: _the PCs face the image of an immense sea at night, but it is a sea of black stone, where the waves are rugged reliefs of the terrain._
 
-Guardian of the Gates: «The sea is the passage from one period to another, a space of transit».
+Gatekeeper: «The sea is the passage from one period to another, a space of transit».
 
 Pythia: «A sea of black stone will devour us when we face the path that calls us».
 

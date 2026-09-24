@@ -954,7 +954,7 @@ The user strikes the drum following a specific rhythmic pattern, invoking an anc
 
 If a Critical Failure is obtained, the rhythm invoked does not coincide with the real flow and the user's own actions are eliminated.
 
-**THRESHOLD LOCK (Guardian of the Gates)**
+**THRESHOLD LOCK (Gatekeeper)**
 
 **Description**
 
@@ -1362,7 +1362,7 @@ If a Critical Failure is obtained, the Aionos alters the coherence of the past.
 
 **Description**
 
-The Bowl of Interdiction is a ceremonial piece of dark ceramic, reinforced with veins of hardened resin and edged by a ring of engraved bronze. Its inner surface is covered with concentric incisions, barely perceptible, that represent cycles of delimitation: inside, outside, permitted, forbidden.
+The Bowl of Consecration is a ceremonial piece of dark ceramic, reinforced with veins of hardened resin and edged by a ring of engraved bronze. Its inner surface is covered with concentric incisions, barely perceptible, that represent cycles of delimitation: inside, outside, permitted, forbidden.
 
 When it holds a substance and is activated by rite, the inscriptions begin to grow damp or blacken, as if they absorbed the meaning of the act.
 
@@ -1613,8 +1613,6 @@ Each weapon is defined by three elements:
 Thus, two weapons are no longer distinguished because one deals more damage than another. They are distinguished because they allow the confrontation to be thought of in different ways.
 
 A sword, a chain and a projectile weapon can all serve to overcome the same contender. None necessarily has a mathematical advantage over the others. What changes is the repertoire of actions each one places within the player's reach.
-
-And this last sentence, it seems to me, could close the section very well:
 
 In Numinia, choosing a weapon does not mean choosing how to deal damage. It means choosing what kind of possibility you want to hold in your hand.
 
@@ -1951,8 +1949,6 @@ Furthermore, it points to an essential fact: a PC can only use Cells that belong
 
 **Nature and function**
 
-The Prism Cells are fungible, accumulable Tokens. Those belonging to the same faction have no individual identity: what matters is not which specific Cell the character keeps, but how many manifestations of that affinity they have gathered.
-
 Each Cell increases the degree of connection with the corresponding faction and serves as a measure of the character's recognition, experience and affinity within it. Their accumulation can provide progressive access to content, abilities, relationships or narrative possibilities linked to that factional sphere.
 
 The Prism Cells are fungible, accumulable and consumable Tokens. Those belonging to the same faction have no individual identity: each one represents a unit of resonance that the character has established with that particular current of the Prism.
@@ -2010,8 +2006,6 @@ This profoundly distinguishes the Prism Cells from the Seeds of Knowledge. The k
 The player must therefore decide when it is worth consuming them. A Cell spent today to turn a Failure into a Success may be the one that tomorrow would have removed a State; three Cells used to achieve a Total Success might have served to acquire a hard-to-find Rarity.
 
 Thus the Cells not only record a relationship with Numinia: they allow part of that accumulated relationship to be sacrificed in order to intervene in it.
-
-There is a phrase from the original document that now acquires even more meaning: _«To collect it is not to take: it is to resonate»_ . I would add to it, as a complementary mechanical principle:
 
 To collect a Cell is to accumulate resonance. To spend it is to turn that resonance into possibility.
 
@@ -2260,7 +2254,7 @@ If a Critical Failure is rolled, the device classifies a legitimate element of t
 
 ## **Fragment 3: The LAP**
 
-The Personal Akashic Reader, better known by its acronym LAP, is the everyday device for accessing the akashic network of Numinia. Every citizen has one and usually wears it on the wrist, built into a small structure resembling a watch or bracelet.
+The Lore Akashic Processor, better known by its acronym LAP, is the everyday device for accessing the akashic network of Numinia. Every citizen has one and usually wears it on the wrist, built into a small structure resembling a watch or bracelet.
 
 The LAP is one of the fundamental interfaces between the individual and the city's informational infrastructure. Through it one can consult documentation, identify citizens, interpret nodes associated with places or objects, communicate with other users and access numerous basic utilities. In functional terms, it occupies in Numinian life a place similar to that of a personal device permanently connected to a great information network.
 

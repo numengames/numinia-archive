@@ -2146,9 +2146,9 @@ una escena de su pasado con bastante lujo de detalles, aunque solo podrás perci
 4.- **Nudo Cronográfico**
 Sellas un fragmento de tiempo en un objeto, protegiéndolo de alteración o lectura externa. Nadie podrá acceder
 a su contenido si no es capaz de romper el podersoso sello.
-5.- **Silencio de Resonancia**
-Durante una escena, puedes convertirte en un punto ciego: mientras no ataques ni tomes la iniciativa, nadie
-puede percibirte como una amenaza o rastrearte claramente. Los enemigos te ignoran o no logran enfocarte.
+5.- **Índice Fantasma**
+Puedes percibir la huella de algo que ha sido borrado de un archivo, inscripción, registro o memoria,
+detectando su ausencia y reconstruyendo fragmentos de la información perdida.
 6.- **Eco Inverso**
 Puedes revertir una frase pronunciada, algo importante que un PNJ haya dicho, influyendo en la percepción de
 los oyentes, como si el diálogo aún no se hubiera producido, y alterar el curso del mismo antes de que ocurra.
@@ -3354,7 +3354,7 @@ Los puntos de Aliento del Velo se recuperan del mismo modo que el Umbral:
   - Para recuperar todos los puntos, se requiere una jornada completa de descanso por
 cada punto perdido.
 
-## **Fragmento 8: Puntos de Prestigio**
+## **Fragmento 6: Puntos de Prestigio**
 
 
 « _Quien camina por Numinia sin aprender nada solo ha atravesado sus calles; quien_

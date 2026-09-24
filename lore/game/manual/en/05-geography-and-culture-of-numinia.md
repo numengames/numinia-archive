@@ -119,7 +119,7 @@ Spaces of access to Numinia that are connected to the city, but that are not exp
 
 **Ruins of Numinia**
 
-This space lies on the outskirts of the city and holds the scant remains of what was once old Numinia, destroyed during the fire of the Bildung Complex. It is, however, the original path of entry to Numinia, leading to The Gates of Numinia, and it is guarded by Nimrod, the Guardian of the Gates. To enter the city and become a citizen with full rights, one must solve a riddle.
+This space lies on the outskirts of the city and holds the scant remains of what was once old Numinia, destroyed during the fire of the Bildung Complex. It is, however, the original path of entry to Numinia, leading to The Gates of Numinia, and it is guarded by Nimrod, the Gatekeeper. To enter the city and become a citizen with full rights, one must solve a riddle.
 
 **The Gates of Numinia**
 
@@ -231,7 +231,7 @@ The place where Numinia's general working meetings are held. It is the meeting p
 
 <u>The Prytaneum</u>
 
-The Prytaneum is Numinia's house of justice and the main workspace of the Procurators. In its chambers legal and governance matters are debated, disputes are resolved and procedures related to the city's rules and administration are handled. It also houses the legal archives and the meeting and mediation spaces used by Jurists and Syndics in the exercise of their duties. Access is restricted mainly to members of the guild of the Procurators.
+The Prytaneum is Numinia's house of justice and the main workspace of the Procurators. In its chambers legal and governance matters are debated, disputes are resolved and procedures related to the city's rules and administration are handled. It also houses the legal archives and the meeting and mediation spaces used by Jurists and Trustees in the exercise of their duties. Access is restricted mainly to members of the guild of the Procurators.
 
 <u>The Mint</u>
 
@@ -239,7 +239,7 @@ The Mint is the great economic and financial centre of Numinia. There the city's
 
 <u>Tower of the Alchemists</u>
 
-The Tower of the Alchemists is Numinia's main centre of technological development and the home of the Engineers. In its laboratories and workspaces the code blocks that build and maintain the city's different spaces are designed, stored and modified. Working there above all are Architects, responsible for its digital architecture, and Automata, devoted to the development of virtual realities and artificial consciousnesses. Its basements are a mystery that gives rise to all manner of speculation, although it is known for certain that they house the abandoned Museum of Antiquities and Relics.
+The Tower of the Alchemists is Numinia's main centre of technological development and the home of the Engineers. In its laboratories and workspaces the code blocks that build and maintain the city's different spaces are designed, stored and modified. Working there above all are Architects, responsible for its digital architecture, and Automatons, devoted to the development of virtual realities and artificial consciousnesses. Its basements are a mystery that gives rise to all manner of speculation, although it is known for certain that they house the abandoned Museum of Antiquities and Relics.
 
 *****
 
@@ -273,7 +273,7 @@ The Numinia Multiplex is the city's great cinematic and audiovisual space. Its s
 
 <u>The Forge of Numinia</u>
 
-The Forge of Numinia is the city's great workshop of material creation, where all manner of goods, tools and weapons are designed, manufactured, modified and repaired. Its workshops handle both common and extraordinary materials, including the relics and raw materials recovered in the peripheral deserts. Any citizen may come here to forge or recast objects, and it is also the place where citizenship is obtained through the recasting of the eight seals of Initiation. It is the home of the Artisans.
+The Forge of Numinia is the city's great workshop of material creation, where all manner of goods, tools and weapons are designed, manufactured, modified and repaired. Its workshops handle both common and extraordinary materials, including the relics and raw materials recovered in the peripheral deserts. Any citizen may come here to forge or recast objects, and it is also the place where citizenship is obtained through the recasting of the eight seals of Initiation. It is the home of the Handcrafters.
 
 <u>The Acropolis</u>
 
@@ -957,7 +957,7 @@ Language is more than a means of communication: in Numinia, it is a sign of iden
 
 The Linguistic Variations are based on the forms of speech recognised and developed in linguistics from the studies of scholars such as Eugenio Coseriu.
 
-The Linguistic Variations in Numinia are divided into five categories:
+The Linguistic Variations in Numinia are divided into three categories:
 
 **Dialects** - Determined by the species, they reflect its origin and its linguistic style.
 
@@ -981,7 +981,7 @@ In Numinia, a character's dialect is determined by their Species, since this inf
 
 **EPISTOLARY**
 
-  - **Dialect of the Humanitas.** Characterised by grandiloquent vocatives and elaborate adjectives, expressing themselves with elegance and distinction, as in the register of correspondence.
+  - **Dialect of the Humanites.** Characterised by grandiloquent vocatives and elaborate adjectives, expressing themselves with elegance and distinction, as in the register of correspondence.
 
   - **Use:** They use refined idiomatic expressions and refer to classical literature, showing a deep respect for knowledge and history.
 

@@ -62,35 +62,37 @@ Taken verbatim from `numinia-web/packages/domain/src/constants/` on 2026-09-24.
 | Herederos de Eleusis | Heirs of Eleusis |
 | Orden Mística de los Nuevos Cultos Eleusinos | Mystic Order of the New Eleusinian Cults |
 | Círculo Estelar | Stellar Circle |
+| Círculo Estelar del Estudio de la Tabla de Venus | Stellar Circle for the Study of the Venus Table |
 | Neo-Atlantes | Neo-Atlantists |
+| Confederación Internacional de la Sexta Raza Raíz | International Confederation of the Sixth Root Race |
 
 ### Gremios — Guilds
 
 | Español | English |
 |---|---|
-| Proyectistas | Projectors |
+| Proyectistas | Draftsmen |
 | Estetas | Aesthetes |
 | Arquitectos | Architects |
-| Autómatas | Automata |
+| Autómatas | Automatons |
 | Logógrafos | Logographers |
 | Bardos | Bards |
 | Hierofantes | Hierophants |
 | Taumaturgos | Thaumaturges |
-| Conejos Legales | Legal Counsels |
+| Conejos Legales | Legal Rabbits |
 | Heraldos | Heralds |
 | Mercuriales | Mercurials |
-| Intendentes | Intendants |
+| Intendentes | Stewards |
 | Capitanes | Captains |
 | Guardianes | Guardians |
 | Sanadores | Healers |
 | Exploradores | Explorers |
-| Menestrales | Artisans |
+| Menestrales | Handcrafters |
 | Ingenieros | Engineers |
 | Cronistas | Chroniclers |
 | Eruditos | Scholars |
 | Legados | Legates |
-| Síndicos | Syndics |
-| Serafines | Seraphim |
+| Síndicos | Trustees |
+| Serafines | Seraphs |
 | Arcángeles | Archangels |
 | Alquimistas | Alchemists |
 | Exégetas | Exegetes |
@@ -104,7 +106,7 @@ Taken verbatim from `numinia-web/packages/domain/src/constants/` on 2026-09-24.
 | Biomecánicos | Biomechanicals |
 | El Racional | The Rational |
 | Tecnología | Technology |
-| Humanitas | Humanitas |
+| Humanitas | Humanites |
 | El Idealista | The Idealist |
 | Cultura | Culture |
 | Reptilianos | Reptilians |
@@ -121,7 +123,7 @@ Taken verbatim from `numinia-web/packages/domain/src/constants/` on 2026-09-24.
 
 | Español | English |
 |---|---|
-| Guardián de las Puertas | Guardian of the Gates |
+| Guardián de las Puertas | Gatekeeper |
 | Pitia | Pythia |
 | Embajador | Ambassador |
 | Maestro de Juego | Game Master |
@@ -228,6 +230,16 @@ Taken verbatim from `numinia-web/packages/domain/src/constants/` on 2026-09-24.
 
 ## B. Conceptos del manual — the manual's concepts
 
+### Las tres grandes fuerzas — The three great forces
+
+| Español | English |
+|---|---|
+| Umbral | Threshold |
+| Velo | Veil |
+| Prisma | Prism |
+
+### Resto de conceptos — Other concepts
+
 Propuesta para la traducción del manual. Los términos salen del glosario del
 Códice (`../../codex/glosario.md`) más los del sistema de juego. Una
 nota solo aparece cuando la elección no es obvia.
@@ -239,15 +251,13 @@ nota solo aparece cuando la elección no es obvia.
 | Director de Juego (DJ) | Game Director (GD) | No «Game Master»: *Maestro de Juego* es una Posición del capítulo 3 y en inglés ya es *Game Master*. |
 | PJ / PJS | PC / PCs (player character) |  |
 | PNJ | NPC (non-player character) |  |
-| Velo | Veil |  |
 | Aliento del Velo | Breath of the Veil |  |
 | Ciclos del Velo | Cycles of the Veil |  |
-| Prisma | Prism |  |
 | Células del Prisma | Prism Cells | Ya así en la Sesión Cero inglesa. |
 | Tirada de Prisma | Prism Roll |  |
 | Akasha / Registros Akáshicos | Akasha / Akashic Records | Ya así en los textos del mundo. |
 | Red akáshica | Akashic network |  |
-| LAP (Lector Akáshico Personal) | LAP (Personal Akashic Reader) | Se conserva la sigla LAP, que ya usa numinia.com. |
+| LAP (Lector Akáshico Personal) | LAP (Lore Akashic Processor) | La sigla es LAP en los dos idiomas, pero no significa lo mismo: en español *Lector Akáshico Personal*, en inglés *Lore Akashic Processor*. |
 | Oráculos | Oracles |  |
 | Consejo de Concordia | Concordia Council | Así en numinia.com. |
 | Decálogo Fundacional | Founding Decalogue |  |
@@ -266,7 +276,6 @@ nota solo aparece cuando la elección no es obvia.
 | Río Virelai | Virelai River |  |
 | Tres grandes fuerzas | Three great forces |  |
 | Semillas del Conocimiento | Seeds of Knowledge | Ya así en *attributes-and-ranks*. |
-| Umbral | Threshold | Ya así en los sellos. |
 | Nivel Delta | Delta Level |  |
 | Grieta de Inversión | Inversion Rift |  |
 | Rarezas y Anomalías | Rarities and Anomalies |  |
@@ -369,7 +378,7 @@ indica el capítulo donde aparece por primera vez.
 | Fracaso | Critical Failure | 3 |
 | Éxito Total | Total Success | 3 |
 | Mestizo / Mestizaje | of mixed heritage / Mixed heritage | 3 |
-| Humanita (singular de Humanitas) | Humanita | 3 |
+| Humanita (singular de Humanitas) | Humanite | 3 |
 | Aliento Agotado | Exhausted Breath | 3 |
 | Los Maestros del Progreso | The Masters of Progress | 3 |
 | Los Custodios del Significado | The Custodians of Meaning | 3 |
@@ -378,6 +387,7 @@ indica el capítulo donde aparece por primera vez.
 | Los Visionarios del Más Allá | The Visionaries of the Beyond | 3 |
 | Reserva del Prisma | Prism Reserve | 3 |
 | Trovador de la Historia y la Leyenda | Troubadour of History and Legend | 3 |
+| Índice Fantasma (aptitud 5 del Archivista) | Phantom Index | 3 |
 | Plaza de los Murales Cambiantes | Plaza of the Shifting Murals | 4 |
 | Movimientos | Movements | 4 |
 | Funciones del Cuento | Functions of the Tale | 4 |
@@ -769,7 +779,6 @@ indica el capítulo donde aparece por primera vez.
 | Proyección Paranoide | Paranoid Projection | 6 |
 | Archivo Sensitivo | Sensory Archive | 6 |
 | Contaminación Temporal | Temporal Contamination | 6 |
-| Cuenco de Interdicción | Bowl of Interdiction | 6 |
 | Rito de Interdicción | Rite of Interdiction | 6 |
 | Inversión del Tabú | Inversion of the Taboo | 6 |
 | Memoria de Umbral | Threshold Memory | 6 |
@@ -919,10 +928,6 @@ indica el capítulo donde aparece por primera vez.
 
 ## C. Dudas abiertas — open questions
 
-- **Conejos Legales** (gremio de los Procuradores, capítulo 3). El manual y
-  numinia.com lo escriben así; numinia.com lo traduce como *Legal Counsels*,
-  como si fuera *Consejos Legales*. ¿Es una errata o un juego de palabras?
-  Si es un juego de palabras, en inglés sería *Legal Rabbits*.
 - **Director de Juego → Game Director.** El inglés habitual sería *Game
   Master*, pero ese nombre ya lo tiene la Posición *Maestro de Juego*. Si
   se prefiere *Game Master* para el DJ, hay que renombrar la Posición en

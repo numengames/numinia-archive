@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "abeba26",
-  "corpus_hash": "21cf3e2f8632542400407778e95b515fe1d15cc6961190ecd9f779e666fb80de",
+  "head": "570af53",
+  "corpus_hash": "aa410c0ace63b31397428d7304cb09ab5aa794b8acde318f8e679d389cbb73a4",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T15:46:44Z",
+  "measured_at": "2026-09-24T15:51:46Z",
   "families": [
     "corpus",
     "series",
@@ -319,17 +319,17 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 851462,
+      "value": 851774,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "lore": 494999,
-        "standards": 58829,
+        "lore": 494729,
+        "standards": 58831,
         "missions": 45717,
         "decisions": 38301,
-        "": 36291,
+        "": 36871,
         "reports": 29342,
         "agents": 29069,
         "operations": 24533,
@@ -347,8 +347,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 531360,
-        "draft": 152223,
+        "(none)": 531670,
+        "draft": 152225,
         "active": 120674,
         "done": 26539,
         "todo": 15975,
@@ -366,7 +366,7 @@
       "value": [
         [
           "lore/game/manual/es/06-inventario-y-bestiario.md",
-          51829
+          51702
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -378,7 +378,7 @@
         ],
         [
           "lore/game/manual/en/06-inventory-and-bestiary.md",
-          36601
+          36491
         ],
         [
           "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
@@ -650,7 +650,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 980
+          "3": 981
         },
         "MIS": {
           "3": 685,

@@ -116,7 +116,7 @@ A round table occupies the centre. Four people wait around it. Their emblems all
 **Name:** Thalia Mnemósine
 **Guild:** Procurators
 **Faction:** Heirs of Eleusis
-**Species:** Humanita
+**Species:** Humanite
 **Position:** Ludarch
 
 The **Ludarch** is a Position specialised in interpreting cultural norms, rituals and social structures through the logic of play. Thalia carries a rosary made of small tokens inscribed with verses and moves them between her fingers when she needs to put her thoughts in order.
@@ -197,7 +197,7 @@ The Council then presents Drusa Malter's file.
 **Guild:** Alchemists
 **Faction:** Neo-Atlantists
 
-**Species:** of mixed heritage, Humanita/Spectral
+**Species:** of mixed heritage, Humanite/Spectral
 **Position:** Morphologist of Artefacts and Relics
 
 The Morphologist studies how physical, linguistic and symbolic forms modify whatever they contain. Drusa specialised in artefacts whose structure alters memory or interpretation.
@@ -268,7 +268,7 @@ The recent alteration has not turned the plants into talking creatures. It has d
 **Name:** Elya Tharon
 **Guild:** Alchemists
 **Faction:** Heirs of Eleusis
-**Species:** Humanita
+**Species:** Humanite
 **Position:** Botanical Hierophant
 
 The Botanical Hierophant interprets plant cycles as cultural and ritual systems.
@@ -280,7 +280,7 @@ Elya knows that one of the roots has uttered her own name, and she fears that th
 **Name:** Berun Mael
 **Guild:** Sentinels
 **Faction:** Heirs of Eleusis
-**Species:** Humanita
+**Species:** Humanite
 **Position:** Root Cantor
 
 The **Root Cantor** interprets subterranean vibrations and patterns produced by plants through resonance. Berun uses vibration gloves to «listen» to roots through touch.
@@ -349,7 +349,7 @@ She is convinced she heard Drusa's voice in an empty room after her disappearanc
 **Name:** Senn Darvik
 **Guild:** Exegetes
 **Faction:** Hermeticists
-**Species:** Humanita
+**Species:** Humanite
 **Position:** Aetiologist
 
 The Aetiologist investigates how concepts originate, are transmitted and are transformed.
@@ -432,7 +432,7 @@ Joren has lost the ability to experience the sensory correlate of the word _I_.
 **Name:** Irvena Seur
 **Guild:** Alchemists
 **Faction:** Neo-Atlantists
-**Species:** Humanita
+**Species:** Humanite
 **Position:** Sensory Translator
 
 She perceives emotional traces related to Drusa.
@@ -509,7 +509,7 @@ The theory must end in a concrete objective.
 **Name:** Seranus Vexill
 **Guild:** Alchemists
 **Faction:** Stellar Circle
-**Species:** Humanita
+**Species:** Humanite
 **Position:** Liminal Curator
 
 The Liminal Curator administers heritage objects and spaces whose physical permanence is not completely stable.
