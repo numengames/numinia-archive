@@ -65,7 +65,7 @@ What still holds, because each rule protects something that can be seen:
   already exists and has no test gets one when it is touched; a bug gets
   the test that reproduces it before the fix. Read at review; it fails no
   build while the register is draft;
-- `lore/**` and the pinned `operations/` files stay reserved; canon
+- the reserved `operations/` files (legal texts, sales) and the brand mark stay reserved; canon
   changes are said to the operator in chat before the branch exists —
   his answer there is the consensus, no further ceremony.
 

@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.22.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "The lore is public domain. The RPG manual, the adventures, the world texts and the Codex matter move from 'all rights reserved' to CC0 1.0: copy them, adapt them, play them, publish your own adventures, with no permission and no attribution needed. Numen Games holds the rights and its authors agree. The /lore page loses its amber rights warning because there is no limit left to warn about. Only the names Numinia, Numen Games and Khepri, and their marks, are kept.",
+      },
+    ],
+  },
+  {
     version: "v0.21.0",
     date: "2026-09-24",
     entries: [

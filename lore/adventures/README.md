@@ -1,6 +1,6 @@
 <!--
 SPDX-FileCopyrightText: 2026 Numen Games S.L.
-SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+SPDX-License-Identifier: CC0-1.0
 -->
 
 # adventures/ — what is played

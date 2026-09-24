@@ -43,11 +43,18 @@ path = [
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
-# LicenseRef-Numen-AllRightsReserved — binary or vendored image/font; read verbatim by numinia-web (fetch-lore, the Codex download)
+# CC0-1.0 — the game: the character sheet image, and the RPG manual numinia-web reads verbatim (fetch-lore, the Codex download)
 [[annotations]]
 path = [
   "lore/codex/hoja-de-personaje-v0.6.0.jpg",
   "lore/game/manual-v0.6.0.md",
+]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC0-1.0"
+
+# LicenseRef-Numen-AllRightsReserved — the brand mark: trademarks are never licensed
+[[annotations]]
+path = [
   "web/src/brand/Khepri_Logo.svg",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
