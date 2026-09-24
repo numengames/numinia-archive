@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 102767,
+  "chars": 103726,
   "apparatus": false,
   "archived": false,
-  "tokens": 27234
+  "tokens": 27483
  },
  {
   "path": "CLAUDE.md",
@@ -1133,15 +1133,70 @@
   "tokens": 26982
  },
  {
+  "path": "lore/game/manual/en/03-character-creation.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 97225,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 22270
+ },
+ {
+  "path": "lore/game/manual/en/04-game-system.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 95582,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 20580
+ },
+ {
+  "path": "lore/game/manual/en/05-geography-and-culture-of-numinia.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 118091,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 25954
+ },
+ {
+  "path": "lore/game/manual/en/06-inventory-and-bestiary.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 183294,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 36603
+ },
+ {
+  "path": "lore/game/manual/en/07-building-the-adventure.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 135556,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 26684
+ },
+ {
   "path": "lore/game/manual/en/README.md",
   "dir": "lore",
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1327,
+  "chars": 1477,
   "apparatus": true,
   "archived": false,
-  "tokens": 350
+  "tokens": 388
  },
  {
   "path": "lore/game/manual/es/00-introduccion.md",
@@ -1248,10 +1303,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14492,
+  "chars": 38712,
   "apparatus": false,
   "archived": false,
-  "tokens": 4475
+  "tokens": 12473
  },
  {
   "path": "lore/world/brand-and-culture.md",

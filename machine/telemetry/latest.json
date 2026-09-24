@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "4317655",
-  "corpus_hash": "161d516b114f3d448ed6160776037dbb245e43cb0a56aaff275805bff2ade35f",
+  "head": "ed488b8",
+  "corpus_hash": "7378c481b230ca5e04386a9ca0c89c9f514829472a9412f089977a24b6b0c4a4",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T13:35:12Z",
+  "measured_at": "2026-09-24T13:50:47Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 559,
+      "value": 564,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -30,7 +30,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 14,
-        ".md": 211,
+        ".md": 216,
         ".mjs": 76,
         ".png": 35,
         ".svg": 72,
@@ -47,12 +47,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 211,
+      "value": 216,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 210,
+      "value": 215,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -65,7 +65,7 @@
         "canon": 9,
         "debt": 2,
         "decisions": 24,
-        "lore": 28,
+        "lore": 33,
         "machine": 13,
         "missions": 11,
         "objects": 2,
@@ -80,7 +80,7 @@
     },
     "corpus.docs_by_type": {
       "value": {
-        "(none)": 37,
+        "(none)": 42,
         "adr": 25,
         "agent": 34,
         "blueprint": 10,
@@ -97,7 +97,7 @@
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
     },
     "corpus.docs_without_frontmatter": {
-      "value": 36,
+      "value": 41,
       "unit": "documents",
       "definition": "corpus documents with no `---` block at the top"
     },
@@ -318,17 +318,17 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 675031,
+      "value": 815407,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "lore": 332075,
+        "lore": 472202,
         "standards": 56771,
         "missions": 43966,
         "decisions": 35157,
-        "": 34053,
+        "": 34302,
         "agents": 29069,
         "reports": 26307,
         "operations": 24533,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 366198,
+        "(none)": 506574,
         "draft": 145755,
         "active": 117624,
         "done": 26539,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.51,
+      "value": 5.39,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -376,12 +376,12 @@
           37267
         ],
         [
-          "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
-          36362
+          "lore/game/manual/en/06-inventory-and-bestiary.md",
+          36603
         ],
         [
-          "lore/game/manual/es/03-creacion-del-personaje.md",
-          30139
+          "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
+          36362
         ]
       ],
       "unit": "tokens",
@@ -393,7 +393,7 @@
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
     "headers.docs_without_frontmatter": {
-      "value": 36,
+      "value": 41,
       "unit": "documents",
       "definition": "corpus docs minus docs_with_frontmatter"
     },
@@ -520,7 +520,7 @@
     "provenance.authorship": {
       "value": {
         "ai-persona": 136,
-        "no-frontmatter": 36,
+        "no-frontmatter": 41,
         "other": 25,
         "ai-model": 8,
         "human": 4,
@@ -752,7 +752,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 281,
+      "value": 292,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -767,12 +767,12 @@
         "standards/STD-023-design-values.md": 17,
         "lore/game/manual/es/03-creacion-del-personaje.md": 12,
         "reports/RPT-017-mvp-story.md": 11,
+        "lore/game/manual/en/03-character-creation.md": 10,
         "operations/OPS-007-sales.md": 10,
         "reports/RPT-019-2026-w37.md": 10,
         "missions/MIS-0135-normalisation-residue-register.md": 7,
         "operations/OPS-001-continuity.md": 7,
-        "blueprints/BLU-009-web-pieces.md": 6,
-        "blueprints/BLU-011-book-and-velo.md": 6
+        "blueprints/BLU-009-web-pieces.md": 6
       },
       "unit": "lines",
       "definition": "the fifteen docs with most such lines"
