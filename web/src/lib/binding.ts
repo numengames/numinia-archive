@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------
 // This site publishes two halves of a sentence and not the third.
 //
-//   1. Eleven protocols, twenty-seven standards and eight canons, rendered
+//   1. Eleven protocols, twenty-seven standards and the canons, rendered
 //      in full, each with its steps and its obligations.
 //   2. The definition of `draft` — "written, not yet in force: it binds
 //      nobody" (STD-016) — printed on the home, in /llms.txt and in
