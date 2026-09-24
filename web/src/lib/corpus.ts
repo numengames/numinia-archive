@@ -337,6 +337,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/canon/can-002-brand-and-culture",
     "/canon/can-004-role-structure",
     "/canon/can-005-licensing",
+    // 2026-09-24 (ADR-060): the ethics closes the sequence — the sentence
+    // every canon ends on, as its own document, in draft.
+    "/canon/can-010-leave-things-better",
   ],
 
   // The life of a document, in the order the archive had to decide it:
@@ -511,7 +514,7 @@ export const SECTION_VIEWS: Record<string, SectionView[]> = {
 // section gets one line of prose above its rows, in the same voice as the
 // blurb: what the sequence is doing, so the order reads as a choice.
 export const READING_NOTE: Record<string, string> = {
-  canon: "Read top to bottom and the city builds itself: first what this place is, then why the fiction does real work and how the system works underneath, then how the work is done here, then what the house is and who lives in it — and last, what you are free to take with you.",
+  canon: "Read top to bottom and the city builds itself: first what this place is, then why the fiction does real work and how the system works underneath, then how the work is done here, then what the house is and who lives in it, then what you are free to take with you — and last, the one sentence every canon ends on, as its own.",
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
   standards: "Language first — nothing below can be read without it. Then who may change what, then the shape a document takes, then how the thing gets built.",
   protocols: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",

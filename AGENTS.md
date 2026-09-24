@@ -97,7 +97,7 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 
 - `agents/` — canonical agent definitions, one folder each. `agents/INDEX.md`
   owns the roster and the folder contract; read it there rather than here.
-- `canon/` — the world and the governing canons (CAN-001…CAN-009; CAN-003 absorbed by CAN-004).
+- `canon/` — the world and the governing canons (CAN-001…CAN-010; CAN-003 absorbed by CAN-004).
 - `lore/` — the game: RPG manual, adventures, world texts, codex. Each file declares its own licence.
 - `standards/` — this archive's operative standards (STD-001…STD-028).
 - `protocols/` — procedures: session close, briefing, archiving.
@@ -138,6 +138,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `CAN-007` | Function makes the system inhabitable… | whoever designs, renames or reorganises anything in this system |
 | `CAN-008` | One identity, four registers | every piece that carries the Numen Games or Numinia mark |
 | `CAN-009` | The archive is the organisation | every document of this archive, every change to it, and whoever — biological or digital… |
+| `CAN-010` | Leave things better than you found them | whoever acts in Numinia's name, biological or digital |
 | `PRO-001` | Opening and closing a session | every agent, in every session, whatever the mission |
 | `PRO-003` | Running a mission | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
 | `PRO-005` | Escalating to the Oracle | any agent facing a decision it may not, or cannot, take alone |
@@ -180,7 +181,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-029` | How we treat each other in the commons | everyone in a Numinia community space — citizens, moderators, Oracles and digital agents alike |
 | `STD-030` | The world's vocabulary | register — scope belongs to the standard that cites it |
 
-49 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+50 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

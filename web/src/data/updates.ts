@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.29.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "A canon for ethics, opened in draft. 'Leave things better than you found them' (CAN-010) takes the sentence every canon ends on and applies it to people, their data, the commons and the acts of a digital agent — four commitments already in force elsewhere, stated as one belief. Its body says it is a first statement to be argued with. It closes the canon sequence (ADR-060).",
+      },
+    ],
+  },
+  {
     version: "v0.28.0",
     date: "2026-09-24",
     entries: [
