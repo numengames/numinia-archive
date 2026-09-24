@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 119358,
+  "chars": 120018,
   "apparatus": false,
   "archived": false,
-  "tokens": 31672
+  "tokens": 31836
  },
  {
   "path": "CLAUDE.md",
@@ -1039,10 +1039,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2203,
+  "chars": 2318,
   "apparatus": true,
   "archived": false,
-  "tokens": 618
+  "tokens": 646
  },
  {
   "path": "lore/adventures/README.md",
@@ -1050,10 +1050,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1373,
+  "chars": 1568,
   "apparatus": true,
   "archived": false,
-  "tokens": 352
+  "tokens": 403
  },
  {
   "path": "lore/adventures/tabletop/README.md",
@@ -1061,10 +1061,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1362,
+  "chars": 1146,
   "apparatus": true,
   "archived": false,
-  "tokens": 367
+  "tokens": 315
  },
  {
   "path": "lore/adventures/tabletop/TEMPLATE.md",
@@ -1108,7 +1108,7 @@
   "chars": 806,
   "apparatus": true,
   "archived": false,
-  "tokens": 208
+  "tokens": 209
  },
  {
   "path": "lore/adventures/virtual-worlds/session-zero.md",
