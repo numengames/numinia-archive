@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13331,
+  "chars": 13490,
   "apparatus": false,
   "archived": false,
-  "tokens": 3306
+  "tokens": 3345
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 109478,
+  "chars": 110432,
   "apparatus": false,
   "archived": false,
-  "tokens": 28998
+  "tokens": 29251
  },
  {
   "path": "CLAUDE.md",
@@ -1010,6 +1010,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1571
+ },
+ {
+  "path": "decisions/ADR-064-charges-and-the-account.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 5981,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1573
  },
  {
   "path": "lore/README.md",
@@ -2051,10 +2062,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6292,
+  "chars": 6433,
   "apparatus": false,
   "archived": false,
-  "tokens": 1631
+  "tokens": 1679
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -2139,10 +2150,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5229,
+  "chars": 5746,
   "apparatus": false,
   "archived": false,
-  "tokens": 1638
+  "tokens": 1804
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",
@@ -2374,6 +2385,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1661
+ },
+ {
+  "path": "standards/STD-033-charges-and-the-account.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5538,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1438
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

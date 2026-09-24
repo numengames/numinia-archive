@@ -5,16 +5,16 @@ title: "External standards"
 type: documentation
 subtype: register
 status: draft
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-07T15:00:00+02:00"
-updated: "2026-09-09T00:40:00+02:00"
+updated: "2026-09-24T17:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "CAO"
 license: "CC0-1.0"
 tags: [standards, adoption, provenance, external, register]
 threshold: governed
-series_change: "1.0.0 — the register takes the ADR-043 shape: one table, no prose. Twenty-eight rows kept, sources kept; the reading notes that carried facts become a Notes column; the three sections that explained the table are gone. Distance 0 · 1 · 2 · 3 = enforced by a tool · written, unchecked · practised, unnamed · not considered."
+series_change: "1.0.1 — 2026-09-24: two Funding rows, the Spanish accounting plan and FOCUS, cited by STD-033 (ADR-064). 1.0.0 — the register takes the ADR-043 shape: one table, no prose. Twenty-eight rows kept, sources kept; the reading notes that carried facts become a Notes column; the three sections that explained the table are gone. Distance 0 · 1 · 2 · 3 = enforced by a tool · written, unchecked · practised, unnamed · not considered."
 ---
 
 <!--
@@ -57,6 +57,8 @@ SPDX-License-Identifier: CC0-1.0
 | Product | W3C DTCG · design tokens | <https://www.designtokens.org/tr/drafts/format/> | 1 | `STD-008` | the spec is a draft; conformance to a moving target |
 | Product | C2PA | <https://c2pa.org/> | 3 | — | relevant only if `/web` serves AI media at public volume |
 | Funding | GDPR · Regulation (EU) 2016/679 | <https://eur-lex.europa.eu/eli/reg/2016/679/oj> | 1 | `OPS-003` | FLAG-2 · 3 · 4 · 6 open, awaiting a lawyer |
+| Funding | Plan General de Contabilidad · RD 1514/2007 | <https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884> | 1 | `STD-033` LED-001 | each ledger line carries its account (62x services, 64x staff); the gestoría keeps the books |
+| Funding | FinOps FOCUS 1.4 | <https://focus.finops.org/> | 2 | `STD-033` LED-003 | billed against effective (consumed) cost; vocabulary borrowed, no tool checks conformance |
 | Funding | OpenChain · ISO/IEC 5230 | <https://openchainproject.org/license-compliance> | 3 | — | formalises what `STD-010` executes by hand |
 
 `Content`, `Sales` and `Infrastructure` hold no row; this register does not decide whether that is a gap in the vocabulary or in the world.
