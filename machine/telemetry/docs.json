@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13490,
+  "chars": 13757,
   "apparatus": false,
   "archived": false,
-  "tokens": 3345
+  "tokens": 3409
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 113729,
+  "chars": 114568,
   "apparatus": false,
   "archived": false,
-  "tokens": 30136
+  "tokens": 30355
  },
  {
   "path": "CLAUDE.md",
@@ -1023,6 +1023,17 @@
   "tokens": 1573
  },
  {
+  "path": "decisions/ADR-065-two-protocols-for-money.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 4370,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1139
+ },
+ {
   "path": "lore/README.md",
   "dir": "lore",
   "series": null,
@@ -1978,6 +1989,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1396
+ },
+ {
+  "path": "protocols/PRO-020-putting-something-on-sale.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 3995,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1075
+ },
+ {
+  "path": "protocols/PRO-021-closing-the-month.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 4161,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1092
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
