@@ -72,49 +72,49 @@ const PRESENTATION: Record<
   Omit<DigitalAgent, "id" | "name" | "role" | "route" | "since" | "href">
 > = {
   ursa: {
-    color: "#a6dad5", mark: "⌁", className: "Systems architect",
+    color: "var(--ink-verdemar)", mark: "⌁", className: "Systems architect",
     quote: "Turn a technical objective into a reliable system.",
     stats: [["Systems", "S+"], ["Precision", "A"], ["Tempo", "A"]],
     specialties: ["Software architecture", "Code review", "Automation", "Security", "Testing", "Systems integration"],
     bio: "Ursa turns ambiguity into executable structure. She chooses when to orchestrate, when to delegate and when to take the keyboard herself — then verifies the result.",
   },
   byblos: {
-    color: "#efa517", mark: "▤", className: "Archive keeper",
+    color: "var(--ink-ambar)", mark: "▤", className: "Archive keeper",
     quote: "If it cannot be found, it cannot govern.",
     stats: [["Memory", "S+"], ["Order", "S"], ["Patience", "A"]],
     specialties: ["Records management", "Classification", "Versioning", "Naming", "Information lifecycle"],
     bio: "Byblos protects the organization’s memory. She makes knowledge legible, durable and findable — so a decision can outlive the session that produced it.",
   },
   antunj: {
-    color: "#a98be0", mark: "✦", className: "Meaning smith",
+    color: "var(--ink-violeta)", mark: "✦", className: "Meaning smith",
     quote: "Make the thing mean something before making more of it.",
     stats: [["Framing", "S+"], ["Taste", "A"], ["Clarity", "S"]],
     specialties: ["Product definition", "Positioning", "Naming", "Narrative", "Strategic coherence"],
     bio: "Antunj gives projects a reason to exist in public. He connects product, language and intention until the organization can explain what it is building — and why.",
   },
   lexa: {
-    color: "#d33440", mark: "◈", className: "Boundary reader",
+    color: "var(--ink-grana)", mark: "◈", className: "Boundary reader",
     quote: "Find the edge before the edge finds us.",
     stats: [["Risk sense", "S+"], ["Diligence", "S"], ["Scope", "A"]],
     specialties: ["Digital law", "Licensing", "Crypto / Web3", "Privacy", "Compliance risk"],
     bio: "Lexa reads the boundary conditions. She surfaces legal and regulatory risk early, separating what is possible, what is permitted and what needs a human decision.",
   },
   senet: {
-    color: "#8fc46b", mark: "◇", className: "Experience shaper",
+    color: "var(--ink-verde)", mark: "◇", className: "Experience shaper",
     quote: "A rule is a promise about what can happen next.",
     stats: [["Play", "S+"], ["Systems", "A"], ["Surprise", "S"]],
     specialties: ["TTRPG", "Game mechanics", "Puzzles", "Encounters", "Interactive design"],
     bio: "Senet turns systems into experiences. She designs the rules, friction and moments of discovery that make Numinia something people can enter, not just something they can read.",
   },
   procyon: {
-    color: "#5d9bd6", mark: "↗", className: "Wayfinder",
+    color: "var(--ink-azul)", mark: "↗", className: "Wayfinder",
     quote: "The first five minutes decide whether a door feels open.",
     stats: [["Welcome", "S+"], ["Signal", "A"], ["Empathy", "A"]],
     specialties: ["Onboarding", "Orientation", "Explanations", "Stakeholder guidance", "Representation"],
     bio: "Procyon makes the unfamiliar navigable. He translates the archive, the roles and the rituals for people arriving at the edge of the organization.",
   },
   doulos: {
-    color: "#c4b5a6", mark: "+", className: "Reliable hand",
+    color: "var(--ink-niebla)", mark: "+", className: "Reliable hand",
     quote: "Small, clear work is still work worth doing well.",
     stats: [["Reliability", "S"], ["Focus", "S"], ["Drama", "C"]],
     specialties: ["Bounded tasks", "Repetitive work", "Low ambiguity", "Execution", "Follow-through"],
@@ -123,21 +123,21 @@ const PRESENTATION: Record<
   // The three the hand-written array never gained. Their cards exist now for
   // the same reason the other seven do: the INDEX lists them.
   calliope: {
-    color: "#e08bb5", mark: "✎", className: "Voice smith",
+    color: "var(--ink-rosa)", mark: "✎", className: "Voice smith",
     quote: "The sentence people remember is the one that was cut down to fit.",
     stats: [["Voice", "S+"], ["Register", "S"], ["Economy", "A"]],
     specialties: ["Copywriting", "Editorial writing", "Channel adaptation", "Tone of voice", "Editing"],
     bio: "Calliope writes what the organization says out loud. She adapts one message to the channel it lands in without letting it become a different message.",
   },
   nimrod: {
-    color: "#7fc4b8", mark: "⌖", className: "Pathfinder",
+    color: "var(--ink-aguamarina)", mark: "⌖", className: "Pathfinder",
     quote: "Every answer in here has an address. I know the address.",
     stats: [["Recall", "S+"], ["Provenance", "S"], ["Speed", "A"]],
     specialties: ["Repository navigation", "Authority mapping", "Provenance", "Cross-referencing", "Search"],
     bio: "Nimrod knows where things are and which of them governs. He answers 'where is this written, and does it still hold' without reopening the argument the document already settled.",
   },
   talos: {
-    color: "#b0b7c3", mark: "⛨", className: "Gatekeeper",
+    color: "var(--ink-plata)", mark: "⛨", className: "Gatekeeper",
     quote: "A control nobody verifies is a rumour with a ticket number.",
     stats: [["Vigilance", "S+"], ["Rigour", "S"], ["Trust", "C"]],
     specialties: ["CI/CD", "Safeguards", "Automation integrity", "Control verification", "Operational assurance"],
@@ -146,7 +146,7 @@ const PRESENTATION: Record<
 };
 
 const NEUTRAL: Omit<DigitalAgent, "id" | "name" | "role" | "route" | "since" | "href"> = {
-  color: "#a6dad5",
+  color: "var(--ink-verdemar)",
   mark: "◆",
   className: "Digital agent",
   stats: [],

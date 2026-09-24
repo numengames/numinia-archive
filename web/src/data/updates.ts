@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.50.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "Day and night: a button in the bar shows the sun or the moon with stars, for where a tap leads. Until you choose, the site follows your device; once you choose, it remembers (the same as numinia.com) and does not flash on reload. By day the site is Arena paper with near-black ink; the sky of stars shows only at night, and the animation catalogue on /design stays a night sample. The night is exactly as it was.",
+      },
+    ],
+  },
+  {
     version: "v0.49.0",
     date: "2026-09-24",
     entries: [

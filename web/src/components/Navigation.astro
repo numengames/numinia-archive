@@ -52,6 +52,7 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
       in scripts (grep the built HTML for the six labels) is the regression
       test, not this comment.
     -->
+    <div class="flex items-center gap-1">
     <div class="hidden items-center gap-1 lg:flex">
       {navGroups.map((group) => (
         <div class="relative" data-dropdown>
@@ -106,6 +107,19 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
       <SiteSearch />
     </div>
 
+    <!-- The mode switch (DSN-016), numinia.com's copied: the icon shows where
+         a tap leads — moon with stars to the night, sun to the day. -->
+    <button
+      type="button"
+      data-mode-switch
+      class="mode-switch flex h-11 w-11 items-center justify-center rounded-[6px] text-muted-foreground transition-colors hover:bg-card hover:text-foreground lg:ml-1"
+      aria-label="Colour mode: day or night"
+      title="Colour mode: day or night"
+    >
+      <span class="solo-diurno"><Icon name="moon-stars" size={18} /></span>
+      <span class="solo-nocturno"><Icon name="sun" size={18} /></span>
+    </button>
+
     <!-- Mobile: the button that opens the full-screen panel -->
     <button
       id="mobile-menu-btn"
@@ -117,6 +131,7 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
       <span data-icon-open><Icon name="list" size={18} /></span>
       <span data-icon-close class="hidden"><Icon name="x" size={18} /></span>
     </button>
+    </div>
   </div>
 
   <!--
@@ -169,7 +184,41 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
   </div>
 </nav>
 
+<style>
+  /* Pure-CSS icon swap keyed on the html attribute: no flash, no JS paint. */
+  :global(html:not([data-modo="diurno"])) .solo-diurno,
+  :global(html[data-modo="diurno"]) .solo-nocturno {
+    display: none;
+  }
+</style>
+
 <script>
+  // Day and night (DSN-016), numinia.com's switch copied. Until the visitor
+  // chooses, the page follows the device; a choice is remembered under
+  // numinia-modo (the key the cookie policy names) and ends the following.
+  const root = document.documentElement;
+  const applyModo = (modo: string) => {
+    if (modo === "diurno") root.dataset.modo = "diurno";
+    else delete root.dataset.modo;
+  };
+  matchMedia("(prefers-color-scheme: light)").addEventListener("change", (event) => {
+    try {
+      if (localStorage.getItem("numinia-modo")) return;
+    } catch {
+      return;
+    }
+    applyModo(event.matches ? "diurno" : "nocturno");
+  });
+  document.querySelector("[data-mode-switch]")?.addEventListener("click", () => {
+    const next = root.dataset.modo === "diurno" ? "nocturno" : "diurno";
+    applyModo(next);
+    try {
+      localStorage.setItem("numinia-modo", next);
+    } catch {
+      /* private mode: the choice lives for this page only */
+    }
+  });
+
   // Mobile panel: toggle, swap the glyph, lock the page scroll while open.
   const btn = document.getElementById("mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");

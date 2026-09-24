@@ -112,7 +112,11 @@
 		overflow-x: clip;
 	}
 
-	:root {
+	/* `.siempre-noche` re-declares the night on an element, for the places
+	   that are a night sample by design (the motion catalogue, the night
+	   rarity row on /design): by day they stay a dark island, as drawn. */
+	:root,
+	.siempre-noche {
 		/* The font stacks live in the @theme block at the top of this file.
 
 		   ── Core palette — RGB triplets for Tailwind opacity support ────────
@@ -168,6 +172,124 @@
 		--muted-foreground: var(--text-muted);
 		--ring: var(--accent);
 		--input: var(--border);
+
+		/* ── Inks for pages that paint a colour per item (agents, the
+		   language dials) — the same hex they carried inline, now named so
+		   the day can swap them for their text-over-light voices. Three are
+		   agent colours outside the palette (rosa, aguamarina, plata), kept
+		   as they were: their fate is the Oracle's call (RPT-021). */
+		--ink-ceniza: #8a7d72;
+		--ink-niebla: #c4b5a6;
+		--ink-ambar: #efa517;
+		--ink-verde: #8fc46b;
+		--ink-violeta: #a98be0;
+		--ink-verdemar: #a6dad5;
+		--ink-azul: #5d9bd6;
+		--ink-grana: #d33440;
+		--ink-rosa: #e08bb5;
+		--ink-aguamarina: #7fc4b8;
+		--ink-plata: #b0b7c3;
+		/* How much a thinned ink keeps (the language table): 80 % at night,
+		   full by day, where thinning drops it under 4.5:1. */
+		--ink-soft: 80%;
+	}
+
+	/* ── Modo Diurno (STD-008 DSN-016) ─────────────────────────────────────
+	   The same variables re-pointed at the kit's day values when the switch
+	   in the bar sets <html data-modo="diurno">. No attribute is the night
+	   above, untouched. Source: machine/packages/design-kit
+	   sistema.tokens.json — color.diurno (neutrals), color.enlace.diurno (the
+	   day link), color.texto-sobre-claro and the rarity day-text variants for
+	   the accents, which are mood colours over the night and must become
+	   their darker text voices over Arena (STD-023). Coral has no day
+	   variant by decision; Grana-text speaks for it. */
+	[data-modo="diurno"] {
+		--bg: 249 235 220;         /* Arena #F9EBDC */
+		--bg-card: 253 246 238;    /* superficie #FDF6EE */
+		--bg-card-hover: 239 233 219; /* tinte #EFE9DB */
+		--border: 196 181 166;     /* #C4B5A6 */
+		--text: 20 17 15;          /* Noche #14110F */
+		--text-muted: 74 66 59;    /* #4A423B */
+		--text-dim: 110 98 89;     /* #6E6259 */
+
+		--accent: 1 110 125;       /* enlace diurno #016E7D */
+
+		--terracota: 122 81 0;     /* ámbar-texto #7A5100 */
+		--ocre: 122 81 0;
+		--arena: 20 17 15;         /* "arena" is the ink colour: by day, Noche */
+		--azul-med: 46 107 176;    /* raro-texto #2E6BB0 */
+		--salvia: 53 108 25;       /* poco-común-texto #356C19 */
+		--cobre: 122 81 0;
+		--bronce: 110 98 89;
+
+		--teal: 1 110 125;         /* turquesa-texto #016E7D */
+		--ambar: 122 81 0;         /* #7A5100 */
+
+		--green: 53 108 25;        /* #356C19 */
+		--red: 176 35 48;          /* grana-texto #B02330 */
+		--yellow: 122 81 0;        /* #7A5100 */
+		--blue: 46 107 176;        /* #2E6BB0 */
+		--purple: 107 68 184;      /* épico-texto #6B44B8 */
+
+		--accent-glow: rgba(1, 110, 125, 0.10);
+		--veil-glow: rgba(1, 110, 125, 0.05);
+		--cobre-glow: rgba(1, 110, 125, 0.14);
+
+		--ink-ceniza: #6e6259;     /* terciario */
+		--ink-niebla: #5a4f45;     /* común-texto */
+		--ink-ambar: #7a5100;
+		--ink-verde: #356c19;
+		--ink-violeta: #6b44b8;
+		--ink-verdemar: #1f6b5f;
+		--ink-azul: #2e6bb0;
+		--ink-grana: #b02330;
+		/* The three off-palette agent colours, darkened by the same rule
+		   (same hue, lightness to ~4.5:1 over Arena), pending the decision. */
+		--ink-rosa: #a3386d;
+		--ink-aguamarina: #1f6b5f;
+		--ink-plata: #4f5866;
+		--ink-soft: 100%;
+	}
+	html[data-modo="diurno"] {
+		color-scheme: light;
+	}
+	html[data-modo="diurno"] .siempre-noche {
+		color: rgb(var(--text));
+		color-scheme: dark;		/* Tailwind resolves its theme colours once, at :root, so an island
+		   must re-point them at its own (night) variables. */
+		--color-border: rgb(var(--border));
+		--color-background: rgb(var(--background));
+		--color-foreground: rgb(var(--foreground));
+		--color-accent: rgb(var(--accent));
+		--color-card: rgb(var(--card));
+		--color-card-hover: rgb(var(--bg-card-hover));
+		--color-muted: rgb(var(--muted));
+		--color-muted-foreground: rgb(var(--muted-foreground));
+		--color-dim: rgb(var(--text-dim));
+		--color-green: rgb(var(--green));
+		--color-red: rgb(var(--red));
+		--color-yellow: rgb(var(--yellow));
+		--color-blue: rgb(var(--blue));
+		--color-purple: rgb(var(--purple));
+		--color-teal: rgb(var(--teal));
+		--color-ambar: rgb(var(--ambar));
+	}
+	/* The sky is Nocturno only (STD-023, the sky); the Akasha grid stays, in
+	   the day link colour, faint. The noise stays: it is paper grain. */
+	html[data-modo="diurno"] #starfield {
+		display: none;
+	}
+	html[data-modo="diurno"] body::before {
+		background-image:
+			radial-gradient(ellipse 80% 60% at 0% 100%, var(--veil-glow), transparent),
+			linear-gradient(rgba(1, 110, 125, 0.035) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(1, 110, 125, 0.035) 1px, transparent 1px);
+	}
+	html[data-modo="diurno"] ::selection {
+		background: rgba(1, 110, 125, 0.22);
+	}
+	html[data-modo="diurno"] :focus-visible {
+		outline-color: #016E7D;
 	}
 
 	* {
@@ -175,15 +297,16 @@
 	}
 
 	html {
-		background-color: #14110F;
-		color: #F9EBDC;
+		background-color: rgb(var(--bg));
+		color: rgb(var(--text));
+		color-scheme: dark;
 		scroll-behavior: smooth;
 	}
 
 	body {
 		@apply min-h-screen font-sans text-foreground antialiased;
 		background-color: transparent;
-		color: #F9EBDC;
+		color: rgb(var(--text));
 	}
 
 	/* ── Registro del Velo (§2.7): niebla + rejilla del Akasha en UNA capa
@@ -225,7 +348,7 @@
 		height: 6px;
 	}
 	::-webkit-scrollbar-track {
-		background: rgb(20 17 15);
+		background: rgb(var(--bg));
 	}
 	::-webkit-scrollbar-thumb {
 		background: rgba(1, 142, 161, 0.35);
@@ -244,7 +367,7 @@
 	/* ── Text selection ──────────────────────────────────────────────────── */
 	::selection {
 		background: rgba(1, 142, 161, 0.30);
-		color: rgb(249, 235, 220);
+		color: rgb(var(--text));
 	}
 
 	/* ── Focus ring — el foco canónico del kit (§13.1) ───────────────────── */
@@ -377,4 +500,62 @@
 		padding: 1.35rem 1.5rem;
 	}
 	.context-card dd { margin-bottom: 0; }
+}
+
+/* ── Modo Diurno: small inks over tints (DSN-005) ─────────────────────────
+   Outside @layer so they beat the utilities. By day a coloured label on its
+   own 5-15 % tint, or a coloured label thinned to 70 %, falls just under
+   4.5:1 over Arena (measured with axe: 4.2-4.4). The night keeps its
+   values; by day the label takes the kit's pressed shade (accent) or its
+   own ink deepened toward Noche. */
+html[data-modo="diurno"] :is([class*="bg-accent/"], [class*="bg-teal/"]):is(.text-accent, .text-teal),
+html[data-modo="diurno"] [class*="bg-accent/"] .text-accent {
+	color: #015866; /* interactivo.activo */
+}
+html[data-modo="diurno"] :is([class*="bg-blue/"].text-blue, [class*="border-blue/"] > .text-blue) {
+	color: color-mix(in srgb, rgb(var(--blue)) 78%, rgb(var(--text)));
+}
+html[data-modo="diurno"] [class*="bg-green/"].text-green {
+	color: color-mix(in srgb, rgb(var(--green)) 78%, rgb(var(--text)));
+}
+html[data-modo="diurno"] [class*="bg-yellow/"].text-yellow {
+	color: color-mix(in srgb, rgb(var(--yellow)) 78%, rgb(var(--text)));
+}
+html[data-modo="diurno"] [class*="bg-purple/"].text-purple {
+	color: color-mix(in srgb, rgb(var(--purple)) 78%, rgb(var(--text)));
+}
+html[data-modo="diurno"] [class*="bg-red/"].text-red {
+	color: color-mix(in srgb, rgb(var(--red)) 78%, rgb(var(--text)));
+}
+html[data-modo="diurno"] .opacity-70:is(.text-accent, .text-teal, .text-green, .text-yellow, .text-blue, .text-purple, .text-red),
+html[data-modo="diurno"] :is(.text-accent, .text-teal, .text-green, .text-yellow, .text-blue, .text-purple, .text-red) .opacity-70,
+html[data-modo="diurno"] :is(.text-accent, .text-teal, .text-green, .text-yellow, .text-blue, .text-purple, .text-red).opacity-70 {
+	opacity: 1;
+}
+html[data-modo="diurno"] .text-accent\/70 {
+	color: rgb(var(--accent));
+}
+/* The language dials paint an active row with its ink at 10 %; by day the
+   label on it takes the ink deepened toward Noche. */
+html[data-modo="diurno"] [data-gamif-row].gamif-active > span {
+	color: color-mix(in srgb, var(--gamif-color) 80%, rgb(var(--text))) !important;
+}
+
+/* The functions graph on the home page: a dark halo lifts the labels off the
+   night; by day the halo is Arena, the names deepen toward Noche and the
+   subtitle takes the tertiary ink. */
+#archive-3d .graph-label {
+	text-shadow: 0 0 6px #000, 0 0 3px #000;
+}
+#archive-3d .graph-sub {
+	color: #aaa;
+	text-shadow: 0 0 4px #000;
+}
+html[data-modo="diurno"] #archive-3d .graph-label {
+	color: color-mix(in srgb, var(--node) 55%, rgb(var(--text))) !important;
+	text-shadow: 0 0 6px rgb(var(--bg-card)), 0 0 3px rgb(var(--bg-card));
+}
+html[data-modo="diurno"] #archive-3d .graph-sub {
+	color: rgb(var(--text-dim));
+	text-shadow: 0 0 4px rgb(var(--bg-card));
 }
