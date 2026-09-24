@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-24 (the English glossary follows the Token correction)
+- **`lore/codex/en/glossary.md`**: the Tokens entry quotes the corrected manual — *They represent a bond, and may represent wealth as well* — as the Spanish glossary and both manuals do since `ADR-063`. It arrived with the old sentence from the branch that was open when the correction landed.
+
 ### Added — 2026-09-24 (the Codex's edition matter, in English)
 - **`lore/codex/en/glossary.md`**, **`acknowledgments.md`**, **`character-sheet.md`**: the English of the Codex's glossary (79 entries, re-sorted by English headword; same 81 headings), acknowledgments and character sheet (same 7 headings). Numinia terms from `lore/game/manual/glossary-es-en.md`; quotes reuse the wording of the English chapters. numinia.com's English Codex reads them. The Spanish stays the original. CC0.
 
