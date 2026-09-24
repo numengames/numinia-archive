@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.41.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "The rules for money, in draft. 'Every charge delivers something; the account is one' (STD-033) says what any payment on a Numinia or Numen Games site must meet — something in return, the whole price with VAT, a record in the archive, no card on our sites, cancel in one step, remembered only as you choose — and how the account is kept: one ledger of lines, closed from invoices, the same figures for the public, the technology view, the finance view and the gestoría, every total traceable to its paper for an auditor or the tax authority, and nobody's pay published (ADR-064).",
+      },
+    ],
+  },
+  {
     version: "v0.40.0",
     date: "2026-09-24",
     entries: [

@@ -183,8 +183,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-030` | The world's vocabulary | register — scope belongs to the standard that cites it |
 | `STD-031` | A canon states | every document in `canon/` |
 | `STD-032` | The Numinia Design System | register — scope belongs to the standard that cites it |
+| `STD-033` | Every charge delivers something; the account… | every site of Numinia and Numen Games that takes a payment, every record of something on sale… |
 
-53 rule documents; 8 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+54 rule documents; 8 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
