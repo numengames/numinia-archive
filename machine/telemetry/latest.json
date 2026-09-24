@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "1a06371",
-  "corpus_hash": "4c10cf74f6ceec7e8eddf921286d2368be47eef7370e53cf12f109a7e8358daa",
+  "head": "2859830",
+  "corpus_hash": "450d9ab73365c61baf5d5cb122a823b62670cd8680808637a7abe2d55fe7808b",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T08:01:47Z",
+  "measured_at": "2026-09-24T08:39:34Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 530,
+      "value": 538,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -30,7 +30,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 14,
-        ".md": 190,
+        ".md": 198,
         ".mjs": 75,
         ".png": 35,
         ".svg": 69,
@@ -47,12 +47,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 190,
+      "value": 198,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 188,
+      "value": 196,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -65,7 +65,7 @@
         "canon": 8,
         "debt": 2,
         "decisions": 18,
-        "lore": 15,
+        "lore": 23,
         "machine": 13,
         "missions": 11,
         "objects": 2,
@@ -80,7 +80,7 @@
     },
     "corpus.docs_by_type": {
       "value": {
-        "(none)": 24,
+        "(none)": 32,
         "adr": 19,
         "agent": 34,
         "blueprint": 10,
@@ -97,12 +97,12 @@
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
     },
     "corpus.docs_without_frontmatter": {
-      "value": 23,
+      "value": 31,
       "unit": "documents",
       "definition": "corpus documents with no `---` block at the top"
     },
     "corpus.apparatus": {
-      "value": 24,
+      "value": 25,
       "unit": "documents",
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
@@ -318,17 +318,17 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 631367,
+      "value": 615484,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "lore": 311184,
+        "lore": 295057,
         "standards": 51909,
         "missions": 43966,
-        "": 30722,
-        "agents": 28895,
+        "": 30959,
+        "agents": 28902,
         "reports": 26307,
         "operations": 24533,
         "decisions": 23382,
@@ -346,9 +346,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 341976,
+        "(none)": 326086,
         "draft": 126521,
-        "active": 117416,
+        "active": 117423,
         "done": 26539,
         "todo": 14224,
         "in-progress": 4691
@@ -357,31 +357,31 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.96,
+      "value": 7.14,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
     "tokens.largest": {
       "value": [
         [
-          "lore/game/manual-v0.6.0.md",
-          245886
+          "lore/game/manual/es/06-inventario-y-bestiario.md",
+          51834
         ],
         [
-          "CHANGELOG.md",
-          23981
+          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
+          38607
         ],
         [
-          "lore/adventures/el-espejo-roto.md",
-          16822
+          "lore/game/manual/es/07-construyendo-la-aventura.md",
+          37267
         ],
         [
-          "lore/world/brand-and-culture.md",
-          11467
+          "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
+          36362
         ],
         [
-          "lore/codex/glosario.md",
-          11300
+          "lore/game/manual/es/03-creacion-del-personaje.md",
+          30139
         ]
       ],
       "unit": "tokens",
@@ -393,7 +393,7 @@
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
     "headers.docs_without_frontmatter": {
-      "value": 23,
+      "value": 31,
       "unit": "documents",
       "definition": "corpus docs minus docs_with_frontmatter"
     },
@@ -520,8 +520,8 @@
     "provenance.authorship": {
       "value": {
         "ai-persona": 126,
+        "no-frontmatter": 31,
         "other": 25,
-        "no-frontmatter": 23,
         "ai-model": 8,
         "human": 5,
         "no-author": 1
@@ -763,8 +763,8 @@
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
         "lore/world/brand-and-culture.md": 18,
-        "lore/game/manual-v0.6.0.md": 13,
         "standards/STD-023-design-values.md": 13,
+        "lore/game/manual/es/03-creacion-del-personaje.md": 12,
         "reports/RPT-017-mvp-story.md": 11,
         "operations/OPS-007-sales.md": 10,
         "reports/RPT-019-2026-w37.md": 10,

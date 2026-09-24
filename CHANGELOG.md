@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (the manual, chapter by chapter)
+- **The RPG manual is split by chapter.** `lore/game/manual-v0.6.0.md` (21,459 lines) becomes `lore/game/manual/es/00-introduccion.md` … `07-construyendo-la-aventura.md` plus a README index. Text untouched: every non-blank line of the original is in the chapters, in order (checked); only runs of blank lines at the cuts differ. Each chapter carries its own CC0 SPDX comment, so the manual's exact-path entry leaves `REUSE.toml`. `manual/en/` is where the English translation will go.
+- ***El Espejo Roto* leaves the manual.** It is a module, not a chapter (Oracle, 2026-09-24): the copy at the end of the manual was byte-identical to `lore/adventures/el-espejo-roto.md`, which is now its only home.
+- Paired with numinia-web (the Codex reads the chapters and the module file); merge this first.
+
 ### Changed — 2026-09-24 (the lore is CC0)
 - **Every file in `lore/` is CC0-1.0.** The 14 Markdown files change their own SPDX line; the manual and the character-sheet image change their exact-path entry in `REUSE.toml`. Rights holder Numen Games S.L.; the Oracle and co-author Christian Märtens agree (Oracle, 2026-09-24). Irrevocable once published — deliberately.
 - **What stays reserved:** the brand mark (`web/src/brand/Khepri_Logo.svg`), the names and marks (`TRADEMARKS.md`), and the legal texts and sales document in `operations/`.
