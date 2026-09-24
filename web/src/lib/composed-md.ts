@@ -509,7 +509,7 @@ export function designPage(): ComposedPage {
 }
 
 /**
- * /system/account — the ledger, summed. Consumed cost per year and concept,
+ * /system/open-books — the ledger, summed. Consumed cost per year and concept,
  * each line spread evenly over the days it covers and cut at the ledger's last
  * day; income on its date. The same lines and the same rule the page uses in
  * the browser, so the two views agree (STD-033 LED-002).
@@ -558,14 +558,14 @@ export function accountPage(): ComposedPage {
     "",
     table(["Concept", ...ys], rows),
     "",
-    `The ledger itself, one line per document (${all.length} lines): [/system/account.csv](/system/account.csv).`,
+    `The ledger itself, one line per document (${all.length} lines): [/system/open-books.csv](/system/open-books.csv).`,
     "",
     ...forecastMd(),
   ].join("\n");
-  return { route: "/system/account", filename: "numinia-account.md", sources: [...ACCOUNT_SOURCES], body: preamble([...ACCOUNT_SOURCES]) + body };
+  return { route: "/system/open-books", filename: "numinia-open-books.md", sources: [...ACCOUNT_SOURCES], body: preamble([...ACCOUNT_SOURCES]) + body };
 }
 
-/** The forecast section of /system/account.md: the same computation the page draws. */
+/** The forecast section of /system/open-books.md: the same computation the page draws. */
 function forecastMd(): string[] {
   const f = accountForecast();
   const eur = (n: number) => (n < -0.5 ? "−€" : "€") + Math.round(Math.abs(n)).toLocaleString("en-GB");
@@ -593,7 +593,7 @@ function forecastMd(): string[] {
     "",
     ...f.assumptions.map((a) => `- ${a.note}.`),
     "",
-    "The assumptions: [/system/account-forecast.csv](/system/account-forecast.csv).",
+    "The assumptions: [/system/open-books-forecast.csv](/system/open-books-forecast.csv).",
     "",
   ];
 }

@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The account — what Numinia costs and takes in, as four readers see it
+// Open books — what Numinia costs and takes in, as four readers see it
 // (STD-033, SYS-008). THIS PAGE STATES NO FIGURE OF ITS OWN: everything is
 // computed in the browser from one ledger, src/data/account-simulated.csv,
 // one line per document (LED-001). Four views, one set of lines, so they
@@ -17,7 +17,7 @@
 // (MON-002): the ledger is public and nobody's pay may be inferred from it.
 //
 // The ledger is read through @/lib/account, which the markdown view
-// (/system/account.md, composed-md.ts) shares.
+// (/system/open-books.md, composed-md.ts) shares.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
@@ -29,21 +29,21 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
 ---
 
 <Layout
-  title="The account (simulated) — Numinia"
+  title="Open books (simulated) — Numinia"
   description="What Numinia costs and takes in since 2 November 2020, by day, week, month, quarter and year — as a citizen, a CTO, a lender and the gestoría read it. Simulated figures until the first month closes."
-  canonicalPath="/system/account"
+  canonicalPath="/system/open-books"
   activeNav="system/"
 >
   <PageHero
-    label="System — The account"
+    label="System — Open books"
     title="What Numinia costs"
     description="Everything Numen Games spends on Numinia since 2 November 2020, by day, week, month, quarter and year; what has come in, what the company has put in, and where it is heading."
   />
 
   <div class="mx-auto max-w-[1100px] px-6 pb-8">
     <DocToolbar
-      mdUrl="/system/account.md"
-      filename="numinia-account.md"
+      mdUrl="/system/open-books.md"
+      filename="numinia-open-books.md"
       repoUrl={repoFileUrl("web/src/data/account-simulated.csv")}
       lang="en"
     />
@@ -63,7 +63,7 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
      <p class="cq-note" id="cq-lensnote"></p>
     </div>
     <div class="cq-kpis" id="cq-kpis"></div>
-    <noscript><p class="cq-note">This page computes its views in the browser. The ledger itself is plain text: <a href="/system/account.csv">account.csv</a>.</p></noscript>
+    <noscript><p class="cq-note">This page computes its views in the browser. The ledger itself is plain text: <a href="/system/open-books.csv">open-books.csv</a>.</p></noscript>
    </div>
 
    <div class="cq-sec" id="cq-sec-time" data-l="pub cto cfo">
@@ -161,7 +161,7 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
      <div class="cq-ctrl">
       <label for="cq-q">Quarter</label>
       <select id="cq-q"></select>
-      <a class="cq-pill cq-dl" href="/system/account.csv" download="numinia-account-simulated.csv">Download the ledger (CSV)</a>
+      <a class="cq-pill cq-dl" href="/system/open-books.csv" download="numinia-open-books-simulated.csv">Download the ledger (CSV)</a>
      </div>
      <div class="cq-tablewrap" style="margin-top:14px"><table class="cq-t" id="cq-book"><thead><tr><th>Document</th><th>Date</th><th class="cq-l">Supplier</th><th class="cq-l">Concept</th><th>Account</th><th>Base</th><th>VAT</th><th>VAT amount</th><th>Total</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
      <p class="cq-note">ISP: reverse charge (services from companies outside Spain; the VAT is declared and deducted at once). EX: exempt. NS: not subject.</p>
