@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (STD-031, A canon states, ADR-062)
+- **`standards/STD-031-a-canon-states.md`** `0.1.0`: the canon mould as twelve plated rules STA-001..012 — says what is so, says why, leaves the reader able to do something; obligations not sections; the title is a claim; no tool, no clock, no restatement; a border only when real; no date or byline; identifiers at the foot; the manual names the world. Carried from `ADR-048`, `ADR-049` and `ADR-053`, where — by `SER-001` — they bound nobody. The 1 500-word budget stays a SHOULD (`DOC-006`): reported, never enforced, at the Oracle's word. Ten of twelve checks are `[MANUAL]`, said so.
+- **`machine/templates/CAN-TEMPLATE.md`**: the HTML comment no longer restates the rules; it names `STD-031`, keeps the three admission questions and how to hold the pen, and adds *read it aloud*.
+
 ### Changed — 2026-09-24 (the canon reads in four shelves)
 - **`/canon/` groups its documents** under a Roman numeral, a label in the city's words and one line each: I *The city* (CAN-001) · II *The citizens* (CAN-004, 002, 008, 005, 010) · III *The Summa* (CAN-009) · IV *The ground* (CAN-007, 006). The order a stranger needs; the theory last, on purpose. `READING_GROUPS` in `web/src/lib/corpus.ts` is the source of the canon reading order and is checked at build like it. Oracle's word in session.
 - **Three titles shortened to their claim** (DOC-001, the canon mould's title note), patch each: `CAN-004` 4.0.1 *You are what you are doing*; `CAN-006` 2.0.1 *The model needs a story*; `CAN-007` 2.1.1 *Renaming is not transforming*. References in `CAN-009` 1.0.1 and `STD-003` 3.1.2 follow. `AGENTS.md` rule index regenerated.

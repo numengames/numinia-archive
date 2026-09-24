@@ -47,35 +47,11 @@ TODO — the body.
 <!--
 NOTES ON USING THIS TEMPLATE — delete this block.
 
-THERE IS NO PRESCRIBED SECTIONING. Write it as one continuous text, or with
-headings you choose, or with none at all. Headings, where you use them, belong
-to your argument — not to a form. "The city you walked into" is a heading;
-"1. The definition" is a filing label, and a reader can tell which one was
-written for them.
-
-WHAT THE TEXT MUST DO — three obligations, in any order, in any shape:
-
-  · SAY WHAT IS SO. The claim, in the present indicative, with whatever makes
-    it land: an image, a case, a moment the reader recognises. Stating is not
-    listing — a canon that enumerates the parts of a thing has written an
-    inventory, and the reader closes it knowing names, not the thing. "Nobody
-    joins Numinia. You arrive, and at some point you notice you were already
-    inside" does more than four tables of nomenclature.
-
-  · SAY WHY IT IS SO. The reasoning that holds the claim up, written so it
-    survives being quoted alone and applied to a case this document never
-    imagined. Not the history of how it came to be decided — that is an ADR.
-    A canon that yields no reasoning is a description, and descriptions
-    belong in `system/`.
-
-  · LEAVE THE READER ABLE TO DO SOMETHING. A test they can run, a distinction
-    they can draw, a thing they may now refuse — on the first day, without
-    asking anyone. This is what separates canon that is used from canon that
-    is admired. If you cannot write it, you are holding a `system/` manual or
-    an unstated decision.
-
-  Obligations that bind an artefact are a standard; ones an actor executes
-  step by step are a protocol. Name the subject in prose, never the plate.
+THE RULES ARE A STANDARD, NOT THIS COMMENT. What a canon must do and must
+never contain is `STD-031` (A canon states), twelve plated rules STA-001..012.
+Read it before writing a line; this comment only tells you how to hold the
+pen. Until 2026-09-24 the rules lived here and in three decision records,
+where — by the archive's own rule — they obliged nobody.
 
 THE THREE ADMISSION QUESTIONS. Answer before writing:
 
@@ -89,46 +65,28 @@ THE THREE ADMISSION QUESTIONS. Answer before writing:
   Three noes and you are holding canon. One yes and you are holding another
   series with canon's confidence.
 
-THREE THINGS CANON NEVER CONTAINS, and why each has already cost us a text:
-
-  · NO TOOL. No vendor, product or application as the way something is done.
-    State the capability; the instrument belongs in `system/` or a protocol.
-    CAN-001 carried a board named Huly, with its columns and a workspace URL.
-    The instance died, the link died, and the canon died with them.
-
-  · NO CLOCK. No date, hour, cadence or calendar. It is the fact that expires
-    first, and at the `governed` threshold correcting a meeting time takes an
-    Oracle's approval. Three rituals were stated here with hours, already
-    disagreeing with two other canons.
-
-  · NO RESTATEMENT. Where another canon or a standard develops something, name
-    it and stop. A summary of a neighbour is a second place to go stale, and
-    it is always the poorer version — the reader who entered through the
-    summary learnt less than the one who went to the source.
-
-A BORDER IS WRITTEN ONLY WHEN IT IS REAL. Say what this canon does not cover
-only if you can name, right now, the document a reader will confuse it with —
-then two or three lines are enough, wherever they fit. If you cannot name that
-document, the passage is an apology, not a border: it displaces the text that
-binds, and in the first canon anyone reads it distracts more than it bounds.
+THERE IS NO PRESCRIBED SECTIONING (STA-004). Write it as one continuous text,
+or with headings you choose, or with none. Headings belong to your argument,
+not to a form: "The city you walked into" is a heading; "1. The definition"
+is a filing label, and a reader can tell which one was written for them.
 
 THE CARD IS NOT DECORATION. It is what the site renders as the page's opening
 and what an agent reads before deciding to open the file. The TODOs above are
 deliberately loud: a canon shipped with one unfilled told the whole internet
 "what you learn by reading this document", for months.
 
+THE TITLE IS A CLAIM (STA-005), and short enough to say aloud in one breath —
+the index shows nine of them in a column. "Opening is an act", not
+"Licensing".
+
 FORM: the body fits 1 500 words (STD-007 DOC-006, a SHOULD — over it, one
 written sentence saying why). With no sections holding the shape, that budget
-is the only thing between a canon and a ramble; treat it as the discipline it
-is. Identifiers live in `related:` and in the References table, never
-mid-sentence: a body that names `CAN-004` in prose reads aloud like a
-directory. Write "the canon of roles" and let the foot carry the code. No
-changelog inside the document; git is the history.
+is the only thing between a canon and a ramble. A canon that cannot say its
+one thing in 1 500 words is probably two canons, or one canon and a standard.
+No changelog inside the document; git is the history.
 
-TENSE AND VOICE: canon says what IS. The moment it says what WILL be, it is a
-blueprint. Its body carries no date and no byline: a text with a voice arguing
-on a particular day is a report or a decision, and both have their own series.
-
-LENGTH: a canon that cannot say its one thing in 1 500 words is probably two
-canons, or one canon and a standard.
+READ IT ALOUD before proposing it. The Oracle reads drafts by text-to-speech;
+a body that names `CAN-004` mid-sentence (STA-011) reads like a directory,
+and a condensed sentence that kept the punchline and lost the because reads
+like a riddle.
 -->

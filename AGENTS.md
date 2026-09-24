@@ -117,7 +117,7 @@ is not documented.
 
 ## The rules that govern work here
 
-`standards/`, `protocols/` and `canon/` hold 46 rule documents. Each opens
+`standards/`, `protocols/` and `canon/` hold 51 rule documents. Each opens
 with a `**Binds:**` line saying whom it governs. Read that line before
 opening the document.
 
@@ -180,8 +180,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-028` | One document, one address | every address numinia.org publishes for a document of the corpus |
 | `STD-029` | How we treat each other in the commons | everyone in a Numinia community space — citizens, moderators, Oracles and digital agents alike |
 | `STD-030` | The world's vocabulary | register — scope belongs to the standard that cites it |
+| `STD-031` | A canon states | every document in `canon/` |
 
-50 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+51 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
