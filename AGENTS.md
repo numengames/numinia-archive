@@ -25,7 +25,7 @@ the Claude Code adapter and points here; it does not restate these rules.
 ## Transition regime (MVP → alpha) — read this before any protocol
 
 Oracle instruction, 2026-09-18. Every protocol in this archive is
-`status: draft` (12 of 12) because the system is being cut down from the
+`status: draft` because the system is being cut down from the
 MVP to the alpha. While a document is draft it DESCRIBES a practice; it
 does not BIND. The ceremony below was written for the system in its
 place; today it only slows the operator and the agent down. Until the

@@ -65,12 +65,14 @@ test('two files in one folder may carry two different licences', () => {
 });
 
 test('the declaration read is the file\'s own SPDX comment', () => {
+  // REUSE-IgnoreStart
   assert.equal(declaredIn('<!--\nSPDX-FileCopyrightText: 2026 X\nSPDX-License-Identifier: CC0-1.0\n-->\n# T'), 'CC0-1.0');
   assert.equal(declaredIn('// SPDX-License-Identifier: MIT\n'), 'MIT');
   assert.equal(declaredIn('# SPDX-License-Identifier: CC-BY-4.0\nkey: v\n'), 'CC-BY-4.0');
   assert.equal(declaredIn('No declaration here.\n'), null);
   // Quoted in a fence, it is an example, not a declaration.
   assert.equal(declaredIn('Write:\n```\nSPDX-License-Identifier: MIT\n```\n'), null);
+  // REUSE-IgnoreEnd
 });
 
 test('a document header and its SPDX comment agree', () => {

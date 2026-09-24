@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-24 (AGENTS.md types no protocol count; REUSE lint clean)
+- **`AGENTS.md`**: "Every protocol in this archive is `status: draft`" loses its "(12 of 12)". The number drifted twice (12 over a folder of 11, then 11 over 12); the Oracle's word: do not state how many there are. **`machine/scripts/test/agent-context.test.mjs`** now checks the claim itself — every `protocols/PRO-*` file is draft — and refuses a typed "(N of N)" count.
+- **`reuse lint`** is compliant again: the example `SPDX-License-Identifier` lines in `machine/scripts/lib/reuse.mjs` (a regex) and `machine/scripts/test/licence-per-file.test.mjs` (test fixtures) sit between `REUSE-IgnoreStart`/`REUSE-IgnoreEnd`, so the tool no longer reads them as licence declarations. No licence changes.
+
 ### Fixed — 2026-09-24 (the READMEs know the manual is whole in English)
 - **`lore/README.md`** and **`lore/game/manual/es/README.md`** still said only the introduction and chapters 1–2 were in English; since #466 all eight chapters are. Wording only.
 
