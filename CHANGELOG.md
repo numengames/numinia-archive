@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-24 (STD-030 follows the translation glossary)
+- **`standards/STD-030-the-worlds-vocabulary.md`** `0.1.2`: five house and branch names take the English the manual's translation glossary fixes — the one numinia.com's code already shows players: Artisans (was Artificers), Projectors (Project designers), Scholars (Erudites), Legal Counsels (Legal rabbits), Explorers (Pathfinders). The register's note names the glossary as the source of the English. Oracle's word in session; ADR-053's rule (the manual names the world) applied to the translation.
+
 ### Changed — 2026-09-24 (CAN-007 says what function is, ADR-058)
 - **`canon/CAN-007-pragmatic-numen-system.md`** `2.1.0`: one new section, *Function is a frame of ends and values* — function answers *what is it for?* and *what is it worth?*; interpreting meaning is asking those two questions; a use is a fact about the object, a function a relation between object, need and value (the microscope drives the nail); function reaches into structure through dependency, and the need comes before both (the birds and the wings); the test of a functional intervention is whether the two questions were answered. Carried from the long role-structure text, where the canon of roles had kept the image and lost the argument. Card's Pragmatic line adds the two questions. 1 028 → 1 366 words.
 

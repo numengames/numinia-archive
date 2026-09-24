@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-24T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -31,7 +31,8 @@ SPDX-License-Identifier: CC0-1.0
 > nothing here can be complied with or broken.
 >
 > Names follow the game manual, which is the authority on the world's
-> vocabulary (`ADR-053`). The structure they name is `CAN-004`; the ranks are
+> vocabulary (`ADR-053`); their English is the manual's translation glossary,
+> which copies what numinia.com already shows. The structure they name is `CAN-004`; the ranks are
 > `STD-003`; the operative terms of the business are `STD-026`; the game's own
 > terms are the codex glossary.
 
@@ -40,8 +41,8 @@ SPDX-License-Identifier: CC0-1.0
 | In-world | Operational equivalent | What it does |
 |---|---|---|
 | **Alchemists** | Product / Technology / Creativity | They concentrate the creation of tangible value, turning ideas into products, solutions and experiences. The core of construction and materialisation. |
-| **Artificers** | Design and creative execution | They execute the creative layer applied to the product, turning concepts into visible, functional pieces. They work between idea and form. |
-| **Project designers** | Graphic and concept design | They define the visual and conceptual structure of ideas, translating needs into designed proposals. A bridge between intention and representation. |
+| **Artisans** | Design and creative execution | They execute the creative layer applied to the product, turning concepts into visible, functional pieces. They work between idea and form. |
+| **Projectors** | Graphic and concept design | They define the visual and conceptual structure of ideas, translating needs into designed proposals. A bridge between intention and representation. |
 | **Aesthetes** | Art direction / Branding / UX·UI | They build the visual and sensory identity, keeping aesthetic coherence. They give the product character and perception. |
 | **Engineers** | Technical and development teams | They sustain the technical foundation through development and infrastructure. They ensure what is designed can be executed. |
 | **Architects** | Systems and product architecture | They design the deep structure of the product and how systems connect. They ensure scalability and technical coherence. |
@@ -55,7 +56,7 @@ SPDX-License-Identifier: CC0-1.0
 | **Chroniclers** | Content and narrative | They generate content that gives continuity to the narrative and documents activity. They keep the organisational narrative alive. |
 | **Logographers** | Copywriting / Documentation | They work language with precision and purpose, structuring written communication. They define how the organisation expresses itself. |
 | **Bards** | Social media / Audiovisual narrative | They carry the narrative outward, turning content into accessible formats. They connect with community and audience. |
-| **Erudites** | Strategy and knowledge | They operate at the conceptual level, analysing and structuring knowledge. They sustain the intellectual foundation. |
+| **Scholars** | Strategy and knowledge | They operate at the conceptual level, analysing and structuring knowledge. They sustain the intellectual foundation. |
 | **Hierophants** | Training / Education / Knowledge management | They transmit knowledge and structure learning. They ensure continuity in education. |
 | **Thaumaturges** | Strategy / Innovation / Conceptualisation | They generate new ideas and strategic frames, exploring future possibility. They drive conceptual evolution. |
 
@@ -65,7 +66,7 @@ SPDX-License-Identifier: CC0-1.0
 |---|---|---|
 | **Procurators** | Legal / Institutional / Financial / Operational | They guarantee viability and sustainability, regulating and structuring the system. They connect operations with legal and economic frames. |
 | **Legates** | Legal and diplomacy | They operate in the external normative sphere, managing compliance and representation. |
-| **Legal rabbits** | Lawyers / Compliance | They apply and interpret the law inside the system, reducing legal risk. |
+| **Legal Counsels** | Lawyers / Compliance | They apply and interpret the law inside the system, reducing legal risk. |
 | **Heralds** | Institutional relations / Alliances | They represent the organisation before third parties and manage external agreements. |
 | **Syndics** | Economy and organisation | They supervise the economic and structural functioning of the system. |
 | **Mercurials** | Finance / Revenue / Sales | They manage the flow of value, connecting internal economy with the market. |
@@ -81,7 +82,7 @@ SPDX-License-Identifier: CC0-1.0
 | **Guardians** | Moderation / Conflict management | They manage conflict and internal norms, protecting coexistence. |
 | **Archangels** | Well-being and support | They attend to the human dimension and accompany personal development. |
 | **Healers** | HR / Coaching | They work on individual and collective well-being, reducing human friction. |
-| **Pathfinders** | Community / Onboarding / User research | They connect with users and guide new members. They gather insight from the environment. |
+| **Explorers** | Community / Onboarding / User research | They connect with users and guide new members. They gather insight from the environment. |
 
 ## Factions
 
