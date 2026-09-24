@@ -2,28 +2,21 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The bar: six doors, one per function of the archive.
+// The bar: two ways to look at the same Summa, plus search and day/night.
 //
-// WHAT CHANGED ON 2026-09-21
-// The bar held ten flat pills "ordered by authority" and hid three sections
-// in the footer because it had run out of width; /archive — the page that
-// explains how the archive is organised — was the tenth pill. The archive is
-// classified by function (STD-027), so the bar now IS that classification:
-// Governance · Production · Assurance · Agency · Creation · Administration,
-// each a menu of the series its activities produce. Nothing is typed here;
-// @/data/navigation derives the groups from the standard at build time.
-//
-// THE RECIPE (BLU-009 §12): wordmark left; entries in Mono uppercase; the
-// active entry with a 2 px Ámbar underline; utilities on the right; on mobile
-// a full-screen panel with the same entries and nothing else. Six entries,
-// not the recipe's ≤5 — the Oracle's word; see @/data/navigation.
+// WHAT CHANGED ON 2026-09-24
+// The six function menus (2026-09-21) gave way to the map. "Map" is the home:
+// the astrolabe, to explore. "Archive" is a mega menu with the SAME four rings
+// as columns — the rules, the work, the world, the offer — to go straight to a
+// series. Both read @/lib/suma, so they cannot disagree. On mobile the panel
+// groups the same entries by ring. Every series as one list stays at /about.
 //
 // The menus open on hover and on click (the button toggles them for touch and
 // keyboard; Escape closes). The bridge div under each button keeps the panel
 // open across the gap. Reduced motion: no transition, the panel simply is.
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
-import { navGroups, activeGroupOf } from "@/data/navigation";
+import { RINGS, RING_ORDER, SEGMENTS, LENSES, TO_CREATE, locate } from "@/lib/suma";
 import { useT } from "@/i18n/ui";
 
 interface Props {
@@ -31,7 +24,11 @@ interface Props {
 }
 
 const { activeNav } = Astro.props;
-const active = activeGroupOf(activeNav);
+const path = Astro.url.pathname;
+const isHome = path === "/";
+const isIndex = path.replace(/\/$/, "") === "/about";
+const here = locate(path);
+void activeNav;
 const t = useT("en");
 const homeHref = "/";
 
@@ -42,7 +39,7 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
 <nav data-pagefind-ignore="all" class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl" aria-label="Primary">
   <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
     <a href={homeHref} class="flex min-h-[44px] items-center font-display text-xl text-foreground transition-colors hover:text-accent">
-      NW<em class="text-accent">OS</em>
+      Numinia
     </a>
 
     <!--
@@ -54,56 +51,40 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
     -->
     <div class="flex items-center gap-1">
     <div class="hidden items-center gap-1 lg:flex">
-      {navGroups.map((group) => (
-        <div class="relative" data-dropdown>
-          <a
-            href={group.href}
-            data-dropdown-btn
-            aria-haspopup="true"
-            aria-expanded="false"
-            class:list={[
-              "flex min-h-[44px] items-center gap-1 px-3 transition-colors",
-              etiqueta,
-              active === group.id
-                ? "text-foreground border-b-2 border-yellow"
-                : "text-muted-foreground border-b-2 border-transparent hover:text-foreground",
-            ]}
-          >
-            {group.label}
-            <span data-chevron class="inline-flex transition-transform duration-200 motion-reduce:transition-none">
-              <Icon name="caret-down" size={10} />
-            </span>
-          </a>
-          <!-- invisible bridge so the pointer can cross the gap to the panel -->
-          <div class="absolute left-0 top-full h-3 w-full" data-bridge></div>
-          <div
-            data-dropdown-panel
-            class="absolute left-0 top-full mt-3 hidden w-64 rounded-[8px] border border-border bg-background/95 py-2 shadow-xl backdrop-blur-xl"
-          >
-            {group.entries.map((entry) => (
-              <a
-                href={entry.href}
-                title={entry.note ?? undefined}
-                class:list={[
-                  "flex items-baseline justify-between gap-3 px-4 py-2 transition-colors",
-                  activeNav === entry.folder || activeNav === entry.href
-                    ? "bg-accent/10 text-accent"
-                    : "text-foreground hover:bg-card",
-                ]}
-              >
-                <span class={etiqueta}>{entry.label}</span>
-                <span class="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-dim">{entry.activity}</span>
-              </a>
-            ))}
-            <a
-              href={group.href}
-              class="mt-1 flex items-center gap-2 border-t border-border/50 px-4 pt-2 font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim transition-colors hover:text-foreground"
-            >
-              {group.label} · the function →
-            </a>
+      <a href="/" data-nav="map" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, isHome ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
+      <!-- Two ways to look at the same Summa: the map (explore) and the
+           archive menu (go straight to a series). Same data, suma.ts. -->
+      <div data-dropdown>
+        <a href="/about" data-dropdown-btn data-nav="menu" aria-haspopup="true" aria-expanded="false"
+           class:list={["flex min-h-[44px] items-center gap-1 px-3 transition-colors", etiqueta, (here || isIndex) ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}>
+          Archive <span data-chevron class="inline-flex transition-transform duration-200 motion-reduce:transition-none"><Icon name="caret-down" size={10} /></span>
+        </a>
+        <div class="fixed inset-x-0 top-14 h-3" data-bridge></div>
+        <div data-dropdown-panel class="mega fixed inset-x-0 top-14 mt-px hidden border-b border-border shadow-xl">
+          <div class="mx-auto grid max-w-[1100px] grid-cols-4 gap-8 px-6 pb-6 pt-6">
+            {RING_ORDER.map((ring, i) => (
+              <div class:list={["mcol", here?.seg.ring === ring && "here"]}>
+                <div class="mring"><span class="mdepth">{RING_ORDER.map((_, j) => <i class:list={[j === i && "on"]}></i>)}</span>{RINGS[ring].name}</div>
+                <p class="mline">{RINGS[ring].classic.split(" — ")[0]}</p>
+                {SEGMENTS.filter((sg) => sg.ring === ring).map((sg) => (
+                  <div class="mgroup">
+                    {sg.ring !== "core" && <div class="mhead">{sg.district ? sg.title.split(" · ")[0] : sg.title}</div>}
+                    {sg.entries.map((e) => e.external
+                      ? <a href={e.href!} rel="noopener" data-nav="menu" class="mitem" title={e.line}><span>{e.label}</span><small class="ext">{e.external} ↗</small></a>
+                      : e.href
+                      ? <a href={e.href} data-nav="menu" class:list={["mitem", here?.entry === e && "cur"]} title={e.line}><span>{e.label}</span>{e.count ? <small>{e.count}</small> : null}</a>
+                      : <span class="mitem todo" title={`${e.line}. ${TO_CREATE}`}><span>{e.label}</span><small>to create</small></span>)}
+                  </div>))}
+              </div>))}
+          </div>
+          <div class="mfoot mx-auto flex max-w-[1100px] flex-wrap items-center gap-x-6 gap-y-2 border-t border-border/50 px-6 py-3">
+            <a href="/about" data-nav="menu">Every series, as one list →</a>
+            <a href="/" data-nav="map">Open the map →</a>
+            <span class="mnote"><small class="mtag">to create</small> {TO_CREATE}</span>
+            <span class="ml-auto">Our other sites {LENSES.map((l) => <a href={`/#l-${l.site}`} class="mlens">{l.site}</a>)}</span>
           </div>
         </div>
-      ))}
+      </div>
       <SiteSearch />
     </div>
 
@@ -151,41 +132,22 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
   >
     <div class="mx-auto flex max-w-[1100px] flex-col gap-1 px-6 py-4">
       <div class="mb-2"><SiteSearch /></div>
-      {navGroups.map((group) => (
-        <details class="group border-b border-border/50" open={active === group.id}>
-          <summary
-            class:list={[
-              "flex min-h-[44px] cursor-pointer list-none items-center justify-between",
-              etiqueta,
-              active === group.id ? "text-foreground" : "text-muted-foreground",
-            ]}
-          >
-            <span class:list={[active === group.id && "border-b-2 border-yellow"]}>{group.label}</span>
-            <span class="inline-flex transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none">
-              <Icon name="caret-down" size={12} />
-            </span>
+      <a href="/" class:list={["flex min-h-[44px] items-center gap-2", etiqueta, "text-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
+      {RING_ORDER.map((ring) => (
+        <details class="group border-b border-border/50" open={here?.seg.ring === ring}>
+          <summary class:list={["flex min-h-[44px] cursor-pointer list-none items-center justify-between", etiqueta, here?.seg.ring === ring ? "text-foreground" : "text-muted-foreground"]}>
+            <span>{RINGS[ring].name}</span>
+            <span class="inline-flex transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"><Icon name="caret-down" size={12} /></span>
           </summary>
           <div class="flex flex-col pb-3">
-            {group.entries.map((entry) => (
-              <a
-                href={entry.href}
-                class:list={[
-                  "flex min-h-[44px] items-baseline justify-between gap-3 rounded-[6px] px-3 transition-colors",
-                  activeNav === entry.folder || activeNav === entry.href
-                    ? "bg-accent/10 text-accent"
-                    : "text-foreground hover:bg-card",
-                ]}
-              >
-                <span class={etiqueta}>{entry.label}</span>
-                <span class="font-mono text-[0.55rem] uppercase tracking-[0.12em] text-dim">{entry.activity}</span>
-              </a>
-            ))}
-            <a href={group.href} class="flex min-h-[44px] items-center px-3 font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim hover:text-foreground">
-              {group.label} · the function →
-            </a>
+            {SEGMENTS.filter((sg) => sg.ring === ring).flatMap((sg) => sg.entries.filter((e) => e.href).map((e) => (
+              <a href={e.href!} class="flex min-h-[44px] items-baseline justify-between gap-3 rounded-[6px] px-3 text-foreground hover:bg-card">
+                <span>{e.label}</span><span class="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-muted-foreground">{sg.district ? sg.word : sg.title}</span>
+              </a>)))}
           </div>
         </details>
       ))}
+      <a href="/about" class:list={["flex min-h-[44px] items-center", etiqueta, "text-muted-foreground"]}>Every series →</a>
     </div>
   </div>
 
@@ -196,6 +158,29 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
   :global(html[data-modo="diurno"]) .solo-nocturno {
     display: none;
   }
+  .mega { background: rgb(var(--bg)); }
+  .mitem > span { min-width: 0; }
+  .mitem small { flex: none; white-space: nowrap; }
+  .mring { display: flex; align-items: center; gap: 10px; font: 600 1.2rem var(--font-sans); color: rgb(var(--text)); }
+  .mdepth { display: inline-flex; gap: 2px; }
+  .mdepth i { width: 10px; height: 3px; border-radius: 2px; background: rgb(var(--border)); }
+  .mdepth i.on { background: rgb(var(--teal)); }
+  .mline { font: 500 .625rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: rgb(var(--text-muted)); margin: 4px 0 10px; }
+  .mgroup { margin-top: 12px; }
+  .mhead { font: 500 .6875rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--text-muted)); padding-bottom: 4px; border-bottom: 1px solid rgb(var(--border) / .5); margin-bottom: 2px; }
+  .mhead span { opacity: .75; }
+  .mitem { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; min-height: 36px; padding: 5px 6px; margin: 0 -6px; border-radius: 6px; color: rgb(var(--text)); font-size: .9375rem; }
+  a.mitem:hover { background: rgb(var(--bg-card)); color: rgb(var(--accent)); }
+  .mitem.cur { background: rgb(var(--teal) / .12); }
+  .mitem small { font: 500 .6875rem var(--font-mono); color: rgb(var(--text-muted)); }
+  .mitem.todo { color: rgb(var(--text-muted)); }
+  .mitem small.ext { font-size: .625rem; }
+  .mnote { font-size: .8125rem; }
+  .mtag, .mitem.todo small { border: 1px dashed rgb(var(--border)); border-radius: 9999px; padding: 0 6px; font-size: .625rem; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+  .mcol.here .mring { color: rgb(var(--accent)); }
+  .mfoot { font-size: .875rem; color: rgb(var(--text-muted)); }
+  .mfoot a { color: rgb(var(--accent)); }
+  .mfoot .mlens { font: 500 .6875rem var(--font-mono); border: 1px dashed rgb(var(--border)); border-radius: 9999px; padding: 2px 10px; margin-left: 6px; color: rgb(var(--text-muted)); }
 </style>
 
 <script>
@@ -276,8 +261,10 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
     // Pointer: hover keeps it open across button, bridge and panel.
     [dropdown, bridge, panel].forEach((el) => {
       if (!el) return;
-      el.addEventListener("mouseenter", openPanel);
-      el.addEventListener("mouseleave", scheduleClose);
+      // pointerenter, mouse only: a tap also fires an emulated enter, which
+      // would open the panel and let the same tap follow the link.
+      el.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") openPanel(); });
+      el.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") scheduleClose(); });
     });
 
     // Click / tap / Enter on the label: first opens, second follows the link.

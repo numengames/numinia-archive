@@ -6,6 +6,7 @@ import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import Navigation from "@/components/Navigation.astro";
 import Footer from "@/components/Footer.astro";
+import Wayfinder from "@/components/Wayfinder.astro";
 
 interface Props {
   title?: string;
@@ -101,6 +102,7 @@ const ogLocale = "en_US";
          en una sola capa (global.css). /design/kit y sus fuentes son ficheros estáticos, no pasan por este Layout. -->
 
     <Navigation activeNav={activeNav} />
+    <Wayfinder />
 
     <main id="main">
       <slot />

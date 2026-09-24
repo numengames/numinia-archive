@@ -1,0 +1,67 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// Where am I in the Summa.
+// A strip under the bar on every page but the map: the path from the centre
+// to here, the depth, and which sister sites paint this part. And the compass,
+// bottom right: four rings, the current one lit, each a link to the map with
+// that ring's first piece selected.
+import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, locate } from "@/lib/suma";
+
+const path = Astro.url.pathname;
+const isHome = path === "/";
+const here = locate(path);
+const seg = here?.seg;
+const lenses = seg ? LENSES.filter((l) => l.paints.includes(seg.id)) : [];
+const rad: Record<string, number> = { offer: 38, world: 29, work: 20, core: 11 };
+---
+
+{!isHome && (
+  <div class="wf">
+    <div class="wf-in">
+      <nav class="crumbs" aria-label="Where you are in the Summa">
+        <a href="/">The Summa</a>
+        {seg && <><span>/</span><a href={`/#s-${seg.id}`}>{RINGS[seg.ring].name}</a></>}
+        {seg?.district && <><span>/</span><a href={`/#d-${seg.district}`}>{DISTRICTS[seg.district].name}</a></>}
+        {here?.entry && <><span>/</span>{here.entry.href ? <a href={here.entry.href}>{here.entry.label}</a> : <span>{here.entry.label}</span>}</>}
+        {!seg && <><span>/</span><a href="/about">Every series</a></>}
+      </nav>
+      {seg && (
+        <div class="wf-depth" aria-hidden="true">
+          {RING_ORDER.map((k) => <span class:list={[k === seg.ring && "on"]} title={RINGS[k].name}></span>)}
+        </div>
+      )}
+      {lenses.length > 0 && (
+        <div class="wf-lens">Also on {lenses.map((l) => <a href={`/#l-${l.site}`}>{l.site}</a>)}</div>
+      )}
+    </div>
+  </div>
+)}
+
+{!isHome && (
+  <a class="compass" href={seg ? `/#s-${seg.id}` : "/"} aria-label={seg ? `Back to the map, at ${RINGS[seg.ring].name}` : "Back to the map"} title={seg ? `You are in ${RINGS[seg.ring].name} — open the map` : "Open the map"}>
+    <svg width="64" height="64" viewBox="0 0 84 84" aria-hidden="true">
+      {["offer", "world", "work", "core"].map((k) => <circle cx="42" cy="42" r={rad[k]} class:list={[seg?.ring === k && "on"]} />)}
+    </svg>
+  </a>
+)}
+
+<style>
+  .wf { border-bottom: 1px solid rgb(var(--border) / .5); background: rgb(var(--bg) / .6); backdrop-filter: blur(8px); }
+  .wf-in { max-width: 1100px; margin: 0 auto; padding: 8px 24px; display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; min-height: 44px; }
+  .crumbs { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: 500 .75rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: rgb(var(--text-muted)); }
+  .crumbs a { color: rgb(var(--text-muted)); padding: 4px 0; }
+  .crumbs a:hover { color: rgb(var(--text)); }
+  .crumbs > span { color: rgb(var(--text-dim)); }
+  .wf-depth { display: flex; gap: 3px; }
+  .wf-depth span { width: 22px; height: 3px; border-radius: 2px; background: rgb(var(--border)); }
+  .wf-depth span.on { background: rgb(var(--teal)); }
+  .wf-lens { margin-left: auto; font-size: .8125rem; color: rgb(var(--text-muted)); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .wf-lens a { font: 500 .6875rem var(--font-mono); border: 1px dashed rgb(var(--border)); border-radius: 9999px; padding: 2px 10px; color: rgb(var(--text-muted)); }
+  .wf-lens a:hover { border-color: rgb(var(--teal)); color: rgb(var(--text)); }
+  .compass { position: fixed; right: 16px; bottom: 16px; z-index: 45; width: 72px; height: 72px; display: grid; place-items: center; border-radius: 9999px; background: rgb(var(--bg-card) / .6); backdrop-filter: blur(12px); border: 1px solid rgb(var(--border) / .6); box-shadow: 0 8px 24px rgba(0,0,0,.14); }
+  .compass:hover { border-color: rgb(var(--teal)); }
+  .compass circle { fill: transparent; stroke: rgb(var(--border)); stroke-width: 1.4; }
+  .compass circle.on { fill: rgb(var(--teal) / .22); stroke: rgb(var(--teal)); }
+</style>

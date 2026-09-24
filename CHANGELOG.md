@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (the map of the Summa is the home)
+- **numinia.org site v0.52.0**: the home is the map — four rings (the rules, the work, the world, the offer) and four districts on the outer two. The bar is *Map* + *Archive* (a mega menu with the same rings as columns); every page carries a wayfinder strip and a compass. One model, `web/src/lib/suma.ts`, feeds the map, the menu, the strip and `/home.md`. The former home moves to `/about` (`/about.md`); `machine/scripts/check-url-shape.mjs` declares `/about` standalone. Oracle's word in session. — Ursa
+
 ### Fixed — 2026-09-24 (the cookie policy says what the sites keep)
 - **`operations/OPS-010-cookie-policy-numengames.md`** v1.1.0: the inventory is re-measured. With the day/night switch (DSN-016), numinia.org, numen.games and nwos.numen.games keep `numinia-modo`, so "stores nothing" was no longer true. numinia.org also keeps the page reader's speed (`sp:rate`) and resume point (session storage). numinia.com lists five more preferences it already kept: `numinia-lap-hidden` and the manual reader's `numinia-codex-modo`, `-tam`, `-marca` and `-ritmo`. No cookie is added and nothing needs consent: every entry is a preference set by the visitor's own action. — Ursa (MIS-154)
 

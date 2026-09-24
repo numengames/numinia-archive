@@ -150,6 +150,8 @@ const t = useT();
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && !modal.classList.contains("hidden")) closeModal(); // §9.8
+    const typing = (e.target as HTMLElement)?.closest?.("input, textarea, [contenteditable]");
+    if (e.key === "/" && !typing && modal.classList.contains("hidden")) { e.preventDefault(); openModal(); return; }
     if ((e.metaKey || e.ctrlKey) && e.key === "k") {
       e.preventDefault();
       modal.classList.contains("hidden") ? openModal() : closeModal();
