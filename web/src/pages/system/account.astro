@@ -21,11 +21,11 @@
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
-import { lines, AS_OF, START, CASH } from "@/lib/account";
+import { lines, AS_OF, START, CASH, forecast } from "@/lib/account";
 import { repoFileUrl } from "@/lib/build-info";
 
 const rows = lines();
-const DATA = { start: START, asOf: AS_OF, cash: CASH, rows };
+const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast() };
 ---
 
 <Layout
@@ -124,6 +124,34 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows };
     <p class="cq-sub">The first question a lender asks: if costs stay as they are and income grows as it has, does the company reach profitability on the money it has?</p>
     <div class="cq-kpis cq-kpis--3" id="cq-cash"></div>
     <p class="cq-note" id="cq-cashnote"></p>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-fc" data-l="pub cfo">
+    <h2>The next two years</h2>
+    <p class="cq-sub">Where the money goes from here to the end of 2028 if things go as the assumptions below say. Each cost starts from what it costs now, read from the closed months; the assumptions below are the only thing added. Supporters and the loan can each be switched off, to see what they are worth.</p>
+    <div class="cq-card">
+     <div class="cq-ctrl">
+      <div class="cq-tabs" role="tablist" aria-label="Supporters" id="cq-fsup">
+       <button type="button" class="cq-tab" role="tab" data-fs="1" aria-selected="true">With supporters</button>
+       <button type="button" class="cq-tab" role="tab" data-fs="0" aria-selected="false">No supporters</button>
+      </div>
+      <div class="cq-tabs" role="tablist" aria-label="Loan" id="cq-floan">
+       <button type="button" class="cq-tab" role="tab" data-fl="1" aria-selected="true">With the loan</button>
+       <button type="button" class="cq-tab" role="tab" data-fl="0" aria-selected="false">No loan</button>
+      </div>
+     </div>
+     <p class="cq-k" style="margin:16px 0 4px">Cash at the end of each month</p>
+     <div class="cq-chart" id="cq-fcash"></div>
+     <p class="cq-note" id="cq-fread"></p>
+     <p class="cq-k" style="margin:20px 0 4px">Each month: what goes out, and what comes in (the loan, once, is marked)</p>
+     <div class="cq-chart" id="cq-fchart"></div>
+     <div class="cq-legend" id="cq-fleg"></div>
+    </div>
+    <div class="cq-tablewrap" style="margin-top:16px"><table class="cq-t" id="cq-fyears"><thead></thead><tbody></tbody></table></div>
+    <h3 class="cq-h3">What it assumes</h3>
+    <div class="cq-tablewrap"><table class="cq-t" id="cq-fbase"><thead><tr><th>Starts from</th><th>Per month</th><th class="cq-l">Read as</th></tr></thead><tbody></tbody></table></div>
+    <ul class="cq-list" id="cq-fassume" style="margin-top:14px"></ul>
+    <p class="cq-note">³ From the ledger's last day. A forecast is not a figure of the account: it is never closed, and it changes whenever an assumption does. The assumptions are one plain-text file, one line each.</p>
    </div>
 
    <div class="cq-sec" id="cq-sec-book" data-l="ges">
@@ -276,6 +304,10 @@ table.cq-t{border-collapse:collapse;width:100%;font-size:.875rem}
 .cq-dl{display:inline-flex;align-items:center;text-decoration:none}
 .cq-kpi--warn .cq-v{color:rgb(var(--yellow))}
 .cq-hidden{display:none!important}
+.cq-h3{font-family:var(--font-display);font-size:1.125rem;margin:28px 0 10px;color:rgb(var(--text))}
+.cq-cashline{fill:none;stroke:rgb(var(--text));stroke-width:2}
+.cq-zeroline{stroke:rgb(var(--red));stroke-width:1;stroke-dasharray:3 3}
+.cq-t tr.cq-bad td:not(:first-child){color:rgb(var(--red))}
 .cq-t td.cq-up{color:rgb(var(--red))}
 .cq-t td.cq-down{color:rgb(var(--green))}
 .cq-t tr.cq-sub td:first-child{padding-left:28px;color:rgb(var(--text-muted))}
@@ -398,7 +430,7 @@ function setLens(l) {
   $$('[data-lens]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.lens === l)));
   $$('[data-l]').forEach(s => s.classList.toggle('cq-hidden', !s.dataset.l.split(' ').includes(l)));
   $('#cq-lensnote').textContent = LENSNOTE[l];
-  drawBars();
+  drawBars(); forecastView();
 }
 $$('[data-lens]').forEach(b => b.addEventListener('click', () => setLens(b.dataset.lens)));
 
@@ -583,9 +615,103 @@ $('#cq-how').innerHTML = [
   'Each month is closed from its invoices, the payroll and the payment processor’s report; until then it is provisional. A closed month is never edited: a correction is a new line. The whole ledger is downloadable, one line per document.',
 ].map(x => `<li>${x}</li>`).join('');
 
+
+// ---- the next two years (computed at build time in @/lib/account; the page only sums and draws)
+const F = RAW.forecast;
+let FS = true, FL = true;
+function fcRun() {
+  let cash = F.cash; const out = [];
+  for (const r of F.months) {
+    const c = Object.values(r.cost).reduce((a, b) => a + b, 0), inc = FS ? r.support : 0, fee = FS ? r.fees : 0;
+    const li = FL ? r.loanIn : 0, lo = FL ? r.loanOut : 0;
+    cash += inc - c - fee + li - lo;
+    out.push({ ...r, c, inc, fee, li, lo, cash });
+  }
+  return out;
+}
+function fcAxis(W, H, lo, hi, pl, pr, pt, pb) {
+  const step = nice((hi - lo) / 4), ymax = Math.ceil(hi * 1.05 / step) * step, ymin = Math.floor(lo / step) * step;
+  const y = v => pt + (H - pt - pb) * (1 - (v - ymin) / ((ymax - ymin) || 1));
+  let s = '';
+  for (let v = ymin; v <= ymax + 1e-9; v += step) s += `<line x1="${pl}" x2="${W - pr}" y1="${y(v)}" y2="${y(v)}" class="cq-grid"/><text x="${pl - 6}" y="${y(v) + 3}" class="cq-ax" text-anchor="end">${fmt(v)}</text>`;
+  return { y, s };
+}
+function fcMonths(R, W, pl, pr, H, cw, bw) {
+  const n = R.length, every = Math.ceil(n / Math.max(3, Math.floor((W - pl) / 70)));
+  let s = '';
+  R.forEach((r, i) => { if (i % every === 0 && (n - 1 - i >= every / 2 || i === n - 1) || i === n - 1) s += `<text x="${pl + i * cw + cw / 2}" y="${H - 7}" text-anchor="middle" class="cq-ax">${MES[+r.month.slice(5) - 1]} ${r.month.slice(2, 4)}</text>`; });
+  return s;
+}
+function forecastView() {
+  const el = $('#cq-fchart'), ec = $('#cq-fcash'); if (!el || !el.offsetParent) return;
+  const R = fcRun(), n = R.length;
+  const W = el.clientWidth, pl = 60, pr = 6, pt = 14, pb = 26, cw = (W - pl - pr) / n;
+  // 1. cash
+  {
+    const H = W < 500 ? 190 : 210;
+    const { y, s: grid } = fcAxis(W, H, Math.min(0, ...R.map(r => r.cash)), Math.max(F.cash, ...R.map(r => r.cash)), pl, pr, pt, pb);
+    let s = grid, path = '', area = '';
+    R.forEach((r, i) => { const x = pl + i * cw + cw / 2; path += `${i ? 'L' : 'M'}${x},${y(r.cash)}`; });
+    area = path + `L${pl + (n - 1) * cw + cw / 2},${y(0)}L${pl + cw / 2},${y(0)}Z`;
+    s += `<path d="${area}" style="fill:rgb(var(--text)/.06)"/>`;
+    s += `<line x1="${pl}" x2="${W - pr}" y1="${y(0)}" y2="${y(0)}" class="cq-zeroline"/>`;
+    s += `<path d="${path}" class="cq-cashline"/>`;
+    R.forEach((r, i) => { s += `<circle cx="${pl + i * cw + cw / 2}" cy="${y(r.cash)}" r="${r.cash < 0 ? 2.5 : 2}" style="fill:${r.cash < 0 ? 'rgb(var(--red))' : 'rgb(var(--text))'}"><title>${MESL[+r.month.slice(5) - 1]} ${r.month.slice(0, 4)}: ${eur(r.cash)}</title></circle>`; });
+    s += fcMonths(R, W, pl, pr, H, cw);
+    ec.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Cash at the end of each month">${s}</svg>`;
+  }
+  // 2. flows
+  {
+    const H = W < 500 ? 190 : 210, bw = Math.max(2, Math.min(24, cw * 0.36));
+    const full = R.map(r => ({ ...r, cf: r.c + r.fee }));
+    const { y, s: grid } = fcAxis(W, H, 0, Math.max(...full.map(r => Math.max(r.cf + r.lo, r.inc))), pl, pr, pt, pb);
+    let s = grid;
+    full.forEach((r, i) => {
+      const x = pl + i * cw + cw / 2; let acc = 0;
+      s += `<g><title>${MESL[+r.month.slice(5) - 1]} ${r.month.slice(0, 4)}${r.share < 1 ? ' (from the ledger\'s last day)' : ''}: out ${eur(r.cf + r.lo)}, in ${eur(r.inc + r.li)}</title>`;
+      K.forEach(k => { const v = r.cost[k] || 0; if (v <= 0) return; s += `<rect x="${x - bw - 1}" y="${y(acc + v)}" width="${bw}" height="${Math.max(0, y(acc) - y(acc + v))}" style="fill:${col(k)}"/>`; acc += v; });
+      if (r.lo > 0) s += `<rect x="${x - bw - 1}" y="${y(acc + r.lo)}" width="${bw}" height="${Math.max(0, y(acc) - y(acc + r.lo))}" style="fill:rgb(var(--text-dim))"/>`;
+      if (r.inc > 0) s += `<rect x="${x + 1}" y="${y(r.inc)}" width="${bw}" height="${Math.max(0, y(0) - y(r.inc))}" style="fill:rgb(var(--teal))"/>`;
+      s += '</g>';
+    });
+    s += fcMonths(R, W, pl, pr, H, cw);
+    const loanM = full.find(r => r.li > 0);
+    if (loanM) { const i = full.indexOf(loanM), x = pl + i * cw + cw / 2; s += `<line x1="${x}" x2="${x}" y1="${pt}" y2="${H - pb}" class="cq-avg"/><text x="${i > n / 2 ? x - 4 : x + 4}" y="${pt + 10}" class="cq-lab" text-anchor="${i > n / 2 ? 'end' : 'start'}">loan in: ${eur(loanM.li)}</text>`; }
+    el.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Out and in, by month">${s}</svg>`;
+    const shown = K.filter(k => full.some(r => (r.cost[k] || 0) > 0));
+    $('#cq-fleg').innerHTML = shown.map(k => `<span><i style="background:${col(k)}"></i>${C[KI[k]].label}</span>`).join('')
+      + (full.some(r => r.lo > 0) ? `<span><i style="background:rgb(var(--text-dim))"></i>Loan repaid</span>` : '')
+      + (full.some(r => r.inc > 0) ? `<span><i style="background:rgb(var(--teal))"></i>Support</span>` : '');
+  }
+  const neg = R.find(r => r.cash < 0), end = R.at(-1);
+  $('#cq-fread').textContent = neg
+    ? `Cash runs out in ${MESL[+neg.month.slice(5) - 1]} ${neg.month.slice(0, 4)}. By December ${end.month.slice(0, 4)} the company would be ${eur(-end.cash)} short.`
+    : `Cash stays above zero to the end of ${end.month.slice(0, 4)}; at the end it would be ${eur(end.cash)}.`;
+  // by year
+  const ys = new Map();
+  for (const r of R) { const k = r.month.slice(0, 4), e = ys.get(k) || { inc: 0, c: 0, p: 0, fee: 0, li: 0, lo: 0, cash: 0, sup: 0 }; e.inc += r.inc; e.c += r.c; e.p += r.cost.personas || 0; e.fee += r.fee; e.li += r.li; e.lo += r.lo; e.cash = r.cash; e.sup = r.supporters; ys.set(k, e); }
+  const Y = [...ys.entries()], cell = v => Math.abs(v) < 0.5 ? '<td class="cq-zero">—</td>' : `<td>${eur(v)}</td>`;
+  const row = (lab, f, cls = '') => `<tr class="${cls}"><td>${lab}</td>${Y.map(([, e]) => cell(f(e))).join('')}</tr>`;
+  $('#cq-fyears thead').innerHTML = `<tr><th>Forecast</th>${Y.map(([k]) => `<th>${k}${k === F.from.slice(0, 4) ? '³' : ''}</th>`).join('')}</tr>`;
+  $('#cq-fyears tbody').innerHTML =
+    row('Support, without VAT', e => e.inc)
+    + row('Staff costs', e => -e.p, 'cq-sep')
+    + row('Other operating expenses', e => -(e.c - e.p + e.fee))
+    + row('Operating result', e => e.inc - e.c - e.fee, 'cq-tot cq-sep cq-neg')
+    + row('Loan received', e => e.li, 'cq-sep')
+    + row('Loan repaid', e => -e.lo)
+    + row('Cash at year end', e => e.cash, 'cq-tot cq-sep' + (Y.some(([, e]) => e.cash < 0) ? '' : ''))
+    + `<tr><td>Supporters at year end</td>${Y.map(([, e]) => `<td>${FS ? fmt(e.sup) : '—'}</td>`).join('')}</tr>`;
+  $$('#cq-fyears tbody tr').forEach(tr => { if (tr.firstChild.textContent === 'Cash at year end') [...tr.children].slice(1).forEach(td => { if (td.textContent.startsWith('−')) td.style.color = 'rgb(var(--red))'; }); });
+}
+$('#cq-fbase tbody').innerHTML = F.baseline.filter(b => b.monthly > 0.5).map(b => `<tr><td><i class="cq-dot" style="background:${col(b.category)}"></i>${b.label}</td><td>${eur(b.monthly)}</td><td class="cq-l">${b.window}</td></tr>`).join('');
+$('#cq-fassume').innerHTML = F.assumptions.map(a => `<li>${a.note}.</li>`).join('');
+$$('[data-fs]').forEach(b => b.addEventListener('click', () => { FS = b.dataset.fs === '1'; $$('[data-fs]').forEach(x => x.setAttribute('aria-selected', String(x === b))); forecastView(); }));
+$$('[data-fl]').forEach(b => b.addEventListener('click', () => { FL = b.dataset.fl === '1'; $$('[data-fl]').forEach(x => x.setAttribute('aria-selected', String(x === b))); forecastView(); }));
+
 kpis(); services(); people(); pyg(); cash(); book(); showH('month'); showAs('anon'); scen(); setLens('pub');
-let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawBars, 120); });
-window.CQ = { total, income, today, avg30, ext30, periods, sumRange, EFF, BIL, BOOK, ITEMS, INCOME, scen: (n, a) => { N = n; A = a; return scen(); }, setLens };
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { drawBars(); forecastView(); }, 120); });
+window.CQ = { fcRun, setFc: (s, l) => { FS = s; FL = l; forecastView(); return fcRun(); }, F, total, income, today, avg30, ext30, periods, sumRange, EFF, BIL, BOOK, ITEMS, INCOME, scen: (n, a) => { N = n; A = a; return scen(); }, setLens };
 })();
 
 </script>

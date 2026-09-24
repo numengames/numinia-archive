@@ -46,6 +46,7 @@ SPDX-License-Identifier = "CC0-1.0"
 # CC0-1.0 — a CSV cannot hold a comment: the simulated ledger behind /system/account (STD-033)
 [[annotations]]
 path = [
+  "web/src/data/account-forecast-simulated.csv",
   "web/src/data/account-simulated.csv",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."

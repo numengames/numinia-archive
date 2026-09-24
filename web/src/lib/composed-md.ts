@@ -39,7 +39,7 @@ import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
-import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL } from "@/lib/account";
+import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears } from "@/lib/account";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -560,8 +560,42 @@ export function accountPage(): ComposedPage {
     "",
     `The ledger itself, one line per document (${all.length} lines): [/system/account.csv](/system/account.csv).`,
     "",
+    ...forecastMd(),
   ].join("\n");
   return { route: "/system/account", filename: "numinia-account.md", sources: [...ACCOUNT_SOURCES], body: preamble([...ACCOUNT_SOURCES]) + body };
+}
+
+/** The forecast section of /system/account.md: the same computation the page draws. */
+function forecastMd(): string[] {
+  const f = accountForecast();
+  const eur = (n: number) => (n < -0.5 ? "−€" : "€") + Math.round(Math.abs(n)).toLocaleString("en-GB");
+  const ys = forecastYears(f);
+  const Y = [...ys.keys()];
+  const r = (label: string, fn: (e: ReturnType<typeof ys.get> & object) => number) => [label, ...Y.map((y) => { const v = fn(ys.get(y)!); return Math.abs(v) < 0.5 ? "" : eur(v); })];
+  return [
+    "## The next two years",
+    "",
+    `A forecast from ${f.from} to ${f.horizon}, with supporters and with the loan. It is not a figure of the account: it is never closed, and it changes whenever an assumption does.`,
+    "",
+    table(["Forecast", ...Y], [
+      r("Support, without VAT", (e) => e.income),
+      r("Staff costs", (e) => -e.people),
+      r("Other operating expenses", (e) => -(e.cost - e.people + e.fees)),
+      r("**Operating result**", (e) => e.income - e.cost - e.fees),
+      r("Loan received", (e) => e.loanIn),
+      r("Loan repaid", (e) => -e.loanOut),
+      r("**Cash at year end**", (e) => e.cashEnd),
+    ]),
+    "",
+    "### What it assumes",
+    "",
+    `Each cost starts from its run-rate in the ledger: ${f.baseline.filter((b) => b.monthly > 0.5).map((b) => `${b.label.toLowerCase()} ${eur(b.monthly)} a month (${b.window})`).join("; ")}. Cash starts at ${eur(f.cash)}.`,
+    "",
+    ...f.assumptions.map((a) => `- ${a.note}.`),
+    "",
+    "The assumptions: [/system/account-forecast.csv](/system/account-forecast.csv).",
+    "",
+  ];
 }
 
 /**
