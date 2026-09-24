@@ -56,7 +56,18 @@ export interface Entry extends Row {
   readonly document: boolean;
   /** true for a folder of the toolkit */
   readonly folder: boolean;
+  /**
+   * true for a document read alongside the system, not part of it: the page
+   * links it, the compiled file and the download name it and do not carry it.
+   * The RPG manual's chapter on adventures is three thousand lines of rules;
+   * compiled whole it was more than half of "the design system". The manual
+   * is downloaded on its own.
+   */
+  readonly linked: boolean;
 }
+
+/** The register marks a read-alongside row by how its "Gives" cell opens. */
+const ALONGSIDE = /^Read alongside:\s*/;
 
 function read(rel: string): string {
   return fs.readFileSync(path.join(ARCHIVE_ROOT, rel), "utf-8");
@@ -159,7 +170,7 @@ export const REPO_TREE = "https://github.com/numengames/numinia-archive/tree/mai
 export function entries(): Entry[] {
   return rows().map((r) => {
     if (r.path === null) {
-      return { ...r, title: r.chapter, summary: null, href: null, document: false, folder: false };
+      return { ...r, title: r.chapter, summary: null, href: null, document: false, folder: false, linked: false };
     }
     const abs = path.join(ARCHIVE_ROOT, r.path);
     if (!fs.existsSync(abs)) {
@@ -175,6 +186,7 @@ export function entries(): Entry[] {
         href: `${folder ? REPO_TREE : REPO_BLOB}/${r.path.replace(/\/$/, "")}`,
         document,
         folder,
+        linked: false,
       };
     }
     const raw = read(r.path);
@@ -182,7 +194,7 @@ export function entries(): Entry[] {
     // A header-less file (the lore, the glossary) has no title of its own
     // that reads well out of context — a mould opens with "TÍTULO DE LA
     // AVENTURA". The register's description of it does.
-    const described = r.gives.replace(/^Raw material:\s*/, "");
+    const described = r.gives.replace(ALONGSIDE, "");
     return {
       ...r,
       title:
@@ -194,6 +206,7 @@ export function entries(): Entry[] {
       href: siteHref(r.path) ?? `${REPO_BLOB}/${r.path}`,
       document,
       folder,
+      linked: ALONGSIDE.test(r.gives),
     };
   });
 }
@@ -212,7 +225,7 @@ export function chapters(all: Entry[], part: Part): { chapter: string; entries: 
 /** The documents a reader downloads, once each, in register order. */
 export function documents(all: Entry[]): Entry[] {
   const seen = new Set<string>();
-  return all.filter((e) => e.document && e.path && !seen.has(e.path) && seen.add(e.path));
+  return all.filter((e) => e.document && !e.linked && e.path && !seen.has(e.path) && seen.add(e.path));
 }
 
 // ---------------------------------------------------------------------------
@@ -300,6 +313,15 @@ export function compiled(all: Entry[] = entries()): string {
       out.push(`### ${d.title}`, "", `*${d.chapter} · \`${d.path}\`* — ${d.gives}`, "");
       out.push(shiftHeadings(withoutTitle(bodyOf(read(d.path!))), 3), "");
     }
+    const alongside = all.filter((e) => e.part === part && e.linked);
+    if (alongside.length) {
+      out.push("### Read alongside", "", "Linked, not carried: each is its own document.", "");
+      for (const e of alongside) {
+        const url = e.href!.startsWith("/") ? `https://numinia.org${e.href}` : e.href;
+        out.push(`- **${e.chapter}** — ${e.title}: ${url}`);
+      }
+      out.push("");
+    }
   }
   const tools = all.filter((e) => e.part === "Toolkit" && e.path);
   out.push("## Toolkit", "", "In the download beside this file, and in the repository:", "");
@@ -363,11 +385,27 @@ export function values() {
     durations: dims(t.duration),
     icons: (t.icon.subconjunto.$value as string[]).slice(),
     eras: t.epoca,
+    textOnLight: swatches(c["texto-sobre-claro"]),
+    data: {
+      categorical: c.datos.categorica.$value as string[],
+      sequential: c.datos.secuencial.$value as string[],
+      divergent: c.datos.divergente.$value as string[],
+    },
+    pixel16: t.pixel["paleta-pixel16"].$value as string[],
+    velo: {
+      grid: String(t.velo.rejilla.$value),
+      fog: String(t.velo.niebla.$value),
+      glass: String(t.velo.cristal.$value),
+      glassEdge: String(t["velo"]["cristal-borde"].$value),
+      sky: t.velo.cielo.$value as { estrellas: number; pesos: number[]; alfa: number[]; radios: number[][] },
+    },
+    binary: { phrase: String(t.binaria.frase.$value), bits: String(t.binaria.bits.$value) },
+    ease: (t.cubicBezier.ciclo.$value as number[]).join(", "),
   };
 }
 
 /** The animation catalogue, read from the design values' own table. */
-export function animations(): { n: string; name: string; spec: string; retired: boolean }[] {
+export function animations(): { n: string; name: string; spec: string; where: string; retired: boolean }[] {
   const text = read("standards/STD-023-design-values.md");
   const start = text.indexOf("## 14. ");
   if (start < 0) throw new Error("STD-023: the animation catalogue (section 14) is missing");
@@ -380,7 +418,8 @@ export function animations(): { n: string; name: string; spec: string; retired: 
     const [nameRaw] = c[1].split(" — ");
     const name = nameRaw.replace(/\*\*/g, "").trim();
     const spec = c[2].replace(/\*\*/g, "").replace(/`/g, "");
-    out.push({ n, name, spec, retired: /RETIRED/.test(c[1]) });
+    const where = (c[3] ?? "").replace(/\*\*/g, "").replace(/`/g, "");
+    out.push({ n, name, spec, where, retired: /RETIRED/.test(c[1]) });
   }
   if (out.length === 0) throw new Error("STD-023: the animation catalogue has no rows");
   return out;

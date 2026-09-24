@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (the design system, seen)
+- **numinia.org/design** draws what it only listed: the fifteen animations running, each at its own token (typing, reveal, sweep, elevation, legendary pulse, the computed moon, dots, cursor, the orchestrated moment, surfacing, crystallization, the trazo, the sky at its rarity weights, the reading light with its drying ink; 12 kept dashed, retired), with *Replay* on the ones that run once and every card still under reduced motion; text over light, the data palette, Píxel-16, the scarab, the binary sentence, the three forces as surfaces, the pixel references and the five how-yes/how-no pairs at ×8 with the coin turning, focus and elevation. Component `web/src/components/design/MotionCatalogue.astro`; values read from the kit's tokens.
+- **`standards/STD-032-the-design-system.md`** `0.2.0`: a row whose *Gives* opens **Read alongside** is linked, not carried. The adventure chapter of the RPG manual (now the English one), the adventure mould, the character sheet and the ES–EN glossary become such rows: the compiled system drops from 5,400 lines to about 2,150, more than half of it had been game rules. `BLU-007` (the narrative dial) joins Word.
+
 ### Added — 2026-09-24 (The Broken Mirror, in English)
 - **`lore/adventures/the-broken-mirror.md`**: *El Espejo Roto*, the module for Distrito Ouroboros, in English — same 45 headings, glossary names throughout; English word count 1.04× the Spanish. The Spanish stays the original, untouched. **`lore/game/manual/glossary-es-en.md`** gains the module's 53 names (Splintered Mirror, Möbius Corridor, Typographic Sphinx, Drusa's Chamber…) and loses the open question it answers (*The Broken Mirror* is the title). `lore/adventures/README.md` and `lore/game/manual/en/README.md` list it. CC0.
 

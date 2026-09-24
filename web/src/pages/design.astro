@@ -24,10 +24,26 @@ import {
   entries, chapters, values, animations, PARTS, REGISTER, OPENING_QUOTE, DEFINITION,
 } from "@/lib/design-system";
 import { ZIP_NAME } from "@/lib/design-download";
+import MotionCatalogue from "@/components/design/MotionCatalogue.astro";
+import scarab from "@/brand/Khepri_Logo.svg?raw";
 
 const all = entries();
 const v = values();
 const anim = animations().filter((a) => !a.retired);
+const PIXEL = "/design/assets/pixel";
+const PIXEL_REFS = [
+  ["khepri-sprite-24@8x.png", "The scarab, 24 × 24"],
+  ["cartografo-24@8x.png", "The Cartographer, 24 × 24"],
+  ["moneda-12@8x.png", "The coin, 12 × 12"],
+];
+const PIXEL_PAIRS = ["contorno", "cluster", "diagonal", "luz", "tramado"].map((k) => ({
+  k,
+  yes: `${PIXEL}/guia/${k}-bien@8x.png`,
+  no: `${PIXEL}/guia/${k}-mal@8x.png`,
+}));
+const PAIR_NAME: Record<string, string> = {
+  contorno: "Outline", cluster: "Clusters", diagonal: "Diagonals", luz: "Light", tramado: "Dithering",
+};
 const gaps = all.filter((e) => e.path === null);
 const docCount = all.filter((e) => e.document).length;
 
@@ -49,11 +65,6 @@ const fontUse: Record<string, string> = {
   mono: "Measures. Labels, figures, code — tabular.",
   serif: "Narrates. Only the book and the codex.",
   pixel: "Speaks in scene. Only the pixel register.",
-};
-// One line of a catalogue row: brackets and asides out, first clause only.
-const brief = (spec: string) => {
-  const t = spec.replace(/\[[^\]]*\]/g, "").replace(/^[^:]{0,20}:\s*/, "").split(/[;.]\s| — /)[0].trim();
-  return t.length > 70 ? t.slice(0, 68).replace(/\s\S*$/, "") + "…" : t;
 };
 const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s));
 ---
@@ -259,20 +270,137 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
                 </div>
               </div>
 
-              <!-- Motion -->
-              <div class="rounded-[8px] border border-border bg-card p-5">
-                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Motion · {anim.length} animations in use, and no more — the catalogue is closed</p>
-                <div class="mb-4 font-mono text-lg text-foreground" aria-label="Typing, the flagship animation">
-                  <span class="ds-typing">The signal blinks.</span><span class="ds-cursor" aria-hidden="true"></span>
-                </div>
-                <ol class="grid gap-x-6 gap-y-2 sm:grid-cols-2">
-                  {anim.map((a) => (
-                    <li class="flex gap-3 text-xs">
-                      <span class="w-6 shrink-0 font-mono text-dim">{a.n}</span>
-                      <span><span class="text-foreground">{a.name}</span> <span class="text-muted-foreground">— {brief(a.spec)}</span></span>
-                    </li>
+              <!-- Colour, continued: over light, data, pixel -->
+              <div class="grid gap-3 md:grid-cols-3">
+                <div class="rounded-[8px] border border-border p-4" style="background:#F9EBDC">
+                  <p class="mb-2 font-mono text-[0.6rem] uppercase tracking-[0.2em]" style="color:#6E6259">Image · text over light</p>
+                  {v.textOnLight.map((s) => (
+                    <p class="text-sm" style={`color:${s.hex}`}><span class="capitalize">{s.name}</span> <span class="font-mono text-[0.6rem]">{s.hex}</span></p>
                   ))}
-                </ol>
+                  <p class="mt-2 text-[0.65rem] leading-relaxed" style="color:#4A423B">Coral has no text colour, on purpose: it would be a twin of grana.</p>
+                </div>
+                <div class="rounded-[8px] border border-border bg-card p-4">
+                  <p class="mb-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · data — six series at most</p>
+                  <div class="flex items-end gap-1.5 h-16">
+                    {v.data.categorical.map((h, i) => <span class="flex-1 rounded-t-[2px]" style={`background:${h};height:${[90, 70, 55, 45, 35, 25][i]}%`}></span>)}
+                  </div>
+                  <div class="mt-3 flex h-3 overflow-hidden rounded-[2px]">{v.data.sequential.map((h) => <span class="flex-1" style={`background:${h}`}></span>)}</div>
+                  <p class="mt-1 font-mono text-[0.55rem] text-dim">sequential</p>
+                  <div class="mt-2 flex h-3 overflow-hidden rounded-[2px]">{v.data.divergent.map((h) => <span class="flex-1" style={`background:${h}`}></span>)}</div>
+                  <p class="mt-1 font-mono text-[0.55rem] text-dim">divergent</p>
+                </div>
+                <div class="rounded-[8px] border border-border bg-card p-4">
+                  <p class="mb-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · the Píxel-16 palette</p>
+                  <div class="grid grid-cols-8 gap-1">
+                    {v.pixel16.map((h, i) => <span class="aspect-square" style={`background:${h}`} title={`${String(i + 1).padStart(2, "0")} ${h}`}></span>)}
+                  </div>
+                  <p class="mt-2 text-[0.65rem] leading-relaxed text-muted-foreground">Sixteen colours and not one new hex: every sprite stays inside this index.</p>
+                </div>
+              </div>
+
+              <!-- The brand -->
+              <div class="grid gap-3 md:grid-cols-[1fr_2fr]">
+                <div class="rounded-[8px] border border-border bg-card p-5">
+                  <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · the scarab</p>
+                  <div class="flex items-center gap-6">
+                    <span class="ds-mark text-accent" set:html={scarab} />
+                    <span class="ds-mark ds-mark-s text-foreground" set:html={scarab} />
+                    <span class="rounded-[8px] p-3" style="background:#F9EBDC;color:#14110F"><span class="ds-mark ds-mark-s block" set:html={scarab} /></span>
+                  </div>
+                  <p class="mt-3 text-[0.65rem] leading-relaxed text-muted-foreground">Closing, favicon, avatar, seal. One colour, any colour of the palette — never a gradient.</p>
+                </div>
+                <div class="rounded-[8px] border border-border bg-card p-5">
+                  <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · the binary speaks</p>
+                  <p class="break-all font-mono text-[0.6rem] leading-relaxed tracking-[0.12em] text-dim"><span class="text-accent">{v.binary.bits.slice(0, 8 * 5)}</span>{v.binary.bits.slice(8 * 5)}</p>
+                  <p class="mt-3 text-sm text-foreground">“{v.binary.phrase}”</p>
+                  <p class="mt-1 text-[0.65rem] text-muted-foreground">The zeros and ones of the backgrounds are not noise: they spell the sentence every piece closes on, in 8-bit ASCII. The first word is lit.</p>
+                </div>
+              </div>
+
+              <!-- The three forces, seen -->
+              <div>
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · the three forces, as a surface</p>
+                <div class="grid gap-3 md:grid-cols-3">
+                  <div class="rounded-[8px] border border-border bg-card p-5">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Umbral — manifests</p>
+                    <p class="mt-3 text-lg text-foreground">An invoice, a page, a deck.</p>
+                    <button type="button" class="mt-4 inline-flex min-h-[36px] items-center rounded-[6px] px-4 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-foreground" style="background:#017C8D">Action</button>
+                    <p class="mt-3 text-[0.65rem] text-muted-foreground">Flat surfaces, hairlines, no shadows at night. The force that invoices.</p>
+                  </div>
+                  <div class="ds-velo relative overflow-hidden rounded-[8px] border border-border p-5" style={`--grid:${v.velo.grid};--fog:${v.velo.fog}`}>
+                    <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Velo — keeps</p>
+                    <div class="mt-3 rounded-[8px] p-4" style={`background:${v.velo.glass};border:1px solid ${v.velo.glassEdge};backdrop-filter:blur(12px)`}>
+                      <p class="font-[Alegreya_DS,Georgia,serif] text-lg text-foreground" style="font-family:'Alegreya DS',Georgia,serif">What the archive kept.</p>
+                    </div>
+                    <p class="mt-3 text-[0.65rem] text-muted-foreground">No new colour, only transparency: a grid at 2.5 %, a fog at 6 %, glass.</p>
+                  </div>
+                  <div class="rounded-[8px] border border-border bg-card p-5">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Prisma — unfolds</p>
+                    <div class="mt-3 flex items-end gap-4">
+                      <img src={`${PIXEL}/cartografo-24@8x.png`} width="72" height="72" alt="The Cartographer, a 24-pixel character" class="ds-px" loading="lazy" />
+                      <svg viewBox="0 0 60 60" width="72" height="72" aria-label="A low-poly facet" role="img">
+                        <polygon points="30,4 56,22 46,54 14,54 4,22" fill="#292420" stroke="#3A332D"/>
+                        <polygon points="30,4 56,22 30,30" fill="#A6DAD5"/><polygon points="30,4 4,22 30,30" fill="#018EA1"/>
+                        <polygon points="4,22 14,54 30,30" fill="#016E7D"/><polygon points="56,22 46,54 30,30" fill="#EFA517"/>
+                        <polygon points="14,54 46,54 30,30" fill="#7A5100"/>
+                      </svg>
+                    </div>
+                    <p class="mt-3 text-[0.65rem] text-muted-foreground">Píxel in 2D, low-poly in 3D. You enter and leave it whole; the facets are shown, not hidden.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pixel: references and how-yes / how-no -->
+              <div class="rounded-[8px] border border-border bg-card p-5">
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · the pixel register — drawn at ×1, shown at ×8</p>
+                <div class="flex flex-wrap items-end gap-6">
+                  {PIXEL_REFS.map(([f, label]) => (
+                    <figure class="text-center">
+                      <img src={`${PIXEL}/${f}`} alt={label} class="ds-px mx-auto" style="height:96px;width:auto" loading="lazy" />
+                      <figcaption class="mt-1 font-mono text-[0.55rem] text-dim">{label}</figcaption>
+                    </figure>
+                  ))}
+                  <figure class="text-center">
+                    <span class="ds-coin" role="img" aria-label="The coin turning, four frames at 200 ms"></span>
+                    <figcaption class="mt-1 font-mono text-[0.55rem] text-dim">The turn · 4 frames · 200 ms</figcaption>
+                  </figure>
+                </div>
+                <div class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-5">
+                  {PIXEL_PAIRS.map((pp) => (
+                    <div>
+                      <p class="mb-1 font-mono text-[0.55rem] uppercase tracking-[0.15em] text-dim">{PAIR_NAME[pp.k]}</p>
+                      <div class="flex gap-1">
+                        <figure class="flex-1"><img src={pp.yes} alt={`${PAIR_NAME[pp.k]}, done right`} class="ds-px w-full" loading="lazy" /><figcaption class="font-mono text-[0.55rem] text-green">yes</figcaption></figure>
+                        <figure class="flex-1"><img src={pp.no} alt={`${PAIR_NAME[pp.k]}, done wrong`} class="ds-px w-full" loading="lazy" /><figcaption class="font-mono text-[0.55rem] text-red">no</figcaption></figure>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Focus and elevation -->
+              <div class="grid gap-3 md:grid-cols-2">
+                <div class="rounded-[8px] border border-border bg-card p-5">
+                  <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · focus — always visible, never animated</p>
+                  <span class="inline-flex min-h-[36px] items-center rounded-[6px] border border-border px-4 text-sm text-foreground" style="outline:2px solid #018EA1;outline-offset:2px">Focused control</span>
+                  <p class="mt-3 text-[0.65rem] text-muted-foreground">2 px of Turquesa, 2 px away. Non-negotiable.</p>
+                </div>
+                <div class="rounded-[8px] border border-border bg-card p-5">
+                  <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · elevation — by step, not by shadow</p>
+                  <div class="flex gap-2">
+                    {v.night.slice(0, 3).map((s) => <span class="flex h-14 flex-1 items-end rounded-[8px] border border-border p-2 font-mono text-[0.55rem] text-dim" style={`background:${s.hex}`}>{s.name.replace("fondo ", "")}</span>)}
+                  </div>
+                  <p class="mt-3 text-[0.65rem] text-muted-foreground">At night a surface rises one step lighter; the legendary halo is the only glow.</p>
+                </div>
+              </div>
+
+              <!-- Motion, running -->
+              <div>
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Motion · the catalogue, running — {anim.length} in use, and no more</p>
+                <MotionCatalogue />
+                <p class="mt-3 text-[0.65rem] text-dim">
+                  Every duration above is the kit's own token. With reduced motion set on your device, every card shows its end state and nothing moves.
+                </p>
               </div>
             </div>
           )}
@@ -292,7 +420,7 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
                           <a href={e.href!} class="text-sm text-foreground hover:text-accent" {...(e.href!.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
                             {e.title}
                           </a>
-                          <p class="text-xs leading-relaxed text-muted-foreground">{e.gives}</p>
+                          <p class="text-xs leading-relaxed text-muted-foreground">{e.linked ? <span class="font-mono text-[0.55rem] uppercase tracking-[0.15em] text-dim">Read alongside · linked, not in the download</span> : e.gives}</p>
                         </>
                       )}
                     </li>
@@ -323,21 +451,27 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
 <style>
   @font-face { font-family: "Alegreya DS"; src: url("/design/assets/fonts/Alegreya-Variable.woff2") format("woff2"); font-display: swap; }
   @font-face { font-family: "Pixelify DS"; src: url("/design/assets/fonts/PixelifySans-Variable.woff2") format("woff2"); font-display: swap; }
-  /* Typing, the flagship: 22 ms per character, block cursor in Ámbar (STD-023). */
-  .ds-typing {
-    display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom;
-    width: 17ch; animation: ds-type calc(17 * 22ms) steps(17) 400ms both;
+  .ds-mark :global(svg) { width: 56px; height: 56px; display: block; }
+  .ds-mark-s :global(svg) { width: 32px; height: 32px; }
+  /* Pixels stay pixels: nearest-neighbour, never smoothed (STD-023 §16). */
+  .ds-px { image-rendering: pixelated; image-rendering: crisp-edges; }
+  .ds-velo {
+    background:
+      radial-gradient(circle at 0% 100%, var(--fog), transparent 70%),
+      repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 40px),
+      repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 40px),
+      #14110F;
   }
-  .ds-cursor {
-    display: inline-block; width: 0.6em; height: 1.1em; margin-left: 2px; vertical-align: text-bottom;
-    background: #efa517; animation: ds-blink 1s steps(2) infinite;
+  /* The coin's turn: the sheet is 4 frames of 12 px; shown at ×8. */
+  .ds-coin {
+    display: block; width: 96px; height: 96px; margin: 0 auto;
+    background: url("/design/assets/pixel/moneda-giro-12x4.png") 0 0 / 384px 96px no-repeat;
+    image-rendering: pixelated; animation: ds-coin 800ms steps(4) infinite;
   }
+  @keyframes ds-coin { to { background-position: -384px 0; } }
   /* The scale at its true size, shrunk only where the phone cannot hold it. */
   .ds-scale { font-size: min(var(--size), 11vw); line-height: 1.15; }
-  @keyframes ds-type { from { width: 0; } to { width: 17ch; } }
-  @keyframes ds-blink { 50% { opacity: 0; } }
   @media (prefers-reduced-motion: reduce) {
-    .ds-typing { animation: none; width: 17ch; }
-    .ds-cursor { animation: none; }
+    .ds-coin { animation: none; }
   }
 </style>
