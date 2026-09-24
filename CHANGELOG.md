@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (The Broken Mirror, in English)
+- **`lore/adventures/the-broken-mirror.md`**: *El Espejo Roto*, the module for Distrito Ouroboros, in English — same 45 headings, glossary names throughout; English word count 1.04× the Spanish. The Spanish stays the original, untouched. **`lore/game/manual/glossary-es-en.md`** gains the module's 53 names (Splintered Mirror, Möbius Corridor, Typographic Sphinx, Drusa's Chamber…) and loses the open question it answers (*The Broken Mirror* is the title). `lore/adventures/README.md` and `lore/game/manual/en/README.md` list it. CC0.
+
 ### Fixed — 2026-09-24 (AGENTS.md types no protocol count; REUSE lint clean)
 - **`AGENTS.md`**: "Every protocol in this archive is `status: draft`" loses its "(12 of 12)". The number drifted twice (12 over a folder of 11, then 11 over 12); the Oracle's word: do not state how many there are. **`machine/scripts/test/agent-context.test.mjs`** now checks the claim itself — every `protocols/PRO-*` file is draft — and refuses a typed "(N of N)" count.
 - **`reuse lint`** is compliant again: the example `SPDX-License-Identifier` lines in `machine/scripts/lib/reuse.mjs` (a regex) and `machine/scripts/test/licence-per-file.test.mjs` (test fixtures) sit between `REUSE-IgnoreStart`/`REUSE-IgnoreEnd`, so the tool no longer reads them as licence declarations. No licence changes.

@@ -15,6 +15,7 @@ game's. They do not share a series.
 |---|---|---|---|
 | `session-zero.md` | The four introductory escape rooms (Thresholds of Thought, Transformation, Justice, Valor), seals and Prism Cells. The tutorial: guilds and factions by playing them. | one session | `numinia-lore:seminal/About_Session_Zero.md` |
 | `el-espejo-roto.md` | *El Espejo Roto* — module for Distrito Ouroboros, 2–3 sessions, medium difficulty. Drusa Malter, the Splintered Mirror, the Möbius Corridor. | 2–3 sessions | born as the manual's closing module (v0.6.0); since 2026-09-24 it lives only here — a module of its own, not a chapter |
+| `the-broken-mirror.md` | *The Broken Mirror* — the English translation of *El Espejo Roto*, same headings, names from `../game/manual/glossary-es-en.md`. | 2–3 sessions | translated 2026-09-24; the Spanish stays the original |
 
 ## Writing one
 
