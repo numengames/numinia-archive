@@ -74,7 +74,7 @@ Instruments an operator runs by hand, or CI runs against the repository's
 own registers: `check-register` (does every `[AUTO]` cell of `STD-015` name a
 script that exists?), `check-deletable` (may this document be deleted?),
 `check-responsive` (the design system's web numbers, measured in a browser),
-`generate-design-kit` (the kit published at `/diseno/kit`, byte-checked
+`generate-design-kit` (the kit published at `/design/kit`, byte-checked
 against its source), `rename-series` and `ruleset-export` (the branch
 protection, as a file that can be diffed).
 

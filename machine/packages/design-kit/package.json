@@ -1,7 +1,7 @@
 {
   "name": "@numengames/design-kit",
-  "version": "6.1.0",
-  "description": "Numen Games design system — tokens, base CSS, base JS and the agent instruction. The source the published kit at numinia.org/diseno/kit is built from.",
+  "version": "6.2.0",
+  "description": "Numinia Design System — tokens, base CSS, base JS and the agent instruction. The source the published kit at numinia.org/design/kit is built from.",
   "license": "MIT",
   "type": "module",
   "files": [

@@ -1,0 +1,343 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /design — the Numinia Design System, whole, on one page.
+//
+// WHY THIS PAGE EXISTS
+// The system was one long guide and was cut into small documents so each
+// could be read and changed alone. This page puts it back together for the
+// reader who needs to see it whole — without writing it again. Every card is
+// a row of STD-032; every colour, size, font and duration drawn below is read
+// from the kit's tokens; the animation list is STD-023's own table. Nothing
+// here is typed by hand except the page's frame, so the page cannot drift from
+// the documents: change them and it changes (@/lib/design-system).
+//
+// The parts not written yet — sound, most of play, how we write — are shown as
+// gaps on purpose. A design system that hides its holes is a brochure.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import Icon from "@/components/Icon.astro";
+import { repoFileUrl } from "@/lib/build-info";
+import {
+  entries, chapters, values, animations, PARTS, REGISTER, OPENING_QUOTE, DEFINITION,
+} from "@/lib/design-system";
+import { ZIP_NAME } from "@/lib/design-download";
+
+const all = entries();
+const v = values();
+const anim = animations().filter((a) => !a.retired);
+const gaps = all.filter((e) => e.path === null);
+const docCount = all.filter((e) => e.document).length;
+
+const PART_LINE: Record<string, string> = {
+  Core: "What holds in every medium: why we exist, the three forces, the mix, the eras. A logo and a mission start here.",
+  Languages: "The core translated to one sense each — image, word, sound, motion, play.",
+  Recipes: "The languages applied to one medium: a web page, an invoice, a deck, a scene.",
+  Toolkit: "What a maker installs or downloads.",
+};
+
+const fontCss: Record<string, string> = {
+  sans: "var(--font-sans)",
+  mono: "var(--font-mono)",
+  serif: "'Alegreya DS', Georgia, serif",
+  pixel: "'Pixelify DS', var(--font-sans)",
+};
+const fontUse: Record<string, string> = {
+  sans: "Affirms. Every heading and body in the Umbral.",
+  mono: "Measures. Labels, figures, code — tabular.",
+  serif: "Narrates. Only the book and the codex.",
+  pixel: "Speaks in scene. Only the pixel register.",
+};
+// One line of a catalogue row: brackets and asides out, first clause only.
+const brief = (spec: string) => {
+  const t = spec.replace(/\[[^\]]*\]/g, "").replace(/^[^:]{0,20}:\s*/, "").split(/[;.]\s| — /)[0].trim();
+  return t.length > 70 ? t.slice(0, 68).replace(/\s\S*$/, "") + "…" : t;
+};
+const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s));
+---
+
+<Layout
+  title="The Numinia Design System — NWOS"
+  description={DEFINITION}
+  canonicalPath="/design"
+>
+  <PageHero
+    label="Design system"
+    title="The Numinia Design System"
+    description="Everything a piece of ours is made of — core, languages, recipes and tools — on one page, and in one download."
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[1100px] px-6">
+
+      <!-- His words open the page, signed (STD-021 CIT-055) -->
+      <figure class="mb-10 max-w-[780px] border-l-2 border-accent pl-6">
+        <blockquote class="font-display text-2xl leading-snug text-foreground sm:text-3xl">
+          “{OPENING_QUOTE.text}”
+        </blockquote>
+        <figcaption class="mt-3 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim">
+          — {OPENING_QUOTE.author}
+          <span class="normal-case tracking-normal" title={OPENING_QUOTE.original}> · translated from the Spanish</span>
+        </figcaption>
+      </figure>
+
+      <p class="mb-8 max-w-[780px] text-base leading-relaxed text-muted-foreground">
+        {DEFINITION} It lives in {docCount} small documents so each can be read and changed alone; this page and the
+        download join them, and are rebuilt from them every time one changes.
+      </p>
+
+      <div class="mb-12 flex flex-wrap items-center gap-4">
+        <a
+          href={`/design/${ZIP_NAME}`}
+          download
+          class="inline-flex min-h-[44px] items-center gap-2 rounded-[6px] bg-accent px-5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-background transition-colors hover:bg-accent/85"
+        >
+          <Icon name="download-simple" size={14} />
+          Download the system
+        </a>
+        <span class="font-mono text-[0.65rem] text-dim">
+          .zip — the whole system as one document, every document on its own, tokens, kit, fonts, icons, brand, templates
+        </span>
+      </div>
+
+      <div class="mb-12">
+        <DocToolbar
+          mdUrl="/design.md"
+          filename="numinia-design-system.md"
+          repoUrl={repoFileUrl(REGISTER)}
+          lang="en"
+        />
+      </div>
+
+      <!-- The map: four parts, one line each -->
+      <nav aria-label="The parts of the system" class="mb-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {PARTS.map((p, i) => (
+          <a href={`#${p.toLowerCase()}`} class="group rounded-[8px] border border-border bg-card p-5 transition-colors hover:border-accent/50">
+            <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">{["I", "II", "III", "IV"][i]}</p>
+            <p class="mt-1 font-display text-xl text-foreground group-hover:text-accent">{p}</p>
+            <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{PART_LINE[p]}</p>
+          </a>
+        ))}
+      </nav>
+
+      {PARTS.map((part, pi) => (
+        <section id={part.toLowerCase()} class="mb-16 scroll-mt-24">
+          <div class="mb-6 flex items-center gap-3">
+            <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">{["I", "II", "III", "IV"][pi]} · {part}</span>
+            <span class="h-px flex-1 bg-border"></span>
+          </div>
+          <p class="mb-6 max-w-[780px] text-sm text-muted-foreground">{PART_LINE[part]}</p>
+
+          <!-- What the page can DRAW of each part, before its documents -->
+          {part === "Core" && (
+            <div class="mb-8 grid gap-4 md:grid-cols-3">
+              {[
+                ["Solarpunk", "40 %", "2120 · the garden. The light, the whole day mode, the serenity."],
+                ["Steampunk", "40 %", "1920 · the machine. Bronze, measure, the monospaced letter."],
+                ["Cyberpunk", "20 %", "2020 · the signal. Accent, never ambience."],
+              ].map(([n, pct, line]) => (
+                <div class="rounded-[8px] border border-border bg-card p-5">
+                  <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">{n}</p>
+                  <p class="mt-1 font-display text-3xl text-foreground">{pct}</p>
+                  <p class="mt-2 text-xs leading-relaxed text-muted-foreground">{line}</p>
+                </div>
+              ))}
+              <p class="md:col-span-3 font-mono text-[0.65rem] text-dim">
+                Light dominates, the machine structures, the signal blinks. Three forces — the Umbral manifests, the Velo keeps, the Prisma unfolds.
+                <a href="/canon/can-008-visual-identity" class="text-accent hover:underline">Read the identity →</a>
+              </p>
+            </div>
+          )}
+
+          {part === "Languages" && (
+            <div class="mb-8 space-y-8">
+              <!-- Colour -->
+              <div>
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · the six colours</p>
+                <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+                  {v.brand.map((s) => (
+                    <div class="overflow-hidden rounded-[8px] border border-border bg-card">
+                      <div class="h-20" style={`background:${s.hex}`}></div>
+                      <div class="p-3">
+                        <p class="text-sm capitalize text-foreground">{s.name}</p>
+                        <p class="font-mono text-[0.65rem] text-dim">{s.hex}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div class="mt-3 grid gap-3 md:grid-cols-2">
+                  {[["Nocturno", v.night], ["Diurno", v.day]].map(([label, list]) => (
+                    <div class="rounded-[8px] border border-border bg-card p-4">
+                      <p class="mb-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">{label as string}</p>
+                      <div class="flex flex-wrap gap-2">
+                        {(list as typeof v.night).map((s) => (
+                          <span class="inline-flex items-center gap-2 font-mono text-[0.6rem] text-muted-foreground" title={s.name}>
+                            <span class="inline-block h-5 w-5 rounded-[6px] border border-border" style={`background:${s.hex}`}></span>
+                            {s.hex}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div class="mt-3 rounded-[8px] border border-border bg-card p-4">
+                  <p class="mb-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Rarity — never colour alone: the border grows and the name is written</p>
+                  <div class="flex flex-wrap gap-2">
+                    {v.rarity.map((s, i) => (
+                      <span
+                        class="inline-flex items-center rounded-[6px] px-3 py-1 font-mono text-[0.65rem] capitalize"
+                        style={`color:${s.hex};border:1px solid ${i < 2 ? "rgb(var(--border))" : i < 4 ? s.hex + "66" : s.hex};${i === 5 ? "box-shadow:0 0 12px rgba(239,165,23,.25)" : ""}`}
+                      >{s.name}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Type -->
+              <div>
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · four voices</p>
+                <div class="grid gap-3 md:grid-cols-2">
+                  {v.fonts.map((f) => (
+                    <div class="rounded-[8px] border border-border bg-card p-5">
+                      <p class="text-3xl text-foreground" style={`font-family:${fontCss[f.name] ?? "inherit"}`}>{f.family}</p>
+                      <p class="mt-1 text-lg text-muted-foreground" style={`font-family:${fontCss[f.name] ?? "inherit"}`}>Leave things better than you found them.</p>
+                      <p class="mt-3 font-mono text-[0.6rem] text-dim">{f.name} · {fontUse[f.name] ?? f.stack}</p>
+                    </div>
+                  ))}
+                </div>
+                <div class="mt-3 rounded-[8px] border border-border bg-card p-5">
+                  <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">The scale · 1.200 over 16 px</p>
+                  <div class="space-y-1 overflow-hidden">
+                    {v.sizes.slice(0, 7).map((s) => (
+                      <p class="flex items-baseline gap-4 whitespace-nowrap">
+                        <span class="w-24 shrink-0 font-mono text-[0.6rem] text-dim">{s.name}</span>
+                        <span class="ds-scale text-foreground" style={`--size:${s.value}`}>Numinia</span>
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Space and shape -->
+              <div class="grid gap-3 md:grid-cols-2">
+                <div class="rounded-[8px] border border-border bg-card p-5">
+                  <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · space, on a 4 px scale</p>
+                  <div class="flex flex-wrap items-end gap-2">
+                    {v.space.map((s) => (
+                      <div class="flex flex-col items-center gap-1">
+                        <span class="block bg-accent/60" style={`width:${Math.min(px(s.value), 64) / 2}px;height:${Math.min(px(s.value), 128) / 2}px`}></span>
+                        <span class="font-mono text-[0.55rem] text-dim">{parseInt(s.value)}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div class="rounded-[8px] border border-border bg-card p-5">
+                  <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · two radii, the capsule, and square for the pixel</p>
+                  <div class="flex flex-wrap items-end gap-6">
+                    {v.radii.map((r) => (
+                      <div class="flex flex-col items-center gap-2">
+                        <span class="block h-14 w-20 border border-accent/70 bg-accent/10" style={`border-radius:${r.value}`}></span>
+                        <span class="font-mono text-[0.6rem] text-dim">{r.name} · {parseInt(r.value) > 999 ? "capsule" : r.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Icons -->
+              <div class="rounded-[8px] border border-border bg-card p-5">
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · the house icons — Phosphor, one family; thin and duotone never</p>
+                <div class="flex flex-wrap gap-4 text-foreground">
+                  {v.icons.map((name) => (
+                    <span class="inline-flex flex-col items-center gap-1" title={name}>
+                      <Icon name={name} size={24} />
+                      <span class="font-mono text-[0.5rem] text-dim">{name}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Motion -->
+              <div class="rounded-[8px] border border-border bg-card p-5">
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Motion · {anim.length} animations in use, and no more — the catalogue is closed</p>
+                <div class="mb-4 font-mono text-lg text-foreground" aria-label="Typing, the flagship animation">
+                  <span class="ds-typing">The signal blinks.</span><span class="ds-cursor" aria-hidden="true"></span>
+                </div>
+                <ol class="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+                  {anim.map((a) => (
+                    <li class="flex gap-3 text-xs">
+                      <span class="w-6 shrink-0 font-mono text-dim">{a.n}</span>
+                      <span><span class="text-foreground">{a.name}</span> <span class="text-muted-foreground">— {brief(a.spec)}</span></span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </div>
+          )}
+
+          <!-- The documents of the part, chapter by chapter -->
+          <div class="grid gap-4 md:grid-cols-2">
+            {chapters(all, part).map(({ chapter, entries: es }) => (
+              <div class={`rounded-[8px] border p-5 ${es.every((e) => e.path === null) ? "border-dashed border-border/70" : "border-border bg-card"}`}>
+                <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">{chapter}</p>
+                <ul class="space-y-3">
+                  {es.map((e) => (
+                    <li>
+                      {e.path === null ? (
+                        <p class="text-sm text-dim"><span class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-yellow">Not written yet</span> — {e.gives.replace(/^Not written yet:\s*/, "")}</p>
+                      ) : (
+                        <>
+                          <a href={e.href!} class="text-sm text-foreground hover:text-accent" {...(e.href!.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+                            {e.title}
+                          </a>
+                          <p class="text-xs leading-relaxed text-muted-foreground">{e.gives}</p>
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      {gaps.length > 0 && (
+        <div class="rounded-[8px] border border-border bg-card p-6 max-w-[780px]">
+          <p class="mb-3 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">What the system does not cover yet</p>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            {gaps.map((g) => <li><span class="text-foreground">{g.part} · {g.chapter}</span> — {g.gives.replace(/^Not written yet:\s*/, "")}</li>)}
+          </ul>
+          <p class="mt-4 text-xs text-dim">
+            This page is drawn from <a href="/standards/std-032-the-design-system" class="text-accent hover:underline">the design system register</a>;
+            the values from the kit's tokens. A gap closes when its document is written and its row names it.
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @font-face { font-family: "Alegreya DS"; src: url("/design/assets/fonts/Alegreya-Variable.woff2") format("woff2"); font-display: swap; }
+  @font-face { font-family: "Pixelify DS"; src: url("/design/assets/fonts/PixelifySans-Variable.woff2") format("woff2"); font-display: swap; }
+  /* Typing, the flagship: 22 ms per character, block cursor in Ámbar (STD-023). */
+  .ds-typing {
+    display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom;
+    width: 17ch; animation: ds-type calc(17 * 22ms) steps(17) 400ms both;
+  }
+  .ds-cursor {
+    display: inline-block; width: 0.6em; height: 1.1em; margin-left: 2px; vertical-align: text-bottom;
+    background: #efa517; animation: ds-blink 1s steps(2) infinite;
+  }
+  /* The scale at its true size, shrunk only where the phone cannot hold it. */
+  .ds-scale { font-size: min(var(--size), 11vw); line-height: 1.15; }
+  @keyframes ds-type { from { width: 0; } to { width: 17ch; } }
+  @keyframes ds-blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .ds-typing { animation: none; width: 17ch; }
+    .ds-cursor { animation: none; }
+  }
+</style>

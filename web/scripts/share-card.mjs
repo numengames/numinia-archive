@@ -39,7 +39,7 @@ const SITE = {
 };
 
 const OUT = path.join(root, "public");
-const FONTS = path.join(root, "public", "diseno", "assets", "fonts");
+const FONTS = path.join(root, "public", "design", "assets", "fonts");
 const KHEPRI = path.join(root, "src", "brand", "Khepri_Logo.svg");
 
 // ── Values (STD-023: Carbón, Marfil, Marfil velada, Ámbar, Turquesa) ──────

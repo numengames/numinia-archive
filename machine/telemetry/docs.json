@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13113,
+  "chars": 13213,
   "apparatus": false,
   "archived": false,
-  "tokens": 3251
+  "tokens": 3277
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 100497,
+  "chars": 102767,
   "apparatus": false,
   "archived": false,
-  "tokens": 26626
+  "tokens": 27234
  },
  {
   "path": "CLAUDE.md",
@@ -786,10 +786,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 3186,
+  "chars": 3266,
   "apparatus": false,
   "archived": false,
-  "tokens": 869
+  "tokens": 904
  },
  {
   "path": "decisions/ADR-045-series-without-consumers-retired.md",
@@ -2117,10 +2117,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3172,
+  "chars": 4031,
   "apparatus": false,
   "archived": false,
-  "tokens": 866
+  "tokens": 1089
  },
  {
   "path": "standards/STD-022-secrets.md",
@@ -2233,6 +2233,17 @@
   "tokens": 1356
  },
  {
+  "path": "standards/STD-032-the-design-system.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5677,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1544
+ },
+ {
   "path": "system/SYS-001-cao-architecture.md",
   "dir": "system",
   "series": "system",
@@ -2296,6 +2307,6 @@
   "chars": 6700,
   "apparatus": false,
   "archived": false,
-  "tokens": 1794
+  "tokens": 1793
  }
 ]

@@ -28,7 +28,7 @@ SPDX-License-Identifier: CC-BY-4.0
 > **Summary:** What another repository needs to rebuild part of this system
 > is a versioned package under `machine/packages/`, installed, never copied. The
 > design kit is the first: source in `machine/packages/design-kit/`, published
-> output at `/diseno/kit/`.
+> output at `/diseno/kit/` (since 2026-09-24, `/design/kit/`).
 > **Epistemic:** Numinia is the first instance of NWOS; what it learns moves
 > to the generic system in `nwos-deploy`. A copy cannot move; a package can.
 > **Pragmatic:** One `npm install` replaces two hand-maintained copies that
@@ -51,7 +51,7 @@ The design system lives in five houses, each with one job:
 | `blueprints/` | recipes, one per medium | the workspace template |
 | `machine/packages/design-kit/` | `sistema.css`, `.js`, `.tokens.json`, `.prompt.txt`, versioned (MIT) | every site, by install |
 
-`web/public/diseno/kit/` stays as the published output with a sha256
+`web/public/diseno/kit/` (since 2026-09-24, `web/public/design/kit/`) stays as the published output with a sha256
 manifest; its URLs are a contract and do not move.
 `generate-design-kit.mjs --check` fails when output differs from package.
 

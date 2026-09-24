@@ -48,16 +48,13 @@ const DIST = join(WEB, "dist");
 // web/src/pages/agente.astro carried the VPS address and was deliberately kept
 // out of this list — it was repaired instead (see D-032).
 const ALLOWED = new Map([
-  ["diseno/index.html", {
+  ["design/templates/2026_08_03-Plantilla_Factura-v1.0.0.html", {
     debt: "D-032",
     since: "2026-08-25",
-    reason: "Design system served as raw HTML from public/. Declares v5.0.0 while the corpus standard is v5.1.0 (unsigned). Needs a version ruling before it moves.",
+    reason: "Invoice template, HTML artefact with no corpus counterpart. Listed as a toolkit row of STD-032 and shipped in the design download; still not a document.",
   }],
-  ["diseno/plantillas/2026_08_03-Plantilla_Factura-v1.0.0.html", {
-    debt: "D-032",
-    since: "2026-08-25",
-    reason: "Invoice template, HTML artefact with no corpus counterpart. Tolerated pending a decision on where templates live.",
-  }],
+  // RESOLVED 2026-09-24: diseno/index.html, the v5 guide frozen in August,
+  // deleted — /design is drawn from the documents instead (STD-032).
   // RESOLVED 2026-08-25, and removed from this list rather than left to rot:
   //   archive/archive-summa-{arquitectura,fundacional,prompt}-v0.1.0.md
   // The three were divergent second copies of blueprints/archive-summa-*.
