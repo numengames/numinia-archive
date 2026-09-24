@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.49.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "The page of what Numinia costs is called Open books, at /system/open-books — the company's books, open to anyone. 'The account' read like a user account. The ledger is at /system/open-books.csv and the forecast's assumptions at /system/open-books-forecast.csv.",
+      },
+    ],
+  },
+  {
     version: "v0.48.0",
     date: "2026-09-24",
     entries: [

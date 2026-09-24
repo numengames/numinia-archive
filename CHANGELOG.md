@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (Open books)
+- **`/system/account` → `/system/open-books`**, and its CSV routes to `/system/open-books.csv` and `/system/open-books-forecast.csv`: *the account* read as a user account; *open books* is the page's claim. Oracle's word in session. No redirect: the old address never reached the live site (the deploy queue stalled after v0.44.0). Files `web/src/pages/system/open-books{,.csv,-forecast.csv}.ts|astro`; `corpus.ts` lists it as *Open books*.
+
 ### Changed — 2026-09-24 (the Codex is the shared source)
 - **`lore/adventures/README.md`**, **`lore/README.md`**, **`lore/adventures/virtual-worlds/README.md`**: what tabletop modules and virtual-world experiences both draw from is named — the **Codex**, Numinia's roleplaying game (`lore/game/`: the manual in Spanish, the original, and English, its glossary, `attributes-and-ranks.md`). No shared-reference folder is created and nothing moves: the Codex already is that source. Oracle's word in session.
 - **`lore/adventures/tabletop/README.md`**: the placeholder row for a table Session Zero is removed; the Oracle and Christian will write it themselves.

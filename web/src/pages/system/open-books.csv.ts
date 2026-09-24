@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The ledger behind /system/account, served as it is: one line per document,
+// The ledger behind /system/open-books, served as it is: one line per document,
 // semicolon-separated (STD-033 LED-001). Simulated until the first month
 // closes (PRO-021).
 import type { APIRoute } from "astro";
