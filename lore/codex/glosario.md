@@ -310,7 +310,7 @@ Categoría general con la que se resuelven las acciones y los desafíos, que com
 _Fuente: Capítulo 4, «Fragmento 3: Tiradas de Movimiento»._
 
 ## Tokens
-«Los Tokens son objetos primotécnicos que materializan aspectos de la relación entre un individuo y Numinia»; «No representan riqueza. Representan vínculo», y obtener uno es siempre una forma de reconocimiento de la ciudad. Existen dos grandes clases: las Semillas del Conocimiento (responden al conocimiento) y las Células del Prisma (responden a la afinidad faccional).
+«Los Tokens son objetos primotécnicos que materializan aspectos de la relación entre un individuo y Numinia»; «Representan vínculo, y pueden representar también riqueza: lo que un Token vale nunca borra de dónde viene», y obtener uno es siempre una forma de reconocimiento de la ciudad. Existen dos grandes clases: las Semillas del Conocimiento (responden al conocimiento) y las Células del Prisma (responden a la afinidad faccional).
 _Fuente: Capítulo 6, «Tokens» (Fragmento 2: El Inventario)._
 
 ## Tres grandes fuerzas

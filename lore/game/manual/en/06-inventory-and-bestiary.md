@@ -1842,7 +1842,7 @@ As a character explores the city, discovers its secrets, interprets its symbols 
 
 These manifestations are called Tokens.
 
-Tokens are primotechnic objects that materialise aspects of the relationship between an individual and Numinia. They can be kept, accumulated and used within certain progression systems, but reducing them to a unit of exchange would be to confuse their function with their meaning. A Token has value precisely because something has happened beforehand that made its appearance possible. They do not represent wealth. They represent a bond.
+Tokens are primotechnic objects that materialise aspects of the relationship between an individual and Numinia. They can be kept, accumulated, exchanged and used within certain progression systems. A Token has value precisely because something has happened beforehand that made its appearance possible. They represent a bond, and may represent wealth as well: what a Token is worth never erases where it came from.
 
 For this reason, obtaining a Token is always a form of recognition. Numinia responds to something the character has understood, investigated, interpreted or chosen, and transforms that intangible relationship into an object that can be added to the Inventory. Progression thus ceases to be exclusively numerical: what the character learns and that with which they establish affinity acquire a material presence within the world itself.
 

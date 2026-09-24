@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (CAN-011, what has value also makes a bond, ADR-063)
+- **`canon/CAN-011-value-makes-a-bond.md`** `0.1.0`, in draft and said so in its body: a payment is a bond worth money, never a donation; every charge delivers a good named before paying, price shown whole; the payer is remembered by the name they choose or by none, no amount shown; the account is open and one — citizen, lender, auditor and tax authority read the same figures — closed from documents, people's time counted, no person's pay published. Three questions for any charge. Reads in *The Summa* after `CAN-009` (`corpus.ts`); `AGENTS.md` rule index regenerated. The standard and protocols it justifies come next.
+- **Tokens** (Oracle's correction): `lore/game/manual/es/06-inventario-y-bestiario.md`, `lore/game/manual/en/06-inventory-and-bestiary.md` and `lore/codex/glosario.md` — Tokens *represent a bond, and may represent wealth as well*; they may be exchanged. The English glossary on the open `lore/codex-en` branch still carries the old sentence.
+
 ### Added — 2026-09-24 (day and night on every site)
 - **`standards/STD-008-design-tokens.md`** `7.3.0`: **DSN-016 — day and night on every site.** Every public web serves Nocturno and Diurno and carries the moon/sun switch `BLU-009` §5 specifies (the icon shows where a tap leads; follows the device until the visitor chooses; remembered under `numinia-modo`; applied before painting). Until now the recipe said how, not that every site must; today only numinia.com serves it. At the Oracle's word in session. `BLU-009` `1.1.1` points at the rule.
 - **numinia.org/design** shows the switch working on a small page specimen, says who the page is for (who designs, an AI, who checks a site) and explains the words it uses without stopping (Umbral, Velo, Prisma; Nocturno, Diurno; tokens; read alongside).
