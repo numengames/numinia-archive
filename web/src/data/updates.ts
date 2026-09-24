@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.24.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "A translation glossary for the RPG manual: the English every Numinia term takes before a single chapter is translated, so that Veil is always Veil and a Game Director never becomes a Game Master halfway through the book. The names numinia.com already shows in English (ranks, guilds, factions, districts, species…) are copied as they are; the manual's own concepts are proposed; three doubts are left open for the authors.",
+      },
+    ],
+  },
+  {
     version: "v0.23.0",
     date: "2026-09-24",
     entries: [
