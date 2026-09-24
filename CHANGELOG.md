@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (day and night on every site)
+- **`standards/STD-008-design-tokens.md`** `7.3.0`: **DSN-016 — day and night on every site.** Every public web serves Nocturno and Diurno and carries the moon/sun switch `BLU-009` §5 specifies (the icon shows where a tap leads; follows the device until the visitor chooses; remembered under `numinia-modo`; applied before painting). Until now the recipe said how, not that every site must; today only numinia.com serves it. At the Oracle's word in session. `BLU-009` `1.1.1` points at the rule.
+- **numinia.org/design** shows the switch working on a small page specimen, says who the page is for (who designs, an AI, who checks a site) and explains the words it uses without stopping (Umbral, Velo, Prisma; Nocturno, Diurno; tokens; read alongside).
+- **`missions/MIS-0154-four-sites-design-audit.md`**: audit the four sites against the sixteen rules, one report, then one PR per site starting with day and night; carries the prompt for the session that runs it.
+
 ### Changed — 2026-09-24 (the design system, seen)
 - **numinia.org/design** draws what it only listed: the fifteen animations running, each at its own token (typing, reveal, sweep, elevation, legendary pulse, the computed moon, dots, cursor, the orchestrated moment, surfacing, crystallization, the trazo, the sky at its rarity weights, the reading light with its drying ink; 12 kept dashed, retired), with *Replay* on the ones that run once and every card still under reduced motion; text over light, the data palette, Píxel-16, the scarab, the binary sentence, the three forces as surfaces, the pixel references and the five how-yes/how-no pairs at ×8 with the coin turning, focus and elevation. Component `web/src/components/design/MotionCatalogue.astro`; values read from the kit's tokens.
 - **`standards/STD-032-the-design-system.md`** `0.2.0`: a row whose *Gives* opens **Read alongside** is linked, not carried. The adventure chapter of the RPG manual (now the English one), the adventure mould, the character sheet and the ES–EN glossary become such rows: the compiled system drops from 5,400 lines to about 2,150, more than half of it had been game rules. `BLU-007` (the narrative dial) joins Word.

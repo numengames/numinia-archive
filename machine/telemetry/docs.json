@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 106556,
+  "chars": 107574,
   "apparatus": false,
   "archived": false,
-  "tokens": 28229
+  "tokens": 28505
  },
  {
   "path": "CLAUDE.md",
@@ -533,10 +533,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 21004,
+  "chars": 21053,
   "apparatus": false,
   "archived": false,
-  "tokens": 5805
+  "tokens": 5820
  },
  {
   "path": "blueprints/BLU-010-pixel-register.md",
@@ -1628,6 +1628,17 @@
   "tokens": 1489
  },
  {
+  "path": "missions/MIS-0154-four-sites-design-audit.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5997,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1751
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -2040,10 +2051,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8134,
+  "chars": 9199,
   "apparatus": false,
   "archived": false,
-  "tokens": 2219
+  "tokens": 2508
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
