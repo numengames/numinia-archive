@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-24T08:39:34Z"
+updated: "2026-09-24T08:54:07Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,19 +20,19 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `2859830`  · corpus_hash: `450d9ab73365c61b…`  · measured_at: 2026-09-24T08:39:34Z  · root_dirty: 0
+- head: `db2fb54`  · corpus_hash: `434d5461ee59ef7f…`  · measured_at: 2026-09-24T08:54:07Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 538 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 539 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
-| `corpus.md_total` | 198 | files | tracked `.md` anywhere, including `web/` |
-| `corpus.docs_total` | 196 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
+| `corpus.md_total` | 199 | files | tracked `.md` anywhere, including `web/` |
+| `corpus.docs_total` | 197 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
 | `corpus.docs_by_dir` | (table below) | documents | corpus documents by top-level directory; root files under `(root)` |
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
-| `corpus.docs_without_frontmatter` | 31 | documents | corpus documents with no `---` block at the top |
+| `corpus.docs_without_frontmatter` | 32 | documents | corpus documents with no `---` block at the top |
 | `corpus.apparatus` | 25 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
 | `corpus.scripts_total` | 45 | files | files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
@@ -50,7 +50,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .jpg | 2 |
 | .js | 2 |
 | .json | 14 |
-| .md | 198 |
+| .md | 199 |
 | .mjs | 75 |
 | .png | 35 |
 | .svg | 69 |
@@ -74,7 +74,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | canon | 8 |
 | debt | 2 |
 | decisions | 18 |
-| lore | 23 |
+| lore | 24 |
 | machine | 13 |
 | missions | 11 |
 | objects | 2 |
@@ -88,7 +88,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| (none) | 32 |
+| (none) | 33 |
 | adr | 19 |
 | agent | 34 |
 | blueprint | 10 |
@@ -203,20 +203,20 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 615484 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 619401 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 7.14 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 7.1 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
 | | tokens |
 |---|---|
-| lore | 295057 |
+| lore | 298822 |
 | standards | 51909 |
 | missions | 43966 |
-|  | 30959 |
+|  | 31111 |
 | agents | 28902 |
 | reports | 26307 |
 | operations | 24533 |
@@ -234,7 +234,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 326086 |
+| (none) | 330003 |
 | draft | 126521 |
 | active | 117423 |
 | done | 26539 |
@@ -250,7 +250,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `headers.docs_with_frontmatter` | 165 | documents | docs whose text opens with a --- block the shared reader parses |
-| `headers.docs_without_frontmatter` | 31 | documents | corpus docs minus docs_with_frontmatter |
+| `headers.docs_without_frontmatter` | 32 | documents | corpus docs minus docs_with_frontmatter |
 | `headers.field_usage` | (table below) | documents | per frontmatter key, the number of docs carrying it, most used first |
 | `headers.uid_present` | 0 | documents | docs with a non-empty uid |
 | `headers.uid_collisions` | 0 | collisions | Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts) |
@@ -378,7 +378,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | documents |
 |---|---|
 | ai-persona | 126 |
-| no-frontmatter | 31 |
+| no-frontmatter | 32 |
 | other | 25 |
 | ai-model | 8 |
 | human | 5 |
