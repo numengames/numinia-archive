@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 109108,
+  "chars": 109478,
   "apparatus": false,
   "archived": false,
-  "tokens": 28910
+  "tokens": 28998
  },
  {
   "path": "CLAUDE.md",
@@ -1116,10 +1116,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 37557,
+  "chars": 37618,
   "apparatus": false,
   "archived": false,
-  "tokens": 8627
+  "tokens": 8642
  },
  {
   "path": "lore/codex/glosario.md",
