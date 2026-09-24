@@ -207,7 +207,8 @@ const corpus = defineCollection({
       "lore/**/*.md",
       // …except the RPG manual, and this exclusion is a FINDING, not a policy.
       //
-      // manual-v0.6.0.md embeds four images by relative path —
+      // (Now lore/game/manual/es/, one file per chapter; chapter 2 carries
+      // the embeds.) The manual embeds four images by relative path —
       // `images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-13-0.png` and three
       // siblings, extracted when the PDF was converted to Markdown. No
       // `lore/game/images/` directory was ever committed, so the build fails
@@ -218,7 +219,7 @@ const corpus = defineCollection({
       // Excluded so the other thirteen lore documents publish today. The fix
       // is to commit the four images (or drop the embeds) — a change to the
       // text of the manual, not a build workaround.
-      "!lore/game/manual-v0.6.0.md",
+      "!lore/game/manual/**",
       // The folder's own README and the adventure TEMPLATE stay out, for the
       // same reason README.md and CONTRIBUTING.md at the root do (ADR-047):
       // they are the furniture of a directory, not documents of the series.

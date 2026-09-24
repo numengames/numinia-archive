@@ -28,7 +28,7 @@ the repository is the source of truth and this file only says where to look.
 
 ## The game itself
 
-lore/game/manual-v0.6.0.md — the RPG manual, CC0 (home in this repository since 2026-09-17; before that, `numinia-lore`); authoritative for mechanics, chronology, factions, geography. lore/adventures/ — the modules; lore/world/ — identity texts
+lore/game/manual/es/ — the RPG manual (v0.6.0), one file per chapter, CC0 (home in this repository since 2026-09-17; before that, `numinia-lore`); authoritative for mechanics, chronology, factions, geography. lore/adventures/ — the modules; lore/world/ — identity texts
 
 ## Session Zero
 

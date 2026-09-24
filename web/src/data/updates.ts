@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.23.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "The RPG manual is now one file per chapter: an introduction and seven chapters, in Spanish, under lore/game/manual/es/, each with its own CC0 licence line. Not a word of the text changed; it was one 21,000-line file and is now eight you can open, link and translate one by one. The English edition will grow beside it, chapter by chapter. El Espejo Roto, the adventure that used to close the manual, is a module of its own again and lives only in lore/adventures/.",
+      },
+    ],
+  },
+  {
     version: "v0.22.0",
     date: "2026-09-24",
     entries: [
