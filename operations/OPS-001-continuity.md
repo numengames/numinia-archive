@@ -4,11 +4,11 @@ uid: ""
 title: "Continuity and adaptability of the system"
 type: documentation
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-08-27T22:31:29Z"
+updated: "2026-09-24T18:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [operations, continuity, adaptability, failure-patterns]
@@ -75,7 +75,7 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 
 - **What it does:** Reads SOUL.md, OPERATOR.md, MEMORY.md from the repo. In 60 seconds it has identity, laws and context.
 - **❌ Without the repo:** A generic LLM with no name, no laws, no history.
-- **✅ With the repo:** Nimrod. Guardian of the Gates. With 5 days of decisions and learnings.
+- **✅ With the repo:** Nimrod. Gatekeeper. With 5 days of decisions and learnings.
 
 ### ⚡ EXECUTE — "What should I do?"
 

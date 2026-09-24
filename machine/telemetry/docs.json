@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 116914,
+  "chars": 117225,
   "apparatus": false,
   "archived": false,
-  "tokens": 31026
+  "tokens": 31129
  },
  {
   "path": "CLAUDE.md",
@@ -1743,10 +1743,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 6580,
+  "chars": 6574,
   "apparatus": false,
   "archived": false,
-  "tokens": 1695
+  "tokens": 1696
  },
  {
   "path": "operations/OPS-002-contradictions.md",
@@ -2447,10 +2447,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10507,
+  "chars": 10496,
   "apparatus": false,
   "archived": false,
-  "tokens": 2862
+  "tokens": 2860
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
