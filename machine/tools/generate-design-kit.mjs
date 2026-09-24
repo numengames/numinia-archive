@@ -9,8 +9,8 @@
 // package.json. This script publishes it under the public path with a
 // sha256 manifest:
 //
-//   web/public/diseno/kit/sistema.{css,js,tokens.json,prompt.txt}
-//   web/public/diseno/kit/manifest.json
+//   web/public/design/kit/sistema.{css,js,tokens.json,prompt.txt}
+//   web/public/design/kit/manifest.json
 //
 // The path carries no version (Oracle ruling 2026-09-05); the manifest does.
 //
@@ -32,7 +32,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pkgDir = path.join(root, "packages", "design-kit");
 // root is machine/; the site lives beside it, at the repository root.
-const kitDir = path.join(root, "..", "web", "public", "diseno", "kit");
+const kitDir = path.join(root, "..", "web", "public", "design", "kit");
 const check = process.argv.includes("--check");
 
 const pkgPath = path.join(pkgDir, "package.json");
@@ -54,7 +54,7 @@ const stamp = `/* GENERADO de machine/packages/design-kit (@numengames/design-ki
 // The tokens are re-stamped with the package version so a consumer reading
 // only the JSON knows which kit it holds.
 const tokens = JSON.parse(read("sistema.tokens.json"));
-tokens["$description"] = `Numen Games · Sistema de Diseño · v${version} · Solar 40 / Steam 40 / Cyber 20`;
+tokens["$description"] = `Numinia Design System · v${version} · Solar 40 / Steam 40 / Cyber 20`;
 
 const files = {
   "sistema.css": stamp + read("sistema.css"),
@@ -65,16 +65,20 @@ const files = {
 
 const sha = (s) => createHash("sha256").update(s).digest("hex");
 const manifest = {
-  sistema: "Numen Games · Sistema de Diseño",
+  sistema: "Numinia Design System",
   version,
   source: {
     package: pkg.name,
     path: "machine/packages/design-kit",
-    url: "https://github.com/numengames/numinia-archive/tree/main/packages/design-kit",
+    url: "https://github.com/numengames/numinia-archive/tree/main/machine/packages/design-kit",
   },
   rules: {
     id: "STD-008",
-    url: "https://numinia.org/corpus/standards/std-008-design-tokens",
+    url: "https://numinia.org/standards/std-008-design-tokens",
+  },
+  system: {
+    id: "STD-032",
+    url: "https://numinia.org/design",
   },
   files: {},
 };
@@ -99,5 +103,5 @@ if (check) {
 fs.mkdirSync(kitDir, { recursive: true });
 for (const [name, content] of Object.entries(files)) fs.writeFileSync(path.join(kitDir, name), content);
 fs.writeFileSync(path.join(kitDir, "manifest.json"), manifestOut);
-console.log(`kit v${version} → web/public/diseno/kit/`);
+console.log(`kit v${version} → web/public/design/kit/`);
 for (const [f, h] of Object.entries(manifest.files)) console.log(`${h.slice(0, 12)}…  ${f}`);

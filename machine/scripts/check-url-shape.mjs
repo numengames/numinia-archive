@@ -84,7 +84,7 @@ const STANDALONE = new Set([
   // /solutions moved under /system/ — a series segment, so URL-001 admits
   // them without a line here. Their old roots are redirects now.
   '/legal',       // the legal texts, published from operations/
-  '/diseno',      // the design kit's served files
+  '/design',      // the design system whole (STD-032), its download and the kit's served files
   '/404',
 ]);
 
@@ -162,7 +162,7 @@ function builtPages(dir = DIST, prefix = '') {
 /**
  * Every address the build serves: a directory with an index.html, and every
  * plain file. Both are redirect targets — `/legal/terms.md` and
- * `/diseno/kit/sistema.css` are addresses a reader can be sent to, and a
+ * `/design/kit/sistema.css` are addresses a reader can be sent to, and a
  * check that counted only directories reported four live redirects as dead.
  */
 function servedAddresses() {

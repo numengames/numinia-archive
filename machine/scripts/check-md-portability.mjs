@@ -58,7 +58,6 @@ const EXEMPT = new Map([
   ["/agent", "the roster's detail view; every agent's SOUL/OPERATOR/STATUS/MEMORY is a document with its own .md"],
   ["/telemetry", "renders machine/telemetry/latest.json, which IS the portable artefact and is linked as such"],
   ["/updates", "the site's own version timeline, not archive content"],
-  ["/diseno", "raw HTML served from public/, tracked as orphan content in D-032"],
   // The eight views filed under /system/ on 2026-09-21. Five of them carry
   // their data INSIDE the template rather than in the corpus, which is the
   // real defect — a .md generated from a hardcoded array would launder that

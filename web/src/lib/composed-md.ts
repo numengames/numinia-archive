@@ -39,6 +39,7 @@ import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
+import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
 export interface ComposedPage {
@@ -490,11 +491,28 @@ export function agentPage(id: string): ComposedPage {
 }
 
 /**
+ * `/design` — the design system whole. Unlike the other views, its markdown is
+ * not a table of the registers but the documents themselves, compiled: the
+ * reader asked for the system in one file, and a list of links is not that.
+ * `sources` opens with the register that decides which documents belong.
+ */
+export function designPage(): ComposedPage {
+  const all = designEntries();
+  const sources = [DESIGN_REGISTER, ...designDocuments(all).map((d) => d.path!).filter((p) => p !== DESIGN_REGISTER)];
+  return {
+    route: "/design",
+    filename: "numinia-design-system.md",
+    sources,
+    body: preamble([DESIGN_REGISTER]) + designSystemMd(all),
+  };
+}
+
+/**
  * Every composed page, for the routes that serve them and for the guard that
  * checks none is forgotten.
  */
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [homePage(), schemePage(), bindingPage()];
+  const pages: ComposedPage[] = [homePage(), schemePage(), bindingPage(), designPage()];
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));
   pages.push(await collectionIndexPage("missions"));

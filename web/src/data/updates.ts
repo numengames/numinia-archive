@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.35.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "The Numinia Design System, whole, at /design. Design here means the whole experience — what is seen, read, heard, moved through and played — so the page shows everything a piece of ours is made of in four parts: the core (why we exist, the three forces, the forty-forty-twenty mix), the languages (image, word, sound, motion, play), the recipes for each medium, and the toolkit. The colours, fonts, sizes, icons and animations are drawn from the kit itself, and the parts not written yet — sound, how we write, how a mission or a character is designed — are shown as gaps rather than hidden. It opens with a sentence of Pablo FM's, signed with his name.",
+      },
+      {
+        type: "ADD",
+        text: "Download the system: one button gives a zip with the whole system as a single document, every document on its own, the tokens, the stylesheet, the fonts, the icons, the scarab, the pixel references and the invoice template, with the licence of every file. The page also offers its markdown like any other.",
+      },
+      {
+        type: "DEL",
+        text: "The old design guide at /diseno is gone. It was the August v5 guide, frozen as one HTML file: it still described four registers after the canon had moved to three forces, and nothing kept it current. The old address now leads to /design; the kit's files move to /design/kit. The guide itself stays in the repository's history.",
+      },
+    ],
+  },
+  {
     version: "v0.34.0",
     date: "2026-09-24",
     entries: [

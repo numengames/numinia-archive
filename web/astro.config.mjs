@@ -48,10 +48,6 @@ export default defineConfig({
 		"/legal/terminos": "/legal/terms",
 		"/legal/terminos.md": "/legal/terms.md",
 		// → the design kit
-		"/diseno/kit/5.1.0/sistema.css": "/diseno/kit/sistema.css",
-		"/diseno/kit/5.1.0/sistema.js": "/diseno/kit/sistema.js",
-		"/diseno/kit/5.1.0/sistema.prompt.txt": "/diseno/kit/sistema.prompt.txt",
-		"/diseno/kit/5.1.0/sistema.tokens.json": "/diseno/kit/sistema.tokens.json",
 		// → / — the classification is the home (2026-09-21). /archive asked
 		// "how is this organised?"; the root now answers it. Its children keep
 		// their addresses (/archive/<function>).
@@ -127,7 +123,8 @@ export default defineConfig({
 		"/protocols/2026_04_14-read_me_how_to_archive-v020": "/standards/std-024-a-series-is-a-function",
 		"/protocols/p-010-how-to-archive": "/standards/std-024-a-series-is-a-function",
 		"/protocols/pro-010-how-to-archive": "/standards/std-024-a-series-is-a-function",
-		"/standards/2026_08_18-sistema_de_diseno-v510": "/standards/std-008-design-tokens",
+		"/standards/2026_08_18-sistema_de_diseno-v510": "/design",
+		"/diseno": "/design",
 		"/standards/engineering-standards": "/standards/std-005-engineering-baseline",
 		"/standards/governance": "/standards/std-009-which-rule-wins",
 		"/standards/s-001-glossary": "/standards/std-001-the-series",

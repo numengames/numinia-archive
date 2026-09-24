@@ -19,6 +19,18 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (the Numinia Design System, whole)
+- **`standards/STD-032-the-design-system.md`** `0.1.0`, a register: which documents make up the design system, in four parts — Core, Languages (Image, Word, Sound, Motion, Play), Recipes, Toolkit — and what each gives. Design is the whole experience, not only graphics (the Oracle's word); the rows with no document are the parts not written yet: sound, how we write, how a mission, a character or a place is designed.
+- **numinia.org/design** draws the system from that register: the core, the colours, fonts, scale, radii, icons and the animation catalogue read from the kit's tokens and `STD-023`, every document as a card, the gaps shown. `/design.md` is every listed document compiled whole into one file; `/design/numinia-design-system.zip` carries it plus each document, the tokens, the kit, fonts, icons, the scarab, the pixel references and the invoice template, with `LICENSES.md` resolving every file's own licence. Generated in `web/src/lib/design-system.ts` and `design-download.ts`.
+- **`standards/STD-021-evidence-and-citation.md`** `1.2.0`: **CIT-055 — a quote carries its author.** A person's words keep their name as they sign it (*Pablo FM*), wherever an agent writes them; an agent does not pass a phrase off as its own or the house's. `[MANUAL]`. At the Oracle's word in session.
+
+### Removed — 2026-09-24 (the v5 guide)
+- **`web/public/diseno/index.html`** deleted: the v5.0.0 guide of August, one frozen HTML file describing four registers after `CAN-008` moved to three forces. It stays in git. `/diseno` redirects to `/design`; `web/public/diseno/` becomes `web/public/design/` (kit, fonts, pixel, templates), and the four `/diseno/kit/5.1.0/*` redirects go with it.
+- **`web/DESIGN.md`** deleted: the pablofm.com design notes, marked superseded since 2026-08-18.
+
+### Changed — 2026-09-24 (the kit speaks the current system)
+- **`machine/packages/design-kit`** `6.2.0`: the agent instruction opens with the three forces (Umbral, Velo, Prisma) instead of the four v5 registers, names the four typefaces, points at `STD-008`, `STD-023` and `STD-032` over the retired v5 section numbers, and asks for quotes to carry their author. The manifest names the system and fixes its source path.
+
 ### Added — 2026-09-24 (the manual in English: chapter 2)
 - **`lore/game/manual/en/02-history-and-legends-of-numinia.md`**: chapter 2, *History and legends of Numinia* (Fragments 1–5 and 7, as in the Spanish: there is no Fragment 6 in the original), translated with the glossary's fixed terms. Same 37 headings, both images and the footnotes kept; English word count 0.98× the Spanish. 30 names met on the way (Black Engineers, Watchmaker of the Cosmos, Three Wheels of Chaos, Cryptahedra…) join the glossary, section B2. Slips of the Spanish corrected in the English only (Monte Verità, Hermann Hesse, Ida Hofmann, *antinomy*); the Spanish is untouched. CC0.
 

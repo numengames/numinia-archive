@@ -25,7 +25,7 @@ the Claude Code adapter and points here; it does not restate these rules.
 ## Transition regime (MVP → alpha) — read this before any protocol
 
 Oracle instruction, 2026-09-18. Every protocol in this archive is
-`status: draft` (11 of 11) because the system is being cut down from the
+`status: draft` (12 of 12) because the system is being cut down from the
 MVP to the alpha. While a document is draft it DESCRIBES a practice; it
 does not BIND. The ceremony below was written for the system in its
 place; today it only slows the operator and the agent down. Until the
@@ -117,7 +117,7 @@ is not documented.
 
 ## The rules that govern work here
 
-`standards/`, `protocols/` and `canon/` hold 51 rule documents. Each opens
+`standards/`, `protocols/` and `canon/` hold 52 rule documents. Each opens
 with a `**Binds:**` line saying whom it governs. Read that line before
 opening the document.
 
@@ -170,7 +170,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-018` | One document, one identifier | every registered document of the corpus |
 | `STD-019` | Versions | every registered document, and every artefact the corpus versions |
 | `STD-020` | Git is the archive | every commit to this repository and every retirement of a registered document |
-| `STD-021` | Evidence and citation | every registered document that cites another or makes a claim about the tree |
+| `STD-021` | Evidence and citation | every registered document that cites another or makes a claim about the tree… |
 | `STD-022` | Secrets | every file in this repository, and every report about it |
 | `STD-023` | Design values | register — scope belongs to the standard that cites it |
 | `STD-024` | A series is a function | every folder of the corpus and every document in one |
@@ -181,8 +181,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-029` | How we treat each other in the commons | everyone in a Numinia community space — citizens, moderators, Oracles and digital agents alike |
 | `STD-030` | The world's vocabulary | register — scope belongs to the standard that cites it |
 | `STD-031` | A canon states | every document in `canon/` |
+| `STD-032` | The Numinia Design System | register — scope belongs to the standard that cites it |
 
-51 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+52 rule documents; 8 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

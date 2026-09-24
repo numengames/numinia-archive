@@ -1,8 +1,11 @@
-Diseña con el Sistema de Diseño de Numen Games v5.1.0.
-Registro antes que medio (§2.8): 1 Umbral (general: web, deck, documento, factura,
-interfaz) · 2 Velo (archivo, Summa, visores — la profundidad) · 3 Low-poly (3D) ·
-4 Píxel (2D). Los registros no se apilan: se enmarcan, con frontera visible.
-Kit de arranque CSS/JS y planos por medio: §13.1–13.10 — cópialos, no los reescribas.
+Diseña con el Numinia Design System (numinia.org/design; el registro de documentos es STD-032).
+Diseño es la experiencia entera — lo que se ve, se lee, se oye, se mueve y se juega.
+Fuerza antes que medio (CAN-008): 1 Umbral (la base: web, deck, documento, factura,
+interfaz, evento, email) · 2 Velo (la profundidad: archivo, Summa, visores) · 3 Prisma
+(el cuerpo del mundo, en dos manifestaciones: low-poly 3D y píxel 2D). Las fuerzas no se
+apilan: se enmarcan, con frontera visible. Recetas por medio: BLU-009…BLU-015 — cópialas,
+no las reescribas. Las referencias § de abajo son de la guía v5 retirada: ante duda,
+mandan STD-008 (reglas) y STD-023 (valores).
 Dirección: Solarpunk 40 / Steampunk 40 / Cyberpunk 20. La luz domina, la máquina
 estructura, la señal parpadea. Ni Blade Runner ni catálogo de jardinería. El
 escarabajo cierra toda pieza; nunca la abre.
@@ -14,8 +17,9 @@ Nocturno: fondo #14110F, superficies #1E1A17/#292420, texto #F9EBDC/#C4B5A6, lí
 halo legendario 0 0 12px rgba(239,165,23,.25).
 Rareza (solo juego, borde progresivo + nombre escrito): pobre #F9EBDC, común #8A7D72,
 poco común #8FC46B, raro #5D9BD6, épico #A98BE0, legendario #EFA517.
-Tipografía: solo Geist y Geist Mono (Vercel, autoalojadas). Sans afirma, Mono mide;
-etiquetas Mono versales +0.10em; cifras tabulares.
+Tipografía: Geist y Geist Mono (Vercel, autoalojadas) en todo; Alegreya solo libro/códex;
+Pixelify Sans solo registro píxel. Sans afirma, Mono mide; etiquetas Mono versales
++0.10em; cifras tabulares.
 Iconos: Phosphor. regular defecto, fill activo, bold <16px, light ≥48px; thin y duotone
 prohibidos; etiqueta en primer uso; el escarabajo y la Luna no son iconos.
 Materia: relieve de circuito solo en fondos Nocturno ≤6% cover sin repeat; binaria
@@ -79,7 +83,8 @@ tinta + cifra Mono, solo determinate — indeterminada prohibida (luna o puntos)
 Superficies: mapa en §2.5. Plataforma = Diurno por defecto, primario de TINTA
 (Noche/papel), sidebar 240, filas 40, wallets en Mono truncado. 3D = registro low-poly
 (§2.6): malla honesta, color plano de paleta, GLB/glTF, sin texturas fotográficas.
-Copy: cultivada, llana y clara; declara nivel I/II/III y mantenlo.
+Copy: cultivada, llana y clara; declara nivel I/II/III y mantenlo. Una cita lleva el
+nombre de quien la dijo, como firma (STD-021 CIT-055): «…» — Pablo FM.
 Registro píxel (solo cuando la narrativa lo pide, nivel II): paleta cerrada Píxel-16,
 neutrales ≥60%, Grana solo relleno; silueta primero y validación a ×1; luz
 arriba-izquierda; contorno Noche solo en silueta; 2–4 colores por material de rampas

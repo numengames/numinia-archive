@@ -85,6 +85,7 @@ export function activeGroupOf(activeNav: string | undefined): string | undefined
  * from every page. The footer prints them under the six functions.
  */
 export const siteLinks: readonly { label: string; href: string }[] = [
+  { label: "Design system", href: "/design" },
   { label: "Updates", href: "/updates" },
   { label: "Telemetry", href: "/telemetry" },
 ];

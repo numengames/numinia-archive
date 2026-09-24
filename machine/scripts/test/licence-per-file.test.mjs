@@ -21,7 +21,7 @@ const tracked = execFileSync('git', ['ls-files'], { cwd: ROOT, encoding: 'utf8' 
 const annotations = loadAnnotations();
 
 test('there is one REUSE.toml, at the root', () => {
-  // Two had crept in (web/src/icons/, the fonts of /diseno); a nested one is
+  // Two had crept in (web/src/icons/, the fonts of /design); a nested one is
   // a second place to look and a second place to forget.
   const nested = tracked.filter((f) => f.endsWith('/REUSE.toml'));
   assert.deepEqual(nested, []);
@@ -44,7 +44,7 @@ test('a text file declares its licence itself, not through REUSE.toml', () => {
   // listed there is a licence someone could have written in the file.
   const TEXT = /\.(md|mjs|js|ts|astro|ya?ml|toml|css|txt|sh)$/;
   const named = new Set(annotations.flatMap((b) => b.paths));
-  const PINNED = /^(web\/public\/diseno\/|machine\/packages\/design-kit\/|machine\/telemetry\/|machine\/templates\/)|^objects\/CHECK\.md$|^lore\/game\/manual-v0\.6\.0\.md$/;
+  const PINNED = /^(web\/public\/design\/|machine\/packages\/design-kit\/|machine\/telemetry\/|machine\/templates\/)|^objects\/CHECK\.md$|^lore\/game\/manual-v0\.6\.0\.md$/;
   const wrong = tracked.filter((f) => TEXT.test(f) && named.has(f) && !PINNED.test(f));
   assert.deepEqual(wrong, [], `text files licensed from outside: ${wrong.join(', ')}`);
 });
