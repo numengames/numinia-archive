@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (adventures on two shelves: tabletop and virtual worlds)
+- **`lore/adventures/`** splits in two folders that never share a file: **`tabletop/`** — modules a Game Director runs at a table with the manual (`el-espejo-roto.md`, `the-broken-mirror.md`, `TEMPLATE.md`) — and **`virtual-worlds/`** — experiences inside Numinia's 3D spaces (`session-zero.md`, the city's tutorial). Each folder has a README saying who runs it and by which rules; `tabletop/README.md` records that a table version of Session Zero is not written yet. What both draw from stays where it is for now (`lore/world/`, the manual); a shared reference folder is a separate step. Oracle's decision in session; files moved with `git mv`, content unchanged. numinia.com reads the module from the new path (numinia-web#51, with the old path as fallback).
+- References follow: `lore/README.md`, the manual's `es/` and `en/` READMEs, `agents/senet/SOURCES.md`, `STD-001`, `STD-032`, `web/src/lib/corpus.ts` (reading order, now with *The Broken Mirror*), `web/src/content.config.ts`. The two published addresses redirect to their new homes (`web/astro.config.mjs`).
+
 ### Fixed — 2026-09-24 (Nimrod is the Gatekeeper)
 - **`system/SYS-001-cao-architecture.md`** `0.2.1` and **`operations/OPS-001-continuity.md`** `1.0.1`: Nimrod's title follows the English the authors fixed for *Guardián de las Puertas* — **Gatekeeper** (was *Guardian of the Gates*). Oracle's word in session.
 

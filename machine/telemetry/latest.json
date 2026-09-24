@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "b3cb82c",
-  "corpus_hash": "9e0f4d869faa1109d56e96b6129fa61c933c849ecefc52ef67c57b6bd93793a3",
+  "head": "05b701c",
+  "corpus_hash": "1c87292b66b7c4794309eae4d2217d3cf0c7bc2f2bfc31df4cbb39996437413e",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T16:39:40Z",
+  "measured_at": "2026-09-24T16:46:12Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 583,
+      "value": 585,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 14,
-        ".md": 230,
+        ".md": 232,
         ".mjs": 76,
         ".png": 35,
         ".svg": 72,
@@ -48,12 +48,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 230,
+      "value": 232,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 229,
+      "value": 231,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -66,7 +66,7 @@
         "canon": 10,
         "debt": 2,
         "decisions": 27,
-        "lore": 37,
+        "lore": 39,
         "machine": 13,
         "missions": 12,
         "objects": 2,
@@ -81,7 +81,7 @@
     },
     "corpus.docs_by_type": {
       "value": {
-        "(none)": 46,
+        "(none)": 48,
         "adr": 28,
         "agent": 34,
         "blueprint": 10,
@@ -98,12 +98,12 @@
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
     },
     "corpus.docs_without_frontmatter": {
-      "value": 45,
+      "value": 47,
       "unit": "documents",
       "definition": "corpus documents with no `---` block at the top"
     },
     "corpus.apparatus": {
-      "value": 26,
+      "value": 28,
       "unit": "documents",
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
@@ -320,19 +320,19 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 857968,
+      "value": 858801,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "lore": 494729,
-        "standards": 58831,
+        "lore": 495220,
+        "standards": 58835,
         "missions": 45717,
         "decisions": 39440,
-        "": 38080,
+        "": 38384,
         "reports": 29342,
-        "agents": 29069,
+        "agents": 29103,
         "operations": 24534,
         "blueprints": 20933,
         "system": 18746,
@@ -348,9 +348,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 532879,
-        "draft": 155558,
-        "active": 122326,
+        "(none)": 533674,
+        "draft": 155562,
+        "active": 122360,
         "done": 26539,
         "todo": 15975,
         "in-progress": 4691
@@ -359,7 +359,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.33,
+      "value": 5.32,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -395,7 +395,7 @@
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
     "headers.docs_without_frontmatter": {
-      "value": 45,
+      "value": 47,
       "unit": "documents",
       "definition": "corpus docs minus docs_with_frontmatter"
     },
@@ -522,7 +522,7 @@
     "provenance.authorship": {
       "value": {
         "ai-persona": 146,
-        "no-frontmatter": 45,
+        "no-frontmatter": 47,
         "other": 25,
         "ai-model": 8,
         "human": 4,
@@ -651,7 +651,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1007
+          "3": 1009
         },
         "MIS": {
           "3": 685,

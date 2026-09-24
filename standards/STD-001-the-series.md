@@ -53,7 +53,7 @@ fields of the header — `STD-016`; the identifier — `STD-018`.
 | `operations/` | Administration · Sustaining | what sustains the business: legal, strategy | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
 | `system/` | Administration · Wiring | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
 | `agents/` | Agency · Constituting | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
-| `lore/` | Creation · Worldbuilding | the fiction and the game; a second fond (`ADR-046`) | — | `open` | — | `lore/adventures/TEMPLATE.md` |
+| `lore/` | Creation · Worldbuilding | the fiction and the game; a second fond (`ADR-046`) | — | `open` | — | `lore/adventures/tabletop/TEMPLATE.md` |
 | `objects/` | Creation · Cataloguing | the objects the archive registers that are not documents | — | `open` | — | — |
 | `machine/guards/` | Assurance · Verifying | the rules, one file per standard, that run on every change | — | — | — | — |
 | `machine/tools/` | Assurance · Verifying | instruments run by hand or against the registers: checks, renames, exports | — | — | — | — |

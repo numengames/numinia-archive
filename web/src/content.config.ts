@@ -226,7 +226,8 @@ const corpus = defineCollection({
       // Both are read on GitHub, where a README belongs.
       "!lore/README.md",
       "!lore/adventures/README.md",
-      "!lore/adventures/TEMPLATE.md",
+      "!lore/adventures/*/README.md",
+      "!lore/adventures/tabletop/TEMPLATE.md",
     ],    base: "..",
   }),
   // Fully lax: agents/_template/STATUS.md carries `status:` as an object,

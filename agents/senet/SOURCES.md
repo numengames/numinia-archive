@@ -28,11 +28,11 @@ the repository is the source of truth and this file only says where to look.
 
 ## The game itself
 
-lore/game/manual/es/ — the RPG manual (v0.6.0), one file per chapter, CC0 (home in this repository since 2026-09-17; before that, `numinia-lore`); authoritative for mechanics, chronology, factions, geography. lore/adventures/ — the modules; lore/world/ — identity texts
+lore/game/manual/es/ — the RPG manual (v0.6.0), one file per chapter, CC0 (home in this repository since 2026-09-17; before that, `numinia-lore`); authoritative for mechanics, chronology, factions, geography. lore/adventures/ — the modules, `tabletop/` (for a Game Director) and `virtual-worlds/` (the 3D spaces); lore/world/ — identity texts
 
 ## Session Zero
 
-lore/adventures/session-zero.md — the four introductory escape rooms
+lore/adventures/virtual-worlds/session-zero.md — the four introductory escape rooms (the virtual-world version)
 
 ## World identity
 
