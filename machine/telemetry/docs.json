@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13053,
+  "chars": 13113,
   "apparatus": false,
   "archived": false,
-  "tokens": 3231
+  "tokens": 3251
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 98991,
+  "chars": 99836,
   "apparatus": false,
   "archived": false,
-  "tokens": 26199
+  "tokens": 26439
  },
  {
   "path": "CLAUDE.md",
@@ -979,6 +979,17 @@
   "tokens": 2523
  },
  {
+  "path": "decisions/ADR-062-the-canon-mould-becomes-a-standard.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 5731,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1572
+ },
+ {
   "path": "lore/README.md",
   "dir": "lore",
   "series": null,
@@ -1303,10 +1314,10 @@
   "series": null,
   "type": "seminal",
   "status": "draft",
-  "chars": 6448,
+  "chars": 4053,
   "apparatus": true,
   "archived": false,
-  "tokens": 1647
+  "tokens": 1070
  },
  {
   "path": "machine/templates/DBT-TEMPLATE.md",
@@ -2198,6 +2209,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1585
+ },
+ {
+  "path": "standards/STD-031-a-canon-states.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 4918,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1356
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
