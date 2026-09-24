@@ -23,5 +23,5 @@ aventuras. Solo los nombres Numinia, Numen Games y Khepri son marcas.
 Se leen en orden. El módulo *El Espejo Roto*, que antes cerraba el manual,
 es una aventura aparte: `../../../adventures/el-espejo-roto.md`.
 
-La edición inglesa irá en `../en/`, capítulo a capítulo, siguiendo el
+La edición inglesa está en `../en/` (introducción y capítulo 1 ya traducidos; el resto, capítulo a capítulo), siguiendo el
 glosario de traducción `../glossary-es-en.md`.
