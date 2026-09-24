@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (the lore is CC0)
+- **Every file in `lore/` is CC0-1.0.** The 14 Markdown files change their own SPDX line; the manual and the character-sheet image change their exact-path entry in `REUSE.toml`. Rights holder Numen Games S.L.; the Oracle and co-author Christian Märtens agree (Oracle, 2026-09-24). Irrevocable once published — deliberately.
+- **What stays reserved:** the brand mark (`web/src/brand/Khepri_Logo.svg`), the names and marks (`TRADEMARKS.md`), and the legal texts and sales document in `operations/`.
+- **The texts say so.** `lore/codex/legal.md` (the Codex's legal note) now states the CC0 waiver and the trademark carve-out; `lore/README.md`; `CAN-005` 4.1.0 (the world is given away, only the name is kept); `STD-010` 1.3.0 (LIC-002); `AGENTS.md`, `SYS-003`, `STD-026`, Senet's sources; the `/lore` section drops its amber "all rights reserved" notice.
+
 ### Changed — 2026-09-24 (the licence is the file's)
 - **Every file declares its own licence; no folder does.** `REUSE.toml` used to hand licences to whole directories (`lore/**`, `canon/**`, `missions/**`, `web/**` …) and a file inherited its shelf's — a new file got a licence nobody chose, a moved file changed licence without being touched. Oracle, 2026-09-24: licences go per file. 154 text files that relied on a folder glob now carry an SPDX comment in their first lines (`<!-- -->` in Markdown, `//` in code, `#` in YAML/TOML/text). `REUSE.toml` keeps only the 155 files that cannot hold a comment — images, fonts, JSON, generated or pinned copies, the moulds, and the RPG manual numinia-web reads verbatim — by exact path, no globs. The two nested `REUSE.toml` (icons, fonts) are folded into the root one.
 - **No licence changed.** `reuse spdx` before and after, compared file by file: 525 → 526 files (the new test), 0 differences. `reuse lint` 526/526.

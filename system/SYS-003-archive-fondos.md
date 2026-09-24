@@ -55,7 +55,7 @@ Games S.L. The scheme that groups them is `STD-027`; this is its manual.
 | | Verifying | `machine/guards/` · `machine/tools/` · `machine/scripts/` | Instruments, not records. |
 | | Measuring | `machine/telemetry/` | Regenerated, never hand-edited. |
 | **Agency** | Constituting | `agents/` | SOUL/OPERATOR: Oracle. STATUS: the agent. |
-| **Creation** | Worldbuilding | `lore/` | A second fond (`ADR-046`). Reserved regime. |
+| **Creation** | Worldbuilding | `lore/` | A second fond (`ADR-046`). CC0. |
 | | Cataloguing | `objects/` | Open: a pull request. |
 | **Administration** | Sustaining | `operations/` | Oracle modifies; agents propose. |
 | | Wiring | `system/` | An ADR, or an approved PR. |

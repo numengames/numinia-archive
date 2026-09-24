@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12879,
+  "chars": 12907,
   "apparatus": false,
   "archived": false,
-  "tokens": 3194
+  "tokens": 3199
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 90276,
+  "chars": 91172,
   "apparatus": false,
   "archived": false,
-  "tokens": 23713
+  "tokens": 23981
  },
  {
   "path": "CLAUDE.md",
@@ -412,10 +412,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1440,
+  "chars": 1411,
   "apparatus": false,
   "archived": false,
-  "tokens": 400
+  "tokens": 397
  },
  {
   "path": "agents/skills/numinia-nwos-pr/SKILL.md",
@@ -654,10 +654,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4662,
+  "chars": 4778,
   "apparatus": false,
   "archived": false,
-  "tokens": 1158
+  "tokens": 1185
  },
  {
   "path": "canon/CAN-006-epistemic-relations.md",
@@ -918,10 +918,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1653,
+  "chars": 1711,
   "apparatus": true,
   "archived": false,
-  "tokens": 462
+  "tokens": 490
  },
  {
   "path": "lore/adventures/README.md",
@@ -929,10 +929,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1572,
+  "chars": 1545,
   "apparatus": true,
   "archived": false,
-  "tokens": 421
+  "tokens": 418
  },
  {
   "path": "lore/adventures/TEMPLATE.md",
@@ -940,10 +940,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1762,
+  "chars": 1735,
   "apparatus": true,
   "archived": false,
-  "tokens": 537
+  "tokens": 534
  },
  {
   "path": "lore/adventures/el-espejo-roto.md",
@@ -951,10 +951,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 60132,
+  "chars": 60105,
   "apparatus": false,
   "archived": false,
-  "tokens": 16825
+  "tokens": 16822
  },
  {
   "path": "lore/adventures/session-zero.md",
@@ -962,10 +962,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 23779,
+  "chars": 23752,
   "apparatus": false,
   "archived": false,
-  "tokens": 5069
+  "tokens": 5066
  },
  {
   "path": "lore/codex/agradecimientos.md",
@@ -973,10 +973,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 604,
+  "chars": 577,
   "apparatus": false,
   "archived": false,
-  "tokens": 177
+  "tokens": 174
  },
  {
   "path": "lore/codex/glosario.md",
@@ -984,10 +984,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38140,
+  "chars": 38113,
   "apparatus": false,
   "archived": false,
-  "tokens": 11303
+  "tokens": 11300
  },
  {
   "path": "lore/codex/hoja-de-personaje.md",
@@ -995,10 +995,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2105,
+  "chars": 2078,
   "apparatus": false,
   "archived": false,
-  "tokens": 955
+  "tokens": 952
  },
  {
   "path": "lore/codex/legal.md",
@@ -1006,10 +1006,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 439,
+  "chars": 774,
   "apparatus": false,
   "archived": false,
-  "tokens": 128
+  "tokens": 232
  },
  {
   "path": "lore/game/attributes-and-ranks.md",
@@ -1017,10 +1017,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 8990,
+  "chars": 8963,
   "apparatus": false,
   "archived": false,
-  "tokens": 1728
+  "tokens": 1725
  },
  {
   "path": "lore/game/manual-v0.6.0.md",
@@ -1039,10 +1039,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 51420,
+  "chars": 51393,
   "apparatus": false,
   "archived": false,
-  "tokens": 11470
+  "tokens": 11467
  },
  {
   "path": "lore/world/epistemic-relations.md",
@@ -1050,10 +1050,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13220,
+  "chars": 13193,
   "apparatus": false,
   "archived": false,
-  "tokens": 2643
+  "tokens": 2640
  },
  {
   "path": "lore/world/role-structure.md",
@@ -1061,10 +1061,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 32625,
+  "chars": 32598,
   "apparatus": false,
   "archived": false,
-  "tokens": 6677
+  "tokens": 6674
  },
  {
   "path": "lore/world/welcome-to-numinia.md",
@@ -1072,10 +1072,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 29614,
+  "chars": 29587,
   "apparatus": false,
   "archived": false,
-  "tokens": 6807
+  "tokens": 6804
  },
  {
   "path": "machine/templates/ADR-TEMPLATE.md",
@@ -1776,10 +1776,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6104,
+  "chars": 6209,
   "apparatus": false,
   "archived": false,
-  "tokens": 1675
+  "tokens": 1716
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -1952,10 +1952,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 10895,
+  "chars": 10885,
   "apparatus": false,
   "archived": false,
-  "tokens": 2543
+  "tokens": 2541
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -2029,7 +2029,7 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 3906,
+  "chars": 3894,
   "apparatus": false,
   "archived": false,
   "tokens": 1060

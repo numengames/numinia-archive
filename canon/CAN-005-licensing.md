@@ -4,11 +4,11 @@ uid: ""
 title: "Opening is an act"
 type: seminal
 status: draft
-version: "4.0.0"
+version: "4.1.0"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-09-23T22:30:00+02:00"
+updated: "2026-09-24T12:30:00+02:00"
 author: "oracle"
 owner: "oracle"
 guild: "Procurators"
@@ -17,7 +17,7 @@ tags: [canon, seminal, licensing, legal, openness]
 license: "CC0-1.0"
 registration: registered
 ratified_by: "ADR-055"
-supersedes_version: "3.0.1"
+supersedes_version: "4.0.0"
 related: ["CAN-002", "STD-010", "STD-014", "PRO-018"]
 former_id: "C-005"
 threshold: governed
@@ -56,9 +56,10 @@ outright, because it is how people arrive, not what we sell. The **edge** —
 the interfaces, the viewer, the tooling, the infrastructure — is shared, and
 its worth grows with every person who adopts it. The **core** — identity,
 progression, billing — is protected by copyleft: free to whoever shares back,
-paid by whoever will not. And the **world and the name** — the lore, the
-narrative, the brand — are kept, because they are the part nobody else could
-have made.
+paid by whoever will not. The **world** — the lore, the narrative, the game —
+is given away like the catalogue, because a world grows by being played,
+retold and remixed. Only the **name** is kept — the brand and its marks —
+because it is the part nobody else can claim to be.
 
 ## Silence does not declare
 

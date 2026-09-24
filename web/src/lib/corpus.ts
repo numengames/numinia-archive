@@ -227,15 +227,13 @@ export const SECTIONS: Section[] = [
     epistemic: "What the archive holds that is not a document, and where its bytes actually live.",
     pragmatic: "Find a thing, know its licence, and follow it to the depot that stores it.",
   },
-  // Lore — the second fond (ADR-046), and the only section whose documents
-  // are RESERVED rather than open. It is served for reading and licensed to
-  // nobody; the reasoning is in content.config.ts where the glob admits it.
+  // Lore — the second fond (ADR-046). CC0-1.0 since 2026-09-24, like the
+  // rest of the corpus; only the names and marks (TRADEMARKS.md) are kept.
   // Last on purpose: everything above governs how the archive works, and this
   // is the thing the archive was built to hold.
   { prefix: "lore/",       slug: "lore",       label: "Lore",       collection: "corpus",
     question: "What is the world of Numinia, and how is the game in it actually played?",
-    rights: "All rights reserved. This is the one part of the archive Numen Games does not license: read it here, cite it, link to it — but copying, adapting or republishing it needs written permission, unlike everything else on this site.",
-    blurb: "The fiction and the game: the RPG manual, the adventures a Director runs at a table, who Numinia is, and the Codex matter. All rights reserved — read it here, take nothing from it.",
+    blurb: "The fiction and the game: the RPG manual, the adventures a Director runs at a table, who Numinia is, and the Codex matter. Public domain (CC0), like the rest of the corpus: copy it, adapt it, play it, publish your own adventures.",
     epistemic: "The world of Numinia and how the game in it is played.",
     pragmatic: "Run a session, write in the world, or settle what something in it is called.",
   },

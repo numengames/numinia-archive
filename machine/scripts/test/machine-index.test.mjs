@@ -97,7 +97,7 @@ test('a document with no licence field answers with the SPDX comment it carries'
       doc({ url: '/lore/codex/glosario', filePath: '../lore/codex/glosario.md', license: undefined }),
     )})`,
   );
-  assert.equal(got, 'LicenseRef-Numen-AllRightsReserved');
+  assert.equal(got, 'CC0-1.0');
 });
 
 test('a path REUSE.toml does not cover resolves to null, never to a guess', () => {

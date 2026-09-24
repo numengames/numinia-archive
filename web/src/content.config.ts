@@ -188,11 +188,9 @@ const corpus = defineCollection({
       //      github.com/numengames/numinia-archive today, by anyone, with no
       //      account. Withholding it from the viewer hid it from readers of
       //      the site and from nobody else.
-      //   2. DISPLAYING IS NOT LICENSING. The regime stays exactly as it is —
-      //      LicenseRef-Numen-AllRightsReserved, declared in each file, unchanged by
-      //      this commit. The site already does this for the three legal
-      //      texts (OPS-003/004/010): reserved rights, rendered for reading.
-      //      A reader may read; no right is granted by the reading.
+      //   2. DISPLAYING IS NOT LICENSING. Each file declares its own
+      //      licence. (Since 2026-09-24 the lore is CC0-1.0; when this glob
+      //      was written it was reserved, and serving it granted nothing.)
       //   3. STD-014 DOES NOT BIND THIS. Its own scope line: it binds
       //      permanent publication (Arweave) and a private-to-public change
       //      of a repository, and expressly "does not bind: publication to a
@@ -218,8 +216,8 @@ const corpus = defineCollection({
       // said so.
       //
       // Excluded so the other thirteen lore documents publish today. The fix
-      // is to commit the four images (or drop the embeds) — a change to a
-      // reserved text, which is the Oracle's to make, not a build workaround.
+      // is to commit the four images (or drop the embeds) — a change to the
+      // text of the manual, not a build workaround.
       "!lore/game/manual-v0.6.0.md",
       // The folder's own README and the adventure TEMPLATE stay out, for the
       // same reason README.md and CONTRIBUTING.md at the root do (ADR-047):

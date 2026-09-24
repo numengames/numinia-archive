@@ -27,7 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The twenty-five terms Numen Games works with, in plain
 > words: what each is, what knowing it clears up, what it lets you do here.
-> Not the game's words — those live in `lore/codex/glosario.md`, reserved,
+> Not the game's words — those live in `lore/codex/glosario.md`,
 > in the manual's language. This register grows only by decision, never
 > past the essential.
 
