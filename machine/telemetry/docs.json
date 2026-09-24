@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 108618,
+  "chars": 109108,
   "apparatus": false,
   "archived": false,
-  "tokens": 28779
+  "tokens": 28910
  },
  {
   "path": "CLAUDE.md",
@@ -1017,10 +1017,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1939,
+  "chars": 2023,
   "apparatus": true,
   "archived": false,
-  "tokens": 553
+  "tokens": 573
  },
  {
   "path": "lore/adventures/README.md",
@@ -1087,6 +1087,39 @@
   "apparatus": false,
   "archived": false,
   "tokens": 174
+ },
+ {
+  "path": "lore/codex/en/acknowledgments.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 588,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 158
+ },
+ {
+  "path": "lore/codex/en/character-sheet.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 2027,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 824
+ },
+ {
+  "path": "lore/codex/en/glossary.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 37557,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 8627
  },
  {
   "path": "lore/codex/glosario.md",
