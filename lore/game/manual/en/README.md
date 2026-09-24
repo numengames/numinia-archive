@@ -17,7 +17,7 @@ adventures. Only the names Numinia, Numen Games and Khepri are trademarks.
 |---|---|---|
 | `00-introduction.md` | Introduction — The echoes of a virtual city | translated |
 | `01-welcome-to-numinia.md` | Chapter 1 — Welcome to Numinia | translated |
-| — | Chapter 2 — History and legends of Numinia | pending |
+| `02-history-and-legends-of-numinia.md` | Chapter 2 — History and legends of Numinia | translated |
 | — | Chapter 3 — Character creation | pending |
 | — | Chapter 4 — Game system | pending |
 | — | Chapter 5 — Geography and culture of Numinia | pending |

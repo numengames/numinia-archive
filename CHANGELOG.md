@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (the manual in English: chapter 2)
+- **`lore/game/manual/en/02-history-and-legends-of-numinia.md`**: chapter 2, *History and legends of Numinia* (Fragments 1–5 and 7, as in the Spanish: there is no Fragment 6 in the original), translated with the glossary's fixed terms. Same 37 headings, both images and the footnotes kept; English word count 0.98× the Spanish. 30 names met on the way (Black Engineers, Watchmaker of the Cosmos, Three Wheels of Chaos, Cryptahedra…) join the glossary, section B2. Slips of the Spanish corrected in the English only (Monte Verità, Hermann Hesse, Ida Hofmann, *antinomy*); the Spanish is untouched. CC0.
+
 ### Added — 2026-09-24 (STD-031, A canon states, ADR-062)
 - **`standards/STD-031-a-canon-states.md`** `0.1.0`: the canon mould as twelve plated rules STA-001..012 — says what is so, says why, leaves the reader able to do something; obligations not sections; the title is a claim; no tool, no clock, no restatement; a border only when real; no date or byline; identifiers at the foot; the manual names the world. Carried from `ADR-048`, `ADR-049` and `ADR-053`, where — by `SER-001` — they bound nobody. The 1 500-word budget stays a SHOULD (`DOC-006`): reported, never enforced, at the Oracle's word. Ten of twelve checks are `[MANUAL]`, said so.
 - **`machine/templates/CAN-TEMPLATE.md`**: the HTML comment no longer restates the rules; it names `STD-031`, keeps the three admission questions and how to hold the pen, and adds *read it aloud*.
