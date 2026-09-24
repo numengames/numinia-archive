@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.37.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "The design system page now shows the system instead of listing it: the fifteen animations run, each at its real speed, with a Replay button; the moon changes phase, the stars of the sky follow the rarity weights, and the reading light follows a sentence. The colours for text on light, charts and pixel art, the scarab, the binary sentence, the three forces as surfaces, and the pixel references with their right-and-wrong pairs are all on the page.",
+      },
+      {
+        type: "CHG",
+        text: "The downloadable design system is lighter and more to the point: the RPG manual chapter, the adventure mould, the character sheet and the glossary are linked, not included. The single document went from about 5,400 lines to 2,150; the manual is downloaded on its own.",
+      },
+    ],
+  },
+  {
     version: "v0.36.0",
     date: "2026-09-24",
     entries: [

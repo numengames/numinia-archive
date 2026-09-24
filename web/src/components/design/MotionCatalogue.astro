@@ -1,0 +1,389 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The animation catalogue, running. One card per row of STD-023 §14.
+//
+// WHY
+// A list of fifteen names and durations says what the motion is; it does not
+// show it. Each card here plays its animation at the catalogue's own values —
+// the durations are the kit's tokens, passed in as CSS variables, so a change
+// to a token changes the specimen. "Replay" restarts the ones that run once;
+// the loops the catalogue sanctions (sweep, moon, dots, cursor, sky, reading
+// light) keep running. Under prefers-reduced-motion every card shows its end
+// state and nothing moves — the same rule the catalogue sets for the site.
+//
+// The retired piece (12, page turn) keeps its card, dashed: the numbers are
+// append-only and a gap in the sequence is information.
+import { animations, values } from "@/lib/design-system";
+
+const v = values();
+const anim = animations();
+const dur = Object.fromEntries(v.durations.map((d) => [d.name, d.value]));
+const hex = Object.fromEntries(v.brand.map((s) => [s.name, s.hex]));
+const night = Object.fromEntries(v.night.map((s) => [s.name.replace(/ /g, "-"), s.hex]));
+
+const cssVars = [
+  ...Object.entries(dur).map(([k, val]) => `--d-${k}:${val}`),
+  `--ease:cubic-bezier(${v.ease})`,
+  `--amber:${hex["ambar"]}`, `--turq:${hex["turquesa"]}`, `--sand:${hex["arena"]}`,
+  `--sea:${hex["verdemar"]}`, `--coral:${hex["coral"]}`,
+  `--base:${night["fondo-base"]}`, `--surf:${night["fondo-superficie"]}`, `--elev:${night["fondo-elevada"]}`,
+  `--line:${night["linea-fuerte"]}`, `--ash:${night["texto-terciario"]}`,
+  `--grid:${v.velo.grid}`, `--fog:${v.velo.fog}`, `--glass:${v.velo.glass}`, `--glass-edge:${v.velo.glassEdge}`,
+].join(";");
+
+// Which cards run once and can be replayed.
+const ONCE = new Set(["01", "02", "04", "05", "09", "10", "11", "13"]);
+const brief = (spec: string) => {
+  const t = spec.replace(/\[[^\]]*\]/g, "").replace(/^[^:]{0,20}:\s*/, "").split(/[;.]\s| — /)[0].trim();
+  return t.length > 90 ? t.slice(0, 88).replace(/\s\S*$/, "") + "…" : t;
+};
+const where = (w: string) => {
+  const t = w.replace(/\([^)]*\)/g, "").split(/ — |;/)[0].trim();
+  return t.length > 80 ? t.slice(0, 78).replace(/\s\S*$/, "") + "…" : t;
+};
+const sky = v.velo.sky;
+const rarity = v.rarity.map((r) => r.hex);
+---
+
+<div class="ds-motion" style={cssVars}>
+  <ol class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+    {anim.map((a) => (
+      <li
+        class={`ds-card ${a.retired ? "ds-retired" : ""}`}
+        data-anim={a.n}
+      >
+        <div class="ds-stage" aria-hidden="true">
+          {a.n === "01" && (
+            <p class="ds-type-line"><span class="ds-typing">The signal blinks.</span><span class="ds-block"></span></p>
+          )}
+          {a.n === "02" && (
+            <div class="ds-reveal-wrap">
+              <div class="ds-mini ds-reveal">discovered</div>
+            </div>
+          )}
+          {a.n === "03" && (
+            <p class="ds-sweep">{v.binary.bits.slice(0, 96)}</p>
+          )}
+          {a.n === "04" && (
+            <div class="ds-mini ds-elevate">surface → elevated</div>
+          )}
+          {a.n === "05" && (
+            <span class="ds-legend">Legendary</span>
+          )}
+          {a.n === "06" && (
+            <svg class="ds-moon" viewBox="0 0 64 64" width="64" height="64">
+              <circle cx="32" cy="32" r="26" fill="var(--surf)" stroke="var(--line)" stroke-width="1"></circle>
+              <path class="ds-moon-lit" d="" fill="var(--sand)"></path>
+            </svg>
+          )}
+          {a.n === "07" && (
+            <p class="ds-dots-line">Loading<span class="ds-dots">···</span></p>
+          )}
+          {a.n === "08" && (
+            <p class="ds-field">name<span class="ds-block ds-block-only"></span></p>
+          )}
+          {a.n === "09" && (
+            <div class="ds-orch">
+              <p class="ds-orch-h"><span class="ds-typing ds-typing-short">Numinia</span></p>
+              <span class="ds-orch-b" style="--i:1"></span>
+              <span class="ds-orch-b" style="--i:2"></span>
+              <span class="ds-orch-b" style="--i:3"></span>
+            </div>
+          )}
+          {a.n === "10" && (
+            <p class="ds-surface">what the fog kept</p>
+          )}
+          {a.n === "11" && (
+            <div class="ds-velo-bg"><div class="ds-crystal">glass</div></div>
+          )}
+          {a.n === "12" && (
+            <p class="font-mono text-[0.65rem] text-dim">retired — the number is not reused</p>
+          )}
+          {a.n === "13" && (
+            <svg class="ds-trazo" viewBox="0 0 160 100" width="160" height="100">
+              <path style="--i:0" d="M4 40 V4 H44" />
+              <path style="--i:1" d="M116 4 H156 V40" />
+              <path style="--i:2" d="M156 60 V96 H116" />
+              <path style="--i:3" d="M44 96 H4 V60" />
+            </svg>
+          )}
+          {a.n === "14" && (
+            <canvas class="ds-sky" width="300" height="120" data-sky={JSON.stringify({ ...sky, colours: rarity.slice(1) })}></canvas>
+          )}
+          {a.n === "15" && (
+            <p class="ds-read" data-read>
+              {"Leave things better than you found them.".split(" ").map((w) => <span class="ds-word">{w} </span>)}
+              <span class="ds-light"></span>
+            </p>
+          )}
+        </div>
+        <div class="ds-meta">
+          <p class="flex items-baseline gap-2">
+            <span class="font-mono text-[0.6rem] text-dim">{a.n}</span>
+            <span class={`text-sm ${a.retired ? "text-dim line-through" : "text-foreground"}`}>{a.name}</span>
+            {ONCE.has(a.n) && !a.retired && (
+              <button type="button" class="ds-replay ml-auto font-mono text-[0.6rem] uppercase tracking-[0.15em] text-accent hover:underline">Replay</button>
+            )}
+          </p>
+          {!a.retired && <p class="mt-1 text-xs leading-relaxed text-muted-foreground">{brief(a.spec)}</p>}
+          {!a.retired && a.where && <p class="mt-1 font-mono text-[0.6rem] leading-relaxed text-dim">Where: {where(a.where)}</p>}
+        </div>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<script>
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Run a card when it first enters the viewport; Replay restarts it.
+  const run = (card: Element) => {
+    card.classList.remove("run");
+    void (card as HTMLElement).offsetWidth;
+    card.classList.add("run");
+  };
+  const io = new IntersectionObserver((es) => {
+    for (const e of es) if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+  }, { threshold: 0.4 });
+  document.querySelectorAll(".ds-motion .ds-card").forEach((c) => {
+    if (reduce) c.classList.add("run", "still");
+    else io.observe(c);
+    c.querySelector(".ds-replay")?.addEventListener("click", () => run(c));
+  });
+
+  // 06 — the moon is computed, not swapped: fixed limb + elliptical terminator.
+  const moon = document.querySelector<SVGPathElement>(".ds-moon-lit");
+  if (moon) {
+    const r = 26, cx = 32, cy = 32;
+    const path = (phase: number) => {
+      if (phase === 0) return "";
+      const k = Math.cos(2 * Math.PI * phase);
+      const rx = Math.abs(k) * r;
+      const waxing = phase <= 0.5;
+      const limb = waxing ? 1 : 0;
+      const term = waxing ? (phase < 0.25 ? 0 : 1) : (phase < 0.75 ? 0 : 1);
+      return `M${cx},${cy - r} A${r},${r} 0 0 ${limb} ${cx},${cy + r} A${rx},${r} 0 0 ${term} ${cx},${cy - r}Z`;
+    };
+    let i = 4;
+    const show = () => {
+      moon.style.opacity = "0";
+      setTimeout(() => { moon.setAttribute("d", path(i / 8)); moon.style.opacity = "1"; }, 120);
+      i = (i + 1) % 8;
+    };
+    moon.setAttribute("d", path(0.5));
+    if (!reduce) setInterval(show, 1400);
+  }
+
+  // 14 — the sky, at the catalogue's rule: weights, radii, drift, breathing.
+  const canvas = document.querySelector<HTMLCanvasElement>(".ds-sky");
+  if (canvas) {
+    const cfg = JSON.parse(canvas.dataset.sky!);
+    const ctx = canvas.getContext("2d")!;
+    const W = canvas.width, H = canvas.height;
+    const pool: number[] = [];
+    cfg.pesos.forEach((w: number, t: number) => { for (let n = 0; n < w; n++) pool.push(t); });
+    // A small window of the sky: its density, not its count.
+    const count = Math.round(cfg.estrellas * (W * H) / (1400 * 900) * 6);
+    const stars = Array.from({ length: count }, () => {
+      const t = pool[Math.floor(Math.random() * pool.length)];
+      const [a, b] = cfg.radios[t];
+      return { x: Math.random() * W, y: Math.random() * H, r: a + Math.random() * (b - a), t,
+        alpha: Math.random(), dir: Math.random() > 0.5 ? 1 : -1, sp: 0.002 + Math.random() * 0.004,
+        vx: (Math.random() - 0.5) * 0.06, vy: (Math.random() - 0.5) * 0.06 };
+    });
+    const [lo, hi] = cfg.alfa;
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      for (const s of stars) {
+        if (!reduce) {
+          s.x = (s.x + s.vx + W) % W; s.y = (s.y + s.vy + H) % H;
+          s.alpha += s.sp * s.dir;
+          if (s.alpha > hi || s.alpha < lo) s.dir *= -1;
+        }
+        ctx.globalAlpha = reduce ? (lo + hi) / 2 : Math.min(hi, Math.max(lo, s.alpha));
+        ctx.fillStyle = cfg.colours[s.t];
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
+      }
+      if (!reduce) requestAnimationFrame(draw);
+    };
+    draw();
+  }
+
+  // 15 — the reading light: a diffuse halo above the spoken word, a trail of
+  // 12 fading copies, a critically damped spring (k 90); the ink the voice
+  // has passed dries to 80 / 65 / 50 %.
+  const read = document.querySelector<HTMLElement>("[data-read]");
+  if (read) {
+    const words = [...read.querySelectorAll<HTMLElement>(".ds-word")];
+    const light = read.querySelector<HTMLElement>(".ds-light")!;
+    const trail = Array.from({ length: 12 }, (_, n) => {
+      const d = document.createElement("span");
+      d.className = "ds-trail";
+      d.style.opacity = String(0.35 * (1 - n / 12));
+      read.appendChild(d);
+      return d;
+    });
+    const k = 90, c = 2 * Math.sqrt(k);
+    let x = 0, vx = 0, target = 0, w = 0, last = performance.now();
+    const hist: number[] = [];
+    const pace = 380;
+    const aim = () => {
+      const el = words[w];
+      target = el.offsetLeft + el.offsetWidth * 0.4;
+      light.style.top = trail[0].style.top = `${el.offsetTop - 6}px`;
+      trail.forEach((t) => (t.style.top = `${el.offsetTop - 6}px`));
+      words.forEach((wd, n) => {
+        const behind = w - n;
+        wd.style.opacity = behind <= 0 ? "1" : behind <= 3 ? ".8" : behind <= 9 ? ".65" : ".5";
+      });
+    };
+    aim(); x = target;
+    if (!reduce) {
+      setInterval(() => { w = (w + 1) % words.length; aim(); }, pace);
+      const step = (now: number) => {
+        const dt = Math.min(0.05, (now - last) / 1000); last = now;
+        const a = -k * (x - target) - c * vx;
+        vx += a * dt; x += vx * dt;
+        hist.unshift(x); hist.length = Math.min(hist.length, 24);
+        light.style.left = `${x}px`;
+        trail.forEach((t, n) => (t.style.left = `${hist[Math.min(hist.length - 1, n * 2)] ?? x}px`));
+        requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    } else {
+      light.style.left = `${x}px`;
+    }
+  }
+</script>
+
+<style>
+  .ds-card {
+    border: 1px solid rgb(var(--border, 58 51 45));
+    border-radius: 8px;
+    background: var(--surf);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  .ds-retired { border-style: dashed; background: transparent; }
+  .ds-stage {
+    height: 128px; display: flex; align-items: center; justify-content: center;
+    background: var(--base); border-bottom: 1px solid var(--line); position: relative; overflow: hidden;
+    padding: 0 16px;
+  }
+  .ds-retired .ds-stage { background: transparent; }
+  .ds-meta { padding: 12px 16px 14px; }
+  .ds-mini {
+    padding: 10px 16px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--surf); color: var(--sand); font-size: 0.8rem;
+  }
+
+  /* 01 typing + 08 block cursor */
+  .ds-type-line, .ds-field, .ds-dots-line { font-family: var(--font-mono); color: var(--sand); font-size: 1rem; }
+  .ds-typing { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; width: 0; }
+  .run .ds-typing { animation: ds-type calc(18 * var(--d-tecleo-caracter)) steps(18) 200ms both; }
+  .ds-typing-short { width: 0; }
+  .run .ds-typing-short { animation: ds-type-short calc(7 * var(--d-tecleo-caracter)) steps(7) both; }
+  @keyframes ds-type { to { width: 18ch; } }
+  @keyframes ds-type-short { to { width: 7ch; } }
+  .ds-block {
+    display: inline-block; width: .6em; height: 1.1em; margin-left: 2px; vertical-align: text-bottom;
+    background: var(--amber); animation: ds-blink var(--d-cursor) steps(2) infinite;
+  }
+  .ds-field { border-bottom: 1px solid var(--line); padding: 4px 2px; min-width: 60%; color: var(--ash); }
+  @keyframes ds-blink { 50% { opacity: 0; } }
+
+  /* 02 reveal on approach */
+  .ds-reveal { opacity: 0; transform: translateY(8px); }
+  .run .ds-reveal { animation: ds-reveal var(--d-medio) var(--ease) 200ms both; }
+  @keyframes ds-reveal { to { opacity: 1; transform: none; } }
+
+  /* 03 signal sweep */
+  .ds-sweep {
+    font-family: var(--font-mono); font-size: .6rem; line-height: 1.5; letter-spacing: .1em; word-break: break-all;
+    background: linear-gradient(90deg, var(--ash) 0 42%, var(--turq) 50%, var(--ash) 58% 100%);
+    background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: ds-sweep var(--d-barrido) linear infinite; opacity: .8;
+  }
+  @keyframes ds-sweep { from { background-position: 100% 0; } to { background-position: 0 0; } }
+
+  /* 04 elevation: a surface step, no displacement */
+  .run .ds-elevate { animation: ds-elevate 2.4s steps(1) 300ms 2; }
+  .ds-elevate { transition: background var(--d-instante) linear; }
+  .ds-elevate:hover { background: var(--elev); }
+  @keyframes ds-elevate { 0% { background: var(--surf); } 50% { background: var(--elev); } }
+
+  /* 05 legendary pulse — twice, then the halo stays */
+  .ds-legend {
+    font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--amber); border: 1px solid var(--amber); border-radius: 6px; padding: 6px 14px;
+    box-shadow: 0 0 12px rgba(239,165,23,.25);
+  }
+  .run .ds-legend { animation: ds-pulse var(--d-pulso) ease-in-out 200ms 2; }
+  @keyframes ds-pulse { 50% { box-shadow: 0 0 22px rgba(239,165,23,.55); } }
+
+  /* 06 lunar phase */
+  .ds-moon-lit { transition: opacity var(--d-fundido-fase) linear; }
+
+  /* 07 waiting dots */
+  .ds-dots { display: inline-block; overflow: hidden; vertical-align: bottom; width: 3ch; animation: ds-dots var(--d-puntos-espera) steps(3) infinite; }
+  @keyframes ds-dots { from { width: 0; } to { width: 3ch; } }
+
+  /* 09 orchestrated moment: headline typing, then blocks staggered */
+  .ds-orch { width: 70%; }
+  .ds-orch-h { font-family: var(--font-mono); color: var(--sand); font-size: 1.1rem; margin-bottom: 8px; }
+  .ds-orch-b { display: block; height: 6px; border-radius: 3px; background: var(--line); margin-top: 6px; opacity: 0; transform: translateY(8px); }
+  .ds-orch-b:nth-of-type(2) { width: 80%; } .ds-orch-b:nth-of-type(3) { width: 60%; }
+  .run .ds-orch-b { animation: ds-reveal var(--d-medio) var(--ease) both; animation-delay: calc(7 * var(--d-tecleo-caracter) + var(--i) * var(--d-escalonado)); }
+
+  /* 10 surfacing */
+  .ds-surface { font-family: 'Alegreya DS', Georgia, serif; font-size: 1.3rem; color: var(--sand); opacity: 0; filter: blur(8px); transform: translateY(8px); }
+  .run .ds-surface { animation: ds-surface var(--d-largo) var(--ease) 200ms both; }
+  @keyframes ds-surface { to { opacity: 1; filter: blur(0); transform: none; } }
+
+  /* 11 crystallization over the Velo's grid and fog */
+  .ds-velo-bg {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    background:
+      radial-gradient(circle at 0% 100%, var(--fog), transparent 70%),
+      repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 20px),
+      repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 20px),
+      var(--base);
+  }
+  .ds-velo-bg::before {
+    content: "01001100 01100101"; position: absolute; font-family: var(--font-mono); color: var(--turq); opacity: .5; font-size: 1.4rem;
+  }
+  .ds-crystal {
+    position: relative; padding: 18px 34px; border-radius: 8px; color: var(--sand); font-size: .8rem;
+    background: var(--glass); border: 1px solid var(--glass-edge); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .run .ds-crystal { animation: ds-crystal var(--d-medio) var(--ease) 300ms both; }
+  @keyframes ds-crystal {
+    from { opacity: 0; backdrop-filter: blur(0); -webkit-backdrop-filter: blur(0); border-color: transparent; }
+  }
+
+  /* 13 trazo — the corners draw themselves */
+  .ds-trazo path { fill: none; stroke: var(--amber); stroke-width: 1.5; stroke-dasharray: 340; stroke-dashoffset: 340; }
+  .run .ds-trazo path { animation: ds-trazo var(--d-trazo) ease both; animation-delay: calc(var(--i) * 120ms); }
+  @keyframes ds-trazo { to { stroke-dashoffset: 0; } }
+
+  /* 14 sky */
+  .ds-sky { width: 100%; height: 100%; }
+
+  /* 15 reading light */
+  .ds-read { position: relative; font-size: 1rem; color: var(--sand); line-height: 2; }
+  .ds-word { transition: opacity var(--d-medio) linear; }
+  .ds-light, :global(.ds-trail) {
+    position: absolute; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, var(--sand) 0 12%, rgba(249,235,220,.35) 30%, transparent 70%);
+  }
+  .ds-light { z-index: 1; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ds-motion *, .ds-motion *::before { animation: none !important; transition: none !important; }
+    .ds-typing { width: 18ch; } .ds-typing-short { width: 7ch; }
+    .ds-reveal, .ds-orch-b, .ds-surface { opacity: 1; transform: none; filter: none; }
+    .ds-trazo path { stroke-dashoffset: 0; }
+  }
+</style>

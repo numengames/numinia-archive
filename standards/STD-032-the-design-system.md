@@ -5,9 +5,9 @@ title: "The Numinia Design System"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
-created: "2026-09-24T23:30:00+02:00"
-updated: "2026-09-24T23:30:00+02:00"
+version: "0.2.0"
+created: "2026-09-24T15:00:00+02:00"
+updated: "2026-09-24T16:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -45,6 +45,11 @@ sense each. **Recipes** apply the languages to one medium — a web page, an
 invoice, a deck, a scene. **Toolkit** is what a maker installs or downloads.
 
 A row whose document is `—` is a part of the system that is not written yet.
+A row whose *Gives* opens with **Read alongside** is a document the system
+points to without carrying it: the page links it, the compiled system and the
+download name it and leave it out. The game manual is one — three thousand
+lines of rules are material for designing play, not the design system, and
+the manual is downloaded on its own.
 
 ## The register
 
@@ -57,14 +62,15 @@ A row whose document is `—` is a part of the system that is not written yet.
 | Languages | Image | `standards/STD-008-design-tokens.md` | The rules an audit of any piece can fail on |
 | Languages | Image | `standards/STD-023-design-values.md` | Every value: colours, type, space, icons, the brand inventory, the sky |
 | Languages | Word | `standards/STD-030-the-worlds-vocabulary.md` | The names of the world, and what each is called outside the fiction |
-| Languages | Word | `lore/game/manual/glossary-es-en.md` | The English of every Numinia term |
+| Languages | Word | `blueprints/BLU-007-dual-nomenclature.md` | How much of the world the words carry: the narrative dial, from plain business to inside the fiction |
+| Languages | Word | `lore/game/manual/glossary-es-en.md` | Read alongside: the English of every Numinia term |
 | Languages | Word | `standards/STD-021-evidence-and-citation.md` | A quote carries its author's name |
 | Languages | Word | — | Not written yet: how we write — register by register, with rules and recipes |
 | Languages | Sound | — | Not written yet: how Numinia sounds — music, effects, voice and silence. Today only the reading-aloud player is specified, in the design values |
 | Languages | Motion | `standards/STD-023-design-values.md` | The animation catalogue, the sky and the motion budgets; still inside Image |
-| Languages | Play | `lore/game/manual/es/07-construyendo-la-aventura.md` | Raw material: how the manual builds an adventure |
-| Languages | Play | `lore/adventures/TEMPLATE.md` | Raw material: the mould of an adventure module |
-| Languages | Play | `lore/codex/hoja-de-personaje.md` | Raw material: the character sheet |
+| Languages | Play | `lore/game/manual/en/07-building-the-adventure.md` | Read alongside: how the manual builds an adventure |
+| Languages | Play | `lore/adventures/TEMPLATE.md` | Read alongside: the mould of an adventure module |
+| Languages | Play | `lore/codex/hoja-de-personaje.md` | Read alongside: the character sheet |
 | Languages | Play | — | Not written yet: how a mission, a character or a place is designed as ours |
 | Recipes | Any piece | `protocols/PRO-014-producing-a-design-piece.md` | The order in which a piece's decisions are taken |
 | Recipes | Web | `blueprints/BLU-009-web-pieces.md` | A web page, a product screen, every component |
