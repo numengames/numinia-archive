@@ -1,0 +1,9 @@
+id;from;to;category;kind;value;note
+F1;2027-01-01;2028-12-31;personas;raise;0.04;Pay rises 4 % every January
+F2;2027-04-01;2028-12-31;personas;hire;1;One more person from April 2027, at the current average cost per head
+F3;2026-10-01;2028-12-31;ia;growth;0.03;AI usage grows 3 % a month
+F4;2026-11-01;2028-12-31;;support_start;25;25 people start supporting in November 2026
+F5;2026-12-01;2028-12-31;;support_new;20;20 new supporters a month after that
+F6;2026-11-01;2028-12-31;;support_churn;0.03;3 % of supporters stop each month
+F7;2026-11-01;2028-12-31;;support_fee;5;€5 a month each, VAT included, of which the payment processor keeps 2.2 % + €0.25
+F8;2027-01-15;2031-12-31;;loan;50000;A €50,000 loan in January 2027: one year of grace, then repaid in equal monthly parts to December 2031 (interest not modelled)

@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.48.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "The account looks ahead: /system/account now shows the next two years, to the end of 2028 — costs by concept, support, the loan, and cash at the end of each month, with the month cash would run out. Each cost starts from what it costs now in the ledger; the assumptions (pay rises, one more person, AI growth, supporters, a loan) are listed in plain words, one per line, and supporters and the loan can each be switched off. Still simulated, like the ledger.",
+      },
+    ],
+  },
+  {
     version: "v0.47.0",
     date: "2026-09-24",
     entries: [
