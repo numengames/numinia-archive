@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-24 (the cookie policy says what the sites keep)
+- **`operations/OPS-010-cookie-policy-numengames.md`** v1.1.0: the inventory is re-measured. With the day/night switch (DSN-016), numinia.org, numen.games and nwos.numen.games keep `numinia-modo`, so "stores nothing" was no longer true. numinia.org also keeps the page reader's speed (`sp:rate`) and resume point (session storage). numinia.com lists five more preferences it already kept: `numinia-lap-hidden` and the manual reader's `numinia-codex-modo`, `-tam`, `-marca` and `-ritmo`. No cookie is added and nothing needs consent: every entry is a preference set by the visitor's own action. — Ursa (MIS-154)
+
 ### Changed — 2026-09-24 (Open books)
 - **`/system/account` → `/system/open-books`**, and its CSV routes to `/system/open-books.csv` and `/system/open-books-forecast.csv`: *the account* read as a user account; *open books* is the page's claim. Oracle's word in session. No redirect: the old address never reached the live site (the deploy queue stalled after v0.44.0). Files `web/src/pages/system/open-books{,.csv,-forecast.csv}.ts|astro`; `corpus.ts` lists it as *Open books*.
 

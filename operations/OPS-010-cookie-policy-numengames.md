@@ -4,9 +4,9 @@ uid: ""
 title: "Cookie Policy — Numen Games"
 type: legal
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-18T17:00:00+02:00"
-updated: "2026-09-18T17:00:00+02:00"
+updated: "2026-09-24T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [legal, cookies, privacy, gdpr, lssi, website, numen-games, enforceable]
@@ -22,6 +22,11 @@ review_flags: |
   framing (LSSI art. 22.2, GDPR) awaits review, like OPS-003 and
   OPS-004. Published with this flag open, by the same decision that
   published those two.
+  Re-measured 2026-09-24 (v1.1.0, MIS-154): the day/night switch
+  (DSN-016) now keeps `numinia-modo` on all four sites; numinia.org's
+  page reader keeps its speed and resume point; numinia.com's manual
+  reader and player area keep five more preferences. All are
+  preferences set by the visitor's own action.
   FLAG-2: OPS-003 §2 says "our website installs cookies that collect
   information about your browsing". For three of the four sites that
   sentence is false and for numinia.com it overstates: the only
@@ -79,6 +84,11 @@ of that kind.
 | `numinia-lang` | local storage | Your chosen language, so the site opens in it. | You pick a language | Until you clear it | Preference — set only when you choose |
 | `numinia-modo` | local storage | Your chosen display mode (day / night). | You pick a mode | Until you clear it | Preference — set only when you choose |
 | `numinia-lap-nav` | local storage | Whether you folded the player-area navigation. | You fold or unfold it | Until you clear it | Preference — set only when you act |
+| `numinia-lap-hidden` | local storage | Which items you hid in the player area's settings. | You hide or show an item | Until you clear it | Preference — set only when you act |
+| `numinia-codex-modo` | local storage | The day or night page you chose in the manual reader. | You switch it in the reader | Until you clear it | Preference — set only when you choose |
+| `numinia-codex-tam` | local storage | The text size you chose in the manual reader. | You change the size | Until you clear it | Preference — set only when you choose |
+| `numinia-codex-marca` | local storage | Your bookmark in the manual: which chapter you marked. | You mark a chapter | Until you remove it or clear it | Preference — set only when you act |
+| `numinia-codex-ritmo` | local storage | The reading speed you chose for the manual's narrator. | You change the speed | Until you clear it | Preference — set only when you choose |
 
 **Measurement.** numinia.com counts what is clicked on the page to learn
 how it is used. Those counts **do not leave your device** today: they are
@@ -91,20 +101,38 @@ embed from any other organisation.
 
 ### 3.2 numinia.org
 
-Stores nothing: no cookies, no local storage. Loads nothing from third
-parties.
+No cookies. It keeps two preferences and one bookmark, and only when you
+act:
+
+| Name | Kind | Purpose | Set when | Lasts | Necessary? |
+|---|---|---|---|---|---|
+| `numinia-modo` | local storage | Your chosen display mode (day / night). | You press the sun / moon button | Until you clear it | Preference — set only when you choose |
+| `sp:rate` | local storage | The speed you chose for the page reader (read aloud). | You change the speed | Until you clear it | Preference — set only when you choose |
+| `sp:` + the page address | session storage | Where you paused the page reader, so it can resume on that page. | You pause the reader | Until you close the tab | Preference — set only when you act |
+
+Loads nothing from third parties.
 
 ### 3.3 numen.games
 
-Stores nothing: no cookies, no local storage. Loads nothing from third
-parties.
+No cookies. One preference, only when you choose it:
+
+| Name | Kind | Purpose | Set when | Lasts | Necessary? |
+|---|---|---|---|---|---|
+| `numinia-modo` | local storage | Your chosen display mode (day / night). | You press the sun / moon button | Until you clear it | Preference — set only when you choose |
+
+Loads nothing from third parties.
 
 ### 3.4 nwos.numen.games
 
-Stores nothing in your browser: no cookies, no local storage. The
-workspace request form sends what you type to Numen Games when you submit
-it (see the Privacy Policy); nothing is kept on your device. Loads nothing
-from third parties.
+No cookies. One preference, only when you choose it:
+
+| Name | Kind | Purpose | Set when | Lasts | Necessary? |
+|---|---|---|---|---|---|
+| `numinia-modo` | local storage | Your chosen display mode (day / night). | You press the sun / moon button | Until you clear it | Preference — set only when you choose |
+
+The workspace request form sends what you type to Numen Games when you
+submit it (see the Privacy Policy); nothing of it is kept on your device.
+Loads nothing from third parties.
 
 ## 4. Consent
 
