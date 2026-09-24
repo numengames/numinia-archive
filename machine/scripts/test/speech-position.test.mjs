@@ -107,3 +107,50 @@ test('the section shown is the last heading at or before the position', () => {
 test('with no headings there is still one section, never an empty label', () => {
   assert.deepEqual(ask('m.sectionAt([], 42)'), { index: 0, at: 0, title: '' });
 });
+
+// ---- v4 (2026-09-24, the Oracle): the light fell behind the voice on
+// numbers and dates, and a chunk of ~280 characters let the error pile up.
+
+test('the queue is one sentence per utterance, so the light re-syncs at every sentence', () => {
+  assert.deepEqual(ask(`m.sentences(${JSON.stringify(TEXT)})`), [
+    'Nobody joins Numinia.',
+    'You arrive, and at some point you notice.',
+    'The first thing you meet is a word!',
+    'Someone is an Alchemist…',
+    'What that means is that they build things.',
+  ]);
+});
+
+test('a sentence longer than an engine will hold is cut at a comma or a space, never mid-word', () => {
+  const long = 'word, '.repeat(80) + 'end.';
+  const parts = ask(`m.sentences(${JSON.stringify(long)})`);
+  assert.ok(parts.length > 1);
+  for (const p of parts) assert.ok(p.length <= 220, `part of ${p.length}`);
+  assert.equal(parts.join(' '), long);
+});
+
+test('a number weighs what it takes to say, not what it takes to write', () => {
+  // "1920" is four letters on the page and ~22 spoken ("nineteen twenty");
+  // a word weighs its own length.
+  assert.equal(ask('m.spokenWeight("word")'), 4);
+  assert.ok(ask('m.spokenWeight("1920")') >= 14);
+  assert.ok(ask('m.spokenWeight("2026-09-24")') >= 30);
+  assert.ok(ask('m.spokenWeight("3.5")') > 3);
+});
+
+test('the spoken position walks the text by weight: a date takes longer to pass', () => {
+  const s = 'On 2026-09-24 we met.';
+  // After ~12 spoken units the voice is still inside the date, not past it.
+  const at = ask(`m.charAtSpoken(${JSON.stringify(s)}, 12)`);
+  assert.ok(at >= s.indexOf('2026') && at < s.indexOf(' we'), `at ${at}`);
+  // Far past the end, it clamps to the end.
+  assert.equal(ask(`m.charAtSpoken(${JSON.stringify(s)}, 999)`), s.length);
+});
+
+test('the speed steps gently: 1, 1.25, 1.5, 2, then 0.75, then back to 1', () => {
+  assert.deepEqual(ask('m.RATES'), [1, 1.25, 1.5, 2, 0.75]);
+  assert.equal(ask('m.nextRate(1)'), 1.25);
+  assert.equal(ask('m.nextRate(2)'), 0.75);
+  assert.equal(ask('m.nextRate(0.75)'), 1);
+  assert.equal(ask('m.nextRate(3)'), 1); // an unknown stored rate resets
+});
