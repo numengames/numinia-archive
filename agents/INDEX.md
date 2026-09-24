@@ -3,11 +3,11 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.0.0"
+version: "3.1.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-08-28T09:54:16Z"
+updated: "2026-09-24T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, index]
@@ -22,7 +22,8 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # Agents — Operative Roster
 
-> **Summary:** index of the digital agents defined in this archive.
+> **Summary:** index of the agents of this archive: the Oracles who govern
+> it and the digital agents defined in it.
 > **Epistemic:** who the agents are, what work routes to each, and how a
 > reader arriving from `git log` resolves a retired author name.
 > **Pragmatic:** the routing map — read `AGENT.md` for the card (`AGENT.yaml` where not yet converted),
@@ -46,6 +47,19 @@ agents/{name}/
         ├── profile.yaml  ← Hermes routing description
         └── config.yaml   ← Hermes approvals, memory, delegation
 ```
+
+## Oracles
+
+The biological agents. They govern; the rank is the ceiling (`STD-003`).
+Carried here from the canon of brand and culture (`ADR-061`): a roster is a
+register, and the canon says what the house is, not who staffs it.
+
+| Name | Role |
+|---|---|
+| Clio Beruete | Oracle |
+| Daniel Garrido | Oracle |
+| Christian Märtens | Oracle |
+| Pablo Fernández-Maquieira | Oracle |
 
 ## Roster
 
@@ -100,6 +114,8 @@ and session metrics belong to the platform, not the canon.
 
 ## Version history
 
+- v3.1.0 (2026-09-24) — ADR-061: the Oracles table, carried from `CAN-002`.
+  The site reads it here for the biological roster.
 - v3.0.0 (2026-08-28) — MIS-118: full roster replacement. Seven operative
   definitions under CC0 (ADR-026); adapters/ structure; STATUS/MEMORY files
   retired; archaeology table made independent of living folders.

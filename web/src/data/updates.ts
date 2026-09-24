@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.30.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "Three canons of the house, rewritten from the Oracle's review. 'We build a game to work better' (CAN-002) now says why a game — play is our first narrative, our first lesson and our first creative drive — and no longer carries a founding history; the four Oracles are read from the agents index, where the roster lives. 'One identity, three forces' (CAN-008, retitled) speaks through the three forces of the world — the Umbral, the Velo and the Prisma, with low-poly and pixel as the Prisma's two manifestations — and stops restating the house's purpose. 'Opening is an act' (CAN-005) keeps every rule and opens on a reader who wants to use something of ours, with a case for each rule (ADR-061).",
+      },
+    ],
+  },
+  {
     version: "v0.29.0",
     date: "2026-09-24",
     entries: [

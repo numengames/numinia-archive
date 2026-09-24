@@ -136,7 +136,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `CAN-005` | Opening is an act | every Numen Games repository, and whoever publishes from one |
 | `CAN-006` | Epistemic Relations between Numen Games and… | whoever reasons about how Numen Games, its model and Numinia relate |
 | `CAN-007` | Function makes the system inhabitable… | whoever designs, renames or reorganises anything in this system |
-| `CAN-008` | One identity, four registers | every piece that carries the Numen Games or Numinia mark |
+| `CAN-008` | One identity, three forces | every piece that carries the Numen Games or Numinia mark |
 | `CAN-009` | The archive is the organisation | every document of this archive, every change to it, and whoever — biological or digital… |
 | `CAN-010` | Leave things better than you found them | whoever acts in Numinia's name, biological or digital |
 | `PRO-001` | Opening and closing a session | every agent, in every session, whatever the mission |

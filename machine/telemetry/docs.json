@@ -38,7 +38,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13105,
+  "chars": 13103,
   "apparatus": false,
   "archived": false,
   "tokens": 3244
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 96781,
+  "chars": 98160,
   "apparatus": false,
   "archived": false,
-  "tokens": 25534
+  "tokens": 25927
  },
  {
   "path": "CLAUDE.md",
@@ -115,10 +115,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 4844,
+  "chars": 5407,
   "apparatus": true,
   "archived": false,
-  "tokens": 1428
+  "tokens": 1595
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -621,10 +621,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 6505,
+  "chars": 6416,
   "apparatus": false,
   "archived": false,
-  "tokens": 1539
+  "tokens": 1562
  },
  {
   "path": "canon/CAN-004-role-structure.md",
@@ -643,10 +643,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4778,
+  "chars": 6917,
   "apparatus": false,
   "archived": false,
-  "tokens": 1185
+  "tokens": 1701
  },
  {
   "path": "canon/CAN-006-epistemic-relations.md",
@@ -676,10 +676,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 9709,
+  "chars": 10002,
   "apparatus": false,
   "archived": false,
-  "tokens": 2338
+  "tokens": 2429
  },
  {
   "path": "canon/CAN-009-the-archive-is-the-organisation.md",
@@ -966,6 +966,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1624
+ },
+ {
+  "path": "decisions/ADR-061-three-canons-of-the-house.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 9227,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2523
  },
  {
   "path": "lore/README.md",

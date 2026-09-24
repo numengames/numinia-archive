@@ -32,7 +32,6 @@ import path from "node:path";
 
 const ARCHIVE_ROOT = path.resolve(process.cwd(), "..");
 const INDEX = "agents/INDEX.md";
-const CANON_BRAND = "canon/CAN-002-brand-and-culture.md";
 
 export interface DigitalAgent {
   /** folder name under agents/ — "ursa" */
@@ -222,30 +221,32 @@ export function digitalAgents(): DigitalAgent[] {
 }
 
 /**
- * The Oracles, read from the canon.
+ * The Oracles, read from the agents index.
  *
- * The roster page had a section about biological agents that described the
- * Oracle layer in the abstract and named not one person, while CAN-002 has
- * carried the table of who they are all along. Same rule as the digital side:
- * the archive states it, the page reads it.
+ * The table lived in CAN-002 until ADR-061 (2026-09-24): a roster is a
+ * register, and the canon says what the house is, not who staffs it. Same
+ * rule as the digital side: the archive states it, the page reads it — and
+ * the build fails rather than publish a roster that names nobody.
  */
 export function biologicalAgents(): BiologicalAgent[] {
-  const lines = read(CANON_BRAND).split("\n");
+  const lines = read(INDEX).split("\n");
   const out: BiologicalAgent[] = [];
-  let seenHeader = false;
+  let inOracles = false;
 
   for (const line of lines) {
+    if (/^##\s+Oracles\b/.test(line)) { inOracles = true; continue; }
+    if (inOracles && /^##\s+/.test(line)) break;
+    if (!inOracles) continue;
     const c = cells(line);
-    if (!c || c.length < 2) { if (seenHeader && out.length) break; continue; }
-    if (/^name$/i.test(c[0]) && /^role$/i.test(c[1])) { seenHeader = true; continue; }
-    if (!seenHeader) continue;
-    if (!/oracle/i.test(c[1])) break;
+    if (!c || c.length < 2) continue;
+    if (/^name$/i.test(c[0])) continue;   // header row
+    if (!/oracle/i.test(c[1])) continue;
     out.push({ name: c[0], role: c[1] });
   }
 
   if (out.length === 0) {
     throw new Error(
-      `${CANON_BRAND}: the "Name | Role" leadership table did not parse. ` +
+      `${INDEX}: the "Name | Role" table under "## Oracles" did not parse. ` +
         `web/src/lib/agents.ts reads it for the biological roster.`,
     );
   }
