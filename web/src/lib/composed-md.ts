@@ -39,6 +39,7 @@ import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
+import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL } from "@/lib/account";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -508,11 +509,67 @@ export function designPage(): ComposedPage {
 }
 
 /**
+ * /system/account — the ledger, summed. Consumed cost per year and concept,
+ * each line spread evenly over the days it covers and cut at the ledger's last
+ * day; income on its date. The same lines and the same rule the page uses in
+ * the browser, so the two views agree (STD-033 LED-002).
+ */
+export function accountPage(): ComposedPage {
+  const DAY = 864e5;
+  const t = (s: string) => Date.parse(s + "T00:00:00Z");
+  const t0 = t(ACCOUNT_START), t1 = t(ACCOUNT_AS_OF);
+  const years = new Map<string, Record<string, number>>();
+  const bump = (y: string, k: string, v: number) => {
+    const r = years.get(y) ?? {};
+    r[k] = (r[k] ?? 0) + v;
+    years.set(y, r);
+  };
+  const all = accountLines();
+  for (const l of all) {
+    const base = Number(l.base);
+    if (l.kind === "income") {
+      if (t(l.date) <= t1) bump(l.date.slice(0, 4), "income", base);
+      continue;
+    }
+    const a = Math.max(t(l.period_from), t0), b = t(l.period_to);
+    const days = Math.round((b - Math.max(t(l.period_from), t0)) / DAY) + 1;
+    for (let d = a; d <= Math.min(b, t1); d += DAY) {
+      bump(new Date(d).toISOString().slice(0, 4), l.category, base / days);
+    }
+  }
+  const ys = [...years.keys()].sort();
+  const cats = Object.keys(CATEGORY_LABEL);
+  const eur = (n: number) => (n < 0 ? "−€" : "€") + Math.round(Math.abs(n)).toLocaleString("en-GB");
+  const cost = (r: Record<string, number>) => cats.reduce((s, k) => s + (r[k] ?? 0), 0);
+  const rows = cats
+    .filter((k) => ys.some((y) => (years.get(y)![k] ?? 0) > 0.5))
+    .map((k) => [CATEGORY_LABEL[k], ...ys.map((y) => ((years.get(y)![k] ?? 0) > 0.5 ? eur(years.get(y)![k]) : ""))]);
+  rows.push(["**Total cost**", ...ys.map((y) => `**${eur(cost(years.get(y)!))}**`)]);
+  rows.push(["Came in", ...ys.map((y) => ((years.get(y)!.income ?? 0) > 0.5 ? eur(years.get(y)!.income) : ""))]);
+  rows.push(["**Numen Games put in**", ...ys.map((y) => `**${eur(cost(years.get(y)!) - (years.get(y)!.income ?? 0))}**`)]);
+  const body = [
+    "# What Numinia costs",
+    "",
+    "> **Simulated figures.** No month has been closed yet; every line of the ledger is invented to show the shape. As each real month closes, its lines replace the simulated ones.",
+    "",
+    `Everything Numen Games spends on Numinia from ${ACCOUNT_START} to ${ACCOUNT_AS_OF}, consumed — each cost spread over the days it covers — and without VAT. Staff are one line a month for everyone together; nobody's pay is published.`,
+    "",
+    "## By year and concept",
+    "",
+    table(["Concept", ...ys], rows),
+    "",
+    `The ledger itself, one line per document (${all.length} lines): [/system/account.csv](/system/account.csv).`,
+    "",
+  ].join("\n");
+  return { route: "/system/account", filename: "numinia-account.md", sources: [...ACCOUNT_SOURCES], body: preamble([...ACCOUNT_SOURCES]) + body };
+}
+
+/**
  * Every composed page, for the routes that serve them and for the guard that
  * checks none is forgotten.
  */
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [homePage(), schemePage(), bindingPage(), designPage()];
+  const pages: ComposedPage[] = [homePage(), schemePage(), bindingPage(), designPage(), accountPage()];
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));
   pages.push(await collectionIndexPage("missions"));

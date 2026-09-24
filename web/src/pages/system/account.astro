@@ -1,0 +1,591 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The account — what Numinia costs and takes in, as four readers see it
+// (STD-033, SYS-008). THIS PAGE STATES NO FIGURE OF ITS OWN: everything is
+// computed in the browser from one ledger, src/data/account-simulated.csv,
+// one line per document (LED-001). Four views, one set of lines, so they
+// cannot disagree (LED-002).
+//
+// SIMULATED. No month has been closed yet (PRO-021). Every line of the CSV is
+// invented to show the shape; the page says so at the top and in its title.
+// When the first real month closes, the real ledger replaces the file and
+// the flag comes off — the page itself should not need to change.
+//
+// Staff are one line a month for everyone together, with the headcount
+// (MON-002): the ledger is public and nobody's pay may be inferred from it.
+//
+// The ledger is read through @/lib/account, which the markdown view
+// (/system/account.md, composed-md.ts) shares.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { lines, AS_OF, START, CASH } from "@/lib/account";
+import { repoFileUrl } from "@/lib/build-info";
+
+const rows = lines();
+const DATA = { start: START, asOf: AS_OF, cash: CASH, rows };
+---
+
+<Layout
+  title="The account (simulated) — Numinia"
+  description="What Numinia costs and takes in since 2 November 2020, by day, week, month, quarter and year — as a citizen, a CTO, a lender and the gestoría read it. Simulated figures until the first month closes."
+  canonicalPath="/system/account"
+  activeNav="system/"
+>
+  <PageHero
+    label="System — The account"
+    title="What Numinia costs"
+    description="Everything Numen Games spends on Numinia since 2 November 2020, by day, week, month, quarter and year; what has come in, what the company has put in, and where it is heading."
+  />
+
+  <div class="mx-auto max-w-[1100px] px-6 pb-8">
+    <DocToolbar
+      mdUrl="/system/account.md"
+      filename="numinia-account.md"
+      repoUrl={repoFileUrl("web/src/data/account-simulated.csv")}
+      lang="en"
+    />
+  </div>
+
+  <section class="pb-20" id="cq"><div class="mx-auto max-w-[1100px] px-6">
+   <div id="cq-top">
+    <div class="cq-simnote" role="note"><span class="cq-flag">simulated figures</span><p>Every figure on this page is invented. No month has been closed yet, so the ledger holds simulated lines to show the shape. As each real month closes, its lines replace the simulated ones.</p></div>
+    <div class="cq-lensbar">
+     <span class="cq-k">Read as</span>
+     <div class="cq-tabs" role="tablist" aria-label="Read as">
+      <button type="button" class="cq-tab" role="tab" data-lens="pub" aria-selected="true">Anyone</button>
+      <button type="button" class="cq-tab" role="tab" data-lens="cto" aria-selected="false">CTO</button>
+      <button type="button" class="cq-tab" role="tab" data-lens="cfo" aria-selected="false">Finance and bank</button>
+      <button type="button" class="cq-tab" role="tab" data-lens="ges" aria-selected="false">Gestoría</button>
+     </div>
+     <p class="cq-note" id="cq-lensnote"></p>
+    </div>
+    <div class="cq-kpis" id="cq-kpis"></div>
+    <noscript><p class="cq-note">This page computes its views in the browser. The ledger itself is plain text: <a href="/system/account.csv">account.csv</a>.</p></noscript>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-time" data-l="pub cto cfo">
+    <h2>Day by day, and everything else</h2>
+    <p class="cq-sub">Each cost is spread over the days it covers. €100 a month for Microsoft is €3.29 a day; a €360 yearly licence is €0.99 a day for a year. Any period then reads the same way.</p>
+    <div class="cq-card">
+     <div class="cq-ctrl">
+      <div class="cq-tabs" role="tablist" aria-label="Period" id="cq-gran">
+       <button type="button" class="cq-tab" role="tab" data-g="day" aria-selected="false">Day</button>
+       <button type="button" class="cq-tab" role="tab" data-g="week" aria-selected="false">Week</button>
+       <button type="button" class="cq-tab" role="tab" data-g="month" aria-selected="true">Month</button>
+       <button type="button" class="cq-tab" role="tab" data-g="quarter" aria-selected="false">Quarter</button>
+       <button type="button" class="cq-tab" role="tab" data-g="year" aria-selected="false">Year</button>
+      </div>
+      <div class="cq-tabs" role="tablist" aria-label="How it is counted" id="cq-mode">
+       <button type="button" class="cq-tab" role="tab" data-m="eff" aria-selected="true">Consumed</button>
+       <button type="button" class="cq-tab" role="tab" data-m="bil" aria-selected="false">Billed</button>
+      </div>
+      <div class="cq-tabs" role="tablist" aria-label="People" id="cq-ppl">
+       <button type="button" class="cq-tab" role="tab" data-ppl="1" aria-selected="true">With people</button>
+       <button type="button" class="cq-tab" role="tab" data-ppl="0" aria-selected="false">Services only</button>
+      </div>
+     </div>
+     <p class="cq-note" id="cq-modenote" style="margin:10px 0 6px"></p>
+     <div class="cq-chart" id="cq-bars"></div>
+     <div class="cq-legend" id="cq-leg"></div>
+     <p class="cq-note" id="cq-readout"></p>
+    </div>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-mix" data-l="pub cto cfo">
+    <h2>Where it goes</h2>
+    <p class="cq-sub" id="cq-mixsub"></p>
+    <div class="cq-tablewrap"><table class="cq-t" id="cq-mix"><thead></thead><tbody></tbody></table></div>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-serv" data-l="pub cto">
+    <h2>What we pay for now</h2>
+    <p class="cq-sub">Each active service with its cost per day, per month and per year. What is billed by usage (the AI API) is the average of the last 30 days.</p>
+    <div class="cq-tablewrap"><table class="cq-t" id="cq-serv"><thead><tr><th>Service</th><th class="cq-l">Concept</th><th class="cq-l">How it is billed</th><th>Per day</th><th>Per month</th><th>Per year</th><th>Share</th></tr></thead><tbody></tbody></table></div>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-people" data-l="pub cto cfo">
+    <h2>People</h2>
+    <p class="cq-sub">The largest cost, and the one nobody sees.</p>
+    <div class="cq-card" id="cq-people"></div>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-pyg" data-l="cfo">
+    <h2>Profit and loss</h2>
+    <p class="cq-sub">In the headings of the abbreviated model of the Spanish General Accounting Plan, year by year, on an accrual basis. It is the first thing a bank reads.</p>
+    <div class="cq-tablewrap"><table class="cq-t" id="cq-pyg"><thead></thead><tbody></tbody></table></div>
+    <p class="cq-note">¹ From 2 November. ² To the ledger's last day. No depreciation: nothing has been capitalised yet.</p>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-cash" data-l="cfo">
+    <h2>Cash and runway</h2>
+    <p class="cq-sub">The first question a lender asks: if costs stay as they are and income grows as it has, does the company reach profitability on the money it has?</p>
+    <div class="cq-kpis cq-kpis--3" id="cq-cash"></div>
+    <p class="cq-note" id="cq-cashnote"></p>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-book" data-l="ges">
+    <h2>Received-invoices book</h2>
+    <p class="cq-sub">One line per invoice, with the data the Spanish VAT Regulation asks for and the account of the General Accounting Plan it goes to. Payroll is not here: it goes with the gestoría, separately.</p>
+    <div class="cq-card">
+     <div class="cq-ctrl">
+      <label for="cq-q">Quarter</label>
+      <select id="cq-q"></select>
+      <a class="cq-pill cq-dl" href="/system/account.csv" download="numinia-account-simulated.csv">Download the ledger (CSV)</a>
+     </div>
+     <div class="cq-tablewrap" style="margin-top:14px"><table class="cq-t" id="cq-book"><thead><tr><th>Document</th><th>Date</th><th class="cq-l">Supplier</th><th class="cq-l">Concept</th><th>Account</th><th>Base</th><th>VAT</th><th>VAT amount</th><th>Total</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div>
+     <p class="cq-note">ISP: reverse charge (services from companies outside Spain; the VAT is declared and deducted at once). EX: exempt. NS: not subject.</p>
+    </div>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-proj" data-l="pub cfo">
+    <h2>Looking ahead</h2>
+    <p class="cq-sub">How much support would cover. Move how many people, and how much a month.</p>
+    <div class="cq-card">
+     <div class="cq-ctrl">
+      <label for="cq-range">If</label>
+      <input type="range" id="cq-range" min="0" max="3000" step="10" value="300">
+      <span><b class="cq-num" id="cq-n">300</b> people give</span>
+      <span class="cq-pills" role="radiogroup" aria-label="Amount a month" id="cq-amt"></span>
+      <span>a month:</span>
+     </div>
+     <div class="cq-res">
+      <p id="cq-r1"></p>
+      <p id="cq-r2"></p>
+      <div class="cq-bar" aria-hidden="true"><i id="cq-barfill"></i></div>
+      <p id="cq-r3"></p>
+     </div>
+    </div>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-homage" data-l="pub">
+    <h2>Who holds Numinia up</h2>
+    <p class="cq-sub">Whoever supports Numinia in a month, a quarter or a year appears here, in order of arrival and without amounts. Each person chooses how. <span class="cq-flag">invented names</span></p>
+    <div class="cq-card">
+     <div class="cq-tabs" role="tablist" aria-label="Homage period">
+      <button type="button" class="cq-tab" role="tab" data-h="month" aria-selected="true"></button>
+      <button type="button" class="cq-tab" role="tab" data-h="quarter" aria-selected="false"></button>
+      <button type="button" class="cq-tab" role="tab" data-h="year" aria-selected="false"></button>
+     </div>
+     <p class="cq-count" id="cq-hcount"></p>
+     <p class="cq-names" id="cq-names" role="tabpanel"></p>
+     <div class="cq-choice">
+      <span class="cq-k">When paying, each person chooses how to appear. Saying nothing means no name</span>
+      <div class="cq-pills" role="radiogroup" aria-label="How to appear">
+       <button type="button" class="cq-pill" role="radio" aria-checked="true" data-as="anon">No name</button>
+       <button type="button" class="cq-pill" role="radio" aria-checked="false" data-as="alias">An alias</button>
+       <button type="button" class="cq-pill" role="radio" aria-checked="false" data-as="name">My name</button>
+      </div>
+      <p class="cq-note" id="cq-as"></p>
+     </div>
+    </div>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-how">
+    <h2>How this page is made</h2>
+    <ul class="cq-list" id="cq-how"></ul>
+   </div>
+  </div></section>
+
+</Layout>
+
+<script is:inline id="cq-data" type="application/json" set:html={JSON.stringify(DATA)} />
+
+<style is:global>
+.cq-strip>div{max-width:1100px;margin:0 auto;padding:7px 24px}
+.cq-strip b{color:rgb(var(--yellow));text-transform:uppercase;letter-spacing:.15em;font-weight:500;margin-right:10px}
+.cq-flag{display:inline-flex;border:1px solid rgb(var(--yellow)/.5);color:rgb(var(--yellow));border-radius:999px;padding:1px 10px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.04em;vertical-align:1px;white-space:nowrap}
+.cq-lead{font-size:1.125rem;line-height:1.6;color:rgb(var(--text-muted));max-width:62ch;margin:0 0 28px}
+.cq-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.cq-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cq-kpi{background:rgb(var(--bg-card));border:1px solid rgb(var(--border));border-radius:var(--radius);padding:14px 16px;min-width:0}
+.cq-k{display:block;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgb(var(--text-dim))}
+.cq-v{display:block;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:clamp(1.1rem,4.2vw,1.6rem);line-height:1.2;margin:6px 0 4px;color:rgb(var(--text));white-space:nowrap}
+.cq-s{display:block;font-size:.8125rem;line-height:1.45;color:rgb(var(--text-dim))}
+.cq-kpi--put .cq-v{color:rgb(var(--yellow))}
+.cq-kpi--today .cq-v{color:rgb(var(--accent))}
+.cq-sec{margin-top:56px}
+.cq-sec h2{font-family:var(--font-display);font-size:1.5rem;line-height:1.25;margin:0 0 6px;color:rgb(var(--text))}
+.cq-sub{color:rgb(var(--text-muted));margin:0 0 16px;max-width:72ch;line-height:1.6}
+.cq-card{background:rgb(var(--bg-card));border:1px solid rgb(var(--border));border-radius:var(--radius);padding:16px}
+.cq-chart{width:100%;min-height:180px}
+.cq-chart svg{display:block;overflow:visible}
+.cq-grid{stroke:rgb(var(--border));stroke-width:1}
+.cq-ax{font-family:var(--font-mono);font-size:10px;fill:rgb(var(--text-dim))}
+.cq-lab{font-family:var(--font-mono);font-size:11px;fill:rgb(var(--text))}
+.cq-future{fill:rgb(var(--border)/.3)}
+.cq-avg{stroke:rgb(var(--text-muted));stroke-dasharray:4 4;stroke-width:1}
+.cq-legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px;font-size:.8125rem;color:rgb(var(--text-muted))}
+.cq-legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.cq-legend i.cq-i-avg,.cq-legend i.cq-i-dash{height:0;border-top:2px dashed rgb(var(--text-muted));border-radius:0;width:16px;vertical-align:3px}
+.cq-note{font-size:.8125rem;color:rgb(var(--text-dim));margin:10px 0 0;line-height:1.55}
+.cq-tablewrap{overflow-x:auto;border:1px solid rgb(var(--border));border-radius:var(--radius)}
+table.cq-t{border-collapse:collapse;width:100%;font-size:.875rem}
+.cq-t th,.cq-t td{padding:8px 12px;border-bottom:1px solid rgb(var(--border));text-align:right;white-space:nowrap;font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:rgb(var(--text-muted))}
+.cq-t th:first-child,.cq-t td:first-child{text-align:left;font-family:var(--font-sans);position:sticky;left:0;background:rgb(var(--bg));color:rgb(var(--text))}
+.cq-t th.cq-l,.cq-t td.cq-l{text-align:left;font-family:var(--font-sans)}
+.cq-t thead th{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgb(var(--text-dim));font-weight:500;font-family:var(--font-mono)}
+.cq-t thead th:first-child{font-family:var(--font-mono);color:rgb(var(--text-dim))}
+.cq-t tr.cq-tot td{color:rgb(var(--text));font-weight:600}
+.cq-t tr.cq-sep td{border-top:1px solid rgb(var(--text-dim)/.6)}
+.cq-t tr.cq-put td:not(:first-child){color:rgb(var(--yellow))}
+.cq-t tr.cq-muted td{color:rgb(var(--text-dim));font-style:italic}
+.cq-t tbody tr:last-child td{border-bottom:0}
+.cq-t td.cq-zero{color:rgb(var(--text-dim)/.6)}
+.cq-dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:8px;vertical-align:0}
+.cq-ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;color:rgb(var(--text-muted))}
+.cq-ctrl input[type=range]{width:170px;accent-color:rgb(var(--accent));min-height:36px}
+.cq-num{font-family:var(--font-mono);color:rgb(var(--text));display:inline-block;min-width:3ch;text-align:right;font-weight:500}
+.cq-pills{display:inline-flex;flex-wrap:wrap;gap:6px}
+.cq-pill,.cq-tab{font-family:var(--font-sans);font-size:.875rem;color:rgb(var(--text-muted));background:transparent;border:1px solid rgb(var(--border));border-radius:6px;min-height:36px;padding:0 12px;cursor:pointer;transition:background-color .12s,color .12s}
+.cq-pill:hover,.cq-tab:hover{color:rgb(var(--text))}
+#cq-amt .cq-pill{font-family:var(--font-mono);min-width:56px}
+.cq-pill[aria-checked="true"],.cq-tab[aria-selected="true"]{background:rgb(var(--text));color:rgb(var(--bg));border-color:rgb(var(--text))}
+.cq-pill:focus-visible,.cq-tab:focus-visible,#cq input:focus-visible{outline:2px solid rgb(var(--accent));outline-offset:2px}
+@media (max-width:1023px){.cq-pill,.cq-tab{min-height:44px}.cq-ctrl input[type=range]{min-height:44px}}
+.cq-res{margin-top:16px;display:grid;gap:6px;line-height:1.55;color:rgb(var(--text-muted))}
+.cq-res p{margin:0}
+.cq-res b{color:rgb(var(--text));font-variant-numeric:tabular-nums;font-weight:600}
+.cq-num{font-family:var(--font-sans)!important;font-variant-numeric:tabular-nums}
+.cq-swipe{display:none;font-size:.8125rem;color:rgb(var(--text-dim));margin:0 0 8px}
+@media (max-width:760px){.cq-swipe{display:block}}
+.cq-bar{height:8px;border-radius:99px;background:rgb(var(--border)/.7);overflow:hidden;margin:4px 0}
+.cq-bar>i{display:block;height:100%;background:rgb(var(--accent));width:0;transition:width .2s}
+.cq-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.cq-count{font-size:.875rem;color:rgb(var(--text-dim));margin:0 0 8px}
+.cq-names{font-size:1.0625rem;line-height:2;color:rgb(var(--text));margin:0}
+.cq-names span{white-space:nowrap}
+.cq-names span:not(:last-child)::after{content:"·";color:rgb(var(--text-dim));margin:0 .3em 0 .55em}
+.cq-names .cq-anon{color:rgb(var(--text-dim));font-style:italic}
+.cq-choice{margin-top:18px;padding-top:16px;border-top:1px solid rgb(var(--border));display:grid;gap:10px}
+.cq-choice .cq-note{margin:0}
+.cq-choice .cq-note b{color:rgb(var(--text));font-weight:500}
+.cq-list{margin:0;padding-left:1.2em;list-style:disc;color:rgb(var(--text-muted));line-height:1.7;max-width:72ch}
+@media (prefers-reduced-motion:reduce){.cq-bar>i,.cq-pill,.cq-tab{transition:none}}
+.cq-simnote{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;border:1px solid rgb(var(--yellow)/.4);background:rgb(var(--yellow)/.08);border-radius:var(--radius);padding:12px 16px;margin:0 0 24px}
+.cq-simnote p{margin:0;flex:1 1 40ch;font-size:.875rem;line-height:1.55;color:rgb(var(--text-muted))}
+.cq-lensbar{display:grid;gap:8px;margin:0 0 20px}
+.cq-lensbar .cq-note{margin:0}
+.cq-kpis--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:860px){.cq-kpis--3{grid-template-columns:minmax(0,1fr)}}
+.cq-ctrl{justify-content:space-between;row-gap:10px}
+.cq-ctrl select{min-height:36px;padding:0 10px;border-radius:6px;border:1px solid rgb(var(--border));background:rgb(var(--bg));color:rgb(var(--text));font-family:var(--font-mono);font-size:.875rem}
+@media (max-width:1023px){.cq-ctrl select{min-height:44px}}
+.cq-dl{display:inline-flex;align-items:center;text-decoration:none}
+.cq-kpi--warn .cq-v{color:rgb(var(--yellow))}
+.cq-hidden{display:none!important}
+.cq-t td.cq-up{color:rgb(var(--red))}
+.cq-t td.cq-down{color:rgb(var(--green))}
+.cq-t tr.cq-sub td:first-child{padding-left:28px;color:rgb(var(--text-muted))}
+.cq-t tr.cq-neg td:not(:first-child){color:rgb(var(--red))}
+.cq-plist{display:grid;gap:10px}
+.cq-plist p{margin:0;color:rgb(var(--text-muted));line-height:1.6}
+.cq-plist b{color:rgb(var(--text));font-weight:600}
+.cq-future-bar{opacity:.45}
+#cq-q{max-width:140px}
+#cq-book{font-size:.8125rem}
+#cq-book th,#cq-book td{padding-left:8px;padding-right:8px}
+#cq-book td.cq-l{white-space:normal;min-width:120px}
+#cq-book tfoot td.cq-l{min-width:220px}
+
+</style>
+
+<script is:inline>
+(() => {
+const RAW = JSON.parse(document.getElementById('cq-data').textContent);
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+if (!$('#cq')) return;
+const fmt = (n, d = 0) => { const neg = n < -1e-9; n = Math.abs(n); let [a, b] = n.toFixed(d).split('.'); a = a.replace(/\B(?=(\d{3})+(?!\d))/g, ','); return (neg ? '−' : '') + a + (b ? '.' + b : ''); };
+const eur = (n, d = 0) => (n < -1e-9 ? '−€' + fmt(-n, d) : '€' + fmt(n, d));
+const DAY = 864e5, T0 = Date.parse(RAW.start + 'T00:00:00Z');
+const di = s => Math.round((Date.parse(s + 'T00:00:00Z') - T0) / DAY);
+const ds = d => new Date(T0 + d * DAY).toISOString().slice(0, 10);
+const TD = di(RAW.asOf), ND = TD + 1;
+const C = [
+  { id: 'personas', label: 'People', c: '--yellow', pgc: '640 · 642', tbm: 'Staffing (internal labour)' },
+  { id: 'ia', label: 'Artificial intelligence', c: '--accent', pgc: '629', tbm: 'Cloud services · Software & SaaS' },
+  { id: 'software', label: 'Software and licences', c: '--purple', pgc: '629', tbm: 'Software & SaaS' },
+  { id: 'nube', label: 'Servers, web and domains', c: '--blue', pgc: '629', tbm: 'Cloud services' },
+  { id: 'asesoria', label: 'Gestoría, registry and bank', c: '--green', pgc: '623 · 626 · 629', tbm: 'Outside services' },
+  { id: 'encargos', label: 'Art and commissions', c: '--red', pgc: '623', tbm: 'Outside services' },
+  { id: 'web3', label: 'Web3 (gas)', c: '--teal', pgc: '629', tbm: 'Cloud services' },
+];
+const K = C.map(c => c.id), KI = Object.fromEntries(K.map((k, i) => [k, i]));
+const col = k => `rgb(var(${C[KI[k]].c}))`;
+const MES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const MESL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const cap = s => s[0].toUpperCase() + s.slice(1);
+
+// ---- the ledger: one line per document
+const ITEMS = [], INCOME = [];
+for (const r of RAW.rows) {
+  if (r.kind === 'income') INCOME.push({ f: r.date, base: +r.base, c: r.concept, n: r.document });
+  else ITEMS.push({ n: r.document, f: r.date, a: r.period_from < RAW.start ? RAW.start : r.period_from, b: r.period_to, pv: r.supplier, c: r.concept, k: r.category, g: r.account, base: +r.base, iva: r.vat, per: r.billing, hc: r.headcount ? +r.headcount : 0 });
+}
+
+// ---- daily matrices: consumed (spread over the period covered) and billed (on the document date)
+const EFF = K.map(() => new Float64Array(ND)), BIL = K.map(() => new Float64Array(ND)), INC = new Float64Array(ND);
+for (const it of ITEMS) {
+  const k = KI[it.k], a = di(it.a), b = di(it.b), per = it.base / (b - a + 1);
+  for (let d = Math.max(0, a); d <= Math.min(TD, b); d++) EFF[k][d] += per;
+  const f = di(it.f); if (f <= TD) BIL[k][Math.max(0, f)] += it.base;
+}
+for (const r of INCOME) { const f = di(r.f); if (f <= TD && f >= 0) INC[f] += r.base; }
+const MAT = { eff: EFF, bil: BIL };
+const sumRange = (M, a, b, ks = K) => { let s = 0; for (const k of ks) { const A = M[KI[k]]; for (let d = Math.max(0, a); d <= Math.min(TD, b); d++) s += A[d]; } return s; };
+const incRange = (a, b) => { let s = 0; for (let d = Math.max(0, a); d <= Math.min(TD, b); d++) s += INC[d]; return s; };
+
+// ---- periods
+const wd = d => (new Date(T0 + d * DAY).getUTCDay() + 6) % 7;
+const KEY = {
+  day: d => [d, d, d],
+  week: d => { const a = d - wd(d); return [a, a, a + 6]; },
+  month: d => { const s = ds(d), y = +s.slice(0, 4), m = +s.slice(5, 7); return [s.slice(0, 7), di(`${s.slice(0, 7)}-01`), di(new Date(Date.UTC(y, m, 0)).toISOString().slice(0, 10))]; },
+  quarter: d => { const s = ds(d), y = +s.slice(0, 4), q = Math.floor((+s.slice(5, 7) - 1) / 3); return [`${y}-Q${q + 1}`, di(new Date(Date.UTC(y, 3 * q, 1)).toISOString().slice(0, 10)), di(new Date(Date.UTC(y, 3 * q + 3, 0)).toISOString().slice(0, 10))]; },
+  year: d => { const y = ds(d).slice(0, 4); return [y, di(`${y}-01-01`), di(`${y}-12-31`)]; },
+};
+const LAST = { day: 60, week: 26, month: 24, quarter: 12, year: 99 };
+const label = (g, p, short) => {
+  const s = ds(p.a), y = s.slice(2, 4), m = +s.slice(5, 7);
+  if (g === 'day') return short ? `${+s.slice(8)}/${m}` : `${+s.slice(8)} ${MESL[m - 1]}`;
+  if (g === 'week') return short ? `${+s.slice(8)}/${m}` : `the week of ${+s.slice(8)} ${MESL[m - 1]}`;
+  if (g === 'month') return short ? `${MES[m - 1]} ${y}` : `${MESL[m - 1]} ${s.slice(0, 4)}`;
+  if (g === 'quarter') return short ? `Q${Math.floor((m - 1) / 3) + 1} ${y}` : `Q${Math.floor((m - 1) / 3) + 1} ${s.slice(0, 4)}`;
+  return s.slice(0, 4) + (s.slice(0, 4) === RAW.start.slice(0, 4) ? '¹' : s.slice(0, 4) === RAW.asOf.slice(0, 4) ? '²' : '');
+};
+const cache = {};
+function periods(g, mode) {
+  const ck = g + mode; if (cache[ck]) return cache[ck];
+  const M = MAT[mode], out = [], map = new Map();
+  for (let d = 0; d < ND; d++) {
+    const [key, a, b] = KEY[g](d);
+    let p = map.get(key);
+    if (!p) { p = { key, a, b, v: new Float64Array(K.length), inc: 0 }; map.set(key, p); out.push(p); }
+    for (let i = 0; i < K.length; i++) p.v[i] += M[i][d];
+    p.inc += INC[d];
+  }
+  for (const p of out) { p.t = p.v.reduce((x, y) => x + y, 0); p.open = p.b > TD; p.days = Math.min(p.b, TD) - Math.max(p.a, 0) + 1; }
+  return (cache[ck] = out);
+}
+
+// ---- headline numbers (consumed)
+const total = sumRange(EFF, 0, TD), income = incRange(0, TD);
+const today = sumRange(EFF, TD, TD), avg30 = sumRange(EFF, TD - 29, TD) / 30;
+const ext30 = sumRange(EFF, TD - 29, TD, K.filter(k => k !== 'personas')) / 30;
+const monthNow = periods('month', 'eff').at(-1);
+
+// ---- lens
+let LENS = 'pub';
+const LENSNOTE = {
+  pub: 'The public view: what it costs, where it goes, and who holds it up. People appear together, never one by one.',
+  cto: 'What a CTO asks for: the cost per day of each service, where it goes, and how it changes from one period to the next.',
+  cfo: 'What finance and a bank ask for: profit and loss in the headings of the accounting plan, cash, the monthly burn and how long the company lasts.',
+  ges: 'What the gestoría uses: the received-invoices book, each invoice with its account, by quarter — what the quarterly VAT return needs.',
+};
+const kpi = (lab, v, s, cls = '') => `<div class="cq-kpi ${cls}"><span class="cq-k">${lab}</span><b class="cq-v">${v}</b><span class="cq-s">${s}</span></div>`;
+function kpis() {
+  $('#cq-kpis').innerHTML = [
+    kpi('Costs today', eur(today, 2), `average of the last 30 days: ${eur(avg30, 2)} a day`, 'cq-kpi--today'),
+    kpi(`In ${MESL[+monthNow.key.slice(5) - 1]}`, eur(monthNow.t), `in ${monthNow.days} days; by the end of the month, about ${eur(monthNow.t / monthNow.days * (monthNow.b - monthNow.a + 1))}`),
+    kpi('Since 2020', eur(total), `in ${fmt(TD + 1)} days. ${eur(income)} has come in, ${fmt(100 * income / total, 1)} %`),
+    kpi('Numen Games has put in', eur(total - income), 'the difference, paid by the company', 'cq-kpi--put'),
+  ].join('');
+}
+function setLens(l) {
+  LENS = l;
+  $$('[data-lens]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.lens === l)));
+  $$('[data-l]').forEach(s => s.classList.toggle('cq-hidden', !s.dataset.l.split(' ').includes(l)));
+  $('#cq-lensnote').textContent = LENSNOTE[l];
+  drawBars();
+}
+$$('[data-lens]').forEach(b => b.addEventListener('click', () => setLens(b.dataset.lens)));
+
+// ---- chart
+let G = 'month', MODE = 'eff', PPL = true;
+const view = p => PPL ? p : { ...p, v: p.v.map((x, i) => K[i] === 'personas' ? 0 : x), t: p.t - p.v[KI.personas] };
+const nice = v => { const e = Math.pow(10, Math.floor(Math.log10(v || 1))), f = v / e; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * e; };
+function drawBars() {
+  const el = $('#cq-bars'); if (!el.offsetParent) return;
+  const all = periods(G, MODE).map(view), P = all.slice(-LAST[G]), n = P.length;
+  const W = el.clientWidth, H = W < 500 ? 230 : 270, pl = 52, pr = 6, pt = 22, pb = 26;
+  const cw = (W - pl - pr) / n, bw = Math.max(2, Math.min(56, cw * 0.66));
+  const vmax = Math.max(...P.map(p => p.t), 1), step = nice(vmax / 4), ymax = Math.ceil(vmax * 1.08 / step) * step;
+  const y = v => pt + (H - pt - pb) * (1 - v / ymax);
+  let s = '';
+  for (let v = 0; v <= ymax + 1e-9; v += step) s += `<line x1="${pl}" x2="${W - pr}" y1="${y(v)}" y2="${y(v)}" class="cq-grid"/><text x="${pl - 6}" y="${y(v) + 3}" class="cq-ax" text-anchor="end">${fmt(v)}</text>`;
+  const every = Math.ceil(n / Math.max(3, Math.floor((W - pl) / 64)));
+  P.forEach((p, i) => {
+    const x = pl + i * cw + (cw - bw) / 2; let acc = 0;
+    s += `<g data-p="${p.key}"${p.open ? ' class="cq-future-bar"' : ''}><title>${cap(label(G, p))}${p.open ? ' (open)' : ''}: ${eur(p.t, G === 'day' ? 2 : 0)}</title>`;
+    K.forEach((k, j) => { const v = p.v[j]; if (v <= 0) return; s += `<rect x="${x}" y="${y(acc + v)}" width="${bw}" height="${Math.max(0, y(acc) - y(acc + v))}" style="fill:${col(k)}"/>`; acc += v; });
+    s += '</g>';
+    if (i % every === 0 || i === n - 1) s += `<text x="${x + bw / 2}" y="${H - 7}" text-anchor="middle" class="cq-ax">${label(G, p, true)}</text>`;
+  });
+  el.innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Cost per ${G}">${s}</svg>`;
+  const shown = K.filter(k => P.some(p => p.v[KI[k]] > 0));
+  $('#cq-leg').innerHTML = shown.map(k => `<span><i style="background:${col(k)}"></i>${C[KI[k]].label}</span>`).join('');
+  const done = all.filter(p => !p.open), last = done.at(-1), open = all.at(-1).open ? all.at(-1) : null;
+  const shownDone = done.slice(-LAST[G]), avg = shownDone.reduce((a, p) => a + p.t, 0) / Math.max(1, shownDone.length);
+  $('#cq-readout').textContent = (last ? `${cap(label(G, last))}: ${eur(last.t, G === 'day' ? 2 : 0)}${G === 'day' ? '' : ` (${eur(last.t / last.days, 2)} a day)`}. ` : '')
+    + (G !== 'year' ? `Average of the closed periods shown: ${eur(avg, G === 'day' ? 2 : 0)}. ` : '')
+    + (open ? `${cap(label(G, open))}, still open: ${eur(open.t)} so far.` : '');
+  $('#cq-modenote').textContent = MODE === 'eff'
+    ? 'Consumed: each cost spread over the days it covers — what was used. The day-to-day view.'
+    : 'Billed: each cost on the day its invoice arrives or the payroll is paid. Peaks appear: yearly licences, the June and December extra payments.';
+  mix();
+}
+$$('[data-g]').forEach(b => b.addEventListener('click', () => { G = b.dataset.g; $$('[data-g]').forEach(x => x.setAttribute('aria-selected', String(x === b))); drawBars(); }));
+$$('[data-m]').forEach(b => b.addEventListener('click', () => { MODE = b.dataset.m; $$('[data-m]').forEach(x => x.setAttribute('aria-selected', String(x === b))); drawBars(); }));
+$$('[data-ppl]').forEach(b => b.addEventListener('click', () => { PPL = b.dataset.ppl === '1'; $$('[data-ppl]').forEach(x => x.setAttribute('aria-selected', String(x === b))); drawBars(); }));
+
+// ---- mix: last closed period against the one before
+function mix() {
+  const done = periods(G, MODE).map(view).filter(p => !p.open), cur = done.at(-1), prev = done.at(-2);
+  if (!cur) return;
+  const d = G === 'day' ? 2 : 0;
+  $('#cq-mixsub').textContent = `${cap(label(G, cur))}, the last closed period, against the one before${PPL ? '' : ', services only'}. Change the period above.`;
+  $('#cq-mix thead').innerHTML = `<tr><th>Concept</th><th class="cq-l">Account · TBM category</th><th>${label(G, cur, true)}</th><th>Share</th><th>${prev ? label(G, prev, true) : ''}</th><th>Change</th></tr>`;
+  const ch = (a, b) => { if (!b) return '<td class="cq-zero">—</td>'; const r = 100 * (a - b) / b; if (Math.abs(r) < 0.5) return '<td>=</td>'; return `<td class="${r > 0 ? 'cq-up' : 'cq-down'}">${r > 0 ? '+' : ''}${fmt(r)} %</td>`; };
+  let rows = '';
+  K.forEach((k, j) => {
+    const a = cur.v[j], b = prev ? prev.v[j] : 0; if (!a && !b) return;
+    rows += `<tr><td><i class="cq-dot" style="background:${col(k)}"></i>${C[j].label}</td><td class="cq-l">${C[j].pgc} · ${C[j].tbm}</td><td>${eur(a, d)}</td><td>${cur.t ? fmt(100 * a / cur.t) : 0} %</td><td>${eur(b, d)}</td>${ch(a, b)}</tr>`;
+  });
+  if (!rows) rows = `<tr><td colspan="6" class="cq-l cq-zero">${MODE === 'bil' ? 'No invoice arrived and no payroll was paid in that period.' : 'No cost in this period.'}</td></tr>`;
+  rows += `<tr class="cq-tot cq-sep"><td>Total</td><td></td><td>${eur(cur.t, d)}</td><td>100 %</td><td>${prev ? eur(prev.t, d) : ''}</td>${ch(cur.t, prev && prev.t)}</tr>`;
+  rows += `<tr><td>Came in</td><td class="cq-l">70x</td><td>${eur(cur.inc, d)}</td><td></td><td>${prev ? eur(prev.inc, d) : ''}</td><td></td></tr>`;
+  rows += `<tr class="cq-tot cq-put"><td>Numen Games put in</td><td></td><td>${eur(cur.t - cur.inc, d)}</td><td></td><td>${prev ? eur(prev.t - prev.inc, d) : ''}</td><td></td></tr>`;
+  $('#cq-mix tbody').innerHTML = rows;
+}
+
+// ---- active services, cost per day over the last 30 days
+function services() {
+  const a = TD - 29, groups = new Map();
+  for (const it of ITEMS) {
+    const ia = di(it.a), ib = di(it.b); if (ib < a || ia > TD) continue;
+    const v = it.base * (Math.min(ib, TD) - Math.max(ia, a) + 1) / (ib - ia + 1);
+    const key = it.k === 'personas' ? 'personas' : it.pv + '|' + it.c;
+    let g = groups.get(key);
+    if (!g) groups.set(key, g = { pv: it.k === 'personas' ? 'People' : it.pv, c: it.k === 'personas' ? 'Salaries and social security' : it.c, k: it.k, per: it.per, base: it.base, v: 0 });
+    g.v += v;
+  }
+  const rows = [...groups.values()].map(g => ({ ...g, d: g.v / 30 })).sort((x, y) => y.d - x.d);
+  const tot = rows.reduce((s, r) => s + r.d, 0);
+  const how = r => r.k === 'personas' ? '14 payments a year, social security monthly' : r.per === 'month' ? `${eur(r.base, 2)} a month` : r.per === 'year' ? `${eur(r.base, 2)} a year` : r.per === 'usage' ? 'by usage' : 'once';
+  $('#cq-serv tbody').innerHTML = rows.map(r => `<tr><td><i class="cq-dot" style="background:${col(r.k)}"></i>${r.pv}</td><td class="cq-l">${r.c}</td><td class="cq-l">${how(r)}</td><td>${eur(r.d, 2)}</td><td>${eur(r.d * 365 / 12)}</td><td>${eur(r.d * 365)}</td><td>${fmt(100 * r.d / tot, 1)} %</td></tr>`).join('')
+    + `<tr class="cq-tot cq-sep"><td>Total</td><td></td><td></td><td>${eur(tot, 2)}</td><td>${eur(tot * 365 / 12)}</td><td>${eur(tot * 365)}</td><td>100 %</td></tr>`;
+}
+
+// ---- people: one line a month for everyone, never per person
+function people() {
+  const staff = ITEMS.filter(i => i.k === 'personas' && di(i.f) <= TD).sort((x, y) => x.f < y.f ? -1 : 1);
+  const hc = staff.length ? staff.at(-1).hc : 0;
+  const month = sumRange(EFF, TD - 29, TD, ['personas']) / 30 * 365 / 12, share = sumRange(EFF, TD - 29, TD, ['personas']) / 30 / avg30;
+  $('#cq-people').innerHTML = `<div class="cq-plist"><p><b>${hc} people</b> work on Numinia. Salaries and the employer's social security cost <b>${eur(month)} a month</b>: <b>${fmt(100 * share)} %</b> of everything Numinia costs.</p><p>Nobody's pay is published. The ledger carries all staff in one line a month, with the headcount; with so few people, even an average would give a salary away. The per-person figures stay with the company and the gestoría.</p></div>`;
+}
+
+// ---- profit and loss by year (abbreviated PGC model), consumed
+function pyg() {
+  const ys = [...new Set(ITEMS.map(i => i.f.slice(0, 4)))].filter(y => y <= RAW.asOf.slice(0, 4)).sort();
+  const acc = y => { const a = di(`${y}-01-01`), b = di(`${y}-12-31`); const r = { inc: incRange(a, b), s640: 0, s642: 0, s62: 0, s631: 0 };
+    for (const it of ITEMS) { const ia = di(it.a), ib = di(it.b), lo = Math.max(ia, a, 0), hi = Math.min(ib, b, TD); if (hi < lo) continue;
+      const v = it.base * (hi - lo + 1) / (ib - ia + 1); if (it.g === '640') r.s640 += v; else if (it.g === '642') r.s642 += v; else if (it.g === '631') r.s631 += v; else r.s62 += v; }
+    return r; };
+  const R = ys.map(acc), cell = v => Math.abs(v) < 0.5 ? '<td class="cq-zero">—</td>' : `<td>${eur(v)}</td>`;
+  const row = (lab, f, cls = '') => `<tr class="${cls}"><td>${lab}</td>${R.map(r => cell(f(r))).join('')}</tr>`;
+  $('#cq-pyg thead').innerHTML = `<tr><th>Heading</th>${ys.map(y => `<th>${label('year', { a: di(y + '-01-01') })}</th>`).join('')}</tr>`;
+  $('#cq-pyg tbody').innerHTML =
+    row('1. Net turnover', r => r.inc)
+    + row('6. Staff costs', r => -(r.s640 + r.s642), 'cq-sep')
+    + row('a) Wages and salaries (640)', r => -r.s640, 'cq-sub')
+    + row('b) Social security (642)', r => -r.s642, 'cq-sub')
+    + row('7. Other operating expenses', r => -(r.s62 + r.s631))
+    + row('a) External services (62)', r => -r.s62, 'cq-sub')
+    + row('b) Taxes (631)', r => -r.s631, 'cq-sub')
+    + row('EBITDA', r => r.inc - r.s640 - r.s642 - r.s62 - r.s631, 'cq-tot cq-sep cq-neg')
+    + row('8. Depreciation', () => 0)
+    + row('A.1) Operating result', r => r.inc - r.s640 - r.s642 - r.s62 - r.s631, 'cq-tot cq-neg');
+}
+
+// ---- cash and runway (billed, last three closed months)
+function cash() {
+  const ms = periods('month', 'bil').filter(p => !p.open).slice(-3);
+  const burn = ms.reduce((s, p) => s + p.t - p.inc, 0) / ms.length, run = RAW.cash / burn;
+  const end = new Date(Date.parse(RAW.asOf + 'T00:00:00Z') + run * 30.44 * DAY);
+  $('#cq-cash').innerHTML = kpi('Cash today', eur(RAW.cash), 'bank balance (simulated)')
+    + kpi('Burned a month', eur(burn), 'average of the last three closed months: billed minus what came in', 'cq-kpi--warn')
+    + kpi('Lasts', `${fmt(run, 1)} months`, `until ${MESL[end.getUTCMonth()]} ${end.getUTCFullYear()} if nothing else comes in`, run < 6 ? 'cq-kpi--warn' : '');
+  $('#cq-cashnote').textContent = `With these figures Numinia does not reach profitability on its own: income barely grows and costs do. Each month Numen Games puts in about ${eur(burn)}. That is the question support will answer.`;
+}
+
+// ---- the received-invoices book by quarter; daily usage lines are one invoice a month
+const BOOK = ITEMS.filter(i => i.iva !== 'payroll' && di(i.f) <= TD)
+  .reduce((acc, i) => {
+    if (i.per === 'usage' && i.a === i.b) { const key = i.pv + i.f; const x = acc.m.get(key); if (x) { x.base += i.base; return acc; } const y = { ...i, a: i.f.slice(0, 8) + '01' }; acc.m.set(key, y); acc.l.push(y); return acc; }
+    acc.l.push({ ...i }); return acc; }, { l: [], m: new Map() }).l
+  .sort((x, y) => x.f < y.f ? -1 : x.f > y.f ? 1 : 0);
+BOOK.forEach(r => { r.cuota = r.iva === '21' || r.iva === 'ISP' ? r.base * 0.21 : 0; r.total = r.iva === 'ISP' ? r.base : r.base + r.cuota; });
+const qOf = f => `${f.slice(0, 4)}-Q${Math.floor((+f.slice(5, 7) - 1) / 3) + 1}`;
+const QS = [...new Set(BOOK.map(r => qOf(r.f)))].reverse();
+$('#cq-q').innerHTML = QS.map(q => `<option value="${q}">${q.slice(5)} ${q.slice(0, 4)}</option>`).join('');
+function book() {
+  const q = $('#cq-q').value, L = BOOK.filter(r => qOf(r.f) === q);
+  const vatLab = r => r.iva === '21' ? '21 %' : r.iva;
+  $('#cq-book tbody').innerHTML = L.map(r => `<tr><td>${r.n}</td><td>${r.f.split('-').reverse().join('/')}</td><td class="cq-l">${r.pv}</td><td class="cq-l">${r.c}</td><td>${r.g}</td><td>${eur(r.base, 2)}</td><td>${vatLab(r)}</td><td>${r.cuota ? eur(r.cuota, 2) : '—'}</td><td>${eur(r.total, 2)}</td></tr>`).join('');
+  const sb = L.reduce((s, r) => s + r.base, 0), sc = L.reduce((s, r) => s + (r.iva === '21' ? r.cuota : 0), 0), si = L.reduce((s, r) => s + (r.iva === 'ISP' ? r.cuota : 0), 0);
+  $('#cq-book tfoot').innerHTML = `<tr class="cq-tot cq-sep"><td>${L.length} invoices</td><td></td><td></td><td class="cq-l">Deductible input VAT: ${eur(sc + si, 2)} (reverse charge ${eur(si, 2)})</td><td></td><td>${eur(sb, 2)}</td><td></td><td>${eur(sc + si, 2)}</td><td>${eur(L.reduce((s, r) => s + r.total, 0), 2)}</td></tr>`;
+}
+$('#cq-q').addEventListener('change', book);
+
+// ---- looking ahead
+let N = 300, A = 5;
+const AMOUNTS = [3, 5, 10, 20];
+const split = a => { const iva = a - a / 1.21, fee = a * 0.022 + 0.25; return { iva, fee, net: a - iva - fee }; };
+function scen() {
+  const { iva, fee, net } = split(A), monthly = N * net, all = avg30 * 365 / 12, ext = ext30 * 365 / 12;
+  const pAll = 100 * monthly / all, pExt = 100 * monthly / ext;
+  $('#cq-n').textContent = fmt(N); $('#cq-range').value = N;
+  $$('#cq-amt .cq-pill').forEach(b => b.setAttribute('aria-checked', String(+b.dataset.a === A)));
+  $('#cq-r1').innerHTML = `<b>${eur(monthly)}</b> a month comes in. Of every ${eur(A)}, ${eur(iva, 2)} is VAT and ${eur(fee, 2)} goes to the payment processor.`;
+  $('#cq-r2').innerHTML = `It covers <b id="cq-pext">${fmt(Math.min(pExt, 999))} %</b> of the spend on services (${eur(ext)} a month) and <b id="cq-pall">${fmt(pAll)} %</b> of everything, people included (${eur(all)} a month).`;
+  $('#cq-barfill').style.width = Math.min(100, pAll) + '%';
+  $('#cq-r3').innerHTML = `Services would need <b>${fmt(Math.ceil(ext / net))}</b> people at ${eur(A)}; everything, <b id="cq-need">${fmt(Math.ceil(all / net))}</b>.`;
+  return { pAll, pExt, need: Math.ceil(all / net) };
+}
+$('#cq-amt').innerHTML = AMOUNTS.map(a => `<button type="button" class="cq-pill" role="radio" aria-checked="false" data-a="${a}">€${a}</button>`).join('');
+$$('#cq-amt .cq-pill').forEach(b => b.addEventListener('click', () => { A = +b.dataset.a; scen(); }));
+$('#cq-range').addEventListener('input', e => { N = +e.target.value; scen(); });
+
+// ---- homage (invented names)
+const HOM = { month: ['Lucía M.', 'Jordi P.', 'Anonymous', 'Aitana R.', 'Kyrie', 'Nerea G.', 'Anonymous', 'Samuel O.', 'Carmen and Iker', 'Anonymous', 'Tomás L.', 'archivist_03', 'Irene V.', 'Anonymous'],
+  q: ['Hugo', 'Yui K.', 'Pau S.', 'Anonymous', 'Elena', 'Ana B.', 'Anonymous', 'Diego F.', 'Anonymous'],
+  y: ['María José', 'Kevin', 'Anonymous', 'Laura T.', 'Óscar', 'Noa', 'Anonymous', 'The Weaver'] };
+const HM = { month: HOM.month, quarter: HOM.month.concat(HOM.q), year: HOM.month.concat(HOM.q, HOM.y) };
+const HL = { month: 'This month', quarter: 'This quarter', year: 'This year' };
+function showH(k) {
+  const list = HM[k], anon = list.filter(x => x === 'Anonymous').length;
+  $$('[data-h]').forEach(b => { b.textContent = `${HL[b.dataset.h]} · ${HM[b.dataset.h].length}`; b.setAttribute('aria-selected', String(b.dataset.h === k)); });
+  $('#cq-hcount').textContent = `${list.length} people, ${anon} without a name`;
+  $('#cq-names').innerHTML = list.map(x => `<span${x === 'Anonymous' ? ' class="cq-anon"' : ''}>${x}</span>`).join(' ');
+}
+$$('[data-h]').forEach(b => b.addEventListener('click', () => showH(b.dataset.h)));
+const AS = { name: 'You will appear as <b>Lucía M.</b>, with the name you write.', alias: 'You will appear with <b>the alias you choose</b>, for example “archivist_03”.', anon: 'You will appear as <b>Anonymous</b>. Your support is counted, not your name.' };
+function showAs(k) { $$('[data-as]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.as === k))); $('#cq-as').innerHTML = AS[k]; }
+$$('[data-as]').forEach(b => b.addEventListener('click', () => showAs(b.dataset.as)));
+
+$('#cq-how').innerHTML = [
+  'Every cost and every income is one line of one ledger, with two dates: when it is billed and the period it covers. “Billed” puts it on the invoice date; “consumed” spreads it over the days it covers. It is the distinction FOCUS makes — the FinOps Foundation’s open specification for cloud, SaaS and AI costs.',
+  'Each line carries its account in the Spanish General Accounting Plan (what the gestoría uses) and a category of the TBM taxonomy (what a CTO uses). All four views come from the same lines, so they cannot disagree.',
+  'Amounts are shown without VAT: the VAT the company pays is recovered, so it is not a cost. Income is also shown without VAT.',
+  'People count at their cost to the company: gross pay plus the employer’s social security. The ledger holds all of them in one line a month.',
+  'Each month is closed from its invoices, the payroll and the payment processor’s report; until then it is provisional. A closed month is never edited: a correction is a new line. The whole ledger is downloadable, one line per document.',
+].map(x => `<li>${x}</li>`).join('');
+
+kpis(); services(); people(); pyg(); cash(); book(); showH('month'); showAs('anon'); scen(); setLens('pub');
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(drawBars, 120); });
+window.CQ = { total, income, today, avg30, ext30, periods, sumRange, EFF, BIL, BOOK, ITEMS, INCOME, scen: (n, a) => { N = n; A = a; return scen(); }, setLens };
+})();
+
+</script>

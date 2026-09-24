@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.45.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "The account, with simulated figures: /system/account shows what Numinia costs and takes in since 2 November 2020, by day, week, month, quarter and year, as consumed or as billed, with or without people. Four ways to read it — anyone, a CTO, finance and a bank, the gestoría — all computed from one ledger of lines you can download as a CSV. Every figure is invented until the first real month closes; the page says so at the top.",
+      },
+    ],
+  },
+  {
     version: "v0.44.0",
     date: "2026-09-24",
     entries: [
