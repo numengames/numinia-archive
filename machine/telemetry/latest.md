@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-24T13:28:15Z"
+updated: "2026-09-24T13:35:12Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,16 +20,16 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `533448f`  · corpus_hash: `caf2be7bb0463d7a…`  · measured_at: 2026-09-24T13:28:15Z  · root_dirty: 0
+- head: `4317655`  · corpus_hash: `161d516b114f3d44…`  · measured_at: 2026-09-24T13:35:12Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 556 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 559 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.md_total` | 211 | files | tracked `.md` anywhere, including `web/` |
-| `corpus.docs_total` | 209 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
+| `corpus.docs_total` | 210 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
 | `corpus.docs_by_dir` | (table below) | documents | corpus documents by top-level directory; root files under `(root)` |
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
 | `corpus.docs_without_frontmatter` | 36 | documents | corpus documents with no `---` block at the top |
@@ -43,10 +43,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | files |
 |---|---|
 | (none) | 2 |
-| .astro | 46 |
+| .astro | 47 |
 | .css | 3 |
 | .gitignore | 2 |
-| .html | 2 |
+| .html | 1 |
 | .jpg | 2 |
 | .js | 2 |
 | .json | 14 |
@@ -55,7 +55,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .png | 35 |
 | .svg | 72 |
 | .toml | 2 |
-| .ts | 30 |
+| .ts | 33 |
 | .tsx | 2 |
 | .txt | 11 |
 | .webp | 1 |
@@ -81,7 +81,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | operations | 11 |
 | protocols | 12 |
 | reports | 6 |
-| standards | 30 |
+| standards | 31 |
 | system | 6 |
 
 ### `corpus.docs_by_type`
@@ -92,7 +92,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | adr | 25 |
 | agent | 34 |
 | blueprint | 10 |
-| documentation | 52 |
+| documentation | 53 |
 | entity | 2 |
 | legal | 3 |
 | meta | 3 |
@@ -112,8 +112,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `series.registration` | (table below) | documents | per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`. |
-| `series.registered_total` | 119 | documents | sum of `registration[*].registered` |
-| `series.registrable_total` | 119 | documents | sum of `registration[*].total` |
+| `series.registered_total` | 120 | documents | sum of `registration[*].registered` |
+| `series.registrable_total` | 120 | documents | sum of `registration[*].total` |
 | `series.agents_folder_named` | 11 | directories | directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0) |
 
 ### `series.registration`
@@ -128,7 +128,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | operations | 11 | 11 | 0 | 0 | 100 |
 | protocols | 12 | 12 | 0 | 0 | 100 |
 | reports | 6 | 6 | 0 | 0 | 100 |
-| standards | 30 | 30 | 0 | 0 | 100 |
+| standards | 31 | 31 | 0 | 0 | 100 |
 | system | 6 | 6 | 0 | 0 | 100 |
 
 ## missions
@@ -203,10 +203,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 672596 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 675031 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 6.54 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 6.51 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -214,16 +214,16 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 332075 |
-| standards | 55004 |
+| standards | 56771 |
 | missions | 43966 |
-| decisions | 35122 |
-|  | 33419 |
+| decisions | 35157 |
+|  | 34053 |
 | agents | 29069 |
 | reports | 26307 |
 | operations | 24533 |
 | blueprints | 20918 |
 | canon | 17401 |
-| system | 17096 |
+| system | 17095 |
 | machine | 16059 |
 | protocols | 15860 |
 | debt | 2990 |
@@ -234,9 +234,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 365564 |
-| draft | 143988 |
-| active | 117590 |
+| (none) | 366198 |
+| draft | 145755 |
+| active | 117624 |
 | done | 26539 |
 | todo | 14224 |
 | in-progress | 4691 |
@@ -249,7 +249,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `headers.docs_with_frontmatter` | 173 | documents | docs whose text opens with a --- block the shared reader parses |
+| `headers.docs_with_frontmatter` | 174 | documents | docs whose text opens with a --- block the shared reader parses |
 | `headers.docs_without_frontmatter` | 36 | documents | corpus docs minus docs_with_frontmatter |
 | `headers.field_usage` | (table below) | documents | per frontmatter key, the number of docs carrying it, most used first |
 | `headers.uid_present` | 0 | documents | docs with a non-empty uid |
@@ -262,28 +262,28 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| author | 172 |
-| created | 172 |
-| license | 172 |
-| status | 172 |
-| title | 172 |
-| type | 172 |
-| updated | 172 |
-| version | 172 |
-| owner | 171 |
-| tags | 169 |
-| id | 138 |
-| uid | 133 |
-| territory | 108 |
-| related | 77 |
-| guild | 73 |
+| author | 173 |
+| created | 173 |
+| license | 173 |
+| status | 173 |
+| title | 173 |
+| type | 173 |
+| updated | 173 |
+| version | 173 |
+| owner | 172 |
+| tags | 170 |
+| id | 139 |
+| uid | 134 |
+| territory | 109 |
+| related | 78 |
+| guild | 74 |
 | created_source | 68 |
 | created_confidence | 67 |
-| subtype | 47 |
+| subtype | 48 |
 | registration | 43 |
 | registration_reason | 39 |
 | agent | 33 |
-| threshold | 32 |
+| threshold | 33 |
 | series_change | 26 |
 | deciders | 22 |
 | ratified_by | 20 |
@@ -356,7 +356,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | values |
 |---|---|
 | dates_without_time | 4 |
-| empty_values | 144 |
+| empty_values | 145 |
 | v_prefixed_versions | 0 |
 | placeholders | 8 |
 
@@ -365,7 +365,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `provenance.authorship` | (table below) | documents | nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude\|gpt\|opus\|sonnet\|fable\|gemini\|llm) · other · no-author · no-frontmatter |
-| `provenance.dates_vs_commits_compared` | 159 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
+| `provenance.dates_vs_commits_compared` | 160 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
 | `provenance.created_ahead_of_commit` | 6 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
 | `provenance.created_behind_commit` | 31 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
@@ -377,7 +377,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| ai-persona | 135 |
+| ai-persona | 136 |
 | no-frontmatter | 36 |
 | other | 25 |
 | ai-model | 8 |
@@ -420,7 +420,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | documents |
 |---|---|
 | active | 71 |
-| draft | 89 |
+| draft | 90 |
 | done | 6 |
 | todo | 5 |
 | in-progress | 1 |
@@ -441,16 +441,16 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 912 |
+| STD | 929 |
 | MIS | 677 |
-| PRO | 265 |
+| PRO | 268 |
 | OPS | 80 |
-| CAN | 472 |
+| CAN | 480 |
 | ADR | 520 |
 | SYS | 45 |
 | DBT | 78 |
 | RPT | 55 |
-| BLU | 93 |
+| BLU | 100 |
 | DEC | 13 |
 
 ### `contradictions.id_form_mixed`
