@@ -285,7 +285,7 @@ export function sectionOf(entry: Entry): Section | undefined {
 }
 
 // ---------------------------------------------------------------------------
-// READING GROUPS — canon only
+// READING GROUPS — canon and standards
 // ---------------------------------------------------------------------------
 
 /**
@@ -365,8 +365,100 @@ const READING_GROUPS_CANON: ReadingGroup[] = [
   },
 ];
 
+/**
+ * Standards read in FIVE GROUPS, by purpose (Oracle's word, 2026-09-24).
+ *
+ * The same shape as the canon's shelves — a numeral, a label, one line — but
+ * not the canon's names: "the Summa" is the whole archive, never one shelf of
+ * it. Each shelf is named for what its standards are FOR. The citizen comes
+ * first, because that is what speaks to the person reading; the ground that
+ * holds everything up comes last.
+ */
+const READING_GROUPS_STANDARDS: ReadingGroup[] = [
+  {
+    numeral: "I",
+    label: "Living together",
+    line: "What you may do here, how we treat each other, and what we call things.",
+    // Who you are to the others comes first: what your rank lets you do, how
+    // the commons expects you to behave, who may change which document, and
+    // the two vocabularies — the world's and the business's.
+    hrefs: [
+      "/standards/std-003-platform-ranks",
+      "/standards/std-029-community-conduct",
+      "/standards/std-017-who-may-change-what",
+      "/standards/std-030-the-worlds-vocabulary",
+      "/standards/std-026-operative-vocabulary",
+    ],
+  },
+  {
+    numeral: "II",
+    label: "Writing it down",
+    line: "To act is to write. This is how you write so that someone else finds it and believes it.",
+    // The life of a document, outside in: which shelves exist and why → where
+    // it goes → what its header declares → the shape of its page → the two
+    // moulds with their own standard → its name and address → how it changes
+    // → how it proves what it says → which claim wins → how it leaves.
+    hrefs: [
+      "/standards/std-001-the-series",
+      "/standards/std-024-a-series-is-a-function",
+      "/standards/std-027-the-classification-scheme",
+      "/standards/std-004-the-header",
+      "/standards/std-016-header-fields",
+      "/standards/std-007-one-page-per-document",
+      "/standards/std-031-a-canon-states",
+      "/standards/std-025-a-mission-is-a-card",
+      "/standards/std-018-one-document-one-identifier",
+      "/standards/std-028-one-document-one-address",
+      "/standards/std-019-versions",
+      "/standards/std-021-evidence-and-citation",
+      "/standards/std-009-which-rule-wins",
+      "/standards/std-012-corpus-does-not-grow",
+    ],
+  },
+  {
+    numeral: "III",
+    label: "Showing it",
+    line: "Everything a visitor touches looks the same on all four sites.",
+    // The map first, then the rules, then the values the rules point at.
+    hrefs: [
+      "/standards/std-032-the-design-system",
+      "/standards/std-008-design-tokens",
+      "/standards/std-023-design-values",
+    ],
+  },
+  {
+    numeral: "IV",
+    label: "What leaves the house",
+    line: "What we give away, what never goes out, and what we charge for, on what terms.",
+    // What we give, then the one-way doors, then what must never leave, then
+    // what is charged for — all four answer what crosses the threshold.
+    hrefs: [
+      "/standards/std-010-licensing",
+      "/standards/std-013-licence-allowlist-and-fields",
+      "/standards/std-014-publishing-gates",
+      "/standards/std-022-secrets",
+      "/standards/std-033-charges-and-the-account",
+    ],
+  },
+  {
+    numeral: "V",
+    label: "What makes it last",
+    line: "What stays standing when the tools change.",
+    // The file, the history, the checks that keep both honest, and what we obey
+    // that we did not write.
+    hrefs: [
+      "/standards/std-006-plain-text-is-sovereign",
+      "/standards/std-020-git-is-the-archive",
+      "/standards/std-005-engineering-baseline",
+      "/standards/std-015-engineering-checks",
+      "/standards/std-011-external-standards",
+    ],
+  },
+];
+
 export const READING_GROUPS: Record<string, ReadingGroup[]> = {
   canon: READING_GROUPS_CANON,
+  standards: READING_GROUPS_STANDARDS,
 };
 
 // ---------------------------------------------------------------------------
@@ -431,41 +523,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/decisions/adr-030",
   ],
 
-  // Language first, because nothing below can be read without it. Then power:
-  // who may change what. Then form, then craft, then what the craft produces,
-  // then the superseded document kept for the record.
-  //
-  // The analogous-terminology table used to sit second, teaching the in-world
-  // vocabulary. It was merged into CAN-004 on 2026-09-03: it translated names,
-  // it never bound anything, and the canon already held the structure it named.
-  standards: [
-    "/standards/std-001-the-series",
-    "/standards/std-024-a-series-is-a-function",
-    "/standards/std-004-the-header",
-    "/standards/std-016-header-fields",
-    "/standards/std-003-platform-ranks",
-    "/standards/std-005-engineering-baseline",
-    "/standards/std-015-engineering-checks",
-    "/standards/std-006-plain-text-is-sovereign",
-    "/standards/std-007-one-page-per-document",
-    "/standards/std-008-design-tokens",
-    "/standards/std-023-design-values",
-    "/standards/std-009-which-rule-wins",
-    "/standards/std-017-who-may-change-what",
-    "/standards/std-018-one-document-one-identifier",
-    "/standards/std-019-versions",
-    "/standards/std-020-git-is-the-archive",
-    "/standards/std-021-evidence-and-citation",
-    "/standards/std-022-secrets",
-    // 2026-09-24 (ADR-064): charges and the account, beside secrets — both
-    // are about what the company holds that is not the archive's to show.
-    "/standards/std-033-charges-and-the-account",
-    "/standards/std-010-licensing",
-    "/standards/std-014-publishing-gates",
-    "/standards/std-013-licence-allowlist-and-fields",
-    "/standards/std-011-external-standards",
-    "/standards/std-012-corpus-does-not-grow",
-  ],
+  // 2026-09-24: derived from READING_GROUPS, like canon, so the two can never
+  // disagree. The five shelves are in READING_GROUPS_STANDARDS above.
+  standards: READING_GROUPS_STANDARDS.flatMap((g) => g.hrefs),
 
   // One working day, in order: you sit down → you take a mission → you need a
   // ruling → it is stuck, you escalate → you file the result → you audit what
