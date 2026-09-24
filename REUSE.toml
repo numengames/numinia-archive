@@ -194,6 +194,9 @@ path = [
   "web/src/icons/warning.svg",
   "web/src/icons/x-logo.svg",
   "web/src/icons/x.svg",
+  "web/src/icons/play-fill.svg",
+  "web/src/icons/pause-fill.svg",
+  "web/src/icons/arrow-down-bold.svg",
 ]
 SPDX-FileCopyrightText = "Phosphor Icons (https://phosphoricons.com)"
 SPDX-License-Identifier = "MIT"

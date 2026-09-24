@@ -5,16 +5,16 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-17T16:30:00+02:00"
+updated: "2026-09-24T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
 related: ["STD-008", "CAN-008", "ADR-044"]
-series_change: "1.1.0 — 2026-09-17: §18 The house footer and §19 The share card added — the values DSN-013 and DSN-014 point at: the footer's elements, the card's pattern, and the one table of the four sites (name, line, domain) that footer, head and card all read. Minor with STD-008 7.1.0. 1.0.3 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
+series_change: "1.3.0 — 2026-09-24: §22 Reading aloud — the dock, the ruler, the drying ink and the reading light, carried from the Listen player in production; the reading light filed as catalogue candidate 15. 1.1.0 — 2026-09-17: §18 The house footer and §19 The share card added — the values DSN-013 and DSN-014 point at: the footer's elements, the card's pattern, and the one table of the four sites (name, line, domain) that footer, head and card all read. Minor with STD-008 7.1.0. 1.0.3 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
 ---
 
 <!--
@@ -147,7 +147,7 @@ Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50p
 ## 11. The icon subset
 
 
-**The house subset [CANON — audited in production, 5.0.0].** Of Phosphor's ~1,500 glyphs, the organization uses **twenty-six**, self-hosted in `machine/packages/ui/src/icons/` and served as inline SVG with `currentColor`. This is the vocabulary, not a sample of someone else's catalogue: `archive · bell · book-open · caret-down · caret-left · chart-bar · download-simple · flame · flame-light · gear · github-logo · globe-hemisphere-west · globe-hemisphere-west-light · house · magnifying-glass · moon · moon-stars · music-notes · package · sign-out · sun · sword · sword-light · user · users · x-logo`. Expanding it is a decision, not an oversight: a new icon enters the subset with its concept declared.
+**The house subset [CANON — audited in production, 5.0.0].** Of Phosphor's ~1,500 glyphs, the organization uses **twenty-six**, self-hosted in `machine/packages/ui/src/icons/` and served as inline SVG with `currentColor`. This is the vocabulary, not a sample of someone else's catalogue: `archive · bell · book-open · caret-down · caret-left · chart-bar · download-simple · flame · flame-light · gear · github-logo · globe-hemisphere-west · globe-hemisphere-west-light · house · magnifying-glass · moon · moon-stars · music-notes · package · sign-out · sun · sword · sword-light · user · users · x-logo`. Expanding it is a decision, not an oversight: a new icon enters the subset with its concept declared. **Entered in 1.3.0** (the reading player, §22): `play-fill` and `pause-fill` — the voice runs or rests (fill: an active state); `arrow-down-bold` — where the reading is, at 11 px (bold under 16 px). `x` (close) and `copy` were already served by the site and are named here for completeness.
 
 ## 12. Brand inventory
 
@@ -356,5 +356,31 @@ Formats GLB/glTF.
 
 **Pixel outline.** In sprites of 12 px or less the outline MAY close
 completely: at that size the silhouette is all there is.
+
+
+## 22. Reading aloud — the dock, the ruler, the ink
+
+`[EXTENSION — validate]` Verified in production on numinia.org's document
+pages (the Listen player, `web/src/components/SpeechPlayer.astro`). Four
+patterns, each built to fix something a reader actually hit, and each
+reusable wherever a piece plays through a text or a timeline.
+
+| Pattern | Value | Why |
+|---|---|---|
+| **The reader leads** | The page follows the voice only until the reader scrolls. From then on the voice keeps going and a *Back to the reading* control appears above the dock, its arrow pointing to where the voice is. Reaching the word again by hand re-arms the following. | A player that drags the page takes the reader's scroll away; reading ahead or going back while it speaks was a fight. The reader owns the scroll, always. One scroll per page: the page's. |
+| **The dock** | Surfaces at the bottom while playing (surfacing, 10); `velo.cristal` + `velo.cristal-borde`, frame radius, the width of the text column. Play/pause · section name · time in mono · ruler · rate · close. The entry point in the page stays quiet: hairline and dim text until it plays. | It reads as part of the document's card, not a widget laid over it. Controls that follow the reader beat a toolbar left behind at the top. |
+| **The ruler** | A hairline with a fine mark every ~1/90 of its width, a longer mark at each section, the heard part printed in a halftone of Verdemar (dots 2.1 px on a 4 px pitch, fading in from 35 %). Hover shows time · section and the first words of the sentence; a drop starts at the **head of that sentence**; arrows step sentence by sentence. | Not a loading bar: a 1920 print ruler — paper and press (1920), a signal you can scrub (2020), light over glass (2120). Landing mid-sentence is noise; sentences are the unit a listener thinks in. |
+| **Drying ink** | What the voice has passed fades in three steps: the last 3 words `text-muted / .78`, the 6 before `/ .62`, the rest `/ .50`. Painted with the CSS Custom Highlight API, never with spans. | Read text recedes like ink that has set, so the eye finds the present without a highlight shouting it. It is a **state, not an animation**: the colour of text is never transitioned. No DOM is touched, so browser translation and text selection survive. |
+| **The reading light** | A diffuse light in Arena (`--text` at .55 → transparent, 14 px) drifting just above the spoken word, with a soft trail of 12 fading copies; critically damped spring (k 90), sliding along the word as it is spoken; dims to 45 % on pause. The ruler's head is the same light. | The old amber dot hopped word to word and competed with the Ámbar that marks what shines. Arena is the page's own ink colour: the light belongs to the text. Under `prefers-reduced-motion` it jumps, with no trail and no drift. |
+
+**Icons over words in document tools.** Copy, download and source are
+glyphs with an `aria-label` and a tooltip in the opposite mode; the words
+added nothing a reader of the glyph did not already know.
+
+**Catalogue status.** The drying ink is a state and the dock uses surfacing
+(10); neither adds an animation. The reading light is a **candidate for the
+catalogue (15)**: it is a loop only while the voice plays and it reacts to
+the voice, which DSN-012 does not yet foresee. Until the Oracle rules on it,
+it lives only in the reading player.
 
 ---
