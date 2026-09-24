@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12825,
+  "chars": 12993,
   "apparatus": false,
   "archived": false,
-  "tokens": 3175
+  "tokens": 3216
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 95149,
+  "chars": 95694,
   "apparatus": false,
   "archived": false,
-  "tokens": 25074
+  "tokens": 25233
  },
  {
   "path": "CLAUDE.md",
@@ -682,6 +682,17 @@
   "tokens": 2338
  },
  {
+  "path": "canon/CAN-009-the-archive-is-the-organisation.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "draft",
+  "chars": 6146,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1527
+ },
+ {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
   "dir": "debt",
   "series": "debt",
@@ -922,6 +933,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1544
+ },
+ {
+  "path": "decisions/ADR-059-a-canon-for-the-work.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 7153,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1874
  },
  {
   "path": "lore/README.md",
