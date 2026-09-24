@@ -4,11 +4,11 @@ uid: ""
 title: "Function makes the system inhabitable; structure makes it work differently"
 type: seminal
 status: draft
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-09-23T19:00:00+02:00"
+updated: "2026-09-24T14:00:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -16,8 +16,8 @@ territory: "Archive"
 tags: [canon, seminal, function, structure, interpreter, architect]
 license: "CC0-1.0"
 registration: registered
-ratified_by: "ADR-051"
-supersedes_version: "1.0.1"
+ratified_by: "ADR-058"
+supersedes_version: "2.0.0"
 related: ["CAN-001", "CAN-004", "CAN-006"]
 former_id: "canon-pragmatic-numen-system-v020"
 former_id_note: "Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Pragmatic_Numen_System-v0.2.0.md"
@@ -36,9 +36,10 @@ SPDX-License-Identifier: CC0-1.0
 > and most change efforts never find that out.
 > **Epistemic:** Why an organisation can be redescribed completely and remain
 > exactly the same system underneath.
-> **Pragmatic:** Ask of any initiative whether it re-semantises or
-> reconfigures. That single question separates a new experience from a new
-> paradigm.
+> **Pragmatic:** Ask of any element what it is for and what it is worth; ask
+> of any initiative whether it re-semantises or reconfigures. The first pair
+> tells you whether a name means anything; the second separates a new
+> experience from a new paradigm.
 > **Audience:** Everyone
 
 **Binds:** whoever designs, renames or reorganises anything in this system.
@@ -75,6 +76,35 @@ error of organisations is to intervene only in function** — changing names,
 redefining roles, introducing dynamics — while leaving the structure
 untouched. That produces apparent transformation and no change of paradigm.
 Real change occurs when structure is affected.
+
+## Function is a frame of ends and values
+
+Function is not an operation of renaming, redefining or reinterpreting. It is
+a frame of ends and values: the answer to two questions asked of anything in
+the system. *What is it for?* And *what is it worth?* To interpret the
+meaning of an element is to ask those two questions of it. To give it a new
+name without asking them is to have interpreted nothing.
+
+This is why function is not utility. To say that a hammer drives nails and a
+microscope magnifies is to state two uses, and the day there is a nail and no
+hammer, the microscope on the desk stays a microscope. To say what each is
+*for*, and what it is *worth* here and now, is to have understood them as
+functions — and the microscope drives the nail. A use is a fact about the
+object. A function is a relation between the object, a need and a value.
+
+And because it is a relation, function already reaches into the other plane.
+To say what an element is for is to say what it presupposes and what depends
+on it — which place it takes in a whole — and dependency is what structure is
+made of. That is the deeper reason the two planes cannot be dissociated. What
+comes first is neither the element nor the relation but the need: to believe
+that structure precedes function is to believe that birds fly because some
+animals grew wings and then had to work out what to do with them.
+
+So the test of any intervention on the functional plane is not whether an
+element has a new name but whether the two questions have been answered for
+it. A guild that cannot say what it is for is a department in costume. A
+mission that cannot say what it is worth is a ticket. Where both have answers
+the element has a function, and there is something for structure to relate.
 
 ## The Interpreter and the Architect
 

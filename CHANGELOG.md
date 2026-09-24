@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (CAN-007 says what function is, ADR-058)
+- **`canon/CAN-007-pragmatic-numen-system.md`** `2.1.0`: one new section, *Function is a frame of ends and values* — function answers *what is it for?* and *what is it worth?*; interpreting meaning is asking those two questions; a use is a fact about the object, a function a relation between object, need and value (the microscope drives the nail); function reaches into structure through dependency, and the need comes before both (the birds and the wings); the test of a functional intervention is whether the two questions were answered. Carried from the long role-structure text, where the canon of roles had kept the image and lost the argument. Card's Pragmatic line adds the two questions. 1 028 → 1 366 words.
+
 ### Changed — 2026-09-24 (CAN-004 absorbs CAN-003, ADR-057)
 - **`canon/CAN-004-role-structure.md`** rewritten at `4.0.0`, *Nobody here has a role; you are what you are doing*: the six attributes of `CAN-003`, Eco's opposition, Basic Level Theory for the guilds and Prototype Theory for the factions, the systems-thinking line between qualification, role and position, the six ranks by what each is, the five approaches. Out: the 4×2×2 guild tree (a register, `STD-030`), *positions belong to non-player characters* (obsolete, the Oracle's word), the character-sheet remainder, the district sentence. Function-is-not-utility is stated in two sentences and left to `CAN-007`.
 - **`canon/CAN-003-attributes-and-ranks.md` deleted.** `absorbs: ["CAN-003"]` on `CAN-004` keeps the identifier resolving; the site redirects the address and four older ones to the heir.
