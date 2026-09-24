@@ -650,6 +650,7 @@ export interface SectionView {
 
 export const SECTION_VIEWS: Record<string, SectionView[]> = {
   system: [
+    { href: "/system/account", title: "The account", what: "What Numinia costs and takes in since 2020, by day, week, month, quarter and year — as a citizen, a CTO, a lender and the gestoría read it. Simulated figures until the first month closes." },
     { href: "/system/wardley", title: "Wardley map", what: "A strategic map of the NWOS — what is visible, what is evolving, where the moat is. Rendered from its report." },
     { href: "/system/gaps", title: "Gaps", what: "The blind spots of the NWOS from business, product and organisational theory. Rendered from its report." },
     { href: "/system/continuity", title: "Continuity", what: "The proof that an agent can rebuild itself from the repository alone.", lang: "es" },

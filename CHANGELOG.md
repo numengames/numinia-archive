@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (the account, simulated)
+- **`web/src/pages/system/account.astro`**: the cost register the charges-and-account standard asks for (`STD-033` LED-001..003), with **simulated** lines until the first month closes (`PRO-021`). Four views from one ledger — anyone, CTO, finance and bank, gestoría — by day, week, month, quarter and year, consumed (spread over the period covered) or billed (on the document date), with or without people; profit and loss in the abbreviated PGC headings; cash and runway; the received-invoices book by quarter; support simulator; homage list, anonymous by default. Listed under System.
+- **`web/src/lib/account.ts`** reads the ledger for the page, the CSV route and the markdown view (`/system/account.md`, composed in `composed-md.ts`: consumed cost by year and concept, summed from the same lines).
+- **`web/src/data/account-simulated.csv`** (CC0, annotated in `REUSE.toml`): the ledger, one line per document; staff one line a month for all, with headcount (`MON-002`). Served as it is at **`/system/account.csv`** (`web/src/pages/system/account.csv.ts`).
+
 ### Changed — 2026-09-24 (the standards read in five shelves)
 - **`/standards/` groups its 32 documents by purpose**, under a Roman numeral, a label and one line, like `/canon/` but in its own words: I *Living together* (STD-003, 029, 017, 030, 026) · II *Writing it down* (STD-001, 024, 027, 004, 016, 007, 031, 025, 018, 028, 019, 021, 009, 012) · III *Showing it* (STD-032, 008, 023) · IV *What leaves the house* (STD-010, 013, 014, 022, 033) · V *What makes it last* (STD-006, 020, 005, 015, 011). The citizen first; the ground last. Eight standards the old reading order never named now have a place. `READING_GROUPS_STANDARDS` in `web/src/lib/corpus.ts` is the source of the standards reading order and is checked at build. No standard's text changes. Oracle's word in session.
 
