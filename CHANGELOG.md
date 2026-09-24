@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-24 (PRO-020 and PRO-021, two protocols for money, ADR-065)
+- **`protocols/PRO-020-putting-something-on-sale.md`** `0.1.0`, draft: record, three questions, Oracle's approval, product and link in the processor, link back to the record, test-mode path, publish; withdrawal marks the record, deactivates the link, tells subscribers. SAL-001..004.
+- **`protocols/PRO-021-closing-the-month.md`** `0.1.0`, draft: documents to lines (never committed), staff by person code and published only aggregated, income from the processor's report, homage list as chosen, views recomputed and in agreement, one pull request per month; the quarter's received-invoices book exported for the gestoría. MON-001..004. Both close the protocols' reading order.
+
 ### Added — 2026-09-24 (SYS-008, the account as wired today)
 - **`system/SYS-008-the-account.md`** `0.1.0`: the components of Numinia's money (bank account, payment processor, gestoría, invoices and payrolls, records of things on sale, the ledger, the views), who holds each key, how a payment and a cost flow into the ledger, what each reader — citizen, CTO, finance and lender, gestoría, auditor or tax authority — reads and asks of it. Each piece marked wired or not wired; the processor account's being live is the Oracle's word, not inspected. Reading order after `SYS-007`.
 
