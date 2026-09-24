@@ -2453,7 +2453,7 @@ Si se obtiene un Fracaso, el Aionos altera la coherencia del pasado.
 
 **CUENCO DE CONSAGRACIÓN**
 **Descripción**
-El Cuenco de Interdicción es una pieza ceremonial de cerámica oscura, reforzada con vetas
+El Cuenco de Consagración es una pieza ceremonial de cerámica oscura, reforzada con vetas
 de resina endurecida y bordeada por un aro de bronce grabado. Su superficie interior está
 cubierta de incisiones concéntricas, apenas perceptibles, que representan ciclos de
 delimitación: dentro, fuera, permitido, vedado.
@@ -2804,9 +2804,6 @@ porque permiten pensar el enfrentamiento de maneras diferentes.
 Una espada, una cadena y un arma de proyectiles pueden servir para superar al mismo
 contendiente. Ninguna posee necesariamente ventaja matemática sobre las demás. Lo
 que cambia es el repertorio de acciones que cada una pone al alcance del jugador.
-
-
-Y esta última frase me parece que podría cerrar muy bien la sección:
 
 
 En Numinia, elegir un arma no significa elegir cómo hacer daño. Significa elegir qué clase
@@ -3323,11 +3320,6 @@ Facción, sea cual sea el uso que le dé.
 **Naturaleza y función**
 
 
-Las Células del Prisma son Tokens fungibles y acumulables. Las pertenecientes a una
-misma facción no poseen identidad individual: lo importante no es qué Célula concreta
-conserva el personaje, sino cuántas manifestaciones de esa afinidad ha reunido.
-
-
 Cada Célula incrementa el grado de conexión con la facción correspondiente y sirve como
 medida de su reconocimiento, experiencia y afinidad dentro de ella. Su acumulación puede
 proporcionar acceso progresivo a contenidos, capacidades, relaciones o posibilidades
@@ -3461,10 +3453,6 @@ Rareza difícil de encontrar.
 
 Así, las Células no solo registran una relación con Numinia: permiten sacrificar parte de
 esa relación acumulada para intervenir en ella.
-
-
-Hay una frase del documento original que ahora adquiere incluso más sentido: _«Recogerla_
-_no es tomar: es resonar»_ . Yo le añadiría como principio mecánico complementario:
 
 
 Recolectar una Célula es acumular resonancia. Gastarla es convertir esa resonancia en

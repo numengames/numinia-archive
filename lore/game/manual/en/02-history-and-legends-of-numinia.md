@@ -609,7 +609,7 @@ The first of these was born of the machines.
 
 As the Black Engineers and other builders raised the city's first mechanisms, some inhabitants began to form ever deeper bonds with their creations. First came prostheses and tools; then, parts that replaced damaged limbs and organs unable to withstand the new conditions of the world. In time it became impossible to tell where the organism ended and the artifice began. Technology no longer surrounded those beings: it was part of them. From this union of living matter and mechanism the first Biomechanicals were born.
 
-Other settlers sought their identity in a different direction. They understood that a city could not exist merely because it had streets, buildings and machines. It was necessary to know what those things meant. They gathered scattered words, reconstructed stories, gave names to places and debated at length over what ought to be preserved and what could be transformed. Where others saw objects, they began to see symbols; where they found events, they sought meanings. From that growing need to interpret the world arose the Humanitas, custodians of the culture and the conscious memory of Numinia.
+Other settlers sought their identity in a different direction. They understood that a city could not exist merely because it had streets, buildings and machines. It was necessary to know what those things meant. They gathered scattered words, reconstructed stories, gave names to places and debated at length over what ought to be preserved and what could be transformed. Where others saw objects, they began to see symbols; where they found events, they sought meanings. From that growing need to interpret the world arose the Humanites, custodians of the culture and the conscious memory of Numinia.
 
 But there were those who distrusted machines and words alike.
 
@@ -635,7 +635,7 @@ Thus was born the so-called Correspondence of the Five.
 
 The Artificer was linked to the Biomechanicals, since both expressed mastery over material transformation, construction and technology. The Artificer need not have created the Biomechanicals; rather, it would represent the same principle that, made manifest upon living matter, ended up expressing itself through them.
 
-The Narrator was tied to the Humanitas. If the Narrator's function was to give continuity to experience through stories, that of the Humanitas was to preserve and interpret the meanings through which a society could recognise itself. For the Hermeneuts, narrating and bestowing meaning were two manifestations of a single force.
+The Narrator was tied to the Humanites. If the Narrator's function was to give continuity to experience through stories, that of the Humanites was to preserve and interpret the meanings through which a society could recognise itself. For the Hermeneuts, narrating and bestowing meaning were two manifestations of a single force.
 
 The Guardian was associated with the Reptilians, custodians of the natural cycles, of primal traditions and of those forms of knowledge that preceded writing. In this correspondence, to guard did not mean to prevent change, but to ensure that whatever had to pass through it survived the transformation.
 
@@ -653,7 +653,7 @@ The Hermeneuts never considered the two possibilities incompatible.
 
 After all, they argued, finding a structure in the world and placing a structure upon the world are operations far harder to tell apart than those who do neither professionally tend to admit.
 
-Whatever the truth, by the end of the Dark Age the inhabitants of Numinia were no longer the indefinite presences of the earliest times. Five great lineages had crystallized around five fundamental forces: the Technology of the Biomechanicals, the Culture of the Humanitas, the Nature of the Reptilians, the Knowledge of the Cyanites and the Aether of the Spectrals.
+Whatever the truth, by the end of the Dark Age the inhabitants of Numinia were no longer the indefinite presences of the earliest times. Five great lineages had crystallized around five fundamental forces: the Technology of the Biomechanicals, the Culture of the Humanites, the Nature of the Reptilians, the Knowledge of the Cyanites and the Aether of the Spectrals.
 
 ## **Fragment 5: The three great forces of Numinia**
 

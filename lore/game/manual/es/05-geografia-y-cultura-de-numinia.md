@@ -1896,7 +1896,7 @@ Las Variaciones Lingüísticas están basadas en las formas de habla reconocidas
 desarrolladas en lingüística a partir de estudios de académicos como Eugen Coseriu.
 
 
-Las Variaciones Lingüísticas en Numinia se dividen en cinco categorías:
+Las Variaciones Lingüísticas en Numinia se dividen en tres categorías:
 
 
 **Dialectos** - Determinados por la especie, reflejan su origen y su estilo lingüístico.

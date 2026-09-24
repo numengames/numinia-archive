@@ -11,7 +11,7 @@ SPDX-License-Identifier: CC0-1.0
 
 _‒It was here ‒declared the Whisperer of Machines, dropping to one knee beside a rusted casing‒. The original emitter of the Aedolatra archive. They buried it after the first network implosion._
 
-_The Guardian of the Gates stayed on his feet, scanning the half-lit passages. His etheric spear vibrated faintly._
+_The Gatekeeper stayed on his feet, scanning the half-lit passages. His etheric spear vibrated faintly._
 
 _‒Someone is watching us._
 
@@ -27,7 +27,7 @@ _The Guardian reacted first. He activated Etheric Wall, stopping the charge with
 
 _But the enemy was stubborn._
 
-_Then the Guardian of the Gates turned his wrist and drew the Mnemonic Eclipse. The blade vibrated as if answering a forgotten memory and, in the blink of an eye, traced a broken line of light in the air. When it struck, it did not cut flesh, but notion: the Formrender howled, disoriented, as it lost the memory of why it guarded that threshold. Its roar stopped being aggression and turned into bewilderment._
+_Then the Gatekeeper turned his wrist and drew the Mnemonic Eclipse. The blade vibrated as if answering a forgotten memory and, in the blink of an eye, traced a broken line of light in the air. When it struck, it did not cut flesh, but notion: the Formrender howled, disoriented, as it lost the memory of why it guarded that threshold. Its roar stopped being aggression and turned into bewilderment._
 
 _At the same moment, the Ambassador stepped between the beast and the Armonaut, extending his Plinth of Understanding as an emotional shield. For an instant, the creature wavered. And that instant was enough._
 

@@ -85,7 +85,7 @@ For a name to work well:
 
 **3. CHOOSE YOUR STYLE (BY SPECIES)**
 
-**Humanitas (Thought, Idealism)**
+**Humanites (Thought, Idealism)**
 
 <u>Base</u>
 
@@ -257,9 +257,9 @@ Creative, scientific and artistic minds. The Alchemists combine knowledge and im
 
 **Structure of the Alchemists**
 
-- Branch A: Artisans
+- Branch A: Handcrafters
 
-`o` House A.1: Projectors
+`o` House A.1: Draftsmen
 
 `o` House A.2: Aesthetes
 
@@ -267,11 +267,11 @@ Creative, scientific and artistic minds. The Alchemists combine knowledge and im
 
 `o` House B.1: Architects
 
-`o` House B.2: Automata
+`o` House B.2: Automatons
 
-The members of the Branch of the Artisans are the creative spirits of the city. Within this group, designers on both small and large scales belong to the House of the Projectors, while artists of every kind are the ones who make up the House of the Aesthetes.
+The members of the Branch of the Handcrafters are the creative spirits of the city. Within this group, designers on both small and large scales belong to the House of the Draftsmen, while artists of every kind are the ones who make up the House of the Aesthetes.
 
-The members of the Branch of the Engineers work with code and chains of information. Within this group, those who develop the digital architecture of Numinia belong to the House of the Architects, while those who work with virtual realities and artificial consciousnesses form part of the House of the Automata.
+The members of the Branch of the Engineers work with code and chains of information. Within this group, those who develop the digital architecture of Numinia belong to the House of the Architects, while those who work with virtual realities and artificial consciousnesses form part of the House of the Automatons.
 
 **Traits:** Creator, Inventor, Artist, Developer
 
@@ -323,19 +323,19 @@ The pragmatic minds of Numinia. Specialists in organisation, management and admi
 
 - Branch A: Legates
 
-  - House A.1: Legal Counsels
+  - House A.1: Legal Rabbits
 
   - House A.2: Heralds
 
-- Branch B: Syndics
+- Branch B: Trustees
 
   - House B.1: Mercurials
 
-  - House B.2: Intendants
+  - House B.2: Stewards
 
-The members of the Branch of the Legates operate within the legal and diplomatic framework. Within this group, those who provide legal counsel and practise the law belong to the House of the Legal Counsels, while those who represent the city in legal or diplomatic matters form part of the House of the Heralds.
+The members of the Branch of the Legates operate within the legal and diplomatic framework. Within this group, those who provide legal counsel and practise the law belong to the House of the Legal Rabbits, while those who represent the city in legal or diplomatic matters form part of the House of the Heralds.
 
-The members of the Branch of the Syndics are chosen to protect the interests of Numinia in the economic and social spheres. Within this group, those involved with the economy belong to the House of the Mercurials, while those who manage internal organisational affairs form part of the House of the Intendants.
+The members of the Branch of the Trustees are chosen to protect the interests of Numinia in the economic and social spheres. Within this group, those involved with the economy belong to the House of the Mercurials, while those who manage internal organisational affairs form part of the House of the Stewards.
 
 **Traits:** Administrator, Legislator, Economist, Manager
 
@@ -353,7 +353,7 @@ The Sentinels are responsible for ensuring that every corner of Numinia runs smo
 
 **Structure of the Sentinels**
 
-- Branch A: Seraphim
+- Branch A: Seraphs
 
   - House A.1: Captains
 
@@ -365,7 +365,7 @@ The Sentinels are responsible for ensuring that every corner of Numinia runs smo
 
   - House B.2: Explorers
 
-The members of the Branch of the Seraphim keep order. Within this group, those responsible for overseeing and managing the structure of Numinia belong to the House of the Captains, while those who ensure compliance with the rules and handle community conflicts form part of the House of the Guardians.
+The members of the Branch of the Seraphs keep order. Within this group, those responsible for overseeing and managing the structure of Numinia belong to the House of the Captains, while those who ensure compliance with the rules and handle community conflicts form part of the House of the Guardians.
 
 The members of the Branch of the Archangels work with the community, solving personal problems and dilemmas while offering assistance. Within this group, those who provide mental care and promote wellbeing belong to the House of the Healers, while those who help guide citizens along the right path form part of the House of the Explorers.
 
@@ -451,9 +451,9 @@ The Stellar Circle is formed by those who believe in the need for a solid framew
 
 This faction centres on cosmic events, with a philoscientific character that takes concepts from quantum physics, such as multiverses or brane cosmology, and fuses them with esoteric beliefs about otherworldly entities, different planes of existence and astrological derivations.
 
-Its name comes from the Venus Tablet, a text from the seventh century BC that reproduces another Babylonian writing from around 1700 BC, in which extraordinary astronomical observations are recorded.
+Its name comes from the Venus Table, a text from the seventh century BC that reproduces another Babylonian writing from around 1700 BC, in which extraordinary astronomical observations are recorded.
 
-**Seed name:** Stellar Circle for the Study of the Venus Tablet
+**Seed name:** Stellar Circle for the Study of the Venus Table
 
 **Field of development:** Organisation
 
@@ -525,7 +525,7 @@ The Biomechanicals are the spark that ignites innovation in Numinia. A fusion of
 
 *****
 
-**Humanitas**
+**Humanites**
 
 _The Custodians of Meaning_
 
@@ -539,7 +539,7 @@ _The Custodians of Meaning_
 
 **Related Disciplines:** Philosophy, Philology, Semiotics, Hermeneutics, History
 
-The Humanitas are the interpreters of meaning and the guardians of Numinia's cultural legacy. With a deep connection to ideas, language and narrative, they seek to understand the world through concepts, symbols and historical accounts. Their role is to illuminate the fundamental principles that uphold collective identity, inspiring communities to preserve and reinterpret essential values. They represent abstract thought and the humanist search for truth.
+The Humanites are the interpreters of meaning and the guardians of Numinia's cultural legacy. With a deep connection to ideas, language and narrative, they seek to understand the world through concepts, symbols and historical accounts. Their role is to illuminate the fundamental principles that uphold collective identity, inspiring communities to preserve and reinterpret essential values. They represent abstract thought and the humanist search for truth.
 
 ******
 
@@ -625,7 +625,7 @@ Even when of Mixed Heritage, the player may choose one of the first-generation S
 
 **1.** Biomechanical
 
-**2.** Humanita
+**2.** Humanite
 
 **3.** Reptilian
 
@@ -671,9 +671,9 @@ Finally, the Imbalance represents the dark side of the Position, which grows as 
 
 Bearing in mind that any Species and Archetypes not listed are considered neutral, the Positions that exist in Numinia are described below:
 
-### 1. Guardian of the Gates – Knower of all paths
+### 1. Gatekeeper – Knower of all paths
 
-The Guardian of the Gates of Numinia is a position laden with symbolism and responsibility, since it protects access and regulates who enters and under what conditions.
+The Gatekeeper of Numinia is a position laden with symbolism and responsibility, since it protects access and regulates who enters and under what conditions.
 
 **<u>Profile</u>**
 
@@ -683,11 +683,11 @@ The Guardian of the Gates of Numinia is a position laden with symbolism and resp
 
 **<u>Duties</u>**
 
-The Guardian of the Gates not only protects the physical entrance to Numinia, but is also the first obstacle for those who seek to enter without understanding the city's values. Its profile, specialised in security and rituals, makes for a powerful and symbolic figure.
+The Gatekeeper not only protects the physical entrance to Numinia, but is also the first obstacle for those who seek to enter without understanding the city's values. Its profile, specialised in security and rituals, makes for a powerful and symbolic figure.
 
 **<u>Special aptitudes</u>**
 
-The special aptitudes of the Guardian of the Gates are:
+The special aptitudes of the Gatekeeper are:
 
 1.- **Sealed Threshold**
 You can perform a ritual to close a physical or energetic passage with a seal for the length of a scene. If you pass the roll, no one can cross it without breaking the seal.
@@ -732,7 +732,7 @@ It has 4 starting points of Threshold and 2 of Initiative. When it enters Imbala
 
 `o` **Compatible:** Cyanite
 
-`o` **Neutral:** Humanita
+`o` **Neutral:** Humanite
 
 `o` **Incompatible:** Biomechanical
 
@@ -807,7 +807,7 @@ She has 2 starting points of Threshold and 1 of Initiative. When she reaches Imb
 
 `o` **Compatible:** Reptilian
 
-`o` **Neutral:** Humanita
+`o` **Neutral:** Humanite
 
 `o` **Incompatible:** Cyanite
 
@@ -880,7 +880,7 @@ It has 4 starting points of Threshold and 2 of Initiative. When it reaches Imbal
 
 `o` **Preferred:** Cyanite
 
-`o` **Compatible:** Humanita
+`o` **Compatible:** Humanite
 
 `o` **Neutral:** Reptilian
 
@@ -955,7 +955,7 @@ They have 3 starting points of Threshold and 1 of Initiative. When they reach Im
 
 `o` **Preferred:** Reptilian
 
-`o` **Compatible:** Humanita
+`o` **Compatible:** Humanite
 
 `o` **Neutral:** Spectral
 
@@ -1030,7 +1030,7 @@ He has 4 starting points of Threshold and 4 of Initiative. When he reaches Imbal
 
 `o` **Preferred:** Biomechanical
 
-`o` **Compatible:** Humanita
+`o` **Compatible:** Humanite
 
 `o` **Neutral:** Cyanite
 
@@ -1192,7 +1192,7 @@ They start with 3 points of Threshold and 2 of Initiative. When they reach Imbal
 
 `o` **Compatible:** Cyanite
 
-`o` **Neutral:** Humanita
+`o` **Neutral:** Humanite
 
 `o` **Incompatible:** Reptilian
 
@@ -1268,7 +1268,7 @@ They start with 2 points of Threshold and 3 of Initiative. When they reach Imbal
 
 - **Species**
 
-`o` **Preferred:** Humanita
+`o` **Preferred:** Humanite
 
 `o` **Compatible:** Reptilian
 
@@ -1316,8 +1316,8 @@ You can bind your consciousness to an ancient artefact, activating its residual 
 4.- **Chronographic Knot**
 You seal a fragment of time within an object, protecting it from alteration or from being read by others. No one will be able to access its contents unless they are able to break the powerful seal.
 
-5.- **Silence of Resonance**
-For one scene, you can become a blind spot: as long as you do not attack or take the initiative, no one can perceive you as a threat or track you clearly. Enemies ignore you or fail to focus on you.
+5.- **Phantom Index**
+You can perceive the trace of something that has been erased from an archive, inscription, record or memory, detecting its absence and reconstructing fragments of the lost information.
 
 6.- **Inverse Echo**
 You can reverse a spoken phrase, something important that an NPC has said, influencing the listeners' perception as if the dialogue had not yet taken place, and alter its course before it happens.
@@ -1348,7 +1348,7 @@ They start with 4 points of Threshold and 1 of Initiative. When they reach Imbal
 
 - **Species**
 
-`o` **Preferred:** Humanita
+`o` **Preferred:** Humanite
 
 `o` **Compatible:** Cyanite
 
@@ -1505,7 +1505,7 @@ They start with 2 points of Threshold and 3 of Initiative. In Imbalance, their m
 
 `o` **Preferred:** Cyanite
 
-`o` **Compatible:** Humanita
+`o` **Compatible:** Humanite
 
 `o` **Neutral:** Biomechanical
 
@@ -1580,7 +1580,7 @@ They start with 3 points of Threshold and 1 of Initiative. In Imbalance, the cur
 
 `o` **Preferred:** Biomechanical
 
-`o` **Compatible:** Humanita
+`o` **Compatible:** Humanite
 
 `o` **Neutral:** Cyanite
 
@@ -1659,7 +1659,7 @@ They start with 2 points of Threshold and 2 of Initiative. In Imbalance, their m
 
 `o` **Neutral:** Cyanite
 
-`o` **Incompatible:** Humanita
+`o` **Incompatible:** Humanite
 
 - **Archetype**
 
@@ -1728,7 +1728,7 @@ She starts with 4 points of Threshold and 1 of Initiative. In Imbalance, her min
 
 - **Species**
 
-`o` **Preferred:** Humanita
+`o` **Preferred:** Humanite
 
 `o` **Compatible:** Spectral
 
@@ -1807,7 +1807,7 @@ They start with 3 points of Threshold and 1 of Initiative. When they enter Imbal
 
 `o` **Compatible:** Cyanite
 
-`o` **Neutral:** Humanita
+`o` **Neutral:** Humanite
 
 `o` **Incompatible:** Biomechanical
 
@@ -1956,7 +1956,7 @@ In addition to the Guild and the Faction, the character's Species also influence
 
   - **Biomechanicals:** _Technomancy, Advanced Forging, Virtual Architecture_
 
-  - **Humanitas:** _Neural Vision, Luminous Projection, Defensive Networks_
+  - **Humanites:** _Neural Vision, Luminous Projection, Defensive Networks_
 
   - **Reptilians:** _Neural Vision, Defensive Networks, Cryptology_
 
@@ -2088,7 +2088,7 @@ Breath of the Veil points are recovered in the same way as the Threshold:
 
   - To recover all points, a full day of rest is required for each point lost.
 
-## **Fragment 8: Prestige Points**
+## **Fragment 6: Prestige Points**
 
 « _Whoever walks through Numinia without learning anything has merely crossed its streets; whoever learns something from it begins, slowly, to become part of its memory._ »
 

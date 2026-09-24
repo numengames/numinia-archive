@@ -329,7 +329,7 @@ cerradas, sino estados de la investigación y de la experiencia del mundo.
 
 
 Para facilitar el ritmo de la partida y la comprensión del conflicto, cada sesión o aventura
-suele desplegarse a través de cinco fases. Estas fases no son compartimentos estancos:
+suele desplegarse a través de seis fases. Estas fases no son compartimentos estancos:
 pueden solaparse, acortarse o expandirse según las necesidades de la historia. Sin
 embargo, constituyen una referencia esencial tanto para el DJ como para los jugadores,
 pues reflejan el movimiento natural de una investigación dentro de Numinia.

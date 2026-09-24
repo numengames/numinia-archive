@@ -5,7 +5,7 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-23T21:00:00+02:00"
 updated: "2026-09-24T15:00:00+02:00"
 author: "ursa"
@@ -41,12 +41,12 @@ SPDX-License-Identifier: CC0-1.0
 | In-world | Operational equivalent | What it does |
 |---|---|---|
 | **Alchemists** | Product / Technology / Creativity | They concentrate the creation of tangible value, turning ideas into products, solutions and experiences. The core of construction and materialisation. |
-| **Artisans** | Design and creative execution | They execute the creative layer applied to the product, turning concepts into visible, functional pieces. They work between idea and form. |
-| **Projectors** | Graphic and concept design | They define the visual and conceptual structure of ideas, translating needs into designed proposals. A bridge between intention and representation. |
+| **Handcrafters** | Design and creative execution | They execute the creative layer applied to the product, turning concepts into visible, functional pieces. They work between idea and form. |
+| **Draftsmen** | Graphic and concept design | They define the visual and conceptual structure of ideas, translating needs into designed proposals. A bridge between intention and representation. |
 | **Aesthetes** | Art direction / Branding / UX·UI | They build the visual and sensory identity, keeping aesthetic coherence. They give the product character and perception. |
 | **Engineers** | Technical and development teams | They sustain the technical foundation through development and infrastructure. They ensure what is designed can be executed. |
 | **Architects** | Systems and product architecture | They design the deep structure of the product and how systems connect. They ensure scalability and technical coherence. |
-| **Automata** | Developers / Software engineers | They implement concrete technical solutions in code, building functionality and operating systems. |
+| **Automatons** | Developers / Software engineers | They implement concrete technical solutions in code, building functionality and operating systems. |
 
 ## Guilds — Exegetes
 
@@ -66,18 +66,18 @@ SPDX-License-Identifier: CC0-1.0
 |---|---|---|
 | **Procurators** | Legal / Institutional / Financial / Operational | They guarantee viability and sustainability, regulating and structuring the system. They connect operations with legal and economic frames. |
 | **Legates** | Legal and diplomacy | They operate in the external normative sphere, managing compliance and representation. |
-| **Legal Counsels** | Lawyers / Compliance | They apply and interpret the law inside the system, reducing legal risk. |
+| **Legal Rabbits** | Lawyers / Compliance | They apply and interpret the law inside the system, reducing legal risk. |
 | **Heralds** | Institutional relations / Alliances | They represent the organisation before third parties and manage external agreements. |
-| **Syndics** | Economy and organisation | They supervise the economic and structural functioning of the system. |
+| **Trustees** | Economy and organisation | They supervise the economic and structural functioning of the system. |
 | **Mercurials** | Finance / Revenue / Sales | They manage the flow of value, connecting internal economy with the market. |
-| **Intendants** | Operations / Project management | They organise the execution of work and coordinate resources. They ensure daily operation. |
+| **Stewards** | Operations / Project management | They organise the execution of work and coordinate resources. They ensure daily operation. |
 
 ## Guilds — Sentinels
 
 | In-world | Operational equivalent | What it does |
 |---|---|---|
 | **Sentinels** | People / Community / Support | They maintain the human balance of the system and safeguard coexistence. |
-| **Seraphim** | Operational supervision | They ensure structural functioning by supervising processes and teams. |
+| **Seraphs** | Operational supervision | They ensure structural functioning by supervising processes and teams. |
 | **Captains** | Managers / Team leads | They lead teams in daily execution, organising tasks and priorities. |
 | **Guardians** | Moderation / Conflict management | They manage conflict and internal norms, protecting coexistence. |
 | **Archangels** | Well-being and support | They attend to the human dimension and accompany personal development. |
