@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-24 (the READMEs know the manual is whole in English)
+- **`lore/README.md`** and **`lore/game/manual/es/README.md`** still said only the introduction and chapters 1–2 were in English; since #466 all eight chapters are. Wording only.
+
 ### Added — 2026-09-24 (the manual in English: chapters 3 to 7)
 - **`lore/game/manual/en/03-character-creation.md` … `07-building-the-adventure.md`**: the rest of the manual in English — *Character creation*, *Game system*, *Geography and culture of Numinia*, *Inventory and bestiary*, *Building the adventure*. The eight chapters now exist in both languages. Each keeps the Spanish's headings (34, 44, 45, 29, 67), tables, footnotes and dice; English word count 0.99–1.05× the Spanish. Glossary names throughout; one outcome vocabulary for every roll (Total Success … Critical Failure); DJ → GD, *Maestro de Juego* (the Position) → Game Master. **`lore/game/manual/glossary-es-en.md`** section B2 gains 504 names (the Positions' aptitudes, districts, cycles and festivals, relics, weapons, residues, creatures, the PC States). Slips of the Spanish corrected in the English only; the Spanish is untouched. `en/README.md` marks every chapter translated. CC0.
 

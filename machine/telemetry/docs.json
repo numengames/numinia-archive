@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 103726,
+  "chars": 103979,
   "apparatus": false,
   "archived": false,
-  "tokens": 27483
+  "tokens": 27553
  },
  {
   "path": "CLAUDE.md",
@@ -995,10 +995,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1975,
+  "chars": 1939,
   "apparatus": true,
   "archived": false,
-  "tokens": 563
+  "tokens": 553
  },
  {
   "path": "lore/adventures/README.md",
@@ -1292,10 +1292,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1309,
+  "chars": 1279,
   "apparatus": true,
   "archived": false,
-  "tokens": 442
+  "tokens": 428
  },
  {
   "path": "lore/game/manual/glossary-es-en.md",
