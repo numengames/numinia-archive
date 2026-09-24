@@ -331,6 +331,35 @@ indica el capítulo donde aparece por primera vez.
 | Zócalo del Entendimiento | Plinth of Understanding | 1 |
 | Equilibrio (el) | the Balance | 1 |
 | Archivo Central | Central Archive | Introducción |
+| Edad Precinérea / Edad Dorada / Edad Oscura | Pre-Ashen Age / Golden Age / Dark Age | 2 |
+| Centro de Investigación Sigma | Sigma Research Centre | 2 |
+| Complejo Bildung | Bildung Complex | 2 |
+| Cinco Iniciados | Five Initiates | 2 |
+| El Juego (de Holberins) | The Game | 2 |
+| Archivos Akáshicos | Akashic Archives | 2 |
+| Relojero del Cosmos | Watchmaker of the Cosmos | 2 |
+| Manuscrito de Athanasius | Athanasius Manuscript | 2 |
+| Codex Hermopolitanus | Codex Hermopolitanus | 2 |
+| Tres Ruedas del Caos | Three Wheels of Chaos | 2 |
+| Escarabajo Solar / Perpetuo / de las Tres Ruedas | Solar / Perpetual Scarab, Scarab of the Three Wheels | 2 |
+| Ingenieros Negros | Black Engineers | 2 |
+| Portadores del Velo / del Umbral | Bearers of the Veil / of the Threshold | 2 |
+| Susurradores de Ciclos | Whisperers of Cycles | 2 |
+| Umbrílegos | Umbrílegos (sin traducir) | 2 |
+| Punto Ciego | Blind Spot | 2 |
+| Lapidarios de Sal-Inferior | Lapidaries of Lower Salt | 2 |
+| Muro Errante | Wandering Wall | 2 |
+| Desierto(s) de Antracita | Anthracite Desert(s) | 2 |
+| Aguja del Silencio | Needle of Silence | 2 |
+| Lira de Nyx | Lyre of Nyx | 2 |
+| Cinco Fragmentos: Artífice, Narrador, Guardián, Pensador, Explorador | Five Fragments: Artificer, Narrator, Guardian, Thinker, Explorer | 2 |
+| Cinco Especies | Five Species | 2 |
+| Criptaedro(s) | Cryptahedron / Cryptahedra | 2 |
+| Ostramires | Ostramires (sin traducir) | 2 |
+| Ciclo del Prisma | Cycle of the Prism | 2 |
+| Senderos prismáticos | Prismatic trails | 2 |
+| Subvalle de Neuma / Lomas de Khar / Gargantas de Lethé | Neuma Subvale / Khar Hills / Lethe Gorges | 2 |
+| Aventura onírica | Dream Adventure | 2 |
 
 ## C. Dudas abiertas — open questions
 

@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.34.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "Chapter 2 of the RPG manual, 'History and legends of Numinia', is in English: Holberins and the first Numinia, the genesis of the Khepris, the shadow of Athanasius, the Dark Age and the birth of the five species, the three great forces, and Steiner's dreams. Three of the eight chapters are now translated.",
+      },
+    ],
+  },
+  {
     version: "v0.33.0",
     date: "2026-09-24",
     entries: [

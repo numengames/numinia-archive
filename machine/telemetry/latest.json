@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "bd4ffe0+index",
-  "corpus_hash": "b12d355c0314921e55d187fe3d4bb7ef4667861df62c53fd12a9ab432663518f",
+  "head": "533448f",
+  "corpus_hash": "caf2be7bb0463d7a714280f46051113e1b87f588827d957bff9db95a68872f2b",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T12:18:19Z",
+  "measured_at": "2026-09-24T13:28:15Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 555,
+      "value": 556,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -30,7 +30,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 14,
-        ".md": 210,
+        ".md": 211,
         ".mjs": 76,
         ".png": 35,
         ".svg": 72,
@@ -47,12 +47,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 210,
+      "value": 211,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 208,
+      "value": 209,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -65,7 +65,7 @@
         "canon": 9,
         "debt": 2,
         "decisions": 24,
-        "lore": 27,
+        "lore": 28,
         "machine": 13,
         "missions": 11,
         "objects": 2,
@@ -80,7 +80,7 @@
     },
     "corpus.docs_by_type": {
       "value": {
-        "(none)": 36,
+        "(none)": 37,
         "adr": 25,
         "agent": 34,
         "blueprint": 10,
@@ -97,7 +97,7 @@
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
     },
     "corpus.docs_without_frontmatter": {
-      "value": 35,
+      "value": 36,
       "unit": "documents",
       "definition": "corpus documents with no `---` block at the top"
     },
@@ -318,17 +318,17 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 644845,
+      "value": 672596,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "lore": 304511,
+        "lore": 332075,
         "standards": 55004,
         "missions": 43966,
         "decisions": 35122,
-        "": 33232,
+        "": 33419,
         "agents": 29069,
         "reports": 26307,
         "operations": 24533,
@@ -346,7 +346,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 337813,
+        "(none)": 365564,
         "draft": 143988,
         "active": 117590,
         "done": 26539,
@@ -357,7 +357,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.82,
+      "value": 6.54,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -393,7 +393,7 @@
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
     "headers.docs_without_frontmatter": {
-      "value": 35,
+      "value": 36,
       "unit": "documents",
       "definition": "corpus docs minus docs_with_frontmatter"
     },
@@ -520,7 +520,7 @@
     "provenance.authorship": {
       "value": {
         "ai-persona": 135,
-        "no-frontmatter": 35,
+        "no-frontmatter": 36,
         "other": 25,
         "ai-model": 8,
         "human": 4,
@@ -535,19 +535,50 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 0,
+      "value": 6,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
-      "value": [],
+      "value": [
+        [
+          "README.md",
+          "2026-04-07",
+          "2026-04-06"
+        ],
+        [
+          "agents/nimrod/OPERATOR.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/nimrod/SOUL.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/skills/numinia-nwos-pr/SKILL.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "protocols/PRO-018-publishing-a-repository.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "reports/RPT-019-2026-w37.md",
+          "2026-09-09",
+          "2026-09-08"
+        ]
+      ],
       "unit": "documents",
       "definition": "[path, created, first-add] for created_ahead_of_commit",
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 137,
+      "value": 31,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
