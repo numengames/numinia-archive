@@ -1,0 +1,559 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// / — the threshold: what this place is, why it exists, and the six doors in.
+//
+// WHAT THIS PAGE USED TO BE, AND WHY IT CHANGED
+// Until today the home opened with "One producer, one fond, six functions"
+// and spent its next two screens on the filing vocabulary and a table of all
+// eighteen series. Every word of it was true and generated from the
+// standards, and it taught the plumbing before the house: a reader who does
+// not already know what a fond is met the word in the first line.
+//
+// `CAN-002` → Verbal Identity settles the register this page owes: the voice
+// is "cultivated, plain and clear", technicisms are avoided where possible,
+// and there are three declared levels of language — colloquial, literary,
+// technical. So the page DESCENDS: it opens literary (the threshold), lands
+// colloquial (the pain, the doors), and leaves the technical level where it
+// belongs, inside the documents.
+//
+// Two things it now says that it never said, both canon and both the reason
+// anyone stays past the first screen:
+//   - THE PAIN. Documents scattered, interests in keeping some unfindable,
+//     an organisation that stops knowing itself. Without it the archive reads
+//     as bureaucracy; with it, as the answer to something the reader has
+//     lived.
+//   - HOW A DOCUMENT ANNOUNCES ITSELF. Every file opens with Epistemic and
+//     Pragmatic — what you learn, what you can do with it (`STD-004`). The
+//     home now shows one real header, read from the file at build time
+//     (@/lib/doc-header), instead of describing the corpus in the abstract.
+//
+// WHAT STAYED. The six functions as a first sweep and the relation graph: a
+// reader who thinks in structures enters through them, and the Oracle keeps
+// them deliberately. WHAT LEFT. The vocabulary block, the table of eighteen
+// rows and the second-fond note now live at /scheme — the same page, nothing
+// deleted, one click away, for the reader who has decided to evaluate rather
+// than to arrive.
+//
+// Nothing about the classification is written on this page: the functions,
+// their activities and their series all come from STD-027 and STD-001 via
+// @/lib/classification, as before. The figures come from the instrument.
+import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { functions, counts, graphNodes, RELATIONS } from "@/lib/classification";
+import { headerOf } from "@/lib/doc-header";
+import { dataset } from "@/lib/telemetry";
+import { VERSION, repoFileUrl } from "@/lib/build-info";
+
+const fns = functions();
+const n = counts();
+const nodes = graphNodes();
+const edges = RELATIONS.map((e) => [e[0], e[1]]);
+
+// The document the home shows as itself. The scheme is the right one: it is
+// the document this page is generated from, so the header the reader sees is
+// the header of the thing they are looking at.
+const SHOWN = {
+  path: "standards/STD-027-the-classification-scheme.md",
+  title: "The classification scheme",
+  id: "STD-027",
+  href: "/standards/std-027-the-classification-scheme",
+  series: "standards/",
+};
+const shown = headerOf(SHOWN.path);
+
+// Figures from the instrument, never typed. `find` returns undefined if the
+// instrument stops publishing a key — the block renders what it has.
+const figure = (k: string) => dataset.figures.find((f) => f.key === k);
+const docsTotal = figure("corpus.docs_total")?.value as number | undefined;
+const missionsTotal = figure("missions.total")?.value as number | undefined;
+const measuredAt = dataset.measured_at?.slice(0, 10);
+
+// One glyph per function. Presentation, not classification — which is why it
+// lives here and not in the standard. Same table as /archive/[function].
+const FN_ICON: Record<string, string> = {
+  governance: "bank",
+  production: "lightning",
+  assurance: "shield-check",
+  agency: "robot",
+  creation: "sparkle",
+  administration: "gear",
+};
+
+const FN_ACCENT: Record<string, { border: string; bg: string; text: string }> = {
+  governance:     { border: "border-green/20",  bg: "bg-green/5",  text: "text-green" },
+  production:     { border: "border-yellow/20", bg: "bg-yellow/5", text: "text-yellow" },
+  assurance:      { border: "border-blue/20",   bg: "bg-blue/5",   text: "text-blue" },
+  agency:         { border: "border-accent/20", bg: "bg-accent/5", text: "text-accent" },
+  creation:       { border: "border-purple/20", bg: "bg-purple/5", text: "text-purple" },
+  administration: { border: "border-yellow/20", bg: "bg-yellow/5", text: "text-yellow" },
+};
+
+// What each function is, in the language of someone who has just arrived.
+// The activities under it are the standard's words and are printed beneath;
+// this line is the door, and it is presentation, so it lives here.
+const FN_DOOR: Record<string, string> = {
+  governance: "What Numinia is, and what it has decided.",
+  production: "What is being built right now, and the plans behind it.",
+  assurance: "What has been observed — and what is known to be missing.",
+  agency: "Who acts here: digital agents and biological ones.",
+  creation: "The world, and everything the archive registers in it.",
+  administration: "What keeps the machine standing.",
+};
+---
+
+<Layout
+  title="Every series — the archive of Numen Games"
+  description="The archive where Numinia's source of truth lives: what has been decided, what is being built, and how the work is done — as files, open to read."
+  canonicalPath="/about"
+>
+  <!-- 1 · THE THRESHOLD. Literary level (CAN-002): two lines, no vocabulary. -->
+  <section class="pb-10 pt-16 sm:pt-24">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <span class="mb-4 inline-block font-mono text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent">
+        The archive
+      </span>
+      <h1
+        id="thesis"
+        data-tecleo
+        class="font-display text-4xl tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+      >
+        Welcome, <span class="text-yellow">curious</span> explorer.
+      </h1>
+      <p class="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
+        This is where Numinia's source of truth lives. Everything decided, built and agreed,
+        written down and open to read.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[1100px] px-6">
+
+      {/* 2 · THE PAIN. Colloquial level. Two sentences, then the turn. */}
+      <div class="max-w-[780px] mb-16">
+        <p class="text-base leading-relaxed text-muted-foreground">
+          Working in an organisation hurts: the documents live scattered, there are interests in
+          some of them not being found, and the organisation ends up not knowing itself.
+        </p>
+        <p class="mt-3 text-base leading-relaxed text-foreground">
+          Not here. What is decided, what is built and what is agreed is written down, as files,
+          in the open.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-4">
+          <a
+            href="/canon/"
+            class="inline-flex min-h-[44px] items-center gap-2 rounded-[6px] bg-accent px-5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-background transition-colors hover:bg-accent/85"
+          >
+            Read the canon
+            <Icon name="caret-left" size={12} class="rotate-180" />
+          </a>
+          <a
+            href="/scheme"
+            class="inline-flex min-h-[44px] items-center font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim transition-colors hover:text-foreground"
+          >
+            How it is classified →
+          </a>
+        </div>
+        {/*
+          Listen, copy, download, source — the same four a document offers.
+          This page has no file: its .md is composed from the registers by
+          @/lib/composed-md, and `Source` points at the scheme that governs
+          what the page states, never at index.astro, which only draws it.
+        */}
+        <div class="mt-8">
+          <DocToolbar
+            mdUrl="/about.md"
+            filename="about.md"
+            repoUrl={repoFileUrl(SHOWN.path)}
+            lang="en"
+          />
+        </div>
+      </div>
+
+      {/*
+        3 · START HERE. Four questions, before any door.
+
+        WHY IT EXISTS. A reader arriving with no context met the welcome, then
+        the pain, then six functions — and was classified before being told who
+        writes this, what the two names mean, what state it is in, or what they
+        may do with it. Those four answers existed, spread across CAN-001,
+        CAN-006 and SYS-006, in the technical register. This is the colloquial
+        level (CAN-002) of the same content: the answers, in the order a
+        stranger asks them, with the documents one click behind each.
+
+        `draft` is defined here rather than glossed, because it is the state
+        most of this archive is in and STD-016 is exact about it: "written, not
+        yet in force; binds nobody". Anything softer would be a nicer sentence
+        and a false one.
+      */}
+      <div class="mb-4 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Start here</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+
+      <div class="rounded-[8px] border border-border bg-card p-6 sm:p-8 mb-16 max-w-[780px]">
+        <h2 class="font-display text-2xl text-foreground mb-6">
+          Four questions, before you open any door
+        </h2>
+
+        <div class="flex flex-col gap-6">
+          <div>
+            <h3 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">
+              Who writes this?
+            </h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Numen Games S.L., a studio in Spain building a narrative operating system for the
+              way organisations work. We are the first organisation running on it, which makes
+              this archive our documentation and our evidence at once: if it does not work for
+              us, it does not work.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">
+              What is Numinia, and what is NWOS?
+            </h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Two names for one thing, seen from two sides. NWOS is the machine: files in a git
+              repository, one classification, checks that refuse a change breaking the rules.
+              Numinia is the story that machine is told through — a city where tasks are
+              missions, roles are characters, and the people doing the work are its citizens.
+              The machine keeps the work honest; the story keeps it worth doing.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">
+              What state is this in?
+            </h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Early, and openly so. Most of what you will read says <code class="font-mono text-xs text-foreground">draft</code>,
+              including the canon: written, not yet in force — it binds nobody
+              (<a href="/standards/std-016-header-fields" class="text-accent hover:underline">STD-016</a>).
+              A document is published the day it is written, not the day it is ratified, because
+              the alternative is an archive that only shows its finished parts. So if most of it
+              does not bind, what does? That is
+              <a href="/binding" class="text-accent hover:underline">what binds today</a> — the
+              standing instruction, word for word, and the state of every rule, counted. What is broken is
+              in <a href="/debt/" class="text-accent hover:underline">the debt register</a>; what
+              changed is in <a href="/updates/" class="text-accent hover:underline">Updates</a>; what
+              can be counted is in <a href="/telemetry" class="text-accent hover:underline">Telemetry</a>,
+              measured by an instrument and never typed.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">
+              What can you do with it?
+            </h3>
+            <p class="text-sm leading-relaxed text-muted-foreground">
+              Read all of it — every page is a rendering of a real file, and every page hands you
+              that file to copy, download or open where it lives. Take it, too: everything outside
+              <a href="/lore/" class="font-mono text-xs text-foreground hover:text-accent">lore/</a> is
+              open by licence, so the scheme, the standards or the whole method can be lifted into
+              your own organisation. And if you would rather talk to us first, write to
+              <a href="mailto:hola@numengames.com" class="text-accent hover:underline">hola@numengames.com</a> —
+              a person answers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 · THE SIX DOORS. The functions, at a glance. -->
+      <div class="mb-4 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">What you will find</span>
+        <span class="h-px flex-1 bg-border"></span>
+        <span class="font-mono text-[0.6rem] text-dim">{n.published} of {n.series} series have an address here</span>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-16">
+        {fns.map((f) => {
+          const a = FN_ACCENT[f.slug] ?? FN_ACCENT.governance;
+          return (
+            <a href={f.href} class={`rounded-[8px] border p-5 ${a.border} ${a.bg} hover:border-accent/50 transition-colors group block`}>
+              <div class="flex items-start justify-between mb-3">
+                <span class={a.text}><Icon name={FN_ICON[f.slug] ?? "archive"} size={22} /></span>
+                <span class={`font-mono text-[0.55rem] uppercase tracking-[0.15em] ${a.text} opacity-70`}>
+                  {f.activities.length} {f.activities.length === 1 ? "activity" : "activities"}
+                </span>
+              </div>
+              <h2 class={`font-display text-xl mb-2 ${a.text}`}>{f.name}</h2>
+              <p class="text-sm text-muted-foreground leading-relaxed mb-3">
+                {FN_DOOR[f.slug] ?? ""}
+              </p>
+              <p class="font-mono text-[0.6rem] text-dim leading-relaxed border-t border-border/50 pt-3">
+                {f.activities.map((act) => act.name).join(" · ")}
+              </p>
+              <p class="mt-3 font-mono text-[0.55rem] text-accent opacity-0 group-hover:opacity-100 transition-opacity">See the function →</p>
+            </a>
+          );
+        })}
+      </div>
+
+      <!-- Relations between the functions -->
+      <div class="mb-4 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">How the functions relate</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+
+      <div class="rounded-[8px] border border-border bg-card p-6 mb-16 relative" data-surface>
+        <p class="text-xs text-muted-foreground mb-4">
+          Governance feeds agency and production; administration sustains them; production is observed by
+          assurance and born from planning; creation supplies what production builds with.
+          <span class="text-dim"> Drag to turn.</span>
+        </p>
+        <div id="archive-3d" class="cursor-grab active:cursor-grabbing" style="width:100%;height:320px;" aria-hidden="true"></div>
+        <!-- The same relations as text, for readers the canvas does not reach -->
+        <ul class="sr-only">
+          {RELATIONS.map(([a, b]) => <li>{a} → {b}</li>)}
+        </ul>
+      </div>
+
+      <!-- 4 · HOW A DOCUMENT ANNOUNCES ITSELF. A real header, read from the file. -->
+      <div class="mb-4 flex items-center gap-3">
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">How a document announces itself</span>
+        <span class="h-px flex-1 bg-border"></span>
+      </div>
+
+      <div class="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] mb-16 items-start">
+        <a href={SHOWN.href} class="rounded-[8px] border border-border bg-card p-6 block hover:border-accent/50 transition-colors group">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-2">{SHOWN.series}</p>
+          <h3 class="font-display text-xl text-foreground mb-4 group-hover:text-accent transition-colors">
+            {SHOWN.title} <span class="font-mono text-sm text-dim">({SHOWN.id})</span>
+          </h3>
+          <dl class="space-y-3 border-l-2 border-accent/30 pl-4">
+            <div>
+              <dt class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-accent mb-1">What it is</dt>
+              <dd class="text-sm text-muted-foreground leading-relaxed">{shown.summary}</dd>
+            </div>
+            <div>
+              <dt class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-accent mb-1">What you learn</dt>
+              <dd class="text-sm text-muted-foreground leading-relaxed">{shown.epistemic}</dd>
+            </div>
+            <div>
+              <dt class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-accent mb-1">What you can do with it</dt>
+              <dd class="text-sm text-muted-foreground leading-relaxed">{shown.pragmatic}</dd>
+            </div>
+          </dl>
+        </a>
+        <div class="text-sm text-muted-foreground leading-relaxed">
+          <p>
+            Every document here tells you, before you start, what you will learn from it and what it
+            lets you do. Nothing asks to be read on faith.
+          </p>
+          <p class="mt-3">
+            And every one of them can be copied, downloaded as its own file or opened where it lives.
+            The page is a rendering; the file is the document.
+          </p>
+        </div>
+      </div>
+
+      <!-- 5 · WHAT IS NOT HERE. Said out loud, because silence reads as a lie. -->
+      <div class="rounded-[8px] border border-border bg-card p-6 mb-8 max-w-[780px]">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">What is not here</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          Not everything is. There is protected matter that cannot live in the open — what is under
+          someone else's licence, what would expose a person, what is not ours to publish. What does
+          live here is everything that can be transparent, which is nearly all of it. Where a document
+          is withheld, the archive says so instead of leaving a gap.
+        </p>
+      </div>
+
+      <!-- 6 · UNDER CONSTRUCTION. Khepri, and the figures from the instrument. -->
+      <div class="rounded-[8px] border border-yellow/20 bg-yellow/5 p-6 mb-8 max-w-[780px]">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-yellow mb-3">Under construction</p>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          The city is being repopulated. Five years is not long. Khepri pushes the sun up every
+          morning and raises it again: nothing here is taken as finished, it is written again. What
+          you have done counts, your experience counts, your opinion counts.
+        </p>
+        <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-yellow/20 pt-4 font-mono text-[0.65rem] text-dim">
+          {docsTotal !== undefined && <span><span class="text-foreground">{docsTotal.toLocaleString("en-US")}</span> documents</span>}
+          {missionsTotal !== undefined && <span><span class="text-foreground">{missionsTotal.toLocaleString("en-US")}</span> missions</span>}
+          {measuredAt && <span>measured <span class="text-foreground">{measuredAt}</span></span>}
+          <span class="text-foreground">{VERSION}</span>
+          <a href="/telemetry" class="text-accent hover:underline">every figure →</a>
+        </div>
+      </div>
+
+      <!-- 7 · WHY. The purpose, and the line the house is judged by. -->
+      <div class="max-w-[780px]">
+        <p class="text-base leading-relaxed text-muted-foreground">
+          Because organisations can be more human while the machines help us build better and
+          faster. And because we want to leave something useful to the ones who come after.
+        </p>
+        <p class="mt-4 font-display text-2xl text-foreground">
+          Leave things better than we found them.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Typing (catalogue 01): 22 ms per character, block cursor in Ámbar. The
+  // full sentence is in the DOM before this runs and stays readable to
+  // assistive tech through aria-label while the characters appear. Reduced
+  // motion: the text simply is.
+  const el = document.querySelector<HTMLElement>("[data-tecleo]");
+  const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (el && !rm) {
+    el.setAttribute("aria-label", el.textContent ?? "");
+    const nodes: { node: Text; text: string }[] = [];
+    (function walk(n: Node) {
+      n.childNodes.forEach((c) => {
+        if (c.nodeType === Node.TEXT_NODE) { nodes.push({ node: c as Text, text: c.nodeValue ?? "" }); c.nodeValue = ""; }
+        else walk(c);
+      });
+    })(el);
+    const cur = document.createElement("span");
+    cur.className = "inline-block w-[0.55em] h-[1em] align-[-0.1em] bg-yellow animate-cursor";
+    cur.setAttribute("aria-hidden", "true");
+    el.appendChild(cur);
+    let i = 0, j = 0;
+    (function step() {
+      if (i >= nodes.length) { setTimeout(() => { cur.remove(); el.removeAttribute("aria-label"); }, 900); return; }
+      const n = nodes[i];
+      if (j < n.text.length) { n.node.nodeValue += n.text[j++]; n.node.parentNode?.appendChild(cur); setTimeout(step, 22); }
+      else { i++; j = 0; step(); }
+    })();
+  }
+</script>
+
+<script>
+  // The relation graph. `three` from the site's own bundle (DSN-002); still by
+  // default, turned by pointer drag; entrance = one surfacing when the panel
+  // scrolls into view (catalogue 10, 560 ms); reduced motion = already placed.
+  import * as THREE from "three";
+
+  interface GNode { id: string; label: string; subtitle: string; color: number; x: number; y: number; z: number }
+  const el = document.getElementById("archive-3d");
+  const data = document.getElementById("archive-graph-data");
+  if (el && data) {
+    const { nodes, edges } = JSON.parse(data.textContent ?? "{}") as { nodes: GNode[]; edges: [string, string][] };
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const w = el.offsetWidth || 400, h = 320;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, w / h, 0.1, 100);
+    camera.position.set(0, 1, 7.5);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(w, h);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+    el.appendChild(renderer.domElement);
+
+    const group = new THREE.Group();
+    scene.add(group);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+
+    const pos: Record<string, THREE.Vector3> = {};
+    for (const n of nodes) {
+      const mesh = new THREE.Mesh(
+        new THREE.SphereGeometry(0.18, 20, 20),
+        new THREE.MeshStandardMaterial({ color: n.color, emissive: n.color, emissiveIntensity: 0.6 }),
+      );
+      mesh.position.set(n.x, n.y, n.z);
+      group.add(mesh);
+      pos[n.id] = new THREE.Vector3(n.x, n.y, n.z);
+      const light = new THREE.PointLight(n.color, 0.4, 3);
+      light.position.copy(mesh.position);
+      group.add(light);
+    }
+    for (const [a, b] of edges) {
+      if (!pos[a] || !pos[b]) continue;
+      group.add(new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints([pos[a].clone(), pos[b].clone()]),
+        new THREE.LineBasicMaterial({ color: 0x3a332d, opacity: 0.7, transparent: true }),
+      ));
+    }
+
+    // Labels in the DOM over the canvas — legible, never occluded.
+    const layer = document.createElement("div");
+    layer.style.cssText = "position:absolute;top:0;left:0;pointer-events:none;overflow:hidden;width:100%;height:100%;";
+    el.style.position = "relative";
+    el.appendChild(layer);
+    const labels: { el: HTMLElement; pos: THREE.Vector3 }[] = [];
+    for (const n of nodes) {
+      const div = document.createElement("div");
+      div.style.cssText = "position:absolute;top:0;left:0;font-family:var(--font-mono);text-align:center;pointer-events:none;";
+      const hex = "#" + n.color.toString(16).padStart(6, "0");
+      div.innerHTML =
+        `<span class="graph-label" style="--node:${hex};display:block;font-size:11px;font-weight:bold;color:var(--node);white-space:nowrap;">${n.label}</span>` +
+        `<span class="graph-sub" style="display:block;font-size:8px;white-space:nowrap;">${n.subtitle}</span>`;
+      layer.appendChild(div);
+      labels.push({ el: div, pos: pos[n.id].clone() });
+    }
+
+    function render() {
+      renderer.render(scene, camera);
+      for (const item of labels) {
+        const p = item.pos.clone();
+        group.localToWorld(p);
+        p.project(camera);
+        item.el.style.transform =
+          `translate(-50%, -140%) translate(${(p.x * 0.5 + 0.5) * el!.offsetWidth}px, ${(-p.y * 0.5 + 0.5) * el!.offsetHeight}px)`;
+        item.el.style.display = p.z < 1 ? "block" : "none";
+      }
+    }
+
+    // A resting pose that shows every node; the reader turns it from here.
+    group.rotation.y = 0.6;
+    group.rotation.x = 0.12;
+
+    new ResizeObserver((entries) => {
+      const r = entries[0].contentRect;
+      camera.aspect = r.width / r.height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(r.width, r.height);
+      render();
+    }).observe(el);
+
+    // Drag to turn — pointer events cover mouse, touch and pen.
+    let dragging = false, lastX = 0, lastY = 0;
+    el.addEventListener("pointerdown", (e) => { dragging = true; lastX = e.clientX; lastY = e.clientY; el.setPointerCapture(e.pointerId); });
+    el.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      group.rotation.y += (e.clientX - lastX) * 0.01;
+      group.rotation.x = Math.max(-0.6, Math.min(0.6, group.rotation.x + (e.clientY - lastY) * 0.01));
+      lastX = e.clientX; lastY = e.clientY;
+      render();
+    });
+    const stop = () => { dragging = false; };
+    el.addEventListener("pointerup", stop);
+    el.addEventListener("pointercancel", stop);
+
+    // Entrance: surfacing (10) — opacity 0→1, blur 8→0, 8 px rise, 560 ms, once.
+    const surface = el.closest<HTMLElement>("[data-surface]") ?? el;
+    if (reduced || !("IntersectionObserver" in window)) {
+      render();
+    } else {
+      surface.style.opacity = "0";
+      surface.style.filter = "blur(8px)";
+      surface.style.transform = "translateY(8px)";
+      surface.style.transition = "opacity 560ms ease-out, filter 560ms ease-out, transform 560ms ease-out";
+      const io = new IntersectionObserver((es) => {
+        if (!es.some((e) => e.isIntersecting)) return;
+        render();
+        surface.style.opacity = "1";
+        surface.style.filter = "none";
+        surface.style.transform = "none";
+        io.disconnect();
+      }, { rootMargin: "0px 0px -10% 0px" });
+      io.observe(surface);
+    }
+  }
+</script>
+
+<script is:inline id="archive-graph-data" type="application/json" set:html={JSON.stringify({ nodes, edges })} />
+
+<style>
+  /* Block cursor (catalogue 08): 1 s, steps(2). */
+  @keyframes cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  .animate-cursor { animation: cursor 1s steps(2, start) infinite; }
+  @media (prefers-reduced-motion: reduce) { .animate-cursor { animation: none; } }
+</style>

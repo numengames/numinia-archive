@@ -1,0 +1,16 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// One entry of the Summa in a panel list: a series served here (with its
+// count), an offer a sister site already serves (↗), or a record still to
+// create (no link, the tag says why).
+import { TO_CREATE, type Entry } from "@/lib/suma";
+interface Props { e: Entry }
+const { e } = Astro.props;
+---
+{e.external
+  ? <li><a href={e.href!} rel="noopener"><span>{e.label}<span class="chip ext">on {e.external} ↗</span></span><small>{e.line}</small></a></li>
+  : e.href
+    ? <li><a href={e.href}><span>{e.label}{e.count ? <span class="n">{e.count}</span> : null}</span><small>{e.line}</small></a></li>
+    : <li><span class="todo" title={TO_CREATE}><span>{e.label}<span class="chip">to create</span></span><small>{e.line}</small></span></li>}

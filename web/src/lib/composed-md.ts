@@ -40,6 +40,7 @@ import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears } from "@/lib/account";
+import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -293,7 +294,57 @@ export function homePage(): ComposedPage {
     "",
   ].join("\n");
 
-  return { route: "", filename: "home.md", sources: [SCHEME_DOC, SERIES_DOC, STATUS_DOC], body };
+  return { route: "/about", filename: "about.md", sources: [SCHEME_DOC, SERIES_DOC, STATUS_DOC], body };
+}
+
+/**
+ * `/` — the map: the Summa as four rings, as text. The same model the
+ * astrolabe, the Archive menu and the wayfinder read (@/lib/suma).
+ */
+export function mapPage(): ComposedPage {
+  const line = (e: { label: string; line: string; href: string | null; external?: string; count?: number }) =>
+    e.external
+      ? `- ${e.label} — ${e.line}. On ${e.external}: ${e.href}`
+      : e.href
+        ? `- [${e.label}](${e.href})${e.count ? ` (${e.count})` : ""} — ${e.line}.`
+        : `- ${e.label} — ${e.line}. *To create.*`;
+  const body = [
+    preamble([SCHEME_DOC, SERIES_DOC]),
+    "# The Summa",
+    "",
+    "The archive of Numen Games: everything we decide, build and offer, written",
+    "down and open. Numinia is the story we tell it in — a city where work is a game.",
+    "",
+    "## What brings you here?",
+    "",
+    ...INTENTS.map((i) => `- ${i.label} → ${i.hint}`),
+    "",
+    "## The four rings, from the centre out",
+    "",
+    ...RING_ORDER.flatMap((ring) => [
+      `### ${RINGS[ring].name}`,
+      "",
+      `${RINGS[ring].line} *(${RINGS[ring].classic}.)*`,
+      "",
+      ...SEGMENTS.filter((s) => s.ring === ring).flatMap((s) => [
+        `**${s.title}**${s.district ? ` — ${DISTRICTS[s.district].place}` : ""}`,
+        "",
+        ...s.entries.map(line),
+        "",
+      ]),
+    ]),
+    "## Our other sites",
+    "",
+    "They hold no text of their own: what they show is here.",
+    "",
+    ...LENSES.map((l) => `- ${l.site} — ${l.who}. ${l.line}`),
+    "",
+    `*To create:* ${TO_CREATE}`,
+    "",
+    "Every series as one list: `/about`.",
+    "",
+  ].join("\n");
+  return { route: "", filename: "home.md", sources: [SCHEME_DOC, SERIES_DOC], body };
 }
 
 /** `/archive/<function>` — one function of the fond. */
@@ -603,7 +654,7 @@ function forecastMd(): string[] {
  * checks none is forgotten.
  */
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [homePage(), schemePage(), bindingPage(), designPage(), accountPage()];
+  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), designPage(), accountPage()];
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));
   pages.push(await collectionIndexPage("missions"));

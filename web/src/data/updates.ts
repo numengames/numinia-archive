@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.52.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "The home is a map of the Summa. Four rings from the centre out — the rules, the work, the world, the offer — and four districts on the outer two: Play, Learn, Organise, Collect. Click a piece and the panel on the left says what it is and what it holds; Open takes you in. The panel also answers what this place is and what brings you here. The three buttons above the map show what each of our other sites takes from the Summa.",
+      },
+      {
+        type: "CHG",
+        text: "The bar has two doors instead of six: Map, and Archive — a large menu with the same four rings as columns and every series with its number of documents. Offers another site already serves (events, NWOS, the gallery) link there; the ones not yet written say \"to create\", and what that means. On phones the menu groups the same entries by ring.",
+      },
+      {
+        type: "ADD",
+        text: "Every page says where it sits: a strip under the bar with the path from the centre, four marks for the ring you are in, and which other site also shows it. The round compass at the bottom right takes you back to the map, at your ring.",
+      },
+      {
+        type: "CHG",
+        text: "The former home — every series as one list — moves to /about, with its markdown at /about.md. The map's own text is at /home.md.",
+      },
+    ],
+  },
+  {
     version: "v0.51.0",
     date: "2026-09-24",
     entries: [
