@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 99836,
+  "chars": 100497,
   "apparatus": false,
   "archived": false,
-  "tokens": 26439
+  "tokens": 26626
  },
  {
   "path": "CLAUDE.md",
@@ -995,10 +995,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1972,
+  "chars": 1975,
   "apparatus": true,
   "archived": false,
-  "tokens": 561
+  "tokens": 563
  },
  {
   "path": "lore/adventures/README.md",
@@ -1122,15 +1122,26 @@
   "tokens": 2970
  },
  {
+  "path": "lore/game/manual/en/02-history-and-legends-of-numinia.md",
+  "dir": "lore",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 127459,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 26982
+ },
+ {
   "path": "lore/game/manual/en/README.md",
   "dir": "lore",
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1287,
+  "chars": 1327,
   "apparatus": true,
   "archived": false,
-  "tokens": 340
+  "tokens": 350
  },
  {
   "path": "lore/game/manual/es/00-introduccion.md",
@@ -1226,10 +1237,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1304,
+  "chars": 1309,
   "apparatus": true,
   "archived": false,
-  "tokens": 438
+  "tokens": 442
  },
  {
   "path": "lore/game/manual/glossary-es-en.md",
@@ -1237,10 +1248,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12815,
+  "chars": 14492,
   "apparatus": false,
   "archived": false,
-  "tokens": 3909
+  "tokens": 4475
  },
  {
   "path": "lore/world/brand-and-culture.md",
