@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.51.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "FIX",
+        text: "Search works again. Typing in it answered \"Search index not built yet\" on every page although the index was there: the script that loads it was broken by the build. It now finds what you type, and the results no longer repeat the words of the menu.",
+      },
+      {
+        type: "FIX",
+        text: "The menu on phones opens. The button turned into a cross but the panel stayed zero pixels tall, so on a phone there was no way to reach a section except from the home page.",
+      },
+    ],
+  },
+  {
     version: "v0.50.0",
     date: "2026-09-24",
     entries: [

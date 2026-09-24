@@ -72,7 +72,13 @@ const t = useT();
       // Path built at runtime — the bundle only exists after `astro build`,
       // so the specifier is kept opaque to Rollup's static analysis.
       const bundle = "/pagefind/pagefind.js";
-      pagefind = await import(/* @vite-ignore */ bundle);
+      // Not a bare import(): Vite wraps even an ignored dynamic import in
+      // its preload helper and, in this inlined script, leaves the
+      // `__VITE_PRELOAD__` placeholder behind — a ReferenceError that the
+      // catch below reported as "index not built" on the live site while
+      // /pagefind/ was there all along. A native loader skips the rewrite.
+      const load = new Function("u", "return import(u)") as (u: string) => Promise<unknown>;
+      pagefind = await load(bundle);
       return true;
     } catch {
       emptyMsg.textContent = "Search index not built yet (production only).";

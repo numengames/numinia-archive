@@ -39,7 +39,7 @@ const homeHref = "/";
 const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
 ---
 
-<nav class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl" aria-label="Primary">
+<nav data-pagefind-ignore="all" class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl" aria-label="Primary">
   <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
     <a href={homeHref} class="flex min-h-[44px] items-center font-display text-xl text-foreground transition-colors hover:text-accent">
       NW<em class="text-accent">OS</em>
@@ -134,6 +134,11 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
     </div>
   </div>
 
+</nav>
+
+<!-- Outside <nav> on purpose: the bar's backdrop-filter makes it the
+     containing block of any position:fixed child, which collapsed this
+     panel to 0 px on every phone. -->
   <!--
     Mobile panel: full-screen, the six functions as an accordion, the same
     entries as the bar and nothing else (BLU-009 §12). Fixed below the bar so
@@ -141,6 +146,7 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
   -->
   <div
     id="mobile-menu"
+    data-pagefind-ignore="all"
     class="fixed inset-x-0 bottom-0 top-14 z-40 hidden overflow-y-auto bg-background/95 backdrop-blur-xl lg:hidden"
   >
     <div class="mx-auto flex max-w-[1100px] flex-col gap-1 px-6 py-4">
@@ -182,7 +188,7 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
       ))}
     </div>
   </div>
-</nav>
+
 
 <style>
   /* Pure-CSS icon swap keyed on the html attribute: no flash, no JS paint. */
