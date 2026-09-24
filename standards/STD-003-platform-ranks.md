@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.1.0"
+version: "3.1.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-24T12:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,7 @@ territory: "Archive"
 tags: [standards, ranks, permissions, digital-goods]
 license: "CC0-1.0"
 threshold: governed
-series_change: "3.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
+series_change: "3.1.1 — 2026-09-24: the two canon citations become one, `CAN-004` having absorbed `CAN-003` (ADR-057). Patch: prose and References only. 3.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
 ---
 
 <!--
@@ -107,8 +107,8 @@ A rank the member declares is a permission the member grants themselves.
 Reading rank from evidence — a cookie, a sheet, a purchase, an Oracle-only
 file — makes every permission traceable to an act. Cumulative ranks
 keep the matrix one column. The Oracle ceiling and the ban immunity keep
-governance from being captured inside the product. What a rank *is* stays in `CAN-004`;
-what an attribute is, in `CAN-003`.
+governance from being captured inside the product. What a rank *is*, and what
+an attribute is, stay in `CAN-004`.
 
 > Nomad reads. Citizen edits their identity. Pilgrim buys. Vernacular creates.
 > Archon moderates. Oracle governs.
@@ -117,6 +117,5 @@ what an attribute is, in `CAN-003`.
 
 | ID | Title | Relation |
 |---|---|---|
-| `CAN-004` | A guild is what you know | names the ranks this standard regulates |
-| `CAN-003` | What an agent is made of | rank as one of the six attributes |
+| `CAN-004` | Nobody here has a role | what each rank is, and rank as one of the six attributes |
 | `ADR-036` | Canon consolidation | records the move from the canon to this standard |

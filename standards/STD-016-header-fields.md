@@ -5,15 +5,15 @@ title: "Header fields"
 type: documentation
 subtype: register
 status: draft
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-08-28T15:10:00Z"
-updated: "2026-09-09T16:40:00+02:00"
+updated: "2026-09-24T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 tags: [frontmatter, register, lint, metadata]
 license: "CC0-1.0"
-series_change: "2.0.0 — one lifecycle for everything that is not a mission: `draft → active → withdrawn`. `closed` and `superseded` leave the status vocabulary; an heir is the field `superseded_by`, never a state (the relation model of ISO stage codes, RFC 2026 `Obsoletes:` and NIST CSRC, verified 2026-09-09). This table is the only declaration; `rules.json` mirrors it under test. Earlier: 1.0.0 — new register, split from STD-004 under ADR-043: the field tables of the three rings (old §3, §4, §7), the type and subtype vocabularies (§5), the status lifecycles (§6), the closed vocabularies (§7.2) and the meaning of each relation (§4). Rows and plates unchanged."
+series_change: "2.1.0 — 2026-09-24: `absorbs` registered for `canon/` (ADR-057): CAN-004 absorbed CAN-003, and the GIT-048 guard reads the field to keep the absorbed identifier resolving. Minor: a row gained a field, none lost one. 2.0.0 — one lifecycle for everything that is not a mission: `draft → active → withdrawn`. `closed` and `superseded` leave the status vocabulary; an heir is the field `superseded_by`, never a state (the relation model of ISO stage codes, RFC 2026 `Obsoletes:` and NIST CSRC, verified 2026-09-09). This table is the only declaration; `rules.json` mirrors it under test. Earlier: 1.0.0 — new register, split from STD-004 under ADR-043: the field tables of the three rings (old §3, §4, §7), the type and subtype vocabularies (§5), the status lifecycles (§6), the closed vocabularies (§7.2) and the meaning of each relation (§4). Rows and plates unchanged."
 ---
 
 <!--
@@ -69,6 +69,7 @@ SPDX-License-Identifier: CC0-1.0
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` `absorbs` |
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `standards/` | `absorbs` `series_change` |
+| `canon/` | `absorbs` |
 | `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` | `extraction_note` `restoration_note` |

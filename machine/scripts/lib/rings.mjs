@@ -106,7 +106,13 @@ export const RING3 = {
     // guide live.
     'former_id', 'former_id_note', 'distributed_file', 'public_guide',
     'reasoned_edition', 'scope', 'out_of_scope', 'canonical_language',
-    'normative_conventions', 'authority', 'revision_policy'],
+    'normative_conventions', 'authority', 'revision_policy',
+    // registered 2026-09-24 (ADR-057). Same load-bearing role it has in
+    // decisions/, debt/, reports/ and standards/: the GIT-048 guard (std-020)
+    // reads `absorbs` to keep an absorbed identifier resolving. CAN-004
+    // absorbed CAN-003, so a canon can now be the absorbing document —
+    // SER-006's route out of a series, applied to canon for the first time.
+    'absorbs'],
   'protocols': ['supersedes_version', 'ratified_by', 'applies_to', 'mandatory',
     'human_approval_score', 'mission', 'review_next'],
   // ADR-035: the two shelves MIS-129 opened. `former_id`/`former_id_note`

@@ -18,7 +18,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-049"
 supersedes_version: "3.0.0"
 threshold: governed
-related: ["CAN-002", "CAN-003", "CAN-004", "CAN-006", "CAN-008", "PRO-015", "PRO-019", "STD-012"]
+related: ["CAN-002", "CAN-004", "CAN-006", "CAN-008", "PRO-015", "PRO-019", "STD-012"]
 ---
 
 <!--

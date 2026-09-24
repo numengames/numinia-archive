@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-09-18T12:00:00+02:00"
+updated: "2026-09-24T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -78,4 +78,4 @@ SPDX-License-Identifier: CC0-1.0
 
 Game-world terms (the Veil, the Threshold, guilds, seals…) are the
 manual's and live in `lore/codex/glosario.md`; their English names come
-from `CAN-003` and `CAN-004`, and code uses those names in lower case.
+from the game manual's translation glossary, and code uses those names in lower case.

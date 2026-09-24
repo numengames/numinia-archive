@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.27.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "The canon says who you are here in one document instead of two. 'What an agent is made of' (CAN-003) and 'A guild is what you know' (CAN-004) are now one canon, 'Nobody here has a role; you are what you are doing' (CAN-004): the six attributes, why guilds nest and factions do not, why play sits at the centre, what turns a profile into a role, and the six ranks by what each one is. The old address /canon/can-003-attributes-and-ranks redirects there. Canon reads in six steps now, not seven (ADR-057).",
+      },
+    ],
+  },
+  {
     version: "v0.26.0",
     date: "2026-09-24",
     entries: [
