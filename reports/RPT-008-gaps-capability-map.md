@@ -19,6 +19,11 @@ related: ["ADR-026 (formerly ADR-031)", "MIS-044"]
 extraction_note: "Extracted verbatim from web/src/pages/gaps.astro (MIS-071 phase 2 — File over App). Fulfils MIS-044's original criterion 'Publicado como GAPS.md', which had been satisfied only as a web page."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # The blind spots to see before the market points them out
 
 > **Summary:** Critical analysis of the Narrative Work OS from three

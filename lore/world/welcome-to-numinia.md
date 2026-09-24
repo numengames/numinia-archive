@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+-->
+
 Introduction to the Gamified System
 Numinia is the narrative heart of the organizational model of Numen Games. It is not just a fantasy city: it is a living and active representation of the gamified operational environment that transforms real projects into meaningful adventures.
 This model is based on the idea that any organizational system can gain dimension and clarity if projected as a game. Here, work and collaboration structures are translated into playful experiences: tasks become missions, roles become characters, and goals become shared challenges.

@@ -18,6 +18,11 @@ license: "CC0-1.0"
 registration: exempt
 registration_reason: "annex to the mission series, not a numbered mission"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # Draft — how the next mission is chosen
 
 > **⚠️ THIS IS A DRAFT, NOT A POLICY.** It has been applied exactly once, to one

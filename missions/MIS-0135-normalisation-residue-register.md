@@ -29,6 +29,11 @@ parent_mission: "MIS-127"
 paths: [protocols/, standards/, machine/scripts/, web/src/, CLAUDE.md, debt/]
 context: "2026-09-02"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # MIS-135 — Register of incoherences found outside missions/ during the missions/ normalisation
 
 > **Summary:** what the four lots of the missions/ normalisation (PR #198) saw at other levels of the system and, by instruction, did not touch — each item with where it was measured, so the next refactor starts from evidence instead of a re-audit.

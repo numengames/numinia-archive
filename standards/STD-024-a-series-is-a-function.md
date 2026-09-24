@@ -19,6 +19,11 @@ related: ["STD-001", "STD-017", "STD-018", "STD-020", "CAN-004"]
 series_change: "1.0.2 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.0.1 — 2026-09-11: SER-005 Check row drops the folded check-core-rules.mjs. Patch: prose only. 1.0.0 — new standard, cut eleven under ADR-043: the rules that STD-001 carried as prose since v1, now plated. STD-001 keeps the tables."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # A series is a function
 
 > **Summary:** A folder is a series when its loss breaks a named function.

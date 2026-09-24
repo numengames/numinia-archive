@@ -5,8 +5,8 @@ SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
 
 # lore/ — the game, reserved
 
-The world of Numinia and the game played in it. **All rights reserved**
-(`REUSE.toml`; `CAN-005` fourth regime): the world and the name are the one
+The world of Numinia and the game played in it. **All rights reserved** —
+each file says so in its own SPDX comment (`CAN-005` fourth regime): the world and the name are the one
 thing Numen does not license. Home in this repository since 2026-09-17 —
 before that, the `numinia-lore` repository, now archived; before that,
 `numinia-web`.

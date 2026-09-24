@@ -16,6 +16,11 @@ license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/soluciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # From blind spots to answers
 
 > **Summary:** 20 gaps grouped into 8 clusters. 3 solutions per cluster. Each solution signed by the agent proposing it.

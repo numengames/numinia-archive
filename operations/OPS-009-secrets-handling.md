@@ -15,6 +15,11 @@ territory: "Archive"
 tags: [operations, security, credentials]
 license: "CC-BY-4.0"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
 # OPS-009 — Secrets handling
 
 > **Summary:** The rule about secret material in this repository, the

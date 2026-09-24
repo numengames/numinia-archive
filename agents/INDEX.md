@@ -15,6 +15,11 @@ license: "CC0-1.0"
 registration: exempt
 registration_reason: "singular document, not a numbered series"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # Agents — Operative Roster
 
 > **Summary:** index of the digital agents defined in this archive.

@@ -54,6 +54,11 @@ forms:
       - path: agents/skills/numinia-nwos-pr/SKILL.md
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Ursa
 
 > **Summary:** The technical architect and orchestrator of Numinia — a digital agent, activated 2026-08-28, Alchemists guild. This card is the index of what Ursa is made of; the parts are the files beside it.

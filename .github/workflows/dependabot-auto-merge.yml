@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # Dependabot pull requests merge themselves once CI is green.
 #
 # Oracle rule (2026-09-18): every dependency at its latest version, no

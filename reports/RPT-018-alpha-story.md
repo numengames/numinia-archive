@@ -21,6 +21,11 @@ related: ["RPT-017", "ADR-030", "ADR-040", "PRO-003", "MIS-127"]
 absorbs: []
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # The Alpha story: what `missions/` ships while it is the alpha board
 
 > **Summary:** `RPT-017` closed the MVP: 115 missions compressed into one

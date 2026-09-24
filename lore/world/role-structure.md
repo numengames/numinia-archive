@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+-->
+
 ROLE STRUCTURE IN THE NUMINIA SYSTEM
 The purpose of this document is to establish a structure for the cultural units of Numinia that is computable, quantifiable, and differential, insofar as the set of these units starts from a fictional (imaginary) characterization in order to project itself into an operational (pragmatic) situation. Put another way; the narrative elements of Numinia acquire true dimension (and meaning) at the moment they are reverted into the framework of work, thus constituting an operative and functional model.
 The need to establish an indissoluble relationship between both concepts, narrative and social, is what leads us to begin from the fictional denomination of the original object: Numinia, and not from its social denomination: Numen Games; as a principle, it is necessary to understand that these two domains are not homologous, since they are not defined by the same attributions. Nevertheless, in some way they establish analogical relations, since both seem to represent the referent toward which their respective environments point: narrative and social. On the other hand, in this context Numinia is referring to its generic meaning, as a linguistic entity that names the game from which a narrative and rules are proposed as basic principles of understanding and action, and not, now, to its specific meaning within the narrative itself as the city-state within which the action of the game unfolds.

@@ -16,6 +16,11 @@ registration: exempt
 registration_reason: "agent parts are identified by `agent:` and their filename, not by a series number (ADR-005)"
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # SOURCES — Byblos
 
 Where this agent's authoritative knowledge lives. Pointers, not copies:
@@ -40,7 +45,7 @@ debt/ — the debt register; reports/audits/ — measured findings
 
 ## Licence regimes
 
-REUSE.toml and canon/CAN-005-licensing.md — which regime governs which path
+Each file's own SPDX comment — its licence (REUSE.toml only for files that cannot carry one) · canon/CAN-005-licensing.md — why
 
 ---
 

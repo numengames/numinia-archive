@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+-->
+
 # Hoja de Personaje
 
 <!-- Transcripción estructurada de Hoja_de_PJ_v0_6_0.jpg (MIS-085 §6-A),

@@ -27,6 +27,11 @@ license: "CC0-1.0"
 
 paths: [machine/scripts/lint-frontmatter.mjs, machine/scripts/frontmatter-baseline.json, standards/STD-004-the-header.md, debt/, missions/, web/src/content.config.ts]
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # MIS-121 — Burn the header baseline down
 
 > **Summary:** `STD-004` is now enforced by a guard in CI, and the guard froze

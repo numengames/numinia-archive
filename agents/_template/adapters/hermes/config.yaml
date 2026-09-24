@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # Hermes adapter — recommended configuration for this agent.
 # Merge into the profile's config.yaml. Secrets belong in .env, never here.
 # Model/provider pins live here, NEVER in SOUL.md (MIS-118 decision 9).

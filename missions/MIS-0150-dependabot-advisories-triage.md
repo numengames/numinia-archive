@@ -39,6 +39,11 @@ paths:
   - .github/workflows/ci.yml
 context: "2026-09-02"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # MIS-150 — Triage the open Dependabot advisories on main and close DBT-007
 
 > **Summary:** GitHub's push banner reported **10 vulnerabilities on the

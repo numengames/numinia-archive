@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
  * telemetry family `corpus` — what is in the tree. MIS-138 D3.
  * Every key: { value, unit, definition }. Definitions are the predicate, in words.

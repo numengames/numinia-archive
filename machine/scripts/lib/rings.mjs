@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
  * machine/scripts/lib/rings.mjs — STD-004's three rings, in one place.
  *

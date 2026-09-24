@@ -101,7 +101,7 @@ const system = defineCollection({
 // open review flags is an Oracle-ordered exception — see CON-004/CON-005.
 // MIS-127 (2026-09-01): operations/ was flattened to one level, so this
 // collection selects the two legal documents by filename instead of by
-// folder. Their reserved regime is now pinned per-file in REUSE.toml.
+// folder. Each now declares its reserved licence in its own SPDX comment.
 const legal = defineCollection({
   loader: glob({ pattern: "OPS-0{03,04,10}-*.md", base: "../operations" }),
   schema: z
@@ -189,7 +189,7 @@ const corpus = defineCollection({
       //      account. Withholding it from the viewer hid it from readers of
       //      the site and from nobody else.
       //   2. DISPLAYING IS NOT LICENSING. The regime stays exactly as it is —
-      //      LicenseRef-Numen-AllRightsReserved in REUSE.toml, unchanged by
+      //      LicenseRef-Numen-AllRightsReserved, declared in each file, unchanged by
       //      this commit. The site already does this for the three legal
       //      texts (OPS-003/004/010): reserved rights, rendered for reading.
       //      A reader may read; no right is granted by the reading.

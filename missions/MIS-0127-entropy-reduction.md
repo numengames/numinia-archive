@@ -25,6 +25,11 @@ license: "CC0-1.0"
 related: ["ADR-030", "ADR-036", "P-010", "MIS-125", "MIS-121"]
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Entropy reduction: fewer documents, one vocabulary, registers that die
 
 > **Summary:** The umbrella mission for the 2026-08-30 reduction line:

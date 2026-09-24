@@ -16,6 +16,11 @@ license: "CC0-1.0"
 series_change: "2.0.0 — one lifecycle for everything that is not a mission: `draft → active → withdrawn`. `closed` and `superseded` leave the status vocabulary; an heir is the field `superseded_by`, never a state (the relation model of ISO stage codes, RFC 2026 `Obsoletes:` and NIST CSRC, verified 2026-09-09). This table is the only declaration; `rules.json` mirrors it under test. Earlier: 1.0.0 — new register, split from STD-004 under ADR-043: the field tables of the three rings (old §3, §4, §7), the type and subtype vocabularies (§5), the status lifecycles (§6), the closed vocabularies (§7.2) and the meaning of each relation (§4). Rows and plates unchanged."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Header fields
 
 > **Summary:** Every frontmatter field the corpus accepts, by ring: its

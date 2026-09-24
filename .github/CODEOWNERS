@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
 # SEC-010 (standards/STD-015-engineering-checks.md): sensitive paths require
 # Oracle review. Enforcement needs branch protection with "require review from
 # Code Owners", which is an organisation setting, not a file in this tree: the

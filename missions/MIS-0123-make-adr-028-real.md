@@ -29,6 +29,11 @@ depends_on: [ADR-027, ADR-027 (formerly ADR-029)]
 blocked_by: null
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # MIS-123 — Make ADR-027 real
 
 **Base:** `main` @ `fd4d045` · **Decisions:** `ADR-027`, `ADR-027`

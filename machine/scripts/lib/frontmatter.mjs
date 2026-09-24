@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
  * machine/scripts/lib/frontmatter.mjs — the one frontmatter reader and the one rules loader.
  *

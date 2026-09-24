@@ -24,6 +24,11 @@ ratified_by: "ADR-050"
 supersedes_version: "1.0.1"
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Epistemic Relations between Numen Games and Numinia
 
 > **Summary:** Numen Games, its regulatory model and Numinia are not three

@@ -14,6 +14,11 @@ owner: "oracle"
 tags: [operations, handoff, session, state]
 license: "CC-BY-4.0"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
 # Session state — where to pick up
 
 > **Summary:** Continuation point at the close of the 2026-08-18

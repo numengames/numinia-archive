@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
 /**
  * rename-series.mjs — MIS-125 Stage B/C rename tool.
  *

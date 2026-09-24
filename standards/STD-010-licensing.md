@@ -5,17 +5,22 @@ title: "Licensing"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.1"
+version: "1.2.0"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-10T19:30:00+02:00"
+updated: "2026-09-24T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, REUSE, SPDX]
 threshold: governed
-series_change: "1.1.1 — Check row repoints to machine/guards/rules/std-010-licensing.mjs (R3, MIS guards-tests-ci-alpha): the guard moved out of machine/scripts/, the name did not change. 1.0.1 — LIC-058 and LIC-059 retired as duplicates of LIC-007 and HDR-008; the Check names the header plates instead (ADR-043 cut of STD-009). 1.0.0 — the standard takes the ADR-043 shape: 3,020 -> 495 words of body across three files. LIC-001..013 are the obligations of the old §2-§7; the allowlist, the metadata-field table and the licence texts are the register STD-013; the two irreversible gates are STD-014. LIC-058..060 (core rules) are cited, not restated. Nothing that bound is dropped; what explained is in the Why or in CAN-005."
+series_change: "1.2.0 — LIC-008: the licence is declared by the file, never by its folder; REUSE.toml keeps only files that cannot hold a comment, one exact path each, no globs (Oracle, 2026-09-24). LIC-004: per file. 1.1.1 — Check row repoints to machine/guards/rules/std-010-licensing.mjs (R3, MIS guards-tests-ci-alpha): the guard moved out of machine/scripts/, the name did not change. 1.0.1 — LIC-058 and LIC-059 retired as duplicates of LIC-007 and HDR-008; the Check names the header plates instead (ADR-043 cut of STD-009). 1.0.0 — the standard takes the ADR-043 shape: 3,020 -> 495 words of body across three files. LIC-001..013 are the obligations of the old §2-§7; the allowlist, the metadata-field table and the licence texts are the register STD-013; the two irreversible gates are STD-014. LIC-058..060 (core rules) are cited, not restated. Nothing that bound is dropped; what explained is in the Why or in CAN-005."
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 
 # Licensing
 
@@ -50,7 +55,7 @@ MIT. The strongest copyleft in the *distributed* tree sets the floor;
 `devDependencies` do not count. Two processes over HTTP are two works.
 
 **LIC-004 — Inherited copyleft is isolated.** A third party's copyleft engine
-lives in its own repository; ours is declared per directory.
+lives in its own repository; ours is declared per file.
 
 **LIC-005 — Allowed inputs only.** A dependency's licence MUST be on the
 allowlist (`STD-013`), resolved before adding. Absent or unknown blocks
@@ -65,9 +70,13 @@ with added restrictions has no exception.
 `TRADEMARKS.md`; `NOTICE` if any Apache-2.0 ships; exact SPDX in every
 `package.json`. All in English.
 
-**LIC-008 — One file, one regime.** An SPDX `AND` MUST NOT occur; split the
-content. Pinned, vendored or metadata-less files are declared by `REUSE.toml`
-or `.license`, never edited.
+**LIC-008 — One file, one regime, declared by the file.** A licence belongs
+to a file, never to a folder. Every text file MUST carry its own SPDX comment
+(`SPDX-FileCopyrightText`, `SPDX-License-Identifier`) in its first lines; a
+document with a header MUST name the same licence in `license:`. Only a file
+that cannot hold a comment — image, font, JSON, a generated or pinned copy —
+is declared in `REUSE.toml`, by its exact path; a glob there MUST NOT occur.
+An SPDX `AND` MUST NOT occur; split the content.
 
 **LIC-009 — The licence travels inside the file.** A media file carries its
 licence in its own metadata (`STD-013`). A CC0 VRM MUST override the

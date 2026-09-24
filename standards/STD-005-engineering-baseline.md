@@ -18,6 +18,11 @@ license: "CC0-1.0"
 series_change: "2.3.0 — ENG-031 and ENG-032 turned around: what runs is what is in the guards folder, found by the runner; the workflow calls the runner and names no guard. Before, a guard existed only once the Oracle pasted its step into the workflow, and four written, tested, registered guards never ran. The Oracle's control moves to the review of the change that adds the guard. Minor: the obligation changes shape, none added. Decided by the Oracle on 2026-09-10. 2.2.0 — ENG-033 retired: it governed baselines, and since 2026-09-10 there are none — a guard reports every finding it sees and the state of the holding standard (ENG-067) decides whether it fails the build; new damage shows in the diff of the change that caused it. Minor: an obligation removed, none added. Decided by the Oracle on 2026-09-10. 2.1.0 — ENG-067: a guard bites by the state of the standard that holds the rule it cites — `draft` reports, `active` fails the build; build guards, which verify the artefact and not a rule, are the declared exception. Minor: a new obligation on guards, none reversed. Decided by the Oracle on 2026-09-10 (DBT-021, exit 1). 2.0.0 — the standard takes the ADR-043 shape and splits: 2,161 -> 480 words of body here, the 52 practice rows become the register STD-015. The seven principles are ENG-001..007; the six guard rules that came from STD-009 keep their numbers as ENG-031..035 and ENG-066. Major: §3.2 was cited by two documents and no longer exists."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Engineering baseline
 
 > **Summary:** Every practice maps to an automated check or is tagged

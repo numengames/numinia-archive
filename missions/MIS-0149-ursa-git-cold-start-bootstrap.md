@@ -48,6 +48,11 @@ paths:
   - missions/MIS-0135-normalisation-residue-register.md
 context: "2026-09-02"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # MIS-149 — Ursa's canonical definition carries the full cold-start context
 
 > **Summary:** a fresh Ursa session today needs a long manual prompt

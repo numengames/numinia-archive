@@ -20,6 +20,11 @@ tags: [resources, catalogue, provenance, licensing, migration]
 related: ["CAN-005", "STD-010"]
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Digital resources: the first CC0 intake
 
 > **Summary:** All 32 legacy catalogue entries were reviewed. Two originals

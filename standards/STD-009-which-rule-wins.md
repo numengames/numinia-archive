@@ -18,6 +18,11 @@ absorbs: ["STD-002"]
 series_change: "1.1.2 — 2026-09-11: PRE-006 Check row names the R2 contract instead of the folded check-core-rules.mjs. Patch: prose only. 1.0.0 — STD-009 stops being the whole normative layer and keeps precedence only: 2,887 -> 300 words of body. Its other sections are STD-017 (authority), STD-018 (identity), STD-019 (versions), STD-020 (git and archiving), STD-021 (evidence and citation), STD-022 (secrets); HDR-040/041/043 go to STD-004; LIC-058..060 are retired as duplicates of LIC-007, HDR-008 and PUB-001. Every plate keeps its number. Major: fourteen sections no longer exist."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Which rule wins
 
 > **Summary:** Everything in the corpus is a claim; these rules decide whose

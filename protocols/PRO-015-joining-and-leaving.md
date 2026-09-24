@@ -19,6 +19,11 @@ mandatory: true
 supersedes: "canon/CAN-001-welcome-to-numinia.md section 8"
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # PRO-015 — Joining and leaving Numinia
 
 > **Summary:** The phases, gates and owners for bringing someone into Numinia

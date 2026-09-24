@@ -82,10 +82,10 @@ test('the licence comes from the document that declares one', () => {
   assert.equal(got, 'CC-BY-4.0');
 });
 
-test('a document with no licence field falls back to the REUSE record for its own path', () => {
-  // Not to its folder's "usual" licence: to what REUSE.toml assigns to THAT
-  // path. The lore documents carry no frontmatter at all, which is exactly
-  // the case where a folder-shaped guess would be invented.
+test('a document with no licence field answers with the SPDX comment it carries', () => {
+  // Not its folder's "usual" licence: the one the FILE declares in its own
+  // SPDX comment. The lore documents carry no frontmatter at all, which is
+  // exactly the case where a folder-shaped guess would be invented.
   //
   // THE EXACT VALUE, not merely "a non-empty string". The weaker assertion is
   // what let the first implementation ship broken: under bare node the REUSE

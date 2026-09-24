@@ -22,6 +22,11 @@ opened_by: "ursa"
 related: ["ADR-046", "STD-001", "STD-006", "STD-027"]
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
+
 # DBT-021 — Pages that say things the archive does not hold
 
 > **Summary:** Five pages under `/system/` — the CAO dashboard, the narrative

@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "5b87e7f",
-  "corpus_hash": "430b3de8481df0f87f39904e5c1eb0fdac7a995a7bd74b34667faaf7598a27cb",
+  "head": "6633627",
+  "corpus_hash": "2a8411030dff1c8e05ac3189f6017502b571c1ded38081233420275db6a0c04d",
   "root_dirty": 0,
-  "measured_at": "2026-09-23T18:50:06Z",
+  "measured_at": "2026-09-24T07:50:13Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 531,
+      "value": 530,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,10 +31,10 @@
         ".js": 2,
         ".json": 14,
         ".md": 190,
-        ".mjs": 74,
+        ".mjs": 75,
         ".png": 35,
         ".svg": 69,
-        ".toml": 4,
+        ".toml": 2,
         ".ts": 29,
         ".tsx": 2,
         ".txt": 11,
@@ -107,13 +107,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 44,
+      "value": 45,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 44
+        "node": 45
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -318,46 +318,46 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 626847,
+      "value": 630935,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "lore": 310720,
-        "standards": 51009,
-        "missions": 43636,
-        "": 29752,
-        "agents": 27835,
-        "reports": 26153,
-        "operations": 24248,
+        "lore": 311088,
+        "standards": 51870,
+        "missions": 43966,
+        "": 30449,
+        "agents": 28898,
+        "reports": 26307,
+        "operations": 24533,
         "decisions": 23382,
-        "blueprints": 20858,
-        "system": 16946,
-        "machine": 16689,
-        "protocols": 15830,
-        "canon": 14135,
-        "debt": 2928,
-        "objects": 1835,
-        ".github": 891
+        "blueprints": 20918,
+        "system": 17096,
+        "machine": 16636,
+        "protocols": 15860,
+        "canon": 14165,
+        "debt": 2990,
+        "objects": 1865,
+        ".github": 912
       },
       "unit": "tokens",
       "definition": "tokens per top-level dir, largest first"
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 340661,
-        "draft": 125114,
-        "active": 115918,
-        "done": 26389,
-        "todo": 14104,
-        "in-progress": 4661
+        "(none)": 341607,
+        "draft": 126455,
+        "active": 117419,
+        "done": 26539,
+        "todo": 14224,
+        "in-progress": 4691
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.96,
+      "value": 6.97,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -369,19 +369,19 @@
         ],
         [
           "CHANGELOG.md",
-          23199
+          23713
         ],
         [
           "lore/adventures/el-espejo-roto.md",
-          16792
+          16825
         ],
         [
           "lore/world/brand-and-culture.md",
-          11437
+          11470
         ],
         [
           "lore/codex/glosario.md",
-          11270
+          11303
         ]
       ],
       "unit": "tokens",
@@ -584,49 +584,12 @@
       "volatile": "commit-date"
     },
     "provenance.regime_crossings": {
-      "value": 6,
+      "value": 0,
       "unit": "renames",
       "definition": "renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py"
     },
     "provenance.regime_crossings_list": {
-      "value": [
-        [
-          "blueprints/BLU-001-wardley-map.md",
-          "reports/RPT-2026-04-07-wardley-map.md",
-          "CC0-1.0→CC-BY-4.0",
-          "2026-08-31"
-        ],
-        [
-          "operations/legal/O-003-privacy-policy-numengames.md",
-          "operations/OPS-003-privacy-policy-numengames.md",
-          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
-          "2026-09-01"
-        ],
-        [
-          "operations/legal/O-004-terms-and-conditions-numengames.md",
-          "operations/OPS-004-terms-and-conditions-numengames.md",
-          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
-          "2026-09-01"
-        ],
-        [
-          "operations/strategy/O-007-sales.md",
-          "operations/OPS-007-sales.md",
-          "CC-BY-4.0→LicenseRef-Numen-AllRightsReserved",
-          "2026-09-01"
-        ],
-        [
-          "reports/audits/evidence/canon-2026-04-15/Epistemic-relations-v1-deleted-2026-04-15.md",
-          "history/2026_04_07-Epistemic_Relations-v1.0.0.md",
-          "CC-BY-4.0→CC0-1.0",
-          "2026-09-01"
-        ],
-        [
-          "reports/RPT-2026-04-07-wardley-map.md",
-          "reports/RPT-003-wardley-map.md",
-          "CC-BY-4.0→CC0-1.0",
-          "2026-09-01"
-        ]
-      ],
+      "value": [],
       "unit": "renames",
       "definition": "[from, to, regime change, date]",
       "volatile": "commit-date"
@@ -685,7 +648,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 821
+          "3": 824
         },
         "MIS": {
           "3": 677,
@@ -759,7 +722,7 @@
           "id": "MIS-135#10",
           "severity": "B",
           "state": "open",
-          "where": "standards/STD-016-header-fields.md#L63",
+          "where": "standards/STD-016-header-fields.md#L68",
           "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open. Anchor re-pointed 2026-09-09: the registry row moved whole into the register STD-016 under ADR-043."
         },
         {
@@ -795,10 +758,10 @@
     "figures.live_by_doc": {
       "value": {
         "missions/MIS-0127-entropy-reduction.md": 40,
+        "CHANGELOG.md": 19,
         "missions/MIS-0121-header-baseline-burndown.md": 19,
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
-        "CHANGELOG.md": 18,
         "lore/world/brand-and-culture.md": 18,
         "lore/game/manual-v0.6.0.md": 13,
         "standards/STD-023-design-values.md": 13,

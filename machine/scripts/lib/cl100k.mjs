@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
  * cl100k_base, from the rank file — no package. MIS-138 D1.3 / decision 5.
  *

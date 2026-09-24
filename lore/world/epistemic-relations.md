@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+-->
+
 Epistemic Relations between Numen Games and Numinia
 To begin with, it is important to clearly establish the principle of the relationship between Numen Games and Numinia: Numen Games is a brand, a project intended to create a gamified operational and organizational framework, whether as a specific working framework or an organizational framework within any type of project or development. To achieve this, Numen Games has created the universe of the city of Numinia, which constitutes the narrative projection of the concept. Numinia is the environment in which “the game” unfolds, forming the gamification of the operational and organizational framework as a role-playing game. The images implied by the narrative of Numinia are designed to function as a decentralized organizational model with epistemological and pragmatic values, which can be replicated with different narrative elements to apply the same functional model to other projects. This can be better understood with the following scheme:
 OPERATING SYSTEM → FUNCTIONAL MODEL → NARRATIVE PROJECTION

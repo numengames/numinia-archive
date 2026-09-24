@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
+
 # Declarative deploy config for the Numinia viewer on Cloudflare Workers.
 # Replaces manual dashboard setup — no dashboard-only configuration.
 #

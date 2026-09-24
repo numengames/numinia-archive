@@ -16,6 +16,11 @@ ratified_by: "ADR-042"
 related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001"]
 series_change: "1.2.2 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.2.0 — the standard takes the ADR-043 shape: 868 -> 455 words of body. DEF-001..007 keep their text and their checks; the history that motivated the standard is one sentence in the Why. Minor: no rule changed, and no section number was cited by any document."
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # The corpus does not grow
 
 > **Summary:** Every record — mission, report, debt, blueprint — has a written

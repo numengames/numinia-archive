@@ -17,6 +17,11 @@ threshold: governed
 series_change: "1.1.2 — 2026-09-11: Check row repoints to machine/guards/rules/std-021-evidence-and-citation.mjs (R3 fold of check-core-rules and check-section-citations). Patch: prose only. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §9 Citation and EVI-057 are one standard."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # Evidence and citation
 
 > **Summary:** A citation names a document or a plate, never a section

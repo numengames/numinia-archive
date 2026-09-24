@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: MIT
+-->
+
 # DESIGN.md — pablofm.com
 
 > **SUPERSEDED (2026-08-18, Oracle order):** the Design System v5.0.0 rules —

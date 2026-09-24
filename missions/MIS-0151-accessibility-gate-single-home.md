@@ -30,6 +30,11 @@ paths:
   - decisions/ADR-037-accessibility-gate-single-home.md
   - debt/DBT-013-design-system-filename-not-frozen.md
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # MIS-151 — One normative home for the accessibility gate
 
 > **Summary:** the same code-accessibility rule (WCAG AA) was asserted in

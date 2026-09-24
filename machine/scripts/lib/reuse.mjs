@@ -1,9 +1,14 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
- * machine/scripts/lib/reuse.mjs — the one reader of REUSE.toml.
+ * machine/scripts/lib/reuse.mjs — the one reader of licence declarations.
  *
- * Reads the `[[annotations]]` blocks: which paths each block covers and the
- * licence it declares. regimeOf(path) answers "which licence governs this
- * path" the way the reuse tool does — the last matching block wins.
+ * A licence belongs to the FILE (Oracle, 2026-09-24). A text file declares it
+ * in its own SPDX comment — declaredIn() reads that. REUSE.toml holds only the
+ * files that cannot carry a comment, one exact path each — regimeOf() reads
+ * that, the way the reuse tool does (the last matching block wins).
+ * licenceOfFile() is the two in order, and is what every reader should ask.
  *
  * Only the two keys the guards need are read (path, SPDX-License-Identifier);
  * this is not a TOML parser.
@@ -55,4 +60,29 @@ export function regimeOf(rel, annotations = loadAnnotations()) {
     if (block.paths.some((p) => globToRegExp(p).test(rel))) regime = block.license;
   }
   return regime;
+}
+
+/**
+ * The licence a file declares in its OWN text: the `SPDX-License-Identifier`
+ * of the SPDX comment in its first lines (`<!-- … -->`, `//`, `#`). null when
+ * the file carries none — then only REUSE.toml can answer, by its exact path.
+ *
+ * The first tag wins, as in the reuse tool. A tag inside a fenced code block is
+ * not a declaration: documents that TEACH the SPDX syntax quote it in fences.
+ */
+export function declaredIn(text) {
+  const head = String(text).replace(/```[\s\S]*?```/g, '');
+  const m = /SPDX-License-Identifier:\s*([^\s`|>*]+)/.exec(head);
+  return m ? m[1].trim() : null;
+}
+
+/**
+ * The licence governing ONE file, per file and never per folder: what the
+ * file declares in itself, else what REUSE.toml says about that exact path.
+ * `root` is the repository root (the web build passes its own anchor).
+ */
+export function licenceOfFile(rel, { root = ROOT, annotations = loadAnnotations() } = {}) {
+  let own = null;
+  try { own = declaredIn(readFileSync(path.join(root, rel), 'utf8')); } catch { /* absent or binary */ }
+  return own ?? regimeOf(rel, annotations);
 }

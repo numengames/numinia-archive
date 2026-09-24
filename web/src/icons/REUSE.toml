@@ -1,6 +1,0 @@
-version = 1
-
-[[annotations]]
-path = ["archive.svg", "arrows-clockwise.svg", "bank.svg", "bell.svg", "book-open.svg", "books.svg", "brain.svg", "buildings.svg", "calendar-blank.svg", "caret-down.svg", "caret-left.svg", "chart-bar.svg", "chart-line.svg", "check.svg", "circle.svg", "clipboard-text.svg", "coins.svg", "confetti.svg", "copy.svg", "crane-tower.svg", "crosshair.svg", "desktop.svg", "dna.svg", "download-simple.svg", "eye.svg", "file-text.svg", "flame-light.svg", "flame.svg", "flask.svg", "game-controller.svg", "gear.svg", "git-branch.svg", "github-logo.svg", "globe-hemisphere-west-light.svg", "globe-hemisphere-west.svg", "hourglass.svg", "house.svg", "lightning.svg", "list.svg", "lock-key.svg", "magnifying-glass.svg", "map-pin.svg", "mask-happy.svg", "moon-stars.svg", "moon.svg", "music-notes.svg", "note-pencil.svg", "package.svg", "palette.svg", "prohibit.svg", "push-pin.svg", "robot.svg", "ruler.svg", "scroll.svg", "shield-check.svg", "sign-out.svg", "snowflake.svg", "sparkle.svg", "sun.svg", "sword-light.svg", "sword.svg", "target.svg", "upload-simple.svg", "user.svg", "users.svg", "warning.svg", "x-logo.svg", "x.svg"]
-SPDX-FileCopyrightText = "Phosphor Icons (https://phosphoricons.com)"
-SPDX-License-Identifier = "MIT"

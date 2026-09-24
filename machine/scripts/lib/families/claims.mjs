@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
  * telemetry families `contradictions` (D4) and `figures` (D5). Counted and located, never touched.
  *

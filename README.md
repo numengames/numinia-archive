@@ -13,6 +13,11 @@ license: "CC-BY-4.0"
 registration: exempt
 registration_reason: "singular document, not a numbered series"
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC-BY-4.0
+-->
 # numinia-nwos
 
 > The reference instance of the Narrative Work OS — the system that was used
@@ -118,9 +123,10 @@ documents are archived under the same rules as everything else.
 
 ## Licensing
 
-Regimes differ by folder, and the difference is deliberate: code, prose and lore
-are not offered on the same terms. Every file declares its own SPDX identifier,
-resolved through [`REUSE.toml`](REUSE.toml) following REUSE 3.3.
+The licence is the file's, never the folder's. Every text file declares its own
+in an SPDX comment in its first lines; files that cannot carry one (images,
+fonts, JSON) are named one by one in [`REUSE.toml`](REUSE.toml). Two files in
+the same folder may carry different licences. REUSE 3.3.
 
 See [`LICENSE`](LICENSE) and [`CAN-005`](canon/CAN-005-licensing.md) — do not infer
 a licence from a neighbouring file.
@@ -129,8 +135,8 @@ a licence from a neighbouring file.
 
 ## What is verified, and what is not
 
-One rule in this repository is enforced by a machine: every document's declared
-licence must match `REUSE.toml`, checked by
+One rule in this repository is enforced by a machine: a document's `license:`
+header must match the SPDX declaration in the same file, checked by
 [`machine/guards/rules/std-010-licensing.mjs`](machine/guards/rules/std-010-licensing.mjs)
 on every push through [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 The site build runs in the same pipeline, so a structural change that breaks
@@ -157,4 +163,4 @@ the archive. The repository is written in English
 
 ---
 
-*Numen Games — Narrative Work OS · licensed per path, see [LICENSE](LICENSE)*
+*Numen Games — Narrative Work OS · licensed per file, see [LICENSE](LICENSE)*

@@ -20,6 +20,11 @@ former_id: "BLU-006"
 former_id_note: "Renumbered by MIS-129 under ADR-035: describes how an agent operates today, which is a manual, not a plan."
 ---
 
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
 # How an agent works
 
 > **Numen Games · NWOS · Diagram C**

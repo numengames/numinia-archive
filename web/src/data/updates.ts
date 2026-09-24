@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.21.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "Every file now states its own licence, in its first lines. Until today the licence of most documents came from the folder they sat in: a single file, REUSE.toml, said 'everything under lore/ is reserved, everything under canon/ is CC0', and a document inherited whatever its shelf said — including a new one nobody had looked at, and one that simply moved. 154 files that relied on that now carry the declaration themselves; REUSE.toml keeps only what cannot hold a comment (images, fonts, JSON, generated copies), one exact path each and no folders. No licence changed: every one of the 526 files resolves to exactly the licence it had before, checked file by file. The footer's licence link now goes to LICENSE, which explains how to read them.",
+      },
+      {
+        type: "FIX",
+        text: "A document's title is no longer mistaken for its licence. Lore documents with no header are titled from their first line; now that the first lines are the licence comment, the title reader skips it.",
+      },
+    ],
+  },
+  {
     version: "v0.20.0",
     date: "2026-09-23",
     entries: [

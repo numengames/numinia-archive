@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+
 /**
  * machine/scripts/lib/corpus.mjs — one read of the tracked corpus, shared by the
  * telemetry families. MIS-138 D1: every family measures the same list of

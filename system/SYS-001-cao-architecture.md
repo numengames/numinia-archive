@@ -18,6 +18,11 @@ former_id: "BLU-004"
 former_id_note: "Renumbered by MIS-129 under ADR-035: this is a reference manual of how the CAO is wired today, not a plan for a future state. STD-018 IDN-014 conditions recorded in ADR-035."
 accuracy_warning: "Content is from 2026-04-08 and is known stale — the canon repo is named numinia-nwos, Adonaz is now Byblos, Ursa is active. Tracked as debt, not corrected by MIS-129 (move only, no prose edits)."
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # BP — CAO Architecture
 
 > **Summary:** Complete architectural reference of the Numen Games CAO — agents, repos, protocols, tools, and data flows.

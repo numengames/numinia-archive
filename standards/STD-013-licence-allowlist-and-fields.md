@@ -5,17 +5,22 @@ title: "Licence allowlist and fields"
 type: documentation
 subtype: register
 status: draft
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-09T01:45:00+02:00"
+updated: "2026-09-24T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, SPDX, register, allowlist]
 threshold: governed
-series_change: "1.0.0 — new register, split from STD-010 under ADR-043: the allowlist (old §3), the in-file metadata fields (old §5) and the licence texts (old §10). Rows unchanged."
+series_change: "1.1.0 — the field table no longer has a directory row: a licence is declared by the file, and REUSE.toml lists only files that cannot carry a comment, by exact path (Oracle, 2026-09-24). 1.0.0 — new register, split from STD-010 under ADR-043: the allowlist (old §3), the in-file metadata fields (old §5) and the licence texts (old §10). Rows unchanged."
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 
 # Licence allowlist and fields
 
@@ -46,8 +51,8 @@ the other way.
 | JPEG / PNG / WebP | XMP `xmpRights:WebStatement` + `cc:license`; EXIF `Copyright` |
 | MP4 / MOV | embedded XMP |
 | SVG | RDF with `dc:rights` and `cc:license` |
-| source file | `// SPDX-FileCopyrightText: 2026 Numen Games S.L.` · `// SPDX-License-Identifier: MIT` |
-| directory | `REUSE.toml` annotation: `path`, `SPDX-FileCopyrightText`, `SPDX-License-Identifier` |
+| text file (Markdown, code, YAML, TOML) | an SPDX comment in its first lines: the copyright holder and the licence identifier, in the comment syntax of the format |
+| file that cannot hold a comment (JSON, image, font, generated or pinned copy) | its exact path in `REUSE.toml` — one entry per file, never a folder glob |
 
 ## Texts
 

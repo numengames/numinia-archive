@@ -19,6 +19,11 @@ extraction_note: "Extracted from the /archive pages under MIS-065 phase C (File 
 former_id: "BLU-005"
 former_id_note: "Renumbered by MIS-129 under ADR-035: this is the reference manual of the classification, not a plan."
 ---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
 # The Archive's Fonds
 
 > **Summary:** The Archive's taxonomy in prose: one fond, six functions, the

@@ -1,3 +1,8 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
+-->
+
 # Nota legal
 
 <!-- PROVISIONAL (decisión D10, MIS-085): texto que el Oráculo revisará.
