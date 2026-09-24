@@ -132,10 +132,10 @@ adding a dependency, changing a LICENSE or making anything public.
 |---|---|---|
 | `CAN-001` | You are already in the game | every document, artefact and agent that speaks in Numinia's name |
 | `CAN-002` | We build a game to work better | every piece of work that speaks, looks or behaves in Numinia's name |
-| `CAN-004` | Nobody here has a role; you are what you are… | whoever describes, classifies or registers a person, a role or a piece of work in Numinia |
+| `CAN-004` | You are what you are doing | whoever describes, classifies or registers a person, a role or a piece of work in Numinia |
 | `CAN-005` | Opening is an act | every Numen Games repository, and whoever publishes from one |
-| `CAN-006` | Epistemic Relations between Numen Games and… | whoever reasons about how Numen Games, its model and Numinia relate |
-| `CAN-007` | Function makes the system inhabitable… | whoever designs, renames or reorganises anything in this system |
+| `CAN-006` | The model needs a story | whoever reasons about how Numen Games, its model and Numinia relate |
+| `CAN-007` | Renaming is not transforming | whoever designs, renames or reorganises anything in this system |
 | `CAN-008` | One identity, three forces | every piece that carries the Numen Games or Numinia mark |
 | `CAN-009` | The archive is the organisation | every document of this archive, every change to it, and whoever — biological or digital… |
 | `CAN-010` | Leave things better than you found them | whoever acts in Numinia's name, biological or digital |

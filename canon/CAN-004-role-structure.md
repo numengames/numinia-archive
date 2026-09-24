@@ -1,14 +1,14 @@
 ---
 id: "CAN-004"
 uid: ""
-title: "Nobody here has a role; you are what you are doing"
+title: "You are what you are doing"
 type: seminal
 status: draft
-version: "4.0.0"
+version: "4.0.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-24T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -27,7 +27,7 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# Nobody here has a role; you are what you are doing
+# You are what you are doing
 
 > **Summary:** What you know is a guild, where you apply it is a faction, and
 > a role is what appears when the two meet in an act. Six attributes make up

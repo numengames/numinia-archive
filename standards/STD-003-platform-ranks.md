@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.1.1"
+version: "3.1.2"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-24T21:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -117,5 +117,5 @@ an attribute is, stay in `CAN-004`.
 
 | ID | Title | Relation |
 |---|---|---|
-| `CAN-004` | Nobody here has a role | what each rank is, and rank as one of the six attributes |
+| `CAN-004` | You are what you are doing | what each rank is, and rank as one of the six attributes |
 | `ADR-036` | Canon consolidation | records the move from the canon to this standard |

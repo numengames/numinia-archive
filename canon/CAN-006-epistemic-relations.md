@@ -1,14 +1,14 @@
 ---
 id: "CAN-006"
 uid: ""
-title: "Epistemic Relations between Numen Games and Numinia"
+title: "The model needs a story"
 type: seminal
 status: draft
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-04-15T16:25:05Z"
 created_source: "git:89404d7"
 created_confidence: exact
-updated: "2026-09-23T18:00:00+02:00"
+updated: "2026-09-24T21:00:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -29,7 +29,7 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# Epistemic Relations between Numen Games and Numinia
+# The model needs a story
 
 > **Summary:** Numen Games, its regulatory model and Numinia are not three
 > stages of one process but three interlinked rings: remove any one and the

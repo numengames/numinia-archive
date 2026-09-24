@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.32.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "The canon reads in four shelves. /canon/ now groups its nine documents under a Roman numeral, a name in the city's own words and one line each — I The city, II The citizens, III The Summa, IV The ground — in the order a stranger needs them: where you are, who is here, how anything gets done, and last, once you have walked the city, why it works. The theory moves to the end on purpose. Three titles shortened to their claim: 'You are what you are doing' (CAN-004), 'The model needs a story' (CAN-006), 'Renaming is not transforming' (CAN-007).",
+      },
+    ],
+  },
+  {
     version: "v0.31.0",
     date: "2026-09-24",
     entries: [
