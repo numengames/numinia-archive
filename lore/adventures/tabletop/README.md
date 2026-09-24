@@ -14,7 +14,6 @@ its Rumours, and the six Phases the manual prescribes
 |---|---|---|
 | `el-espejo-roto.md` | *El Espejo Roto* — module for the Ouroboros District, medium difficulty. Drusa Malter, the Splintered Mirror, the Möbius Corridor. Born as the manual's closing module (v0.6.0). | 2–3 sessions |
 | `the-broken-mirror.md` | *The Broken Mirror* — the same module in English. The Spanish is the original. | 2–3 sessions |
-| — | *Session Zero* at the table — not written yet. The virtual-world version is `../virtual-worlds/session-zero.md`; a table version would teach the same guilds and factions with the manual's rules and a GD. | — |
 
 ## Writing one
 

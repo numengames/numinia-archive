@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-24 (the Codex is the shared source)
+- **`lore/adventures/README.md`**, **`lore/README.md`**, **`lore/adventures/virtual-worlds/README.md`**: what tabletop modules and virtual-world experiences both draw from is named — the **Codex**, Numinia's roleplaying game (`lore/game/`: the manual in Spanish, the original, and English, its glossary, `attributes-and-ranks.md`). No shared-reference folder is created and nothing moves: the Codex already is that source. Oracle's word in session.
+- **`lore/adventures/tabletop/README.md`**: the placeholder row for a table Session Zero is removed; the Oracle and Christian will write it themselves.
+
 ### Added — 2026-09-24 (the account looks ahead)
 - **`/system/account`** gains **The next two years** (finance and public views): monthly forecast to 2028-12 — costs by concept, support, loan, cash at month end, the month cash runs out — with supporters and the loan switchable; a year table (support, staff costs, other operating expenses, operating result, loan in and out, cash at year end, supporters); what it starts from and what it assumes. Computed once at build time in `web/src/lib/account.ts` (`forecast()`), drawn by the page and summed into `/system/account.md` from the same months.
 - **`web/src/data/account-forecast-simulated.csv`** (CC0, `REUSE.toml`): the assumptions, one plain-worded line each, served at **`/system/account-forecast.csv`**. The run-rate each concept starts from is read from the ledger's closed months, never typed. Structure follows the Oracle's business-plan workbook (operating account, cash flow, loans, runway); its figures are not used.

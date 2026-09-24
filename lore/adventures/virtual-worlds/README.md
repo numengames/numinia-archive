@@ -13,5 +13,5 @@ challenge, and a guide such as Senet, the Game Master, welcomes the player.
 |---|---|---|
 | `session-zero.md` | *Session Zero* — four escape rooms, one per guild (Thresholds of Thought, Transformation, Justice, Valor). Solving them earns the eight seals, which are reforged in the Forge of Numinia for citizenship and the Cyberdog avatar. The tutorial of the city. | 10–15 minutes per room |
 
-A table version of Session Zero is a different text and would live in
-`../tabletop/`.
+The names, guilds and factions these experiences use are the Codex's
+(`../../game/`).
