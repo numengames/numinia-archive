@@ -345,7 +345,13 @@ const READING_GROUPS_CANON: ReadingGroup[] = [
     numeral: "III",
     label: "The Summa",
     line: "The city keeps its memory in writing. To act is to write.",
-    hrefs: ["/canon/can-009-the-archive-is-the-organisation"],
+    // 2026-09-24 (ADR-063): the canon of money follows the archive canon —
+    // it is that canon applied to a payment: a charge not written does not
+    // exist.
+    hrefs: [
+      "/canon/can-009-the-archive-is-the-organisation",
+      "/canon/can-011-value-makes-a-bond",
+    ],
   },
   {
     numeral: "IV",

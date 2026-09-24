@@ -3091,11 +3091,10 @@ Estas manifestaciones reciben el nombre de Tokens.
 
 
 Los Tokens son objetos primotécnicos que materializan aspectos de la relación entre un
-individuo y Numinia. Pueden conservarse, acumularse y emplearse dentro de
-determinados sistemas de progresión, pero reducirlos a una unidad de intercambio sería
-confundir su función con su significado. Un Token posee valor precisamente porque antes
-ha ocurrido algo que ha hecho posible su aparición. No representan riqueza. Representan
-vínculo.
+individuo y Numinia. Pueden conservarse, acumularse, intercambiarse y emplearse dentro de
+determinados sistemas de progresión. Un Token posee valor precisamente porque antes
+ha ocurrido algo que ha hecho posible su aparición. Representan vínculo, y pueden
+representar también riqueza: lo que un Token vale nunca borra de dónde viene.
 
 
 Por ello, obtener un Token constituye siempre una forma de reconocimiento. Numinia

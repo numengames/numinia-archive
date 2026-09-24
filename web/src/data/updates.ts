@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.39.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "ADD",
+        text: "A canon for money, opened in draft. 'What has value also makes a bond' (CAN-011) says what a payment is in Numinia: never a donation, always something you can name before paying, with the whole price in view; whoever pays is remembered by the name they choose, or by none, and no amount is shown; and the account is open — what Numinia has cost since its first day, what has come in, and who carries the difference, the same figures for a citizen, a lender, an auditor and the tax authority. It reads in The Summa, after the archive canon (ADR-063).",
+      },
+      {
+        type: "CHG",
+        text: "Tokens may now represent wealth as well as a bond. The RPG manual (chapter 6, in Spanish and English) and the glossary said they did not; they now say that what a Token is worth never erases where it came from.",
+      },
+    ],
+  },
+  {
     version: "v0.38.0",
     date: "2026-09-24",
     entries: [
