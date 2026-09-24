@@ -314,7 +314,7 @@ As a cosmic force, «the Threshold is the force of Numinia that acts as the anta
 _Source: Chapter 2, «The frontiers of the Threshold»; Chapter 3, «Threshold: The limit between order and collapse»._
 
 ## Tokens
-«Tokens are primotechnic objects that materialise aspects of the relationship between an individual and Numinia»; «They do not represent wealth. They represent bond», and obtaining one is always a form of recognition from the city. There are two great classes: the Seeds of Knowledge (they respond to knowledge) and the Prism Cells (they respond to factional affinity).
+«Tokens are primotechnic objects that materialise aspects of the relationship between an individual and Numinia»; «They represent a bond, and may represent wealth as well: what a Token is worth never erases where it came from», and obtaining one is always a form of recognition from the city. There are two great classes: the Seeds of Knowledge (they respond to knowledge) and the Prism Cells (they respond to factional affinity).
 _Source: Chapter 6, «Tokens» (Fragment 2: The Inventory)._
 
 ## Veil

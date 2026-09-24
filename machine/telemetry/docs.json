@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 109717,
+  "chars": 109478,
   "apparatus": false,
   "archived": false,
-  "tokens": 29063
+  "tokens": 28998
  },
  {
   "path": "CLAUDE.md",
@@ -1116,10 +1116,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 37557,
+  "chars": 37618,
   "apparatus": false,
   "archived": false,
-  "tokens": 8627
+  "tokens": 8642
  },
  {
   "path": "lore/codex/glosario.md",
@@ -2033,17 +2033,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2357
- },
- {
-  "path": "reports/RPT-021-four-sites-design-audit.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "active",
-  "chars": 9643,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3035
  },
  {
   "path": "standards/STD-001-the-series.md",

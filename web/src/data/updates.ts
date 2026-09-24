@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.40.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "FIX",
+        text: "The English glossary now says what the manual says: Tokens represent a bond, and may represent wealth as well.",
+      },
+    ],
+  },
+  {
     version: "v0.39.0",
     date: "2026-09-24",
     entries: [
