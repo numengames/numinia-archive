@@ -52,6 +52,13 @@ const en = {
   "speech.nothing": "Nothing to read on this page",
   "speech.rateAria": "Playback rate: {rate}x. Press to change",
   "speech.min": "min",
+  "speech.player": "Reading player",
+  "speech.position": "Reading position",
+  "speech.positionText": "{at} of {total}",
+  "speech.back": "Back to the reading",
+  "speech.reading": "Reading",
+  "speech.paused": "Paused",
+  "speech.stopped": "Stopped",
 
   // — doc toolbar —
   "toolbar.copy": "Copy",
@@ -60,6 +67,9 @@ const en = {
   "toolbar.copyAria": "Copy raw markdown",
   "toolbar.downloadAria": "Download {file}",
   "toolbar.sourceAria": "Open {file} in the repository",
+  "toolbar.copyTip": "Copy the text (markdown)",
+  "toolbar.downloadTip": "Download the file (.md)",
+  "toolbar.sourceTip": "See the original on GitHub",
 
   // — missions board (pilot page) —
   "board.searchPlaceholder": "Search missions — ID, title, assignee, guild…",

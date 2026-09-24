@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.25.0",
+    date: "2026-09-24",
+    entries: [
+      {
+        type: "CHG",
+        text: "Listening to a document no longer takes your scroll away. While the voice reads, a small glass player sits at the bottom of the page: play and pause, the section you are in, the time, speed and close. Scroll wherever you like and the voice keeps going; a 'Back to the reading' button takes you back to where it is.",
+      },
+      {
+        type: "ADD",
+        text: "A ruler to move through the reading, like an old printer's ruler: a long mark at each section, the part already heard printed in dots. Hover it to see the section and the first words of the sentence; click or drag to jump there, and the voice starts at the beginning of that sentence. With the keyboard, the arrows jump sentence by sentence.",
+      },
+      {
+        type: "CHG",
+        text: "What has been read dries like ink: it fades behind the voice, so your eye finds where it is without anything shouting. The reading marker is now a soft sand-coloured light instead of an amber dot, and it glides instead of hopping.",
+      },
+      {
+        type: "CHG",
+        text: "The document tools (copy, download .md, open on GitHub) are icons now, with a short explanation on hover.",
+      },
+    ],
+  },
+  {
     version: "v0.24.0",
     date: "2026-09-24",
     entries: [

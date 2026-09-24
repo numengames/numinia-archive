@@ -12,6 +12,36 @@
 // the engine fires the cancelled utterance's end/error events, which race
 // whatever starts next. Every cancel therefore bumps a generation counter,
 // and callbacks from an older generation are no-ops (see `gen`).
+//
+// 2026-09-24 — the dock and the ruler (the Oracle, three rounds of
+// prototypes on the live canon page). What changed and why:
+//
+// - The page no longer drags the reader. The old player scrolled to the
+//   word whenever it left the view, so reading ahead or going back while it
+//   spoke was a fight. Now the page follows the voice only until the reader
+//   scrolls; from then on the voice keeps going and a "Back to the reading"
+//   button appears above the dock, pointing where the voice is. Reaching the
+//   word again by hand resumes the following. One scroll only: the page's.
+// - The controls live in a dock that surfaces at the bottom while the
+//   voice is on: the document's own card, in the Velo's glass, the width of
+//   the text column — so it reads as part of the page, not a widget on it.
+// - The ruler replaces the idea of a progress bar: a hairline with fine
+//   marks and a longer mark at each section, the heard part printed in a
+//   halftone — a 1920 print ruler. Hover shows the section and the first
+//   words of the sentence a drop would start; a drop starts the voice at
+//   the head of that sentence (lib/speech-position.ts). Arrows step by
+//   sentence.
+// - What has been read dries like ink: it fades to translucent behind the
+//   voice (CSS Custom Highlight API — no DOM is touched, so the text map and
+//   the browser's own translation stay intact). The colour of the text is
+//   never animated.
+// - The reading marker keeps its behaviour (drift, trail, rest on a stop)
+//   but is a diffuse light in Arena, not an amber dot, and it glides: a
+//   critically damped spring moved every frame, and the target slides along
+//   the word as the voice goes through it, so nothing hops word to word.
+import { useT } from "@/i18n/ui";
+import Icon from "@/components/Icon.astro";
+
 interface Props {
   /** CSS selector of the element whose text is spoken. */
   textSelector?: string;
@@ -19,9 +49,7 @@ interface Props {
   lang?: string;
 }
 const { textSelector = "article", lang = "en" } = Astro.props;
-import { useT } from "@/i18n/ui";
 const t = useT();
-
 ---
 
 <div
@@ -38,6 +66,10 @@ const t = useT();
   data-t-nothing={t("speech.nothing")}
   data-t-rate-aria={t("speech.rateAria", { rate: "{rate}" })}
   data-t-min={t("speech.min")}
+  data-t-position-text={t("speech.positionText", { at: "{at}", total: "{total}" })}
+  data-t-reading={t("speech.reading")}
+  data-t-paused={t("speech.paused")}
+  data-t-stopped={t("speech.stopped")}
 >
   <button
     type="button"
@@ -49,48 +81,88 @@ const t = useT();
     <span class="sp-label">Listen</span>
     <span class="sp-est text-dim"></span>
   </button>
-  <button
-    type="button"
-    class="sp-stop hidden font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-2.5 py-2 sm:py-1.5 min-h-[44px] lg:min-h-0 transition-colors"
-    aria-label={t("speech.stop")}
-  >■</button>
-  <button
-    type="button"
-    class="sp-rate font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-2.5 py-2 sm:py-1.5 min-h-[44px] min-w-[44px] lg:min-h-0 lg:min-w-0 transition-colors"
-    aria-label={t("speech.rateAria", { rate: "1" })}
-    data-rate="1"
-  >1×</button>
+
+  <!-- The dock: fixed to the viewport; the script moves it to <body>. -->
+  <div class="sp-dock" role="region" aria-label={t("speech.player")}>
+    <button type="button" class="sp-back">
+      <i aria-hidden="true"></i>
+      <span>{t("speech.back")}</span>
+      <Icon name="arrow-down-bold" size={11} />
+    </button>
+    <div class="sp-card">
+      <button type="button" class="sp-btn sp-play" aria-label={t("speech.pauseAria")}>
+        <span class="sp-when-playing"><Icon name="pause-fill" size={13} /></span>
+        <span class="sp-when-paused"><Icon name="play-fill" size={13} /></span>
+      </button>
+      <div class="sp-mid">
+        <div class="sp-meta">
+          <span class="sp-sec"></span>
+          <span class="sp-time"></span>
+        </div>
+        <div
+          class="sp-ruler"
+          role="slider"
+          tabindex="0"
+          aria-label={t("speech.position")}
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <svg class="sp-ticks" aria-hidden="true"></svg>
+          <div class="sp-halftone" aria-hidden="true"></div>
+          <div class="sp-head" aria-hidden="true"></div>
+          <div class="sp-peek" aria-hidden="true"><b></b><span></span></div>
+        </div>
+      </div>
+      <button type="button" class="sp-btn sp-rate" data-rate="1" aria-label={t("speech.rateAria", { rate: "1" })}>1×</button>
+      <button type="button" class="sp-btn sp-stop" aria-label={t("speech.stop")}>
+        <Icon name="x" size={13} />
+      </button>
+    </div>
+  </div>
+  <div class="sp-live sr-only" aria-live="polite"></div>
 </div>
 
 <script>
+  import { sentenceStart, locate, clock, duration, sectionAt, WPM, type Section } from "@/lib/speech-position";
+
   // One controller per toolbar instance; pages can mount several toolbars.
   const RATES = [1, 1.5, 2];
-  const WPM = 180; // baseline speaking pace for the estimate
 
   for (const root of document.querySelectorAll<HTMLElement>(".speech-player")) {
     // UI strings come pre-translated from the server as data-t-* attributes
     // (MIS-120c); T reads them back. QA 2026-08-28, defect 4: the sweep
     // serialized the attributes but never defined this reader, so every
     // click threw `ReferenceError: T is not defined` and the player was
-    // dead on arrival — the REAL cause of "pause doesn't work" on live.
-    // The fallback string keeps the player alive even if an attribute
-    // goes missing.
-    const T = (key: string, fallback: string) =>
-      root.dataset["t" + key] ?? fallback;
+    // dead on arrival. The fallback string keeps the player alive even if
+    // an attribute goes missing.
+    const T = (key: string, fallback: string) => root.dataset["t" + key] ?? fallback;
     const toggle = root.querySelector<HTMLButtonElement>(".sp-toggle")!;
-    const stopBtn = root.querySelector<HTMLButtonElement>(".sp-stop")!;
-    const rateBtn = root.querySelector<HTMLButtonElement>(".sp-rate")!;
     const label = root.querySelector<HTMLElement>(".sp-label")!;
     const icon = root.querySelector<HTMLElement>(".sp-icon")!;
     const est = root.querySelector<HTMLElement>(".sp-est")!;
+    const dock = root.querySelector<HTMLElement>(".sp-dock")!;
+    const playBtn = root.querySelector<HTMLButtonElement>(".sp-play")!;
+    const stopBtn = root.querySelector<HTMLButtonElement>(".sp-stop")!;
+    const rateBtn = root.querySelector<HTMLButtonElement>(".sp-rate")!;
+    const backBtn = root.querySelector<HTMLButtonElement>(".sp-back")!;
+    const secEl = root.querySelector<HTMLElement>(".sp-sec")!;
+    const timeEl = root.querySelector<HTMLElement>(".sp-time")!;
+    const ruler = root.querySelector<HTMLElement>(".sp-ruler")!;
+    const ticks = root.querySelector<SVGSVGElement>(".sp-ticks")!;
+    const peek = root.querySelector<HTMLElement>(".sp-peek")!;
+    const live = root.querySelector<HTMLElement>(".sp-live")!;
 
     if (!("speechSynthesis" in window)) {
       toggle.disabled = true;
-      rateBtn.disabled = true;
-      toggle.title = T("NoEngine","This browser has no speech synthesis");
+      toggle.title = T("NoEngine", "This browser has no speech synthesis");
       toggle.classList.add("opacity-50");
+      dock.remove();
       continue;
     }
+    // The dock is position: fixed, but an ancestor with a transform or a
+    // filter would trap it; it belongs to the body.
+    document.body.appendChild(dock);
     const synth = window.speechSynthesis;
 
     // ---- text extraction -------------------------------------------------
@@ -98,23 +170,22 @@ const t = useT();
     // Play — not once at load. A reader who runs the browser's own
     // translation gets a page whose text nodes have been replaced in place;
     // reading a snapshot taken at load would speak the English original
-    // while the screen shows Spanish. Reading the DOM at Play time needs no
-    // detection and no API: whatever is on screen is what gets spoken, in
-    // every browser that can translate at all.
+    // while the screen shows Spanish. Whatever is on screen is what gets
+    // spoken, in every browser that can translate at all.
     //
-    // Reading marker: the walker also keeps, for every character
-    // of the spoken text, which Text node it came from and at what offset.
-    // That map is what lets the amber dot sit above the word the voice is
-    // on. Whitespace runs collapse to one space (mapped to no node); a block
-    // boundary counts as whitespace so "</p><p>" never glues two words.
-    // MIS-119 assumed every page that can be listened to is a document, and
-    // a document view wraps its prose in <article>. The composed pages — the
-    // home, the function pages, the indexes — have no <article>: they are a
-    // <main> full of sections. Play found nothing, spoke nothing, and said
-    // nothing, because "no text" is a legitimate state for a page still
-    // hydrating. So the selector falls back through what the page actually
-    // has. `main` is the honest target: Layout gives every page one, and it
-    // excludes the header, the nav and the footer by construction.
+    // The walker also keeps, for every character of the spoken text, which
+    // Text node it came from and at what offset. That map is what lets the
+    // marker sit above the word the voice is on and the read text dry behind
+    // it. Whitespace runs collapse to one space (mapped to no node); a block
+    // boundary counts as whitespace so "</p><p>" never glues two words. It
+    // also records where each heading starts: those are the sections the
+    // dock names and the ruler marks.
+    //
+    // MIS-119 assumed every page that can be listened to wraps its prose in
+    // <article>. The composed pages have no <article>: they are a <main>
+    // full of sections. So the selector falls back through what the page
+    // actually has; `main` excludes the header, nav and footer by
+    // construction.
     const SELECTORS = [root.dataset.textSelector, "article", "main#main", "main"];
     let target: HTMLElement | null = null;
     for (const sel of SELECTORS) {
@@ -122,15 +193,23 @@ const t = useT();
       target = document.querySelector<HTMLElement>(sel);
       if (target) break;
     }
-    const PRUNE = [".doc-toolbar", "nav", ".speech-player"];
+    const PRUNE = [".doc-toolbar", "nav", ".speech-player", ".sp-dock"];
     const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEMPLATE", "svg", "SVG"]);
-    type DocMap = { text: string; nodes: Text[]; nodeIdx: Int32Array; nodeOff: Int32Array };
-    const EMPTY_MAP: DocMap = { text: "", nodes: [], nodeIdx: new Int32Array(0), nodeOff: new Int32Array(0) };
+    type DocMap = { text: string; nodes: Text[]; nodeIdx: Int32Array; nodeOff: Int32Array; sections: Section[] };
+    const pageTitle = () => (document.querySelector("h1")?.textContent ?? "").trim();
+    const EMPTY_MAP: DocMap = {
+      text: "",
+      nodes: [],
+      nodeIdx: new Int32Array(0),
+      nodeOff: new Int32Array(0),
+      sections: [],
+    };
     const mapDocument = (): DocMap => {
       if (!target) return EMPTY_MAP;
       const nodes: Text[] = [];
       const idx: number[] = [];
       const off: number[] = [];
+      const sections: Section[] = [{ at: 0, title: pageTitle() }];
       let out = "";
       let pendingSpace = false;
       const walk = (el: Element) => {
@@ -140,6 +219,16 @@ const t = useT();
         if (cs.display === "none" || cs.visibility === "hidden") return;
         const block = !cs.display.startsWith("inline");
         if (block) pendingSpace = true;
+        if (/^H[2-4]$/.test(el.tagName)) {
+          const title = (el.textContent ?? "").trim();
+          const at = out.length ? out.length + 1 : 0;
+          // A heading that opens the document renames the first section
+          // instead of adding an empty one before it.
+          if (title) {
+            if (at === 0) sections[0] = { at: 0, title };
+            else sections.push({ at, title });
+          }
+        }
         for (const c of Array.from(el.childNodes)) {
           if (c.nodeType === Node.ELEMENT_NODE) {
             walk(c as Element);
@@ -170,7 +259,7 @@ const t = useT();
         if (block) pendingSpace = true;
       };
       walk(target);
-      return { text: out, nodes, nodeIdx: Int32Array.from(idx), nodeOff: Int32Array.from(off) };
+      return { text: out, nodes, nodeIdx: Int32Array.from(idx), nodeOff: Int32Array.from(off), sections };
     };
     let docMap = mapDocument();
     const readDocument = () => mapDocument().text;
@@ -178,8 +267,9 @@ const t = useT();
     let words = text ? text.split(" ").length : 0;
     if (!words) {
       toggle.disabled = true;
-      toggle.title = T("Nothing","Nothing to read on this page");
+      toggle.title = T("Nothing", "Nothing to read on this page");
       toggle.classList.add("opacity-50");
+      dock.remove();
       continue;
     }
 
@@ -202,7 +292,7 @@ const t = useT();
     };
     let chunks: string[] = chunkText(text);
     // Where each chunk starts in `text` — the bridge from an utterance's
-    // charIndex back to a document position (reading marker).
+    // charIndex back to a document position (marker, ruler, drying ink).
     const chunkStarts = (src: string, cs: string[]): number[] => {
       const out: number[] = [];
       let cursor = 0;
@@ -216,15 +306,11 @@ const t = useT();
     let chunkAt: number[] = chunkStarts(text, chunks);
 
     // ---- voice pick (async: engines populate voices late) ----------------
-    // MIS-120(e): docLang is read from the LIVE <html lang>, not baked in at
-    // build. Chrome, Edge and Safari rewrite that attribute when their own
-    // translation runs (it is the documented way to detect machine
-    // translation), so a translated page picks a voice in the language the
-    // reader is actually looking at — Spanish, Japanese, any of them, with
-    // no list to maintain. The build-time attribute is the fallback for
-    // browsers that translate without relabelling.
-    const liveLang = () =>
-      (document.documentElement.lang || root.dataset.lang || "en").toLowerCase();
+    // MIS-120(e): docLang is read from the LIVE <html lang>, which Chrome,
+    // Edge and Safari rewrite when their own translation runs, so a
+    // translated page picks a voice in the language the reader is looking
+    // at. The build-time attribute is the fallback.
+    const liveLang = () => (document.documentElement.lang || root.dataset.lang || "en").toLowerCase();
     let docLang = liveLang();
     let voice: SpeechSynthesisVoice | null = null;
     const pickVoice = () => {
@@ -240,9 +326,8 @@ const t = useT();
     // ---- estimate --------------------------------------------------------
     let rate = 1;
     const renderEst = () => {
-      const mins = words / (WPM * rate);
-      est.textContent =
-        mins < 1 ? "· <1 " + T("Min","min") : "· ~" + Math.round(mins) + " " + T("Min","min");
+      const mins = duration(words, rate) / 60;
+      est.textContent = mins < 1 ? "· <1 " + T("Min", "min") : "· ~" + Math.round(mins) + " " + T("Min", "min");
     };
     renderEst();
 
@@ -256,23 +341,15 @@ const t = useT();
     let gen = 0;
     let keepalive: number | undefined;
     // Word-level position inside the current chunk (QA 2026-08-28, defect
-    // 4: pausing early in a ~280-char chunk and resuming replayed the whole
-    // chunk — within the FIRST chunk that is indistinguishable from
-    // restarting the document). `charOffset` is where the current
-    // utterance's text starts inside chunks[queueIndex]; `lastBoundary` is
-    // the last word boundary the engine reported, relative to that
-    // utterance. Boundary events are a progressive enhancement: engines
-    // that never fire them leave lastBoundary at 0 and resume falls back
-    // to the chunk start — never worse than before.
+    // 4). `charOffset` is where the current utterance's text starts inside
+    // chunks[queueIndex]; `lastBoundary` is the last word boundary the
+    // engine reported, relative to that utterance. Engines that never fire
+    // boundary events leave it at 0 and the elapsed-time estimate below
+    // takes over (QA 2026-08-28, defect 6). The estimate is deliberately
+    // conservative (~85% of nominal pace): repeating a couple of words beats
+    // skipping words never heard.
     let charOffset = 0;
     let lastBoundary = 0;
-    // When the utterance started speaking, and at what rate. Some engines
-    // (Chrome/Edge network voices, notably) never fire boundary events; for
-    // those, elapsed time × speaking pace estimates how far the voice got
-    // (QA 2026-08-28, defect 6: with such a voice, changing rate early in
-    // the document restarted it from the top — lastBoundary was still 0).
-    // The estimate is deliberately conservative (~85% of nominal pace):
-    // repeating a couple of words beats skipping words never heard.
     let utterStart = 0;
     let utterRate = 1;
     const CPS = (WPM * 6) / 60; // chars/sec at 1×: ~5 letters + space per word
@@ -282,24 +359,24 @@ const t = useT();
       const elapsed = (performance.now() - utterStart) / 1000;
       return Math.max(0, Math.floor(elapsed * CPS * utterRate * 0.85));
     };
+    /** Absolute position of the voice in `text`. */
+    const position = () => {
+      const start = chunkAt[queueIndex] ?? 0;
+      const end = start + (chunks[queueIndex]?.length ?? 1) - 1;
+      const extra = state === "speaking" ? spokenInUtterance() : 0;
+      return Math.min(start + charOffset + extra, end);
+    };
 
     // ---- position persistence (QA 2026-08-28: pause + navigate away lost
     // the position). The chunk index and rate survive the page in
     // sessionStorage, keyed by route + selector. Only an explicit Stop or
-    // the document's natural end clears it; leaving the page does not.
-    // chunks.length is stored as a fingerprint: if a deploy re-chunks the
-    // text, the stale index is discarded instead of resuming mid-nonsense.
-    // Keyed by the selector that actually resolved, not the one asked for:
-    // a page whose <article> appears later must not resume at an index
-    // measured against <main>.
-    const storeKey =
-      "sp:" + location.pathname + ":" + (target?.tagName.toLowerCase() ?? "none");
+    // the document's natural end clears it. chunks.length is stored as a
+    // fingerprint: if a deploy re-chunks the text, the stale index is
+    // discarded instead of resuming mid-nonsense.
+    const storeKey = "sp:" + location.pathname + ":" + (target?.tagName.toLowerCase() ?? "none");
     const saveProgress = () => {
       try {
-        sessionStorage.setItem(
-          storeKey,
-          JSON.stringify({ i: queueIndex, o: charOffset, rate, n: chunks.length }),
-        );
+        sessionStorage.setItem(storeKey, JSON.stringify({ i: queueIndex, o: charOffset, rate, n: chunks.length }));
       } catch {
         /* storage full/blocked: degrade to the old session-only behavior */
       }
@@ -311,8 +388,15 @@ const t = useT();
         /* ignore */
       }
     };
-    // Restore a previous position before first render. Rate is restored
-    // too — resuming at the pace the reader chose, not the default.
+    const setRateLabel = () => {
+      rateBtn.textContent = rate + "×";
+      rateBtn.dataset.rate = String(rate);
+      rateBtn.setAttribute(
+        "aria-label",
+        T("RateAria", "Playback rate: {rate}x. Press to change").replace("{rate}", String(rate)),
+      );
+    };
+    // Restore a previous position before first render, and the rate with it.
     try {
       const saved = JSON.parse(sessionStorage.getItem(storeKey) ?? "null");
       if (
@@ -323,12 +407,10 @@ const t = useT();
         saved.i < chunks.length
       ) {
         queueIndex = saved.i;
-        if (Number.isInteger(saved.o) && saved.o > 0 && saved.o < chunks[saved.i].length)
-          charOffset = saved.o;
+        if (Number.isInteger(saved.o) && saved.o > 0 && saved.o < chunks[saved.i].length) charOffset = saved.o;
         if (RATES.includes(saved.rate)) {
           rate = saved.rate;
-          rateBtn.textContent = rate + "×";
-          rateBtn.dataset.rate = String(rate);
+          setRateLabel();
           renderEst();
         }
       } else if (saved) {
@@ -353,49 +435,13 @@ const t = useT();
       }, 5000);
     };
 
-    // ---- reading marker ----------------------------------------
-    // A small amber dot drifts above the word being spoken, karaoke-style,
-    // and leaves a long, soft trail behind it. It rests where the voice
-    // rests — the engine pauses at punctuation, so the dot does too —
-    // brightens a little on a stop, glows briefly on an accented word, and
-    // breathes slowly while the voice moves. The Oracle asked for wind,
-    // not a mouse: every motion here is slow, eased, and translucent. Progressive: on engines that report
-    // word boundaries the position is exact; on the ones that do not, it
-    // follows the same elapsed-time estimate pause/resume already rely on.
-    // Under prefers-reduced-motion the dot still moves, but jumps: no
-    // trail, no bob, no twinkle.
     const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const TRAIL = reducedMotion ? 1 : 10;
-    let marker: HTMLElement | null = null;
-    let head: HTMLElement | null = null;
-    let curWord = -1;
-    let curRange: Range | null = null;
-    let lastScroll = 0;
-    let raf = 0;
-    const ensureMarker = () => {
-      if (marker) return;
-      marker = document.createElement("div");
-      marker.className = "sp-marker";
-      marker.setAttribute("aria-hidden", "true");
-      for (let i = TRAIL - 1; i >= 0; i--) {
-        const d = document.createElement("i");
-        d.className = "sp-marker-dot";
-        d.style.setProperty("--i", String(i));
-        d.appendChild(document.createElement("b"));
-        marker.appendChild(d);
-        if (i === 0) head = d.firstElementChild as HTMLElement;
-      }
-      document.body.appendChild(marker);
-    };
-    const dropMarker = () => {
-      marker?.remove();
-      marker = head = null;
-      curWord = -1;
-      curRange = null;
-    };
+
+    // ---- the text under the voice ---------------------------------------
     const wordAt = (a: number): [number, number] => {
       const s0 = docMap.text;
       let s = Math.max(0, Math.min(a, s0.length - 1));
+      while (s > 0 && s0[s - 1] !== " ") s--; // back to the word's start
       while (s < s0.length && s0[s] === " ") s++;
       if (s >= s0.length) return [-1, -1];
       let e = s0.indexOf(" ", s);
@@ -408,105 +454,420 @@ const t = useT();
       while (i < e && nodeIdx[i] < 0) i++;
       let j = e - 1;
       while (j > i && nodeIdx[j] < 0) j--;
-      if (i >= e || nodeIdx[i] < 0 || !nodes[nodeIdx[i]]?.isConnected) return null;
+      if (i >= e || nodeIdx[i] < 0 || nodeIdx[j] < 0) return null;
+      if (!nodes[nodeIdx[i]]?.isConnected || !nodes[nodeIdx[j]]?.isConnected) return null;
       const r = document.createRange();
       r.setStart(nodes[nodeIdx[i]], nodeOff[i]);
       r.setEnd(nodes[nodeIdx[j]], nodeOff[j] + 1);
       return r;
     };
-    const placeAt = (rect: DOMRect) => {
-      if (!marker) return;
-      // Document coordinates. body positioned → relative to body; static →
-      // relative to the initial containing block, i.e. add the scroll.
+
+    // ---- drying ink --------------------------------------------------------
+    // What the voice has passed fades to translucent, in three steps so the
+    // last words are still drying while the older text has set. CSS Custom
+    // Highlight API: ranges painted by the browser, not spans — the text map
+    // above and a browser translation are never disturbed. Where the API is
+    // missing, the text simply stays as it is.
+    const HL = "highlights" in CSS && typeof Highlight === "function";
+    const inkSet = HL ? new Highlight() : null;
+    const inkMid = HL ? new Highlight() : null;
+    const inkWet = HL ? new Highlight() : null;
+    if (HL) {
+      CSS.highlights.set("sp-ink-set", inkSet!);
+      CSS.highlights.set("sp-ink-mid", inkMid!);
+      CSS.highlights.set("sp-ink-wet", inkWet!);
+    }
+    const wordsBack = (at: number, n: number): number => {
+      let s = wordAt(at)[0];
+      for (let k = 0; k < n && s > 1; k++) s = wordAt(s - 2)[0];
+      return Math.max(0, s);
+    };
+    const dry = (at: number) => {
+      if (!HL) return;
+      inkSet!.clear();
+      inkMid!.clear();
+      inkWet!.clear();
+      if (at <= 0 || state === "idle") return;
+      const now = wordAt(at)[0];
+      const wetFrom = wordsBack(at, 3);
+      const midFrom = wordsBack(at, 9);
+      const add = (h: Highlight, s: number, e: number) => {
+        if (e <= s) return;
+        const r = rangeFor(s, e);
+        if (r) h.add(r);
+      };
+      add(inkSet!, 0, midFrom);
+      add(inkMid!, midFrom, wetFrom);
+      add(inkWet!, wetFrom, now);
+    };
+
+    // ---- reading marker ----------------------------------------
+    // A small diffuse light drifts above the word being spoken and leaves a
+    // long, soft trail behind it. It rests where the voice rests — the
+    // engine pauses at punctuation, so the light does too — and it glides:
+    // every frame it moves toward its target on a critically damped spring
+    // (arrives soft, never overshoots), and the target itself slides along
+    // the word as the voice goes through it. The Oracle asked for wind, not
+    // a mouse. Under prefers-reduced-motion the light still moves, but
+    // jumps: no trail, no spring, no bob.
+    const TRAIL = reducedMotion ? 1 : 12;
+    let marker: HTMLElement | null = null;
+    let dots: HTMLElement[] = [];
+    let curWord = -1;
+    let wordT0 = 0;
+    let wordDur = 300;
+    let curRange: Range | null = null;
+    let lastScroll = 0;
+    let raf = 0;
+    let lastFrame = 0;
+    let hx = 0;
+    let hy = 0;
+    let vx = 0;
+    let vy = 0;
+    let placed = false;
+    const hist: [number, number][] = [];
+    const ensureMarker = () => {
+      if (marker) return;
+      marker = document.createElement("div");
+      marker.className = "sp-marker";
+      marker.setAttribute("aria-hidden", "true");
+      dots = [];
+      for (let i = TRAIL - 1; i >= 0; i--) {
+        const d = document.createElement("i");
+        d.style.setProperty("--i", String(i));
+        marker.appendChild(d);
+        dots[i] = d;
+      }
+      document.body.appendChild(marker);
+    };
+    const dropMarker = () => {
+      marker?.remove();
+      marker = null;
+      dots = [];
+      curWord = -1;
+      curRange = null;
+      placed = false;
+      hist.length = 0;
+    };
+    // Document coordinates of a viewport point. body positioned → relative
+    // to body; static → relative to the initial containing block.
+    const origin = () => {
       const b = document.body;
-      const positioned = getComputedStyle(b).position !== "static";
-      const bb = positioned ? b.getBoundingClientRect() : null;
-      const x = rect.left + rect.width / 2 - (bb ? bb.left : -scrollX);
-      const y = rect.top - (bb ? bb.top : -scrollY);
-      marker.style.setProperty("--x", x.toFixed(1) + "px");
-      marker.style.setProperty("--y", y.toFixed(1) + "px");
+      if (getComputedStyle(b).position === "static") return { x: -scrollX, y: -scrollY };
+      const bb = b.getBoundingClientRect();
+      return { x: bb.left, y: bb.top };
     };
-    const showWord = (s: number, e: number) => {
-      ensureMarker();
-      const r = rangeFor(s, e);
-      if (!r) return;
-      const rects = r.getClientRects();
-      const rect = rects.length ? rects[0] : r.getBoundingClientRect();
-      if (!rect.width && !rect.height) return;
-      curRange = r;
-      const prevY = parseFloat(marker!.style.getPropertyValue("--y")) || 0;
-      placeAt(rect);
-      const nowY = parseFloat(marker!.style.getPropertyValue("--y")) || 0;
-      // Crossing to another line: let the dot glide there, not snap.
-      marker!.classList.toggle("is-drift", Math.abs(nowY - prevY) > rect.height * 0.6);
-      if (head && !reducedMotion) {
-        const w = docMap.text.slice(s, e);
-        head.classList.remove("is-rest", "is-twinkle");
-        void head.offsetWidth; // restart the one-shot animations
-        if (/[.,;:!?…)\]»”"']$/.test(w)) head.classList.add("is-rest");
-        if (/[áéíóúàèìòùâêîôûäëïöüñçãõœæÁÉÍÓÚÑÜ]/.test(w)) head.classList.add("is-twinkle");
-      }
-      // Keep the reading in view: when the word leaves the comfortable band,
-      // bring it to the upper third, at most once a second.
-      const now = performance.now();
-      if ((rect.top < 72 || rect.bottom > innerHeight - 96) && now - lastScroll > 1000) {
-        lastScroll = now;
-        scrollTo({
-          top: rect.top + scrollY - innerHeight * 0.35,
-          behavior: reducedMotion ? "auto" : "smooth",
-        });
-      }
+    const markerTarget = (): { x: number; y: number } | null => {
+      if (!curRange) return null;
+      const rects = curRange.getClientRects();
+      const r = rects.length ? rects[0] : curRange.getBoundingClientRect();
+      if (!r.width && !r.height) return null;
+      const o = origin();
+      const f = state === "speaking" ? Math.min(1, (performance.now() - wordT0) / Math.max(120, wordDur)) : 0.5;
+      return { x: r.left + r.width * (0.15 + 0.7 * f) - o.x, y: r.top - 5 - o.y };
     };
-    const tick = () => {
-      if (state !== "speaking") {
-        raf = 0;
-        return;
+    const setWord = (s: number, e: number) => {
+      curWord = s;
+      curRange = rangeFor(s, e);
+      wordT0 = performance.now();
+      wordDur = ((e - s + 1) / (CPS * rate)) * 1000;
+      dry(s);
+    };
+    const frame = (now: number) => {
+      raf = 0;
+      if (state === "idle" || !marker) return;
+      const dt = Math.min(0.05, lastFrame ? (now - lastFrame) / 1000 : 0.016);
+      lastFrame = now;
+      if (state === "speaking") {
+        const [s, e] = wordAt(position());
+        if (s >= 0 && s !== curWord) {
+          setWord(s, e);
+          renderPosition();
+          if (follow) keepInView();
+        }
       }
-      const start = chunkAt[queueIndex] ?? 0;
-      const end = start + (chunks[queueIndex]?.length ?? 0) - 1;
-      const abs = Math.min(start + charOffset + spokenInUtterance(), end);
-      const [s, e] = wordAt(abs);
-      if (s >= 0 && s !== curWord) {
-        curWord = s;
-        showWord(s, e);
+      const tg = markerTarget();
+      if (tg) {
+        if (!placed || reducedMotion || Math.abs(tg.y - hy) > 220) {
+          // First placement, reduced motion, or a jump (a seek, a resize):
+          // appear there instead of crossing the page.
+          hx = tg.x;
+          hy = tg.y;
+          vx = vy = 0;
+          placed = true;
+          hist.length = 0;
+        } else {
+          const k = 90;
+          const c = 2 * Math.sqrt(k); // critical damping
+          vx += (k * (tg.x - hx) - c * vx) * dt;
+          vy += (k * (tg.y - hy) - c * vy) * dt;
+          hx += vx * dt;
+          hy += vy * dt;
+        }
       }
-      raf = requestAnimationFrame(tick);
+      const bob = reducedMotion || state !== "speaking" ? 0 : Math.sin(now / (900 / rate)) * 1.2;
+      hist.unshift([hx, hy + bob]);
+      if (hist.length > TRAIL * 3) hist.length = TRAIL * 3;
+      for (let i = 0; i < dots.length; i++) {
+        const p = hist[Math.min(hist.length - 1, i * 3)];
+        if (p) dots[i].style.transform = `translate(${p[0].toFixed(1)}px,${p[1].toFixed(1)}px)`;
+      }
+      raf = requestAnimationFrame(frame);
     };
     const markerSync = () => {
+      if (state === "idle") {
+        marker?.classList.remove("is-on");
+        return;
+      }
       ensureMarker();
-      marker!.style.setProperty("--rate", String(rate));
-      marker!.classList.toggle("is-on", state !== "idle");
+      marker!.classList.add("is-on");
       marker!.classList.toggle("is-paused", state === "paused");
-      if (state === "speaking" && !raf) raf = requestAnimationFrame(tick);
-      if (state === "idle") curWord = -1;
+      if (!raf) {
+        lastFrame = 0;
+        raf = requestAnimationFrame(frame);
+      }
     };
-    // Layout can move under a resting dot (resize, fonts, a paused reader
-    // rotating the phone): re-place from the range we already hold.
-    addEventListener("resize", () => {
-      const rects = curRange?.getClientRects();
-      if (rects && rects.length) placeAt(rects[0]);
+
+    // ---- following the voice, and letting go ------------------------------
+    // The page follows the voice until the reader scrolls. Then it lets go:
+    // the voice keeps speaking and "Back to the reading" appears above the
+    // dock, its arrow pointing where the voice is. Reaching the word again
+    // by hand — or pressing that button — resumes the following.
+    let follow = true;
+    let programmatic = 0;
+    const band = (): [number, number] => {
+      const nav = document.querySelector("nav")?.getBoundingClientRect().height ?? 56;
+      const dockH = dock.classList.contains("is-on") ? dock.getBoundingClientRect().height + 40 : 40;
+      return [nav + 24, innerHeight - dockH];
+    };
+    const keepInView = (force = false) => {
+      if (!curRange) return;
+      const r = curRange.getBoundingClientRect();
+      const [top, bottom] = band();
+      const now = performance.now();
+      if (force || ((r.top < top || r.bottom > bottom) && now - lastScroll > 1000)) {
+        lastScroll = now;
+        programmatic = now;
+        scrollTo({ top: r.top + scrollY - top - (bottom - top) * 0.28, behavior: reducedMotion ? "auto" : "smooth" });
+      }
+    };
+    const updateLost = () => {
+      if (state === "idle" || !curRange) {
+        document.body.classList.remove("sp-lost");
+        return;
+      }
+      const r = curRange.getBoundingClientRect();
+      const [top, bottom] = band();
+      const visible = r.bottom > top && r.top < bottom;
+      // Re-arm only once the reading had been lost and the reader brought it
+      // back. While a swipe is still starting, the word is on screen; re-arming
+      // then would drag the page back under the reader's finger.
+      if (visible && !follow && document.body.classList.contains("sp-lost")) follow = true;
+      document.body.classList.toggle("sp-lost", !follow && !visible);
+      backBtn.classList.toggle("is-up", r.top < top);
+    };
+    const takeOver = (e: Event) => {
+      if (state === "idle") return;
+      if ((e.target as Element | null)?.closest?.(".sp-dock")) return;
+      follow = false;
+      setTimeout(updateLost, 80);
+    };
+    addEventListener("wheel", takeOver, { passive: true });
+    addEventListener("touchmove", takeOver, { passive: true });
+    addEventListener("keydown", (e) => {
+      const keys = ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "];
+      const el = e.target as Element | null;
+      if (keys.includes(e.key) && !el?.closest?.("button,input,textarea,select,[role=slider]")) takeOver(e);
+    });
+    addEventListener(
+      "scroll",
+      () => {
+        if (!follow || performance.now() - programmatic > 900) updateLost();
+      },
+      { passive: true },
+    );
+    backBtn.addEventListener("click", () => {
+      follow = true;
+      document.body.classList.remove("sp-lost");
+      keepInView(true);
     });
 
+    // ---- the ruler ----------------------------------------------------------
+    // A print ruler, not a loading bar: a hairline, a fine mark every few
+    // pixels, a longer mark where each section starts. The heard part is
+    // printed in halftone (CSS); the head is the same light as the marker.
+    const drawRuler = () => {
+      const w = ruler.clientWidth;
+      const h = ruler.clientHeight;
+      if (!w) return;
+      const ns = "http://www.w3.org/2000/svg";
+      ticks.replaceChildren();
+      const line = (x1: number, y1: number, x2: number, y2: number, cls: string) => {
+        const l = document.createElementNS(ns, "line");
+        l.setAttribute("x1", String(x1));
+        l.setAttribute("y1", String(y1));
+        l.setAttribute("x2", String(x2));
+        l.setAttribute("y2", String(y2));
+        l.setAttribute("class", cls);
+        ticks.appendChild(l);
+      };
+      const mid = Math.round(h / 2) + 0.5;
+      line(0, mid, w, mid, "sp-hair");
+      const step = Math.max(6, w / 90);
+      for (let x = 0; x <= w; x += step) {
+        const px = Math.round(x) + 0.5;
+        line(px, mid - 2.5, px, mid + 2.5, "sp-mm");
+      }
+      const len = Math.max(1, text.length - 1);
+      for (const s of docMap.sections.slice(1)) {
+        const px = Math.round((s.at / len) * w) + 0.5;
+        line(px, mid - 7, px, mid + 7, "sp-mark");
+      }
+    };
+    const fromX = (clientX: number) => {
+      const r = ruler.getBoundingClientRect();
+      const f = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      return Math.round(f * (text.length - 1));
+    };
+    const setBar = (at: number) => {
+      ruler.style.setProperty("--p", String(at / Math.max(1, text.length - 1)));
+    };
+    const showPeek = (at: number, clientX: number) => {
+      const s = sentenceStart(text, at);
+      const sec = sectionAt(docMap.sections, s);
+      const when = clock((s / Math.max(1, text.length - 1)) * duration(words, rate));
+      peek.querySelector("b")!.textContent = when + (sec.title ? " · " + sec.title : "");
+      const snippet = text.slice(s, s + 64);
+      const cut = snippet.lastIndexOf(" ");
+      peek.querySelector("span")!.textContent = (cut > 20 ? snippet.slice(0, cut) : snippet) + "…";
+      const r = ruler.getBoundingClientRect();
+      const half = (peek.offsetWidth || 220) / 2;
+      const x = Math.min(Math.max(clientX - r.left, half - r.left + 10), innerWidth - 10 - half - r.left);
+      peek.style.left = x + "px";
+      ruler.classList.add("is-peek");
+    };
+    let drag: number | null = null;
+    ruler.addEventListener("pointermove", (e) => {
+      if (e.pointerType === "mouse" || drag !== null) showPeek(fromX(e.clientX), e.clientX);
+      if (drag !== null) {
+        drag = fromX(e.clientX);
+        setBar(drag);
+      }
+    });
+    ruler.addEventListener("pointerleave", () => {
+      if (drag === null) ruler.classList.remove("is-peek");
+    });
+    ruler.addEventListener("pointerdown", (e) => {
+      ruler.setPointerCapture(e.pointerId);
+      ruler.classList.add("is-drag");
+      drag = fromX(e.clientX);
+      setBar(drag);
+      showPeek(drag, e.clientX);
+    });
+    ruler.addEventListener("pointerup", () => {
+      if (drag === null) return;
+      ruler.classList.remove("is-drag", "is-peek");
+      const at = drag;
+      drag = null;
+      seek(at);
+    });
+    ruler.addEventListener("pointercancel", () => {
+      drag = null;
+      ruler.classList.remove("is-drag", "is-peek");
+      renderPosition();
+    });
+    ruler.addEventListener("keydown", (e) => {
+      const here = sentenceStart(text, position());
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        const m = /[.!?…] /.exec(text.slice(here));
+        if (m) seek(here + m.index + 2);
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        seek(here > 1 ? sentenceStart(text, here - 2) : 0);
+      } else if (e.key === "Home") {
+        e.preventDefault();
+        seek(0);
+      }
+    });
+    const seek = (at: number) => {
+      const s = sentenceStart(text, at);
+      const { index, offset } = locate(chunkAt, s);
+      follow = true;
+      document.body.classList.remove("sp-lost");
+      curWord = -1;
+      if (state === "speaking") {
+        gen++;
+        synth.cancel();
+        speakFrom(index, offset);
+        return;
+      }
+      queueIndex = index;
+      charOffset = offset;
+      lastBoundary = 0;
+      saveProgress();
+      if (state === "idle") return start();
+      // Paused: move the reading there and stay paused.
+      const [ws, we] = wordAt(position());
+      if (ws >= 0) setWord(ws, we);
+      keepInView(true);
+      render();
+    };
+
+    // ---- rendering --------------------------------------------------------
+    let lastSec = -1;
+    const renderPosition = () => {
+      const at = position();
+      const len = Math.max(1, text.length - 1);
+      const total = duration(words, rate);
+      if (drag === null) setBar(at);
+      const now = clock((at / len) * total);
+      const all = clock(total);
+      timeEl.textContent = now + " / " + all;
+      ruler.setAttribute("aria-valuenow", String(Math.round((at / len) * 100)));
+      ruler.setAttribute("aria-valuetext", T("PositionText", "{at} of {total}").replace("{at}", now).replace("{total}", all));
+      const sec = sectionAt(docMap.sections, at);
+      if (sec.index !== lastSec) {
+        lastSec = sec.index;
+        secEl.textContent = sec.title;
+      }
+    };
     const render = () => {
       markerSync();
+      const on = state !== "idle";
       // Idle with a saved position (restored from a previous visit) is
       // presented as Resume: the reader left mid-document and comes back.
-      const resumable =
-        state === "paused" ||
-        (state === "idle" && (queueIndex > 0 || charOffset > 0));
+      const resumable = state === "paused" || (state === "idle" && (queueIndex > 0 || charOffset > 0));
       toggle.setAttribute("aria-pressed", String(state === "speaking"));
       icon.textContent = state === "speaking" ? "❚❚" : "▶";
       label.textContent =
-        state === "speaking" ? T("Pause","Pause") : resumable ? T("Resume","Resume") : T("Listen","Listen");
+        state === "speaking" ? T("Pause", "Pause") : resumable ? T("Resume", "Resume") : T("Listen", "Listen");
       toggle.setAttribute(
         "aria-label",
         state === "speaking"
-          ? T("PauseAria","Pause listening")
+          ? T("PauseAria", "Pause listening")
           : resumable
-            ? T("ResumeAria","Resume listening")
-            : T("ListenAria","Listen to this document"),
+            ? T("ResumeAria", "Resume listening")
+            : T("ListenAria", "Listen to this document"),
       );
-      stopBtn.classList.toggle("hidden", state === "idle" && queueIndex === 0);
+      est.hidden = on;
+      playBtn.classList.toggle("is-playing", state === "speaking");
+      playBtn.setAttribute(
+        "aria-label",
+        state === "speaking" ? T("PauseAria", "Pause listening") : T("ResumeAria", "Resume listening"),
+      );
+      const wasOn = dock.classList.contains("is-on");
+      dock.classList.toggle("is-on", on);
+      if (on && !wasOn) requestAnimationFrame(drawRuler);
+      document.body.style.paddingBottom = on ? dock.getBoundingClientRect().height + 34 + "px" : "";
+      if (!on) {
+        document.body.classList.remove("sp-lost");
+        dry(0);
+      }
+      renderPosition();
+    };
+    const say = (msg: string) => {
+      live.textContent = msg;
     };
 
     const speakFrom = (i: number, offset = 0) => {
@@ -520,15 +881,13 @@ const t = useT();
         clearProgress();
         stopKeepalive();
         render();
+        say(T("Stopped", "Stopped"));
         return;
       }
       queueIndex = i;
       // Snap the offset back to a word boundary so the utterance never
       // starts mid-word; a broken offset degrades to the chunk start.
-      charOffset =
-        offset > 0 && offset < chunks[i].length - 1
-          ? chunks[i].lastIndexOf(" ", offset) + 1
-          : 0;
+      charOffset = offset > 0 && offset < chunks[i].length - 1 ? chunks[i].lastIndexOf(" ", offset) + 1 : 0;
       lastBoundary = 0;
       saveProgress();
       const g = gen;
@@ -543,10 +902,7 @@ const t = useT();
         if (g === gen) utterStart = performance.now();
       };
       u.onboundary = (e) => {
-        // Word boundaries mark where a pause can resume. Engines that never
-        // fire this leave lastBoundary at 0 — resume from the chunk start.
-        if (g === gen && typeof e.charIndex === "number" && e.charIndex > 0)
-          lastBoundary = e.charIndex;
+        if (g === gen && typeof e.charIndex === "number" && e.charIndex > 0) lastBoundary = e.charIndex;
       };
       u.onend = () => {
         if (g !== gen) return; // stale: a cancel() superseded this queue
@@ -568,10 +924,8 @@ const t = useT();
     const start = () => {
       // MIS-120(e): re-read the document before speaking. If the reader ran
       // the browser's translation since the page loaded, the DOM now holds
-      // their language and the snapshot taken at load is stale English.
-      // Re-chunking invalidates any saved position (the chunk boundaries
-      // moved), so a language change restarts the document rather than
-      // resuming at an index that no longer means the same thing.
+      // their language. Re-chunking invalidates any saved position, so a
+      // language change restarts the document.
       const freshMap = mapDocument();
       const fresh = freshMap.text;
       docMap = freshMap; // nodes may have been replaced in place (translation)
@@ -594,11 +948,44 @@ const t = useT();
       gen++;
       synth.cancel(); // never stack on a previous run
       state = "speaking";
+      follow = true;
+      curWord = -1;
       render();
       startKeepalive();
       speakFrom(queueIndex, charOffset); // honor a restored mid-chunk position
+      say(T("Reading", "Reading"));
     };
 
+    // Pause is OURS, not the engine's. speechSynthesis.pause()/resume() is
+    // unreliable across engines: Chrome drops a paused queue after ~15s,
+    // Android ignores pause mid-utterance, and Linux speech-dispatcher
+    // (Firefox) can end the utterance on pause so a later resume() resumes
+    // nothing (QA 2026-08-28). So pausing cancels the engine outright; the
+    // position lives in queueIndex + charOffset, which we own. It is frozen
+    // BEFORE cancel() — the engine's boundary counter dies with the
+    // utterance.
+    const pause = () => {
+      charOffset = charOffset + spokenInUtterance();
+      state = "paused";
+      lastBoundary = 0;
+      gen++; // stale-out the cancelled utterance's end/error events
+      synth.cancel();
+      saveProgress();
+      stopKeepalive();
+      render();
+      say(T("Paused", "Paused"));
+    };
+    const resume = () => {
+      // MIS-120(e): unless the document changed language under us while
+      // paused — then start() re-reads, re-chunks and begins afresh.
+      if (readDocument() !== text) return start();
+      state = "speaking";
+      follow = true;
+      render();
+      startKeepalive();
+      speakFrom(queueIndex, charOffset);
+      say(T("Reading", "Reading"));
+    };
     const stopAll = () => {
       gen++;
       state = "idle";
@@ -609,6 +996,12 @@ const t = useT();
       stopKeepalive();
       synth.cancel();
       render();
+      say(T("Stopped", "Stopped"));
+    };
+    const toggleRun = () => {
+      if (state === "idle") return start();
+      if (state === "speaking") return pause();
+      return resume();
     };
 
     // Page teardown is NOT Stop: the voice must not outlive the page, but
@@ -620,67 +1013,26 @@ const t = useT();
       gen++;
       stopKeepalive();
       synth.cancel();
+      state = "idle";
       dropMarker();
+      dry(0);
+      dock.remove();
+      document.body.classList.remove("sp-lost");
+      document.body.style.paddingBottom = "";
     };
 
-    toggle.addEventListener("click", () => {
-      if (state === "idle") return start();
-      if (state === "speaking") {
-        // Pause is OURS, not the engine's. speechSynthesis.pause()/resume()
-        // is unreliable across engines: Chrome drops a paused queue after
-        // ~15s, Android ignores pause mid-utterance, and Linux
-        // speech-dispatcher (Firefox) can end the utterance on pause so a
-        // later resume() resumes nothing (QA 2026-08-28: pause+play went
-        // silent or restarted from the top). So pausing cancels the engine
-        // outright; the position lives in queueIndex + charOffset, which we
-        // own. Resume re-speaks from the last word boundary the engine
-        // reported — deterministic on every engine, worst case repeating a
-        // few words (or the chunk, on engines without boundary events).
-        state = "paused";
-        // Freeze the word-level position BEFORE cancel() — the engine's
-        // boundary counter dies with the utterance. Absolute offset in the
-        // chunk = where this utterance started + how far the voice got
-        // (engine-reported boundary, or the elapsed-time estimate).
-        charOffset = charOffset + spokenInUtterance();
-        lastBoundary = 0;
-        gen++; // stale-out the cancelled utterance's end/error events
-        synth.cancel();
-        saveProgress();
-        stopKeepalive();
-        render();
-        return;
-      }
-      // paused → resume: re-speak the current chunk from the last word
-      // boundary heard (or its start, on engines without boundary events).
-      // MIS-120(e): unless the document changed language under us while
-      // paused — then the saved position points into text that no longer
-      // exists, and start() re-reads, re-chunks and begins afresh.
-      if (readDocument() !== text) return start();
-      state = "speaking";
-      render();
-      startKeepalive();
-      speakFrom(queueIndex, charOffset);
-    });
-
+    toggle.addEventListener("click", toggleRun);
+    playBtn.addEventListener("click", toggleRun);
     stopBtn.addEventListener("click", stopAll);
 
     rateBtn.addEventListener("click", () => {
       rate = RATES[(RATES.indexOf(rate) + 1) % RATES.length];
-      rateBtn.textContent = rate + "×";
-      rateBtn.dataset.rate = String(rate);
-      rateBtn.setAttribute(
-        "aria-label",
-        T("RateAria","Playback rate: {rate}x. Press to change").replace("{rate}", String(rate)),
-      );
+      setRateLabel();
       renderEst();
-      // Apply mid-run: bump the epoch so the cancelled utterance's events
-      // are stale, then continue from the same chunk at the new rate. While
-      // paused, the new rate simply applies on resume.
+      // Apply mid-run, keeping the word position — the reading continues
+      // where it was, only faster or slower (QA 2026-08-28, defect 6).
       if (state === "speaking") {
         gen++;
-        // Keep the word position across the rate change, same as pause:
-        // the reading continues where it was, only faster or slower
-        // (QA 2026-08-28, defect 6 — a rate change must never restart).
         charOffset = charOffset + spokenInUtterance();
         lastBoundary = 0;
         synth.cancel();
@@ -688,9 +1040,15 @@ const t = useT();
       } else if (queueIndex > 0 || charOffset > 0) {
         saveProgress(); // keep the stored rate in step with the position
       }
+      renderPosition();
     });
 
-    // The voice must not outlive the page — but the position does.
+    // Layout can move under the reading (resize, fonts, a rotated phone):
+    // redraw the ruler; the marker re-reads its range every frame.
+    addEventListener("resize", () => {
+      if (state !== "idle") drawRuler();
+    });
+
     addEventListener("beforeunload", teardown);
     document.addEventListener("astro:before-swap", teardown);
 
@@ -699,17 +1057,26 @@ const t = useT();
 </script>
 
 <style is:global>
-  /* Reading marker: an amber dot above the word being spoken. Trail dots
-     share the head's target position and lag behind it through staggered
-     transition durations — the "estela" is just the difference between
-     their clocks. Colour is the theme's amber token; everything is
-     translucent and slow on purpose: wind, not a mouse. */
+  /* ---- drying ink: what the voice has passed fades behind it ---------- */
+  ::highlight(sp-ink-wet) {
+    color: rgb(var(--text-muted) / 0.78);
+  }
+  ::highlight(sp-ink-mid) {
+    color: rgb(var(--text-muted) / 0.62);
+  }
+  ::highlight(sp-ink-set) {
+    color: rgb(var(--text-muted) / 0.5);
+  }
+
+  /* ---- reading marker: a diffuse light in Arena, with a trail --------- */
   .sp-marker {
     position: absolute;
     top: 0;
     left: 0;
+    width: 0;
+    height: 0;
     pointer-events: none;
-    z-index: 60;
+    z-index: 45;
     opacity: 0;
     transition: opacity 600ms ease;
   }
@@ -717,64 +1084,307 @@ const t = useT();
     opacity: 1;
   }
   .sp-marker.is-paused {
-    opacity: 0.4;
+    opacity: 0.45;
   }
-  .sp-marker-dot {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
-    transform: translate(var(--x, -100px), var(--y, -100px));
-    transition: transform calc(420ms + var(--i) * 95ms) cubic-bezier(0.3, 0, 0.15, 1);
-    will-change: transform;
-  }
-  .sp-marker.is-drift .sp-marker-dot {
-    transition-duration: calc(720ms + var(--i) * 95ms);
-  }
-  .sp-marker-dot > b {
-    --d: calc(6px - var(--i) * 0.4px);
+  .sp-marker > i {
+    --d: calc(14px - var(--i) * 0.55px);
     position: absolute;
     left: calc(var(--d) / -2);
-    top: calc(var(--d) / -2 - 3px);
+    top: calc(var(--d) / -2);
     width: var(--d);
     height: var(--d);
     border-radius: 50%;
-    background: rgb(var(--yellow));
-    opacity: calc(0.78 - var(--i) * 0.07);
-    box-shadow: 0 0 calc(3px + 0.6px * (9 - var(--i))) rgb(var(--yellow) / 0.35);
-    animation: sp-breathe calc(2.8s / var(--rate, 1)) ease-in-out infinite;
-    animation-delay: calc(var(--i) * -140ms);
+    opacity: calc(0.7 - var(--i) * 0.045);
+    background: radial-gradient(circle, rgb(var(--text) / 0.55) 0, rgb(var(--text) / 0.22) 38%, transparent 70%);
+    will-change: transform;
   }
-  .sp-marker.is-paused .sp-marker-dot > b {
-    animation-play-state: paused;
+  .sp-marker > i:last-child {
+    background: radial-gradient(circle, rgb(var(--text) / 0.75) 0, rgb(var(--text) / 0.3) 35%, transparent 70%);
   }
-  .sp-marker-dot > b.is-rest {
-    animation:
-      sp-rest 900ms ease-in-out 1,
-      sp-breathe calc(2.8s / var(--rate, 1)) ease-in-out 900ms infinite;
+
+  /* ---- the dock: the document's card, in the Velo's glass -------------- */
+  .sp-dock {
+    position: fixed;
+    z-index: 55;
+    left: 50%;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    width: min(752px, calc(100vw - 20px));
+    translate: -50% 0;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      opacity 320ms,
+      visibility 0s 320ms;
   }
-  .sp-marker-dot > b.is-twinkle {
-    animation:
-      sp-glow 800ms ease-in-out 1,
-      sp-breathe calc(2.8s / var(--rate, 1)) ease-in-out 800ms infinite;
+  /* Surfacing (STD-023 animation 10) — as a keyframe, not a state: a filter
+     left on the dock would break the glass (backdrop-filter) inside it. */
+  .sp-dock.is-on {
+    visibility: visible;
+    opacity: 1;
+    transition: none;
+    animation: sp-surface 560ms cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  @keyframes sp-breathe {
-    0%, 100% { translate: 0 0; }
-    50% { translate: 0 -1.5px; }
+  @keyframes sp-surface {
+    from {
+      opacity: 0;
+      filter: blur(8px);
+      translate: -50% 8px;
+    }
   }
-  @keyframes sp-rest {
-    0% { scale: 1; filter: brightness(1); }
-    45% { scale: 1.12; filter: brightness(1.25); }
-    100% { scale: 1; filter: brightness(1); }
+  .sp-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 14px 10px 10px;
+    /* velo.cristal + velo.cristal-borde (STD-023 §20); frame radius 8px (§9) */
+    border-radius: 8px;
+    background: rgb(var(--bg-card) / 0.65);
+    border: 1px solid rgb(var(--border) / 0.5);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
-  @keyframes sp-glow {
-    0% { filter: brightness(1); box-shadow: 0 0 3px rgb(var(--yellow) / 0.35); }
-    50% { filter: brightness(1.35); box-shadow: 0 0 9px 1px rgb(var(--yellow) / 0.5); }
-    100% { filter: brightness(1); box-shadow: 0 0 3px rgb(var(--yellow) / 0.35); }
+  .sp-btn {
+    flex: none;
+    display: grid;
+    place-items: center;
+    height: 34px;
+    min-width: 34px;
+    padding: 0 8px;
+    border-radius: 6px; /* control radius (STD-023 §9) */
+    border: 1px solid transparent;
+    background: none;
+    color: rgb(var(--text-dim));
+    font: 500 0.65rem var(--font-mono);
+    letter-spacing: 0.1em;
+    font-variant-numeric: tabular-nums;
+    transition:
+      color 150ms,
+      border-color 150ms;
+  }
+  .sp-btn:hover {
+    color: rgb(var(--accent));
+    border-color: rgb(var(--accent) / 0.4);
+  }
+  .sp-btn:focus-visible,
+  .sp-ruler:focus-visible,
+  .sp-back:focus-visible {
+    outline: 2px solid rgb(var(--teal)); /* the house focus, never animated (§9) */
+    outline-offset: 2px;
+  }
+  .sp-play {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-color: rgb(var(--border));
+    color: rgb(var(--accent));
+  }
+  .sp-play .sp-when-playing,
+  .sp-play.is-playing .sp-when-paused {
+    display: none;
+  }
+  .sp-play .sp-when-paused,
+  .sp-play.is-playing .sp-when-playing {
+    display: grid;
+  }
+  .sp-mid {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .sp-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    min-width: 0;
+  }
+  .sp-sec {
+    flex: 1;
+    min-width: 0;
+    font: 500 0.62rem var(--font-mono);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgb(var(--accent) / 0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .sp-time {
+    flex: none;
+    font: 0.65rem var(--font-mono);
+    color: rgb(var(--text-dim));
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- the ruler: a 1920 print ruler, the heard part in halftone ----- */
+  .sp-ruler {
+    position: relative;
+    height: 22px;
+    cursor: pointer;
+    touch-action: none;
+    outline: none;
+    border-radius: 3px;
+  }
+  .sp-ticks {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    shape-rendering: crispEdges;
+  }
+  .sp-ticks line {
+    stroke-width: 1;
+  }
+  .sp-ticks .sp-hair {
+    stroke: rgb(var(--text) / 0.16);
+  }
+  .sp-ticks .sp-mm {
+    stroke: rgb(var(--text) / 0.14);
+  }
+  .sp-ticks .sp-mark {
+    stroke: rgb(var(--text) / 0.38);
+  }
+  .sp-halftone {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 4px);
+    height: 8px;
+    width: calc(var(--p, 0) * 100%);
+    background-image: radial-gradient(circle, rgb(var(--accent) / 0.75) 0 1.05px, transparent 1.35px);
+    background-size: 4px 4px;
+    -webkit-mask-image: linear-gradient(90deg, rgb(0 0 0 / 0.35), #000 90%);
+    mask-image: linear-gradient(90deg, rgb(0 0 0 / 0.35), #000 90%);
+  }
+  .sp-head {
+    position: absolute;
+    top: 50%;
+    left: calc(var(--p, 0) * 100%);
+    width: 0;
+    height: 0;
+  }
+  .sp-head::before {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: -6px;
+    top: -6px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(var(--text) / 0.85) 0 1.8px, rgb(var(--text) / 0.22) 2.6px, transparent 6px);
+    transition: scale 120ms;
+  }
+  .sp-ruler:hover .sp-head::before,
+  .sp-ruler.is-drag .sp-head::before,
+  .sp-ruler:focus-visible .sp-head::before {
+    scale: 1.5;
+  }
+  /* The preview speaks in the opposite mode, like every tooltip (BLU-009 §8). */
+  .sp-peek {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 0;
+    translate: -50% 0;
+    width: max-content;
+    max-width: 250px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: rgb(var(--text));
+    color: rgb(var(--bg));
+    font: 0.75rem/1.4 var(--font-sans);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 120ms;
+  }
+  .sp-peek b {
+    display: block;
+    font: 500 0.6rem var(--font-mono);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgb(var(--teal));
+    margin-bottom: 3px;
+  }
+  .sp-ruler.is-peek .sp-peek {
+    opacity: 1;
+  }
+
+  /* ---- back to the reading ------------------------------------------- */
+  .sp-back {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    translate: -50% 6px;
+    opacity: 0;
+    pointer-events: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    padding: 0 13px 0 11px;
+    border-radius: 6px;
+    background: rgb(var(--bg-card) / 0.65);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(var(--border) / 0.5);
+    color: rgb(var(--text-dim));
+    font: 500 0.62rem var(--font-mono);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition:
+      opacity 320ms,
+      translate 320ms,
+      color 150ms;
+  }
+  .sp-back:hover {
+    color: rgb(var(--accent));
+  }
+  .sp-back > i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(var(--text) / 0.8) 0 1.5px, rgb(var(--text) / 0.2) 2.5px, transparent 4.5px);
+  }
+  .sp-back svg {
+    transition: rotate 200ms;
+  }
+  .sp-back.is-up svg {
+    rotate: 180deg;
+  }
+  .sp-lost .sp-back {
+    opacity: 1;
+    translate: -50% 0;
+    pointer-events: auto;
+  }
+  .sp-lost .sp-dock:has(.is-peek) .sp-back {
+    opacity: 0;
+  }
+
+  @media (max-width: 560px) {
+    .sp-card {
+      gap: 8px;
+      padding: 8px;
+    }
+    .sp-btn {
+      height: 44px;
+      min-width: 40px;
+    }
+    .sp-play {
+      width: 44px;
+      height: 44px;
+    }
+    .sp-ruler {
+      height: 26px;
+    }
   }
   @media (prefers-reduced-motion: reduce) {
-    .sp-marker-dot { transition: none; }
-    .sp-marker-dot > b { animation: none; }
+    .sp-dock,
+    .sp-back,
+    .sp-marker {
+      transition: none;
+      animation: none;
+    }
   }
 </style>
