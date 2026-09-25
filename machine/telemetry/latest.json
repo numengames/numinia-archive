@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "dd96210",
-  "corpus_hash": "05a71d41ae33ee9c917fcbebc5a0316fb7116aa2952ad437267036e4ec5f23a8",
+  "head": "ecd0846",
+  "corpus_hash": "652265374a14bf56c1e29797d27f43942e457f2ffb9e198818cf043ebd503bd4",
   "root_dirty": 0,
-  "measured_at": "2026-09-25T08:47:06Z",
+  "measured_at": "2026-09-25T09:13:27Z",
   "families": [
     "corpus",
     "series",
@@ -320,16 +320,16 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 861143,
+      "value": 861427,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 59468,
+        "standards": 59646,
         "missions": 45717,
-        "": 39440,
+        "": 39546,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29103,
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 534758,
-        "draft": 156820,
+        "(none)": 534864,
+        "draft": 156998,
         "active": 122360,
         "done": 26539,
         "todo": 15975,
@@ -621,7 +621,7 @@
       "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 42,
+      "value": 45,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -630,6 +630,9 @@
         "machine/scripts/run-guards.mjs",
         "machine/scripts/lib/regime.mjs",
         "machine/guards/lib/guard.mjs",
+        "machine/scripts/std-019-versions.mjs",
+        "machine/scripts/std-010-licensing.mjs",
+        "machine/scripts/std-004-the-header.mjs",
         "machine/tools/generate-design-kit.mjs",
         "machine/tools/check-deletable.mjs",
         "machine/tools/rule-index.mjs"
@@ -651,7 +654,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 995
+          "3": 996
         },
         "MIS": {
           "3": 687,
@@ -680,7 +683,7 @@
           "3": 109
         },
         "DBT": {
-          "3": 78
+          "3": 79
         },
         "DEC": {
           "3": 13
