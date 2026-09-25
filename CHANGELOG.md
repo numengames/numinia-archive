@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-25 (external standards are rules, told aloud)
+- **`standards/STD-011-external-standards.md`** `2.0.0`: from register to standard, at the Oracle's word in session. The eighteen outside standards we use become eighteen rules (EXT-001..018) in five groups — writing rules, keeping files, building software, how the sites look and read, money and personal data — each named and explained in words a narrator can read aloud. The twelve under consideration are one paragraph that binds nobody. Every source link moves to a list at the foot so it does not interrupt the reading. The distance column and the notes become the Check table.
+- **`AGENTS.md`**: the rule index regenerated — STD-011 now names whom it binds.
+
 ### Changed — 2026-09-24 (the map of the Summa is the home)
 - **numinia.org site v0.52.0**: the home is the map — four rings (the rules, the work, the world, the offer) and four districts on the outer two. The bar is *Map* + *Archive* (a mega menu with the same rings as columns); every page carries a wayfinder strip and a compass. One model, `web/src/lib/suma.ts`, feeds the map, the menu, the strip and `/home.md`. The former home moves to `/about` (`/about.md`); `machine/scripts/check-url-shape.mjs` declares `/about` standalone. Oracle's word in session. — Ursa
 

@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "564f023",
-  "corpus_hash": "66b04d3afcc3dbb54dee2498c55ebd6f6bd4426438e244372bb273e3770326b2",
+  "head": "dd96210",
+  "corpus_hash": "05a71d41ae33ee9c917fcbebc5a0316fb7116aa2952ad437267036e4ec5f23a8",
   "root_dirty": 0,
-  "measured_at": "2026-09-24T21:30:52Z",
+  "measured_at": "2026-09-25T08:47:06Z",
   "families": [
     "corpus",
     "series",
@@ -320,17 +320,17 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 860335,
+      "value": 861143,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 58835,
+        "standards": 59468,
         "missions": 45717,
+        "": 39440,
         "decisions": 39440,
-        "": 39265,
         "reports": 29342,
         "agents": 29103,
         "operations": 25159,
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 534583,
-        "draft": 156187,
+        "(none)": 534758,
+        "draft": 156820,
         "active": 122360,
         "done": 26539,
         "todo": 15975,
@@ -651,23 +651,23 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1009
+          "3": 995
         },
         "MIS": {
           "3": 687,
           "4": 185
         },
         "PRO": {
-          "3": 289
+          "3": 288
         },
         "OPS": {
-          "3": 84
+          "3": 83
         },
         "CAN": {
           "3": 513
         },
         "ADR": {
-          "3": 541
+          "3": 537
         },
         "SYS": {
           "3": 57
@@ -754,7 +754,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 297,
+      "value": 296,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },

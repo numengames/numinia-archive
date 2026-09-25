@@ -3,18 +3,18 @@ id: "STD-011"
 uid: ""
 title: "External standards"
 type: documentation
-subtype: register
+subtype: standard
 status: draft
-version: "1.0.1"
+version: "2.0.0"
 created: "2026-09-07T15:00:00+02:00"
-updated: "2026-09-24T17:40:00+02:00"
+updated: "2026-09-25T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "CAO"
 license: "CC0-1.0"
-tags: [standards, adoption, provenance, external, register]
+tags: [standards, adoption, provenance, external]
 threshold: governed
-series_change: "1.0.1 — 2026-09-24: two Funding rows, the Spanish accounting plan and FOCUS, cited by STD-033 (ADR-064). 1.0.0 — the register takes the ADR-043 shape: one table, no prose. Twenty-eight rows kept, sources kept; the reading notes that carried facts become a Notes column; the three sections that explained the table are gone. Distance 0 · 1 · 2 · 3 = enforced by a tool · written, unchecked · practised, unnamed · not considered."
+series_change: "2.0.0 — 2026-09-25: from register to standard, at the Oracle's word in session. The external standards we use are rules to keep, not a table to consult: each is named and explained in words a narrator can read aloud, and every source link moves to the foot. Eighteen rules, one per standard in use; the twelve under consideration are named, not ruled."
 ---
 
 <!--
@@ -24,41 +24,175 @@ SPDX-License-Identifier: CC0-1.0
 
 # External standards
 
-> **Summary:** What the system obeys that it did not write: each standard
-> once, its source, where it applies, and its distance — 0 enforced by a tool,
-> 1 written and unchecked, 2 practised and unnamed, 3 not considered.
+> **Summary:** What we obey that we did not write. Each standard we use is a
+> rule here, named and explained in one breath; the ones we are only
+> considering are named apart; the sources wait at the foot.
+> **Epistemic:** Which outside standards the work already rests on, what each
+> one does, and which of them a tool checks.
+> **Pragmatic:** Know which standard to follow before writing a date, a
+> licence, a commit, a page or a ledger line — and where to read it.
+> **Audience:** Everyone · Agents · Oracles
 
-| Territory | Standard | Source | Distance | Applied in | Notes |
-|---|---|---|---|---|---|
-| CAO | RFC 2119 | <https://www.rfc-editor.org/rfc/rfc2119> | 0 | `STD-004` · corpus-wide | |
-| CAO | Semantic Versioning 2.0.0 | <https://semver.org/> | 1 | `STD-009` VER-021 · VER-064 | Adapted, not adopted: bumps are authority-based (agent patch · archon minor · Oracle major), not compatibility-based |
-| CAO | Blameless postmortem | <https://sre.google/sre-book/postmortem-culture/> | 2 | `STD-005` | practised, unnamed |
-| CAO | NIST AI RMF | <https://www.nist.gov/itl/ai-risk-management-framework> | 3 | — | |
-| CAO | ISO/IEC 42001 · AI management | <https://www.iso.org/standard/42001> | 3 | — | `STD-015` AGT-006 asks by hand for part of it |
-| CAO | ISO 22301 · continuity | <https://www.iso.org/standard/75106.html> | 3 | — | overlaps `PRO-001`, unreconciled |
-| CAO | ISO 9001 · quality | <https://www.iso.org/iso-9001-quality-management.html> | 3 | — | no anchor in any operating document |
-| Archive | SPDX | <https://spdx.dev/> | 0 | `STD-010` · `STD-004` HDR-008 | |
-| Archive | REUSE 3.3 | <https://reuse.software/spec-3.3/> | 1 | `STD-010` · `REUSE.toml` | `reuse lint` passes on every push (CI step, reporting); every text file declares its own licence, REUSE.toml names only files that cannot |
-| Archive | ISO 8601 | <https://www.iso.org/iso-8601-date-and-time-format.html> | 0 | `STD-004` HDR-006 · HDR-007 | |
-| Archive | Keep a Changelog | <https://keepachangelog.com/> | 2 | `CHANGELOG.md` | practised, unnamed |
-| Archive | ISO 15489 · records management | <https://www.iso.org/standard/62542.html> | 3 | — | overlaps `STD-024` (`SER-005/006`) / `ADR-030`, unreconciled |
-| Archive | W3C PROV-O | <https://www.w3.org/TR/prov-o/> | 3 | — | `STD-004` ring 2 may be a conceptual subset; RDF not proposed |
-| Platform | OpenSSF Scorecard | <https://scorecard.dev/> | 0 | `.github/workflows/scorecard.yml`, weekly | |
-| Platform | Trunk-Based Development | <https://trunkbaseddevelopment.com/> | 2 | one live PR at a time onto `main` | practised, unnamed |
-| Platform | The Twelve-Factor App · III | <https://12factor.net/config> | 2 | config in the environment | practised, unnamed |
-| Platform | Conventional Commits | <https://www.conventionalcommits.org/> | 1 | `STD-015` ARC-006 | declared `[AUTO: commitlint]`; no commitlint in the tree (`DBT-020`) |
-| Platform | DCO | <https://developercertificate.org/> | 1 | `STD-010` | declared `[AUTO]`; no bot; 0 of the last 30 commits signed (`DBT-020`) |
-| Platform | SLSA | <https://slsa.dev/> | 3 | — | cheap extension of Scorecard, same parent project |
-| Platform | NIST SSDF · SP 800-218 | <https://csrc.nist.gov/pubs/sp/800/218/final> | 3 | — | `STD-005` security section is a self-authored checklist |
-| Platform | OWASP ASVS | <https://owasp.org/www-project-application-security-verification-standard/> | 3 | — | |
-| Platform | DORA metrics | <https://dora.dev/research/2024/dora-report/> | 3 | — | retired by the superseded constitution, 2026-08-30 (`ADR-041`) |
-| Platform | Gherkin / BDD | <https://cucumber.io/docs/gherkin/> | 0 | `numinia-web`: ten `.feature` files, `test:acceptance` in CI | software only; a governance document has no scenarios (`STD-015` AGT-005) |
-| Product | WCAG 2.2 AA | <https://www.w3.org/TR/WCAG22/> | 0 | `numinia-web`: `apps/store/e2e/a11y.spec.ts`, axe + Playwright, 31 routes, both themes | `STD-015` ARC-010 still says "coverage incomplete" and points at a path that does not exist here |
-| Product | W3C DTCG · design tokens | <https://www.designtokens.org/tr/drafts/format/> | 1 | `STD-008` | the spec is a draft; conformance to a moving target |
-| Product | C2PA | <https://c2pa.org/> | 3 | — | relevant only if `/web` serves AI media at public volume |
-| Funding | GDPR · Regulation (EU) 2016/679 | <https://eur-lex.europa.eu/eli/reg/2016/679/oj> | 1 | `OPS-003` | FLAG-2 · 3 · 4 · 6 open, awaiting a lawyer |
-| Funding | Plan General de Contabilidad · RD 1514/2007 | <https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884> | 1 | `STD-033` LED-001 | each ledger line carries its account (62x services, 64x staff); the gestoría keeps the books |
-| Funding | FinOps FOCUS 1.4 | <https://focus.finops.org/> | 2 | `STD-033` LED-003 | billed against effective (consumed) cost; vocabulary borrowed, no tool checks conformance |
-| Funding | OpenChain · ISO/IEC 5230 | <https://openchainproject.org/license-compliance> | 3 | — | formalises what `STD-010` executes by hand |
+**Binds:** every document, repository and site of Numen Games and Numinia.
+**Does not bind:** the standards we are only considering, named at the end.
 
-`Content`, `Sales` and `Infrastructure` hold no row; this register does not decide whether that is a gap in the vocabulary or in the world.
+## Rules
+
+### How we write rules and number things
+
+**EXT-001 — Obligation words mean one thing.** MUST, SHOULD and MAY carry
+the meaning RFC 2119 gives them: a must is required, a should may be broken
+only with a reason, a may is a free choice.
+
+**EXT-002 — Versions follow Semantic Versioning.** Every version MUST be
+three numbers — major, minor, patch. We adapt it: who may raise each number
+depends on authority, not on compatibility.
+
+**EXT-003 — A failure is reviewed without blame.** When something breaks,
+we MUST write down what happened and what changes, never who is at fault,
+as a blameless postmortem does.
+
+### How the archive keeps its files
+
+**EXT-004 — Every file names its licence in SPDX.** A file MUST say who owns
+it and under which licence, with the two SPDX lines that any open-source
+tool can read.
+
+**EXT-005 — The repository passes REUSE.** Each file MUST declare its own
+licence; the few that cannot are covered in one central file, and the REUSE
+check runs on every push.
+
+**EXT-006 — Dates are written ISO 8601.** A date MUST read year, month, day,
+then the hour and its offset, always in that order, so it sorts and never
+reads two ways.
+
+**EXT-007 — The changelog is kept for people.** Changes SHOULD be grouped by
+date and kind — added, changed, fixed — the way Keep a Changelog describes,
+so a reader sees what moved without reading commits.
+
+### How we build software
+
+**EXT-008 — The repositories keep a security score.** OpenSSF Scorecard
+MUST grade each week how safely a repository is built and published, and
+the grade is read.
+
+**EXT-009 — Work lands on one trunk.** Short branches MUST reach `main` by
+one pull request at a time, as trunk-based development proposes; nothing
+lives long on the side.
+
+**EXT-010 — Settings live in the environment.** Passwords, keys and anything
+that changes between machines MUST stay out of the code and be read from the
+environment, as the Twelve-Factor App asks.
+
+**EXT-011 — Commit messages say their kind.** A commit SHOULD start with
+what it is — a feature, a fix, a test, documentation — in the Conventional
+Commits form, so history can be read and sorted.
+
+**EXT-012 — A contributor certifies their right to contribute.** Each commit
+SHOULD carry the Developer Certificate of Origin sign-off: the author states
+the work is theirs to give.
+
+**EXT-013 — Software is accepted by scenarios.** A mission that produces
+software MUST state what it has to do as Gherkin scenarios — given, when,
+then — that a test runs.
+
+### How our sites look and read
+
+**EXT-014 — Every page can be used by anyone.** Public pages MUST meet WCAG
+2.2 at level AA: readable contrast, keyboard access, screen readers, in the
+light theme and the dark.
+
+**EXT-015 — Design values travel as tokens.** Colours, type sizes and
+spacing SHOULD be written in the W3C design tokens format, so one source
+feeds every site and tool.
+
+### How we handle money and people's data
+
+**EXT-016 — Personal data is protected under GDPR.** Whatever we keep about
+a person MUST be kept for a stated purpose and only as long as needed; the
+person can see it and ask to erase it.
+
+**EXT-017 — The books follow the Spanish accounting plan.** Every ledger
+line MUST carry its account from the Plan General de Contabilidad —
+services, staff, sales — so the gestoría can keep the books from it.
+
+**EXT-018 — Costs are counted as consumed.** Cloud and service costs SHOULD
+be recorded by what was actually used, in the FinOps FOCUS vocabulary, not
+by what was promised.
+
+### What we are considering
+
+Twelve more standards are on the table and bind nobody yet. For managing
+artificial intelligence, the NIST risk framework and ISO 42001. For keeping
+the organisation running, ISO 22301 on continuity and ISO 9001 on quality.
+For the archive, ISO 15489 on records and W3C PROV on provenance. For
+software, SLSA on build provenance, NIST SSDF on secure development, OWASP
+ASVS on application security, and the DORA delivery metrics, already set
+aside once. For media, C2PA on the origin of generated images. For licences,
+OpenChain. Adopting one turns it into a rule above.
+
+This standard is over its word budget because every rule has to be read
+aloud and understood without opening the source.
+
+## Check
+
+| Plate | Verified by |
+|---|---|
+| EXT-001, EXT-004, EXT-006 | the header and licensing guards under `machine/guards/rules/` |
+| EXT-005 | `reuse lint` in CI, reporting |
+| EXT-008 | `.github/workflows/scorecard.yml`, weekly |
+| EXT-013 | `numinia-web`: ten `.feature` files run by `test:acceptance` in CI |
+| EXT-014 | `numinia-web`: `apps/store/e2e/a11y.spec.ts`, axe and Playwright over 31 routes, both themes |
+| EXT-011, EXT-012 | `[DEBT]` — declared automatic, no tool in the tree (`DBT-020`) |
+| EXT-002, EXT-003, EXT-007, EXT-009, EXT-010, EXT-015..018 | `[MANUAL]` — practised and read at review |
+
+## Why
+
+Writing our own rule for dates, licences or accessibility would cost work
+and buy a worse rule than the one the world already tested. Naming the
+outside standard lets anyone — a new citizen, an agent, an auditor — check
+us against something they already know. Saying which ones a tool checks,
+and which only we remember, keeps us honest about the difference.
+
+## References
+
+| ID | Name | Why cited |
+|---|---|---|
+| `STD-010` | Licensing | where SPDX, REUSE and the certificate of origin apply |
+| `STD-008` | Design tokens | where the tokens format applies |
+| `STD-033` | Charges and the account | where the accounting plan and FOCUS apply |
+| `STD-015` | Engineering checks | the checks behind commits, scenarios and accessibility |
+| `DBT-020` | Declared automatic, executed by nobody | the commit checks still missing |
+
+### Sources
+
+- RFC 2119, key words for requirement levels — <https://www.rfc-editor.org/rfc/rfc2119>
+- Semantic Versioning 2.0.0 — <https://semver.org/>
+- Blameless postmortem culture — <https://sre.google/sre-book/postmortem-culture/>
+- SPDX — <https://spdx.dev/>
+- REUSE 3.3 — <https://reuse.software/spec-3.3/>
+- ISO 8601, date and time — <https://www.iso.org/iso-8601-date-and-time-format.html>
+- Keep a Changelog — <https://keepachangelog.com/>
+- OpenSSF Scorecard — <https://scorecard.dev/>
+- Trunk-Based Development — <https://trunkbaseddevelopment.com/>
+- The Twelve-Factor App, config — <https://12factor.net/config>
+- Conventional Commits — <https://www.conventionalcommits.org/>
+- Developer Certificate of Origin — <https://developercertificate.org/>
+- Gherkin — <https://cucumber.io/docs/gherkin/>
+- WCAG 2.2 — <https://www.w3.org/TR/WCAG22/>
+- W3C design tokens format — <https://www.designtokens.org/tr/drafts/format/>
+- GDPR, Regulation (EU) 2016/679 — <https://eur-lex.europa.eu/eli/reg/2016/679/oj>
+- Plan General de Contabilidad, RD 1514/2007 — <https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884>
+- FinOps FOCUS — <https://focus.finops.org/>
+- NIST AI Risk Management Framework — <https://www.nist.gov/itl/ai-risk-management-framework>
+- ISO/IEC 42001, AI management — <https://www.iso.org/standard/42001>
+- ISO 22301, continuity — <https://www.iso.org/standard/75106.html>
+- ISO 9001, quality — <https://www.iso.org/iso-9001-quality-management.html>
+- ISO 15489, records management — <https://www.iso.org/standard/62542.html>
+- W3C PROV-O — <https://www.w3.org/TR/prov-o/>
+- SLSA — <https://slsa.dev/>
+- NIST SSDF, SP 800-218 — <https://csrc.nist.gov/pubs/sp/800/218/final>
+- OWASP ASVS — <https://owasp.org/www-project-application-security-verification-standard/>
+- DORA — <https://dora.dev/research/2024/dora-report/>
+- C2PA — <https://c2pa.org/>
+- OpenChain, ISO/IEC 5230 — <https://openchainproject.org/license-compliance>
