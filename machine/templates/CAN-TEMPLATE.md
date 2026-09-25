@@ -79,7 +79,7 @@ THE TITLE IS A CLAIM (STA-005), and short enough to say aloud in one breath —
 the index shows nine of them in a column. "Opening is an act", not
 "Licensing".
 
-FORM: the body fits 1 500 words (STD-007 DOC-006, a SHOULD — over it, one
+FORM: the body fits 1 500 words (STD-007 DOC-006, a should — over it, one
 written sentence saying why). With no sections holding the shape, that budget
 is the only thing between a canon and a ramble. A canon that cannot say its
 one thing in 1 500 words is probably two canons, or one canon and a standard.

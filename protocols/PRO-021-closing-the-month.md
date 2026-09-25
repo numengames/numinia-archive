@@ -53,18 +53,18 @@ documents; an **agent** writes the lines; the **Oracle** reviews and merges.
 ## 2. Rules
 
 **MON-001 — Lines, never documents.** Invoices, payrolls and processor
-reports MUST NOT be committed. Each becomes one ledger line naming its
+reports must not be committed. Each becomes one ledger line naming its
 document by supplier, number and date.
 
-**MON-002 — People in one line.** Staff cost MUST enter the ledger as one
+**MON-002 — People in one line.** Staff cost must enter the ledger as one
 line per month for all staff together, with the headcount. The per-person
 figures stay with the company and the gestoría: the ledger is public.
 
 **MON-003 — The month is provisional until merged.** Figures for an open
-month MUST be marked provisional wherever they are shown.
+month must be marked provisional wherever they are shown.
 
 **MON-004 — A closed month reopens by a new line.** A correction to a closed
-month MUST be a new dated line that says what it corrects, never an edit
+month must be a new dated line that says what it corrects, never an edit
 of the old one.
 
 ---

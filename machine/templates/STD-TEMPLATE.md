@@ -47,7 +47,7 @@ tags: [area, subject]
      three digits, unique across the corpus, never reused, never renamed.
      A plate names the rule, not its position — it survives any cut. -->
 
-**XXX-001 — The rule, as a title.** The obligation MUST be stated in one
+**XXX-001 — The rule, as a title.** The obligation must be stated in one
 sentence a reader can obey without opening another document.
 
 **XXX-002 — The next rule.** What it requires.
@@ -77,6 +77,6 @@ sentence a reader can obey without opening another document.
 | `STD-007` | One page per document | the shape this file takes |
 
 <!-- Body budget: 500 words from the scope line to References. It is a
-     SHOULD — over it, write one sentence here saying why. A register
+     should — over it, write one sentence here saying why. A register
      (subtype: register) is a Summary, a table and at most one sentence;
      it has no card and no budget. No changelog: git is the history. -->

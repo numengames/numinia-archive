@@ -42,26 +42,26 @@ another in prose — `STD-021`; which series exist — `STD-001`.
 ## Rules
 
 **URL-001 — The address is the series and the identifier.** A document's
-address MUST be `/<series>/<id>`, where `<series>` is its folder as
+address must be `/<series>/<id>`, where `<series>` is its folder as
 `STD-001` names it and `<id>` is its identifier, lowercased. No segment
 stands between the site root and the series.
 
-**URL-002 — The function is never in the address.** A URL MUST NOT name a
+**URL-002 — The function is never in the address.** A URL must not name a
 function or an activity of `STD-027`. `CLS-001` fixes that a document is
 filed by series and classified by function; an address that encoded the
 function would break on every reclassification.
 
-**URL-003 — One address per document.** A document MUST be served at one
+**URL-003 — One address per document.** A document must be served at one
 address. A second address for the same document — a translation of the path,
-an alias, a legacy shape — MUST NOT be published.
+an alias, a legacy shape — must not be published.
 
 **URL-004 — English is the address.** Path segments are English, in the
 language the corpus is written in.
 
 **URL-005 — A retired address leads to the answer, or it is removed.** When
-an address stops being built, it MUST either redirect to the document that
+an address stops being built, it must either redirect to the document that
 now answers the question it answered, or cease to exist. A redirect to an
-index, a register or a report of deletions answers nothing and MUST NOT be
+index, a register or a report of deletions answers nothing and must not be
 published.
 
 **URL-006 — A citation is the identifier.** Inside the corpus a document is

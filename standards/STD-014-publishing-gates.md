@@ -40,7 +40,7 @@ a Numen Games repository.
 
 **PUB-001 — Permanent publication is gated.** Before writing to Arweave,
 ownership, absence of incompatible third-party material and absence of
-personal data MUST be verified, and an Oracle MUST sign. What does not pass is
+personal data must be verified, and an Oracle must sign. What does not pass is
 served only from CDN.
 
 **PUB-002 — Going public is the grant.** A licence offered publicly with the

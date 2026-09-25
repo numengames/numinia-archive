@@ -40,28 +40,28 @@ Oracles and digital agents alike.
 
 ## Rules
 
-**CMS-001 — Respect is unconditional.** Every participant MUST be treated with
+**CMS-001 — Respect is unconditional.** Every participant must be treated with
 respect regardless of who they are or whether their opinions differ. This
 binds moderators and Oracles exactly as it binds everyone else.
 
 **CMS-002 — Language is free of intolerance.** Racism, homophobia and any
-other intolerance MUST NOT appear in a Numinia space.
+other intolerance must not appear in a Numinia space.
 
 **CMS-003 — Harassment ends participation.** Threatening or harmful behaviour
 of any kind results in an immediate ban from access and participation. This is
 the one rule with no warning step.
 
-**CMS-004 — Nothing illegal.** Illegal content MUST NOT be posted. Linking to
+**CMS-004 — Nothing illegal.** Illegal content must not be posted. Linking to
 sites with inappropriate content, or requesting private keys from anyone,
 ends participation.
 
 **CMS-005 — Post the right content in the right place.** Spam and
-off-channel posting SHOULD be corrected rather than punished; repetition after
+off-channel posting should be corrected rather than punished; repetition after
 correction is a moderation matter.
 
 **CMS-006 — Disagreement is welcome; contribute it.** Feedback and
 assertiveness are wanted, and differing perspectives are how conversations get
-anywhere. Participants SHOULD give them.
+anywhere. Participants should give them.
 
 **CMS-007 — Ask a Sentinel.** Anyone needing help notifies a Sentinel or an
 Oracle. Sentinels hold moderation; the escalation protocol applies when a case

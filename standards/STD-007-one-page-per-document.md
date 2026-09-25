@@ -27,7 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** A rule-shaped title, a three-part card, a one-line scope.
 > Rules first, each with a plate; then the check, then the reason. The
-> body fits its series' budget. Size limits are SHOULD; form is MUST.
+> body fits its series' budget. Size limits are should; form is must.
 >
 > **Epistemic:** Why the previous standards went unread — apparatus before
 > content, reasons before rules, pointers instead of text — and the shape
@@ -48,36 +48,36 @@ is required, not the topic. *One document, one identifier* — not *Naming*.
 
 **DOC-002 — The card is three short paragraphs.** Summary (what is
 required), Epistemic (what the reader will understand), Pragmatic (what
-the reader can then do). Each SHOULD be two to three lines, at most 40
+the reader can then do). Each should be two to three lines, at most 40
 words.
 
 **DOC-003 — Scope is one line each way.** *Binds:* and *Does not bind:*,
-each SHOULD be at most 15 words, naming series, folders or kinds — never
+each should be at most 15 words, naming series, folders or kinds — never
 "the repository".
 
-**DOC-004 — Rules first, plated.** Every rule MUST carry a plate — three
+**DOC-004 — Rules first, plated.** Every rule must carry a plate — three
 letters, three digits, unique across the corpus, never reused — and one
-RFC 2119 verb, and SHOULD fit in 35 words. Rules precede reasons.
+RFC 2119 verb, and should fit in 35 words. Rules precede reasons.
 
-**DOC-005 — Why is short.** The *Why* section SHOULD hold at most 80
+**DOC-005 — Why is short.** The *Why* section should hold at most 80
 words. Longer reasoning is a decision record.
 
 **DOC-006 — Body budget.** The body — after the scope line, before
-References — SHOULD fit the budget its series is assigned: 500 words for
+References — should fit the budget its series is assigned: 500 words for
 standards, protocols, decisions and missions; 300 for debt and guilds;
 1,000 for reports and blueprints; 1,500 for canon. Exceeding it requires
 one written sentence saying why, in the document.
 
-**DOC-007 — Few, necessary references.** The References table MUST list
-only documents this one depends on to oblige, and SHOULD have at most
+**DOC-007 — Few, necessary references.** The References table must list
+only documents this one depends on to oblige, and should have at most
 five rows.
 
 **DOC-008 — Cite plates, not places.** Another document's rule is cited by
-plate and plain name. Section numbers MUST NOT appear in a citation;
+plate and plain name. Section numbers must not appear in a citation;
 document identifiers appear only in References.
 
 **DOC-009 — Registers are tables.** A `subtype: register` file is exempt
-from DOC-002 and DOC-006; it MUST hold a Summary, a table, and at most one
+from DOC-002 and DOC-006; it must hold a Summary, a table, and at most one
 sentence of prose.
 
 **DOC-010 — No history inside.** No changelog, amendment section or "what
@@ -98,7 +98,7 @@ Spanish document is not invalid, it is mid-migration.
 
 ## Why
 
-Size is SHOULD and form is MUST: a document over budget with a written
+Size is should and form is must: a document over budget with a written
 reason is still valid; one without plates, or with reasons first, is not.
 An adult reads non-fiction at about 240 words a minute and skims most of a
 page; a narrator reads 150. Five hundred words is three minutes aloud, one

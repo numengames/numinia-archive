@@ -53,7 +53,7 @@ decision, a mission or a commit message is not a rule yet; the sentence goes
 into the document a reader looks in.
 
 **AUT-008 — Finished work keeps its claims.** A done mission or a published
-report keeps what it claimed; its form MAY be corrected and the commit says
+report keeps what it claimed; its form may be corrected and the commit says
 so.
 
 **AUT-065 — Rank sets the reach.** An Oracle approves structural change,

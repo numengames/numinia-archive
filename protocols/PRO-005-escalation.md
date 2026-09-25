@@ -48,18 +48,18 @@ intermediate layer.
 ## 2. Rules
 
 **ESC-001 — In doubt, escalate; do not act.** An agent that is unsure
-whether it may act MUST stop and escalate. `AUT-010` applied.
+whether it may act must stop and escalate. `AUT-010` applied.
 
 **ESC-002 — The escalation carries a recommendation.** Every escalation
-MUST state the options evaluated with their consequences and the agent's
+must state the options evaluated with their consequences and the agent's
 own recommendation. Options without a judgement move the work, not the
 decision.
 
 **ESC-003 — Forty-eight hours, then the reversible option.** An escalation
-unanswered after 48 hours MAY proceed with the reversible option, the
+unanswered after 48 hours may proceed with the reversible option, the
 assumption recorded where the work is. Irreversible acts wait.
 
-**ESC-004 — A preference is not a blocker.** An agent MUST NOT escalate a
+**ESC-004 — A preference is not a blocker.** An agent must not escalate a
 matter of taste as if it stopped the work.
 
 **ESC-005 — Straight to the Oracle.** Escalations go to the Oracle. No

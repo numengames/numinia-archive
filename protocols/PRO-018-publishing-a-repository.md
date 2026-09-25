@@ -46,22 +46,22 @@ the Oracle signs and executes.
 
 ## 2. Rules
 
-**RLS-001 — The agent prepares; the Oracle presses.** An agent MUST NOT
+**RLS-001 — The agent prepares; the Oracle presses.** An agent must not
 change a repository's visibility, publish a package or write to a
 permanent store. It files a signing request (`PRO-008`) and stops.
 
 **RLS-002 — Listings are generated, never typed.** Every item the request
 attaches — files, annotations, sensitive paths, dependency licences,
-history scan — MUST be the output of a command, with the command and the
+history scan — must be the output of a command, with the command and the
 commit it ran at. A hand-written list is not evidence (`PUB-003`).
 
 **RLS-003 — History, not `HEAD`.** The scan for secrets and personal data
-MUST cover every commit. A secret removed from the tip is still one `git
+must cover every commit. A secret removed from the tip is still one `git
 log` away; if one is found, `PRO-011` `SEC-005` applies and this protocol
 pauses.
 
 **RLS-004 — Every dependency on the allowlist.** The dependency listing
-MUST show each package's SPDX identifier against `STD-013`; one on the
+must show each package's SPDX identifier against `STD-013`; one on the
 *never* tier, or without a `license` field, blocks the request
 (`LIC-005`, `LIC-006`).
 

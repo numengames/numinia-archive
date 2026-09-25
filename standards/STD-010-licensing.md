@@ -43,7 +43,7 @@ which keeps its own terms.
 
 ### What we may publish, and under which terms
 
-**Only what is ours is published.** A piece MUST NOT be published unless we
+**Only what is ours is published.** A piece must not be published unless we
 can show it is ours: a contract, a commission, a transfer of rights, or an
 origin that allows it.
 
@@ -55,7 +55,7 @@ belong to everyone, for good. Explanatory texts may be reused by anyone who
 credits us. The brand and early prototypes stay ours.
 
 **Sharing obligations flow down, never up.** A tool that is open with no
-conditions MUST NOT include a program that obliges sharing, or it would
+conditions must not include a program that obliges sharing, or it would
 inherit the obligation. The strictest terms among what we ship decide for
 the whole; what is used only to build does not count, and two programs that
 only talk over the network are two separate works.
@@ -64,16 +64,16 @@ only talk over the network are two separate works.
 sharing lives in a repository of its own, so its terms never spread to ours.
 
 **Work made for a client belongs to the client.** Our templates keep our
-terms; what they generate for a client MUST carry all rights reserved, in
+terms; what they generate for a client must carry all rights reserved, in
 the client's name.
 
 ### What we may build on
 
 **We only build on what is allowed.** Before adding someone else's code, its
-terms MUST be on our list of accepted terms. If the terms are missing or
+terms must be on our list of accepted terms. If the terms are missing or
 unclear, nothing is added until someone reads them.
 
-**Having is not shipping.** Code with forbidden terms MAY sit in a
+**Having is not shipping.** Code with forbidden terms may sit in a
 repository only if it never reaches what we ship, the debt is written down
 with a way out, and a check inspects what ships. A program that obliges
 sharing may never carry extra restrictions.
@@ -81,18 +81,18 @@ sharing may never carry extra restrictions.
 ### How a file says its terms
 
 **Each repository says its terms in the common format.** Every repository
-MUST carry its main licence, the full text of every licence it uses, a
+must carry its main licence, the full text of every licence it uses, a
 single file covering what cannot speak for itself, and a note on the brand,
 all in English, and pass the automatic check on every change.
 
-**Each file says its own terms.** Every text file MUST open with two short
+**Each file says its own terms.** Every text file must open with two short
 lines, who owns it and under which licence, in the format every open-source
-tool reads. A document's header MUST say the same. Only a file that cannot
+tool reads. A document's header must say the same. Only a file that cannot
 hold those lines, like an image or a font, is listed in the shared file, by
 its exact name.
 
 **Media carries its terms inside.** An image, a model or a sound carries its
-licence in its own metadata. An avatar we give to everyone MUST lift the
+licence in its own metadata. An avatar we give to everyone must lift the
 restrictions its format sets by default.
 
 **We say how a piece was made.** Every piece states whether a person made

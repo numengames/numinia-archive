@@ -44,11 +44,11 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Rules
 
-**MSN-036 — Registered before executed.** Work MUST exist as a card,
+**MSN-036 — Registered before executed.** Work must exist as a card,
 committed, before any of it happens. A card written after the fact is
 fiction.
 
-**MSN-037 — Done is stated before work starts.** A card MUST carry
+**MSN-037 — Done is stated before work starts.** A card must carry
 acceptance criteria that are false at the base commit and phrased as a
 final state. Scope and criteria are not edited after opening; what
 happened goes in Closure.
@@ -56,7 +56,7 @@ happened goes in Closure.
 **MSN-041 — Read whole, never by title.** The agent reads the whole card —
 deliverable, effort, criteria, dependencies, assignee — before acting.
 
-**MSN-001 — Five states, closed.** `status` MUST be one of `todo`,
+**MSN-001 — Five states, closed.** `status` must be one of `todo`,
 `in-progress`, `in-review`, `done`, `frozen`. It is the only state surface:
 no status folder, no index, no cancelled value — a cancelled mission is
 `frozen` with `freeze_reason: cancelled`.
@@ -66,17 +66,17 @@ no status folder, no index, no cancelled value — a cancelled mission is
 `in-review` (`in_review_at`) by the executor; `frozen` (`freeze_reason`) by
 the Oracle, from any non-terminal state.
 
-**MSN-039 — Paused says why.** A `frozen` card MUST carry `freeze_reason`.
+**MSN-039 — Paused says why.** A `frozen` card must carry `freeze_reason`.
 Unfreezing returns it to `todo` and clears the reason.
 
-**MSN-003 — One executor.** An active card MUST name exactly one
+**MSN-003 — One executor.** An active card must name exactly one
 `assigned_to`, and only that agent edits it. Work that splits becomes
 child cards, one per agent, ordered by `depends_on`.
 
-**MSN-038 — A parent waits for its children.** A card with children MUST
+**MSN-038 — A parent waits for its children.** A card with children must
 NOT be `done` while any child is neither `done` nor frozen-cancelled.
 
-**MSN-004 — Done is immutable; the exit is deletion.** A `done` card MUST
+**MSN-004 — Done is immutable; the exit is deletion.** A `done` card must
 NOT be edited once merged. It leaves the folder under `ADR-030`'s four
 tests; a `frozen` card too, once a living document records its identifier,
 title and reason. Ninety days in `todo` without activity is stale: frozen

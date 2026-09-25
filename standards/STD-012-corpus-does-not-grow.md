@@ -40,7 +40,7 @@ roll-up.
 
 ## Rules
 
-**DEF-001 — Git is the daily record.** No document MUST be written whose only
+**DEF-001 — Git is the daily record.** No document must be written whose only
 purpose is to say what happened today. `git log --since` is the daily report.
 
 **DEF-002 — Three levels, not more.** Records roll up into a **weekly** report,
@@ -59,14 +59,14 @@ the file is deleted in the same PR, under `ADR-030`'s four tests.
 
 **DEF-005 — The identifier resolves to the highest living level.** A deleted
 record's identifier goes into the `absorbs:` of the report that carries its
-line. When that report is rolled up, its `absorbs:` MUST move whole into the
-report above, and every public redirect MUST be repointed in the same PR.
+line. When that report is rolled up, its `absorbs:` must move whole into the
+report above, and every public redirect must be repointed in the same PR.
 
 **DEF-006 — Phase is an index, not a level.** A phase report points at the
-periods that compose the phase and what they concluded. It MUST NOT restate
+periods that compose the phase and what they concluded. It must not restate
 the weekly lines; it cites them.
 
-**DEF-007 — The roll-up is delegable; the criterion is not.** Any agent MAY
+**DEF-007 — The roll-up is delegable; the criterion is not.** Any agent may
 execute a roll-up following `PRO-017`. What survives is DEF-003, not the
 executor's judgement; an uncertain line is carried up and marked for the
 Oracle, never dropped.

@@ -43,44 +43,44 @@ References table (`STD-007`), which every series shares; what a series is
 
 ## Rules
 
-**STA-001 — It says what is so.** A canon MUST state its claim in the
+**STA-001 — It says what is so.** A canon must state its claim in the
 present indicative, with what makes it land — an image or a case. Stating
 is not listing: an inventory of parts is not a canon.
 
-**STA-002 — It says why.** A canon MUST give reasoning that survives being
+**STA-002 — It says why.** A canon must give reasoning that survives being
 quoted alone and applied to a case it never imagined. The history of the
 decision is an ADR's.
 
-**STA-003 — It leaves the reader able to do something.** A canon MUST give
+**STA-003 — It leaves the reader able to do something.** A canon must give
 a test to run, a distinction to draw or a thing to refuse, usable on the
 first day without asking anyone.
 
-**STA-004 — Obligations, not sections.** The three above MAY come in any
+**STA-004 — Obligations, not sections.** The three above may come in any
 order and any shape — continuous prose, headings of the author's, or none.
 No sectioning is prescribed.
 
-**STA-005 — The title is a claim.** The title MUST state what the canon
+**STA-005 — The title is a claim.** The title must state what the canon
 holds true, not its subject. *Opening is an act*, not *Licensing*.
 
-**STA-006 — No tool.** A canon MUST NOT name a vendor, product or
+**STA-006 — No tool.** A canon must not name a vendor, product or
 application as the way something is done. It states the capability; the
 instrument belongs in `system/` or a protocol.
 
-**STA-007 — No clock.** A canon MUST NOT carry a date, hour, cadence or
+**STA-007 — No clock.** A canon must not carry a date, hour, cadence or
 calendar in its body. Schedule is a protocol's; hours are the calendar's.
 
 **STA-008 — No restatement.** Where another canon or a standard develops a
-thing, a canon MUST name it and stop. A summary of a neighbour is a second
+thing, a canon must name it and stop. A summary of a neighbour is a second
 place to go stale.
 
-**STA-009 — A border only when real.** A canon MAY say what it does not
+**STA-009 — A border only when real.** A canon may say what it does not
 cover only where it names the document a reader would confuse it with.
-Otherwise it MUST NOT.
+Otherwise it must not.
 
 **STA-010 — No date, no byline in the body.** A voice arguing on a given
 day is a report or a decision.
 
-**STA-011 — Identifiers at the foot.** A canon MUST name the thing in
+**STA-011 — Identifiers at the foot.** A canon must name the thing in
 prose and carry the code in `related:` and in the References table, never
 mid-sentence.
 

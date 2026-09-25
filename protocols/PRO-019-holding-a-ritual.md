@@ -54,24 +54,24 @@ A gathering that is not in the roster is a meeting. Meetings need no protocol.
 
 ## 2. Rules
 
-**RIT-001 — A ritual is rostered before it is held.** A recurring act MUST
+**RIT-001 — A ritual is rostered before it is held.** A recurring act must
 carry a row below, with a purpose, a cadence and a convoker, before it is
 convoked as a ritual.
 
 **RIT-002 — The material is closed before the ritual opens.** Whatever the
-ritual reads rather than improvises MUST exist beforehand: the period's
+ritual reads rather than improvises must exist beforehand: the period's
 roll-up, the agenda, the adventure. Lacking it, the ritual is postponed, not
 held empty.
 
-**RIT-003 — The hour lives in the calendar.** A date, time or place MUST NOT
+**RIT-003 — The hour lives in the calendar.** A date, time or place must not
 be written in this protocol or in canon. The roster states cadence only.
 
 **RIT-004 — Only what has an address survives.** Within the day, every
 decision taken is recorded as a decision, every work agreed as a card, every
-debt admitted as a debt. Minutes MUST NOT be written.
+debt admitted as a debt. Minutes must not be written.
 
 **RIT-005 — A festive ritual does not decide.** A ruling reached at a festive
-ritual is not a decision until recorded as one, and a festive ritual MUST NOT
+ritual is not a decision until recorded as one, and a festive ritual must not
 be folded into an operational one to save an evening.
 
 ---

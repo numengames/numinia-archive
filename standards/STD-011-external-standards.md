@@ -5,7 +5,7 @@ title: "External standards"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.0"
+version: "2.2.0"
 created: "2026-09-07T15:00:00+02:00"
 updated: "2026-09-25T12:00:00+02:00"
 author: "ursa"
@@ -14,7 +14,7 @@ territory: "CAO"
 license: "CC0-1.0"
 tags: [standards, adoption, provenance, external]
 threshold: governed
-series_change: "2.1.0 — 2026-09-25: SPDX, REUSE and the certificate of origin move to Licensing (STD-010), first step of sharing this standard out among the standards each outside standard serves; their plates are retired, never reused. 2.0.0 — 2026-09-25: from register to standard, at the Oracle's word in session. The external standards we use are rules to keep, not a table to consult: each is named and explained in words a narrator can read aloud. Plates and source links leave the reading and wait at the foot, in the Check table, so no screen reader stumbles on them. Eighteen rules, one per standard in use; the twelve under consideration are listed, not ruled."
+series_change: "2.2.0 — 2026-09-25: obligation words are written in lowercase across the axis, at the Oracle's word in session; the first rule says they keep their meaning, which RFC 8174 would otherwise deny them. 2.1.0 — 2026-09-25: SPDX, REUSE and the certificate of origin move to Licensing (STD-010), first step of sharing this standard out among the standards each outside standard serves; their plates are retired, never reused. 2.0.0 — 2026-09-25: from register to standard, at the Oracle's word in session. The external standards we use are rules to keep, not a table to consult: each is named and explained in words a narrator can read aloud. Plates and source links leave the reading and wait at the foot, in the Check table, so no screen reader stumbles on them. Eighteen rules, one per standard in use; the twelve under consideration are listed, not ruled."
 ---
 
 <!--
@@ -40,16 +40,18 @@ SPDX-License-Identifier: CC0-1.0
 
 ### How we write rules and number things
 
-**Obligation words mean one thing.** MUST, SHOULD and MAY carry
-the meaning RFC 2119 gives them: a must is required, a should may be broken
-only with a reason, a may is a free choice.
+**Obligation words mean one thing.** In a rule, must, should and may carry
+the meaning the internet's standard for obligation words gives them: a must
+is required, a should may be broken only with a reason, a may is a free
+choice. We write them in lowercase so they read aloud like any other word;
+in a rule they still mean exactly that.
 
-**Versions follow Semantic Versioning.** Every version MUST be
+**Versions follow Semantic Versioning.** Every version must be
 three numbers — major, minor, patch. We adapt it: who may raise each number
 depends on authority, not on compatibility.
 
 **A failure is reviewed without blame.** When something breaks,
-we MUST write down what happened and what changes, never who is at fault,
+we must write down what happened and what changes, never who is at fault,
 as a blameless postmortem does.
 
 ### How the archive keeps its files
@@ -57,57 +59,57 @@ as a blameless postmortem does.
 How a file names its licence — SPDX and REUSE — and who may contribute —
 the certificate of origin — are rules of the licensing standard now.
 
-**Dates are written ISO 8601.** A date MUST read year, month, day,
+**Dates are written ISO 8601.** A date must read year, month, day,
 then the hour and its offset, always in that order, so it sorts and never
 reads two ways.
 
-**The changelog is kept for people.** Changes SHOULD be grouped by
+**The changelog is kept for people.** Changes should be grouped by
 date and kind — added, changed, fixed — the way Keep a Changelog describes,
 so a reader sees what moved without reading commits.
 
 ### How we build software
 
 **The repositories keep a security score.** OpenSSF Scorecard
-MUST grade each week how safely a repository is built and published, and
+must grade each week how safely a repository is built and published, and
 the grade is read.
 
-**Work lands on one trunk.** Short branches MUST reach `main` by
+**Work lands on one trunk.** Short branches must reach `main` by
 one pull request at a time, as trunk-based development proposes; nothing
 lives long on the side.
 
 **Settings live in the environment.** Passwords, keys and anything
-that changes between machines MUST stay out of the code and be read from the
+that changes between machines must stay out of the code and be read from the
 environment, as the Twelve-Factor App asks.
 
-**Commit messages say their kind.** A commit SHOULD start with
+**Commit messages say their kind.** A commit should start with
 what it is — a feature, a fix, a test, documentation — in the Conventional
 Commits form, so history can be read and sorted.
 
 **Software is accepted by scenarios.** A mission that produces
-software MUST state what it has to do as Gherkin scenarios — given, when,
+software must state what it has to do as Gherkin scenarios — given, when,
 then — that a test runs.
 
 ### How our sites look and read
 
-**Every page can be used by anyone.** Public pages MUST meet WCAG
+**Every page can be used by anyone.** Public pages must meet WCAG
 2.2 at level AA: readable contrast, keyboard access, screen readers, in the
 light theme and the dark.
 
 **Design values travel as tokens.** Colours, type sizes and
-spacing SHOULD be written in the W3C design tokens format, so one source
+spacing should be written in the W3C design tokens format, so one source
 feeds every site and tool.
 
 ### How we handle money and people's data
 
 **Personal data is protected under GDPR.** Whatever we keep about
-a person MUST be kept for a stated purpose and only as long as needed; the
+a person must be kept for a stated purpose and only as long as needed; the
 person can see it and ask to erase it.
 
 **The books follow the Spanish accounting plan.** Every ledger
-line MUST carry its account from the Plan General de Contabilidad —
+line must carry its account from the Plan General de Contabilidad —
 services, staff, sales — so the gestoría can keep the books from it.
 
-**Costs are counted as consumed.** Cloud and service costs SHOULD
+**Costs are counted as consumed.** Cloud and service costs should
 be recorded by what was actually used, in the FinOps FOCUS vocabulary, not
 by what was promised.
 
@@ -132,7 +134,7 @@ and what verifies it today.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| EXT-001 | Obligation words mean one thing | [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) | by hand, at review |
+| EXT-001 | Obligation words mean one thing | [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119), read against [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) | by hand, at review |
 | EXT-002 | Versions follow Semantic Versioning | [Semantic Versioning 2.0.0](https://semver.org/) | versions guard (`std-019-versions.mjs`), format only |
 | EXT-003 | A failure is reviewed without blame | [Blameless postmortem](https://sre.google/sre-book/postmortem-culture/) | by hand, at review |
 | EXT-004 | moved to Licensing, as LIC-008 | [SPDX](https://spdx.dev/) | — |

@@ -48,17 +48,17 @@ site; the **Oracle** approves it and creates it in the payment processor.
 
 ## 2. Rules
 
-**SAL-001 — Record before link.** No product, price or payment link MAY be
+**SAL-001 — Record before link.** No product, price or payment link may be
 created before the record of the thing on sale is merged.
 
 **SAL-002 — Record and processor agree.** The product and price in the
-processor MUST carry the same good, price with VAT and period as the record.
+processor must carry the same good, price with VAT and period as the record.
 
 **SAL-003 — Tested before published.** The whole path — pay, receive,
-appear in the homage list, cancel — MUST be run in the processor's test mode
+appear in the homage list, cancel — must be run in the processor's test mode
 before the link is published.
 
-**SAL-004 — Withdrawn, not erased.** A withdrawn thing MUST keep its record,
+**SAL-004 — Withdrawn, not erased.** A withdrawn thing must keep its record,
 marked withdrawn; whoever bought it keeps what they bought.
 
 ---

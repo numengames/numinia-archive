@@ -36,7 +36,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** `numengames/numinia-archive`, edited here and downstream of nothing.
-NWOS workspaces receive it at birth and own it; personal repositories SHOULD.
+NWOS workspaces receive it at birth and own it; personal repositories should.
 **Does not bind:** documents (`STD-004`, `STD-009`); licences (`STD-010`);
 distance to external frameworks (`STD-011`); how an agent applies it to a
 task (`PRO-016`).
@@ -49,19 +49,19 @@ exist.
 
 **ENG-002 — Every practice names its check.** A row in `STD-015` carries
 `[AUTO: tool]` or `[MANUAL]`. `[MANUAL]` is debt; improvement is moving rows
-to `[AUTO]`. Automatable checks MUST NOT be audited by hand.
+to `[AUTO]`. Automatable checks must not be audited by hand.
 
 **ENG-003 — Small batches.** Frequent integration, small pull requests, trunk
 kept green. At least one approval before `main`.
 
-**ENG-004 — Configuration lives in the environment.** Secrets MUST NOT touch
+**ENG-004 — Configuration lives in the environment.** Secrets must not touch
 the repository; publication is irreversible.
 
 **ENG-005 — Leave it better.** No touch adds debt silently; a change declares
 what it left behind. A green pipeline is not a clean tree.
 
 **ENG-006 — Incidents produce rules, not culprits.** Blameless postmortems; an
-incident MAY inject one practice by ADR.
+incident may inject one practice by ADR.
 
 **ENG-007 — The platform is a product for developers, biological and
 digital.** If the golden path is unclear to an agent, it is unclear.
@@ -94,7 +94,7 @@ build only while the standard that holds the plate it cites is `active`;
 while that standard is `draft`, the guard reports the finding and exits zero.
 The state is read from the holder's header at run time, never configured in
 the guard, so ratifying a standard is what turns its guards on (`PRE-006`).
-A finding that cites no plate has no state to read and MUST NOT fail a build
+A finding that cites no plate has no state to read and must not fail a build
 (`ENG-066`). Exception: a guard that verifies the artefact rather than a rule
 — the build, telemetry freshness, internal links, orphan content, the life of
 cited URLs — bites regardless; it declares itself a build guard in its

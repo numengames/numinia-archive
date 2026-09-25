@@ -44,14 +44,14 @@ its mission to another agent. Executor: the agent.
 
 ## 2. Rules
 
-**SES-042 — Sync before anything.** A session MUST begin with the trunk
+**SES-042 — Sync before anything.** A session must begin with the trunk
 pulled, before any read or write. New commits mean `CHANGELOG.md` is read.
 
-**SES-001 — Identity before action.** The agent MUST read its own
+**SES-001 — Identity before action.** The agent must read its own
 `SOUL.md` and `OPERATOR.md` before acting. Urgency does not skip this;
 urgency is the protocol's enemy.
 
-**SES-002 — The board before the work.** The agent MUST check the missions
+**SES-002 — The board before the work.** The agent must check the missions
 `in-progress` assigned to it and those `in-review` awaiting the Oracle. A
 new mission starts with its briefing (`PRO-003`), never with execution.
 
@@ -64,7 +64,7 @@ answers is a gap: escalated (`PRO-005`), not filled.
 corpus as checked out, not from a copy pasted elsewhere.
 
 **SES-004 — Load is reported, not endured.** At context load 7 or above
-the agent MUST tell the operator, recapitulate — done, current state,
+the agent must tell the operator, recapitulate — done, current state,
 pending — and close if the operator agrees.
 
 **SES-005 — What is not written did not happen.** Before close, decisions

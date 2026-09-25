@@ -19,6 +19,10 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-25 (obligation words in lowercase)
+- **Every standard, protocol and mould**: must, should, may and their kin are written in lowercase in the prose, so a narrator reads them like any other word — 203 lines in 34 files. Tables, code spans, fenced blocks and headers are untouched; the canon had none. Nothing changes meaning.
+- **`standards/STD-011-external-standards.md`** `2.2.0`: the first rule now says the lowercase words keep their obligation meaning, which RFC 8174 would otherwise deny them; RFC 8174 joins the source. The Oracle's word in session.
+
 ### Changed — 2026-09-25 (licensing in plain words)
 - **`standards/STD-010-licensing.md`** `2.1.0`: no licence code, acronym or file name in the reading, from the card to the last rule — each licence is described by what it lets people do (open and changes shared, open with no conditions, belongs to everyone, reusable with credit, stays ours). A second table at the foot pairs each kind of piece with its exact licence; the first keeps every plate, source and check. No obligation added or dropped. The Oracle's word in session.
 

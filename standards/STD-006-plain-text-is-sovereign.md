@@ -39,30 +39,30 @@ or reads it; every proposed dependency.
 
 ## Rules
 
-**TXT-001 — Markdown, under a series folder.** Every corpus document MUST be a
+**TXT-001 — Markdown, under a series folder.** Every corpus document must be a
 `.md` file under a series folder, readable in any text editor with no tooling.
 
-**TXT-002 — Plain-text header.** Frontmatter MUST be well-formed YAML between
+**TXT-002 — Plain-text header.** Frontmatter must be well-formed YAML between
 correct delimiters. Structured metadata lives there, not in a sidecar.
 
-**TXT-003 — Nothing lives only outside the tree.** No document's content MAY
+**TXT-003 — Nothing lives only outside the tree.** No document's content may
 exist only in a component, a database, a server or behind an API.
 
 **TXT-004 — One document per file.** A file is the unit of identity, citation
-and deletion. Two documents in one file MUST NOT occur.
+and deletion. Two documents in one file must not occur.
 
-**TXT-005 — No binary source of truth.** Binary artefacts MAY be stored;
-none MAY be the authoritative copy of anything the corpus asserts.
+**TXT-005 — No binary source of truth.** Binary artefacts may be stored;
+none may be the authoritative copy of anything the corpus asserts.
 
-**TXT-006 — Every clone is the whole archive.** The corpus MUST live in a
-distributed version-control repository, and a single offline clone MUST hold
+**TXT-006 — Every clone is the whole archive.** The corpus must live in a
+distributed version-control repository, and a single offline clone must hold
 every document and its history. Losing the hosting costs hosting, not the
 corpus.
 
-**TXT-007 — A dependency, not a landlord.** A third-party service MAY be used
+**TXT-007 — A dependency, not a landlord.** A third-party service may be used
 only if removing it degrades convenience, never availability; nothing it holds
 is unavailable in the repository; and a self-operated equivalent could replace
-it without rewriting the corpus. The three answers MUST be written in the
+it without rewriting the corpus. The three answers must be written in the
 document that proposes the dependency, before adoption.
 
 ## Check

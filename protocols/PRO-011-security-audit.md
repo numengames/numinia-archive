@@ -50,34 +50,34 @@ automated claim. Executor: an agent with read access to the scope.
 
 ## 2. Rules
 
-**SEC-001 — Denominator first.** The universe MUST be enumerated from the
+**SEC-001 — Denominator first.** The universe must be enumerated from the
 API and its count published before anything is censused. Every row then
 counts against it; a resource not inspected is listed as not inspected.
 
-**SEC-002 — Provenance on every row.** Each census row MUST carry the
+**SEC-002 — Provenance on every row.** Each census row must carry the
 command, the date and the credential used. Without them it is a memory.
 
 **SEC-003 — Read-only until the allowlist.** Census and passive
-verification write nothing. An active test MUST use a throwaway branch, a
+verification write nothing. An active test must use a throwaway branch, a
 synthetic canary (valid format, non-existent value), a pull request closed
 unmerged and deleted — never in a public repository without signature. If
 the control does not block, stop: the finding exists.
 
-**SEC-004 — No correction without a signature.** The agent MUST NOT revoke,
+**SEC-004 — No correction without a signature.** The agent must not revoke,
 delete, rotate or modify anything. It prepares
 the list, the order and what each step breaks, and waits (`PRO-008`).
 
 **SEC-005 — A real value stops the audit.** A secret value seen live or of
-unknown state MUST NOT be copied anywhere, not truncated; it is referenced
+unknown state must not be copied anywhere, not truncated; it is referenced
 by location and reported out of band (`KEY-056`). A repository that has
 ever been public is treated as compromised: rotate first, history later.
 
 **SEC-006 — Tier before file.** Public (findings, gaps, scores; no
 identifiers), internal (names, dates, addresses; never a public repository),
-hot (out of band) MUST NOT share a document. No destination for the
+hot (out of band) must not share a document. No destination for the
 internal tier is the audit's first finding.
 
-**SEC-007 — Coverage caps the scores.** The report MUST score doctrine,
+**SEC-007 — Coverage caps the scores.** The report must score doctrine,
 execution and coverage out of ten from verified evidence; low coverage
 caps the other two rather than averaging with them.
 

@@ -44,24 +44,24 @@ agent on `PRO-001` session. The Oracle enters only at the irreversible tier.
 
 ## 2. Rules
 
-**TSK-001 — The tree is audited before it is trusted.** The agent MUST read
+**TSK-001 — The tree is audited before it is trusted.** The agent must read
 the branch before assuming it matches the standard, the README or the brief.
 
 **TSK-002 — Every task is classified before it starts.** Cosmetic —
 formatting, lint fixes, typos, added tests — proceeds. Irreversible —
-visibility, licences, secrets, history, publishing, force operations — MUST
+visibility, licences, secrets, history, publishing, force operations — must
 stop and reach the Oracle. In doubt, it is irreversible.
 
-**TSK-003 — Practices are named by plate.** Commits and pull requests MUST
+**TSK-003 — Practices are named by plate.** Commits and pull requests must
 cite the practices they touch by identifier (`fix: read-only workflow tokens
 (SEC-008)`).
 
 **TSK-004 — A check is never weakened to pass.** Lowering a threshold,
 skipping a test, adding an ignore or unpinning an action is a change to the
-standard: it MUST come as a decision record, never as a side effect.
+standard: it must come as a decision record, never as a side effect.
 
 **TSK-005 — Debt seen in passing is reported, not fixed.** `[MANUAL]`
-violations the task did not touch MUST go to the closing report and the
+violations the task did not touch must go to the closing report and the
 repository's TODO (`TRC-005`), not into the task.
 
 ## 3. Procedure

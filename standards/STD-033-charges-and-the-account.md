@@ -46,64 +46,64 @@ reason behind these rules, which is `CAN-011`'s.
 
 ### The charge
 
-**PAY-001 — Something in return.** Every charge MUST deliver a digital good
-described before payment. No charge MAY be called a donation.
+**PAY-001 — Something in return.** Every charge must deliver a digital good
+described before payment. No charge may be called a donation.
 
-**PAY-002 — The whole price.** The price shown MUST be final, VAT included.
-Nothing MAY be added at the last step.
+**PAY-002 — The whole price.** The price shown must be final, VAT included.
+Nothing may be added at the last step.
 
-**PAY-003 — No record, no charge.** Everything on sale MUST have a record in
+**PAY-003 — No record, no charge.** Everything on sale must have a record in
 the archive: what it delivers, price with VAT, period, site, state. Sites
-MUST read the price from that record.
+must read the price from that record.
 
-**PAY-004 — One account, the Oracle's keys.** Every payment MUST be collected
-in Numen Games' account. Only an Oracle MAY create products, prices or
+**PAY-004 — One account, the Oracle's keys.** Every payment must be collected
+in Numen Games' account. Only an Oracle may create products, prices or
 payment links.
 
-**PAY-005 — No card on our sites.** Payment MUST happen on the payment
-processor's page; a site MUST only link to it.
+**PAY-005 — No card on our sites.** Payment must happen on the payment
+processor's page; a site must only link to it.
 
-**PAY-006 — Leaving takes one step.** A recurring payment MUST be changeable
+**PAY-006 — Leaving takes one step.** A recurring payment must be changeable
 and cancellable from a link on every receipt and on the site.
 
-**PAY-007 — Remembered by choice.** A payer MUST appear only as chosen —
-name, alias or none — and none when silent. No per-person amount MAY be
-published. The choice MAY change at any time.
+**PAY-007 — Remembered by choice.** A payer must appear only as chosen —
+name, alias or none — and none when silent. No per-person amount may be
+published. The choice may change at any time.
 
-**PAY-008 — Open stays open.** No good MAY be the key to something the
+**PAY-008 — Open stays open.** No good may be the key to something the
 archive already gives freely.
 
 **PAY-009 — A resaleable token waits.** A good that is a resaleable on-chain
-token MUST NOT go on sale before legal review.
+token must not go on sale before legal review.
 
 ### The account
 
-**LED-001 — One ledger.** Every cost and income MUST be one line: date,
+**LED-001 — One ledger.** Every cost and income must be one line: date,
 supplier, concept, accounting account, base, VAT, total, period covered,
-project. Every view MUST be computed from these lines.
+project. Every view must be computed from these lines.
 
 **LED-002 — Same figures, four views.** The public, technology, finance and
-gestoría views MUST agree on every figure they share.
+gestoría views must agree on every figure they share.
 
-**LED-003 — Billed and consumed.** The ledger MUST report both what was
+**LED-003 — Billed and consumed.** The ledger must report both what was
 billed, on the invoice date, and what was consumed, spread over the days the
 line covers.
 
-**LED-004 — Closed from documents.** A month MUST be closed from invoices
-and the processor's report. An open month or an estimate MUST say so.
+**LED-004 — Closed from documents.** A month must be closed from invoices
+and the processor's report. An open month or an estimate must say so.
 
-**LED-005 — Traceable to the paper.** Every total MUST be traceable to its
+**LED-005 — Traceable to the paper.** Every total must be traceable to its
 lines, and every line to its document, so an auditor or the tax authority
 can walk from one to the other.
 
-**LED-006 — People counted, not named.** Staff MUST enter as company cost per
-month. No published view MAY let a person's pay be inferred.
+**LED-006 — People counted, not named.** Staff must enter as company cost per
+month. No published view may let a person's pay be inferred.
 
 **LED-007 — Documents stay out.** Invoices, payrolls and processor reports
-MUST NOT be committed. The archive holds the lines; the documents stay with
+must not be committed. The archive holds the lines; the documents stay with
 the company.
 
-**LED-008 — Kept for as long as the law can ask.** Documents MUST be kept
+**LED-008 — Kept for as long as the law can ask.** Documents must be kept
 at least six years after the last entry, and while any tax right they
 support can still be checked.
 

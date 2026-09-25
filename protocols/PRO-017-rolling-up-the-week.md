@@ -45,26 +45,26 @@ on the first Monday of a year over four quarterlies. Executor: any agent on
 
 ## 2. Rules
 
-**RUP-001 — The line is copied, not written.** Each line MUST be taken from
+**RUP-001 — The line is copied, not written.** Each line must be taken from
 the record's own Closure: identifier, title, one sentence, the commit or PR
 that proves it. A Closure the tree does not show is carried as *claimed,
 not delivered*.
 
-**RUP-002 — Every line is classified.** Each line MUST carry one of
+**RUP-002 — Every line is classified.** Each line must carry one of
 `DEF-003`'s three marks — `rule`, `debt`, `address` — or `none`. A line the
 executor cannot classify is marked `oracle` and stays until the Oracle
 rules.
 
-**RUP-003 — The report absorbs before the file dies.** The identifier MUST
+**RUP-003 — The report absorbs before the file dies.** The identifier must
 be in the report's `absorbs:` (both `MIS-NNN` and `MIS-NNNN` forms) and its
-public URL MUST redirect, both locales, before `git rm`.
+public URL must redirect, both locales, before `git rm`.
 
 **RUP-004 — Deletion is not the executor's call.** A record the executor
-thinks should stay MUST still be deleted, its line marked `oracle`. Git
+thinks should stay must still be deleted, its line marked `oracle`. Git
 holds the body.
 
-**RUP-005 — Telemetry is the last commit.** The dataset MUST be regenerated
-after the final content commit and `--check` MUST pass before push.
+**RUP-005 — Telemetry is the last commit.** The dataset must be regenerated
+after the final content commit and `--check` must pass before push.
 
 ## 3. Procedure
 

@@ -42,31 +42,31 @@ sheets, creator panel, administration.
 
 ## Rules
 
-**RNK-001 — Ranks are cumulative.** A rank MUST grant every permission of the
+**RNK-001 — Ranks are cumulative.** A rank must grant every permission of the
 ranks below it.
 
-**RNK-002 — Rank is inferred, not declared.** The platform MUST derive a
-member's rank from the signals in the table and MUST NOT accept a rank the
+**RNK-002 — Rank is inferred, not declared.** The platform must derive a
+member's rank from the signals in the table and must not accept a rank the
 member asserts.
 
-**RNK-003 — At most four Oracles.** `rank-overrides.json` MUST NOT list more
+**RNK-003 — At most four Oracles.** `rank-overrides.json` must not list more
 than four.
 
-**RNK-004 — Nobody touches upward.** An Archon MUST NOT act on an Archon or an
-Oracle. An Oracle MUST NOT be bannable at any layer — storage, API, interface.
+**RNK-004 — Nobody touches upward.** An Archon must not act on an Archon or an
+Oracle. An Oracle must not be bannable at any layer — storage, API, interface.
 
 **RNK-005 — Automatic moves go both ways.** Nomad ↔ Citizen and Citizen ↔
-Pilgrim MUST follow the signal, in both directions, with no hand involved.
+Pilgrim must follow the signal, in both directions, with no hand involved.
 
-**RNK-006 — Manual moves have a ceiling.** An Archon MAY promote or demote up
-to Vernacular. An Oracle MAY manage every rank except Oracle. Oracles change
+**RNK-006 — Manual moves have a ceiling.** An Archon may promote or demote up
+to Vernacular. An Oracle may manage every rank except Oracle. Oracles change
 only by editing the overrides file.
 
 **RNK-007 — The matrix and this page move together.** A platform change that
-alters the matrix MUST update this standard in the same change.
+alters the matrix must update this standard in the same change.
 
 **RNK-008 — The top two ranks are judged, not counted.** A promotion to
-Vernacular or Archon MUST be decided against the profiles below, never against
+Vernacular or Archon must be decided against the profiles below, never against
 volume of output alone.
 
 **Vernacular.** An agent fully integrated into Numinia's culture. Inhabits the

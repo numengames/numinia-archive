@@ -77,7 +77,7 @@ Rules: full scale and in order, no invented steps. **Progressive treatment beyon
 
 ## 5. Píxel-16 palette
 
-Sixteen colors, **zero new hexes**: seven neutrals, the six brand colors and three already-defined shadows, plus the rarity green. Every sprite and every pixel scene MUST limit itself to this index.
+Sixteen colors, **zero new hexes**: seven neutrals, the six brand colors and three already-defined shadows, plus the rarity green. Every sprite and every pixel scene must limit itself to this index.
 
 | Nº | Hex | Name | Origin | Role in pixel |
 |---|---|---|---|---|
@@ -112,7 +112,7 @@ The palette is single, but work happens through **shared ramps**. A ramp adds no
 | **Warm signal** | Deep Grana · Grana · Coral | damage, alarm and real time; Coral and Grana still do not coexist in one composition |
 | **Garden** | Verde · Verdemar · Arena | vegetation and living matter |
 
-Each material SHOULD resolve with **2–4 colors** from one or two ramps. Sharing a shadow or a light between materials coheres the scene and preserves the limited character of 90s graphics.
+Each material should resolve with **2–4 colors** from one or two ramps. Sharing a shadow or a light between materials coheres the scene and preserves the limited character of 90s graphics.
 
 ## 7. Data palette
 
@@ -133,7 +133,7 @@ Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50p
 ## 9. Space, grid, shape, elevation, focus
 
 
-**Spacing** base 4 px: `4·8·12·16·24·32·48·64·96·128` (`space.100–1000`); every gap MUST be from the scale.
+**Spacing** base 4 px: `4·8·12·16·24·32·48·64·96·128` (`space.100–1000`); every gap must be from the scale.
 **Grids**: web ≤1280 / 12 col / margin 64 / gutter 24; tablet 8/40/24; mobile 4/20/16; slide 1920×1080 / 12 / 120 / 32; A4 12 / 20 mm / 5 mm. Baseline 8 (4 mm printed). Rhythm: sections `s900` web · `s800` deck; blocks `s700`; headline→body `s400`; card `s500`.
 **Shape [CANON — direction decision, 4.0.0]**: two radii and nothing more — **control `6px`** (buttons, fields, chips, toggles) and **frame `8px`** (cards, panels, dialogs, canvases, status bands). Warm without fashion: the frame rounds a little; the content inside inherits no radius of its own. Circle only in markers, avatars and stickers; the pill is a capsule. **The pixel register keeps its straight edges** (the pixel does not curve) and printed tables too. Borders 1 px.
 **Elevation**: in Nocturno no shadows — surface step + hairline (`base→superficie→elevada`); sole exception the legendary halo. In Diurno a single shadow `0 1px 2px rgba(20,17,15,.08), 0 8px 24px rgba(20,17,15,.06)`.
@@ -232,9 +232,9 @@ Behavior (canonized exactly as it stands in production): **175 stars**; drift of
 | **Scene module** | `48×48 px` | depth, entry/exit, focus and light mass | that the focus stays visible without zoom |
 
 - Drawing and correcting happen at **×1**; ×2, ×3, ×4, ×6 and ×8 serve inspection and presentation, not pixel decisions.
-- An asset's scale is fixed at the start. It MUST NOT be drawn large to be reduced later, nor rotated with interpolation. A new scale demands a redraw on its grid.
+- An asset's scale is fixed at the start. It must not be drawn large to be reduced later, nor rotated with interpolation. A new scale demands a redraw on its grid.
 - All anchor points — feet, object center, tool origin and dialogue box — use integer coordinates and hold across frames.
-- The *hitbox* and touch zone belong to interaction, not the visual outline: it MAY be larger than the sprite to meet the `44×44 px` accessibility minimum without enlarging the drawing.
+- The *hitbox* and touch zone belong to interaction, not the visual outline: it may be larger than the sprite to meet the `44×44 px` accessibility minimum without enlarging the drawing.
 
 ## 17. External references
 
@@ -344,7 +344,7 @@ and elevated surfaces. `velo.cristal` only over a background that has grid,
 fog or veiled image behind it: blurring nothing is smoke, and text over glass
 is secondary minimum with AA verified against the worst background. Grid and
 circuit relief do not coexist — two meshes fight `[EXTENSION — validate]`;
-fog MAY settle over the relief at half its alpha.
+fog may settle over the relief at half its alpha.
 
 ## 21. Motion and 3D budgets
 
@@ -355,7 +355,7 @@ character 2,000–10,000 tris; prop 200–2,000; modular environment by pieces.
 House lighting is a warm Ámbar key with a cold Turquesa fill (`BLU-015`).
 Formats GLB/glTF.
 
-**Pixel outline.** In sprites of 12 px or less the outline MAY close
+**Pixel outline.** In sprites of 12 px or less the outline may close
 completely: at that size the silhouette is all there is.
 
 

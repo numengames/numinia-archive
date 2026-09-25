@@ -62,7 +62,7 @@ per row; `thin` and `duotone` never. The scarab and the Moon are marks, not
 icons.
 
 **DSN-005 — Contrast AA.** Text meets WCAG 2.2 AA (4.5:1; 3:1 large and
-components) in both modes; a texture, veil or patina MUST NOT drop the
+components) in both modes; a texture, veil or patina must not drop the
 effective contrast below it. Touch targets 44×44.
 
 **DSN-006 — Never colour alone.** Every state and category carries a second

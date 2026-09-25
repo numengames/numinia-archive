@@ -47,24 +47,24 @@ review and close.
 
 ## 2. Rules
 
-**MCY-001 — Mission first, execution after.** No work MUST begin before the
+**MCY-001 — Mission first, execution after.** No work must begin before the
 briefing is complete and the card's activation is committed (`MSN-036`).
 Quick tasks are where the errors happen; they are not exempt.
 
-**MCY-002 — Three answers before the first action.** The agent MUST be able
+**MCY-002 — Three answers before the first action.** The agent must be able
 to state the deliverable, what done looks like, and the first concrete
 action — a tool call or a file write, never "research". Unclear: ask.
 
 **MCY-003 — Blockers are flagged before starting.** A dependency, a key, an
-access or a decision the mission needs MUST be raised before the first
+access or a decision the mission needs must be raised before the first
 action, not after. Blocked: `frozen` with its reason (`MSN-039`), Oracle
 notified.
 
 **MCY-004 — Contradiction with the canon stops the mission.** The agent
-MUST escalate (`PRO-005`) rather than execute against the canon.
+must escalate (`PRO-005`) rather than execute against the canon.
 
 **MCY-005 — Review is requested with evidence.** Before `in-review`, every
-acceptance criterion MUST be verified and Closure filled with what was
+acceptance criterion must be verified and Closure filled with what was
 done, what diverged and the evidence; the request is scored (`PRO-008`).
 
 **MCY-006 — The repository is the channel.** Agents coordinate through

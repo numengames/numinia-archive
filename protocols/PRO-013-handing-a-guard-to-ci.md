@@ -48,7 +48,7 @@ step 6. Executor: the agent; the Oracle for the review.
 
 ## 2. Rules
 
-**GRD-001 — Tested in both directions.** A guard MUST fail on planted
+**GRD-001 — Tested in both directions.** A guard must fail on planted
 breakage and pass on a clean tree before it is offered.
 
 **GRD-002 — Every finding, every run.** A guard reports everything it sees;
@@ -56,7 +56,7 @@ it never keeps a list of what to ignore. Whether a finding fails the build
 is not the guard's call: the state of the standard that holds the rule
 decides (`ENG-067`). A guard that hides old damage looks like coverage.
 
-**GRD-003 — Every finding cites its plate.** Each finding MUST name the rule
+**GRD-003 — Every finding cites its plate.** Each finding must name the rule
 that condemns it, so a failure is actionable without reading the script.
 
 **GRD-004 — One mode, deterministic.** Bare prints every finding and exits
@@ -68,7 +68,7 @@ output.
 the runner finds it. A guard that needs a new job, permission or action is
 a separate ask (`PRO-005`); the agent never edits the workflow file.
 
-**GRD-006 — The register of guards is the folder.** No document MAY keep a
+**GRD-006 — The register of guards is the folder.** No document may keep a
 table of guards. What runs is what the runner finds; `npm run guards` lists
 it when asked. A script that is in the folder runs; one that must not run
 as a guard does not live there.

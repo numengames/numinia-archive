@@ -74,13 +74,13 @@ Outside the scheme: `web/` — a lens onto the fond, not a record of it — and
 
 ## Rules
 
-**CLS-001 — A function classifies; a series files.** A document MUST be filed
-in exactly one series, and its identifier MUST name the series, never the
+**CLS-001 — A function classifies; a series files.** A document must be filed
+in exactly one series, and its identifier must name the series, never the
 function. Functions are regrouped without moving a file or breaking a
 citation.
 
 **CLS-002 — Instruments are not records.** What verifies, renders, measures or
-moulds the archive MUST carry no identifier, MUST NOT be appraised, and MUST
+moulds the archive must carry no identifier, must not be appraised, and must
 NOT be cited as evidence — even when classified under *Verifying*,
 *Measuring* or *Templating*. Instruments live under `machine/`.
 

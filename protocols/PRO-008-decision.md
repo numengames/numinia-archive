@@ -47,32 +47,32 @@ execution.
 
 ## 2. Rules
 
-**APV-001 — A request is a complete unit.** Every approval request MUST
+**APV-001 — A request is a complete unit.** Every approval request must
 carry agent, mission, context, exact action, epistemic and pragmatic
 effect, what happens without an answer, and a score.
 
 **APV-002 — Every artefact carries its web address.** Anything presented
-for a decision MUST link its canonical address, next to its first mention.
+for a decision must link its canonical address, next to its first mention.
 Never a filesystem path.
 
 **APV-003 — The score guides attention, not responsibility.** The agent
-proposes; the person decides, at any score. No agent MAY modify the scale.
+proposes; the person decides, at any score. No agent may modify the scale.
 
-**APV-004 — Seven and above is a document.** A request scored 7+ MUST be a
+**APV-004 — Seven and above is a document.** A request scored 7+ must be a
 document, adding the discarded alternatives, what a good and a bad outcome
 would reveal, the impact at a day and a week, and reversibility.
 
-**APV-005 — A ruling states what would make it wrong.** The issuer MUST
+**APV-005 — A ruling states what would make it wrong.** The issuer must
 name the facts the ruling depends on, in checkable form, and what to do if
 one is false; the default is stop and report. *Use this prefix, it is
 unused in the corpus* can be checked; *use this prefix* cannot.
 
 **APV-006 — The executor verifies before executing.** Every stated fact
-MUST be measured, the command in the report. If one is false, the executor
-MUST stop before any file changes.
+must be measured, the command in the report. If one is false, the executor
+must stop before any file changes.
 
 **APV-007 — The correction lives with the decision.** A ruling caught by
-its condition MUST be recorded where it was issued: fact asserted,
+its condition must be recorded where it was issued: fact asserted,
 measurement, outcome.
 
 **APV-008 — Facts, not reasoning.** The executor checks the stated facts,

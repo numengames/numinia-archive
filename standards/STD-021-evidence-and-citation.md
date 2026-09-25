@@ -60,9 +60,9 @@ fenced block it is data and is not checked — a report about broken citations
 can name them without an ignore list.
 
 **CIT-055 — A quote carries its author.** Words a person said or wrote,
-quoted in a document, a page or any piece, MUST carry that person's name as
+quoted in a document, a page or any piece, must carry that person's name as
 they sign it — *Pablo FM*, not a role or "the Oracle". An agent writing
-with someone MUST NOT pass their phrase off as its own or as the house's; a
+with someone must not pass their phrase off as its own or as the house's; a
 translated quote says it is translated.
 
 ## Check
