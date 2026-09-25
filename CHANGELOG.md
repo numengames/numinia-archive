@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-25 (licensing in plain words)
+- **`standards/STD-010-licensing.md`** `2.1.0`: no licence code, acronym or file name in the reading, from the card to the last rule — each licence is described by what it lets people do (open and changes shared, open with no conditions, belongs to everyone, reusable with credit, stays ours). A second table at the foot pairs each kind of piece with its exact licence; the first keeps every plate, source and check. No obligation added or dropped. The Oracle's word in session.
+
 ### Changed — 2026-09-25 (licensing leans on SPDX, REUSE and the DCO)
 - **`standards/STD-010-licensing.md`** `2.0.0`: first step of sharing the external standards out by purpose. The three outside standards licensing rests on — SPDX, REUSE and the Developer Certificate of Origin — leave `STD-011` and each rule of Licensing now names the one it follows. Rules are grouped in four (what we publish, what we depend on, how a file says its licence, who may contribute), titled in words, read aloud with no code or path in the way; plates and sources wait in one table at the foot. No obligation added or dropped. The Oracle's word in session.
 - **`standards/STD-011-external-standards.md`** `2.1.0`: EXT-004, EXT-005 and EXT-012 leave for Licensing; their plates are retired.

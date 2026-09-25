@@ -162,7 +162,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-007` | One page per document | every document in every series; the body budget per series is in the decision below |
 | `STD-008` | Design tokens | every public surface of Numen Games and Numinia — web, product, document, deck, codex… |
 | `STD-009` | Which rule wins | every registered document of the corpus, and every reader of one |
-| `STD-010` | Licensing | every repository of Numen Games, Numinia's and NWOS's included |
+| `STD-010` | Licensing | every repository of Numen Games and Numinia |
 | `STD-011` | External standards | every document, repository and site of Numen Games and Numinia |
 | `STD-012` | The corpus does not grow | `missions/`, `reports/`, `debt/`, `blueprints/` |
 | `STD-013` | Licence allowlist and fields | register — scope belongs to the standard that cites it |
