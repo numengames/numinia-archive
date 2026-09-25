@@ -17,7 +17,8 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
-import { loadHolders, holderOf, bindsFor, Findings } from '../lib/regime.mjs';
+import * as regime from '../lib/regime.mjs';
+const { loadHolders, holderOf, bindsFor, Findings } = regime;
 
 import test from 'node:test';
 /* A case returns true, false, or a string: a string starting `skipped:` is a
@@ -95,3 +96,20 @@ check('fixture: finish() prints ENFORCING for an active holder and reporting-onl
   return text.includes('STD-900 (`active`) — ENFORCING') && text.includes('STD-901 (`draft`) — reporting only') && text.includes('2 finding(s), 1 enforced');
 });
 
+
+/* ---- where a plate is written ---- */
+
+check('platesIn: a plate in a rule title and a plate in the Check table both hold', () => {
+  if (typeof regime.platesIn !== 'function') return 'platesIn is not exported';
+  const { platesIn } = regime;
+  const body = [
+    '## Rules', '', '**ABC-001 — Old shape.** A plate in the title.', '',
+    '**Plate at the foot.** No code in the reading.', '',
+    '## Check', '', '| Plate | Rule | Source | Verified by |', '|---|---|---|---|',
+    '| ABC-002 | Plate at the foot | — | by hand |',
+    '| ABC-003, ABC-004 | two plates, one row | — | by hand |', '',
+    '## References', '', '| ID | Name | Why cited |', '|---|---|---|', '| `STD-007` | One page | shape |',
+  ].join('\n');
+  const got = platesIn(body).join(' ');
+  return got === 'ABC-001 ABC-002 ABC-003 ABC-004' || `got ${got}`;
+});
