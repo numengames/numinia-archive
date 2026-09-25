@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 122480,
+  "chars": 122608,
   "apparatus": false,
   "archived": false,
-  "tokens": 32485
+  "tokens": 32515
  },
  {
   "path": "CLAUDE.md",
@@ -2216,10 +2216,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9111,
+  "chars": 9965,
   "apparatus": false,
   "archived": false,
-  "tokens": 2437
+  "tokens": 2615
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",
