@@ -134,14 +134,6 @@ OpenChain. Adopting one turns it into a rule above.
 This standard is over its word budget because every rule has to be read
 aloud and understood without opening the source.
 
-## Why
-
-Writing our own rule for dates, licences or accessibility would cost work
-and buy a worse rule than the one the world already tested. Naming the
-outside standard lets anyone — a new citizen, an agent, an auditor — check
-us against something they already know. Saying which ones a tool checks,
-and which only we remember, keeps us honest about the difference.
-
 ## Check
 
 Every rule above, with the code an agent cites it by, the source to read,
@@ -182,6 +174,14 @@ Under consideration, binding nobody:
 - [DORA](https://dora.dev/research/2024/dora-report/)
 - [C2PA](https://c2pa.org/)
 - [OpenChain, ISO/IEC 5230](https://openchainproject.org/license-compliance)
+
+## Why
+
+Writing our own rule for dates, licences or accessibility would cost work
+and buy a worse rule than the one the world already tested. Naming the
+outside standard lets anyone — a new citizen, an agent, an auditor — check
+us against something they already know. Saying which ones a tool checks,
+and which only we remember, keeps us honest about the difference.
 
 ## References
 
