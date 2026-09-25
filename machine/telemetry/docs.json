@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13765,
+  "chars": 13746,
   "apparatus": false,
   "archived": false,
-  "tokens": 3413
+  "tokens": 3407
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 123934,
+  "chars": 124466,
   "apparatus": false,
   "archived": false,
-  "tokens": 32861
+  "tokens": 32991
  },
  {
   "path": "CLAUDE.md",
@@ -2205,10 +2205,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7249,
+  "chars": 8936,
   "apparatus": false,
   "archived": false,
-  "tokens": 1841
+  "tokens": 2244
  },
  {
   "path": "standards/STD-011-external-standards.md",
