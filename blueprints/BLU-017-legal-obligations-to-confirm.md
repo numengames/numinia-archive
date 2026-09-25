@@ -4,9 +4,9 @@ uid: ""
 title: "Legal obligations to confirm"
 type: blueprint
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-25T15:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-25T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, legal, consumer-law, tax, DSA, GDPR]
@@ -106,9 +106,9 @@ needs an age question and a route for parental consent. A lawyer confirms.
 
 **Accessibility of the shop.** The European Accessibility Act covers online
 shops from June 2025, unless the company is a microenterprise: under ten
-people and no more than two million euros a year. We are likely exempt
-today; the Oracle confirms our size, and the accessibility standard already
-asks for more than the law would.
+people and no more than two million euros a year. The Oracle confirmed we
+are one, so the law does not oblige us; the accessibility standard already
+asks for more. Look again if the company grows past either line.
 
 **Who we are, on every site.** Spanish law on online services asks every
 site to show the company's name, tax number, registered address, registry

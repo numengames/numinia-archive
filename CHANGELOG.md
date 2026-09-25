@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-25 (we are a microenterprise)
+- **`STD-034`** 0.2.1 and **`BLU-017`** 0.1.1: the Oracle confirmed Numen Games S.L. is a microenterprise, so the European Accessibility Act does not oblige us; WCAG 2.2 AA and the store's accessibility information stay our choice. To review if the company grows.
+
 ### Changed — 2026-09-25 (outside standards adopted where they say it better)
 At the Oracle's word in session, after a rule-by-rule audit of 278 plated rules against recognised outside standards. Each adopted norm stays a rule written our way: what it makes you do, why it is worth it, whether the law requires it; the norm and clause sit in the Check table.
 - **Engineering, repository, licensing** (STD-005, 010, 013, 014, 015, 019, 020, 022): Trunk-Based Development, Twelve-Factor, OpenSSF Scorecard and Best Practices Badge, Google SRE postmortems, Keep a Changelog, Conventional Commits, REUSE, DCO, ISO/IEC 5230, OWASP. Register rows SRE-006, DEV-007, ARC-003, OSS-003, TRC-008 retired as duplicates. Conflicts resolved for the outside side: TRC-004 (changelog from commits → Keep a Changelog), VER-022/023 (a new required obligation is major, as SemVer means). SPDX identifiers in the allowlist corrected. Wrong verifiers fixed (SEC-001, OSS-001, SEC-007).
