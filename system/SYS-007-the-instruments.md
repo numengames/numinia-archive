@@ -5,9 +5,9 @@ title: "The instruments: what checks, measures and moulds the archive"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-21T18:00:00+02:00"
-updated: "2026-09-21T18:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, instruments, guards, tools, scripts, telemetry, templates]
@@ -42,8 +42,9 @@ SPDX-License-Identifier: CC0-1.0
 
 The five folders under `machine/` that `STD-027` classifies — `guards/`,
 `tools/`, `scripts/`, `telemetry/` and `templates/` — and `packages/`, which
-it does not. An instrument is not a record (`STD-027` CLS-002): it carries no
-identifier, is never appraised and is never cited as evidence. It is
+it does not. An instrument is a short-lived record that never binds (`STD-027`
+CLS-002): it carries no identifier, is kept only while current, and may be
+cited as evidence of what it measured, never as a rule. It is
 classified because the archive is classified by the activity that produced
 it, and *Verifying*, *Measuring* and *Templating* are activities of the
 organisation. It is not published because it is code, read where code is read.

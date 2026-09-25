@@ -5,16 +5,16 @@ title: "Licence allowlist and fields"
 type: documentation
 subtype: register
 status: draft
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, SPDX, register, allowlist]
 threshold: governed
-series_change: "1.1.1 — 2026-09-25: the summary and the words between the tables are written plainly, for a narrator; the tables are unchanged."
+series_change: "1.1.2 — 2026-09-25: every licence identifier now matches the SPDX licence list 3.29 exactly (the GNU licences say only or or-later, and the source-available licences carry their version), so a machine reading the allowlist finds each one; no licence moved tier."
 ---
 
 <!--
@@ -34,9 +34,9 @@ SPDX-License-Identifier: CC0-1.0
 | Tier | Licences | Condition |
 |---|---|---|
 | Freely | `MIT` `ISC` `BSD-2-Clause` `BSD-3-Clause` `Apache-2.0` `0BSD` `CC0-1.0` `CC-BY-4.0` · `OFL-1.1` | OFL for fonts only |
-| With isolation | `MPL-2.0` `EPL-2.0` `LGPL-3.0` | file-level boundary kept |
-| With a signed decision | `GPL-3.0` `AGPL-3.0` | isolated and declared; separate repository if a third party's |
-| Never | `BUSL` `SSPL` `Elastic` · Commons Clause · proprietary · `CC-BY-NC-*` `CC-BY-ND-*` · any package without a `license` field | the *never* tier applies to what is distributed or served (`LIC-006`) |
+| With isolation | `MPL-2.0` `EPL-2.0` `LGPL-3.0-only` `LGPL-3.0-or-later` | file-level boundary kept |
+| With a signed decision | `GPL-3.0-only` `GPL-3.0-or-later` `AGPL-3.0-only` `AGPL-3.0-or-later` | isolated and declared; separate repository if a third party's |
+| Never | `BUSL-1.1` `SSPL-1.0` `Elastic-2.0` · Commons Clause · proprietary · `CC-BY-NC-*` `CC-BY-ND-*` · any package without a `license` field | the *never* tier applies to what is distributed or served (`LIC-006`) |
 
 Code may be pulled in one direction only: from the licences with no
 conditions, through Apache, into the licences that oblige sharing — never
@@ -44,7 +44,7 @@ back.
 
 | From | To |
 |---|---|
-| `MIT` · `BSD` · `ISC` | `Apache-2.0` → `GPL-3.0` → `AGPL-3.0` |
+| `MIT` · `BSD-2-Clause` · `BSD-3-Clause` · `ISC` | `Apache-2.0` → `GPL-3.0-only` → `AGPL-3.0-only` |
 
 ## Fields inside the file
 

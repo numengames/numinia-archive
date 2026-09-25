@@ -96,7 +96,7 @@ const SCORECARD_CHECKS = new Set([
   'Code-Review', 'Contributors', 'Dangerous-Workflow', 'Dependency-Update-Tool',
   'Fuzzing', 'License', 'Maintained', 'Packaging', 'Pinned-Dependencies',
   'SAST', 'Security-Policy', 'Signed-Releases', 'Token-Permissions',
-  'Vulnerabilities', 'Webhooks', 'Contributing',
+  'Vulnerabilities', 'Webhooks',
 ]);
 
 // ── parse ────────────────────────────────────────────────────────────────────

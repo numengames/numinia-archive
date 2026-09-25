@@ -5,15 +5,15 @@ title: "Header fields"
 type: documentation
 subtype: register
 status: draft
-version: "2.1.1"
+version: "2.2.0"
 created: "2026-08-28T15:10:00Z"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
-tags: [frontmatter, register, lint, metadata]
+tags: [frontmatter, register, lint, metadata, Dublin-Core, PROV]
 license: "CC0-1.0"
-series_change: "2.1.1 — 2026-09-25: the summary and the prose between the tables are written in plain words a narrator can read aloud, with no code, file name or plate in them; the tables are unchanged."
+series_change: "2.2.0 — 2026-09-25: each field is paired with the Dublin Core or provenance term whose meaning it carries, dates are held to the internet timestamp format, and the one field whose name clashes with an outside term is said to clash; no field renamed or dropped."
 ---
 
 <!--
@@ -24,21 +24,21 @@ SPDX-License-Identifier: CC0-1.0
 # Header fields
 
 > **Summary:** Every field a document's header may carry, ring by ring:
-> what its value must be, the code the header check reports when it fails,
-> and which series may carry it. A field not listed here is an error.
+> its value, the code the check reports, which series carry it, and the
+> outside term it means. A field not listed here is an error.
 
 ## Ring 1 — identity, every document
 
 | Field | Rule | Plate |
 |---|---|---|
 | `id` | present; matches its series prefix, or `registration: exempt` with a reason | HDR-001 |
-| `title` | present, non-empty, English (language `[MANUAL]`) | HDR-002 |
+| `title` | present, non-empty, English — BCP 47 `en` (language `[MANUAL]`) | HDR-002 |
 | `type` | present; in the vocabulary below | HDR-003 |
 | `status` | present; in the lifecycle of its type | HDR-004 |
-| `version` | present; semantic version, no `v` prefix | HDR-005 |
-| `created` | present; ISO 8601 with time; midnight rejected for new documents | HDR-006 |
-| `updated` | present; ISO 8601 with time; not earlier than `created` | HDR-007 |
-| `license` | present; SPDX identifier; agrees with the licence manifest (`HDR-043` when absent) | HDR-008 |
+| `version` | present; Semantic Versioning 2.0.0, no `v` prefix | HDR-005 |
+| `created` | present; RFC 3339 date-time (a profile of ISO 8601), time required; midnight rejected for new documents | HDR-006 |
+| `updated` | present; RFC 3339 date-time, time required; not earlier than `created` | HDR-007 |
+| `license` | present; SPDX License List identifier; agrees with the licence manifest (`HDR-043` when absent) | HDR-008 |
 
 ## Ring 2 — provenance, every document that makes a claim
 
@@ -60,6 +60,32 @@ SPDX-License-Identifier: CC0-1.0
 | `ratified_by` | an authority promoted or confirmed the record |
 | `parent_mission` | a bounded child of a larger mission |
 | `former_id` | the identifier before a governed move |
+
+## Outside meaning
+
+Where the library world's Dublin Core terms or the web's provenance
+vocabulary already name what a field means, it means exactly that, so an
+auditor's catalogue reads our headers unaided; the names stay ours.
+
+| Field | Means | Note |
+|---|---|---|
+| `id` | `dcterms:identifier` | |
+| `title` | `dcterms:title` | |
+| `created` | `dcterms:created` | |
+| `updated` | `dcterms:modified` | |
+| `license` | `dcterms:license` | value from the SPDX License List |
+| `author` | `dcterms:creator` | |
+| `supersedes` | `dcterms:replaces` | |
+| `superseded_by` | `dcterms:isReplacedBy` | an heir is this relation, never a status |
+| `related` | `dcterms:relation` | |
+| `parent_mission` | `dcterms:isPartOf` | |
+| `derived_from` | `prov:wasDerivedFrom` | |
+| `tags` | `dcterms:subject` | |
+| `visibility` | `dcterms:accessRights` | |
+| `requested_by` | `prov:actedOnBehalfOf` | |
+| `provenance` | — | NOT `dcterms:provenance`, which records custody; ours says how the piece was made. The name clash is a pending decision |
+
+`dcterms:` is [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/); `prov:` is [PROV-O](https://www.w3.org/TR/prov-o/).
 
 ## Ring 3 — extension by series (`HDR-030`)
 

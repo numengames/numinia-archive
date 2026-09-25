@@ -5,17 +5,17 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Content"
 license: "CC0-1.0"
-tags: [standards, writing, form, plates, budget]
+tags: [standards, writing, form, plates, budget, BCP-14, ISO-IEC-Directives]
 ratified_by: "ADR-043"
 supersedes_version: "0.3.0"
-series_change: "1.2.0 — 2026-09-25: a rule's plate may wait in the first column of the Check table instead of its title, and identifiers may appear there as well as in References, so the reading can be heard aloud; the guard reads both places."
+series_change: "1.3.0 — 2026-09-25: the scope, plate, citation and language rules say which outside standard they follow — the international drafting rules for a scope clause, the internet's obligation words with the requirements-engineering rule of one uniquely named requirement each, language tags — and the evidence standard's rule against citing section numbers is merged into this one, one rule for every document."
 ---
 
 <!--
@@ -41,6 +41,9 @@ list a folder.
 
 ## Rules
 
+No law requires this shape; it is our choice, borrowed where it could be
+from how international and internet standards are drafted.
+
 ### The top of the page
 
 **The title states the rule.** A title SHOULD be at most five words, naming
@@ -51,15 +54,18 @@ naming.
 of what is required, what the reader will understand, and what the reader
 can then do; each SHOULD be at most 40 words.
 
-**Scope is one line each way.** A standard or protocol MUST say whom it binds
-and what it does not bind, each in at most 15 words, naming shelves or kinds
-of work, never the whole archive.
+**Scope is one line each way.** A standard or protocol MUST say whom it
+binds and what it does not bind, each in at most 15 words, as the
+international drafting rules require a scope clause up front; so a reader
+knows in two lines whether to read on.
 
 ### The rules and their reasons
 
-**Rules come first, and each has its code.** Every rule MUST carry a code of
-three letters and three digits, unique and never reused, either in its title
-or in the first column of the check table; one obligation word each.
+**Rules come first, and each has its code.** Every rule MUST be one
+obligation with one capitalised obligation word and a code of three letters
+and three digits, unique and never reused, in its title or the check table;
+requirements engineering asks exactly this, so each rule can be cited,
+tested and traced alone.
 
 **The reason is short.** The section giving the reason SHOULD hold at most
 80 words. Longer reasoning belongs in a decision record.
@@ -74,10 +80,10 @@ blueprints; 1,500 for canon. Over it, one sentence in the document says why.
 **Few, necessary references.** The references MUST list only documents this
 one depends on to oblige, and SHOULD be at most five.
 
-**Cite rules, not places.** Another document's rule is cited by its code and
-its plain name, never by section number. Document identifiers MUST appear
-only in the check table and the references; the reading names things in
-words.
+**Cite rules, not places.** A document or rule MUST be cited by its name or
+its code, never by a section number, which moves whenever the cited
+document is rewritten; identifiers appear only in the check table and the
+references, so the reading names things in words.
 
 ### What sits apart
 
@@ -88,9 +94,10 @@ it MUST hold a summary, a table, and at most one sentence of prose.
 section or a note of what changed. The history of the archive is the
 history of the document.
 
-**Written in English.** New and rewritten documents are written in English.
-One that departs from the default declares its language; a Spanish document
-is not invalid, it is mid-migration.
+**Written in English.** New and rewritten documents SHOULD be written in
+English; one that departs from the default declares its language with the
+internet's standard language tag, so a reader and a program both know it. A
+Spanish document is not invalid, it is mid-migration.
 
 This standard is over its word budget because the check table at its foot
 names a check for each of its eleven rules.
@@ -104,15 +111,15 @@ it rests on, and what verifies it today.
 |---|---|---|---|
 | DOC-001 | The title states the rule | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD: counted, reported, never handed to the regime |
 | DOC-002 | The card is three short paragraphs | — | `machine/guards/rules/std-007-one-page.mjs` — a missing part binds by this standard's state (`ENG-067`); length is a SHOULD |
-| DOC-003 | Scope is one line each way | — | `machine/guards/rules/std-007-one-page.mjs`; `machine/guards/test/std-007-one-page.test.mjs` |
-| DOC-004 | Rules come first, and each has its code | [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) | `machine/guards/rules/std-007-one-page.mjs` — a plate in a rule title or the Check table's first column (`platesIn`) |
+| DOC-003 | Scope is one line each way | [ISO/IEC Directives, Part 2 (2021), clause 14, Scope](https://www.iso.org/sites/directives/current/part2/index.xhtml) — ours adds: both directions, 15 words each | `machine/guards/rules/std-007-one-page.mjs`; `machine/guards/test/std-007-one-page.test.mjs` |
+| DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the plate `AAA-NNN` | `machine/guards/rules/std-007-one-page.mjs` — a plate in a rule title or the Check table's first column (`platesIn`) |
 | DOC-005 | The reason is short | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
 | DOC-006 | The body fits its budget | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
 | DOC-007 | Few, necessary references | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
-| DOC-008 | Cite rules, not places | — | `machine/guards/rules/std-007-one-page.mjs` — bare IDs outside References and Check rows, section pointers anywhere, in `standards/` only |
+| DOC-008 | Cite rules, not places | — (stricter than [ISO 690:2021](https://www.iso.org/standard/72642.html), which allows location references); holds the rule `STD-021` CIT-050 enforced | `machine/guards/rules/std-007-one-page.mjs` — bare IDs outside References and Check rows, section pointers, in `standards/`; `machine/guards/rules/std-021-evidence-and-citation.mjs` under CIT-050 — cited sections must exist elsewhere |
 | DOC-009 | Registers are tables | — | `machine/scripts/check-templates.mjs` |
 | DOC-010 | No history inside | — | `machine/scripts/check-templates.mjs` |
-| DOC-011 | Written in English | — | by hand, at the pull request |
+| DOC-011 | Written in English | [BCP 47](https://www.rfc-editor.org/info/bcp47) language tags | by hand, at the pull request |
 
 ## Why
 
@@ -129,3 +136,4 @@ it. Codes wait at the foot, where no narrator stumbles on them.
 |---|---|---|
 | `ADR-043` | One page per document | the decision; the budget per series until a Series register exists |
 | `STD-004` | The header standard | the card and the fields above the body |
+| `STD-021` | Evidence and citation | its section-citation plate now reads this rule |

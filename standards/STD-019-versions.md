@@ -5,16 +5,16 @@ title: "Versions"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.4"
+version: "2.0.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, versioning, semver]
 threshold: governed
-series_change: "1.0.4 — 2026-09-25: written in plain words a narrator can read aloud, and taking in Semantic Versioning from the external standards, where its rule said what our own first rule already said; the two become one rule, with the outside standard as its source."
+series_change: "2.0.0 — 2026-09-25: the rules on when a number moves now follow Semantic Versioning to the letter, where our old rule made any changed obligation only a minor: a new obligation that turns conforming work into non-conforming work is now a major, reversing the old rule, at the Oracle's word in session."
 ---
 
 <!--
@@ -25,9 +25,11 @@ SPDX-License-Identifier: CC0-1.0
 # Versions
 
 > **Summary:** Every version is three numbers, major, minor and patch,
-> following the world's common scheme as published. Asking more raises the
-> middle number; reversing what was asked raises the first. Who may raise
-> which number is set by rank.
+> following Semantic Versioning as published. A document's promise to its
+> readers is its obligations: breaking work that obeyed it yesterday raises
+> the first number, offering more without breaking anything raises the
+> middle, and rewording raises the last. Who may raise which number is set
+> by rank.
 > **Epistemic:** What a version number promises the reader of a document.
 > **Pragmatic:** Decide the new number from what changed, not from the mood.
 > **Audience:** Agents · Oracles
@@ -40,9 +42,12 @@ versions.
 
 ### What a version is
 
-**Versions follow Semantic Versioning.** Every version MUST be three
-numbers — major, minor, patch — as that scheme publishes them, not redefined
-here. Everything starts at zero point one point zero.
+**Versions follow Semantic Versioning.** We follow Semantic Versioning, the
+common rule for version numbers: every version MUST be three numbers —
+major, minor, patch — and a document's public promise, which that rule asks
+each project to declare, is its set of obligations. Anyone can then read
+from the number alone whether their work still conforms. Everything starts
+at zero point one point zero. Our choice.
 
 **The header and the log agree.** Where a document keeps a log of its own
 changes, the version in its header MUST be the same number as the newest
@@ -50,11 +55,14 @@ entry.
 
 ### When a number moves
 
-**A changed obligation is at least a minor.** Changing what a document
-requires MUST raise at least the middle number.
+**Breaking conformance is a major.** Any change that makes work which obeyed
+the document yesterday fall short today MUST raise the first number:
+removing or reversing an obligation, or adding one that is required.
 
-**A reversed obligation is a major.** Reversing what a document requires
-MUST raise the first number.
+**Offering more without breaking is a minor; rewording is a patch.** A new
+recommendation, a new permission or a wider scope that leaves every
+conforming work still conforming MUST raise the middle number; a change of
+wording that asks nothing new raises only the last.
 
 ### Who may move it
 
@@ -69,24 +77,25 @@ it rests on, and what verifies it today.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| VER-021 | Versions follow Semantic Versioning | [Semantic Versioning 2.0.0](https://semver.org/) | `machine/guards/rules/std-019-versions.mjs`, the shape of the number only; `machine/scripts/check-templates.mjs` T-08 for the opening value on the moulds |
+| VER-021 | Versions follow Semantic Versioning | [Semantic Versioning 2.0.0, items 1 and 2](https://semver.org/spec/v2.0.0.html) | `machine/guards/rules/std-019-versions.mjs`, the shape of the number only; `machine/scripts/check-templates.mjs` T-08 for the opening value on the moulds |
 | VER-024 | The header and the log agree | — | `machine/guards/rules/std-019-versions.mjs` |
-| VER-022 | A changed obligation is at least a minor | — | by hand: deciding that a change is a changed obligation is the judgement itself |
-| VER-023 | A reversed obligation is a major | — | by hand, as above |
+| VER-023 | Breaking conformance is a major | [Semantic Versioning 2.0.0, item 8](https://semver.org/spec/v2.0.0.html) | by hand: deciding that a change breaks conformance is the judgement itself |
+| VER-022 | Offering more without breaking is a minor; rewording is a patch | [Semantic Versioning 2.0.0, items 6 and 7](https://semver.org/spec/v2.0.0.html) | by hand, as above |
 | VER-064 | Who moves which number | — | by hand: matching an author to the number they moved |
 
 VER-021 absorbs EXT-002 of the external standards, which said the same;
-that plate is retired there. We adapt the scheme on one point: for a
+that plate is retired there. We add one point to the scheme: for a
 document, who may raise each number depends on authority, not only on
 compatibility.
 
 ## Why
 
 A version is a promise about compatibility. For a document, compatibility
-is whether what it required yesterday is still required today: a minor says
-more is asked, a major says the opposite is asked. Tying each number to a
-rank makes the promise cost what it claims, so nobody reverses an obligation
-by accident on a patch.
+is whether work that obeyed it yesterday still obeys it today; that is
+exactly what Semantic Versioning's first number guards, so a new
+requirement is a major, not the minor our old rule called it. Tying each
+number to a rank makes the promise cost what it claims, so nobody breaks
+conformance by accident on a patch.
 
 ## References
 

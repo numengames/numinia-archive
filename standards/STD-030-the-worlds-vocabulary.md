@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.4"
+version: "0.1.5"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -17,7 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-053"
 threshold: governed
 related: ["CAN-004", "STD-003", "STD-026", "PRO-019"]
-series_change: "0.1.4 — 2026-09-25: the summary and the closing note are written plainly, for a narrator, with no document codes in them; the tables are unchanged."
+series_change: "0.1.5 — 2026-09-25: the summary says the translation follows the web consortium's model for vocabularies, each in-world name matched exactly or closely to its operational one; the tables are unchanged. 0.1.4 — 2026-09-25: the summary and the closing note are written plainly, for a narrator, with no document codes in them; the tables are unchanged."
 ---
 
 <!--
@@ -36,6 +36,13 @@ SPDX-License-Identifier: CC0-1.0
 > copies what the public game site already shows. The structure they name,
 > the ranks, the business's working terms and the game's own terms each have
 > their own document.
+>
+> The two vocabularies follow the web consortium's model for linking
+> vocabularies: the in-world name is the preferred label, the operational
+> equivalent is an exact or a close match in the business's vocabulary, and
+> what it does is the definition — the kind of thing first, then what sets
+> it apart, as the international rule for definitions asks. Any tool that
+> reads that model can carry the translation both ways.
 
 ## Guilds — Alchemists
 

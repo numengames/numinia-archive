@@ -5,16 +5,16 @@ title: "Publishing gates"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.2"
+version: "1.1.0"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, publication, arweave, visibility]
 threshold: governed
-series_change: "1.0.2 — 2026-09-25: written in plain words, at the Oracle's word in session: no file name, code or service name in the reading; plates, the files checked and what verifies each rule wait in one table at the foot. No obligation added or dropped."
+series_change: "1.1.0 — 2026-09-25: the check before a repository goes public now names the two outside checks it runs, the REUSE linter and a secret scan of the whole history as the best practices badge asks, and the gates rest on the OpenChain licence-compliance standard, at the Oracle's word in session."
 ---
 
 <!--
@@ -53,18 +53,25 @@ down.
 **Going public is the grant.** A licence offered in public, with the work
 there to take, grants its rights to whoever takes them; nothing else needs
 to be released. So making a repository public is an act an Oracle signs,
-under the same gate.
+under the same gate. The law makes it so: copyright law turns the offered
+licence into a grant.
 
 ### What is checked before a repository goes public
 
-**Four checks before visibility changes.** The licence files, the brand
-notice and the attribution notice MUST be complete; sensitive folders MUST
-be listed by a command and compared with the licence declarations, never
-from memory.
+**Four checks before visibility changes.** Before a repository goes public,
+four checks MUST pass. Two follow outside standards: the linter of the REUSE
+specification, the common way for every file to say its licence, proves
+that every file declares its owner and terms; and a secret scanner reads
+every commit in the history, not only the latest, and finds no leaked
+credential, as the best practices badge of the Open Source Security
+Foundation asks. Two are ours: the brand and attribution notices are
+complete, and sensitive folders are listed by a command and compared with
+the licence declarations, never from memory. Our choice.
 
 **Nothing reserved slips through.** No file we keep reserved may be reached
-by a general licence declaration, and the whole history, not only the
-latest version, MUST be free of personal data and secrets.
+by a general licence declaration, and the whole history MUST be free of
+personal data. The law requires this: publishing someone's personal data
+needs a legal basis.
 
 **Being born licensed is not publication.** A repository carries its licence
 from its first commit; while it is private, that licence grants permission to
@@ -76,14 +83,14 @@ condition on every build.
 
 ## Check
 
-Every rule above, with the code an agent cites it by and what verifies it
-today. No outside standard is followed here.
+Every rule above, with the code an agent cites it by, the outside standard
+it follows, and what verifies it today.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| PUB-001 | Permanent publication is gated; what fails the gate stays withdrawable | — | by hand: the Oracle's signature, recorded outside the corpus |
-| PUB-002 | Going public is the grant | — | by hand: the Oracle's signature, recorded outside the corpus |
-| PUB-003 | Four checks before visibility changes; nothing reserved slips through | — | by hand: the listing is produced by a command and its output attached to the signing; the files are the licence folder, `REUSE.toml`, `TRADEMARKS.md` and `NOTICE` |
+| PUB-001 | Permanent publication is gated; what fails the gate stays withdrawable | [ISO/IEC 5230 OpenChain, clause 3.3 review and approval of open source content](https://github.com/OpenChain-Project/License-Compliance-Specification) | by hand: the Oracle's signature, recorded outside the corpus |
+| PUB-002 | Going public is the grant | [ISO/IEC 5230 OpenChain, clause 3.5 community engagement](https://github.com/OpenChain-Project/License-Compliance-Specification) | by hand: the Oracle's signature, recorded outside the corpus |
+| PUB-003 | Four checks before visibility changes; nothing reserved slips through | [REUSE 3.3, `reuse lint`](https://reuse.software/spec-3.3/); [OpenSSF Best Practices Badge, no_leaked_credentials](https://www.bestpractices.dev/en/criteria/0#0.no_leaked_credentials); [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for personal data | `reuse lint` in CI; no full-history secret scan (gitleaks) runs yet, register row SEC-004 is owed; the listing is produced by a command and its output attached to the signing; `TRADEMARKS.md` and `NOTICE` by hand |
 | PUB-004 | Being born licensed is not publication | — | by hand: a `LICENSE` file present at the first commit |
 | PUB-005 | A legal debt waits for a condition | — | nothing yet: the guard that evaluates conditions is described, not built (`DBT-020`) |
 

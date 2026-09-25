@@ -5,18 +5,18 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "2.4.0"
+version: "2.5.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, guards]
 license: "CC0-1.0"
 absorbs: ["STD-011"]
-series_change: "2.4.0 — 2026-09-25: written in plain words, and seven outside standards from STD-011 now stand here as the sources of our own rules; two of them bring a new rule, the security score (ENG-068) and the changelog for people (ENG-069), and the other five were already our rules or rows of the register STD-015. At the Oracle's word in session."
+series_change: "2.5.0 — 2026-09-25: five rules now follow a named outside standard and say in our words what it makes us do (trunk-based development with the scorecard's branch checks, twelve-factor settings, the scorecard with a named reader and a seven-out-of-ten aim, postmortems with triggers set before an incident, and Keep a Changelog's six kinds), a minor move because obligations are added and none dropped, at the Oracle's word in session."
 ---
 
 <!--
@@ -29,8 +29,8 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every engineering practice we hold names the machine that
 > checks it, or admits it is checked by hand, and checking by hand is debt.
 > The automatic checks on every change are the authority; a rule that never
-> fails a build is only prose. The practices themselves are listed in the
-> register of engineering checks.
+> fails a build is only prose. Where the world already has a good rule, we
+> follow it, and say here what it makes us do.
 > **Epistemic:** Which engineering practices are required here, which outside
 > standards they follow, and which a machine actually enforces.
 > **Pragmatic:** Set up a new repository, or review an existing one, without
@@ -91,22 +91,33 @@ version number; checks by pull request, at any time.
 
 ### How work lands
 
-**Work lands in small batches on one trunk.** Changes are integrated often,
-in small pull requests, on short branches that reach the main line quickly;
-the main line stays green, and at least one approval comes before it.
+**Work lands in small batches on one trunk.** We follow trunk-based
+development, the common practice of merging small changes into one main line
+at least daily, together with the security scorecard's checks that the main
+line is protected and every change to it reviewed. Conflicts stay small, and
+the settings alone prove that nothing reached the main line unseen. Our
+addition: at least one approval MUST come before a change lands. Our choice.
 
 **Leave it better.** No change adds debt silently: it declares what it left
 behind. A green pipeline is not a clean tree.
 
 ### How a repository is kept safe
 
-**Settings live in the environment.** Passwords, keys and anything that
-changes between machines MUST stay out of the repository and be read from
-where the program runs, because what is published cannot be unpublished.
+**Settings live in the environment.** We follow the third factor of the
+twelve-factor app, the common method for building services: anything that
+changes between machines, passwords and keys above all, MUST be read from
+the environment where the program runs, never written into the repository.
+The same code then runs anywhere, and publishing it never publishes a key.
+Our choice; if a leaked key opens personal data, data protection law makes
+it a breach.
 
-**Every repository keeps a security score.** Each repository MUST be graded
-every week by an open-source scorecard of how safely it is built and
-published, and someone MUST read the grade.
+**Every repository keeps a security score.** We follow the security
+scorecard of the Open Source Security Foundation, which grades a repository
+out of ten, check by check, on how safely it is built, reviewed and
+published; it turns "is this safe" into a number anyone can rerun. Our
+addition: each repository MUST be graded every week, with a named person who
+reads the grade, and a public one aims at seven out of ten or better. Our
+choice.
 
 **Migrate in order.** A repository that already exists adopts the security
 scorecard first, then the checks that required files are present, then the
@@ -114,18 +125,25 @@ full pipeline. Measure first, then tighten.
 
 ### When something breaks, and whom we build for
 
-**Incidents produce rules, not culprits.** When something breaks, we write
-down what happened and what changes, never who is at fault. An incident MAY
-bring in one new practice, through a written decision.
+**Incidents produce rules, not culprits.** We follow the postmortem culture
+of Google's book on site reliability: which events call for a written review
+is decided before any happens, and each review says what happened, what it
+cost and what changes, never who is at fault. People report early instead of
+hiding, and every serious failure demonstrably leaves a lesson. Our
+addition: an incident MAY bring in one new practice, only through a written
+decision. Our choice.
 
 **The platform is a product for developers, human and digital.** If the
 obvious way to do something is unclear to an agent, it is unclear.
 
 ### How changes are told
 
-**The changelog is written for people.** A changelog SHOULD group its
-entries by date and by kind — added, changed, fixed, removed — newest first,
-so a reader sees what moved without reading the commits.
+**The changelog is written for people.** We follow Keep a Changelog, the
+common shape for a changelog: newest first, a section for what is not yet
+released, and every entry filed under one of six kinds — added, changed,
+deprecated, removed, fixed, or security — so a reader learns what moved, and
+whether it touches them, without reading the commits. Our addition: a site
+with no releases SHOULD head each group with its date instead. Our choice.
 
 How a commit message says its kind, and how a mission accepts the software it
 produces through scenarios a test runs, are practices in the register of
@@ -138,50 +156,51 @@ aloud and understood without opening the source.
 
 Every rule above, with the code an agent cites it by, the outside standard
 it follows, and what verifies it today. Then every outside standard this
-baseline absorbed, with the rule of ours that already said it.
+baseline follows, with the register rows that apply it.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| ENG-001 | A rule that does not fail a build is prose | — | by reading; the register check (`machine/tools/check-register.mjs`) counts 24 automatic, 5 gated and 27 owed rows out of 56 |
+| ENG-001 | A rule that does not fail a build is prose | — | by reading; the register check (`machine/tools/check-register.mjs --list`) counts its automatic, gated and owed rows |
 | ENG-002 | Every practice names its check | — | the register check verifies each row's named check exists; it reports, it does not fail the build while the register is a draft |
 | ENG-066 | A guard that fails on unstated behaviour is the defect | — | by hand, at review |
 | ENG-067 | A guard bites by the state of its rule; signing a standard switches its guards on; a guard over the artefact bites always | — | `machine/scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `blindness.test.mjs` checks every guard is a build guard or answers to the regime |
 | ENG-031 | A guard runs from the change that merges it | — | `machine/scripts/run-guards.mjs` runs every registered guard; `blindness.test.mjs` and the register check refuse a guard script with no registry entry |
 | ENG-032 | The list of guards is read, never remembered | — | the workflow calls `npm run guards` and names no guard; the register check verifies that step is present |
 | ENG-034 | Three layers, three speeds | — | by hand, at review |
-| ENG-003 | Work lands in small batches on one trunk | [Trunk-Based Development](https://trunkbaseddevelopment.com/) | `.github/rulesets/protect-main.json`: pull request required, one approval, no force push, linear history, the `build` check required; batch size and branch age by hand |
+| ENG-003 | Work lands in small batches on one trunk | [Trunk-Based Development](https://trunkbaseddevelopment.com/); [OpenSSF Scorecard, Branch-Protection and Code-Review](https://github.com/ossf/scorecard/blob/main/docs/checks.md) | `.github/rulesets/protect-main.json`: pull request required, one approval, no force push, linear history, the `build` check required; `.github/workflows/scorecard.yml` grades Branch-Protection and Code-Review; batch size and branch age by hand |
 | ENG-005 | Leave it better | — | by hand, at review |
-| ENG-004 | Settings live in the environment | [The Twelve-Factor App, config](https://12factor.net/config) | no tracked environment file in any of the four repositories; no secret scanner of our own (register row SEC-004 is owed) |
-| ENG-068 | Every repository keeps a security score | [OpenSSF Scorecard](https://scorecard.dev/) | `.github/workflows/scorecard.yml` runs weekly and on push to the main line in all four repositories; the last runs succeeded; whether the grade is read, by hand |
+| ENG-004 | Settings live in the environment | [The Twelve-Factor App, III. Config](https://12factor.net/config) | no tracked environment file in any of the four repositories; no secret scanner of our own (register row SEC-004 is owed) |
+| ENG-068 | Every repository keeps a security score | [OpenSSF Scorecard](https://scorecard.dev/) | `.github/workflows/scorecard.yml` runs weekly and on push to the main line in all four repositories; the named reader and the grade itself, by hand |
 | ENG-035 | Migrate in order | [OpenSSF Scorecard](https://scorecard.dev/) | by hand |
-| ENG-006 | Incidents produce rules, not culprits | [Blameless postmortem](https://sre.google/sre-book/postmortem-culture/) | by hand; no template in `.github/` asks for a postmortem |
+| ENG-006 | Incidents produce rules, not culprits | [Google SRE book, ch. 15, Postmortem Culture](https://sre.google/sre-book/postmortem-culture/), triggers defined in advance | by hand; the triggers are not yet written down, and no template in `.github/` asks for a postmortem |
 | ENG-007 | The platform is a product for developers, human and digital | — | by hand |
-| ENG-069 | The changelog is written for people | [Keep a Changelog](https://keepachangelog.com/) | by hand; this archive's changelog groups by date and kind under an unreleased heading; `numinia-web` and `nwos-deploy` keep none |
+| ENG-069 | The changelog is written for people | [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/): six kinds, an Unreleased section | by hand; this archive's changelog groups by date and kind under an unreleased heading; `numinia-web` and `nwos-deploy` keep none |
 | ENG-033 | retired in 2.2.0: it governed baselines, and there are none | — | — |
 
-| Outside standard | Where it is our rule |
+| Outside standard | Register rows that apply it |
 |---|---|
-| [Blameless postmortem](https://sre.google/sre-book/postmortem-culture/) | ENG-006 here; register row SRE-006 says it again |
-| [OpenSSF Scorecard](https://scorecard.dev/) | ENG-068, new here; ENG-035 already made it the first step; six register rows are verified by its checks, and a seventh asks that it be consulted |
-| [Trunk-Based Development](https://trunkbaseddevelopment.com/) | ENG-003 here; register rows ARC-002, DEV-006, DEV-007 and the pull-request rule GIT-025 say parts of it again |
-| [The Twelve-Factor App, config](https://12factor.net/config) | ENG-004 here; register rows SEC-004 and DEV-001, and the secrets rule KEY-054, say parts of it again |
-| [Conventional Commits](https://www.conventionalcommits.org/) | register row ARC-006 and its list of kinds; not repeated here; no commit-message check anywhere (`DBT-020`), none of the last 30 commit subjects on this archive's main line conform |
-| [Gherkin](https://cucumber.io/docs/gherkin/) | register row AGT-005; not repeated here; only `numinia-web` runs scenarios, ten `.feature` files in its acceptance tests in CI |
-| [Keep a Changelog](https://keepachangelog.com/) | ENG-069, new here; register row TRC-004 requires a changelog too, but allows one generated from commits, which this outside standard advises against |
+| [Google SRE book, ch. 15](https://sre.google/sre-book/postmortem-culture/) | ENG-006 alone; register row SRE-006, which said it again, is retired into it |
+| [OpenSSF Scorecard](https://scorecard.dev/) | ENG-068 and ENG-035; register rows SEC-003, SEC-007, SEC-008, SEC-009, ARC-002 and ARC-009 are verified by its checks |
+| [Trunk-Based Development](https://trunkbaseddevelopment.com/) | ENG-003; register rows ARC-002, DEV-006 and the pull-request rule GIT-025 apply parts of it; register row DEV-007, which repeated the approval, is retired into ENG-003 |
+| [The Twelve-Factor App, III. Config](https://12factor.net/config) | ENG-004; register rows SEC-004 and DEV-001 apply it |
+| [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) | the commit-subject rule GIT-026 and register row ARC-006 with its list of kinds; no commit-message check anywhere (`DBT-020`) |
+| [Gherkin](https://cucumber.io/docs/gherkin/) | register row AGT-005; only `numinia-web` runs scenarios, ten `.feature` files in its acceptance tests in CI |
+| [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/) | ENG-069; register row TRC-004 now follows it, where it once allowed a changelog generated from commits, which this outside standard advises against |
 
 ## Why
 
 A practice with no check is a wish with a heading; writing the check beside
 it shows how much of the baseline is enforced and how much is promised. The
 guard rules exist because guards are code that rots. Following a standard the
-world already tested, instead of writing our own, buys a better rule and lets
-anyone check us against something they already know.
+world already tested buys a better rule and lets anyone audit us against
+something they already know; each rule still says in our words what that
+standard makes us do, so nobody has to leave the page to obey it.
 
 ## References
 
 | ID | Title | Relation |
 |---|---|---|
-| `STD-015` | Engineering checks | the 52 practices, their level and their check |
+| `STD-015` | Engineering checks | the practices, their level and their check |
 | `PRO-016` | Applying the engineering standard | the procedure for a task |
 | `STD-009` | Which rule wins | where ENG-031..035 and ENG-066 came from; `PRE-006`, the principle ENG-067 executes |
 | `RPT-019` | Week 37 | where `DBT-017` and `DBT-021`, the two defects ENG-067 closes, are recorded closed |
