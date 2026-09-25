@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "0685f19",
-  "corpus_hash": "9937e3a76e40c0e468d1981e0024f1b1aee7de06d208493f785bd05c5b0460c8",
+  "head": "e3695b6",
+  "corpus_hash": "7d53065e02c730b899934ae7fa64095e609f7f65bc34f0b3a9241ef5283e3360",
   "root_dirty": 0,
-  "measured_at": "2026-09-25T10:54:40Z",
+  "measured_at": "2026-09-25T11:15:03Z",
   "families": [
     "corpus",
     "series",
@@ -320,21 +320,21 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 884545,
+      "value": 884724,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 77370,
+        "standards": 77444,
         "missions": 45717,
-        "": 41296,
+        "": 41392,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29103,
         "operations": 25159,
-        "blueprints": 24371,
+        "blueprints": 24380,
         "system": 18761,
         "canon": 18667,
         "protocols": 18054,
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 536600,
-        "draft": 178355,
+        "(none)": 536696,
+        "draft": 178438,
         "active": 122385,
         "done": 26539,
         "todo": 15975,
@@ -652,7 +652,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 954
+          "3": 955
         },
         "MIS": {
           "3": 687,
@@ -670,11 +670,11 @@
         "ADR": {
           "3": 505
         },
+        "BLU": {
+          "3": 119
+        },
         "SYS": {
           "3": 57
-        },
-        "BLU": {
-          "3": 118
         },
         "RPT": {
           "3": 61,
