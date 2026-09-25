@@ -154,40 +154,41 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-019` | Holding a ritual | whoever convokes, prepares or records a ritual of Numinia |
 | `PRO-020` | Putting something on sale | whoever prepares, approves, creates or withdraws something on sale in Numinia's or Numen Games'… |
 | `PRO-021` | Closing the month | whoever brings the month's documents, turns them into ledger lines, or reviews the close |
-| `STD-001` | The series | every tracked document of the corpus |
+| `STD-001` | The series | every tracked document of the archive |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
-| `STD-004` | The header | every Markdown file under the directories `machine/scripts/lib/rules.json` lists as governed |
-| `STD-005` | Engineering baseline | `numengames/numinia-archive`, edited here and downstream of nothing. NWOS workspaces receive it… |
-| `STD-006` | Plain text is sovereign | every corpus document; every component that stores, serves, builds or reads it… |
-| `STD-007` | One page per document | every document in every series; the body budget per series is in the decision below |
+| `STD-004` | The header | every document's header, and every date and obligation word the archive writes |
+| `STD-005` | Engineering baseline | this archive's own repository, edited here and downstream of nothing… |
+| `STD-006` | Plain text is sovereign | every document of the archive; everything that stores, serves, builds or reads it… |
+| `STD-007` | One page per document | every document on every shelf of the archive |
 | `STD-008` | Design tokens | every public surface of Numen Games and Numinia — web, product, document, deck, codex… |
-| `STD-009` | Which rule wins | every registered document of the corpus, and every reader of one |
+| `STD-009` | Which rule wins | every registered document of the archive, and everyone who reads one |
 | `STD-010` | Licensing | every repository of Numen Games and Numinia |
-| `STD-011` | External standards | every document, repository and site of Numen Games and Numinia |
-| `STD-012` | The corpus does not grow | `missions/`, `reports/`, `debt/`, `blueprints/` |
+| `STD-012` | The corpus does not grow | missions, reports, debt records and blueprints |
 | `STD-013` | Licence allowlist and fields | register — scope belongs to the standard that cites it |
-| `STD-014` | Publishing gates | every permanent publication and every private-to-public change of a Numen Games repository |
+| `STD-014` | Publishing gates | every permanent publication, and every change of a Numen Games repository from private to public |
 | `STD-015` | Engineering checks | register — scope belongs to the standard that cites it |
 | `STD-016` | Header fields | register — scope belongs to the standard that cites it |
 | `STD-017` | Who may change what | every change to a registered document |
-| `STD-018` | One document, one identifier | every registered document of the corpus |
-| `STD-019` | Versions | every registered document, and every artefact the corpus versions |
+| `STD-018` | One document, one identifier | every registered document of the archive |
+| `STD-019` | Versions | every registered document, and everything else the archive versions |
 | `STD-020` | Git is the archive | every commit to this repository and every retirement of a registered document |
-| `STD-021` | Evidence and citation | every registered document that cites another or makes a claim about the tree… |
+| `STD-021` | Evidence and citation | every document that cites another or makes a claim about the code… |
 | `STD-022` | Secrets | every file in this repository, and every report about it |
 | `STD-023` | Design values | register — scope belongs to the standard that cites it |
-| `STD-024` | A series is a function | every folder of the corpus and every document in one |
-| `STD-025` | A mission is a card | every file in `missions/`, and whoever sets a field on one |
+| `STD-024` | A series is a function | every folder of the archive and every document in one |
+| `STD-025` | A mission is a card | every mission, and whoever sets a field on one |
 | `STD-026` | Operative vocabulary | register — scope belongs to the standard that cites it |
 | `STD-027` | The archive is classified by function | every folder of the repository |
-| `STD-028` | One document, one address | every address numinia.org publishes for a document of the corpus |
+| `STD-028` | One document, one address | every web address the public site gives a document of the archive |
 | `STD-029` | How we treat each other in the commons | everyone in a Numinia community space — citizens, moderators, Oracles and digital agents alike |
 | `STD-030` | The world's vocabulary | register — scope belongs to the standard that cites it |
-| `STD-031` | A canon states | every document in `canon/` |
+| `STD-031` | A canon states | every document in the canon |
 | `STD-032` | The Numinia Design System | register — scope belongs to the standard that cites it |
-| `STD-033` | Every charge delivers something; the account… | every site of Numinia and Numen Games that takes a payment, every record of something on sale… |
+| `STD-033` | Every charge delivers something; the account… | every site of ours that takes a payment, every record of something on sale… |
+| `STD-034` | Accessibility | every public page of every site of Numen Games and Numinia |
+| `STD-035` | Personal data | everything of ours that collects or keeps data about a person |
 
-56 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+57 rule documents; 7 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

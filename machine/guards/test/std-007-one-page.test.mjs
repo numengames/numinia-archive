@@ -27,6 +27,7 @@ import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT, parseFM } from '../../scripts/lib/frontmatter.mjs';
+import { run } from '../rules/std-007-one-page.mjs';
 
 const docs = execFileSync('git', ['-C', ROOT, 'ls-files', 'standards/*.md', 'protocols/*.md'], { encoding: 'utf8' })
   .split('\n').filter(Boolean)
@@ -54,6 +55,57 @@ test('a document that binds also says what it does not bind', () => {
     .filter((d) => d.text.includes('**Binds:**') && !d.text.includes('**Does not bind:**'))
     .map((d) => `${d.fm.id ?? d.file}`);
   assert.deepEqual(half, [], `DOC-003: these bind somebody but never say where they stop:\n  ${half.join('\n  ')}`);
+});
+
+/* ---- DOC-004 and DOC-008 on a scratch corpus: where a plate may live ----
+   A standard written for the narrator keeps its plates out of the reading and
+   in the first column of its `## Check` table. That is still a plated rule,
+   and an identifier in that table is apparatus, like one in References. */
+
+const scratch = (files) => ({
+  root: '/nowhere',
+  files: Object.keys(files),
+  text: (rel) => files[rel],
+  fm: (rel) => parseFM(files[rel]),
+});
+const std = (rules, check) => [
+  '---', 'id: "STD-900"', 'subtype: standard', 'status: draft', '---', '',
+  '# A rule in words', '',
+  '> **Summary:** s.', '> **Epistemic:** e.', '> **Pragmatic:** p.', '',
+  '**Binds:** every test.', '**Does not bind:** anything else.', '',
+  '## Rules', '', rules, '',
+  '## Check', '', check, '',
+  '## Why', '', 'Because.', '',
+  '## References', '', '| ID | Name | Why cited |', '|---|---|---|', '| `STD-007` | One page | shape |', '',
+].join('\n');
+const findings = (text, plate) => run(scratch({ 'standards/STD-900-a.md': text }))
+  .filter((f) => f.plate === plate).map((f) => f.what);
+
+test('DOC-004: plates in the Check table satisfy the rule, with none in the titles', () => {
+  const text = std('**A rule in words.** Everyone MUST do it.',
+    '| Plate | Rule | Source | Verified by |\n|---|---|---|---|\n| ABC-001 | A rule in words | — | by hand |');
+  assert.deepEqual(findings(text, 'DOC-004'), []);
+});
+
+test('DOC-004: plates in the rule titles still satisfy the rule', () => {
+  const text = std('**ABC-001 — A rule in words.** Everyone MUST do it.', '| Rule | Verified by |\n|---|---|\n| ABC-001 | by hand |');
+  assert.deepEqual(findings(text, 'DOC-004'), []);
+});
+
+test('DOC-004: no plate in either place is still a finding', () => {
+  const text = std('**A rule in words.** Everyone MUST do it.', '| Rule | Verified by |\n|---|---|\n| A rule in words | by hand |');
+  assert.equal(findings(text, 'DOC-004').length, 1);
+});
+
+test('DOC-008: an identifier in the Check table is apparatus, not prose', () => {
+  const text = std('**A rule in words.** Everyone MUST do it.',
+    '| Plate | Rule | Source | Verified by |\n|---|---|---|---|\n| ABC-001 | A rule in words | [a norm](https://example.org/) | nothing yet (DBT-020) |');
+  assert.deepEqual(findings(text, 'DOC-008'), []);
+});
+
+test('DOC-008: an identifier in the reading is still a finding', () => {
+  const text = std('**A rule in words.** Everyone MUST do what DBT-020 says.', '| Plate | Rule | Source | Verified by |\n|---|---|---|---|\n| ABC-001 | A rule in words | — | by hand |');
+  assert.ok(findings(text, 'DOC-008').some((w) => w.startsWith('PW-01 DBT-020')));
 });
 
 test('a scope line does not contradict the applies_to field above it', () => {

@@ -5,16 +5,16 @@ title: "Licence allowlist and fields"
 type: documentation
 subtype: register
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, SPDX, register, allowlist]
 threshold: governed
-series_change: "1.1.0 — the field table no longer has a directory row: a licence is declared by the file, and REUSE.toml lists only files that cannot carry a comment, by exact path (Oracle, 2026-09-24). 1.0.0 — new register, split from STD-010 under ADR-043: the allowlist (old §3), the in-file metadata fields (old §5) and the licence texts (old §10). Rows unchanged."
+series_change: "1.1.1 — 2026-09-25: the summary and the words between the tables are written plainly, for a narrator; the tables are unchanged."
 ---
 
 <!--
@@ -24,9 +24,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # Licence allowlist and fields
 
-> **Summary:** Three tables `STD-010` points at: which licences an input may
-> carry (`LIC-005`), which field carries the licence inside each media format
-> (`LIC-009`), and where each licence text lives.
+> **Summary:** Three tables the licensing standard points at: which licences
+> the code and material we build on may carry, where the licence is written
+> inside each kind of media file, and where the full text of each licence
+> can be read.
 
 ## Allowlist
 
@@ -37,8 +38,13 @@ SPDX-License-Identifier: CC0-1.0
 | With a signed decision | `GPL-3.0` `AGPL-3.0` | isolated and declared; separate repository if a third party's |
 | Never | `BUSL` `SSPL` `Elastic` · Commons Clause · proprietary · `CC-BY-NC-*` `CC-BY-ND-*` · any package without a `license` field | the *never* tier applies to what is distributed or served (`LIC-006`) |
 
-Direction of pull: `MIT / BSD / ISC → Apache-2.0 → GPL-3.0 → AGPL-3.0`, never
-the other way.
+Code may be pulled in one direction only: from the licences with no
+conditions, through Apache, into the licences that oblige sharing — never
+back.
+
+| From | To |
+|---|---|
+| `MIT` · `BSD` · `ISC` | `Apache-2.0` → `GPL-3.0` → `AGPL-3.0` |
 
 ## Fields inside the file
 

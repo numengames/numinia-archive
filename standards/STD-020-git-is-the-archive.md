@@ -5,16 +5,16 @@ title: "Git is the archive"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-11T12:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, git, archiving, redirects]
 threshold: governed
-series_change: "1.1.2 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 1.1.1 — Check rows repoint to machine/guards/rules/std-020-git-is-the-archive.mjs (R3, MIS guards-tests-ci-alpha): check-references and the GIT rules of check-core-rules fold into one guard; no plate or verdict changes. 1.0.0 — new standard, split from STD-009 under ADR-043. Rules keep their plates and their verifiers; the prose around them is the Why. Old §7 Git and §8 Archiving are one standard: retiring a document is a git operation."
+series_change: "1.1.3 — 2026-09-25: written in plain words, at the Oracle's word in session: no code, field name or path in the reading; rules grouped by purpose, and plates, sources and what verifies each wait in one table at the foot. No obligation added or dropped."
 ---
 
 <!--
@@ -24,73 +24,87 @@ SPDX-License-Identifier: CC0-1.0
 
 # Git is the archive
 
-> **Summary:** Work reaches `main` by pull request, shared history is never
-> rewritten, generated files are regenerated. A retired document names its
-> heir, stays reachable at its address, and is deleted only when nothing
-> living cites it.
+> **Summary:** Work reaches the main line by pull request, shared history is
+> never rewritten, and what a program generates is generated again, never
+> edited. A retired document names the one that replaces it, stays reachable
+> where it was, and is deleted only when nothing living cites it.
 > **Epistemic:** Which guarantees the repository gives that no document can,
-> and how retirement preserves them.
-> **Pragmatic:** Commit, merge, regenerate, supersede and delete without
+> and how retiring a document keeps them.
+> **Pragmatic:** Commit, merge, regenerate, replace and delete without
 > breaking an address.
 > **Audience:** Agents · Oracles
 
 **Binds:** every commit to this repository and every retirement of a
 registered document.
-**Does not bind:** the roll-up of records by period — `STD-012`.
+**Does not bind:** gathering old records into one per period, which the
+standard on keeping the corpus small governs.
 
 ## Rules
 
-**GIT-025 — Pull request, never push.** Work reaches the main branch through
-a pull request.
+### How work reaches the main line
 
-**GIT-026 — One-line subject.** A commit's first line says what changed and
-why, on one line.
+**Pull request, never push.** Work reaches the main branch through a pull
+request.
 
-**GIT-030 — Shared history is immutable.** History on a shared branch is
-never rewritten.
+**One-line subject.** The first line of a commit says what changed and why,
+on one line.
 
-**GIT-027 — Generated means regenerated.** A generated file is never edited
-by hand.
+**Shared history is never rewritten.** The history of a branch others share
+is never rewritten.
 
-**GIT-028 — Telemetry follows the commit.** Telemetry is regenerated after
-the commit it measures, never before.
+### What a program generates
 
-**GIT-029 — Conflicts in generated files are regenerated.** Never resolved by
-choosing sides.
+**Generated means generated again.** A file a program generates is never
+edited by hand.
 
-**GIT-045 — The heir is a field.** A `withdrawn` document that has a
-replacement names it in `superseded_by`; one that has none carries no
-`superseded_by`. A document still `active` or `draft` names no heir.
+**Measurements follow the commit.** The archive's measurements are taken
+again after the commit they measure, never before it.
 
-**GIT-046 — The address survives.** A retired document stays reachable where
-it was published.
+**Conflicts in generated files are generated again.** They are never
+resolved by choosing one side.
 
-**GIT-047 — A redirect points at the heir.** Never at an index.
+### How a document is retired
 
-**GIT-048 — Nothing is deleted while cited.** A document goes when no living
+**The replacement is named in the header.** A withdrawn document that has a
+replacement names it in its header; one with none names nothing. A document
+still in force or in draft names no replacement.
+
+**The address survives.** A retired document stays reachable where it was
+published.
+
+**A redirect leads to the replacement.** Never to an index.
+
+**Nothing is deleted while cited.** A document goes only when no living
 document depends on it.
 
-**GIT-049 — Link, never copy.** A document is copied nowhere; a derived copy
-declares its master.
+**Link, never copy.** A document is copied nowhere; a copy made from it says
+which one is the original.
 
 ## Check
 
-| Plate | Verified by |
-|---|---|
-| GIT-025, GIT-030 | branch protection, GitHub settings |
-| GIT-026, GIT-045 | `machine/guards/rules/std-020-git-is-the-archive.mjs` |
-| GIT-027, GIT-028 | `machine/scripts/telemetry.mjs --check`, `machine/tools/generate-design-kit.mjs` |
-| GIT-046 | `machine/scripts/check-url-lifecycle.mjs` |
-| GIT-048 | `machine/guards/rules/std-020-git-is-the-archive.mjs`, `machine/tools/check-deletable.mjs` |
-| GIT-029, GIT-047 | `[MANUAL]` — a resolved conflict and a resolving redirect look like any other |
-| GIT-049 | `[MANUAL]` — a content-hash scan would catch it and does not exist |
+Every rule above, with the code an agent cites it by, the outside standard
+it follows, and what verifies it today.
+
+| Plate | Rule | Source | Verified by |
+|---|---|---|---|
+| GIT-025 | Pull request, never push | [Trunk-Based Development](https://trunkbaseddevelopment.com/) | `.github/rulesets/protect-main.json`: pull request required on the main line |
+| GIT-026 | One-line subject | — | the guard of this standard (`machine/guards/rules/std-020-git-is-the-archive.mjs`), last 400 commit subjects |
+| GIT-030 | Shared history is never rewritten | — | `.github/rulesets/protect-main.json`: no force push, no deletion, linear history |
+| GIT-027 | Generated means generated again | — | `machine/scripts/telemetry.mjs --check` in the build guards; `machine/tools/generate-design-kit.mjs --check`, run by hand |
+| GIT-028 | Measurements follow the commit | — | `machine/scripts/telemetry.mjs --check` in the build guards |
+| GIT-029 | Conflicts in generated files are generated again | — | by hand: a resolved conflict looks like any other change |
+| GIT-045 | The replacement is named in the header | — | the guard of this standard, which reads the `superseded_by` and `status` fields |
+| GIT-046 | The address survives | — | `machine/scripts/check-url-lifecycle.mjs`, which reports and does not fail the build |
+| GIT-047 | A redirect leads to the replacement | — | by hand: a redirect that resolves looks like any other |
+| GIT-048 | Nothing is deleted while cited | — | the guard of this standard; `machine/tools/check-deletable.mjs`, run by hand |
+| GIT-049 | Link, never copy | — | by hand: a scan comparing file contents would catch it, and does not exist |
 
 ## Why
 
-The archive's strongest guarantee is the one it inherits: who committed what,
-and when, cannot be changed at any price worth paying (`PRE-001`). Every rule
-here protects that inheritance — from a rewritten branch, a hand-edited
-artefact, or an address that stops resolving.
+The archive's strongest guarantee is one it inherits: who committed what,
+and when, cannot be changed at any price worth paying. Every rule here
+protects that inheritance from a rewritten branch, a file edited by hand
+that a program owns, or an address that stops answering.
 
 ## References
 

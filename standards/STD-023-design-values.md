@@ -5,16 +5,16 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.4.0"
+version: "1.4.1"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-24T14:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
 related: ["STD-008", "CAN-008", "ADR-044"]
-series_change: "1.4.0 — 2026-09-24: the reading light enters the catalogue as animation 15, the second sanctioned loop (the Oracle); drying ink deepened to 80/65/50 %. 1.3.1 — 2026-09-24: §22 revised in production — drying ink keeps each colour; the reading light re-syncs per sentence by spoken weight; touch to hear; the speed scale; the dark preview recorded as an exception to BLU-009 §8. 1.3.0 — 2026-09-24: §22 Reading aloud — the dock, the ruler, the drying ink and the reading light, carried from the Listen player in production; the reading light filed as catalogue candidate 15. 1.1.0 — 2026-09-17: §18 The house footer and §19 The share card added — the values DSN-013 and DSN-014 point at: the footer's elements, the card's pattern, and the one table of the four sites (name, line, domain) that footer, head and card all read. Minor with STD-008 7.1.0. 1.0.3 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
+series_change: "1.4.1 — 2026-09-25: the card and the free prose written in plain words, at the Oracle's word in session: no path, plate, section number or date a narrator would stumble on. Every table and section heading unchanged, since the site reads them; no value moved. 1.4.0 — 2026-09-24: the reading light enters the catalogue as animation 15, the second sanctioned loop (the Oracle); drying ink deepened to 80/65/50 %. 1.3.1 — 2026-09-24: §22 revised in production — drying ink keeps each colour; the reading light re-syncs per sentence by spoken weight; touch to hear; the speed scale; the dark preview recorded as an exception to BLU-009 §8. 1.3.0 — 2026-09-24: §22 Reading aloud — the dock, the ruler, the drying ink and the reading light, carried from the Listen player in production; the reading light filed as catalogue candidate 15. 1.1.0 — 2026-09-17: §18 The house footer and §19 The share card added — the values DSN-013 and DSN-014 point at: the footer's elements, the card's pattern, and the one table of the four sites (name, line, domain) that footer, head and card all read. Minor with STD-008 7.1.0. 1.0.3 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
 ---
 
 <!--
@@ -25,13 +25,14 @@ SPDX-License-Identifier: CC0-1.0
 # Design values
 
 > **Summary:** Every closed list of the design system, as values: colours
-> and contrasts, type and space scales, icon subset, brand inventory,
-> animations, sky and pixel grids. `machine/packages/design-kit/` carries the same
-> values as tokens; where they differ, the generator fails.
-> **Epistemic:** What the values are. Why they are what they are is
-> `CAN-008`; what a builder must do with them is `STD-008`.
-> **Pragmatic:** Look a value up here or in the tokens file; never in a
-> piece.
+> and contrasts, the scales of type and space, the icons we use, the brand
+> marks, the animations, the sky and the pixel grids. The design kit carries
+> the same values in a form machines read; where the two differ, the kit
+> fails to build.
+> **Epistemic:** What the values are. Why they are what they are is the
+> visual identity canon; what a builder must do with them is the standard
+> of design tokens.
+> **Pragmatic:** Look a value up here or in the kit, never in a piece.
 > **Audience:** Agents · Oracles
 
 ## 1. Palette
@@ -147,7 +148,7 @@ Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50p
 ## 11. The icon subset
 
 
-**The house subset [CANON — audited in production, 5.0.0].** Of Phosphor's ~1,500 glyphs, the organization uses **twenty-six**, self-hosted in `machine/packages/ui/src/icons/` and served as inline SVG with `currentColor`. This is the vocabulary, not a sample of someone else's catalogue: `archive · bell · book-open · caret-down · caret-left · chart-bar · download-simple · flame · flame-light · gear · github-logo · globe-hemisphere-west · globe-hemisphere-west-light · house · magnifying-glass · moon · moon-stars · music-notes · package · sign-out · sun · sword · sword-light · user · users · x-logo`. Expanding it is a decision, not an oversight: a new icon enters the subset with its concept declared. **Entered in 1.3.0** (the reading player, §22): `play-fill` and `pause-fill` — the voice runs or rests (fill: an active state); `arrow-down-bold` — where the reading is, at 11 px (bold under 16 px). `x` (close) and `copy` were already served by the site and are named here for completeness.
+**The house subset [CANON — audited in production, 5.0.0].** Of Phosphor's ~1,500 glyphs, the organization uses **twenty-six**, self-hosted in `machine/packages/ui/src/icons/` and served as inline SVG with `currentColor`. This is the vocabulary, not a sample of someone else's catalogue: `archive · bell · book-open · caret-down · caret-left · chart-bar · download-simple · flame · flame-light · gear · github-logo · globe-hemisphere-west · globe-hemisphere-west-light · house · magnifying-glass · moon · moon-stars · music-notes · package · sign-out · sun · sword · sword-light · user · users · x-logo`. Expanding it is a decision, not an oversight: a new icon enters the subset with its concept declared. **Entered in 1.3.0** (the reading player, below): `play-fill` and `pause-fill` — the voice runs or rests (fill: an active state); `arrow-down-bold` — where the reading is, at 11 px (bold under 16 px). `x` (close) and `copy` were already served by the site and are named here for completeness.
 
 ## 12. Brand inventory
 
@@ -258,9 +259,9 @@ Behavior (canonized exactly as it stands in production): **175 stars**; drift of
 
 ## 18. The house footer
 
-The one closing every public site of Numen Games serves (`DSN-013`).
-Adopted 2026-09-16 from numinia.org, the site that had it best; the four
-sites served it by 2026-09-17.
+The one closing every public site of Numen Games serves. It was adopted from
+the archive's own site, the one that had it best, and all four sites served
+it within a day.
 
 ```
 <site name, written>                      Navigation        Numen Games       Legal        Social
@@ -289,9 +290,9 @@ Column headings translate with the site; the signature does not.
 
 ## 19. The share card
 
-What a link to any of the four looks like when pasted anywhere
-(`DSN-014`). One pattern, four contents; generated from the repository at
-build time, never drawn by hand.
+What a link to any of the four looks like when pasted anywhere. One
+pattern, four contents; generated from the repository when the site is
+built, never drawn by hand.
 
 ```
 ┌────────────────────────────────────────────────────────┐ 1200 × 630
@@ -323,9 +324,9 @@ Carbón: `favicon.svg`, `favicon.png` 32×32 and `apple-touch-icon.png`
 
 ## 20. The Velo layer
 
-Every Velo value is a canonical with transparency: the register adds alpha,
-never a new hex. Carried from `CAN-008` by `ADR-056`, which left the canon
-without values.
+Every value of the veiled style is one of our colours made partly
+transparent: the style adds transparency, never a new colour. These values
+came here from the visual identity canon, which now holds none.
 
 | Token | Value | Origin | Role |
 |---|---|---|---|
@@ -361,10 +362,10 @@ completely: at that size the silhouette is all there is.
 
 ## 22. Reading aloud — the dock, the ruler, the ink
 
-`[EXTENSION — validate]` Verified in production on numinia.org's document
-pages (the Listen player, `web/src/components/SpeechPlayer.astro`). Four
-patterns, each built to fix something a reader actually hit, and each
-reusable wherever a piece plays through a text or a timeline.
+`[EXTENSION — validate]` Verified in production on the document pages of
+the archive's site, in its player that reads a page aloud. Four patterns,
+each built to fix something a reader actually hit, and each reusable
+wherever a piece plays through a text or a timeline.
 
 | Pattern | Value | Why |
 |---|---|---|
@@ -374,16 +375,16 @@ reusable wherever a piece plays through a text or a timeline.
 | **Drying ink** | What the voice has passed keeps **its own colour** and loses brightness in three steps: the last 3 words at 80 %, the 6 before at 65 %, the rest at 50 % of the ink's alpha. Painted with the CSS Custom Highlight API, one highlight per ink colour and step, never with spans. Under `prefers-contrast: more` nothing dries. | Read text recedes like ink that has set, so the eye finds the present without a highlight shouting it — and it stays ink: a link still reads as a link, a bold as a bold (a first version turned everything one grey and the page went dull; a second, keeping colour at 75 %, was too subtle to notice). It is a **state, not an animation**: the colour of text is never transitioned. No DOM is touched, so browser translation and text selection survive. |
 | **The reading light** | A diffuse light in Arena (`--text`, never pure white, 14 px) with a small core of ink at its centre, drifting just above the spoken word, with a soft trail of 12 fading copies; critically damped spring (k 90), sliding along the word as it is spoken; dims to 45 % on pause. Its position is estimated by **spoken** weight (a figure weighs what it takes to say) and re-synced at the end of every sentence, the unit the engine speaks. The ruler's head is the same light. | The old amber dot hopped word to word and competed with the Ámbar that marks what shines. Arena is the page's own ink colour: the light belongs to the text; the core lets a reader with low vision follow it. Under `prefers-reduced-motion` it jumps, with no trail and no drift. |
 
-**Touch to hear.** While the voice is on, a click on a sentence starts it there (links, buttons and a selection keep their meaning). **Speeds** step 1 · 1.25 · 1.5 · 2 · 0.75 from one button — the first step gentle, no 1.75, a slower one for learners — and the chosen speed follows the reader across documents. **The ruler's preview is dark glass**, like the dock: a recorded exception to the opposite-mode tooltip of `BLU-009` §8, because white paper over the reading dazzles in Nocturno.
+**Touch to hear.** While the voice is on, a click on a sentence starts it there (links, buttons and a selection keep their meaning). **Speeds** step 1 · 1.25 · 1.5 · 2 · 0.75 from one button — the first step gentle, no 1.75, a slower one for learners — and the chosen speed follows the reader across documents. **The ruler's preview is dark glass**, like the dock: a recorded exception to the web recipe's rule that a tooltip takes the opposite mode, because white paper over the reading dazzles in Nocturno.
 
 **Icons over words in document tools.** Copy, download and source are
-glyphs with an `aria-label` and a tooltip in the opposite mode; the words
-added nothing a reader of the glyph did not already know.
+glyphs, each with a name a screen reader says and a tooltip in the opposite
+mode; the words added nothing a reader of the glyph did not already know.
 
-**Catalogue status.** The drying ink is a state and the dock uses surfacing
-(10); neither adds an animation. The reading light **is animation 15** (§14,
-the Oracle, 2026-09-24): the second sanctioned loop after the sky, allowed
-because it is not ambient — it exists only while a voice plays and moves only
-because the voice moves.
+**Catalogue status.** The drying ink is a state, and the dock uses the
+surfacing animation; neither adds an animation. The reading light is
+animation fifteen in the catalogue above, at the Oracle's word: the second
+allowed loop after the sky, allowed because it is not ambient — it exists
+only while a voice plays and moves only because the voice moves.
 
 ---

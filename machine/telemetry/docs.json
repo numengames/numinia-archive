@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13746,
+  "chars": 13728,
   "apparatus": false,
   "archived": false,
-  "tokens": 3407
+  "tokens": 3387
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 124466,
+  "chars": 126792,
   "apparatus": false,
   "archived": false,
-  "tokens": 32991
+  "tokens": 33624
  },
  {
   "path": "CLAUDE.md",
@@ -605,6 +605,17 @@
   "tokens": 637
  },
  {
+  "path": "blueprints/BLU-016-outside-standards-under-consideration.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "draft",
+  "chars": 6934,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1580
+ },
+ {
   "path": "canon/CAN-001-welcome-to-numinia.md",
   "dir": "canon",
   "series": "canon",
@@ -720,10 +731,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 5757,
+  "chars": 5753,
   "apparatus": false,
   "archived": false,
-  "tokens": 1575
+  "tokens": 1571
  },
  {
   "path": "debt/DBT-021-pages-that-hold-their-own-content.md",
@@ -1589,10 +1600,10 @@
   "series": null,
   "type": "documentation",
   "status": "draft",
-  "chars": 2702,
+  "chars": 3523,
   "apparatus": true,
   "archived": false,
-  "tokens": 731
+  "tokens": 926
  },
  {
   "path": "machine/templates/SYS-TEMPLATE.md",
@@ -2117,10 +2128,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6888,
+  "chars": 6126,
   "apparatus": false,
   "archived": false,
-  "tokens": 2072
+  "tokens": 1777
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2128,10 +2139,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6433,
+  "chars": 8793,
   "apparatus": false,
   "archived": false,
-  "tokens": 1679
+  "tokens": 2224
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -2139,10 +2150,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5514,
+  "chars": 7090,
   "apparatus": false,
   "archived": false,
-  "tokens": 1567
+  "tokens": 1867
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -2150,10 +2161,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7638,
+  "chars": 11195,
   "apparatus": false,
   "archived": false,
-  "tokens": 2028
+  "tokens": 2742
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -2161,10 +2172,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4734,
+  "chars": 4314,
   "apparatus": false,
   "archived": false,
-  "tokens": 1222
+  "tokens": 1101
  },
  {
   "path": "standards/STD-007-one-page-per-document.md",
@@ -2172,10 +2183,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5093,
+  "chars": 5990,
   "apparatus": false,
   "archived": false,
-  "tokens": 1348
+  "tokens": 1552
  },
  {
   "path": "standards/STD-008-design-tokens.md",
@@ -2183,10 +2194,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9199,
+  "chars": 12795,
   "apparatus": false,
   "archived": false,
-  "tokens": 2508
+  "tokens": 3404
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -2194,10 +2205,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3991,
+  "chars": 4249,
   "apparatus": false,
   "archived": false,
-  "tokens": 1040
+  "tokens": 1064
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -2211,26 +2222,15 @@
   "tokens": 2244
  },
  {
-  "path": "standards/STD-011-external-standards.md",
-  "dir": "standards",
-  "series": "standards",
-  "type": "documentation",
-  "status": "draft",
-  "chars": 9712,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2567
- },
- {
   "path": "standards/STD-012-corpus-does-not-grow.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5143,
+  "chars": 5469,
   "apparatus": false,
   "archived": false,
-  "tokens": 1413
+  "tokens": 1429
  },
  {
   "path": "standards/STD-013-licence-allowlist-and-fields.md",
@@ -2238,10 +2238,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3738,
+  "chars": 3696,
   "apparatus": false,
   "archived": false,
-  "tokens": 1220
+  "tokens": 1196
  },
  {
   "path": "standards/STD-014-publishing-gates.md",
@@ -2249,10 +2249,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3348,
+  "chars": 4427,
   "apparatus": false,
   "archived": false,
-  "tokens": 899
+  "tokens": 1071
  },
  {
   "path": "standards/STD-015-engineering-checks.md",
@@ -2260,10 +2260,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 17476,
+  "chars": 14753,
   "apparatus": false,
   "archived": false,
-  "tokens": 4662
+  "tokens": 3922
  },
  {
   "path": "standards/STD-016-header-fields.md",
@@ -2271,10 +2271,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6581,
+  "chars": 6047,
   "apparatus": false,
   "archived": false,
-  "tokens": 1985
+  "tokens": 1784
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -2282,10 +2282,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3497,
+  "chars": 4425,
   "apparatus": false,
   "archived": false,
-  "tokens": 934
+  "tokens": 1134
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -2293,10 +2293,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3335,
+  "chars": 4085,
   "apparatus": false,
   "archived": false,
-  "tokens": 884
+  "tokens": 1050
  },
  {
   "path": "standards/STD-019-versions.md",
@@ -2304,10 +2304,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2982,
+  "chars": 3634,
   "apparatus": false,
   "archived": false,
-  "tokens": 825
+  "tokens": 924
  },
  {
   "path": "standards/STD-020-git-is-the-archive.md",
@@ -2315,10 +2315,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4093,
+  "chars": 4935,
   "apparatus": false,
   "archived": false,
-  "tokens": 1090
+  "tokens": 1210
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -2326,10 +2326,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4031,
+  "chars": 4168,
   "apparatus": false,
   "archived": false,
-  "tokens": 1089
+  "tokens": 1093
  },
  {
   "path": "standards/STD-022-secrets.md",
@@ -2337,10 +2337,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 2219,
+  "chars": 2755,
   "apparatus": false,
   "archived": false,
-  "tokens": 594
+  "tokens": 701
  },
  {
   "path": "standards/STD-023-design-values.md",
@@ -2348,10 +2348,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 37627,
+  "chars": 38028,
   "apparatus": false,
   "archived": false,
-  "tokens": 11410
+  "tokens": 11465
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
@@ -2359,10 +2359,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4722,
+  "chars": 6010,
   "apparatus": false,
   "archived": false,
-  "tokens": 1263
+  "tokens": 1557
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
@@ -2370,10 +2370,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5286,
+  "chars": 5783,
   "apparatus": false,
   "archived": false,
-  "tokens": 1447
+  "tokens": 1555
  },
  {
   "path": "standards/STD-026-operative-vocabulary.md",
@@ -2381,10 +2381,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 10900,
+  "chars": 11059,
   "apparatus": false,
   "archived": false,
-  "tokens": 2538
+  "tokens": 2577
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -2392,10 +2392,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5380,
+  "chars": 6633,
   "apparatus": false,
   "archived": false,
-  "tokens": 1444
+  "tokens": 1682
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -2403,10 +2403,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5141,
+  "chars": 5138,
   "apparatus": false,
   "archived": false,
-  "tokens": 1321
+  "tokens": 1331
  },
  {
   "path": "standards/STD-029-community-conduct.md",
@@ -2414,10 +2414,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3078,
+  "chars": 4676,
   "apparatus": false,
   "archived": false,
-  "tokens": 789
+  "tokens": 1208
  },
  {
   "path": "standards/STD-030-the-worlds-vocabulary.md",
@@ -2425,10 +2425,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7189,
+  "chars": 7339,
   "apparatus": false,
   "archived": false,
-  "tokens": 1587
+  "tokens": 1617
  },
  {
   "path": "standards/STD-031-a-canon-states.md",
@@ -2436,10 +2436,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4918,
+  "chars": 5764,
   "apparatus": false,
   "archived": false,
-  "tokens": 1356
+  "tokens": 1547
  },
  {
   "path": "standards/STD-032-the-design-system.md",
@@ -2447,10 +2447,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6214,
+  "chars": 6471,
   "apparatus": false,
   "archived": false,
-  "tokens": 1663
+  "tokens": 1725
  },
  {
   "path": "standards/STD-033-charges-and-the-account.md",
@@ -2458,10 +2458,32 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5538,
+  "chars": 7285,
   "apparatus": false,
   "archived": false,
-  "tokens": 1438
+  "tokens": 1839
+ },
+ {
+  "path": "standards/STD-034-accessibility.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3584,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 957
+ },
+ {
+  "path": "standards/STD-035-personal-data.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3060,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 856
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

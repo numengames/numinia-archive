@@ -132,6 +132,7 @@ export default defineConfig({
 		"/standards/s-004-header-standard": "/standards/std-004-the-header",
 		"/standards/std-001-glossary": "/standards/std-001-the-series",
 		"/standards/std-002-governance": "/standards/std-009-which-rule-wins",
+		"/standards/std-011-external-standards": "/standards/std-005-engineering-baseline",
 		"/standards/std-003-platform-role-system": "/standards/std-003-platform-ranks",
 		"/standards/std-004-header-standard": "/standards/std-004-the-header",
 		"/standards/std-005-engineering-standards": "/standards/std-005-engineering-baseline",

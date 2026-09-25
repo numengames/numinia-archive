@@ -5,9 +5,9 @@ title: "The Numinia Design System"
 type: documentation
 subtype: register
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-09-24T16:30:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,6 +16,7 @@ tags: [standards, register, design, design-system, sound, writing, play]
 license: "CC0-1.0"
 threshold: governed
 related: ["CAN-008", "CAN-002", "STD-008", "STD-023", "PRO-014", "STD-021"]
+series_change: "0.2.1 — 2026-09-25: the card and the prose above the register written in plain words, with no address or symbol a narrator would stumble on, at the Oracle's word in session. The register table, which the site reads, is unchanged."
 ---
 
 <!--
@@ -30,11 +31,11 @@ SPDX-License-Identifier: CC0-1.0
 > through and played — so the system reaches a logo, an invoice, a sound, a
 > mission, a character or a world. It lives in many small documents; this
 > table is what joins them.
-> **Epistemic:** A map, not a rule: nothing here can be complied with or
-> broken. The rules are in the documents it lists.
-> **Pragmatic:** Find the document that answers your piece; see which parts
-> of the system are not written yet. numinia.org/design is drawn from this
-> table, and the download is compiled from it.
+> **Epistemic:** A map, not a rule: nothing here can be kept or broken. The
+> rules are in the documents it lists.
+> **Pragmatic:** Find the document that answers your piece, and see which
+> parts of the system are not written yet. The design page of this site is
+> drawn from this table, and so is its download.
 > **Audience:** Everyone
 
 ## Parts
@@ -44,12 +45,12 @@ the three forces, the mix, the eras. **Languages** translate the core to one
 sense each. **Recipes** apply the languages to one medium — a web page, an
 invoice, a deck, a scene. **Toolkit** is what a maker installs or downloads.
 
-A row whose document is `—` is a part of the system that is not written yet.
-A row whose *Gives* opens with **Read alongside** is a document the system
-points to without carrying it: the page links it, the compiled system and the
-download name it and leave it out. The game manual is one — three thousand
-lines of rules are material for designing play, not the design system, and
-the manual is downloaded on its own.
+A row with no document is a part of the system that is not written yet. A
+row whose description opens with the words *read alongside* is a document
+the system points to without carrying it: the page links it, and the
+compiled system and the download name it and leave it out. The game manual
+is one of these. Three thousand lines of rules are material for designing
+play, not the design system, and the manual is downloaded on its own.
 
 ## The register
 

@@ -5,16 +5,16 @@ title: "Publishing gates"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-09T01:45:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, publication, arweave, visibility]
 threshold: governed
-series_change: "1.0.1 — LIC-060 retired as a duplicate of PUB-001 (ADR-043 cut of STD-009). 1.0.0 — new standard, split from STD-010 under ADR-043: the two gates of the old §4, as PUB-001..005. Wording kept; the checklist is the same four items."
+series_change: "1.0.2 — 2026-09-25: written in plain words, at the Oracle's word in session: no file name, code or service name in the reading; plates, the files checked and what verifies each rule wait in one table at the foot. No obligation added or dropped."
 ---
 
 <!--
@@ -24,59 +24,76 @@ SPDX-License-Identifier: CC0-1.0
 
 # Publishing gates
 
-> **Summary:** Two acts cannot be undone: writing to Arweave, and turning a
-> repository public. Each passes the same review — ownership, no incompatible
-> third-party material, no personal data — and is signed by an Oracle.
-> **Epistemic:** Why a visibility change is the grant itself, and what is
-> checked before either act.
+> **Summary:** Two acts cannot be undone: writing something to the permanent
+> web, and turning a private repository public. Before either, we check that
+> the work is ours, that it carries nothing of anyone else's we may not
+> share, and that it holds no personal data; then an Oracle signs.
+> **Epistemic:** Why making a repository public is already the grant of its
+> licence, and what is checked before either act.
 > **Pragmatic:** The list to run before pressing the button.
 > **Audience:** Agents · Oracles
 
-**Binds:** every permanent publication and every private-to-public change of
-a Numen Games repository.
-**Does not bind:** publication to a CDN, which can be withdrawn.
+**Binds:** every permanent publication, and every change of a Numen Games
+repository from private to public.
+**Does not bind:** publication to an ordinary content network, which can be
+withdrawn.
 
 ## Rules
 
-**PUB-001 — Permanent publication is gated.** Before writing to Arweave,
-ownership, absence of incompatible third-party material and absence of
-personal data MUST be verified, and an Oracle MUST sign. What does not pass is
-served only from CDN.
+### The two acts that cannot be undone
 
-**PUB-002 — Going public is the grant.** A licence offered publicly with the
-work available grants rights to whoever takes them, with no `npm publish` or
-Arweave needed. A visibility change is therefore an Oracle-signed act under
-the same gate as `PUB-001`.
+**Permanent publication is gated.** Before anything is written to the
+permanent web, we MUST verify that it is ours, that it holds no outside
+material we may not share, and no personal data, and an Oracle MUST sign.
 
-**PUB-003 — Four checks before visibility changes.** `LICENSES/`,
-`REUSE.toml`, `TRADEMARKS.md` and `NOTICE` complete; a *real listing* of
-sensitive directories against the annotations, never a hand-written list; no
-reserved file reachable by a general annotation; no personal data or secrets
-in the history, not only in `HEAD`.
+**What fails the gate stays withdrawable.** Anything that does not pass is
+served only from an ordinary content network, where it can still be taken
+down.
 
-**PUB-004 — Birth licence is not publication.** A repository carries its
-`LICENSE` from the first commit; while private it grants permission to no one.
+**Going public is the grant.** A licence offered in public, with the work
+there to take, grants its rights to whoever takes them; nothing else needs
+to be released. So making a repository public is an act an Oracle signs,
+under the same gate.
 
-**PUB-005 — A legal debt threshold is a condition.** Exits in `debt/` entries
-tagged `legal` are conditions, not dates, and CI evaluates them on every
-build.
+### What is checked before a repository goes public
+
+**Four checks before visibility changes.** The licence files, the brand
+notice and the attribution notice MUST be complete; sensitive folders MUST
+be listed by a command and compared with the licence declarations, never
+from memory.
+
+**Nothing reserved slips through.** No file we keep reserved may be reached
+by a general licence declaration, and the whole history, not only the
+latest version, MUST be free of personal data and secrets.
+
+**Being born licensed is not publication.** A repository carries its licence
+from its first commit; while it is private, that licence grants permission to
+no one.
+
+**A legal debt waits for a condition.** A written debt marked as legal ends
+on a condition, not on a date, and the automatic checks evaluate that
+condition on every build.
 
 ## Check
 
-| Plate | Verified by |
-|---|---|
-| PUB-001, PUB-002 | `[MANUAL]` — the Oracle's signature, recorded outside the corpus |
-| PUB-003 | `[MANUAL]` — the listing is produced by a command, its output attached to the signing |
-| PUB-004 | `[MANUAL]` — `LICENSE` present at the first commit |
-| PUB-005 | `[MANUAL]` — the guard that evaluates thresholds is described, not built (`DBT-020`) |
+Every rule above, with the code an agent cites it by and what verifies it
+today. No outside standard is followed here.
+
+| Plate | Rule | Source | Verified by |
+|---|---|---|---|
+| PUB-001 | Permanent publication is gated; what fails the gate stays withdrawable | — | by hand: the Oracle's signature, recorded outside the corpus |
+| PUB-002 | Going public is the grant | — | by hand: the Oracle's signature, recorded outside the corpus |
+| PUB-003 | Four checks before visibility changes; nothing reserved slips through | — | by hand: the listing is produced by a command and its output attached to the signing; the files are the licence folder, `REUSE.toml`, `TRADEMARKS.md` and `NOTICE` |
+| PUB-004 | Being born licensed is not publication | — | by hand: a `LICENSE` file present at the first commit |
+| PUB-005 | A legal debt waits for a condition | — | nothing yet: the guard that evaluates conditions is described, not built (`DBT-020`) |
 
 ## Why
 
-`CAN-005`: opening is irreversible. Arweave cannot be unwritten; a public
-repository has already been cloned. The listing is generated because what is
-enumerated by hand desynchronises and the reserved publishes itself; the
-history is checked because a secret removed from `HEAD` is still one `git
-log` away.
+Opening cannot be undone: the permanent web cannot be unwritten, and a
+public repository has already been copied. The listing of sensitive folders
+is generated, because a list written by hand drifts and what we meant to
+keep publishes itself; the whole history is checked, because a secret
+removed from the latest version is still one step back in the log.
 
 ## References
 

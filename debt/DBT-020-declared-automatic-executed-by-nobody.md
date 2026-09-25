@@ -19,7 +19,7 @@ detected: "2026-09-07"
 visibility: "restricted-oracle"
 visibility_reason: "internal structural debt"
 opened_by: "ursa"
-related: ["MIS-0146", "STD-005", "STD-010", "STD-011"]
+related: ["MIS-0146", "STD-005", "STD-010"]
 ---
 
 <!--
@@ -118,6 +118,6 @@ what it verifies and one that assumes it.
 
 - `STD-005` ARC-003, ARC-006, ARC-010 — the declarations
 - `STD-010` — the DCO rule
-- `STD-011` — the register that measures the distance
+- `STD-005` — the outside standards the declarations rest on
 - `DBT-013` — closed 2026-09-04, still cited as open
 - `CAN-005` — the original warning about checks that pass by not running

@@ -5,15 +5,15 @@ title: "Header fields"
 type: documentation
 subtype: register
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-08-28T15:10:00Z"
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 tags: [frontmatter, register, lint, metadata]
 license: "CC0-1.0"
-series_change: "2.1.0 — 2026-09-24: `absorbs` registered for `canon/` (ADR-057): CAN-004 absorbed CAN-003, and the GIT-048 guard reads the field to keep the absorbed identifier resolving. Minor: a row gained a field, none lost one. 2.0.0 — one lifecycle for everything that is not a mission: `draft → active → withdrawn`. `closed` and `superseded` leave the status vocabulary; an heir is the field `superseded_by`, never a state (the relation model of ISO stage codes, RFC 2026 `Obsoletes:` and NIST CSRC, verified 2026-09-09). This table is the only declaration; `rules.json` mirrors it under test. Earlier: 1.0.0 — new register, split from STD-004 under ADR-043: the field tables of the three rings (old §3, §4, §7), the type and subtype vocabularies (§5), the status lifecycles (§6), the closed vocabularies (§7.2) and the meaning of each relation (§4). Rows and plates unchanged."
+series_change: "2.1.1 — 2026-09-25: the summary and the prose between the tables are written in plain words a narrator can read aloud, with no code, file name or plate in them; the tables are unchanged."
 ---
 
 <!--
@@ -23,9 +23,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # Header fields
 
-> **Summary:** Every frontmatter field the corpus accepts, by ring: its
-> value, the plate `machine/guards/rules/std-004-the-header.mjs` cites when it fails, and which
-> series may carry it. A field not here fails `HDR-030`.
+> **Summary:** Every field a document's header may carry, ring by ring:
+> what its value must be, the code the header check reports when it fails,
+> and which series may carry it. A field not listed here is an error.
 
 ## Ring 1 — identity, every document
 
@@ -79,8 +79,8 @@ SPDX-License-Identifier: CC0-1.0
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
 | all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
 
-Retired (`HDR-031`): `area` → `territory`; `blocked_reason`; the Spanish-era
-keys.
+Retired fields are reported wherever they remain: `area`, now `territory`;
+`blocked_reason`; and the field names from the Spanish era.
 
 ## Vocabularies
 
@@ -94,13 +94,14 @@ keys.
 | `visibility` | `public` · `restricted-oracle` | HDR-035 |
 | `territory` | the eight registered words | HDR-036 |
 
-`TBA` is legal in a vocabulary field and is not double-reported; a template's
-trailing comment is stripped before judging.
+A value marked as to be announced is allowed in a field with a closed list,
+and is reported only once. On a mould, the comment at the end of a line is
+set aside before the value is judged.
 
 ## Status lifecycles
 
-The only declaration of the states a document may hold. `rules.json`
-`status` mirrors this table and `rules.test.mjs` fails when they differ.
+This is the only place that says which states a document may hold. The
+machine keeps a copy, and a test fails the moment the two differ.
 
 | Type | Lifecycle | Plate |
 |---|---|---|
@@ -113,7 +114,8 @@ The only declaration of the states a document may hold. `rules.json`
 | `active` | in force, or — for a report or a closed mission's evidence — published and standing |
 | `withdrawn` | no longer in force. The one terminal state: whether an heir exists is said by `superseded_by`, present or absent, never by a second state (`GIT-045`) |
 
-Retired values (`HDR-004` rejects them): `closed` — it meant "published" in
-`reports/` and would have had to mean "no longer binding" in `standards/`;
-`superseded` — an heir is a relation, not a state. Whether a record's body
-may still change is the series' **threshold** (`STD-001`), not its status.
+Two states are retired, and the header check rejects them. Closed meant
+published for a report, and would have had to mean no longer binding for a
+standard. Superseded named an heir, and an heir is a relation, not a state.
+Whether a document's body may still change is its series' **threshold**,
+set in the register of series, not its status.

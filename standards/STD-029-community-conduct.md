@@ -5,9 +5,9 @@ title: "How we treat each other in the commons"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-09-23T20:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -17,6 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-052"
 threshold: governed
 related: ["CAN-002", "CAN-004", "PRO-005"]
+series_change: "0.1.1 — 2026-09-25: written in plain words, at the Oracle's word in session: no plate in the reading, rules grouped by purpose, and each rule paired at the foot with the matching part of the Contributor Covenant, the code of conduct most open communities share. No obligation added or dropped."
 ---
 
 <!--
@@ -26,59 +27,73 @@ SPDX-License-Identifier: CC0-1.0
 
 # How we treat each other in the commons
 
-> **Summary:** Seven rules for every shared Numinia space, and who enforces
-> them.
+> **Summary:** Seven rules for every shared space of Numinia, and who
+> enforces them.
 > **Epistemic:** What conduct is expected of a citizen, and what ends
 > participation.
-> **Pragmatic:** Moderate, or be moderated, without anyone improvising the
+> **Pragmatic:** Moderate, or be moderated, without anyone making up the
 > rule after the fact.
 > **Audience:** Everyone
 
 **Binds:** everyone in a Numinia community space — citizens, moderators,
 Oracles and digital agents alike.
-**Does not bind:** how work is executed, or how a person joins or leaves.
+**Does not bind:** how work is done, or how a person joins or leaves.
 
 ## Rules
 
-**CMS-001 — Respect is unconditional.** Every participant MUST be treated with
-respect regardless of who they are or whether their opinions differ. This
-binds moderators and Oracles exactly as it binds everyone else.
+### How we treat each other
 
-**CMS-002 — Language is free of intolerance.** Racism, homophobia and any
-other intolerance MUST NOT appear in a Numinia space.
+**Respect is unconditional.** Every participant MUST be treated with respect,
+whoever they are and whatever they think. This binds moderators and Oracles
+exactly as it binds everyone else.
 
-**CMS-003 — Harassment ends participation.** Threatening or harmful behaviour
-of any kind results in an immediate ban from access and participation. This is
-the one rule with no warning step.
+**Language is free of intolerance.** Racism, homophobia and every other form
+of intolerance MUST NOT appear in a Numinia space.
 
-**CMS-004 — Nothing illegal.** Illegal content MUST NOT be posted. Linking to
-sites with inappropriate content, or requesting private keys from anyone,
-ends participation.
+**Disagreement is welcome.** Feedback and plain speaking are wanted, and
+different points of view are how a conversation gets anywhere. Participants
+SHOULD offer them.
 
-**CMS-005 — Post the right content in the right place.** Spam and
-off-channel posting SHOULD be corrected rather than punished; repetition after
-correction is a moderation matter.
+### What ends participation
 
-**CMS-006 — Disagreement is welcome; contribute it.** Feedback and
-assertiveness are wanted, and differing perspectives are how conversations get
-anywhere. Participants SHOULD give them.
+**Harassment ends participation.** Threatening or harmful behaviour of any
+kind ends in an immediate ban from the space. This is the one rule with no
+warning first.
 
-**CMS-007 — Ask a Sentinel.** Anyone needing help notifies a Sentinel or an
-Oracle. Sentinels hold moderation; the escalation protocol applies when a case
-exceeds them.
+**Nothing illegal.** Illegal content MUST NOT be posted. Linking to sites
+with inappropriate content, or asking anyone for their private keys, ends
+participation.
+
+**The right thing in the right place.** Spam and posts in the wrong channel
+SHOULD be corrected rather than punished. Doing it again after a correction
+is a matter for moderation.
+
+### Who to ask
+
+**Ask a Sentinel.** Anyone who needs help tells a Sentinel or an Oracle.
+Sentinels hold moderation; a case beyond them goes up to the Oracle.
 
 ## Check
 
-| Plate | Verified by |
-|---|---|
-| CMS-001..007 | `[MANUAL]` — conduct is judged by people, and Sentinels hold the guild that does it |
+Every rule above, with the code an agent cites it by, the part of the
+outside code of conduct it matches, and what verifies it today.
+
+| Plate | Rule | Source | Verified by |
+|---|---|---|---|
+| CMS-001 | Respect is unconditional | [Contributor Covenant 2.1, our pledge and our standards](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) | by hand: conduct is judged by people, and the Sentinels are the guild that does it |
+| CMS-002 | Language is free of intolerance | [Contributor Covenant 2.1, our standards](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) | by hand, by the Sentinels |
+| CMS-006 | Disagreement is welcome | [Contributor Covenant 2.1, our standards](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) | by hand, by the Sentinels |
+| CMS-003 | Harassment ends participation | [Contributor Covenant 2.1, enforcement guidelines: permanent ban](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) | by hand, by the Sentinels |
+| CMS-004 | Nothing illegal | — | by hand, by the Sentinels |
+| CMS-005 | The right thing in the right place | [Contributor Covenant 2.1, enforcement guidelines: correction](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) | by hand, by the Sentinels |
+| CMS-007 | Ask a Sentinel | [Contributor Covenant 2.1, enforcement and reporting](https://www.contributor-covenant.org/version/2/1/code_of_conduct/) | by hand; the escalation goes by `PRO-005` |
 
 ## Why
 
-These rules were published inside the canon of brand and culture, where they
-read as a description of a nice atmosphere rather than as terms anyone could
-be held to. Conduct binds an actor, so it is a standard: it can be cited when
-enforcing, and enforcement is answerable to a text rather than to a mood.
+These rules were first published inside the canon of brand and culture,
+where they read as a pleasant atmosphere rather than terms anyone could be
+held to. Conduct binds an actor, so it is a standard: it can be cited when
+enforcing, and enforcement answers to a text rather than to a mood.
 
 ## References
 

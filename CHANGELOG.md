@@ -19,6 +19,15 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-25 (every standard reads for people first; STD-011 shared out)
+- **All standards** (STD-001, 003–010, 012–033) rewritten for a listener first, at the Oracle's word in session: from the title to the last rule no plate, document identifier, file name, link or unexplained acronym; rules under headings by purpose, titled in words. Plates, sources and what verifies each rule wait in one Check table at the foot. MUST / SHOULD / MAY stay in capitals, as RFC 2119 says. Registers keep their tables; only their summary and prose changed. No plate renumbered or dropped.
+- **`STD-011` is withdrawn and shared out** by purpose; the address redirects to engineering. Dates (HDR-045) and obligation words (HDR-046) → the header; Semantic Versioning → VER-021 of Versions; SPDX, REUSE and the certificate of origin → Licensing (already); Scorecard (ENG-068) and Keep a Changelog (ENG-069) → Engineering, whose other five outside standards were already our rules and become their sources; tokens → DSN-010; accounting plan and FOCUS → LED-001 and LED-003. `STD-005` declares `absorbs: ["STD-011"]`.
+- **New `STD-034` Accessibility** (WCAG 2.2 AA, ACC-001..004) and **`STD-035` Personal data** (GDPR, PRV-001..003), draft 0.1.0.
+- **New `BLU-016`** — the twelve outside standards under consideration, each with what it is, why it matters and what adopting it takes.
+- **`STD-007`** 1.2.0 and its guard: a plate may live in a rule title or in the Check table (DOC-004); identifiers are allowed in the Check table (DOC-008). Test first. `STD-TEMPLATE.md` takes the new shape.
+- **Duplication with outside standards, found while rewriting:** VER-021 is Semantic Versioning; ENG-006 blameless postmortems, ENG-003/GIT-025 trunk-based development, ENG-004/KEY-054 Twelve-Factor config, ARC-006 Conventional Commits, AGT-005 Gherkin; community conduct (CMS-001..003, 005..007) largely repeats the Contributor Covenant; records rules in STD-012/024/025/027 are ISO 15489; address rules in STD-028 are W3C Cool URIs, RFC 6596 and RFC 9110; citation rules in STD-021 are ISO 690. Each is now named as the rule's source.
+- Verified-by corrections: several Check rows claimed a guard that does not check the rule (DEF-001, MSN-001/002/039, CLS-004, DSN checks run only on numinia.com); they now say what really verifies them.
+
 ### Changed — 2026-09-25 (licensing in plain words)
 - **`standards/STD-010-licensing.md`** `2.1.0`: no licence code, acronym or file name in the reading, from the card to the last rule — each licence is described by what it lets people do (open and changes shared, open with no conditions, belongs to everyone, reusable with credit, stays ours). A second table at the foot pairs each kind of piece with its exact licence; the first keeps every plate, source and check. No obligation added or dropped. The Oracle's word in session.
 

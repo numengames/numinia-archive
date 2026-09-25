@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-09-24T15:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -16,7 +16,8 @@ tags: [standards, register, vocabulary, guilds, factions, translation]
 license: "CC0-1.0"
 ratified_by: "ADR-053"
 threshold: governed
-related: ["CAN-004", "STD-003", "STD-026"]
+related: ["CAN-004", "STD-003", "STD-026", "PRO-019"]
+series_change: "0.1.4 — 2026-09-25: the summary and the closing note are written plainly, for a narrator, with no document codes in them; the tables are unchanged."
 ---
 
 <!--
@@ -26,15 +27,15 @@ SPDX-License-Identifier: CC0-1.0
 
 # The world's vocabulary
 
-> **Summary:** Every in-world name of the guild and faction structure, with
-> what it is called when the fiction is set aside. A translation, not a rule:
+> **Summary:** Every in-world name of the guilds and factions, with what it
+> is called when the fiction is set aside. A translation, not a rule:
 > nothing here can be complied with or broken.
 >
-> Names follow the game manual, which is the authority on the world's
-> vocabulary (`ADR-053`); their English is the manual's translation glossary,
-> which copies what numinia.com already shows. The structure they name is `CAN-004`; the ranks are
-> `STD-003`; the operative terms of the business are `STD-026`; the game's own
-> terms are the codex glossary.
+> The names follow the game manual, which has the last word on the world's
+> vocabulary; their English is the manual's translation glossary, which
+> copies what the public game site already shows. The structure they name,
+> the ranks, the business's working terms and the game's own terms each have
+> their own document.
 
 ## Guilds — Alchemists
 
@@ -103,6 +104,6 @@ SPDX-License-Identifier: CC0-1.0
 | **Seed of Knowledge** | Learning recognition | It marks acquired knowledge and cultural alignment. |
 | **Prism Cell** | Contribution recognition | It reflects practical contribution through execution. |
 
-The rituals — Dark Council, Lunar Coven and the rest — are rostered in
-`PRO-019`, with their cadence and their convoker. The six ranks, from Nomad to
-Oracle, are `STD-003`, which states what each may do.
+The rituals — Dark Council, Lunar Coven and the rest — are listed in the
+rituals protocol, with their cadence and who calls them. The six ranks, from
+Nomad to Oracle, are in the ranks standard, which says what each may do.
