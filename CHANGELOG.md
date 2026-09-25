@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-25 (plates and sources leave the reading)
+- **`standards/STD-011-external-standards.md`** `2.0.0`, follow-up to #493: the rules are titled in words alone; one Check table at the foot pairs each plate with its rule, its source and what verifies it today, so any screen reader — not only ours — reads the rules without a code or a URL in the way. The Oracle's word in session.
+
 ### Changed — 2026-09-25 (external standards are rules, told aloud)
 - **`standards/STD-011-external-standards.md`** `2.0.0`: from register to standard, at the Oracle's word in session. The eighteen outside standards we use become eighteen rules (EXT-001..018) in five groups — writing rules, keeping files, building software, how the sites look and read, money and personal data — each named and explained in words a narrator can read aloud. The twelve under consideration are one paragraph that binds nobody. Every source link moves to a list at the foot so it does not interrupt the reading. The distance column and the notes become the Check table.
 - **`AGENTS.md`**: the rule index regenerated — STD-011 now names whom it binds.
