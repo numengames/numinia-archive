@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 129207,
+  "chars": 129524,
   "apparatus": false,
   "archived": false,
-  "tokens": 34353
+  "tokens": 34449
  },
  {
   "path": "CLAUDE.md",
@@ -621,10 +621,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 7015,
+  "chars": 7048,
   "apparatus": false,
   "archived": false,
-  "tokens": 1858
+  "tokens": 1867
  },
  {
   "path": "canon/CAN-001-welcome-to-numinia.md",
@@ -2480,10 +2480,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8438,
+  "chars": 8690,
   "apparatus": false,
   "archived": false,
-  "tokens": 2439
+  "tokens": 2513
  },
  {
   "path": "standards/STD-035-personal-data.md",
