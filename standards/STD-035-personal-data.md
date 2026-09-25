@@ -5,15 +5,16 @@ title: "Personal data"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
-tags: [standards, privacy, GDPR, personal-data]
-series_change: "0.1.0 — 2026-09-25: personal data gets a standard of its own, resting on the European data protection regulation."
+tags: [standards, privacy, GDPR, LOPDGDD, personal-data]
+related: ["OPS-003", "STD-033", "BLU-017"]
+series_change: "0.2.0 — 2026-09-25: every rule rests on its article of the European regulation or the Spanish data protection law; data past its purpose is blocked before it is erased, all six rights are answered within a month, and four duties are added — a record of processing, contracts with processors, breach notice within 72 hours, and parental consent under fourteen."
 ---
 
 <!--
@@ -23,11 +24,11 @@ SPDX-License-Identifier: CC0-1.0
 
 # Personal data
 
-> **Summary:** What we keep about a person, we keep for a purpose we have
-> said, only for as long as we need it, and the person can see it and have
-> it erased.
-> **Epistemic:** The few commitments the European data protection law asks
-> of us, in words anyone can check us against.
+> **Summary:** What we keep about a person, we keep on a lawful basis and
+> for a purpose we have said, only as long as needed, and the person can see
+> it, correct it, take it and have it erased.
+> **Epistemic:** What the European data protection regulation and the
+> Spanish law that completes it ask of us, in words anyone can check.
 > **Pragmatic:** Decide whether a form, a log or a list may hold someone's
 > data, and for how long. This is not legal advice.
 > **Audience:** Agents · Oracles
@@ -37,38 +38,73 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Rules
 
+Every rule here is law, from the European data protection regulation and
+the Spanish data protection law; a lawyer should confirm how each applies.
+
 ### Why we keep it, and for how long
 
-**A purpose said first.** Personal data MUST be collected only for a purpose
-stated to the person before collection, and MUST NOT be used for another.
+**A basis and a purpose said first.** Personal data MUST be collected only on
+a lawful basis — consent, a contract, a legal duty — and for a purpose told
+to the person before collection, in a notice that says who we are and how to
+reach us. It is never reused for a purpose the person would not expect. The
+law requires this; refusing even compatible reuse is our choice.
 
-**Kept only as long as needed.** Personal data MUST be deleted once its
-purpose is done, unless a law obliges us to keep it longer.
+**Blocked, then erased.** Once its purpose is done, personal data MUST be
+blocked — kept apart, out of any use, reachable only by a court or an
+authority — for as long as a claim over it can still arise, and then erased.
+The law requires this.
 
 ### What the person can do
 
-**The person can see it and erase it.** Anyone MUST be able to ask what we
-hold about them, receive it, and have it erased, through a contact given in
-our privacy notice.
+**The person is in charge of it.** Anyone MUST be able to see what we hold
+about them, correct it, have it erased, limit its use, take it away in a
+common format, and object to its use, through a contact in our privacy
+notice, and get an answer within one month. The law requires this.
+
+**Under fourteen, a parent decides.** Consent from anyone under fourteen
+MUST come from a parent or guardian. The law requires this in Spain.
+
+### What we keep ready
+
+**A record of what we do with data.** We MUST keep a written record of each
+use of personal data: what, why, whose, shared with whom, for how long. It
+is the first thing an inspector asks for. The law requires this.
+
+**Anyone handling data for us signs first.** A supplier who processes
+personal data on our behalf MUST do so under a written contract that
+binds them to our instructions and to keeping it safe. The law requires
+this.
+
+**A breach is reported within three days.** A breach of personal data that
+puts people at risk MUST be reported to the Spanish data protection
+authority within seventy-two hours of our knowing, and to the people
+affected when the risk is high. The law requires this.
+
+This standard is over its word budget: the rights and duties the law sets
+are one subject, and a shorter list would drop one of them.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it rests on, and what verifies it today.
+Every rule above, with the code an agent cites it by, the law it rests on,
+and what verifies it today.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| PRV-001 | A purpose said first | [GDPR, Regulation (EU) 2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj), purpose limitation | by hand; the privacy texts are `OPS-003`, a reserved legal text with open questions awaiting a lawyer |
-| PRV-002 | Kept only as long as needed | [GDPR, Regulation (EU) 2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj), storage limitation | by hand |
-| PRV-003 | The person can see it and erase it | [GDPR, Regulation (EU) 2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj), rights of access and erasure | by hand; the contact lives in `OPS-003` |
+| PRV-001 | A basis and a purpose said first | law: [GDPR, Regulation (EU) 2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(b), 6, 13; no compatible reuse is ours | by hand; the privacy texts are `OPS-003`, a reserved legal text with open questions awaiting a lawyer |
+| PRV-002 | Blocked, then erased | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 5(1)(e); [LOPDGDD, Ley Orgánica 3/2018](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) art. 32 | by hand; a lawyer confirms the blocking periods |
+| PRV-003 | The person is in charge of it | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 12, 15–18, 20, 21 | by hand; the contact lives in `OPS-003` |
+| PRV-004 | Under fourteen, a parent decides | law: [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) art. 7; [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 8 | nothing yet: no age check exists |
+| PRV-005 | A record of what we do with data | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 30 | nothing yet: no record is kept |
+| PRV-006 | Anyone handling data for us signs first | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 28 | by hand; the suppliers' data processing terms, outside this repository |
+| PRV-007 | A breach is reported within three days | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 33–34 | nothing yet: no breach procedure is written |
 
 ## Why
 
-Data about a person is theirs lent to us, not ours. A purpose said first
-stops a list gathered for one thing being used for another; a deletion date
-stops a harmless list becoming a liability; a way to see and erase keeps the
-person in charge. The European law asks all three already, and naming it
-lets anyone hold us to it.
+Data about a person is theirs lent to us, not ours. A basis and a purpose
+said first stop a list gathered for one thing being used for another;
+blocking, then erasing, keeps what a claim may need and nothing more; the
+record, the contracts and the breach notice are what let us prove it when
+asked.
 
 ## References
 
@@ -76,4 +112,4 @@ lets anyone hold us to it.
 |---|---|---|
 | `OPS-003` | Privacy Policy — Numen Games | the privacy notice these rules are kept in |
 | `STD-033` | Charges and the account | what a payer may choose to show |
-| `STD-011` | External standards | where this rule came from |
+| `BLU-017` | Legal obligations to confirm | what remains to put in place |

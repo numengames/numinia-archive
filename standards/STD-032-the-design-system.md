@@ -5,9 +5,9 @@ title: "The Numinia Design System"
 type: documentation
 subtype: register
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,8 +15,8 @@ territory: "Archive"
 tags: [standards, register, design, design-system, sound, writing, play]
 license: "CC0-1.0"
 threshold: governed
-related: ["CAN-008", "CAN-002", "STD-008", "STD-023", "PRO-014", "STD-021"]
-series_change: "0.2.1 — 2026-09-25: the card and the prose above the register written in plain words, with no address or symbol a narrator would stumble on, at the Oracle's word in session. The register table, which the site reads, is unchanged."
+related: ["CAN-008", "CAN-002", "STD-008", "STD-023", "STD-034", "PRO-014", "STD-021"]
+series_change: "0.2.2 — 2026-09-25: one paragraph says that what anyone must be able to do with a piece follows the accessibility standard; the register table is unchanged. 0.2.1 — 2026-09-25: the card and the prose above the register written in plain words, with no address or symbol a narrator would stumble on, at the Oracle's word in session. The register table, which the site reads, is unchanged."
 ---
 
 <!--
@@ -51,6 +51,11 @@ the system points to without carrying it: the page links it, and the
 compiled system and the download name it and leave it out. The game manual
 is one of these. Three thousand lines of rules are material for designing
 play, not the design system, and the manual is downloaded on its own.
+
+The design system says what is ours. What anyone must be able to do with a
+piece — read it in either theme, reach it by keyboard, hear it, pause what
+moves — follows the world's web accessibility guidelines, and lives in the
+accessibility standard, which every row here serves.
 
 ## The register
 
@@ -98,4 +103,5 @@ play, not the design system, and the manual is downloaded on its own.
 |---|---|---|
 | `CAN-008` | One identity, three forces | the direction every row serves |
 | `STD-008` | Design tokens | the rules of the Image language |
+| `STD-034` | Accessibility | what every piece must let anyone do |
 | `PRO-014` | Producing a design piece | how a piece is made with what is listed here |

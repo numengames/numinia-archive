@@ -5,9 +5,9 @@ title: "Which rule wins"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.3"
+version: "1.1.4"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -15,7 +15,7 @@ license: "CC0-1.0"
 tags: [standards, governance, precedence, rules]
 threshold: governed
 absorbs: ["STD-002"]
-series_change: "1.1.3 — 2026-09-25: written in plain words for a narrator; codes and checks wait in the Check table; no obligation added or dropped."
+series_change: "1.1.4 — 2026-09-25: says plainly that this order of precedence is ours, since no outside standard covers it, and that the draft rule follows the internet standards body's convention for work in progress; no obligation added or dropped."
 ---
 
 <!--
@@ -29,8 +29,8 @@ SPDX-License-Identifier: CC0-1.0
 > whose claim wins. History over document, document over code, the costlier
 > document over the cheaper, the later ruling over the earlier — and nothing
 > is authoritative just for saying so.
-> **Epistemic:** The order between history, documents and code, and why it
-> follows the cost of change, not importance.
+> **Epistemic:** The order between history, documents and code, why it
+> follows the cost of change, not importance, and that the order is ours.
 > **Pragmatic:** Settle a conflict between two sources without asking anyone.
 > **Audience:** Agents · Oracles
 
@@ -40,6 +40,10 @@ one.
 archive, which follow their own platform.
 
 ## Rules
+
+This order is our own. No outside standard ranks history, documents and
+code against each other, and no law asks for one; we wrote it because an
+archive read by agents needs one answer, the same every time.
 
 ### History, documents and code
 
@@ -68,9 +72,10 @@ be treated as void unless it rests on one of them.
 
 ### When a rule starts to bind
 
-**A draft binds nobody.** A document still in draft states an intention. It
-is published to be read and argued with; nothing in it MAY be held against
-anyone until its state says otherwise — this standard included.
+**A draft binds nobody.** The internet's standards body publishes its
+drafts to be read and argued with, and forbids anyone to claim compliance
+with one; we hold our drafts the same way. Nothing in a draft MAY be held
+against anyone until its state says otherwise — this standard included.
 
 ## Check
 
@@ -79,12 +84,12 @@ it rests on, and what verifies it today.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| PRE-001 | History outranks the document | [Git](https://git-scm.com/) | by hand — recognising that two sources conflict is a judgement no parser makes |
-| PRE-002 | Documents outrank code | — | by hand |
-| PRE-003 | The costlier document wins | the thresholds `governed` · `closed` · `open` in `STD-001` | by hand |
-| PRE-004 | The later ruling wins | — | by hand |
-| PRE-005 | Authority is not self-declared | — | by hand |
-| PRE-006 | A draft binds nobody | — | every guard on the shared contract (`machine/guards/lib/guard.mjs`) reads each standard's `status` and reports without failing while it is `draft`, as `ENG-067` in `STD-005` requires |
+| PRE-001 | History outranks the document | — (ours; the history is kept in [Git](https://git-scm.com/)) | by hand — recognising that two sources conflict is a judgement no parser makes |
+| PRE-002 | Documents outrank code | — (ours) | by hand |
+| PRE-003 | The costlier document wins | — (ours); the thresholds `governed` · `closed` · `open` in `STD-001` | by hand |
+| PRE-004 | The later ruling wins | — (ours) | by hand |
+| PRE-005 | Authority is not self-declared | — (ours) | by hand |
+| PRE-006 | A draft binds nobody | [RFC 2026, Internet-Drafts, section 2.2](https://www.rfc-editor.org/rfc/rfc2026#section-2.2): drafts are work in progress, and no one may claim compliance with one | every guard on the shared contract (`machine/guards/lib/guard.mjs`) reads each standard's `status` and reports without failing while it is `draft`, as `ENG-067` in `STD-005` requires |
 
 ## Why
 

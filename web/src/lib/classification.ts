@@ -136,17 +136,17 @@ const SERVED_AT: Record<string, { href: string | null; label?: string; unpublish
   "machine/guards/": {
     href: "/system/sys-007-the-instruments#machineguards--verifying",
     label: "Guards",
-    unpublished: "An instrument, not a record — the rules that run on every change; read in the repository, explained in the manual.",
+    unpublished: "A short-lived record that never binds — the rules that run on every change; read in the repository, explained in the manual.",
   },
   "machine/tools/": {
     href: "/system/sys-007-the-instruments#machinetools--verifying",
     label: "Tools",
-    unpublished: "An instrument, not a record — checks run by hand or against the registers; read in the repository, explained in the manual.",
+    unpublished: "A short-lived record that never binds — checks run by hand or against the registers; read in the repository, explained in the manual.",
   },
   "machine/scripts/": {
     href: "/system/sys-007-the-instruments#machinescripts--verifying",
     label: "Scripts",
-    unpublished: "An instrument, not a record — the build and CI scripts; read in the repository, explained in the manual.",
+    unpublished: "A short-lived record that never binds — the build and CI scripts; read in the repository, explained in the manual.",
   },
   "machine/telemetry/": {
     href: "/telemetry",
@@ -155,7 +155,7 @@ const SERVED_AT: Record<string, { href: string | null; label?: string; unpublish
   "machine/templates/": {
     href: "/system/sys-007-the-instruments#machinetemplates--templating",
     label: "Templates",
-    unpublished: "An instrument, not a record — the moulds a document is cut from; read in the repository, explained in the manual.",
+    unpublished: "A short-lived record that never binds — the moulds a document is cut from; read in the repository, explained in the manual.",
   },
 };
 

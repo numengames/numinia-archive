@@ -5,19 +5,19 @@ title: "The archive is classified by function"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
-tags: [standards, classification, archive, functions, series]
+tags: [standards, classification, archive, functions, series, records-management]
 license: "CC0-1.0"
 ratified_by: "ADR-046"
 threshold: governed
 related: ["STD-001", "STD-024", "STD-012", "ADR-030", "SYS-003"]
-series_change: "0.1.1 — 2026-09-25: from register to the shape of a standard, since it carries four plated rules: written in plain words a narrator can read aloud, the scheme told in words, and its exact table with the archival standards it rests on moved to Check. No obligation added or dropped."
+series_change: "0.2.0 — 2026-09-25: the instruments rule is reversed to agree with the international standard for records management — what the machine measures or reports is a short-lived record that may be cited as evidence of its own measurement but never binds — and the scheme's rules say what they adopt from that standard and the Australian national archives' guidance; a reversal is a major change, raised in the middle number while the standard is below one."
 ---
 
 <!--
@@ -28,7 +28,8 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** One producer, six functions, the activities under each, and
 > the series every activity produces. A function classifies; a series files.
-> What checks or displays the archive is an instrument, never a record.
+> What checks or measures the archive is a short-lived record that proves
+> what it measured and binds nobody.
 > **Epistemic:** Which activity produced a document, and why that is a
 > different question from what a change to it costs.
 > **Pragmatic:** Decide where a new folder belongs, and whether it is a series
@@ -45,8 +46,7 @@ records are kept.
 
 Everything in the archive was made by one producer, Numen Games, and is
 arranged by what it does, not by who made it: there are no stable teams to
-mirror, and no function is named after one. Functions are nouns; activities
-are verbs.
+mirror, and no function is named after one.
 
 Governance founds, standardises, prescribes and decides. Production plans
 and carries out. Assurance observes, admits debt, verifies and measures.
@@ -56,35 +56,40 @@ the templates. The website is a lens onto the archive, not part of it.
 
 ### How the scheme is used
 
-**A function classifies; a series files.** A document MUST be filed in
-exactly one series, and its name MUST name the series, never the function.
-Functions can be regrouped without moving a file or breaking a citation.
+**A function classifies; a series files.** The international standard for
+records management, and the Australian national archives' guidance on it,
+classify by business function: functions are nouns, activities verbs, so
+the scheme survives a reorganisation. A document MUST be filed in exactly
+one series, and its name names the series, never the function.
 
-**Instruments are not records.** What checks, displays, measures or moulds
-the archive MUST carry no document name, MUST NOT be appraised, and MUST NOT
-be cited as evidence, even when the scheme classifies it.
+**Instruments are short-lived records that never bind.** The records
+standard counts as a record whatever is kept as evidence, so a measurement
+or a check's output is one. An instrument carries no document name and is
+kept only while current, the history holding the rest; it MAY be cited as
+evidence of what it measured, never as a rule.
 
 **Classification and threshold answer different questions.** A folder's
 function says which activity produced its records; its threshold says what
-a change to them costs. Neither follows from the other, and a clash is not a
-defect.
+a change to them costs. Neither follows from the other, and a clash MUST
+NOT be treated as a defect.
 
-**A new folder declares its function first.** A new folder gets its row in
-the scheme before its first commit. A folder with no row is unclassified,
-and an unclassified folder is not a series, whatever it holds.
+**A new folder declares its function first.** The Australian guidance puts
+every record under a function and an activity, so nothing is kept that no
+activity explains. A new folder MUST get its row in the scheme before its
+first commit; a folder with no row is not a series, whatever it holds.
 
 ## Check
 
 Every rule above, with its plate, the outside standard it follows, and what
 verifies it today. Then the scheme as the site reads it, and what it rests
-on.
+on. No law requires this scheme; it is our choice.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| CLS-001 | A function classifies; a series files | [ISO 15489-1, classification](https://www.iso.org/standard/62542.html) | `machine/guards/rules/std-004-the-header.mjs` (`HDR-017`, folder against `type:`) |
-| CLS-002 | Instruments are not records | [ISO 15489-1, what a record is](https://www.iso.org/standard/62542.html) | by hand — an instrument carrying an identifier is caught in review |
+| CLS-001 | A function classifies; a series files | [ISO 15489-1:2016, classification](https://www.iso.org/standard/62542.html) (clause unverified) · [National Archives of Australia, developing a business classification scheme](https://www.naa.gov.au/information-management/describing-information/classifying-information/develop-business-or-records-classification-scheme); a name on the series, not the function, is ours | `machine/guards/rules/std-004-the-header.mjs` (`HDR-017`, folder against `type:`) |
+| CLS-002 | Instruments are short-lived records that never bind | [ISO 15489-1:2016, what a record is](https://www.iso.org/standard/62542.html), clause 3 (clause unverified); retention while current and no binding force are ours. Reversed in 0.2.0: it said instruments are not records and never evidence, which contradicted the standard and citing a file as evidence (`STD-021` CIT-052) | by hand — an instrument carrying an identifier, or cited as a rule, is caught in review |
 | CLS-003 | Classification and threshold answer different questions | — | by hand |
-| CLS-004 | A new folder declares its function first | — | partly: the site build fails when a section it serves is not in the scheme (`web/src/pages/[section].astro`); a new unserved folder, by hand |
+| CLS-004 | A new folder declares its function first | [National Archives of Australia, all records belong to a function and activity](https://www.naa.gov.au/information-management/describing-information/classifying-information/develop-business-or-records-classification-scheme); before the first commit is ours | partly: the site build fails when a section it serves is not in the scheme (`web/src/pages/[section].astro`); a new unserved folder, by hand |
 
 The scheme, one producer: **Numen Games S.L.** The site and the URL checker
 read this table; its shape is their contract.
@@ -114,8 +119,8 @@ a distributable. Instruments live under `machine/`.
 | What the scheme rests on | What it gives |
 |---|---|
 | Records in Contexts 1.0 (International Council on Archives, 2023) | description as a graph of records, agents, activities and rules; replaces the older description standards |
-| Business classification scheme (National Archives of Australia) | function, activity, transaction; functions are nouns, activities verbs, never named after a unit |
-| [ISO 15489](https://www.iso.org/standard/62542.html) · ISO 30300–30301 | classification tied to retention and access, not filing taste |
+| Business classification scheme (National Archives of Australia) | function, activity, transaction; functions are nouns, activities verbs, never named after a unit; every record under a function and an activity |
+| [ISO 15489](https://www.iso.org/standard/62542.html) · ISO 30300–30301 | classification tied to retention and access, not filing taste; a record is whatever is kept as evidence |
 | Records continuum (Upward) | a record is not staged through a life cycle: state is a field, never a path |
 | Macroappraisal (Cook) | what is kept is decided by analysing functions, not counting documents |
 | Series system (Scott, 1966) | a series may relate to several producers over time |
@@ -127,9 +132,9 @@ hierarchy; classification by subject; classification by organisational unit.
 
 A folder answers where to look; a function answers why the record exists.
 Tying the name to the folder and not the function lets the scheme be
-redrawn without a single broken citation. Keeping instruments out of the
-records keeps evidence from being confused with the tools that check it.
-The scheme is borrowed from archival practice, not invented here.
+redrawn without a single broken citation. Instruments are evidence of what
+they measured, and only that: a rule binds, a reading reports. The scheme
+is borrowed from archival practice, not invented here.
 
 ## References
 

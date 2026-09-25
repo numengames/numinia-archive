@@ -146,7 +146,7 @@ jobs:
           echo "::warning::astro check found errors — see the job summary; not blocking yet"
           exit 0
 
-      # ARC-003 (STD-015): REUSE 3.3 — every file names its licence, in a
+      # LIC-007 (STD-010): REUSE 3.3 — every file names its licence, in a
       # header or through REUSE.toml, and LICENSES/ holds the text of every
       # licence the map names. The footer of the four sites says "Open by
       # licence, per file" and links REUSE.toml: this step is what makes

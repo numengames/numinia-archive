@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -16,7 +16,7 @@ threshold: governed
 license: "CC0-1.0"
 tags: [standard, register, vocabulary, glossary, onboarding]
 related: ["CAN-002", "CAN-005", "CAN-006"]
-series_change: "0.1.2 — 2026-09-25: the summary and the closing note are written plainly, for a narrator, with no path in them; the tables are unchanged."
+series_change: "0.1.3 — 2026-09-25: the summary says the list follows the web consortium's model for vocabularies and the international rule for definitions; the tables are unchanged. 0.1.2 — 2026-09-25: the summary and the closing note are written plainly, for a narrator, with no path in them; the tables are unchanged."
 ---
 
 <!--
@@ -31,6 +31,13 @@ SPDX-License-Identifier: CC0-1.0
 > here. Not the game's own words — those live in the game's glossary, in the
 > manual's language. This list grows only by decision, and never past the
 > essential.
+>
+> The list follows the web consortium's model for vocabularies: each term
+> has one preferred label, its alternative labels after "Also", a
+> definition, and a note on its scope here. Each definition names the kind
+> of thing first and then what sets it apart, as the international rule for
+> writing definitions asks, so any glossary tool can read it and any term
+> can be checked against its neighbours.
 
 ## Network and ownership
 

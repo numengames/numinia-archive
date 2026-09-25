@@ -5,19 +5,19 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.1.4"
+version: "3.2.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
-tags: [standards, ranks, permissions, digital-goods]
+tags: [standards, ranks, permissions, digital-goods, RBAC]
 license: "CC0-1.0"
 threshold: governed
-series_change: "3.1.4 — 2026-09-25: written in plain words, at the Oracle's word in session: no plate, file name or path in the reading; what each rank adds is said in sentences, and the files each rank is read from wait in a table at the foot. No obligation added or dropped. 3.1.3 — 2026-09-24: payment is no longer sent to operations; it points at STD-033 (ADR-064). Patch: the Does-not-bind line only. 3.1.1 — 2026-09-24: the two canon citations become one, `CAN-004` having absorbed `CAN-003` (ADR-057). Patch: prose and References only. 3.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
+series_change: "3.2.0 — 2026-09-25: the ranks rest on role-based access control, the application security verification standard and the federal security controls, each rule marked as our choice rather than law, and an Oracle's privileged actions, though unbannable, are now logged. 3.1.4 — 2026-09-25: written in plain words, at the Oracle's word in session: no plate, file name or path in the reading; what each rank adds is said in sentences, and the files each rank is read from wait in a table at the foot. No obligation added or dropped. 3.1.3 — 2026-09-24: payment is no longer sent to operations; it points at STD-033 (ADR-064). Patch: the Does-not-bind line only. 3.1.1 — 2026-09-24: the two canon citations become one, `CAN-004` having absorbed `CAN-003` (ADR-057). Patch: prose and References only. 3.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
 ---
 
 <!--
@@ -42,33 +42,49 @@ payment; custody and identity checks.
 
 ## Rules
 
+None of these rules is required by law; each is our choice, resting on a
+security standard others already audit against.
+
 ### How rank is held
 
-**Ranks add up.** A rank MUST grant every permission of the ranks below it.
+**Ranks add up.** A rank MUST grant every permission of the ranks below it,
+as a role hierarchy does in the role-based access control model of the
+United States standards institute. One ladder is easy to audit: what someone
+may do is their rank and everything under it. Our choice; the law does not
+require it.
 
 **Rank is read, never declared.** The platform MUST work out a member's rank
-from what they have done, and MUST NOT accept a rank the member claims.
+on its own server, from their sign-in, their character sheet and their
+purchases, never from what the member's device claims. The open web security
+project's verification standard asks the same, because a permission checked
+out of the member's reach cannot be self-granted. Our choice; the law does
+not require it.
 
 **The ranks that follow the evidence move by themselves.** Between Nomad and
 Citizen, and between Citizen and Pilgrim, rank MUST follow the evidence in
-both directions, with no one's hand involved.
+both directions, with no one's hand involved. Our choice; the law does not
+require it.
 
 ### Who may move whom
 
 **No more than four Oracles.** The list of Oracles MUST NOT name more than
-four people.
+four people. Our choice; the law does not require it.
 
 **Nobody acts upward.** An Archon MUST NOT act on another Archon or on an
-Oracle. An Oracle MUST NOT be bannable anywhere: not in storage, not through
-the programming interface, not on screen.
+Oracle, and nobody can ban an Oracle, in storage, through the programming
+interface or on screen. Separation of duties and least privilege, in the
+federal security controls, are what stop capture; since an Oracle cannot be
+banned, every privileged action an Oracle takes is logged instead. Our
+choice; the law does not require it.
 
 **Moving someone by hand has a ceiling.** An Archon MAY promote or demote
-anyone up to Vernacular. An Oracle MAY manage every rank except Oracle.
-Oracles change only when the list of Oracles is edited.
+anyone up to Vernacular, and an Oracle every rank except Oracle; Oracles
+change only when the list of Oracles is edited. Our choice; the law does not
+require it.
 
 **The top two are judged, not counted.** A promotion to Vernacular or Archon
 MUST be decided against the profiles below, never against how much someone
-has produced.
+has produced. Our choice; the law does not require it.
 
 A Vernacular is an agent fully at home in Numinia's culture. They inhabit
 the system with fluency and depth, and know its structures from within. They
@@ -115,24 +131,29 @@ be banned.
 
 **The permissions and this page move together.** A change to the platform
 that alters what a rank may do MUST update this standard in the same
-change.
+change. The security verification standard asks for written authorization
+rules; this page is them, so a reviewer can test the code against it. Our
+choice; the law does not require it.
+
+This standard is over its word budget: the six rank profiles are what a
+reviewer tests the code against, and cannot move elsewhere.
 
 ## Check
 
 Every rule above, with the code an agent cites it by, the outside standard
-it rests on, and what verifies it today. Then where the platform reads each
-rank from.
+it rests on, and what verifies it today. None is law. Then where the
+platform reads each rank from.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| RNK-001 | Ranks add up | [NIST role-based access control, role hierarchies](https://csrc.nist.gov/projects/role-based-access-control) | by hand: the permissions live in the platform's code, outside this archive; its test suite is the check |
-| RNK-002 | Rank is read, never declared | — | by hand: the platform's test suite |
-| RNK-005 | The ranks that follow the evidence move by themselves | — | by hand: the platform's test suite |
-| RNK-003 | No more than four Oracles | — | by hand: the platform's test suite |
-| RNK-004 | Nobody acts upward | — | by hand: the platform's test suite |
-| RNK-006 | Moving someone by hand has a ceiling | — | by hand: the platform's test suite |
-| RNK-008 | The top two are judged, not counted | — | by hand: an Archon or an Oracle, at each promotion |
-| RNK-007 | The permissions and this page move together | — | by hand: a platform pull request that changes the permissions without a change here |
+| RNK-001 | Ranks add up | [NIST role-based access control, role hierarchies](https://csrc.nist.gov/projects/role-based-access-control) — our choice | by hand: the permissions live in the platform's code, outside this archive; its test suite is the check |
+| RNK-002 | Rank is read, never declared | [OWASP ASVS 5.0, V8.3.1, authorization enforced at a trusted service layer](https://owasp.org/www-project-application-security-verification-standard/) — our choice | by hand: the platform's test suite |
+| RNK-005 | The ranks that follow the evidence move by themselves | — our choice | by hand: the platform's test suite |
+| RNK-003 | No more than four Oracles | — our choice | by hand: the platform's test suite |
+| RNK-004 | Nobody acts upward | [NIST SP 800-53 rev. 5, AC-5 separation of duties, AC-6 least privilege, AC-6(9) log use of privileged functions](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) — our choice | by hand: the platform's test suite; nothing yet checks that Oracle actions are logged |
+| RNK-006 | Moving someone by hand has a ceiling | — our choice | by hand: the platform's test suite |
+| RNK-008 | The top two are judged, not counted | — our choice | by hand: an Archon or an Oracle, at each promotion |
+| RNK-007 | The permissions and this page move together | [OWASP ASVS 5.0, V8.1.1, authorization documentation](https://owasp.org/www-project-application-security-verification-standard/) — our choice | by hand: a platform pull request that changes the permissions without a change here |
 
 | Rank | Earned by | Read from | Adds |
 |---|---|---|---|
@@ -141,15 +162,15 @@ rank from.
 | Pilgrim | purchases any digital good | `data/seasons/*-progress.json` or `data/purchases/` | purchased premium content; burn ritual; seasonal adventures; purchase history |
 | Vernacular | promoted by an Archon or Oracle | `data/system/rank-overrides.json` | upload, edit, delete own assets and see their statistics; creator panel; portfolio |
 | Archon | promoted by an Oracle | `data/system/rank-overrides.json` | any asset; seasons; global statistics; audit log; sync to R2 / IPFS / Arweave; ban and unban; appoint Vernaculars |
-| Oracle | listed in the overrides file | `data/system/rank-overrides.json` | appoint and remove Archons; edit the matrix; system configuration; cannot be banned |
+| Oracle | listed in the overrides file | `data/system/rank-overrides.json` | appoint and remove Archons; edit the matrix; system configuration; cannot be banned; every privileged action logged |
 
 ## Why
 
 A rank the member declares is a permission the member grants themselves.
-Reading rank from evidence — a sign-in, a sheet, a purchase, a list only
-Oracles edit — ties every permission to an act. Ranks that add up keep the
-permissions one column. The ceiling on Oracles and their immunity from bans
-keep governance from being captured inside the product. Nomad reads, Citizen
+Reading rank from evidence ties every permission to an act, and resting each
+rule on a published security standard lets an auditor check us with a list
+they already hold. The ceiling on Oracles, and the log of what they do, keep
+governance from being captured inside the product. Nomad reads, Citizen
 edits their identity, Pilgrim buys, Vernacular creates, Archon moderates,
 Oracle governs.
 

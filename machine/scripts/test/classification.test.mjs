@@ -256,7 +256,7 @@ test('one activity may produce several series, as the standard writes them', () 
 });
 
 test('an instrument is classified, has no page of its own, and links to the manual with the reason beside it', () => {
-  // STD-027 CLS-002: an instrument is not a record. It appears in the scheme
+  // STD-027 CLS-002: an instrument is a short-lived record that never binds. It appears in the scheme
   // and the menu because an activity produced it; its address is the manual
   // that explains it (SYS-007), anchored at the folder, and the row says why.
   const dir = scratch({
@@ -272,6 +272,6 @@ test('an instrument is classified, has no page of its own, and links to the manu
   assert.equal(moulds.instrument, true);
   assert.equal(moulds.label, 'Templates');
   assert.match(moulds.href, /^\/system\/sys-007-the-instruments#/);
-  assert.match(moulds.note, /instrument, not a record/);
+  assert.match(moulds.note, /short-lived record that never binds/);
   rmSync(dir, { recursive: true, force: true });
 });

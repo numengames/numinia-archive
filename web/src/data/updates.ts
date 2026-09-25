@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.54.0",
+    date: "2026-09-25",
+    entries: [
+      {
+        type: "CHG",
+        text: "The standards now follow the recognised outside norms wherever one says the same thing better: version numbers, commit messages, changelogs, records management, web accessibility, the code of conduct, data protection. Each rule still says, in a few words, what the norm makes you do and whether the law requires it; the norm and its clause wait in the table at the foot.",
+      },
+      {
+        type: "CHG",
+        text: "In the section menu, the machine's instruments are now described as short-lived records that never bind, no longer as things that are not records.",
+      },
+      {
+        type: "ADD",
+        text: "A new blueprint lists the legal obligations we do not yet cover — withdrawal right for digital goods, invoices, tax on sales abroad, minors, the platform rules for hosted content — each with who must confirm it.",
+      },
+    ],
+  },
+  {
     version: "v0.53.0",
     date: "2026-09-25",
     entries: [

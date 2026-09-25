@@ -5,9 +5,9 @@ title: "A canon states"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-24T22:00:00+02:00"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -17,7 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-062"
 threshold: governed
 related: ["STD-007", "STD-001", "STD-024", "ADR-049", "ADR-053"]
-series_change: "0.1.1 — 2026-09-25: written in plain words a narrator can read aloud; plates, paths and what checks each rule wait in the Check table. No obligation added or dropped."
+series_change: "0.1.2 — 2026-09-25: the Why says plainly that no outside standard governs what a canon argues, the plain-language standard is cited where it covers readability and the thesaurus standard anchors the manual's names; no obligation added or dropped. 0.1.1 — 2026-09-25: written in plain words a narrator can read aloud; plates, paths and what checks each rule wait in the Check table. No obligation added or dropped."
 ---
 
 <!--
@@ -42,6 +42,8 @@ every series shares; what a series is.
 
 ## Rules
 
+None of these rules is law: all are our choice.
+
 ### What a canon does
 
 **It says what is so.** A canon MUST state its claim in the present tense,
@@ -54,7 +56,9 @@ belongs to a decision record.
 
 **It leaves the reader able to do something.** A canon MUST give a test to
 run, a distinction to draw or a thing to refuse, usable on the first day
-without asking anyone.
+without asking anyone. The international plain-language standard asks the
+same of any text: the reader finds what they need, understands it, and can
+use it.
 
 **Obligations, not sections.** The three above MAY come in any order and
 any shape — continuous prose, the author's own headings, or none. No
@@ -90,7 +94,9 @@ its code in the header and the reference table, never mid-sentence.
 
 **The manual names the world.** Where a canon and the game manual disagree
 on the name of a guild, branch, house, faction, rank or force, the manual is
-right and the canon is corrected.
+right and the canon is corrected. One preferred name per thing, as the
+international thesaurus standard asks, is what lets a search find it under
+one word.
 
 ## Check
 
@@ -99,9 +105,9 @@ verifies it today.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| STA-001 | It says what is so | — | by hand — whether a text states is read, not parsed |
+| STA-001 | It says what is so | [ISO 24495-1:2023, plain language](https://www.iso.org/standard/78907.html) — readability only; our choice | by hand — whether a text states is read, not parsed |
 | STA-002 | It says why | — | by hand |
-| STA-003 | It leaves the reader able to do something | — | by hand |
+| STA-003 | It leaves the reader able to do something | [ISO 24495-1:2023, plain language](https://www.iso.org/standard/78907.html) — the reader can use what they find; our choice | by hand |
 | STA-004 | Obligations, not sections | — | by hand |
 | STA-005 | The title is a claim | — | by hand; `machine/tools/rule-index.mjs` shows every title side by side, where a label stands out |
 | STA-006 | No tool | — | by hand — a search for vendor names catches the crude cases |
@@ -110,7 +116,7 @@ verifies it today.
 | STA-009 | A border only when real | — | by hand |
 | STA-010 | No date, no byline in the body | — | by hand |
 | STA-011 | Document names at the foot | — | `machine/guards/rules/std-021-evidence-and-citation.mjs` (`CIT-050`) reports a section cited by number; a bare name mid-prose is read |
-| STA-012 | The manual names the world | — | by hand, against `lore/game/manual/glossary-es-en.md` |
+| STA-012 | The manual names the world | [ISO 25964-1:2011, thesauri](https://www.iso.org/standard/53657.html) — one preferred term per concept; our choice | by hand, against `lore/game/manual/glossary-es-en.md` |
 | — | the body length, 1,500 words, a SHOULD | — | `machine/guards/rules/std-007-one-page.mjs` (`DOC-006`) — counted and reported, never enforced |
 
 | In the reading | Exact form |
@@ -124,9 +130,9 @@ verifies it today.
 Every rule here is the epitaph of a text. A board named after a vendor died
 with the vendor and took the founding canon with it. Three rituals with
 hours disagreed with two other canons within a month. Four numbered
-sections produced documents that complied and did not persuade. Until now
-these rules lived in decision records, and an obligation there binds nobody
-until a standard carries it.
+sections produced documents that complied and did not persuade. No outside
+standard governs what a canon argues: the international plain-language
+standard judges only whether a text can be read, so these rules are ours.
 
 ## References
 

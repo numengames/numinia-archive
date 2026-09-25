@@ -67,8 +67,9 @@ definition; this is only the map.
 | — | [`web/`](web/) | **This folder serves [numinia.org](https://numinia.org)** |
 
 `machine/` is not a series. What verifies, measures, moulds or packages the
-archive carries no identifier and is never cited as evidence (`STD-027`
-CLS-002) — which is why it is filed apart from the records.
+archive carries no identifier and binds nobody: a short-lived record, cited
+only as evidence of what it measured (`STD-027` CLS-002) — which is why it
+is filed apart from the documents.
 
 That last row is the one people miss. The public site is built from this
 repository on every deploy — the mission board, the decision log and the corpus

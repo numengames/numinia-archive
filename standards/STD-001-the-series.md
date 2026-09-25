@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.4.1"
+version: "5.4.2"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-043"
 threshold: governed
 related: ["STD-024", "STD-016", "STD-018", "STD-007", "STD-027"]
-series_change: "5.4.1 — 2026-09-25: the summary, the scope lines and the prose between the tables are written in plain words a narrator can read aloud; the earlier prefixes move into a one-column table; no row of the series table changes."
+series_change: "5.4.2 — 2026-09-25: the prose between the tables says the series table is the business classification scheme of the international standard for records management, built by the Australian national archives' guidance, that prefix, threshold and budget are ours, and that instruments are short-lived records; no row changes."
 ---
 
 <!--
@@ -68,11 +68,19 @@ body may hold, as the one-page standard counts them. The function and
 activity column is the classification scheme: it says which activity
 produced a series, never what a change to it costs.
 
+This table is what the international standard for records management calls
+a business classification scheme, built the way the Australian national
+archives teach: every folder under a function, named as a noun, and an
+activity, named as a verb, so an auditor of records reads it without a
+glossary. What is ours is the rest of each row — the prefix, the threshold
+and the budget. No law requires the scheme; it is our choice.
+
 The moulds live with the machine. Everything the machine holds is an
-**instrument**, not a record: classified by the activity that produced it,
-so it has a row; never a document, so it has no prefix, no threshold, no
-budget and no page. It is read in the repository, its manual lives with the
-system, and it belongs to everyone.
+**instrument**: a short-lived record, classified by the activity that
+produced it, so it has a row; never a document, so it has no prefix, no
+threshold, no budget and no page. It may be cited as evidence of what it
+measured and binds nobody. It is read in the repository, its manual lives
+with the system, and it belongs to everyone.
 
 ## Genre and folder
 

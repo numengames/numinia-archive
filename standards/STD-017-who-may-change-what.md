@@ -5,16 +5,16 @@ title: "Who may change what"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.2"
+version: "2.0.3"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-25T13:00:00+02:00"
+updated: "2026-09-25T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, governance, authority, ranks]
 threshold: governed
-series_change: "2.0.2 — 2026-09-25: written in plain words a narrator can read aloud; plates, file names and the outside standard behind each rule wait in the Check table. No obligation added or dropped."
+series_change: "2.0.3 — 2026-09-25: each rule says what it adopts from the quality, information-security and records-management standards, the management-system standard for records and the decision-record convention, what that makes us do and why, and that no law requires it. No obligation added or dropped."
 ---
 
 <!--
@@ -28,7 +28,8 @@ SPDX-License-Identifier: CC0-1.0
 > decision or a change the Oracle approves; everything else by an ordinary
 > change. Rank sets how far an actor reaches, a rule lands where it governs,
 > and in doubt an agent stops.
-> **Epistemic:** What each kind of change costs, and who can pay it.
+> **Epistemic:** What each kind of change costs, who can pay it, and which
+> outside standard each cost follows.
 > **Pragmatic:** Know before editing whether you may, and what the edit needs.
 > **Audience:** Agents · Oracles
 
@@ -39,60 +40,74 @@ SPDX-License-Identifier: CC0-1.0
 
 ### What each kind of document needs
 
-**The canon needs the Oracle's approval.** The canon changes by a written
-decision, or by a change the Oracle approves. Nothing is sealed: the
-Oracle's approval on the change is the signature.
+**The canon needs the Oracle's approval.** The international quality
+standard asks that a controlling document be approved before it is used, so
+anyone can show who let it in. The canon MUST change by a written decision
+or a change the Oracle approves; that approval, kept with the change, is the
+signature.
 
-**Standards, protocols and decisions need a record or an approval.** They
-change by a written decision, or by a change the Oracle approves.
+**Standards, protocols and decisions need a record or an approval.** Under
+the same rule of the quality standard, they MUST change by a written
+decision or by a change the Oracle approves, and the approval is kept as
+the record.
 
-**Everything else needs an ordinary change.** Every other series changes by
-an ordinary reviewed change.
+**Everything else needs an ordinary change.** The information-security
+standard keeps the one who writes a change apart from the one who lets it
+in. Every other series MUST change by an ordinary change that someone else
+reviews, which the repository's protection enforces.
 
 ### Where a change lands
 
 **A rule lands where it governs.** A rule written in a decision, a mission or
-a commit message is not a rule yet; the sentence goes into the document a
+a commit message is not a rule yet; the sentence MUST go into the document a
 reader looks in.
 
-**Finished work keeps its claims.** A finished mission or a published report
-keeps what it claimed; its form MAY be corrected, and the change says so.
+**Finished work keeps its claims.** The records standard holds that a record
+stays complete and unaltered, and the decision-record convention says: write
+a new one, do not edit the old. A finished mission or a published report
+keeps what it claimed; only its form MAY be corrected, and the change says
+so.
 
 ### Who may make it
 
-**Rank sets the reach.** An Oracle approves structural change, seals the
-canon, and alone makes something stable or breaks it; an Archon authorises
-work below that line; a digital agent writes its own files and missions; a
-custodian keeps documents, indexes and change logs; automation writes only
-reports.
+**Rank sets the reach.** The management-system standard for records asks
+that roles, responsibilities and authorities be written down, so every act
+has an owner. Every actor MUST stay within its rank's reach: an Oracle
+approves structural change and alone makes something stable or breaks it;
+an Archon authorises work below that line; a digital agent writes its own
+files and missions; a custodian keeps documents, indexes and change logs;
+automation writes only reports.
 
-**No agent edits its own identity.** The files that say who an agent is and
-who operates it are approved by the Oracle; the agent they describe never
-edits them.
+**No agent edits its own identity.** The information-security standard
+separates duties that conflict, so no one grants themselves power. The
+files that say who an agent is and who operates it are approved by the
+Oracle; the agent they describe MUST NOT edit them.
 
 **In doubt, stop.** Facing an act that cannot be undone, with any doubt, an
-agent does not act and asks higher up.
+agent MUST NOT act, and asks higher up.
 
 ## Check
 
 Every rule above, with its plate, the outside standard it follows, and what
-verifies it today.
+verifies it today. No law requires any of it for a private company; it is
+our choice, so that an auditor finds the controls they already look for.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| AUT-006 | The canon needs the Oracle's approval | — | by hand — the record or approval is visible; whether it suffices is not |
-| AUT-007 | Standards, protocols and decisions need a record or an approval | — | by hand, as above |
-| AUT-009 | Everything else needs an ordinary change | — | branch protection, in the repository settings |
+| AUT-006 | The canon needs the Oracle's approval | [ISO 9001:2015, review and approval, clause 7.5.2 c](https://www.iso.org/standard/62085.html) (clause unverified); the approver being the Oracle is ours | by hand — the pull request approval is the record; whether it suffices is not parsed |
+| AUT-007 | Standards, protocols and decisions need a record or an approval | [ISO 9001:2015, review and approval, clause 7.5.2 c](https://www.iso.org/standard/62085.html) (clause unverified) | by hand, as above |
+| AUT-009 | Everything else needs an ordinary change | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) | branch protection, in the repository settings |
 | AUT-063 | A rule lands where it governs | — | by hand — recognising an obligation needs a reader |
-| AUT-008 | Finished work keeps its claims | — | by hand |
-| AUT-065 | Rank sets the reach | — | by hand — an author's rank is read, not parsed |
-| AUT-067 | No agent edits its own identity | [ISO/IEC 27001, segregation of duties](https://www.iso.org/standard/27001) | by hand — a code-owners file could decide it; not wired |
+| AUT-008 | Finished work keeps its claims | [ISO 15489-1:2016, integrity, clause 5.2.2](https://www.iso.org/standard/62542.html) (clause unverified) · [Nygard, documenting architecture decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions): supersede, do not edit | by hand |
+| AUT-065 | Rank sets the reach | [ISO 30301:2019, roles, responsibilities and authorities, clause 5.3](https://www.iso.org/standard/74292.html) (clause unverified); the ranks are ours | by hand — an author's rank is read, not parsed |
+| AUT-067 | No agent edits its own identity | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified): conflicting duties shall be segregated | by hand — a code-owners file could decide it; not wired |
 | AUT-010 | In doubt, stop | — | by hand — an act not taken leaves no trace |
 
 | In the reading | Exact form |
 |---|---|
 | a written decision | a decision record in `decisions/` |
 | a change | a pull request |
+| the repository's protection | branch protection on `main` |
 | the files that say who an agent is and who operates it | `SOUL.md` and `OPERATOR.md` |
 
 ## Why
