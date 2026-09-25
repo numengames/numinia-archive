@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 124466,
+  "chars": 125044,
   "apparatus": false,
   "archived": false,
-  "tokens": 32991
+  "tokens": 33135
  },
  {
   "path": "CLAUDE.md",
@@ -1900,7 +1900,7 @@
   "chars": 4519,
   "apparatus": false,
   "archived": false,
-  "tokens": 1213
+  "tokens": 1212
  },
  {
   "path": "protocols/PRO-005-escalation.md",
@@ -1911,7 +1911,7 @@
   "chars": 3431,
   "apparatus": false,
   "archived": false,
-  "tokens": 924
+  "tokens": 923
  },
  {
   "path": "protocols/PRO-008-decision.md",
@@ -1922,7 +1922,7 @@
   "chars": 4356,
   "apparatus": false,
   "archived": false,
-  "tokens": 1163
+  "tokens": 1161
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -1999,7 +1999,7 @@
   "chars": 4809,
   "apparatus": false,
   "archived": false,
-  "tokens": 1310
+  "tokens": 1308
  },
  {
   "path": "protocols/PRO-019-holding-a-ritual.md",
@@ -2208,7 +2208,7 @@
   "chars": 8936,
   "apparatus": false,
   "archived": false,
-  "tokens": 2244
+  "tokens": 2243
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -2216,10 +2216,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9712,
+  "chars": 10130,
   "apparatus": false,
   "archived": false,
-  "tokens": 2567
+  "tokens": 2669
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",
@@ -2461,7 +2461,7 @@
   "chars": 5538,
   "apparatus": false,
   "archived": false,
-  "tokens": 1438
+  "tokens": 1436
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
