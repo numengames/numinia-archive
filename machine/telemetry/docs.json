@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13757,
+  "chars": 13765,
   "apparatus": false,
   "archived": false,
-  "tokens": 3409
+  "tokens": 3413
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 121746,
+  "chars": 122480,
   "apparatus": false,
   "archived": false,
-  "tokens": 32314
+  "tokens": 32485
  },
  {
   "path": "CLAUDE.md",
@@ -2216,10 +2216,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5746,
+  "chars": 9111,
   "apparatus": false,
   "archived": false,
-  "tokens": 1804
+  "tokens": 2437
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",
