@@ -14,11 +14,13 @@
 // DOC-001  title ≤ 5 words                              SHOULD
 // DOC-002  card: Summary / Epistemic / Pragmatic         present (MUST), ≤ 40 words each (SHOULD)
 // DOC-003  scope: Binds / Does not bind                 present (MUST), ≤ 15 words each (SHOULD)
-// DOC-004  ≥ 1 plated rule in standards & protocols     MUST
+// DOC-004  ≥ 1 plated rule in standards & protocols     MUST — a plate in a rule
+//          title, or in the first column of the `## Check` table (platesIn)
 // DOC-005  Why ≤ 80 words                               SHOULD
 // DOC-006  body ≤ the series' budget                    SHOULD
 // DOC-007  References ≤ 5 rows                          SHOULD
-// DOC-008  standards/ prose: no bare series id outside the References table,
+// DOC-008  standards/ prose: no bare series id outside the References table
+//          and the `## Check` table rows,
 //          no §N section pointer anywhere, no id used but never listed
 //
 // Body = from the scope line (or the end of the card) to `## References`.
@@ -30,6 +32,7 @@
 
 import { execute, isMain } from '../lib/guard.mjs';
 import { stripFM, rawFM, isApparatus, isTemplate } from '../../scripts/lib/frontmatter.mjs';
+import { platesIn } from '../../scripts/lib/regime.mjs';
 
 export const meta = {
   family: 'DOC',
@@ -44,7 +47,6 @@ const BUDGET = {
   canon: 1500,
 };
 const CAP = { title: 5, card: 40, scope: 15, why: 80, refs: 5 };
-const PLATE_RE = /\*\*([A-Z]{3}-\d{3})\s+—/g;
 const NEEDS_PLATES = new Set(['standards', 'protocols']);
 
 const words = (s) => (s.trim() ? s.trim().split(/\s+/).length : 0);
@@ -115,9 +117,10 @@ function shape(rel, text, fm) {
   const core = refsIdx >= 0 ? main.slice(0, refsIdx) : main;
   const refs = refsIdx >= 0 ? main.slice(refsIdx) : '';
 
-  // DOC-004 plates
-  const plates = [...core.matchAll(PLATE_RE)].length;
-  if (!register && NEEDS_PLATES.has(dir) && plates === 0) must('DOC-004', 'S-04 no plated rule (**AAA-NNN — …**)');
+  // DOC-004 plates — in a rule title, or in the Check table's first column,
+  // where a standard written for the narrator keeps them out of the reading.
+  const plates = platesIn(core).length;
+  if (!register && NEEDS_PLATES.has(dir) && plates === 0) must('DOC-004', 'S-04 no plate in a rule title (**AAA-NNN — …**) or in the ## Check table');
 
   // DOC-005 why — from `## Why` to the next `## `, scanned by line.
   {
@@ -171,20 +174,34 @@ function maskNonProse(text) {
     .replace(/`[^`\n]*`/g, (m) => ' '.repeat(m.length));
 }
 
+/* The rows of the `## Check` table are apparatus, like References: the plate,
+   the outside source and the check that verifies it wait there so the reading
+   stays free of codes. The line above the table is prose and stays scanned. */
+function maskCheckTable(t) {
+  const lines = t.split('\n');
+  let inCheck = false;
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s/.test(lines[i])) { inCheck = /^##\s+Check\s*$/.test(lines[i]); continue; }
+    if (inCheck && lines[i].startsWith('|')) lines[i] = ' '.repeat(lines[i].length);
+  }
+  return lines.join('\n');
+}
+
 /* DOC-008: cite plates, not places. PW-01 a bare id in prose outside the
-   References table; PW-02 a §N pointer anywhere, table included; PW-03 an id
+   References and Check tables; PW-02 a §N pointer anywhere, table included; PW-03 an id
    the body leans on that the table never lists. standards/ only: STD-007
    binds no other series. */
 function plainWriting(rel, text) {
   const out = [];
-  const masked = maskNonProse(text);
+  const prose = maskNonProse(text);
+  const masked = maskCheckTable(prose);
   const m = masked.match(/^##\s+References\s*$/mi);
   const body = m ? masked.slice(0, m.index) : masked;
   const references = m ? masked.slice(m.index) : '';
   const lineOf = (idx) => masked.slice(0, idx).split('\n').length;
   const selfId = (rel.match(/\b([A-Z]{3}-\d{3,4})\b/) || [])[1];
 
-  for (const s of masked.matchAll(SECTION)) out.push({ plate: 'DOC-008', what: `PW-02 ${s[0].trim()}`, where: `${rel}:${lineOf(s.index)}` });
+  for (const s of prose.matchAll(SECTION)) out.push({ plate: 'DOC-008', what: `PW-02 ${s[0].trim()}`, where: `${rel}:${lineOf(s.index)}` });
   const used = new Set();
   for (const s of body.matchAll(ID)) {
     if (s[0] === selfId) continue;
