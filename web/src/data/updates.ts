@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.53.0",
+    date: "2026-09-25",
+    entries: [
+      {
+        type: "CHG",
+        text: "Every standard now reads for people first. From the title to the last rule there are no codes, file names or links in the way, so any screen reader can read it aloud; the rule codes, the outside standards they rest on and what checks each rule wait in one table at the foot.",
+      },
+      {
+        type: "ADD",
+        text: "Two new standards: accessibility, so every public page can be used by anyone, and personal data, so what we keep about a person has a purpose, an end and a way to erase it.",
+      },
+      {
+        type: "DEL",
+        text: "The external standards page is gone: each outside standard now lives inside the standard it serves. Its old address takes you to the engineering standard.",
+      },
+    ],
+  },
+  {
     version: "v0.52.0",
     date: "2026-09-24",
     entries: [
