@@ -5,15 +5,15 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "1.6.0"
+version: "1.6.1"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-22T13:10:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, register, practices]
 license: "CC0-1.0"
-series_change: "1.6.0 — AGT-001 and AGT-006 name `AGENTS.md`, not `CLAUDE.md`. Both rows were written when Claude Code was the only agent working in this repository. Agents now run on several models and every one of them reads `AGENTS.md`, the open format donated to the Agentic AI Foundation in December 2025, so the register required one vendor's adapter while nothing guarded the file the other runtimes load. `machine/tools/check-register.mjs` opens `AGENTS.md` for the AGT-001 presence check and reads its first instruction there; the mould's presence job and the Scorecard-scope sentence follow. Minor under VER-022: what the rows require changed — the file named — and no practice is reversed or added. AGT-006 stays DEBT; only the file its stance should be read from changed. VER-064 note: the minor is an Archon's digit, not a digital agent's; moved here on the operator's instruction of 2026-09-22 and left for his sign-off at review. 1.5.0 — TRC-008, the address of a document: every published address is its series and its identifier, once, in English, and a retired address leads to the document that answers its question or it is removed. Checked by machine/scripts/check-url-shape.mjs, which bites — it verifies the built artefact, not a rule in prose (ENG-067 exception), the same standing check-internal-links has. Cut with STD-028 under ADR-047. Minor under VER-022: a new obligation, none reversed. 1.4.0 — DEV-008, test first: the test that describes a change is written, run and seen to fail before the code, and the pull request shows that order in its commits. A diff cannot tell whether a test was written before or after; the history can, so the check is a gate — the pull request template asks, the reviewer reads the commit order. Measured on 2026-09-19 before the row: five repositories, every one with a test runner in CI, none with a written rule on when the test is written; two sites with the logic that matters between 15 % and 27 % covered. Minor under VER-022: a new obligation, none reversed. Oracle instruction, 2026-09-19: the row is born draft like the register — it is read at review, it fails no build. 1.3.0 — the family pipeline: a section names the five repositories that run the same guards (the four sites and the resource depot), the steps in order, which of them fail a build and which only report while this register is draft (ENG-067), the literal job name the ruleset requires, the files kept identical across repositories and the security rules every workflow obeys. Measured on 2026-09-18 before the change: one repository required no status check at all, one wrote its pipeline in Spanish, one lacked lint, two lacked Scorecard, three lacked a REUSE step. Minor under VER-022: the register says what it already required, in a form a diff can check; no practice reversed. Oracle instruction, 2026-09-18: the guards look but do not bite while the standards are draft. 1.2.0 — the Check column becomes machine-checkable and `[MANUAL]` is retired. Four forms replace it, each verifiable by machine/tools/check-register.mjs: `[AUTO: <mechanism>]`, `[GATE: <machine evidence> → <the human act>]`, and `[DEBT: <what is missing> — <owner>, <date>]`. Measured before the change: of 29 rows claiming AUTO, 7 named a mechanism absent from the tree (no gitleaks, no knip, no .env.example, no .editorconfig, no eslint config, no roadmap file, no code of conduct), and 3 rows claimed MANUAL for work a guard already did (ARC-003 std-010-licensing, AGT-002 machine/guards/lib/naming.mjs, DEV-005 prose-in-code.test.mjs) — a hand-written register drifts in both directions. Rows now stand at 23 AUTO, 4 GATE, 27 DEBT; the summary said 52 practices for a table of 54. TRC-006 is mechanical: an unregistered rule guard never runs and the run is green for not looking. Minor under VER-022: what the register requires of its own rows changed, no practice was reversed. The retirement of MANUAL reads as a reversal (VER-023) and is left for the Oracle to rank."
+series_change: "1.6.1 — 2026-09-25: the card and the prose around the tables read aloud in plain words, at the Oracle's word in session; the kinds of commit are said to follow Conventional Commits and are listed in a table, as are the files kept identical across repositories. No row, plate or check changed."
 ---
 
 <!--
@@ -23,9 +23,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 56 practices `STD-005` requires, by profile, each with its
-> level and the machine that checks it. `[MANUAL]` is debt; a `[MANUAL]` row
-> naming `DBT-020` is declared automatic and executed by nobody.
+> **Summary:** The 56 practices the engineering baseline requires, grouped
+> by what they protect, each with how strongly it is required and what checks
+> it. A practice checked by hand is debt, and a row marked as owed is one we
+> once called automatic that nothing runs.
 
 | Profile | Plate | Practice | Level | Check |
 |---|---|---|---|---|
@@ -82,57 +83,78 @@ SPDX-License-Identifier: CC0-1.0
 | Agents | AGT-002 | Deterministic naming and paths, so an agent never invents structure | MUST | `[AUTO: machine/guards/lib/naming.mjs]` |
 | Agents | AGT-003 | Everything normative also machine-readable: SPDX, DTCG, JSON Schema | MUST | `[DEBT: no check that normative documents ship machine-readable form — oracle, 2026-09-11]` |
 | Agents | AGT-004 | CI is the agent's feedback loop (Principle 1) | MUST | `[DEBT: Principle 1 is stated, nothing verifies CI is the agent's loop — oracle, 2026-09-11]` |
-| Agents | AGT-005 | Mission briefs in the standard format; a mission that produces software carries Gherkin acceptance criteria (`STD-011`) | MUST | `[DEBT: no guard reads missions/ for the standard format or Gherkin — oracle, 2026-09-11]` |
+| Agents | AGT-005 | Mission briefs in the standard format; a mission that produces software carries Gherkin acceptance criteria | MUST | `[DEBT: no guard reads missions/ for the standard format or Gherkin — oracle, 2026-09-11]` |
 | Agents | AGT-006 | AI stance per repository in `AGENTS.md`: autonomous versus Oracle sign-off | MUST | `[DEBT: AGENTS.md states the stance, no check reads it — oracle, 2026-09-11]` |
 | Legal | LEG-001 | Making a repository public is a gated Oracle act: licence correct, REUSE green, no secrets in history, `SECURITY.md` present | MUST | `[GATE: machine/guards/rules/std-010-licensing.mjs → the Oracle makes the repository public]` |
 
-**ARC-006 convention.** Seven types, nothing bespoke: `feat`, `fix`, `docs`,
-`chore`, `refactor`, `test`, `ci`. Scope is the domain, lowercase, usually the
-folder. Retired types (`session`, `qa`, `standards`, `canon`, `debt`, `audit`)
-stay valid in old history only.
+**How a commit says its kind.** A commit opens with its kind, in the form
+Conventional Commits sets out, and there are seven, nothing invented: a
+feature, a fix, documentation, a chore, a refactoring, a test, or a change to
+the automatic checks. In brackets after the kind comes the area touched, in
+lower case, usually the folder. Kinds we used to write stay valid in old
+history only.
 
-**What a repository born from the mould ships with.** OpenSSF Scorecard weekly
-and on push to `main` (target ≥ 7 on public repositories; each `AGENTS.md`
-declares which checks are in scope); the shared CI workflow with coverage
-thresholds as failures and a REUSE step; one presence job for `AGENTS.md`,
-`SECURITY.md`, `CONTRIBUTING.md`, CODEOWNERS, templates, `.env.example` and
-About fields; local hooks that are courtesy, skippable, never the authority.
+**What a new repository is born with.** A security score, run every week and
+on every change to the main line, aiming at seven out of ten or better on a
+public repository, with each repository saying which of its checks apply;
+the shared pipeline, where too little test coverage is a failure and every
+file's licence is checked; one step that checks the required files are
+present — the agent instructions, the security policy, the contribution
+guide, the list of owners, the templates, the example settings and the
+repository's description; and local hooks that are a courtesy, may be
+skipped, and never decide.
+
+| Kind of commit | Written |
+|---|---|
+| a feature | `feat` |
+| a fix | `fix` |
+| documentation | `docs` |
+| a chore | `chore` |
+| a refactoring | `refactor` |
+| a test | `test` |
+| a change to the automatic checks | `ci` |
+| retired, valid in old history only | `session`, `qa`, `standards`, `canon`, `debt`, `audit` |
 
 ## The family pipeline
 
 Five repositories run the same guards: the four that each serve a site —
-`numinia-archive` (its `web/`, numinia.org), `numinia-web` (numinia.com),
-`numengames-web` (numen.games), `nwos-deploy` (nwos.numen.games) — and the
-resource depot `numinia-assets`. A guard is a CI step or a script that says
-whether something is wrong with the change under review. Two kinds, told
-apart by ENG-067:
+this archive, the Numinia site, the Numen Games site and the workspace
+deployer — and the store of shared resources, which serves none. A guard is
+a step, or a script, that says whether something is wrong with the change
+under review. There are two kinds, told apart by the baseline's rule on when
+a guard bites:
 
 | Kind | Steps, in this order | Fails the build? |
 |---|---|---|
 | Artefact | install → type-check → lint → test → build → share card (`web/scripts/share-card.mjs --check`) → version bump (`machine/scripts/check-version-bump.mjs`) | Yes. A page that does not build, a test that fails, a favicon that is missing or a version that did not move is a broken artefact whatever any standard says. |
 | Rule | presence of the files named above · REUSE lint · OpenSSF Scorecard · dependency audit | No, while this register is `draft`. The step runs on every pull request, prints every finding in the log and the job summary, and exits 0. Promoting this register to `active` is what turns them into failures. |
 
-- **One required check, literally named `build`.** The branch ruleset
-  (`.github/rulesets/protect-main.json`, copied to every repository) can
-  only require a check by name, so the name means the same everywhere.
-  Where the work is split across jobs, `build` is a job that depends on
-  the artefact jobs and passes only if all of them did; it never depends
-  on a job that only reports. Renaming it leaves the required check
-  pending forever and blocks every merge; a ruleset that requires no
-  check lets a red run merge — both were measured before this section.
-- **A depot has no site.** `numinia-assets` builds nothing: its artefact
-  guards are its own declaration checks (REUSE lint over every file, the
-  tests that prove a missing declaration is refused), and `build` is their
-  conjunction.
-- **Kept identical across the five, by hand until a package carries
-  them:** `machine/scripts/check-version-bump.mjs` (only the two path constants
-  differ), `web/scripts/share-card.mjs`, `.github/dependabot.yml`,
-  `.github/workflows/dependabot-auto-merge.yml`,
-  `.github/workflows/scorecard.yml`. A `diff` between two copies shows the
-  paths and nothing else.
-- **Every workflow, every step:** third-party actions pinned by commit SHA
-  (SEC-007); `permissions: read-all` at the top of the file and write
-  granted per job to the job that needs it (SEC-008); no secret read by a
-  build (SEC-004 — publication is Cloudflare's, connected in its panel,
-  never a token in a workflow); and a comment above each step saying what
-  it checks and how to fix a red (DEV-005), in English.
+- **One required check, and it is called build.** The protection on the
+  main line, copied to every repository, can only require a check by its
+  name, so the name means the same everywhere. Where the work is split into
+  several jobs, build is the job that passes only if every artefact job
+  passed; it never waits on a job that only reports. Renaming it leaves the
+  required check pending for ever and blocks every merge; requiring no
+  check lets a red run merge. Both were measured before this was written.
+- **The store of resources has no site.** It builds nothing: its artefact
+  guards are its own checks that every file declares its licence, with the
+  tests that prove a missing declaration is refused, and build passes only
+  when all of them do.
+- **Some files are kept identical across the five, by hand until a shared
+  package carries them.** They are listed in the table below; comparing two
+  copies shows their paths and nothing else.
+- **Every workflow, every step:** outside actions pinned to one exact
+  version (SEC-007); read-only permissions at the top of the file, with
+  write granted only to the job that needs it (SEC-008); no secret read by a
+  build, since publishing is connected in the hosting provider's own panel
+  and never through a token in a workflow (SEC-004); and above each step, in
+  English, a comment saying what it checks and how to fix it when it fails
+  (DEV-005).
+
+| Kept identical in the five | What it does |
+|---|---|
+| `machine/scripts/check-version-bump.mjs` | refuses a change to a site that does not raise its version; only its two path settings differ |
+| `web/scripts/share-card.mjs` | draws the card shown when a link is shared |
+| `.github/dependabot.yml` | asks for dependency updates |
+| `.github/workflows/dependabot-auto-merge.yml` | merges those updates once the checks pass |
+| `.github/workflows/scorecard.yml` | runs the weekly security score |

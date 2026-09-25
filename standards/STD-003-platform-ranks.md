@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.1.3"
+version: "3.1.4"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-24T17:40:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,7 @@ territory: "Archive"
 tags: [standards, ranks, permissions, digital-goods]
 license: "CC0-1.0"
 threshold: governed
-series_change: "3.1.3 — 2026-09-24: payment is no longer sent to operations; it points at STD-033 (ADR-064). Patch: the Does-not-bind line only. 3.1.1 — 2026-09-24: the two canon citations become one, `CAN-004` having absorbed `CAN-003` (ADR-057). Patch: prose and References only. 3.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
+series_change: "3.1.4 — 2026-09-25: written in plain words, at the Oracle's word in session: no plate, file name or path in the reading; what each rank adds is said in sentences, and the files each rank is read from wait in a table at the foot. No obligation added or dropped. 3.1.3 — 2026-09-24: payment is no longer sent to operations; it points at STD-033 (ADR-064). Patch: the Does-not-bind line only. 3.1.1 — 2026-09-24: the two canon citations become one, `CAN-004` having absorbed `CAN-003` (ADR-057). Patch: prose and References only. 3.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
 ---
 
 <!--
@@ -29,61 +29,110 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Six ranks, lowest first: Nomad, Citizen, Pilgrim, Vernacular,
 > Archon, Oracle. Each holds every permission of the ranks below it, and a
 > member's rank is read from what they have done, never from what they claim.
-> **Epistemic:** What each rank may do, what earns it, and the file the
+> **Epistemic:** What each rank may do, what earns it, and where the
 > platform reads it from.
-> **Pragmatic:** Implement or audit a permission check without asking who is
+> **Pragmatic:** Build or audit a permission check without asking who is
 > allowed to do what.
 > **Audience:** Agents · Oracles
 
 **Binds:** the Numinia digital-goods platform — authentication, character
 sheets, creator panel, administration.
-**Does not bind:** access to this repository; what a rank means in the world
-(`CAN-004`); payment (`STD-033`); custody, identity verification (`operations/`).
+**Does not bind:** access to the archive; what a rank means in the world;
+payment; custody and identity checks.
 
 ## Rules
 
-**RNK-001 — Ranks are cumulative.** A rank MUST grant every permission of the
-ranks below it.
+### How rank is held
 
-**RNK-002 — Rank is inferred, not declared.** The platform MUST derive a
-member's rank from the signals in the table and MUST NOT accept a rank the
-member asserts.
+**Ranks add up.** A rank MUST grant every permission of the ranks below it.
 
-**RNK-003 — At most four Oracles.** `rank-overrides.json` MUST NOT list more
-than four.
+**Rank is read, never declared.** The platform MUST work out a member's rank
+from what they have done, and MUST NOT accept a rank the member claims.
 
-**RNK-004 — Nobody touches upward.** An Archon MUST NOT act on an Archon or an
-Oracle. An Oracle MUST NOT be bannable at any layer — storage, API, interface.
+**The ranks that follow the evidence move by themselves.** Between Nomad and
+Citizen, and between Citizen and Pilgrim, rank MUST follow the evidence in
+both directions, with no one's hand involved.
 
-**RNK-005 — Automatic moves go both ways.** Nomad ↔ Citizen and Citizen ↔
-Pilgrim MUST follow the signal, in both directions, with no hand involved.
+### Who may move whom
 
-**RNK-006 — Manual moves have a ceiling.** An Archon MAY promote or demote up
-to Vernacular. An Oracle MAY manage every rank except Oracle. Oracles change
-only by editing the overrides file.
+**No more than four Oracles.** The list of Oracles MUST NOT name more than
+four people.
 
-**RNK-007 — The matrix and this page move together.** A platform change that
-alters the matrix MUST update this standard in the same change.
+**Nobody acts upward.** An Archon MUST NOT act on another Archon or on an
+Oracle. An Oracle MUST NOT be bannable anywhere: not in storage, not through
+the programming interface, not on screen.
 
-**RNK-008 — The top two ranks are judged, not counted.** A promotion to
-Vernacular or Archon MUST be decided against the profiles below, never against
-volume of output alone.
+**Moving someone by hand has a ceiling.** An Archon MAY promote or demote
+anyone up to Vernacular. An Oracle MAY manage every rank except Oracle.
+Oracles change only when the list of Oracles is edited.
 
-**Vernacular.** An agent fully integrated into Numinia's culture. Inhabits the
-system with fluency and depth, and knows its structures from within. Operates
-with autonomy and expertise in their domain. Collaborates closely with
-Numinia.
+**The top two are judged, not counted.** A promotion to Vernacular or Archon
+MUST be decided against the profiles below, never against how much someone
+has produced.
 
-**Archon.** All of the above, plus: exercises leadership over other agents.
-Makes decisions and takes initiatives that affect the collective. Holds
-structural responsibility over the system, not only over their own work.
-Implies a dimension of social and organisational influence.
+A Vernacular is an agent fully at home in Numinia's culture. They inhabit
+the system with fluency and depth, and know its structures from within. They
+work with autonomy and expertise in their own field, and collaborate closely
+with Numinia.
 
-> Technical depth does not automatically equal Archon rank. The Archon has to
-> relate to others in a way that goes beyond execution — they guide, mediate,
-> represent. An agent who does not want to exercise that function should not
-> hold that rank, even if their domain expertise is exceptional. *(Prepared
-> with Christian Märtens, 2026-04-06; carried from `CAN-003` by `ADR-054`.)*
+An Archon is all of that, and also leads other agents. They make decisions
+and take initiatives that affect everyone, and hold responsibility for the
+system, not only for their own work. The rank carries social and
+organisational influence.
+
+> Technical depth does not by itself make an Archon. The Archon has to
+> relate to others in a way that goes beyond doing the work: they guide,
+> mediate and represent. An agent who does not want that role should not
+> hold the rank, however exceptional their expertise. *Prepared with
+> Christian Märtens.*
+
+### What each rank adds
+
+A Nomad has signed in, with a wallet or a social account. They may browse
+the public gallery, download what belongs to everyone, search, read their
+own character sheet, keep favourites and see their collections.
+
+A Citizen has finished Session Zero and chosen a guild and a faction. They
+may edit their own sheet, and hold loot and an inventory.
+
+A Pilgrim has bought any digital good. They may open what they bought, take
+part in the burn ritual and the seasonal adventures, and see their purchase
+history.
+
+A Vernacular was promoted by an Archon or an Oracle. They may upload, edit
+and delete their own work, see its statistics, and use the creator panel and
+a portfolio.
+
+An Archon was promoted by an Oracle. They may act on any piece of work, run
+seasons, read the global statistics and the audit log, publish to permanent
+storage, ban and unban, and appoint Vernaculars.
+
+An Oracle is named on the list of Oracles. They may appoint and remove
+Archons, change what each rank may do, and configure the system. They cannot
+be banned.
+
+### Keeping this page true
+
+**The permissions and this page move together.** A change to the platform
+that alters what a rank may do MUST update this standard in the same
+change.
+
+## Check
+
+Every rule above, with the code an agent cites it by, the outside standard
+it rests on, and what verifies it today. Then where the platform reads each
+rank from.
+
+| Plate | Rule | Source | Verified by |
+|---|---|---|---|
+| RNK-001 | Ranks add up | [NIST role-based access control, role hierarchies](https://csrc.nist.gov/projects/role-based-access-control) | by hand: the permissions live in the platform's code, outside this archive; its test suite is the check |
+| RNK-002 | Rank is read, never declared | — | by hand: the platform's test suite |
+| RNK-005 | The ranks that follow the evidence move by themselves | — | by hand: the platform's test suite |
+| RNK-003 | No more than four Oracles | — | by hand: the platform's test suite |
+| RNK-004 | Nobody acts upward | — | by hand: the platform's test suite |
+| RNK-006 | Moving someone by hand has a ceiling | — | by hand: the platform's test suite |
+| RNK-008 | The top two are judged, not counted | — | by hand: an Archon or an Oracle, at each promotion |
+| RNK-007 | The permissions and this page move together | — | by hand: a platform pull request that changes the permissions without a change here |
 
 | Rank | Earned by | Read from | Adds |
 |---|---|---|---|
@@ -94,28 +143,21 @@ Implies a dimension of social and organisational influence.
 | Archon | promoted by an Oracle | `data/system/rank-overrides.json` | any asset; seasons; global statistics; audit log; sync to R2 / IPFS / Arweave; ban and unban; appoint Vernaculars |
 | Oracle | listed in the overrides file | `data/system/rank-overrides.json` | appoint and remove Archons; edit the matrix; system configuration; cannot be banned |
 
-## Check
-
-| Plate | Verified by |
-|---|---|
-| RNK-001 … RNK-006, RNK-008 | `[MANUAL]` — the matrix lives in platform code, outside this repository; the platform's test suite is the check |
-| RNK-007 | `[MANUAL]` — a platform pull request that changes the matrix without a diff here |
-
 ## Why
 
 A rank the member declares is a permission the member grants themselves.
-Reading rank from evidence — a cookie, a sheet, a purchase, an Oracle-only
-file — makes every permission traceable to an act. Cumulative ranks
-keep the matrix one column. The Oracle ceiling and the ban immunity keep
-governance from being captured inside the product. What a rank *is*, and what
-an attribute is, stay in `CAN-004`.
-
-> Nomad reads. Citizen edits their identity. Pilgrim buys. Vernacular creates.
-> Archon moderates. Oracle governs.
+Reading rank from evidence — a sign-in, a sheet, a purchase, a list only
+Oracles edit — ties every permission to an act. Ranks that add up keep the
+permissions one column. The ceiling on Oracles and their immunity from bans
+keep governance from being captured inside the product. Nomad reads, Citizen
+edits their identity, Pilgrim buys, Vernacular creates, Archon moderates,
+Oracle governs.
 
 ## References
 
 | ID | Title | Relation |
 |---|---|---|
 | `CAN-004` | You are what you are doing | what each rank is, and rank as one of the six attributes |
+| `STD-033` | Charges and the account | payment, which this standard does not bind |
 | `ADR-036` | Canon consolidation | records the move from the canon to this standard |
+| `ADR-054` | The theory of attributes stays in the canon | carried the Archon profile, prepared with Christian Märtens on 2026-04-06, from the canon |

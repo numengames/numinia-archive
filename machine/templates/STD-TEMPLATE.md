@@ -21,46 +21,57 @@ tags: [area, subject]
 # OPTIONAL — use when they apply, omit without guilt.
 # ratified_by: "ADR-NNN"            # the decision that moved this from draft to active
 # supersedes_version: "1.2.0"
-# series_change: "what this changes about the series itself"
+# series_change: "one short sentence about this version only"
 ---
+
+<!--
+The reading — title, card, scope, every rule — is plain English a screen
+reader can say aloud: no plates, no document identifiers, no file names or
+paths, no web addresses, no acronym a listener would not know. MUST, SHOULD,
+MAY and MUST NOT stay in capitals, as the outside norm that defines them says.
+Codes, sources and checks wait in the Check table at the foot.
+-->
 
 # The rule, in five words
 
 > **Summary:** Two to three lines. WHAT this standard requires, as a
 > reader would repeat it.
->
 > **Epistemic:** Two to three lines. What you understand after reading it
 > that you did not before.
->
 > **Pragmatic:** Two to three lines. What you can do, or check, once you
 > have read it.
+> **Audience:** Agents · Oracles
 
-**Binds:** the series, folders or kinds it obliges — never "the repository".
+**Binds:** the kinds of work or people it obliges, in words.
 **Does not bind:** the nearest thing it does not oblige.
-
----
 
 ## Rules
 
-<!-- Rules first, reasons later. One obligation per rule, one RFC 2119
-     verb, at most 35 words. Each rule carries a plate: three letters
-     three digits, unique across the corpus, never reused, never renamed.
-     A plate names the rule, not its position — it survives any cut. -->
+<!-- Rules first, reasons later, grouped under ### headings by purpose. Each
+     rule opens with a bold title in words — no plate — and holds one
+     obligation, one capitalised obligation word, ideally at most 35 words. -->
 
-**XXX-001 — The rule, as a title.** The obligation MUST be stated in one
-sentence a reader can obey without opening another document.
+### What the first group of rules is for
 
-**XXX-002 — The next rule.** What it requires.
+**The rule, as a title.** The obligation MUST be stated in one sentence a
+reader can obey without opening another document.
+
+**The next rule.** What it requires.
 
 ## Check
 
-<!-- Every plate, and what verifies it: a script under machine/scripts/, a CI
-     step, a platform setting — or `manual`, said plainly. -->
+Every rule above, with the code an agent cites it by, the outside standard
+it rests on, and what verifies it today.
 
-| Rule | Verified by |
-|---|---|
-| XXX-001 | `check-something.mjs` |
-| XXX-002 | manual |
+<!-- One row per rule. Plate: three letters, three digits, unique across the
+     corpus, never renumbered, dropped or reused. Source: a link to the
+     outside standard the rule follows, or —. Verified by: a guard or script,
+     a CI step, a platform setting — or "by hand", said plainly. -->
+
+| Plate | Rule | Source | Verified by |
+|---|---|---|---|
+| XXX-001 | The rule, as a title | — | a guard under `machine/guards/rules/` |
+| XXX-002 | The next rule | [An outside standard](https://example.org/) | by hand, at the pull request |
 
 ## Why
 
@@ -70,13 +81,13 @@ sentence a reader can obey without opening another document.
 ## References
 
 <!-- Only documents this one depends on to oblige. At most five rows.
-     Cite plates, never sections. -->
+     Identifiers live here and in the Check table, never in the reading. -->
 
 | ID | Name | Why cited |
 |---|---|---|
 | `STD-007` | One page per document | the shape this file takes |
 
 <!-- Body budget: 500 words from the scope line to References. It is a
-     SHOULD — over it, write one sentence here saying why. A register
-     (subtype: register) is a Summary, a table and at most one sentence;
-     it has no card and no budget. No changelog: git is the history. -->
+     SHOULD — over it, write one sentence in the document saying why. A
+     register (subtype: register) is a Summary, a table and at most one
+     sentence; it has no card and no budget. No changelog: git is the history. -->

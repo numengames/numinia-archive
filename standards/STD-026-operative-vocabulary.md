@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -15,7 +15,8 @@ territory: "Archive"
 threshold: governed
 license: "CC0-1.0"
 tags: [standard, register, vocabulary, glossary, onboarding]
-related: ["CAN-002", "CAN-005", "CAN-006", "STD-011"]
+related: ["CAN-002", "CAN-005", "CAN-006"]
+series_change: "0.1.2 — 2026-09-25: the summary and the closing note are written plainly, for a narrator, with no path in them; the tables are unchanged."
 ---
 
 <!--
@@ -26,10 +27,10 @@ SPDX-License-Identifier: CC0-1.0
 # Operative vocabulary
 
 > **Summary:** The twenty-five terms Numen Games works with, in plain
-> words: what each is, what knowing it clears up, what it lets you do here.
-> Not the game's words — those live in `lore/codex/glosario.md`,
-> in the manual's language. This register grows only by decision, never
-> past the essential.
+> words: what each is, what knowing it clears up, and what it lets you do
+> here. Not the game's own words — those live in the game's glossary, in the
+> manual's language. This list grows only by decision, and never past the
+> essential.
 
 ## Network and ownership
 
@@ -76,6 +77,7 @@ SPDX-License-Identifier: CC0-1.0
 | **Avatar** | A person's digital body: the form that represents them and with which they act inside a world. | Not decoration: embodied identity — it changes how you are seen and how you take part. | The catalogue's avatars are CC0 and portable: your digital body is yours and travels with you. |
 | **VRM** | An open format (a Japanese standard over glTF) for humanoid 3D avatars: one file with the model, its bones and its usage permissions, working in any compatible application. | Interoperability made format: "one avatar for every world" is engineering, not promise. | The format of Numinia's avatars — the platform's viewer renders them and any compatible world accepts them. Related: glTF/GLB. |
 
-Game-world terms (the Veil, the Threshold, guilds, seals…) are the
-manual's and live in `lore/codex/glosario.md`; their English names come
-from the game manual's translation glossary, and code uses those names in lower case.
+Game-world terms — the Veil, the Threshold, the guilds, the seals — belong
+to the game manual and live in the game's glossary. Their English names come
+from the manual's translation glossary, and the code uses those names in
+lower case.

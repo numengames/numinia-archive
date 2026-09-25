@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.4.0"
+version: "5.4.1"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-21T18:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-043"
 threshold: governed
 related: ["STD-024", "STD-016", "STD-018", "STD-007", "STD-027"]
-series_change: "5.4.0 — 2026-09-21: the five instrument folders of `machine/` gain a row each, so the Holds column stops being blank where `STD-027` classifies them (Verifying · Measuring · Templating). Prefix, threshold, budget and mould are `—`: an instrument is not a document. Minor: rows added, none changed. 5.3.0 — 2026-09-20: the Function · Activity column, and `lore/` and `objects/` registered as series they always were (ADR-046). The scheme itself lives in STD-027; this file keeps the table. Minor move: rows gained a column, none lost a claim. 5.2.1 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 5.0.0 — cut eleven under ADR-043. The glossary that was not a glossary becomes the register it always was: what series exist, what each holds, its prefix, its threshold, its budget, its mould. The rules moved to STD-024 (a series is a function), STD-021 (citing vs data), STD-015 (guard checks); the field vocabularies were already in STD-016. Section-numbered citations resolve in git."
+series_change: "5.4.1 — 2026-09-25: the summary, the scope lines and the prose between the tables are written in plain words a narrator can read aloud; the earlier prefixes move into a one-column table; no row of the series table changes."
 ---
 
 <!--
@@ -27,16 +27,17 @@ SPDX-License-Identifier: CC0-1.0
 
 # The series
 
-> **Summary:** The folders of the corpus, one row each: what the folder holds,
-> its identifier prefix, its change threshold, its body budget and its mould.
+> **Summary:** The folders of the archive, one row each: what the folder
+> holds, how its documents are numbered, what it takes to change them, how
+> long their body may run, and the mould a new one is copied from.
 > **Epistemic:** Which series exist, and what each one is for.
 > **Pragmatic:** Look up where a document goes and what it is called before
-> creating it. An unlisted folder is unregistered until a row is added here.
+> creating it. A folder not listed here is unregistered until a row is added.
 > **Audience:** Agents · Oracles
 
-**Binds:** every tracked document of the corpus.
-**Does not bind:** what a series is and what it obliges — `STD-024`; the
-fields of the header — `STD-016`; the identifier — `STD-018`.
+**Binds:** every tracked document of the archive.
+**Does not bind:** what a series is and obliges, the fields of the header,
+or the identifier itself.
 
 ## Series
 
@@ -61,16 +62,17 @@ fields of the header — `STD-016`; the identifier — `STD-018`.
 | `machine/telemetry/` | Assurance · Measuring | the figures the repository states about itself, measured, never typed | — | — | — | — |
 | `machine/templates/` | Administration · Templating | the moulds, one per series | — | — | — | — |
 
-`canon/`, `standards/` and `protocols/` are the **axis**; the rest are
-**registers** (`STD-024`). Budgets are the body word counts `STD-007` measures.
-The Function · Activity column is the classification scheme of `STD-027`: it
-says which activity produced a series, never what a change to it costs.
+The canon, the standards and the protocols are the **axis**, the documents
+that bind; the rest are **registers**. A budget is the number of words the
+body may hold, as the one-page standard counts them. The function and
+activity column is the classification scheme: it says which activity
+produced a series, never what a change to it costs.
 
-Moulds live in `machine/templates/`. Everything under `machine/` is an
-**instrument**, not a record (`STD-027` CLS-002): classified by the activity
-that produced it, so it has a row; never a document, so it has no prefix, no
-threshold, no budget and no page — it is read in the repository, and `SYS-007`
-is its manual. CC0-1.0.
+The moulds live with the machine. Everything the machine holds is an
+**instrument**, not a record: classified by the activity that produced it,
+so it has a row; never a document, so it has no prefix, no threshold, no
+budget and no page. It is read in the repository, its manual lives with the
+system, and it belongs to everyone.
 
 ## Genre and folder
 
@@ -88,18 +90,24 @@ is its manual. CC0-1.0.
 | `agent` | `agents/` | yes |
 | `meta` | anywhere — apparatus accompanies its series | no |
 
-Withdrawn `type` values: `audit` → `report` + `subtype: audit` · `decision` →
-`adr` · `roster` → `meta`.
+Three kinds are withdrawn: an audit is now a report of the audit kind, a
+decision is a decision record, and a roster is apparatus.
 
 ## Status
 
-The states a document may hold, for every series, are declared once in
-`STD-016`. A mission's stamps (`started` · `in_review_at` · `completed` ·
-`freeze_reason`) are its Ring 3 fields, also in `STD-016`.
+The states a document may hold, in every series, are declared once, in the
+register of header fields. The dates a mission is stamped with as it starts,
+goes to review, finishes or is frozen are fields of its own series, listed
+there too.
 
 ## Earlier schemes
 
-`P-NNN` · `S-NNN` · `D-NNN` · `C-NNN` · `O-NNN` · `AUD-YYYY-MM-DD` · `AG-NNN`.
-Nothing is renumbered: a document that cites one keeps the citation as a
-promise about the past, and the GIT-048 guard resolves it against git.
-Across repositories the identifier is qualified: `nwos:ADR-006` · `web:ADR-006`.
+Older documents were numbered under earlier prefixes, listed below. Nothing
+is renumbered: a document that cites an old number keeps the citation as a
+promise about the past, and the archive resolves it against its history.
+Across repositories, an identifier carries the repository's short name in
+front of it.
+
+| Earlier prefix |
+|---|
+| `P-NNN` · `S-NNN` · `D-NNN` · `C-NNN` · `O-NNN` · `AUD-YYYY-MM-DD` · `AG-NNN` |

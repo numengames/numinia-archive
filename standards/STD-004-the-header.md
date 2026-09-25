@@ -5,18 +5,18 @@ title: "The header"
 type: documentation
 subtype: standard
 status: draft
-version: "3.1.5"
+version: "3.2.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-11T12:00:00+02:00"
+updated: "2026-09-25T13:00:00+02:00"
 ratified_by: "ADR-043"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
-tags: [frontmatter, standard, lint, metadata]
-series_change: "3.1.5 — 2026-09-11: Check rows name the folder a script lives in (machine/scripts/, machine/tools/, machine/guards/rules/); a bare filename does not say where to run it, and three of them had moved. Patch: prose only. 3.1.4 — 2026-09-11: Check rows repoint to machine/guards/rules/std-004-the-header.mjs (R3 fold of lint-frontmatter and the HDR rules of check-core-rules). Patch: prose only. 3.1.3 — 2026-09-10: HDR-031 and the HDR-001..038 check row no longer speak of a baseline; there is none (STD-005 2.2.0). Patch: prose only. 3.1.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.1.0 — HDR-040, HDR-041 and HDR-043 are defined here, inside HDR-000, instead of in STD-009 (ADR-043 cut of STD-009). 3.0.0 — the standard takes the ADR-043 shape and splits: 2,108 -> 465 words of body here; every field table, vocabulary and lifecycle is the register STD-016. No HDR plate changes number. Major: §7.1, §7.2, §8.2 and §9 were cited by four documents and no longer exist; §8 (context card, standards template) is superseded by STD-007 DOC-002..006; §9 by ENG-033."
+tags: [frontmatter, standard, lint, metadata, ISO-8601, RFC-2119]
+series_change: "3.2.0 — 2026-09-25: written in plain words a narrator can read aloud, and taking in from the external standards the two outside norms it rests on — dates as ISO 8601 and obligation words as RFC 2119 — as HDR-045 and HDR-046."
 ---
 
 <!--
@@ -25,78 +25,113 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # The header
 
-> **Summary:** Every governed document opens with YAML frontmatter in three
-> rings: identity, provenance, extension. Every field is in the register
-> `STD-016` or is an error. A value nobody knows is declared absent, never
-> guessed.
-> **Epistemic:** What a conformant header is, and why every rule about it is
-> one the lint can run.
-> **Pragmatic:** Write a header, add a field, or read a lint finding by its
-> plate.
+> **Summary:** Every document opens with a short block of labelled fields
+> that says what it is, who wrote it and when. Each field is listed in the
+> register of header fields, or it is an error. A value nobody knows is left
+> out, never guessed.
+> **Epistemic:** What a correct header is, how dates and obligation words
+> are written, and why each rule is one a machine can check.
+> **Pragmatic:** Write a header, add a field, or read a finding by its code.
 > **Audience:** Agents · Oracles
 
-**Binds:** every Markdown file under the directories `machine/scripts/lib/rules.json`
-lists as governed.
-**Does not bind:** the body (`STD-007`); the site pipeline's own schema,
-which is the renderer's.
+**Binds:** every document's header, and every date and obligation word the
+archive writes.
+**Does not bind:** the body below the header, or the site's own page schema.
 
 ## Rules
 
-**HDR-000 — Every governed file has a header.** Frontmatter fenced by `---`
-on its own lines (**HDR-040**), parsing as valid YAML (**HDR-041**), and
-declaring a licence (**HDR-043**; the value is HDR-008).
+### Every document has a header
 
-**HDR-030 — A field in no ring is an error.** Ring 1 is mandatory for every
-document, Ring 2 for every document that makes a claim, Ring 3 as each
-series registers in `STD-016`. There is no out-of-band extension.
+**Every governed document has a header.** Every document in a governed
+folder MUST open with a header fenced by three dashes on their own lines,
+which a standard reader parses, and which declares a licence.
 
-**HDR-042 — Adding a field costs a row and a decision.** One line in the
-register plus the decision record that justifies it, in the same change.
+**A field in no ring is an error.** The first ring of fields is required
+of every document, the second of every document that makes a claim, the
+third only as each series registers it. No field MAY sit outside a ring.
 
-**HDR-009 — Empty is absent.** A field with an empty value is an error.
-Absence is declared: omit the field, write `null`, or write `TBA`.
+**Adding a field costs a row and a decision.** A new field MUST arrive with
+its line in the register of header fields and the decision that justifies
+it, in the same change.
 
-**HDR-044 — Absent is never guessed.** A placeholder, a plausible date, an
-invented author fail. Ring 2 admits `declared` where git cannot testify, so a
-reader can always tell evidence from claim.
+### What a header may say
 
-**HDR-032 — A `TBA` has an owner.** `TBA` is legal only in a field a mission
-owns; the lint counts each and names the mission. A `TBA` in a field no
-mission owns fails. Whether the mission is alive is `[MANUAL]`.
+**Empty is absent.** A field MUST NOT hold an empty value. To say nothing is
+known, leave the field out, write null, or write that it is to be announced.
 
-**HDR-031 — Retirements are waves.** A retired field (`area` → `territory`;
-`blocked_reason`; the Spanish-era keys) is reported wherever it still
-appears until its migration lands; the rule that names it goes with the
-last occurrence.
+**Absent is never guessed.** A placeholder, a plausible date or an invented
+author MUST NOT stand in for a value. Where history cannot testify, a date
+is marked as declared, so a reader tells evidence from claim.
 
-**HDR-020 — `uid` stays empty.** A non-empty `uid` is an error until the
-identifier system exists.
+**A deferred value has an owner.** A value left to be announced MUST sit in
+a field that a mission owns, and the check names that mission. Whether the
+mission is still alive is judged by hand.
 
-**HDR-016 — Relations are frontmatter and resolve.** `supersedes`,
-`superseded_by`, `absorbs`, `derived_from`, `ratified_by`, `related` name
-identifiers that exist. `related` is never used when a stronger relation is
-known, and no relation is inferred from a shared folder, author or subject.
+**Retired fields leave in waves.** A retired field MUST be reported wherever
+it still appears until its migration lands; the rule naming it goes with
+its last occurrence.
 
-**HDR-002 — Titles are English.** Presence is checked; language is
-`[MANUAL]` because detectors lie.
+**The universal identifier stays empty.** The field reserved for a
+universal identifier MUST stay empty until the system that assigns it
+exists.
+
+**Relations live in the header and resolve.** Every relation — replaces,
+replaced by, absorbs, derived from, ratified by, related — MUST name a
+document that exists. Related is used only when nothing stronger is known,
+and never inferred.
+
+**Titles are English.** Every title MUST be in English. That a title is
+there is checked; its language is judged by hand, because language
+detectors lie.
+
+### How dates and obligation words are written
+
+**Dates are written year first.** Every date MUST read year, month and day,
+then the hour and its offset from universal time, always in that order, so
+it sorts and never reads two ways.
+
+**Obligation words mean one thing.** MUST, SHOULD and MAY, and their
+negatives, carry the meaning the internet's standards body gave them: a must
+is required, a should may be broken only with a reason, a may is a free
+choice.
 
 ## Check
 
-| Plate | Verified by |
-|---|---|
-| HDR-000..009, 012..014, 017..020, 030..038, 040, 043, 044 | `machine/guards/rules/std-004-the-header.mjs`, one plate per finding |
-| HDR-041 | `machine/guards/rules/std-006-plain-text.mjs` (TXT-002 — a header that parses) |
-| HDR-010, 011, 015, 016 | `[MANUAL]` — presence only. No guard resolves frontmatter relations: `machine/guards/rules/std-020-git-is-the-archive.mjs` reads the body, not the header |
-| HDR-042 | `[MANUAL]` — review checks the register row and the decision |
+Every rule above, with the code an agent cites it by, the outside standard
+it rests on, and what verifies it today. Then the codes each field fails
+under.
+
+| Plate | Rule | Source | Verified by |
+|---|---|---|---|
+| HDR-000 | Every governed document has a header | — | `machine/guards/rules/std-004-the-header.mjs`, with HDR-040 (the fence) and HDR-043 (the licence) |
+| HDR-040 | the fence, part of HDR-000 | — | `machine/guards/rules/std-004-the-header.mjs` |
+| HDR-041 | the header parses, part of HDR-000 | [YAML 1.2](https://yaml.org/spec/1.2.2/) | `machine/guards/rules/std-006-plain-text.mjs` (TXT-002: the fence closes and the structure is sound) |
+| HDR-043 | the licence is declared, part of HDR-000 | — | `machine/guards/rules/std-004-the-header.mjs`; the value is HDR-008 |
+| HDR-030 | A field in no ring is an error | — | `machine/guards/rules/std-004-the-header.mjs` |
+| HDR-042 | Adding a field costs a row and a decision | — | by hand, at review: the register row and the decision |
+| HDR-009 | Empty is absent | — | `machine/guards/rules/std-004-the-header.mjs` |
+| HDR-044 | Absent is never guessed | — | `machine/guards/rules/std-004-the-header.mjs`, placeholder values |
+| HDR-032 | A deferred value has an owner | — | `machine/guards/rules/std-004-the-header.mjs`; whether the mission lives, by hand |
+| HDR-031 | Retired fields leave in waves | — | `machine/guards/rules/std-004-the-header.mjs` |
+| HDR-020 | The universal identifier stays empty | — | `machine/guards/rules/std-004-the-header.mjs` |
+| HDR-016 | Relations live in the header and resolve | — | by hand, presence only: no guard resolves header relations; `machine/guards/rules/std-020-git-is-the-archive.mjs` reads the body |
+| HDR-002 | Titles are English | — | `machine/guards/rules/std-004-the-header.mjs`, presence; language by hand |
+| HDR-045 | Dates are written year first | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | `machine/guards/rules/std-004-the-header.mjs` for `created` and `updated` (HDR-006, HDR-007); other dates by hand |
+| HDR-046 | Obligation words mean one thing | [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) | by hand, at review |
+| HDR-001, 003..008, 012..014, 017..019, 033..038 | each field's own rule, in the register of header fields | — | `machine/guards/rules/std-004-the-header.mjs`, one plate per finding |
+| HDR-010, 011, 015 | author, owner, commissioned by | — | by hand, presence only |
+
+A governed folder is one `machine/scripts/lib/rules.json` lists under
+`governed.dirs`. HDR-045 was EXT-006 and HDR-046 was EXT-001 in the external
+standards; those plates are retired there.
 
 ## Why
 
-A human reads the body; guards, indexes and the site read only the header.
-Everything the machinery knows about a document is these lines, so a guessed
-value corrupts every derived view at once, and a field nobody registered is
-the first step of a count that never stops growing. Three rings keep the
-mandatory core at eight fields and let each series extend without touching
-the others.
+A person reads the body; guards, indexes and the site read only the header.
+Everything the machinery knows about a document is in these lines, so a
+guessed value corrupts every view at once, and an unregistered field starts
+a count that never stops. Dates and obligation words follow the norms the
+world already reads, so nobody has to learn ours.
 
 ## References
 
@@ -104,4 +139,4 @@ the others.
 |---|---|---|
 | `STD-016` | Header fields | every field, its shape, its plate |
 | `STD-007` | One page per document | the body that follows the header |
-| `STD-001` | Vocabulary | the words the fields draw on |
+| `STD-001` | The series | the folders and prefixes the fields draw on |

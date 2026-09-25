@@ -424,6 +424,7 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-032-the-design-system",
       "/standards/std-008-design-tokens",
       "/standards/std-023-design-values",
+      "/standards/std-034-accessibility",
     ],
   },
   {
@@ -437,6 +438,7 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-013-licence-allowlist-and-fields",
       "/standards/std-014-publishing-gates",
       "/standards/std-022-secrets",
+      "/standards/std-035-personal-data",
       "/standards/std-033-charges-and-the-account",
     ],
   },
@@ -451,7 +453,6 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-020-git-is-the-archive",
       "/standards/std-005-engineering-baseline",
       "/standards/std-015-engineering-checks",
-      "/standards/std-011-external-standards",
     ],
   },
 ];
