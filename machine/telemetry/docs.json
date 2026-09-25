@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 122878,
+  "chars": 123934,
   "apparatus": false,
   "archived": false,
-  "tokens": 32591
+  "tokens": 32861
  },
  {
   "path": "CLAUDE.md",
@@ -2205,10 +2205,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6209,
+  "chars": 7249,
   "apparatus": false,
   "archived": false,
-  "tokens": 1716
+  "tokens": 1841
  },
  {
   "path": "standards/STD-011-external-standards.md",
@@ -2216,10 +2216,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9965,
+  "chars": 9712,
   "apparatus": false,
   "archived": false,
-  "tokens": 2615
+  "tokens": 2567
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",

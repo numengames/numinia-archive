@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-25 (licensing leans on SPDX, REUSE and the DCO)
+- **`standards/STD-010-licensing.md`** `2.0.0`: first step of sharing the external standards out by purpose. The three outside standards licensing rests on — SPDX, REUSE and the Developer Certificate of Origin — leave `STD-011` and each rule of Licensing now names the one it follows. Rules are grouped in four (what we publish, what we depend on, how a file says its licence, who may contribute), titled in words, read aloud with no code or path in the way; plates and sources wait in one table at the foot. No obligation added or dropped. The Oracle's word in session.
+- **`standards/STD-011-external-standards.md`** `2.1.0`: EXT-004, EXT-005 and EXT-012 leave for Licensing; their plates are retired.
+- **`machine/scripts/lib/regime.mjs`**: a plate is held where the standard writes it — a rule title, or the first column of its Check table (`platesIn`). Without it, the licensing guard's plates had no holder once Licensing moved them to the foot. Test first in `regime.test.mjs`.
+
 ### Changed — 2026-09-25 (plates and sources leave the reading)
 - **`standards/STD-011-external-standards.md`** `2.0.0`, follow-up to #493: the rules are titled in words alone; one Check table at the foot pairs each plate with its rule, its source and what verifies it today, so any screen reader — not only ours — reads the rules without a code or a URL in the way. The Oracle's word in session.
 

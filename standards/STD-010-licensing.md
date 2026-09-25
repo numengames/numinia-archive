@@ -5,16 +5,16 @@ title: "Licensing"
 type: documentation
 subtype: standard
 status: draft
-version: "1.3.0"
+version: "2.0.0"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-25T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, REUSE, SPDX]
 threshold: governed
-series_change: "1.3.0 — LIC-002: the lore is CC0-1.0; only the brand stays reserved (Oracle and co-author, 2026-09-24). 1.2.0 — LIC-008: the licence is declared by the file, never by its folder; REUSE.toml keeps only files that cannot hold a comment, one exact path each, no globs (Oracle, 2026-09-24). LIC-004: per file. 1.1.1 — Check row repoints to machine/guards/rules/std-010-licensing.mjs (R3, MIS guards-tests-ci-alpha): the guard moved out of machine/scripts/, the name did not change. 1.0.1 — LIC-058 and LIC-059 retired as duplicates of LIC-007 and HDR-008; the Check names the header plates instead (ADR-043 cut of STD-009). 1.0.0 — the standard takes the ADR-043 shape: 3,020 -> 495 words of body across three files. LIC-001..013 are the obligations of the old §2-§7; the allowlist, the metadata-field table and the licence texts are the register STD-013; the two irreversible gates are STD-014. LIC-058..060 (core rules) are cited, not restated. Nothing that bound is dropped; what explained is in the Why or in CAN-005."
+series_change: "2.0.0 — 2026-09-25: the licensing standard takes in the three outside standards it rests on — SPDX, REUSE and the Developer Certificate of Origin — which leave STD-011. They were already here in our own words (every repository declares, one file one regime, contributions covered); now each rule names the outside standard it follows. Rules read aloud with no code or path in the way; plates and sources wait in one table at the foot. No obligation added or dropped. At the Oracle's word in session."
 ---
 
 <!--
@@ -24,99 +24,121 @@ SPDX-License-Identifier: CC0-1.0
 
 # Licensing
 
-> **Summary:** Deployable apps are `AGPL-3.0-only`, packages `MIT`, public
-> assets, data and lore `CC0-1.0`, documentation `CC-BY-4.0`, brand
-> reserved. Every file declares; the strongest copyleft in the shipped tree
-> sets the floor and never flows into a permissive package.
-> **Epistemic:** What must be done about `CAN-005`: which licence each piece
-> gets, how it is declared, what may be depended on.
+> **Summary:** Apps that decide are AGPL, packages MIT, public assets, data
+> and lore CC0, documentation CC BY, the brand reserved. Every file declares
+> its own licence the way SPDX and REUSE say, and the strongest copyleft in
+> what we ship sets the floor.
+> **Epistemic:** Which licence each piece gets, how it is declared, what may
+> be depended on — and which outside standards we follow to do it.
 > **Pragmatic:** License a new file or check an existing one without a legal
 > consultation. Not legal advice.
 > **Audience:** Agents · Oracles
 
 **Binds:** every repository of Numen Games, Numinia's and NWOS's included.
-**Does not bind:** client workspaces our generators produce (`LIC-010`);
-third-party material, which keeps its licence of origin.
+**Does not bind:** client workspaces our generators produce; third-party
+material, which keeps its licence of origin.
 
 ## Rules
 
-**LIC-001 — Ours, or not published.** Without demonstrable ownership —
-contract, commission, assignment or compatible origin — a piece MUST NOT be
+### What we may publish, and under which licence
+
+**Ours, or not published.** Without demonstrable ownership — a contract, a
+commission, an assignment or a compatible origin — a piece MUST NOT be
 published.
 
-**LIC-002 — Licence by kind.** Application that decides (`apps/*`)
-`AGPL-3.0-only`. Package, SDK, tokens, script, CI (`machine/packages/*`) `MIT`.
-Public assets, data, design `CC0-1.0`. Documentation `CC-BY-4.0`.
-Agent definitions (`agents/*`), `canon/` and the lore `CC0-1.0`,
-irrevocably. Brand, prototypes: reserved.
+**The licence follows the kind of piece.** An application that decides is
+AGPL 3.0 only. A package, SDK, set of design tokens, script or CI step is
+MIT. Public assets, data and design are CC0. Documentation is CC BY 4.0.
+Agent definitions, the canon and the lore are CC0, irrevocably. The brand
+and prototypes are reserved.
 
-**LIC-003 — Copyleft flows down, never up.** AGPL MUST NOT be imported by
-MIT. The strongest copyleft in the *distributed* tree sets the floor;
-`devDependencies` do not count. Two processes over HTTP are two works.
+**Copyleft flows down, never up.** MIT code MUST NOT import AGPL code. The
+strongest copyleft in what we distribute sets the floor; tools used only to
+build do not count. Two programs talking over the network are two works.
 
-**LIC-004 — Inherited copyleft is isolated.** A third party's copyleft engine
-lives in its own repository; ours is declared per file.
+**Inherited copyleft is isolated.** A third party's copyleft engine lives in
+its own repository; ours is declared file by file.
 
-**LIC-005 — Allowed inputs only.** A dependency's licence MUST be on the
-allowlist (`STD-013`), resolved before adding. Absent or unknown blocks
-until its `LICENSE` is read.
+**Generated work belongs to the client.** A template of ours keeps our
+licence; what it generates for a client MUST receive a reserved-rights
+licence in the client's name.
 
-**LIC-006 — Present is not distributed.** A forbidden dependency that stays
-out of the artifact MAY be tolerated only with a `debt/` entry tagged `legal`,
-an exit condition, and a guard that reads the artifact. An AGPL artifact
-with added restrictions has no exception.
+### What we may depend on
 
-**LIC-007 — Every repository declares.** `LICENSE`, `LICENSES/`, `REUSE.toml`,
-`TRADEMARKS.md`; `NOTICE` if any Apache-2.0 ships; exact SPDX in every
-`package.json`. All in English.
+**Allowed inputs only.** A dependency's licence MUST be on the allowlist,
+checked before it is added. An absent or unknown licence blocks until
+someone reads it.
 
-**LIC-008 — One file, one regime, declared by the file.** A licence belongs
-to a file, never to a folder. Every text file MUST carry its own SPDX comment
-(`SPDX-FileCopyrightText`, `SPDX-License-Identifier`) in its first lines; a
-document with a header MUST name the same licence in `license:`. Only a file
-that cannot hold a comment — image, font, JSON, a generated or pinned copy —
-is declared in `REUSE.toml`, by its exact path; a glob there MUST NOT occur.
-An SPDX `AND` MUST NOT occur; split the content.
+**Present is not distributed.** A forbidden dependency that stays out of
+what we ship MAY be tolerated only with a legal debt entry, a way out, and a
+check that reads the shipped artifact. An AGPL artifact with added
+restrictions has no exception.
 
-**LIC-009 — The licence travels inside the file.** A media file carries its
-licence in its own metadata (`STD-013`). A CC0 VRM MUST override the
-specification's restrictive defaults.
+### How a file says its licence
 
-**LIC-010 — A generator never propagates its licence.** The template is ours
-and licensed by `LIC-002`; the generated work belongs to the client and MUST
-receive a reserved-rights `LICENSE` in the client's name.
+**Every repository declares, the REUSE way.** Each repository MUST carry its
+licence, the text of every licence it uses, a REUSE file and a trademarks
+note, all in English, and pass the REUSE check on every push.
 
-**LIC-011 — Provenance declared.** Every piece states `human`, `ai-assisted`
-or `ai-generated`; what is published as ours has recorded human intervention.
+**Each file names its own licence in SPDX.** Every text file MUST open with
+its two SPDX lines — who owns it and under which licence — and a document's
+header MUST name the same licence. Only a file that cannot hold a comment,
+like an image or a font, is listed in the REUSE file, by its exact path.
 
-**LIC-012 — CC0 waives only our rights.** Before CC0 on media: sample
-origin, written consent for identifiable people, EXIF cleared, chain of
-rights in video, consent covering cloning in voice.
+**The licence travels inside media.** An image, a model or a sound carries
+its licence in its own metadata. A CC0 avatar MUST override the restrictive
+defaults of its format.
 
-**LIC-013 — Contributions are covered per repository.** Any repository with
-AGPL code: CLA. MIT-only and documentation: DCO. Assets: explicit CC0 in the
-pull request.
+**Provenance is declared.** Every piece states whether it was made by a
+human, assisted by AI or generated by AI; what we publish as ours records a
+human's hand.
+
+**CC0 waives only our rights.** Before CC0 goes on media, we check the
+sample's origin, get written consent from anyone identifiable, clear the
+photo metadata, and secure the rights behind any video or cloned voice.
+
+### Who may contribute
+
+**Every contribution is covered.** A repository with AGPL code asks for a
+contributor licence agreement. An MIT or documentation repository asks each
+commit for the Developer Certificate of Origin sign-off. Assets need an
+explicit CC0 in the pull request.
 
 ## Check
 
-| Plate | Verified by |
-|---|---|
-| LIC-007 (documents), LIC-008 | `machine/guards/rules/std-010-licensing.mjs` (also `HDR-043`, `HDR-008`) |
-| LIC-005, LIC-007 (packages) | `license-check` in CI, default severity error — not yet in this repository |
-| LIC-003, LIC-006 | `[MANUAL]` — the dependency-direction lint and the artifact inspector are described, not built (`DBT-020`) |
-| LIC-001, 002, 004, 009–013 | `[MANUAL]` — review at the pull request |
+Every rule above, with the code an agent cites it by, the outside standard
+it follows, and what verifies it today.
+
+| Plate | Rule | Source | Verified by |
+|---|---|---|---|
+| LIC-001 | Ours, or not published | — | by hand, at the pull request |
+| LIC-002 | The licence follows the kind of piece | [SPDX licence list](https://spdx.org/licenses/) | by hand, at the pull request |
+| LIC-003 | Copyleft flows down, never up | [AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.html) | nothing yet: the direction lint is described, not built (`DBT-020`) |
+| LIC-004 | Inherited copyleft is isolated | — | by hand, at the pull request |
+| LIC-010 | Generated work belongs to the client | — | by hand, at the pull request |
+| LIC-005 | Allowed inputs only | allowlist in `STD-013` | `license-check` in CI — not yet in this repository |
+| LIC-006 | Present is not distributed | — | nothing yet: the artifact inspector is described, not built (`DBT-020`) |
+| LIC-007 | Every repository declares, the REUSE way | [REUSE 3.3](https://reuse.software/spec-3.3/) | `reuse lint` in CI, all four repositories; `machine/guards/rules/std-010-licensing.mjs` |
+| LIC-008 | Each file names its own licence in SPDX | [SPDX](https://spdx.dev/) | `machine/guards/rules/std-010-licensing.mjs` (also `HDR-008`, `HDR-043`) |
+| LIC-009 | The licence travels inside media | fields in `STD-013` | by hand, at the pull request |
+| LIC-011 | Provenance is declared | — | by hand, at the pull request |
+| LIC-012 | CC0 waives only our rights | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | by hand, at the pull request |
+| LIC-013 | Every contribution is covered | [Developer Certificate of Origin](https://developercertificate.org/) | nothing yet: between 0 and 7 of the last 30 commits are signed, per repository (`DBT-020`) |
 
 ## Why
 
-`CAN-005`: every piece is born in the most closed regime that makes sense
-and is opened by deliberate acts, because opening is irreversible. What
-decides is copyleft so improvements return; what is reused is permissive so
-it spreads; what is published is public domain so it needs no permission.
+Every piece is born in the most closed regime that makes sense and is
+opened by deliberate acts, because opening cannot be undone. What decides
+is copyleft, so improvements come back; what is reused is permissive, so it
+spreads; what is published is public domain, so it needs no permission.
+Following SPDX and REUSE instead of a format of our own means any open-source
+tool can read our licences without asking us.
 
 ## References
 
 | ID | Title | Relation |
 |---|---|---|
-| `CAN-005` | Legal by design | why; where this and the canon disagree, one is wrong and is corrected |
-| `STD-013` | Licence allowlist and fields | what LIC-005 and LIC-009 check against |
+| `CAN-005` | Opening is an act | why; where this and the canon disagree, one is wrong and is corrected |
+| `STD-013` | Licence allowlist and fields | what the allowed-inputs and media rules check against |
 | `STD-014` | Publishing gates | the two irreversible acts and their checks |
+| `DBT-020` | Declared automatic, executed by nobody | the checks still missing |

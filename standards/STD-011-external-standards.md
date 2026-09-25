@@ -5,16 +5,16 @@ title: "External standards"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-09-07T15:00:00+02:00"
-updated: "2026-09-25T11:00:00+02:00"
+updated: "2026-09-25T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "CAO"
 license: "CC0-1.0"
 tags: [standards, adoption, provenance, external]
 threshold: governed
-series_change: "2.0.0 — 2026-09-25: from register to standard, at the Oracle's word in session. The external standards we use are rules to keep, not a table to consult: each is named and explained in words a narrator can read aloud. Plates and source links leave the reading and wait at the foot, in the Check table, so no screen reader stumbles on them. Eighteen rules, one per standard in use; the twelve under consideration are listed, not ruled."
+series_change: "2.1.0 — 2026-09-25: SPDX, REUSE and the certificate of origin move to Licensing (STD-010), first step of sharing this standard out among the standards each outside standard serves; their plates are retired, never reused. 2.0.0 — 2026-09-25: from register to standard, at the Oracle's word in session. The external standards we use are rules to keep, not a table to consult: each is named and explained in words a narrator can read aloud. Plates and source links leave the reading and wait at the foot, in the Check table, so no screen reader stumbles on them. Eighteen rules, one per standard in use; the twelve under consideration are listed, not ruled."
 ---
 
 <!--
@@ -54,13 +54,8 @@ as a blameless postmortem does.
 
 ### How the archive keeps its files
 
-**Every file names its licence in SPDX.** A file MUST say who owns
-it and under which licence, with the two SPDX lines that any open-source
-tool can read.
-
-**The repository passes REUSE.** Each file MUST declare its own
-licence; the few that cannot are covered in one central file, and the REUSE
-check runs on every push.
+How a file names its licence — SPDX and REUSE — and who may contribute —
+the certificate of origin — are rules of the licensing standard now.
 
 **Dates are written ISO 8601.** A date MUST read year, month, day,
 then the hour and its offset, always in that order, so it sorts and never
@@ -87,10 +82,6 @@ environment, as the Twelve-Factor App asks.
 **Commit messages say their kind.** A commit SHOULD start with
 what it is — a feature, a fix, a test, documentation — in the Conventional
 Commits form, so history can be read and sorted.
-
-**A contributor certifies their right to contribute.** Each commit
-SHOULD carry the Developer Certificate of Origin sign-off: the author states
-the work is theirs to give.
 
 **Software is accepted by scenarios.** A mission that produces
 software MUST state what it has to do as Gherkin scenarios — given, when,
@@ -144,15 +135,15 @@ and what verifies it today.
 | EXT-001 | Obligation words mean one thing | [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) | by hand, at review |
 | EXT-002 | Versions follow Semantic Versioning | [Semantic Versioning 2.0.0](https://semver.org/) | versions guard (`std-019-versions.mjs`), format only |
 | EXT-003 | A failure is reviewed without blame | [Blameless postmortem](https://sre.google/sre-book/postmortem-culture/) | by hand, at review |
-| EXT-004 | Every file names its licence in SPDX | [SPDX](https://spdx.dev/) | licensing guard (`std-010-licensing.mjs`) |
-| EXT-005 | The repository passes REUSE | [REUSE 3.3](https://reuse.software/spec-3.3/) | `reuse lint` in CI, all four repositories |
+| EXT-004 | moved to Licensing, as LIC-008 | [SPDX](https://spdx.dev/) | — |
+| EXT-005 | moved to Licensing, as LIC-007 | [REUSE 3.3](https://reuse.software/spec-3.3/) | — |
 | EXT-006 | Dates are written ISO 8601 | [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) | header guard (`std-004-the-header.mjs`) |
 | EXT-007 | The changelog is kept for people | [Keep a Changelog](https://keepachangelog.com/) | by hand; `numinia-web` and `nwos-deploy` keep none |
 | EXT-008 | The repositories keep a security score | [OpenSSF Scorecard](https://scorecard.dev/) | `scorecard.yml`, weekly, all four repositories |
 | EXT-009 | Work lands on one trunk | [Trunk-Based Development](https://trunkbaseddevelopment.com/) | by hand |
 | EXT-010 | Settings live in the environment | [The Twelve-Factor App, config](https://12factor.net/config) | by hand |
 | EXT-011 | Commit messages say their kind | [Conventional Commits](https://www.conventionalcommits.org/) | nothing yet (`DBT-020`) |
-| EXT-012 | A contributor certifies their right to contribute | [Developer Certificate of Origin](https://developercertificate.org/) | nothing yet (`DBT-020`) |
+| EXT-012 | moved to Licensing, as LIC-013 | [Developer Certificate of Origin](https://developercertificate.org/) | — |
 | EXT-013 | Software is accepted by scenarios | [Gherkin](https://cucumber.io/docs/gherkin/) | `numinia-web` only: ten `.feature` files in CI |
 | EXT-014 | Every page can be used by anyone | [WCAG 2.2](https://www.w3.org/TR/WCAG22/) | `numinia-web` only: `apps/store/e2e/a11y.spec.ts`, 31 routes |
 | EXT-015 | Design values travel as tokens | [W3C design tokens format](https://www.designtokens.org/tr/drafts/format/) | by hand; `sistema.tokens.json` in this archive |
@@ -187,7 +178,7 @@ and which only we remember, keeps us honest about the difference.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `STD-010` | Licensing | where SPDX, REUSE and the certificate of origin apply |
+| `STD-010` | Licensing | where SPDX, REUSE and the certificate of origin now live |
 | `STD-008` | Design tokens | where the tokens format applies |
 | `STD-033` | Charges and the account | where the accounting plan and FOCUS apply |
 | `STD-015` | Engineering checks | the checks behind commits, scenarios and accessibility |

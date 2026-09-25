@@ -44,6 +44,25 @@ const PLATE = /^[A-Z]{2,4}-\d{3}$/;
 
 let _index = null;
 
+/** Every plate a document holds: in a rule title (`**ABC-001 — …**`), or in
+ *  the first column of its `## Check` table, where a standard written for the
+ *  narrator keeps its plates out of the reading. In order, each once. */
+export function platesIn(body) {
+  const out = [];
+  const add = (p) => { if (!out.includes(p)) out.push(p); };
+  for (const m of body.matchAll(/^\*\*([A-Z]{2,4}-\d{3})\b[^*\n]*\*\*/gm)) add(m[1]);
+  const lines = body.split('\n');
+  const at = lines.findIndex((l) => /^##\s+Check\s*$/.test(l));
+  if (at >= 0) {
+    for (let i = at + 1; i < lines.length && !/^##\s/.test(lines[i]); i++) {
+      const row = /^\|([^|]*)\|/.exec(lines[i]);
+      if (!row) continue;
+      for (const m of row[1].matchAll(/\b([A-Z]{2,4}-\d{3})\b/g)) add(m[1]);
+    }
+  }
+  return out;
+}
+
 /** Scan the axis once: plate -> holder, prefix -> holder, holder -> status. */
 export function loadHolders(root = ROOT) {
   if (_index) return _index;
@@ -62,11 +81,11 @@ export function loadHolders(root = ROOT) {
     status.set(id, fm[1].match(/^status:\s*"?([\w-]+)"?/m)?.[1] ?? 'draft');
     title.set(id, fm[1].match(/^title:\s*"?([^"\n]+?)"?\s*$/m)?.[1] ?? id);
     const body = text.slice(fm[0].length);
-    for (const m of body.matchAll(/^\*\*([A-Z]{2,4})-(\d{3})\b[^*\n]*\*\*/gm)) {
-      const plate = `${m[1]}-${m[2]}`;
+    for (const plate of platesIn(body)) {
+      const prefix = plate.slice(0, plate.indexOf('-'));
       if (!byPlate.has(plate)) byPlate.set(plate, id);
-      if (!byPrefix.has(m[1])) byPrefix.set(m[1], new Set());
-      byPrefix.get(m[1]).add(id);
+      if (!byPrefix.has(prefix)) byPrefix.set(prefix, new Set());
+      byPrefix.get(prefix).add(id);
     }
   }
   _index = { byPlate, byPrefix, status, title };

@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "ecd0846",
-  "corpus_hash": "652265374a14bf56c1e29797d27f43942e457f2ffb9e198818cf043ebd503bd4",
+  "head": "17c4700",
+  "corpus_hash": "87191d38fc7fd5ff43508ca944ec1f96005ab996c07bf39e622e333f222bca48",
   "root_dirty": 0,
-  "measured_at": "2026-09-25T09:13:27Z",
+  "measured_at": "2026-09-25T09:28:27Z",
   "families": [
     "corpus",
     "series",
@@ -320,16 +320,16 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 861427,
+      "value": 861774,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 59646,
+        "standards": 59723,
         "missions": 45717,
-        "": 39546,
+        "": 39816,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29103,
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 534864,
-        "draft": 156998,
+        "(none)": 535134,
+        "draft": 157075,
         "active": 122360,
         "done": 26539,
         "todo": 15975,
@@ -359,7 +359,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.31,
+      "value": 5.3,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -631,7 +631,6 @@
         "machine/scripts/lib/regime.mjs",
         "machine/guards/lib/guard.mjs",
         "machine/scripts/std-019-versions.mjs",
-        "machine/scripts/std-010-licensing.mjs",
         "machine/scripts/std-004-the-header.mjs",
         "machine/tools/generate-design-kit.mjs",
         "machine/tools/check-deletable.mjs",
@@ -654,7 +653,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 996
+          "3": 998
         },
         "MIS": {
           "3": 687,
@@ -667,10 +666,10 @@
           "3": 83
         },
         "CAN": {
-          "3": 513
+          "3": 510
         },
         "ADR": {
-          "3": 537
+          "3": 535
         },
         "SYS": {
           "3": 57
@@ -683,7 +682,7 @@
           "3": 109
         },
         "DBT": {
-          "3": 79
+          "3": 81
         },
         "DEC": {
           "3": 13
