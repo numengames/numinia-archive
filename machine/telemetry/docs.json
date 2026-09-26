@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13696,
+  "chars": 13923,
   "apparatus": false,
   "archived": false,
-  "tokens": 3383
+  "tokens": 3445
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 131701,
+  "chars": 133011,
   "apparatus": false,
   "archived": false,
-  "tokens": 35143
+  "tokens": 35580
  },
  {
   "path": "CLAUDE.md",
@@ -610,10 +610,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 8503,
+  "chars": 8537,
   "apparatus": false,
   "archived": false,
-  "tokens": 2327
+  "tokens": 2343
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -2051,10 +2051,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4245,
+  "chars": 4256,
   "apparatus": false,
   "archived": false,
-  "tokens": 1119
+  "tokens": 1124
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2150,7 +2150,7 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 10976,
+  "chars": 10984,
   "apparatus": false,
   "archived": false,
   "tokens": 2733
@@ -2205,10 +2205,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 13245,
+  "chars": 10488,
   "apparatus": false,
   "archived": false,
-  "tokens": 3542
+  "tokens": 2824
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -2260,10 +2260,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5566,
+  "chars": 5402,
   "apparatus": false,
   "archived": false,
-  "tokens": 1358
+  "tokens": 1327
  },
  {
   "path": "standards/STD-015-engineering-checks.md",
@@ -2271,10 +2271,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15223,
+  "chars": 15088,
   "apparatus": false,
   "archived": false,
-  "tokens": 3966
+  "tokens": 3919
  },
  {
   "path": "standards/STD-016-header-fields.md",
@@ -2464,15 +2464,15 @@
   "tokens": 1849
  },
  {
-  "path": "standards/STD-033-charges-and-the-account.md",
+  "path": "standards/STD-033-every-charge-delivers-something.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 10898,
+  "chars": 6925,
   "apparatus": false,
   "archived": false,
-  "tokens": 2908
+  "tokens": 1837
  },
  {
   "path": "standards/STD-034-accessibility.md",
@@ -2480,10 +2480,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8690,
+  "chars": 8333,
   "apparatus": false,
   "archived": false,
-  "tokens": 2513
+  "tokens": 2427
  },
  {
   "path": "standards/STD-035-personal-data.md",
@@ -2491,10 +2491,32 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6841,
+  "chars": 6849,
   "apparatus": false,
   "archived": false,
   "tokens": 1909
+ },
+ {
+  "path": "standards/STD-036-one-account.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 6406,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1747
+ },
+ {
+  "path": "standards/STD-037-what-every-site-carries.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5691,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1544
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -2568,9 +2590,9 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6512,
+  "chars": 6523,
   "apparatus": false,
   "archived": false,
-  "tokens": 1653
+  "tokens": 1658
  }
 ]
