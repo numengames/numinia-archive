@@ -101,7 +101,7 @@ the Oracle through `PRO-005`, with the decision record drafted.
 
 | Document | Title | Why it obliges here |
 |---|---|---|
-| `STD-005` | Engineering baseline | the principles this protocol applies |
+| `STD-005` | When a rule bites | the principles this protocol applies |
 | `STD-015` | Engineering checks | the practice register the plates come from |
 | `PRO-005` | Escalation | how the Oracle tier is reached |
 | `PRO-013` | Handing a guard to CI | continues this when the task is a guard |

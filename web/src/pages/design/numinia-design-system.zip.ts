@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 //
 // /design/numinia-design-system.zip — the design system, downloadable whole.
-// Built at build time from STD-032's register (@/lib/design-download); a
+// Built at build time from SYS-009's register (@/lib/design-download); a
 // file the register names and the tree lacks fails the build.
 import type { APIRoute } from "astro";
 import { designZip } from "@/lib/design-download";

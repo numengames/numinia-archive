@@ -11,13 +11,13 @@
     "url": "https://numinia.org/standards/std-008-design-tokens"
   },
   "system": {
-    "id": "STD-032",
+    "id": "SYS-009",
     "url": "https://numinia.org/design"
   },
   "files": {
     "sistema.css": "9074effa34a697273f8f87541b5f2b385346e8075cd16e7b22947239c08da12b",
     "sistema.js": "16e2347b0563c6afdc5f44a6e3d584fff3ca4e933212004b9f6f3ad37ddbe5e3",
     "sistema.tokens.json": "d51379a2cc1180d055629a43370f67e8f2c98d08ee6aa3ea124fec091251c52e",
-    "sistema.prompt.txt": "95fa6698a007fbe2afb7dff03baae838b1f9ea5368d1a7be3f3b196ad6860acf"
+    "sistema.prompt.txt": "f749d56dec5a45110ebe631ec0a2f9b52aef9d6e73e5e5ff72669e1483f6e905"
   }
 }

@@ -33,7 +33,7 @@ standards/STD-004-the-header.md — header fields and vocabularies
 
 ## Engineering standard
 
-standards/STD-005-engineering-baseline.md — the operative standard of this repository
+standards/STD-005-when-a-rule-bites.md — the operative standard of this repository
 
 ## Procedures
 

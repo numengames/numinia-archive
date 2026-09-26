@@ -12,7 +12,7 @@ author: "ursa"
 owner: "oracle"
 territory: "Product"
 license: "CC0-1.0"
-related: ["STD-008", "STD-015", "STD-023", "STD-032"]
+related: ["STD-008", "STD-015", "STD-023", "SYS-009"]
 tags: [standards, accessibility, WCAG, web]
 series_change: "0.2.2 — 2026-09-26: the test on every change now also holds the engineering register's accessibility row, which said it again."
 ---
@@ -117,5 +117,5 @@ because its checks list every criterion nobody verifies yet.
 |---|---|---|
 | `STD-008` | Design tokens | what we add on top: textures, touch targets, catalogued motion |
 | `STD-023` | Design values | the colours the ratios are measured on, and the animation catalogue |
-| `STD-032` | The design system | the themes and components every page is built from |
+| `SYS-009` | The design system | the themes and components every page is built from |
 | `STD-015` | Engineering checks | where the accessibility test runs |

@@ -85,7 +85,7 @@ const STANDALONE = new Set([
   // /solutions moved under /system/ — a series segment, so URL-001 admits
   // them without a line here. Their old roots are redirects now.
   '/legal',       // the legal texts, published from operations/
-  '/design',      // the design system whole (STD-032), its download and the kit's served files
+  '/design',      // the design system whole (SYS-009), its download and the kit's served files
   '/404',
 ]);
 

@@ -1,4 +1,4 @@
-Diseña con el Numinia Design System (numinia.org/design; el registro de documentos es STD-032).
+Diseña con el Numinia Design System (numinia.org/design; el registro de documentos es SYS-009).
 Diseño es la experiencia entera — lo que se ve, se lee, se oye, se mueve y se juega.
 Fuerza antes que medio (CAN-008): 1 Umbral (la base: web, deck, documento, factura,
 interfaz, evento, email) · 2 Velo (la profundidad: archivo, Summa, visores) · 3 Prisma

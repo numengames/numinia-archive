@@ -8,7 +8,7 @@
 // The system was one long guide and was cut into small documents so each
 // could be read and changed alone. This page puts it back together for the
 // reader who needs to see it whole — without writing it again. Every card is
-// a row of STD-032; every colour, size, font and duration drawn below is read
+// a row of SYS-009; every colour, size, font and duration drawn below is read
 // from the kit's tokens; the animation list is STD-023's own table. Nothing
 // here is typed by hand except the page's frame, so the page cannot drift from
 // the documents: change them and it changes (@/lib/design-system).
@@ -489,7 +489,7 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
             {gaps.map((g) => <li><span class="text-foreground">{g.part} · {g.chapter}</span> — {g.gives.replace(/^Not written yet:\s*/, "")}</li>)}
           </ul>
           <p class="mt-4 text-xs text-dim">
-            This page is drawn from <a href="/standards/std-032-the-design-system" class="text-accent hover:underline">the design system register</a>;
+            This page is drawn from <a href="/system/sys-009-the-design-system" class="text-accent hover:underline">the design system register</a>;
             the values from the kit's tokens. A gap closes when its document is written and its row names it.
           </p>
         </div>

@@ -1,22 +1,22 @@
 ---
-id: "STD-032"
+id: "SYS-009"
 uid: ""
 title: "The Numinia Design System"
 type: documentation
-subtype: register
-status: draft
-version: "0.2.2"
+subtype: reference
+status: active
+version: "1.0.0"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
-tags: [standards, register, design, design-system, sound, writing, play]
+tags: [system, reference, design, design-system, sound, writing, play]
 license: "CC0-1.0"
-threshold: governed
+former_id: "STD-032"
+former_id_note: "Reshelved 2026-09-26: a map of which documents make up the design system is not a rule, and nothing in it can be kept or broken; it describes what exists, which is what the system shelf holds. The register table and its four parts are unchanged, and the design page, its markdown and its download still read it."
 related: ["CAN-008", "CAN-002", "STD-008", "STD-023", "STD-034", "PRO-014", "STD-021"]
-series_change: "0.2.2 — 2026-09-25: one paragraph says that what anyone must be able to do with a piece follows the accessibility standard; the register table is unchanged."
 ---
 
 <!--
@@ -31,8 +31,8 @@ SPDX-License-Identifier: CC0-1.0
 > through and played — so the system reaches a logo, an invoice, a sound, a
 > mission, a character or a world. It lives in many small documents; this
 > table is what joins them.
-> **Epistemic:** A map, not a rule: nothing here can be kept or broken. The
-> rules are in the documents it lists.
+> **Epistemic:** Which documents make up the design system, as they stand
+> today: a map, not a rule. The rules are in the documents it lists.
 > **Pragmatic:** Find the document that answers your piece, and see which
 > parts of the system are not written yet. The design page of this site is
 > drawn from this table, and so is its download.
