@@ -89,8 +89,7 @@ outside standard does, as well as what it obliges.
 
 ## Check
 
-Every rule above, with its plate, the outside standard it follows, and what
-verifies it today.
+Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

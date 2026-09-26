@@ -146,9 +146,8 @@ aloud and understood without opening the source.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it follows, and what verifies it today. Then every outside standard this
-baseline follows, with the register rows that apply it.
+Each rule, its code, its source and its check. Then every outside standard
+this baseline follows, with the register rows that apply it.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

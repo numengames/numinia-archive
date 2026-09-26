@@ -93,9 +93,8 @@ asks, and what it does not, takes the extra words.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-or law it rests on, and what verifies it today. A lawyer should confirm
-every row marked law.
+Each rule, its code, its source and its check. A lawyer should confirm every
+row marked law.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

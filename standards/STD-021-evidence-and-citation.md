@@ -84,8 +84,8 @@ outside standard does, as well as what it obliges.
 
 ## Check
 
-Every rule above, with its plate, the outside standard it follows, and what
-verifies it today. The last rule is the second half of one plate.
+Each rule, its code, its source and its check. The last rule is the second
+half of one plate.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

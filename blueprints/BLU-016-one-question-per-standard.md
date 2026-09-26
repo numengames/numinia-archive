@@ -4,7 +4,7 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-25T13:00:00+02:00"
 updated: "2026-09-26T13:00:00+02:00"
 author: "ursa"
@@ -38,14 +38,19 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 26 September 2026 the shelf holds 35 standards, about 77,000 tokens.
+As of 26 September 2026 the shelf holds 34 standards, about 75,000 tokens.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
 retired into it. The second cut split charging from keeping the account,
 and what every site carries from what a design piece can fail on, and
 pointed the secret scan and the accessibility test at their one holder.
-The rows marked as open below are what is left.
+The third thinned the shelf without dropping a rule: the licence allowlist
+joined Licensing, whose table it was; each header keeps only its latest
+change; and the footer, the share card and the scarab are each written once.
+Still to weigh for thinning: the header and its fields as one standard, and
+the design system's map as the design folder's introduction. The rows marked
+as open below are what is left.
 
 ## Future state
 
@@ -65,9 +70,8 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-007` | What shape does a document take? | — |
 | `STD-008` | What can a design piece fail an audit on? | — |
 | `STD-009` | Which rule wins? | — |
-| `STD-010` | Under which terms is each piece published? | — (`STD-013` is its table) |
+| `STD-010` | Under which terms is each piece published? | — |
 | `STD-012` | How does a document leave the archive? | — |
-| `STD-013` | Which licences are allowed? | register of `STD-010` |
 | `STD-014` | What is checked before an irreversible publication? | — |
 | `STD-015` | Which engineering checks run, and where? | open: the shared pipeline is prose; it belongs to `STD-005` |
 | `STD-016` | Which header fields exist? | register of `STD-004` |

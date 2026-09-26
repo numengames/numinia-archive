@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.56.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "CHG",
+        text: "The standards lose weight without losing a rule. The licence allowlist joins Licensing, whose table it always was, so the shelf holds one standard fewer; the footer and the share card are laid out only in 'What every site carries'; the scarab is drawn once, in its file; each header keeps only its latest change, the rest being in the history. About 3,000 tokens fewer to read. The old allowlist address leads to Licensing.",
+      },
+    ],
+  },
+  {
     version: "v0.55.0",
     date: "2026-09-26",
     entries: [

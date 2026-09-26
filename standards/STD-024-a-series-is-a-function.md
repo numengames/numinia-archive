@@ -69,9 +69,9 @@ the standard that the corpus does not grow.
 
 ## Check
 
-Every rule above, with its plate, the outside standard it follows, and what
-verifies it today. No law requires any of it; it is our choice, so that an
-auditor who knows these standards can check us without a glossary.
+Each rule, its code, its source and its check. No law requires any of it; it
+is our choice, so that an auditor who knows these standards can check us
+without a glossary.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

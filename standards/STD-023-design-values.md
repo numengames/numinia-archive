@@ -5,16 +5,16 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.4.2"
+version: "1.5.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
 related: ["STD-008", "STD-034", "CAN-008", "ADR-044"]
-series_change: "1.4.2 — 2026-09-25: prose and two reference rows only — the guidelines are no longer called the European norm, the token format points at its first stable version, and the 44-pixel target and the focus ring are marked as our choice on top of the accessibility standard; no table shape, heading or value changed. 1.4.1 — 2026-09-25: the card and the free prose written in plain words, at the Oracle's word in session: no path, plate, section number or date a narrator would stumble on. Every table and section heading unchanged, since the site reads them; no value moved. 1.4.0 — 2026-09-24: the reading light enters the catalogue as animation 15, the second sanctioned loop (the Oracle); drying ink deepened to 80/65/50 %. 1.3.1 — 2026-09-24: §22 revised in production — drying ink keeps each colour; the reading light re-syncs per sentence by spoken weight; touch to hear; the speed scale; the dark preview recorded as an exception to BLU-009 §8. 1.3.0 — 2026-09-24: §22 Reading aloud — the dock, the ruler, the drying ink and the reading light, carried from the Listen player in production; the reading light filed as catalogue candidate 15. 1.1.0 — 2026-09-17: §18 The house footer and §19 The share card added — the values DSN-013 and DSN-014 point at: the footer's elements, the card's pattern, and the one table of the four sites (name, line, domain) that footer, head and card all read. Minor with STD-008 7.1.0. 1.0.3 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 1.0.0 — new register, split from STD-008 under ADR-043 and ADR-044: every closed list the old standard held — palette, neutrals, text variants, rarity, Píxel-16, ramps, data palette, type scale, space and grid, icon weights and subset, brand inventory, brandmark path, the animation catalogue, the sky, pixel grids and the external references. Values unchanged; tables moved verbatim (old §2.1–2.3, 2.6–2.8, 3.3, 4, 6.1, 6.3, 7.1, 7.4, 9.1, 10.1, 11.2, 17)."
+series_change: "1.5.0 — 2026-09-26: the house footer and the share card move whole to What every site carries, their one home, and the brandmark's drawing is the brand file itself instead of a copy of its path; section numbers kept so no citation moves, at the Oracle's word in session."
 ---
 
 <!--
@@ -177,13 +177,8 @@ Selection: horizontal by default → vertical in square → NG under 120 px → 
 
 ## 13. Canonical brandmark
 
-
-```svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.44 75.53" fill="currentColor">
-<path d="M75.44,48.41v-6.01c0-7.43-2.44-12.51-6.61-15.5,3.83-2.74,6.21-7.23,6.58-13.69h0V0h-15.86v7.92h8.44v5.29h-.01c-.58,7.07-4.65,10.37-11.02,10.37h0s-.79,0-.79,0c-.91-11.22-8.07-16.29-18.43-16.29s-17.51,5.07-18.43,16.29h-.8c-6.37,0-10.44-3.3-11.02-10.37h-.01v-5.29h8.44V0H.03v13.22h0c.37,6.46,2.75,10.96,6.58,13.69-4.17,2.99-6.61,8.06-6.61,15.5v6.01h7.43v-6.01c0-8.32,4.21-12.17,11.1-12.17h0s.66,0,.66,0v13.83c0,2.48.28,4.7.79,6.67h-1.51C7.91,50.73.68,56.02,0,67.71h0v7.81h23.14v-7.8H7.45c.58-7.07,4.65-10.37,11.02-10.37h4.91c3.26,3.74,8.24,5.51,14.34,5.51s11.09-1.77,14.34-5.51h4.91c6.37,0,10.44,3.3,11.02,10.37h-15.7v7.8h23.14v-7.81h0c-.68-11.7-7.9-16.98-18.46-16.98h-1.51c.52-1.97.79-4.19.79-6.67v-13.83h.66c6.89,0,11.1,3.85,11.1,12.17v6.01h7.43ZM37.72,13.91c6.21,0,10.22,3.13,10.97,9.83-4.62.66-8.39,2.55-10.94,5.81-2.56-3.28-6.35-5.16-10.99-5.82.74-6.69,4.76-9.82,10.97-9.82ZM26.62,44.07v-13.54c4.67,1.22,7.41,5.02,7.41,11.73v13.55c-4.67-1.22-7.41-5.02-7.41-11.73ZM48.82,44.07c0,6.68-2.72,10.48-7.35,11.72v-13.53c0-6.68,2.72-10.48,7.35-11.71v10.73h0v2.79Z"/>
-<path d="M46.18,7.36c-.57-4.16-4.14-7.36-8.46-7.36s-7.89,3.2-8.46,7.36c2.55-.77,5.39-1.15,8.46-1.15s5.91.38,8.46,1.15Z"/>
-</svg>
-```
+The scarab's only drawing is the file `web/src/brand/Khepri_Logo.svg`,
+viewBox 75.44×75.53, `fill="currentColor"`; every copy is taken from it.
 
 ## 14. The animation catalogue — fifteen, and no more
 
@@ -259,68 +254,13 @@ Behavior (canonized exactly as it stands in production): **175 stars**; drift of
 
 ## 18. The house footer
 
-The one closing every public site of Numen Games serves. It was adopted from
-the archive's own site, the one that had it best, and all four sites served
-it within a day.
-
-```
-<site name, written>                      Navigation        Numen Games       Legal        Social
-<one line: what this site is>             …                 Numen Games       Terms        GitHub
-                                          (two columns      Numinia           Privacy      X
-                                           when > 4)        NWOS ← you are here            Discord
-                                                            NWOS for your organisation
-──────────────────────────────────────────────────────────────────────────────────────────────
-[scarab]  by Numen Games — we build for a better future.
-          Open by licence · Telemetry · v0.1.1 · 28e0656
-```
-
-| Element | Value |
-|---|---|
-| Site name | Written, never the logo alone; `Numinia_Word` only on numinia.com |
-| One line | The site's line from the share-card table below |
-| Navigation | The site's primary routes; two columns from five entries, reading down the first column then the second |
-| Numen Games column | The four sites, in the order of the share-card table, this one marked «you are here» and not linked |
-| Legal | Only texts published for this site's scope; none invented |
-| Social | Company accounts only; a missing account is a missing entry, never a personal one |
-| Signature | `by Numen Games — we build for a better future.` in English on every site; `Numen Games` opens numen.games in a new tab |
-| Build line | `licence · telemetry · vX.Y.Z · sha` — licence opens the repository's `REUSE.toml`; version opens `/updates`; sha opens the commit |
-| Never | A copyright line; `all rights reserved`; a year |
-
-Column headings translate with the site; the signature does not.
+Laid out in the standard of what every site carries, which is its one
+home.
 
 ## 19. The share card
 
-What a link to any of the four looks like when pasted anywhere. One
-pattern, four contents; generated from the repository when the site is
-built, never drawn by hand.
-
-```
-┌────────────────────────────────────────────────────────┐ 1200 × 630
-│                                          [scarab, Marfil]
-│  NUMEN GAMES · <SITE>                    ← Ámbar, Geist Mono, caps
-│  <Name>                                  ← Marfil, Geist 600, ~120 px
-│  <One line: what you will find.>         ← Marfil velada, Geist 400
-│  ────                                    ← Turquesa rule
-│  <domain>                                ← Geist Mono
-└────────────────────────────────────────────────────────┘
-```
-
-Ground Carbón `#14110F`; the sky (above) at low density behind. Margin
-90 px. Type from `/assets/fonts/`, embedded at render (`DSN-002`).
-
-| Site | Name | Line | Domain |
-|---|---|---|---|
-| The company | Numen Games | We design participatory experiences: narrative, game dynamics, live facilitation. | numen.games |
-| The game | Numinia | A world across three centuries. Its chronicle, its material culture — CC0 — and the game. | numinia.com |
-| The archive | NWOS | The archive of Numen Games, built in public: canon, decisions, missions, how the work is done. | numinia.org |
-| The service | NWOS for your organisation | A file-based operating system for organisations. Markdown, git, AI agents. Adopt it. | nwos.numen.games |
-
-The same four rows are each site's `<title>`, `description`, `og:title`,
-`og:description` and its entry in the footer's *Numen Games* column; the
-`house-links` file in each repository copies this table until the design
-kit serves it (`DSN-009`). The favicon is the canonical brandmark in Marfil on
-Carbón: `favicon.svg`, `favicon.png` 32×32 and `apple-touch-icon.png`
-180×180. `theme-color` is Carbón.
+Laid out in the standard of what every site carries, which is its one
+home.
 
 ## 20. The Velo layer
 

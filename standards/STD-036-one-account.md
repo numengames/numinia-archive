@@ -86,8 +86,7 @@ requires this.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the law or outside
-standard it rests on, and what verifies it today.
+Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -104,9 +103,7 @@ standard it rests on, and what verifies it today.
 
 A ledger kept twice becomes two stories. Resting each rule on the plan, the
 code and the cost vocabulary others already use lets anyone check the books
-against something they know. The account was half of the charges standard
-until 26 September 2026: the person closing a month and the person opening a
-sale read different rules, so each has its own page.
+against something they know.
 
 ## References
 

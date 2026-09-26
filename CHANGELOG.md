@@ -19,6 +19,15 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (thinning the standards)
+At the Oracle's word in session: the fat comes off before anything else is split. The standards go from 35 documents and 78,102 tokens to 34 and 75,217, 3.7 % less, and no rule is dropped.
+- **`STD-013` is retired into `STD-010` 2.3.0.** The allowlist, the in-file fields and the licence texts move over whole, since they answer the same question. `PRO-018` 1.0.1 and the site follow, and the old address redirects.
+- **`series_change` keeps only the latest version.** Older entries were already in git and here (−1,164 tokens).
+- **The footer and the share card are written once, in `STD-037` 0.2.0.** `STD-023` 1.5.0 points to it and keeps its section numbers.
+- **The scarab's SVG, which was duplicated in `STD-023` §13, is now its file** `web/src/brand/Khepri_Logo.svg`.
+- **The sentence introducing the Check table is shorter,** in 30 standards and in the template.
+- `BLU-016` 0.4.0. Site v0.56.0.
+
 ### Changed — 2026-09-26 (one document, one question: the second cut)
 At the Oracle's word in session: the money standard is split, and three more rows of the map close.
 - **Charging and keeping the account are two questions.** `STD-033` 0.4.0, renamed *Every charge delivers something* (the old address redirects), keeps PAY-001…009. The eight LED rules move whole, plates unchanged, to the new `STD-036` *One account* 0.1.0. `SYS-008`, `PRO-021`, `/system/open-books` and its sources now cite `STD-036`.

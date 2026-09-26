@@ -17,7 +17,7 @@ territory: "Archive"
 tags: [standards, ranks, permissions, digital-goods, RBAC]
 license: "CC0-1.0"
 threshold: governed
-series_change: "3.2.0 — 2026-09-25: the ranks rest on role-based access control, the application security verification standard and the federal security controls, each rule marked as our choice rather than law, and an Oracle's privileged actions, though unbannable, are now logged. 3.1.4 — 2026-09-25: written in plain words, at the Oracle's word in session: no plate, file name or path in the reading; what each rank adds is said in sentences, and the files each rank is read from wait in a table at the foot. No obligation added or dropped. 3.1.3 — 2026-09-24: payment is no longer sent to operations; it points at STD-033 (ADR-064). Patch: the Does-not-bind line only. 3.1.1 — 2026-09-24: the two canon citations become one, `CAN-004` having absorbed `CAN-003` (ADR-057). Patch: prose and References only. 3.0.2 — 2026-09-10: status `active` → `draft` under the alpha reset the Oracle ordered on 2026-09-10: the state had been set by agents, not signed one by one. Text unchanged; the state returns to `draft` until the tree meets the standard and the Oracle ratifies it one by one. Patch move (VER-064). 3.0.0 — the standard takes the ADR-043 shape: 1,047 -> 386 words of body. RNK-001..004 keep their text and their checks; three new plates name obligations the prose held without one: RNK-005 automatic moves, RNK-006 the manual ceiling, RNK-007 the platform updates this standard with the matrix. Major because §2 and §3, citable by number, no longer exist."
+series_change: "3.2.0 — 2026-09-25: the ranks rest on role-based access control, the application security verification standard and the federal security controls, each rule marked as our choice rather than law, and an Oracle's privileged actions, though unbannable, are now logged."
 ---
 
 <!--
@@ -140,8 +140,7 @@ reviewer tests the code against, and cannot move elsewhere.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it rests on, and what verifies it today. None is law. Then where the
+Each rule, its code, its source and its check. None is law. Then where the
 platform reads each rank from.
 
 | Plate | Rule | Source | Verified by |

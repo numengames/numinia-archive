@@ -436,7 +436,6 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
     // what is charged for — all four answer what crosses the threshold.
     hrefs: [
       "/standards/std-010-licensing",
-      "/standards/std-013-licence-allowlist-and-fields",
       "/standards/std-014-publishing-gates",
       "/standards/std-022-secrets",
       "/standards/std-035-personal-data",
