@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-26T16:00:00+02:00"
+updated: "2026-09-26T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -81,7 +81,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-020` | How does a change reach the main line? | — |
 | `STD-021` | What makes a claim checkable? | — |
 | `STD-022` | How does a secret stay out? | — |
-| `STD-023` | Which are the design values? | open: 11,661 tokens; the recipes — footer, share card, the veil, reading aloud, the sky — go to the web and book blueprints |
+| `STD-023` | Which are the design values? | — (how the sky, the Velo and the reading player are built is `PRO-022`, a protocol; recipes are protocols, never blueprints) |
 | `STD-024` | Which series is a document in, and does it bind? | — |
 | `STD-025` | What is a mission? | — |
 | `STD-026` | What do our operative words mean? | register |

@@ -4,9 +4,9 @@ uid: ""
 title: "The book and the Velo"
 type: blueprint
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-09T12:00:00+02:00"
+updated: "2026-09-26T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -146,6 +146,6 @@ PORTADA                                CAPÍTULO
 After the general checklist of `PRO-014` §4, and before delivering:
 
 - [ ] Velo: only alphas over canonicals; grid ≤3 %, fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Velo in Diurno; one dominant matter per view; animations 10–11 only here; still one orchestrated moment.
-- [ ] Sky (`STD-023` §15): weights 60/25/10/4/1 with the rarity colours, no parallax or cursor reaction, stopped under reduced motion; grain (§2) only on paper, ≤5 %, never with relief or grid.
+- [ ] Sky built as `PRO-022` §3.1 (`LIV-001`); grain (§2) only on paper, ≤5 %, never with relief or grid.
 - [ ] Living paper: third voice only in the book (roman body, SC drop cap and titles, italic lore, no synthetic small caps); bar that yields but does not disappear; glossary with a source per definition; moon as bookmark; `abierto / tras el Umbral` states; .md/pdf/epub visible; literary opening separated; full colophon with the scarab.
 - [ ] The invoice inherits none of it (`BLU-013`).
