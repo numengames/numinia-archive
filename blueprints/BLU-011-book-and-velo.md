@@ -146,6 +146,6 @@ PORTADA                                CAPÍTULO
 After the general checklist of `PRO-014` §4, and before delivering:
 
 - [ ] Velo: only alphas over canonicals; grid ≤3 %, fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Velo in Diurno; one dominant matter per view; animations 10–11 only here; still one orchestrated moment.
-- [ ] Sky built as `PRO-022` §3.1 (`LIV-001`); grain (§2) only on paper, ≤5 %, never with relief or grid.
+- [ ] Sky built as `PRO-022` §3.1; grain (§2) only on paper, ≤5 %, never with relief or grid.
 - [ ] Living paper: third voice only in the book (roman body, SC drop cap and titles, italic lore, no synthetic small caps); bar that yields but does not disappear; glossary with a source per definition; moon as bookmark; `abierto / tras el Umbral` states; .md/pdf/epub visible; literary opening separated; full colophon with the scarab.
 - [ ] The invoice inherits none of it (`BLU-013`).

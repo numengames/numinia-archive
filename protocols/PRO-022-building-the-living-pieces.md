@@ -48,18 +48,11 @@ builds; the **Oracle** approves anything that changes what a reader sees.
 
 ---
 
-## 2. Rules
+## 2. Preconditions
 
-**LIV-001 — The sky is background.** The sky MUST be drawn only in Nocturno,
-MUST NOT react to cursor or scroll, MUST NOT sit under long reading text,
-and MUST stop, stars fixed at mid alpha, under `prefers-reduced-motion`.
-
-**LIV-002 — The Velo adds transparency, never colour.** Every Velo layer
-MUST be one of the values of `STD-023` §20, placed as §3.2 says.
-
-**LIV-003 — The reader owns the page.** The reading-aloud player MUST NOT
-take the scroll from the reader, touch the page's text nodes, or animate the
-colour of text.
+The values the piece uses are in `STD-023`: the sky's tiers in §15, the Velo
+tokens and their ceilings in §20, the reading player's numbers in §22. A
+value that is not there is proposed there first.
 
 ---
 
@@ -70,18 +63,23 @@ colour of text.
 1. **Draw the five tiers.** Weights, radii and colours from `STD-023` §15,
    no other colour.
 2. **Animate it as it stands in production.** **175 stars**; drift of `±0.06 px` per frame with reappearance on the opposite side; **alpha breathing** between `.05` and `.85`, each star at its own rhythm (`.002–.006` per frame); reseeding on resize.
-3. **Apply `LIV-001`.** Check Diurno, reduced motion and a reading page.
+3. **Draw it in Nocturno.** As built today, Diurno has no sky.
+4. **Stop it under `prefers-reduced-motion`.** The stars stay fixed at mid
+   alpha.
 
 ### 3.2 The Velo layer
 
-**Ceilings and placement.** Grid ≤ 3 % alpha, fog ≤ 8 % — more is scenery.
-Nocturno only: in Diurno the Velo does not exist, same logic as the relief.
-Grid and fog are background layers, never over reading text nor inside cards
-and elevated surfaces. `velo.cristal` only over a background that has grid,
-fog or veiled image behind it: blurring nothing is smoke, and text over glass
-is secondary minimum with AA verified against the worst background. Grid and
-circuit relief do not coexist — two meshes fight `[EXTENSION — validate]`;
-fog MAY settle over the relief at half its alpha.
+**Ceilings and placement.** As built today, in Nocturno only: in Diurno the
+Velo does not exist, same logic as the relief.
+1. **Lay grid and fog as background layers**, behind the reading text and
+   outside cards and elevated surfaces.
+2. **Put `velo.cristal` over something**: a grid, fog or veiled image behind
+   it. Blurring nothing is smoke.
+3. **Measure text over glass** at the secondary minimum, AA against the worst
+   background (`STD-034`).
+4. **Choose grid or circuit relief, not both**: two meshes fight
+   `[EXTENSION — validate]`. Fog can settle over the relief at half its
+   alpha.
 
 ### 3.3 Reading aloud — the dock, the ruler, the ink
 

@@ -22,10 +22,11 @@ Format: [type] description — date — author
 ### Changed — 2026-09-26 (thinning the standards: design values)
 At the Oracle's word in session: *the recipes do not belong in a blueprint; at most they belong in a protocol, which says how things are built. Standards hold the colours and the very concrete things.*
 - **`STD-023` 1.6.0 holds values only.** About 11,661 tokens become about 7,900.
-  - How the sky moves, where each Velo layer may go and how the reading-aloud player is built move whole to **`PRO-022` Building the living pieces**, a new protocol with rules `LIV-001..003`.
+  - How the sky moves, where each Velo layer may go and how the reading-aloud player is built move whole to **`PRO-022` Building the living pieces**, a new protocol. It has numbered steps and no rules: a protocol says how a thing is built, not what may be done with it.
   - The Píxel-16 table drops its origin column.
   - The external references drop the three rows that `STD-008` and `STD-034` already hold.
   - A drift note already fixed in production is removed.
+  - The sky no longer says it can never react to cursor or scroll. The Oracle plans an interactive background.
 - **The kit promise is now checked.** `STD-023` used to say the kit fails to build when the two differ, but nothing compared them. `rules.test.mjs` now fails if a colour in `STD-023` is missing from `sistema.tokens.json`, and if the recipes come back into the values.
 - **Pointers follow the move:**
   - `BLU-011` 1.1.1 now cites `PRO-022` for the sky.
