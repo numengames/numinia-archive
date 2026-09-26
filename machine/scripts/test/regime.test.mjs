@@ -120,3 +120,12 @@ check('tree: one question per guard — retirement is STD-012, commit subjects a
   if (b !== 'STD-020') return `GIT-026 holder ${b}`;
   return true;
 });
+
+check('tree: one question per standard — charging, the account and what every site carries each have one holder', () => {
+  const want = { 'PAY-001': 'STD-033', 'LED-001': 'STD-036', 'LED-008': 'STD-036', 'SIT-001': 'STD-037', 'SIT-003': 'STD-037', 'DSN-001': 'STD-008' };
+  for (const [plate, doc] of Object.entries(want)) {
+    const got = index.byPlate.get(plate);
+    if (got !== doc) return `${plate} holder ${got}, want ${doc}`;
+  }
+  return true;
+});
