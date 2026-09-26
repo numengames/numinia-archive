@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "7662deb",
-  "corpus_hash": "f801bb7101ed4a2c00131c52edd09fc61ba6d7eaebb0f34d653a7019b8b69795",
+  "head": "cb4d2ad",
+  "corpus_hash": "a0e9a24d15253b99ddf5e32fe3a6a91057189ade30f5a020abd5cf660d87fd49",
   "root_dirty": 0,
-  "measured_at": "2026-09-26T10:08:53Z",
+  "measured_at": "2026-09-26T10:09:17Z",
   "families": [
     "corpus",
     "series",
@@ -320,7 +320,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 882422,
+      "value": 882425,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -329,7 +329,7 @@
         "lore": 495248,
         "standards": 67467,
         "missions": 45717,
-        "": 44179,
+        "": 44182,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29109,
@@ -348,7 +348,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 539485,
+        "(none)": 539488,
         "draft": 171527,
         "active": 124205,
         "done": 26539,
@@ -379,7 +379,7 @@
         ],
         [
           "CHANGELOG.md",
-          37224
+          37227
         ],
         [
           "lore/game/manual/en/06-inventory-and-bestiary.md",
