@@ -5,7 +5,7 @@ title: "How we treat each other in the commons"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-23T20:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -30,8 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > open communities share. Moderation climbs from correction to warning,
 > temporary limit and ban. Threats skip the ladder, and illegal content
 > comes down.
-> **Epistemic:** What conduct we expect, what ends participation, and whom
-> to tell.
+> **Epistemic:** How do we treat each other?
 > **Pragmatic:** Moderate, or be moderated, against a text anyone can read
 > beforehand. This is not legal advice.
 > **Audience:** Everyone

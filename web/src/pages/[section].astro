@@ -267,15 +267,20 @@ const strip = functions().map((fn) => ({
               href={item.href}
               class="block rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
             >
+              <span class="block text-sm text-foreground leading-snug">{item.title}</span>
+              {item.question && (
+                <span class="block mt-1 text-sm leading-snug text-muted-foreground">{item.question}</span>
+              )}
               {/*
-                Identifier, date and status on one line above the title — the
-                shape the decision registry has always used. Each cell is
+                Identifier, date and status on one quiet line under the title and
+                its question: a newcomer reads what a document is for before
+                its code, date or status. Each cell is
                 omitted when the document does not carry the field rather than
                 rendered empty: a blank slot reads as missing data, and most
                 of these documents simply have no status to report.
               */}
               {(item.docId || item.updated || item.status) && (
-                <div class="flex flex-wrap items-center gap-3 mb-1.5">
+                <div class="flex flex-wrap items-center gap-3 mt-1.5">
                   {item.docId && (
                     <span class="font-mono text-[0.65rem] text-accent">{item.docId}</span>
                   )}
@@ -294,7 +299,6 @@ const strip = functions().map((fn) => ({
                   )}
                 </div>
               )}
-              <span class="text-sm text-foreground leading-snug">{item.title}</span>
             </a>
           ))}
         </div>

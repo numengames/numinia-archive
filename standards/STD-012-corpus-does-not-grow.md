@@ -5,7 +5,7 @@ title: "The corpus does not grow"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.2"
+version: "2.0.3"
 created: "2026-09-08T22:00:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -25,8 +25,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Records roll up by week, quarter and year, keeping only what
 > changed a rule, a debt or an address. A document leaves replaced,
 > absorbed or moved, and is deleted only when nothing living cites it.
-> **Epistemic:** How a document leaves the archive, and why an archive that
-> only adds becomes unreadable.
+> **Epistemic:** How does a document leave the archive?
 > **Pragmatic:** Roll up, replace, absorb, move or delete a document
 > without leaving a citation pointing at nothing.
 > **Audience:** Agents · Oracles

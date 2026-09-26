@@ -5,7 +5,7 @@ title: "Every charge delivers something"
 type: documentation
 subtype: standard
 status: draft
-version: "0.4.2"
+version: "0.4.3"
 created: "2026-09-24T17:40:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -28,8 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every charge delivers a good named before paying, at its
 > whole price, from a record in the archive, collected in one account, paid
 > on the payment company's page and left in one step.
-> **Epistemic:** What we may charge for, and the terms every charge must
-> meet.
+> **Epistemic:** What may we charge for, and how?
 > **Pragmatic:** Check a charge before it exists. How the money is then
 > written down belongs to the account standard. This is not legal advice.
 > **Audience:** Agents · Oracles

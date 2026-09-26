@@ -5,7 +5,7 @@ title: "Accessibility"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.4"
+version: "0.2.5"
 created: "2026-09-25T13:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -27,8 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > move through them by keyboard, hear them through a screen reader, and stop
 > anything that moves. We follow the world's web accessibility guidelines; a
 > test checks every change.
-> **Epistemic:** Which part of those guidelines we commit to, and which sites
-> a test checks today.
+> **Epistemic:** What must every page let anyone do?
 > **Pragmatic:** Know what a page must do before it is published, and how to
 > prove it.
 > **Audience:** Agents · Oracles

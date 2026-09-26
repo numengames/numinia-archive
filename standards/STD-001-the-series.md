@@ -5,7 +5,7 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.4.4"
+version: "5.4.5"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -29,7 +29,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** One row per folder of the archive. Each row says what the
 > folder holds, how its documents are numbered, what a change costs, how long
 > a body may run, and which mould a new document copies.
-> **Epistemic:** Which series exist, and what each one is for.
+> **Epistemic:** Which series exist, and what is each for?
 > **Pragmatic:** Before you create a document, look up where it goes and
 > what it is called. A folder with no row here is unregistered.
 > **Audience:** Agents · Oracles

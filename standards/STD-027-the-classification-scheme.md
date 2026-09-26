@@ -5,7 +5,7 @@ title: "The archive is classified by function"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-20T12:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -29,8 +29,7 @@ SPDX-License-Identifier: CC0-1.0
 > the series each activity produces. A function classifies; a series files.
 > Whatever checks or measures the archive is a short-lived record that proves
 > what it measured and binds nobody.
-> **Epistemic:** Which activity produced a document, and why that differs
-> from what a change to it costs.
+> **Epistemic:** Which activity produced a document?
 > **Pragmatic:** Decide, without asking, where a new folder belongs and
 > whether it is a series at all.
 > **Audience:** Agents · Oracles

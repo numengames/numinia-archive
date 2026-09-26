@@ -5,7 +5,7 @@ title: "Operative vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.5"
+version: "0.1.6"
 created: "2026-09-18T12:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -36,6 +36,7 @@ SPDX-License-Identifier: CC0-1.0
 > what sets it apart, following the international rule for definitions. Any
 > glossary tool can read the list, and any term can be checked against its
 > neighbours.
+> **Epistemic:** What do our operative words mean?
 
 ## Network and ownership
 

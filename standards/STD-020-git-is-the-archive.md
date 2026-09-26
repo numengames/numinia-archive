@@ -5,7 +5,7 @@ title: "Git is the archive"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.2"
+version: "2.1.3"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,8 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Work reaches the main line by pull request. Shared history is
 > never rewritten. What a program generates is generated again, never
 > edited.
-> **Epistemic:** How a change reaches the main line, and which guarantees
-> the repository gives that no document can.
+> **Epistemic:** How does a change reach the main line?
 > **Pragmatic:** Commit, merge and regenerate without rewriting what others
 > already saw.
 > **Audience:** Agents · Oracles

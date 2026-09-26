@@ -5,7 +5,7 @@ title: "What every site carries"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-26T13:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,8 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every public site of Numen Games closes with the house
 > footer, presents itself when a link to it is shared, and serves day and
 > night with the same switch.
-> **Epistemic:** The three things every one of our sites carries, whatever
-> else it is. They make four sites look like one house.
+> **Epistemic:** What does every one of our sites carry?
 > **Pragmatic:** Check a new or changed site against three rules before it
 > goes out.
 > **Audience:** Agents · Oracles

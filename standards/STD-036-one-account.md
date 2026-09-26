@@ -5,7 +5,7 @@ title: "One account"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-26T13:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,8 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every cost and income is one line in one ledger, closed from
 > documents, traceable to its paper and kept as long as the law can ask.
 > Every view is computed from those lines.
-> **Epistemic:** How the money is written down, so the account holds up
-> before a citizen, a lender, an auditor and the tax authority.
+> **Epistemic:** How is the money written down?
 > **Pragmatic:** Check a figure before it is published, and close a month
 > without asking how. This is not legal advice.
 > **Audience:** Agents · Oracles

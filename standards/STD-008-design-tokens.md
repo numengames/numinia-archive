@@ -5,7 +5,7 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "10.0.2"
+version: "10.0.3"
 created: "2026-08-18T13:41:01Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -27,8 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > and no new ones, four typefaces we serve ourselves, one spacing scale, two
 > roundings, one icon family, fifteen animations, and one kit installed from
 > its package.
-> **Epistemic:** Which parts of our design draw a hard line, and which
-> outside norm each one follows, where one exists.
+> **Epistemic:** What can a design piece fail an audit on?
 > **Pragmatic:** Know what an audit of any piece we make can fail on.
 > **Audience:** Agents · Oracles
 

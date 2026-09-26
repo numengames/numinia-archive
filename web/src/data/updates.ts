@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.61.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "CHG",
+        text: "On /standards each standard now shows its title and, under it, the one question it answers; the code, date and status sit on a quieter line below. Every index of the archive puts the title first the same way. The note above the shelves names the five shelves as they stand.",
+      },
+    ],
+  },
+  {
     version: "v0.60.0",
     date: "2026-09-26",
     entries: [

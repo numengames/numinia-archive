@@ -5,7 +5,7 @@ title: "Versions"
 type: documentation
 subtype: standard
 status: draft
-version: "3.0.2"
+version: "3.0.3"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -27,7 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > Semantic Versioning defines them. A document promises its obligations.
 > Breaking work that obeyed it raises the first number, offering more raises
 > the middle, and rewording raises the last.
-> **Epistemic:** What a version number promises the reader of a document.
+> **Epistemic:** What does a version number promise?
 > **Pragmatic:** Choose the new number from what changed, not from the mood.
 > **Audience:** Agents · Oracles
 

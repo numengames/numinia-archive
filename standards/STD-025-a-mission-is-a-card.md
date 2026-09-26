@@ -5,7 +5,7 @@ title: "A mission is a card"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.5"
+version: "1.0.6"
 created: "2026-09-09T23:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -28,9 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** A mission is one piece of work. It goes on the board before
 > it starts, states its end, has one person or agent doing it, moves through
 > a closed set of states, and leaves by deletion, never by editing.
-> **Epistemic:** A mission is the only place where plan and outcome sit side
-> by side. Every rule here protects that difference, the one thing a closed
-> mission teaches.
+> **Epistemic:** What is a mission?
 > **Pragmatic:** Check any card against nine rules, know who may set each
 > state and what mark it leaves, and know when a card may leave the board.
 > **Audience:** Agents · Oracles

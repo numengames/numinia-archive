@@ -5,7 +5,7 @@ title: "Who may change what"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.2"
+version: "2.1.3"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -27,8 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > decision or a change the Oracle approves. Everything else changes by an
 > ordinary change. Each series sets a threshold, rank sets each actor's
 > reach, and an agent in doubt stops.
-> **Epistemic:** What each kind of change costs, who can pay it, and which
-> outside standard each cost follows.
+> **Epistemic:** Who may change what?
 > **Pragmatic:** Know before editing whether you may, and what the edit needs.
 > **Audience:** Agents · Oracles
 

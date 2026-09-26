@@ -5,7 +5,7 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.6.2"
+version: "1.6.3"
 created: "2026-09-09T11:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -27,9 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > contrasts, type and space scales, icons, brand marks, animations, the sky
 > and pixel grids. The design kit holds them for machines; a test fails if a
 > colour here is missing there.
-> **Epistemic:** What the values are. The visual identity canon says why;
-> the design tokens standard says how a builder uses them; the sky, Velo and
-> reading player procedure says how those are built.
+> **Epistemic:** Which are the design values?
 > **Pragmatic:** Look a value up here or in the kit, never in a piece.
 > **Audience:** Agents · Oracles
 

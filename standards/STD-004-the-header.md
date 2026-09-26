@@ -5,7 +5,7 @@ title: "The header"
 type: documentation
 subtype: standard
 status: draft
-version: "4.1.2"
+version: "4.1.3"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
@@ -29,8 +29,7 @@ SPDX-License-Identifier: CC0-1.0
 > that says what it is, who wrote it and when. Every field is listed below,
 > ring by ring; any other field is an error. An unknown value is left out,
 > never guessed.
-> **Epistemic:** What a correct header is, which outside standards its
-> values follow, and why a machine can check each rule.
+> **Epistemic:** What is a correct header?
 > **Pragmatic:** Write a header, add a field, or read a finding by its code.
 > **Audience:** Agents · Oracles
 

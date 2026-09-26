@@ -19,6 +19,13 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (the standards index shows each question)
+At the Oracle's word in session, after a 1–10 review of the standards section: a newcomer should read what each standard is for before its code.
+- **Every standard's Epistemic line is now its one question,** word for word as in the map of `BLU-016` (0.8.1). The three registers, which had only a summary, gain the line too. Each standard takes a patch bump.
+- **`/standards` shows the question under each title,** read from the card at build time. On every index the title comes first and the code, date and status sit on a quieter line under it.
+- **The note above the shelves** no longer promises "language first"; it names the five shelves in their real order.
+- `standards-index.test.mjs` holds the three together: every standard states one question, the map says the same words, the index renders it, and the note names the shelves in order. Site v0.61.0.
+
 ### Changed — 2026-09-26 (the copy pass)
 At the Oracle's word in session: the standards must read intelligible, beautiful and direct. Written in the voice of Calliope, the archive's copywriter.
 - **Scope is one line.** The "Does not bind" line leaves all 32 standards, 15 protocols and the standard mould: it added nothing, and it put in a reader's mind the very thing it named. `STD-007` 2.0.0 drops the obligation (DOC-003 is now one Binds line); the one-page guard no longer asks for it, and a test fails if it comes back in any standard, protocol or mould.
