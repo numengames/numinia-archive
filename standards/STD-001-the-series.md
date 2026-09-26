@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.4.5"
+version: "5.4.6"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-26T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -41,7 +41,7 @@ SPDX-License-Identifier: CC0-1.0
 | Series | Function · Activity | Holds | Prefix | Threshold | Budget | Mould |
 |---|---|---|---|---|---|---|
 | `canon/` | Governance · Founding | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
-| `standards/` | Governance · Standardising | what an **artifact** must comply with | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
+| `standards/` | Governance · Standardising | what an **artifact** must comply with, answered yes or no | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
 | `protocols/` | Governance · Prescribing | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
 | `decisions/` | Governance · Deciding | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
 | `missions/` | Production · Executing | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
