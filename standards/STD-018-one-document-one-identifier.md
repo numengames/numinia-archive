@@ -5,7 +5,7 @@ title: "One document, one identifier"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.5"
+version: "1.1.6"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,8 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every document carries its series identifier for life. A
 > used number is never used again. The file name says neither state nor
 > version. When two agents claim one number, the first to commit keeps it.
-> **Epistemic:** What an identifier is, what it may not carry, and which
-> outside practice each rule follows.
+> **Epistemic:** What is an identifier?
 > **Pragmatic:** Name a new document, or settle a clash of numbers, without
 > asking anyone.
 > **Audience:** Agents · Oracles

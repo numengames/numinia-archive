@@ -5,7 +5,7 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.2.2"
+version: "3.2.3"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
@@ -28,8 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Six ranks, lowest first: Nomad, Citizen, Pilgrim, Vernacular,
 > Archon, Oracle. Each holds every permission of the ranks below it. A
 > member's rank is read from what they have done, never from what they claim.
-> **Epistemic:** What each rank may do, what earns it, and where the
-> platform reads it from.
+> **Epistemic:** What may each rank do on the platform?
 > **Pragmatic:** Build or audit a permission check without asking who is
 > allowed to do what.
 > **Audience:** Agents · Oracles

@@ -5,7 +5,7 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-03T10:30:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -28,8 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > three-part card, a one-line scope. Rules come first, each coded, then the
 > check and the reason. The body fits its shelf's budget. Size limits are
 > SHOULD; form is MUST.
-> **Epistemic:** What shape a document takes, and why the older standards
-> that put reasons first and pointed elsewhere went unread.
+> **Epistemic:** What shape does a document take?
 > **Pragmatic:** The mould to copy, the budgets to aim at, and what the
 > shape check reports on every change.
 > **Audience:** Agents · Oracles

@@ -5,7 +5,7 @@ title: "Licensing"
 type: documentation
 subtype: standard
 status: draft
-version: "2.3.2"
+version: "2.3.3"
 created: "2026-09-07T10:30:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -27,8 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Everything we make states its terms. Service programs are
 > open; whoever improves them shares back. Tools are open, unconditionally. Art, data and the world's stories belong to everyone.
 > Texts are reusable with credit. The brand stays ours.
-> **Epistemic:** Which terms each kind of piece gets, how a file states them,
-> and what we may build on.
+> **Epistemic:** Under which terms is each piece published?
 > **Pragmatic:** Choose the licence for something new, or check an old one,
 > without asking a lawyer. This is not legal advice.
 > **Audience:** Agents · Oracles

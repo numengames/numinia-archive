@@ -5,7 +5,7 @@ title: "A series is a function"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.2"
+version: "2.0.3"
 created: "2026-09-09T12:30:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -28,8 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** A folder is a series when losing it would break a named
 > function. Three series oblige; the rest record. A document's folder matches
 > its declared kind, and an exemption gives its reason.
-> **Epistemic:** Which series a document belongs to, and whether that makes
-> it a rule that obliges or a record that does not.
+> **Epistemic:** Which series is a document in, and does it bind?
 > **Pragmatic:** Decide, without asking, whether a folder is a series,
 > whether a text binds, and where a document lives.
 > **Audience:** Agents · Oracles

@@ -5,7 +5,7 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "4.0.2"
+version: "4.0.3"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
@@ -28,8 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** A rule is worth the machine that checks it. A guard fails the
 > build only while the standard holding its rule is signed. A guard over the
 > thing built always fails. Five repositories share one pipeline.
-> **Epistemic:** When a guard fails the build, and how guards and the shared
-> pipeline come to run.
+> **Epistemic:** When does a rule bite, and how do the guards come to run?
 > **Pragmatic:** Write, wire or read a guard, and know whether a red build is
 > a broken rule or a broken artefact.
 > **Audience:** Agents · Oracles

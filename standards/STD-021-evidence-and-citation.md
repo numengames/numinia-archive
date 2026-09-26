@@ -5,7 +5,7 @@ title: "Evidence and citation"
 type: documentation
 subtype: standard
 status: draft
-version: "1.3.2"
+version: "1.3.3"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -27,7 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > audit says how many things it examined, out of how many. References
 > gather at the foot. A broken link in a closed document stays. A quotation
 > carries its author's name.
-> **Epistemic:** What makes a claim in this archive checkable.
+> **Epistemic:** What makes a claim checkable?
 > **Pragmatic:** Cite and audit so that a reader can verify without asking.
 > **Audience:** Agents · Oracles
 

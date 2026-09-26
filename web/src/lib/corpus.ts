@@ -675,7 +675,7 @@ export const SECTION_VIEWS: Record<string, SectionView[]> = {
 export const READING_NOTE: Record<string, string> = {
   canon: "Four shelves, in the order a stranger needs them: where you are, who is here, how anything gets done, and — last, once you have walked the city — why it works.",
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
-  standards: "Language first — nothing below can be read without it. Then who may change what, then the shape a document takes, then how the thing gets built.",
+  standards: "Five shelves, from the person to the ground: living together, writing it down, showing it, what leaves the house, and what makes it last. Under each title, the one question that standard answers.",
   protocols: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
   blueprints: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
   system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the instruments that check those shelves.",
@@ -692,9 +692,31 @@ export interface SectionDoc {
   docId?: string;
   status?: string;
   updated?: string;
+  /** The one question the document answers: its card's Epistemic line, when
+   *  that line is a question. Shown under the title so a newcomer reads what
+   *  each document is FOR before its code, date or status. */
+  question?: string;
 }
 
 const str = (v: unknown) => (typeof v === "string" ? v : undefined);
+
+/** The card's Epistemic line, joined across wrapped lines, if it is a single
+ *  question. Anything else (a statement, a missing card) gives undefined, and
+ *  the row shows its title alone. */
+function questionOf(body: string | undefined): string | undefined {
+  if (!body) return undefined;
+  const parts: string[] = [];
+  let on = false;
+  for (const line of body.split("\n")) {
+    if (!line.startsWith(">")) { if (on) break; continue; }
+    const text = line.replace(/^>\s?/, "");
+    const start = text.match(/^\*\*(Summary|Epistemic|Pragmatic|Audience):\*\*\s*(.*)$/);
+    if (start) { on = start[1] === "Epistemic"; if (on) parts.push(start[2]); continue; }
+    if (on) parts.push(text.trim());
+  }
+  const q = parts.join(" ").replace(/\s+/g, " ").trim();
+  return /^[A-Z][^?]*\?$/.test(q) ? q : undefined;
+}
 
 /**
  * Titles for documents that carry none — the one hand-kept table in this file,
@@ -813,6 +835,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
           docId: str(f.id),
           status: str(f.status),
           updated: str(f.updated)?.slice(0, 10),
+          question: questionOf(e.body),
         };
       });
   }

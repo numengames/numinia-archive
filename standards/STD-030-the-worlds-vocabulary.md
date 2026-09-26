@@ -5,7 +5,7 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.7"
+version: "0.1.8"
 created: "2026-09-23T21:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -41,6 +41,7 @@ SPDX-License-Identifier: CC0-1.0
 > consortium's model for linking vocabularies lays out. Each description
 > names the kind of thing first, then what sets it apart. Any tool that reads
 > that model can translate in both directions.
+> **Epistemic:** What do the world's words mean?
 
 ## Guilds — Alchemists
 

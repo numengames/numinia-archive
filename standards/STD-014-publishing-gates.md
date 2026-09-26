@@ -5,7 +5,7 @@ title: "Publishing gates"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.3"
+version: "1.1.4"
 created: "2026-09-07T10:30:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -27,8 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > making a private repository public. First we confirm the work is
 > ours, holds nothing of others we may not share, and holds no personal
 > data. An Oracle then signs.
-> **Epistemic:** Why making a repository public already grants its licence,
-> and what we check before either act.
+> **Epistemic:** What is checked before an irreversible publication?
 > **Pragmatic:** The list to run before pressing the button.
 > **Audience:** Agents · Oracles
 

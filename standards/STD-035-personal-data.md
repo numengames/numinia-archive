@@ -5,7 +5,7 @@ title: "Personal data"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.2"
+version: "0.3.3"
 created: "2026-09-25T13:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,8 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** What we keep about a person, we keep on a lawful basis, for
 > a purpose we have said, and only as long as needed. The person can see it,
 > correct it, take it and have it erased.
-> **Epistemic:** What European and Spanish data protection and cookie law ask
-> of us, in words anyone can check.
+> **Epistemic:** What may we keep about a person?
 > **Pragmatic:** Decide whether a form, a log or a list may hold someone's
 > data, and for how long. This is not legal advice.
 > **Audience:** Agents · Oracles

@@ -5,7 +5,7 @@ title: "Which rule wins"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.6"
+version: "1.1.7"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -28,8 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > History beats a document, a document beats code, the costlier document
 > beats the cheaper, and the later ruling beats the earlier. Nothing gains
 > authority by claiming it.
-> **Epistemic:** The order between history, documents and code, and why it
-> follows the cost of change rather than importance.
+> **Epistemic:** Which rule wins?
 > **Pragmatic:** Settle a conflict between two sources without asking anyone.
 > **Audience:** Agents · Oracles
 

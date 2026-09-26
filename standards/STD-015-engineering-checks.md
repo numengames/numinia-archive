@@ -5,7 +5,7 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "5.0.2"
+version: "5.0.3"
 created: "2026-08-17T21:55:38+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "pablofm"
@@ -26,6 +26,8 @@ SPDX-License-Identifier: CC0-1.0
 > what they protect, each with its level and its check. A practice checked by
 > hand is debt. A row marked as owed was once called automatic, and nothing
 > runs it.
+> **Epistemic:** Which practices does each repository keep, and what checks
+> each?
 
 | Profile | Plate | Practice | Level | Check |
 |---|---|---|---|---|

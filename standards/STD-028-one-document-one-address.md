@@ -5,7 +5,7 @@ title: "One document, one address"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.2"
+version: "0.3.3"
 created: "2026-09-20T20:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -29,8 +29,7 @@ SPDX-License-Identifier: CC0-1.0
 > folder, then its name. Nothing stands before the series, the function
 > never appears, and a retired address leads to its answer or says it is
 > gone.
-> **Epistemic:** What a web address of this archive says, and what it may
-> not.
+> **Epistemic:** What is a document's web address?
 > **Pragmatic:** Work out any document's address without asking, and decide
 > whether a dead address is kept or removed.
 > **Audience:** Agents · Oracles

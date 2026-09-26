@@ -5,7 +5,7 @@ title: "Plain text is sovereign"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.2"
+version: "2.1.3"
 created: "2026-09-03T06:27:46Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,8 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** The archive is plain text, one document per file, in a shared
 > history that every copy holds whole. The file outlives every program that
 > reads it, and the archive can run on its keeper's own machines.
-> **Epistemic:** What the archive is made of, which outside standards back
-> it, and what keeps it readable when hosts, tools or suppliers vanish.
+> **Epistemic:** What is the archive made of?
 > **Pragmatic:** Decide in one reading whether a format, tool or outside
 > service may enter the system.
 > **Audience:** Agents · Oracles

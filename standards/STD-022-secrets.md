@@ -5,7 +5,7 @@ title: "Secrets"
 type: documentation
 subtype: standard
 status: draft
-version: "1.2.2"
+version: "1.2.3"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,8 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** No password, key or token goes into the archive; programs
 > read them where they run. A leaked key is changed before anyone writes the
 > leak down. A weakness is reported privately and answered within two weeks.
-> **Epistemic:** Where a secret lives, and what happens when one leaks or a
-> weakness is found.
+> **Epistemic:** How does a secret stay out?
 > **Pragmatic:** Handle a key, a token or a finding without making it worse.
 > **Audience:** Agents · Oracles
 
