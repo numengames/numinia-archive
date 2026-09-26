@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,6 @@ license: "CC0-1.0"
 ratified_by: "ADR-046"
 threshold: governed
 related: ["STD-001", "STD-024", "STD-012", "ADR-030", "SYS-003"]
-series_change: "0.2.0 — 2026-09-25: the instruments rule is reversed to agree with the international standard for records management — what the machine measures or reports is a short-lived record that may be cited as evidence of its own measurement but never binds — and the scheme's rules say what they adopt from that standard and the Australian national archives' guidance; a reversal is a major change, raised in the middle number while the standard is below one."
 ---
 
 <!--
@@ -139,7 +138,6 @@ is borrowed from archival practice, not invented here.
 
 | ID | Title | Relation |
 |---|---|---|
-| `ADR-046` | The archive is classified by function | the decision that cut this document |
 | `STD-001` | The series | which series exist, and the table this scheme groups |
 | `STD-024` | A series is a function | what a series obliges, and its thresholds |
 | `STD-012` | The corpus does not grow | how long records are kept |

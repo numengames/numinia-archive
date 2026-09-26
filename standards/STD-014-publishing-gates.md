@@ -5,16 +5,15 @@ title: "Publishing gates"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, publication, arweave, visibility]
 threshold: governed
-series_change: "1.1.1 — 2026-09-26: prose only — the secret scan before going public now points at the secrets standard, which alone says what the scan is and what it follows, instead of saying it again."
 ---
 
 <!--
@@ -104,4 +103,4 @@ removed from the latest version is still one step back in the log.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-010` | Licensing | the regime these gates protect |
-| `CAN-005` | Legal by design | why the acts are irreversible |
+| `CAN-005` | Opening is an act | why the acts are irreversible |

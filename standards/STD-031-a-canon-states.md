@@ -5,9 +5,9 @@ title: "A canon states"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-24T22:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -17,7 +17,6 @@ license: "CC0-1.0"
 ratified_by: "ADR-062"
 threshold: governed
 related: ["STD-007", "STD-001", "STD-024", "ADR-049", "ADR-053"]
-series_change: "0.1.2 — 2026-09-25: the Why says plainly that no outside standard governs what a canon argues, the plain-language standard is cited where it covers readability and the thesaurus standard anchors the manual's names; no obligation added or dropped."
 ---
 
 <!--
@@ -139,6 +138,4 @@ standard judges only whether a text can be read, so these rules are ours.
 |---|---|---|
 | `STD-007` | One page per document | the card, the length, the reference table |
 | `STD-024` | A series is a function | why a rule in a decision binds nobody until it is here |
-| `ADR-049` | Canon is written as prose, not filled into sections | where most of these rules were decided |
-| `ADR-053` | The game manual is the authority on the world's vocabulary | where the last rule was decided |
 | `STD-001` | The series | the canon's row: threshold, length, mould |

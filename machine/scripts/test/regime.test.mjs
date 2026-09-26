@@ -142,10 +142,26 @@ check('tree: one question per standard — the last rows: guards apart from safe
   if (!/^#+ The family pipeline/m.test(eng)) return 'the family pipeline is not in STD-005';
   if (/^#+ The family pipeline/m.test(reg)) return 'the family pipeline is still in STD-015';
   for (const p of ['SEC-013', 'SEC-014', 'SRE-007', 'AGT-007']) if (!new RegExp(`\\| ${p} \\|`).test(reg)) return `${p} is not a row of STD-015`;
+  const ledger = JSON.parse(read('machine/scripts/retired-plates.json')).plates;
   for (const p of ['ENG-004', 'ENG-005', 'ENG-006', 'ENG-007', 'ENG-035', 'ENG-068', 'ENG-069']) {
-    if (!new RegExp(`\\| ${p} \\| retired → `).test(eng)) return `${p} is not retired in STD-005`;
+    if (!ledger[p]) return `${p} is not in the retired-plates ledger`;
   }
   if (readdirSync(path.join(ROOT, 'standards')).some((f) => f.startsWith('STD-032-'))) return 'STD-032 is still a standard';
   if (!readdirSync(path.join(ROOT, 'system')).some((f) => f.startsWith('SYS-009-'))) return 'no SYS-009 in system/';
+  return true;
+});
+
+check('tree: the apparatus is thin — no series_change, no retired row; retired plates live in one ledger', () => {
+  const dir = path.join(ROOT, 'standards');
+  const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/retired-plates.json'), 'utf-8')).plates;
+  if (Object.keys(ledger).length < 35) return `ledger holds ${Object.keys(ledger).length} plates, want at least 35`;
+  for (const f of readdirSync(dir).filter((n) => /^STD-\d{3}-/.test(n))) {
+    const text = readFileSync(path.join(dir, f), 'utf-8');
+    if (/^series_change:/m.test(text)) return `${f} still carries series_change`;
+    if (/^\| [A-Z]{3}-\d{3} \| retired\b/m.test(text)) return `${f} still carries a retired row`;
+  }
+  for (const plate of Object.keys(ledger)) {
+    if (index.byPlate.has(plate)) return `${plate} is retired in the ledger and held by ${index.byPlate.get(plate)}`;
+  }
   return true;
 });

@@ -5,16 +5,15 @@ title: "The corpus does not grow"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
 tags: [deflation, lifecycle, reports, missions, debt, compression, records-management, retirement, Dublin-Core]
 ratified_by: "ADR-042"
 related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001", "STD-028"]
-series_change: "2.0.0 — 2026-09-26: this standard becomes the one answer to how a document leaves: it takes naming the replacement and deleting only what nothing cites from Git is the archive, and moving series and absorption from A series is a function, and binds every document that leaves, not only records. Where a retired address leads is left to the address standard alone. A wider scope with new obligations, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -109,7 +108,6 @@ they already know.
 | DEF-006 | A phase is an index, not a level | — | by hand |
 | DEF-007 | The written procedure authorises every removal | [ISO 15489-1:2016, disposition authorities](https://www.iso.org/standard/62542.html), clause 8.5 (clause unverified); the authority is `PRO-017` | by hand |
 | DEF-004 | A record leaves by transfer, not destruction | [ISO 15489-1:2016, disposition](https://www.iso.org/standard/62542.html), clause 9.9 (clause unverified); git keeps the transferred file | `machine/tools/check-deletable.mjs --candidates` — closed records with no living citer |
-| DEF-005 | retired → URL-005 of One document, one address, which alone says where a retired address leads; the moving list of absorbed names is DEF-011 | — | — |
 | DEF-008 | The replacement is named in the header | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); holds retired GIT-045 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs`, which reads the `superseded_by` and `status` fields |
 | DEF-010 | A document changes series under a new name | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); no move without updating its readers is ours; holds retired SER-005 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs` |
 | DEF-011 | Absorption carries the reasoning | [Dublin Core, Replaces](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/replaces/); holds retired SER-006 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs` (`absorbs:`) |
@@ -140,7 +138,4 @@ taken; a fourth rewriting loses more without deciding more.
 | ID | Title | Relation |
 |---|---|---|
 | `PRO-017` | Rolling up the week | the procedure; what a weekly report looks like |
-| `ADR-030` | The four tests before deletion | the four tests every exit still passes |
-| `ADR-042` | The corpus rolls up weekly | the decision that ratified this standard |
-| `RPT-018` | The Alpha story | closed for growth; the first weekly starts after it |
 | `STD-028` | One document, one address | where a retired document's address leads |

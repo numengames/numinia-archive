@@ -85,7 +85,8 @@ export const RING3 = {
   'operations': ['extraction_note', 'restoration_note',
     'language', 'language_note', 'review_flags', 'source_title'],
   'standards': ['supersedes_version', 'ratified_by', 'subtype', 'threshold',
-    'series_change',
+    // series_change retired 2026-09-26: what a version changed is in the
+    // changelog and in git, and the header kept a third copy of it.
     // registered 2026-09-05 (MIS-147). Same load-bearing role it already has
     // in decisions/ and debt/: the DEF-009 guard (std-012) reads `absorbs` to keep an
     // absorbed document's identifier resolving. STD-002 absorbed SYS-004, so a

@@ -5,9 +5,9 @@ title: "Every charge delivers something"
 type: documentation
 subtype: standard
 status: draft
-version: "0.4.0"
+version: "0.4.1"
 created: "2026-09-24T17:40:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -16,7 +16,6 @@ tags: [standards, economy, payments, consumer-law]
 ratified_by: "ADR-064"
 threshold: governed
 related: ["CAN-011", "STD-036", "STD-022", "STD-003", "STD-035", "BLU-017"]
-series_change: "0.4.0 — 2026-09-26: keeping the account leaves for a standard of its own, One account, because charging and keeping the books answer two questions read by two people at two moments; the eight account rules move whole, under their plates. Held below 1.0.0 because only the Oracle promotes, at the Oracle's word in session."
 ---
 
 <!--

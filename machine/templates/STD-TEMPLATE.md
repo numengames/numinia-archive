@@ -21,7 +21,6 @@ tags: [area, subject]
 # OPTIONAL — use when they apply, omit without guilt.
 # ratified_by: "ADR-NNN"            # the decision that moved this from draft to active
 # supersedes_version: "1.2.0"
-# series_change: "one short sentence about this version only"
 ---
 
 <!--

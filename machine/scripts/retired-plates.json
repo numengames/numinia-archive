@@ -1,0 +1,149 @@
+{
+  "$comment": "Retired plates, one ledger. A plate retired from a rule document is never reused (IDN-014 of One document, one identifier; DOC-001 of One page per document); it leaves the document's Check table and is written here, with the document that held it and the rule that holds its obligation now. regime.test.mjs fails if a plate listed here is held again. Moved here 2026-09-26 from the retired rows of each standard.",
+  "plates": {
+    "ARC-003": {
+      "was": "STD-015 Engineering checks",
+      "now": "LIC-007, each repository says its terms in the common format"
+    },
+    "ARC-010": {
+      "was": "STD-015 Engineering checks",
+      "now": "ACC-004, an accessibility test on every change, which the accessibility standard alone holds"
+    },
+    "CMS-002": {
+      "was": "STD-029 How we treat each other in the commons",
+      "now": "CMS-001"
+    },
+    "CMS-006": {
+      "was": "STD-029 How we treat each other in the commons",
+      "now": "CMS-001"
+    },
+    "DEF-005": {
+      "was": "STD-012 The corpus does not grow",
+      "now": "URL-005 of One document, one address, which alone says where a retired address leads; the moving list of absorbed names is DEF-011"
+    },
+    "DEV-007": {
+      "was": "STD-015 Engineering checks",
+      "now": "GIT-025, small batches by pull request on one trunk, with one approval"
+    },
+    "DSN-006": {
+      "was": "STD-008 Design tokens",
+      "now": "ACC-002"
+    },
+    "DSN-011": {
+      "was": "STD-008 Design tokens",
+      "now": "ACC-004"
+    },
+    "DSN-013": {
+      "was": "STD-008 Design tokens",
+      "now": "SIT-001 of What every site carries"
+    },
+    "DSN-014": {
+      "was": "STD-008 Design tokens",
+      "now": "SIT-002 of What every site carries"
+    },
+    "DSN-015": {
+      "was": "STD-008 Design tokens",
+      "now": "PRV-008 of Personal data, which holds what a site may store in a browser"
+    },
+    "DSN-016": {
+      "was": "STD-008 Design tokens",
+      "now": "SIT-003 of What every site carries"
+    },
+    "ENG-003": {
+      "was": "STD-005 When a rule bites",
+      "now": "GIT-025 of Git is the archive, small batches by pull request on one trunk"
+    },
+    "ENG-004": {
+      "was": "STD-005 When a rule bites",
+      "now": "KEY-057 of Secrets, settings live in the environment"
+    },
+    "ENG-005": {
+      "was": "STD-005 When a rule bites",
+      "now": "GIT-050 of Git is the archive, leave it better"
+    },
+    "ENG-006": {
+      "was": "STD-005 When a rule bites",
+      "now": "SRE-007 of Engineering checks, incidents produce rules, not culprits"
+    },
+    "ENG-007": {
+      "was": "STD-005 When a rule bites",
+      "now": "AGT-007 of Engineering checks, the platform is a product for developers"
+    },
+    "ENG-033": {
+      "was": "STD-005 When a rule bites",
+      "now": "nothing: it governed baselines, and there are none (retired in 2.2.0)"
+    },
+    "ENG-034": {
+      "was": "STD-005 When a rule bites",
+      "now": "AUT-065 of Who may change what, which holds the three layers"
+    },
+    "ENG-035": {
+      "was": "STD-005 When a rule bites",
+      "now": "SEC-014 of Engineering checks, migrate in order"
+    },
+    "ENG-068": {
+      "was": "STD-005 When a rule bites",
+      "now": "SEC-013 of Engineering checks, every repository keeps a security score"
+    },
+    "ENG-069": {
+      "was": "STD-005 When a rule bites",
+      "now": "TRC-004 of Engineering checks, the changelog is written for people"
+    },
+    "GIT-045": {
+      "was": "STD-020 Git is the archive",
+      "now": "DEF-008 of The corpus does not grow"
+    },
+    "GIT-046": {
+      "was": "STD-020 Git is the archive",
+      "now": "URL-005 of One document, one address: a retired address leads to the answer, or says it is gone"
+    },
+    "GIT-047": {
+      "was": "STD-020 Git is the archive",
+      "now": "URL-005 of One document, one address"
+    },
+    "GIT-048": {
+      "was": "STD-020 Git is the archive",
+      "now": "DEF-009 of The corpus does not grow"
+    },
+    "GIT-049": {
+      "was": "STD-020 Git is the archive",
+      "now": "TXT-008 of Plain text is sovereign"
+    },
+    "HDR-041": {
+      "was": "STD-004 The header",
+      "now": "TXT-002 (the header parses)"
+    },
+    "HDR-046": {
+      "was": "STD-004 The header",
+      "now": "DOC-013 of One page per document, how the rules of a document are worded"
+    },
+    "OSS-003": {
+      "was": "STD-015 Engineering checks",
+      "now": "LIC-013, every contribution comes with permission"
+    },
+    "SER-003": {
+      "was": "STD-024 A series is a function",
+      "now": "AUT-068 of Who may change what, which now holds the thresholds"
+    },
+    "SER-005": {
+      "was": "STD-024 A series is a function",
+      "now": "DEF-010 of The corpus does not grow"
+    },
+    "SER-006": {
+      "was": "STD-024 A series is a function",
+      "now": "DEF-011 of The corpus does not grow"
+    },
+    "SRE-006": {
+      "was": "STD-015 Engineering checks",
+      "now": "SRE-007 of Engineering checks, incidents produce rules, not culprits"
+    },
+    "TRC-008": {
+      "was": "STD-015 Engineering checks",
+      "now": "URL-001 and URL-005, the address rules"
+    },
+    "VER-064": {
+      "was": "STD-019 Versions",
+      "now": "AUT-065 of Who may change what, which says who moves which number"
+    }
+  }
+}

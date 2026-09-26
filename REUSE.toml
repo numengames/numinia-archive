@@ -80,6 +80,7 @@ path = [
   "machine/scripts/blind-spots.json",
   "machine/scripts/lib/rules.json",
   "machine/scripts/published-urls.json",
+  "machine/scripts/retired-plates.json",
   "web/components.json",
   "web/package-lock.json",
   "web/package.json",

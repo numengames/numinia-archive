@@ -5,9 +5,9 @@ title: "Licensing"
 type: documentation
 subtype: standard
 status: draft
-version: "2.3.0"
+version: "2.3.1"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -15,7 +15,6 @@ license: "CC0-1.0"
 tags: [licensing, legal, REUSE, SPDX]
 threshold: governed
 absorbs: ["STD-013"]
-series_change: "2.3.0 — 2026-09-26: the licence allowlist, the in-file licence fields and the licence texts come in whole from their own register, which is retired into this standard: they answer the same question, under which terms. No rule changes, at the Oracle's word in session."
 ---
 
 <!--
@@ -228,4 +227,3 @@ already reads means any tool can check us without asking.
 |---|---|---|
 | `CAN-005` | Opening is an act | why; where this and the canon disagree, one is wrong and is corrected |
 | `STD-014` | Publishing gates | the two irreversible acts and their checks |
-| `DBT-020` | Declared automatic, executed by nobody | the checks still missing |

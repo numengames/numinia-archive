@@ -59,6 +59,7 @@ const RETIRED = {
   documento: 'Spanish-era key', ambito: 'Spanish-era key',
   estado: 'Spanish-era key', fecha: 'Spanish-era key',
   licencia: 'Spanish-era key', revision: 'Spanish-era key',
+  series_change: 'retired: the changelog and git already say what a version changed',
 };
 
 /* HDR-033..038: the closed vocabularies of the header, held by STD-001. Each

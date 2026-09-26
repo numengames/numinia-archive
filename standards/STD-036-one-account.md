@@ -5,16 +5,15 @@ title: "One account"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [standards, economy, ledger, accounting, transparency, audit]
 related: ["CAN-011", "CAN-010", "STD-033", "STD-035", "SYS-008", "PRO-021", "BLU-017"]
-series_change: "0.1.0 — 2026-09-26: the account gets a standard of its own, its eight rules moved whole from Every charge delivers something, where charging and keeping the books were two questions in one document; plates unchanged, at the Oracle's word in session."
 ---
 
 <!--
@@ -113,5 +112,5 @@ against something they know.
 | `CAN-010` | Leave things better than you found them | why no person's pay is published |
 | `STD-033` | Every charge delivers something | what may be charged, each charge a line here |
 | `STD-035` | Personal data | what the ledger may say about a person |
-| `SYS-008` | The account | where the ledger lives and who holds each key |
+| `SYS-008` | The account: how money moves and is recorded, as wired today | where the ledger lives and who holds each key |
 | `PRO-021` | Closing the month | the procedure these rules check |

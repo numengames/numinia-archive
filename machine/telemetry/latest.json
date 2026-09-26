@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "055d84f",
-  "corpus_hash": "08c8d786f6a990bc507bca78b4244f933fb9de9037bf7cdb7835b59665ae5aea",
+  "head": "cb4d2ad",
+  "corpus_hash": "a0e9a24d15253b99ddf5e32fe3a6a91057189ade30f5a020abd5cf660d87fd49",
   "root_dirty": 0,
-  "measured_at": "2026-09-26T09:52:19Z",
+  "measured_at": "2026-09-26T10:09:17Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 596,
+      "value": 597,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -30,7 +30,7 @@
         ".html": 1,
         ".jpg": 2,
         ".js": 2,
-        ".json": 14,
+        ".json": 15,
         ".md": 236,
         ".mjs": 77,
         ".png": 35,
@@ -320,25 +320,25 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 885858,
+      "value": 882425,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 71212,
+        "standards": 67467,
         "missions": 45717,
-        "": 43892,
+        "": 44182,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29109,
-        "blueprints": 25366,
+        "blueprints": 25401,
         "operations": 25159,
         "system": 20599,
         "protocols": 20103,
         "canon": 18667,
-        "machine": 16241,
+        "machine": 16228,
         "debt": 2986,
         "objects": 1865,
         ".github": 912
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 539198,
-        "draft": 175250,
+        "(none)": 539488,
+        "draft": 171527,
         "active": 124205,
         "done": 26539,
         "todo": 15975,
@@ -359,7 +359,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.16,
+      "value": 5.18,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -379,7 +379,7 @@
         ],
         [
           "CHANGELOG.md",
-          36937
+          37227
         ],
         [
           "lore/game/manual/en/06-inventory-and-bestiary.md",
@@ -422,7 +422,6 @@
         "registration": 43,
         "registration_reason": 39,
         "agent": 33,
-        "series_change": 32,
         "threshold": 32,
         "deciders": 25,
         "ratified_by": 24,
@@ -621,7 +620,7 @@
       "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-004 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 66,
+      "value": 65,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -652,14 +651,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1049
+          "3": 1053
         },
         "MIS": {
           "3": 687,
           "4": 185
         },
         "PRO": {
-          "3": 314
+          "3": 313
         },
         "OPS": {
           "3": 92
@@ -668,20 +667,20 @@
           "3": 496
         },
         "ADR": {
-          "3": 497
+          "3": 486
+        },
+        "BLU": {
+          "3": 131
         },
         "SYS": {
           "3": 65
         },
-        "BLU": {
-          "3": 130
-        },
         "RPT": {
-          "3": 61,
+          "3": 59,
           "4": 9
         },
         "DBT": {
-          "3": 76
+          "3": 72
         },
         "DEC": {
           "3": 13
@@ -726,7 +725,7 @@
           "id": "MIS-135#10",
           "severity": "B",
           "state": "open",
-          "where": "standards/STD-004-the-header.md#L217",
+          "where": "standards/STD-004-the-header.md#L214",
           "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open. Anchor re-pointed 2026-09-09: the registry row moved whole into the register STD-016 under ADR-043. Anchor re-pointed 2026-09-26: STD-016 retired into STD-004, the row unchanged."
         },
         {
@@ -762,7 +761,7 @@
     "figures.live_by_doc": {
       "value": {
         "missions/MIS-0127-entropy-reduction.md": 40,
-        "CHANGELOG.md": 27,
+        "CHANGELOG.md": 28,
         "missions/MIS-0121-header-baseline-burndown.md": 19,
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,

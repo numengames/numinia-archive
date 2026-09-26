@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.5"
+version: "0.1.6"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -17,7 +17,6 @@ license: "CC0-1.0"
 ratified_by: "ADR-053"
 threshold: governed
 related: ["CAN-004", "STD-003", "STD-026", "PRO-019"]
-series_change: "0.1.5 — 2026-09-25: the summary says the translation follows the web consortium's model for vocabularies, each in-world name matched exactly or closely to its operational one; the tables are unchanged."
 ---
 
 <!--

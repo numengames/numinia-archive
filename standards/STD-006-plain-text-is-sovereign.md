@@ -5,16 +5,15 @@ title: "Plain text is sovereign"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [archive, substrate, format, sovereignty, self-hosting, GFM, YAML, NDSA]
 supersedes: ["ADR-001"]
-series_change: "2.1.0 — 2026-09-26: link, never copy comes in from Git is the archive, since it is about what a document is made of, not how a change lands. One obligation moved in, so a minor move, at the Oracle's word in session."
 ---
 
 <!--
@@ -115,4 +114,4 @@ suppliers.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-009` | Which rule wins | whose claim wins when the file and a program disagree |
-| `STD-004` | The header in three rings | the header fields this standard leaves to its own standard |
+| `STD-004` | The header | the header fields this standard leaves to its own standard |

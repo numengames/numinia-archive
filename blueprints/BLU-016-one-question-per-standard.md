@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.7.0"
+version: "0.7.1"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-26T19:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -46,8 +46,8 @@ retired into it. The second cut split charging from keeping the account,
 and what every site carries from what a design piece can fail on, and
 pointed the secret scan and the accessibility test at their one holder.
 The third thinned the shelf without dropping a rule: the licence allowlist
-joined Licensing, whose table it was; each header keeps only its latest
-change; and the footer, the share card and the scarab are each written once.
+joined Licensing, whose table it was; the header's note on the latest
+change went too, since the changelog and git hold it; and the footer, the share card and the scarab are each written once.
 The fourth made the header and its fields one standard, the fields still
 read ring by ring. The fifth left the design values holding values, with the
 recipes in a protocol. The sixth closed the last rows: the engineering
@@ -55,7 +55,9 @@ baseline, renamed *When a rule bites*, now holds the guards and the shared
 pipeline, and the practices it also carried became rows of the engineering
 checks, or rules of Secrets and of Git is the archive; the design system's
 map moved to the system shelf as a manual, since nothing in it binds. No row
-of the map below is open; what is left is the outside standards.
+of the map below is open; the retired codes left the standards for one
+ledger, and each reference table lists only what a standard depends on.
+What is left is the outside standards.
 
 ## Future state
 

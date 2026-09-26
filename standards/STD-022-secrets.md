@@ -5,16 +5,15 @@ title: "Secrets"
 type: documentation
 subtype: standard
 status: draft
-version: "1.2.0"
+version: "1.2.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-26T16:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, security, secrets]
 threshold: governed
-series_change: "1.2.0 — 2026-09-26: settings live in the environment arrives from the engineering baseline as KEY-057, since where a secret lives is how it stays out; a rule moved in, so a minor move, at the Oracle's word in session."
 ---
 
 <!--
