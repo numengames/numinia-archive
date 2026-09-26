@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "042d181",
-  "corpus_hash": "5a6f8ab57d1104cabc779aafe1e26f8cecbdeaf08fe4502b79f4f5a23c354989",
+  "head": "c66b41e",
+  "corpus_hash": "b738e58c8e29b05f239dd09ac9b76ad38c794674ceabce1d51fab7f7e869bb1d",
   "root_dirty": 0,
-  "measured_at": "2026-09-26T07:07:39Z",
+  "measured_at": "2026-09-26T07:45:56Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 596,
+      "value": 595,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 14,
-        ".md": 236,
+        ".md": 235,
         ".mjs": 77,
         ".png": 35,
         ".svg": 72,
@@ -48,12 +48,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 236,
+      "value": 235,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 235,
+      "value": 234,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -73,7 +73,7 @@
         "operations": 11,
         "protocols": 14,
         "reports": 7,
-        "standards": 34,
+        "standards": 33,
         "system": 7
       },
       "unit": "documents",
@@ -85,7 +85,7 @@
         "adr": 28,
         "agent": 34,
         "blueprint": 12,
-        "documentation": 57,
+        "documentation": 56,
         "entity": 2,
         "legal": 3,
         "meta": 3,
@@ -183,8 +183,8 @@
           "pct": 100
         },
         "standards": {
-          "registered": 34,
-          "total": 34,
+          "registered": 33,
+          "total": 33,
           "apparatus": 0,
           "archived": 0,
           "pct": 100
@@ -201,12 +201,12 @@
       "definition": "per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`."
     },
     "series.registered_total": {
-      "value": 134,
+      "value": 133,
       "unit": "documents",
       "definition": "sum of `registration[*].registered`"
     },
     "series.registrable_total": {
-      "value": 134,
+      "value": 133,
       "unit": "documents",
       "definition": "sum of `registration[*].total`"
     },
@@ -320,20 +320,20 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 884965,
+      "value": 884967,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 75217,
+        "standards": 74964,
         "missions": 45717,
-        "": 42847,
+        "": 43106,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29105,
-        "blueprints": 25407,
+        "blueprints": 25403,
         "operations": 25159,
         "system": 18766,
         "canon": 18667,
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 538153,
-        "draft": 177215,
+        "(none)": 538412,
+        "draft": 176958,
         "active": 122392,
         "done": 26539,
         "todo": 15975,
@@ -390,7 +390,7 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 188,
+      "value": 187,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -401,28 +401,28 @@
     },
     "headers.field_usage": {
       "value": {
-        "author": 187,
-        "created": 187,
-        "license": 187,
-        "status": 187,
-        "title": 187,
-        "type": 187,
-        "updated": 187,
-        "version": 187,
-        "owner": 186,
-        "tags": 184,
-        "id": 153,
-        "uid": 148,
-        "territory": 123,
+        "author": 186,
+        "created": 186,
+        "license": 186,
+        "status": 186,
+        "title": 186,
+        "type": 186,
+        "updated": 186,
+        "version": 186,
+        "owner": 185,
+        "tags": 183,
+        "id": 152,
+        "uid": 147,
+        "territory": 122,
         "related": 93,
         "guild": 80,
         "created_source": 68,
         "created_confidence": 67,
-        "subtype": 53,
+        "subtype": 52,
         "registration": 43,
         "registration_reason": 39,
-        "series_change": 34,
         "agent": 33,
+        "series_change": 33,
         "threshold": 33,
         "deciders": 25,
         "ratified_by": 24,
@@ -441,10 +441,10 @@
         "related_missions": 11,
         "role": 10,
         "supersedes_version": 10,
+        "absorbs": 9,
         "amends": 9,
         "former_id": 9,
         "paths": 9,
-        "absorbs": 8,
         "former_id_note": 8,
         "provenance": 7,
         "depends_on": 6,
@@ -512,7 +512,7 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 4,
-        "empty_values": 161,
+        "empty_values": 160,
         "v_prefixed_versions": 0,
         "placeholders": 8
       },
@@ -521,7 +521,7 @@
     },
     "provenance.authorship": {
       "value": {
-        "ai-persona": 150,
+        "ai-persona": 149,
         "no-frontmatter": 47,
         "other": 25,
         "ai-model": 8,
@@ -532,7 +532,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 174,
+      "value": 173,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -580,7 +580,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 32,
+      "value": 31,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -607,7 +607,7 @@
     "contradictions.status_vocabulary_used": {
       "value": {
         "active": 73,
-        "draft": 101,
+        "draft": 100,
         "done": 6,
         "todo": 6,
         "in-progress": 1
@@ -618,7 +618,7 @@
     "contradictions.status_vocabulary_undeclared": {
       "value": {},
       "unit": "documents",
-      "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
+      "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-004 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
       "value": 66,
@@ -652,7 +652,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1033
+          "3": 1032
         },
         "MIS": {
           "3": 687,
@@ -671,7 +671,7 @@
           "3": 497
         },
         "BLU": {
-          "3": 125
+          "3": 126
         },
         "SYS": {
           "3": 60
@@ -726,8 +726,8 @@
           "id": "MIS-135#10",
           "severity": "B",
           "state": "open",
-          "where": "standards/STD-016-header-fields.md#L94",
-          "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open. Anchor re-pointed 2026-09-09: the registry row moved whole into the register STD-016 under ADR-043."
+          "where": "standards/STD-004-the-header.md#L217",
+          "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open. Anchor re-pointed 2026-09-09: the registry row moved whole into the register STD-016 under ADR-043. Anchor re-pointed 2026-09-26: STD-016 retired into STD-004, the row unchanged."
         },
         {
           "id": "MIS-135#15",
@@ -755,14 +755,14 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 334,
+      "value": 335,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
     "figures.live_by_doc": {
       "value": {
         "missions/MIS-0127-entropy-reduction.md": 40,
-        "CHANGELOG.md": 25,
+        "CHANGELOG.md": 26,
         "missions/MIS-0121-header-baseline-burndown.md": 19,
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
