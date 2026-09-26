@@ -4,11 +4,11 @@ uid: ""
 title: "You are what you are doing"
 type: seminal
 status: draft
-version: "4.0.1"
+version: "4.0.2"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-24T21:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -33,8 +33,7 @@ SPDX-License-Identifier: CC0-1.0
 > a role is what appears when the two meet in an act. Six attributes make up
 > anyone in Numinia, human or digital, and only one of them is assigned by
 > the system.
-> **Epistemic:** Why guilds nest and factions do not, why play sits at the
-> centre, and why a role can never be written on a profile.
+> **Epistemic:** Who am I here?
 > **Pragmatic:** Place any person or piece of work without inventing a
 > category; tell a role from a profile from a position; know which six things
 > a sheet or a roster is allowed to say about someone.

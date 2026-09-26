@@ -4,9 +4,9 @@ uid: ""
 title: "What has value also makes a bond"
 type: seminal
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-09-24T23:30:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -29,9 +29,7 @@ SPDX-License-Identifier: CC0-1.0
 > before paying, sees the whole price, and is remembered for it by the name
 > they choose — or by none. The city writes down what it costs and what comes
 > in, so that anyone entitled to check the account finds it whole.
-> **Epistemic:** Why a payment here is neither a donation nor only a
-> purchase, why a Token can carry worth and bond at once, and why the account
-> is open.
+> **Epistemic:** What do you get when you pay?
 > **Pragmatic:** Three questions to put to any charge before it exists.
 > **Audience:** Everyone
 

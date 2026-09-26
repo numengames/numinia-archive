@@ -4,9 +4,9 @@ uid: ""
 title: "One identity, three forces"
 type: seminal
 status: draft
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-24T19:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -30,8 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > three forces of its world — the Umbral, the Velo and the Prisma — and stays
 > recognisable in all of them, because the foundation underneath never
 > changes.
-> **Epistemic:** Why this looks the way it does — the dosage, the century it
-> crosses, and what each force is for.
+> **Epistemic:** Why does it all look like this?
 > **Pragmatic:** Name the force a piece lives in, and know when a piece has
 > stopped being ours. If it is decided here, it is not up for redesign in a
 > piece.

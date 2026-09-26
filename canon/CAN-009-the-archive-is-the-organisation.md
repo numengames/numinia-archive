@@ -4,9 +4,9 @@ uid: ""
 title: "The archive is the organisation"
 type: seminal
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-09-24T21:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -29,9 +29,7 @@ SPDX-License-Identifier: CC0-1.0
 > repository, and works by changing that text. Whoever can read it — person
 > or digital agent — can act in it; what is not written there does not bind
 > anyone.
-> **Epistemic:** Why the company's memory is a text and not a tool, why a
-> document is a claim and history is the record, and why an agent is a
-> citizen rather than an instrument.
+> **Epistemic:** Where does the company actually live?
 > **Pragmatic:** Know, without asking, whether a sentence obliges you; know
 > what to do when two sources disagree; know what a change costs before you
 > make it.

@@ -4,11 +4,11 @@ uid: ""
 title: "Opening is an act"
 type: seminal
 status: draft
-version: "5.0.0"
+version: "5.0.1"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-09-24T19:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -33,9 +33,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every piece is born in the most closed regime that makes sense
 > and is opened only by a deliberate act. What is opened cannot be closed
 > again, and the name is never opened.
-> **Epistemic:** Why openness here is a decision with a direction, not a
-> default and not a mood — and why that is a kindness to whoever wants to use
-> what we make.
+> **Epistemic:** Why give away what we make?
 > **Pragmatic:** Before giving anything away, know what you are giving and
 > that you will not get it back. Before taking anything, know in thirty
 > seconds what you may take.

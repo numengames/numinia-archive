@@ -4,9 +4,9 @@ uid: ""
 title: "Leave things better than you found them"
 type: seminal
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-24T17:00:00+02:00"
-updated: "2026-09-24T17:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -30,8 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > people, to their data, to what is published and to what a digital agent
 > may do, it yields four commitments that are already in force elsewhere and
 > stated here as what they are — a belief, not a policy.
-> **Epistemic:** Why the house's values bind conduct and not only taste, and
-> what the four commitments have in common.
+> **Epistemic:** What do we owe whatever we touch?
 > **Pragmatic:** Before an act — a message, a publication, a change, a
 > decision taken for someone else — one test to run on it.
 > **Audience:** Everyone

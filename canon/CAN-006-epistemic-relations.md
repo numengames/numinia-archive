@@ -4,11 +4,11 @@ uid: ""
 title: "The model needs a story"
 type: seminal
 status: draft
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-04-15T16:25:05Z"
 created_source: "git:89404d7"
 created_confidence: exact
-updated: "2026-09-24T21:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -34,9 +34,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Numen Games, its regulatory model and Numinia are not three
 > stages of one process but three interlinked rings: remove any one and the
 > other two come apart.
-> **Epistemic:** Why a working method has to be narrated in order to be
-> understood at all — read through Peirce's sign, where the germinal motive is
-> the object, the model the ground and Numinia the representamen.
+> **Epistemic:** Why can't a method just be explained?
 > **Pragmatic:** Apply the model to a project that is not this one. The
 > argument is deliberately general: any germinal motive admits its own
 > narrative projection over the same regulatory structure.

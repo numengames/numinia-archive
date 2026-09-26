@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.62.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "CHG",
+        text: "On /canon each text now shows, under its title, the question a newcomer asks before reading it; the title is the answer. \"Opening is an act\" answers \"Why give away what we make?\"",
+      },
+    ],
+  },
+  {
     version: "v0.61.0",
     date: "2026-09-26",
     entries: [
