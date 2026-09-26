@@ -332,12 +332,15 @@ const READING_GROUPS_CANON: ReadingGroup[] = [
     // What a citizen is made of comes first, so the reader meets themselves
     // before they meet anyone in particular. Then one citizen in full — the
     // house that keeps this archive: what it believes, how it looks, what it
-    // gives away, and the sentence it closes on.
+    // gives away, what stays each citizen's own, and the sentence it closes on.
     hrefs: [
       "/canon/can-004-role-structure",
       "/canon/can-002-brand-and-culture",
       "/canon/can-008-visual-identity",
       "/canon/can-005-licensing",
+      // 2026-09-26: after what the house gives away, what stays the
+      // citizen's own — and why leaving is easy. Before the closing sentence.
+      "/canon/can-012-what-is-yours-stays-with-you",
       "/canon/can-010-leave-things-better",
     ],
   },
