@@ -42,19 +42,31 @@ check('rules.json: types.series targets are registered series', () =>
 check('rules.json: lax types are in types.all', () => rules.types.lax.every((t) => rules.types.all.includes(t)));
 check('rules.json: status keys are types or _default', () =>
   Object.keys(rules.status).filter((k) => !k.startsWith('_')).every((t) => rules.types.all.includes(t)));
-check('rules.json: status mirrors the STD-016 lifecycle table', () => {
-  /* STD-016 is the declaration; rules.json is its mirror. Read the table's
+/* The header and its fields are one standard (STD-004, which absorbed STD-016
+   on 2026-09-26); the rings are the Oracle's way of reading the fields and
+   MUST survive whole: identity, provenance, outside meaning, extension. */
+const HEADER_DOC = 'standards/STD-004-the-header.md';
+check('STD-004: the fields are described ring by ring, all three rings and their outside meaning', () => {
+  const std = readFileSync(path.join(ROOT, HEADER_DOC), 'utf8');
+  const want = ['### Ring 1 — identity, every document', '### Ring 2 — provenance, every document that makes a claim',
+    '### Outside meaning', '### Ring 3 — extension by series', '### Vocabularies', '### Status lifecycles'];
+  const missing = want.filter((h) => !std.includes(h));
+  return missing.length === 0 || `missing: ${missing.join('; ')}`;
+});
+
+check('rules.json: status mirrors the STD-004 lifecycle table', () => {
+  /* STD-004 is the declaration; rules.json is its mirror. Read the table's
      `Lifecycle` column: `a → b → c`, plus `x` — and compare to the lists here.
      Row "mission" ↔ status.mission; row "everything else" ↔ status._default. */
-  const std = readFileSync(path.join(ROOT, 'standards/STD-016-header-fields.md'), 'utf8');
-  const sect = std.slice(std.indexOf('## Status lifecycles'));
+  const std = readFileSync(path.join(ROOT, HEADER_DOC), 'utf8');
+  const sect = std.slice(std.indexOf('### Status lifecycles'));
   const rows = [...sect.matchAll(/^\| (mission|everything else) \| (.+?) \| HDR-\d+ \|$/gm)];
-  if (rows.length !== 2) return `expected 2 lifecycle rows in STD-016, found ${rows.length}`;
+  if (rows.length !== 2) return `expected 2 lifecycle rows in STD-004, found ${rows.length}`;
   const parse = (cell) => [...cell.matchAll(/`([^`]+)`/g)].flatMap((m) => m[1].split('→').map((s) => s.trim()));
   const want = { mission: parse(rows.find((r) => r[1] === 'mission')[2]), _default: parse(rows.find((r) => r[1] === 'everything else')[2]) };
   const same = (a, b) => a.length === b.length && a.every((x, i) => x === b[i]);
-  if (!same(want.mission, rules.status.mission)) return `mission: STD-016 [${want.mission}] vs rules.json [${rules.status.mission}]`;
-  if (!same(want._default, rules.status._default)) return `default: STD-016 [${want._default}] vs rules.json [${rules.status._default}]`;
+  if (!same(want.mission, rules.status.mission)) return `mission: STD-004 [${want.mission}] vs rules.json [${rules.status.mission}]`;
+  if (!same(want._default, rules.status._default)) return `default: STD-004 [${want._default}] vs rules.json [${rules.status._default}]`;
   const terminal = rules.status._terminal;
   const last = [want.mission.at(-1), want._default.at(-1)];
   if (!last.every((s) => terminal.includes(s))) return `_terminal must contain the last state of each lifecycle: [${last}]`;
