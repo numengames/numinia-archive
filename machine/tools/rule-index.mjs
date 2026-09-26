@@ -104,8 +104,8 @@ function cleanTitle(raw, id) {
  *  the guard asks for `Binds:` in standards/ and protocols/ only, and skips
  *  `subtype: register` inside them — `if (!register && NEEDS_PLATES.has(dir))`.
  *
- *  A register is a lookup table: STD-016 lists the header fields, STD-015 the
- *  engineering practices. It governs nobody by itself; the standard pointing at it
+ *  A register is a lookup table: STD-015 lists the engineering practices,
+ *  STD-026 the operative words. It governs nobody by itself; the standard pointing at it
  *  does. A canon says why things are as they are, and a reason binds everyone
  *  who leans on it.
  *

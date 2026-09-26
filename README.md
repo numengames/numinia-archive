@@ -105,7 +105,7 @@ folders was tried and deliberately undone.
 
 The live board is [numinia.org/missions](https://numinia.org/missions), built
 from `missions/` on every deploy. The states a mission may hold are declared in
-[`STD-016`](standards/STD-016-header-fields.md); the cycle that moves them, in
+[`STD-004`](standards/STD-004-the-header.md); the cycle that moves them, in
 [`PRO-003`](protocols/PRO-003-mission-cycle.md).
 
 ---

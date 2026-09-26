@@ -19,6 +19,13 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (thinning the standards: the header)
+At the Oracle's word in session: the header and its fields are one question, and the rings must not be lost.
+- **`STD-016` is retired into `STD-004` 4.1.0.** Everything below its heading moves over whole, under the Check table, in this order: Ring 1 (identity), Ring 2 (provenance, with its relations), the outside meaning (Dublin Core and PROV), Ring 3 (extension by series), the vocabularies and the one table of status lifecycles. No field, plate or rule changes.
+- **A test now guards the rings.** `rules.test.mjs` fails if `STD-004` loses any of the six ring headings. The lifecycle mirror now reads `STD-004`.
+- **Citations follow the move.** Every pointer at `STD-016` now points at `STD-004`: the templates, guards, libraries, agents' sources, the README, the site pages and the claims register anchor. The old address redirects.
+- `BLU-016` 0.5.0. Site v0.57.0. Standards go from 34 documents and 75,217 tokens to 33 and 74,964.
+
 ### Changed — 2026-09-26 (thinning the standards)
 At the Oracle's word in session: the fat comes off before anything else is split. The standards go from 35 documents and 78,102 tokens to 34 and 75,217, 3.7 % less, and no rule is dropped.
 - **`STD-013` is retired into `STD-010` 2.3.0.** The allowlist, the in-file fields and the licence texts move over whole, since they answer the same question. `PRO-018` 1.0.1 and the site follow, and the old address redirects.

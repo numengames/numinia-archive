@@ -16,7 +16,7 @@ tags: [standards, series, register, archive]
 license: "CC0-1.0"
 ratified_by: "ADR-043"
 threshold: governed
-related: ["STD-024", "STD-016", "STD-018", "STD-007", "STD-027"]
+related: ["STD-024", "STD-018", "STD-007", "STD-027"]
 series_change: "5.4.2 — 2026-09-25: the prose between the tables says the series table is the business classification scheme of the international standard for records management, built by the Australian national archives' guidance, that prefix, threshold and budget are ours, and that instruments are short-lived records; no row changes."
 ---
 

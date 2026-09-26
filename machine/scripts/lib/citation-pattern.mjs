@@ -13,7 +13,7 @@
 // report, a pull request, a date.
 //
 //   `\b` around the single-letter prefixes keeps the pattern off the tail of
-//   STD-016 — without it the scan counts the last three characters of a
+//   STD-004 — without it the scan counts the last three characters of a
 //   standard's own identifier, and the fix would be to delete the holder the
 //   rule says to keep.
 //

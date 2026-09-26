@@ -224,7 +224,7 @@ export function run(corpus) {
     if (/\/(INDEX|README)\.md$/.test(rel)) continue;
     const fm = corpus.fm(rel);
     if (!fm) continue;
-    if (fm.status === 'withdrawn') continue;   // a withdrawn standard is a stub (STD-016)
+    if (fm.status === 'withdrawn') continue;   // a withdrawn standard is a stub (STD-004)
     findings.push(...shape(rel, corpus.text(rel), fm));
   }
   for (const rel of corpus.files) {

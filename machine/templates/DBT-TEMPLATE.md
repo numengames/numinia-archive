@@ -5,7 +5,7 @@ id: "DBT-NNN"
 uid: ""
 title: "The defect, named — not the area it lives in"
 type: documentation
-# status: `active` means the debt is OPEN; the lifecycle is declared once, in STD-016
+# status: `active` means the debt is OPEN; the lifecycle is declared once, in STD-004
 status: active
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"

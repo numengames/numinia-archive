@@ -145,5 +145,5 @@ rank decides which records an actor may leave.
 | `STD-009` | Which rule wins | the precedence these costs produce |
 | `CAN-004` | You are what you are doing | what each rank is |
 | `STD-003` | Platform ranks | the ranks on the platform |
-| `STD-016` | Header fields | the states a rule may hold |
+| `STD-004` | The header | the states a rule may hold |
 | `STD-001` | The series | the threshold each series declares |

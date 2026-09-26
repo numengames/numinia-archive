@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -38,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 26 September 2026 the shelf holds 34 standards, about 75,000 tokens.
+As of 26 September 2026 the shelf holds 33 standards, about 74,000 tokens.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
@@ -48,8 +48,9 @@ pointed the secret scan and the accessibility test at their one holder.
 The third thinned the shelf without dropping a rule: the licence allowlist
 joined Licensing, whose table it was; each header keeps only its latest
 change; and the footer, the share card and the scarab are each written once.
-Still to weigh for thinning: the header and its fields as one standard, and
-the design system's map as the design folder's introduction. The rows marked
+The fourth made the header and its fields one standard, the fields still
+read ring by ring. Still to weigh for thinning: the design system's map,
+which the design page and the kit read, and the design values. The rows marked
 as open below are what is left.
 
 ## Future state
@@ -74,7 +75,6 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-012` | How does a document leave the archive? | — |
 | `STD-014` | What is checked before an irreversible publication? | — |
 | `STD-015` | Which engineering checks run, and where? | open: the shared pipeline is prose; it belongs to `STD-005` |
-| `STD-016` | Which header fields exist? | register of `STD-004` |
 | `STD-017` | Who may change what? | — |
 | `STD-018` | What is an identifier? | — |
 | `STD-019` | What does a version number promise? | — |

@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13821,
+  "chars": 13734,
   "apparatus": false,
   "archived": false,
-  "tokens": 3421
+  "tokens": 3400
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 133966,
+  "chars": 134967,
   "apparatus": false,
   "archived": false,
-  "tokens": 35870
+  "tokens": 36150
  },
  {
   "path": "CLAUDE.md",
@@ -82,7 +82,7 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 6812,
+  "chars": 6809,
   "apparatus": true,
   "archived": false,
   "tokens": 1779
@@ -214,7 +214,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1482,
+  "chars": 1479,
   "apparatus": false,
   "archived": false,
   "tokens": 404
@@ -247,7 +247,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2012,
+  "chars": 2009,
   "apparatus": false,
   "archived": false,
   "tokens": 507
@@ -346,7 +346,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3474,
+  "chars": 3471,
   "apparatus": false,
   "archived": false,
   "tokens": 803
@@ -610,10 +610,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 8805,
+  "chars": 8810,
   "apparatus": false,
   "archived": false,
-  "tokens": 2393
+  "tokens": 2389
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -2139,10 +2139,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6726,
+  "chars": 6715,
   "apparatus": false,
   "archived": false,
-  "tokens": 1900
+  "tokens": 1895
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2161,10 +2161,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 10068,
+  "chars": 16689,
   "apparatus": false,
   "archived": false,
-  "tokens": 2706
+  "tokens": 4683
  },
  {
   "path": "standards/STD-005-engineering-baseline.md",
@@ -2266,23 +2266,12 @@
   "tokens": 3919
  },
  {
-  "path": "standards/STD-016-header-fields.md",
-  "dir": "standards",
-  "series": "standards",
-  "type": "documentation",
-  "status": "draft",
-  "chars": 7409,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2220
- },
- {
   "path": "standards/STD-017-who-may-change-what.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8168,
+  "chars": 8165,
   "apparatus": false,
   "archived": false,
   "tokens": 2043
@@ -2370,10 +2359,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6932,
+  "chars": 6918,
   "apparatus": false,
   "archived": false,
-  "tokens": 1836
+  "tokens": 1831
  },
  {
   "path": "standards/STD-026-operative-vocabulary.md",

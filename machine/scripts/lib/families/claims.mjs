@@ -27,7 +27,7 @@ const lineOf = (text, idx) => text.slice(0, idx).split('\n').length;
 
 export const contradictions = {
   measure({ docs, rules }) {
-    // status_vocabulary: values used in frontmatter vs rules.json `status` (mirror of STD-016): every lifecycle list
+    // status_vocabulary: values used in frontmatter vs rules.json `status` (mirror of STD-004): every lifecycle list
     const declared = new Set(Object.entries(rules.status).filter(([k]) => !k.startsWith('_') || k === '_default').flatMap(([, v]) => v));
     const used = {}; const undeclared = {};
     for (const d of docs) { if (d.status == null) continue; count(used, d.status); if (!declared.has(d.status)) (undeclared[d.status] ??= []).push(d.path); }
@@ -67,7 +67,7 @@ export const contradictions = {
     }
     return {
       status_vocabulary_used: fig(used, 'documents', 'frontmatter status values in the corpus with counts'),
-      status_vocabulary_undeclared: fig(undeclared, 'documents', 'status values in use that machine/scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary'),
+      status_vocabulary_undeclared: fig(undeclared, 'documents', 'status values in use that machine/scripts/lib/rules.json does not declare (STD-004 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary'),
       ci_markers_std001: fig(marked.length, 'rows', 'table rows of STD-001 carrying `[CI]`'),
       ci_marked_scripts_not_in_ci: fig(markedNotInCi, 'scripts', 'scripts a Check row of a standard names that the runner does not run in CI — a norm claiming a machine check that does not happen'),
       ci_scripts_not_marked: fig(inCiNotMarked, 'scripts', 'scripts the runner runs in CI that no Check row of any standard names — a check the norm does not claim'),

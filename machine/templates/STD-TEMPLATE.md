@@ -7,7 +7,7 @@ title: "The rule, in five words"
 type: documentation
 # subtype: standard — a norm, read whole · register — a table, consulted
 subtype: standard
-# status: opens at draft — the lifecycle is declared once, in STD-016
+# status: opens at draft — the lifecycle is declared once, in STD-004
 status: draft
 # every artifact starts at 0.1.0; only the Oracle promotes to 1.0.0
 version: "0.1.0"

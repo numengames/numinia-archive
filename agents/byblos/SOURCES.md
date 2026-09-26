@@ -29,7 +29,7 @@ the repository is the source of truth and this file only says where to look.
 ## The archive's own vocabulary
 
 standards/STD-001-the-series.md — the series, one row each
-standards/STD-016-header-fields.md — header fields and vocabularies
+standards/STD-004-the-header.md — header fields and vocabularies
 
 ## Engineering standard
 
