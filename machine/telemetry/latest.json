@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "a39fcb1",
-  "corpus_hash": "fcc299f54464e5d3367566324b8b0b5f4c8747d004d98ecf74c972a7fe68f3d5",
+  "head": "a795416",
+  "corpus_hash": "22cf2980d9c847fffea4ef044960c142438f294342110481d412b70ae856b43a",
   "root_dirty": 0,
-  "measured_at": "2026-09-26T12:45:35Z",
+  "measured_at": "2026-09-26T13:07:28Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 597,
+      "value": 598,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 15,
         ".md": 236,
-        ".mjs": 77,
+        ".mjs": 78,
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
@@ -108,13 +108,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 46,
+      "value": 47,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 46
+        "node": 47
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -320,20 +320,20 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 879840,
+      "value": 879744,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 64966,
+        "standards": 64607,
         "missions": 45717,
-        "": 44458,
+        "": 44685,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29109,
-        "blueprints": 25476,
+        "blueprints": 25512,
         "operations": 25159,
         "system": 20599,
         "protocols": 19682,
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 539764,
-        "draft": 168666,
+        "(none)": 539991,
+        "draft": 168343,
         "active": 124205,
         "done": 26539,
         "todo": 15975,
@@ -375,7 +375,7 @@
         ],
         [
           "CHANGELOG.md",
-          37515
+          37742
         ],
         [
           "lore/game/manual/es/07-construyendo-la-aventura.md",
@@ -670,7 +670,7 @@
           "3": 485
         },
         "BLU": {
-          "3": 132
+          "3": 133
         },
         "SYS": {
           "3": 65
@@ -725,7 +725,7 @@
           "id": "MIS-135#10",
           "severity": "B",
           "state": "open",
-          "where": "standards/STD-004-the-header.md#L214",
+          "where": "standards/STD-004-the-header.md#L213",
           "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open. Anchor re-pointed 2026-09-09: the registry row moved whole into the register STD-016 under ADR-043. Anchor re-pointed 2026-09-26: STD-016 retired into STD-004, the row unchanged."
         },
         {
