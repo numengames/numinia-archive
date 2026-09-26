@@ -4,11 +4,11 @@ uid: ""
 title: "We build a game to work better"
 type: seminal
 status: draft
-version: "4.0.0"
+version: "4.0.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-24T19:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -32,8 +32,7 @@ SPDX-License-Identifier: CC0-1.0
 > better inside them, and it does that by building games — because play is
 > our first narrative, our first lesson and our first creative drive.
 > Everything else — the values, the voice, the name — follows from that.
-> **Epistemic:** What this company believes, why the game is the instrument
-> and not a metaphor, and what it will not trade away.
+> **Epistemic:** What is all this for?
 > **Pragmatic:** Decide whether a piece of work sounds and behaves like
 > Numinia before it ships — and refuse one on the values when it does not.
 > **Audience:** Everyone

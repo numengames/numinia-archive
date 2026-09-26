@@ -4,11 +4,11 @@ uid: ""
 title: "Renaming is not transforming"
 type: seminal
 status: draft
-version: "2.1.1"
+version: "2.1.2"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-09-24T21:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -34,8 +34,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every organisation exists on two planes — what its elements
 > are, and how they relate. Renaming the first is not transforming the second,
 > and most change efforts never find that out.
-> **Epistemic:** Why an organisation can be redescribed completely and remain
-> exactly the same system underneath.
+> **Epistemic:** Does a new vocabulary make a new company?
 > **Pragmatic:** Ask of any element what it is for and what it is worth; ask
 > of any initiative whether it re-semantises or reconfigures. The first pair
 > tells you whether a name means anything; the second separates a new

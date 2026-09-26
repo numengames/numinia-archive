@@ -79,3 +79,31 @@ test('the note above the shelves describes the shelves as they stand', () => {
     at = i;
   }
 });
+
+/* ---- The canon: the title is the answer, the question sits under it ----
+   A canon's title already states its claim ("Opening is an act"). The
+   question under it is the one a newcomer asks before reading, so it must
+   not repeat the title's words: read together, question and title click. */
+
+const canon = execFileSync('git', ['-C', ROOT, 'ls-files', 'canon/CAN-*.md'], { encoding: 'utf8' })
+  .split('\n').filter(Boolean);
+const STOP = new Set(['what', 'whatever', 'when', 'where', 'which', 'with', 'this', 'that', 'than', 'they', 'your', 'from', 'does', 'have', 'also', 'just', 'here', 'there', 'about']);
+const content = (s) => new Set((s.toLowerCase().match(/[a-z]{4,}/g) ?? []).filter((w) => !STOP.has(w)));
+
+test('every canon states the question its title answers', () => {
+  assert.ok(canon.length >= 8, `only ${canon.length} canon documents found`);
+  const bad = canon.map((f) => [f.match(/CAN-\d{3}/)[0], epistemicOf(read(f))])
+    .filter(([, q]) => !/^[A-Z][^?]*\?$/.test(q) || q.split(/\s+/).length > 10)
+    .map(([id, q]) => `${id}: "${q}"`);
+  assert.deepEqual(bad, [], `these do not state one short question (at most ten words, ending in "?"):\n  ${bad.join('\n  ')}`);
+});
+
+test("a canon's question does not repeat its title", () => {
+  const echo = canon.map((f) => {
+    const text = read(f);
+    const title = text.match(/^# (.+)$/m)?.[1] ?? '';
+    const shared = [...content(epistemicOf(text))].filter((w) => content(title).has(w));
+    return [f.match(/CAN-\d{3}/)[0], title, shared];
+  }).filter(([, , shared]) => shared.length).map(([id, title, shared]) => `${id} "${title}": ${shared.join(', ')}`);
+  assert.deepEqual(echo, [], `the question repeats the title's words:\n  ${echo.join('\n  ')}`);
+});

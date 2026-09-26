@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 140960,
+  "chars": 141734,
   "apparatus": false,
   "archived": false,
-  "tokens": 37742
+  "tokens": 37925
  },
  {
   "path": "CLAUDE.md",
@@ -632,10 +632,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4391,
+  "chars": 4320,
   "apparatus": false,
   "archived": false,
-  "tokens": 1149
+  "tokens": 1131
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -643,10 +643,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 6416,
+  "chars": 6324,
   "apparatus": false,
   "archived": false,
-  "tokens": 1562
+  "tokens": 1542
  },
  {
   "path": "canon/CAN-004-role-structure.md",
@@ -654,10 +654,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 9753,
+  "chars": 9650,
   "apparatus": false,
   "archived": false,
-  "tokens": 2400
+  "tokens": 2375
  },
  {
   "path": "canon/CAN-005-licensing.md",
@@ -665,10 +665,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 6917,
+  "chars": 6795,
   "apparatus": false,
   "archived": false,
-  "tokens": 1701
+  "tokens": 1671
  },
  {
   "path": "canon/CAN-006-epistemic-relations.md",
@@ -676,10 +676,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 15028,
+  "chars": 14866,
   "apparatus": false,
   "archived": false,
-  "tokens": 3124
+  "tokens": 3083
  },
  {
   "path": "canon/CAN-007-pragmatic-numen-system.md",
@@ -687,10 +687,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 10457,
+  "chars": 10400,
   "apparatus": false,
   "archived": false,
-  "tokens": 2267
+  "tokens": 2258
  },
  {
   "path": "canon/CAN-008-visual-identity.md",
@@ -698,10 +698,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 10002,
+  "chars": 9935,
   "apparatus": false,
   "archived": false,
-  "tokens": 2429
+  "tokens": 2412
  },
  {
   "path": "canon/CAN-009-the-archive-is-the-organisation.md",
@@ -709,10 +709,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 6150,
+  "chars": 6023,
   "apparatus": false,
   "archived": false,
-  "tokens": 1528
+  "tokens": 1494
  },
  {
   "path": "canon/CAN-010-leave-things-better.md",
@@ -720,10 +720,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4907,
+  "chars": 4837,
   "apparatus": false,
   "archived": false,
-  "tokens": 1241
+  "tokens": 1226
  },
  {
   "path": "canon/CAN-011-value-makes-a-bond.md",
@@ -731,10 +731,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4925,
+  "chars": 4814,
   "apparatus": false,
   "archived": false,
-  "tokens": 1266
+  "tokens": 1239
  },
  {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",

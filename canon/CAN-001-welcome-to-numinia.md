@@ -4,11 +4,11 @@ uid: ""
 title: "You are already in the game"
 type: seminal
 status: draft
-version: "4.0.0"
+version: "4.0.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-23T12:00:00+02:00"
+updated: "2026-09-26T15:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -30,8 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** Numinia is the way Numen Games works, told as a city. You do
 > not learn it by being briefed on it; you learn it by walking in.
-> **Epistemic:** Why this work is narrated at all, and why the narration is
-> not a coat of paint over an ordinary company.
+> **Epistemic:** Where does work end and play begin?
 > **Pragmatic:** Tell, on sight, whether a name you meet here is real.
 > **Audience:** Everyone
 
