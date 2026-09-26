@@ -154,6 +154,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-019` | Holding a ritual | whoever convokes, prepares or records a ritual of Numinia |
 | `PRO-020` | Putting something on sale | whoever prepares, approves, creates or withdraws something on sale in Numinia's or Numen Games'… |
 | `PRO-021` | Closing the month | whoever brings the month's documents, turns them into ledger lines, or reviews the close |
+| `PRO-022` | Building the living pieces | whoever builds, changes or reviews the sky… |
 | `STD-001` | The series | every tracked document of the archive |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | every document's header, and every date the archive writes |
@@ -188,7 +189,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-036` | One account | the ledger of what Numen Games and Numinia cost and take in, and every view published from it |
 | `STD-037` | What every site carries | every public site of Numen Games and Numinia: numinia.org, numinia.com… |
 
-57 rule documents; 5 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+58 rule documents; 5 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

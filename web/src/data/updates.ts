@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.58.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "CHG",
+        text: "'Design values' now holds only values: colours, type, space, icons, the animations, the sky's weights. How the sky moves, where the Velo layer may sit and how the reading-aloud player is built are a new protocol, 'Building the living pieces'. A test now fails if a colour in the values is missing from the design kit.",
+      },
+    ],
+  },
+  {
     version: "v0.57.0",
     date: "2026-09-26",
     entries: [

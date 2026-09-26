@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13734,
+  "chars": 13823,
   "apparatus": false,
   "archived": false,
-  "tokens": 3400
+  "tokens": 3422
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 134967,
+  "chars": 136392,
   "apparatus": false,
   "archived": false,
-  "tokens": 36150
+  "tokens": 36538
  },
  {
   "path": "CLAUDE.md",
@@ -555,10 +555,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 14960,
+  "chars": 14860,
   "apparatus": false,
   "archived": false,
-  "tokens": 4077
+  "tokens": 4053
  },
  {
   "path": "blueprints/BLU-012-presentation-deck.md",
@@ -610,10 +610,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 8810,
+  "chars": 8811,
   "apparatus": false,
   "archived": false,
-  "tokens": 2389
+  "tokens": 2388
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -1974,10 +1974,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4112,
+  "chars": 4183,
   "apparatus": false,
   "archived": false,
-  "tokens": 1143
+  "tokens": 1164
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -2055,6 +2055,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1124
+ },
+ {
+  "path": "protocols/PRO-022-building-the-living-pieces.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 7684,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2032
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2337,10 +2348,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 32225,
+  "chars": 26464,
   "apparatus": false,
   "archived": false,
-  "tokens": 9366
+  "tokens": 7942
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",

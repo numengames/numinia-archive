@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: protocol
 status: draft
-version: "2.0.2"
+version: "2.0.3"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -29,7 +29,8 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The order in which design decisions are taken, where the
 > values come from, and the checklist every piece passes before delivery.
-> The recipe for each medium is its blueprint.
+> The recipe for each medium is its blueprint; how the sky, the Velo and
+> the reading player are built is `PRO-022`.
 > **Epistemic:** Nothing here is a new rule: the rules are `STD-008`, the
 > values are `STD-023` and the kit. This is the order of applying them.
 > **Pragmatic:** Followed literally by an agent producing a piece.

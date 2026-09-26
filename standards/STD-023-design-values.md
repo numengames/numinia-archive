@@ -5,16 +5,16 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.5.0"
+version: "1.6.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
-related: ["STD-008", "STD-034", "CAN-008", "ADR-044"]
-series_change: "1.5.0 — 2026-09-26: the house footer and the share card move whole to What every site carries, their one home, and the brandmark's drawing is the brand file itself instead of a copy of its path; section numbers kept so no citation moves, at the Oracle's word in session."
+related: ["STD-008", "STD-034", "CAN-008", "ADR-044", "PRO-022"]
+series_change: "1.6.0 — 2026-09-26: values only. How the sky, the Velo and the reading player are built goes to PRO-022, a protocol with steps and no rules, at the Oracle's word in session; the sky no longer says it may never react to the reader, since an interactive background is planned. The Píxel-16 table loses its origin column, the references lose the rows other standards hold, and a test checks every colour here is in the kit."
 ---
 
 <!--
@@ -27,11 +27,12 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every closed list of the design system, as values: colours
 > and contrasts, the scales of type and space, the icons we use, the brand
 > marks, the animations, the sky and the pixel grids. The design kit carries
-> the same values in a form machines read; where the two differ, the kit
-> fails to build.
+> the same values in a form machines read; a test fails when a colour here
+> is missing from the kit.
 > **Epistemic:** What the values are. Why they are what they are is the
 > visual identity canon; what a builder must do with them is the standard
-> of design tokens.
+> of design tokens; how the sky, the Velo and the reading player are built
+> is `PRO-022`.
 > **Pragmatic:** Look a value up here or in the kit, never in a piece.
 > **Audience:** Agents · Oracles
 
@@ -80,24 +81,24 @@ Rules: full scale and in order, no invented steps. **Progressive treatment beyon
 
 Sixteen colors, **zero new hexes**: seven neutrals, the six brand colors and three already-defined shadows, plus the rarity green. Every sprite and every pixel scene MUST limit itself to this index.
 
-| Nº | Hex | Name | Origin | Role in pixel |
-|---|---|---|---|---|
-| 01 | `#14110F` | Noche | nocturno.fondo-base | Background, sprite outline |
-| 02 | `#1E1A17` | Basalto | nocturno.superficie | Deep shadow |
-| 03 | `#292420` | Dark Bronce | nocturno.elevada | Shadow |
-| 04 | `#3A332D` | Bronce | nocturno.linea-fuerte | Mid shadow, metal |
-| 05 | `#8A7D72` | Ceniza | nocturno.terciario | Working grey |
-| 06 | `#C4B5A6` | Veiled Arena | nocturno.secundario | Mid light |
-| 07 | `#F9EBDC` | Arena | brand | Light, highlight, base sprite |
-| 08 | `#A6DAD5` | Verdemar | brand | Solar accent |
-| 09 | `#018EA1` | Turquesa | brand | Cyber accent |
-| 10 | `#016E7D` | Deep Turquesa | text-over-light | Shadow of 09 |
-| 11 | `#EFA517` | Ámbar | brand | Gold, achievement, sun |
-| 12 | `#7A5100` | Toasted Ámbar | text-over-light | Shadow of 11 |
-| 13 | `#F35059` | Coral | brand | Living signal |
-| 14 | `#D33440` | Grana | brand | Deep red — **fill only** |
-| 15 | `#B02330` | Deep Grana | text-over-light | Shadow of 14 |
-| 16 | `#8FC46B` | Verde | rareza.poco-comun | Nature, the solarpunk garden |
+| Nº | Hex | Name | Role in pixel |
+|---|---|---|---|
+| 01 | `#14110F` | Noche | Background, sprite outline |
+| 02 | `#1E1A17` | Basalto | Deep shadow |
+| 03 | `#292420` | Dark Bronce | Shadow |
+| 04 | `#3A332D` | Bronce | Mid shadow, metal |
+| 05 | `#8A7D72` | Ceniza | Working grey |
+| 06 | `#C4B5A6` | Veiled Arena | Mid light |
+| 07 | `#F9EBDC` | Arena | Light, highlight, base sprite |
+| 08 | `#A6DAD5` | Verdemar | Solar accent |
+| 09 | `#018EA1` | Turquesa | Cyber accent |
+| 10 | `#016E7D` | Deep Turquesa | Shadow of 09 |
+| 11 | `#EFA517` | Ámbar | Gold, achievement, sun |
+| 12 | `#7A5100` | Toasted Ámbar | Shadow of 11 |
+| 13 | `#F35059` | Coral | Living signal |
+| 14 | `#D33440` | Grana | Deep red — **fill only** |
+| 15 | `#B02330` | Deep Grana | Shadow of 14 |
+| 16 | `#8FC46B` | Verde | Nature, the solarpunk garden |
 
 **Dominance:** ≥ 60 % of the surface in neutrals 01–07. **Dialogue subset** (pixel text over Noche, ≥ 4.5:1 verified): Arena 16.1 · Verdemar 12.2 · Veiled Arena 9.4 · Verde 9.2 · Ámbar 9.0 · Coral 5.5 · Turquesa 4.8 · Ceniza 4.7. **Grana stays out of dialogue** (3.9:1): fill yes, text never.
 
@@ -198,10 +199,10 @@ viewBox 75.44×75.53, `fill="currentColor"`; every copy is taken from it.
 | **11** | **Crystallization** — the glass materializes [5.0.0] | `320 ms` · ciclo; `backdrop-blur 0→12px` + border 0→50 % + opacity | Velo panels and modals (`BLU-009`) | Outside the Velo; over backgrounds without atmosphere |
 | **12** | **Page turn** — **RETIRED in 5.1.0 (H5)** | 5.0.0 registered it "to be verified against the LAP"; verification came back empty: the codex does not animate the page turn — the only living thing in that view is the Trazo (13). The number is not reused (append-only catalogue); if someday the paper turns pages with animation, it will enter as a new piece with its own specs | — | — |
 | **13** | **Trazo** — the corners draw themselves [5.0.0 · in production] | `1.6 s` · ease · `stroke-dashoffset: 340 → 0`; four engraving frames staggered at `120 ms` | Book cover and chapter opening (`BLU-011`, the living paper) — it **is** that view's orchestrated moment | Interface; re-firing on scroll; alongside another orchestrated moment |
-| **14** | **Sky** — the Velo's background breathes [5.0.0 · in production] | Drift of `±0.06 px`/frame with reappearance on the opposite side + alpha oscillating between `.05` and `.85` at its own rhythm (`.002–.006`) | Background of the Velo register (the sky, below) — **a sanctioned exception** to the ambient-loop veto | Over long reading; with parallax; reacting to cursor or scroll |
-| **15** | **Reading light** — a light follows the voice [1.4.0 · in production] | A diffuse Arena halo (14 px, a small ink core, never pure white) just above the spoken word, a trail of 12 fading copies; critically damped spring (k 90); gliding along the word at the voice's pace, resting where it rests; 45 % on pause | Following a voice or any playback through a text (the reading player, §22) — **the second sanctioned loop**: it lives only while the voice plays and moves only because the voice moves | Ambient; decoration; without a voice or playback behind it; with `prefers-reduced-motion` (it jumps: no trail, no spring, no bob) |
+| **14** | **Sky** — the Velo's background breathes [5.0.0 · in production] | Drift of `±0.06 px`/frame with reappearance on the opposite side + alpha oscillating between `.05` and `.85` at its own rhythm (`.002–.006`) | Background of the Velo register (the sky, below) — **a sanctioned exception** to the ambient-loop veto | Over long reading |
+| **15** | **Reading light** — a light follows the voice [1.4.0 · in production] | A diffuse Arena halo (14 px, a small ink core, never pure white) just above the spoken word, a trail of 12 fading copies; critically damped spring (k 90); gliding along the word at the voice's pace, resting where it rests; 45 % on pause | Following a voice or any playback through a text (the reading player, `PRO-022`) — **the second sanctioned loop**: it lives only while the voice plays and moves only because the voice moves | Ambient; decoration; without a voice or playback behind it; with `prefers-reduced-motion` (it jumps: no trail, no spring, no bob) |
 
-The first three 5.0.0 pieces (10–12) are **transitions, not loops** and **invent no durations**: they reuse `duration.largo` (560) and `duration.medio` (320). The **trazo** (13) arrives measured from production with its own `1.6 s` — it is the catalogue's only new duration, and it is justified because drawing four corners faster turns them into a blink. The **sky** (14) is a sanctioned exception to the ambient-loop veto (DSN-012): it is authorized because it is the **register's background**, not a view's ornament — and that is why it reacts to nothing. It starts by itself and lasts longer than five seconds, so the accessibility guidelines require a visible control to pause it; asking the system for less motion is not enough, and the sites do not meet this yet. The **reading light** (15) is the other one, for the opposite reason: it is not ambient at all — it lives only while a voice plays, and it moves only because the voice does. The codex's **reading moon** is not a new animation: it is the lunar phase (06) demonstrated in production. 10–12 belong to the Velo register and the living paper; the 01–09 catalogue serves Umbral and Velo alike. The orchestrated moment remains **one per piece**. With `prefers-reduced-motion`, surfacing and crystallization appear instantly: opacity is kept, blur and displacement are removed.
+The first three 5.0.0 pieces (10–12) are **transitions, not loops** and **invent no durations**: they reuse `duration.largo` (560) and `duration.medio` (320). The **trazo** (13) arrives measured from production with its own `1.6 s` — it is the catalogue's only new duration, and it is justified because drawing four corners faster turns them into a blink. The **sky** (14) is a sanctioned exception to the ambient-loop veto (DSN-012): it is authorized because it is the **register's background**, not a view's ornament. It starts by itself and lasts longer than five seconds, so the accessibility guidelines require a visible control to pause it; asking the system for less motion is not enough, and the sites do not meet this yet. The **reading light** (15) is the other one, for the opposite reason: it is not ambient at all — it lives only while a voice plays, and it moves only because the voice does. The codex's **reading moon** is not a new animation: it is the lunar phase (06) demonstrated in production. 10–12 belong to the Velo register and the living paper; the 01–09 catalogue serves Umbral and Velo alike. The orchestrated moment remains **one per piece**. With `prefers-reduced-motion`, surfacing and crystallization appear instantly: opacity is kept, blur and displacement are removed.
 
 ## 15. The sky
 
@@ -215,9 +216,8 @@ The star background of `numinia.org` is not decoration: **the sky's distribution
 | Epic | 4 | 0.8–2.5 px | Purple `#A98BE0` |
 | Legendary | 1 | 1.0–3.0 px | Ámbar `#EFA517` |
 
-Behavior (canonized exactly as it stands in production): **175 stars**; drift of `±0.06 px` per frame with reappearance on the opposite side; **alpha breathing** between `.05` and `.85`, each star at its own rhythm (`.002–.006` per frame); reseeding on resize. Hard rules: Nocturno only; **no parallax and no reaction to cursor or scroll** — it is background, not interaction; never under long reading text; with `prefers-reduced-motion` the sky stops and the stars stay fixed at mid alpha.
+How the sky moves, and where it may not appear, is `PRO-022`.
 
-**Drift detected `[FIX]`:** numinia.org today draws the sky with hexes foreign to the system (`#22C55E`, `#3B82F6`, `#A855F7`, `#F97316` — Tailwind defaults). The rule is written with the canonicals of the rarity scale; the recoloring goes to the web repository roadmap.
 
 ## 16. Pixel grids
 
@@ -238,11 +238,8 @@ Behavior (canonized exactly as it stands in production): **175 stars**; drift of
 | Resource | Authorship | License | Link · distribution | Use in the system |
 |---|---|---|---|---|
 | **Geist · Geist Mono** | Vercel | SIL OFL 1.1 | [vercel.com/font](https://vercel.com/font) · npm `geist` · self-hosted in `/assets/fonts/` | Sole typography (type scale) |
-| **Phosphor Icons** | Helena Zhang · Tobias Fried | MIT | [phosphoricons.com](https://phosphoricons.com) · [github.com/phosphor-icons/core](https://github.com/phosphor-icons/core) · npm `@phosphor-icons/web` | Sole iconography (icon weights and subset) |
 | **Pixelify Sans** | Stefie Justprince | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Pixelify+Sans) · self-hosted in `/assets/fonts/` | Pixel-register typography (`BLU-010`) |
 | **Alegreya · Alegreya SC** | Juan Pablo del Peral · Huerta Tipográfica | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Alegreya) · variable roman + italic and small caps 400/500, self-hosted (v5 rebuild) | Third voice — book and codex (`BLU-011`) |
-| **Design Tokens Format Module 2025.10** | Design Tokens Community Group (W3C) | Open specification, first stable version | [designtokens.org/tr/2025.10/format](https://www.designtokens.org/tr/2025.10/format/) | Token format (`PRO-014`) |
-| **WCAG 2.2** | W3C | W3C Recommendation; the European norm EN 301 549 V3.2.1 asks for version 2.1 AA, a subset | [w3.org/TR/WCAG22](https://www.w3.org/TR/WCAG22/) | Accessibility floor, level AA (`STD-034`) |
 | **Octalysis** | Yu-kai Chou | Behavioral framework | [yukaichou.com](https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/) | Behavioral design of proposals |
 | **8 Bit & '8 Bitish' Graphics — Outside the Box** | Mark Ferrari · GDC 2016 | Professional reference | [gdcvault.com/play/1023586](https://www.gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics) | Clusters, limited palette and palette cycling; production reference, not visual canon |
 | **ScummVM · Understanding the graphics settings** | ScummVM project | GPL / documentation | [docs.scummvm.org](https://docs.scummvm.org/en/latest/advanced_topics/understand_graphics.html) | Adventure graphics scaling, nearest-neighbor and pixel preservation |
@@ -278,14 +275,9 @@ came here from the visual identity canon, which now holds none.
 | `velo.cielo` | 175 stars · weights `60/25/10/4/1` | the rarity scale above | The Velo's sky — verified in production, numinia.org |
 | `velo.lectura` | `blur(2.2px)` + mask `0→90 %` | — | What lies beyond the Umbral is seen and not read (`BLU-011`) |
 
-**Ceilings and placement.** Grid ≤ 3 % alpha, fog ≤ 8 % — more is scenery.
-Nocturno only: in Diurno the Velo does not exist, same logic as the relief.
-Grid and fog are background layers, never over reading text nor inside cards
-and elevated surfaces. `velo.cristal` only over a background that has grid,
-fog or veiled image behind it: blurring nothing is smoke, and text over glass
-is secondary minimum with AA verified against the worst background. Grid and
-circuit relief do not coexist — two meshes fight `[EXTENSION — validate]`;
-fog MAY settle over the relief at half its alpha.
+**Ceilings:** grid ≤ 3 % alpha, fog ≤ 8 % — more is scenery. How each layer
+is placed is `PRO-022`.
+
 
 ## 21. Motion and 3D budgets
 
@@ -300,31 +292,19 @@ Formats GLB/glTF.
 completely: at that size the silhouette is all there is.
 
 
-## 22. Reading aloud — the dock, the ruler, the ink
+## 22. Reading aloud
 
-`[EXTENSION — validate]` Verified in production on the document pages of
-the archive's site, in its player that reads a page aloud. Four patterns,
-each built to fix something a reader actually hit, and each reusable
-wherever a piece plays through a text or a timeline.
+The values of the reading-aloud player; how it is built is `PRO-022`.
 
-| Pattern | Value | Why |
-|---|---|---|
-| **The reader leads** | The page follows the voice only until the reader scrolls. From then on the voice keeps going and a *Back to the reading* control appears above the dock, its arrow pointing to where the voice is. Reaching the word again by hand re-arms the following. | A player that drags the page takes the reader's scroll away; reading ahead or going back while it speaks was a fight. The reader owns the scroll, always. One scroll per page: the page's. |
-| **The dock** | Surfaces at the bottom while playing (surfacing, 10); `velo.cristal` + `velo.cristal-borde`, frame radius, the width of the text column. Play/pause · section name · time in mono · ruler · rate · close. The entry point in the page stays quiet: hairline and dim text until it plays. | It reads as part of the document's card, not a widget laid over it. Controls that follow the reader beat a toolbar left behind at the top. |
-| **The ruler** | A hairline with a fine mark every ~1/90 of its width, a longer mark at each section, the heard part printed in a halftone of Verdemar (dots 2.1 px on a 4 px pitch, fading in from 35 %). Hover shows time · section and the first words of the sentence; a drop starts at the **head of that sentence**; arrows step sentence by sentence. | Not a loading bar: a 1920 print ruler — paper and press (1920), a signal you can scrub (2020), light over glass (2120). Landing mid-sentence is noise; sentences are the unit a listener thinks in. |
-| **Drying ink** | What the voice has passed keeps **its own colour** and loses brightness in three steps: the last 3 words at 80 %, the 6 before at 65 %, the rest at 50 % of the ink's alpha. Painted with the CSS Custom Highlight API, one highlight per ink colour and step, never with spans. Under `prefers-contrast: more` nothing dries. | Read text recedes like ink that has set, so the eye finds the present without a highlight shouting it — and it stays ink: a link still reads as a link, a bold as a bold (a first version turned everything one grey and the page went dull; a second, keeping colour at 75 %, was too subtle to notice). It is a **state, not an animation**: the colour of text is never transitioned. No DOM is touched, so browser translation and text selection survive. |
-| **The reading light** | A diffuse light in Arena (`--text`, never pure white, 14 px) with a small core of ink at its centre, drifting just above the spoken word, with a soft trail of 12 fading copies; critically damped spring (k 90), sliding along the word as it is spoken; dims to 45 % on pause. Its position is estimated by **spoken** weight (a figure weighs what it takes to say) and re-synced at the end of every sentence, the unit the engine speaks. The ruler's head is the same light. | The old amber dot hopped word to word and competed with the Ámbar that marks what shines. Arena is the page's own ink colour: the light belongs to the text; the core lets a reader with low vision follow it. Under `prefers-reduced-motion` it jumps, with no trail and no drift. |
-
-**Touch to hear.** While the voice is on, a click on a sentence starts it there (links, buttons and a selection keep their meaning). **Speeds** step 1 · 1.25 · 1.5 · 2 · 0.75 from one button — the first step gentle, no 1.75, a slower one for learners — and the chosen speed follows the reader across documents. **The ruler's preview is dark glass**, like the dock: a recorded exception to the web recipe's rule that a tooltip takes the opposite mode, because white paper over the reading dazzles in Nocturno.
-
-**Icons over words in document tools.** Copy, download and source are
-glyphs, each with a name a screen reader says and a tooltip in the opposite
-mode; the words added nothing a reader of the glyph did not already know.
+| Value | |
+|---|---|
+| Drying ink | the last 3 words at 80 %, the 6 before at 65 %, the rest at 50 % of the ink's alpha; none under `prefers-contrast: more` |
+| Reading light | Arena (`--text`), 14 px, an ink core; a trail of 12 copies; spring k 90; 45 % on pause |
+| The ruler | halftone of Verdemar, dots 2.1 px on a 4 px pitch, from 35 %; a fine mark every ~1/90 of its width |
+| Speeds | 1 · 1.25 · 1.5 · 2 · 0.75 |
 
 **Catalogue status.** The drying ink is a state, and the dock uses the
 surfacing animation; neither adds an animation. The reading light is
-animation fifteen in the catalogue above, at the Oracle's word: the second
-allowed loop after the sky, allowed because it is not ambient — it exists
-only while a voice plays and moves only because the voice moves.
+animation fifteen in the catalogue above.
 
 ---
