@@ -5,15 +5,15 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "2.0.0"
+version: "3.0.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, register, practices]
 license: "CC0-1.0"
-series_change: "2.0.0 — 2026-09-25: five rows that repeated a rule held elsewhere are retired into it, the changelog row follows Keep a Changelog instead of a changelog generated from commits, and the rows the outside-standards audit named now cite the right outside standard and an honest verifier, at the Oracle's word in session."
+series_change: "3.0.0 — 2026-09-26: the seven commit kinds and their table leave for Git is the archive, which holds how a change reaches the main line; the trunk row now points at its new plate there. A rule removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -46,7 +46,7 @@ SPDX-License-Identifier: CC0-1.0
 | Architecture | ARC-002 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: scorecard Branch-Protection]` |
 | Architecture | ARC-004 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[DEBT: no smoke script, no CI or coverage badge in README.md — oracle, 2026-09-11]` |
 | Architecture | ARC-005 | ADRs in `docs/decisions/`, one decision per file | MUST | `[DEBT: no guard reads decisions/ for one-decision-per-file — oracle, 2026-09-11]` |
-| Architecture | ARC-006 | Conventional commits, semver tags, GitHub Releases with notes | MUST | `[DEBT: no commitlint — oracle, 2026-09-11]` |
+| Architecture | ARC-006 | Commit kinds as the commit-subject rule GIT-026 lists, semver tags, GitHub Releases with notes | MUST | `[DEBT: no commitlint — oracle, 2026-09-11]` |
 | Architecture | ARC-007 | Infrastructure declarative only: Terraform and containers | MUST | `[DEBT: no Terraform in the tree, no drift detection — oracle, 2026-09-11]` |
 | Architecture | ARC-008 | Shared base config (tsconfig, eslint, prettier) imported from one package, never copied | MUST | `[DEBT: no knip and no shared base config package — oracle, 2026-09-11]` |
 | Architecture | ARC-009 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[GATE: github repos/numengames/numinia-archive/dependabot/alerts → a person adopts the dependency]` |
@@ -88,7 +88,7 @@ already holds is removed, and its code now leads to that rule.
 | Retired | Now held by |
 |---|---|
 | SRE-006 | retired → ENG-006, incidents produce rules, not culprits |
-| DEV-007 | retired → ENG-003, work lands in small batches on one trunk, with one approval |
+| DEV-007 | retired → GIT-025, small batches by pull request on one trunk, with one approval |
 | ARC-003 | retired → LIC-007, each repository says its terms in the common format |
 | OSS-003 | retired → LIC-013, every contribution comes with permission |
 | TRC-008 | retired → URL-001 and URL-005, the address rules |
@@ -101,13 +101,6 @@ and its response time, the roadmap, the contribution guide, the code of
 conduct, the changelog, answers to reported issues, sign-off on
 contributions and the scan for leaked credentials. Our choice.
 
-**How a commit says its kind.** A commit opens with its kind, in the form
-Conventional Commits sets out, and there are seven, nothing invented: a
-feature, a fix, documentation, a chore, a refactoring, a test, or a change to
-the automatic checks. In brackets after the kind comes the area touched, in
-lower case, usually the folder. Kinds we used to write stay valid in old
-history only.
-
 **What a new repository is born with.** A security score, run every week and
 on every change to the main line, aiming at seven out of ten or better on a
 public repository, with each repository saying which of its checks apply;
@@ -117,17 +110,6 @@ present — the agent instructions, the security policy, the contribution
 guide, the list of owners, the templates, the example settings and the
 repository's description; and local hooks that are a courtesy, may be
 skipped, and never decide.
-
-| Kind of commit | Written |
-|---|---|
-| a feature | `feat` |
-| a fix | `fix` |
-| documentation | `docs` |
-| a chore | `chore` |
-| a refactoring | `refactor` |
-| a test | `test` |
-| a change to the automatic checks | `ci` |
-| retired, valid in old history only | `session`, `qa`, `standards`, `canon`, `debt`, `audit` |
 
 ## The family pipeline
 

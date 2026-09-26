@@ -5,18 +5,18 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "2.5.0"
+version: "3.0.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, guards]
 license: "CC0-1.0"
 absorbs: ["STD-011"]
-series_change: "2.5.0 — 2026-09-25: five rules now follow a named outside standard and say in our words what it makes us do (trunk-based development with the scorecard's branch checks, twelve-factor settings, the scorecard with a named reader and a seven-out-of-ten aim, postmortems with triggers set before an incident, and Keep a Changelog's six kinds), a minor move because obligations are added and none dropped, at the Oracle's word in session."
+series_change: "3.0.0 — 2026-09-26: small batches on one trunk leave for Git is the archive and the three layers of a practice for Who may change what, each the one standard answering that question; no other rule changes. Obligations removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -85,18 +85,10 @@ elsewhere.
 runner finds in the guards folder. The workflow calls the runner and names no
 guard, because a list written by hand is stale the day it is written.
 
-**Three layers, three speeds.** Principles change only by the Oracle's
-decision; practices by a written decision and a pull request, with a new
-version number; checks by pull request, at any time.
-
 ### How work lands
 
-**Work lands in small batches on one trunk.** We follow trunk-based
-development, the common practice of merging small changes into one main line
-at least daily, together with the security scorecard's checks that the main
-line is protected and every change to it reviewed. Conflicts stay small, and
-the settings alone prove that nothing reached the main line unseen. Our
-addition: at least one approval MUST come before a change lands. Our choice.
+How a change reaches the main line, and how a commit says its kind, is
+said once, in the standard that git is the archive.
 
 **Leave it better.** No change adds debt silently: it declares what it left
 behind. A green pipeline is not a clean tree.
@@ -145,9 +137,9 @@ deprecated, removed, fixed, or security — so a reader learns what moved, and
 whether it touches them, without reading the commits. Our addition: a site
 with no releases SHOULD head each group with its date instead. Our choice.
 
-How a commit message says its kind, and how a mission accepts the software it
-produces through scenarios a test runs, are practices in the register of
-engineering checks, each with its own check there.
+How a mission accepts the software it produces, through scenarios a test
+runs, is a practice in the register of engineering checks, with its own
+check there.
 
 This standard is over its word budget because every rule has to be read
 aloud and understood without opening the source.
@@ -166,8 +158,8 @@ baseline follows, with the register rows that apply it.
 | ENG-067 | A guard bites by the state of its rule; signing a standard switches its guards on; a guard over the artefact bites always | — | `machine/scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `blindness.test.mjs` checks every guard is a build guard or answers to the regime |
 | ENG-031 | A guard runs from the change that merges it | — | `machine/scripts/run-guards.mjs` runs every registered guard; `blindness.test.mjs` and the register check refuse a guard script with no registry entry |
 | ENG-032 | The list of guards is read, never remembered | — | the workflow calls `npm run guards` and names no guard; the register check verifies that step is present |
-| ENG-034 | Three layers, three speeds | — | by hand, at review |
-| ENG-003 | Work lands in small batches on one trunk | [Trunk-Based Development](https://trunkbaseddevelopment.com/); [OpenSSF Scorecard, Branch-Protection and Code-Review](https://github.com/ossf/scorecard/blob/main/docs/checks.md) | `.github/rulesets/protect-main.json`: pull request required, one approval, no force push, linear history, the `build` check required; `.github/workflows/scorecard.yml` grades Branch-Protection and Code-Review; batch size and branch age by hand |
+| ENG-034 | retired → AUT-065 of Who may change what, which holds the three layers | — | — |
+| ENG-003 | retired → GIT-025 of Git is the archive, small batches by pull request on one trunk | — | — |
 | ENG-005 | Leave it better | — | by hand, at review |
 | ENG-004 | Settings live in the environment | [The Twelve-Factor App, III. Config](https://12factor.net/config) | no tracked environment file in any of the four repositories; no secret scanner of our own (register row SEC-004 is owed) |
 | ENG-068 | Every repository keeps a security score | [OpenSSF Scorecard](https://scorecard.dev/) | `.github/workflows/scorecard.yml` runs weekly and on push to the main line in all four repositories; the named reader and the grade itself, by hand |
@@ -181,9 +173,9 @@ baseline follows, with the register rows that apply it.
 |---|---|
 | [Google SRE book, ch. 15](https://sre.google/sre-book/postmortem-culture/) | ENG-006 alone; register row SRE-006, which said it again, is retired into it |
 | [OpenSSF Scorecard](https://scorecard.dev/) | ENG-068 and ENG-035; register rows SEC-003, SEC-007, SEC-008, SEC-009, ARC-002 and ARC-009 are verified by its checks |
-| [Trunk-Based Development](https://trunkbaseddevelopment.com/) | ENG-003; register rows ARC-002, DEV-006 and the pull-request rule GIT-025 apply parts of it; register row DEV-007, which repeated the approval, is retired into ENG-003 |
+| [Trunk-Based Development](https://trunkbaseddevelopment.com/) | GIT-025 of Git is the archive, which holds retired ENG-003; register rows ARC-002 and DEV-006 apply parts of it; register row DEV-007, which repeated the approval, is retired into GIT-025 |
 | [The Twelve-Factor App, III. Config](https://12factor.net/config) | ENG-004; register rows SEC-004 and DEV-001 apply it |
-| [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) | the commit-subject rule GIT-026 and register row ARC-006 with its list of kinds; no commit-message check anywhere (`DBT-020`) |
+| [Conventional Commits 1.0.0](https://www.conventionalcommits.org/en/v1.0.0/) | the commit-subject rule GIT-026, which holds the list of kinds, and register row ARC-006; no commit-message check anywhere (`DBT-020`) |
 | [Gherkin](https://cucumber.io/docs/gherkin/) | register row AGT-005; only `numinia-web` runs scenarios, ten `.feature` files in its acceptance tests in CI |
 | [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/) | ENG-069; register row TRC-004 now follows it, where it once allowed a changelog generated from commits, which this outside standard advises against |
 

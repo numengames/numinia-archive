@@ -5,16 +5,16 @@ title: "The corpus does not grow"
 type: documentation
 subtype: standard
 status: draft
-version: "1.3.0"
+version: "2.0.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
-tags: [deflation, lifecycle, reports, missions, debt, compression, records-management]
+tags: [deflation, lifecycle, reports, missions, debt, compression, records-management, retirement, Dublin-Core]
 ratified_by: "ADR-042"
-related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001"]
-series_change: "1.3.0 — 2026-09-25: what survives and how a record leaves are written as what they adopt from the international standard for records management and the web's permanent redirect, each saying what it makes us do and why, and that no law requires it; the no-redirect-chain rule becomes an explicit obligation."
+related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001", "STD-028"]
+series_change: "2.0.0 — 2026-09-26: this standard becomes the one answer to how a document leaves: it takes naming the replacement and deleting only what nothing cites from Git is the archive, and moving series and absorption from A series is a function, and binds every document that leaves, not only records. Where a retired address leads is left to the address standard alone. A wider scope with new obligations, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -23,19 +23,19 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # The corpus does not grow
 
-> **Summary:** Every record — a mission, a report, a debt, a blueprint — has
-> a written way out. Records roll up by week, by quarter and by year. What
-> survives is what changed a rule, opened or closed a debt, or produced
-> something with an address. The history keeps the rest.
-> **Epistemic:** Why an archive that only adds becomes unreadable, and that
-> our way out is the one records managers everywhere already audit.
-> **Pragmatic:** A deleted record's name keeps leading somewhere: to the
-> highest living document that holds its line.
+> **Summary:** Every document has a written way out. Records roll up by
+> week, by quarter and by year, and keep only what changed a rule, a debt
+> or an address. Any document leaves by being replaced, absorbed or moved
+> under a new name, and is deleted only when nothing living cites it.
+> **Epistemic:** How a document leaves the archive, and why an archive that
+> only adds becomes unreadable.
+> **Pragmatic:** Roll up, replace, absorb, move or delete a document
+> without leaving a citation pointing at nothing.
 > **Audience:** Agents · Oracles
 
-**Binds:** missions, reports, debt records and blueprints.
-**Does not bind:** canon, standards and protocols, which shrink by merging;
-decisions, which become rules.
+**Binds:** every document that leaves the archive or its series; roll-ups
+bind records only.
+**Does not bind:** where a retired web address leads.
 
 ## Rules
 
@@ -66,7 +66,7 @@ that each removal was allowed. Our roll-up procedure is that authority: any
 agent MAY run it, and it leaves nothing to taste — an uncertain line is
 carried up and marked for the Oracle.
 
-### How a record leaves
+### How a document leaves
 
 **A record leaves by transfer, not destruction.** The records standard ends
 a record's life by destroying it or transferring it; the version history
@@ -74,11 +74,25 @@ keeps every deleted file, so ours is a transfer. Once a closed record has
 its line in this week's report, its file MUST be deleted in that change,
 after the four deletion tests.
 
-**The old name leads to the answer in one step.** The web's permanent
-redirect, and the rule that good addresses never change, keep every old link
-working; we add that it lands on the answer directly. When a report rolls
-up, its list of absorbed names and every public redirect MUST move to the
-report above in the same change.
+**The replacement is named in the header.** Dublin Core, the common
+vocabulary for describing documents, lets a document say which one replaced
+it. A withdrawn document that has a replacement MUST name it in its header;
+a document still in force or in draft names none.
+
+**A document changes series under a new name.** A document that moves to
+another series MUST take a new name there, with the old one naming it as
+its replacement; neither is renumbered, and if a reader of the old cannot
+be updated in the same change, the move does not happen.
+
+**Absorption carries the reasoning.** A document MAY leave by being carried
+into another that says, in Dublin Core's terms, what it replaces; the
+reasoning survives there, and every citation is rewritten in the same
+change. When a report rolls up, its list of absorbed names MUST move whole
+to the report above.
+
+**Nothing is deleted while cited.** A document MUST NOT be deleted while a
+living document cites it; a closed record's citation is a photograph and
+does not count.
 
 ## Check
 
@@ -95,7 +109,11 @@ made so an auditor can read it in terms they already know.
 | DEF-006 | A phase is an index, not a level | — | by hand |
 | DEF-007 | The written procedure authorises every removal | [ISO 15489-1:2016, disposition authorities](https://www.iso.org/standard/62542.html), clause 8.5 (clause unverified); the authority is `PRO-017` | by hand |
 | DEF-004 | A record leaves by transfer, not destruction | [ISO 15489-1:2016, disposition](https://www.iso.org/standard/62542.html), clause 9.9 (clause unverified); git keeps the transferred file | `machine/tools/check-deletable.mjs --candidates` — closed records with no living citer |
-| DEF-005 | The old name leads to the answer in one step | [RFC 9110, 301 Moved Permanently, section 15.4.2](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.2) · [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI); one step, no chain, is ours | `machine/guards/rules/std-020-git-is-the-archive.mjs` · `machine/scripts/check-url-lifecycle.mjs` · `machine/scripts/check-url-shape.mjs` (redirect chains) |
+| DEF-005 | retired → URL-005 of One document, one address, which alone says where a retired address leads; the moving list of absorbed names is DEF-011 | — | — |
+| DEF-008 | The replacement is named in the header | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); holds retired GIT-045 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs`, which reads the `superseded_by` and `status` fields |
+| DEF-010 | A document changes series under a new name | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); no move without updating its readers is ours; holds retired SER-005 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs` |
+| DEF-011 | Absorption carries the reasoning | [Dublin Core, Replaces](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/replaces/); holds retired SER-006 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs` (`absorbs:`) |
+| DEF-009 | Nothing is deleted while cited | — (ours); holds retired GIT-048 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs`; `machine/tools/check-deletable.mjs`, run by hand |
 
 | In the reading | Exact form |
 |---|---|
@@ -103,6 +121,8 @@ made so an auditor can read it in terms they already know.
 | a roll-up report | `reports/`, `subtype: rollup`, with a `period` field |
 | a closed record | a mission `done`, or `frozen` with its reason; a debt resolved; a blueprint built or abandoned |
 | its list of absorbed names | the `absorbs:` field of the report carrying the line |
+| names it in its header | `superseded_by:` on the withdrawn document (Dublin Core `isReplacedBy`) |
+| says what it replaces | `absorbs:` on the heir (Dublin Core `replaces`) |
 | the four deletion tests | `ADR-030` |
 | the written procedure | `PRO-017` |
 
@@ -111,8 +131,9 @@ made so an auditor can read it in terms they already know.
 An archive that only adds grows, in months, beyond what any reader can hold:
 by September 2026 it held 133 missions and was cut to 18 by hand in one day.
 This standard makes that cut a rhythm instead of an event, on terms an
-auditor of records already reads. Three levels, because each is a point where
-a decision is taken; a fourth rewriting loses more without deciding more.
+auditor of records already reads, and gives every other exit a name that
+keeps resolving. Three levels, because each is a point where a decision is
+taken; a fourth rewriting loses more without deciding more.
 
 ## References
 
@@ -122,3 +143,4 @@ a decision is taken; a fourth rewriting loses more without deciding more.
 | `ADR-030` | The four tests before deletion | the four tests every exit still passes |
 | `ADR-042` | The corpus rolls up weekly | the decision that ratified this standard |
 | `RPT-018` | The Alpha story | closed for growth; the first weekly starts after it |
+| `STD-028` | One document, one address | where a retired document's address leads |

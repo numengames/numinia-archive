@@ -7,7 +7,7 @@
 // WHY THIS EXISTS
 // Astro copies web/public/** into dist/ verbatim. Those files are served from
 // numinia.org with no frontmatter, no declared licence, invisible to
-// the GIT-048 guard and to every corpus measurement (which globs *.md).
+// the DEF-009 guard and to every corpus measurement (which globs *.md).
 // D-023's mechanism, one level out: the omission produces no error, it
 // produces a valid site with content nobody is measuring.
 //

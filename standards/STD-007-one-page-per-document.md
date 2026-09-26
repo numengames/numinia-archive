@@ -5,17 +5,17 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "1.3.0"
+version: "1.4.0"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Content"
 license: "CC0-1.0"
-tags: [standards, writing, form, plates, budget, BCP-14, ISO-IEC-Directives]
+tags: [standards, writing, form, plates, budget, BCP-14, ISO-IEC-Directives, DITA]
 ratified_by: "ADR-043"
 supersedes_version: "0.3.0"
-series_change: "1.3.0 — 2026-09-25: the scope, plate, citation and language rules say which outside standard they follow — the international drafting rules for a scope clause, the internet's obligation words with the requirements-engineering rule of one uniquely named requirement each, language tags — and the evidence standard's rule against citing section numbers is merged into this one, one rule for every document."
+series_change: "1.4.0 — 2026-09-26: a document answers one question, which its epistemic line states; two that answer the same are merged, one that answers two is split, as topic-based writing asks of every topic; and how obligation words are written comes in from the header standard, where it answered a second question. A recommendation added and a rule moved in, so a minor move, at the Oracle's word in session."
 ---
 
 <!--
@@ -25,12 +25,12 @@ SPDX-License-Identifier: CC0-1.0
 
 # One page per document
 
-> **Summary:** A title that states the rule, a three-part card, a one-line
-> scope. Rules first, each with its code; then the check, then the reason.
+> **Summary:** One question per document, a title that states the rule, a
+> three-part card, a one-line scope. Rules first, each with its code; then the check, then the reason.
 > The body fits its shelf's budget. Size limits are SHOULD; form is MUST.
-> **Epistemic:** Why the older standards went unread — apparatus before
-> content, reasons before rules, pointers instead of text — and the shape
-> that reverses each of the three.
+> **Epistemic:** What shape a document takes: one question, rules before
+> reasons, text instead of pointers, and why the older standards that did
+> the opposite went unread.
 > **Pragmatic:** The mould to copy, the budgets to aim at, and what the
 > shape check reports on every change.
 > **Audience:** Agents · Oracles
@@ -54,6 +54,13 @@ naming.
 of what is required, what the reader will understand, and what the reader
 can then do; each SHOULD be at most 40 words.
 
+**One document, one question.** A document SHOULD answer one question, and
+its epistemic line SHOULD state that question. Two documents that answer the
+same question are merged; one that answers two is split. The topic-based
+writing standards ask the same of every topic, so a reader, a person or an
+agent, opens one file and finds the whole answer, and no other file
+contradicts it.
+
 **Scope is one line each way.** A standard or protocol MUST say whom it
 binds and what it does not bind, each in at most 15 words, as the
 international drafting rules require a scope clause up front; so a reader
@@ -66,6 +73,11 @@ obligation with one capitalised obligation word and a code of three letters
 and three digits, unique and never reused, in its title or the check table;
 requirements engineering asks exactly this, so each rule can be cited,
 tested and traced alone.
+
+**Obligation words mean one thing.** MUST, SHOULD and MAY, and their
+negatives, MUST carry the meaning the internet's standards body gave them,
+and only when written in capitals: a must is required, a should may be
+broken only with a reason, a may is a free choice.
 
 **The reason is short.** The section giving the reason SHOULD hold at most
 80 words. Longer reasoning belongs in a decision record.
@@ -100,7 +112,7 @@ internet's standard language tag, so a reader and a program both know it. A
 Spanish document is not invalid, it is mid-migration.
 
 This standard is over its word budget because the check table at its foot
-names a check for each of its eleven rules.
+names a check for each of its thirteen rules.
 
 ## Check
 
@@ -111,8 +123,10 @@ it rests on, and what verifies it today.
 |---|---|---|---|
 | DOC-001 | The title states the rule | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD: counted, reported, never handed to the regime |
 | DOC-002 | The card is three short paragraphs | — | `machine/guards/rules/std-007-one-page.mjs` — a missing part binds by this standard's state (`ENG-067`); length is a SHOULD |
+| DOC-012 | One document, one question | [DITA 1.3, the topic as the basic unit of information](https://docs.oasis-open.org/dita/dita/v1.3/os/part2-tech-content/archSpec/base/topicdefined.html): short enough to answer a single question — ours adds: the question is the epistemic line; merge or split | by hand, at the pull request; the map in `BLU-016` records each standard's question |
 | DOC-003 | Scope is one line each way | [ISO/IEC Directives, Part 2 (2021), clause 14, Scope](https://www.iso.org/sites/directives/current/part2/index.xhtml) — ours adds: both directions, 15 words each | `machine/guards/rules/std-007-one-page.mjs`; `machine/guards/test/std-007-one-page.test.mjs` |
 | DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the plate `AAA-NNN` | `machine/guards/rules/std-007-one-page.mjs` — a plate in a rule title or the Check table's first column (`platesIn`) |
+| DOC-013 | Obligation words mean one thing | [BCP 14](https://www.rfc-editor.org/info/bcp14) = [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) + [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) (capitals only); holds retired HDR-046 | by hand, at review |
 | DOC-005 | The reason is short | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
 | DOC-006 | The body fits its budget | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
 | DOC-007 | Few, necessary references | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |

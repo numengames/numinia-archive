@@ -19,6 +19,17 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (one document, one question)
+At the Oracle's word in session: each document answers one question; two that answer the same are merged, one that answers two is split. First cut over the standards shelf.
+- **`STD-007`** 1.4.0: new DOC-012, one document, one question, stated in the epistemic line (DITA 1.3, the topic answers a single question). Obligation words (HDR-046 → DOC-013) move here from the header, which now answers only what a correct header is (`STD-004` 4.0.0).
+- **Who may change what** has one answer, `STD-017` 2.1.0: the five thresholds (SER-003 → AUT-068), the three layers of a practice (ENG-034) and who moves which version number (VER-064) join AUT-065. `STD-024` 2.0.0, `STD-019` 3.0.0 and `STD-005` 3.0.0 drop them.
+- **How a document leaves** has one answer, `STD-012` 2.0.0, now binding every document that leaves: the heir in the header (GIT-045 → DEF-008), nothing deleted while cited (GIT-048 → DEF-009), moving series (SER-005 → DEF-010), absorption (SER-006 → DEF-011). The redirect rule, written three times (DEF-005, GIT-046, GIT-047), is URL-005 of `STD-028` 0.3.0 alone, now saying one step and moving with its answer. Link, never copy (GIT-049 → TXT-008) goes to `STD-006` 2.1.0.
+- **How a change reaches main** has one answer, `STD-020` 2.0.0: trunk-based development (ENG-003) joins GIT-025, and the seven commit kinds move in from `STD-015` 3.0.0.
+- **What a site may store** is personal data: DSN-015 → PRV-008 of `STD-035` 0.3.0; `STD-008` 9.0.0.
+- **Guards:** the citation resolver and the heir check leave the git guard for a new `std-012-corpus-does-not-grow` (DEF-008, DEF-009); `std-020-git-is-the-archive` keeps only GIT-026. Findings are the same 84, under the new plates. Test first.
+- **`BLU-016`** 0.2.0, renamed *One question per standard*: the map of each standard's question and what it still carries (eight rows open: 005, 008, 014, 015, 023, 032, 033, 034), and one line per outside standard not yet decided; the five adopted in #499 leave the list. The old address redirects.
+- **`BLU-017`** 0.2.0: two more to confirm — the working-time record and saying when an agent speaks (AI Act art. 50).
+
 ### Changed — 2026-09-25 (we are a microenterprise)
 - **`STD-034`** 0.2.1 and **`BLU-017`** 0.1.1: the Oracle confirmed Numen Games S.L. is a microenterprise, so the European Accessibility Act does not oblige us; WCAG 2.2 AA and the store's accessibility information stay our choice. To review if the company grows.
 

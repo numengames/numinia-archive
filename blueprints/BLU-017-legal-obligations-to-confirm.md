@@ -4,9 +4,9 @@ uid: ""
 title: "Legal obligations to confirm"
 type: blueprint
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-25T15:00:00+02:00"
-updated: "2026-09-25T16:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, legal, consumer-law, tax, DSA, GDPR]
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Legal obligations to confirm
 
-> **Summary:** Ten things the law likely asks of a small Spanish company
+> **Summary:** Twelve things the law likely asks of a small Spanish company
 > selling digital goods and hosting a community, which no rule of ours yet
 > covers, each with who should confirm it.
 > **Epistemic:** Where our standards stop short of the law.
@@ -114,6 +114,16 @@ asks for more. Look again if the company grows past either line.
 site to show the company's name, tax number, registered address, registry
 entry and a contact. It costs one footer; a lawyer confirms the details.
 
+### People and agents
+
+**A record of working hours.** Any company with employees must record
+each one's daily start and finish; it matters from the first hire. The
+gestoría confirms.
+
+**Saying when a machine speaks.** The European artificial intelligence act
+asks that a person know when they talk to an agent, and that generated
+media be marked as such, from August 2026. A lawyer confirms what reaches us.
+
 ## The gap
 
 | Gap | What closes it |
@@ -124,6 +134,7 @@ entry and a contact. It costs one footer; a lawyer confirms the details.
 | No notice form, statement of reasons or contact point | three templates and a published page |
 | No record of processing, breach procedure or age check | the privacy work the notice already awaits |
 | No legal notice on the sites | one footer, from the company's details |
+| No working-time record, no notice that an agent is speaking | the gestoría's answer, then one line each in the relevant standard |
 
 ## Cost and risk
 
@@ -147,3 +158,5 @@ these apply from the first sale.
 - [LOPDGDD, Ley Orgánica 3/2018 — art. 7](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673)
 - [European Accessibility Act, Directive (EU) 2019/882](https://eur-lex.europa.eu/eli/dir/2019/882/oj)
 - [LSSI, Ley 34/2002 — art. 10](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758)
+- [Workers' Statute, RDL 2/2015 — art. 34.9, working-time record](https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430)
+- [Artificial Intelligence Act, Regulation (EU) 2024/1689 — art. 50](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)

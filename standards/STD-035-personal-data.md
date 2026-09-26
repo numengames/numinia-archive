@@ -5,16 +5,16 @@ title: "Personal data"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [standards, privacy, GDPR, LOPDGDD, personal-data]
-related: ["OPS-003", "STD-033", "BLU-017"]
-series_change: "0.2.0 — 2026-09-25: every rule rests on its article of the European regulation or the Spanish data protection law; data past its purpose is blocked before it is erased, all six rights are answered within a month, and four duties are added — a record of processing, contracts with processors, breach notice within 72 hours, and parental consent under fourteen."
+related: ["OPS-003", "OPS-010", "STD-033", "BLU-017"]
+series_change: "0.3.0 — 2026-09-26: what a site may store in a visitor's browser comes in from the design tokens standard, since it is about data kept on a person. One obligation moved in, held below 1.0.0 because only the Oracle promotes, at the Oracle's word in session."
 ---
 
 <!--
@@ -38,8 +38,9 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Rules
 
-Every rule here is law, from the European data protection regulation and
-the Spanish data protection law; a lawyer should confirm how each applies.
+Every rule here is law, from the European data protection regulation, the
+European and Spanish rules on cookies, and the Spanish data protection law;
+a lawyer should confirm how each applies.
 
 ### Why we keep it, and for how long
 
@@ -70,6 +71,14 @@ MUST come from a parent or guardian. The law requires this in Spain.
 use of personal data: what, why, whose, shared with whom, for how long. It
 is the first thing an inspector asks for. The law requires this.
 
+**A site says what it stores.** A public site MUST ask consent before it
+stores anything in the visitor's browser that the service they asked for
+does not need; refusing is as easy as accepting, and consent is asked again
+when the purposes change. A preference the visitor set, like the mode,
+needs none. The law requires this. By choice we go further: nothing is
+stored, loaded from anyone else, or measured and sent from the visitor's
+device unless the cookie policy names it with its purpose and duration.
+
 **Anyone handling data for us signs first.** A supplier who processes
 personal data on our behalf MUST do so under a written contract that
 binds them to our instructions and to keeping it safe. The law requires
@@ -95,6 +104,7 @@ and what verifies it today.
 | PRV-003 | The person is in charge of it | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 12, 15–18, 20, 21 | by hand; the contact lives in `OPS-003` |
 | PRV-004 | Under fourteen, a parent decides | law: [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) art. 7; [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 8 | nothing yet: no age check exists |
 | PRV-005 | A record of what we do with data | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 30 | nothing yet: no record is kept |
+| PRV-008 | A site says what it stores | law: [ePrivacy Directive](https://eur-lex.europa.eu/eli/dir/2002/58/oj) art. 5(3); [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 22.2; [AEPD cookie guide, July 2023](https://www.aepd.es/guias/guia-cookies.pdf); the named inventory is ours, stricter; holds retired DSN-015 | nothing yet: `check-storage` is described, and runs in none of the four sites (`RPT-021`); the inventory is `OPS-010` |
 | PRV-006 | Anyone handling data for us signs first | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 28 | by hand; the suppliers' data processing terms, outside this repository |
 | PRV-007 | A breach is reported within three days | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 33–34 | nothing yet: no breach procedure is written |
 
@@ -112,4 +122,5 @@ asked.
 |---|---|---|
 | `OPS-003` | Privacy Policy — Numen Games | the privacy notice these rules are kept in |
 | `STD-033` | Charges and the account | what a payer may choose to show |
+| `OPS-010` | Cookie Policy — Numen Games | the inventory every site is held to |
 | `BLU-017` | Legal obligations to confirm | what remains to put in place |

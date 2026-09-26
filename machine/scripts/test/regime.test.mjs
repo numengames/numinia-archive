@@ -56,10 +56,10 @@ check('guards: every plate emitted by a regime guard has a holder', () => {
   return unheld.length === 0 || unheld.join('; ');
 });
 
-check('tree: STD-004 is active and HDR-000 binds; STD-020 is draft and GIT-045 does not', () => {
-  const a = bindsFor('HDR-000'), b = bindsFor('GIT-045');
+check('tree: STD-004 is active and HDR-000 binds; STD-012 is draft and DEF-008 does not', () => {
+  const a = bindsFor('HDR-000'), b = bindsFor('DEF-008');
   if (a.holder !== 'STD-004') return `HDR-000 holder ${a.holder}`;
-  if (b.holder !== 'STD-020') return `GIT-045 holder ${b.holder}`;
+  if (b.holder !== 'STD-012') return `DEF-008 holder ${b.holder}`;
   return (a.binds === (a.status === 'active')) && (b.binds === (b.status === 'active'));
 });
 
@@ -112,4 +112,11 @@ check('platesIn: a plate in a rule title and a plate in the Check table both hol
   ].join('\n');
   const got = platesIn(body).join(' ');
   return got === 'ABC-001 ABC-002 ABC-003 ABC-004' || `got ${got}`;
+});
+
+check('tree: one question per guard — retirement is STD-012, commit subjects are STD-020', () => {
+  const a = index.byPlate.get('DEF-009'), b = index.byPlate.get('GIT-026');
+  if (a !== 'STD-012') return `DEF-009 holder ${a}`;
+  if (b !== 'STD-020') return `GIT-026 holder ${b}`;
+  return true;
 });

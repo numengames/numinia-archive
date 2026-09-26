@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "e3695b6",
-  "corpus_hash": "7d53065e02c730b899934ae7fa64095e609f7f65bc34f0b3a9241ef5283e3360",
+  "head": "8f3a4fe",
+  "corpus_hash": "fa328ca9eb6797ecd5abdbf9cabaf90994bc8403f5a6e1f588b7d776b0f21e44",
   "root_dirty": 0,
-  "measured_at": "2026-09-25T11:15:03Z",
+  "measured_at": "2026-09-26T06:24:42Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 594,
+      "value": 595,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 14,
         ".md": 235,
-        ".mjs": 76,
+        ".mjs": 77,
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
@@ -120,7 +120,7 @@
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 18,
+      "value": 19,
       "unit": "files",
       "definition": "guards the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)"
     },
@@ -320,25 +320,25 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 884724,
+      "value": 885704,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 77444,
+        "standards": 76764,
         "missions": 45717,
-        "": 41392,
+        "": 42082,
         "decisions": 39440,
         "reports": 29342,
-        "agents": 29103,
+        "agents": 29105,
+        "blueprints": 25341,
         "operations": 25159,
-        "blueprints": 24380,
         "system": 18761,
         "canon": 18667,
-        "protocols": 18054,
-        "machine": 16254,
+        "protocols": 18059,
+        "machine": 16256,
         "debt": 2986,
         "objects": 1865,
         ".github": 912
@@ -348,9 +348,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 536696,
-        "draft": 178438,
-        "active": 122385,
+        "(none)": 537388,
+        "draft": 178724,
+        "active": 122387,
         "done": 26539,
         "todo": 15975,
         "in-progress": 4691
@@ -359,7 +359,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.17,
+      "value": 5.16,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -580,7 +580,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 31,
+      "value": 32,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -621,7 +621,7 @@
       "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-016 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 67,
+      "value": 66,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -630,8 +630,8 @@
         "machine/scripts/lib/regime.mjs",
         "machine/scripts/run-guards.mjs",
         "machine/guards/lib/guard.mjs",
-        "web/scripts/share-card.mjs",
         "machine/tools/check-deletable.mjs",
+        "web/scripts/share-card.mjs",
         "machine/tools/rule-index.mjs"
       ],
       "unit": "scripts",
@@ -652,26 +652,26 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 955
+          "3": 1011
         },
         "MIS": {
           "3": 687,
           "4": 185
         },
         "PRO": {
-          "3": 290
+          "3": 289
         },
         "OPS": {
-          "3": 89
+          "3": 91
         },
         "CAN": {
-          "3": 497
+          "3": 495
         },
         "ADR": {
-          "3": 505
+          "3": 502
         },
         "BLU": {
-          "3": 119
+          "3": 120
         },
         "SYS": {
           "3": 57
@@ -755,7 +755,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 327,
+      "value": 332,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -773,7 +773,7 @@
         "lore/game/manual/en/03-character-creation.md": 10,
         "operations/OPS-007-sales.md": 10,
         "reports/RPT-019-2026-w37.md": 10,
-        "blueprints/BLU-017-legal-obligations-to-confirm.md": 7,
+        "blueprints/BLU-017-legal-obligations-to-confirm.md": 9,
         "missions/MIS-0135-normalisation-residue-register.md": 7,
         "operations/OPS-001-continuity.md": 7
       },

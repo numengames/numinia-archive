@@ -97,7 +97,7 @@ function render(latest) {
     for (const [k, f] of Object.entries(latest.figures).filter(([k]) => k.startsWith(fam + '.'))) {
       if (scalar(f.value) !== null) continue;
       // Lists of paths (evidence rows) stay in latest.json: the page states figures, and
-      // historical paths would read as broken links to the GIT-048 guard.
+      // historical paths would read as broken links to the DEF-009 guard.
       if (Array.isArray(f.value)) { lines.push(`### \`${k}\``, '', `${f.value.length} rows (${f.unit}) — in \`latest.json\`.`, ''); continue; }
       lines.push(`### \`${k}\``, '');
       const v = f.value;

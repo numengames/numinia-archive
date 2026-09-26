@@ -23,7 +23,7 @@
         },
         {
           "spot": "consumers written in code (.ts, .astro, .json manifests) — it scans .md only, so a slug map or import.meta.glob referencing a document is invisible",
-          "covered_by": "npm run build + std-020-git-is-the-archive"
+          "covered_by": "npm run build + std-012-corpus-does-not-grow"
         },
         {
           "spot": "untracked files — enumerates via `git ls-files`, so a citation from a .md that is not `git add`ed is never seen. It warns rather than passing silently",
@@ -395,9 +395,9 @@
         }
       ]
     },
-    "std-020-git-is-the-archive": {
-      "script": "machine/guards/rules/std-020-git-is-the-archive.mjs",
-      "sees": "GIT-048 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted .md; closed records (CIT-053) are indexed but not walked as citers. GIT-045 on the bound corpus: an heir named by a record not withdrawn. GIT-026 on the last 400 commit subjects.",
+    "std-012-corpus-does-not-grow": {
+      "script": "machine/guards/rules/std-012-corpus-does-not-grow.mjs",
+      "sees": "DEF-009 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted .md; closed records (CIT-053) are indexed but not walked as citers. DEF-008 on the bound corpus: an heir named by a record not withdrawn.",
       "blind_to": [
         {
           "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
@@ -417,9 +417,15 @@
           "fixture": "untracked"
         },
         {
-          "spot": "GIT-045 reads `superseded_by` and `status` only — whether the named heir EXISTS is GIT-048's question, answered only if the heir is cited in the body, not in the header (HDR-016 is manual)",
+          "spot": "DEF-008 reads `superseded_by` and `status` only — whether the named heir EXISTS is DEF-009's question, answered only if the heir is cited in the body, not in the header (HDR-016 is manual)",
           "covered_by": null
-        },
+        }
+      ]
+    },
+    "std-020-git-is-the-archive": {
+      "script": "machine/guards/rules/std-020-git-is-the-archive.mjs",
+      "sees": "GIT-026 on the last 400 commit subjects.",
+      "blind_to": [
         {
           "spot": "GIT-026 reads the last 400 commit subjects — an older multi-line subject is out of the window",
           "covered_by": null

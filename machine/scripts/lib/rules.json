@@ -15,7 +15,7 @@
     "agents":     { "prefix": [],             "digits": 0, "threshold": "live", "naming": false }
   },
   "retiredPrefixes": {
-    "_comment": "Prefixes that no longer name a series but still appear in prose and must resolve for reference checking (std-020-git-is-the-archive ID_RE). D- closed 2026-08-31 (RPT-001 §12). S- (standards, pre-MIS-109) and P- (protocols, pre-MIS-125) added 2026-09-03 — same shape as D-, found during the standards/ refactor: 168 and 287 live citations respectively, invisible to this guard until now.",
+    "_comment": "Prefixes that no longer name a series but still appear in prose and must resolve for reference checking (std-012-corpus-does-not-grow ID_RE). D- closed 2026-08-31 (RPT-001 §12). S- (standards, pre-MIS-109) and P- (protocols, pre-MIS-125) added 2026-09-03 — same shape as D-, found during the standards/ refactor: 168 and 287 live citations respectively, invisible to this guard until now.",
     "D": "debt",
     "S": "standards",
     "P": "protocols"
