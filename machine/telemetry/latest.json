@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "ad3cf3b",
-  "corpus_hash": "9c5fa898934d1e6b39880e6cb22c1165527864a2c0877287a903921f3d9da93f",
+  "head": "7d495ce",
+  "corpus_hash": "0d5cef05b36f9453bcfa6d134987b0d7ab316d88fc0094df45995eca43253c8c",
   "root_dirty": 0,
-  "measured_at": "2026-09-26T08:58:15Z",
+  "measured_at": "2026-09-26T09:25:33Z",
   "families": [
     "corpus",
     "series",
@@ -320,22 +320,22 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 885991,
+      "value": 885981,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 73525,
+        "standards": 73540,
         "missions": 45717,
-        "": 43477,
+        "": 43516,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29105,
-        "blueprints": 25384,
+        "blueprints": 25378,
         "operations": 25159,
-        "protocols": 20157,
+        "protocols": 20099,
         "system": 18766,
         "canon": 18667,
         "machine": 16241,
@@ -348,9 +348,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 538783,
-        "draft": 177629,
-        "active": 122374,
+        "(none)": 538822,
+        "draft": 177586,
+        "active": 122368,
         "done": 26539,
         "todo": 15975,
         "in-progress": 4691
@@ -379,7 +379,7 @@
         ],
         [
           "CHANGELOG.md",
-          36499
+          36538
         ],
         [
           "lore/game/manual/en/06-inventory-and-bestiary.md",
@@ -652,7 +652,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1046
+          "3": 1047
         },
         "MIS": {
           "3": 687,
@@ -767,7 +767,7 @@
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
         "lore/world/brand-and-culture.md": 18,
-        "standards/STD-023-design-values.md": 16,
+        "standards/STD-023-design-values.md": 17,
         "lore/game/manual/es/03-creacion-del-personaje.md": 12,
         "reports/RPT-017-mvp-story.md": 11,
         "lore/game/manual/en/03-character-creation.md": 10,

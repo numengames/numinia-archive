@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-26T08:58:15Z"
+updated: "2026-09-26T09:25:33Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `ad3cf3b`  · corpus_hash: `9c5fa898934d1e6b…`  · measured_at: 2026-09-26T08:58:15Z  · root_dirty: 0
+- head: `7d495ce`  · corpus_hash: `0d5cef05b36f9453…`  · measured_at: 2026-09-26T09:25:33Z  · root_dirty: 0
 
 ## corpus
 
@@ -205,7 +205,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 885991 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 885981 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 5.16 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -216,15 +216,15 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 495248 |
-| standards | 73525 |
+| standards | 73540 |
 | missions | 45717 |
-|  | 43477 |
+|  | 43516 |
 | decisions | 39440 |
 | reports | 29342 |
 | agents | 29105 |
-| blueprints | 25384 |
+| blueprints | 25378 |
 | operations | 25159 |
-| protocols | 20157 |
+| protocols | 20099 |
 | system | 18766 |
 | canon | 18667 |
 | machine | 16241 |
@@ -236,9 +236,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 538783 |
-| draft | 177629 |
-| active | 122374 |
+| (none) | 538822 |
+| draft | 177586 |
+| active | 122368 |
 | done | 26539 |
 | todo | 15975 |
 | in-progress | 4691 |
@@ -443,7 +443,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 1046 |
+| STD | 1047 |
 | MIS | 687 |
 | PRO | 312 |
 | OPS | 92 |
@@ -482,7 +482,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | operations/OPS-005-simulations.md | 19 |
 | reports/RPT-008-gaps-capability-map.md | 19 |
 | lore/world/brand-and-culture.md | 18 |
-| standards/STD-023-design-values.md | 16 |
+| standards/STD-023-design-values.md | 17 |
 | lore/game/manual/es/03-creacion-del-personaje.md | 12 |
 | reports/RPT-017-mvp-story.md | 11 |
 | lore/game/manual/en/03-character-creation.md | 10 |
