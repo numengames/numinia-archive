@@ -77,7 +77,7 @@ const manifest = {
     url: "https://numinia.org/standards/std-008-design-tokens",
   },
   system: {
-    id: "STD-032",
+    id: "SYS-009",
     url: "https://numinia.org/design",
   },
   files: {},

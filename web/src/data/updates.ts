@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.59.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "CHG",
+        text: "'Engineering baseline' is now 'When a rule bites': when a check fails the build, how the checks come to run, and the pipeline every repository shares. The practices it also carried — the security score, incidents, the changelog — are rows of 'Engineering checks'; where secrets live joined 'Secrets'. The old address redirects.",
+      },
+      {
+        type: "CHG",
+        text: "The map of the design system moved from the standards to the system shelf, since nothing in it binds. The design page, its markdown and its download read it from its new home; the old address redirects.",
+      },
+    ],
+  },
+  {
     version: "v0.58.0",
     date: "2026-09-26",
     entries: [

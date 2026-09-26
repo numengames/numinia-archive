@@ -28,7 +28,7 @@ the repository is the source of truth and this file only says where to look.
 
 ## Engineering standard
 
-standards/STD-005-engineering-baseline.md — this repository's own operative standard
+standards/STD-005-when-a-rule-bites.md — this repository's own operative standard
 protocols/PRO-016-applying-the-engineering-standard.md — how a task applies it
 
 ## Platform adapter

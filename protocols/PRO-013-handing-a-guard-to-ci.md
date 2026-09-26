@@ -102,6 +102,6 @@ stated separately from the guard.
 
 | Document | Title | Why it obliges here |
 |---|---|---|
-| `STD-005` | Engineering baseline | `ENG-031`, `ENG-032`: wiring, register; `ENG-067`: when a finding fails the build |
+| `STD-005` | When a rule bites | `ENG-031`, `ENG-032`: wiring, register; `ENG-067`: when a finding fails the build |
 | `STD-015` | Engineering checks | `TRC-006`, `TRC-007`: proof by step, declared blindness |
 | `PRO-016` | Applying the engineering standard | the task this continues |

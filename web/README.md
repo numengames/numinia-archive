@@ -12,7 +12,7 @@ Visor público del canon de Numinia / Numen Games. Extraído de [numinia-nwos-vi
 - Astro 5 (`output: "static"`, sin adapter) con islas React 19
 - Deploy: Cloudflare Workers como static assets (`wrangler.toml`, worker `numinia-nwos` → https://numinia.org)
 - Tailwind 3 + shadcn/ui, dark-only, tipografía Geist
-- Design system: numinia.org/design, drawn from `standards/STD-032-the-design-system.md`
+- Design system: numinia.org/design, drawn from `system/SYS-009-the-design-system.md`
 
 ## Desarrollo
 

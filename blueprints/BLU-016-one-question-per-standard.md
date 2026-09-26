@@ -4,16 +4,16 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.6.0"
+version: "0.7.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-26T18:00:00+02:00"
+updated: "2026-09-26T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
 territory: "Archive"
 license: "CC0-1.0"
 related_missions: []
-related: ["STD-007", "STD-017", "STD-012", "STD-005", "STD-008", "STD-023", "STD-032", "BLU-017"]
+related: ["STD-007", "STD-017", "STD-012", "STD-005", "STD-008", "STD-023", "SYS-009", "BLU-017"]
 ---
 
 <!--
@@ -38,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 26 September 2026 the shelf holds 33 standards, about 74,000 tokens.
+As of 26 September 2026 the shelf holds 32 standards.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
@@ -49,9 +49,13 @@ The third thinned the shelf without dropping a rule: the licence allowlist
 joined Licensing, whose table it was; each header keeps only its latest
 change; and the footer, the share card and the scarab are each written once.
 The fourth made the header and its fields one standard, the fields still
-read ring by ring. Still to weigh for thinning: the design system's map,
-which the design page and the kit read, and the design values. The rows marked
-as open below are what is left.
+read ring by ring. The fifth left the design values holding values, with the
+recipes in a protocol. The sixth closed the last rows: the engineering
+baseline, renamed *When a rule bites*, now holds the guards and the shared
+pipeline, and the practices it also carried became rows of the engineering
+checks, or rules of Secrets and of Git is the archive; the design system's
+map moved to the system shelf as a manual, since nothing in it binds. No row
+of the map below is open; what is left is the outside standards.
 
 ## Future state
 
@@ -66,7 +70,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-001` | Which series exist, and what is each for? | — |
 | `STD-003` | What may each rank do on the platform? | — |
 | `STD-004` | What is a correct header? | — |
-| `STD-005` | When does a rule bite, and how is a repository kept safe? | open: two questions; guards and their regime apart from safety, incidents and the changelog |
+| `STD-005` | When does a rule bite, and how do the guards come to run? | — |
 | `STD-006` | What is the archive made of? | — |
 | `STD-007` | What shape does a document take? | — |
 | `STD-008` | What can a design piece fail an audit on? | — |
@@ -74,13 +78,13 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-010` | Under which terms is each piece published? | — |
 | `STD-012` | How does a document leave the archive? | — |
 | `STD-014` | What is checked before an irreversible publication? | — |
-| `STD-015` | Which engineering checks run, and where? | open: the shared pipeline is prose; it belongs to `STD-005` |
+| `STD-015` | Which practices does each repository keep, and what checks each? | — |
 | `STD-017` | Who may change what? | — |
 | `STD-018` | What is an identifier? | — |
 | `STD-019` | What does a version number promise? | — |
 | `STD-020` | How does a change reach the main line? | — |
 | `STD-021` | What makes a claim checkable? | — |
-| `STD-022` | How does a secret stay out? | — |
+| `STD-022` | How does a secret stay out? | — (settings in the environment arrived from `STD-005`) |
 | `STD-023` | Which are the design values? | — (how the sky, the Velo and the reading player are built is `PRO-022`, a protocol; recipes are protocols, never blueprints) |
 | `STD-024` | Which series is a document in, and does it bind? | — |
 | `STD-025` | What is a mission? | — |
@@ -90,7 +94,6 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-029` | How do we treat each other? | — |
 | `STD-030` | What do the world's words mean? | register |
 | `STD-031` | What does a canon say? | — |
-| `STD-032` | Which documents make up the design system? | open: a map, not a rule; to the design folder's introduction, keeping the table the site reads |
 | `STD-033` | What may we charge for, and how? | — |
 | `STD-034` | What must every page let anyone do? | — |
 | `STD-035` | What may we keep about a person? | — |
@@ -134,7 +137,6 @@ any standard whose only use would be a badge.
 
 | Gap | What closes it |
 |---|---|
-| Four open rows in the map | one pull request each, or several together, each closing its row |
 | Twenty-one outside standards undecided | a line each: adopted into a standard, or set aside here |
 | Legal duties found while reviewing (working-time record, the AI Act) | a line in `BLU-017` |
 

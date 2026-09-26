@@ -19,6 +19,19 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (one document, one question: the last rows)
+At the Oracle's word in session: the last three open rows of the map close in one pull request.
+- **`STD-005` 4.0.0 is renamed *When a rule bites*** (the old address redirects). It now answers one question: when a guard fails the build, and how guards and the shared pipeline come to run.
+  - The family pipeline moves in whole from `STD-015`.
+  - Its other practices leave for their holders, and each old plate keeps a retired row pointing there:
+    - settings in the environment → KEY-057 of `STD-022` 1.2.0;
+    - leave it better → GIT-050 of `STD-020` 2.1.0;
+    - the security score, migrating in order, incidents and the platform as a product → register rows SEC-013, SEC-014, SRE-007 and AGT-007 of `STD-015` 5.0.0 (54 practices);
+    - the changelog rule → register row TRC-004, which now says it whole.
+- **`STD-032` becomes `SYS-009`**, on the system shelf. A map of which documents make up the design system binds nobody. The design page, its markdown, its download and the kit manifest read it from there; the old address redirects.
+- **Citers follow:** `AGENTS.md`, the agents' sources, `PRO-013`, `PRO-016`, `STD-009`, `STD-034`, the design kit prompt, the orphan and address checks, the reading shelves.
+- `regime.test.mjs` checks each new holder. `BLU-016` 0.7.0: no row of the map is open; 32 standards. Site v0.59.0.
+
 ### Changed — 2026-09-26 (thinning the standards: design values)
 At the Oracle's word in session: *the recipes do not belong in a blueprint; at most they belong in a protocol, which says how things are built. Standards hold the colours and the very concrete things.*
 - **`STD-023` 1.6.0 holds values only.** About 11,661 tokens become about 7,900.

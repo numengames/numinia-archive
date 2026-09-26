@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13823,
+  "chars": 13721,
   "apparatus": false,
   "archived": false,
-  "tokens": 3422
+  "tokens": 3399
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 136392,
+  "chars": 137798,
   "apparatus": false,
   "archived": false,
-  "tokens": 36538
+  "tokens": 36937
  },
  {
   "path": "CLAUDE.md",
@@ -214,10 +214,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1479,
+  "chars": 1476,
   "apparatus": false,
   "archived": false,
-  "tokens": 404
+  "tokens": 406
  },
  {
   "path": "agents/calliope/OPERATOR.md",
@@ -500,10 +500,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1560,
+  "chars": 1557,
   "apparatus": false,
   "archived": false,
-  "tokens": 425
+  "tokens": 427
  },
  {
   "path": "blueprints/BLU-002-business-metrics.md",
@@ -610,10 +610,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 8811,
+  "chars": 8797,
   "apparatus": false,
   "archived": false,
-  "tokens": 2388
+  "tokens": 2376
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -1963,10 +1963,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4148,
+  "chars": 4145,
   "apparatus": false,
   "archived": false,
-  "tokens": 1138
+  "tokens": 1140
  },
  {
   "path": "protocols/PRO-014-producing-a-design-piece.md",
@@ -1996,10 +1996,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4063,
+  "chars": 4060,
   "apparatus": false,
   "archived": false,
-  "tokens": 1104
+  "tokens": 1106
  },
  {
   "path": "protocols/PRO-017-rolling-up-the-week.md",
@@ -2178,15 +2178,15 @@
   "tokens": 4683
  },
  {
-  "path": "standards/STD-005-engineering-baseline.md",
+  "path": "standards/STD-005-when-a-rule-bites.md",
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 11801,
+  "chars": 10528,
   "apparatus": false,
   "archived": false,
-  "tokens": 2929
+  "tokens": 2587
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -2227,10 +2227,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4816,
+  "chars": 4813,
   "apparatus": false,
   "archived": false,
-  "tokens": 1205
+  "tokens": 1207
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -2271,10 +2271,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15088,
+  "chars": 13737,
   "apparatus": false,
   "archived": false,
-  "tokens": 3919
+  "tokens": 3603
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -2315,10 +2315,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6111,
+  "chars": 6065,
   "apparatus": false,
   "archived": false,
-  "tokens": 1551
+  "tokens": 1558
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -2337,10 +2337,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4819,
+  "chars": 5288,
   "apparatus": false,
   "archived": false,
-  "tokens": 1157
+  "tokens": 1268
  },
  {
   "path": "standards/STD-023-design-values.md",
@@ -2440,17 +2440,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1731
- },
- {
-  "path": "standards/STD-032-the-design-system.md",
-  "dir": "standards",
-  "series": "standards",
-  "type": "documentation",
-  "status": "draft",
-  "chars": 6756,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1790
  },
  {
   "path": "standards/STD-033-every-charge-delivers-something.md",
@@ -2583,5 +2572,16 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1658
+ },
+ {
+  "path": "system/SYS-009-the-design-system.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "active",
+  "chars": 6941,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1833
  }
 ]

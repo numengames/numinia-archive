@@ -4,7 +4,7 @@
 // The design system as one download: a zip a designer opens and works from.
 //
 // WHAT GOES IN, AND WHY IT IS NOT A LIST KEPT HERE
-// Every document STD-032 names, whole and as its own file, plus the whole
+// Every document SYS-009 names, whole and as its own file, plus the whole
 // system compiled into one design-system.md; every toolkit row (tokens, kit,
 // fonts, icons, brand, pixel, matter, templates) copied as it is in the
 // repository. Add a row to the register and the zip carries it next build.

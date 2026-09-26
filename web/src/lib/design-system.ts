@@ -13,11 +13,11 @@
 // frozen in August, went on describing four registers after the canon had
 // three forces.
 //
-// So the whole is not written again. STD-032 lists which documents make up
+// So the whole is not written again. SYS-009 lists which documents make up
 // the system; this module reads that table, opens every document it names,
 // and hands the page (/design), its markdown (/design.md) and the download
 // (/design/numinia-design-system.zip) the same answer. Change a colour in its
-// standard and the three change with it; add a row to STD-032 and the page
+// standard and the three change with it; add a row to SYS-009 and the page
 // grows a card with no edit here.
 //
 // WHAT IS WRITTEN HERE
@@ -29,7 +29,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ARCHIVE_ROOT = path.resolve(process.cwd(), "..");
-export const REGISTER = "standards/STD-032-the-design-system.md";
+export const REGISTER = "system/SYS-009-the-design-system.md";
 
 /** The four parts, in the order the system is read. */
 export const PARTS = ["Core", "Languages", "Recipes", "Toolkit"] as const;
@@ -81,7 +81,7 @@ function cells(line: string): string[] | null {
 
 const unquote = (c: string) => c.replace(/^`|`$/g, "");
 
-/** The rows of STD-032's register table, in order. */
+/** The rows of SYS-009's register table, in order. */
 export function rows(): Row[] {
   const text = read(REGISTER);
   const start = text.indexOf("## The register");

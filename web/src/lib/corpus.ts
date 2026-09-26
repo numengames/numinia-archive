@@ -418,9 +418,9 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
     numeral: "III",
     label: "Showing it",
     line: "Everything a visitor touches looks the same on all four sites.",
-    // The map first, then the rules, then the values the rules point at.
+    // The rules first, then the values the rules point at; the map of the
+    // whole design system is a manual on the system shelf (SYS-009).
     hrefs: [
-      "/standards/std-032-the-design-system",
       "/standards/std-008-design-tokens",
       "/standards/std-037-what-every-site-carries",
       "/standards/std-023-design-values",
@@ -451,7 +451,7 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
     hrefs: [
       "/standards/std-006-plain-text-is-sovereign",
       "/standards/std-020-git-is-the-archive",
-      "/standards/std-005-engineering-baseline",
+      "/standards/std-005-when-a-rule-bites",
       "/standards/std-015-engineering-checks",
     ],
   },
@@ -563,6 +563,9 @@ const READING_ORDER: Record<string, string[]> = {
     // 2026-09-24: the account — where money comes from and goes, and who
     // holds each key (STD-036).
     "/system/sys-008-the-account",
+    // 2026-09-26: the design system map, reshelved from STD-032 — a map of
+    // which documents make it up is a manual, not a rule.
+    "/system/sys-009-the-design-system",
   ],
 
   // The company looking at itself, from the inside out: how it survives its own

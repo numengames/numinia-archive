@@ -5,16 +5,16 @@ title: "Git is the archive"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, git, archiving]
 threshold: governed
-series_change: "2.0.0 — 2026-09-26: this standard now answers only how a change reaches the main line, and holds all of it: small batches on one trunk from the engineering baseline and the seven commit kinds from the engineering checks come in; naming the replacement and deleting only what nothing cites move to The corpus does not grow, keeping a retired address and its redirect to One document, one address, and link-never-copy to Plain text is sovereign. Obligations removed from here, so a major move, at the Oracle's word in session."
+series_change: "2.1.0 — 2026-09-26: leave it better arrives from the engineering baseline as GIT-050, since what a change declares it left behind is part of how it reaches the main line; a rule moved in, so a minor move, at the Oracle's word in session."
 ---
 
 <!--
@@ -55,6 +55,9 @@ kinds, then the area touched in brackets, and say, on one line, what
 changed. A tool can then sort history and build release notes without
 reading the code. Our addition: the same line says why. Our choice.
 
+**Leave it better.** No change adds debt silently: it declares what it left
+behind. A green pipeline is not a clean tree.
+
 **Shared history is never rewritten.** We follow the scorecard's first tier
 of branch protection and the second source level of the supply-chain levels
 for software artifacts: force pushes and deletion of the main branch MUST
@@ -81,6 +84,7 @@ Each rule, its code, its source and its check.
 |---|---|---|---|
 | GIT-025 | Small batches, by pull request, on one trunk | [Trunk-Based Development](https://trunkbaseddevelopment.com/); [OpenSSF Scorecard, Branch-Protection tier 2 and Code-Review](https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection); holds retired ENG-003 | `.github/rulesets/protect-main.json`: pull request required on the main line, one approval, the `build` check required; `.github/workflows/scorecard.yml` grades it; batch size and branch age by hand |
 | GIT-026 | One-line subject | [Conventional Commits 1.0.0, the header](https://www.conventionalcommits.org/en/v1.0.0/#specification) | the guard of this standard (`machine/guards/rules/std-020-git-is-the-archive.mjs`), last 400 commit subjects, one line only; the kind and the why are not checked (no commitlint, `DBT-020`) |
+| GIT-050 | Leave it better | holds retired ENG-005 | by hand, at review: the pull request says what it left behind |
 | GIT-030 | Shared history is never rewritten | [OpenSSF Scorecard, Branch-Protection tier 1](https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection); [SLSA 1.1, Source track level 2](https://slsa.dev/spec/) | `.github/rulesets/protect-main.json`: no force push, no deletion, linear history |
 | GIT-027 | Generated means generated again | — | `machine/scripts/telemetry.mjs --check` in the build guards; `machine/tools/generate-design-kit.mjs --check`, run by hand |
 | GIT-028 | Measurements follow the commit | — | `machine/scripts/telemetry.mjs --check` in the build guards |

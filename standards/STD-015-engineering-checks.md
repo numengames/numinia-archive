@@ -5,15 +5,15 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "4.0.0"
+version: "5.0.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T16:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, register, practices]
 license: "CC0-1.0"
-series_change: "4.0.0 — 2026-09-26: the accessibility row leaves for the accessibility standard, which already held an automatic test on every change; the row retires into it. A practice removed from here, so a major move, at the Oracle's word in session."
+series_change: "5.0.0 — 2026-09-26: the family pipeline leaves for the engineering baseline, which answers when a rule bites and how the guards come to run; the security score, migrating in order, incidents and the platform as a product arrive from it as rows SEC-013, SEC-014, SRE-007 and AGT-007, and the changelog rule joins row TRC-004. A section removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 50 practices the engineering baseline requires, grouped
+> **Summary:** The 54 practices every repository of ours keeps, grouped
 > by what they protect, each with how strongly it is required and what checks
 > it. A practice checked by hand is debt, and a row marked as owed is one we
 > once called automatic that nothing runs.
@@ -42,6 +42,8 @@ SPDX-License-Identifier: CC0-1.0
 | Security | SEC-010 | CODEOWNERS covering `LICENSE*`, `.github/workflows/`, auth packages | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Security | SEC-011 | Organisation base permission read; admin per repository, per need | MUST | `[AUTO: github orgs/numengames]` |
 | Security | SEC-012 | Commits to `main` verified | SHOULD | `[AUTO: github repos/numengames/numinia-archive/commits]` |
+| Security | SEC-013 | Every repository keeps a security score: the OpenSSF Scorecard grades it every week and on each push to the main line, a named person reads the grade, and a public repository aims at seven out of ten or better | MUST | `[GATE: .github/workflows/scorecard.yml → a named person reads the grade each week]` |
+| Security | SEC-014 | Migrate in order: a repository that already exists adopts the security score first, then the check that required files are present, then the full pipeline — measure first, then tighten | SHOULD | `[DEBT: no check reads the order a repository adopted its checks in — oracle, 2026-09-26]` |
 | Architecture | ARC-001 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[AUTO: .github/workflows/ci.yml]` |
 | Architecture | ARC-002 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: scorecard Branch-Protection]` |
 | Architecture | ARC-004 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[DEBT: no smoke script, no CI or coverage badge in README.md — oracle, 2026-09-11]` |
@@ -53,7 +55,7 @@ SPDX-License-Identifier: CC0-1.0
 | Traceability | TRC-001 | Repository "About" complete: description, website, topics | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
 | Traceability | TRC-002 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[DEBT: no label-sync workflow — oracle, 2026-09-11]` |
-| Traceability | TRC-004 | `CHANGELOG.md` kept for people in the Keep a Changelog 1.1 form (ENG-069); a released package adds semver tags and GitHub Releases with notes | MUST | `[DEBT: no changelog-shape check; numinia-web and nwos-deploy keep no changelog — oracle, 2026-09-25]` |
+| Traceability | TRC-004 | `CHANGELOG.md` written for people in the Keep a Changelog 1.1 form: newest first, an Unreleased section, every entry under one of six kinds (added, changed, deprecated, removed, fixed, security); a site with no releases heads each group with its date; a released package adds semver tags and GitHub Releases with notes | MUST | `[DEBT: no changelog-shape check; numinia-web and nwos-deploy keep no changelog — oracle, 2026-09-25]` |
 | Traceability | TRC-005 | A roadmap as a file in the repository saying what the project intends to do, and not do, for at least the next year (OpenSSF Best Practices Badge, documentation_roadmap; `STD-006`) | MUST | `[DEBT: no roadmap or TODO file in the tree — oracle, 2026-09-11]` |
 | Traceability | TRC-006 | A guard is verified by its step in the job, never by the run's colour: a green run and a workflow missing the guard are indistinguishable from the conclusion | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-007 | Every guard declares what it does not look at, on success as on failure (`machine/scripts/blind-spots.json`); a guard that validates what is present cannot detect what is missing | MUST | `[AUTO: machine/scripts/test/blindness.test.mjs]` |
@@ -69,6 +71,7 @@ SPDX-License-Identifier: CC0-1.0
 | Operations | SRE-003 | Structured JSON logs; no `console.log` in production | MUST | `[DEBT: no eslint configuration in the tree — oracle, 2026-09-11]` |
 | Operations | SRE-004 | Runbook per service: deploy, rollback, common failures | MUST | `[DEBT: no runbook for the deployed service — oracle, 2026-09-11]` |
 | Operations | SRE-005 | Deploy reproducible from a clean clone | MUST | `[DEBT: CI builds but never deploys from a clean clone — oracle, 2026-09-11]` |
+| Operations | SRE-007 | Incidents produce rules, not culprits: which events call for a written review is decided before any happens, and each review says what happened, what it cost and what changes, never who is at fault; an incident brings in a new practice only through a written decision (Google SRE book, ch. 15) | MUST | `[DEBT: the triggers are not written down, and no template in .github/ asks for a postmortem — oracle, 2026-09-26]` |
 | Community | OSS-001 | `CONTRIBUTING.md` a stranger can follow | MUST (public) | `[DEBT: no check reads CONTRIBUTING.md — Scorecard has no such check; presence and whether a stranger can follow it are by hand — oracle, 2026-09-25]` |
 | Community | OSS-002 | Code of conduct at the root: the Contributor Covenant 2.1, as the community conduct standard applies it | MUST (public) | `[DEBT: no code of conduct at the repository root — oracle, 2026-09-11]` |
 | Community | OSS-004 | Issue triage cadence declared, and most issues opened in the last two to twelve months answered (OpenSSF Best Practices Badge, report_responses) | SHOULD | `[DEBT: triage cadence is declared nowhere a machine can read — oracle, 2026-09-11]` |
@@ -79,6 +82,7 @@ SPDX-License-Identifier: CC0-1.0
 | Agents | AGT-004 | CI is the agent's feedback loop (Principle 1) | MUST | `[DEBT: Principle 1 is stated, nothing verifies CI is the agent's loop — oracle, 2026-09-11]` |
 | Agents | AGT-005 | Mission briefs in the standard format; a mission that produces software carries Gherkin acceptance criteria | MUST | `[DEBT: no guard reads missions/ for the standard format or Gherkin — oracle, 2026-09-11]` |
 | Agents | AGT-006 | AI stance per repository in `AGENTS.md`: autonomous versus Oracle sign-off | MUST | `[DEBT: AGENTS.md states the stance, no check reads it — oracle, 2026-09-11]` |
+| Agents | AGT-007 | The platform is a product for developers, human and digital: if the obvious way to do something is unclear to an agent, it is unclear | SHOULD | `[DEBT: nothing measures whether an agent finds the obvious way — oracle, 2026-09-26]` |
 | Legal | LEG-001 | Making a repository public is a gated Oracle act under the publishing gates (PUB-002, PUB-003) | MUST | `[GATE: machine/guards/rules/std-010-licensing.mjs → the Oracle makes the repository public]` |
 
 **Rows retired as duplicates.** A row that said again what a rule elsewhere
@@ -86,7 +90,7 @@ already holds is removed, and its code now leads to that rule.
 
 | Retired | Now held by |
 |---|---|
-| SRE-006 | retired → ENG-006, incidents produce rules, not culprits |
+| SRE-006 | retired → SRE-007 of this register, incidents produce rules, not culprits |
 | DEV-007 | retired → GIT-025, small batches by pull request on one trunk, with one approval |
 | ARC-003 | retired → LIC-007, each repository says its terms in the common format |
 | OSS-003 | retired → LIC-013, every contribution comes with permission |
@@ -104,54 +108,9 @@ contributions and the scan for leaked credentials. Our choice.
 **What a new repository is born with.** A security score, run every week and
 on every change to the main line, aiming at seven out of ten or better on a
 public repository, with each repository saying which of its checks apply;
-the shared pipeline, where too little test coverage is a failure and every
+the shared pipeline of the engineering baseline, where too little test coverage is a failure and every
 file's licence is checked; one step that checks the required files are
 present — the agent instructions, the security policy, the contribution
 guide, the list of owners, the templates, the example settings and the
 repository's description; and local hooks that are a courtesy, may be
 skipped, and never decide.
-
-## The family pipeline
-
-Five repositories run the same guards: the four that each serve a site —
-this archive, the Numinia site, the Numen Games site and the workspace
-deployer — and the store of shared resources, which serves none. A guard is
-a step, or a script, that says whether something is wrong with the change
-under review. There are two kinds, told apart by the baseline's rule on when
-a guard bites:
-
-| Kind | Steps, in this order | Fails the build? |
-|---|---|---|
-| Artefact | install → type-check → lint → test → build → share card (`web/scripts/share-card.mjs --check`) → version bump (`machine/scripts/check-version-bump.mjs`) | Yes. A page that does not build, a test that fails, a favicon that is missing or a version that did not move is a broken artefact whatever any standard says. |
-| Rule | presence of the files named above · REUSE lint · OpenSSF Scorecard · dependency audit | No, while this register is `draft`. The step runs on every pull request, prints every finding in the log and the job summary, and exits 0. Promoting this register to `active` is what turns them into failures. |
-
-- **One required check, and it is called build.** The protection on the
-  main line, copied to every repository, can only require a check by its
-  name, so the name means the same everywhere. Where the work is split into
-  several jobs, build is the job that passes only if every artefact job
-  passed; it never waits on a job that only reports. Renaming it leaves the
-  required check pending for ever and blocks every merge; requiring no
-  check lets a red run merge. Both were measured before this was written.
-- **The store of resources has no site.** It builds nothing: its artefact
-  guards are its own checks that every file declares its licence, with the
-  tests that prove a missing declaration is refused, and build passes only
-  when all of them do.
-- **Some files are kept identical across the five, by hand until a shared
-  package carries them.** They are listed in the table below; comparing two
-  copies shows their paths and nothing else.
-- **Every workflow, every step:** outside actions pinned to the full commit
-  hash of one release, never a tag that can move (SEC-007); read-only
-  permissions at the top of the file, with
-  write granted only to the job that needs it (SEC-008); no secret read by a
-  build, since publishing is connected in the hosting provider's own panel
-  and never through a token in a workflow (SEC-004); and above each step, in
-  English, a comment saying what it checks and how to fix it when it fails
-  (DEV-005).
-
-| Kept identical in the five | What it does |
-|---|---|
-| `machine/scripts/check-version-bump.mjs` | refuses a change to a site that does not raise its version; only its two path settings differ |
-| `web/scripts/share-card.mjs` | draws the card shown when a link is shared |
-| `.github/dependabot.yml` | asks for dependency updates |
-| `.github/workflows/dependabot-auto-merge.yml` | merges those updates once the checks pass |
-| `.github/workflows/scorecard.yml` | runs the weekly security score |
