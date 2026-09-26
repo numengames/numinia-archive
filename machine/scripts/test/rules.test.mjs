@@ -108,3 +108,21 @@ check('isApparatus: type meta, canonical basenames, template family', () =>
 check('isTemplate: the two families the header guard exempts from HDR-006', () =>
   isTemplate('agents/_template/README.md') && isTemplate('missions/TEMPLATE.md') && isTemplate('missions/TEMPLATE-CHANGES.md') && !isTemplate('missions/MIS-0001-x.md'));
 
+// STD-023 holds values; how a finished piece is built is a protocol. And the
+// standard's promise that it and the kit agree is kept by a check, not a vow.
+const STD023 = () => readFileSync(path.join(ROOT, 'standards/STD-023-design-values.md'), 'utf8');
+check('STD-023: every colour it names as a value is in the design kit', () => {
+  const kit = readFileSync(path.join(ROOT, 'machine/packages/design-kit/sistema.tokens.json'), 'utf8').toUpperCase();
+  // A line that records a drift names foreign hexes on purpose; it holds no value.
+  const body = STD023().split('\n').filter((l) => !/\[FIX\]|retired/i.test(l)).join('\n');
+  const miss = [...new Set(body.match(/#[0-9A-Fa-f]{6}\b/g) || [])].filter((h) => !kit.includes(h.toUpperCase()));
+  return miss.length === 0 || `not in the kit: ${miss.join(', ')}`;
+});
+check('STD-023: the recipes of built pieces live in a protocol, not in the values', () => {
+  const s = STD023();
+  const recipes = ['The reader leads', 'What the voice has passed', 'Ceilings and placement', 'reseeding on resize'];
+  const here = recipes.filter((r) => s.includes(r));
+  const pro = readFileSync(path.join(ROOT, 'protocols/PRO-022-building-the-living-pieces.md'), 'utf8');
+  const lost = recipes.filter((r) => !pro.includes(r));
+  return (here.length === 0 && lost.length === 0) || `in STD-023: ${here.join(', ')}; missing from PRO-022: ${lost.join(', ')}`;
+});
