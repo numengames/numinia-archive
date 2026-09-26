@@ -19,6 +19,15 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (one document, one question: the second cut)
+At the Oracle's word in session: the money standard is split, and three more rows of the map close.
+- **Charging and keeping the account are two questions.** `STD-033` 0.4.0, renamed *Every charge delivers something* (the old address redirects), keeps PAY-001…009. The eight LED rules move whole, plates unchanged, to the new `STD-036` *One account* 0.1.0. `SYS-008`, `PRO-021`, `/system/open-books` and its sources now cite `STD-036`.
+- **What every site carries is its own question.** The footer, the share card and day and night (DSN-013, DSN-014, DSN-016) move from `STD-008` 10.0.0 to the new `STD-037` *What every site carries* 0.1.0 as SIT-001, SIT-002 and SIT-003. Code comments, the CI step, `BLU-009` and `OPS-010` cite the new plates. `STD-037` joins the "Showing it" shelf.
+- **The secret scan is said once.** `STD-014` 1.1.1 PUB-003 points at KEY-054 of `STD-022` instead of restating it.
+- **The accessibility test is said once.** Register row ARC-010 retires into ACC-004 (`STD-015` 4.0.0, 50 practices; `STD-034` 0.2.2). `PRO-014` 2.0.2 cites ACC-004.
+- **`BLU-016` 0.3.0:** four rows closed and two added. Four stay open: 005, 015, 023, 032.
+- Site v0.55.0. Test first: `regime.test.mjs` asks for one holder per question.
+
 ### Changed — 2026-09-26 (one document, one question)
 At the Oracle's word in session: each document answers one question; two that answer the same are merged, one that answers two is split. First cut over the standards shelf.
 - **`STD-007`** 1.4.0: new DOC-012, one document, one question, stated in the epistemic line (DITA 1.3, the topic answers a single question). Obligation words (HDR-046 → DOC-013) move here from the header, which now answers only what a correct header is (`STD-004` 4.0.0).
