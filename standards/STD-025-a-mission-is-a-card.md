@@ -5,7 +5,7 @@ title: "A mission is a card"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.4"
+version: "1.0.5"
 created: "2026-09-09T23:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -25,14 +25,14 @@ SPDX-License-Identifier: CC0-1.0
 
 # A mission is a card
 
-> **Summary:** A mission is one piece of work, on the board before it
-> starts, with its end stated, one person or agent doing it, a closed set of
-> states, and a way out by deletion, never by editing.
+> **Summary:** A mission is one piece of work. It goes on the board before
+> it starts, states its end, has one person or agent doing it, moves through
+> a closed set of states, and leaves by deletion, never by editing.
 > **Epistemic:** A mission is the only place where plan and outcome sit side
-> by side. Every rule here protects that difference: it is the one thing a
-> closed mission teaches.
-> **Pragmatic:** Check any card against nine rules; know who may set each
-> state and what mark it leaves; know when a card may leave the board.
+> by side. Every rule here protects that difference, the one thing a closed
+> mission teaches.
+> **Pragmatic:** Check any card against nine rules, know who may set each
+> state and what mark it leaves, and know when a card may leave the board.
 > **Audience:** Agents · Oracles
 
 **Binds:** every mission, and whoever sets a field on one.
@@ -45,54 +45,54 @@ SPDX-License-Identifier: CC0-1.0
 before any of it happens. A card written after the fact is fiction.
 
 **Done is stated before work starts.** A card MUST carry acceptance
-criteria that are false when it opens and describe the finished state.
+criteria that describe the finished state and are false when it opens.
 Scope and criteria are not edited after opening; what happened goes in the
 closing notes.
 
-**Read whole, never by title.** The agent MUST read the whole card — what
-it delivers, the effort, the criteria, what it depends on, who does it —
-before acting.
+**Read whole, never by title.** The agent MUST read the whole card before
+acting: what it delivers, the effort, the criteria, what it depends on and
+who does it.
 
 ### While it is open
 
 **Five states, no others.** A card MUST be in one of five states: to do, in
-progress, in review, done, or frozen. The state lives only in the card; a
+progress, in review, done or frozen. The state lives only in the card. A
 cancelled card is frozen, with that reason.
 
-**Each state has its hand and its mark.** The information-security standard
-keeps whoever authorises work apart from whoever does it, so no one approves
-their own; the provenance vocabulary stamps when work started and ended. So
-only the Oracle opens, closes and freezes a card, only its doer moves it
-into progress and review, and each move MUST leave a date or a reason.
+**Each state has its hand and its mark.** Only the Oracle opens, closes and
+freezes a card, and only its doer moves it into progress and review. Each
+move MUST leave a date or a reason. The information-security standard keeps
+whoever authorises work apart from whoever does it, so no one approves
+their own. The provenance vocabulary stamps when work started and ended.
 
-**Paused says why.** A frozen card MUST say why. Unfreezing sends it back
-to to do and clears the reason.
+**Paused says why.** A frozen card MUST say why. Unfreezing returns it to
+the to-do state and clears the reason.
 
-**One doer.** The responsibility matrix gives each task exactly one person
-responsible, so there is always someone to ask. An open card MUST name
-exactly one person or agent, and only they edit it; work that splits becomes
-child cards, one each.
+**One doer.** An open card MUST name exactly one person or agent, and only
+they edit it. Work that splits becomes child cards, one doer each. The
+responsibility matrix gives each task exactly one person responsible, so
+there is always someone to ask.
 
 **A parent waits for its children.** A card with children MUST NOT be done
 while any child is neither done nor frozen as cancelled.
 
 ### When it ends
 
-**Done cannot change; the way out is deletion.** The records standard holds
-that a record stays complete and unaltered, so it still proves what
-happened. A done card MUST NOT be edited once merged; it leaves the board
-after the four deletion tests, and a frozen card too, once a living document
-records why. Ninety quiet days in to do make a card stale.
+**Done cannot change; the way out is deletion.** A done card MUST NOT be
+edited once merged. It leaves the board after the four deletion tests. A
+frozen card leaves too, once a living document records why. The records
+standard holds that a record stays complete and unaltered, so it still
+proves what happened. A card left ninety days in to do without change is
+stale.
 
 ## Check
 
-Each rule, its code, its source and its check. No law requires any of it; it
-is our choice.
+Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
 | MSN-036 | Written down before it is done | — | by hand — the card's date against the work's first commit |
-| MSN-037 | Done is stated before work starts | — (ours; Gherkin is a syntax for writing criteria and does not require them before work) | by hand — the section is checkable; whether it states a test is not |
+| MSN-037 | Done is stated before work starts | — (Gherkin is a syntax for writing criteria and does not require them before work) | by hand — the section is checkable; whether it states a test is not |
 | MSN-041 | Read whole, never by title | — | by hand — no trace tells a read from a skim; left a MUST, unauditable |
 | MSN-001 | Five states, no others | — | `machine/guards/rules/std-004-the-header.mjs` (`HDR-004`) — the mission lifecycle |
 | MSN-002 | Each state has its hand and its mark | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) · [W3C PROV-O, startedAtTime and endedAtTime](https://www.w3.org/TR/prov-o/#startedAtTime) | by hand — no guard reads the stamp for the state yet |
@@ -121,7 +121,7 @@ is our choice.
 
 ## Why
 
-Without these rules the board lies: work appears after it happened, cards
+Without these rules the board lies. Work appears after it happened, cards
 drift to match their outcome, two agents write one file, a parent closes
 over an open child, and a finished card is quietly rewritten. Each rule
 closes one way for a card to say something other than what occurred.

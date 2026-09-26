@@ -5,7 +5,7 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "10.0.1"
+version: "10.0.2"
 created: "2026-08-18T13:41:01Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -23,97 +23,93 @@ SPDX-License-Identifier: CC0-1.0
 
 # Design tokens
 
-> **Summary:** The parts of our design that answer yes or no. Sixteen
-> colours and no new ones, four typefaces we serve ourselves, one spacing
-> scale, two roundings, one family of icons, fifteen animations, and one
-> kit installed from its package.
-> **Epistemic:** What a piece of our design can fail an audit on, and which
-> of it is our choice, an outside norm, or the law.
+> **Summary:** The parts of our design that pass or fail. Sixteen colours
+> and no new ones, four typefaces we serve ourselves, one spacing scale, two
+> roundings, one icon family, fifteen animations, and one kit installed from
+> its package.
+> **Epistemic:** Which parts of our design draw a hard line, and which
+> outside norm each one follows, where one exists.
 > **Pragmatic:** Know what an audit of any piece we make can fail on.
 > **Audience:** Agents · Oracles
 
-**Binds:** every public surface of Numen Games and Numinia — web, product,
-document, deck, codex, pixel scene — and every consumer of the kit.
+**Binds:** every public surface of Numen Games and Numinia, and every
+consumer of the kit.
 
 ## Rules
 
 Contrast, colour as a signal, focus, the keyboard and stopping motion
-belong to the accessibility standard; the rules here add only what is ours
-or what another outside norm asks of design.
+belong to the accessibility standard. The rules here add to it; they do not
+repeat it.
 
 ### Colour, type and shape
 
 **The palette is closed.** A piece MUST use only the sixteen colours of the
-design values, their text variants and the rarity scale; ramps and chart
-palettes only put them in order. Our choice: a new colour is a breach, not
-a variation.
+design values, their text variants and the rarity scale. Ramps and chart
+palettes only put those colours in order. A new colour is a breach, not a
+variation.
 
 **Type is served by us.** Our four typefaces MUST come from our own server,
-with their licences, and every page switches off the browser's fake bold,
+with their licences. Every page switches off the browser's fake bold,
 italic and small capitals with the one setting the web's fonts standard
-gives for it, which a tool can check. Serving them ourselves also keeps
-visitors' addresses away from a font company, which European data
-protection law requires of us.
+provides, and a tool can check that setting. Serving the fonts ourselves
+also keeps visitors' addresses away from a font company.
 
 **Space and shape follow the scale.** Every gap MUST be a step of the
-four-pixel scale; a corner is rounded for a control or for a frame, and
-nothing else, and the pixel style has no rounded corners. Our choice.
+four-pixel scale. A corner is rounded only for a control or a frame, and
+the pixel style has no rounded corners at all.
 
 **One family of icons.** Icons MUST come from our subset of one open icon
-family, one weight per row, never the thinnest or the two-tone. Its licence
-lets anyone use it on one condition, that its copyright notice ships with
-it. The scarab and the Moon are marks, not icons.
+family, one weight per row, never the thinnest weight or the two-tone. Its
+licence asks one thing: the copyright notice ships with the icons. The
+scarab and the Moon are marks, not icons.
 
 **Pixels sit whole.** Text and pixel art MUST sit on whole pixels, never
-moved by half a pixel, never smoothed when scaled. Lines are never broken
-with spaces: the web accessibility guidelines count that as a failure,
-because a screen reader or a narrow screen then reads the text out of
-order.
+shifted by half a pixel and never smoothed when scaled. Lines are never
+broken with spaces: a screen reader or a narrow screen would then read the
+text out of order, and the web accessibility guidelines count that as a
+failure.
 
 ### What we add to accessibility
 
 **Texture never costs contrast, and a finger always fits.** A texture, a
 veil or a glow MUST NOT lower the contrast the accessibility standard sets,
-by day or by night, and anything touched is forty-four pixels a side. The
-guidelines ask twenty-four at their middle level and forty-four at their
-highest; we take the highest, by choice.
+by day or by night. Anything touched is forty-four pixels a side, the
+guidelines' highest level; their middle level asks for twenty-four.
 
 ### Motion
 
 **Text comes before motion.** The page's main text MUST be painted before
 any animation starts and within two and a half seconds, with the layout
-shifting under the reader by less than a tenth: the two figures the web's
-page-experience measures use. Our choice, and it turns an impression into
-a number anyone can measure.
+shifting under the reader by less than a tenth. These are the two figures
+the web's page-experience measures use, and they turn an impression into a
+number anyone can check.
 
 **Motion is catalogued.** Every animation MUST be one of the fifteen in the
-design values; parallax, glitch, focus that moves, sound that plays by
-itself, and endless background loops beyond the two allowed, are
-forbidden. The guidelines only ask that sound can be stopped; we allow
-none, by choice. The two allowed loops still carry the pause the
-accessibility standard requires.
+design values. Parallax, glitch, moving focus, sound that plays by itself,
+and endless background loops beyond the two allowed are forbidden. The
+guidelines only ask that sound can be stopped; we allow none. The two
+allowed loops still carry the pause the accessibility standard requires.
 
 ### The kit and its values
 
 **The kit is installed, never copied.** The published kit MUST be generated
-from its package. By choice its number follows semantic versioning, so a
-consumer knows from the number alone whether an update can break them,
-and every file carries a fingerprint of the kind browsers use to refuse a
+from its package. Its version number follows semantic versioning, so a
+consumer knows from the number alone whether an update can break them.
+Every file carries a fingerprint of the kind browsers use to refuse a
 tampered file.
 
 **A value exists, or it does not.** Every value a piece uses MUST be in the
 token file or in the design values; a value in neither does not exist. The
-token file follows, by choice, the first stable design tokens format, so
-any tool can read it and a validator can prove it is well formed.
+token file follows the first stable design tokens format, so any tool can
+read it and a validator can prove it well formed.
 
-What every public site carries — the footer, the card a shared link shows,
-and day and night — is a standard of its own.
+The footer, the card a shared link shows, and day and night on every site
+belong to the standard on what every site carries.
 
 ## Check
 
 Each rule, its code, its source and its check. Then the exact values the rules
-point at. **Law** marks what a statute requires; everything else is a norm we
-adopt, or our own choice.
+point at. **Law** marks what a statute requires.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -143,10 +139,8 @@ adopt, or our own choice.
 
 A design system is mostly direction, and direction cannot fail a check.
 These rules are the exceptions: each is a number, a file or a property of
-the page that holds or does not. Where the world already has a norm we
-follow it by name, so an auditor checks us with tools they already know;
-what is left is ours, and says so. It runs past the usual length because
-each rule now says which norm it follows and whether the law asks it.
+the page that holds or does not. Where the world already has a norm, we
+follow it by name, so an auditor can check us with tools they already know.
 
 ## References
 

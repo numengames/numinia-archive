@@ -4,9 +4,9 @@ uid: ""
 title: "Joining and leaving Numinia: the phases, the gates and who owns each step"
 type: protocol
 status: draft
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"

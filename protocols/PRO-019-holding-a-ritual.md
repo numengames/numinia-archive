@@ -4,9 +4,9 @@ uid: ""
 title: "Holding a ritual"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-09-23T12:00:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"

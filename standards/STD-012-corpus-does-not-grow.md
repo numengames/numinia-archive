@@ -5,7 +5,7 @@ title: "The corpus does not grow"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-09-08T22:00:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -22,10 +22,9 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # The corpus does not grow
 
-> **Summary:** Every document has a written way out. Records roll up by
-> week, by quarter and by year, and keep only what changed a rule, a debt
-> or an address. Any document leaves by being replaced, absorbed or moved
-> under a new name, and is deleted only when nothing living cites it.
+> **Summary:** Records roll up by week, quarter and year, keeping only what
+> changed a rule, a debt or an address. A document leaves replaced,
+> absorbed or moved, and is deleted only when nothing living cites it.
 > **Epistemic:** How a document leaves the archive, and why an archive that
 > only adds becomes unreadable.
 > **Pragmatic:** Roll up, replace, absorb, move or delete a document
@@ -39,65 +38,63 @@ bind records only.
 
 ### What gets written
 
-**The history is the daily record.** A document MUST NOT be written whose
-only purpose is to say what happened today; the version history already says
-it.
+**The history is the daily record.** A document MUST NOT be written only to
+say what happened today. The version history already says it.
 
 **Three levels, no more.** Records MUST roll up into a weekly report, weekly
-reports into a quarterly one, and quarterly reports into a yearly one; there
-is no monthly level.
+reports into a quarterly one, and quarterly reports into a yearly one.
+There is no monthly level.
 
 ### What survives
 
 **Three kinds of line survive.** The international standard for records
-management asks that what is kept be decided in advance by written criteria,
-so anyone can show why a thing survived. Ours are three: a line MUST be
-carried up only if it records a rule that changed, a debt that opened or
+management asks that written criteria, fixed in advance, decide what is
+kept, so anyone can show why a thing survived. Ours are three: a line MUST
+be carried up only if it records a rule that changed, a debt that opened or
 closed, or something with an address.
 
 **A phase is an index, not a level.** A phase report points at the periods
-it spans and what they concluded, and MUST NOT restate their lines.
+it spans and what they concluded. It MUST NOT restate their lines.
 
 **The written procedure authorises every removal.** The records standard
-lets a record go only under a written authority, which proves afterwards
-that each removal was allowed. Our roll-up procedure is that authority: any
-agent MAY run it, and it leaves nothing to taste — an uncertain line is
-carried up and marked for the Oracle.
+lets a record go only under a written authority, which later proves the
+removal was allowed. Our roll-up procedure is that authority. Any agent MAY
+run it, and it leaves nothing to taste: an uncertain line is carried up and
+marked for the Oracle.
 
 ### How a document leaves
 
 **A record leaves by transfer, not destruction.** The records standard ends
-a record's life by destroying it or transferring it; the version history
-keeps every deleted file, so ours is a transfer. Once a closed record has
-its line in this week's report, its file MUST be deleted in that change,
-after the four deletion tests.
+a record's life by destroying or transferring it. The version history keeps
+every deleted file, so a deletion here is a transfer. Once a closed record
+has its line in this week's report, its file MUST be deleted in that same
+change, after the four deletion tests.
 
 **The replacement is named in the header.** Dublin Core, the common
-vocabulary for describing documents, lets a document say which one replaced
-it. A withdrawn document that has a replacement MUST name it in its header;
-a document still in force or in draft names none.
+vocabulary for describing documents, lets a document name the one that
+replaced it. A withdrawn document that has a replacement MUST name it in
+its header. A document in force or in draft names none.
 
 **A document changes series under a new name.** A document that moves to
-another series MUST take a new name there, with the old one naming it as
-its replacement; neither is renumbered, and if a reader of the old cannot
-be updated in the same change, the move does not happen.
+another series MUST take a new name there, and the old one names it as its
+replacement. Neither is renumbered. If a document citing the old name
+cannot be updated in the same change, the move does not happen.
 
 **Absorption carries the reasoning.** A document MAY leave by being carried
-into another that says, in Dublin Core's terms, what it replaces; the
+into another, which says in Dublin Core's terms what it replaces. The
 reasoning survives there, and every citation is rewritten in the same
 change. When a report rolls up, its list of absorbed names MUST move whole
 to the report above.
 
 **Nothing is deleted while cited.** A document MUST NOT be deleted while a
-living document cites it; a closed record's citation is a photograph and
-does not count.
+living document cites it. A citation from a closed record is a photograph
+and does not count.
 
 ## Check
 
-Each rule, its code, its source and its check. No law requires any of it:
-Spanish law obliges a company to keep its accounting records, which live
-elsewhere; the rest is our choice, made so an auditor can read it in terms
-they already know.
+Each rule, its code, its source and its check. The sources use terms a
+records auditor already knows. The company's accounting records live
+outside this archive.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -110,7 +107,7 @@ they already know.
 | DEF-008 | The replacement is named in the header | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); holds retired GIT-045 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs`, which reads the `superseded_by` and `status` fields |
 | DEF-010 | A document changes series under a new name | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); no move without updating its readers is ours; holds retired SER-005 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs` |
 | DEF-011 | Absorption carries the reasoning | [Dublin Core, Replaces](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/replaces/); holds retired SER-006 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs` (`absorbs:`) |
-| DEF-009 | Nothing is deleted while cited | — (ours); holds retired GIT-048 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs`; `machine/tools/check-deletable.mjs`, run by hand |
+| DEF-009 | Nothing is deleted while cited | —; holds retired GIT-048 | `machine/guards/rules/std-012-corpus-does-not-grow.mjs`; `machine/tools/check-deletable.mjs`, run by hand |
 
 | In the reading | Exact form |
 |---|---|
@@ -125,12 +122,12 @@ they already know.
 
 ## Why
 
-An archive that only adds grows, in months, beyond what any reader can hold:
-by September 2026 it held 133 missions and was cut to 18 by hand in one day.
-This standard makes that cut a rhythm instead of an event, on terms an
-auditor of records already reads, and gives every other exit a name that
-keeps resolving. Three levels, because each is a point where a decision is
-taken; a fourth rewriting loses more without deciding more.
+An archive that only adds grows, within months, past what any reader can
+hold. By September 2026 it held 133 missions, cut to 18 by hand in one day.
+This standard turns that cut into a rhythm, on terms a records auditor
+already reads, and gives every other exit a name that keeps resolving.
+Three levels, because each is a point where someone decides. A fourth
+rewrites more and decides nothing new.
 
 ## References
 

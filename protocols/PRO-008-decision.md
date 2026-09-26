@@ -4,9 +4,9 @@ uid: ""
 title: "Requesting approval, issuing rulings"
 type: protocol
 status: draft
-version: "4.0.1"
+version: "4.0.2"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"

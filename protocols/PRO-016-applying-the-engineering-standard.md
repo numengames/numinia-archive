@@ -4,9 +4,9 @@ uid: ""
 title: "Applying the engineering standard"
 type: protocol
 status: draft
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, engineering, agents]

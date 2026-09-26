@@ -5,7 +5,7 @@ title: "A canon states"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-24T22:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,11 +26,11 @@ SPDX-License-Identifier: CC0-1.0
 
 # A canon states
 
-> **Summary:** A canon says what is so, why it is so, and leaves the reader
-> able to do something. It names no tool, keeps no clock, repeats no
-> neighbour, and keeps its document names at the foot. Its title is a claim.
+> **Summary:** A canon says what is so and why, and leaves the reader able
+> to act. It names no tool, keeps no clock, repeats no neighbour, and keeps
+> document codes at the foot. Its title is a claim.
 > **Epistemic:** What separates a canon from a manual, a decision or a
-> brochure — and why every rule here has already cost a text.
+> brochure, and why each rule here has already cost a text.
 > **Pragmatic:** Write a canon, or refuse one, against a list you can point
 > at.
 > **Audience:** Agents · Oracles
@@ -39,26 +39,24 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Rules
 
-None of these rules is law: all are our choice.
-
 ### What a canon does
 
 **It says what is so.** A canon MUST state its claim in the present tense,
-with what makes it land — an image or a case. Stating is not listing: an
+with an image or a case that makes it land. Stating is not listing: an
 inventory of parts is not a canon.
 
 **It says why.** A canon MUST give reasoning that survives being quoted
 alone and applied to a case it never imagined. The history of the decision
-belongs to a decision record.
+belongs in a decision record.
 
 **It leaves the reader able to do something.** A canon MUST give a test to
 run, a distinction to draw or a thing to refuse, usable on the first day
 without asking anyone. The international plain-language standard asks the
-same of any text: the reader finds what they need, understands it, and can
+same of any text: the reader finds what they need, understands it and can
 use it.
 
 **Obligations, not sections.** The three above MAY come in any order and
-any shape — continuous prose, the author's own headings, or none. No
+any shape: continuous prose, the author's own headings, or none. No
 sectioning is prescribed.
 
 **The title is a claim.** The title MUST state what the canon holds true,
@@ -67,11 +65,11 @@ not its subject: *Opening is an act*, not *Licensing*.
 ### What a canon leaves out
 
 **No tool.** A canon MUST NOT name a vendor, product or application as the
-way something is done. It states the capability; the instrument belongs in
+way something is done. It states the capability. The instrument belongs in
 the system notes or a protocol.
 
 **No clock.** A canon MUST NOT carry a date, hour, cadence or calendar in
-its body. The schedule belongs to a protocol; the hours, to the calendar.
+its body. The schedule belongs in a protocol, the hours in the calendar.
 
 **No restatement.** Where another canon or a standard develops a thing, a
 canon MUST name it and stop. A summary of a neighbour is a second place to
@@ -81,19 +79,18 @@ go stale.
 where it names the document a reader would confuse it with. Otherwise it
 MUST NOT.
 
-**No date, no byline in the body.** A voice arguing on a given day is a
-report or a decision.
+**No date, no byline in the body.** A signed voice arguing on a given day
+is a report or a decision, not a canon.
 
-**Document names at the foot.** A canon MUST name a thing in words and keep
-its code in the header and the reference table, never mid-sentence.
+**Document names at the foot.** A canon MUST name a thing in words, and
+keep its code in the header and the reference table, never mid-sentence.
 
 ### Whose names
 
 **The manual names the world.** Where a canon and the game manual disagree
 on the name of a guild, branch, house, faction, rank or force, the manual is
-right and the canon is corrected. One preferred name per thing, as the
-international thesaurus standard asks, is what lets a search find it under
-one word.
+right and the canon is corrected. The international thesaurus standard asks
+for one preferred name per thing, so a search finds it under one word.
 
 ## Check
 
@@ -127,8 +124,8 @@ Every rule here is the epitaph of a text. A board named after a vendor died
 with the vendor and took the founding canon with it. Three rituals with
 hours disagreed with two other canons within a month. Four numbered
 sections produced documents that complied and did not persuade. No outside
-standard governs what a canon argues: the international plain-language
-standard judges only whether a text can be read, so these rules are ours.
+standard governs what a canon argues; the international plain-language
+standard judges only whether a text can be read.
 
 ## References
 

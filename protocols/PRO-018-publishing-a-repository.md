@@ -4,9 +4,9 @@ uid: ""
 title: "Publishing a repository"
 type: protocol
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, publishing, licensing, reuse, spdx, visibility]

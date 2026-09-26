@@ -4,7 +4,7 @@ uid: ""
 title: "Building the living pieces"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-26T18:00:00+02:00"
 updated: "2026-09-26T18:00:00+02:00"
 author: "ursa"

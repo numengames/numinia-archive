@@ -4,7 +4,7 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.7.1"
+version: "0.8.0"
 created: "2026-09-25T13:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -57,7 +57,11 @@ checks, or rules of Secrets and of Git is the archive; the design system's
 map moved to the system shelf as a manual, since nothing in it binds. No row
 of the map below is open; the retired codes left the standards for one
 ledger, and each reference table lists only what a standard depends on.
-What is left is the outside standards.
+The seventh was a copy pass, in the voice of the archive's copywriter:
+every standard was reread for a reader who must act, the scope became one
+line saying whom a document binds, and the coda saying whether the law or
+we chose each rule left the reading; a rule that rests on a law cites it in
+its check table. What is left is the outside standards.
 
 ## Future state
 

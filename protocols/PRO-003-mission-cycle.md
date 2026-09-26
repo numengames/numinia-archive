@@ -4,11 +4,11 @@ uid: ""
 title: "Running a mission"
 type: protocol
 status: draft
-version: "5.0.1"
+version: "5.0.2"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, missions, cycle, briefing, coordination]

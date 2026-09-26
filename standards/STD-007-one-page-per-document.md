@@ -5,7 +5,7 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "1.5.0"
+version: "2.0.0"
 created: "2026-09-03T10:30:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -25,11 +25,11 @@ SPDX-License-Identifier: CC0-1.0
 # One page per document
 
 > **Summary:** One question per document, a title that states the rule, a
-> three-part card, a one-line scope. Rules first, each with its code; then the check, then the reason.
-> The body fits its shelf's budget. Size limits are SHOULD; form is MUST.
-> **Epistemic:** What shape a document takes: one question, rules before
-> reasons, text instead of pointers, and why the older standards that did
-> the opposite went unread.
+> three-part card, a one-line scope. Rules come first, each coded, then the
+> check and the reason. The body fits its shelf's budget. Size limits are
+> SHOULD; form is MUST.
+> **Epistemic:** What shape a document takes, and why the older standards
+> that put reasons first and pointed elsewhere went unread.
 > **Pragmatic:** The mould to copy, the budgets to aim at, and what the
 > shape check reports on every change.
 > **Audience:** Agents · Oracles
@@ -38,43 +38,40 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Rules
 
-No law requires this shape; it is our choice, borrowed where it could be
-from how international and internet standards are drafted.
-
 ### The top of the page
 
-**The title states the rule.** A title SHOULD be at most five words, naming
-what is required rather than the topic: one document, one identifier, not
+**The title states the rule.** A title SHOULD be at most five words and
+name what is required, not the topic: one document, one identifier, not
 naming.
 
-**The card is three short paragraphs.** A document MUST open with a summary
-of what is required, what the reader will understand, and what the reader
-can then do; each SHOULD be at most 40 words.
+**The card is three short paragraphs.** A document MUST open with what is
+required, what the reader will understand, and what the reader can then do.
+Each SHOULD be at most 40 words.
 
 **One document, one question.** A document SHOULD answer one question, and
-its epistemic line SHOULD state that question. Two documents that answer the
-same question are merged; one that answers two is split. The topic-based
-writing standards ask the same of every topic, so a reader, a person or an
-agent, opens one file and finds the whole answer, and no other file
-contradicts it.
+its epistemic line SHOULD state it. Two documents that answer the same
+question are merged; one that answers two is split. The topic-based writing
+standards ask the same of every topic. A reader, person or agent, opens one
+file, finds the whole answer, and no other file contradicts it.
 
-**Scope is one line.** A standard or protocol MUST say whom it binds, in at
-most 15 words, as the international drafting rules ask of a scope clause up
-front; so a reader knows in one line whether to read on.
+**Scope is one line.** A standard or protocol MUST say whom it binds, up
+front, in at most 15 words, as the international drafting rules ask of a
+scope clause. A reader then knows in one line whether to read on.
 
 ### The rules and their reasons
 
 **Rules come first, and each has its code.** Every rule MUST be one
-obligation with one capitalised obligation word and a code of three letters
-and three digits, unique and never reused, in its title or the check table;
-requirements engineering asks exactly this, so each rule can be cited,
-tested and traced alone. A retired code leaves the check table for the one
-ledger of retired codes, which says where its obligation went.
+obligation, with one capitalised obligation word and a code of three
+letters and three digits. The code is unique, never reused, and sits in the
+rule's title or the check table. Requirements engineering asks exactly
+this, so each rule can be cited, tested and traced alone. A retired code
+moves from the check table to the ledger of retired codes, which says where
+its obligation went.
 
 **Obligation words mean one thing.** MUST, SHOULD and MAY, and their
 negatives, MUST carry the meaning the internet's standards body gave them,
-and only when written in capitals: a must is required, a should may be
-broken only with a reason, a may is a free choice.
+and only in capitals. A must is required. A should may be broken only with
+a reason. A may is a free choice.
 
 **The reason is short.** The section giving the reason SHOULD hold at most
 80 words. Longer reasoning belongs in a decision record.
@@ -82,7 +79,8 @@ broken only with a reason, a may is a free choice.
 **The body fits its budget.** From the scope line to the references, a
 document SHOULD fit its shelf's budget: 500 words for standards, protocols,
 decisions and missions; 300 for debt and guilds; 1,000 for reports and
-blueprints; 1,500 for canon. Over it, one sentence in the document says why.
+blueprints; 1,500 for canon. A document over budget says why in one
+sentence.
 
 ### Pointing at other documents
 
@@ -91,25 +89,25 @@ one depends on to oblige, and SHOULD be at most five.
 
 **Cite rules, not places.** A document or rule MUST be cited by its name or
 its code, never by a section number, which moves whenever the cited
-document is rewritten; identifiers appear only in the check table and the
-references, so the reading names things in words.
+document is rewritten. Identifiers appear only in the check table and the
+references; the reading names things in words.
 
 ### What sits apart
 
-**Registers are tables.** A register is exempt from the card and the budget;
-it MUST hold a summary, a table, and at most one sentence of prose.
+**Registers are tables.** A register is exempt from the card and the budget.
+It MUST hold a summary, a table, and at most one sentence of prose.
 
 **No history inside.** A document MUST NOT carry a changelog, an amendment
-section or a note of what changed. The history of the archive is the
-history of the document.
+section or a note of what changed. The archive's history is the document's
+history.
 
 **Written in English.** New and rewritten documents SHOULD be written in
-English; one that departs from the default declares its language with the
-internet's standard language tag, so a reader and a program both know it. A
-Spanish document is not invalid, it is mid-migration.
+English. A document in another language declares it with the internet's
+standard language tag, so readers and programs both know. A Spanish
+document is not invalid; it is mid-migration.
 
-This standard is over its word budget because the check table at its foot
-names a check for each of its thirteen rules.
+This standard is over its word budget because its check table names a check
+for each of its thirteen rules.
 
 ## Check
 
@@ -133,11 +131,11 @@ Each rule, its code, its source and its check.
 
 ## Why
 
-Size is SHOULD and form is MUST: a document over budget with a written
+Size is SHOULD and form is MUST. A document over budget with a written
 reason is still valid; one without codes, or with reasons first, is not.
 An adult reads about 240 words a minute and skims most of a page; a
-narrator reads 150. Five hundred words is three minutes aloud, one printed
-page — small enough that an agent loads a whole shelf instead of searching
+narrator reads 150. Five hundred words is three minutes aloud and one
+printed page, small enough for an agent to load a whole shelf, not search
 it. Codes wait at the foot, where no narrator stumbles on them.
 
 ## References

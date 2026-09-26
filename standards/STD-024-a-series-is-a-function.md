@@ -5,7 +5,7 @@ title: "A series is a function"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-09-09T12:30:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -25,13 +25,13 @@ SPDX-License-Identifier: CC0-1.0
 
 # A series is a function
 
-> **Summary:** A folder is a series when losing it breaks a named function.
-> Three series oblige; the rest record. The folder and the declared kind
-> agree, and an exemption says why.
-> **Epistemic:** Which series a document belongs to, and what that makes
-> it: a rule that obliges or a record that does not.
-> **Pragmatic:** Decide whether a folder is a series, whether a text binds,
-> and where a document lives — without asking.
+> **Summary:** A folder is a series when losing it would break a named
+> function. Three series oblige; the rest record. A document's folder matches
+> its declared kind, and an exemption gives its reason.
+> **Epistemic:** Which series a document belongs to, and whether that makes
+> it a rule that obliges or a record that does not.
+> **Pragmatic:** Decide, without asking, whether a folder is a series,
+> whether a text binds, and where a document lives.
 > **Audience:** Agents · Oracles
 
 **Binds:** every folder of the archive and every document in one.
@@ -40,35 +40,34 @@ SPDX-License-Identifier: CC0-1.0
 
 ### What binds
 
-**Only three series oblige.** The international quality standard tells the
-documents you maintain, which say what must be done, from the records you
-keep, which say what was done. Ours: the canon, the standards and the
-protocols oblige; every other series MUST be read as a record, which cannot
-put a reader in breach.
+**Only three series oblige.** The international quality standard separates
+documents you maintain, which say what must be done, from records you keep,
+which say what was done. Here the canon, the standards and the protocols
+oblige. Every other series MUST be read as a record, and a record cannot put
+a reader in breach.
 
-**Complied with, or carried out.** A standard is complied with by a thing
-made; a protocol is carried out by someone acting. The line MUST be drawn by
-how it works, not by the topic.
+**Complied with, or carried out.** A thing made complies with a standard.
+Someone acting carries out a protocol. The line MUST be drawn by how the
+text works, not by its topic.
 
 ### Where a document lives
 
 **Folder and kind agree.** The international standard for records
-management files each record in one place of a classification scheme, so it
-is found and handled by the rules of that place. The folder is that place;
-when it and the declared kind disagree, the file MUST move, not the kind.
+management files each record in one place of a classification scheme, and
+the rules of that place govern it. Here the folder is that place. When the
+folder and the declared kind disagree, the file MUST move, not the kind.
 
 **Exemptions say why.** A document left out of registration MUST say so and
-give the reason, both or neither. Counts leave it out rather than mark it
+give the reason: both, or neither. Counts skip it rather than mark it
 missing.
 
-How a document moves to another series, or is absorbed, is said once, in
-the standard that the corpus does not grow.
+The standard that the corpus does not grow says how a document moves to
+another series or is absorbed.
 
 ## Check
 
-Each rule, its code, its source and its check. No law requires any of it; it
-is our choice, so that an auditor who knows these standards can check us
-without a glossary.
+Each rule, its code, its source and its check. The sources let an auditor
+who knows these standards check us without a glossary.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -85,9 +84,9 @@ without a glossary.
 
 ## Why
 
-The archive is read by agents that must know, without asking, whether a
-sentence binds them: the first rule makes that a question of where it sits,
-and the folder rule keeps where it sits honest.
+Agents read the archive and must know, without asking, whether a sentence
+binds them. The first rule makes that a question of where the sentence
+sits. The folder rule keeps that answer honest.
 
 ## References
 

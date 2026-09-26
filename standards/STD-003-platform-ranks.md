@@ -5,7 +5,7 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.2.1"
+version: "3.2.2"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
@@ -26,7 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 # Platform ranks
 
 > **Summary:** Six ranks, lowest first: Nomad, Citizen, Pilgrim, Vernacular,
-> Archon, Oracle. Each holds every permission of the ranks below it, and a
+> Archon, Oracle. Each holds every permission of the ranks below it. A
 > member's rank is read from what they have done, never from what they claim.
 > **Epistemic:** What each rank may do, what earns it, and where the
 > platform reads it from.
@@ -39,59 +39,55 @@ sheets, creator panel, administration.
 
 ## Rules
 
-None of these rules is required by law; each is our choice, resting on a
-security standard others already audit against.
+Each rule rests on a published security standard that auditors already
+use.
 
 ### How rank is held
 
 **Ranks add up.** A rank MUST grant every permission of the ranks below it,
 as a role hierarchy does in the role-based access control model of the
-United States standards institute. One ladder is easy to audit: what someone
-may do is their rank and everything under it. Our choice; the law does not
-require it.
+United States standards institute. One ladder is easy to audit: what
+someone may do is their rank and everything under it.
 
-**Rank is read, never declared.** The platform MUST work out a member's rank
-on its own server, from their sign-in, their character sheet and their
-purchases, never from what the member's device claims. The open web security
-project's verification standard asks the same, because a permission checked
-out of the member's reach cannot be self-granted. Our choice; the law does
-not require it.
+**Rank is read, never declared.** The platform MUST work out a member's
+rank on its own server, from their sign-in, their character sheet and their
+purchases, never from what the member's device claims. The open web
+security project's verification standard asks the same: a permission
+checked out of the member's reach cannot be self-granted.
 
-**The ranks that follow the evidence move by themselves.** Between Nomad and
-Citizen, and between Citizen and Pilgrim, rank MUST follow the evidence in
-both directions, with no one's hand involved. Our choice; the law does not
-require it.
+**The ranks that follow the evidence move by themselves.** Between Nomad
+and Citizen, and between Citizen and Pilgrim, rank MUST follow the evidence
+up and down, with no one's hand involved.
 
 ### Who may move whom
 
 **No more than four Oracles.** The list of Oracles MUST NOT name more than
-four people. Our choice; the law does not require it.
+four people.
 
 **Nobody acts upward.** An Archon MUST NOT act on another Archon or on an
-Oracle, and nobody can ban an Oracle, in storage, through the programming
-interface or on screen. Separation of duties and least privilege, in the
-federal security controls, are what stop capture; since an Oracle cannot be
-banned, every privileged action an Oracle takes is logged instead. Our
-choice; the law does not require it.
+Oracle, and nobody can ban an Oracle, whether in storage, through the
+programming interface or on screen. The federal security controls stop
+capture with separation of duties and least privilege. Because an Oracle
+cannot be banned, every privileged action an Oracle takes is logged
+instead.
 
 **Moving someone by hand has a ceiling.** An Archon MAY promote or demote
-anyone up to Vernacular, and an Oracle every rank except Oracle; Oracles
-change only when the list of Oracles is edited. Our choice; the law does not
-require it.
+anyone up to Vernacular, and an Oracle anyone up to Archon. The Oracles
+change only when the list of Oracles is edited.
 
-**The top two are judged, not counted.** A promotion to Vernacular or Archon
-MUST be decided against the profiles below, never against how much someone
-has produced. Our choice; the law does not require it.
+**The top two are judged, not counted.** A promotion to Vernacular or
+Archon MUST be decided against the profiles below, never against how much
+someone has produced.
 
 A Vernacular is an agent fully at home in Numinia's culture. They inhabit
-the system with fluency and depth, and know its structures from within. They
-work with autonomy and expertise in their own field, and collaborate closely
-with Numinia.
+the system with fluency and depth, and know its structures from within.
+They work with autonomy and expertise in their own field, and collaborate
+closely with Numinia.
 
 An Archon is all of that, and also leads other agents. They make decisions
-and take initiatives that affect everyone, and hold responsibility for the
-system, not only for their own work. The rank carries social and
-organisational influence.
+and take initiatives that affect everyone, and answer for the system, not
+only for their own work. The rank carries social and organisational
+influence.
 
 > Technical depth does not by itself make an Archon. The Archon has to
 > relate to others in a way that goes beyond doing the work: they guide,
@@ -126,19 +122,18 @@ be banned.
 
 ### Keeping this page true
 
-**The permissions and this page move together.** A change to the platform
-that alters what a rank may do MUST update this standard in the same
-change. The security verification standard asks for written authorization
-rules; this page is them, so a reviewer can test the code against it. Our
-choice; the law does not require it.
+**The permissions and this page move together.** A platform change that
+alters what a rank may do MUST update this standard in the same change. The
+security verification standard asks for written authorization rules. This
+page is those rules, and a reviewer tests the code against it.
 
-This standard is over its word budget: the six rank profiles are what a
-reviewer tests the code against, and cannot move elsewhere.
+This standard runs over its word budget because the six rank profiles
+cannot live anywhere else.
 
 ## Check
 
-Each rule, its code, its source and its check. None is law. Then where the
-platform reads each rank from.
+Each rule, its code, its source and its check. Then where the platform
+reads each rank from.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -163,12 +158,12 @@ platform reads each rank from.
 ## Why
 
 A rank the member declares is a permission the member grants themselves.
-Reading rank from evidence ties every permission to an act, and resting each
-rule on a published security standard lets an auditor check us with a list
-they already hold. The ceiling on Oracles, and the log of what they do, keep
-governance from being captured inside the product. Nomad reads, Citizen
-edits their identity, Pilgrim buys, Vernacular creates, Archon moderates,
-Oracle governs.
+Reading rank from evidence ties every permission to an act. Resting each
+rule on a published security standard lets an auditor check us against a
+list they already hold. The cap on Oracles, and the log of what they do,
+keep governance from being captured inside the product. Nomad reads,
+Citizen edits their identity, Pilgrim buys, Vernacular creates, Archon
+moderates, Oracle governs.
 
 ## References
 

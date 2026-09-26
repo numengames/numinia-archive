@@ -5,7 +5,7 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.4.3"
+version: "5.4.4"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,12 +26,12 @@ SPDX-License-Identifier: CC0-1.0
 
 # The series
 
-> **Summary:** The folders of the archive, one row each: what the folder
-> holds, how its documents are numbered, what it takes to change them, how
-> long their body may run, and the mould a new one is copied from.
+> **Summary:** One row per folder of the archive. Each row says what the
+> folder holds, how its documents are numbered, what a change costs, how long
+> a body may run, and which mould a new document copies.
 > **Epistemic:** Which series exist, and what each one is for.
-> **Pragmatic:** Look up where a document goes and what it is called before
-> creating it. A folder not listed here is unregistered until a row is added.
+> **Pragmatic:** Before you create a document, look up where it goes and
+> what it is called. A folder with no row here is unregistered.
 > **Audience:** Agents · Oracles
 
 **Binds:** every tracked document of the archive.
@@ -59,25 +59,24 @@ SPDX-License-Identifier: CC0-1.0
 | `machine/telemetry/` | Assurance · Measuring | the figures the repository states about itself, measured, never typed | — | — | — | — |
 | `machine/templates/` | Administration · Templating | the moulds, one per series | — | — | — | — |
 
-The canon, the standards and the protocols are the **axis**, the documents
-that bind; the rest are **registers**. A budget is the number of words the
-body may hold, as the one-page standard counts them. The function and
-activity column is the classification scheme: it says which activity
+The canon, the standards and the protocols are the **axis**: the documents
+that bind. The rest are **registers**. A budget is the number of words a
+body may hold, counted as the one-page standard counts them. The function
+and activity column is the classification scheme. It says which activity
 produced a series, never what a change to it costs.
 
-This table is what the international standard for records management calls
-a business classification scheme, built the way the Australian national
-archives teach: every folder under a function, named as a noun, and an
-activity, named as a verb, so an auditor of records reads it without a
-glossary. What is ours is the rest of each row — the prefix, the threshold
-and the budget. No law requires the scheme; it is our choice.
+The international standard for records management calls this table a
+business classification scheme. It is built the way the Australian national
+archives teach: each folder sits under a function, named as a noun, and an
+activity, named as a verb. An auditor of records reads it without a
+glossary. The prefix, the threshold and the budget are our own additions.
 
 The moulds live with the machine. Everything the machine holds is an
-**instrument**: a short-lived record, classified by the activity that
-produced it, so it has a row; never a document, so it has no prefix, no
-threshold, no budget and no page. It may be cited as evidence of what it
-measured and binds nobody. It is read in the repository, its manual lives
-with the system, and it belongs to everyone.
+**instrument**: a short-lived record with a row, because an activity
+produced it. It is never a document, so it has no prefix, no threshold, no
+budget and no page. It may be cited as evidence of what it measured, and it
+binds nobody. It is read in the repository, its manual lives with the
+system, and it belongs to everyone.
 
 ## Genre and folder
 
@@ -107,11 +106,11 @@ there too.
 
 ## Earlier schemes
 
-Older documents were numbered under earlier prefixes, listed below. Nothing
-is renumbered: a document that cites an old number keeps the citation as a
+Older documents were numbered under the earlier prefixes listed below.
+Nothing is renumbered. A citation of an old number stays as written, a
 promise about the past, and the archive resolves it against its history.
 Across repositories, an identifier carries the repository's short name in
-front of it.
+front.
 
 | Earlier prefix |
 |---|

@@ -5,7 +5,7 @@ title: "Git is the archive"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.1"
+version: "2.1.2"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -23,8 +23,8 @@ SPDX-License-Identifier: CC0-1.0
 
 # Git is the archive
 
-> **Summary:** Work reaches the main line by pull request, shared history is
-> never rewritten, and what a program generates is generated again, never
+> **Summary:** Work reaches the main line by pull request. Shared history is
+> never rewritten. What a program generates is generated again, never
 > edited.
 > **Epistemic:** How a change reaches the main line, and which guarantees
 > the repository gives that no document can.
@@ -38,30 +38,27 @@ SPDX-License-Identifier: CC0-1.0
 
 ### How work reaches the main line
 
-**Small batches, by pull request, on one trunk.** We follow trunk-based
-development, the common practice of merging small changes into one main
-line at least daily, and the security scorecard's highest tier of branch
-protection, from the Open Source Security Foundation: every change MUST
-reach the main branch through a pull request that has passed the required
-checks and been approved. Conflicts stay small, and the repository's own
+**Small batches, by pull request, on one trunk.** Every change MUST reach
+the main branch through a pull request that has passed the required checks
+and been approved. This is trunk-based development, the common practice of
+merging small changes into one main line at least daily. It also meets the
+highest tier of branch protection in the security scorecard of the Open
+Source Security Foundation. Conflicts stay small, and the repository's own
 settings prove that nobody, however trusted, changed the main line alone.
-Our choice.
 
-**One-line subject.** We follow Conventional Commits, the common grammar for
-commit messages: the first line of a commit MUST open with one of seven
-kinds, then the area touched in brackets, and say, on one line, what
-changed. A tool can then sort history and build release notes without
-reading the code. Our addition: the same line says why. Our choice.
+**One-line subject.** The first line of a commit MUST open with one of seven
+kinds, then the area touched in brackets, and say on one line what changed.
+This is the grammar of Conventional Commits, so a tool can sort history and
+build release notes without reading the code. The same line also says why.
 
-**Leave it better.** No change adds debt silently: it declares what it left
-behind. A green pipeline is not a clean tree.
+**Leave it better.** No change adds debt silently: each declares what it
+left behind. A green pipeline is not a clean tree.
 
-**Shared history is never rewritten.** We follow the scorecard's first tier
-of branch protection and the second source level of the supply-chain levels
-for software artifacts: force pushes and deletion of the main branch MUST
-be blocked, so the history of a branch others share is never rewritten.
-Anyone can then trust that a commit they once saw is still there, unchanged.
-Our choice.
+**Shared history is never rewritten.** Force pushes and deletion of the main
+branch MUST be blocked. A commit anyone once saw is then still there,
+unchanged. This meets the first tier of branch protection in the security
+scorecard and the second source level of the supply-chain levels for
+software artifacts.
 
 ### What a program generates
 
@@ -102,10 +99,10 @@ Each rule, its code, its source and its check.
 
 ## Why
 
-The archive's strongest guarantee is one it inherits: who committed what,
-and when, cannot be changed at any price worth paying. Every rule here
-protects that inheritance from a rewritten branch, or a file edited by
-hand that a program owns.
+The archive's strongest guarantee is inherited: who committed what, and
+when, cannot be changed at any price worth paying. Every rule here guards
+that inheritance against a rewritten branch or a hand edit to a file a
+program owns.
 
 ## References
 
