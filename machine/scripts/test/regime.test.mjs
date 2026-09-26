@@ -129,3 +129,23 @@ check('tree: one question per standard — charging, the account and what every 
   }
   return true;
 });
+
+check('tree: one question per standard — the last rows: guards apart from safety; the design map is a manual', () => {
+  const want = { 'ENG-067': 'STD-005', 'ENG-032': 'STD-005', 'KEY-057': 'STD-022', 'GIT-050': 'STD-020' };
+  for (const [plate, doc] of Object.entries(want)) {
+    const got = index.byPlate.get(plate);
+    if (got !== doc) return `${plate} holder ${got}, want ${doc}`;
+  }
+  const read = (rel) => readFileSync(path.join(ROOT, rel), 'utf-8');
+  const std005 = readdirSync(path.join(ROOT, 'standards')).find((f) => f.startsWith('STD-005-'));
+  const eng = read(`standards/${std005}`), reg = read('standards/STD-015-engineering-checks.md');
+  if (!/^#+ The family pipeline/m.test(eng)) return 'the family pipeline is not in STD-005';
+  if (/^#+ The family pipeline/m.test(reg)) return 'the family pipeline is still in STD-015';
+  for (const p of ['SEC-013', 'SEC-014', 'SRE-007', 'AGT-007']) if (!new RegExp(`\\| ${p} \\|`).test(reg)) return `${p} is not a row of STD-015`;
+  for (const p of ['ENG-004', 'ENG-005', 'ENG-006', 'ENG-007', 'ENG-035', 'ENG-068', 'ENG-069']) {
+    if (!new RegExp(`\\| ${p} \\| retired → `).test(eng)) return `${p} is not retired in STD-005`;
+  }
+  if (readdirSync(path.join(ROOT, 'standards')).some((f) => f.startsWith('STD-032-'))) return 'STD-032 is still a standard';
+  if (!readdirSync(path.join(ROOT, 'system')).some((f) => f.startsWith('SYS-009-'))) return 'no SYS-009 in system/';
+  return true;
+});
