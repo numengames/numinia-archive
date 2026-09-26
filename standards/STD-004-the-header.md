@@ -5,7 +5,7 @@ title: "The header"
 type: documentation
 subtype: standard
 status: draft
-version: "4.1.1"
+version: "4.1.2"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
@@ -27,36 +27,35 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** Every document opens with a short block of labelled fields
 > that says what it is, who wrote it and when. Every field is listed below,
-> ring by ring, or it is an error. A value nobody knows is left out, never
-> guessed.
+> ring by ring; any other field is an error. An unknown value is left out,
+> never guessed.
 > **Epistemic:** What a correct header is, which outside standards its
-> values follow, and why each rule is one a machine can check.
+> values follow, and why a machine can check each rule.
 > **Pragmatic:** Write a header, add a field, or read a finding by its code.
 > **Audience:** Agents · Oracles
 
 **Binds:** every document's header, and every date the archive writes.
-**Does not bind:** the body below the header, or the site's own page schema.
 
 ## Rules
 
-None of these rules is required by law; each is our choice, made so that
-any tool that already reads the outside standard can check us unaided.
+Each rule follows an outside standard, so any tool that already reads that
+standard can check us unaided.
 
 ### Every document has a header
 
 **Every governed document has a header.** Every document in a governed
 folder MUST open, at its very first character, with a block of fields in
-the plain data format called YAML, fenced by three dashes on their
-own lines; so any tool finds the header without guessing where it starts.
+the plain data format called YAML, fenced by three dashes on their own
+lines. Any tool then finds the header without guessing where it starts.
 
 **A field in no ring is an error.** A field that no ring registers MUST be
-reported, the way a closed schema refuses any property it does not list: a
-misspelt field is caught on the day it is written, instead of silently
+reported, the way a closed schema refuses any property it does not list. A
+misspelt field is caught the day it is written, instead of silently
 meaning nothing.
 
-**Adding a field costs a row and a decision.** A new field MUST arrive with
-its line in the rings below and the decision that justifies it, in the same
-change.
+**Adding a field costs a row and a decision.** A new field MUST arrive in
+the same change as its line in the rings below and the decision that
+justifies it.
 
 ### What a header may say
 
@@ -64,16 +63,16 @@ change.
 known, leave the field out, write null, or write that it is to be announced.
 
 **Absent is never guessed.** A placeholder, a plausible date or an invented
-author MUST NOT stand in for a value. Where history cannot testify, a date
-is marked as declared, so a reader tells evidence from claim.
+author MUST NOT stand in for a value. Where history cannot testify, mark
+the date as declared, so a reader can tell evidence from claim.
 
 **A deferred value has an owner.** A value left to be announced MUST sit in
 a field that a mission owns, and the check names that mission. Whether the
 mission is still alive is judged by hand.
 
 **Retired fields leave in waves.** A retired field MUST be reported wherever
-it still appears until its migration lands; the rule naming it goes with
-its last occurrence.
+it still appears until its migration lands. The rule that names it leaves
+with its last occurrence.
 
 **The universal identifier stays empty.** The field reserved for a
 universal identifier MUST stay empty until the system that assigns it
@@ -82,39 +81,39 @@ exists.
 ### What the values follow
 
 **The licence is a name from the shared list.** Every header MUST declare a
-licence, written exactly as the open-source world's shared licence list
-spells it, the same tag the file's own licence lines carry; so one check
-reads the terms of every file and they never disagree.
+licence, spelt exactly as the open-source world's shared licence list
+spells it. The file's own licence lines carry the same tag, so one check
+reads the terms of every file and the two never disagree.
 
 **A version counts what changed.** A version MUST be three numbers in the
-semantic versioning form, bumped as the standard of versions says; a reader
-knows from the number alone whether an obligation was dropped, added or
+semantic versioning form, bumped as the standard of versions says. The
+number alone tells a reader whether an obligation was dropped, added or
 only reworded.
 
 **Replaced is a relation, not a state.** A document that has an heir MUST
-say so with a link to it, never with a status of its own; unlike the usual
-decision-record habit of a superseded status, a link names the heir and
+say so with a link to the heir, never with a status of its own. Many
+decision records use a superseded status instead. A link names the heir and
 cannot drift from it.
 
-**Relations live in the header and resolve.** Every relation — replaces,
-replaced by, absorbs, derived from, ratified by, related, part of — MUST
-name a document that exists, and each means what the library world's
-Dublin Core terms and the web's provenance vocabulary say it means; so any
+**Relations live in the header and resolve.** Every relation (replaces,
+replaced by, absorbs, derived from, ratified by, related, part of) MUST
+name a document that exists. Each means what the library world's Dublin
+Core terms and the web's provenance vocabulary say it means, so any
 catalogue tool reads our links as its own.
 
 **Titles are English.** Every title MUST be in English, and a language is
-always named with the internet's standard language tags; so a program and a
-person agree on which language a text is in.
+always named with the internet's standard language tags. A program and a
+person then agree on which language a text is in.
 
 ### How dates are written
 
 **Dates are written the internet's way.** Every date MUST follow the
 internet's timestamp format: year, month, day, the hour and its offset from
-universal time, in that order; so dates sort as text, read one way only,
-and no updated date comes before its created date.
+universal time, in that order. Dates then sort as text and read one way
+only, and no updated date comes before its created date.
 
-This standard is over its word budget because each rule now says what its
-outside standard does, as well as what it obliges.
+This standard runs over its word budget because each rule names the outside
+standard it follows.
 
 ## Check
 
@@ -184,8 +183,9 @@ standards; those plates are retired there.
 ### Outside meaning
 
 Where the library world's Dublin Core terms or the web's provenance
-vocabulary already name what a field means, it means exactly that, so an
-auditor's catalogue reads our headers unaided; the names stay ours.
+vocabulary already define a field's meaning, the field means exactly that.
+An auditor's catalogue then reads our headers unaided. The field names stay
+our own.
 
 | Field | Means | Note |
 |---|---|---|
@@ -268,11 +268,12 @@ set in the register of series, not its status.
 
 ## Why
 
-A person reads the body; guards, indexes and the site read only the header.
-Everything the machinery knows about a document is in these lines, so a
-guessed value corrupts every view at once, and an unregistered field starts
-a count that never stops. Each value follows a norm the world already
-reads, so an auditor checks us with tools they already own.
+A person reads the body. Guards, indexes and the site read only the
+header. Everything the machinery knows about a document lives in these
+lines, so one guessed value corrupts every view at once, and one
+unregistered field starts a count that never stops. Each value follows a
+norm the world already reads, so an auditor can check us with tools they
+already own.
 
 ## References
 

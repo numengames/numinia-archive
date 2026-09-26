@@ -5,7 +5,7 @@ title: "Operative vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.4"
+version: "0.1.5"
 created: "2026-09-18T12:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,17 +26,16 @@ SPDX-License-Identifier: CC0-1.0
 # Operative vocabulary
 
 > **Summary:** The twenty-five terms Numen Games works with, in plain
-> words: what each is, what knowing it clears up, and what it lets you do
-> here. Not the game's own words — those live in the game's glossary, in the
-> manual's language. This list grows only by decision, and never past the
-> essential.
+> words: what each one is, what it clears up, and what it lets you do here.
+> The game's own words are not here. The list grows only by decision, and
+> only with what is essential.
 >
-> The list follows the web consortium's model for vocabularies: each term
-> has one preferred label, its alternative labels after "Also", a
-> definition, and a note on its scope here. Each definition names the kind
-> of thing first and then what sets it apart, as the international rule for
-> writing definitions asks, so any glossary tool can read it and any term
-> can be checked against its neighbours.
+> Each term has one preferred label, its other names after "Also", a
+> definition and a note on its scope here, as the web consortium's model for
+> vocabularies lays out. Each definition names the kind of thing first, then
+> what sets it apart, following the international rule for definitions. Any
+> glossary tool can read the list, and any term can be checked against its
+> neighbours.
 
 ## Network and ownership
 
@@ -83,7 +82,7 @@ SPDX-License-Identifier: CC0-1.0
 | **Avatar** | A person's digital body: the form that represents them and with which they act inside a world. | Not decoration: embodied identity — it changes how you are seen and how you take part. | The catalogue's avatars are CC0 and portable: your digital body is yours and travels with you. |
 | **VRM** | An open format (a Japanese standard over glTF) for humanoid 3D avatars: one file with the model, its bones and its usage permissions, working in any compatible application. | Interoperability made format: "one avatar for every world" is engineering, not promise. | The format of Numinia's avatars — the platform's viewer renders them and any compatible world accepts them. Related: glTF/GLB. |
 
-Game-world terms — the Veil, the Threshold, the guilds, the seals — belong
-to the game manual and live in the game's glossary. Their English names come
-from the manual's translation glossary, and the code uses those names in
-lower case.
+Game-world terms, such as the Veil, the Threshold, the guilds and the
+seals, belong to the game manual and live in the game's glossary. Their
+English names come from the manual's translation glossary, and the code
+writes them in lower case.

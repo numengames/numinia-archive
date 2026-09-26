@@ -4,9 +4,9 @@ uid: ""
 title: "Requesting approval, issuing rulings"
 type: protocol
 status: draft
-version: "4.0.1"
+version: "4.0.2"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
@@ -35,8 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** any agent requesting approval; any Oracle issuing a ruling; any
 agent executing one.
-**Does not bind:** when an agent must ask (`PRO-005`) nor who may approve
-what (`AUT-065`).
 
 ## 1. Trigger
 

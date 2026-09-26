@@ -4,9 +4,9 @@ uid: ""
 title: "Joining and leaving Numinia: the phases, the gates and who owns each step"
 type: protocol
 status: draft
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-09-24T12:00:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -36,7 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Everyone
 
 **Binds:** whoever brings a person into Numinia, and whoever lets one go.
-**Does not bind:** what a rank is (`CAN-004`); who may change what (`STD-017`).
 
 A gate is a condition, not a suggestion: the next phase does not begin until it
 is met. The name in brackets after a checklist item is who owns it.

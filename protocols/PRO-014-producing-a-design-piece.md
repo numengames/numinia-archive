@@ -4,7 +4,7 @@ uid: ""
 title: "Producing a design piece"
 type: protocol
 status: draft
-version: "2.0.3"
+version: "2.0.4"
 created: "2026-09-07T14:00:00+02:00"
 updated: "2026-09-26T18:00:00+02:00"
 author: "ursa"
@@ -37,8 +37,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents
 
 **Binds:** any agent producing a design piece in any medium.
-**Does not bind:** the direction (`CAN-008`) nor the values (`STD-023`); it
-orders them, it does not define them.
 
 ---
 

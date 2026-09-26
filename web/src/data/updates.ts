@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.60.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "CHG",
+        text: "Every standard reread for its reader: shorter sentences, the obligation first. Each now opens with one line saying whom it binds; the line saying what it does not bind is gone, and so is the note after each rule on whether the law or we chose it.",
+      },
+    ],
+  },
+  {
     version: "v0.59.0",
     date: "2026-09-26",
     entries: [

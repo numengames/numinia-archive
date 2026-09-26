@@ -4,9 +4,9 @@ uid: ""
 title: "Publishing a repository"
 type: protocol
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, publishing, licensing, reuse, spdx, visibility]
@@ -35,8 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** any agent preparing a visibility change or a permanent
 publication of a Numen Games repository or work, and the request it
 files.
-**Does not bind:** what the gates are (`STD-014`); the licence regime
-(`STD-010`); publication to a CDN, which can be withdrawn.
 
 ## 1. Trigger
 

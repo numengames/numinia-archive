@@ -193,8 +193,8 @@ const corpus = defineCollection({
       //      was written it was reserved, and serving it granted nothing.)
       //   3. STD-014 DOES NOT BIND THIS. Its own scope line: it binds
       //      permanent publication (Arweave) and a private-to-public change
-      //      of a repository, and expressly "does not bind: publication to a
-      //      CDN, which can be withdrawn". numinia.org is a CDN worker. The
+      //      of a repository, and nothing else; publication to a CDN can be
+      //      withdrawn, so it is neither. numinia.org is a CDN worker. The
       //      irreversible act — making the repository public — already
       //      happened and was not this.
       //

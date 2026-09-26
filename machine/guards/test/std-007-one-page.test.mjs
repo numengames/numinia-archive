@@ -4,8 +4,8 @@
 //
 // std-007-one-page.test.mjs — DOC-003: the documents that must declare scope.
 //
-// STD-007 asks every standard and protocol to open with a `**Binds:**` line
-// and a `**Does not bind:**` line, and exempts two kinds:
+// STD-007 asks every standard and protocol to open with a `**Binds:**` line,
+// and exempts two kinds:
 //
 //   subtype: register — a lookup table (the header fields, the licence
 //     allowlist). It governs nobody by itself; the standard pointing at it
@@ -48,13 +48,31 @@ test('every standard and protocol that is not a register declares whom it binds'
   assert.deepEqual(missing, [], `DOC-003: these declare no scope, and no exemption covers them:\n  ${missing.join('\n  ')}`);
 });
 
-test('a document that binds also says what it does not bind', () => {
-  // The pair is the point: a scope with no edge reads as "everything", which
-  // is how a reader ends up opening documents that never applied to them.
-  const half = docs
-    .filter((d) => d.text.includes('**Binds:**') && !d.text.includes('**Does not bind:**'))
+test('no document, and no mould, says what it does not bind', () => {
+  // The Oracle's word: a "does not bind" line adds nothing, and it plants in
+  // an agent's mind the very thing it names. Scope is said once, positively.
+  const moulds = execFileSync('git', ['-C', ROOT, 'ls-files', 'machine/templates/*.md'], { encoding: 'utf8' })
+    .split('\n').filter(Boolean)
+    .map((file) => ({ file, text: readFileSync(path.join(ROOT, file), 'utf8'), fm: {} }));
+  const carry = [...docs, ...moulds]
+    .filter((d) => /\*\*Does not bind:\*\*/.test(d.text))
     .map((d) => `${d.fm.id ?? d.file}`);
-  assert.deepEqual(half, [], `DOC-003: these bind somebody but never say where they stop:\n  ${half.join('\n  ')}`);
+  assert.deepEqual(carry, [], `these still carry a "Does not bind" line:\n  ${carry.join('\n  ')}`);
+});
+
+test('DOC-003: a scope of one line, whom it binds, is the whole scope', () => {
+  const text = std('**A rule in words.** Everyone MUST do it.',
+    '| Plate | Rule | Source | Verified by |\n|---|---|---|---|\n| ABC-001 | A rule in words | — | by hand |');
+  assert.deepEqual(findings(text, 'DOC-003'), []);
+});
+
+test('the reading says what a rule asks, not whether the law or we chose it', () => {
+  // The law-or-choice tag after each rule read as a tic. Where a rule rests
+  // on a law, the Source column of the Check table names it.
+  const TAG = /\bour choice\b|\bours by choice\b|\bno law requires\b|\bthe law does not require\b|\bnot law for us\b|\bnone of these rules is (?:required by )?law\b|\bthe law requires this\b/i;
+  const tagged = docs.filter((d) => d.file.startsWith('standards/') && TAG.test(d.text))
+    .map((d) => `${d.fm.id} — "${d.text.match(TAG)[0]}"`);
+  assert.deepEqual(tagged, [], `still tagging law or choice:\n  ${tagged.join('\n  ')}`);
 });
 
 /* ---- DOC-004 and DOC-008 on a scratch corpus: where a plate may live ----
@@ -72,7 +90,7 @@ const std = (rules, check) => [
   '---', 'id: "STD-900"', 'subtype: standard', 'status: draft', '---', '',
   '# A rule in words', '',
   '> **Summary:** s.', '> **Epistemic:** e.', '> **Pragmatic:** p.', '',
-  '**Binds:** every test.', '**Does not bind:** anything else.', '',
+  '**Binds:** every test.', '',
   '## Rules', '', rules, '',
   '## Check', '', check, '',
   '## Why', '', 'Because.', '',

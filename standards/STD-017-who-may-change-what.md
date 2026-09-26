@@ -5,7 +5,7 @@ title: "Who may change what"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.1"
+version: "2.1.2"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -23,83 +23,81 @@ SPDX-License-Identifier: CC0-1.0
 
 # Who may change what
 
-> **Summary:** The canon, the standards and the protocols change by a written
-> decision or a change the Oracle approves; everything else by an ordinary
-> change. Each series has a threshold, rank sets how far an actor reaches,
-> and in doubt an agent stops.
-> **Epistemic:** Who may change what: what each kind of change costs, who
-> can pay it, and which outside standard each cost follows.
+> **Summary:** The canon, standards and protocols change by a written
+> decision or a change the Oracle approves. Everything else changes by an
+> ordinary change. Each series sets a threshold, rank sets each actor's
+> reach, and an agent in doubt stops.
+> **Epistemic:** What each kind of change costs, who can pay it, and which
+> outside standard each cost follows.
 > **Pragmatic:** Know before editing whether you may, and what the edit needs.
 > **Audience:** Agents · Oracles
 
 **Binds:** every change to a registered document.
-**Does not bind:** what each rank is, or the ranks on the platform.
 
 ## Rules
 
 ### What each kind of document needs
 
 **The canon needs the Oracle's approval.** The international quality
-standard asks that a controlling document be approved before it is used, so
-anyone can show who let it in. The canon MUST change by a written decision
-or a change the Oracle approves; that approval, kept with the change, is the
+standard asks that a controlling document be approved before use, so anyone
+can show who let it in. The canon MUST change by a written decision or by a
+change the Oracle approves. That approval, kept with the change, is the
 signature.
 
-**Standards, protocols and decisions need a record or an approval.** Under
-the same rule of the quality standard, they MUST change by a written
-decision or by a change the Oracle approves, and the approval is kept as
-the record.
+**Standards, protocols and decisions need a record or an approval.** The
+same clause of the quality standard covers them. They MUST change by a
+written decision or by a change the Oracle approves, and the approval is
+kept as the record.
 
 **The threshold says what a change takes.** The quality standard asks that
 changes to a controlled document be controlled, so every change shows who
 let it through. We grade that control in five thresholds, from the
-Oracle's signature down to an ordinary change; each series names its own,
+Oracle's signature down to an ordinary change. Each series names its own,
 and a change MUST meet it.
 
 **Everything else needs an ordinary change.** The information-security
-standard keeps the one who writes a change apart from the one who lets it
-in. Every other series MUST change by an ordinary change that someone else
-reviews, which the repository's protection enforces.
+standard keeps whoever writes a change apart from whoever lets it in. Every
+other series MUST change by an ordinary change that someone else reviews.
+The repository's protection enforces it.
 
 ### Where a change lands
 
-**A rule lands where it governs.** A rule written in a decision, a mission or
-a commit message is not a rule yet; the sentence MUST go into the document a
-reader looks in.
+**A rule lands where it governs.** A rule written in a decision, a mission
+or a commit message is not yet a rule. The sentence MUST go into the
+document a reader looks in.
 
-**Finished work keeps its claims.** The records standard holds that a record
-stays complete and unaltered, and the decision-record convention says: write
-a new one, do not edit the old. A finished mission or a published report
-keeps what it claimed; only its form MAY be corrected, and the change says
-so.
+**Finished work keeps its claims.** The records standard holds that a
+record stays complete and unaltered. The decision-record convention agrees:
+write a new record, do not edit the old one. A finished mission or a
+published report keeps what it claimed. Only its form MAY be corrected, and
+the change says so.
 
 ### Who may make it
 
-**Rank sets the reach.** The management-system standard for records asks
-that roles, responsibilities and authorities be written down, so every act
-has an owner. Every actor MUST stay within its rank's reach: an Oracle
-approves structural change and alone makes something stable or breaks it;
-an Archon authorises work below that line; a digital agent writes its own
-files and missions; a custodian keeps documents, indexes and change logs;
-automation writes only reports. The same line sets the three layers of a
+**Rank sets the reach.** The management standard for records asks that
+roles, responsibilities and authorities be written down, so every act has
+an owner. Every actor MUST stay within its rank's reach. An Oracle approves
+structural change, and alone makes something stable or breaks it. An
+Archon authorises work below that line. A digital agent writes its own
+files and missions. A custodian keeps documents, indexes and change logs.
+Automation writes only reports. The same line sets the three layers of a
 practice: principles move only by the Oracle's decision, practices by a
-written decision, and checks by an ordinary change; and so the three
+written decision, checks by an ordinary change. It also sets the three
 numbers of a version: a digital agent moves the last, an Archon the middle,
 and only an Oracle the first.
 
 **No agent edits its own identity.** The information-security standard
-separates duties that conflict, so no one grants themselves power. The
-files that say who an agent is and who operates it are approved by the
-Oracle; the agent they describe MUST NOT edit them.
+separates conflicting duties, so no one can grant themselves power. The
+Oracle approves the files that say who an agent is and who operates it.
+The agent they describe MUST NOT edit them.
 
-**In doubt, stop.** Facing an act that cannot be undone, with any doubt, an
-agent MUST NOT act, and asks higher up.
+**In doubt, stop.** Facing an act that cannot be undone, an agent in any
+doubt MUST NOT act, and asks higher up.
 
 ## Check
 
-Each rule, its code, its source and its check. No law requires any of it for a
-private company; it is our choice, so that an auditor finds the controls they
-already look for.
+Each rule, its code, its source and its check. The sources are the
+controls an auditor already looks for.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -132,10 +130,10 @@ The five thresholds, and what a change to each takes:
 
 ## Why
 
-A rule must be able to be switched off without lying about why it stopped.
-No file in a repository is immutable; what tells the canon from a memory
-is what a change takes. What a change costs is the record it leaves, and
-rank decides which records an actor may leave.
+No file in a repository is immutable. What tells the canon from a memory is
+what a change to it takes. That cost is the record the change leaves, and
+rank decides which records an actor may leave. A rule can then be switched
+off without lying about why it stopped.
 
 ## References
 

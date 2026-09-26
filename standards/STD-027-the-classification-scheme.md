@@ -5,7 +5,7 @@ title: "The archive is classified by function"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-20T12:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,26 +26,24 @@ SPDX-License-Identifier: CC0-1.0
 # The archive is classified by function
 
 > **Summary:** One producer, six functions, the activities under each, and
-> the series every activity produces. A function classifies; a series files.
-> What checks or measures the archive is a short-lived record that proves
+> the series each activity produces. A function classifies; a series files.
+> Whatever checks or measures the archive is a short-lived record that proves
 > what it measured and binds nobody.
-> **Epistemic:** Which activity produced a document, and why that is a
-> different question from what a change to it costs.
-> **Pragmatic:** Decide where a new folder belongs, and whether it is a series
-> at all, without asking.
+> **Epistemic:** Which activity produced a document, and why that differs
+> from what a change to it costs.
+> **Pragmatic:** Decide, without asking, where a new folder belongs and
+> whether it is a series at all.
 > **Audience:** Agents · Oracles
 
 **Binds:** every folder of the repository.
-**Does not bind:** which series exist, what a series obliges, or how long
-records are kept.
 
 ## Rules
 
 ### The scheme
 
-Everything in the archive was made by one producer, Numen Games, and is
-arranged by what it does, not by who made it: there are no stable teams to
-mirror, and no function is named after one.
+One producer, Numen Games, made everything in the archive. The archive is
+arranged by what things do, not by who made them. There are no stable teams
+to mirror, and no function is named after one.
 
 Governance founds, standardises, prescribes and decides. Production plans
 and carries out. Assurance observes, admits debt, verifies and measures.
@@ -56,31 +54,31 @@ the templates. The website is a lens onto the archive, not part of it.
 ### How the scheme is used
 
 **A function classifies; a series files.** The international standard for
-records management, and the Australian national archives' guidance on it,
-classify by business function: functions are nouns, activities verbs, so
-the scheme survives a reorganisation. A document MUST be filed in exactly
-one series, and its name names the series, never the function.
+records management and the Australian national archives classify by
+business function. Functions are nouns and activities are verbs, so the
+scheme survives a reorganisation. A document MUST be filed in exactly one
+series, and its name names the series, never the function.
 
 **Instruments are short-lived records that never bind.** The records
-standard counts as a record whatever is kept as evidence, so a measurement
-or a check's output is one. An instrument carries no document name and is
-kept only while current, the history holding the rest; it MAY be cited as
+standard counts anything kept as evidence as a record, so a measurement or
+a check's output is one. An instrument carries no document name. It is kept
+only while current, and the history holds the rest. It MAY be cited as
 evidence of what it measured, never as a rule.
 
 **Classification and threshold answer different questions.** A folder's
-function says which activity produced its records; its threshold says what
-a change to them costs. Neither follows from the other, and a clash MUST
-NOT be treated as a defect.
+function says which activity produced its records. Its threshold says what
+a change to them costs. Neither follows from the other, and a clash between
+them MUST NOT be treated as a defect.
 
 **A new folder declares its function first.** The Australian guidance puts
 every record under a function and an activity, so nothing is kept that no
 activity explains. A new folder MUST get its row in the scheme before its
-first commit; a folder with no row is not a series, whatever it holds.
+first commit. A folder with no row is not a series, whatever it holds.
 
 ## Check
 
 Each rule, its code, its source and its check. Then the scheme as the site
-reads it, and what it rests on. No law requires this scheme; it is our choice.
+reads it, and what it rests on.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -128,11 +126,11 @@ hierarchy; classification by subject; classification by organisational unit.
 
 ## Why
 
-A folder answers where to look; a function answers why the record exists.
-Tying the name to the folder and not the function lets the scheme be
-redrawn without a single broken citation. Instruments are evidence of what
-they measured, and only that: a rule binds, a reading reports. The scheme
-is borrowed from archival practice, not invented here.
+A folder tells you where to look. A function tells you why the record
+exists. Because a name follows the folder and not the function, the scheme
+can be redrawn without breaking a single citation. An instrument is
+evidence of what it measured, and nothing more: a rule binds, a reading
+reports. The scheme comes from archival practice; we did not invent it.
 
 ## References
 

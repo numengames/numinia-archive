@@ -5,7 +5,7 @@ title: "What every site carries"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-26T13:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -24,47 +24,43 @@ SPDX-License-Identifier: CC0-1.0
 # What every site carries
 
 > **Summary:** Every public site of Numen Games closes with the house
-> footer, presents itself when a link to it is shared, and serves both day
-> and night with the same switch.
-> **Epistemic:** What does every one of our sites carry, whatever else it
-> is? The three things that make four sites look like one house.
-> **Pragmatic:** Check a new or changed site against three lines before it
+> footer, presents itself when a link to it is shared, and serves day and
+> night with the same switch.
+> **Epistemic:** The three things every one of our sites carries, whatever
+> else it is. They make four sites look like one house.
+> **Pragmatic:** Check a new or changed site against three rules before it
 > goes out.
 > **Audience:** Agents · Oracles
 
 **Binds:** every public site of Numen Games and Numinia: numinia.org,
 numinia.com, numen.games and nwos.numen.games.
-**Does not bind:** what a design piece may use — colours, type, icons,
-motion — which the design tokens hold, nor what a site may store about a
-visitor, which the personal data standard holds.
 
 ## Rules
 
 **One house, one footer.** Every public site of Numen Games MUST close with
-the house footer the design values lay out: the site's written name and
-its line, its navigation, a column naming the four sites with this one
-marked, the legal texts published for it, and its social accounts. Last
-comes the closing line: the scarab, our signature, and the licence,
-telemetry, version and commit; there is no copyright notice. The version
-opens the updates page and moves its minor number with every release, a
-house rule, not semantic versioning. Spanish law on online services
-requires every visitor to reach the company's name, address, registry
-entry and tax number, so the legal texts include that notice.
+the house footer the design values lay out. It holds the site's written
+name and its line, its navigation, a column naming the four sites with this
+one marked, the legal texts published for the site, and its social
+accounts. The closing line comes last: the scarab, our signature, and the
+licence, telemetry, version and commit. There is no copyright notice. The
+version opens the updates page, and its minor number moves with every
+release; this is a house rule, not semantic versioning. The legal texts
+include a notice giving every visitor the company's name, address, registry
+entry and tax number, as Spanish law on online services requires.
 
 **A link presents itself.** Every public site MUST carry the scarab as its
 icon, a title of its own on every page, and the four open graph properties
-that turn a link into a card: title, type, image and address. The
-guidelines require the title, so a listener knows where they are; the
-scarab and the card on the house pattern are ours.
+that turn a link into a card: title, type, image and address. The page
+title tells a listener where they are.
 
 **Day and night on every site.** Every public site of Numen Games MUST
-serve both modes, by choice, and carry the mode switch the web recipe
-describes: the moon with stars leads to night, the sun to day. The site
-follows the visitor's system through the web's colour scheme query until
-they choose, remembers the choice under the name the cookie policy gives
-it, and applies it before painting; the switch behaves as the accessible
-rich internet applications practices describe a button. A pixel scene, or
-a veiled surface, keeps its night inside a day page, framed.
+serve both modes and carry the mode switch the web recipe describes: the
+moon with stars leads to night, the sun to day. The site follows the
+visitor's system setting through the web's colour scheme query until they
+choose. It remembers the choice under the name the cookie policy gives it,
+and applies it before painting. The switch behaves as a button in the
+accessible rich internet applications practices. A pixel scene or a veiled
+surface keeps its night inside a day page, framed.
 
 ## Check
 
@@ -79,9 +75,9 @@ laid out, and the exact values. **Law** marks what a statute requires.
 
 ### The house footer
 
-The one closing every public site of Numen Games serves. It was adopted from
-the archive's own site, the one that had it best, and all four sites served
-it within a day.
+The footer every public site of Numen Games closes with. It came from the
+archive's own site, which had it best, and all four sites served it within
+a day.
 
 ```
 <site name, written>                      Navigation        Numen Games       Legal        Social

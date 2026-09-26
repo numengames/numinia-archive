@@ -5,7 +5,7 @@ title: "One document, one identifier"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.4"
+version: "1.1.5"
 created: "2026-09-03T22:10:00Z"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -23,10 +23,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # One document, one identifier
 
-> **Summary:** Every document carries the identifier of its series, for
-> life. A number once used is never used again; the file name says neither
-> state nor version; when two agents claim one number, the first to commit
-> keeps it.
+> **Summary:** Every document carries its series identifier for life. A
+> used number is never used again. The file name says neither state nor
+> version. When two agents claim one number, the first to commit keeps it.
 > **Epistemic:** What an identifier is, what it may not carry, and which
 > outside practice each rule follows.
 > **Pragmatic:** Name a new document, or settle a clash of numbers, without
@@ -34,53 +33,50 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every registered document of the archive.
-**Does not bind:** the shape of each series' prefix, or the readable part
-of a file name.
 
 ## Rules
 
-No law requires any of these; they are our choice, taken from the practice
-of libraries and the web, so that a citation made today still leads to the
-same document in twenty years.
+These rules come from the practice of libraries and the web. They keep a
+citation made today leading to the same document in twenty years.
 
 ### An identifier is for life
 
 **The identifier is permanent.** Every document MUST carry the identifier
 of its series for life, as Dublin Core defines an identifier and the web's
-guidance on lasting addresses asks; so every citation of it stays true.
+guidance on lasting addresses asks. Every citation of it then stays true.
 
 **Numbers are never reused.** An identifier once used MUST NOT be used
-again, even after its document is deleted, as the systems behind scholarly
-identifiers forbid reassignment; so an old citation may lead nowhere, but
-never to the wrong document.
+again, even after its document is deleted. The systems behind scholarly
+identifiers forbid reassignment for the same reason: an old citation may
+lead nowhere, but never to the wrong document.
 
 ### The name says nothing else
 
 **No state in the file name.** A file name MUST NOT say what state its
-document is in; the web's guidance on lasting addresses keeps status out of
+document is in. The web's guidance on lasting addresses keeps status out of
 names, because the state changes and the name must not.
 
-**No version in the file name.** A file name MUST NOT carry a version, for
-the same reason: a name that moved with each version would break every link
-into the document, while the header holds the version.
+**No version in the file name.** A file name MUST NOT carry a version. The
+header holds the version, and a name that moved with each version would
+break every link into the document.
 
 ### Choosing and citing a number
 
 **The first commit keeps the number.** When two agents claim one
-identifier, whoever committed first MUST keep it, and the second renumbers.
+identifier, whoever committed first MUST keep it, and the other renumbers.
 
 **The next number is read from the trunk.** The next free identifier MUST
-be counted over what is committed on the trunk after taking in its latest
-changes, never over one's own uncommitted work.
+be counted over what is committed on the trunk, after taking in its latest
+changes, never over your own uncommitted work.
 
 **Across repositories, name the repository.** An identifier cited from
 another repository MUST carry that repository's short name and a colon in
-front of it, the web's compact-identifier form; so any reader or tool
-expands it to exactly one place. Within its own repository the bare
-identifier is correct.
+front, the web's compact-identifier form. Any reader or tool then expands
+it to exactly one place. Within its own repository, the bare identifier is
+correct.
 
-This standard is over its word budget because each rule now says what its
-outside standard does, as well as what it obliges.
+This standard runs over its word budget because each rule names the outside
+practice it follows.
 
 ## Check
 
@@ -98,11 +94,11 @@ Each rule, its code, its source and its check.
 
 ## Why
 
-An identifier is an address. A citation, a redirect and a file's history
-all depend on it not moving; a file name that also carried state or
-version would change whenever the document did, and every address into it
-would break. The gap a retired rule leaves is cheaper than a renumbering
-that silently points every citation at the wrong rule.
+An identifier is an address. Citations, redirects and a file's history all
+depend on it staying put. A file name that carried state or version would
+change whenever the document did, and every address into it would break. A
+gap left by a retired rule costs less than a renumbering that silently
+points every citation at the wrong rule.
 
 ## References
 

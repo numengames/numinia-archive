@@ -265,7 +265,7 @@ check('shape guard fixture — a missing card binds through the regime, an over-
     const long = Array.from({ length: 700 }, (_, i) => `word${i}`).join(' ');
     writeFileSync(path.join(clone, 'standards/STD-999-probe.md'),
       '---\nid: "STD-999"\ntitle: "Probe"\nstatus: draft\n---\n\n# Probe\n\n' +
-      '**Binds:** nothing.\n**Does not bind:** anything.\n\n**PRB-001 — A rule.** Cites STD-004 in prose.\n\n' + long + '\n');
+      '**Binds:** nothing.\n\n**PRB-001 — A rule.** Cites STD-004 in prose.\n\n' + long + '\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
     const res = spawnGuard('machine/guards/rules/std-007-one-page.mjs', clone);
     const all = res.stdout + res.stderr;

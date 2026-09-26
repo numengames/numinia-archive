@@ -5,7 +5,7 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.6"
+version: "0.1.7"
 created: "2026-09-23T21:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -26,22 +26,21 @@ SPDX-License-Identifier: CC0-1.0
 
 # The world's vocabulary
 
-> **Summary:** Every in-world name of the guilds and factions, with what it
-> is called when the fiction is set aside. A translation, not a rule:
-> nothing here can be complied with or broken.
+> **Summary:** Every in-world name of the guilds, the factions and the units
+> of activity, beside what it is called once the fiction is set aside. This
+> is a translation, not a rule: nothing here can be kept or broken.
 >
-> The names follow the game manual, which has the last word on the world's
-> vocabulary; their English is the manual's translation glossary, which
-> copies what the public game site already shows. The structure they name,
-> the ranks, the business's working terms and the game's own terms each have
-> their own document.
+> The names come from the game manual, which has the last word on the
+> world's vocabulary. Their English comes from the manual's translation
+> glossary, which matches the public game site. The structure they name, the
+> ranks, the business's working terms and the game's own terms each have a
+> document of their own.
 >
-> The two vocabularies follow the web consortium's model for linking
-> vocabularies: the in-world name is the preferred label, the operational
-> equivalent is an exact or a close match in the business's vocabulary, and
-> what it does is the definition — the kind of thing first, then what sets
-> it apart, as the international rule for definitions asks. Any tool that
-> reads that model can carry the translation both ways.
+> The in-world name is the preferred label, and the operational equivalent
+> is an exact or close match in the business's vocabulary, as the web
+> consortium's model for linking vocabularies lays out. Each description
+> names the kind of thing first, then what sets it apart. Any tool that reads
+> that model can translate in both directions.
 
 ## Guilds — Alchemists
 
@@ -110,6 +109,7 @@ SPDX-License-Identifier: CC0-1.0
 | **Seed of Knowledge** | Learning recognition | It marks acquired knowledge and cultural alignment. |
 | **Prism Cell** | Contribution recognition | It reflects practical contribution through execution. |
 
-The rituals — Dark Council, Lunar Coven and the rest — are listed in the
-rituals protocol, with their cadence and who calls them. The six ranks, from
-Nomad to Oracle, are in the ranks standard, which says what each may do.
+Game-world terms, such as the Veil, the Threshold, the guilds and the
+seals, belong to the game manual and live in the game's glossary. Their
+English names come from the manual's translation glossary, and the code
+writes them in lower case.

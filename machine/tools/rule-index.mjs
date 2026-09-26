@@ -61,8 +61,8 @@ const TITLE_CHARS = 46;
  *
  *  The line wraps: STD-007 caps it at 15 words but the file is hard-wrapped at
  *  80 columns, so `**Binds:**` on one line and its tail on the next is the
- *  normal shape. Reading to the next blank line — and stopping at the
- *  `**Does not bind:**` that usually follows — is what keeps PRO-003 from
+ *  normal shape. Reading to the next blank line — and stopping at any bold
+ *  line that follows — is what keeps PRO-003 from
  *  ending at "the Oracle who opens, reviews" and STD-004 at "the directories
  *  `machine/scripts/lib/rules.json`", which reverses its meaning. */
 function bindsOf(text) {

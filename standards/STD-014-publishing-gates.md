@@ -5,7 +5,7 @@ title: "Publishing gates"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-07T10:30:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -23,59 +23,56 @@ SPDX-License-Identifier: CC0-1.0
 
 # Publishing gates
 
-> **Summary:** Two acts cannot be undone: writing something to the permanent
-> web, and turning a private repository public. Before either, we check that
-> the work is ours, that it carries nothing of anyone else's we may not
-> share, and that it holds no personal data; then an Oracle signs.
-> **Epistemic:** Why making a repository public is already the grant of its
-> licence, and what is checked before either act.
+> **Summary:** Two acts cannot be undone: writing to the permanent web and
+> making a private repository public. First we confirm the work is
+> ours, holds nothing of others we may not share, and holds no personal
+> data. An Oracle then signs.
+> **Epistemic:** Why making a repository public already grants its licence,
+> and what we check before either act.
 > **Pragmatic:** The list to run before pressing the button.
 > **Audience:** Agents · Oracles
 
-**Binds:** every permanent publication, and every change of a Numen Games
-repository from private to public.
-**Does not bind:** publication to an ordinary content network, which can be
-withdrawn.
+**Binds:** every permanent publication, and every Numen Games repository
+turned public.
 
 ## Rules
 
 ### The two acts that cannot be undone
 
-**Permanent publication is gated.** Before anything is written to the
-permanent web, we MUST verify that it is ours, that it holds no outside
-material we may not share, and no personal data, and an Oracle MUST sign.
+**Permanent publication is gated.** Before anything reaches the permanent
+web, we MUST verify three things: it is ours, it holds no outside material we
+may not share, and it holds no personal data. An Oracle MUST then sign.
 
-**What fails the gate stays withdrawable.** Anything that does not pass is
-served only from an ordinary content network, where it can still be taken
-down.
+**What fails the gate stays withdrawable.** Anything that fails is served
+only from an ordinary content network, where we can still take it down.
 
-**Going public is the grant.** A licence offered in public, with the work
-there to take, grants its rights to whoever takes them; nothing else needs
-to be released. So making a repository public is an act an Oracle signs,
-under the same gate. The law makes it so: copyright law turns the offered
-licence into a grant.
+**Going public is the grant.** A licence offered in public, beside the work,
+grants its rights to whoever takes them. Copyright law turns the offer into
+a grant; nothing else needs releasing. So an Oracle signs every change to
+public, under the same gate.
 
 ### What is checked before a repository goes public
 
 **Four checks before visibility changes.** Before a repository goes public,
-four checks MUST pass. Two follow outside standards: the linter of the REUSE
-specification, the common way for every file to say its licence, proves
-that every file declares its owner and terms; and the scan of every commit
-the secrets standard asks for finds no leaked credential. Two are ours: the brand and attribution notices are
-complete, and sensitive folders are listed by a command and compared with
-the licence declarations, never from memory. Our choice.
+four checks MUST pass:
 
-**Nothing reserved slips through.** No file we keep reserved may be reached
-by a general licence declaration, and the whole history MUST be free of
-personal data. The law requires this: publishing someone's personal data
-needs a legal basis.
+- the REUSE linter proves every file declares its owner and licence;
+- a scan of every commit, as the secrets standard asks, finds no leaked
+  credential;
+- the brand and attribution notices are complete;
+- a command lists the sensitive folders, and we compare that list with the
+  licence declarations, never from memory.
+
+**Nothing reserved slips through.** No general licence declaration may reach
+a file we keep reserved, and the whole history MUST be free of personal
+data. Publishing someone's personal data needs a legal basis.
 
 **Being born licensed is not publication.** A repository carries its licence
-from its first commit; while it is private, that licence grants permission to
-no one.
+from its first commit. While it stays private, that licence grants nothing
+to anyone.
 
 **A legal debt waits for a condition.** A written debt marked as legal ends
-on a condition, not on a date, and the automatic checks evaluate that
+when a condition is met, not on a date. The automatic checks test that
 condition on every build.
 
 ## Check
@@ -92,11 +89,11 @@ Each rule, its code, its source and its check.
 
 ## Why
 
-Opening cannot be undone: the permanent web cannot be unwritten, and a
-public repository has already been copied. The listing of sensitive folders
-is generated, because a list written by hand drifts and what we meant to
-keep publishes itself; the whole history is checked, because a secret
-removed from the latest version is still one step back in the log.
+Opening cannot be undone. The permanent web cannot be unwritten, and a
+public repository has already been copied. A command lists the sensitive
+folders because a hand-written list drifts, and what we meant to keep
+publishes itself. We scan the whole history because a secret deleted from
+the latest version still sits one step back in the log.
 
 ## References
 

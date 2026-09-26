@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a guard to CI"
 type: protocol
 status: draft
-version: "4.0.0"
+version: "4.0.1"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-10T19:15:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
@@ -39,7 +39,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracle
 
 **Binds:** any agent that writes a guard script, and the Oracle who wires it.
-**Does not bind:** what a guard must check (`STD-015`).
 
 ## 1. Trigger
 

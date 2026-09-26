@@ -158,20 +158,20 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-001` | The series | every tracked document of the archive |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | every document's header, and every date the archive writes |
-| `STD-005` | When a rule bites | this archive's own repository, edited here and downstream of nothing… |
-| `STD-006` | Plain text is sovereign | every document of the archive; everything that stores, serves, builds or reads it… |
+| `STD-005` | When a rule bites | this repository and every workspace born from it; personal repositories SHOULD follow |
+| `STD-006` | Plain text is sovereign | every document; everything that stores, serves, builds or reads it… |
 | `STD-007` | One page per document | every document on every shelf of the archive |
-| `STD-008` | Design tokens | every public surface of Numen Games and Numinia — web, product, document, deck, codex… |
+| `STD-008` | Design tokens | every public surface of Numen Games and Numinia, and every consumer of the kit |
 | `STD-009` | Which rule wins | every registered document of the archive, and everyone who reads one |
 | `STD-010` | Licensing | every repository of Numen Games and Numinia |
 | `STD-012` | The corpus does not grow | every document that leaves the archive or its series; roll-ups bind records only |
-| `STD-014` | Publishing gates | every permanent publication, and every change of a Numen Games repository from private to public |
+| `STD-014` | Publishing gates | every permanent publication, and every Numen Games repository turned public |
 | `STD-015` | Engineering checks | register — scope belongs to the standard that cites it |
 | `STD-017` | Who may change what | every change to a registered document |
 | `STD-018` | One document, one identifier | every registered document of the archive |
 | `STD-019` | Versions | every registered document, and everything else the archive versions |
 | `STD-020` | Git is the archive | every commit to this repository |
-| `STD-021` | Evidence and citation | every document that cites another or makes a claim about the code… |
+| `STD-021` | Evidence and citation | every document that cites, claims something about the code, or quotes a person |
 | `STD-022` | Secrets | every file in this repository, and every report about it |
 | `STD-023` | Design values | register — scope belongs to the standard that cites it |
 | `STD-024` | A series is a function | every folder of the archive and every document in one |
@@ -179,11 +179,11 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-026` | Operative vocabulary | register — scope belongs to the standard that cites it |
 | `STD-027` | The archive is classified by function | every folder of the repository |
 | `STD-028` | One document, one address | every web address the public site gives a document of the archive |
-| `STD-029` | How we treat each other in the commons | everyone in a Numinia community space — citizens, moderators, Oracles and digital agents alike |
+| `STD-029` | How we treat each other in the commons | everyone in a Numinia community space: citizens, moderators, Oracles and digital agents alike |
 | `STD-030` | The world's vocabulary | register — scope belongs to the standard that cites it |
 | `STD-031` | A canon states | every document in the canon |
 | `STD-033` | Every charge delivers something | every site of ours that takes a payment, and every record of something on sale |
-| `STD-034` | Accessibility | every public page of every site of Numen Games and Numinia |
+| `STD-034` | Accessibility | every public page of every Numen Games and Numinia site |
 | `STD-035` | Personal data | everything of ours that collects or keeps data about a person |
 | `STD-036` | One account | the ledger of what Numen Games and Numinia cost and take in, and every view published from it |
 | `STD-037` | What every site carries | every public site of Numen Games and Numinia: numinia.org, numinia.com… |

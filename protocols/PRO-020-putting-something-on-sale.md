@@ -4,9 +4,9 @@ uid: ""
 title: "Putting something on sale"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-09-24T18:10:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -34,7 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** whoever prepares, approves, creates or withdraws something on
 sale in Numinia's or Numen Games' name.
-**Does not bind:** bespoke services quoted and invoiced one by one.
 
 ---
 

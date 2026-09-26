@@ -4,9 +4,9 @@ uid: ""
 title: "Applying the engineering standard"
 type: protocol
 status: draft
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, engineering, agents]
@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracle
 
 **Binds:** any agent executing a task in a repository that carries `STD-005`.
-**Does not bind:** the practices themselves (`STD-005`, `STD-015`) nor which
-copy of the standard a repository owns (`STD-005`).
 
 ## 1. Trigger
 

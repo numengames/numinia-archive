@@ -5,7 +5,7 @@ title: "One document, one address"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.1"
+version: "0.3.2"
 created: "2026-09-20T20:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -25,10 +25,10 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # One document, one address
 
-> **Summary:** A document is served at exactly one web address: its series
-> folder followed by its name. Nothing stands in front of the series, the
-> function never appears, and a retired address leads to its answer or
-> says it is gone.
+> **Summary:** A document lives at exactly one web address: its series
+> folder, then its name. Nothing stands before the series, the function
+> never appears, and a retired address leads to its answer or says it is
+> gone.
 > **Epistemic:** What a web address of this archive says, and what it may
 > not.
 > **Pragmatic:** Work out any document's address without asking, and decide
@@ -36,26 +36,23 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every web address the public site gives a document of the archive.
-**Does not bind:** the document's name, or how a document leaves the
-archive.
 
 ## Rules
 
-No law requires these; they are our choice, taken from the web's own
-standards, so that a link written today still works, and any crawler or
-auditor can tell which address is the real one.
+These rules follow the web's own standards, so a link written today still
+works and any crawler or auditor can tell which address is the real one.
 
 ### How an address is made
 
 **The address is the series and the name.** A document's address MUST be
 its series folder followed by its name in lower case, with nothing between
-the site's root and the series; the web's guidance on addresses that never
-change asks for exactly this, a name that holds nothing that will move.
+the site's root and the series. The web's guidance on addresses that never
+change asks for exactly this: a name that holds nothing that will move.
 
 **The function is never in the address.** An address MUST NOT name a
-function or an activity of the classification scheme; the same guidance
-leaves the subject out, because an address that held it would break every
-time the scheme was redrawn.
+function or an activity of the classification scheme. The same guidance
+leaves the subject out, because an address that held it would break each
+time the scheme is redrawn.
 
 **English is the address.** Every part of an address MUST be in English,
 the language the archive is written in.
@@ -63,27 +60,26 @@ the language the archive is written in.
 ### How many addresses
 
 **One address per document.** A document MUST be served at one address,
-and its page MUST declare that address as its canonical one, the web's
-standard way to tell every search engine which copy is the real one; a
-second address for it — a translated path, an alias, an old shape — MUST
-NOT be published.
+and its page MUST declare that address canonical, the web's standard way to
+tell search engines which copy is real. A second address for it, whether a
+translated path, an alias or an old shape, MUST NOT be published.
 
 **A retired address leads to the answer, or says it is gone.** When an
-address stops being built, it MUST either redirect for good, in one step, to
-the document that now answers its question, or answer that it is gone for
-good, as the web's protocol defines; so a reader and a crawler both know the
-removal was deliberate. A redirect to an index, a list of deletions or
-another redirect answers nothing, and when the answer moves, every redirect
-to it moves in the same change.
+address stops being built, it MUST either redirect for good, in one step,
+to the document that now answers its question, or answer that it is gone
+for good, as the web's protocol defines. A reader and a crawler then both
+know the removal was deliberate. A redirect to an index, to a list of
+deletions or to another redirect answers nothing. When the answer moves,
+every redirect to it moves in the same change.
 
 ### How a document is cited
 
-**A citation is the name.** Inside the archive a document is cited by its
+**A citation is the name.** Inside the archive, a document is cited by its
 name alone; across repositories, the name carries its repository. A web
 address SHOULD be written only to send the reader to the web, never as the
 proper form of a citation.
 
-This standard is over its word budget because each rule now says what its
+This standard is over its word budget because each rule says what its
 outside standard does, as well as what it obliges.
 
 ## Check
@@ -111,12 +107,12 @@ Each rule, its code, its source and its check.
 
 ## Why
 
-A prefix that answers no question is noise: one stood in front of four
+A prefix that answers no question is noise. One stood in front of four
 series and not the other four, and neither a reader nor an agent could work
-out an address. Two addresses for one document is a question nobody
-answers. A redirect promises the question still has an answer; when it does
-not, saying the page is gone for good is honest, where not-found reads as
-an accident.
+out an address. Two addresses for one document raise a question nobody
+answers. A redirect promises the question still has an answer. When it
+does not, saying the page is gone for good is honest; not-found reads as an
+accident.
 
 ## References
 

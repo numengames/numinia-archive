@@ -4,11 +4,11 @@ uid: ""
 title: "Auditing identity, authorization and secrets"
 type: protocol
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [protocols, security, audit, credentials, secrets, identity, authorization]
@@ -37,8 +37,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** any agent running a security audit over a Numinia scope, and the
 report it files.
-**Does not bind:** what counts as a secret and how one is kept out of the
-tree (`STD-022`); the correction itself, which is the Oracle's.
 
 ## 1. Trigger
 

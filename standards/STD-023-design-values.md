@@ -5,7 +5,7 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.6.1"
+version: "1.6.2"
 created: "2026-09-09T11:00:00+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
@@ -23,15 +23,13 @@ SPDX-License-Identifier: CC0-1.0
 
 # Design values
 
-> **Summary:** Every closed list of the design system, as values: colours
-> and contrasts, the scales of type and space, the icons we use, the brand
-> marks, the animations, the sky and the pixel grids. The design kit carries
-> the same values in a form machines read; a test fails when a colour here
-> is missing from the kit.
-> **Epistemic:** What the values are. Why they are what they are is the
-> visual identity canon; what a builder must do with them is the standard
-> of design tokens; how the sky, the Velo and the reading player are built
-> is `PRO-022`.
+> **Summary:** The design system's closed lists, as values: colours,
+> contrasts, type and space scales, icons, brand marks, animations, the sky
+> and pixel grids. The design kit holds them for machines; a test fails if a
+> colour here is missing there.
+> **Epistemic:** What the values are. The visual identity canon says why;
+> the design tokens standard says how a builder uses them; the sky, Velo and
+> reading player procedure says how those are built.
 > **Pragmatic:** Look a value up here or in the kit, never in a piece.
 > **Audience:** Agents · Oracles
 
@@ -229,7 +227,7 @@ How the sky moves, and where it may not appear, is `PRO-022`.
 - Drawing and correcting happen at **×1**; ×2, ×3, ×4, ×6 and ×8 serve inspection and presentation, not pixel decisions.
 - An asset's scale is fixed at the start. It MUST NOT be drawn large to be reduced later, nor rotated with interpolation. A new scale demands a redraw on its grid.
 - All anchor points — feet, object center, tool origin and dialogue box — use integer coordinates and hold across frames.
-- The *hitbox* and touch zone belong to interaction, not the visual outline: it MAY be larger than the sprite to meet the `44×44 px` touch target without enlarging the drawing (our choice: the guidelines' highest level; their AA minimum is 24×24).
+- The *hitbox* and touch zone belong to interaction, not the visual outline: it MAY be larger than the sprite to meet the `44×44 px` touch target without enlarging the drawing (the guidelines' highest level; their AA minimum is 24×24).
 
 ## 17. External references
 

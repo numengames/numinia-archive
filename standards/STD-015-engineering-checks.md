@@ -5,7 +5,7 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "5.0.1"
+version: "5.0.2"
 created: "2026-08-17T21:55:38+02:00"
 updated: "2026-09-26T20:00:00+02:00"
 author: "pablofm"
@@ -22,10 +22,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 54 practices every repository of ours keeps, grouped
-> by what they protect, each with how strongly it is required and what checks
-> it. A practice checked by hand is debt, and a row marked as owed is one we
-> once called automatic that nothing runs.
+> **Summary:** The 54 practices every repository of ours keeps, grouped by
+> what they protect, each with its level and its check. A practice checked by
+> hand is debt. A row marked as owed was once called automatic, and nothing
+> runs it.
 
 | Profile | Plate | Practice | Level | Check |
 |---|---|---|---|---|
@@ -89,11 +89,11 @@ is never reused; the ledger of retired plates says where it leads.
 
 **One outside certificate answers a dozen rows.** The best practices badge
 of the Open Source Security Foundation is a self-certification any project
-fills in and anyone can read. We aim at its first level, then at silver:
-one public form then answers about twelve rows here — the security policy
+fills in and anyone can read. We aim at its first level, then at silver.
+One public form then answers about twelve rows here: the security policy
 and its response time, the roadmap, the contribution guide, the code of
 conduct, the changelog, answers to reported issues, sign-off on
-contributions and the scan for leaked credentials. Our choice.
+contributions and the scan for leaked credentials.
 
 **What a new repository is born with.** A security score, run every week and
 on every change to the main line, aiming at seven out of ten or better on a

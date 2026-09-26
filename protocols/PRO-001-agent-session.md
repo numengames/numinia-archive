@@ -4,11 +4,11 @@ uid: ""
 title: "Opening and closing a session"
 type: protocol
 status: draft
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, briefing, startup, session, close, context, mandatory]
@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents
 
 **Binds:** every agent, in every session, whatever the mission.
-**Does not bind:** the mission itself (`PRO-003`), the task inside it
-(`PRO-016`), nor how an agent is admitted to the roster.
 
 ## 1. Trigger
 

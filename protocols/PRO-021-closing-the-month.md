@@ -4,9 +4,9 @@ uid: ""
 title: "Closing the month"
 type: protocol
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-09-24T18:30:00+02:00"
+updated: "2026-09-26T14:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** whoever brings the month's documents, turns them into ledger
 lines, or reviews the close.
-**Does not bind:** the company's statutory books and tax returns, which the
-gestoría keeps and files.
 
 ---
 
