@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every permanent publication, and every change of a Numen Games
 repository from private to public.
-**Does not bind:** publication to an ordinary content network, which can be
-withdrawn.
 
 ## Rules
 

@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every public surface of Numen Games and Numinia — web, product,
 document, deck, codex, pixel scene — and every consumer of the kit.
-**Does not bind:** creative direction, matter, motion and voice, which the
-visual identity canon holds, nor what the accessibility standard requires.
 
 ## Rules
 
@@ -124,8 +122,8 @@ adopt, or our own choice.
 | DSN-003 | Space and shape follow the scale | — (ours); the focus clause moved to `ACC-002` | by hand: the value lookup in step 3 of `PRO-014` |
 | DSN-004 | One family of icons | [Phosphor Icons](https://phosphoricons.com/), [MIT licence](https://opensource.org/license/mit): the notice ships (licence condition); names for icon-only buttons are `ACC-003` | by hand: the `PRO-014` checklist; the notice is declared in `REUSE.toml` and `LICENSES/MIT.txt` |
 | DSN-007 | Pixels sit whole | [WCAG 2.2 failure F32](https://www.w3.org/WAI/WCAG22/Techniques/failures/F32), under SC 1.3.2 Meaningful Sequence (A), for the line-break clause; the rest ours | by hand: the `PRO-014` checklist; no site checks it (`RPT-021`) |
-| DSN-005 | Texture never costs contrast, and a finger always fits | [WCAG 2.2](https://www.w3.org/TR/WCAG22/) SC 1.4.3 and 1.4.11 through `ACC-002`, applied over veils and textures in both modes (ours); SC 2.5.8 Target Size (Minimum) AA is 24 × 24, SC 2.5.5 Target Size (Enhanced) AAA is 44 × 44 — ours by choice | axe with Playwright, both modes — numinia.com only (`e2e/a11y.spec.ts`); axe does not judge text over images nor measure 44 px; the other three sites have no gate (`RPT-021`) |
-| DSN-008 | Text comes before motion | [Core Web Vitals](https://web.dev/articles/vitals): LCP ≤ 2.5 s, CLS ≤ 0.1 — ours by choice; reduced motion and pausing moved to `ACC-005` | nothing measures it on any site yet |
+| DSN-005 | Texture never costs contrast, and a finger always fits | [WCAG 2.2](https://www.w3.org/TR/WCAG22/) SC 1.4.3 and 1.4.11 through `ACC-002`, applied over veils and textures in both modes (ours); SC 2.5.8 Target Size (Minimum) AA is 24 × 24, SC 2.5.5 Target Size (Enhanced) AAA is 44 × 44 | axe with Playwright, both modes — numinia.com only (`e2e/a11y.spec.ts`); axe does not judge text over images nor measure 44 px; the other three sites have no gate (`RPT-021`) |
+| DSN-008 | Text comes before motion | [Core Web Vitals](https://web.dev/articles/vitals): LCP ≤ 2.5 s, CLS ≤ 0.1; reduced motion and pausing moved to `ACC-005` | nothing measures it on any site yet |
 | DSN-012 | Motion is catalogued | WCAG 2.2 SC 1.4.2 Audio Control (A) — stricter: no autoplay sound at all; pause, flashes and reduced motion are `ACC-005` | by hand: the `PRO-014` checklist, against the catalogue in `STD-023` |
 | DSN-009 | The kit is installed, never copied | [Semantic Versioning 2.0.0](https://semver.org/) for the package; [Subresource Integrity](https://www.w3.org/TR/SRI/) for the sha256 manifest | `node machine/tools/generate-design-kit.mjs --check` — byte-identical; runs in no consumer's CI (`RPT-021`); the manifest holds hex digests, not yet `integrity` values |
 | DSN-010 | A value exists, or it does not | [Design Tokens Format Module 2025.10](https://www.designtokens.org/tr/2025.10/format/) (first stable) | by hand: the value lookup in step 3 of `PRO-014`; the file uses `$value` and `$type`; Terrazzo or Style Dictionary could validate it, and neither runs today |

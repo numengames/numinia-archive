@@ -37,8 +37,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** any agent running a security audit over a Numinia scope, and the
 report it files.
-**Does not bind:** what counts as a secret and how one is kept out of the
-tree (`STD-022`); the correction itself, which is the Oracle's.
 
 ## 1. Trigger
 

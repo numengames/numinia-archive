@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every folder of the repository.
-**Does not bind:** which series exist, what a series obliges, or how long
-records are kept.
 
 ## Rules
 

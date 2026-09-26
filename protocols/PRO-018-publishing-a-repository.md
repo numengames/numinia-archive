@@ -35,8 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** any agent preparing a visibility change or a permanent
 publication of a Numen Games repository or work, and the request it
 files.
-**Does not bind:** what the gates are (`STD-014`); the licence regime
-(`STD-010`); publication to a CDN, which can be withdrawn.
 
 ## 1. Trigger
 

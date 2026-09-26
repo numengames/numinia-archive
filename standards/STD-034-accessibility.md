@@ -34,7 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every public page of every site of Numen Games and Numinia.
-**Does not bind:** internal tools, and games played inside a world.
 
 ## Rules
 
@@ -86,7 +85,7 @@ requires; the rest is a norm we adopt.
 | ACC-001 | Every page meets the common guidelines | [WCAG 2.2, level AA](https://www.w3.org/TR/WCAG22/); a superset of [EN 301 549 V3.2.1](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf) clause 9 (= WCAG 2.1 AA). **Not law for us:** [European Accessibility Act](https://eur-lex.europa.eu/eli/dir/2019/882/oj), in Spain [Ley 11/2023](https://www.boe.es/buscar/act.php?id=BOE-A-2023-11022), from 28 June 2025, covers e-commerce such as numinia.com; art. 4(5) exempts microenterprises providing services (< 10 persons and turnover or balance ≤ €2 M) — Numen Games S.L. is one, confirmed by the Oracle on 2026-09-25; to review if the company grows | `numinia-web` only: `apps/store/e2e/a11y.spec.ts`, axe with Playwright over 31 routes, both themes; `numinia.org`, `numen.games` and `nwos.numen.games` have no accessibility test yet |
 | ACC-002 | Both themes count | WCAG 2.2 SC 1.4.1 Use of Color (A), 1.4.3 Contrast (Minimum) (AA) 4.5:1 and 3:1 large, 1.4.11 Non-text Contrast (AA) 3:1, 2.4.7 Focus Visible (AA), 2.4.11 Focus Not Obscured (Minimum) (AA); absorbs `DSN-006` and the ratios and focus clause of `DSN-005`, `DSN-003` | as `ACC-001` for contrast in both modes; colour-alone and focus by hand |
 | ACC-003 | Keyboard and screen reader first | WCAG 2.2 SC 2.1.1 Keyboard (A), 2.1.2 No Keyboard Trap (A), 2.4.3 Focus Order (A), 1.1.1 Non-text Content (A), 4.1.2 Name, Role, Value (A), 4.1.3 Status Messages (AA); [WAI-ARIA 1.2](https://www.w3.org/TR/wai-aria-1.2/) and the [APG](https://www.w3.org/WAI/ARIA/apg/) | as `ACC-001` for what axe can see; focus order and announcements by hand |
-| ACC-005 | Motion can be stopped | WCAG 2.2 SC 2.2.2 Pause, Stop, Hide (A), 2.3.1 Three Flashes or Below Threshold (A), 2.3.3 Animation from Interactions (AAA, ours by choice); [Media Queries 5, `prefers-reduced-motion`](https://www.w3.org/TR/mediaqueries-5/#prefers-reduced-motion); moved from `DSN-008`, `DSN-012` | **not met yet on the sites**: the sky loop of numinia.org and the ambient loops start by themselves with no pause control; reduced motion by hand, the `PRO-014` checklist |
+| ACC-005 | Motion can be stopped | WCAG 2.2 SC 2.2.2 Pause, Stop, Hide (A), 2.3.1 Three Flashes or Below Threshold (A), 2.3.3 Animation from Interactions (AAA); [Media Queries 5, `prefers-reduced-motion`](https://www.w3.org/TR/mediaqueries-5/#prefers-reduced-motion); moved from `DSN-008`, `DSN-012` | **not met yet on the sites**: the sky loop of numinia.org and the ambient loops start by themselves with no pause control; reduced motion by hand, the `PRO-014` checklist |
 | ACC-004 | A test checks every change | [axe-core](https://github.com/dequelabs/axe-core), [pa11y](https://pa11y.org/) or [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci); manual audit by [WCAG-EM](https://www.w3.org/TR/WCAG-EM/); absorbs `DSN-011` and register row `ARC-010` | `numinia-web` CI only; nothing on the other three sites; no manual audit recorded |
 
 | Implied by | Criterion | Source | Verified by |
@@ -98,7 +97,7 @@ requires; the rest is a norm we adopt.
 | ACC-001 | Skip to content | WCAG 2.2 SC 2.4.1 Bypass Blocks (A) | implied by ACC-001, not checked yet |
 | ACC-001 | Store forms: errors, labels, suggestions, error prevention, redundant entry, accessible authentication | WCAG 2.2 SC 3.3.1–3.3.4 (A/AA), 3.3.7 (A), 3.3.8 (AA) | implied by ACC-001, not checked yet |
 | ACC-001 | Captions and alternatives for audio and video | WCAG 2.2 SC 1.2.1–1.2.5 (A/AA) | implied by ACC-001, not checked yet |
-| ACC-001 | Accessibility information for the store | [EAA](https://eur-lex.europa.eu/eli/dir/2019/882/oj) Annex V; Ley 11/2023 art. 13 — **not law for us while a microenterprise**; our choice, recommended | not published |
+| ACC-001 | Accessibility information for the store | [EAA](https://eur-lex.europa.eu/eli/dir/2019/882/oj) Annex V; Ley 11/2023 art. 13 — **not law for us while a microenterprise**, recommended | not published |
 
 ## Why
 

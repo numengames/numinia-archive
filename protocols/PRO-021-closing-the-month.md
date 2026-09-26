@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** whoever brings the month's documents, turns them into ledger
 lines, or reviews the close.
-**Does not bind:** the company's statutory books and tax returns, which the
-gestoría keeps and files.
 
 ---
 

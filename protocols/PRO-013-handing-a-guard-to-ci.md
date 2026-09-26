@@ -39,7 +39,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracle
 
 **Binds:** any agent that writes a guard script, and the Oracle who wires it.
-**Does not bind:** what a guard must check (`STD-015`).
 
 ## 1. Trigger
 

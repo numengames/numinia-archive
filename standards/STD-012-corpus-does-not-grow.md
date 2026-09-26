@@ -34,7 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every document that leaves the archive or its series; roll-ups
 bind records only.
-**Does not bind:** where a retired web address leads.
 
 ## Rules
 

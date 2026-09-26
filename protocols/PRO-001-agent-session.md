@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents
 
 **Binds:** every agent, in every session, whatever the mission.
-**Does not bind:** the mission itself (`PRO-003`), the task inside it
-(`PRO-016`), nor how an agent is admitted to the roster.
 
 ## 1. Trigger
 

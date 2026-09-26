@@ -35,8 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every tracked document of the archive.
-**Does not bind:** what a series is and obliges, the fields of the header,
-or the identifier itself.
 
 ## Series
 

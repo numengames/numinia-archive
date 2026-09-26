@@ -37,7 +37,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** everyone in a Numinia community space — citizens, moderators,
 Oracles and digital agents alike.
-**Does not bind:** how work is done, or how a person joins or leaves.
 
 ## Rules
 
@@ -97,9 +96,9 @@ row marked law.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| CMS-001 | We follow the Contributor Covenant | [Contributor Covenant 3.0: pledge, encouraged and restricted behaviours](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) — our choice | by hand: conduct is judged by people, and the Sentinels are the guild that does it |
-| CMS-005 | Moderation climbs a ladder | [Contributor Covenant 3.0, enforcement ladder](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) — our choice | by hand, by the Sentinels |
-| CMS-003 | Threats and harm end participation at once | [Contributor Covenant 3.0, permanent ban](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) — our choice | by hand, by the Sentinels |
+| CMS-001 | We follow the Contributor Covenant | [Contributor Covenant 3.0: pledge, encouraged and restricted behaviours](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand: conduct is judged by people, and the Sentinels are the guild that does it |
+| CMS-005 | Moderation climbs a ladder | [Contributor Covenant 3.0, enforcement ladder](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand, by the Sentinels |
+| CMS-003 | Threats and harm end participation at once | [Contributor Covenant 3.0, permanent ban](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand, by the Sentinels |
 | CMS-008 | A ban comes with its reasons | [Digital Services Act, Regulation (EU) 2022/2065, art. 17](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) — law, any hosting service | nothing yet: no statement-of-reasons template exists |
 | CMS-004 | Nothing illegal | [Digital Services Act, art. 16, notice and action](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) — law; the ban for asking for keys is ours | nothing yet: no notice form is published; by hand, by the Sentinels |
 | CMS-007 | Tell a Sentinel | [Contributor Covenant 3.0, reporting](https://www.contributor-covenant.org/version/3/0/code_of_conduct/); [Digital Services Act, arts. 11–12, points of contact](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) — law for the contact | nothing yet: no channel is published; the escalation goes by `PRO-005` |

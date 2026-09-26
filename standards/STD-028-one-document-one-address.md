@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every web address the public site gives a document of the archive.
-**Does not bind:** the document's name, or how a document leaves the
-archive.
 
 ## Rules
 

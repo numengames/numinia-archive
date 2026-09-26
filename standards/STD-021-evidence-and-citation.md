@@ -34,7 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every document that cites another or makes a claim about the
 code; every piece that quotes a person.
-**Does not bind:** how a reference table is laid out.
 
 ## Rules
 

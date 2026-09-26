@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** whoever convokes, prepares or records a ritual of Numinia.
-**Does not bind:** what the rituals mean in the culture, how a period is
-rolled up, or the calendar, which is not an archive.
 
 ---
 

@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every repository of Numen Games and Numinia.
-**Does not bind:** work we generate for a client, or material from others,
-which keeps its own terms.
 
 ## Rules
 

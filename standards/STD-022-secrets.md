@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every file in this repository, and every report about it.
-**Does not bind:** the secrets a running service keeps, which the register
-of engineering checks governs.
 
 ## Rules
 

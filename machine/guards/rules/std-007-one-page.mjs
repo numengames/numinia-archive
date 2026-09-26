@@ -13,7 +13,7 @@
 //
 // DOC-001  title ≤ 5 words                              SHOULD
 // DOC-002  card: Summary / Epistemic / Pragmatic         present (MUST), ≤ 40 words each (SHOULD)
-// DOC-003  scope: Binds / Does not bind                 present (MUST), ≤ 15 words each (SHOULD)
+// DOC-003  scope: one Binds line                        present (MUST), ≤ 15 words (SHOULD)
 // DOC-004  ≥ 1 plated rule in standards & protocols     MUST — a plate in a rule
 //          title, or in the first column of the `## Check` table (platesIn)
 // DOC-005  Why ≤ 80 words                               SHOULD
@@ -97,19 +97,14 @@ function shape(rel, text, fm) {
 
   // DOC-003 scope
   const binds = /^\*\*Binds:\*\*\s*(.+)$/m.exec(body);
-  const notb = /^\*\*Does not bind:\*\*\s*(.+)$/m.exec(body);
-  if (!register && NEEDS_PLATES.has(dir)) {
-    if (!binds) must('DOC-003', 'S-03 no **Binds:** line');
-    if (!notb) must('DOC-003', 'S-03 no **Does not bind:** line');
-  }
+  if (!register && NEEDS_PLATES.has(dir) && !binds) must('DOC-003', 'S-03 no **Binds:** line');
   if (binds && words(binds[1]) > CAP.scope) should('DOC-003', `S-03 Binds is ${words(binds[1])} words (≤ ${CAP.scope})`);
-  if (notb && words(notb[1]) > CAP.scope) should('DOC-003', `S-03 Does not bind is ${words(notb[1])} words (≤ ${CAP.scope})`);
 
   // Body: after scope (or card) up to ## References
   let start = 0;
   const cardEnd = body.search(/^(?!>)(?!\s*$)(?!#\s)/m);
   if (cardEnd > 0) start = cardEnd;
-  const scopeEnd = notb ? notb.index + notb[0].length : (binds ? binds.index + binds[0].length : -1);
+  const scopeEnd = binds ? binds.index + binds[0].length : -1;
   if (scopeEnd > start) start = scopeEnd;
   let main = body.slice(start);
   main = main.replace(/^#\s+.+$/m, '');

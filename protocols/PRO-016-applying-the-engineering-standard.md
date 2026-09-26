@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracle
 
 **Binds:** any agent executing a task in a repository that carries `STD-005`.
-**Does not bind:** the practices themselves (`STD-005`, `STD-015`) nor which
-copy of the standard a repository owns (`STD-005`).
 
 ## 1. Trigger
 

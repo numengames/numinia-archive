@@ -42,7 +42,6 @@ Codes, sources and checks wait in the Check table at the foot.
 > **Audience:** Agents · Oracles
 
 **Binds:** the kinds of work or people it obliges, in words.
-**Does not bind:** the nearest thing it does not oblige.
 
 ## Rules
 

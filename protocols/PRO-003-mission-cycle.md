@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** any agent assigned a mission, and the Oracle who opens, reviews
 and closes it.
-**Does not bind:** what the card must contain (`STD-025`); the session
-around the mission (`PRO-001`).
 
 ## 1. Trigger
 

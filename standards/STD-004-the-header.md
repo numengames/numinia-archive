@@ -35,7 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every document's header, and every date the archive writes.
-**Does not bind:** the body below the header, or the site's own page schema.
 
 ## Rules
 

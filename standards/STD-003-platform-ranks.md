@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** the Numinia digital-goods platform — authentication, character
 sheets, creator panel, administration.
-**Does not bind:** access to the archive; what a rank means in the world;
-payment; custody and identity checks.
 
 ## Rules
 
@@ -144,14 +142,14 @@ platform reads each rank from.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| RNK-001 | Ranks add up | [NIST role-based access control, role hierarchies](https://csrc.nist.gov/projects/role-based-access-control) — our choice | by hand: the permissions live in the platform's code, outside this archive; its test suite is the check |
-| RNK-002 | Rank is read, never declared | [OWASP ASVS 5.0, V8.3.1, authorization enforced at a trusted service layer](https://owasp.org/www-project-application-security-verification-standard/) — our choice | by hand: the platform's test suite |
-| RNK-005 | The ranks that follow the evidence move by themselves | — our choice | by hand: the platform's test suite |
-| RNK-003 | No more than four Oracles | — our choice | by hand: the platform's test suite |
-| RNK-004 | Nobody acts upward | [NIST SP 800-53 rev. 5, AC-5 separation of duties, AC-6 least privilege, AC-6(9) log use of privileged functions](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) — our choice | by hand: the platform's test suite; nothing yet checks that Oracle actions are logged |
-| RNK-006 | Moving someone by hand has a ceiling | — our choice | by hand: the platform's test suite |
-| RNK-008 | The top two are judged, not counted | — our choice | by hand: an Archon or an Oracle, at each promotion |
-| RNK-007 | The permissions and this page move together | [OWASP ASVS 5.0, V8.1.1, authorization documentation](https://owasp.org/www-project-application-security-verification-standard/) — our choice | by hand: a platform pull request that changes the permissions without a change here |
+| RNK-001 | Ranks add up | [NIST role-based access control, role hierarchies](https://csrc.nist.gov/projects/role-based-access-control) | by hand: the permissions live in the platform's code, outside this archive; its test suite is the check |
+| RNK-002 | Rank is read, never declared | [OWASP ASVS 5.0, V8.3.1, authorization enforced at a trusted service layer](https://owasp.org/www-project-application-security-verification-standard/) | by hand: the platform's test suite |
+| RNK-005 | The ranks that follow the evidence move by themselves | — | by hand: the platform's test suite |
+| RNK-003 | No more than four Oracles | — | by hand: the platform's test suite |
+| RNK-004 | Nobody acts upward | [NIST SP 800-53 rev. 5, AC-5 separation of duties, AC-6 least privilege, AC-6(9) log use of privileged functions](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) | by hand: the platform's test suite; nothing yet checks that Oracle actions are logged |
+| RNK-006 | Moving someone by hand has a ceiling | — | by hand: the platform's test suite |
+| RNK-008 | The top two are judged, not counted | — | by hand: an Archon or an Oracle, at each promotion |
+| RNK-007 | The permissions and this page move together | [OWASP ASVS 5.0, V8.1.1, authorization documentation](https://owasp.org/www-project-application-security-verification-standard/) | by hand: a platform pull request that changes the permissions without a change here |
 
 | Rank | Earned by | Read from | Adds |
 |---|---|---|---|

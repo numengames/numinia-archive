@@ -38,9 +38,6 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** this archive's own repository, edited here and downstream of
 nothing, and every workspace born from it, which receives these rules at
 birth and owns them from then on; personal repositories SHOULD follow them.
-**Does not bind:** which practices a repository keeps, which the register of
-engineering checks lists; how a change reaches the main line, which is Git is
-the archive; how a secret stays out, which is Secrets.
 
 ## Rules
 

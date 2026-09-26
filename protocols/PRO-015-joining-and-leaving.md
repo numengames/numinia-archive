@@ -36,7 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Everyone
 
 **Binds:** whoever brings a person into Numinia, and whoever lets one go.
-**Does not bind:** what a rank is (`CAN-004`); who may change what (`STD-017`).
 
 A gate is a condition, not a suggestion: the next phase does not begin until it
 is met. The name in brackets after a checklist item is who owns it.

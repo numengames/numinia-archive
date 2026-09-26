@@ -33,8 +33,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** whoever builds, changes or reviews the sky, the Velo layer or the
 reading-aloud player on a site of the house.
-**Does not bind:** the values themselves, which are `STD-023`; the
-direction, which is `CAN-008`.
 
 ---
 

@@ -35,7 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every document of the archive; everything that stores, serves,
 builds or reads it; every proposed outside service.
-**Does not bind:** what any document says.
 
 ## Rules
 

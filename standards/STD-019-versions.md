@@ -34,7 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every registered document, and everything else the archive
 versions.
-**Does not bind:** software packages elsewhere, which version themselves.
 
 ## Rules
 

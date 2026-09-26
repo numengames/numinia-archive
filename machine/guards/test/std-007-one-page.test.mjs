@@ -4,8 +4,8 @@
 //
 // std-007-one-page.test.mjs — DOC-003: the documents that must declare scope.
 //
-// STD-007 asks every standard and protocol to open with a `**Binds:**` line
-// and a `**Does not bind:**` line, and exempts two kinds:
+// STD-007 asks every standard and protocol to open with a `**Binds:**` line,
+// and exempts two kinds:
 //
 //   subtype: register — a lookup table (the header fields, the licence
 //     allowlist). It governs nobody by itself; the standard pointing at it
@@ -62,8 +62,7 @@ test('no document, and no mould, says what it does not bind', () => {
 
 test('DOC-003: a scope of one line, whom it binds, is the whole scope', () => {
   const text = std('**A rule in words.** Everyone MUST do it.',
-    '| Plate | Rule | Source | Verified by |\n|---|---|---|---|\n| ABC-001 | A rule in words | — | by hand |')
-    .replace('**Does not bind:** anything else.\n', '');
+    '| Plate | Rule | Source | Verified by |\n|---|---|---|---|\n| ABC-001 | A rule in words | — | by hand |');
   assert.deepEqual(findings(text, 'DOC-003'), []);
 });
 
@@ -91,7 +90,7 @@ const std = (rules, check) => [
   '---', 'id: "STD-900"', 'subtype: standard', 'status: draft', '---', '',
   '# A rule in words', '',
   '> **Summary:** s.', '> **Epistemic:** e.', '> **Pragmatic:** p.', '',
-  '**Binds:** every test.', '**Does not bind:** anything else.', '',
+  '**Binds:** every test.', '',
   '## Rules', '', rules, '',
   '## Check', '', check, '',
   '## Why', '', 'Because.', '',

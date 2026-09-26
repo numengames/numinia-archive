@@ -34,7 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** whoever prepares, approves, creates or withdraws something on
 sale in Numinia's or Numen Games' name.
-**Does not bind:** bespoke services quoted and invoiced one by one.
 
 ---
 

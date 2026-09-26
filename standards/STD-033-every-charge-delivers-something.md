@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every site of ours that takes a payment, and every record of
 something on sale.
-**Does not bind:** services quoted and invoiced one by one for a client,
-nor how the money is written down, which the account standard holds.
 
 ## Rules
 
@@ -99,14 +97,14 @@ Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| PAY-001 | Something in return | — our choice | by hand, in every pull request that touches a charge |
+| PAY-001 | Something in return | — | by hand, in every pull request that touches a charge |
 | PAY-002 | The whole price | law: [TRLGDCU, RDL 1/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555) arts. 20 and 60.2.c; [Consumer Rights Directive 2011/83/EU](https://eur-lex.europa.eu/eli/dir/2011/83/oj) art. 6(1)(e); [VAT one-stop shop](https://vat-one-stop-shop.ec.europa.eu/) above €10,000 a year of EU cross-border consumer sales | by hand, in every pull request that touches a charge; the one-stop-shop threshold by the gestoría |
-| PAY-003 | No record, no charge | — our choice | by hand until the records exist; then a check that every price a site shows comes from a record |
-| PAY-004 | One account, the Oracle's keys | — our choice | the payment processor's account permissions — outside this repository |
+| PAY-003 | No record, no charge | — | by hand until the records exist; then a check that every price a site shows comes from a record |
+| PAY-004 | One account, the Oracle's keys | — | the payment processor's account permissions — outside this repository |
 | PAY-005 | No card on our sites | [PCI DSS v4.0.1, SAQ A](https://www.pcisecuritystandards.org/document_library/) — card-network contract; [PSD2, Directive (EU) 2015/2366](https://eur-lex.europa.eu/eli/dir/2015/2366/oj) strong customer authentication, done by the processor | by hand, in every pull request that touches a charge |
 | PAY-006 | Leaving takes one step | law: [TRLGDCU](https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555) art. 62.3 | by hand, in every pull request that touches a charge |
 | PAY-007 | Remembered by choice | law: [GDPR, Regulation (EU) 2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 6(1)(a), 7(3), 25(2); no amount per person is ours | by hand, in every pull request that touches a charge |
-| PAY-008 | Open stays open | — our choice | by hand, in every pull request that touches a charge |
+| PAY-008 | Open stays open | — | by hand, in every pull request that touches a charge |
 | PAY-009 | A resaleable token waits | [MiCA, Regulation (EU) 2023/1114](https://eur-lex.europa.eu/eli/reg/2023/1114/oj) — what the lawyer checks | by hand, in every pull request that touches a charge |
 
 ## Why

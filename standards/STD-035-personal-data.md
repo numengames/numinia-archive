@@ -33,7 +33,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** everything of ours that collects or keeps data about a person.
-**Does not bind:** data that cannot identify anyone.
 
 ## Rules
 

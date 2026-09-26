@@ -36,8 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every document in the canon.
-**Does not bind:** the header, the card, the length and the reference table
-every series shares; what a series is.
 
 ## Rules
 
@@ -103,9 +101,9 @@ Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| STA-001 | It says what is so | [ISO 24495-1:2023, plain language](https://www.iso.org/standard/78907.html) — readability only; our choice | by hand — whether a text states is read, not parsed |
+| STA-001 | It says what is so | [ISO 24495-1:2023, plain language](https://www.iso.org/standard/78907.html) — readability only | by hand — whether a text states is read, not parsed |
 | STA-002 | It says why | — | by hand |
-| STA-003 | It leaves the reader able to do something | [ISO 24495-1:2023, plain language](https://www.iso.org/standard/78907.html) — the reader can use what they find; our choice | by hand |
+| STA-003 | It leaves the reader able to do something | [ISO 24495-1:2023, plain language](https://www.iso.org/standard/78907.html) — the reader can use what they find | by hand |
 | STA-004 | Obligations, not sections | — | by hand |
 | STA-005 | The title is a claim | — | by hand; `machine/tools/rule-index.mjs` shows every title side by side, where a label stands out |
 | STA-006 | No tool | — | by hand — a search for vendor names catches the crude cases |
@@ -114,7 +112,7 @@ Each rule, its code, its source and its check.
 | STA-009 | A border only when real | — | by hand |
 | STA-010 | No date, no byline in the body | — | by hand |
 | STA-011 | Document names at the foot | — | `machine/guards/rules/std-021-evidence-and-citation.mjs` (`CIT-050`) reports a section cited by number; a bare name mid-prose is read |
-| STA-012 | The manual names the world | [ISO 25964-1:2011, thesauri](https://www.iso.org/standard/53657.html) — one preferred term per concept; our choice | by hand, against `lore/game/manual/glossary-es-en.md` |
+| STA-012 | The manual names the world | [ISO 25964-1:2011, thesauri](https://www.iso.org/standard/53657.html) — one preferred term per concept | by hand, against `lore/game/manual/glossary-es-en.md` |
 | — | the body length, 1,500 words, a SHOULD | — | `machine/guards/rules/std-007-one-page.mjs` (`DOC-006`) — counted and reported, never enforced |
 
 | In the reading | Exact form |

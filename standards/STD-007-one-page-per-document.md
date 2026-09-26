@@ -35,8 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every document on every shelf of the archive.
-**Does not bind:** moulds, generated files, and the files that introduce or
-list a folder.
 
 ## Rules
 
@@ -60,10 +58,9 @@ writing standards ask the same of every topic, so a reader, a person or an
 agent, opens one file and finds the whole answer, and no other file
 contradicts it.
 
-**Scope is one line each way.** A standard or protocol MUST say whom it
-binds and what it does not bind, each in at most 15 words, as the
-international drafting rules require a scope clause up front; so a reader
-knows in two lines whether to read on.
+**Scope is one line.** A standard or protocol MUST say whom it binds, in at
+most 15 words, as the international drafting rules ask of a scope clause up
+front; so a reader knows in one line whether to read on.
 
 ### The rules and their reasons
 
@@ -123,7 +120,7 @@ Each rule, its code, its source and its check.
 | DOC-001 | The title states the rule | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD: counted, reported, never handed to the regime |
 | DOC-002 | The card is three short paragraphs | — | `machine/guards/rules/std-007-one-page.mjs` — a missing part binds by this standard's state (`ENG-067`); length is a SHOULD |
 | DOC-012 | One document, one question | [DITA 1.3, the topic as the basic unit of information](https://docs.oasis-open.org/dita/dita/v1.3/os/part2-tech-content/archSpec/base/topicdefined.html): short enough to answer a single question — ours adds: the question is the epistemic line; merge or split | by hand, at the pull request; the map in `BLU-016` records each standard's question |
-| DOC-003 | Scope is one line each way | [ISO/IEC Directives, Part 2 (2021), clause 14, Scope](https://www.iso.org/sites/directives/current/part2/index.xhtml) — ours adds: both directions, 15 words each | `machine/guards/rules/std-007-one-page.mjs`; `machine/guards/test/std-007-one-page.test.mjs` |
+| DOC-003 | Scope is one line | [ISO/IEC Directives, Part 2 (2021), clause 14, Scope](https://www.iso.org/sites/directives/current/part2/index.xhtml) — ours adds: 15 words | `machine/guards/rules/std-007-one-page.mjs`; `machine/guards/test/std-007-one-page.test.mjs` |
 | DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the plate `AAA-NNN` | `machine/guards/rules/std-007-one-page.mjs` — a plate in a rule title or the Check table's first column (`platesIn`) |
 | DOC-013 | Obligation words mean one thing | [BCP 14](https://www.rfc-editor.org/info/bcp14) = [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) + [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) (capitals only); holds retired HDR-046 | by hand, at review |
 | DOC-005 | The reason is short | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |

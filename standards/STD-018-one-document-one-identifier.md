@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every registered document of the archive.
-**Does not bind:** the shape of each series' prefix, or the readable part
-of a file name.
 
 ## Rules
 

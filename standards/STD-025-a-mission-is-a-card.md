@@ -36,7 +36,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every mission, and whoever sets a field on one.
-**Does not bind:** how a mission is briefed, carried out or coordinated.
 
 ## Rules
 

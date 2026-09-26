@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents
 
 **Binds:** any agent facing a decision it may not, or cannot, take alone.
-**Does not bind:** what each rank may change (`AUT-065`) nor how a ruling is
-issued (`PRO-008`).
 
 ## 1. Trigger
 

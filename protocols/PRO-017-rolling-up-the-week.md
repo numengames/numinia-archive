@@ -33,8 +33,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents
 
 **Binds:** any agent executing a weekly, quarterly or annual roll-up.
-**Does not bind:** what survives a roll-up (`DEF-003`) nor the four
-deletion tests (`ADR-030`).
 
 ## 1. Trigger
 

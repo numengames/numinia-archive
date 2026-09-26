@@ -37,8 +37,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents
 
 **Binds:** any agent producing a design piece in any medium.
-**Does not bind:** the direction (`CAN-008`) nor the values (`STD-023`); it
-orders them, it does not define them.
 
 ---
 

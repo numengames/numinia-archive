@@ -33,7 +33,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every commit to this repository.
-**Does not bind:** how a document leaves the archive.
 
 ## Rules
 

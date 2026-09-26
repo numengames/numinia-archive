@@ -34,9 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every public site of Numen Games and Numinia: numinia.org,
 numinia.com, numen.games and nwos.numen.games.
-**Does not bind:** what a design piece may use — colours, type, icons,
-motion — which the design tokens hold, nor what a site may store about a
-visitor, which the personal data standard holds.
 
 ## Rules
 

@@ -35,8 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every registered document of the archive, and everyone who reads
 one.
-**Does not bind:** the machinery, and files addressed to readers outside the
-archive, which follow their own platform.
 
 ## Rules
 

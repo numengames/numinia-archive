@@ -34,8 +34,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** the ledger of what Numen Games and Numinia cost and take in, and
 every view published from it.
-**Does not bind:** what may be charged for and how, which the charges
-standard holds.
 
 ## Rules
 
@@ -90,12 +88,12 @@ Each rule, its code, its source and its check.
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
 | LED-001 | One ledger | law: [PGC PYMES, RD 1515/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-19966) likely, rather than the full [PGC, RD 1514/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884) — the gestoría confirms; group 62 services, 64 staff | by hand at each month's close; `web/src/lib/account.ts` computes every view from the lines |
-| LED-002 | Same figures, four views | — our choice | `web/src/lib/account.ts` and `/system/open-books` render the four views from one set of lines |
+| LED-002 | Same figures, four views | — | `web/src/lib/account.ts` and `/system/open-books` render the four views from one set of lines |
 | LED-003 | Billed and consumed | [FinOps FOCUS 1.2](https://focus.finops.org/docs/specification/v1-2/) BilledCost, EffectiveCost, ChargePeriodStart/End; accrual principle, PGC part one | by hand at each month's close |
 | LED-004 | Closed from documents | law: [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) arts. 25 and 29; the open-month label is ours | by hand at each month's close |
 | LED-005 | Traceable to the paper | law: [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) art. 25; [Ley General Tributaria 58/2003](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) art. 29 | by hand at each month's close |
-| LED-006 | People counted, not named | — our choice | by hand, in every ledger pull request |
-| LED-007 | Documents stay out | — our choice | by hand, in every ledger pull request |
+| LED-006 | People counted, not named | — | by hand, in every ledger pull request |
+| LED-007 | Documents stay out | — | by hand, in every ledger pull request |
 | LED-008 | Kept for as long as the law can ask | law: [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) art. 30 (six years); [Ley General Tributaria](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) arts. 66–70 (four years; up to ten for tax credits) | the gestoría's retention, outside this repository |
 
 ## Why

@@ -33,7 +33,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every change to a registered document.
-**Does not bind:** what each rank is, or the ranks on the platform.
 
 ## Rules
 

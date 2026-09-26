@@ -35,8 +35,6 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every folder of the archive and every document in one.
-**Does not bind:** which series exist, who signs a change, or how a
-document leaves.
 
 ## Rules
 
