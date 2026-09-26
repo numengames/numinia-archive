@@ -107,3 +107,14 @@ test("a canon's question does not repeat its title", () => {
   }).filter(([, , shared]) => shared.length).map(([id, title, shared]) => `${id} "${title}": ${shared.join(', ')}`);
   assert.deepEqual(echo, [], `the question repeats the title's words:\n  ${echo.join('\n  ')}`);
 });
+
+/* ---- Every canon sits on a reading shelf ----
+   A canon left off READING_GROUPS_CANON falls to the foot of /canon, after
+   the theory, where a newcomer never reaches it. */
+test('every canon is on a reading shelf', () => {
+  const corpusTs = readFileSync(path.join(ROOT, 'web/src/lib/corpus.ts'), 'utf8');
+  const groups = corpusTs.slice(corpusTs.indexOf('const READING_GROUPS_CANON'), corpusTs.indexOf('];', corpusTs.indexOf('const READING_GROUPS_CANON')));
+  const shelved = new Set((groups.match(/\/canon\/can-\d{3}/g) ?? []).map((h) => h.slice(-3)));
+  const off = canon.map((f) => f.match(/CAN-(\d{3})/)[1]).filter((n) => !shelved.has(n)).map((n) => `CAN-${n}`);
+  assert.deepEqual(off, [], `these canons are on no reading shelf in web/src/lib/corpus.ts: ${off.join(', ')}`);
+});
