@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13721,
+  "chars": 13701,
   "apparatus": false,
   "archived": false,
-  "tokens": 3399
+  "tokens": 3387
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 138907,
+  "chars": 140031,
   "apparatus": false,
   "archived": false,
-  "tokens": 37227
+  "tokens": 37515
  },
  {
   "path": "CLAUDE.md",
@@ -610,10 +610,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 8958,
+  "chars": 9270,
   "apparatus": false,
   "archived": false,
-  "tokens": 2411
+  "tokens": 2486
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -1611,10 +1611,10 @@
   "series": null,
   "type": "documentation",
   "status": "draft",
-  "chars": 3392,
+  "chars": 3335,
   "apparatus": true,
   "archived": false,
-  "tokens": 898
+  "tokens": 884
  },
  {
   "path": "machine/templates/SYS-TEMPLATE.md",
@@ -1908,10 +1908,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4436,
+  "chars": 4309,
   "apparatus": false,
   "archived": false,
-  "tokens": 1238
+  "tokens": 1203
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -1919,10 +1919,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4519,
+  "chars": 4416,
   "apparatus": false,
   "archived": false,
-  "tokens": 1213
+  "tokens": 1185
  },
  {
   "path": "protocols/PRO-005-escalation.md",
@@ -1930,10 +1930,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3431,
+  "chars": 3334,
   "apparatus": false,
   "archived": false,
-  "tokens": 924
+  "tokens": 896
  },
  {
   "path": "protocols/PRO-008-decision.md",
@@ -1941,10 +1941,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4356,
+  "chars": 4264,
   "apparatus": false,
   "archived": false,
-  "tokens": 1163
+  "tokens": 1136
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -1952,10 +1952,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4920,
+  "chars": 4782,
   "apparatus": false,
   "archived": false,
-  "tokens": 1236
+  "tokens": 1200
  },
  {
   "path": "protocols/PRO-013-handing-a-guard-to-ci.md",
@@ -1963,10 +1963,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4145,
+  "chars": 4089,
   "apparatus": false,
   "archived": false,
-  "tokens": 1140
+  "tokens": 1124
  },
  {
   "path": "protocols/PRO-014-producing-a-design-piece.md",
@@ -1974,10 +1974,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4183,
+  "chars": 4069,
   "apparatus": false,
   "archived": false,
-  "tokens": 1164
+  "tokens": 1132
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -1985,10 +1985,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 11416,
+  "chars": 11336,
   "apparatus": false,
   "archived": false,
-  "tokens": 2804
+  "tokens": 2779
  },
  {
   "path": "protocols/PRO-016-applying-the-engineering-standard.md",
@@ -1996,10 +1996,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4060,
+  "chars": 3931,
   "apparatus": false,
   "archived": false,
-  "tokens": 1106
+  "tokens": 1072
  },
  {
   "path": "protocols/PRO-017-rolling-up-the-week.md",
@@ -2007,10 +2007,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4175,
+  "chars": 4079,
   "apparatus": false,
   "archived": false,
-  "tokens": 1196
+  "tokens": 1168
  },
  {
   "path": "protocols/PRO-018-publishing-a-repository.md",
@@ -2018,10 +2018,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4758,
+  "chars": 4629,
   "apparatus": false,
   "archived": false,
-  "tokens": 1292
+  "tokens": 1257
  },
  {
   "path": "protocols/PRO-019-holding-a-ritual.md",
@@ -2029,10 +2029,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5306,
+  "chars": 5180,
   "apparatus": false,
   "archived": false,
-  "tokens": 1396
+  "tokens": 1365
  },
  {
   "path": "protocols/PRO-020-putting-something-on-sale.md",
@@ -2040,10 +2040,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3995,
+  "chars": 3927,
   "apparatus": false,
   "archived": false,
-  "tokens": 1075
+  "tokens": 1060
  },
  {
   "path": "protocols/PRO-021-closing-the-month.md",
@@ -2051,10 +2051,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4256,
+  "chars": 4154,
   "apparatus": false,
   "archived": false,
-  "tokens": 1124
+  "tokens": 1100
  },
  {
   "path": "protocols/PRO-022-building-the-living-pieces.md",
@@ -2062,10 +2062,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 7684,
+  "chars": 7586,
   "apparatus": false,
   "archived": false,
-  "tokens": 2032
+  "tokens": 2005
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2150,10 +2150,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6376,
+  "chars": 6170,
   "apparatus": false,
   "archived": false,
-  "tokens": 1825
+  "tokens": 1774
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2161,10 +2161,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9210,
+  "chars": 8542,
   "apparatus": false,
   "archived": false,
-  "tokens": 2250
+  "tokens": 2085
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -2172,10 +2172,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15991,
+  "chars": 15872,
   "apparatus": false,
   "archived": false,
-  "tokens": 4492
+  "tokens": 4453
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2183,10 +2183,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8766,
+  "chars": 8378,
   "apparatus": false,
   "archived": false,
-  "tokens": 2128
+  "tokens": 2026
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -2194,10 +2194,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5421,
+  "chars": 5117,
   "apparatus": false,
   "archived": false,
-  "tokens": 1357
+  "tokens": 1279
  },
  {
   "path": "standards/STD-007-one-page-per-document.md",
@@ -2205,10 +2205,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8179,
+  "chars": 7764,
   "apparatus": false,
   "archived": false,
-  "tokens": 2134
+  "tokens": 2050
  },
  {
   "path": "standards/STD-008-design-tokens.md",
@@ -2216,10 +2216,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9645,
+  "chars": 9008,
   "apparatus": false,
   "archived": false,
-  "tokens": 2571
+  "tokens": 2418
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -2227,10 +2227,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4581,
+  "chars": 4368,
   "apparatus": false,
   "archived": false,
-  "tokens": 1153
+  "tokens": 1097
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -2238,10 +2238,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 13361,
+  "chars": 12708,
   "apparatus": false,
   "archived": false,
-  "tokens": 3589
+  "tokens": 3448
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",
@@ -2249,10 +2249,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7577,
+  "chars": 7321,
   "apparatus": false,
   "archived": false,
-  "tokens": 1946
+  "tokens": 1880
  },
  {
   "path": "standards/STD-014-publishing-gates.md",
@@ -2260,10 +2260,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5027,
+  "chars": 4635,
   "apparatus": false,
   "archived": false,
-  "tokens": 1231
+  "tokens": 1141
  },
  {
   "path": "standards/STD-015-engineering-checks.md",
@@ -2271,10 +2271,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 12760,
+  "chars": 12717,
   "apparatus": false,
   "archived": false,
-  "tokens": 3349
+  "tokens": 3341
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -2282,10 +2282,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7745,
+  "chars": 7564,
   "apparatus": false,
   "archived": false,
-  "tokens": 1949
+  "tokens": 1897
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -2293,10 +2293,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5331,
+  "chars": 5138,
   "apparatus": false,
   "archived": false,
-  "tokens": 1366
+  "tokens": 1310
  },
  {
   "path": "standards/STD-019-versions.md",
@@ -2304,10 +2304,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3539,
+  "chars": 3349,
   "apparatus": false,
   "archived": false,
-  "tokens": 916
+  "tokens": 882
  },
  {
   "path": "standards/STD-020-git-is-the-archive.md",
@@ -2315,10 +2315,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5335,
+  "chars": 5137,
   "apparatus": false,
   "archived": false,
-  "tokens": 1354
+  "tokens": 1307
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -2326,10 +2326,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4936,
+  "chars": 4473,
   "apparatus": false,
   "archived": false,
-  "tokens": 1285
+  "tokens": 1181
  },
  {
   "path": "standards/STD-022-secrets.md",
@@ -2337,10 +2337,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5053,
+  "chars": 4608,
   "apparatus": false,
   "archived": false,
-  "tokens": 1206
+  "tokens": 1109
  },
  {
   "path": "standards/STD-023-design-values.md",
@@ -2348,10 +2348,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 26026,
+  "chars": 25907,
   "apparatus": false,
   "archived": false,
-  "tokens": 7832
+  "tokens": 7795
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
@@ -2359,10 +2359,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4041,
+  "chars": 3909,
   "apparatus": false,
   "archived": false,
-  "tokens": 1077
+  "tokens": 1034
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
@@ -2370,10 +2370,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6451,
+  "chars": 6366,
   "apparatus": false,
   "archived": false,
-  "tokens": 1725
+  "tokens": 1698
  },
  {
   "path": "standards/STD-026-operative-vocabulary.md",
@@ -2381,10 +2381,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 11312,
+  "chars": 11241,
   "apparatus": false,
   "archived": false,
-  "tokens": 2626
+  "tokens": 2611
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -2392,10 +2392,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7550,
+  "chars": 7415,
   "apparatus": false,
   "archived": false,
-  "tokens": 1862
+  "tokens": 1830
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -2403,10 +2403,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6260,
+  "chars": 6105,
   "apparatus": false,
   "archived": false,
-  "tokens": 1649
+  "tokens": 1606
  },
  {
   "path": "standards/STD-029-community-conduct.md",
@@ -2414,10 +2414,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6214,
+  "chars": 5529,
   "apparatus": false,
   "archived": false,
-  "tokens": 1595
+  "tokens": 1444
  },
  {
   "path": "standards/STD-030-the-worlds-vocabulary.md",
@@ -2425,10 +2425,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7600,
+  "chars": 7563,
   "apparatus": false,
   "archived": false,
-  "tokens": 1668
+  "tokens": 1662
  },
  {
   "path": "standards/STD-031-a-canon-states.md",
@@ -2436,10 +2436,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6000,
+  "chars": 5761,
   "apparatus": false,
   "archived": false,
-  "tokens": 1618
+  "tokens": 1558
  },
  {
   "path": "standards/STD-033-every-charge-delivers-something.md",
@@ -2447,10 +2447,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6342,
+  "chars": 5556,
   "apparatus": false,
   "archived": false,
-  "tokens": 1701
+  "tokens": 1516
  },
  {
   "path": "standards/STD-034-accessibility.md",
@@ -2458,10 +2458,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7967,
+  "chars": 7563,
   "apparatus": false,
   "archived": false,
-  "tokens": 2334
+  "tokens": 2229
  },
  {
   "path": "standards/STD-035-personal-data.md",
@@ -2469,10 +2469,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6519,
+  "chars": 5796,
   "apparatus": false,
   "archived": false,
-  "tokens": 1823
+  "tokens": 1668
  },
  {
   "path": "standards/STD-036-one-account.md",
@@ -2480,10 +2480,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5937,
+  "chars": 5321,
   "apparatus": false,
   "archived": false,
-  "tokens": 1639
+  "tokens": 1491
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
@@ -2491,10 +2491,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8613,
+  "chars": 8326,
   "apparatus": false,
   "archived": false,
-  "tokens": 2217
+  "tokens": 2146
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
