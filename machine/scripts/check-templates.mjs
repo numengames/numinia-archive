@@ -7,7 +7,7 @@
 // WHY THIS EXISTS
 // ---------------
 // Until now nothing checked the templates. Every other document in the archive
-// is read by std-004-the-header, machine/guards/lib/naming.mjs, std-020-git-is-the-archive and the rest; the
+// is read by std-004-the-header, machine/guards/lib/naming.mjs, std-012-corpus-does-not-grow and the rest; the
 // moulds those documents are copied FROM were exempt from all of them, because
 // `^machine/templates/` is apparatus and apparatus is skipped. The result was measured
 // on 2026-09-04, before this guard existed:

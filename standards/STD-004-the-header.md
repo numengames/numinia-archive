@@ -5,18 +5,18 @@ title: "The header"
 type: documentation
 subtype: standard
 status: draft
-version: "3.3.0"
+version: "4.0.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 ratified_by: "ADR-043"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata, RFC-3339, BCP-14, YAML, Dublin-Core]
-series_change: "3.3.0 — 2026-09-25: each header rule now says which outside standard it follows and what that buys — YAML for the block, the shared licence list and the one-line licence tag, the internet's timestamp format in place of the looser international one, the capitals-only reading of obligation words, Dublin Core and the provenance vocabulary for relations, language tags, semantic versions — and the parse rule leaves for the plain-text standard, which already holds it; retired status stays a relation, and why is said."
+series_change: "4.0.0 — 2026-09-26: how obligation words are written leaves for One page per document, which says how every rule is worded; this standard now answers only what a correct header is. An obligation removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -34,8 +34,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Pragmatic:** Write a header, add a field, or read a finding by its code.
 > **Audience:** Agents · Oracles
 
-**Binds:** every document's header, and every date and obligation word the
-archive writes.
+**Binds:** every document's header, and every date the archive writes.
 **Does not bind:** the body below the header, or the site's own page schema.
 
 ## Rules
@@ -107,17 +106,12 @@ catalogue tool reads our links as its own.
 always named with the internet's standard language tags; so a program and a
 person agree on which language a text is in.
 
-### How dates and obligation words are written
+### How dates are written
 
 **Dates are written the internet's way.** Every date MUST follow the
 internet's timestamp format: year, month, day, the hour and its offset from
 universal time, in that order; so dates sort as text, read one way only,
 and no updated date comes before its created date.
-
-**Obligation words mean one thing.** MUST, SHOULD and MAY, and their
-negatives, carry the meaning the internet's standards body gave them, and
-only when written in capitals: a must is required, a should may be broken
-only with a reason, a may is a free choice.
 
 This standard is over its word budget because each rule now says what its
 outside standard does, as well as what it obliges.
@@ -147,7 +141,7 @@ under.
 | HDR-016 | Relations live in the header and resolve | [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/): `replaces`, `isReplacedBy`, `relation`, `isPartOf`; [PROV-O](https://www.w3.org/TR/prov-o/) `wasDerivedFrom`; the field map is in `STD-016` | by hand, presence only: no guard resolves header relations; `machine/guards/rules/std-020-git-is-the-archive.mjs` reads the body |
 | HDR-002 | Titles are English | [BCP 47](https://www.rfc-editor.org/info/bcp47) — the tag `en` | `machine/guards/rules/std-004-the-header.mjs`, presence; language by hand |
 | HDR-045 | Dates are written the internet's way | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), a free, exact profile of [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) — ours adds: time required, `updated` ≥ `created` | `machine/guards/rules/std-004-the-header.mjs` for `created` and `updated` (HDR-006, HDR-007); other dates by hand |
-| HDR-046 | Obligation words mean one thing | [BCP 14](https://www.rfc-editor.org/info/bcp14) = [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) + [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) (capitals only) | by hand, at review |
+| HDR-046 | retired → DOC-013 of One page per document, how the rules of a document are worded | — | — |
 | HDR-001, 003, 006, 007, 012..014, 017..019, 033..038 | each field's own rule, in the register of header fields | — | `machine/guards/rules/std-004-the-header.mjs`, one plate per finding |
 | HDR-010, 011, 015 | author, owner, commissioned by | — | by hand, presence only |
 

@@ -19,7 +19,7 @@ territory: "Archive"
 tags: [canon, seminal]
 license: "CC0-1.0"
 # canon sits at the governed threshold: it changes by an ADR, or by a pull
-# request the Oracle approves. (STD-024 SER-003 — not `sealed`.)
+# request the Oracle approves. (STD-017 AUT-068 — not `sealed`.)
 threshold: governed
 # OPTIONAL — use when they apply, omit without guilt.
 # ratified_by: "ADR-NNN"            # the decision that ratified this text

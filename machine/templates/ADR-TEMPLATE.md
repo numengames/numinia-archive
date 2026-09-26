@@ -25,7 +25,7 @@ license: "CC-BY-4.0"
 # absorbs: ["ADR-NNN"]              # identifiers this record inherits, kept resolving
 # amends: "STD-NNN"                 # a standard this narrows without superseding
 # supersedes: "ADR-NNN"             # the decision this replaces
-# superseded_by: "ADR-NNN"          # only on a `withdrawn` record: the decision that replaced it (GIT-045)
+# superseded_by: "ADR-NNN"          # only on a `withdrawn` record: the decision that replaced it (DEF-008)
 # related: ["MIS-NNNN"]
 ---
 

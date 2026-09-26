@@ -22,7 +22,7 @@
 //            (ADR, RPT: "## Context") are not comparable — a §2 there is
 //            ordinal, and a false failure teaches people to ignore the guard.
 //
-// CIT-053 and CIT-054 are read by std-020-git-is-the-archive, which is
+// CIT-053 and CIT-054 are read by std-012-corpus-does-not-grow, which is
 // where they bite. CIT-051/052 and EVI-057 are manual.
 //
 // Not here: `--report` (list everything, exit 0) — the contract prints every

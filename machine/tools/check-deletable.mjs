@@ -85,7 +85,7 @@ for (const rel of files) {
   const declared = field('id');
   if (declared) ids.add(declared);
   // `absorbs:` — the identifiers this document is the written resolution
-  // for (ADR-030 §absorption; the GIT-048 guard resolves them here).
+  // for (ADR-030 §absorption; the DEF-009 guard resolves them here).
   const absorbs = new Set(Array.isArray(fm.absorbs) ? fm.absorbs.filter(Boolean) : []);
   doc.set(rel, {
     absorbs,

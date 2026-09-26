@@ -82,7 +82,7 @@ export default defineConfig({
 		"/canon/c-005-licensing": "/canon/can-005-licensing",
 		"/canon/c-007-rank-specifications": "/canon/can-004-role-structure",
 		"/canon/compendium-of-attributes-and-ranks-in-numinia": "/canon/can-004-role-structure",
-		// ADR-057 (2026-09-24): CAN-004 absorbed CAN-003. The address survives (GIT-046) and points at the heir (GIT-047).
+		// ADR-057 (2026-09-24): CAN-004 absorbed CAN-003. The address survives and points at the heir (URL-005).
 		"/canon/can-003-attributes-and-ranks": "/canon/can-004-role-structure",
 		"/canon/numinia-brand-and-culture": "/canon/can-002-brand-and-culture",
 		"/canon/rank-specifications": "/canon/can-004-role-structure",
@@ -155,6 +155,9 @@ export default defineConfig({
 		"/protocols/p-011-security-audit": "/protocols/pro-011-security-audit",
 		"/protocols/p-012-ruling-with-a-condition": "/protocols/pro-008-decision",
 		"/protocols/p-013-handing-a-guard-to-ci": "/protocols/pro-013-handing-a-guard-to-ci",
+		// → blueprints — BLU-016 renamed from its old subject to its question (2026-09-26)
+		"/blueprints/outside-standards-under-consideration": "/blueprints/one-question-per-standard",
+		"/blueprints/outside-standards-under-consideration.md": "/blueprints/one-question-per-standard.md",
 		// → system
 		"/blueprints/agent-experience": "/system/sys-002-agent-cycle",
 		"/blueprints/archive-fondos": "/system/sys-003-archive-fondos",

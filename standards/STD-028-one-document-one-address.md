@@ -5,9 +5,9 @@ title: "One document, one address"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-20T20:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-047"
 threshold: governed
 related: ["STD-018", "STD-021", "STD-027", "STD-001", "STD-012"]
-series_change: "0.2.0 — 2026-09-25: a retired address with no heir now answers that it is gone for good, as the web's own protocol says, instead of the ordinary not-found page — a reversed obligation, held below 1.0.0 because only the Oracle promotes; each rule names the web standard it follows and what it lets a reader prove."
+series_change: "0.3.0 — 2026-09-26: this is now the one place that says where a retired address leads: the redirect rules of Git is the archive and The corpus does not grow retire into it, and it says the redirect is one step and moves with its answer. Held below 1.0.0 because only the Oracle promotes, at the Oracle's word in session."
 ---
 
 <!--
@@ -37,8 +37,8 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** every web address the public site gives a document of the archive.
-**Does not bind:** the document's name, how one document cites another, or
-which series exist.
+**Does not bind:** the document's name, or how a document leaves the
+archive.
 
 ## Rules
 
@@ -70,10 +70,12 @@ second address for it — a translated path, an alias, an old shape — MUST
 NOT be published.
 
 **A retired address leads to the answer, or says it is gone.** When an
-address stops being built, it MUST either redirect for good to the document
-that now answers its question, or answer that it is gone for good, as the
-web's protocol defines; so a reader and a crawler both know the removal was
-deliberate. A redirect to an index or a list of deletions answers nothing.
+address stops being built, it MUST either redirect for good, in one step, to
+the document that now answers its question, or answer that it is gone for
+good, as the web's protocol defines; so a reader and a crawler both know the
+removal was deliberate. A redirect to an index, a list of deletions or
+another redirect answers nothing, and when the answer moves, every redirect
+to it moves in the same change.
 
 ### How a document is cited
 
@@ -96,7 +98,7 @@ verifies it today.
 | URL-002 | The function is never in the address | [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — leave the subject out | `machine/scripts/check-url-shape.mjs` |
 | URL-004 | English is the address | — | `machine/scripts/check-url-shape.mjs` |
 | URL-003 | One address per document | [RFC 6596, the canonical link relation](https://www.rfc-editor.org/rfc/rfc6596) — ours is stricter: no duplicate is published at all | `machine/scripts/check-url-shape.mjs` — two addresses serving one document; `rel="canonical"` emitted by the site layout |
-| URL-005 | A retired address leads to the answer, or says it is gone | [RFC 9110, section 15.4.2, 301 Moved Permanently](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.2); [RFC 9110, section 15.5.11, 410 Gone](https://www.rfc-editor.org/rfc/rfc9110#section-15.5.11) | `machine/scripts/check-url-shape.mjs` — a redirect to an index, and a redirect chain. Not yet: the site answers a removed address with 404, not 410 — debt |
+| URL-005 | A retired address leads to the answer, or says it is gone | [RFC 9110, section 15.4.2, 301 Moved Permanently](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.2); [RFC 9110, section 15.5.11, 410 Gone](https://www.rfc-editor.org/rfc/rfc9110#section-15.5.11); [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI); holds retired GIT-046, GIT-047 and DEF-005, which said the same three times | `machine/scripts/check-url-shape.mjs` — a redirect to an index, and a redirect chain; `machine/scripts/check-url-lifecycle.mjs` — addresses that stopped being built, reported. Not yet: the site answers a removed address with 404, not 410 — debt |
 | URL-006 | A citation is the name | — | by hand — prose, read in review |
 
 | In the reading | Exact form |

@@ -5,16 +5,16 @@ title: "Plain text is sovereign"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.5"
+version: "2.1.0"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [archive, substrate, format, sovereignty, self-hosting, GFM, YAML, NDSA]
 supersedes: ["ADR-001"]
-series_change: "2.0.5 — 2026-09-25: each rule says which outside standard it follows and what it buys — GitHub-Flavored Markdown as the real syntax in place of plain CommonMark, YAML for the header, the Library of Congress list of formats fit to keep, the digital-preservation levels for copies and fixity; no obligation added or dropped."
+series_change: "2.1.0 — 2026-09-26: link, never copy comes in from Git is the archive, since it is about what a document is made of, not how a change lands. One obligation moved in, so a minor move, at the Oracle's word in session."
 ---
 
 <!--
@@ -58,6 +58,9 @@ beside it.
 **One document per file.** A file is the unit a document is named, cited
 and deleted by. Two documents in one file MUST NOT occur.
 
+**Link, never copy.** A document MUST NOT be copied into another; a copy
+made from it for use elsewhere says which one is the original.
+
 ### Where the truth lives
 
 **Nothing lives only outside the archive.** No document's content MAY exist
@@ -94,6 +97,7 @@ it rests on, and what verifies it today.
 | TXT-002 | The header is plain text too | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) (also holds retired HDR-041) | `machine/guards/rules/std-006-plain-text.mjs` — fence and parse |
 | TXT-003 | Nothing lives only outside the archive | — | `machine/guards/rules/std-006-plain-text.mjs` — partial: prose inside components only |
 | TXT-004 | One document per file | — | by hand |
+| TXT-008 | Link, never copy | — (ours); holds retired GIT-049 | by hand: a scan comparing file contents would catch it, and does not exist |
 | TXT-005 | No binary file is the truth | [Library of Congress Recommended Formats Statement](https://www.loc.gov/preservation/resources/rfs/) | by hand |
 | TXT-006 | Every copy is the whole archive | [NDSA Levels of Digital Preservation 2.0](https://ndsa.org/publications/levels-of-digital-preservation/) — storage copies and fixity; met by [Git](https://git-scm.com/) content hashes and clones | by hand — a fresh clone, no network, read |
 | TXT-007 | An outside service is a convenience, not a landlord | — | by hand, before adoption |

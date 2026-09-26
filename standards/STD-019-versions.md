@@ -5,16 +5,16 @@ title: "Versions"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.0"
+version: "3.0.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, versioning, semver]
 threshold: governed
-series_change: "2.0.0 — 2026-09-25: the rules on when a number moves now follow Semantic Versioning to the letter, where our old rule made any changed obligation only a minor: a new obligation that turns conforming work into non-conforming work is now a major, reversing the old rule, at the Oracle's word in session."
+series_change: "3.0.0 — 2026-09-26: who may move which number leaves for Who may change what, which answers that question alone; this standard answers only what a version number promises. An obligation removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -28,8 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > following Semantic Versioning as published. A document's promise to its
 > readers is its obligations: breaking work that obeyed it yesterday raises
 > the first number, offering more without breaking anything raises the
-> middle, and rewording raises the last. Who may raise which number is set
-> by rank.
+> middle, and rewording raises the last.
 > **Epistemic:** What a version number promises the reader of a document.
 > **Pragmatic:** Decide the new number from what changed, not from the mood.
 > **Audience:** Agents · Oracles
@@ -47,7 +46,8 @@ common rule for version numbers: every version MUST be three numbers —
 major, minor, patch — and a document's public promise, which that rule asks
 each project to declare, is its set of obligations. Anyone can then read
 from the number alone whether their work still conforms. Everything starts
-at zero point one point zero. Our choice.
+at zero point one point zero, and reaching one point zero is a major move.
+Our choice.
 
 **The header and the log agree.** Where a document keeps a log of its own
 changes, the version in its header MUST be the same number as the newest
@@ -64,12 +64,6 @@ recommendation, a new permission or a wider scope that leaves every
 conforming work still conforming MUST raise the middle number; a change of
 wording that asks nothing new raises only the last.
 
-### Who may move it
-
-**Who moves which number.** A digital agent MAY move the patch; an Archon
-MAY move the minor; only an Oracle MAY move the major. Reaching one point
-zero is a major move.
-
 ## Check
 
 Every rule above, with the code an agent cites it by, the outside standard
@@ -81,7 +75,7 @@ it rests on, and what verifies it today.
 | VER-024 | The header and the log agree | — | `machine/guards/rules/std-019-versions.mjs` |
 | VER-023 | Breaking conformance is a major | [Semantic Versioning 2.0.0, item 8](https://semver.org/spec/v2.0.0.html) | by hand: deciding that a change breaks conformance is the judgement itself |
 | VER-022 | Offering more without breaking is a minor; rewording is a patch | [Semantic Versioning 2.0.0, items 6 and 7](https://semver.org/spec/v2.0.0.html) | by hand, as above |
-| VER-064 | Who moves which number | — | by hand: matching an author to the number they moved |
+| VER-064 | retired → AUT-065 of Who may change what, which says who moves which number | — | — |
 
 VER-021 absorbs EXT-002 of the external standards, which said the same;
 that plate is retired there. We add one point to the scheme: for a
@@ -93,12 +87,10 @@ compatibility.
 A version is a promise about compatibility. For a document, compatibility
 is whether work that obeyed it yesterday still obeys it today; that is
 exactly what Semantic Versioning's first number guards, so a new
-requirement is a major, not the minor our old rule called it. Tying each
-number to a rank makes the promise cost what it claims, so nobody breaks
-conformance by accident on a patch.
+requirement is a major, not the minor our old rule called it.
 
 ## References
 
 | ID | Title | Relation |
 |---|---|---|
-| `STD-017` | Who may change what | the ranks VER-064 names |
+| `STD-017` | Who may change what | who may move each of the three numbers |

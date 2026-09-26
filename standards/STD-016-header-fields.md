@@ -138,7 +138,7 @@ machine keeps a copy, and a test fails the moment the two differ.
 |---|---|
 | `draft` | written, not yet in force; binds nobody (`PRE-006`) |
 | `active` | in force, or — for a report or a closed mission's evidence — published and standing |
-| `withdrawn` | no longer in force. The one terminal state: whether an heir exists is said by `superseded_by`, present or absent, never by a second state (`GIT-045`) |
+| `withdrawn` | no longer in force. The one terminal state: whether an heir exists is said by `superseded_by`, present or absent, never by a second state (`DEF-008`) |
 
 Two states are retired, and the header check rejects them. Closed meant
 published for a report, and would have had to mean no longer binding for a

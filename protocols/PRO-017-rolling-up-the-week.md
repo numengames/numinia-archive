@@ -82,7 +82,7 @@ after the final content commit and `--check` MUST pass before push.
 
 Quarterly and annual: the "records" are the reports of the level below.
 Only `rule`, `debt`, `address` lines are carried up; `absorbs:` lists move
-whole (`DEF-005`); redirects are repointed; the lower reports are deleted.
+whole (`DEF-011`); redirects are repointed (`URL-005`); the lower reports are deleted.
 
 ## 4. Verification
 

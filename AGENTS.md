@@ -156,14 +156,14 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-021` | Closing the month | whoever brings the month's documents, turns them into ledger lines, or reviews the close |
 | `STD-001` | The series | every tracked document of the archive |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
-| `STD-004` | The header | every document's header, and every date and obligation word the archive writes |
+| `STD-004` | The header | every document's header, and every date the archive writes |
 | `STD-005` | Engineering baseline | this archive's own repository, edited here and downstream of nothing… |
 | `STD-006` | Plain text is sovereign | every document of the archive; everything that stores, serves, builds or reads it… |
 | `STD-007` | One page per document | every document on every shelf of the archive |
 | `STD-008` | Design tokens | every public surface of Numen Games and Numinia — web, product, document, deck, codex… |
 | `STD-009` | Which rule wins | every registered document of the archive, and everyone who reads one |
 | `STD-010` | Licensing | every repository of Numen Games and Numinia |
-| `STD-012` | The corpus does not grow | missions, reports, debt records and blueprints |
+| `STD-012` | The corpus does not grow | every document that leaves the archive or its series; roll-ups bind records only |
 | `STD-013` | Licence allowlist and fields | register — scope belongs to the standard that cites it |
 | `STD-014` | Publishing gates | every permanent publication, and every change of a Numen Games repository from private to public |
 | `STD-015` | Engineering checks | register — scope belongs to the standard that cites it |
@@ -171,7 +171,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-017` | Who may change what | every change to a registered document |
 | `STD-018` | One document, one identifier | every registered document of the archive |
 | `STD-019` | Versions | every registered document, and everything else the archive versions |
-| `STD-020` | Git is the archive | every commit to this repository and every retirement of a registered document |
+| `STD-020` | Git is the archive | every commit to this repository |
 | `STD-021` | Evidence and citation | every document that cites another or makes a claim about the code… |
 | `STD-022` | Secrets | every file in this repository, and every report about it |
 | `STD-023` | Design values | register — scope belongs to the standard that cites it |
