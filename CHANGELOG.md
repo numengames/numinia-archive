@@ -19,6 +19,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (a standard answers yes or no)
+At the Oracle's word in session, after Byblos's review of the rule shelves: the definition of a standard had lost the test he had set for it — that it can be answered with a yes or a no — and the last trace of it went in the copy pass (`STD-008`'s summary, "answer yes or no" → "pass or fail").
+- **`STD-024` 3.0.0 adds SER-008, *A standard answers yes or no*.** Each rule of a standard MUST let anyone, holding the thing made, say yes or no to whether it is met; a text nobody can meet or break — a list of values, a vocabulary, a catalogue — is not a standard, and its place is not `standards/`. Source: the principle of verifiability of the ISO/IEC drafting rules. A new obligation, so a major.
+- **`STD-001` 5.4.6:** the `standards/` row now reads "what an artifact must comply with, answered yes or no".
+- Five texts on the shelf fail the test today and are named in the check row: `STD-001`, `STD-015`, `STD-023`, `STD-026`, `STD-030`. They are not moved in this change; where each goes is the next cut.
+
 ### Added — 2026-09-26 (a canon for ownership)
 At the Oracle's word in session: the coherence review found digital sovereignty — the wallet, progressive identity, *digital ownership, not digital rental* — carried by the vocabulary register and the ranks standard with no canon saying why. He chose to write it.
 - **`CAN-012` *What is yours stays with you*, in draft (0.1.0).** What a person holds here is theirs, not lent; it is kept in a form they can take whole, without asking; leaving is made easy because loyalty is only worth having from someone who could go; nobody needs a key of their own to come in, and each step up the staircase hands them more of what is theirs. It closes on three questions to put to anything that will hold something of a person's. No ADR, under the transition regime.

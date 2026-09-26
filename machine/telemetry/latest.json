@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "a85ee2b",
-  "corpus_hash": "9b9fc66743280b07499fc303e976e497480cde1ea7c929be350a65ed56ed7f2f",
+  "head": "0be9478",
+  "corpus_hash": "39a3db98f7190e67285c3980e982dc4ab64d01e3739a4c6bf6dfa9d9090fbd65",
   "root_dirty": 0,
-  "measured_at": "2026-09-26T15:47:27Z",
+  "measured_at": "2026-09-26T16:23:19Z",
   "families": [
     "corpus",
     "series",
@@ -320,16 +320,16 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 881333,
+      "value": 881873,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 64607,
+        "standards": 64846,
         "missions": 45717,
-        "": 45140,
+        "": 45441,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29109,
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 540446,
-        "draft": 169477,
+        "(none)": 540747,
+        "draft": 169716,
         "active": 124205,
         "done": 26539,
         "todo": 15975,
@@ -359,7 +359,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.19,
+      "value": 5.18,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -375,7 +375,7 @@
         ],
         [
           "CHANGELOG.md",
-          38161
+          38462
         ],
         [
           "lore/game/manual/es/07-construyendo-la-aventura.md",
@@ -651,7 +651,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1045
+          "3": 1058
         },
         "MIS": {
           "3": 687,

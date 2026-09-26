@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 142729,
+  "chars": 143796,
   "apparatus": false,
   "archived": false,
-  "tokens": 38161
+  "tokens": 38462
  },
  {
   "path": "CLAUDE.md",
@@ -2161,10 +2161,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6166,
+  "chars": 6186,
   "apparatus": false,
   "archived": false,
-  "tokens": 1773
+  "tokens": 1778
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2370,10 +2370,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3847,
+  "chars": 4715,
   "apparatus": false,
   "archived": false,
-  "tokens": 1020
+  "tokens": 1254
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
