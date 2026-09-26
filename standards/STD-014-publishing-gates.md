@@ -14,7 +14,7 @@ territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, publication, arweave, visibility]
 threshold: governed
-series_change: "1.1.1 — 2026-09-26: prose only — the secret scan before going public now points at the secrets standard, which alone says what the scan is and what it follows, instead of saying it again. 1.1.0 — 2026-09-25: the check before a repository goes public now names the two outside checks it runs."
+series_change: "1.1.1 — 2026-09-26: prose only — the secret scan before going public now points at the secrets standard, which alone says what the scan is and what it follows, instead of saying it again."
 ---
 
 <!--
@@ -81,8 +81,7 @@ condition on every build.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it follows, and what verifies it today.
+Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

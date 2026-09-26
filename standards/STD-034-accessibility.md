@@ -14,7 +14,7 @@ territory: "Product"
 license: "CC0-1.0"
 related: ["STD-008", "STD-015", "STD-023", "STD-032"]
 tags: [standards, accessibility, WCAG, web]
-series_change: "0.2.2 — 2026-09-26: the test on every change now also holds the engineering register's accessibility row, which said it again. 0.2.1 — 2026-09-25: the Oracle confirmed Numen Games is a microenterprise, so the European Accessibility Act does not oblige us; the guidelines stay our choice."
+series_change: "0.2.2 — 2026-09-26: the test on every change now also holds the engineering register's accessibility row, which said it again."
 ---
 
 <!--
@@ -78,9 +78,8 @@ the evaluation method the guidelines' authors publish.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it rests on, and what verifies it today. Then the criteria the first rule
-already implies and nothing checks yet. **Law** marks what a statute
+Each rule, its code, its source and its check. Then the criteria the first
+rule already implies and nothing checks yet. **Law** marks what a statute
 requires; the rest is a norm we adopt.
 
 | Plate | Rule | Source | Verified by |

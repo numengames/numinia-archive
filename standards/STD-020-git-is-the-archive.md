@@ -75,8 +75,7 @@ resolved by choosing one side.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it follows, and what verifies it today.
+Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

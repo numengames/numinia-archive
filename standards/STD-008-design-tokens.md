@@ -114,10 +114,9 @@ and day and night — is a standard of its own.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it rests on, and what verifies it today. Then the exact values the rules
-point at. **Law** marks what a statute requires; everything else is a norm
-we adopt, or our own choice.
+Each rule, its code, its source and its check. Then the exact values the rules
+point at. **Law** marks what a statute requires; everything else is a norm we
+adopt, or our own choice.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

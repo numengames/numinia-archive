@@ -60,8 +60,7 @@ reader can obey without opening another document.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it rests on, and what verifies it today.
+Each rule, its code, its source and its check.
 
 <!-- One row per rule. Plate: three letters, three digits, unique across the
      corpus, never renumbered, dropped or reused. Source: a link to the

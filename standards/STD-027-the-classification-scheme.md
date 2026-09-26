@@ -80,9 +80,8 @@ first commit; a folder with no row is not a series, whatever it holds.
 
 ## Check
 
-Every rule above, with its plate, the outside standard it follows, and what
-verifies it today. Then the scheme as the site reads it, and what it rests
-on. No law requires this scheme; it is our choice.
+Each rule, its code, its source and its check. Then the scheme as the site
+reads it, and what it rests on. No law requires this scheme; it is our choice.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

@@ -98,9 +98,9 @@ agent MUST NOT act, and asks higher up.
 
 ## Check
 
-Every rule above, with its plate, the outside standard it follows, and what
-verifies it today. No law requires any of it for a private company; it is
-our choice, so that an auditor finds the controls they already look for.
+Each rule, its code, its source and its check. No law requires any of it for a
+private company; it is our choice, so that an auditor finds the controls they
+already look for.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

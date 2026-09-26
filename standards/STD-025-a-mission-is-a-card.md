@@ -88,8 +88,8 @@ records why. Ninety quiet days in to do make a card stale.
 
 ## Check
 
-Every rule above, with its plate, the outside standard it follows, and what
-verifies it today. No law requires any of it; it is our choice.
+Each rule, its code, its source and its check. No law requires any of it; it
+is our choice.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

@@ -4,16 +4,16 @@ uid: ""
 title: "Publishing a repository"
 type: protocol
 status: draft
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-09-10T01:00:00+02:00"
+updated: "2026-09-26T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, publishing, licensing, reuse, spdx, visibility]
 applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
-related: ["STD-014", "STD-010", "STD-013", "STD-022", "PRO-008", "PRO-011"]
+related: ["STD-014", "STD-010", "STD-022", "PRO-008", "PRO-011"]
 ---
 
 <!--
@@ -36,7 +36,7 @@ SPDX-License-Identifier: CC0-1.0
 publication of a Numen Games repository or work, and the request it
 files.
 **Does not bind:** what the gates are (`STD-014`); the licence regime
-(`STD-010`, `STD-013`); publication to a CDN, which can be withdrawn.
+(`STD-010`); publication to a CDN, which can be withdrawn.
 
 ## 1. Trigger
 
@@ -61,7 +61,8 @@ log` away; if one is found, `PRO-011` `SEC-005` applies and this protocol
 pauses.
 
 **RLS-004 — Every dependency on the allowlist.** The dependency listing
-MUST show each package's SPDX identifier against `STD-013`; one on the
+MUST show each package's SPDX identifier against the allowlist of
+`STD-010`; one on the
 *never* tier, or without a `license` field, blocks the request
 (`LIC-005`, `LIC-006`).
 
@@ -105,7 +106,6 @@ A secret or personal data found: stop, `SEC-005`. Ownership unclear, a
 | Document | Title | Why it obliges here |
 |---|---|---|
 | `STD-014` | Publishing gates | `PUB-001..005`: the gates this protocol runs |
-| `STD-010` | Licensing | `LIC-001/005/006/007/011`: what the listings check |
-| `STD-013` | Licence allowlist and fields | the allowlist step 1 and `RLS-004` read |
+| `STD-010` | Licensing | `LIC-001/005/006/007/011`: what the listings check; the allowlist step 1 and `RLS-004` read |
 | `PRO-008` | Requesting approval, issuing rulings | the signing request |
 | `PRO-011` | Auditing identity, authorization and secrets | `SEC-005` when the scan finds a value |

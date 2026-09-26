@@ -96,8 +96,7 @@ standard.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the law or outside
-standard it rests on, and what verifies it today.
+Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -115,9 +114,7 @@ standard it rests on, and what verifies it today.
 
 A charge that is not written becomes a favour asked of someone who cannot see
 where it goes. Saying which rules the law makes and which we chose shows what
-may bend and what may not. Charging and keeping the books were one standard
-until 26 September 2026; they are read by different people at different
-moments, so each now answers its own question.
+may bend and what may not.
 
 ## References
 

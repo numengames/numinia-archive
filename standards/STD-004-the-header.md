@@ -118,8 +118,7 @@ outside standard does, as well as what it obliges.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the outside standard
-it rests on, and what verifies it today. Then the codes each field fails
+Each rule, its code, its source and its check. Then the codes each field fails
 under.
 
 | Plate | Rule | Source | Verified by |

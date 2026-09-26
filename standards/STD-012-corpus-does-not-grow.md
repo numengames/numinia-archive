@@ -96,10 +96,10 @@ does not count.
 
 ## Check
 
-Every rule above, with its plate, the outside standard it follows, and what
-verifies it today. No law requires any of it: Spanish law obliges a company
-to keep its accounting records, which live elsewhere; the rest is our choice,
-made so an auditor can read it in terms they already know.
+Each rule, its code, its source and its check. No law requires any of it:
+Spanish law obliges a company to keep its accounting records, which live
+elsewhere; the rest is our choice, made so an auditor can read it in terms
+they already know.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

@@ -17,7 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-062"
 threshold: governed
 related: ["STD-007", "STD-001", "STD-024", "ADR-049", "ADR-053"]
-series_change: "0.1.2 — 2026-09-25: the Why says plainly that no outside standard governs what a canon argues, the plain-language standard is cited where it covers readability and the thesaurus standard anchors the manual's names; no obligation added or dropped. 0.1.1 — 2026-09-25: written in plain words a narrator can read aloud; plates, paths and what checks each rule wait in the Check table. No obligation added or dropped."
+series_change: "0.1.2 — 2026-09-25: the Why says plainly that no outside standard governs what a canon argues, the plain-language standard is cited where it covers readability and the thesaurus standard anchors the manual's names; no obligation added or dropped."
 ---
 
 <!--
@@ -100,8 +100,7 @@ one word.
 
 ## Check
 
-Every rule above, with its plate, the outside standard it follows, and what
-verifies it today.
+Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

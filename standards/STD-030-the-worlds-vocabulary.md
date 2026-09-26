@@ -17,7 +17,7 @@ license: "CC0-1.0"
 ratified_by: "ADR-053"
 threshold: governed
 related: ["CAN-004", "STD-003", "STD-026", "PRO-019"]
-series_change: "0.1.5 — 2026-09-25: the summary says the translation follows the web consortium's model for vocabularies, each in-world name matched exactly or closely to its operational one; the tables are unchanged. 0.1.4 — 2026-09-25: the summary and the closing note are written plainly, for a narrator, with no document codes in them; the tables are unchanged."
+series_change: "0.1.5 — 2026-09-25: the summary says the translation follows the web consortium's model for vocabularies, each in-world name matched exactly or closely to its operational one; the tables are unchanged."
 ---
 
 <!--

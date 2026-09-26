@@ -94,8 +94,7 @@ are one subject, and a shorter list would drop one of them.
 
 ## Check
 
-Every rule above, with the code an agent cites it by, the law it rests on,
-and what verifies it today.
+Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|

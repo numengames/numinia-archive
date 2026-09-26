@@ -16,7 +16,7 @@ threshold: governed
 license: "CC0-1.0"
 tags: [standard, register, vocabulary, glossary, onboarding]
 related: ["CAN-002", "CAN-005", "CAN-006"]
-series_change: "0.1.3 — 2026-09-25: the summary says the list follows the web consortium's model for vocabularies and the international rule for definitions; the tables are unchanged. 0.1.2 — 2026-09-25: the summary and the closing note are written plainly, for a narrator, with no path in them; the tables are unchanged."
+series_change: "0.1.3 — 2026-09-25: the summary says the list follows the web consortium's model for vocabularies and the international rule for definitions; the tables are unchanged."
 ---
 
 <!--
