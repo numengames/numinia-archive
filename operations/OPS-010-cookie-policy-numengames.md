@@ -23,7 +23,7 @@ review_flags: |
   OPS-004. Published with this flag open, by the same decision that
   published those two.
   Re-measured 2026-09-24 (v1.1.0, MIS-154): the day/night switch
-  (DSN-016) now keeps `numinia-modo` on all four sites; numinia.org's
+  (SIT-003) now keeps `numinia-modo` on all four sites; numinia.org's
   page reader keeps its speed and resume point; numinia.com's manual
   reader and player area keep five more preferences. All are
   preferences set by the visitor's own action.

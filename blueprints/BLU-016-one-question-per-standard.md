@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -38,11 +38,14 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 26 September 2026 the shelf holds 33 standards, about 77,000 tokens.
+As of 26 September 2026 the shelf holds 35 standards, about 77,000 tokens.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
-retired into it. The rows marked as open below are what is left.
+retired into it. The second cut split charging from keeping the account,
+and what every site carries from what a design piece can fail on, and
+pointed the secret scan and the accessibility test at their one holder.
+The rows marked as open below are what is left.
 
 ## Future state
 
@@ -60,12 +63,12 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-005` | When does a rule bite, and how is a repository kept safe? | open: two questions; guards and their regime apart from safety, incidents and the changelog |
 | `STD-006` | What is the archive made of? | — |
 | `STD-007` | What shape does a document take? | — |
-| `STD-008` | What can a design piece fail an audit on? | open: what every site carries (footer, share card, day and night) is a second question; to a standard of its own |
+| `STD-008` | What can a design piece fail an audit on? | — |
 | `STD-009` | Which rule wins? | — |
 | `STD-010` | Under which terms is each piece published? | — (`STD-013` is its table) |
 | `STD-012` | How does a document leave the archive? | — |
 | `STD-013` | Which licences are allowed? | register of `STD-010` |
-| `STD-014` | What is checked before an irreversible publication? | open: the secret scan repeats `STD-022`; point to it |
+| `STD-014` | What is checked before an irreversible publication? | — |
 | `STD-015` | Which engineering checks run, and where? | open: the shared pipeline is prose; it belongs to `STD-005` |
 | `STD-016` | Which header fields exist? | register of `STD-004` |
 | `STD-017` | Who may change what? | — |
@@ -84,9 +87,11 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-030` | What do the world's words mean? | register |
 | `STD-031` | What does a canon say? | — |
 | `STD-032` | Which documents make up the design system? | open: a map, not a rule; to the design folder's introduction, keeping the table the site reads |
-| `STD-033` | What happens to money? | open: to decide whether charging and keeping the account are one question |
-| `STD-034` | What must every page let anyone do? | open: the automatic test repeats a row of `STD-015` |
+| `STD-033` | What may we charge for, and how? | — |
+| `STD-034` | What must every page let anyone do? | — |
 | `STD-035` | What may we keep about a person? | — |
+| `STD-036` | How is the money written down? | — |
+| `STD-037` | What does every one of our sites carry? | — |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.
@@ -125,7 +130,7 @@ any standard whose only use would be a badge.
 
 | Gap | What closes it |
 |---|---|
-| Eight open rows in the map | one pull request each, or several together, each closing its row |
+| Four open rows in the map | one pull request each, or several together, each closing its row |
 | Twenty-one outside standards undecided | a line each: adopted into a standard, or set aside here |
 | Legal duties found while reviewing (working-time record, the AI Act) | a line in `BLU-017` |
 

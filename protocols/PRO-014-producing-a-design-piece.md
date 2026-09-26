@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: protocol
 status: draft
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-09-10T12:30:00+02:00"
+updated: "2026-09-26T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -99,7 +99,7 @@ Then the medium's Check: `BLU-009` web and product · `BLU-010` pixel ·
 | DSP-002 | the register, mode and level named in the piece's brief or commit |
 | DSP-003 | `node machine/tools/generate-design-kit.mjs --check` passes; no hex outside the token file |
 | Checklist | the ticked list attached to the delivery |
-| Public route | the accessibility gate (`ARC-010`) green in both modes |
+| Public route | the accessibility test (`ACC-004`) green in both modes |
 
 ## 5. Escalation
 

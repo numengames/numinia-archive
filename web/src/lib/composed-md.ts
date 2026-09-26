@@ -563,7 +563,7 @@ export function designPage(): ComposedPage {
  * /system/open-books — the ledger, summed. Consumed cost per year and concept,
  * each line spread evenly over the days it covers and cut at the ledger's last
  * day; income on its date. The same lines and the same rule the page uses in
- * the browser, so the two views agree (STD-033 LED-002).
+ * the browser, so the two views agree (STD-036 LED-002).
  */
 export function accountPage(): ComposedPage {
   const DAY = 864e5;

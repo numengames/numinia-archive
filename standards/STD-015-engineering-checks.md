@@ -5,15 +5,15 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "3.0.0"
+version: "4.0.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T13:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, register, practices]
 license: "CC0-1.0"
-series_change: "3.0.0 — 2026-09-26: the seven commit kinds and their table leave for Git is the archive, which holds how a change reaches the main line; the trunk row now points at its new plate there. A rule removed from here, so a major move, at the Oracle's word in session."
+series_change: "4.0.0 — 2026-09-26: the accessibility row leaves for the accessibility standard, which already held an automatic test on every change; the row retires into it. A practice removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 51 practices the engineering baseline requires, grouped
+> **Summary:** The 50 practices the engineering baseline requires, grouped
 > by what they protect, each with how strongly it is required and what checks
 > it. A practice checked by hand is debt, and a row marked as owed is one we
 > once called automatic that nothing runs.
@@ -50,7 +50,6 @@ SPDX-License-Identifier: CC0-1.0
 | Architecture | ARC-007 | Infrastructure declarative only: Terraform and containers | MUST | `[DEBT: no Terraform in the tree, no drift detection — oracle, 2026-09-11]` |
 | Architecture | ARC-008 | Shared base config (tsconfig, eslint, prettier) imported from one package, never copied | MUST | `[DEBT: no knip and no shared base config package — oracle, 2026-09-11]` |
 | Architecture | ARC-009 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[GATE: github repos/numengames/numinia-archive/dependabot/alerts → a person adopts the dependency]` |
-| Architecture | ARC-010 | Every public route meets the accessibility standard (ACC-001: WCAG 2.2 AA, which already includes focus order and visible focus) | MUST | `[DEBT: no axe-core in web/package.json — oracle, 2026-09-11]` |
 | Traceability | TRC-001 | Repository "About" complete: description, website, topics | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
 | Traceability | TRC-002 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[DEBT: no label-sync workflow — oracle, 2026-09-11]` |
@@ -92,6 +91,7 @@ already holds is removed, and its code now leads to that rule.
 | ARC-003 | retired → LIC-007, each repository says its terms in the common format |
 | OSS-003 | retired → LIC-013, every contribution comes with permission |
 | TRC-008 | retired → URL-001 and URL-005, the address rules |
+| ARC-010 | retired → ACC-004, an accessibility test on every change, which the accessibility standard alone holds |
 
 **One outside certificate answers a dozen rows.** The best practices badge
 of the Open Source Security Foundation is a self-certification any project

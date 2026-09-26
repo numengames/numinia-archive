@@ -15,7 +15,7 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 ratified_by: "ADR-065"
 supersedes_version: "0.1.0"
-related: ["STD-033", "CAN-011", "SYS-008", "PRO-020"]
+related: ["STD-036", "STD-033", "CAN-011", "SYS-008", "PRO-020"]
 ---
 
 <!--

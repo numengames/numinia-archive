@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The ledger behind /system/open-books (STD-033 LED-001): one line per document,
+// The ledger behind /system/open-books (STD-036 LED-001): one line per document,
 // read from src/data/account-simulated.csv. The page computes its views from
 // these lines in the browser; the markdown view (/system/open-books.md) sums the
 // same lines here, so the two cannot disagree (LED-002).
@@ -28,7 +28,8 @@ export const CASH = 48000;
 export const SIMULATED = true;
 /** The documents that govern the account. */
 export const ACCOUNT_SOURCES = [
-  "standards/STD-033-charges-and-the-account.md",
+  "standards/STD-036-one-account.md",
+  "standards/STD-033-every-charge-delivers-something.md",
   "system/SYS-008-the-account.md",
   "protocols/PRO-021-closing-the-month.md",
 ];
