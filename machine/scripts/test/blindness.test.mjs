@@ -192,7 +192,7 @@ check('D-047 fixture — a wrong FOLDER in a path citation really does read gree
     writeFileSync(path.join(clone, 'debt/D-000-probe.md'),
       '---\nid: "D-000"\nlicense: "CC-BY-4.0"\n---\n\nSee `agents/guilds/alquimistas/GLD-001-charter.md`.\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-020-git-is-the-archive.mjs', clone);
+    const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
     assert(res.status === 0,
       `the reference guard CAUGHT a wrong folder — D-047 may be fixed; update the registry ` +
       `and delete this fixture (exit ${res.status})`);
@@ -209,7 +209,7 @@ check('D-049 fixture — an untracked .md with a BROKEN citation is not scanned,
     // Untracked, and broken: a citation to a file that does not exist anywhere.
     writeFileSync(path.join(clone, 'debt/D-000-untracked.md'),
       '---\nid: "D-000"\n---\n\nSee `canon/C-999-does-not-exist.md`.\n');
-    const res = spawnGuard('machine/guards/rules/std-020-git-is-the-archive.mjs', clone);
+    const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
     assert(res.status === 0,
       `the guard scanned an untracked file — D-049 may be fixed (exit ${res.status})`);
     assert(/NOT scanned/.test(res.stderr),
@@ -343,10 +343,10 @@ check('D-049 on the contract — a guard under machine/guards/ names the untrack
 });
 
 check('archive guard fixture — absorbed and former ids resolve, a closed record is not a citer, a live record names no heir', () => {
-  // GIT-048 on the tree today: 74 real findings, all of them plain breakage.
+  // DEF-009 on the tree today: 74 real findings, all of them plain breakage.
   // What the tree never exercises: the three ways a citation to a vanished
   // file is NOT broken (absorbs:, former_id:, a deleted file in git log — the
-  // last one the tree does exercise), the CIT-053 exemption, and GIT-045.
+  // last one the tree does exercise), the CIT-053 exemption, and DEF-008.
   const clone = scratchClone();
   const hdr = (id, extra = '') => `---\nid: "${id}"\nlicense: "CC-BY-4.0"\nstatus: "active"\n${extra}---\n\n# T\n\n`;
   try {
@@ -356,15 +356,15 @@ check('archive guard fixture — absorbed and former ids resolve, a closed recor
     writeFileSync(path.join(clone, 'debt/DBT-984-citer.md'), hdr('DBT-984') + 'See DBT-982 and DBT-983, and DBT-985.\n');
     // A closed record with the same broken citation: a photograph, not a citer.
     writeFileSync(path.join(clone, 'debt/DBT-986-closed.md'), hdr('DBT-986').replace('status: "active"', 'status: "done"') + 'See DBT-985.\n');
-    // GIT-045: a live record naming an heir.
+    // DEF-008: a live record naming an heir.
     writeFileSync(path.join(clone, 'debt/DBT-987-heir.md'), hdr('DBT-987', 'superseded_by: "DBT-981"\n') + 'body\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-020-git-is-the-archive.mjs', clone);
+    const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
     const all = res.stdout + res.stderr;
     assert(!/DBT-984-citer[\s\S]{0,80}DBT-98[23]\b/.test(all) && !/ID -> DBT-98[23]\b/.test(all), 'an absorbed or former id was reported as broken');
     assert(/DBT-984-citer[\s\S]{0,200}ID -> DBT-985|ID -> DBT-985[\s\S]{0,200}DBT-984-citer/.test(all), 'the genuinely missing DBT-985 was not reported from the live citer');
     assert(!/DBT-986-closed/.test(all), 'a closed record (status done) was walked as a citer — CIT-053');
-    assert(/GIT-045[\s\S]{0,200}DBT-987-heir|DBT-987-heir[\s\S]{0,200}GIT-045/.test(all), 'a live record naming an heir was not reported as GIT-045');
+    assert(/DEF-008[\s\S]{0,200}DBT-987-heir|DBT-987-heir[\s\S]{0,200}DEF-008/.test(all), 'a live record naming an heir was not reported as DEF-008');
   } finally { rmSync(clone, { recursive: true, force: true }); }
 });
 
