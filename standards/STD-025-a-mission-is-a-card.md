@@ -15,7 +15,7 @@ territory: "Archive"
 threshold: governed
 license: "CC0-1.0"
 tags: [standard, missions, board, lifecycle]
-related: ["STD-001", "STD-016", "STD-018", "PRO-003", "ADR-030"]
+related: ["STD-001", "STD-018", "PRO-003", "ADR-030"]
 series_change: "1.0.3 — 2026-09-25: the rules on marks, the single doer and the finished card say what they adopt from the information-security standard, the provenance vocabulary, the responsibility matrix and the records-management standard; the stated-done rule no longer cites Gherkin, which is a syntax and asks for nothing before work. No obligation added or dropped."
 ---
 
@@ -132,7 +132,7 @@ closes one way for a card to say something other than what occurred.
 
 | ID | Title | Relation |
 |---|---|---|
-| `STD-016` | Header fields | the fields these rules set |
+| `STD-004` | The header | the fields these rules set |
 | `STD-018` | One document, one identifier | a card's name is permanent and never reused |
 | `ADR-030` | The four tests before deletion | the tests a card passes to leave the board |
 | `PRO-003` | Running a mission | how a mission is briefed, carried out and coordinated |

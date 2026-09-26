@@ -166,7 +166,6 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-012` | The corpus does not grow | every document that leaves the archive or its series; roll-ups bind records only |
 | `STD-014` | Publishing gates | every permanent publication, and every change of a Numen Games repository from private to public |
 | `STD-015` | Engineering checks | register — scope belongs to the standard that cites it |
-| `STD-016` | Header fields | register — scope belongs to the standard that cites it |
 | `STD-017` | Who may change what | every change to a registered document |
 | `STD-018` | One document, one identifier | every registered document of the archive |
 | `STD-019` | Versions | every registered document, and everything else the archive versions |
@@ -189,7 +188,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-036` | One account | the ledger of what Numen Games and Numinia cost and take in, and every view published from it |
 | `STD-037` | What every site carries | every public site of Numen Games and Numinia: numinia.org, numinia.com… |
 
-58 rule documents; 6 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+57 rule documents; 5 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

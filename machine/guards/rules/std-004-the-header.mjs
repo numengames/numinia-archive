@@ -6,7 +6,7 @@
 //
 // The header in three rings. Every rule in the standard carries a plate;
 // every finding here cites one. What cannot be expressed here the standard
-// marks [MANUAL] — there is no third kind. Read STD-016 (the field register)
+// marks [MANUAL] — there is no third kind. Read STD-004 (the header and its fields)
 // side by side with the checks below: the mapping is 1:1 by construction.
 //
 // Two scopes, kept as their sources had them:
@@ -145,13 +145,13 @@ function rings(corpus, out) {
     }
 
     if (fm.type && !TYPES.includes(fm.type))
-      F('HDR-003', rel, `type "${fm.type}" not in the closed vocabulary (STD-016)`);
+      F('HDR-003', rel, `type "${fm.type}" not in the closed vocabulary (STD-004)`);
 
     if (fm.status) {
       if (fm.status !== fm.status.toLowerCase()) F('HDR-019', rel, `status "${fm.status}" must be lowercase`);
       const life = STATUS[fm.type] || STATUS._default;
       if (!life.includes(fm.status.toLowerCase()))
-        F('HDR-004', rel, `status "${fm.status}" not in the ${fm.type === 'mission' ? 'mission' : 'default'} lifecycle [${life.join(' ')}] (STD-016)`);
+        F('HDR-004', rel, `status "${fm.status}" not in the ${fm.type === 'mission' ? 'mission' : 'default'} lifecycle [${life.join(' ')}] (STD-004)`);
     }
 
     if (fm.version && !SEMVER.test(fm.version))
@@ -193,7 +193,7 @@ function rings(corpus, out) {
     const allowed = new Set([...RING1, ...RING2, ...RING3_ALL, ...(RING3[top] || []), 'subtype']);
     for (const k of Object.keys(fm))
       if (!allowed.has(k) && !RETIRED[k])
-        F('HDR-030', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-016, Ring 3)`);
+        F('HDR-030', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-004, Ring 3)`);
   }
 }
 

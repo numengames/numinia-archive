@@ -5,7 +5,7 @@ id: "BLU-NNN"
 uid: ""
 title: "The design — named by what it builds, not by its area"
 type: blueprint
-# status: opens at draft — the lifecycle is declared once, in STD-016
+# status: opens at draft — the lifecycle is declared once, in STD-004
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"

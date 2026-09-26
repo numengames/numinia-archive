@@ -10,7 +10,7 @@
 //   1. Eleven protocols, twenty-seven standards and the canons, rendered
 //      in full, each with its steps and its obligations.
 //   2. The definition of `draft` — "written, not yet in force: it binds
-//      nobody" (STD-016) — printed on the home, in /llms.txt and in
+//      nobody" (STD-004) — printed on the home, in /llms.txt and in
 //      /scheme.md.
 //
 // What follows from those two is the question every reader actually has, and
@@ -61,7 +61,7 @@ import path from "node:path";
 const ARCHIVE_ROOT = path.resolve(process.cwd(), "..");
 
 const AGENTS_DOC = "AGENTS.md";
-const STATUS_DOC = "standards/STD-016-header-fields.md";
+const STATUS_DOC = "standards/STD-004-the-header.md";
 
 const BEGIN = "transition-regime:begin";
 const END = "transition-regime:end";

@@ -106,7 +106,7 @@ test('every plate a guard declares is held by one standard', async () => {
    the reader to a document: documents move, are renumbered, are absorbed or
    are withdrawn, and the comment stays behind asserting something no longer
    true. What stays is the vocabulary — a plate (HDR-030, CIT-050, ENG-067)
-   and the standard that holds it (STD-016). What goes is every pointer at a
+   and the standard that holds it (STD-004). What goes is every pointer at a
    mission, a decision, a debt, a report, a pull request, a date, and every
    citation of a SECTION: a § number is the most perishable thing a document
    has, and the rule against citing one binds the code that enforces it.

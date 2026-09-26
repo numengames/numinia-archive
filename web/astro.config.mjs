@@ -156,6 +156,8 @@ export default defineConfig({
 		"/protocols/p-012-ruling-with-a-condition": "/protocols/pro-008-decision",
 		"/protocols/p-013-handing-a-guard-to-ci": "/protocols/pro-013-handing-a-guard-to-ci",
 		// → standards — STD-033 renamed when the account left for STD-036 (2026-09-26)
+		"/standards/std-016-header-fields": "/standards/std-004-the-header",
+		"/standards/std-016-header-fields.md": "/standards/std-004-the-header.md",
 		"/standards/std-013-licence-allowlist-and-fields": "/standards/std-010-licensing",
 		"/standards/std-013-licence-allowlist-and-fields.md": "/standards/std-010-licensing.md",
 		"/standards/std-033-charges-and-the-account": "/standards/std-033-every-charge-delivers-something",

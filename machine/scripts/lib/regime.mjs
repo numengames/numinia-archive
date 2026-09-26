@@ -16,7 +16,7 @@
 // those definitions. A plate cited by a guard resolves to the document that
 // defines it; a plate that no document defines but whose PREFIX one document
 // owns resolves to that document (a guard may check a rule the standard
-// states in a table rather than in bold — STD-016's field table is the case).
+// states in a table rather than in bold — STD-004's field table is the case).
 // A plate with no holder at all has no state to read and, by ENG-067, MUST
 // NOT fail a build: it is reported as `unheld`, which is a defect in the
 // guard or a rule nobody wrote (ENG-066).

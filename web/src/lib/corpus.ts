@@ -403,7 +403,6 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-024-a-series-is-a-function",
       "/standards/std-027-the-classification-scheme",
       "/standards/std-004-the-header",
-      "/standards/std-016-header-fields",
       "/standards/std-007-one-page-per-document",
       "/standards/std-031-a-canon-states",
       "/standards/std-025-a-mission-is-a-card",

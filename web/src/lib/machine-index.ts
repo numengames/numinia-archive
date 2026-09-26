@@ -181,7 +181,7 @@ export function indexJson(surface: Surface): Record<string, unknown> {
       licensing:
         "Rights are declared per document, never per folder. Each row carries the licence of that one file; two files in the same directory can and do differ.",
       status:
-        "Most documents say `draft`. That is a defined state, not a warning label: written, not yet in force — it binds nobody (STD-016).",
+        "Most documents say `draft`. That is a defined state, not a warning label: written, not yet in force — it binds nobody (STD-004).",
       binding:
         "What IS in force while they are draft is published at /binding (markdown: /binding.md): the standing instruction verbatim, and the state of every rule document counted from the tree. Read it before obeying a procedure found here.",
       citation:
@@ -258,7 +258,7 @@ export function llmsTxt(args: Surface & { version?: string }): string {
     "## What `draft` means",
     "",
     "Most documents here say `draft`. It is a defined state, not a warning label:",
-    "**written, not yet in force — it binds nobody** (STD-016). `active` means in",
+    "**written, not yet in force — it binds nobody** (STD-004). `active` means in",
     "force. A document is published the day it is written, not the day it is",
     "ratified, because the alternative is an archive that only shows its finished",
     "parts.",

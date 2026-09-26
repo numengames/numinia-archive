@@ -7,7 +7,7 @@ uid: ""
 # TODO: the claim itself, not its subject. See the title note below.
 title: "TODO"
 type: seminal
-# status: opens at draft — the lifecycle is declared once, in STD-016
+# status: opens at draft — the lifecycle is declared once, in STD-004
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"

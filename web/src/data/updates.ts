@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.57.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "CHG",
+        text: "The header and its fields are one standard now, 'The header': what a correct header is, then every field ring by ring — identity, provenance and what each field means outside, extension by series — its vocabularies and the one table of states a document may hold. The old 'Header fields' address leads there, and every link on this site that pointed at it now does too.",
+      },
+    ],
+  },
+  {
     version: "v0.56.0",
     date: "2026-09-26",
     entries: [

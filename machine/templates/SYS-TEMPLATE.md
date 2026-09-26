@@ -6,7 +6,7 @@ uid: ""
 title: "The component, described as it is wired today"
 type: documentation
 subtype: reference
-# status: opens at draft — the lifecycle is declared once, in STD-016
+# status: opens at draft — the lifecycle is declared once, in STD-004
 status: active
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"

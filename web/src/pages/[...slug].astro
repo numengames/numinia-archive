@@ -39,7 +39,7 @@ const m = rel.match(
 );
 const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
 const title = str(raw.title) ?? mdFilename;
-// A draft document binds nobody (STD-016), and the corpus mirror renders the
+// A draft document binds nobody (STD-004), and the corpus mirror renders the
 // canon, the standards and the protocols — the three folders where that fact
 // changes what a reader should do. Printing the bare word as a chip left them
 // to infer it; the band says it, and points at the rule that applies instead.
@@ -82,7 +82,7 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
         <aside class="mb-6 rounded-xl border border-accent/30 bg-accent/5 p-4">
           <p class="text-sm leading-relaxed text-muted-foreground">
             <strong class="text-foreground">This document is <code>draft</code>: written, not yet in force — it binds nobody</strong>
-            (<a href="/standards/std-016-header-fields" class="text-accent underline underline-offset-2">STD-016</a>).
+            (<a href="/standards/std-004-the-header" class="text-accent underline underline-offset-2">STD-004</a>).
             It describes a practice; it does not impose one. What is in force
             right now is at <a href="/binding" class="text-accent underline underline-offset-2">what binds today</a>.
           </p>

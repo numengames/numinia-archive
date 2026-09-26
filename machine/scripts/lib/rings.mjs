@@ -23,7 +23,7 @@ export const RING1 = ['id', 'title', 'type', 'status', 'version', 'created', 'up
 export const RING2 = ['author', 'owner', 'provenance', 'created_source', 'created_confidence',
   'requested_by', 'supersedes', 'superseded_by', 'derived_from'];
 
-/** STD-016 Ring 3: the per-series extension registry. A field in no ring is HDR-030. */
+/** STD-004 Ring 3: the per-series extension registry. A field in no ring is HDR-030. */
 export const RING3 = {
   'missions': ['priority', 'effort', 'assigned_to', 'started',
     // mission_id retired 2026-09-02 (missions/ normalisation): it duplicated
@@ -33,7 +33,7 @@ export const RING3 = {
     'requires_oracle_approval', 'human_approval_score', 'paths', 'context',
     'divergence_log',
     // registered 2026-08-30 (final sweep): provenance notes and series
-    // metadata that were always written, never registered (STD-016 Ring 3)
+    // metadata that were always written, never registered (STD-004 Ring 3)
     'phase', 'updated_note', 'executor', 'blocks', 'mission_mode',
     // MIS-132/133/134 (2026-09-02): a letter-suffixed sub-mission or an
     // unregistered proposal that entered the series keeps its old identifier
@@ -140,21 +140,21 @@ export function inSomeRing(field, dir) {
     || (RING3[dir] ?? []).includes(field);
 }
 
-/** STD-016: the lifecycle a document of `type` may declare. Two exist — a
+/** STD-004: the lifecycle a document of `type` may declare. Two exist — a
  *  mission's and everyone else's; `rules.json status` mirrors the table.
  *  `dir` is kept in the signature for callers; it no longer decides. */
 export function lifecycleFor(dir, type, rules) {
   return rules.status[type] ?? rules.status._default;
 }
 
-/** STD-016 / CIT-053: a record in a terminal state is a photograph — its
+/** STD-004 / CIT-053: a record in a terminal state is a photograph — its
  *  citations are not walked, its shape is not judged. One set, read here. */
 export function isTerminalStatus(status, rules) {
   return rules.status._terminal.includes(String(status ?? '').toLowerCase());
 }
 
 /** CIT-053: a photograph is a record whose claims are not rewritten — either
- *  because its status is terminal (STD-016) or because its series' threshold
+ *  because its status is terminal (STD-004) or because its series' threshold
  *  is `closed` from publication (STD-001: reports/). A mission's threshold is
  *  `closed` only when `done`, which its status already says. */
 export function isPhotograph(rel, status, rules) {

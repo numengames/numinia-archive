@@ -5,7 +5,7 @@ id: "ADR-NNN"
 uid: ""
 title: "The choice, stated — not the topic"
 type: adr
-# status: opens at draft — the lifecycle is declared once, in STD-016
+# status: opens at draft — the lifecycle is declared once, in STD-004
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
@@ -90,7 +90,7 @@ a consequences section with no cost in it was written by the advocate.
 
 Where this record stands today, and by what.
 
-The states and what each means: `STD-016`. A withdrawn record with a
+The states and what each means: `STD-004`. A withdrawn record with a
 replacement names it in `superseded_by`; it is deleted once nothing living
 cites it (`ADR-041`).
 

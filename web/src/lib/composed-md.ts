@@ -59,7 +59,7 @@ export interface ComposedPage {
 const SCHEME_DOC = "standards/STD-027-the-classification-scheme.md";
 const SERIES_DOC = "standards/STD-001-the-series.md";
 /** The status lifecycles: what `draft`, `active` and `withdrawn` mean. */
-const STATUS_DOC = "standards/STD-016-header-fields.md";
+const STATUS_DOC = "standards/STD-004-the-header.md";
 /** The roster: who acts, and when to route work to them. */
 const AGENTS_DOC = "agents/INDEX.md";
 
@@ -143,7 +143,7 @@ export function schemePage(): ComposedPage {
     "",
     "Most of this archive says `draft`, including the canon. That is not a warning",
     "label, it is a state with a definition: **written, not yet in force — it binds",
-    "nobody** (`STD-016`). `active` means in force; `withdrawn` means it no longer",
+    "nobody** (`STD-004`). `active` means in force; `withdrawn` means it no longer",
     "is, and it is the only terminal state.",
     "",
     "A document is published the day it is written, not the day it is ratified. The",
@@ -199,7 +199,7 @@ export function bindingPage(): ComposedPage {
     "",
     `${n.active} of ${n.total} rule documents are in force; ${n.draft} are draft.`,
     "A `draft` document is **written, not yet in force — it binds nobody**",
-    "(`STD-016`). `active` means in force. Nothing here is counted by hand: the",
+    "(`STD-004`). `active` means in force. Nothing here is counted by hand: the",
     "figures are read from each document's own header at build time, so a",
     "promotion changes this page and no one has to remember to edit it.",
     "",
@@ -259,7 +259,7 @@ export function homePage(): ComposedPage {
     "",
     "**What state is this in?** Early, and openly so. Most of what you will read",
     "says `draft`, including the canon: written, not yet in force — it binds nobody",
-    "(`STD-016`). A document is published the day it is written, not the day it is",
+    "(`STD-004`). A document is published the day it is written, not the day it is",
     "ratified, because the alternative is an archive that only shows its finished",
     "parts. So if most of it does not bind, what does? `/binding` — the standing",
     "instruction word for word, and the state of every rule, counted. What is broken",

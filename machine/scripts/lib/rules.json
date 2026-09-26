@@ -33,7 +33,7 @@
     "lax": ["documentation", "meta"]
   },
   "status": {
-    "_comment": "MIRROR of STD-016 'Status lifecycles' — the table there is the declaration; rules.test.mjs fails when this block and that table differ. Two lifecycles: a mission's, and everyone else's. One terminal state (`withdrawn`); an heir is the field `superseded_by`, never a second state (relation model — ISO stage codes, RFC 2026 `Obsoletes:`, NIST CSRC). `closed` and `superseded` retired 2026-09-09. `_terminal` is the set every guard reads for 'closed record, a photograph' (CIT-053).",
+    "_comment": "MIRROR of STD-004 'Status lifecycles' — the table there is the declaration; rules.test.mjs fails when this block and that table differ. Two lifecycles: a mission's, and everyone else's. One terminal state (`withdrawn`); an heir is the field `superseded_by`, never a second state (relation model — ISO stage codes, RFC 2026 `Obsoletes:`, NIST CSRC). `closed` and `superseded` retired 2026-09-09. `_terminal` is the set every guard reads for 'closed record, a photograph' (CIT-053).",
     "mission": ["todo", "in-progress", "in-review", "done", "frozen"],
     "_default": ["draft", "active", "withdrawn"],
     "_terminal": ["withdrawn", "done", "frozen"]
