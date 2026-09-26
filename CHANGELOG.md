@@ -19,6 +19,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (the copy pass)
+At the Oracle's word in session: the standards must read intelligible, beautiful and direct. Written in the voice of Calliope, the archive's copywriter.
+- **Scope is one line.** The "Does not bind" line leaves all 32 standards, 15 protocols and the standard mould: it added nothing, and it put in a reader's mind the very thing it named. `STD-007` 2.0.0 drops the obligation (DOC-003 is now one Binds line); the one-page guard no longer asks for it, and a test fails if it comes back in any standard, protocol or mould.
+- **No law-or-choice coda.** "Our choice", "the law requires this", "not law for us" and their kin leave the reading and the check tables. A rule that rests on a law still cites it in its Source column. A test fails if the coda comes back into a standard.
+- **Every standard reread for its reader.** Shorter sentences, the obligation first, one idea per sentence, no stacked semicolons. No obligation word changed: the MUST/SHOULD/MAY sequence of every file is identical before and after. Every touched standard and protocol takes a patch bump; `BLU-016` 0.8.0.
+
 ### Changed — 2026-09-26 (thinning the apparatus)
 At the Oracle's word in session: clean first, sign nothing yet. The standards go from 71,212 tokens to 67,467 (−5.3 %), 32 documents, and no rule changes.
 - **The header's note on the latest change (`series_change`) is retired.** The changelog and git already hold it. The field leaves Ring 3 of `STD-004`, the ring registry and the mould, and the header guard now names it as a retired field.
