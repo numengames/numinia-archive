@@ -19,6 +19,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-26 (the canon shows its question)
+At the Oracle's word in session, with the ten questions approved in chat before the branch existed. The format from the standards index is carried over to the canon.
+- **Each canon's Epistemic line is now the question a newcomer asks before reading it,** and its title is the answer. The question never repeats the title's words, so the two read together: *Opening is an act* answers *Why give away what we make?* Each canon takes a patch bump; nothing else in the canon changes.
+- `/canon` shows the question under each title, from the same build-time reader as `/standards`.
+- `standards-index.test.mjs` fails if a canon's question runs past ten words, stops being one question, or repeats its title. Site v0.62.0.
+
 ### Changed — 2026-09-26 (the standards index shows each question)
 At the Oracle's word in session, after a 1–10 review of the standards section: a newcomer should read what each standard is for before its code.
 - **Every standard's Epistemic line is now its one question,** word for word as in the map of `BLU-016` (0.8.1). The three registers, which had only a summary, gain the line too. Each standard takes a patch bump.
