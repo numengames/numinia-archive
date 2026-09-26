@@ -5,18 +5,17 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "4.0.0"
+version: "4.0.1"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-26T16:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, guards]
 license: "CC0-1.0"
 absorbs: ["STD-011"]
-series_change: "4.0.0 — 2026-09-26: this standard now answers one question, when a rule bites and how the guards come to run, and is renamed from Engineering baseline (the old address redirects). The family pipeline arrives whole from the engineering checks. Keeping a repository safe and telling changes leave: settings in the environment to Secrets, leave it better to Git is the archive, the security score, migrating in order, incidents, the platform as a product and the changelog to rows of the engineering checks. Obligations removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -148,16 +147,6 @@ Each rule, its code, its source and its check.
 | ENG-067 | A guard bites by the state of its rule; signing a standard switches its guards on; a guard over the artefact bites always | — | `machine/scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `blindness.test.mjs` checks every guard is a build guard or answers to the regime |
 | ENG-031 | A guard runs from the change that merges it | — | `machine/scripts/run-guards.mjs` runs every registered guard; `blindness.test.mjs` and the register check refuse a guard script with no registry entry |
 | ENG-032 | The list of guards is read, never remembered | — | the workflow calls `npm run guards` and names no guard; the register check verifies that step is present |
-| ENG-004 | retired → KEY-057 of Secrets, settings live in the environment | — | — |
-| ENG-005 | retired → GIT-050 of Git is the archive, leave it better | — | — |
-| ENG-068 | retired → SEC-013 of the engineering checks, every repository keeps a security score | — | — |
-| ENG-035 | retired → SEC-014 of the engineering checks, migrate in order | — | — |
-| ENG-006 | retired → SRE-007 of the engineering checks, incidents produce rules, not culprits | — | — |
-| ENG-007 | retired → AGT-007 of the engineering checks, the platform is a product for developers | — | — |
-| ENG-069 | retired → TRC-004 of the engineering checks, the changelog is written for people | — | — |
-| ENG-034 | retired → AUT-065 of Who may change what, which holds the three layers | — | — |
-| ENG-003 | retired → GIT-025 of Git is the archive, small batches by pull request on one trunk | — | — |
-| ENG-033 | retired in 2.2.0: it governed baselines, and there are none | — | — |
 
 ## Why
 
@@ -174,5 +163,3 @@ repositories means a red build means the same thing wherever it is read.
 | `STD-015` | Engineering checks | the practices, their level and their check |
 | `PRO-016` | Applying the engineering standard | the procedure for a task |
 | `STD-009` | Which rule wins | where ENG-031..035 and ENG-066 came from; `PRE-006`, the principle ENG-067 executes |
-| `RPT-019` | Week 37 | where `DBT-017` and `DBT-021`, the two defects ENG-067 closes, are recorded closed |
-| `DBT-020` | Declared automatic, executed by nobody | the `[MANUAL]` rows that claim otherwise |

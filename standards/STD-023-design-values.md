@@ -5,16 +5,15 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.6.0"
+version: "1.6.1"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-26T18:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
 related: ["STD-008", "STD-034", "CAN-008", "ADR-044", "PRO-022"]
-series_change: "1.6.0 — 2026-09-26: values only. How the sky, the Velo and the reading player are built goes to PRO-022, a protocol with steps and no rules, at the Oracle's word in session; the sky no longer says it may never react to the reader, since an interactive background is planned. The Píxel-16 table loses its origin column, the references lose the rows other standards hold, and a test checks every colour here is in the kit."
 ---
 
 <!--

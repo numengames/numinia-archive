@@ -5,9 +5,9 @@ title: "A series is a function"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,7 +16,6 @@ license: "CC0-1.0"
 tags: [standards, series, thresholds, registration, records-management]
 threshold: governed
 related: ["STD-001", "STD-017", "STD-018", "STD-020", "CAN-004"]
-series_change: "2.0.0 — 2026-09-26: the thresholds move to Who may change what, and moving series and absorption to The corpus does not grow, each the one standard answering that question; this standard now answers only which series a document belongs to and what that makes it. A removed obligation, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -77,11 +76,8 @@ without a glossary.
 |---|---|---|---|
 | SER-001 | Only three series oblige | [ISO 9001:2015, documented information, clause 7.5](https://www.iso.org/standard/62085.html) (clause unverified): maintain against retain | by hand — what binds is read, not parsed |
 | SER-002 | Complied with, or carried out | — | by hand |
-| SER-003 | retired → AUT-068 of Who may change what, which now holds the thresholds | — | — |
 | SER-004 | Folder and kind agree | [ISO 15489-1:2016, classification](https://www.iso.org/standard/62542.html), clause 9.4 (clause unverified) | `machine/guards/rules/std-004-the-header.mjs` (`HDR-017`) |
 | SER-007 | Exemptions say why | — | `machine/guards/rules/std-004-the-header.mjs` (`HDR-001`) |
-| SER-005 | retired → DEF-010 of The corpus does not grow | — | — |
-| SER-006 | retired → DEF-011 of The corpus does not grow | — | — |
 
 | In the reading | Exact form |
 |---|---|

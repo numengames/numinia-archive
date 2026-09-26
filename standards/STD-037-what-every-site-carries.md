@@ -5,16 +5,15 @@ title: "What every site carries"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 license: "CC0-1.0"
 tags: [standards, web, footer, share-card, modes, sites]
 related: ["STD-008", "STD-023", "STD-034", "STD-035", "BLU-009", "OPS-010"]
-series_change: "0.2.0 — 2026-09-26: the house footer and the share card come in laid out from the design values, so this is their one home; no rule changes, at the Oracle's word in session."
 ---
 
 <!--

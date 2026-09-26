@@ -5,11 +5,11 @@ title: "The header"
 type: documentation
 subtype: standard
 status: draft
-version: "4.1.0"
+version: "4.1.1"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-26T16:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 ratified_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -17,7 +17,6 @@ owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata, RFC-3339, YAML, Dublin-Core, PROV, register]
-series_change: "4.1.0 — 2026-09-26: the header fields come in whole from their own register, which retires into this standard: both answered what a correct header is. The fields keep their rings — identity, provenance with its outside meaning, extension by series — their vocabularies and the one table of status lifecycles; no field, plate or rule changes, at the Oracle's word in session."
 ---
 
 <!--
@@ -127,7 +126,6 @@ means. A field not listed is an error.
 |---|---|---|---|
 | HDR-000 | Every governed document has a header | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) — ours adds: fenced by `---` at byte 0 | `machine/guards/rules/std-004-the-header.mjs`, with HDR-040 (the fence) and HDR-043 (the licence) |
 | HDR-040 | the fence at byte 0, part of HDR-000 | [YAML 1.2.2](https://yaml.org/spec/1.2.2/), document markers | `machine/guards/rules/std-004-the-header.mjs` — the file starts with `---\n` |
-| HDR-041 | retired → TXT-002 (the header parses) | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) | `machine/guards/rules/std-006-plain-text.mjs` under TXT-002; plate kept, never reused |
 | HDR-030 | A field in no ring is an error | [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core), `additionalProperties: false`, as the model | `machine/guards/rules/std-004-the-header.mjs` |
 | HDR-042 | Adding a field costs a row and a decision | — | by hand, at review: the register row and the decision |
 | HDR-009 | Empty is absent | — | `machine/guards/rules/std-004-the-header.mjs` |
@@ -142,7 +140,6 @@ means. A field not listed is an error.
 | HDR-016 | Relations live in the header and resolve | [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/): `replaces`, `isReplacedBy`, `relation`, `isPartOf`; [PROV-O](https://www.w3.org/TR/prov-o/) `wasDerivedFrom`; the field map is the outside meaning below | by hand, presence only: no guard resolves header relations; `machine/guards/rules/std-020-git-is-the-archive.mjs` reads the body |
 | HDR-002 | Titles are English | [BCP 47](https://www.rfc-editor.org/info/bcp47) — the tag `en` | `machine/guards/rules/std-004-the-header.mjs`, presence; language by hand |
 | HDR-045 | Dates are written the internet's way | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), a free, exact profile of [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) — ours adds: time required, `updated` ≥ `created` | `machine/guards/rules/std-004-the-header.mjs` for `created` and `updated` (HDR-006, HDR-007); other dates by hand |
-| HDR-046 | retired → DOC-013 of One page per document, how the rules of a document are worded | — | — |
 | HDR-001, 003, 006, 007, 012..014, 017..019, 033..038 | each field's own rule, in the rings below | — | `machine/guards/rules/std-004-the-header.mjs`, one plate per finding |
 | HDR-010, 011, 015 | author, owner, commissioned by | — | by hand, presence only |
 
@@ -217,7 +214,7 @@ auditor's catalogue reads our headers unaided; the names stay ours.
 | `missions/` | `priority` (HDR-037) `effort` (HDR-038) `assigned_to` `started` `completed` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` `absorbs` |
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
-| `standards/` | `absorbs` `series_change` |
+| `standards/` | `absorbs` |
 | `canon/` | `absorbs` |
 | `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |

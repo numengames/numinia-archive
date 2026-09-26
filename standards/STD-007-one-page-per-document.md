@@ -5,9 +5,9 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "1.4.0"
+version: "1.5.0"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Content"
@@ -15,7 +15,6 @@ license: "CC0-1.0"
 tags: [standards, writing, form, plates, budget, BCP-14, ISO-IEC-Directives, DITA]
 ratified_by: "ADR-043"
 supersedes_version: "0.3.0"
-series_change: "1.4.0 — 2026-09-26: a document answers one question, which its epistemic line states; two that answer the same are merged, one that answers two is split, as topic-based writing asks of every topic; and how obligation words are written comes in from the header standard, where it answered a second question. A recommendation added and a rule moved in, so a minor move, at the Oracle's word in session."
 ---
 
 <!--
@@ -72,7 +71,8 @@ knows in two lines whether to read on.
 obligation with one capitalised obligation word and a code of three letters
 and three digits, unique and never reused, in its title or the check table;
 requirements engineering asks exactly this, so each rule can be cited,
-tested and traced alone.
+tested and traced alone. A retired code leaves the check table for the one
+ledger of retired codes, which says where its obligation went.
 
 **Obligation words mean one thing.** MUST, SHOULD and MAY, and their
 negatives, MUST carry the meaning the internet's standards body gave them,
@@ -147,6 +147,5 @@ it. Codes wait at the foot, where no narrator stumbles on them.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `ADR-043` | One page per document | the decision; the budget per series until a Series register exists |
-| `STD-004` | The header standard | the card and the fields above the body |
+| `STD-004` | The header | the card and the fields above the body |
 | `STD-021` | Evidence and citation | its section-citation plate now reads this rule |

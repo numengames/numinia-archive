@@ -5,16 +5,15 @@ title: "Who may change what"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, governance, authority, ranks]
 threshold: governed
-series_change: "2.1.0 — 2026-09-26: this standard becomes the one answer to who may change what: it takes the five thresholds and the rule that a change meets its series' threshold from the series standard, the three layers of a practice from the engineering baseline, and who moves which version number from the versions standard. No obligation dropped, one moved in, so a minor move, at the Oracle's word in session."
 ---
 
 <!--

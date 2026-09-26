@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.2.0"
+version: "3.2.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,6 @@ territory: "Archive"
 tags: [standards, ranks, permissions, digital-goods, RBAC]
 license: "CC0-1.0"
 threshold: governed
-series_change: "3.2.0 — 2026-09-25: the ranks rest on role-based access control, the application security verification standard and the federal security controls, each rule marked as our choice rather than law, and an Oracle's privileged actions, though unbannable, are now logged."
 ---
 
 <!--
@@ -179,5 +178,3 @@ Oracle governs.
 |---|---|---|
 | `CAN-004` | You are what you are doing | what each rank is, and rank as one of the six attributes |
 | `STD-033` | Every charge delivers something | payment, which this standard does not bind |
-| `ADR-036` | Canon consolidation | records the move from the canon to this standard |
-| `ADR-054` | The theory of attributes stays in the canon | carried the Archon profile, prepared with Christian Märtens on 2026-04-06, from the canon |

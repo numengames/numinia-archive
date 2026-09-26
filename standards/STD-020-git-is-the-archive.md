@@ -5,16 +5,15 @@ title: "Git is the archive"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-26T16:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, git, archiving]
 threshold: governed
-series_change: "2.1.0 — 2026-09-26: leave it better arrives from the engineering baseline as GIT-050, since what a change declares it left behind is part of how it reaches the main line; a rule moved in, so a minor move, at the Oracle's word in session."
 ---
 
 <!--
@@ -89,11 +88,6 @@ Each rule, its code, its source and its check.
 | GIT-027 | Generated means generated again | — | `machine/scripts/telemetry.mjs --check` in the build guards; `machine/tools/generate-design-kit.mjs --check`, run by hand |
 | GIT-028 | Measurements follow the commit | — | `machine/scripts/telemetry.mjs --check` in the build guards |
 | GIT-029 | Conflicts in generated files are generated again | — | by hand: a resolved conflict looks like any other change |
-| GIT-045 | retired → DEF-008 of The corpus does not grow | — | — |
-| GIT-046 | retired → URL-005 of One document, one address: a retired address leads to the answer, or says it is gone | — | — |
-| GIT-047 | retired → URL-005 of One document, one address | — | — |
-| GIT-048 | retired → DEF-009 of The corpus does not grow | — | — |
-| GIT-049 | retired → TXT-008 of Plain text is sovereign | — | — |
 
 | Kind of commit | Written |
 |---|---|
@@ -120,4 +114,3 @@ hand that a program owns.
 |---|---|---|
 | `STD-009` | Which rule wins | why history is the record |
 | `STD-012` | The corpus does not grow | how a document leaves |
-| `ADR-041` | Git is the archive | the decision that retired change logs |

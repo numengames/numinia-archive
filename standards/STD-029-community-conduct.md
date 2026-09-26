@@ -5,9 +5,9 @@ title: "How we treat each other in the commons"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -17,7 +17,6 @@ license: "CC0-1.0"
 ratified_by: "ADR-052"
 threshold: governed
 related: ["CAN-002", "CAN-004", "PRO-005", "BLU-017"]
-series_change: "0.2.0 — 2026-09-25: the Contributor Covenant 3.0 and its enforcement ladder become the text we follow, CMS-002 and CMS-006 retire into CMS-001, and the Digital Services Act adds notice and action, a statement of reasons with every ban (new CMS-008) and a published point of contact."
 ---
 
 <!--
@@ -99,8 +98,6 @@ row marked law.
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
 | CMS-001 | We follow the Contributor Covenant | [Contributor Covenant 3.0: pledge, encouraged and restricted behaviours](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) — our choice | by hand: conduct is judged by people, and the Sentinels are the guild that does it |
-| CMS-002 | retired → CMS-001 | — | — |
-| CMS-006 | retired → CMS-001 | — | — |
 | CMS-005 | Moderation climbs a ladder | [Contributor Covenant 3.0, enforcement ladder](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) — our choice | by hand, by the Sentinels |
 | CMS-003 | Threats and harm end participation at once | [Contributor Covenant 3.0, permanent ban](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) — our choice | by hand, by the Sentinels |
 | CMS-008 | A ban comes with its reasons | [Digital Services Act, Regulation (EU) 2022/2065, art. 17](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) — law, any hosting service | nothing yet: no statement-of-reasons template exists |
@@ -120,6 +117,6 @@ reason for every removal, and a door to knock on.
 | ID | Name | Why cited |
 |---|---|---|
 | `CAN-002` | We build a game to work better | the values these rules protect |
-| `CAN-004` | Role Structure in the Numinia System | Sentinels, who hold moderation |
+| `CAN-004` | You are what you are doing | Sentinels, who hold moderation |
 | `PRO-005` | Escalating to the Oracle | a case a Sentinel cannot resolve |
 | `BLU-017` | Legal obligations to confirm | the hosting duties still to put in place |

@@ -5,9 +5,9 @@ title: "Which rule wins"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.4"
+version: "1.1.5"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -15,7 +15,6 @@ license: "CC0-1.0"
 tags: [standards, governance, precedence, rules]
 threshold: governed
 absorbs: ["STD-002"]
-series_change: "1.1.4 — 2026-09-25: says plainly that this order of precedence is ours, since no outside standard covers it, and that the draft rule follows the internet standards body's convention for work in progress; no obligation added or dropped."
 ---
 
 <!--
@@ -106,4 +105,4 @@ changed what, and when, cannot be changed at any price worth paying.
 | `STD-001` | The series | the thresholds the costlier-document rule orders |
 | `STD-017` | Who may change what | who moves each threshold |
 | `STD-005` | When a rule bites | how a guard bites by the state of its rule |
-| `CAN-004` | Ranks | who holds which rank |
+| `CAN-004` | You are what you are doing | who holds which rank |

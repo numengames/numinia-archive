@@ -5,16 +5,15 @@ title: "Evidence and citation"
 type: documentation
 subtype: standard
 status: draft
-version: "1.3.0"
+version: "1.3.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, evidence, citation, audits, ISO-690, ISO-19011]
 threshold: governed
-series_change: "1.3.0 — 2026-09-25: the rule against citing section numbers merges into the one-page standard, which held the same rule, and the reference-list, quotation and sampling rules name the international standard each follows and carry their obligation word in capitals."
 ---
 
 <!--

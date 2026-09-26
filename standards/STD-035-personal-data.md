@@ -5,16 +5,15 @@ title: "Personal data"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [standards, privacy, GDPR, LOPDGDD, personal-data]
 related: ["OPS-003", "OPS-010", "STD-033", "BLU-017"]
-series_change: "0.3.0 — 2026-09-26: what a site may store in a visitor's browser comes in from the design tokens standard, since it is about data kept on a person. One obligation moved in, held below 1.0.0 because only the Oracle promotes, at the Oracle's word in session."
 ---
 
 <!--

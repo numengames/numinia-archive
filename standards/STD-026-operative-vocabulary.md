@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -16,7 +16,6 @@ threshold: governed
 license: "CC0-1.0"
 tags: [standard, register, vocabulary, glossary, onboarding]
 related: ["CAN-002", "CAN-005", "CAN-006"]
-series_change: "0.1.3 — 2026-09-25: the summary says the list follows the web consortium's model for vocabularies and the international rule for definitions; the tables are unchanged."
 ---
 
 <!--

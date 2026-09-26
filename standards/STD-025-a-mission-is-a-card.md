@@ -5,9 +5,9 @@ title: "A mission is a card"
 type: documentation
 subtype: standard
 status: draft
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-09-09T23:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,7 +16,6 @@ threshold: governed
 license: "CC0-1.0"
 tags: [standard, missions, board, lifecycle]
 related: ["STD-001", "STD-018", "PRO-003", "ADR-030"]
-series_change: "1.0.3 — 2026-09-25: the rules on marks, the single doer and the finished card say what they adopt from the information-security standard, the provenance vocabulary, the responsibility matrix and the records-management standard; the stated-done rule no longer cites Gherkin, which is a syntax and asks for nothing before work. No obligation added or dropped."
 ---
 
 <!--
@@ -134,6 +133,5 @@ closes one way for a card to say something other than what occurred.
 |---|---|---|
 | `STD-004` | The header | the fields these rules set |
 | `STD-018` | One document, one identifier | a card's name is permanent and never reused |
-| `ADR-030` | The four tests before deletion | the tests a card passes to leave the board |
 | `PRO-003` | Running a mission | how a mission is briefed, carried out and coordinated |
 | `STD-007` | One page per document | the shape this file takes |

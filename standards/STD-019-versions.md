@@ -5,16 +5,15 @@ title: "Versions"
 type: documentation
 subtype: standard
 status: draft
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, versioning, semver]
 threshold: governed
-series_change: "3.0.0 — 2026-09-26: who may move which number leaves for Who may change what, which answers that question alone; this standard answers only what a version number promises. An obligation removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -74,12 +73,6 @@ Each rule, its code, its source and its check.
 | VER-024 | The header and the log agree | — | `machine/guards/rules/std-019-versions.mjs` |
 | VER-023 | Breaking conformance is a major | [Semantic Versioning 2.0.0, item 8](https://semver.org/spec/v2.0.0.html) | by hand: deciding that a change breaks conformance is the judgement itself |
 | VER-022 | Offering more without breaking is a minor; rewording is a patch | [Semantic Versioning 2.0.0, items 6 and 7](https://semver.org/spec/v2.0.0.html) | by hand, as above |
-| VER-064 | retired → AUT-065 of Who may change what, which says who moves which number | — | — |
-
-VER-021 absorbs EXT-002 of the external standards, which said the same;
-that plate is retired there. We add one point to the scheme: for a
-document, who may raise each number depends on authority, not only on
-compatibility.
 
 ## Why
 

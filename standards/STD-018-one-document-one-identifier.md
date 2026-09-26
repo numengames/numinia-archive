@@ -5,16 +5,15 @@ title: "One document, one identifier"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.3"
+version: "1.1.4"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, identifiers, naming, Dublin-Core, Cool-URIs, CURIE]
 threshold: governed
-series_change: "1.1.3 — 2026-09-25: each rule now says which outside practice it follows — Dublin Core and the web's guidance on lasting addresses, the never-reassign rule of scholarly identifiers, the compact-identifier syntax — and what that lets a reader prove; no obligation added or dropped."
 ---
 
 <!--

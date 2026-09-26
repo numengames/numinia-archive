@@ -5,9 +5,9 @@ title: "One document, one address"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-20T20:00:00+02:00"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,7 +17,6 @@ license: "CC0-1.0"
 ratified_by: "ADR-047"
 threshold: governed
 related: ["STD-018", "STD-021", "STD-027", "STD-001", "STD-012"]
-series_change: "0.3.0 — 2026-09-26: this is now the one place that says where a retired address leads: the redirect rules of Git is the archive and The corpus does not grow retire into it, and it says the redirect is one step and moves with its answer. Held below 1.0.0 because only the Oracle promotes, at the Oracle's word in session."
 ---
 
 <!--
@@ -127,4 +126,3 @@ an accident.
 | `STD-021` | Evidence and citation | how a document cites another |
 | `STD-027` | The archive is classified by function | why the function stays out |
 | `STD-001` | The series | the folders an address may name |
-| `ADR-047` | One document, one address | the decision that cut this standard |

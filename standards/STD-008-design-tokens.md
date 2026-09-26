@@ -5,16 +5,15 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "10.0.0"
+version: "10.0.1"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-26T13:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 registration: registered
 related: ["CAN-008", "STD-023", "STD-034", "STD-037", "PRO-014", "STD-010", "ADR-044"]
 license: "CC0-1.0"
-series_change: "10.0.0 — 2026-09-26: what every public site carries — the house footer, the card a shared link shows, day and night — leaves for What every site carries, which answers that question alone; this standard keeps what a design piece can fail an audit on. Obligations removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -126,16 +125,10 @@ adopt, or our own choice.
 | DSN-004 | One family of icons | [Phosphor Icons](https://phosphoricons.com/), [MIT licence](https://opensource.org/license/mit): the notice ships (licence condition); names for icon-only buttons are `ACC-003` | by hand: the `PRO-014` checklist; the notice is declared in `REUSE.toml` and `LICENSES/MIT.txt` |
 | DSN-007 | Pixels sit whole | [WCAG 2.2 failure F32](https://www.w3.org/WAI/WCAG22/Techniques/failures/F32), under SC 1.3.2 Meaningful Sequence (A), for the line-break clause; the rest ours | by hand: the `PRO-014` checklist; no site checks it (`RPT-021`) |
 | DSN-005 | Texture never costs contrast, and a finger always fits | [WCAG 2.2](https://www.w3.org/TR/WCAG22/) SC 1.4.3 and 1.4.11 through `ACC-002`, applied over veils and textures in both modes (ours); SC 2.5.8 Target Size (Minimum) AA is 24 × 24, SC 2.5.5 Target Size (Enhanced) AAA is 44 × 44 — ours by choice | axe with Playwright, both modes — numinia.com only (`e2e/a11y.spec.ts`); axe does not judge text over images nor measure 44 px; the other three sites have no gate (`RPT-021`) |
-| DSN-006 | retired → `ACC-002` | WCAG 2.2 SC 1.4.1 Use of Color | — |
-| DSN-011 | retired → `ACC-004` | WCAG 2.2, level AA | — |
 | DSN-008 | Text comes before motion | [Core Web Vitals](https://web.dev/articles/vitals): LCP ≤ 2.5 s, CLS ≤ 0.1 — ours by choice; reduced motion and pausing moved to `ACC-005` | nothing measures it on any site yet |
 | DSN-012 | Motion is catalogued | WCAG 2.2 SC 1.4.2 Audio Control (A) — stricter: no autoplay sound at all; pause, flashes and reduced motion are `ACC-005` | by hand: the `PRO-014` checklist, against the catalogue in `STD-023` |
 | DSN-009 | The kit is installed, never copied | [Semantic Versioning 2.0.0](https://semver.org/) for the package; [Subresource Integrity](https://www.w3.org/TR/SRI/) for the sha256 manifest | `node machine/tools/generate-design-kit.mjs --check` — byte-identical; runs in no consumer's CI (`RPT-021`); the manifest holds hex digests, not yet `integrity` values |
 | DSN-010 | A value exists, or it does not | [Design Tokens Format Module 2025.10](https://www.designtokens.org/tr/2025.10/format/) (first stable) | by hand: the value lookup in step 3 of `PRO-014`; the file uses `$value` and `$type`; Terrazzo or Style Dictionary could validate it, and neither runs today |
-| DSN-013 | retired → SIT-001 of What every site carries | — | — |
-| DSN-014 | retired → SIT-002 of What every site carries | — | — |
-| DSN-015 | retired → PRV-008 of Personal data, which holds what a site may store in a browser | — | — |
-| DSN-016 | retired → SIT-003 of What every site carries | — | — |
 
 | Rule | Exact value |
 |---|---|
@@ -161,7 +154,7 @@ each rule now says which norm it follows and whether the law asks it.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-008` | Visual identity | the direction this standard does not encode |
+| `CAN-008` | One identity, three forces | the direction this standard does not encode |
 | `STD-023` | Design values | every closed list the rules point at |
 | `STD-034` | Accessibility | contrast, colour, focus, keyboard and motion, which this standard only adds to |
 | `PRO-014` | Producing a design piece | the manual checks and their order |

@@ -5,15 +5,14 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "5.0.0"
+version: "5.0.1"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-26T16:00:00+02:00"
+updated: "2026-09-26T20:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, register, practices]
 license: "CC0-1.0"
-series_change: "5.0.0 — 2026-09-26: the family pipeline leaves for the engineering baseline, which answers when a rule bites and how the guards come to run; the security score, migrating in order, incidents and the platform as a product arrive from it as rows SEC-013, SEC-014, SRE-007 and AGT-007, and the changelog rule joins row TRC-004. A section removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -85,17 +84,8 @@ SPDX-License-Identifier: CC0-1.0
 | Agents | AGT-007 | The platform is a product for developers, human and digital: if the obvious way to do something is unclear to an agent, it is unclear | SHOULD | `[DEBT: nothing measures whether an agent finds the obvious way — oracle, 2026-09-26]` |
 | Legal | LEG-001 | Making a repository public is a gated Oracle act under the publishing gates (PUB-002, PUB-003) | MUST | `[GATE: machine/guards/rules/std-010-licensing.mjs → the Oracle makes the repository public]` |
 
-**Rows retired as duplicates.** A row that said again what a rule elsewhere
-already holds is removed, and its code now leads to that rule.
-
-| Retired | Now held by |
-|---|---|
-| SRE-006 | retired → SRE-007 of this register, incidents produce rules, not culprits |
-| DEV-007 | retired → GIT-025, small batches by pull request on one trunk, with one approval |
-| ARC-003 | retired → LIC-007, each repository says its terms in the common format |
-| OSS-003 | retired → LIC-013, every contribution comes with permission |
-| TRC-008 | retired → URL-001 and URL-005, the address rules |
-| ARC-010 | retired → ACC-004, an accessibility test on every change, which the accessibility standard alone holds |
+**A row that says again what a rule elsewhere holds is removed.** Its code
+is never reused; the ledger of retired plates says where it leads.
 
 **One outside certificate answers a dozen rows.** The best practices badge
 of the Open Source Security Foundation is a self-certification any project
