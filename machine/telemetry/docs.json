@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13701,
+  "chars": 13843,
   "apparatus": false,
   "archived": false,
-  "tokens": 3387
+  "tokens": 3423
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 141734,
+  "chars": 142729,
   "apparatus": false,
   "archived": false,
-  "tokens": 37925
+  "tokens": 38161
  },
  {
   "path": "CLAUDE.md",
@@ -735,6 +735,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1239
+ },
+ {
+  "path": "canon/CAN-012-what-is-yours-stays-with-you.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "draft",
+  "chars": 5371,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1370
  },
  {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",

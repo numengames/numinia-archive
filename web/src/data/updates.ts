@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.63.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "ADD",
+        text: "A canon for ownership, opened in draft. 'What is yours stays with you' answers 'What would you keep if the city closed?': a person's name, record, goods and data are theirs, not lent; they can take it all whole when they go; nobody needs a key of their own to come in, and holding one is a step they take when they choose. It reads among The citizens, after 'Opening is an act', and closes on three questions to put to anything that will hold something of a person's.",
+      },
+    ],
+  },
+  {
     version: "v0.62.0",
     date: "2026-09-26",
     entries: [

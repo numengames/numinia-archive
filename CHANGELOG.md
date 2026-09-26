@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-26 (a canon for ownership)
+At the Oracle's word in session: the coherence review found digital sovereignty — the wallet, progressive identity, *digital ownership, not digital rental* — carried by the vocabulary register and the ranks standard with no canon saying why. He chose to write it.
+- **`CAN-012` *What is yours stays with you*, in draft (0.1.0).** What a person holds here is theirs, not lent; it is kept in a form they can take whole, without asking; leaving is made easy because loyalty is only worth having from someone who could go; nobody needs a key of their own to come in, and each step up the staircase hands them more of what is theirs. It closes on three questions to put to anything that will hold something of a person's. No ADR, under the transition regime.
+- It reads on the shelf *The citizens*, after *Opening is an act* and before the closing ethics canon. `standards-index.test.mjs` now fails if any canon sits on no reading shelf. Site v0.63.0.
+
 ### Changed — 2026-09-26 (the canon shows its question)
 At the Oracle's word in session, with the ten questions approved in chat before the branch existed. The format from the standards index is carried over to the canon.
 - **Each canon's Epistemic line is now the question a newcomer asks before reading it,** and its title is the answer. The question never repeats the title's words, so the two read together: *Opening is an act* answers *Why give away what we make?* Each canon takes a patch bump; nothing else in the canon changes.
