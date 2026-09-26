@@ -22,7 +22,7 @@ Format: [type] description — date — author
 ### Changed — 2026-09-26 (thinning the apparatus)
 At the Oracle's word in session: clean first, sign nothing yet. The standards go from 71,212 tokens to 67,467 (−5.3 %), 32 documents, and no rule changes.
 - **The header's note on the latest change (`series_change`) is retired.** The changelog and git already hold it. The field leaves Ring 3 of `STD-004`, the ring registry and the mould, and the header guard now names it as a retired field.
-- **Retired plates leave the standards for one ledger,** `machine/scripts/retired-plates.json`: 36 plates, each with the document that held it and the rule that holds its obligation now. `STD-007` 2.x says so where it says a code is never reused. `regime.test.mjs` fails if a ledger plate is held again, or if a retired row or `series_change` comes back.
+- **Retired plates leave the standards for one ledger,** `machine/scripts/retired-plates.json`: 36 plates, each with the document that held it and the rule that holds its obligation now. `STD-007` 1.5.0 says so where it says a code is never reused. `regime.test.mjs` fails if a ledger plate is held again, or if a retired row or `series_change` comes back.
 - **Reference tables list only what a standard depends on,** as `STD-007` asks. Fifteen rows pointing at decisions, reports and debt, which record history, leave. Eight titles are corrected to the cited document's own title.
 - Every touched standard takes a patch bump (`STD-007` a minor). `BLU-016` 0.7.1.
 
