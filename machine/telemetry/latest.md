@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-26T15:47:27Z"
+updated: "2026-09-26T16:20:05Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `a85ee2b`  · corpus_hash: `9b9fc66743280b07…`  · measured_at: 2026-09-26T15:47:27Z  · root_dirty: 0
+- head: `1ebcc88`  · corpus_hash: `39a3db98f7190e67…`  · measured_at: 2026-09-26T16:20:05Z  · root_dirty: 0
 
 ## corpus
 
@@ -204,48 +204,36 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 881333 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
-| `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
-| `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 5.19 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
-| `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
+| `tokens.tokenizer` | (table below) | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.total` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.by_dir` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.by_status` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.missions_share_pct` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.largest` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+
+### `tokens.tokenizer`
+
+(none — 0 rows)
+
+### `tokens.total`
+
+(none — 0 rows)
 
 ### `tokens.by_dir`
 
-| | tokens |
-|---|---|
-| lore | 495248 |
-| standards | 64607 |
-| missions | 45717 |
-|  | 45140 |
-| decisions | 39440 |
-| reports | 29342 |
-| agents | 29109 |
-| blueprints | 25512 |
-| operations | 25159 |
-| system | 20599 |
-| canon | 19801 |
-| protocols | 19682 |
-| machine | 16214 |
-| debt | 2986 |
-| objects | 1865 |
-| .github | 912 |
+(none — 0 rows)
 
 ### `tokens.by_status`
 
-| | tokens |
-|---|---|
-| (none) | 540446 |
-| draft | 169477 |
-| active | 124205 |
-| done | 26539 |
-| todo | 15975 |
-| in-progress | 4691 |
+(none — 0 rows)
+
+### `tokens.missions_share_pct`
+
+(none — 0 rows)
 
 ### `tokens.largest`
 
-5 rows (tokens) — in `latest.json`.
+(none — 0 rows)
 
 ## headers
 
@@ -442,7 +430,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 1045 |
+| STD | 1058 |
 | MIS | 687 |
 | PRO | 307 |
 | OPS | 92 |

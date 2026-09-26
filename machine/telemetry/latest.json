@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "a85ee2b",
-  "corpus_hash": "9b9fc66743280b07499fc303e976e497480cde1ea7c929be350a65ed56ed7f2f",
+  "head": "1ebcc88",
+  "corpus_hash": "39a3db98f7190e67285c3980e982dc4ab64d01e3739a4c6bf6dfa9d9090fbd65",
   "root_dirty": 0,
-  "measured_at": "2026-09-26T15:47:27Z",
+  "measured_at": "2026-09-26T16:20:05Z",
   "families": [
     "corpus",
     "series",
@@ -315,79 +315,34 @@
       "definition": "`started` written in `Z`"
     },
     "tokens.tokenizer": {
-      "value": "cl100k_base sha256:223921b76ee9",
+      "value": null,
       "unit": "identity",
-      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.total": {
-      "value": 881333,
+      "value": null,
       "unit": "tokens",
-      "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.by_dir": {
-      "value": {
-        "lore": 495248,
-        "standards": 64607,
-        "missions": 45717,
-        "": 45140,
-        "decisions": 39440,
-        "reports": 29342,
-        "agents": 29109,
-        "blueprints": 25512,
-        "operations": 25159,
-        "system": 20599,
-        "canon": 19801,
-        "protocols": 19682,
-        "machine": 16214,
-        "debt": 2986,
-        "objects": 1865,
-        ".github": 912
-      },
+      "value": null,
       "unit": "tokens",
-      "definition": "tokens per top-level dir, largest first"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.by_status": {
-      "value": {
-        "(none)": 540446,
-        "draft": 169477,
-        "active": 124205,
-        "done": 26539,
-        "todo": 15975,
-        "in-progress": 4691
-      },
+      "value": null,
       "unit": "tokens",
-      "definition": "tokens per frontmatter status ((none) = no status), largest first"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.missions_share_pct": {
-      "value": 5.19,
-      "unit": "percent",
-      "definition": "100·tokens(missions/)/total, rounded to 0.01"
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.largest": {
-      "value": [
-        [
-          "lore/game/manual/es/06-inventario-y-bestiario.md",
-          51702
-        ],
-        [
-          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
-          38607
-        ],
-        [
-          "CHANGELOG.md",
-          38161
-        ],
-        [
-          "lore/game/manual/es/07-construyendo-la-aventura.md",
-          37267
-        ],
-        [
-          "lore/game/manual/en/06-inventory-and-bestiary.md",
-          36491
-        ]
-      ],
+      "value": null,
       "unit": "tokens",
-      "definition": "the five largest documents as [path, tokens]"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "headers.docs_with_frontmatter": {
       "value": 189,
@@ -651,7 +606,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1045
+          "3": 1058
         },
         "MIS": {
           "3": 687,
