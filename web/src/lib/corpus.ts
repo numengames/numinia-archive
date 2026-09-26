@@ -423,6 +423,7 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
     hrefs: [
       "/standards/std-032-the-design-system",
       "/standards/std-008-design-tokens",
+      "/standards/std-037-what-every-site-carries",
       "/standards/std-023-design-values",
       "/standards/std-034-accessibility",
     ],
@@ -439,7 +440,8 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-014-publishing-gates",
       "/standards/std-022-secrets",
       "/standards/std-035-personal-data",
-      "/standards/std-033-charges-and-the-account",
+      "/standards/std-033-every-charge-delivers-something",
+      "/standards/std-036-one-account",
     ],
   },
   {
@@ -559,7 +561,7 @@ const READING_ORDER: Record<string, string[]> = {
     "/system/sys-003-archive-fondos",
     "/system/sys-007-the-instruments",
     // 2026-09-24: the account — where money comes from and goes, and who
-    // holds each key (STD-033).
+    // holds each key (STD-036).
     "/system/sys-008-the-account",
   ],
 

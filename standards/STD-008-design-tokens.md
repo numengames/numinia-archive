@@ -5,16 +5,16 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "9.0.0"
+version: "10.0.0"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-26T12:00:00+02:00"
+updated: "2026-09-26T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 registration: registered
-related: ["CAN-008", "STD-023", "STD-034", "PRO-014", "STD-010", "ADR-044", "OPS-010"]
+related: ["CAN-008", "STD-023", "STD-034", "STD-037", "PRO-014", "STD-010", "ADR-044"]
 license: "CC0-1.0"
-series_change: "9.0.0 — 2026-09-26: what a site may store in a visitor's browser leaves for the personal data standard, which answers what we may keep about a person. An obligation removed from here, so a major move, at the Oracle's word in session."
+series_change: "10.0.0 — 2026-09-26: what every public site carries — the house footer, the card a shared link shows, day and night — leaves for What every site carries, which answers that question alone; this standard keeps what a design piece can fail an audit on. Obligations removed from here, so a major move, at the Oracle's word in session."
 ---
 
 <!--
@@ -26,8 +26,8 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The parts of our design that answer yes or no. Sixteen
 > colours and no new ones, four typefaces we serve ourselves, one spacing
-> scale, two roundings, one family of icons, fifteen animations, one
-> footer, and day and night on every site.
+> scale, two roundings, one family of icons, fifteen animations, and one
+> kit installed from its package.
 > **Epistemic:** What a piece of our design can fail an audit on, and which
 > of it is our choice, an outside norm, or the law.
 > **Pragmatic:** Know what an audit of any piece we make can fail on.
@@ -109,33 +109,8 @@ token file or in the design values; a value in neither does not exist. The
 token file follows, by choice, the first stable design tokens format, so
 any tool can read it and a validator can prove it is well formed.
 
-### Every site
-
-**One house, one footer.** Every public site of Numen Games MUST close with
-the house footer the design values lay out: the site's written name and
-its line, its navigation, a column naming the four sites with this one
-marked, the legal texts published for it, and its social accounts. Last
-comes the closing line: the scarab, our signature, and the licence,
-telemetry, version and commit; there is no copyright notice. The version
-opens the updates page and moves its minor number with every release, a
-house rule, not semantic versioning. Spanish law on online services
-requires every visitor to reach the company's name, address, registry
-entry and tax number, so the legal texts include that notice.
-
-**A link presents itself.** Every public site MUST carry the scarab as its
-icon, a title of its own on every page, and the four open graph properties
-that turn a link into a card: title, type, image and address. The
-guidelines require the title, so a listener knows where they are; the
-scarab and the card on the house pattern are ours.
-
-**Day and night on every site.** Every public site of Numen Games MUST
-serve both modes, by choice, and carry the mode switch the web recipe
-describes: the moon with stars leads to night, the sun to day. The site
-follows the visitor's system through the web's colour scheme query until
-they choose, remembers the choice under the name the cookie policy gives
-it, and applies it before painting; the switch behaves as the accessible
-rich internet applications practices describe a button. A pixel scene, or
-a veiled surface, keeps its night inside a day page, framed.
+What every public site carries — the footer, the card a shared link shows,
+and day and night — is a standard of its own.
 
 ## Check
 
@@ -158,10 +133,10 @@ we adopt, or our own choice.
 | DSN-012 | Motion is catalogued | WCAG 2.2 SC 1.4.2 Audio Control (A) — stricter: no autoplay sound at all; pause, flashes and reduced motion are `ACC-005` | by hand: the `PRO-014` checklist, against the catalogue in `STD-023` |
 | DSN-009 | The kit is installed, never copied | [Semantic Versioning 2.0.0](https://semver.org/) for the package; [Subresource Integrity](https://www.w3.org/TR/SRI/) for the sha256 manifest | `node machine/tools/generate-design-kit.mjs --check` — byte-identical; runs in no consumer's CI (`RPT-021`); the manifest holds hex digests, not yet `integrity` values |
 | DSN-010 | A value exists, or it does not | [Design Tokens Format Module 2025.10](https://www.designtokens.org/tr/2025.10/format/) (first stable) | by hand: the value lookup in step 3 of `PRO-014`; the file uses `$value` and `$type`; Terrazzo or Style Dictionary could validate it, and neither runs today |
-| DSN-013 | One house, one footer | [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 10 — **law**: the provider's identity reachable from every site; the version rule is ours and is not SemVer | `check-version-bump` in each site's CI, all four; the legal notice by hand |
-| DSN-014 | A link presents itself | [Open Graph protocol](https://ogp.me/): `og:title`, `og:type`, `og:image`, `og:url` required; WCAG 2.2 SC 2.4.2 Page Titled (A); [HTML `rel=icon`](https://html.spec.whatwg.org/multipage/links.html#rel-icon); scarab and 1200 × 630 card ours | `share-card --check` in each site's CI, all four: card size, icon, title, description and image; `og:type` and `og:url` not checked |
+| DSN-013 | retired → SIT-001 of What every site carries | — | — |
+| DSN-014 | retired → SIT-002 of What every site carries | — | — |
 | DSN-015 | retired → PRV-008 of Personal data, which holds what a site may store in a browser | — | — |
-| DSN-016 | Day and night on every site | [Media Queries 5, `prefers-color-scheme`](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme); [WAI-ARIA APG button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/) | Playwright on numinia.com only (`preferences.spec.ts`): the switch exists, a tap swaps mode and icon, a reload keeps the choice |
+| DSN-016 | retired → SIT-003 of What every site carries | — | — |
 
 | Rule | Exact value |
 |---|---|
@@ -173,9 +148,6 @@ we adopt, or our own choice.
 | Text comes before motion | LCP ≤ 2.5 s, CLS ≤ 0.1 |
 | The kit is installed, never copied | source `machine/packages/design-kit/`; published to `web/public/design/kit/` with a sha256 manifest |
 | A value exists, or it does not | `machine/packages/design-kit/sistema.tokens.json`, Design Tokens Format Module 2025.10 (`$value`, `$type`) |
-| One house, one footer | closing line `by Numen Games — we build for a better future.`, then `licence · telemetry · version · commit`; the version links to `/updates` |
-| A link presents itself | favicon as SVG, PNG and Apple touch icon; share card 1200 × 630; `og:title`, `og:type`, `og:image`, `og:url` |
-| Day and night on every site | the modes Nocturno and Diurno; storage key `numinia-modo`; attribute `data-modo` on the document, absent meaning Nocturno; the switch as in `BLU-009` |
 
 ## Why
 
@@ -194,4 +166,4 @@ each rule now says which norm it follows and whether the law asks it.
 | `STD-023` | Design values | every closed list the rules point at |
 | `STD-034` | Accessibility | contrast, colour, focus, keyboard and motion, which this standard only adds to |
 | `PRO-014` | Producing a design piece | the manual checks and their order |
-| `OPS-010` | Cookie Policy — Numen Games | the inventory every site is held to |
+| `STD-037` | What every site carries | the footer, the share card and day and night |

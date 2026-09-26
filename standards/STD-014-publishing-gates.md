@@ -5,16 +5,16 @@ title: "Publishing gates"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-26T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
 license: "CC0-1.0"
 tags: [licensing, legal, publication, arweave, visibility]
 threshold: governed
-series_change: "1.1.0 — 2026-09-25: the check before a repository goes public now names the two outside checks it runs, the REUSE linter and a secret scan of the whole history as the best practices badge asks, and the gates rest on the OpenChain licence-compliance standard, at the Oracle's word in session."
+series_change: "1.1.1 — 2026-09-26: prose only — the secret scan before going public now points at the secrets standard, which alone says what the scan is and what it follows, instead of saying it again. 1.1.0 — 2026-09-25: the check before a repository goes public now names the two outside checks it runs."
 ---
 
 <!--
@@ -61,10 +61,8 @@ licence into a grant.
 **Four checks before visibility changes.** Before a repository goes public,
 four checks MUST pass. Two follow outside standards: the linter of the REUSE
 specification, the common way for every file to say its licence, proves
-that every file declares its owner and terms; and a secret scanner reads
-every commit in the history, not only the latest, and finds no leaked
-credential, as the best practices badge of the Open Source Security
-Foundation asks. Two are ours: the brand and attribution notices are
+that every file declares its owner and terms; and the scan of every commit
+the secrets standard asks for finds no leaked credential. Two are ours: the brand and attribution notices are
 complete, and sensitive folders are listed by a command and compared with
 the licence declarations, never from memory. Our choice.
 
@@ -90,7 +88,7 @@ it follows, and what verifies it today.
 |---|---|---|---|
 | PUB-001 | Permanent publication is gated; what fails the gate stays withdrawable | [ISO/IEC 5230 OpenChain, clause 3.3 review and approval of open source content](https://github.com/OpenChain-Project/License-Compliance-Specification) | by hand: the Oracle's signature, recorded outside the corpus |
 | PUB-002 | Going public is the grant | [ISO/IEC 5230 OpenChain, clause 3.5 community engagement](https://github.com/OpenChain-Project/License-Compliance-Specification) | by hand: the Oracle's signature, recorded outside the corpus |
-| PUB-003 | Four checks before visibility changes; nothing reserved slips through | [REUSE 3.3, `reuse lint`](https://reuse.software/spec-3.3/); [OpenSSF Best Practices Badge, no_leaked_credentials](https://www.bestpractices.dev/en/criteria/0#0.no_leaked_credentials); [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for personal data | `reuse lint` in CI; no full-history secret scan (gitleaks) runs yet, register row SEC-004 is owed; the listing is produced by a command and its output attached to the signing; `TRADEMARKS.md` and `NOTICE` by hand |
+| PUB-003 | Four checks before visibility changes; nothing reserved slips through | [REUSE 3.3, `reuse lint`](https://reuse.software/spec-3.3/); KEY-054 of Secrets, which holds the full-history scan; [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for personal data | `reuse lint` in CI; no full-history secret scan (gitleaks) runs yet, register row SEC-004 is owed; the listing is produced by a command and its output attached to the signing; `TRADEMARKS.md` and `NOTICE` by hand |
 | PUB-004 | Being born licensed is not publication | — | by hand: a `LICENSE` file present at the first commit |
 | PUB-005 | A legal debt waits for a condition | — | nothing yet: the guard that evaluates conditions is described, not built (`DBT-020`) |
 

@@ -179,6 +179,6 @@ Oracle governs.
 | ID | Title | Relation |
 |---|---|---|
 | `CAN-004` | You are what you are doing | what each rank is, and rank as one of the six attributes |
-| `STD-033` | Charges and the account | payment, which this standard does not bind |
+| `STD-033` | Every charge delivers something | payment, which this standard does not bind |
 | `ADR-036` | Canon consolidation | records the move from the canon to this standard |
 | `ADR-054` | The theory of attributes stays in the canon | carried the Archon profile, prepared with Christian Märtens on 2026-04-06, from the canon |

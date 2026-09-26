@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.55.0",
+    date: "2026-09-26",
+    entries: [
+      {
+        type: "CHG",
+        text: "Two standards that each answered two questions are now four that answer one. Charging and keeping the books split into 'Every charge delivers something' and 'One account'; the open books page now names both as its sources. What every site carries — the footer, the card a shared link shows, day and night — leaves the design tokens for a standard of its own, and joins the 'Showing it' shelf. The old address of the charges standard redirects.",
+      },
+    ],
+  },
+  {
     version: "v0.54.0",
     date: "2026-09-25",
     entries: [

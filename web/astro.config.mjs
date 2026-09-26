@@ -155,6 +155,9 @@ export default defineConfig({
 		"/protocols/p-011-security-audit": "/protocols/pro-011-security-audit",
 		"/protocols/p-012-ruling-with-a-condition": "/protocols/pro-008-decision",
 		"/protocols/p-013-handing-a-guard-to-ci": "/protocols/pro-013-handing-a-guard-to-ci",
+		// → standards — STD-033 renamed when the account left for STD-036 (2026-09-26)
+		"/standards/std-033-charges-and-the-account": "/standards/std-033-every-charge-delivers-something",
+		"/standards/std-033-charges-and-the-account.md": "/standards/std-033-every-charge-delivers-something.md",
 		// → blueprints — BLU-016 renamed from its old subject to its question (2026-09-26)
 		"/blueprints/outside-standards-under-consideration": "/blueprints/one-question-per-standard",
 		"/blueprints/outside-standards-under-consideration.md": "/blueprints/one-question-per-standard.md",

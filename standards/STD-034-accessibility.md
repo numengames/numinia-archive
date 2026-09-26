@@ -5,16 +5,16 @@ title: "Accessibility"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-25T16:00:00+02:00"
+updated: "2026-09-26T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 license: "CC0-1.0"
 related: ["STD-008", "STD-015", "STD-023", "STD-032"]
 tags: [standards, accessibility, WCAG, web]
-series_change: "0.2.1 — 2026-09-25: the Oracle confirmed Numen Games is a microenterprise, so the European Accessibility Act does not oblige us; the guidelines stay our choice. 0.2.0 — 2026-09-25: contrast, colour-alone and focus arrive from the design tokens standard (DSN-006 retires into ACC-002, DSN-011 into ACC-004), a pause control for any automatic motion over five seconds is added as ACC-005 because the guidelines require it, the test on every change becomes a MUST on all four sites with a periodic manual audit, and each rule says whether the law requires it. 0.1.0 — 2026-09-25: accessibility gets a standard of its own, resting on the Web Content Accessibility Guidelines."
+series_change: "0.2.2 — 2026-09-26: the test on every change now also holds the engineering register's accessibility row, which said it again. 0.2.1 — 2026-09-25: the Oracle confirmed Numen Games is a microenterprise, so the European Accessibility Act does not oblige us; the guidelines stay our choice."
 ---
 
 <!--
@@ -89,7 +89,7 @@ requires; the rest is a norm we adopt.
 | ACC-002 | Both themes count | WCAG 2.2 SC 1.4.1 Use of Color (A), 1.4.3 Contrast (Minimum) (AA) 4.5:1 and 3:1 large, 1.4.11 Non-text Contrast (AA) 3:1, 2.4.7 Focus Visible (AA), 2.4.11 Focus Not Obscured (Minimum) (AA); absorbs `DSN-006` and the ratios and focus clause of `DSN-005`, `DSN-003` | as `ACC-001` for contrast in both modes; colour-alone and focus by hand |
 | ACC-003 | Keyboard and screen reader first | WCAG 2.2 SC 2.1.1 Keyboard (A), 2.1.2 No Keyboard Trap (A), 2.4.3 Focus Order (A), 1.1.1 Non-text Content (A), 4.1.2 Name, Role, Value (A), 4.1.3 Status Messages (AA); [WAI-ARIA 1.2](https://www.w3.org/TR/wai-aria-1.2/) and the [APG](https://www.w3.org/WAI/ARIA/apg/) | as `ACC-001` for what axe can see; focus order and announcements by hand |
 | ACC-005 | Motion can be stopped | WCAG 2.2 SC 2.2.2 Pause, Stop, Hide (A), 2.3.1 Three Flashes or Below Threshold (A), 2.3.3 Animation from Interactions (AAA, ours by choice); [Media Queries 5, `prefers-reduced-motion`](https://www.w3.org/TR/mediaqueries-5/#prefers-reduced-motion); moved from `DSN-008`, `DSN-012` | **not met yet on the sites**: the sky loop of numinia.org and the ambient loops start by themselves with no pause control; reduced motion by hand, the `PRO-014` checklist |
-| ACC-004 | A test checks every change | [axe-core](https://github.com/dequelabs/axe-core), [pa11y](https://pa11y.org/) or [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci); manual audit by [WCAG-EM](https://www.w3.org/TR/WCAG-EM/); absorbs `DSN-011` | `numinia-web` CI only; nothing on the other three sites; no manual audit recorded |
+| ACC-004 | A test checks every change | [axe-core](https://github.com/dequelabs/axe-core), [pa11y](https://pa11y.org/) or [Lighthouse CI](https://github.com/GoogleChrome/lighthouse-ci); manual audit by [WCAG-EM](https://www.w3.org/TR/WCAG-EM/); absorbs `DSN-011` and register row `ARC-010` | `numinia-web` CI only; nothing on the other three sites; no manual audit recorded |
 
 | Implied by | Criterion | Source | Verified by |
 |---|---|---|---|

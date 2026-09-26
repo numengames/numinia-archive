@@ -121,6 +121,6 @@ asked.
 | ID | Name | Why cited |
 |---|---|---|
 | `OPS-003` | Privacy Policy — Numen Games | the privacy notice these rules are kept in |
-| `STD-033` | Charges and the account | what a payer may choose to show |
+| `STD-033` | Every charge delivers something | what a payer may choose to show |
 | `OPS-010` | Cookie Policy — Numen Games | the inventory every site is held to |
 | `BLU-017` | Legal obligations to confirm | what remains to put in place |

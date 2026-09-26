@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The share card and the favicon set — STD-023 §19, rule DSN-014.
+// The share card and the favicon set — STD-023 §19, rule SIT-002 (STD-037).
 //
 // One pattern, four contents: this script is the same in every repository
 // of the house (a copy per repository, like house-links.ts, until the design
