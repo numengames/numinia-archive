@@ -280,7 +280,8 @@ check('tree: a protocol fits in 900 words — a longer one is two protocols, or 
   const bad = [];
   for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
-    const body = text.slice(text.indexOf('\n---', 3) + 4).replace(/<!--[\s\S]*?-->/g, '');
+    // The SPDX comment is counted with the body: a few words, the same for all.
+    const body = text.slice(text.indexOf('\n---', 3) + 4);
     const words = body.split(/\s+/).filter(Boolean).length;
     if (words > 900) bad.push(`${f}: ${words} words`);
   }
