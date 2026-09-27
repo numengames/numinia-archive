@@ -188,12 +188,17 @@ check('the declaration survives a failing run too', () => {
 check('D-047 fixture — a wrong FOLDER in a path citation really does read green', () => {
   const clone = scratchClone();
   try {
-    // guilds/alquimistas/GLD-001-charter.md exists; agents/guilds/... does not.
+    // agents/INDEX.md exists; canon/INDEX.md does not. The basename matches,
+    // the folder is wrong. (The old probe named guilds/…/GLD-001-charter.md,
+    // deleted since: it read green only while STD-012 was draft.)
     writeFileSync(path.join(clone, 'debt/D-000-probe.md'),
-      '---\nid: "D-000"\nlicense: "CC-BY-4.0"\n---\n\nSee `agents/guilds/alquimistas/GLD-001-charter.md`.\n');
+      '---\nid: "D-000"\nlicense: "CC-BY-4.0"\n---\n\nSee `canon/INDEX.md`.\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
     const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
-    assert(res.status === 0,
+    // The clone has no git history, so with STD-012 in force the guard may
+    // exit 1 on citations only history resolves. What this fixture asks is
+    // narrower: is the PROBE reported? It must not be.
+    assert(!/D-000-probe/.test(res.stdout + res.stderr.replace(/NOT scanned[\s\S]*/, '')),
       `the reference guard CAUGHT a wrong folder — D-047 may be fixed; update the registry ` +
       `and delete this fixture (exit ${res.status})`);
     assert(/falls back to basename|FOLDER in a path citation/.test(res.stderr),
@@ -210,7 +215,10 @@ check('D-049 fixture — an untracked .md with a BROKEN citation is not scanned,
     writeFileSync(path.join(clone, 'debt/D-000-untracked.md'),
       '---\nid: "D-000"\n---\n\nSee `canon/C-999-does-not-exist.md`.\n');
     const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
-    assert(res.status === 0,
+    // Not the exit code: the history-less clone may fail on other citations
+    // now that STD-012 binds. The question is whether the untracked file's
+    // broken citation was READ — it must not appear as a finding.
+    assert(!/C-999-does-not-exist/.test(res.stdout),
       `the guard scanned an untracked file — D-049 may be fixed (exit ${res.status})`);
     assert(/NOT scanned/.test(res.stderr),
       'the untracked file was skipped WITHOUT any warning — silent blindness is the bug');

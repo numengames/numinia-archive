@@ -4,10 +4,10 @@ uid: ""
 title: "The corpus does not grow"
 type: documentation
 subtype: standard
-status: draft
-version: "2.0.3"
+status: active
+version: "2.1.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
