@@ -244,6 +244,35 @@ check('tree: a protocol is steps — no Rules section, no plate, and its Epistem
   return bad.length === 0 || bad.join('; ');
 });
 
+check('tree: every protocol has the five parts of the mould, in order', () => {
+  // machine/templates/PRO-TEMPLATE.md: purpose and trigger, preconditions,
+  // procedure, verification, escalation. The Oracle asked that every
+  // protocol read alike (2026-09-27). Two are left out, each by his word:
+  // running a mission (PRO-003) stays as it is while missions are
+  // suspended; joining and leaving (PRO-015) is reshaped in its own change.
+  const PARTS = ['Purpose and trigger', 'Preconditions', 'Procedure', 'Verification', 'Escalation'];
+  const dir = path.join(ROOT, 'protocols');
+  const bad = [];
+  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !/^PRO-(003|015)-/.test(n))) {
+    const text = readFileSync(path.join(dir, f), 'utf-8');
+    const heads = [...text.matchAll(/^## (\d+)\. (.+)$/gm)].map((m) => `${m[1]}. ${m[2].trim()}`);
+    const want = PARTS.map((p, i) => `${i + 1}. ${p}`);
+    if (heads.slice(0, 5).join('|') !== want.join('|')) bad.push(`${f}: ${heads.join(' / ')}`);
+  }
+  return bad.length === 0 || bad.join('; ');
+});
+
+check('tree: a protocol numbers its steps — the procedure is a numbered list, not a table', () => {
+  const dir = path.join(ROOT, 'protocols');
+  const bad = [];
+  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !/^PRO-(003|015)-/.test(n))) {
+    const text = readFileSync(path.join(dir, f), 'utf-8');
+    const proc = /^## 3\. Procedure\n([\s\S]*?)(?=^## 4\.)/m.exec(text)?.[1] ?? '';
+    if (!/^1\. /m.test(proc)) bad.push(f);
+  }
+  return bad.length === 0 || `no numbered steps in: ${bad.join(', ')}`;
+});
+
 check('tree: the protocol plates are retired in the ledger, and no living text cites one', () => {
   const RETIRED = ['SES', 'ESC', 'APV', 'GRD', 'DSP', 'TSK', 'RUP', 'RLS', 'RIT', 'SAL', 'MON'];
   const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/retired-plates.json'), 'utf-8')).plates;
