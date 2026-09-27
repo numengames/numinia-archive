@@ -164,6 +164,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-022` | Building the living pieces | whoever builds, changes or reviews the sky… |
 | `PRO-023` | Bringing a rule into force | whoever proposes, prepares or approves a document leaving draft |
 | `PRO-024` | Leaving Numinia | whoever lets a person go from Numinia, whoever is leaving, and whoever takes over their work |
+| `PRO-025` | Handling a personal data breach | whoever learns of a possible breach of personal data we hold… |
+| `PRO-026` | Answering a person's request about their data | whoever receives or answers a request from a person about the data we hold on them |
+| `PRO-027` | Changing what a site stores or loads | whoever changes a site so that it stores, loads or sends something it did not before… |
 | `STD-001` | The series | every tracked document of the archive |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | every document's header, and every date the archive writes |
@@ -197,7 +200,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-036` | One account | the ledger of what Numen Games and Numinia cost and take in, and every view published from it |
 | `STD-037` | What every site carries | every public site of Numen Games and Numinia: numinia.org, numinia.com… |
 
-60 rule documents; 4 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+63 rule documents; 4 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
