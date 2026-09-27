@@ -4,9 +4,9 @@ uid: ""
 title: "Web pieces"
 type: blueprint
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-24T17:00:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -229,7 +229,7 @@ Nocturno by default, level I, Turquesa for the interactive, Phosphor by weight (
 
 ## Check
 
-After the general checklist of `PRO-014` §4, and before delivering:
+After the general checklist in step 6 of `PRO-014`, and before delivering:
 
 - [ ] Hero = the thesis with relief at the back and headline typing: the only orchestrated moment; at most one `barrido` per view.
 - [ ] Menu: ≤5 entries in Mono uppercase; active with a 2 px Ámbar underline; mobile = full-screen panel, nothing else.

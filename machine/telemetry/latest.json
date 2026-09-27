@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "47215ef",
-  "corpus_hash": "c607dae344e13b4abab7a35c9561ecc0a3dfcec876b0784397068edc4b157bdf",
+  "head": "3b4799f",
+  "corpus_hash": "175ff2e63f9d1ffb341dfc56c901297233a5ddf39f48366d56538e5550b2de65",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T13:01:14Z",
+  "measured_at": "2026-09-27T13:44:53Z",
   "families": [
     "corpus",
     "series",
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 888323,
+      "value": 889320,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,13 +336,13 @@
       "value": {
         "lore": 495248,
         "standards": 64485,
-        "": 50141,
+        "": 50517,
         "missions": 45963,
         "decisions": 39490,
         "reports": 29422,
         "agents": 29130,
-        "blueprints": 25593,
-        "protocols": 20769,
+        "blueprints": 25600,
+        "protocols": 21383,
         "system": 20584,
         "canon": 19757,
         "machine": 16708,
@@ -357,9 +357,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 545480,
-        "draft": 150038,
-        "active": 143647,
+        "(none)": 545856,
+        "draft": 150652,
+        "active": 143654,
         "done": 26672,
         "todo": 16006,
         "in-progress": 4742,
@@ -381,7 +381,7 @@
         ],
         [
           "CHANGELOG.md",
-          42983
+          43359
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -547,19 +547,50 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 0,
+      "value": 6,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
-      "value": [],
+      "value": [
+        [
+          "README.md",
+          "2026-04-07",
+          "2026-04-06"
+        ],
+        [
+          "agents/nimrod/OPERATOR.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/nimrod/SOUL.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/skills/numinia-nwos-pr/SKILL.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "protocols/PRO-018-publishing-a-repository.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "reports/RPT-019-2026-w37.md",
+          "2026-09-09",
+          "2026-09-08"
+        ]
+      ],
       "unit": "documents",
       "definition": "[path, created, first-add] for created_ahead_of_commit",
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 149,
+      "value": 31,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -632,14 +663,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1115
+          "3": 1117
         },
         "MIS": {
           "3": 689,
           "4": 187
         },
         "PRO": {
-          "3": 342
+          "3": 356
         },
         "OPS": {
           "3": 84
@@ -650,11 +681,11 @@
         "ADR": {
           "3": 489
         },
+        "BLU": {
+          "3": 137
+        },
         "SYS": {
           "3": 67
-        },
-        "BLU": {
-          "3": 135
         },
         "RPT": {
           "3": 63,

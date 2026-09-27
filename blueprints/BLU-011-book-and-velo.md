@@ -4,9 +4,9 @@ uid: ""
 title: "The book and the Velo"
 type: blueprint
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-26T18:00:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -143,7 +143,7 @@ PORTADA                                CAPÍTULO
 
 ## Check
 
-After the general checklist of `PRO-014` §4, and before delivering:
+After the general checklist in step 6 of `PRO-014`, and before delivering:
 
 - [ ] Velo: only alphas over canonicals; grid ≤3 %, fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Velo in Diurno; one dominant matter per view; animations 10–11 only here; still one orchestrated moment.
 - [ ] Sky built as `PRO-022` §3.1; grain (§2) only on paper, ≤5 %, never with relief or grid.

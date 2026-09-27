@@ -4,9 +4,9 @@ uid: ""
 title: "Document and invoice"
 type: blueprint
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-09T12:00:00+02:00"
-updated: "2026-09-09T12:00:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -50,7 +50,7 @@ Diurno, A4, level III, no texture; tabular Mono figures; footer `AAAA_MM · Conf
 
 ## Check
 
-After the general checklist of `PRO-014` §4, and before delivering:
+After the general checklist in step 6 of `PRO-014`, and before delivering:
 
 - [ ] Diurno, A4, level III, no texture; figures in tabular Mono; footer `AAAA_MM · Confidencial`.
 - [ ] Section rhythm `s500`, interior `s300–s400`; nothing at `s700`.

@@ -4,11 +4,11 @@ uid: ""
 title: "Opening and closing a session"
 type: protocol
 status: draft
-version: "2.0.1"
+version: "2.1.0"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, briefing, startup, session, close, context, mandatory]
@@ -35,12 +35,19 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** every agent, in every session, whatever the mission.
 
-## 1. Trigger
+## 1. Purpose and trigger
 
 A session starts; a session is about to end, to be interrupted, or to hand
 its mission to another agent. Executor: the agent.
 
-## 2. Procedure
+## 2. Preconditions
+
+- A checkout of the repository the session works in, with push access.
+- The agent's own folder under `agents/`, with its `SOUL.md` and
+  `OPERATOR.md`.
+- A channel to the operator for the whole session: the close is told there.
+
+## 3. Procedure
 
 **Open** — before any read or write. Urgency skips none of it: urgency is
 the protocol's enemy.
@@ -101,7 +108,7 @@ persistence.
 
 Secrets are handled as `OPS-009` and `STD-022` say, in every session.
 
-## 3. Verification
+## 4. Verification
 
 | Check | Evidence |
 |---|---|
@@ -113,7 +120,7 @@ Secrets are handled as `OPS-009` and `STD-022` say, in every session.
 Sync, source and close are executed by hand: they leave no artefact a guard
 can read.
 
-## 4. Escalation
+## 5. Escalation
 
 Load at 9 and the operator does not answer: close anyway (steps 13–18) and
 state in `OPS-008` why. A mission assigned that has no briefing: `PRO-005`.

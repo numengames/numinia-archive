@@ -4,11 +4,11 @@ uid: ""
 title: "Escalating to the Oracle"
 type: protocol
 status: draft
-version: "3.0.1"
+version: "3.1.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, escalation, security]
@@ -35,7 +35,7 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** any agent facing a decision it may not, or cannot, take alone.
 
-## 1. Trigger
+## 1. Purpose and trigger
 
 Any of: a mission contradicts the canon (`PRE-003`); the decision exceeds
 the agent's rank (`AUT-065`); the agent is blocked; a possible security
@@ -46,7 +46,13 @@ wrong escalation is a message; the cost of a wrong autonomous decision is
 the archive. Executor: the agent. Receiver: the Oracle, with no
 intermediate layer.
 
-## 2. Procedure
+## 2. Preconditions
+
+- A place to write the matter where the work is: the mission, or
+  `decisions/` if it is structural.
+- A direct channel to the Oracle, with no agent in between.
+
+## 3. Procedure
 
 1. **Stop.** In doubt whether you may act, do not act (`AUT-010`).
 2. **Write it where the work is:** the mission, or a decision record if
@@ -71,7 +77,7 @@ Requires: decision · information · access
 6. **After 48 hours unanswered, take only the reversible option.** Record
    the assumption where the work is. Irreversible acts keep waiting.
 
-## 3. Verification
+## 4. Verification
 
 | Check | Evidence |
 |---|---|
@@ -80,7 +86,7 @@ Requires: decision · information · access
 | It carried a judgement | a `Recommendation:` line that names one option |
 | The wait was honoured | no irreversible commit between the escalation and the answer |
 
-## 4. Escalation
+## 5. Escalation
 
 This is the escalation. An escalation that cannot reach the Oracle is
 recorded where the work is, and the work stops.

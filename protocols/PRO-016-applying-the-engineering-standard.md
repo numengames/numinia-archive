@@ -4,9 +4,9 @@ uid: ""
 title: "Applying the engineering standard"
 type: protocol
 status: draft
-version: "3.0.1"
+version: "3.1.0"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, engineering, agents]
@@ -35,12 +35,19 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** any agent executing a task in a repository that carries `STD-005`.
 
-## 1. Trigger
+## 1. Purpose and trigger
 
 Every task in a repository that contains or cites `STD-005`. Executor: the
 agent on `PRO-001` session. The Oracle enters only at the irreversible tier.
 
-## 2. Procedure
+## 2. Preconditions
+
+- A checkout of the repository the task is in, and its checks runnable
+  locally.
+- The task stated: what changes and why.
+- A channel to the Oracle for anything on the irreversible tier.
+
+## 3. Procedure
 
 1. **Audit the branch.** Read the tree before assuming it matches the
    standard, the README or the brief.
@@ -77,7 +84,7 @@ header or REUSE structure; credentials and secrets; publishing; the
 principles of `STD-005`; weakening any check; force-push, history rewrite,
 deleting branches or tags on `main`.
 
-## 3. Verification
+## 4. Verification
 
 | Check | Evidence |
 |---|---|
@@ -87,7 +94,7 @@ deleting branches or tags on `main`.
 | Nothing weakened | the diff touches no threshold, ignore, pin or workflow — or a decision record carries the change |
 | Debt reported | `[MANUAL]` seen in passing listed in the report and the TODO |
 
-## 4. Escalation
+## 5. Escalation
 
 The Oracle tier and any check that would have to be weakened go to the
 Oracle through `PRO-005`, with the decision record drafted.

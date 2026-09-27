@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a guard to CI"
 type: protocol
 status: draft
-version: "5.0.1"
+version: "5.1.0"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
@@ -39,24 +39,44 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** any agent that writes a guard script, and the Oracle who wires it.
 
-## 1. Trigger
+## 1. Purpose and trigger
 
 A task produces a script meant to fail a build. Reached from `PRO-016`
 step 9. Executor: the agent; the Oracle for the review.
 
-## 2. Procedure
+## 2. Preconditions
 
-| Step | Whose | What |
-|---|---|---|
-| 1 | agent | **Report every finding, every run.** No ignore list: a guard that hides old damage looks like coverage. Whether a finding fails the build is decided by the state of the standard that holds its rule (`ENG-067`), not by the guard. |
-| 2 | agent | **Name the plate in every finding**, so a failure is actionable without reading the script. |
-| 3 | agent | **Keep one deterministic mode.** Bare, it prints every finding and exits non-zero only when a finding's holder standard is `active` (`ENG-067`). No flag changes what is checked; same tree, same output. |
-| 4 | agent | **Test both directions.** Fail on planted breakage, pass on a clean tree, before offering it. Declare blindness (`TRC-007`). |
-| 5 | agent | **Place it in the guards folder and touch nothing else.** The runner finds it; never edit the workflow file. A script that must not run as a guard does not live there. A guard that reads build output says so where the runner reads it. Keep no table of guards in any document: `npm run guards` lists what runs. |
-| 6 | Oracle | **Review and merge the pull request.** This is the control: a guard that is not merged does not run. |
-| 7 | agent | **Report the run on `main`.** The handoff ends when the run identifier of the runner's step on `main` shows the guard, not at merge (`TRC-006`). |
+- A guard script written and run locally, reached from step 9 of Applying
+  the engineering standard (`PRO-016`).
+- The standard that holds the guard's rules, with their plates.
+- A clone of `main` where `npm run guards` runs.
 
-## 3. Verification
+## 3. Procedure
+
+Steps are the agent's, save step 6, which is the Oracle's.
+
+1. **Report every finding, every run.** No ignore list: a guard that hides
+   old damage looks like coverage. Whether a finding fails the build is
+   decided by the state of the standard that holds its rule (`ENG-067`), not
+   by the guard.
+2. **Name the plate in every finding**, so a failure is actionable without
+   reading the script.
+3. **Keep one deterministic mode.** Bare, it prints every finding and exits
+   non-zero only when a finding's holder standard is `active` (`ENG-067`).
+   No flag changes what is checked; same tree, same output.
+4. **Test both directions.** Fail on planted breakage, pass on a clean tree,
+   before offering it. Declare blindness (`TRC-007`).
+5. **Place it in the guards folder and touch nothing else.** The runner
+   finds it; never edit the workflow file. A script that must not run as a
+   guard does not live there. A guard that reads build output says so where
+   the runner reads it. Keep no table of guards in any document: `npm run
+   guards` lists what runs.
+6. **The Oracle reviews and merges the pull request.** This is the control:
+   a guard that is not merged does not run.
+7. **Report the run on `main`.** The handoff ends when the run identifier of
+   the runner's step on `main` shows the guard, not at merge (`TRC-006`).
+
+## 4. Verification
 
 | Check | Evidence |
 |---|---|
@@ -64,7 +84,7 @@ step 9. Executor: the agent; the Oracle for the review.
 | Wired | `npm run guards` on the merged tree lists the guard |
 | Seen running | `gh run view <id> --log \| grep '<guard name>'` on `main`, id reported |
 
-## 4. Escalation
+## 5. Escalation
 
 A guard that needs a new job, permission or action: `PRO-005`, the ask
 stated separately from the guard.

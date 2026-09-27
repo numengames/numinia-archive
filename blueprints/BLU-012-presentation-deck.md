@@ -4,9 +4,9 @@ uid: ""
 title: "The presentation deck"
 type: blueprint
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-09T12:00:00+02:00"
-updated: "2026-09-09T12:00:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -63,7 +63,7 @@ The image **always** carries the veil `rgba(20,17,15,.72)` as a minimum; the top
 
 ## Check
 
-After the general checklist of `PRO-014` §4, and before delivering:
+After the general checklist in step 6 of `PRO-014`, and before delivering:
 
 - [ ] 1920×1080, Nocturno, 120 px margins; one idea per slide; at most four cards.
 - [ ] Display in Geist 500; no serif imitated from earlier decks.
