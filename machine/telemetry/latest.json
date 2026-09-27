@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "900b2a2",
-  "corpus_hash": "2d2aa74f60f2473f750e7cb1465ec58ff89eae7c00096f4a1e1951202e101d58",
+  "head": "dc1a256",
+  "corpus_hash": "9958d8738a15a111a1688dcd8471be520795add92fc537f4fc65d7b978173380",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T08:09:03Z",
+  "measured_at": "2026-09-27T08:32:25Z",
   "families": [
     "corpus",
     "series",
@@ -320,25 +320,25 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 881950,
+      "value": 882072,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 64890,
+        "standards": 64656,
+        "": 45901,
         "missions": 45717,
-        "": 45474,
         "decisions": 39440,
         "reports": 29342,
-        "agents": 29109,
+        "agents": 29125,
         "blueprints": 25512,
         "operations": 25159,
         "system": 20599,
-        "canon": 19801,
+        "canon": 19757,
         "protocols": 19682,
-        "machine": 16214,
+        "machine": 16171,
         "debt": 2986,
         "objects": 1865,
         ".github": 912
@@ -348,9 +348,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 540780,
-        "draft": 169760,
-        "active": 124205,
+        "(none)": 541207,
+        "draft": 169439,
+        "active": 124221,
         "done": 26539,
         "todo": 15975,
         "in-progress": 4691
@@ -370,12 +370,12 @@
           51702
         ],
         [
-          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
-          38607
+          "CHANGELOG.md",
+          38933
         ],
         [
-          "CHANGELOG.md",
-          38495
+          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
+          38607
         ],
         [
           "lore/game/manual/es/07-construyendo-la-aventura.md",
@@ -422,7 +422,6 @@
         "registration": 43,
         "registration_reason": 39,
         "agent": 33,
-        "threshold": 33,
         "deciders": 25,
         "ratified_by": 24,
         "consulted": 21,
@@ -483,6 +482,7 @@
         "review_next": 1,
         "source_title": 1,
         "supersedes_record_of": 1,
+        "threshold": 1,
         "translation_note": 1
       },
       "unit": "documents",
@@ -651,7 +651,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1053
+          "3": 1059
         },
         "MIS": {
           "3": 687,
@@ -661,10 +661,10 @@
           "3": 307
         },
         "OPS": {
-          "3": 92
+          "3": 95
         },
         "CAN": {
-          "3": 504
+          "3": 502
         },
         "ADR": {
           "3": 485
