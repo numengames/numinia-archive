@@ -1,9 +1,9 @@
 ---
 # Copy this file to operations/OPS-NNN-<kebab-slug>.md and fill it in.
 # The filename shape is enforced: OPS-NNN-slug.md, three digits, kebab-case.
-# NOTE THE LICENCE: operations/ is CC-BY-4.0 by default, but the legal and
-# contractual records (OPS-003, OPS-004 and their kind) are
-# LicenseRef-Numen-AllRightsReserved. Match REUSE.toml for your target path.
+# NOTE THE LICENCE: operations/ is CC-BY-4.0 by default; a reserved record
+# (sales and its kind) is LicenseRef-Numen-AllRightsReserved. Legal texts are
+# not filed here: they have their own series, legal/ (LEG-NNN).
 id: "OPS-NNN"
 uid: ""
 title: "The operational fact — named by what it sustains"

@@ -1,5 +1,7 @@
 ---
-id: "OPS-004"
+id: "LEG-002"
+former_id: "OPS-004"
+former_id_note: "moved from operations/ to its own series legal/ on 2026-09-27; the text is unchanged"
 uid: ""
 title: "Terms and Conditions — Numen Games"
 type: legal

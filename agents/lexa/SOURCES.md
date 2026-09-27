@@ -40,7 +40,7 @@ TRADEMARKS.md — what CC0 never granted
 
 ## Legal record
 
-operations/OPS-003-*.md, operations/OPS-004-*.md — reserved; read under authorization
+legal/ — the legal texts (LEG-001 privacy, LEG-002 terms, LEG-003 cookies); reserved; read under authorization
 
 ## Decisions with legal weight
 

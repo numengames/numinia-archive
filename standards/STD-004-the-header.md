@@ -217,7 +217,7 @@ our own.
 | `canon/` | `absorbs` |
 | `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
-| `blueprints/` `operations/` | `extraction_note` `restoration_note` |
+| `blueprints/` `operations/` `legal/` | `extraction_note` `restoration_note` |
 | `blueprints/` | `semaforo` |
 | `protocols/` | `applies_to` `mandatory` |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |

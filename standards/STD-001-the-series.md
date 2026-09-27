@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.4.7"
+version: "5.5.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-27T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -47,7 +47,8 @@ SPDX-License-Identifier: CC0-1.0
 | `reports/` | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, retired) | `closed` | 1000 | `RPT-TEMPLATE.md` |
 | `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
 | `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
-| `operations/` | what sustains the business: legal, strategy | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
+| `operations/` | what sustains the business: strategy, sales, continuity | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
+| `legal/` | what the company has promised the public in law: privacy, terms, cookies; changes when the law or the service does | `LEG-NNN` | `governed` | — | — |
 | `system/` | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
 | `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
 | `lore/` | the fiction and the game; a second fond (`ADR-046`) | — | `open` | — | `lore/adventures/tabletop/TEMPLATE.md` |
@@ -84,7 +85,7 @@ system, and it belongs to everyone.
 | `adr` | `decisions/` | yes |
 | `blueprint` | `blueprints/` | yes |
 | `report` | `reports/` | yes |
-| `legal` | `operations/legal/` | yes |
+| `legal` | `legal/` | yes |
 | `agent` | `agents/` | yes |
 | `meta` | anywhere — apparatus accompanies its series | no |
 

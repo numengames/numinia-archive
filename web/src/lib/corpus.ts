@@ -215,10 +215,20 @@ export const SECTIONS: Section[] = [
   // Operations records what the company is doing and what it has promised the
   // public; objects registers things that are not documents at all.
   { prefix: "operations/", slug: "operations", label: "Operations", collection: "corpus",
-    question: "What is the company actually doing right now, and what has it promised in writing?",
-    blurb: "The live record of the business: where work stands, what contradicts what, and the legal texts the public sites are bound by.",
-    epistemic: "What the company is doing right now, and what it has promised in public.",
-    pragmatic: "Act on the live state of the business \u2014 and read the terms the public sites are bound by.",
+    question: "What is the company actually doing right now?",
+    blurb: "The live record of the business: where work stands, what contradicts what, and how it sells.",
+    epistemic: "What the company is doing right now.",
+    pragmatic: "Act on the live state of the business.",
+  },
+  // Legal — its own series since 2026-09-27. These texts were loose in
+  // operations/ while three sources disagreed on where they belonged. They are
+  // the company's promises to the public in law, and they change when the law
+  // or the service does, not when the archive does.
+  { prefix: "legal/",      slug: "legal",      label: "Legal",      collection: "corpus",
+    question: "What has the company promised, in law, to whoever uses its sites?",
+    blurb: "The privacy policy, the terms and the cookie policy: the master copies every Numen Games site publishes.",
+    epistemic: "What the company has promised the public in law.",
+    pragmatic: "Read the terms the public sites are bound by, from the one copy they all derive from.",
   },
   { prefix: "objects/",    slug: "objects",    label: "Objects",    collection: "corpus",
     question: "What does the archive hold that is not a document — and where do its bytes actually live?",
@@ -585,9 +595,15 @@ const READING_ORDER: Record<string, string[]> = {
     "/operations/ops-006-solutions",
     "/operations/ops-007-sales",
     "/operations/ops-009-secrets-handling",
-    "/operations/ops-003-privacy-policy-numengames",
-    "/operations/ops-004-terms-and-conditions-numengames",
-    "/operations/ops-010-cookie-policy-numengames",
+  ],
+
+  // The three promises the company makes to anyone who uses its sites, in the
+  // order a visitor meets them: what we do with your data, the terms of use,
+  // then what the browser keeps.
+  legal: [
+    "/legal/leg-001-privacy-policy-numengames",
+    "/legal/leg-002-terms-and-conditions-numengames",
+    "/legal/leg-003-cookie-policy-numengames",
   ],
 
   // The card first, then the audit of whether its bytes are still where the
@@ -683,7 +699,8 @@ export const READING_NOTE: Record<string, string> = {
   blueprints: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
   system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the instruments that check those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
-  operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, the handling of keys, and last the three legal texts, the only documents here written for someone outside the company.",
+  operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy and the handling of keys.",
+  legal: "The three texts written for someone outside the company: what we do with your data, the terms of using our sites, and what your browser keeps. Each is the master copy every site publishes.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",
   lore: "The world first, then the table, then the shelf: who Numinia is and why its fiction does real work, then how a game is actually played in it — the tutorial before the adventure — and last the reference matter a Director reaches for mid-session.",
 };

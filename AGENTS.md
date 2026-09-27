@@ -65,7 +65,7 @@ What still holds, because each rule protects something that can be seen:
   already exists and has no test gets one when it is touched; a bug gets
   the test that reproduces it before the fix. Read at review; it fails no
   build while the register is draft;
-- the reserved `operations/` files (legal texts, sales) and the brand mark stay reserved; canon
+- the reserved files (the legal texts in `legal/`, sales in `operations/`) and the brand mark stay reserved; canon
   changes are said to the operator in chat before the branch exists —
   his answer there is the consensus, no further ceremony.
 
@@ -103,8 +103,10 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 - `protocols/` — procedures: session close, briefing, archiving.
 - `missions/` — the unit of work; `machine/templates/MIS-TEMPLATE` is the contract.
 - `decisions/` — ADRs · `debt/` — what is known to be wrong · `reports/` — audits.
-- `operations/` — business records, one flat `OPS-` series (`OPS-003`, `OPS-004`,
-  `OPS-007` and `OPS-010` are reserved — each says so in its own SPDX comment).
+- `operations/` — business records, one flat `OPS-` series (`OPS-007` is
+  reserved — it says so in its own SPDX comment).
+- `legal/` — the legal texts the public sites are bound by, one `LEG-` series;
+  every one is reserved and says so in its own SPDX comment.
 - `objects/` — entity cards: one Markdown per registered thing that is not a
   document (an avatar, a model). The bytes live in the depot.
 - `system/` — reference manuals of how the system works today.

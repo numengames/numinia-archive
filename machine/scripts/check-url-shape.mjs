@@ -84,7 +84,8 @@ const STANDALONE = new Set([
   // 2026-09-21: /wardley /gaps /cao /continuity /language /sales /simulations
   // /solutions moved under /system/ — a series segment, so URL-001 admits
   // them without a line here. Their old roots are redirects now.
-  '/legal',       // the legal texts, published from operations/
+  // 2026-09-27: /legal left this list — legal/ is a series now, so URL-001
+  // admits /legal/terms, /legal/privacy and /legal/cookies as series addresses.
   '/design',      // the design system whole (SYS-009), its download and the kit's served files
   '/404',
 ]);

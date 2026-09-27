@@ -5,15 +5,15 @@ title: "What every site carries"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 license: "CC0-1.0"
 tags: [standards, web, footer, share-card, modes, sites]
-related: ["STD-008", "STD-023", "STD-034", "STD-035", "BLU-009", "OPS-010"]
+related: ["STD-008", "STD-023", "STD-034", "STD-035", "BLU-009", "LEG-003"]
 ---
 
 <!--
@@ -153,4 +153,4 @@ visitor who learns one knows the other three.
 | `STD-008` | Design tokens | what a piece of a site may use |
 | `STD-023` | Design values | the colours, type and sky the footer and the card use |
 | `BLU-009` | Web pieces | the mode switch, drawn |
-| `OPS-010` | Cookie Policy — Numen Games | the name under which the mode is remembered |
+| `LEG-003` | Cookie Policy — Numen Games | the name under which the mode is remembered |

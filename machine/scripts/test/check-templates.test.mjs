@@ -71,10 +71,14 @@ const check = (name, fn) => test(name, () => {
 
 // ── the tree as committed ────────────────────────────────────────────────────
 
-check('the committed moulds hold every destination contract (12 templates, no finding)', (dir) => {
+check('the committed moulds hold every destination contract (every template, no finding)', (dir) => {
+  // The count is read from the folder, never typed: a new series brings a new
+  // mould, and a hand-typed "12" turned red the day legal/ opened.
+  const moulds = execFileSync('git', ['-C', ROOT, 'ls-files', 'machine/templates/*.md'], { encoding: 'utf8' })
+    .split('\n').filter((f) => f && !f.endsWith('/README.md')).length;
   const r = run(dir);
   assert.equal(r.code, 0, r.log);
-  assert.match(r.out, /12 template\(s\) · every registered series covered · destination contracts hold/);
+  assert.match(r.out, new RegExp(`${moulds} template\\(s\\) · every registered series covered · destination contracts hold`));
   assert.doesNotMatch(r.log, /T-\d\d /, `findings on the committed tree:\n${r.log}`);
 });
 

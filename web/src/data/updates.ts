@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.65.0",
+    date: "2026-09-27",
+    entries: [
+      {
+        type: "ADD",
+        text: "Legal is its own shelf. The privacy policy, the terms and the cookie policy leave Operations for /legal/, as LEG-001, LEG-002 and LEG-003. The texts do not change, /legal/terms, /legal/privacy and /legal/cookies keep working, and every old address redirects to the new one.",
+      },
+    ],
+  },
+  {
     version: "v0.64.0",
     date: "2026-09-27",
     entries: [

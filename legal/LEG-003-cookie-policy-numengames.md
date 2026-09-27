@@ -1,5 +1,7 @@
 ---
-id: "OPS-010"
+id: "LEG-003"
+former_id: "OPS-010"
+former_id_note: "moved from operations/ to its own series legal/ on 2026-09-27; the text is unchanged"
 uid: ""
 title: "Cookie Policy — Numen Games"
 type: legal
@@ -13,7 +15,7 @@ tags: [legal, cookies, privacy, gdpr, lssi, website, numen-games, enforceable]
 license: "LicenseRef-Numen-AllRightsReserved"
 provenance: "agent"
 language: "en"
-related: ["OPS-003", "OPS-004", "STD-008"]
+related: ["LEG-001", "LEG-002", "STD-008"]
 review_flags: |
   FLAG-1: Written by an agent from a measured inventory of what each
   site stores (2026-09-18: grep of document.cookie, cookies.set,

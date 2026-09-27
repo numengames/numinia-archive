@@ -61,7 +61,7 @@ test('two files in one folder may carry two different licences', () => {
   // The property the rule IS: operations/ holds CC-BY-4.0 records and
   // reserved legal texts side by side, each saying so itself.
   assert.equal(licenceOfFile('operations/OPS-001-continuity.md'), 'CC-BY-4.0');
-  assert.equal(licenceOfFile('operations/OPS-003-privacy-policy-numengames.md'), 'LicenseRef-Numen-AllRightsReserved');
+  assert.equal(licenceOfFile('legal/LEG-001-privacy-policy-numengames.md'), 'LicenseRef-Numen-AllRightsReserved');
 });
 
 test('the declaration read is the file\'s own SPDX comment', () => {

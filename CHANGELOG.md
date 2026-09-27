@@ -19,6 +19,15 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-27 (legal is its own series)
+At the Oracle's word in session. Where legal texts live had three answers that disagreed: `STD-001` said `operations/legal/` (which did not exist), `rules.json` mapped `type: legal` to `canon/`, and the files sat loose in `operations/`. The Oracle doubted `operations/` was their place; Byblos proposed a series of their own and he said to create it.
+- **`legal/` is a series, `LEG-NNN`, threshold `governed`,** under Administration · *Committing* in the scheme (`STD-027` 0.3.0): the company's promises to the public in law, which change when the law or the service does. `STD-001` 5.5.0 gives it its row and moves `type: legal` there; `operations/` now holds strategy, sales and continuity.
+- **The three texts move unchanged:** `OPS-003` → `LEG-001` privacy, `OPS-004` → `LEG-002` terms, `OPS-010` → `LEG-003` cookies. Each carries `former_id`, so every old citation still resolves. Living citers (`STD-035`, `STD-037`, `BLU-017`, `LEG-003`, `AGENTS.md`, Lexa's sources) name the new identifiers; closed records keep the old ones.
+- **`LEG-TEMPLATE.md`** is the mould; `rings.mjs` registers the fields the texts carry; `STD-004` lists `legal/` beside `operations/`.
+- **The site:** a `/legal/` shelf, the three texts at `/legal/leg-00N-…`, `/legal/terms`, `/legal/privacy` and `/legal/cookies` unchanged, and every old `/operations/ops-00N-…` address redirects. `/legal` leaves the standalone list of the URL checker: it is a series address now. Site v0.65.0.
+- **The mechanism:** a test in `regime.test.mjs`, committed first and seen failing, fails if `type: legal` sits outside `legal/` or the series is missing from `STD-001`, `STD-027` or `rules.json`. The template test no longer types "12 templates"; it counts the folder.
+- **Not in this change:** numen.games keeps verbatim copies of the privacy policy and terms whose header still says `OPS-003`/`OPS-004`; they are refreshed from the master in that repository.
+
 ### Changed — 2026-09-27 (one answer per question)
 At the Oracle's word in session, after Byblos's review: where a document goes, and what a change to it costs, had more than one written answer, and the copies had begun to disagree. Each fact now lives in one place, and a test fails if a second copy comes back.
 - **The function of a series is `STD-027`'s alone.** `STD-001`'s series table loses its *Function · Activity* column and its paragraph restating the scheme; it files, the scheme classifies. The site already read the function from `STD-027`; `web/src/lib/classification.ts` now reads the narrower table.
