@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.67.0",
+    date: "2026-09-27",
+    entries: [
+      {
+        type: "ADD",
+        text: "A protocol for bringing a rule into force. Most rules here are draft, and until now nothing said how one stops being draft. 'Bringing a rule into force' gives the steps: run the rule's check, fix what it finds in the documents that break it, read every requirement for a yes or a no, show the Oracle what will start to fail and what reviewers must now read for, and only then change the rule's state. What binds today links to it, under the list of documents.",
+      },
+    ],
+  },
+  {
     version: "v0.66.0",
     date: "2026-09-27",
     entries: [

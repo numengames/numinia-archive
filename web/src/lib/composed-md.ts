@@ -206,7 +206,8 @@ export function bindingPage(): ComposedPage {
     "## Each document, and its state",
     "",
     "Before you follow a rule, find it here. `active` binds; `draft` describes",
-    "and binds nobody.",
+    "and binds nobody. How one leaves draft is a protocol of its own:",
+    "[bringing a rule into force](/protocols/pro-023-bringing-a-rule-into-force.md).",
     "",
     ...rows.flatMap((r) => [
       `### ${r.label}`,

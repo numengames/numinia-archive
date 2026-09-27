@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13967,
+  "chars": 14076,
   "apparatus": false,
   "archived": false,
-  "tokens": 3440
+  "tokens": 3464
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 150831,
+  "chars": 151772,
   "apparatus": false,
   "archived": false,
-  "tokens": 40344
+  "tokens": 40575
  },
  {
   "path": "CLAUDE.md",
@@ -2088,6 +2088,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2005
+ },
+ {
+  "path": "protocols/PRO-023-bringing-a-rule-into-force.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 4526,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1214
  },
  {
   "path": "reports/RPT-003-wardley-map.md",

@@ -220,6 +220,18 @@ test('the page lists the documents by state, in both its HTML and its markdown',
   assert.match(generator.slice(0, 5000), /\.documents/, 'binding.md does not list the documents of each series');
 });
 
+test('the page says how a document leaves draft, pointing at the protocol that does it', () => {
+  // A page that lists what is draft raises the next question at once: how
+  // does one stop being draft? The answer is a protocol; both the page and
+  // its markdown send the reader there.
+  const route = '/protocols/pro-023-bringing-a-rule-into-force';
+  const page = readFileSync(path.resolve(ROOT, 'web', 'src', 'pages', 'binding.astro'), 'utf8');
+  assert.ok(page.includes(route), 'binding.astro does not link the protocol for bringing a rule into force');
+  const src = readFileSync(COMPOSED, 'utf8');
+  const generator = src.slice(src.indexOf('export function bindingPage'));
+  assert.ok(generator.slice(0, 6000).includes(route), 'binding.md does not link it either');
+});
+
 // ---------------------------------------------------------------------------
 // The page, and the signs pointing at it
 // ---------------------------------------------------------------------------
