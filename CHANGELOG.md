@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (three standards leave draft)
+At the Oracle's word in session ("me valen"), the first promotions since the alpha reset. **Licensing (`STD-010` 2.4.0), one document one identifier (`STD-018` 1.2.0) and git is the archive (`STD-020` 2.2.0) are `active`.** Chosen because each has a guard that finds nothing on main today, so promotion turns their checks into build failures without breaking a single build. Minor bump: no text changes, the obligations already written now bind. `/binding` shows them as in force by itself.
+
 ### Changed — 2026-09-27 (the five longest standards, thinned)
 At the Oracle's word in session. The prose of the header, licensing, design-token, when-a-rule-bites and platform-ranks standards loses repetition, history and doubled reasons; no obligation changes. Every MUST/SHOULD/MAY sequence, table row and plate is identical to main (checked mechanically per file). Tokens 14,365 → 13,768 (−4 %): these five are mostly tables and Check sections, which carry the rules and stay verbatim, so the prose was the only room. Patch bumps: STD-003 3.2.5, STD-004 4.1.4, STD-005 4.0.4, STD-008 10.0.4, STD-010 2.3.5.
 
