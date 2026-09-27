@@ -4,9 +4,9 @@ uid: ""
 title: "The Platform"
 type: blueprint
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-09T12:00:00+02:00"
-updated: "2026-09-09T12:00:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -57,7 +57,7 @@ Rules: sidebar in `superficie`; items in secondary text with Phosphor `regular` 
 
 ## Check
 
-After the general checklist of `PRO-014` §4, and before delivering:
+After the general checklist in step 6 of `PRO-014`, and before delivering:
 
 - [ ] Diurno by default; ink primary; compact density (rows 36–40 px, padding `s300/s400`).
 - [ ] Wallets and amounts in Mono, truncated with the full title.

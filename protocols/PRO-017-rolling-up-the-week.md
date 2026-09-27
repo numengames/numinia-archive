@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: protocol
 status: draft
-version: "3.0.1"
+version: "3.1.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, rollup, deflation, weekly, reports]
@@ -34,14 +34,20 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** any agent executing a weekly, quarterly or annual roll-up.
 
-## 1. Trigger
+## 1. Purpose and trigger
 
 Every Monday before the Dark Council, for the week that ended Sunday.
 Quarterly on the first Monday of a quarter over thirteen weeklies; annual
 on the first Monday of a year over four quarterlies. Executor: any agent on
 `PRO-001` session; the Oracle reviews the pull request.
 
-## 2. Procedure
+## 2. Preconditions
+
+- A clone of `main` with its full history: the roll-up reads `git log`.
+- The phase report open, so the week's report has a parent to cite.
+- The week closed: it ended on Sunday.
+
+## 3. Procedure
 
 1. **Open the report.** Open or create `reports/RPT-NNN-<yyyy>-w<ww>.md`,
    `subtype: rollup`, with two sections: *Closed this week*, *Carried up*.
@@ -71,7 +77,7 @@ Quarterly and annual: the "records" are the reports of the level below.
 Carry up only `rule`, `debt`, `address` lines; move `absorbs:` lists whole
 (`DEF-011`); repoint redirects (`URL-005`); delete the lower reports.
 
-## 3. Verification
+## 4. Verification
 
 | Check | Evidence |
 |---|---|
@@ -80,7 +86,7 @@ Carry up only `rule`, `debt`, `address` lines; move `absorbs:` lists whole
 | Nothing lost | `absorbs:` equals the set of deleted identifiers |
 | Nothing grew | `tokens.total` in `machine/telemetry/latest.json` lower than before; if not, the PR says why |
 
-## 4. Escalation
+## 5. Escalation
 
 A Closure the executor believes was deliberately false: `PRO-005`. The
 Oracle wants a body back: `git show <commit>:<path>`.

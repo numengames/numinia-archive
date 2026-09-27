@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: protocol
 status: draft
-version: "3.0.1"
+version: "3.1.0"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -40,12 +40,19 @@ SPDX-License-Identifier: CC0-1.0
 
 ---
 
-## 1. Trigger
+## 1. Purpose and trigger
 
 A piece is requested — page, deck, document, scene, email — and the agent
 must decide how it looks. Runs before the first pixel.
 
-## 2. Procedure
+## 2. Preconditions
+
+- The request: the medium, who will see the piece and where.
+- The design kit installed (`@numengames/design-kit`) and its agent
+  instruction, `sistema.prompt.txt`, at hand.
+- The design values register `STD-023` readable.
+
+## 3. Procedure
 
 1. **Settle precedence.** The person's instruction → accessibility and hard
    rules → brand and culture → this protocol → previous material → own
@@ -82,7 +89,7 @@ must decide how it looks. Runs before the first pixel.
    `BLU-010` pixel · `BLU-011` book and Velo · `BLU-012` deck · `BLU-013`
    document and invoice · `BLU-014` Platform · `BLU-015` event, 3D, email.
 
-## 3. Verification
+## 4. Verification
 
 | Step | Evidence |
 |---|---|
@@ -91,7 +98,7 @@ must decide how it looks. Runs before the first pixel.
 | 6–7 | the ticked list attached to the delivery |
 | Public route | the accessibility test (`ACC-004`) green in both modes |
 
-## 4. Escalation
+## 5. Escalation
 
 A piece that needs a value the register lacks stops; the value is proposed
 to `STD-023` by PR and the piece waits. A new register is a `CAN-008`

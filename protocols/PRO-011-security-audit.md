@@ -4,11 +4,11 @@ uid: ""
 title: "Auditing identity, authorization and secrets"
 type: protocol
 status: draft
-version: "2.0.1"
+version: "2.1.0"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [protocols, security, audit, credentials, secrets, identity, authorization]
@@ -38,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** any agent running a security audit over a Numinia scope, and the
 report it files.
 
-## 1. Trigger
+## 1. Purpose and trigger
 
 Yearly (`review_next`; a skipped date is the next run's first finding).
 Without waiting: before a repository turns public; after any incident;
@@ -46,7 +46,16 @@ when a person or agent leaves or changes role; when a provider, worker,
 domain or pipeline enters production; when the base document changes an
 automated claim. Executor: an agent with read access to the scope.
 
-## 2. Procedure
+## 2. Preconditions
+
+- Read access to the scope, through an audit credential of its own that can
+  be revoked at close.
+- A throwaway branch the active tests may use, in a repository that is not
+  public or that signs its commits.
+- A destination for each tier of the report. With none for the internal
+  tier, that absence is the audit's first finding (step 6).
+
+## 3. Procedure
 
 1. **Publish the denominator.** Enumerate the universe from the API and
    publish its count, with the command, before censusing anything. Every
@@ -82,7 +91,7 @@ automated claim. Executor: an agent with read access to the scope.
 9. **Close.** Delete canaries and branches, revoke the audit credential,
    update `review_next`.
 
-## 3. Verification
+## 4. Verification
 
 | Check | Evidence |
 |---|---|
@@ -92,7 +101,7 @@ automated claim. Executor: an agent with read access to the scope.
 | Tiered | no identifier or address in the public report |
 | Scored | coverage score stated; the other two do not exceed it |
 
-## 4. Escalation
+## 5. Escalation
 
 The brief does not match what is seen, or an irreversible action is within
 reach: stop, `PRO-005`. Another organization's scope receives an offer, never a

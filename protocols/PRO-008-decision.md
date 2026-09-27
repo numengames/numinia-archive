@@ -4,9 +4,9 @@ uid: ""
 title: "Requesting approval, issuing rulings"
 type: protocol
 status: draft
-version: "5.0.1"
+version: "5.1.0"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
@@ -37,14 +37,21 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** any agent requesting approval; any Oracle issuing a ruling; any
 agent executing one.
 
-## 1. Trigger
+## 1. Purpose and trigger
 
 An action the agent may not take alone (`PRO-005`; a task classified
 irreversible under `PRO-016`); or a ruling the Oracle issues that asserts a
 fact about the repository. Executor: the agent for the request, the Oracle
 for the ruling, the agent again for its execution.
 
-## 2. Procedure
+## 2. Preconditions
+
+- A direct channel to the Oracle.
+- Every artefact the request names already pushed, so each has a web
+  address.
+- For a ruling: the repository in a state the executor can measure.
+
+## 3. Procedure
 
 **Request**
 
@@ -86,7 +93,7 @@ for the ruling, the agent again for its execution.
 9. **Record the correction where the ruling was issued:** fact asserted,
    measurement, outcome.
 
-## 3. Verification
+## 4. Verification
 
 | Check | Evidence |
 |---|---|
@@ -94,7 +101,7 @@ for the ruling, the agent again for its execution.
 | Ruling checkable | at least one falsifiable fact stated, or *preference* declared |
 | Ruling verified | the measuring command in the executor's report |
 
-## 4. Escalation
+## 5. Escalation
 
 No answer within the score's window: after 48 hours, only the reversible
 option, as `PRO-005` step 6 says. A ruling that asserts a repository fact

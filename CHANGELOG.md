@@ -19,6 +19,14 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (every protocol has the five parts)
+At the Oracle's word in session ("ok go"), after a review of the sixteen protocols: they should all read alike before any more of them come into force.
+- **Nine protocols take the mould's five parts:** purpose and trigger, preconditions, procedure, verification, escalation (`machine/templates/PRO-TEMPLATE.md`). Session (`PRO-001`), escalation (`PRO-005`), approval (`PRO-008`), security audit (`PRO-011`), guard to CI (`PRO-013`), design piece (`PRO-014`), engineering standard (`PRO-016`), weekly roll-up (`PRO-017`) and publishing (`PRO-018`) had four, under a heading called Trigger. Each gains a Preconditions section naming what must be true before step 1; no step changes. Minor bump each.
+- **Handing a guard to CI and publishing a repository number their steps.** Their procedures were tables; they are now numbered lists, with the same step numbers, so the retired-plates ledger still points at the right step.
+- **Seven blueprints (`BLU-009` to `BLU-015`) cited the design checklist as `PRO-014` §4.** That section was escalation. They now cite step 6. Patch bump each.
+- **Not in this change:** running a mission (`PRO-003`) stays as it is while missions are suspended; joining and leaving (`PRO-015`) and the living pieces (`PRO-022`, over its length budget) are reshaped next, in their own change.
+- **Mechanism:** two tests in `regime.test.mjs`, committed first and seen failing on the nine: every protocol has the five parts in order, and its procedure is a numbered list.
+
 ### Added — 2026-09-27 (Books)
 At the Oracle's word in session ("genial"): the compilations are not series and belong to no one function, so they get a menu of their own.
 - **A Books menu in the bar and the mobile panel**, read from one list (`BOOKS` in `web/src/lib/suma.ts`): the core and the design system, with the role-playing manual and the legal playbook listed as coming (each says why it is not served yet).

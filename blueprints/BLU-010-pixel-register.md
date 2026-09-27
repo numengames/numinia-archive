@@ -4,9 +4,9 @@ uid: ""
 title: "The pixel register"
 type: blueprint
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-09T12:00:00+02:00"
+updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -164,7 +164,7 @@ An interactive object MUST be locatable through at least two channels: silhouett
 
 ## Check
 
-After the general checklist of `PRO-014` §4, and before delivering:
+After the general checklist in step 6 of `PRO-014`, and before delivering:
 
 - [ ] Píxel-16 only, neutrals ≥60 %, Grana without dialogue, 12/24/48 grid, integer scaling with `pixelated`, Noche outline, Pixelify at multiples, the canonical scarab sprite; full register entry and exit; never in level III.
 - [ ] Produced at ×1: legible silhouette, continuous clusters, regular diagonals, no *pillow shading*, top-left light, 2–4 colours per material, dithering only between adjacent colours, no decorative loose pixels.
