@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "db957ae",
-  "corpus_hash": "cc2f57cde3f81cdacff99011599fd425bcdfa02ef5f2f7d7dd97e904282af713",
+  "head": "93b1f2b",
+  "corpus_hash": "27b0d4e74b87f9d5550b8f2fad471fcea9ad589ae6e94b4409f63d1f9b22a1d8",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T09:37:26Z",
+  "measured_at": "2026-09-27T09:38:50Z",
   "families": [
     "corpus",
     "series",
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 883130,
+      "value": 883272,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,7 +336,7 @@
       "value": {
         "lore": 495248,
         "standards": 64130,
-        "": 46851,
+        "": 46993,
         "missions": 45717,
         "decisions": 39440,
         "reports": 29342,
@@ -357,9 +357,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 542181,
-        "draft": 169444,
-        "active": 124300,
+        "(none)": 542323,
+        "draft": 163546,
+        "active": 130198,
         "done": 26539,
         "todo": 15975,
         "in-progress": 4691
@@ -380,7 +380,7 @@
         ],
         [
           "CHANGELOG.md",
-          39856
+          39998
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -614,8 +614,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 74,
-        "draft": 102,
+        "active": 77,
+        "draft": 99,
         "done": 6,
         "todo": 6,
         "in-progress": 1
@@ -660,7 +660,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1073
+          "3": 1076
         },
         "MIS": {
           "3": 687,

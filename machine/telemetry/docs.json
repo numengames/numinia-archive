@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 149068,
+  "chars": 149615,
   "apparatus": false,
   "archived": false,
-  "tokens": 39856
+  "tokens": 39998
  },
  {
   "path": "CLAUDE.md",
@@ -2259,8 +2259,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 12132,
+  "status": "active",
+  "chars": 12133,
   "apparatus": false,
   "archived": false,
   "tokens": 3317
@@ -2314,8 +2314,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 5048,
+  "status": "active",
+  "chars": 5049,
   "apparatus": false,
   "archived": false,
   "tokens": 1290
@@ -2336,8 +2336,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 5055,
+  "status": "active",
+  "chars": 5056,
   "apparatus": false,
   "archived": false,
   "tokens": 1291
