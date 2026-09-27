@@ -4,9 +4,9 @@ uid: ""
 title: "Building the living pieces"
 type: protocol
 status: draft
-version: "0.1.3"
+version: "0.2.0"
 created: "2026-09-26T18:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -61,7 +61,10 @@ value that is not there is proposed there first.
 
 1. **Draw the five tiers.** Weights, radii and colours from `STD-023` §15,
    no other colour.
-2. **Animate it as it stands in production.** **175 stars**; drift of `±0.06 px` per frame with reappearance on the opposite side; **alpha breathing** between `.05` and `.85`, each star at its own rhythm (`.002–.006` per frame); reseeding on resize.
+2. **Animate it as it stands in production.** **175 stars**; drift of `±0.06 px` per frame with
+   reappearance on the opposite side; alpha breathing between `.05` and
+   `.85`, each star at its own rhythm (`.002–.006` per frame);
+   reseeding on resize.
 3. **Draw it in Nocturno.** As built today, Diurno has no sky.
 4. **Stop it under `prefers-reduced-motion`.** The stars stay fixed at mid
    alpha.
@@ -82,24 +85,39 @@ Velo does not exist, same logic as the relief.
 
 ### 3.3 Reading aloud — the dock, the ruler, the ink
 
-Verified in production on the document pages of the archive's site, in its
-player that reads a page aloud. Four patterns, each built to fix something a
-reader actually hit, and each reusable wherever a piece plays through a text
-or a timeline. The numbers are `STD-023` §22.
+Every number here is `STD-023` §22; the reasons each pattern was chosen are
+in the history of that section and of this one.
 
-| Pattern | Value | Why |
-|---|---|---|
-| **The reader leads** | The page follows the voice only until the reader scrolls. From then on the voice keeps going and a *Back to the reading* control appears above the dock, its arrow pointing to where the voice is. Reaching the word again by hand re-arms the following. | A player that drags the page takes the reader's scroll away; reading ahead or going back while it speaks was a fight. The reader owns the scroll, always. One scroll per page: the page's. |
-| **The dock** | Surfaces at the bottom while playing (surfacing, 10); `velo.cristal` + `velo.cristal-borde`, frame radius, the width of the text column. Play/pause · section name · time in mono · ruler · rate · close. The entry point in the page stays quiet: hairline and dim text until it plays. | It reads as part of the document's card, not a widget laid over it. Controls that follow the reader beat a toolbar left behind at the top. |
-| **The ruler** | A hairline with a fine mark every ~1/90 of its width, a longer mark at each section, the heard part printed in a halftone of Verdemar (dots 2.1 px on a 4 px pitch, fading in from 35 %). Hover shows time · section and the first words of the sentence; a drop starts at the **head of that sentence**; arrows step sentence by sentence. | Not a loading bar: a 1920 print ruler — paper and press (1920), a signal you can scrub (2020), light over glass (2120). Landing mid-sentence is noise; sentences are the unit a listener thinks in. |
-| **Drying ink** | What the voice has passed keeps **its own colour** and loses brightness in three steps: the last 3 words at 80 %, the 6 before at 65 %, the rest at 50 % of the ink's alpha. Painted with the CSS Custom Highlight API, one highlight per ink colour and step, never with spans. Under `prefers-contrast: more` nothing dries. | Read text recedes like ink that has set, so the eye finds the present without a highlight shouting it — and it stays ink: a link still reads as a link, a bold as a bold (a first version turned everything one grey and the page went dull; a second, keeping colour at 75 %, was too subtle to notice). It is a **state, not an animation**: the colour of text is never transitioned. No DOM is touched, so browser translation and text selection survive. |
-| **The reading light** | A diffuse light in Arena (`--text`, never pure white, 14 px) with a small core of ink at its centre, drifting just above the spoken word, with a soft trail of 12 fading copies; critically damped spring (k 90), sliding along the word as it is spoken; dims to 45 % on pause. Its position is estimated by **spoken** weight (a figure weighs what it takes to say) and re-synced at the end of every sentence, the unit the engine speaks. The ruler's head is the same light. | The old amber dot hopped word to word and competed with the Ámbar that marks what shines. Arena is the page's own ink colour: the light belongs to the text; the core lets a reader with low vision follow it. Under `prefers-reduced-motion` it jumps, with no trail and no drift. |
-
-**Touch to hear.** While the voice is on, a click on a sentence starts it there (links, buttons and a selection keep their meaning). **Speeds** step 1 · 1.25 · 1.5 · 2 · 0.75 from one button — the first step gentle, no 1.75, a slower one for learners — and the chosen speed follows the reader across documents. **The ruler's preview is dark glass**, like the dock: a recorded exception to the web recipe's rule that a tooltip takes the opposite mode, because white paper over the reading dazzles in Nocturno.
-
-**Icons over words in document tools.** Copy, download and source are
-glyphs, each with a name a screen reader says and a tooltip in the opposite
-mode; the words added nothing a reader of the glyph did not already know.
+1. **The reader leads.** The page follows the voice only until the
+   reader scrolls. From then on the voice keeps going and a *Back to the
+   reading* control appears above the dock, pointing to where the voice is;
+   reaching the word again by hand re-arms the following. One scroll per
+   page: the page's.
+2. **Build the dock.** It surfaces at the bottom while playing, in
+   `velo.cristal` with `velo.cristal-borde`, at the width of the text
+   column: play or pause, section name, time in mono, ruler, rate, close.
+   The entry point in the page stays quiet until it plays.
+3. **Build the ruler.** A hairline with a fine mark along it and a longer
+   mark at each section; the heard part in the halftone of §22. Hover shows
+   time, section and the first words of the sentence; a drop starts at the
+   head of that sentence; arrows step sentence by sentence.
+4. **Dry the ink.** What the voice has passed keeps its own colour and
+   loses brightness in the three steps of §22, painted with the CSS Custom
+   Highlight API, never with spans, so translation and selection survive.
+   It is a state, not an animation. Under `prefers-contrast: more` nothing
+   dries.
+5. **Light the word.** The reading light of §22 drifts just above the
+   spoken word, placed by spoken weight and re-synced at the end of every
+   sentence. The ruler's head is the same light. Under
+   `prefers-reduced-motion` it jumps, with no trail.
+6. **Let a touch start the voice.** While it plays, a click on a sentence
+   starts it there; links, buttons and a selection keep their meaning. One
+   button steps through the speeds of §22, and the chosen speed follows the
+   reader across documents.
+7. **Use glyphs for the document tools.** Copy, download and source are
+   icons, each with a name a screen reader says and a tooltip. The ruler's
+   preview is dark glass like the dock, an exception to the opposite-mode
+   tooltip because white over the reading dazzles in Nocturno.
 
 ---
 

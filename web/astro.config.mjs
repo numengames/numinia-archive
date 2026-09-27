@@ -149,6 +149,7 @@ export default defineConfig({
 		"/protocols/p-004-inter-agent-v1": "/protocols/pro-003-mission-cycle",
 		"/protocols/p-005-escalation-v1": "/protocols/pro-005-escalation",
 		"/protocols/p-006-session-close-v1": "/protocols/pro-001-agent-session",
+		"/protocols/pro-015-joining-and-leaving": "/protocols/pro-015-joining",
 		"/protocols/p-007-context-load-v1": "/protocols/pro-001-agent-session",
 		"/protocols/p-008-approval-brief-v1": "/protocols/pro-008-decision",
 		"/protocols/p-009-mission-briefing": "/protocols/pro-003-mission-cycle",

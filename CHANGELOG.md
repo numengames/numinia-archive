@@ -19,6 +19,13 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (joining and leaving, two protocols; the living pieces, thinner)
+At the Oracle's word in session ("ok", on splitting it and keeping only what the house does today).
+- **`PRO-015` *Joining and leaving Numinia* becomes two protocols, each with the mould's five parts.** `PRO-015` *Joining Numinia* (2.0.0, a major: its obligations change) and a new `PRO-024` *Leaving Numinia* (0.1.0). The old text was a corporate onboarding and offboarding plan: tools the archive names nowhere else (Huly, Microsoft 365, AWS, a VPN), a *buddy* no other document knows, titles in Spanish, 1,472 words. What stays is what a house of this size does: the agreement before any access, one access list per person opened on the way in and revoked from on the way out, secrets rotated when someone leaves, personal data closed as `STD-035` says, a welcome and a goodbye. The access list is the handover between the two.
+- **`PRO-022` *Building the living pieces* 0.2.0.** The reading-aloud part was a four-row table restating the numbers and the history of `STD-023` §22. It is now seven numbered steps that cite §22 for every value; no number or behaviour changes. 1,285 words → 881.
+- `/protocols/pro-015-joining-and-leaving` redirects to `/protocols/pro-015-joining`. `CAN-001` names `PRO-024` among its related documents (patch).
+- **Mechanism:** in `regime.test.mjs`, committed first and seen failing on both: joining and leaving leaves the mould test's exclusion, and a new test fails on any protocol over 900 words.
+
 ### Changed — 2026-09-27 (every protocol has the five parts)
 At the Oracle's word in session ("ok go"), after a review of the sixteen protocols: they should all read alike before any more of them come into force.
 - **Nine protocols take the mould's five parts:** purpose and trigger, preconditions, procedure, verification, escalation (`machine/templates/PRO-TEMPLATE.md`). Session (`PRO-001`), escalation (`PRO-005`), approval (`PRO-008`), security audit (`PRO-011`), guard to CI (`PRO-013`), design piece (`PRO-014`), engineering standard (`PRO-016`), weekly roll-up (`PRO-017`) and publishing (`PRO-018`) had four, under a heading called Trigger. Each gains a Preconditions section naming what must be true before step 1; no step changes. Minor bump each.
