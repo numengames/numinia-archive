@@ -9,8 +9,8 @@
 //
 //   subtype: register — a lookup table (the header fields, the licence
 //     allowlist). It governs nobody by itself; the standard pointing at it
-//     does. The guard skips it: `if (!register && NEEDS_PLATES.has(dir))`.
-//   canon/ — not in NEEDS_PLATES at all. A canon says why things are as they
+//     does. The guard skips it: `if (!register && NEEDS_BINDS.has(dir))`.
+//   canon/ — not in NEEDS_BINDS at all. A canon says why things are as they
 //     are, and a reason binds everyone who leans on it.
 //
 // What the guard does NOT do is fail: DOC-003 is a SHOULD, reported under
@@ -113,6 +113,18 @@ test('DOC-004: plates in the rule titles still satisfy the rule', () => {
 test('DOC-004: no plate in either place is still a finding', () => {
   const text = std('**A rule in words.** Everyone MUST do it.', '| Rule | Verified by |\n|---|---|\n| A rule in words | by hand |');
   assert.equal(findings(text, 'DOC-004').length, 1);
+});
+
+test('DOC-004: a protocol is numbered steps and needs no plate', () => {
+  const pro = [
+    '---', 'id: "PRO-900"', 'type: protocol', 'status: draft', '---', '',
+    '# Doing a thing', '',
+    '> **Summary:** s.', '> **Epistemic:** What must be true first?', '> **Pragmatic:** p.', '',
+    '**Binds:** whoever does the thing.', '',
+    '## 1. Procedure', '', '1. **Do it.** The command.', '',
+  ].join('\n');
+  const f = run(scratch({ 'protocols/PRO-900-doing-a-thing.md': pro })).filter((x) => x.plate === 'DOC-004');
+  assert.deepEqual(f, []);
 });
 
 test('DOC-008: an identifier in the Check table is apparatus, not prose', () => {

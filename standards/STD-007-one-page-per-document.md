@@ -5,9 +5,9 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: draft
-version: "2.0.1"
+version: "2.1.0"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Content"
@@ -59,10 +59,11 @@ scope clause. A reader then knows in one line whether to read on.
 
 ### The rules and their reasons
 
-**Rules come first, and each has its code.** Every rule MUST be one
-obligation, with one capitalised obligation word and a code of three
+**Rules come first, and each has its code.** Every rule of a standard MUST
+be one obligation, with one capitalised obligation word and a code of three
 letters and three digits. The code is unique, never reused, and sits in the
-rule's title or the check table. Requirements engineering asks exactly
+rule's title or the check table. A protocol holds no rules: it is numbered
+steps, and the rules its steps apply live in the standards it cites. Requirements engineering asks exactly
 this, so each rule can be cited, tested and traced alone. A retired code
 moves from the check table to the ledger of retired codes, which says where
 its obligation went.

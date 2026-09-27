@@ -14,7 +14,7 @@
 // DOC-001  title ≤ 5 words                              SHOULD
 // DOC-002  card: Summary / Epistemic / Pragmatic         present (MUST), ≤ 40 words each (SHOULD)
 // DOC-003  scope: one Binds line                        present (MUST), ≤ 15 words (SHOULD)
-// DOC-004  ≥ 1 plated rule in standards & protocols     MUST — a plate in a rule
+// DOC-004  ≥ 1 plated rule in standards (protocols are steps)     MUST — a plate in a rule
 //          title, or in the first column of the `## Check` table (platesIn)
 // DOC-005  Why ≤ 80 words                               SHOULD
 // DOC-006  body ≤ the series' budget                    SHOULD
@@ -47,7 +47,10 @@ const BUDGET = {
   canon: 1500,
 };
 const CAP = { title: 5, card: 40, scope: 15, why: 80, refs: 5 };
-const NEEDS_PLATES = new Set(['standards', 'protocols']);
+const NEEDS_BINDS = new Set(['standards', 'protocols']);
+// A protocol is carried out, not complied with (STD-024): numbered steps, no
+// plated rules. Only a standard needs a plate.
+const NEEDS_PLATES = new Set(['standards']);
 
 const words = (s) => (s.trim() ? s.trim().split(/\s+/).length : 0);
 
@@ -97,7 +100,7 @@ function shape(rel, text, fm) {
 
   // DOC-003 scope
   const binds = /^\*\*Binds:\*\*\s*(.+)$/m.exec(body);
-  if (!register && NEEDS_PLATES.has(dir) && !binds) must('DOC-003', 'S-03 no **Binds:** line');
+  if (!register && NEEDS_BINDS.has(dir) && !binds) must('DOC-003', 'S-03 no **Binds:** line');
   if (binds && words(binds[1]) > CAP.scope) should('DOC-003', `S-03 Binds is ${words(binds[1])} words (≤ ${CAP.scope})`);
 
   // Body: after scope (or card) up to ## References

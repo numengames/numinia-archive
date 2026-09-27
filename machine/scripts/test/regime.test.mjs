@@ -19,7 +19,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
 import * as regime from '../lib/regime.mjs';
-const { loadHolders, holderOf, bindsFor, Findings } = regime;
+const { loadHolders, holderOf, bindsFor, Findings, platesIn } = regime;
 
 import test from 'node:test';
 /* A case returns true, false, or a string: a string starting `skipped:` is a
@@ -218,5 +218,49 @@ check('tree: the apparatus is thin — no series_change, no retired row; retired
   for (const plate of Object.keys(ledger)) {
     if (index.byPlate.has(plate)) return `${plate} is retired in the ledger and held by ${index.byPlate.get(plate)}`;
   }
+  return true;
+});
+
+check('tree: a protocol is steps — no Rules section, no plate, and its Epistemic line is its question', () => {
+  // A protocol is carried out, a standard is complied with (STD-024). The
+  // rules a protocol used to carry either moved to the standard that holds
+  // the thing, or became steps; their plates went to the ledger.
+  // Running a mission (PRO-003) is left as it is, in draft, by the Oracle's
+  // word (2026-09-27): missions are suspended by the transition regime.
+  const dir = path.join(ROOT, 'protocols');
+  const bad = [];
+  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !n.startsWith('PRO-003-'))) {
+    const text = readFileSync(path.join(dir, f), 'utf-8');
+    const body = text.slice(text.indexOf('\n---', 3) + 4);
+    if (/^##\s+(?:\d+\.\s*)?Rules\b/m.test(body)) bad.push(`${f}: a Rules section`);
+    const plates = platesIn(body);
+    if (plates.length) bad.push(`${f}: holds ${plates.join(', ')}`);
+    const card = body.split('\n').filter((l) => l.startsWith('>')).map((l) => l.replace(/^>\s?/, '')).join(' ');
+    const epi = /\*\*Epistemic:\*\*\s*(.*?)(?=\*\*[A-Z][a-z]+:\*\*|$)/.exec(card)?.[1]?.trim() ?? '';
+    if (!epi.endsWith('?')) bad.push(`${f}: Epistemic line is not a question`);
+  }
+  return bad.length === 0 || bad.join('; ');
+});
+
+check('tree: the protocol plates are retired in the ledger, and no living text cites one', () => {
+  const RETIRED = ['SES', 'ESC', 'APV', 'GRD', 'DSP', 'TSK', 'RUP', 'RLS', 'RIT', 'SAL', 'MON'];
+  const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/retired-plates.json'), 'utf-8')).plates;
+  for (const p of RETIRED) {
+    if (!Object.keys(ledger).some((k) => k.startsWith(`${p}-`))) return `no ${p}- plate in the ledger`;
+    if (index.byPrefix.has(p)) return `${p} is still held by ${[...index.byPrefix.get(p)].join(', ')}`;
+  }
+  const RE = new RegExp(`\\b(?:${RETIRED.join('|')})-\\d{3}\\b`);
+  const files = execFileSync('git', ['-C', ROOT, 'ls-files', 'AGENTS.md', 'CLAUDE.md', 'CONTRIBUTING.md',
+    'agents', 'canon', 'standards', 'protocols', 'system', 'web/src', 'machine/templates'], { encoding: 'utf-8' })
+    .split('\n').filter((f) => /\.(md|ts|astro|mjs)$/.test(f));
+  const hits = [];
+  for (const f of files) readFileSync(path.join(ROOT, f), 'utf-8').split('\n').forEach((l, i) => { if (RE.test(l)) hits.push(`${f}:${i + 1}`); });
+  return hits.length === 0 || `retired protocol plates cited: ${hits.join(', ')}`;
+});
+
+check('tree: the security audit keeps no rules of its own — the secrets standard and the checks register hold them', () => {
+  const pro = readdirSync(path.join(ROOT, 'protocols')).find((f) => f.startsWith('PRO-011-'));
+  const text = readFileSync(path.join(ROOT, 'protocols', pro), 'utf-8');
+  if (/^\*\*SEC-\d{3}/m.test(text)) return `${pro} still titles a rule with an SEC plate, the code of an Engineering checks row`;
   return true;
 });

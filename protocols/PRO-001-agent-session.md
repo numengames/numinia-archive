@@ -4,18 +4,18 @@ uid: ""
 title: "Opening and closing a session"
 type: protocol
 status: draft
-version: "1.0.2"
+version: "2.0.0"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-09-26T14:43:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, briefing, startup, session, close, context, mandatory]
 applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
-related: ["PRO-003", "PRO-016", "OPS-008", "OPS-009", "SYS-001"]
+related: ["PRO-005", "PRO-016", "STD-020", "STD-022"]
 ---
 
 <!--
@@ -25,12 +25,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # PRO-001 — Opening and closing a session
 
-> **Summary:** The life of an agent session: how it opens, how its context
-> load is watched, how it closes. Mandatory, no exceptions.
-> **Epistemic:** An agent without context has no direction; an agent that
-> never stops degrades; a session that did not commit did not happen.
-> **Pragmatic:** Opening at the start of every session, monitoring
-> throughout, closing at the end.
+> **Summary:** The life of an agent session: how it opens, what it works
+> from, how it closes. Mandatory, no exceptions.
+> **Epistemic:** What does an agent do when a session opens, and what must be true before it ends?
+> **Pragmatic:** Opening at the start of every session, closing at the end.
 > **Audience:** Agents
 
 **Binds:** every agent, in every session, whatever the mission.
@@ -38,78 +36,64 @@ SPDX-License-Identifier: CC0-1.0
 ## 1. Trigger
 
 A session starts; a session is about to end, to be interrupted, or to hand
-its mission to another agent. Executor: the agent.
+its work to another agent. Executor: the agent.
 
-## 2. Rules
+## 2. Procedure
 
-**SES-042 — Sync before anything.** A session MUST begin with the trunk
-pulled, before any read or write. New commits mean `CHANGELOG.md` is read.
+**Open** — before any read or write, and urgency skips none of it.
 
-**SES-001 — Identity before action.** The agent MUST read its own
-`SOUL.md` and `OPERATOR.md` before acting. Urgency does not skip this;
-urgency is the protocol's enemy.
+1. **Pull the trunk.** If it brought new commits, read `CHANGELOG.md`.
+2. **Read your identity.** If you have an `agents/<name>/` folder, read
+   your `SOUL.md` and `OPERATOR.md` before acting.
+3. **Read `AGENTS.md`.** It states what binds today.
+4. **Audit the branch before trusting it.** Read what is actually checked
+   out; never assume it matches `AGENTS.md`, a README or the brief.
+5. **Work from the checked-out tree.** Never from a copy pasted elsewhere.
+6. **Read what governs what you touch, only that.** The standard that
+   governs the artefact; the protocol the task needs; `canon/` only for an
+   explicit philosophical question. A question no document answers is a
+   gap: escalate it (`PRO-005`), do not fill it.
 
-**SES-002 — The board before the work.** The agent MUST check the missions
-`in-progress` assigned to it and those `in-review` awaiting the Oracle. A
-new mission starts with its briefing (`PRO-003`), never with execution.
+**During**
 
-**SES-003 — Read what the mission names, only that.** The protocol the
-mission cites; the standard that governs the artefact it touches; `canon/`
-only for an explicit philosophical question. A question no document
-answers is a gap: escalated (`PRO-005`), not filled.
+7. **Say when you have lost track.** If the session has grown long and you
+   can no longer hold its thread, tell the operator and recap — done,
+   current state, pending — rather than continue blind; close if he agrees.
 
-**SES-044 — From the tree, never from a paste.** The agent works from the
-corpus as checked out, not from a copy pasted elsewhere.
+**Close** — what is not written did not happen; a mental note is not
+persistence.
 
-**SES-004 — Load is reported, not endured.** At context load 7 or above
-the agent MUST tell the operator, recapitulate — done, current state,
-pending — and close if the operator agrees.
+8. **Write down decisions.** A decision the operator stated in chat goes in
+   the `CHANGELOG.md` entry and the commit body.
+9. **Commit and push the branch.** Without commit and push there is no
+   valid close.
+10. **Open the pull request.** The trunk is reached by pull request
+    (`STD-020`); never merge it yourself.
+11. **Tell the operator in chat** what changed, what is verified and what
+    is left, with the pull request's address.
 
-**SES-005 — What is not written did not happen.** Before close, decisions
-taken go to `decisions/` or to the mission; missions in progress get their
-`divergence_log` updated; where to pick up goes to `OPS-008`. A mental
-note is not persistence.
+Secrets are handled as `STD-022` says, in every session.
 
-**SES-043 — Close is a commit.** A session ends with its record committed
-and the branch pushed; the trunk is reached by pull request (`STD-020`).
-Without commit and push there is no valid close.
-
-## 3. Procedure
-
-**Open.** 1 pull (`SES-042`). 2 `SOUL.md`, `OPERATOR.md` (`SES-001`).
-3 `OPS-009` every session; `STD-009`, `STD-017..022` if not read within
-seven days. 4 the board (`SES-002`). 5 what the mission names (`SES-003`).
-
-**Monitor.** Score the load: over four hours +2; more than five topics +2;
-over twenty tool calls +1; more than three architectural decisions +2;
-cannot recall the start +2. 1–6 operable; 7–8 warn (`SES-004`); 9–10 close
-now.
-
-**Close.** Inventory (`SES-005`); commit, push, open the pull request
-(`SES-043`); declare it — agent, timestamp, missions still active,
-recommended next step.
-
-## 4. Verification
+## 3. Verification
 
 | Check | Evidence |
 |---|---|
 | Synced | `git log -1 origin/main` equals the local trunk at open |
-| Persisted | `divergence_log` dated today on every in-progress mission |
-| Closed | the closing commit is on a pushed branch with a pull request |
+| Closed | the closing commit is on a pushed branch with an open pull request |
+| Reported | the closing chat message: changed, verified, left |
 
-`SES-042`, `SES-043`, `SES-044` are executed by hand: sync, close and
-source leave no artefact a guard can read.
+Sync, source and close are executed by hand: they leave no artefact a guard
+can read.
 
-## 5. Escalation
+## 4. Escalation
 
-Load at 9 without the operator answering: close anyway (`SES-043`), state
-in `OPS-008` why. A mission assigned that has no briefing: `PRO-005`.
+Lost track and the operator does not answer: close anyway (steps 8–10) and
+say in the pull request why. A task whose instruction is unclear: `PRO-005`.
 
 ## References
 
 | Document | Title | Why it obliges here |
 |---|---|---|
-| `PRO-003` | Mission cycle | the briefing a new mission opens with |
-| `OPS-008` | Session state | where to pick up is written at close |
-| `OPS-009` | Secrets handling | read every session |
-| `SYS-001` | CAO architecture | the protocol chain a session runs through |
+| `PRO-005` | Escalating to the Oracle | where a gap or an unclear task goes |
+| `STD-020` | Git is the archive | the trunk is reached by pull request |
+| `STD-022` | Secrets | how secrets are handled in every session |

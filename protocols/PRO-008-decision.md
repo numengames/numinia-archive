@@ -4,9 +4,9 @@ uid: ""
 title: "Requesting approval, issuing rulings"
 type: protocol
 status: draft
-version: "4.0.2"
+version: "5.0.0"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-26T14:43:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
@@ -28,7 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** The two directions of the decision interface: how an agent
 > requests approval, and how the Oracle issues a ruling that can be caught
 > when wrong.
-> **Epistemic:** What makes a decision checkable rather than merely obeyed.
+> **Epistemic:** How does an agent ask for approval, and how is a ruling given so it can be checked?
 > **Pragmatic:** Before any action needing human approval, and when issuing
 > or executing a ruling.
 > **Audience:** Agents · Oracles
@@ -38,50 +38,28 @@ agent executing one.
 
 ## 1. Trigger
 
-An action the agent may not take alone (`PRO-005`, `TSK-002`); or a ruling
-the Oracle issues that asserts a fact about the repository. Executor: the
-agent for the request, the Oracle for the ruling, the agent again for its
-execution.
+An action the agent may not take alone (`PRO-005`); or a ruling the Oracle
+issues that asserts a fact about the repository. Executor: the agent for
+the request, the Oracle for the ruling, the agent again for its execution.
+The operator's go on a plan in chat covers its commits, push and pull
+request: no second request before pushing.
 
-## 2. Rules
+## 2. Procedure
 
-**APV-001 — A request is a complete unit.** Every approval request MUST
-carry agent, mission, context, exact action, epistemic and pragmatic
-effect, what happens without an answer, and a score.
+**Request**
 
-**APV-002 — Every artefact carries its web address.** Anything presented
-for a decision MUST link its canonical address, next to its first mention.
-Never a filesystem path.
-
-**APV-003 — The score guides attention, not responsibility.** The agent
-proposes; the person decides, at any score. No agent MAY modify the scale.
-
-**APV-004 — Seven and above is a document.** A request scored 7+ MUST be a
-document, adding the discarded alternatives, what a good and a bad outcome
-would reveal, the impact at a day and a week, and reversibility.
-
-**APV-005 — A ruling states what would make it wrong.** The issuer MUST
-name the facts the ruling depends on, in checkable form, and what to do if
-one is false; the default is stop and report. *Use this prefix, it is
-unused in the corpus* can be checked; *use this prefix* cannot.
-
-**APV-006 — The executor verifies before executing.** Every stated fact
-MUST be measured, the command in the report. If one is false, the executor
-MUST stop before any file changes.
-
-**APV-007 — The correction lives with the decision.** A ruling caught by
-its condition MUST be recorded where it was issued: fact asserted,
-measurement, outcome.
-
-**APV-008 — Facts, not reasoning.** The executor checks the stated facts,
-not the priorities. If the facts hold, it executes — including when it
-disagrees. Rulings of preference carry no condition.
-
-## 3. Procedure
-
-**Request.** Execution (carries the command) or design (carries a
-proposal). Header `APPROVAL REQUEST — Score {X}/10`, then the `APV-001`
-fields, then `Approve? Yes / No / Defer / Modify`.
+1. **Send one complete request.** Header `APPROVAL REQUEST — Score {X}/10`;
+   then agent, task, context, the exact action (a command) or proposal (a
+   design), its epistemic and pragmatic effect, and what happens without an
+   answer; then `Approve? Yes / No / Defer / Modify`.
+2. **Link every artefact by its web address** next to its first mention —
+   never a filesystem path.
+3. **Score it on the scale below.** The score guides attention, not
+   responsibility: the agent proposes, the person decides, at any score.
+   Do not modify the scale.
+4. **At 7 or above, write a document.** Add the discarded alternatives,
+   what a good and a bad outcome would reveal, the impact at a day and a
+   week, and reversibility.
 
 | Score | Level | Answer within |
 |---|---|---|
@@ -91,22 +69,37 @@ fields, then `Approve? Yes / No / Defer / Modify`.
 | 9 | systemic — canon, operator, security | immediate |
 | 10 | foundational — irreversible, reputation, money | immediate, and a meeting |
 
-**Ruling.** Issuer states facts and fallback (`APV-005`); executor measures
-(`APV-006`); if false, reports which fact and what was measured; correction
-recorded (`APV-007`).
+**Ruling**
 
-## 4. Verification
+5. **State what would make it wrong.** The issuer names the facts the
+   ruling depends on, in checkable form, and what to do if one is false;
+   the default is stop and report. *Use this prefix, it is unused in the
+   corpus* can be checked; *use this prefix* cannot. A ruling of preference
+   carries no condition and is declared as preference.
+6. **Measure before executing.** The executor measures every stated fact
+   and puts the command in its report.
+7. **Stop if a fact is false,** before any file changes; report which fact
+   and what was measured.
+8. **Execute if the facts hold** — including when you disagree. Check the
+   facts, not the priorities.
+9. **Record the correction where the ruling was issued:** fact asserted,
+   measurement, outcome.
+10. **Record a decision stated in chat** in the `CHANGELOG.md` entry and
+    the commit body; no decision record.
+
+## 3. Verification
 
 | Check | Evidence |
 |---|---|
-| Request complete | every `APV-001` field present; addresses resolve |
+| Request complete | every field of step 1 present; addresses resolve |
 | Ruling checkable | at least one falsifiable fact stated, or *preference* declared |
 | Ruling verified | the measuring command in the executor's report |
 
-## 5. Escalation
+## 4. Escalation
 
-No answer within the score's window: `ESC-003`. A ruling that asserts a
-repository fact without stating it: returned to the issuer before execution.
+No answer within the score's window: after 48 hours, only the reversible
+option, as `PRO-005` step 6 says. A ruling that asserts a repository fact
+without stating it: return it to the issuer before execution.
 
 ## References
 

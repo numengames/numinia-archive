@@ -1,6 +1,38 @@
 {
   "$comment": "Retired plates, one ledger. A plate retired from a rule document is never reused (IDN-014 of One document, one identifier; DOC-001 of One page per document); it leaves the document's Check table and is written here, with the document that held it and the rule that holds its obligation now. regime.test.mjs fails if a plate listed here is held again. Moved here 2026-09-26 from the retired rows of each standard.",
   "plates": {
+    "APV-001": {
+      "was": "PRO-008 Requesting approval, issuing rulings",
+      "now": "step 1 of Requesting approval, issuing rulings"
+    },
+    "APV-002": {
+      "was": "PRO-008 Requesting approval, issuing rulings",
+      "now": "step 2 of Requesting approval, issuing rulings"
+    },
+    "APV-003": {
+      "was": "PRO-008 Requesting approval, issuing rulings",
+      "now": "step 3 of Requesting approval, issuing rulings"
+    },
+    "APV-004": {
+      "was": "PRO-008 Requesting approval, issuing rulings",
+      "now": "step 4 of Requesting approval, issuing rulings"
+    },
+    "APV-005": {
+      "was": "PRO-008 Requesting approval, issuing rulings",
+      "now": "step 5 of Requesting approval, issuing rulings"
+    },
+    "APV-006": {
+      "was": "PRO-008 Requesting approval, issuing rulings",
+      "now": "steps 6 and 7 of Requesting approval, issuing rulings"
+    },
+    "APV-007": {
+      "was": "PRO-008 Requesting approval, issuing rulings",
+      "now": "step 9 of Requesting approval, issuing rulings"
+    },
+    "APV-008": {
+      "was": "PRO-008 Requesting approval, issuing rulings",
+      "now": "step 8 of Requesting approval, issuing rulings"
+    },
     "ARC-003": {
       "was": "STD-015 Engineering checks",
       "now": "LIC-007, each repository says its terms in the common format"
@@ -49,6 +81,26 @@
       "was": "STD-008 Design tokens",
       "now": "SIT-003 of What every site carries"
     },
+    "DSP-001": {
+      "was": "PRO-014 Producing a design piece",
+      "now": "step 1 of Producing a design piece"
+    },
+    "DSP-002": {
+      "was": "PRO-014 Producing a design piece",
+      "now": "step 3 of Producing a design piece"
+    },
+    "DSP-003": {
+      "was": "PRO-014 Producing a design piece",
+      "now": "step 4 of Producing a design piece"
+    },
+    "DSP-004": {
+      "was": "PRO-014 Producing a design piece",
+      "now": "step 2 of Producing a design piece"
+    },
+    "DSP-005": {
+      "was": "PRO-014 Producing a design piece",
+      "now": "step 5 of Producing a design piece"
+    },
     "ENG-003": {
       "was": "STD-005 When a rule bites",
       "now": "GIT-025 of Git is the archive, small batches by pull request on one trunk"
@@ -89,6 +141,26 @@
       "was": "STD-005 When a rule bites",
       "now": "TRC-004 of Engineering checks, the changelog is written for people"
     },
+    "ESC-001": {
+      "was": "PRO-005 Escalating to the Oracle",
+      "now": "step 1 of Escalating to the Oracle"
+    },
+    "ESC-002": {
+      "was": "PRO-005 Escalating to the Oracle",
+      "now": "step 4 of Escalating to the Oracle"
+    },
+    "ESC-003": {
+      "was": "PRO-005 Escalating to the Oracle",
+      "now": "step 6 of Escalating to the Oracle"
+    },
+    "ESC-004": {
+      "was": "PRO-005 Escalating to the Oracle",
+      "now": "the trigger of Escalating to the Oracle"
+    },
+    "ESC-005": {
+      "was": "PRO-005 Escalating to the Oracle",
+      "now": "step 3 of Escalating to the Oracle"
+    },
     "GIT-045": {
       "was": "STD-020 Git is the archive",
       "now": "DEF-008 of The corpus does not grow"
@@ -109,6 +181,34 @@
       "was": "STD-020 Git is the archive",
       "now": "TXT-008 of Plain text is sovereign"
     },
+    "GRD-001": {
+      "was": "PRO-013 Handing a guard to CI",
+      "now": "step 4 of Handing a guard to CI"
+    },
+    "GRD-002": {
+      "was": "PRO-013 Handing a guard to CI",
+      "now": "step 1 of Handing a guard to CI"
+    },
+    "GRD-003": {
+      "was": "PRO-013 Handing a guard to CI",
+      "now": "step 2 of Handing a guard to CI"
+    },
+    "GRD-004": {
+      "was": "PRO-013 Handing a guard to CI",
+      "now": "step 3 of Handing a guard to CI"
+    },
+    "GRD-005": {
+      "was": "PRO-013 Handing a guard to CI",
+      "now": "step 5 of Handing a guard to CI"
+    },
+    "GRD-006": {
+      "was": "PRO-013 Handing a guard to CI",
+      "now": "step 5 of Handing a guard to CI"
+    },
+    "GRD-007": {
+      "was": "PRO-013 Handing a guard to CI",
+      "now": "step 7 of Handing a guard to CI"
+    },
     "HDR-041": {
       "was": "STD-004 The header",
       "now": "TXT-002 (the header parses)"
@@ -117,9 +217,105 @@
       "was": "STD-004 The header",
       "now": "DOC-013 of One page per document, how the rules of a document are worded"
     },
+    "MON-001": {
+      "was": "PRO-021 Closing the month",
+      "now": "step 2 of Closing the month"
+    },
+    "MON-002": {
+      "was": "PRO-021 Closing the month",
+      "now": "step 3 of Closing the month"
+    },
+    "MON-003": {
+      "was": "PRO-021 Closing the month",
+      "now": "steps 6 and 8 of Closing the month"
+    },
+    "MON-004": {
+      "was": "PRO-021 Closing the month",
+      "now": "correcting a closed month, in Closing the month"
+    },
     "OSS-003": {
       "was": "STD-015 Engineering checks",
       "now": "LIC-013, every contribution comes with permission"
+    },
+    "RIT-001": {
+      "was": "PRO-019 Holding a ritual",
+      "now": "the preconditions of Holding a ritual"
+    },
+    "RIT-002": {
+      "was": "PRO-019 Holding a ritual",
+      "now": "the preconditions and step 3 of Holding a ritual"
+    },
+    "RIT-003": {
+      "was": "PRO-019 Holding a ritual",
+      "now": "step 1 of Holding a ritual"
+    },
+    "RIT-004": {
+      "was": "PRO-019 Holding a ritual",
+      "now": "step 5 of Holding a ritual"
+    },
+    "RIT-005": {
+      "was": "PRO-019 Holding a ritual",
+      "now": "step 4 of Holding a ritual"
+    },
+    "RLS-001": {
+      "was": "PRO-018 Publishing a repository",
+      "now": "step 7 of Publishing a repository"
+    },
+    "RLS-002": {
+      "was": "PRO-018 Publishing a repository",
+      "now": "the procedure's opening of Publishing a repository"
+    },
+    "RLS-003": {
+      "was": "PRO-018 Publishing a repository",
+      "now": "step 5 of Publishing a repository"
+    },
+    "RLS-004": {
+      "was": "PRO-018 Publishing a repository",
+      "now": "step 2 of Publishing a repository"
+    },
+    "RLS-005": {
+      "was": "PRO-018 Publishing a repository",
+      "now": "step 3 of Publishing a repository"
+    },
+    "RLS-006": {
+      "was": "PRO-018 Publishing a repository",
+      "now": "step 7 of Publishing a repository"
+    },
+    "RUP-001": {
+      "was": "PRO-017 Rolling up the week",
+      "now": "step 3 of Rolling up the week"
+    },
+    "RUP-002": {
+      "was": "PRO-017 Rolling up the week",
+      "now": "step 4 of Rolling up the week"
+    },
+    "RUP-003": {
+      "was": "PRO-017 Rolling up the week",
+      "now": "step 5 of Rolling up the week"
+    },
+    "RUP-004": {
+      "was": "PRO-017 Rolling up the week",
+      "now": "step 6 of Rolling up the week"
+    },
+    "RUP-005": {
+      "was": "PRO-017 Rolling up the week",
+      "now": "step 8 of Rolling up the week"
+    },
+    "SAL-001": {
+      "was": "PRO-020 Putting something on sale",
+      "now": "the preconditions of Putting something on sale"
+    },
+    "SAL-002": {
+      "was": "PRO-020 Putting something on sale",
+      "now": "step 4 of Putting something on sale"
+    },
+    "SAL-003": {
+      "was": "PRO-020 Putting something on sale",
+      "now": "step 7 of Putting something on sale"
+    },
+    "SAL-004": {
+      "was": "PRO-020 Putting something on sale",
+      "now": "withdrawing steps 1 and 3 of Putting something on sale"
     },
     "SER-003": {
       "was": "STD-024 A series is a function",
@@ -133,6 +329,38 @@
       "was": "STD-024 A series is a function",
       "now": "DEF-011 of The corpus does not grow"
     },
+    "SES-001": {
+      "was": "PRO-001 Opening and closing a session",
+      "now": "step 2 of Opening and closing a session"
+    },
+    "SES-002": {
+      "was": "PRO-001 Opening and closing a session",
+      "now": "dropped: missions board check, suspended by the transition regime"
+    },
+    "SES-003": {
+      "was": "PRO-001 Opening and closing a session",
+      "now": "step 6 of Opening and closing a session"
+    },
+    "SES-004": {
+      "was": "PRO-001 Opening and closing a session",
+      "now": "step 7 of Opening and closing a session, without the load score"
+    },
+    "SES-005": {
+      "was": "PRO-001 Opening and closing a session",
+      "now": "step 8 of Opening and closing a session; divergence_log and OPS-008 dropped"
+    },
+    "SES-042": {
+      "was": "PRO-001 Opening and closing a session",
+      "now": "step 1 of Opening and closing a session"
+    },
+    "SES-043": {
+      "was": "PRO-001 Opening and closing a session",
+      "now": "steps 9 to 11 of Opening and closing a session"
+    },
+    "SES-044": {
+      "was": "PRO-001 Opening and closing a session",
+      "now": "step 5 of Opening and closing a session"
+    },
     "SRE-006": {
       "was": "STD-015 Engineering checks",
       "now": "SRE-007 of Engineering checks, incidents produce rules, not culprits"
@@ -140,6 +368,26 @@
     "TRC-008": {
       "was": "STD-015 Engineering checks",
       "now": "URL-001 and URL-005, the address rules"
+    },
+    "TSK-001": {
+      "was": "PRO-016 Applying the engineering standard",
+      "now": "step 1 of Applying the engineering standard"
+    },
+    "TSK-002": {
+      "was": "PRO-016 Applying the engineering standard",
+      "now": "step 3 and the Oracle tier of Applying the engineering standard"
+    },
+    "TSK-003": {
+      "was": "PRO-016 Applying the engineering standard",
+      "now": "dropped: practice plates in commits, suspended by the transition regime"
+    },
+    "TSK-004": {
+      "was": "PRO-016 Applying the engineering standard",
+      "now": "step 5 of Applying the engineering standard"
+    },
+    "TSK-005": {
+      "was": "PRO-016 Applying the engineering standard",
+      "now": "step 6 of Applying the engineering standard"
     },
     "VER-064": {
       "was": "STD-019 Versions",

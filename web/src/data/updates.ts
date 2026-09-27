@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.68.0",
+    date: "2026-09-27",
+    entries: [
+      {
+        type: "CHG",
+        text: "Protocols now all have the same form. Each opens with the one question it answers, and then gives numbered steps: no list of rules. The rules they used to carry became steps. The session, escalation, approval and engineering protocols now describe the way we work today: the chat instruction is the briefing and the pull request is the record. Running a mission stays as it was, in draft.",
+      },
+    ],
+  },
+  {
     version: "v0.67.0",
     date: "2026-09-27",
     entries: [

@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a guard to CI"
 type: protocol
 status: draft
-version: "4.0.1"
+version: "5.0.0"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-26T14:43:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
@@ -32,10 +32,8 @@ SPDX-License-Identifier: CC0-1.0
 > pipeline: it is merged into the guards folder, and the runner the
 > workflow already calls picks it up. The agent still cannot edit the
 > workflow file.
-> **Epistemic:** An agent that can rewrite the pipeline can disable the
-> checks that constrain it. The boundary stays; what moved is that a guard
-> no longer needs a line in the pipeline to exist.
-> **Pragmatic:** Three steps, two of them the agent's, one the Oracle's.
+> **Epistemic:** How does a guard an agent wrote come to run in CI?
+> **Pragmatic:** Three moves, two of them the agent's, one the Oracle's.
 > **Audience:** Agents · Oracle
 
 **Binds:** any agent that writes a guard script, and the Oracle who wires it.
@@ -45,46 +43,19 @@ SPDX-License-Identifier: CC0-1.0
 A task produces a script meant to fail a build. Reached from `PRO-016`
 step 6. Executor: the agent; the Oracle for the review.
 
-## 2. Rules
-
-**GRD-001 — Tested in both directions.** A guard MUST fail on planted
-breakage and pass on a clean tree before it is offered.
-
-**GRD-002 — Every finding, every run.** A guard reports everything it sees;
-it never keeps a list of what to ignore. Whether a finding fails the build
-is not the guard's call: the state of the standard that holds the rule
-decides (`ENG-067`). A guard that hides old damage looks like coverage.
-
-**GRD-003 — Every finding cites its plate.** Each finding MUST name the rule
-that condemns it, so a failure is actionable without reading the script.
-
-**GRD-004 — One mode, deterministic.** Bare prints every finding and exits
-non-zero only when a finding's rule is in force (`ENG-067`: the holder
-standard is `active`). No flag changes what is checked. Same tree, same
-output.
-
-**GRD-005 — The workflow is not touched.** A guard needs no workflow change:
-the runner finds it. A guard that needs a new job, permission or action is
-a separate ask (`PRO-005`); the agent never edits the workflow file.
-
-**GRD-006 — The register of guards is the folder.** No document MAY keep a
-table of guards. What runs is what the runner finds; `npm run guards` lists
-it when asked. A script that is in the folder runs; one that must not run
-as a guard does not live there.
-
-**GRD-007 — Wired means seen running on the trunk.** The handoff ends when
-the agent reports the run identifier of the runner's step on `main` showing
-the new guard, not when the pull request is merged (`TRC-006`).
-
-## 3. Procedure
+## 2. Procedure
 
 | Step | Whose | What |
 |---|---|---|
-| 1 | agent | Write and test the guard (`GRD-001..004`); declare blindness (`TRC-007`); place it in the guards folder. A guard that reads build output says so where the runner reads it. |
-| 2 | Oracle | Review and merge the pull request. This is the control: a guard that is not merged does not run. |
-| 3 | agent | Read the trunk run and report the identifier of the runner's step showing the guard (`GRD-007`). |
+| 1 | agent | **Report every finding, every run.** No ignore list: a guard that hides old damage looks like coverage. Whether a finding fails the build is decided by the state of the standard that holds its rule (`ENG-067`), not by the guard. |
+| 2 | agent | **Name the plate in every finding**, so a failure is actionable without reading the script. |
+| 3 | agent | **Keep one deterministic mode.** Bare, it prints every finding and exits non-zero only when a finding's holder standard is `active` (`ENG-067`). No flag changes what is checked; same tree, same output. |
+| 4 | agent | **Test both directions.** Fail on planted breakage, pass on a clean tree, before offering it. Declare blindness (`TRC-007`). |
+| 5 | agent | **Place it in the guards folder and touch nothing else.** The runner finds it; never edit the workflow file. A script that must not run as a guard does not live there. A guard that reads build output says so where the runner reads it. Keep no table of guards in any document: `npm run guards` lists what runs. |
+| 6 | Oracle | **Review and merge the pull request.** This is the control: a guard that is not merged does not run. |
+| 7 | agent | **Report the run on `main`.** The handoff ends when the run identifier of the runner's step on `main` shows the guard, not at merge (`TRC-006`). |
 
-## 4. Verification
+## 3. Verification
 
 | Check | Evidence |
 |---|---|
@@ -92,7 +63,7 @@ the new guard, not when the pull request is merged (`TRC-006`).
 | Wired | `npm run guards` on the merged tree lists the guard |
 | Seen running | `gh run view <id> --log \| grep '<guard name>'` on `main`, id reported |
 
-## 5. Escalation
+## 4. Escalation
 
 A guard that needs a new job, permission or action: `PRO-005`, the ask
 stated separately from the guard.
