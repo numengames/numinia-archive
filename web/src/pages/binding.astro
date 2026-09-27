@@ -112,6 +112,37 @@ const regimeHtml = (await processor.render(regime.body)).code;
         </table>
       </div>
 
+      <!-- The documents themselves. A count says how much is draft; a reader
+           about to follow one needs to know whether THAT one is. -->
+      <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-4">
+        Each document, and its state
+      </h2>
+      <p class="text-sm leading-relaxed text-muted-foreground mb-6">
+        Before you follow a rule, find it here. <span class="text-foreground">In force</span>
+        binds; <span class="text-foreground">draft</span> describes and binds nobody.
+      </p>
+      <div class="space-y-8 mb-12">
+        {rows.map((r) => (
+          <div>
+            <h3 class="font-mono text-[0.75rem] text-foreground mb-3">
+              {r.label} <span class="text-dim">· {r.states.active ?? 0} in force · {r.states.draft ?? 0} draft</span>
+            </h3>
+            <ul class="divide-y divide-border rounded-xl border border-border bg-card">
+              {r.documents.map((d) => (
+                <li class="flex items-baseline gap-3 px-4 py-2 text-sm">
+                  <span class="font-mono text-[0.7rem] text-dim shrink-0 w-16">{d.id}</span>
+                  <a href={d.href} class="flex-1 text-muted-foreground hover:text-accent">{d.title}</a>
+                  <span class:list={[
+                    "font-mono text-[0.6rem] uppercase tracking-[0.1em] shrink-0",
+                    d.status === "active" ? "text-accent" : "text-dim",
+                  ]}>{d.status === "active" ? "in force" : d.status}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
       <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-4">
         The instruction in force
       </h2>

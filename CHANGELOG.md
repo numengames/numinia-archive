@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-27 (/binding names which documents are draft)
+At the Oracle's word in session: what is draft, what is not, and why, should be visible to a person or an agent at a glance instead of being recalled in chat.
+- **`/binding` lists each canon, standard and protocol** with its state and a link, under the counts it already had. `lifecycle()` in `web/src/lib/binding.ts` now returns the documents of each row (id, title, status, address) read from their headers; the page and `/binding.md` render them. Nothing is typed by hand, so a promotion out of draft moves the document by itself.
+- **The mechanism:** two tests in `binding.test.mjs`, committed first and seen failing, check that each row names its documents and that both the page and its markdown list them. Site v0.66.0.
+
 ### Added — 2026-09-27 (legal is its own series)
 At the Oracle's word in session. Where legal texts live had three answers that disagreed: `STD-001` said `operations/legal/` (which did not exist), `rules.json` mapped `type: legal` to `canon/`, and the files sat loose in `operations/`. The Oracle doubted `operations/` was their place; Byblos proposed a series of their own and he said to create it.
 - **`legal/` is a series, `LEG-NNN`, threshold `governed`,** under Administration · *Committing* in the scheme (`STD-027` 0.3.0): the company's promises to the public in law, which change when the law or the service does. `STD-001` 5.5.0 gives it its row and moves `type: legal` there; `operations/` now holds strategy, sales and continuity.

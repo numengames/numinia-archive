@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.66.0",
+    date: "2026-09-27",
+    entries: [
+      {
+        type: "ADD",
+        text: "What binds today names the documents, not only the totals. /binding already said how many rules are in force and how many are draft; it did not say which. Now every canon, standard and protocol is listed there by name, with its state beside it and a link to open it, so anyone about to follow a rule — a person or an agent — can check first whether that one binds. The list is read from each document's own header when the site is built: promote one and it moves by itself. The same list is in /binding.md.",
+      },
+    ],
+  },
+  {
     version: "v0.65.0",
     date: "2026-09-27",
     entries: [
