@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "98ada07",
-  "corpus_hash": "5e3771b654c3f3138bc2a5abff6c0ab8ca74639acc7c2b17a2adfc9f512e888b",
+  "head": "47215ef",
+  "corpus_hash": "c607dae344e13b4abab7a35c9561ecc0a3dfcec876b0784397068edc4b157bdf",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T12:41:54Z",
+  "measured_at": "2026-09-27T13:01:14Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 606,
+      "value": 607,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 15,
         ".md": 239,
-        ".mjs": 80,
+        ".mjs": 81,
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
@@ -109,13 +109,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 48,
+      "value": 49,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 48
+        "node": 49
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 888150,
+      "value": 888323,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,7 +336,7 @@
       "value": {
         "lore": 495248,
         "standards": 64485,
-        "": 49968,
+        "": 50141,
         "missions": 45963,
         "decisions": 39490,
         "reports": 29422,
@@ -357,7 +357,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 545307,
+        "(none)": 545480,
         "draft": 150038,
         "active": 143647,
         "done": 26672,
@@ -369,7 +369,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.18,
+      "value": 5.17,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -381,7 +381,7 @@
         ],
         [
           "CHANGELOG.md",
-          42810
+          42983
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",

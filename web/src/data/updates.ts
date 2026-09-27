@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.71.0",
+    date: "2026-09-27",
+    entries: [
+      {
+        type: "ADD",
+        text: "Books, a new menu in the bar. A book is not a series: it gathers documents from several places to be read or heard end to end. Today it holds the core (each canon with its standards and protocols) and the design system; the role-playing manual and the legal playbook are listed as coming. The two served books also appear under The rules on the map.",
+      },
+    ],
+  },
+  {
     version: "v0.70.0",
     date: "2026-09-27",
     entries: [

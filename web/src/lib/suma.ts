@@ -89,6 +89,8 @@ export const SEGMENTS: Segment[] = [
     E("Standards", "What each thing must look like", "/standards/", "standards"),
     E("Protocols", "How each thing is done, step by step", "/protocols/", "protocols"),
     E("Decisions", "What was decided, and why", "/decisions/", "decisions"),
+    E("The core, as a book", "Each canon, its rules and its steps, end to end", "/core"),
+    E("The design system, as a book", "Everything a piece of ours is made of", "/design"),
   ] },
   { id: "production", ring: "work", word: "Production", title: "Production", a: [0, 120], entries: [
     E("Blueprints", "The plans for every piece", "/blueprints/", "blueprints"),
@@ -139,6 +141,28 @@ export const SEGMENTS: Segment[] = [
   ] },
 ];
 
+/**
+ * The books: compilations, not series. Each gathers documents from several
+ * series to be read or heard end to end, so none belongs to one function —
+ * they get a menu of their own (the Oracle, 2026-09-27), and each served one
+ * is also listed in the ring its documents come from. A book with no address
+ * yet says why in `pending`.
+ */
+export interface Book {
+  label: string;
+  line: string;
+  href: string | null;
+  /** the series it is compiled from, as a reader would name them */
+  from: string;
+  pending?: string;
+}
+export const BOOKS: Book[] = [
+  { label: "The core", line: "Each canon, the standards that make it concrete, the protocols that carry it out", href: "/core", from: "canon · standards · protocols" },
+  { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · protocols · system" },
+  { label: "The role-playing manual", line: "The tabletop game of Numinia, in Spanish and English", href: null, from: "lore", pending: "Not on the site yet: four images the manual embeds were never committed" },
+  { label: "The legal playbook", line: "The rules the law asks of us, gathered in one place", href: null, from: "standards · legal", pending: "Being written: the standards the law requires are still to be gathered" },
+];
+
 export const LENSES: { site: string; href: string; who: string; line: string; paints: string[] }[] = [
   { site: "numinia.com", href: "https://numinia.com", who: "For players and collectors", line: "The city to play in: the adventures (free, or with the season pass), the objects, and supporting Numinia.", paints: ["world-play", "world-learn", "world-make", "offer-play", "offer-make"] },
   { site: "numen.games", href: "https://numen.games", who: "For event organisers", line: "The studio: experiences for events built from narrative, game dynamics and live facilitation.", paints: ["offer-play", "offer-order"] },
@@ -172,6 +196,7 @@ export function locate(pathname: string): { seg: Segment; entry?: Entry } | null
   }
   if (best) return { seg: best.seg, entry: best.entry };
   // series served under a sibling path
+  if (p.startsWith("/core")) { const seg = SEGMENTS.find((s) => s.id === "rules")!; return { seg, entry: seg.entries.find((e) => e.href === "/core") }; }
   if (p.startsWith("/agents")) return { seg: SEGMENTS.find((s) => s.id === "world-order")! , entry: SEGMENTS.find((s) => s.id === "world-order")!.entries[0] };
   if (p.startsWith("/lore")) return { seg: SEGMENTS.find((s) => s.id === "world-learn")! };
   if (p.startsWith("/legal")) return { seg: SEGMENTS.find((s) => s.id === "administration")!, entry: SEGMENTS.find((s) => s.id === "administration")!.entries[0] };
