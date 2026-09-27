@@ -8,7 +8,7 @@ version: "5.0.0"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
@@ -41,7 +41,7 @@ SPDX-License-Identifier: CC0-1.0
 ## 1. Trigger
 
 A task produces a script meant to fail a build. Reached from `PRO-016`
-step 6. Executor: the agent; the Oracle for the review.
+step 9. Executor: the agent; the Oracle for the review.
 
 ## 2. Procedure
 

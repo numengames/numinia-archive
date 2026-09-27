@@ -6,7 +6,7 @@ type: protocol
 status: draft
 version: "0.2.0"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -82,7 +82,7 @@ place of each occasion live in the calendar, never here or in canon.
    ritual on its own; never fold a festive ritual into an operational one to
    save an evening — it removes the only space the culture has.
 5. **Record what survives, the same day.** Every decision taken is recorded
-   as a decision, every work agreed is written where it will be done, every
+   as a decision, every work agreed as a card, every
    debt admitted is recorded as a debt. Do not write minutes.
 
 ---
@@ -93,7 +93,7 @@ place of each occasion live in the calendar, never here or in canon.
 |---|---|
 | 2 | The announcement, posted before the day |
 | 3 | The roll-up or the piece committed, dated before the ritual |
-| 5 | The decisions, work and debts written that day, naming the ritual; no minutes |
+| 5 | The decisions, cards and debts created that day, naming the ritual; no minutes |
 
 A ritual that changed nothing and produced nothing is evidence of its own: it
 is reported to the Oracle, who decides whether the cadence still earns itself.

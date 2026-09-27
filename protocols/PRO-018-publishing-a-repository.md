@@ -6,7 +6,7 @@ type: protocol
 status: draft
 version: "2.0.0"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, publishing, licensing, reuse, spdx, visibility]
@@ -37,7 +37,7 @@ files.
 
 ## 1. Trigger
 
-The Oracle asks for a repository to go public, a package to be
+A mission or ruling asks for a repository to go public, a package to be
 published, or a work written to Arweave. The agent prepares and requests;
 the Oracle signs and executes. Going public is the grant (`PUB-002`), so
 the irreversible act is preceded by evidence.
@@ -56,7 +56,7 @@ and the commit it ran at; a hand-typed list is not evidence (`PUB-003`).
 | 5 | Scan every commit, not `HEAD`, for secrets and personal data: a secret removed from the tip is one `git log` away. On a find, stop and follow the real-value step of Auditing identity, authorization and secrets (`PRO-011`; `KEY-056` of `STD-022`) | the scan command, the count, zero findings |
 | 6 | Check `debt/` for open entries tagged `legal` whose exit is a condition (`PUB-005`) | the entries, or none |
 | 7 | File the signing request (`PRO-008`) and stop. One act per request: a visibility change and a permanent publication are separate requests, each with its own listings. Never change visibility, publish a package or write to a permanent store yourself | steps 1–6, each with commit and date |
-| 8 | Oracle signs and executes; the agent records the act in the pull request / CHANGELOG | the ruling, the date, the new visibility |
+| 8 | Oracle signs and executes; the agent records the act in the mission | the ruling, the date, the new visibility |
 
 ## 3. Verification
 

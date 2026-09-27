@@ -6,7 +6,7 @@ type: protocol
 status: draft
 version: "5.0.0"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,7 +15,7 @@ tags: [approval, human-in-the-loop, security, protocol, rulings, falsifiability]
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
-related: ["STD-017", "PRO-005"]
+related: ["STD-017", "PRO-005", "PRO-016"]
 ---
 
 <!--
@@ -38,25 +38,25 @@ agent executing one.
 
 ## 1. Trigger
 
-An action the agent may not take alone (`PRO-005`); or a ruling the Oracle
-issues that asserts a fact about the repository. Executor: the agent for
-the request, the Oracle for the ruling, the agent again for its execution.
-The operator's go on a plan in chat covers its commits, push and pull
-request: no second request before pushing.
+An action the agent may not take alone (`PRO-005`; a task classified
+irreversible under `PRO-016`); or a ruling the Oracle issues that asserts a
+fact about the repository. Executor: the agent for the request, the Oracle
+for the ruling, the agent again for its execution.
 
 ## 2. Procedure
 
 **Request**
 
 1. **Send one complete request.** Header `APPROVAL REQUEST — Score {X}/10`;
-   then agent, task, context, the exact action (a command) or proposal (a
-   design), its epistemic and pragmatic effect, and what happens without an
-   answer; then `Approve? Yes / No / Defer / Modify`.
+   then agent, mission, context, the exact action (an execution request
+   carries the command; a design request carries the proposal), its
+   epistemic and pragmatic effect, and what happens without an answer;
+   then `Approve? Yes / No / Defer / Modify`.
 2. **Link every artefact by its web address** next to its first mention —
    never a filesystem path.
 3. **Score it on the scale below.** The score guides attention, not
    responsibility: the agent proposes, the person decides, at any score.
-   Do not modify the scale.
+   No agent modifies the scale.
 4. **At 7 or above, write a document.** Add the discarded alternatives,
    what a good and a bad outcome would reveal, the impact at a day and a
    week, and reversibility.
@@ -84,14 +84,12 @@ request: no second request before pushing.
    facts, not the priorities.
 9. **Record the correction where the ruling was issued:** fact asserted,
    measurement, outcome.
-10. **Record a decision stated in chat** in the `CHANGELOG.md` entry and
-    the commit body; no decision record.
 
 ## 3. Verification
 
 | Check | Evidence |
 |---|---|
-| Request complete | every field of step 1 present; addresses resolve |
+| Request complete | every field of step 1 present, the mission among them; addresses resolve |
 | Ruling checkable | at least one falsifiable fact stated, or *preference* declared |
 | Ruling verified | the measuring command in the executor's report |
 
@@ -107,3 +105,4 @@ without stating it: return it to the issuer before execution.
 |---|---|---|
 | `STD-017` | Who may change what | `AUT-065`: rank sets who may approve |
 | `PRO-005` | Escalating to the Oracle | the request's other half: when to ask, how long to wait |
+| `PRO-016` | Applying the engineering standard | the task classification that marks an action irreversible |

@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.69.0",
+    date: "2026-09-27",
+    entries: [
+      {
+        type: "FIX",
+        text: "The protocols keep everything they asked for. The previous version gave them one form, but it also rewrote five of them to match how we are working during this transition, and that was a mistake. Missions, the session record, the load check and the decision records are all back, as steps. The transition is a temporary pause, written only in the agents' instructions; when a protocol comes into force, it applies exactly as written.",
+      },
+    ],
+  },
+  {
     version: "v0.68.0",
     date: "2026-09-27",
     entries: [

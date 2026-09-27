@@ -8,7 +8,7 @@ version: "3.0.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, escalation, security]
@@ -36,18 +36,20 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 1. Trigger
 
-Any of: the task contradicts the canon (`PRE-003`); the decision exceeds
+Any of: a mission contradicts the canon (`PRE-003`); the decision exceeds
 the agent's rank (`AUT-065`); the agent is blocked; a possible security
 issue; `requires_oracle_approval: true`; doubt about whether an act is
 appropriate (`AUT-010`). A matter of taste is not a trigger: a preference
-does not stop the work, so do not escalate it as if it did. Executor: the
-agent. Receiver: the Oracle.
+does not stop the work, so do not escalate it as if it did. The cost of a
+wrong escalation is a message; the cost of a wrong autonomous decision is
+the archive. Executor: the agent. Receiver: the Oracle, with no
+intermediate layer.
 
 ## 2. Procedure
 
 1. **Stop.** In doubt whether you may act, do not act (`AUT-010`).
-2. **Write it where the work is.** In the chat with the operator, and in
-   the pull request if one is open.
+2. **Write it where the work is:** the mission, or a decision record if
+   the matter is structural.
 3. **Send it straight to the Oracle.** No intermediate agent exists; a
    route through a non-existent actor is how an escalation is lost.
 4. **Carry a judgement.** State the options you weighed, each with its
@@ -56,14 +58,15 @@ agent. Receiver: the Oracle.
 
 ```
 ESCALATION
-Where: task in one line · PR or file
+Mission: MIS-NNNN
 Issue: one paragraph
 Options: A) … → consequence  B) … → consequence
 Recommendation: A / B / other
 Requires: decision · information · access
 ```
 
-5. **Wait.** The Oracle's answer follows `PRO-008`.
+5. **Wait.** The Oracle's answer follows `PRO-008`; a structural ruling
+   becomes a decision record.
 6. **After 48 hours unanswered, take only the reversible option.** Record
    the assumption where the work is. Irreversible acts keep waiting.
 
@@ -71,7 +74,8 @@ Requires: decision · information · access
 
 | Check | Evidence |
 |---|---|
-| It was escalated, not decided | the escalation text in the chat or the pull request, dated |
+| It was escalated, not decided | the escalation text in the mission or decision record, dated |
+| It named its mission | a `Mission:` line with the mission id |
 | It carried a judgement | a `Recommendation:` line that names one option |
 | The wait was honoured | no irreversible commit between the escalation and the answer |
 
