@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.4.6"
+version: "5.4.7"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-26T21:00:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,7 +15,6 @@ territory: "Archive"
 tags: [standards, series, register, archive]
 license: "CC0-1.0"
 ratified_by: "ADR-043"
-threshold: governed
 related: ["STD-024", "STD-018", "STD-007", "STD-027"]
 ---
 
@@ -38,38 +37,33 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Series
 
-| Series | Function · Activity | Holds | Prefix | Threshold | Budget | Mould |
-|---|---|---|---|---|---|---|
-| `canon/` | Governance · Founding | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
-| `standards/` | Governance · Standardising | what an **artifact** must comply with, each requirement answered yes or no; a register fixes the values or terms a norm cites | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
-| `protocols/` | Governance · Prescribing | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
-| `decisions/` | Governance · Deciding | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
-| `missions/` | Production · Executing | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
-| `reports/` | Assurance · Observing | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, retired) | `closed` | 1000 | `RPT-TEMPLATE.md` |
-| `blueprints/` | Production · Planning | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
-| `debt/` | Assurance · Admitting | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
-| `operations/` | Administration · Sustaining | what sustains the business: legal, strategy | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
-| `system/` | Administration · Wiring | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
-| `agents/` | Agency · Constituting | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
-| `lore/` | Creation · Worldbuilding | the fiction and the game; a second fond (`ADR-046`) | — | `open` | — | `lore/adventures/tabletop/TEMPLATE.md` |
-| `objects/` | Creation · Cataloguing | the objects the archive registers that are not documents | — | `open` | — | — |
-| `machine/guards/` | Assurance · Verifying | the rules, one file per standard, that run on every change | — | — | — | — |
-| `machine/tools/` | Assurance · Verifying | instruments run by hand or against the registers: checks, renames, exports | — | — | — | — |
-| `machine/scripts/` | Assurance · Verifying | the build and CI scripts: addresses, links, versions, the telemetry writer | — | — | — | — |
-| `machine/telemetry/` | Assurance · Measuring | the figures the repository states about itself, measured, never typed | — | — | — | — |
-| `machine/templates/` | Administration · Templating | the moulds, one per series | — | — | — | — |
+| Series | Holds | Prefix | Threshold | Budget | Mould |
+|---|---|---|---|---|---|
+| `canon/` | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
+| `standards/` | what an **artifact** must comply with, each requirement answered yes or no; a register fixes the values or terms a norm cites | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
+| `protocols/` | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
+| `decisions/` | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
+| `missions/` | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
+| `reports/` | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, retired) | `closed` | 1000 | `RPT-TEMPLATE.md` |
+| `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
+| `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
+| `operations/` | what sustains the business: legal, strategy | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
+| `system/` | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
+| `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
+| `lore/` | the fiction and the game; a second fond (`ADR-046`) | — | `open` | — | `lore/adventures/tabletop/TEMPLATE.md` |
+| `objects/` | the objects the archive registers that are not documents | — | `open` | — | — |
+| `machine/guards/` | the rules, one file per standard, that run on every change | — | — | — | — |
+| `machine/tools/` | instruments run by hand or against the registers: checks, renames, exports | — | — | — | — |
+| `machine/scripts/` | the build and CI scripts: addresses, links, versions, the telemetry writer | — | — | — | — |
+| `machine/telemetry/` | the figures the repository states about itself, measured, never typed | — | — | — | — |
+| `machine/templates/` | the moulds, one per series | — | — | — | — |
 
 The canon, the standards and the protocols are the **axis**: the documents
 that bind. The rest are **registers**. A budget is the number of words a
-body may hold, counted as the one-page standard counts them. The function
-and activity column is the classification scheme. It says which activity
-produced a series, never what a change to it costs.
-
-The international standard for records management calls this table a
-business classification scheme. It is built the way the Australian national
-archives teach: each folder sits under a function, named as a noun, and an
-activity, named as a verb. An auditor of records reads it without a
-glossary. The prefix, the threshold and the budget are our own additions.
+body may hold, counted as the one-page standard counts them. The threshold
+is stated here and nowhere else: no document repeats it in its header.
+Which function and activity produced each series is the classification
+scheme's to say, and it says it once; this table only files.
 
 The moulds live with the machine. Everything the machine holds is an
 **instrument**: a short-lived record with a row, because an activity

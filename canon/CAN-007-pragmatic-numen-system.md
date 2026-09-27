@@ -4,11 +4,11 @@ uid: ""
 title: "Renaming is not transforming"
 type: seminal
 status: draft
-version: "2.1.2"
+version: "2.1.3"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-09-26T15:40:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -21,7 +21,7 @@ supersedes_version: "2.0.0"
 related: ["CAN-001", "CAN-004", "CAN-006"]
 former_id: "canon-pragmatic-numen-system-v020"
 former_id_note: "Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Pragmatic_Numen_System-v0.2.0.md"
-threshold: governed
+
 ---
 
 <!--

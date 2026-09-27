@@ -5,16 +5,15 @@ title: "A series is a function"
 type: documentation
 subtype: standard
 status: draft
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-09-26T21:00:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [standards, series, thresholds, registration, records-management]
-threshold: governed
 related: ["STD-001", "STD-017", "STD-018", "STD-020", "CAN-004"]
 ---
 

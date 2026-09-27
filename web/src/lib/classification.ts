@@ -192,11 +192,11 @@ function seriesRegister(): Map<string, { holds: string; prefix: string; threshol
   const out = new Map<string, { holds: string; prefix: string; threshold: string }>();
   for (const line of read(STD_001).split("\n")) {
     const c = cells(line);
-    // | Series | Function · Activity | Holds | Prefix | Threshold | Budget | Mould |
-    if (!c || c.length < 5) continue;
+    // | Series | Holds | Prefix | Threshold | Budget | Mould |
+    if (!c || c.length < 4) continue;
     const folder = plain(c[0]);
     if (!folder.endsWith("/")) continue;
-    out.set(folder, { holds: plain(c[2]), prefix: plain(c[3]), threshold: plain(c[4]) });
+    out.set(folder, { holds: plain(c[1]), prefix: plain(c[2]), threshold: plain(c[3]) });
   }
   if (out.size === 0) {
     throw new Error(

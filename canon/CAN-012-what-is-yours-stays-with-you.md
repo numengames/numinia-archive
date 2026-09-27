@@ -4,16 +4,15 @@ uid: ""
 title: "What is yours stays with you"
 type: seminal
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-26T16:40:00+02:00"
-updated: "2026-09-26T16:40:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
 tags: [canon, seminal, ownership, sovereignty, identity, data]
 license: "CC0-1.0"
-threshold: governed
 related: ["CAN-005", "CAN-010", "CAN-011", "CAN-004", "STD-026"]
 ---
 

@@ -4,9 +4,9 @@ uid: ""
 title: "One identity, three forces"
 type: seminal
 status: draft
-version: "3.0.1"
+version: "3.0.2"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-26T15:40:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -15,7 +15,6 @@ tags: [canon, seminal, brand, design, direction, forces, registers]
 license: "CC0-1.0"
 ratified_by: "ADR-061"
 supersedes_version: "2.0.0"
-threshold: governed
 related: ["CAN-002", "STD-008", "STD-023", "PRO-014", "BLU-009", "BLU-010"]
 ---
 

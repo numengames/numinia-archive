@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,7 +15,6 @@ territory: "Archive"
 tags: [standards, classification, archive, functions, series, records-management]
 license: "CC0-1.0"
 ratified_by: "ADR-046"
-threshold: governed
 related: ["STD-001", "STD-024", "STD-012", "ADR-030", "SYS-003"]
 ---
 

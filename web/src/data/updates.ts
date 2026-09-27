@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.64.0",
+    date: "2026-09-27",
+    entries: [
+      {
+        type: "CHG",
+        text: "Each fact about a series is written once. The series page no longer repeats which function and activity produced each folder: the classification scheme says it, and the scheme page reads it from there. What a change to a document costs is stated only in the series table; the canon and the standards no longer copy it into their headers. Nothing a reader sees on the scheme page changes.",
+      },
+    ],
+  },
+  {
     version: "v0.63.0",
     date: "2026-09-26",
     entries: [

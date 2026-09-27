@@ -97,9 +97,9 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 
 - `agents/` — canonical agent definitions, one folder each. `agents/INDEX.md`
   owns the roster and the folder contract; read it there rather than here.
-- `canon/` — the world and the governing canons (CAN-001…CAN-012; CAN-003 absorbed by CAN-004).
+- `canon/` — the world and the governing canons; the rule index below lists them.
 - `lore/` — the game: RPG manual, adventures, world texts, codex. Each file declares its own licence.
-- `standards/` — this archive's operative standards (STD-001…STD-028).
+- `standards/` — this archive's operative standards; the rule index below lists them.
 - `protocols/` — procedures: session close, briefing, archiving.
 - `missions/` — the unit of work; `machine/templates/MIS-TEMPLATE` is the contract.
 - `decisions/` — ADRs · `debt/` — what is known to be wrong · `reports/` — audits.

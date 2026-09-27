@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.8"
+version: "0.1.9"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -15,7 +15,6 @@ territory: "Archive"
 tags: [standards, register, vocabulary, guilds, factions, translation]
 license: "CC0-1.0"
 ratified_by: "ADR-053"
-threshold: governed
 related: ["CAN-004", "STD-003", "STD-026", "PRO-019"]
 ---
 

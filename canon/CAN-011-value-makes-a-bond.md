@@ -4,9 +4,9 @@ uid: ""
 title: "What has value also makes a bond"
 type: seminal
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-09-26T15:40:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -14,7 +14,6 @@ territory: "Archive"
 tags: [canon, seminal, economy, money, tokens, transparency]
 license: "CC0-1.0"
 ratified_by: "ADR-063"
-threshold: governed
 related: ["CAN-009", "CAN-010", "CAN-005", "CAN-004"]
 ---
 

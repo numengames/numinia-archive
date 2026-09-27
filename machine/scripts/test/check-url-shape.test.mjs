@@ -30,11 +30,11 @@ id: "STD-001"
 ---
 # The series
 
-| Series | Function · Activity | Holds | Prefix | Threshold | Budget | Mould |
-|---|---|---|---|---|---|---|
-| \`canon/\` | Governance · Founding | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | — |
-| \`decisions/\` | Governance · Deciding | why something was chosen | \`ADR-NNN\` | \`governed\` | 500 | — |
-| \`reports/\` | Assurance · Observing | what was observed | \`RPT-NNN\` | \`closed\` | 1000 | — |
+| Series | Holds | Prefix | Threshold | Budget | Mould |
+|---|---|---|---|---|---|
+| \`canon/\` | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | — |
+| \`decisions/\` | why something was chosen | \`ADR-NNN\` | \`governed\` | 500 | — |
+| \`reports/\` | what was observed | \`RPT-NNN\` | \`closed\` | 1000 | — |
 `;
 
 const SCHEME = `---

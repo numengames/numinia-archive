@@ -4,9 +4,9 @@ uid: ""
 title: "The archive is the organisation"
 type: seminal
 status: draft
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-09-26T15:40:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -14,7 +14,6 @@ territory: "Archive"
 tags: [canon, seminal, archive, work, agents, memory, git]
 license: "CC0-1.0"
 ratified_by: "ADR-059"
-threshold: governed
 related: ["CAN-001", "CAN-004", "STD-006", "STD-020", "STD-024", "STD-009", "STD-012"]
 ---
 

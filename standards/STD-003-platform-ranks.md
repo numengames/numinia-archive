@@ -5,18 +5,18 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.2.3"
+version: "3.2.4"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
 territory: "Archive"
 tags: [standards, ranks, permissions, digital-goods, RBAC]
 license: "CC0-1.0"
-threshold: governed
+
 ---
 
 <!--

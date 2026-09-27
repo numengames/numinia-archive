@@ -60,6 +60,7 @@ const RETIRED = {
   estado: 'Spanish-era key', fecha: 'Spanish-era key',
   licencia: 'Spanish-era key', revision: 'Spanish-era key',
   series_change: 'retired: the changelog and git already say what a version changed',
+  threshold: 'retired outside decisions/: the series register (STD-001) states it once per series',
 };
 
 /* HDR-033..038: the closed vocabularies of the header, held by STD-001. Each
@@ -188,7 +189,7 @@ function rings(corpus, out) {
       F('HDR-020', rel, 'uid carries a hand-authored value — the field is reserved for a system that does not exist yet: keep it declared and empty');
 
     for (const k of Object.keys(fm))
-      if (RETIRED[k]) F('HDR-031', rel, `retired field "${k}" (${RETIRED[k]})`);
+      if (RETIRED[k] && !(RING3[top] || []).includes(k)) F('HDR-031', rel, `retired field "${k}" (${RETIRED[k]})`);
 
     // HDR-030: the anti-entropy rule — a field in no ring is invalid.
     const allowed = new Set([...RING1, ...RING2, ...RING3_ALL, ...(RING3[top] || []), 'subtype']);

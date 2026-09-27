@@ -15,6 +15,7 @@
 //
 // Run: npm test
 import { readFileSync, readdirSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
 import * as regime from '../lib/regime.mjs';
@@ -149,6 +150,39 @@ check('tree: one question per standard — the last rows: guards apart from safe
   if (readdirSync(path.join(ROOT, 'standards')).some((f) => f.startsWith('STD-032-'))) return 'STD-032 is still a standard';
   if (!readdirSync(path.join(ROOT, 'system')).some((f) => f.startsWith('SYS-009-'))) return 'no SYS-009 in system/';
   return true;
+});
+
+check('tree: a series threshold is stated once, in STD-001 — no document header repeats it', () => {
+  for (const d of ['standards', 'canon', 'protocols', 'machine/templates']) {
+    for (const f of readdirSync(path.join(ROOT, d)).filter((n) => n.endsWith('.md'))) {
+      const text = readFileSync(path.join(ROOT, d, f), 'utf-8');
+      const head = text.startsWith('---') ? text.slice(0, text.indexOf('\n---', 3)) : '';
+      if (/^threshold:/m.test(head)) return `${d}/${f} carries threshold: in its header; the series register holds it`;
+    }
+  }
+  return true;
+});
+
+check('tree: a series\' function is stated once, in STD-027 — STD-001\'s series table does not copy it', () => {
+  const std = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf-8');
+  const header = std.split('\n').find((l) => l.startsWith('| Series |'));
+  if (!header) return 'STD-001 has no series table';
+  if (/Function/.test(header)) return `STD-001's series table still carries a Function column: ${header}`;
+  return true;
+});
+
+check('tree: no living text types a range of identifiers — a count is read from the tree, never written', () => {
+  // "STD-001…STD-028" was true once and false eleven standards later. The
+  // rule index in AGENTS.md is generated; a hand-typed range beside it is a
+  // second copy that nobody regenerates.
+  const RANGE = /\b([A-Z]{3})-\d{3,4} ?(?:…|\.\.\.?|–) ?\1-\d{3,4}\b/;
+  const files = execFileSync('git', ['-C', ROOT, 'ls-files', 'AGENTS.md', 'CLAUDE.md', 'README.md', 'CONTRIBUTING.md',
+    'agents', 'canon', 'standards', 'protocols', 'system'], { encoding: 'utf-8' }).split('\n').filter((f) => f.endsWith('.md'));
+  const hits = [];
+  for (const f of files) {
+    readFileSync(path.join(ROOT, f), 'utf-8').split('\n').forEach((l, i) => { if (RANGE.test(l)) hits.push(`${f}:${i + 1}`); });
+  }
+  return hits.length === 0 || `typed ranges: ${hits.join(', ')}`;
 });
 
 check('tree: the apparatus is thin — no series_change, no retired row; retired plates live in one ledger', () => {
