@@ -19,6 +19,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-27 (the core, as a flow)
+At the Oracle's word in session ("es mejor hacer ya la web"), to review the core by listening to it end to end.
+- **`/core`** lists each canon with the standards that make it concrete and the protocols that carry it out. **`/core/<canon>`** puts one canon's whole chain on one page, in the order canon → standards → protocols, each marked in force or draft, without the Check tables and References, so the Listen button reads it as one episode. Each page has its `.md`.
+- **Every standard and protocol names its canon** in its header with `derived_from` (a relation `STD-004` already registered; its relation table now says what it means here). Fifteen standards cited no canon; they were anchored by theme: the form of the archive under *The archive is the organisation*, the engineering checks and secrets under *Leave things better*, accessibility and what every site carries under *One identity, three forces*, personal data under *What is yours stays with you*. Patch bump on the 48 headers, no text change.
+- **A test holds it** (`core-flow.test.mjs`): a standard or protocol with no canon, or naming one that does not exist, fails; the page throws rather than dropping it.
+
 ### Changed — 2026-09-27 (the corpus does not grow, in force)
 At the Oracle's word in session ("ok activala"). Before the change he was shown what activating it means (`PRO-023` step 8).
 - **`STD-012` — The corpus does not grow is `active` at 2.1.0.** Only the header changes.
