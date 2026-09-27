@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "f35376e",
-  "corpus_hash": "fa3b4c1c7cebb9306c133fd00e242d9dc4a13c050d1e008690208d74f9933ccd",
+  "head": "6de42b6",
+  "corpus_hash": "736a60bf44bbc94033ffbc295942f2c59f059c302a056d4839c5859306ec590a",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T10:08:34Z",
+  "measured_at": "2026-09-27T10:22:08Z",
   "families": [
     "corpus",
     "series",
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 885317,
+      "value": 885527,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,13 +336,13 @@
       "value": {
         "lore": 495248,
         "standards": 64173,
-        "": 47699,
+        "": 47875,
         "missions": 45768,
         "decisions": 39436,
         "reports": 29376,
         "agents": 29129,
         "blueprints": 25512,
-        "protocols": 20896,
+        "protocols": 20930,
         "system": 20599,
         "canon": 19757,
         "machine": 16691,
@@ -357,9 +357,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 543029,
-        "draft": 158439,
-        "active": 136593,
+        "(none)": 543205,
+        "draft": 156880,
+        "active": 138186,
         "done": 26539,
         "todo": 15975,
         "in-progress": 4742
@@ -380,7 +380,7 @@
         ],
         [
           "CHANGELOG.md",
-          40575
+          40751
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -614,8 +614,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 80,
-        "draft": 97,
+        "active": 81,
+        "draft": 96,
         "done": 6,
         "todo": 6,
         "in-progress": 1
@@ -660,14 +660,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1089
+          "3": 1091
         },
         "MIS": {
           "3": 689,
           "4": 185
         },
         "PRO": {
-          "3": 312
+          "3": 314
         },
         "OPS": {
           "3": 79

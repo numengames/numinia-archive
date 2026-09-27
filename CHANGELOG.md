@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (one document, one address, in force)
+First activation run through `PRO-023`, at the Oracle's word in session ("ok go") after he was shown what it changes. **`STD-028` — One document, one address is `active` at 1.0.0** (from draft 0.3.4). Its five machine-checked rules already pass (`check-url-shape`, run in the web build); what activation adds is one rule read at review — a document is cited by its name, not by its web address. `PRO-023` 0.2.0: step 9 says a document below 1.0.0 reaches 1.0.0 when it comes into force, as `STD-019` makes reaching one a major move.
+
 ### Added — 2026-09-27 (PRO-023, bringing a rule into force)
 At the Oracle's word in session: he wants each activation reviewed, one by one, and was sure protocols were missing. **`PRO-023` — Bringing a rule into force** (draft 0.1.0): twelve steps from a candidate to `status: active` — run its guard, fix the findings in the documents that break the rule, read every MUST for a yes or no, list the by-hand checks reviewers inherit, show the Oracle the activation before the branch, change only the header, restore a protocol's ceremony in `AGENTS.md`, base the pull request on `main` and check it landed. It writes down what #517 and #518 did by hand, including the lesson of #517 (a pull request based on another branch never reached `main`). `/binding` and `/binding.md` link it; it reads on the protocols shelf after publishing a repository. **Mechanism:** a test in `binding.test.mjs`, committed first and seen failing. Site v0.67.0.
 

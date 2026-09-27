@@ -4,10 +4,10 @@ uid: ""
 title: "One document, one address"
 type: documentation
 subtype: standard
-status: draft
-version: "0.3.4"
+status: active
+version: "1.0.0"
 created: "2026-09-20T20:00:00+02:00"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-27T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
