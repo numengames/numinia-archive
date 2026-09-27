@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13844,
+  "chars": 13964,
   "apparatus": false,
   "archived": false,
-  "tokens": 3412
+  "tokens": 3439
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 145688,
+  "chars": 147662,
   "apparatus": false,
   "archived": false,
-  "tokens": 38933
+  "tokens": 39487
  },
  {
   "path": "CLAUDE.md",
@@ -313,10 +313,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1413,
+  "chars": 1438,
   "apparatus": false,
   "archived": false,
-  "tokens": 400
+  "tokens": 404
  },
  {
   "path": "agents/nimrod/OPERATOR.md",
@@ -1067,6 +1067,39 @@
   "tokens": 1139
  },
  {
+  "path": "legal/LEG-001-privacy-policy-numengames.md",
+  "dir": "legal",
+  "series": "legal",
+  "type": "legal",
+  "status": "active",
+  "chars": 12642,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2939
+ },
+ {
+  "path": "legal/LEG-002-terms-and-conditions-numengames.md",
+  "dir": "legal",
+  "series": "legal",
+  "type": "legal",
+  "status": "active",
+  "chars": 22317,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 4696
+ },
+ {
+  "path": "legal/LEG-003-cookie-policy-numengames.md",
+  "dir": "legal",
+  "series": "legal",
+  "type": "legal",
+  "status": "draft",
+  "chars": 8906,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2289
+ },
+ {
   "path": "lore/README.md",
   "dir": "lore",
   "series": null,
@@ -1540,6 +1573,17 @@
   "tokens": 945
  },
  {
+  "path": "machine/templates/LEG-TEMPLATE.md",
+  "dir": "machine",
+  "series": null,
+  "type": "legal",
+  "status": "draft",
+  "chars": 1812,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 494
+ },
+ {
   "path": "machine/templates/MIS-TEMPLATE-CHANGES.md",
   "dir": "machine",
   "series": null,
@@ -1578,10 +1622,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 3092,
+  "chars": 3097,
   "apparatus": true,
   "archived": false,
-  "tokens": 799
+  "tokens": 801
  },
  {
   "path": "machine/templates/PRO-TEMPLATE.md",
@@ -1600,10 +1644,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4614,
+  "chars": 4677,
   "apparatus": true,
   "archived": false,
-  "tokens": 1266
+  "tokens": 1290
  },
  {
   "path": "machine/templates/RPT-TEMPLATE.md",
@@ -1809,32 +1853,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 7965,
+  "chars": 7954,
   "apparatus": false,
   "archived": false,
-  "tokens": 2250
- },
- {
-  "path": "operations/OPS-003-privacy-policy-numengames.md",
-  "dir": "operations",
-  "series": "operations",
-  "type": "legal",
-  "status": "active",
-  "chars": 12518,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2902
- },
- {
-  "path": "operations/OPS-004-terms-and-conditions-numengames.md",
-  "dir": "operations",
-  "series": "operations",
-  "type": "legal",
-  "status": "active",
-  "chars": 22193,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 4659
+  "tokens": 2249
  },
  {
   "path": "operations/OPS-005-simulations.md",
@@ -1890,17 +1912,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1411
- },
- {
-  "path": "operations/OPS-010-cookie-policy-numengames.md",
-  "dir": "operations",
-  "series": "operations",
-  "type": "legal",
-  "status": "draft",
-  "chars": 8782,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2252
  },
  {
   "path": "operations/OPS-011-positioning-and-market.md",
@@ -2161,10 +2172,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5465,
+  "chars": 5629,
   "apparatus": false,
   "archived": false,
-  "tokens": 1632
+  "tokens": 1681
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2183,10 +2194,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15831,
+  "chars": 15840,
   "apparatus": false,
   "archived": false,
-  "tokens": 4436
+  "tokens": 4440
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2403,10 +2414,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7340,
+  "chars": 7401,
   "apparatus": false,
   "archived": false,
-  "tokens": 1812
+  "tokens": 1830
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",

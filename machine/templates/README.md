@@ -23,6 +23,7 @@ member of any series, never published, never counted in the corpus figures.
 | `DBT-TEMPLATE.md` | a debt entry | `debt/DBT-NNN-slug.md` |
 | `RPT-TEMPLATE.md` | a report | `reports/RPT-NNN-slug.md` |
 | `OPS-TEMPLATE.md` | an operations record | `operations/OPS-NNN-slug.md` |
+| `LEG-TEMPLATE.md` | a legal text | `legal/LEG-NNN-slug.md` |
 | `CAN-TEMPLATE.md` | a canon text | `canon/CAN-NNN-slug.md` |
 | `BLU-TEMPLATE.md` | a blueprint | `blueprints/BLU-NNN-slug.md` |
 | `SYS-TEMPLATE.md` | a system reference | `system/SYS-NNN-slug.md` |

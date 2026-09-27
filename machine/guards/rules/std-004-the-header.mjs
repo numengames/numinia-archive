@@ -94,8 +94,6 @@ const SETTLED_ELSEWHERE = new Set([
   'blueprints/AUDIT-2026-04-07-web-vs-repo.md',
   'blueprints/AUDIT-numengames-2026-04-08.md',
   'operations/OPS-009-secrets-handling.md',
-  'operations/OPS-003-privacy-policy-numengames.md',
-  'operations/OPS-004-terms-and-conditions-numengames.md',
 ]);
 
 const RING1_PLATE = { id: 'HDR-001', title: 'HDR-002', type: 'HDR-003', status: 'HDR-004',

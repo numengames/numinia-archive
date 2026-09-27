@@ -95,7 +95,8 @@ const system = defineCollection({
     .passthrough(),
 });
 
-// Legal artifacts — the master copies live in operations/ (per the FLAG-1
+// Legal artifacts — the master copies live in legal/ since 2026-09-27, their
+// own series (before that, operations/; per the FLAG-1
 // record): the published pages derive from them at build time. Reserved-
 // rights content, read here only for display (C-005 §5). Publication with
 // open review flags is an Oracle-ordered exception — see CON-004/CON-005.
@@ -103,7 +104,7 @@ const system = defineCollection({
 // collection selects the two legal documents by filename instead of by
 // folder. Each now declares its reserved licence in its own SPDX comment.
 const legal = defineCollection({
-  loader: glob({ pattern: "OPS-0{03,04,10}-*.md", base: "../operations" }),
+  loader: glob({ pattern: "LEG-*.md", base: "../legal" }),
   schema: z
     .object({
       id: z.string(),
@@ -133,6 +134,7 @@ const corpus = defineCollection({
       "agents/**/*.md",
       "canon/**/*.md",
       "operations/**/*.md",
+      "legal/**/*.md",
       "protocols/**/*.md",
       "standards/**/*.md",
       "reports/**/*.md",

@@ -171,6 +171,27 @@ check('tree: a series\' function is stated once, in STD-027 — STD-001\'s serie
   return true;
 });
 
+check('tree: legal texts have one home — legal/, registered in STD-001, STD-027 and rules.json', () => {
+  // Three answers disagreed before 2026-09-27: STD-001 said operations/legal/
+  // (which did not exist), rules.json said canon/, and the files sat loose in
+  // operations/. A legal text is the company's promise to third parties; it
+  // changes when the law does, not when the archive does.
+  const rules = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/lib/rules.json'), 'utf-8'));
+  if (rules.types.series.legal !== 'legal') return `rules.json maps type legal to ${rules.types.series.legal}, want legal`;
+  if (!rules.series.legal) return 'rules.json registers no legal series';
+  const s001 = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf-8');
+  if (!/^\| `legal\/` \|/m.test(s001)) return 'STD-001 has no row for legal/';
+  const s027 = readFileSync(path.join(ROOT, 'standards/STD-027-the-classification-scheme.md'), 'utf-8');
+  if (!/`legal\/`/.test(s027)) return 'STD-027 does not place legal/ in the scheme';
+  const tracked = execFileSync('git', ['-C', ROOT, 'ls-files', '*.md'], { encoding: 'utf-8' }).split('\n').filter(Boolean);
+  for (const f of tracked) {
+    if (f.startsWith('machine/templates/')) continue;
+    const text = readFileSync(path.join(ROOT, f), 'utf-8');
+    if (/^type: legal\s*$/m.test(text.slice(0, 600)) && !f.startsWith('legal/')) return `${f} is type legal outside legal/`;
+  }
+  return true;
+});
+
 check('tree: no living text types a range of identifiers — a count is read from the tree, never written', () => {
   // "STD-001…STD-028" was true once and false eleven standards later. The
   // rule index in AGENTS.md is generated; a hand-typed range beside it is a

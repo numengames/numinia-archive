@@ -84,6 +84,11 @@ export const RING3 = {
     'related_missions', 'contributors'],
   'operations': ['extraction_note', 'restoration_note',
     'language', 'language_note', 'review_flags', 'source_title'],
+  // legal/ opened 2026-09-27 with the three texts operations/ held; they
+  // bring their fields, and `former_id` keeps OPS-003/004/010 resolving.
+  'legal': ['extraction_note', 'restoration_note',
+    'language', 'language_note', 'review_flags', 'source_title',
+    'former_id', 'former_id_note'],
   // threshold retired 2026-09-27: the series register (STD-001) states it
   // once per series; a header copy is the second source that drifts.
   'standards': ['supersedes_version', 'ratified_by', 'subtype',
