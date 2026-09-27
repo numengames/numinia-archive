@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "7a7d135",
-  "corpus_hash": "30f3b579fb9d38a73413d96101c27e21c5c5bb0bb37d24053f015d141dea9d33",
+  "head": "6c458dd",
+  "corpus_hash": "0ac57bb4dff8a81263eecc6586a776b16eaab657094f8ba8f828db88d83ff800",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T08:49:14Z",
+  "measured_at": "2026-09-27T09:23:52Z",
   "families": [
     "corpus",
     "series",
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 883358,
+      "value": 883550,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,7 +336,7 @@
       "value": {
         "lore": 495248,
         "standards": 64727,
-        "": 46482,
+        "": 46674,
         "missions": 45717,
         "decisions": 39440,
         "reports": 29342,
@@ -357,7 +357,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 541812,
+        "(none)": 542004,
         "draft": 170041,
         "active": 124300,
         "done": 26539,
@@ -368,7 +368,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.18,
+      "value": 5.17,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -380,7 +380,7 @@
         ],
         [
           "CHANGELOG.md",
-          39487
+          39679
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -545,50 +545,19 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 6,
+      "value": 0,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
-      "value": [
-        [
-          "README.md",
-          "2026-04-07",
-          "2026-04-06"
-        ],
-        [
-          "agents/nimrod/OPERATOR.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/nimrod/SOUL.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/skills/numinia-nwos-pr/SKILL.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "protocols/PRO-018-publishing-a-repository.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "reports/RPT-019-2026-w37.md",
-          "2026-09-09",
-          "2026-09-08"
-        ]
-      ],
+      "value": [],
       "unit": "documents",
       "definition": "[path, created, first-add] for created_ahead_of_commit",
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 31,
+      "value": 175,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
