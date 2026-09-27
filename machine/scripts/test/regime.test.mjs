@@ -57,11 +57,13 @@ check('guards: every plate emitted by a regime guard has a holder', () => {
   return unheld.length === 0 || unheld.join('; ');
 });
 
-check('tree: STD-004 is active and HDR-000 binds; STD-012 is draft and DEF-008 does not', () => {
-  const a = bindsFor('HDR-000'), b = bindsFor('DEF-008');
-  if (a.holder !== 'STD-004') return `HDR-000 holder ${a.holder}`;
-  if (b.holder !== 'STD-012') return `DEF-008 holder ${b.holder}`;
-  return (a.binds === (a.status === 'active')) && (b.binds === (b.status === 'active'));
+check('tree: STD-004 and STD-012 are active — HDR-000, DEF-008 and DEF-009 bind (STD-012 in force 2026-09-27)', () => {
+  for (const [plate, holder] of [['HDR-000', 'STD-004'], ['DEF-008', 'STD-012'], ['DEF-009', 'STD-012']]) {
+    const b = bindsFor(plate);
+    if (b.holder !== holder) return `${plate} holder ${b.holder}, want ${holder}`;
+    if (!b.binds) return `${plate} does not bind: ${holder} is ${b.status}`;
+  }
+  return true;
 });
 
 /* ---- against a fixture ---- */
