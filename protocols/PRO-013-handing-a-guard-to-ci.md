@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a guard to CI"
 type: protocol
 status: draft
-version: "5.0.0"
+version: "5.0.1"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
@@ -19,6 +19,7 @@ visibility: "public"
 applies_to: [all-agents]
 mandatory: true
 related: ["STD-005", "STD-015", "PRO-016"]
+derived_from: "CAN-010"
 ---
 
 <!--

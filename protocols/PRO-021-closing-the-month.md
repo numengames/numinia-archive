@@ -4,9 +4,9 @@ uid: ""
 title: "Closing the month"
 type: protocol
 status: draft
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -16,6 +16,7 @@ applies_to: [all-agents]
 ratified_by: "ADR-065"
 supersedes_version: "0.1.0"
 related: ["STD-036", "STD-033", "CAN-011", "SYS-008", "PRO-020"]
+derived_from: "CAN-011"
 ---
 
 <!--

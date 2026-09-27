@@ -5,14 +5,15 @@ title: "Plain text is sovereign"
 type: documentation
 subtype: standard
 status: draft
-version: "2.1.3"
+version: "2.1.4"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [archive, substrate, format, sovereignty, self-hosting, GFM, YAML, NDSA]
+derived_from: "CAN-009"
 supersedes: ["ADR-001"]
 ---
 

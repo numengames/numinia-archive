@@ -5,14 +5,15 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "10.0.4"
+version: "10.0.5"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-27T12:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 registration: registered
 related: ["CAN-008", "STD-023", "STD-034", "STD-037", "PRO-014", "STD-010", "ADR-044"]
+derived_from: "CAN-008"
 license: "CC0-1.0"
 ---
 

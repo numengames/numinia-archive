@@ -4,9 +4,9 @@ uid: ""
 title: "Building the living pieces"
 type: protocol
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-26T18:00:00+02:00"
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -14,6 +14,7 @@ tags: [protocol, design, motion, velo, sky, reading-aloud]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-023", "STD-008", "STD-034", "PRO-014", "BLU-011"]
+derived_from: "CAN-008"
 ---
 
 <!--

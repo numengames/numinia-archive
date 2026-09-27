@@ -5,7 +5,7 @@ title: "One page per document"
 type: documentation
 subtype: standard
 status: active
-version: "2.2.0"
+version: "2.2.1"
 created: "2026-09-03T10:30:00Z"
 updated: "2026-09-27T15:30:00+02:00"
 author: "ursa"
@@ -13,6 +13,7 @@ owner: "oracle"
 territory: "Content"
 license: "CC0-1.0"
 tags: [standards, writing, form, plates, budget, BCP-14, ISO-IEC-Directives, DITA]
+derived_from: "CAN-009"
 ratified_by: "ADR-043"
 supersedes_version: "0.3.0"
 ---

@@ -5,14 +5,15 @@ title: "Evidence and citation"
 type: documentation
 subtype: standard
 status: active
-version: "1.4.0"
+version: "1.4.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, evidence, citation, audits, ISO-690, ISO-19011]
+derived_from: "CAN-009"
 
 ---
 

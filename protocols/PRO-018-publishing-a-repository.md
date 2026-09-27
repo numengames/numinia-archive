@@ -4,9 +4,9 @@ uid: ""
 title: "Publishing a repository"
 type: protocol
 status: draft
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, publishing, licensing, reuse, spdx, visibility]
@@ -14,6 +14,7 @@ applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
 related: ["STD-014", "STD-010", "STD-022", "PRO-008", "PRO-011"]
+derived_from: "CAN-005"
 ---
 
 <!--

@@ -86,6 +86,7 @@ const STANDALONE = new Set([
   // them without a line here. Their old roots are redirects now.
   // 2026-09-27: /legal left this list — legal/ is a series now, so URL-001
   // admits /legal/terms, /legal/privacy and /legal/cookies as series addresses.
+  '/core',        // the core as a flow: each canon, its standards, its protocols (web/src/lib/core.ts)
   '/design',      // the design system whole (SYS-009), its download and the kit's served files
   '/404',
 ]);

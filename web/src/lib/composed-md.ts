@@ -41,6 +41,7 @@ import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears } from "@/lib/account";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
+import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -661,12 +662,42 @@ function forecastMd(): string[] {
   ];
 }
 
+/** `/core` and each `/core/<canon>` — the core as a flow (web/src/lib/core.ts). */
+const stateWord = (s: string) => (s === "active" ? "in force" : s);
+function coreSources(c: CoreCanon): string[] {
+  return [c, ...c.standards, ...c.protocols].map((d) => d.path);
+}
+function coreDocMd(d: CoreDoc, level: string): string {
+  return [`${level} ${d.title}`, "", `*${stateWord(d.status)}* · ${d.question}`, "", d.reading, ""].join("\n");
+}
+export function corePage(): ComposedPage {
+  const flow = coreFlow();
+  const lines = ["# The core, as a flow", "",
+    "Each canon, the standards that make it concrete, the protocols that carry it out. Every standard and protocol names its canon in its header (`derived_from`).", ""];
+  for (const c of flow) {
+    lines.push(`## ${c.title}`, "", `*${stateWord(c.status)}* · ${c.question}`, "", c.summary, "");
+    if (c.standards.length) lines.push("Standards: " + c.standards.map((d) => `${d.title} (${stateWord(d.status)})`).join(" · "), "");
+    if (c.protocols.length) lines.push("Protocols: " + c.protocols.map((d) => `${d.title} (${stateWord(d.status)})`).join(" · "), "");
+  }
+  return { route: "/core", filename: "core.md", sources: ["canon/", "standards/", "protocols/"], body: preamble(["canon/", "standards/", "protocols/"]) + lines.join("\n") };
+}
+export function coreCanonPage(slug: string): ComposedPage {
+  const c = coreFlow().find((x) => x.slug === slug);
+  if (!c) throw new Error(`composed-md: no canon at /core/${slug}`);
+  const sources = coreSources(c);
+  const parts = [`# ${c.title}`, "", `*${stateWord(c.status)}* · ${c.question}`, "", c.reading, ""];
+  if (c.standards.length) { parts.push("## The standards", ""); for (const d of c.standards) parts.push(coreDocMd(d, "###")); }
+  if (c.protocols.length) { parts.push("## The protocols", ""); for (const d of c.protocols) parts.push(coreDocMd(d, "###")); }
+  return { route: `/core/${slug}`, filename: `core-${slug}.md`, sources, body: preamble(sources) + parts.join("\n") };
+}
+
 /**
  * Every composed page, for the routes that serve them and for the guard that
  * checks none is forgotten.
  */
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), designPage(), accountPage()];
+  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), designPage(), accountPage(), corePage()];
+  for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));
   pages.push(await collectionIndexPage("missions"));
