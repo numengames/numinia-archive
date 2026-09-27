@@ -16,7 +16,7 @@
 // open across the gap. Reduced motion: no transition, the panel simply is.
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
-import { RINGS, RING_ORDER, SEGMENTS, LENSES, TO_CREATE, locate } from "@/lib/suma";
+import { RINGS, RING_ORDER, SEGMENTS, LENSES, TO_CREATE, BOOKS, locate } from "@/lib/suma";
 import { useT } from "@/i18n/ui";
 
 interface Props {
@@ -31,6 +31,7 @@ const here = locate(path);
 void activeNav;
 const t = useT("en");
 const homeHref = "/";
+const inBook = BOOKS.some((b) => b.href && (path === b.href || path.startsWith(b.href + "/")));
 
 // The bar's own text style: Mono, uppercase, tracked — type.etiqueta.
 const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
@@ -83,6 +84,23 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
             <span class="mnote"><small class="mtag">to create</small> {TO_CREATE}</span>
             <span class="ml-auto">Our other sites {LENSES.map((l) => <a href={`/#l-${l.site}`} class="mlens">{l.site}</a>)}</span>
           </div>
+        </div>
+      </div>
+      <!-- Books: the compilations. Not series and not one function's — each
+           gathers several series to be read or heard end to end (2026-09-27). -->
+      <div data-dropdown class="relative">
+        <a href={BOOKS.find((b) => b.href)!.href!} data-dropdown-btn data-nav="menu" aria-haspopup="true" aria-expanded="false"
+           class:list={["flex min-h-[44px] items-center gap-1 px-3 transition-colors", etiqueta, inBook ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}>
+          Books <span data-chevron class="inline-flex transition-transform duration-200 motion-reduce:transition-none"><Icon name="caret-down" size={10} /></span>
+        </a>
+        <div class="absolute inset-x-0 top-full h-3" data-bridge></div>
+        <div data-dropdown-panel class="mega absolute right-0 top-full mt-px hidden w-[360px] rounded-b-xl border border-border shadow-xl">
+          <div class="flex flex-col gap-1 p-4">
+            {BOOKS.map((b) => b.href
+              ? <a href={b.href} data-nav="menu" class:list={["mitem", (path === b.href || path.startsWith(b.href + "/")) && "cur"]} title={b.line}><span>{b.label}</span><small>{b.from}</small></a>
+              : <span class="mitem todo" title={b.pending}><span>{b.label}</span><small>soon</small></span>)}
+          </div>
+          <div class="mfoot border-t border-border/50 px-4 py-3"><span class="mnote">Books gather documents from several series, to read or hear end to end.</span></div>
         </div>
       </div>
       <SiteSearch />
@@ -147,6 +165,17 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
           </div>
         </details>
       ))}
+      <details class="group border-b border-border/50" open={inBook}>
+        <summary class:list={["flex min-h-[44px] cursor-pointer list-none items-center justify-between", etiqueta, inBook ? "text-foreground" : "text-muted-foreground"]}>
+          <span>Books</span>
+          <span class="inline-flex transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"><Icon name="caret-down" size={12} /></span>
+        </summary>
+        <div class="flex flex-col pb-3">
+          {BOOKS.map((b) => b.href
+            ? <a href={b.href} class="flex min-h-[44px] items-baseline justify-between gap-3 rounded-[6px] px-3 text-foreground hover:bg-card"><span>{b.label}</span><span class="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-muted-foreground">{b.from}</span></a>
+            : <span class="flex min-h-[44px] items-baseline justify-between gap-3 px-3 text-muted-foreground" title={b.pending}><span>{b.label}</span><span class="font-mono text-[0.625rem] uppercase tracking-[0.1em]">soon</span></span>)}
+        </div>
+      </details>
       <a href="/about" class:list={["flex min-h-[44px] items-center", etiqueta, "text-muted-foreground"]}>Every series →</a>
     </div>
   </div>
