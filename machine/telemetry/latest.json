@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "0be9478",
-  "corpus_hash": "39a3db98f7190e67285c3980e982dc4ab64d01e3739a4c6bf6dfa9d9090fbd65",
+  "head": "900b2a2",
+  "corpus_hash": "2d2aa74f60f2473f750e7cb1465ec58ff89eae7c00096f4a1e1951202e101d58",
   "root_dirty": 0,
-  "measured_at": "2026-09-26T16:23:19Z",
+  "measured_at": "2026-09-27T08:09:03Z",
   "families": [
     "corpus",
     "series",
@@ -320,16 +320,16 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 881873,
+      "value": 881950,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 64846,
+        "standards": 64890,
         "missions": 45717,
-        "": 45441,
+        "": 45474,
         "decisions": 39440,
         "reports": 29342,
         "agents": 29109,
@@ -348,8 +348,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 540747,
-        "draft": 169716,
+        "(none)": 540780,
+        "draft": 169760,
         "active": 124205,
         "done": 26539,
         "todo": 15975,
@@ -375,7 +375,7 @@
         ],
         [
           "CHANGELOG.md",
-          38462
+          38495
         ],
         [
           "lore/game/manual/es/07-construyendo-la-aventura.md",
@@ -651,7 +651,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1058
+          "3": 1053
         },
         "MIS": {
           "3": 687,
