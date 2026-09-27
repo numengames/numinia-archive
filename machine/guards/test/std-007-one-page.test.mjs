@@ -9,8 +9,8 @@
 //
 //   subtype: register — a lookup table (the header fields, the licence
 //     allowlist). It governs nobody by itself; the standard pointing at it
-//     does. The guard skips it: `if (!register && NEEDS_PLATES.has(dir))`.
-//   canon/ — not in NEEDS_PLATES at all. A canon says why things are as they
+//     does. The guard skips it: `if (!register && NEEDS_BINDS.has(dir))`.
+//   canon/ — not in NEEDS_BINDS at all. A canon says why things are as they
 //     are, and a reason binds everyone who leans on it.
 //
 // What the guard does NOT do is fail: DOC-003 is a SHOULD, reported under

@@ -225,9 +225,11 @@ check('tree: a protocol is steps — no Rules section, no plate, and its Epistem
   // A protocol is carried out, a standard is complied with (STD-024). The
   // rules a protocol used to carry either moved to the standard that holds
   // the thing, or became steps; their plates went to the ledger.
+  // Running a mission (PRO-003) is left as it is, in draft, by the Oracle's
+  // word (2026-09-27): missions are suspended by the transition regime.
   const dir = path.join(ROOT, 'protocols');
   const bad = [];
-  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))) {
+  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !n.startsWith('PRO-003-'))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
     const body = text.slice(text.indexOf('\n---', 3) + 4);
     if (/^##\s+(?:\d+\.\s*)?Rules\b/m.test(body)) bad.push(`${f}: a Rules section`);
@@ -241,7 +243,7 @@ check('tree: a protocol is steps — no Rules section, no plate, and its Epistem
 });
 
 check('tree: the protocol plates are retired in the ledger, and no living text cites one', () => {
-  const RETIRED = ['SES', 'MCY', 'ESC', 'APV', 'GRD', 'DSP', 'TSK', 'RUP', 'RLS', 'RIT', 'SAL', 'MON'];
+  const RETIRED = ['SES', 'ESC', 'APV', 'GRD', 'DSP', 'TSK', 'RUP', 'RLS', 'RIT', 'SAL', 'MON'];
   const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/retired-plates.json'), 'utf-8')).plates;
   for (const p of RETIRED) {
     if (!Object.keys(ledger).some((k) => k.startsWith(`${p}-`))) return `no ${p}- plate in the ledger`;
