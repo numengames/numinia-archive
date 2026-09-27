@@ -85,6 +85,15 @@ export interface Regime {
   source: string;
 }
 
+/** One rule document, as its own header names it. */
+export interface RuleDoc {
+  id: string;
+  title: string;
+  status: string;
+  /** The page that renders it: `/protocols/pro-001-…`. */
+  href: string;
+}
+
 export interface LifecycleRow {
   /** Folder as the archive names it: `protocols/`. */
   folder: string;
@@ -93,6 +102,12 @@ export interface LifecycleRow {
   /** Documents per `status:` value found in that folder. */
   states: Record<string, number>;
   total: number;
+  /**
+   * The documents themselves, in file order. A count says how much is draft;
+   * the question a reader brings is whether THE ONE they are about to follow
+   * is — so the page names them.
+   */
+  documents: RuleDoc[];
 }
 
 /** Read a file under the archive root, or null when it is not there. */
@@ -148,13 +163,24 @@ export function transitionRegime(): Regime {
   return { body, source: AGENTS_DOC };
 }
 
-/** `status:` of a document, from its frontmatter. Undefined when it carries none. */
-function statusOf(text: string): string | undefined {
-  if (!text.startsWith("---")) return undefined;
+/** The frontmatter block of a document, or null when it carries none. */
+function headOf(text: string): string | null {
+  if (!text.startsWith("---")) return null;
   const close = text.indexOf("\n---", 3);
-  const head = close < 0 ? text : text.slice(0, close);
-  const m = /^status:\s*["']?([A-Za-z-]+)["']?\s*$/m.exec(head);
-  return m ? m[1] : undefined;
+  return close < 0 ? text : text.slice(0, close);
+}
+
+/** One scalar field of a header, quotes stripped. */
+function field(head: string, name: string): string | undefined {
+  const m = new RegExp(`^${name}:\\s*(.*?)\\s*$`, "m").exec(head);
+  if (!m) return undefined;
+  return m[1].replace(/^["'](.*)["']$/, "$1") || undefined;
+}
+
+/** `status:` of a document, from its frontmatter. Undefined when it carries none. */
+function statusOf(head: string): string | undefined {
+  const s = field(head, "status");
+  return s && /^[A-Za-z-]+$/.test(s) ? s : undefined;
 }
 
 /**
@@ -180,14 +206,23 @@ export function lifecycle(): LifecycleRow[] {
     }
 
     const states: Record<string, number> = {};
+    const documents: RuleDoc[] = [];
     let total = 0;
     for (const f of files.sort()) {
-      const status = statusOf(fs.readFileSync(path.join(dir, f), "utf8"));
-      if (!status) continue;   // no header, no state to report — INDEX.md and friends
+      const head = headOf(fs.readFileSync(path.join(dir, f), "utf8"));
+      const status = head === null ? undefined : statusOf(head);
+      if (!head || !status) continue;   // no header, no state to report — INDEX.md and friends
       states[status] = (states[status] ?? 0) + 1;
       total += 1;
+      const stem = f.replace(/\.md$/, "");
+      documents.push({
+        id: field(head, "id") ?? stem,
+        title: field(head, "title") ?? stem,
+        status,
+        href: `/${folder}${stem.toLowerCase()}`,
+      });
     }
-    if (total > 0) rows.push({ folder, label, holds, states, total });
+    if (total > 0) rows.push({ folder, label, holds, states, total, documents });
   }
 
   return rows;
