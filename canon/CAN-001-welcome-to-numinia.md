@@ -4,11 +4,11 @@ uid: ""
 title: "You are already in the game"
 type: seminal
 status: draft
-version: "4.0.2"
+version: "4.0.3"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-27T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -17,7 +17,7 @@ tags: [canon, seminal, gamification, narrative, operating-system]
 license: "CC0-1.0"
 ratified_by: "ADR-049"
 supersedes_version: "3.0.0"
-related: ["CAN-002", "CAN-004", "CAN-006", "CAN-008", "PRO-015", "PRO-019", "STD-012"]
+related: ["CAN-002", "CAN-004", "CAN-006", "CAN-008", "PRO-015", "PRO-019", "PRO-024", "STD-012"]
 ---
 
 <!--

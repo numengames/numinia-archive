@@ -154,7 +154,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-011` | Auditing identity, authorization and secrets | any agent running a security audit over a Numinia scope, and the report it files |
 | `PRO-013` | Handing a guard to CI | any agent that writes a guard script, and the Oracle who wires it |
 | `PRO-014` | Producing a design piece | any agent producing a design piece in any medium |
-| `PRO-015` | Joining and leaving Numinia: the phases, the… | whoever brings a person into Numinia, and whoever lets one go |
+| `PRO-015` | Joining Numinia | whoever brings a person into Numinia to work, paid or not |
 | `PRO-016` | Applying the engineering standard | any agent executing a task in a repository that carries `STD-005` |
 | `PRO-017` | Rolling up the week | any agent executing a weekly, quarterly or annual roll-up |
 | `PRO-018` | Publishing a repository | any agent preparing a visibility change or a permanent publication of a Numen Games repository… |
@@ -163,6 +163,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-021` | Closing the month | whoever brings the month's documents, turns them into ledger lines, or reviews the close |
 | `PRO-022` | Building the living pieces | whoever builds, changes or reviews the sky… |
 | `PRO-023` | Bringing a rule into force | whoever proposes, prepares or approves a document leaving draft |
+| `PRO-024` | Leaving Numinia | whoever lets a person go from Numinia, whoever is leaving, and whoever takes over their work |
 | `STD-001` | The series | every tracked document of the archive |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | every document's header, and every date the archive writes |
@@ -196,7 +197,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-036` | One account | the ledger of what Numen Games and Numinia cost and take in, and every view published from it |
 | `STD-037` | What every site carries | every public site of Numen Games and Numinia: numinia.org, numinia.com… |
 
-59 rule documents; 4 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+60 rule documents; 4 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
