@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "c376f3c",
-  "corpus_hash": "bb32eb384ddd85c5b3de91187da9eb754e58943754b4531baa2491b7f0e17951",
+  "head": "ecb021b",
+  "corpus_hash": "7b5a7707b1b6f565cd98182f3253d680063f5950cf9e7e8094ee3c67e30b96a0",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T11:32:30Z",
+  "measured_at": "2026-09-27T11:41:52Z",
   "families": [
     "corpus",
     "series",
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 887098,
+      "value": 887453,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,7 +336,7 @@
       "value": {
         "lore": 495248,
         "standards": 64199,
-        "": 49330,
+        "": 49685,
         "missions": 45963,
         "decisions": 39490,
         "reports": 29422,
@@ -357,9 +357,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 544669,
-        "draft": 151602,
-        "active": 141669,
+        "(none)": 545024,
+        "draft": 149734,
+        "active": 143537,
         "done": 26672,
         "todo": 16006,
         "in-progress": 4742,
@@ -381,7 +381,7 @@
         ],
         [
           "CHANGELOG.md",
-          42172
+          42527
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -615,8 +615,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 83,
-        "draft": 93,
+        "active": 84,
+        "draft": 92,
         "withdrawn": 1,
         "done": 6,
         "todo": 6,
@@ -662,14 +662,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1111
+          "3": 1114
         },
         "MIS": {
           "3": 689,
           "4": 187
         },
         "PRO": {
-          "3": 341
+          "3": 342
         },
         "OPS": {
           "3": 84

@@ -19,6 +19,22 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (the corpus does not grow, in force)
+At the Oracle's word in session ("ok activala"). Before the change he was shown what activating it means (`PRO-023` step 8).
+- **`STD-012` — The corpus does not grow is `active` at 2.1.0.** Only the header changes.
+- **What now fails the build:**
+  - deleting a document that a living document still cites (`DEF-009`);
+  - a record that names a replacement in its header but has not been withdrawn (`DEF-008`).
+  The guard reported 0 findings after #524.
+- **What reviewers now check by hand** (the rules no guard reads yet, all tied to the roll-up protocol, which is still draft):
+  - the history is the daily record;
+  - there are three roll-up levels, no more;
+  - three kinds of line survive a roll-up;
+  - a phase is an index, not a level;
+  - the written procedure authorises every removal.
+- **Mechanism:** `regime.test.mjs` asserts that `STD-012` is active and that both plates bind. It was committed first and seen failing.
+- **Two blindness fixtures hardened.** They build a copy of the repository without its history, and they had asserted that the guard exits 0. With the rule in force, that copy fails on citations that only the history resolves. The fixtures now check only their probe file. The wrong-folder probe named a guild charter that has since been deleted, so it now uses `canon/INDEX.md`. It had passed only while `STD-012` was a draft.
+
 ### Fixed — 2026-09-27 (the corpus-does-not-grow guard reads what the tree had)
 At the Oracle's word in session ("limpieza"). This clears the way for `STD-012` to come into force, and the Oracle is shown that activation separately (`PRO-023`). The guard's 84 findings go to 0.
 - **83 were the resolver's own blindness.** It knew only deleted files whose name started with two to five capitals and three digits. It now also knows:
