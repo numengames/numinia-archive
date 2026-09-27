@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14076,
+  "chars": 14059,
   "apparatus": false,
   "archived": false,
-  "tokens": 3464
+  "tokens": 3456
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 152369,
+  "chars": 153704,
   "apparatus": false,
   "archived": false,
-  "tokens": 40751
+  "tokens": 41136
  },
  {
   "path": "CLAUDE.md",
@@ -423,10 +423,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 4367,
+  "chars": 4386,
   "apparatus": false,
   "archived": false,
-  "tokens": 1237
+  "tokens": 1238
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -1930,10 +1930,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4309,
+  "chars": 3567,
   "apparatus": false,
   "archived": false,
-  "tokens": 1203
+  "tokens": 980
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -1952,10 +1952,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3334,
+  "chars": 2970,
   "apparatus": false,
   "archived": false,
-  "tokens": 896
+  "tokens": 814
  },
  {
   "path": "protocols/PRO-008-decision.md",
@@ -1963,10 +1963,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4264,
+  "chars": 4140,
   "apparatus": false,
   "archived": false,
-  "tokens": 1136
+  "tokens": 1089
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -1974,10 +1974,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4782,
+  "chars": 4699,
   "apparatus": false,
   "archived": false,
-  "tokens": 1200
+  "tokens": 1185
  },
  {
   "path": "protocols/PRO-013-handing-a-guard-to-ci.md",
@@ -1985,10 +1985,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4089,
+  "chars": 3352,
   "apparatus": false,
   "archived": false,
-  "tokens": 1124
+  "tokens": 937
  },
  {
   "path": "protocols/PRO-014-producing-a-design-piece.md",
@@ -1996,10 +1996,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4069,
+  "chars": 4352,
   "apparatus": false,
   "archived": false,
-  "tokens": 1132
+  "tokens": 1208
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -2007,10 +2007,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 11336,
+  "chars": 11245,
   "apparatus": false,
   "archived": false,
-  "tokens": 2779
+  "tokens": 2752
  },
  {
   "path": "protocols/PRO-016-applying-the-engineering-standard.md",
@@ -2018,10 +2018,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3931,
+  "chars": 3916,
   "apparatus": false,
   "archived": false,
-  "tokens": 1072
+  "tokens": 1075
  },
  {
   "path": "protocols/PRO-017-rolling-up-the-week.md",
@@ -2029,10 +2029,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4079,
+  "chars": 3792,
   "apparatus": false,
   "archived": false,
-  "tokens": 1168
+  "tokens": 1082
  },
  {
   "path": "protocols/PRO-018-publishing-a-repository.md",
@@ -2040,10 +2040,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4629,
+  "chars": 4295,
   "apparatus": false,
   "archived": false,
-  "tokens": 1257
+  "tokens": 1145
  },
  {
   "path": "protocols/PRO-019-holding-a-ritual.md",
@@ -2051,10 +2051,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5180,
+  "chars": 4626,
   "apparatus": false,
   "archived": false,
-  "tokens": 1365
+  "tokens": 1229
  },
  {
   "path": "protocols/PRO-020-putting-something-on-sale.md",
@@ -2062,10 +2062,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3927,
+  "chars": 3843,
   "apparatus": false,
   "archived": false,
-  "tokens": 1060
+  "tokens": 1033
  },
  {
   "path": "protocols/PRO-021-closing-the-month.md",
@@ -2073,10 +2073,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4154,
+  "chars": 4178,
   "apparatus": false,
   "archived": false,
-  "tokens": 1100
+  "tokens": 1099
  },
  {
   "path": "protocols/PRO-022-building-the-living-pieces.md",
@@ -2084,10 +2084,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 7586,
+  "chars": 7584,
   "apparatus": false,
   "archived": false,
-  "tokens": 2005
+  "tokens": 2001
  },
  {
   "path": "protocols/PRO-023-bringing-a-rule-into-force.md",
@@ -2238,10 +2238,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7680,
+  "chars": 7805,
   "apparatus": false,
   "archived": false,
-  "tokens": 2034
+  "tokens": 2060
  },
  {
   "path": "standards/STD-008-design-tokens.md",
