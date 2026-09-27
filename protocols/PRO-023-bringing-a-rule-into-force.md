@@ -4,9 +4,9 @@ uid: ""
 title: "Bringing a rule into force"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-27T14:30:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-27T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
@@ -77,8 +77,10 @@ agent proposes one. The **agent** prepares the change and shows it; the
    what will now fail the build, what reviewers must now read for, the
    findings fixed in step 4 and the requirements noted in step 6. Wait for
    his answer.
-9. **Change the header.** `status: active`, a minor version bump, and
-   `updated` set to now. The text does not change in the same step.
+9. **Change the header.** `status: active`, a minor version bump — or
+   `1.0.0` if the document is still below it, since reaching one is the
+   version's own way of saying it now promises — and `updated` set to now.
+   The text does not change in the same step.
 10. **For a protocol, restore its ceremony in `AGENTS.md`.** The transition
     regime suspends protocol ceremony while protocols are draft; say in the
     regime which protocol now binds, and update the test that checks every
