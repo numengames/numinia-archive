@@ -74,7 +74,11 @@ const APPARATUS = /^(Check|References)\b/;
 export function readingOf(text: string): string {
   let body = text;
   if (body.startsWith("---")) body = body.slice(body.indexOf("\n---", 3) + 4);
-  body = body.replace(/<!--[\s\S]*?-->/g, "");
+  // Drop HTML comments (SPDX blocks). Repeated until nothing changes, and any
+  // unclosed opener removed, so no `<!--` survives a nested or broken comment.
+  let prev: string;
+  do { prev = body; body = body.replace(/<!--[\s\S]*?-->/g, ""); } while (body !== prev);
+  body = body.split("<!--").join("");
   const lines = body.split("\n");
   const out: string[] = [];
   let skip = false;
