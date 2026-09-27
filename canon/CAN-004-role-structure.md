@@ -4,11 +4,11 @@ uid: ""
 title: "You are what you are doing"
 type: seminal
 status: draft
-version: "4.0.2"
+version: "4.0.3"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-26T15:40:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -19,7 +19,7 @@ ratified_by: "ADR-057"
 supersedes_version: "3.0.0"
 absorbs: ["CAN-003"]
 related: ["CAN-001", "CAN-007", "STD-003", "STD-030"]
-threshold: governed
+
 ---
 
 <!--

@@ -220,12 +220,12 @@ our own.
 | `blueprints/` `operations/` | `extraction_note` `restoration_note` |
 | `blueprints/` | `semaforo` |
 | `protocols/` | `applies_to` `mandatory` |
-| `standards/` `canon/` | `threshold` |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
 | all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
 
 Retired fields are reported wherever they remain: `area`, now `territory`;
-`blocked_reason`; and the field names from the Spanish era.
+`blocked_reason`; `threshold`, which the series register states once for
+every document of a series; and the field names from the Spanish era.
 
 ### Vocabularies
 

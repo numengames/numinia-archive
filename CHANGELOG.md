@@ -19,6 +19,14 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (one answer per question)
+At the Oracle's word in session, after Byblos's review: where a document goes, and what a change to it costs, had more than one written answer, and the copies had begun to disagree. Each fact now lives in one place, and a test fails if a second copy comes back.
+- **The function of a series is `STD-027`'s alone.** `STD-001`'s series table loses its *Function · Activity* column and its paragraph restating the scheme; it files, the scheme classifies. The site already read the function from `STD-027`; `web/src/lib/classification.ts` now reads the narrower table.
+- **The threshold is `STD-001`'s alone.** The `threshold:` header field leaves 11 canons, 20 standards and the canon mould; `STD-004` retires it (HDR-031) outside `decisions/`, where it still marks a decision that sits at a sealed threshold. Every touched document takes a patch bump.
+- **No living text types a range of identifiers.** "STD-001…STD-028" in `AGENTS.md` was eleven standards out of date; the rule index below it is generated. The ranges in `AGENTS.md` and two agents' `SOURCES.md` go.
+- `regime.test.mjs` holds all three: a `threshold:` in a canon, standard, protocol or mould header, a function column in `STD-001`, or a typed identifier range in the entry doors, agents, canon, standards, protocols or system fails `npm test`.
+- **Not in this change:** where legal texts live. `STD-001` says `operations/legal/`, which does not exist; `rules.json` says `canon/`; `OPS-003`, `OPS-004` and `OPS-010` sit in `operations/`. The Oracle is not sure `operations/` is their place; it waits for his answer. Site v0.64.0.
+
 ### Changed — 2026-09-26 (a requirement answers yes or no)
 At the Oracle's word in session, after Byblos's review of the rule shelves: the definition of a standard had lost the test he had set for it — that it can be answered with a yes or a no — and the last trace of it went in the copy pass (`STD-008`'s summary, "answer yes or no" → "pass or fail"). Asked for the best definition of a standard, the Oracle confirmed the narrower reading: the test holds for each requirement, not for the whole document.
 - **`STD-024` 3.0.0 adds SER-008, *A requirement answers yes or no*.** It carries the international definition (ISO/IEC Guide 2: rules, guidelines or characteristics for common and repeated use) and the drafting rule that a requirement is objectively verifiable. Every MUST in a standard must let anyone, holding the thing made, say yes or no to whether it is met. A standard that only fixes values or terms is a register: still a standard, still in `standards/`, and the norm that cites it holds the requirement. A new obligation, so a major.

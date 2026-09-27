@@ -5,9 +5,9 @@ title: "A canon states"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.5"
+version: "0.1.6"
 created: "2026-09-24T22:00:00+02:00"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -15,7 +15,6 @@ territory: "Archive"
 tags: [standards, canon, writing, form, mould]
 license: "CC0-1.0"
 ratified_by: "ADR-062"
-threshold: governed
 related: ["STD-007", "STD-001", "STD-024", "ADR-049", "ADR-053"]
 ---
 

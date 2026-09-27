@@ -36,7 +36,7 @@ lore/adventures/virtual-worlds/session-zero.md — the four introductory escape 
 
 ## World identity
 
-canon/CAN-001…CAN-004 — world identity, CC0
+canon/CAN-001, canon/CAN-002, canon/CAN-004 — world identity, CC0
 
 ## Guild context
 

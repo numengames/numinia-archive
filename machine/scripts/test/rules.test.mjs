@@ -77,9 +77,8 @@ check('rules.json: series thresholds mirror the STD-001 Series table', () => {
   const std = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf8');
   const sect = std.slice(std.indexOf('## Series'), std.indexOf('## Genre'));
   const want = {};
-  // Columns: Series | Function · Activity | Holds | Prefix | Threshold | …
-  // The Function · Activity column was added by ADR-046; skip three, not two.
-  for (const m of sect.matchAll(/^\| `([a-z]+)\/` \|(?:[^|]*\|){3}\s*`?([a-z]+)`?[^|]*\|/gm)) want[m[1]] = m[2];
+  // Columns: Series | Holds | Prefix | Threshold | …  (the function is STD-027's)
+  for (const m of sect.matchAll(/^\| `([a-z]+)\/` \|(?:[^|]*\|){2}\s*`?([a-z]+)`?[^|]*\|/gm)) want[m[1]] = m[2];
   const diff = seriesDirs(rules).filter((d) => want[d] !== rules.series[d].threshold).map((d) => `${d}: STD-001 ${want[d]} vs rules.json ${rules.series[d].threshold}`);
   return diff.length === 0 || diff.join('; ');
 });

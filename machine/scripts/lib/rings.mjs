@@ -84,7 +84,9 @@ export const RING3 = {
     'related_missions', 'contributors'],
   'operations': ['extraction_note', 'restoration_note',
     'language', 'language_note', 'review_flags', 'source_title'],
-  'standards': ['supersedes_version', 'ratified_by', 'subtype', 'threshold',
+  // threshold retired 2026-09-27: the series register (STD-001) states it
+  // once per series; a header copy is the second source that drifts.
+  'standards': ['supersedes_version', 'ratified_by', 'subtype',
     // series_change retired 2026-09-26: what a version changed is in the
     // changelog and in git, and the header kept a third copy of it.
     // registered 2026-09-05 (MIS-147). Same load-bearing role it already has
@@ -94,7 +96,7 @@ export const RING3 = {
     // been needed where a record merged into a peer, and this is the first
     // time a system manual merged into the standard that governs it.
     'absorbs'],
-  'canon': ['supersedes_version', 'ratified_by', 'threshold',
+  'canon': ['supersedes_version', 'ratified_by',
     'changelog', 'lore', 'extraction_note',
     // registered 2026-09-01 (ADR-036). `former_id`/`former_id_note` carry the
     // renumbering to the CAN- series exactly as they do in reports/ and

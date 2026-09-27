@@ -5,15 +5,15 @@ title: "Versions"
 type: documentation
 subtype: standard
 status: draft
-version: "3.0.3"
+version: "3.0.4"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, versioning, semver]
-threshold: governed
+
 ---
 
 <!--

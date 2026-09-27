@@ -46,10 +46,10 @@ id: "STD-001"
 ---
 # The series
 
-| Series | Function · Activity | Holds | Prefix | Threshold | Budget | Mould |
-|---|---|---|---|---|---|---|
-| \`canon/\` | Governance · Founding | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | \`CAN-TEMPLATE.md\` |
-| \`missions/\` | Production · Executing | the work | \`MIS-NNNN\` | \`closed\` | 500 | \`MIS-TEMPLATE.md\` |
+| Series | Holds | Prefix | Threshold | Budget | Mould |
+|---|---|---|---|---|---|
+| \`canon/\` | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | \`CAN-TEMPLATE.md\` |
+| \`missions/\` | the work | \`MIS-NNNN\` | \`closed\` | 500 | \`MIS-TEMPLATE.md\` |
 `;
 
 const SCHEME = `---
