@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14257,
+  "chars": 14350,
   "apparatus": false,
   "archived": false,
-  "tokens": 3507
+  "tokens": 3532
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 162567,
+  "chars": 164092,
   "apparatus": false,
   "archived": false,
-  "tokens": 43359
+  "tokens": 43763
  },
  {
   "path": "CLAUDE.md",
@@ -632,10 +632,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4300,
+  "chars": 4311,
   "apparatus": false,
   "archived": false,
-  "tokens": 1127
+  "tokens": 1132
  },
  {
   "path": "canon/CAN-002-brand-and-culture.md",
@@ -2002,15 +2002,15 @@
   "tokens": 1280
  },
  {
-  "path": "protocols/PRO-015-joining-and-leaving.md",
+  "path": "protocols/PRO-015-joining.md",
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 11269,
+  "chars": 4300,
   "apparatus": false,
   "archived": false,
-  "tokens": 2760
+  "tokens": 1135
  },
  {
   "path": "protocols/PRO-016-applying-the-engineering-standard.md",
@@ -2084,10 +2084,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 7608,
+  "chars": 5631,
   "apparatus": false,
   "archived": false,
-  "tokens": 2009
+  "tokens": 1526
  },
  {
   "path": "protocols/PRO-023-bringing-a-rule-into-force.md",
@@ -2099,6 +2099,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1256
+ },
+ {
+  "path": "protocols/PRO-024-leaving.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 3994,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1060
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
