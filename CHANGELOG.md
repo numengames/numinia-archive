@@ -19,11 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
-### Changed — 2026-09-26 (a standard answers yes or no)
-At the Oracle's word in session, after Byblos's review of the rule shelves: the definition of a standard had lost the test he had set for it — that it can be answered with a yes or a no — and the last trace of it went in the copy pass (`STD-008`'s summary, "answer yes or no" → "pass or fail").
-- **`STD-024` 3.0.0 adds SER-008, *A standard answers yes or no*.** Each rule of a standard MUST let anyone, holding the thing made, say yes or no to whether it is met; a text nobody can meet or break — a list of values, a vocabulary, a catalogue — is not a standard, and its place is not `standards/`. Source: the principle of verifiability of the ISO/IEC drafting rules. A new obligation, so a major.
-- **`STD-001` 5.4.6:** the `standards/` row now reads "what an artifact must comply with, answered yes or no".
-- Five texts on the shelf fail the test today and are named in the check row: `STD-001`, `STD-015`, `STD-023`, `STD-026`, `STD-030`. They are not moved in this change; where each goes is the next cut.
+### Changed — 2026-09-26 (a requirement answers yes or no)
+At the Oracle's word in session, after Byblos's review of the rule shelves: the definition of a standard had lost the test he had set for it — that it can be answered with a yes or a no — and the last trace of it went in the copy pass (`STD-008`'s summary, "answer yes or no" → "pass or fail"). Asked for the best definition of a standard, the Oracle confirmed the narrower reading: the test holds for each requirement, not for the whole document.
+- **`STD-024` 3.0.0 adds SER-008, *A requirement answers yes or no*.** It carries the international definition (ISO/IEC Guide 2: rules, guidelines or characteristics for common and repeated use) and the drafting rule that a requirement is objectively verifiable. Every MUST in a standard must let anyone, holding the thing made, say yes or no to whether it is met. A standard that only fixes values or terms is a register: still a standard, still in `standards/`, and the norm that cites it holds the requirement. A new obligation, so a major.
+- **`STD-001` 5.4.6:** the `standards/` row says each requirement is answered yes or no, and that a register fixes the values or terms a norm cites.
+- No document moves. The registers (`STD-001`, `STD-015`, `STD-023`, `STD-026`, `STD-030`) stay where they are.
 
 ### Added — 2026-09-26 (a canon for ownership)
 At the Oracle's word in session: the coherence review found digital sovereignty — the wallet, progressive identity, *digital ownership, not digital rental* — carried by the vocabulary register and the ranks standard with no canon saying why. He chose to write it.

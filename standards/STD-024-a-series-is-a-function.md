@@ -26,9 +26,9 @@ SPDX-License-Identifier: CC0-1.0
 # A series is a function
 
 > **Summary:** A folder is a series when losing it would break a named
-> function. Three series oblige; the rest record. A standard is met or not
-> met, and anyone can answer which with a yes or a no. A document's folder
-> matches its declared kind, and an exemption gives its reason.
+> function. Three series oblige; the rest record. Every requirement of a
+> standard is answered with a yes or a no. A document's folder matches its
+> declared kind, and an exemption gives its reason.
 > **Epistemic:** Which series is a document in, and does it bind?
 > **Pragmatic:** Decide, without asking, whether a folder is a series,
 > whether a text binds, and where a document lives.
@@ -50,12 +50,15 @@ a reader in breach.
 Someone acting carries out a protocol. The line MUST be drawn by how the
 text works, not by its topic.
 
-**A standard answers yes or no.** The international rules for drafting
-standards ask that every requirement be one that can be verified. Here each
-rule of a standard MUST let anyone, holding the thing made, answer with a
-yes or a no whether it is met. A text that no one can meet or break — a
-list of values, a vocabulary, a catalogue — is not a standard, and its
-place is not `standards/`.
+**A requirement answers yes or no.** The international definition of a
+standard is a document, approved by whoever holds the authority, that gives
+rules, guidelines or characteristics for common and repeated use. The
+international rules for drafting one call a requirement a criterion that can
+be verified objectively. Here every MUST in a standard MUST let anyone,
+holding the thing made, answer with a yes or a no whether it is met. A
+standard that only fixes characteristics or terms — a list of values, a
+vocabulary, a catalogue — is a register: it is still a standard and lives
+in `standards/`, and the norm that cites it holds the requirement.
 
 ### Where a document lives
 
@@ -80,7 +83,7 @@ who knows these standards check us without a glossary.
 |---|---|---|---|
 | SER-001 | Only three series oblige | [ISO 9001:2015, documented information, clause 7.5](https://www.iso.org/standard/62085.html) (clause unverified): maintain against retain | by hand — what binds is read, not parsed |
 | SER-002 | Complied with, or carried out | — | by hand |
-| SER-008 | A standard answers yes or no | [ISO/IEC Directives, Part 2, Annex A.4, the principle of verifiability](https://www.iso.org/sites/directives/current/part2/index.xhtml) (clause unverified) | by hand — whether a rule can be answered yes or no is read, not parsed; five texts in `standards/` fail it today (`STD-001`, `STD-015`, `STD-023`, `STD-026`, `STD-030`) and wait for their move |
+| SER-008 | A requirement answers yes or no | [ISO/IEC Guide 2:2004, standard](https://www.iso.org/standard/39976.html) (clause unverified): rules, guidelines or characteristics for common and repeated use · [ISO/IEC Directives, Part 2](https://www.iso.org/sites/directives/current/part2/index.xhtml) (clause unverified): a requirement is objectively verifiable | by hand — whether a MUST can be answered yes or no is read, not parsed |
 | SER-004 | Folder and kind agree | [ISO 15489-1:2016, classification](https://www.iso.org/standard/62542.html), clause 9.4 (clause unverified) | `machine/guards/rules/std-004-the-header.mjs` (`HDR-017`) |
 | SER-007 | Exemptions say why | — | `machine/guards/rules/std-004-the-header.mjs` (`HDR-001`) |
 

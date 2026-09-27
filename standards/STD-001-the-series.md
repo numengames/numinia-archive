@@ -41,7 +41,7 @@ SPDX-License-Identifier: CC0-1.0
 | Series | Function · Activity | Holds | Prefix | Threshold | Budget | Mould |
 |---|---|---|---|---|---|---|
 | `canon/` | Governance · Founding | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
-| `standards/` | Governance · Standardising | what an **artifact** must comply with, answered yes or no | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
+| `standards/` | Governance · Standardising | what an **artifact** must comply with, each requirement answered yes or no; a register fixes the values or terms a norm cites | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
 | `protocols/` | Governance · Prescribing | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
 | `decisions/` | Governance · Deciding | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
 | `missions/` | Production · Executing | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
