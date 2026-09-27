@@ -4,10 +4,10 @@ uid: ""
 title: "Licensing"
 type: documentation
 subtype: standard
-status: draft
-version: "2.3.5"
+status: active
+version: "2.4.0"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-27T12:00:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
