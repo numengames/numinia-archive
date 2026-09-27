@@ -288,6 +288,23 @@ check('tree: a protocol fits in 900 words — a longer one is two protocols, or 
   return bad.length === 0 || bad.join('; ');
 });
 
+check('tree: What is yours stays with you is carried out — a breach, a rights request and a new stored thing each have a protocol', () => {
+  // The personal data standard (STD-035) asks for three acts nobody had
+  // written: report a breach within 72 hours, answer a person within a
+  // month, and ask consent again when what a site stores changes.
+  const dir = path.join(ROOT, 'protocols');
+  const want = { 'a breach': /breach/i, 'a rights request': /rights|request/i, 'a stored thing': /stor|cookie/i };
+  const mine = readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))
+    .map((n) => readFileSync(path.join(dir, n), 'utf-8'))
+    .filter((t) => /^derived_from: "CAN-012"/m.test(t))
+    .map((t) => /^title: "(.*)"/m.exec(t)?.[1] ?? '');
+  const miss = Object.entries(want).filter(([, re]) => !mine.some((title) => re.test(title))).map(([k]) => k);
+  if (miss.length) return `no protocol under CAN-012 for: ${miss.join(', ')}`;
+  const std = readFileSync(path.join(ROOT, 'standards/STD-035-personal-data.md'), 'utf-8');
+  if (/no breach procedure is written/.test(std)) return 'STD-035 still says no breach procedure is written';
+  return true;
+});
+
 check('tree: the protocol plates are retired in the ledger, and no living text cites one', () => {
   const RETIRED = ['SES', 'ESC', 'APV', 'GRD', 'DSP', 'TSK', 'RUP', 'RLS', 'RIT', 'SAL', 'MON'];
   const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/retired-plates.json'), 'utf-8')).plates;
