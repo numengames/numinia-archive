@@ -37,19 +37,35 @@ test('AGT-001: AGENTS.md opens with the audit instruction', () => {
   assert.match(first, /audit/i);
 });
 
-test('every protocol is draft, as AGENTS.md says, and no count is typed', () => {
-  // "Every protocol in this archive is `status: draft`" — the sentence the
-  // whole transition regime rests on. It used to carry "(N of N)", and the
+test('every protocol is draft except those AGENTS.md names in force, and no count is typed', () => {
+  // "Every protocol in this archive is `status: draft`" was the sentence the
+  // whole transition regime rested on. It used to carry "(N of N)", and the
   // number drifted twice (12 over 11, then 11 over 12). The Oracle's word
-  // (2026-09-24): do not state how many there are. So the file states no
-  // count, and this test checks the claim itself: every PRO- file is draft.
+  // (2026-09-24): do not state how many there are. Since 2026-09-27 a
+  // protocol can leave draft by PRO-023, and step 10 of that protocol says
+  // the regime names it. So the check is: the protocols AGENTS.md names in
+  // its "In force:" line are exactly the active ones; every other is draft.
   assert.match(AGENTS, /Every protocol in this archive is\s+`status: draft`/, 'the regime sentence is gone');
   assert.ok(!/\(\s*\d+\s+of\s+\d+\s*\)/.test(AGENTS), 'AGENTS.md types a "(N of N)" count again');
+  const line = /^In force:([^\n]*(?:\n(?!\n)[^\n]*)*)/m.exec(AGENTS);
+  assert.ok(line, 'AGENTS.md has no "In force:" line naming the protocols that bind');
+  const named = new Set([...line[1].matchAll(/`(PRO-\d{3})`/g)].map((m) => m[1]));
   const files = tracked.filter((f) => /^protocols\/PRO-/.test(f));
   assert.ok(files.length > 0, 'no protocols found');
+  const active = new Set();
   for (const f of files) {
     const head = readFileSync(path.join(ROOT, f), 'utf8').slice(0, 2000);
-    assert.match(head, /status:\s*draft/, `${f} is not draft, but AGENTS.md says every protocol is`);
+    const id = /^id:\s*"?(PRO-\d{3})/m.exec(head)[1];
+    if (/^status:\s*active/m.test(head)) active.add(id);
+    else assert.match(head, /status:\s*draft/, `${f} is neither draft nor active`);
+  }
+  assert.deepEqual([...active].sort(), [...named].sort(), 'the protocols in force and the ones AGENTS.md names differ');
+});
+
+test('what the Oracle brought into force on 2026-09-27 is active: PRO-023 and STD-007', () => {
+  for (const [dir, p] of [['protocols', 'PRO-023-'], ['standards', 'STD-007-']]) {
+    const f = tracked.find((t) => t.startsWith(`${dir}/${p}`));
+    assert.match(readFileSync(path.join(ROOT, f), 'utf8').slice(0, 2000), /^status:\s*active/m, `${f} is not active`);
   }
 });
 
