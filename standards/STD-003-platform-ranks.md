@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.2.4"
+version: "3.2.5"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-27T12:00:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -29,8 +29,8 @@ SPDX-License-Identifier: CC0-1.0
 > Archon, Oracle. Each holds every permission of the ranks below it. A
 > member's rank is read from what they have done, never from what they claim.
 > **Epistemic:** What may each rank do on the platform?
-> **Pragmatic:** Build or audit a permission check without asking who is
-> allowed to do what.
+> **Pragmatic:** Build or audit a permission check without asking who may
+> do what.
 > **Audience:** Agents · Oracles
 
 **Binds:** the Numinia digital-goods platform — authentication, character
@@ -38,21 +38,16 @@ sheets, creator panel, administration.
 
 ## Rules
 
-Each rule rests on a published security standard that auditors already
-use.
-
 ### How rank is held
 
 **Ranks add up.** A rank MUST grant every permission of the ranks below it,
-as a role hierarchy does in the role-based access control model of the
-United States standards institute. One ladder is easy to audit: what
-someone may do is their rank and everything under it.
+as a role hierarchy does in NIST role-based access control. One ladder is
+easy to audit: what someone may do is their rank and everything under it.
 
 **Rank is read, never declared.** The platform MUST work out a member's
-rank on its own server, from their sign-in, their character sheet and their
-purchases, never from what the member's device claims. The open web
-security project's verification standard asks the same: a permission
-checked out of the member's reach cannot be self-granted.
+rank on its own server, from their sign-in, character sheet and purchases,
+never from what the member's device claims. A permission checked out of the
+member's reach cannot be self-granted.
 
 **The ranks that follow the evidence move by themselves.** Between Nomad
 and Citizen, and between Citizen and Pilgrim, rank MUST follow the evidence
@@ -65,10 +60,8 @@ four people.
 
 **Nobody acts upward.** An Archon MUST NOT act on another Archon or on an
 Oracle, and nobody can ban an Oracle, whether in storage, through the
-programming interface or on screen. The federal security controls stop
-capture with separation of duties and least privilege. Because an Oracle
-cannot be banned, every privileged action an Oracle takes is logged
-instead.
+programming interface or on screen. Since an Oracle cannot be banned, every
+privileged action an Oracle takes is logged instead.
 
 **Moving someone by hand has a ceiling.** An Archon MAY promote or demote
 anyone up to Vernacular, and an Oracle anyone up to Archon. The Oracles
@@ -78,19 +71,15 @@ change only when the list of Oracles is edited.
 Archon MUST be decided against the profiles below, never against how much
 someone has produced.
 
-A Vernacular is an agent fully at home in Numinia's culture. They inhabit
-the system with fluency and depth, and know its structures from within.
-They work with autonomy and expertise in their own field, and collaborate
-closely with Numinia.
+A Vernacular is an agent fully at home in Numinia's culture, who knows its
+structures from within, works with autonomy and expertise in their own
+field, and collaborates closely with Numinia.
 
-An Archon is all of that, and also leads other agents. They make decisions
-and take initiatives that affect everyone, and answer for the system, not
-only for their own work. The rank carries social and organisational
-influence.
+An Archon is all of that and also leads other agents. They take decisions
+that affect everyone and answer for the system, not only for their own work.
 
-> Technical depth does not by itself make an Archon. The Archon has to
-> relate to others in a way that goes beyond doing the work: they guide,
-> mediate and represent. An agent who does not want that role should not
+> Technical depth does not by itself make an Archon. An Archon guides,
+> mediates and represents. An agent who does not want that role should not
 > hold the rank, however exceptional their expertise. *Prepared with
 > Christian Märtens.*
 
@@ -98,7 +87,7 @@ influence.
 
 A Nomad has signed in, with a wallet or a social account. They may browse
 the public gallery, download what belongs to everyone, search, read their
-own character sheet, keep favourites and see their collections.
+own sheet, keep favourites and see their collections.
 
 A Citizen has finished Session Zero and chosen a guild and a faction. They
 may edit their own sheet, and hold loot and an inventory.
@@ -122,9 +111,9 @@ be banned.
 ### Keeping this page true
 
 **The permissions and this page move together.** A platform change that
-alters what a rank may do MUST update this standard in the same change. The
-security verification standard asks for written authorization rules. This
-page is those rules, and a reviewer tests the code against it.
+alters what a rank may do MUST update this standard in the same change.
+This page is the written authorization rules, and a reviewer tests the code
+against it.
 
 This standard runs over its word budget because the six rank profiles
 cannot live anywhere else.
@@ -156,13 +145,11 @@ reads each rank from.
 
 ## Why
 
-A rank the member declares is a permission the member grants themselves.
-Reading rank from evidence ties every permission to an act. Resting each
+A rank the member declares is a permission the member grants themselves;
+reading rank from evidence ties every permission to an act. Resting each
 rule on a published security standard lets an auditor check us against a
-list they already hold. The cap on Oracles, and the log of what they do,
-keep governance from being captured inside the product. Nomad reads,
-Citizen edits their identity, Pilgrim buys, Vernacular creates, Archon
-moderates, Oracle governs.
+list they already hold. The cap on Oracles and the log of what they do keep
+governance from being captured inside the product.
 
 ## References
 

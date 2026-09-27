@@ -5,9 +5,9 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "10.0.3"
+version: "10.0.4"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -23,10 +23,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # Design tokens
 
-> **Summary:** The parts of our design that pass or fail. Sixteen colours
-> and no new ones, four typefaces we serve ourselves, one spacing scale, two
-> roundings, one icon family, fifteen animations, and one kit installed from
-> its package.
+> **Summary:** The parts of our design that pass or fail: sixteen colours,
+> four self-served typefaces, one spacing scale, two roundings, one icon
+> family, fifteen animations and one kit installed from its package.
 > **Epistemic:** What can a design piece fail an audit on?
 > **Pragmatic:** Know what an audit of any piece we make can fail on.
 > **Audience:** Agents · Oracles
@@ -36,74 +35,66 @@ consumer of the kit.
 
 ## Rules
 
-Contrast, colour as a signal, focus, the keyboard and stopping motion
-belong to the accessibility standard. The rules here add to it; they do not
-repeat it.
+Contrast, colour as a signal, focus, the keyboard and stopping motion belong
+to the accessibility standard. These rules add to it.
 
 ### Colour, type and shape
 
 **The palette is closed.** A piece MUST use only the sixteen colours of the
 design values, their text variants and the rarity scale. Ramps and chart
-palettes only put those colours in order. A new colour is a breach, not a
-variation.
+palettes only order those colours. A new colour is a breach.
 
 **Type is served by us.** Our four typefaces MUST come from our own server,
-with their licences. Every page switches off the browser's fake bold,
-italic and small capitals with the one setting the web's fonts standard
-provides, and a tool can check that setting. Serving the fonts ourselves
-also keeps visitors' addresses away from a font company.
+with their licences, so visitors' addresses never reach a font company.
+Every page switches off the browser's fake bold, italic and small capitals
+with the one setting the web's fonts standard provides.
 
 **Space and shape follow the scale.** Every gap MUST be a step of the
-four-pixel scale. A corner is rounded only for a control or a frame, and
-the pixel style has no rounded corners at all.
+four-pixel scale. Only a control or a frame has rounded corners, and the
+pixel style has none.
 
 **One family of icons.** Icons MUST come from our subset of one open icon
 family, one weight per row, never the thinnest weight or the two-tone. Its
-licence asks one thing: the copyright notice ships with the icons. The
-scarab and the Moon are marks, not icons.
+copyright notice ships with the icons. The scarab and the Moon are marks,
+not icons.
 
 **Pixels sit whole.** Text and pixel art MUST sit on whole pixels, never
-shifted by half a pixel and never smoothed when scaled. Lines are never
-broken with spaces: a screen reader or a narrow screen would then read the
-text out of order, and the web accessibility guidelines count that as a
-failure.
+shifted by half a pixel or smoothed when scaled. Lines are never broken with
+spaces: a screen reader or a narrow screen would read the text out of order.
 
 ### What we add to accessibility
 
 **Texture never costs contrast, and a finger always fits.** A texture, a
 veil or a glow MUST NOT lower the contrast the accessibility standard sets,
 by day or by night. Anything touched is forty-four pixels a side, the
-guidelines' highest level; their middle level asks for twenty-four.
+guidelines' highest level.
 
 ### Motion
 
 **Text comes before motion.** The page's main text MUST be painted before
 any animation starts and within two and a half seconds, with the layout
-shifting under the reader by less than a tenth. These are the two figures
-the web's page-experience measures use, and they turn an impression into a
-number anyone can check.
+shifting under the reader by less than a tenth, as the web's page-experience
+measures count it.
 
 **Motion is catalogued.** Every animation MUST be one of the fifteen in the
 design values. Parallax, glitch, moving focus, sound that plays by itself,
-and endless background loops beyond the two allowed are forbidden. The
-guidelines only ask that sound can be stopped; we allow none. The two
+and endless background loops beyond the two allowed are forbidden. The two
 allowed loops still carry the pause the accessibility standard requires.
 
 ### The kit and its values
 
 **The kit is installed, never copied.** The published kit MUST be generated
-from its package. Its version number follows semantic versioning, so a
-consumer knows from the number alone whether an update can break them.
-Every file carries a fingerprint of the kind browsers use to refuse a
-tampered file.
+from its package. Its version follows semantic versioning, so the number
+alone tells a consumer whether an update can break them. Every file carries
+a fingerprint of the kind browsers use to refuse a tampered file.
 
 **A value exists, or it does not.** Every value a piece uses MUST be in the
 token file or in the design values; a value in neither does not exist. The
 token file follows the first stable design tokens format, so any tool can
-read it and a validator can prove it well formed.
+read and validate it.
 
-The footer, the card a shared link shows, and day and night on every site
-belong to the standard on what every site carries.
+The footer, the share card, and day and night on every site belong to the
+standard on what every site carries.
 
 ## Check
 
@@ -136,10 +127,10 @@ point at. **Law** marks what a statute requires.
 
 ## Why
 
-A design system is mostly direction, and direction cannot fail a check.
-These rules are the exceptions: each is a number, a file or a property of
-the page that holds or does not. Where the world already has a norm, we
-follow it by name, so an auditor can check us with tools they already know.
+Most of a design system is direction, which cannot fail a check. These rules
+are the exceptions: each is a number, a file or a property of the page. Where
+a public norm exists we follow it by name, so an auditor can use tools they
+already know.
 
 ## References
 

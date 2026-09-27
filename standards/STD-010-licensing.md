@@ -5,9 +5,9 @@ title: "Licensing"
 type: documentation
 subtype: standard
 status: draft
-version: "2.3.4"
+version: "2.3.5"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-27T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -39,23 +39,22 @@ SPDX-License-Identifier: CC0-1.0
 
 **Only what is ours is published.** A piece MUST NOT be published unless we
 can show it is ours: by contract, commission, transfer of rights, or an
-origin that allows it. We follow the Developer Certificate of Origin, a
-one-line promise that the author may give the change. We also run the review
-of outgoing work that the international licence-compliance standard asks
-for. Every piece then traces back to someone who vouched for it.
+origin that allows it. Through the Developer Certificate of Origin and the
+review of outgoing work that the international licence-compliance standard
+asks for, every piece traces back to someone who vouched for it.
 
 **The terms follow the kind of piece.** A program that runs one of our
 services is open, and anyone who changes it and offers it to others must
 share the changes. A tool, library or script is open with no conditions.
 Images, models, data, design, the canon, the agents and the world's stories
-belong to everyone, for good. Anyone may reuse an explanatory text if they
-credit us. The brand and early prototypes stay ours.
+belong to everyone, for good. Explanatory texts are reusable with credit.
+The brand and early prototypes stay ours.
 
 **Sharing obligations flow down, never up.** A tool that is open with no
 conditions MUST NOT include a program that obliges sharing, or it inherits
-the obligation. The strictest terms among what we ship decide for the whole.
+the obligation. The strictest terms in what we ship decide for the whole.
 What is used only to build does not count. Two programs that only talk over
-the network are two separate works.
+the network are separate works.
 
 **Someone else's obligations stay apart.** An outside engine that obliges
 sharing lives in its own repository, so its terms never spread to ours.
@@ -66,59 +65,55 @@ the client's name.
 
 ### What we may build on
 
-**We only build on what is allowed.** The international standards for
-licence compliance and open-source security ask for a written list of
-accepted licences. Every dependency is checked against it, and a review
-refuses any new dependency off the list. So for any release we can prove
-that nothing in it carries terms we did not accept. Someone else's code MUST
-have its terms on our accepted list before we add it. If the terms are
-missing or unclear, nothing is added until someone reads them.
+**We only build on what is allowed.** Someone else's code MUST have its
+terms on our written list of accepted licences before we add it. If the
+terms are missing or unclear, nothing is added until someone reads them. A
+review checks every dependency against the list and refuses any new one off
+it, so for any release we can prove nothing in it carries terms we did not
+accept.
 
 **Having is not shipping.** Code with forbidden terms MAY sit in a
-repository only if three things hold: it never reaches what we ship, the
-debt is written down with a way out, and a check inspects what ships. A
-program that obliges sharing never carries extra restrictions.
+repository only if it never reaches what we ship, the debt is written down
+with a way out, and a check inspects what ships. A program that obliges
+sharing never carries extra restrictions.
 
 ### How a file says its terms
 
 **Each repository says its terms in the common format.** We follow the REUSE
-specification, the common way for a repository to state its licences. The
-full text of every licence used sits in one folder. Every file is covered,
-and the specification's linter proves it on every change. Any tool, auditor
-or reuser can read the terms of any file without asking us. Every repository
-MUST also carry its main licence and a note on the brand, all in English.
+specification: the full text of every licence used sits in one folder,
+every file is covered, and the specification's linter proves it on every
+change. Anyone can read the terms of any file without asking us. Every
+repository MUST also carry its main licence and a note on the brand, all in
+English.
 
 **Each file says its own terms.** Every text file MUST open with the
 specification's two-line comment header: who owns it, and under which
-licence. Every open-source tool reads those lines. A document's header MUST
-say the same. A file that cannot hold the lines, like an image or a font, is
-listed in the shared file by its exact name. We never list a whole folder,
-so no file is covered by accident.
+licence. A document's header MUST say the same. A file that cannot hold the
+lines, like an image or a font, is listed in the shared file by its exact
+name, never by folder, so no file is covered by accident.
 
 **Media carries its terms inside.** An image, a model or a sound carries its
 licence in its own metadata. An avatar we give to everyone MUST lift the
 restrictions its format sets by default.
 
-**We say how a piece was made.** Every piece states who made it: a person, a
-person helped by AI, or AI alone. What we publish as ours shows a person's
-hand.
+**We say how a piece was made.** Every piece states whether a person, a
+person helped by AI, or AI alone made it. What we publish as ours shows a
+person's hand.
 
 **Giving away is only giving away our part.** Before we give an image, video
-or voice to everyone, we check where its samples came from. We get written
-consent from anyone who can be recognised, strip the photo's hidden data,
-and confirm we hold the rights behind any video or cloned voice. Giving away
-our copyright leaves each person's rights over their image, voice and
-privacy untouched.
+or voice to everyone, we get written consent from anyone who can be
+recognised, strip the photo's hidden data, and confirm we hold the rights
+behind any video or cloned voice. Giving away our copyright leaves each
+person's rights over their image, voice and privacy untouched.
 
 ### Who may contribute
 
-**Every contribution comes with permission.** In the Developer Certificate
-of Origin, the author signs off in one line that they wrote the change, or
-may submit it, under the repository's licence. The best practices badge asks
-for this at its silver level. Each change MUST carry that sign-off, so it
-carries its own proof of permission. Where a repository holds a program that
-obliges sharing, contributors also sign an agreement with us. Art is given
-to everyone explicitly, in the change that brings it.
+**Every contribution comes with permission.** Each change MUST carry a
+Developer Certificate of Origin sign-off: one line in which the author
+states they wrote the change, or may submit it, under the repository's
+licence. Where a repository holds a program that obliges sharing,
+contributors also sign an agreement with us. Art is given to everyone
+explicitly, in the change that brings it.
 
 ## Check
 

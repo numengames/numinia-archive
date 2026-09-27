@@ -5,11 +5,11 @@ title: "The header"
 type: documentation
 subtype: standard
 status: draft
-version: "4.1.3"
+version: "4.1.4"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T12:00:00+02:00"
 ratified_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -25,10 +25,9 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # The header
 
-> **Summary:** Every document opens with a short block of labelled fields
-> that says what it is, who wrote it and when. Every field is listed below,
-> ring by ring; any other field is an error. An unknown value is left out,
-> never guessed.
+> **Summary:** Every document opens with labelled fields saying what it is,
+> who wrote it and when. Every field is listed below, ring by ring; any other
+> is an error. An unknown value is left out, never guessed.
 > **Epistemic:** What is a correct header?
 > **Pragmatic:** Write a header, add a field, or read a finding by its code.
 > **Audience:** Agents · Oracles
@@ -37,20 +36,19 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Rules
 
-Each rule follows an outside standard, so any tool that already reads that
-standard can check us unaided.
+Each rule follows an outside standard, so any tool that reads it can check
+us unaided.
 
 ### Every document has a header
 
 **Every governed document has a header.** Every document in a governed
-folder MUST open, at its very first character, with a block of fields in
-the plain data format called YAML, fenced by three dashes on their own
-lines. Any tool then finds the header without guessing where it starts.
+folder MUST open, at its very first character, with a block of YAML fields
+fenced by three dashes on their own lines, so any tool finds the header
+without guessing.
 
 **A field in no ring is an error.** A field that no ring registers MUST be
-reported, the way a closed schema refuses any property it does not list. A
-misspelt field is caught the day it is written, instead of silently
-meaning nothing.
+reported, as a closed schema refuses any property it does not list. A
+misspelt field is caught the day it is written.
 
 **Adding a field costs a row and a decision.** A new field MUST arrive in
 the same change as its line in the rings below and the decision that
@@ -58,8 +56,8 @@ justifies it.
 
 ### What a header may say
 
-**Empty is absent.** A field MUST NOT hold an empty value. To say nothing is
-known, leave the field out, write null, or write that it is to be announced.
+**Empty is absent.** A field MUST NOT hold an empty value. When nothing is
+known, leave the field out, write null, or mark it to be announced.
 
 **Absent is never guessed.** A placeholder, a plausible date or an invented
 author MUST NOT stand in for a value. Where history cannot testify, mark
@@ -67,7 +65,7 @@ the date as declared, so a reader can tell evidence from claim.
 
 **A deferred value has an owner.** A value left to be announced MUST sit in
 a field that a mission owns, and the check names that mission. Whether the
-mission is still alive is judged by hand.
+mission still lives is judged by hand.
 
 **Retired fields leave in waves.** A retired field MUST be reported wherever
 it still appears until its migration lands. The rule that names it leaves
@@ -80,45 +78,42 @@ exists.
 ### What the values follow
 
 **The licence is a name from the shared list.** Every header MUST declare a
-licence, spelt exactly as the open-source world's shared licence list
-spells it. The file's own licence lines carry the same tag, so one check
-reads the terms of every file and the two never disagree.
+licence, spelt exactly as the shared open-source licence list spells it.
+The file's own licence lines carry the same tag, so one check reads every
+file's terms and the two never disagree.
 
-**A version counts what changed.** A version MUST be three numbers in the
+**A version counts what changed.** A version MUST be three numbers in
 semantic versioning form, bumped as the standard of versions says. The
-number alone tells a reader whether an obligation was dropped, added or
-only reworded.
+number alone tells whether an obligation was dropped, added or reworded.
 
 **Replaced is a relation, not a state.** A document that has an heir MUST
-say so with a link to the heir, never with a status of its own. Many
-decision records use a superseded status instead. A link names the heir and
-cannot drift from it.
+say so with a link to the heir, never with a status of its own. A link
+names the heir and cannot drift from it, as the superseded status many
+decision records use can.
 
 **Relations live in the header and resolve.** Every relation (replaces,
 replaced by, absorbs, derived from, ratified by, related, part of) MUST
-name a document that exists. Each means what the library world's Dublin
-Core terms and the web's provenance vocabulary say it means, so any
-catalogue tool reads our links as its own.
+name a document that exists. Each means what Dublin Core and the web's
+provenance vocabulary say it means, so catalogue tools read our links as
+their own.
 
 **Titles are English.** Every title MUST be in English, and a language is
-always named with the internet's standard language tags. A program and a
-person then agree on which language a text is in.
+always named with the internet's standard language tags.
 
 ### How dates are written
 
 **Dates are written the internet's way.** Every date MUST follow the
 internet's timestamp format: year, month, day, the hour and its offset from
-universal time, in that order. Dates then sort as text and read one way
-only, and no updated date comes before its created date.
+universal time, in that order. Dates then sort as text and read one way;
+no updated date comes before its created date.
 
 This standard runs over its word budget because each rule names the outside
 standard it follows.
 
 ## Check
 
-Each rule, its code, its source and its check. Then every field, ring by
-ring: its value, its code, which series carry it and the outside term it
-means. A field not listed is an error.
+Each rule with its code, source and check; then every field, ring by ring,
+with its value, code, series and outside meaning.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
@@ -181,10 +176,9 @@ standards; those plates are retired there.
 
 ### Outside meaning
 
-Where the library world's Dublin Core terms or the web's provenance
-vocabulary already define a field's meaning, the field means exactly that.
-An auditor's catalogue then reads our headers unaided. The field names stay
-our own.
+Where Dublin Core or the web's provenance vocabulary already defines a
+field, it means exactly that, so an auditor's catalogue reads our headers
+unaided. The field names stay our own.
 
 | Field | Means | Note |
 |---|---|---|
@@ -223,9 +217,9 @@ our own.
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
 | all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
 
-Retired fields are reported wherever they remain: `area`, now `territory`;
-`blocked_reason`; `threshold`, which the series register states once for
-every document of a series; and the field names from the Spanish era.
+Retired fields are reported wherever they remain: `area` (now `territory`),
+`blocked_reason`, `threshold` (the series register states it once per
+series), and the field names from the Spanish era.
 
 ### Vocabularies
 
@@ -245,8 +239,8 @@ set aside before the value is judged.
 
 ### Status lifecycles
 
-This is the only place that says which states a document may hold. The
-machine keeps a copy, and a test fails the moment the two differ.
+Only this table says which states a document may hold. The machine keeps a
+copy, and a test fails the moment the two differ.
 
 | Type | Lifecycle | Plate |
 |---|---|---|
@@ -259,20 +253,16 @@ machine keeps a copy, and a test fails the moment the two differ.
 | `active` | in force, or — for a report or a closed mission's evidence — published and standing |
 | `withdrawn` | no longer in force. The one terminal state: whether an heir exists is said by `superseded_by`, present or absent, never by a second state (`DEF-008`) |
 
-Two states are retired, and the header check rejects them. Closed meant
-published for a report, and would have had to mean no longer binding for a
-standard. Superseded named an heir, and an heir is a relation, not a state.
-Whether a document's body may still change is its series' **threshold**,
-set in the register of series, not its status.
+Two states are retired and the header check rejects them: closed, which
+meant one thing for a report and another for a standard, and superseded,
+because an heir is a relation. Whether a document's body may still change
+is its series' **threshold**, set in the register of series, not its status.
 
 ## Why
 
-A person reads the body. Guards, indexes and the site read only the
-header. Everything the machinery knows about a document lives in these
-lines, so one guessed value corrupts every view at once, and one
-unregistered field starts a count that never stops. Each value follows a
-norm the world already reads, so an auditor can check us with tools they
-already own.
+A person reads the body; guards, indexes and the site read only the
+header. One guessed value there corrupts every view at once, and one
+unregistered field starts a count that never stops.
 
 ## References
 
