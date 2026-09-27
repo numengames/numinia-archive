@@ -264,3 +264,24 @@ check('tree: the security audit keeps no rules of its own — the secrets standa
   if (/^\*\*SEC-\d{3}/m.test(text)) return `${pro} still titles a rule with an SEC plate, the code of an Engineering checks row`;
   return true;
 });
+
+check('tree: protocols keep the designed system — the transition regime lives only in AGENTS.md', () => {
+  // A form pass changes shape, not substance (the Oracle, 2026-09-27). The
+  // regime suspends ceremony while protocols are draft; promotion restores
+  // it as written, so a protocol never describes the suspension.
+  const dir = path.join(ROOT, 'protocols');
+  const read = (p) => readFileSync(path.join(dir, readdirSync(dir).find((f) => f.startsWith(`${p}-`))), 'utf-8');
+  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-/.test(n) && !n.startsWith('PRO-023-'))) {
+    if (/transition regime|chat instruction is the briefing/i.test(readFileSync(path.join(dir, f), 'utf-8'))) return `${f} describes the transition regime`;
+  }
+  const keeps = {
+    'PRO-001': ['divergence_log', 'OPS-008', 'OPS-009', 'decisions/', 'PRO-003', 'in-review', '9–10'],
+    'PRO-005': ['Mission:'],
+    'PRO-016': ['decision record'],
+  };
+  for (const [p, words] of Object.entries(keeps)) {
+    const text = read(p);
+    for (const w of words) if (!text.includes(w)) return `${p} lost ${w}`;
+  }
+  return true;
+});
