@@ -189,6 +189,37 @@ test('promoting a document out of draft changes the page with no edit to it', ()
   }
 });
 
+test('each row names its documents, so a reader sees WHICH are draft, not only how many', () => {
+  // A count answers "how much is draft"; the question a person or an agent
+  // brings is "is the one I am about to follow draft?". The row carries the
+  // documents themselves, read from their headers, with the address to open.
+  const dir = scratch();
+  try {
+    const { code, out } = ask(dir, 'b.lifecycle()');
+    assert.equal(code, 0, out);
+    const protocols = JSON.parse(out).find((r) => r.folder === 'protocols/');
+    assert.deepEqual(
+      protocols.documents.map((d) => [d.id, d.status, d.href]),
+      [
+        ['PRO-001', 'draft', '/protocols/pro-001-a'],
+        ['PRO-002', 'draft', '/protocols/pro-002-b'],
+        ['PRO-003', 'active', '/protocols/pro-003-c'],
+      ],
+    );
+    assert.equal(protocols.documents[0].title, 'PRO-001');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('the page lists the documents by state, in both its HTML and its markdown', () => {
+  const page = readFileSync(path.resolve(ROOT, 'web', 'src', 'pages', 'binding.astro'), 'utf8');
+  assert.match(page, /\.documents/, 'binding.astro does not list the documents of each series');
+  const src = readFileSync(COMPOSED, 'utf8');
+  const generator = src.slice(src.indexOf('export function bindingPage'));
+  assert.match(generator.slice(0, 5000), /\.documents/, 'binding.md does not list the documents of each series');
+});
+
 // ---------------------------------------------------------------------------
 // The page, and the signs pointing at it
 // ---------------------------------------------------------------------------
