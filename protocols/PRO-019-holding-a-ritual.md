@@ -4,9 +4,9 @@ uid: ""
 title: "Holding a ritual"
 type: protocol
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-09-26T14:43:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -27,8 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** What a ritual of Numinia is, who convokes it, what must exist
 > before it starts and what must remain after it ends.
-> **Epistemic:** A ritual is not a meeting with a costume. It is a recurring
-> act with a stated purpose, and without a written trace it did not happen.
+> **Epistemic:** How is a ritual of Numinia convoked, held and recorded?
 > **Pragmatic:** Convoke, prepare, hold and record any ritual — weekly,
 > seasonal or annual — without asking how.
 > **Audience:** Agents · Oracles
@@ -39,42 +38,13 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 1. Purpose and trigger
 
-Numinia's rhythm is not continuous. It is punctuated by acts that recur: the
-operational ones that set the pulse of the work, and the festive ones that
-sustain the culture. This protocol removes the ambiguity from all of them.
+Numinia's rhythm is punctuated by acts that recur: the operational ones that
+set the pulse of the work, and the festive ones that sustain the culture.
 
-A ritual is held when its cadence falls due. The **convoker** is the agent or
-Oracle named for it in the roster below; when none is named, the Oracle.
-
-A gathering that is not in the roster is a meeting. Meetings need no protocol.
-
----
-
-## 2. Rules
-
-**RIT-001 — A ritual is rostered before it is held.** A recurring act MUST
-carry a row below, with a purpose, a cadence and a convoker, before it is
-convoked as a ritual.
-
-**RIT-002 — The material is closed before the ritual opens.** Whatever the
-ritual reads rather than improvises MUST exist beforehand: the period's
-roll-up, the agenda, the adventure. Lacking it, the ritual is postponed, not
-held empty.
-
-**RIT-003 — The hour lives in the calendar.** A date, time or place MUST NOT
-be written in this protocol or in canon. The roster states cadence only.
-
-**RIT-004 — Only what has an address survives.** Within the day, every
-decision taken is recorded as a decision, every work agreed as a card, every
-debt admitted as a debt. Minutes MUST NOT be written.
-
-**RIT-005 — A festive ritual does not decide.** A ruling reached at a festive
-ritual is not a decision until recorded as one, and a festive ritual MUST NOT
-be folded into an operational one to save an evening.
-
----
-
-## 3. The rituals
+A ritual is held when its cadence in the roster falls due. The **convoker** is
+the agent or Oracle named for it below; when none is named, the Oracle. A
+gathering that is not in the roster is a meeting, and meetings need no
+protocol.
 
 | Ritual | Kind | Cadence | Purpose | Convoker |
 |---|---|---|---|---|
@@ -84,46 +54,58 @@ be folded into an operational one to save an evening.
 | **Public Domain Day** | Festive | 1 January | Celebrate the works entering the public domain with an adventure | Neo-Atlantists |
 | **Anniversary** | Festive | 2 November | Numinia's own day | Neo-Atlantists |
 
-Names are canon. A ritual is renamed, added or retired by the Oracle, and the
-row changes in the same act.
+Names are canon. The Oracle renames, adds or retires a ritual, and changes
+the row in the same act. The roster states cadence only: the date, time and
+place of each occasion live in the calendar, never here or in canon.
 
 ---
 
-## 4. Procedure
+## 2. Preconditions
 
-1. **Convoke.** Announce the ritual, its purpose for this occasion and what
-   will be read at it, before the day.
-2. **Close the material.** The roll-up, the agenda or the adventure is
-   finished before the ritual opens, not during it.
-3. **Hold it.** Operational rituals decide; festive ones do not.
-4. **Record what survives.** The decisions, cards and debts of `RIT-004`, the
-   same day, while it is still accurate.
-
-> **Rituals are never merged.** Folding a festive ritual into an operational
-> one to save an evening removes the only space the culture has.
+- **The ritual has a row.** A recurring act is convoked as a ritual only once
+  it carries a row above, with a purpose, a cadence and a convoker.
+- **The material is closed.** Whatever the ritual reads rather than
+  improvises — the period's roll-up, the agenda, the adventure — is finished
+  before the ritual opens, not during it.
 
 ---
 
-## 5. Verification
+## 3. Procedure
+
+1. **Set the hour in the calendar.** Date, time and place go there only.
+2. **Convoke.** Announce, before the day, the ritual, its purpose for this
+   occasion and what will be read at it.
+3. **Check the material.** If it is not closed, postpone the ritual and say
+   so; do not hold it empty.
+4. **Hold it.** An operational ritual decides. A festive ritual does not: a
+   ruling reached at one is not a decision until recorded as one. Hold each
+   ritual on its own; never fold a festive ritual into an operational one to
+   save an evening — it removes the only space the culture has.
+5. **Record what survives, the same day.** Every decision taken is recorded
+   as a decision, every work agreed is written where it will be done, every
+   debt admitted is recorded as a debt. Do not write minutes.
+
+---
+
+## 4. Verification
 
 | Step | Evidence it completed |
 |---|---|
-| 1 | The announcement, posted before the day |
-| 2 | The roll-up or the piece committed, dated before the ritual |
-| 4 | The decisions, cards or debts created that day, naming the ritual |
+| 2 | The announcement, posted before the day |
+| 3 | The roll-up or the piece committed, dated before the ritual |
+| 5 | The decisions, work and debts written that day, naming the ritual; no minutes |
 
 A ritual that changed nothing and produced nothing is evidence of its own: it
 is reported to the Oracle, who decides whether the cadence still earns itself.
 
 ---
 
-## 6. Escalation
+## 5. Escalation
 
-A ritual that cannot be held for lack of material is postponed, not held
-empty, and the convoker says so. A ritual repeatedly skipped, or whose purpose
-no longer matches what actually happens at it, is escalated to the Oracle, who
-retires the row or rewrites it. A cadence nobody defends is removed: the
-system does not keep names without functions.
+A ritual repeatedly skipped, or whose purpose no longer matches what actually
+happens at it, is escalated to the Oracle, who retires the row or rewrites
+it. A cadence nobody defends is removed: the system does not keep names
+without functions.
 
 ## References
 

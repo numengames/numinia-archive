@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: protocol
 status: draft
-version: "2.0.4"
+version: "3.0.0"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-09-26T18:00:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -31,8 +31,7 @@ SPDX-License-Identifier: CC0-1.0
 > values come from, and the checklist every piece passes before delivery.
 > The recipe for each medium is its blueprint; how the sky, the Velo and
 > the reading player are built is `PRO-022`.
-> **Epistemic:** Nothing here is a new rule: the rules are `STD-008`, the
-> values are `STD-023` and the kit. This is the order of applying them.
+> **Epistemic:** In what order does an agent take the design decisions of a piece, and what does it check before delivering?
 > **Pragmatic:** Followed literally by an agent producing a piece.
 > **Audience:** Agents
 
@@ -45,63 +44,62 @@ SPDX-License-Identifier: CC0-1.0
 A piece is requested — page, deck, document, scene, email — and the agent
 must decide how it looks. Runs before the first pixel.
 
-## 2. Rules
+## 2. Procedure
 
-**DSP-001 — Precedence.** The person's instruction → accessibility and hard
-rules → brand and culture → this protocol → previous material → own
-judgement. If the instruction contradicts accessibility, flag it and propose
-the accessible alternative before executing.
+1. **Settle precedence.** The person's instruction → accessibility and hard
+   rules → brand and culture → this protocol → previous material → own
+   judgement. If the instruction contradicts accessibility, flag it and
+   propose the accessible alternative before executing.
+2. **Paste the fragment.** Paste the agent instruction `sistema.prompt.txt`
+   from the kit; do not retype it. Where it disagrees with a standard, the
+   standard wins.
+3. **Take the decisions in order.** Medium → register (Umbral, Velo,
+   low-poly, Píxel; Velo only in Nocturno) → mode (emits = Nocturno,
+   prints = Diurno; Píxel has no Diurno) → language level → tokens → grid →
+   type scale → icons → data palette, rarity, motion only where the piece
+   has them → copy at the level fixed. A decision taken out of order is
+   taken again.
+4. **Read every value from the source.** Read tokens from the installed kit
+   (`@numengames/design-kit`, source `machine/packages/design-kit/`) and the
+   register `STD-023`. Never copy a value into prose — it drifts. A value in
+   neither does not exist (`STD-008` DSN-010).
+5. **Remove one element.** Before delivery, take one element out of the
+   piece.
+6. **Pass the checklist.** Every piece:
+   - [ ] Register declared before the medium; the boundary visible.
+   - [ ] Mode, language level and 40/40/20 dose correct.
+   - [ ] Colours from the register only; max three; Coral and Grana never together.
+   - [ ] Spacing on the 4-scale; one display level; tabular Mono figures.
+   - [ ] Icons by weight; label on first use; the scarab and the Moon never as icons.
+   - [ ] Brand: monochrome signature on the corporate; colour and glyphs only in play.
+   - [ ] Texture only on Nocturno backgrounds ≤6 %; never in Diurno.
+   - [ ] Motion from the catalogue; one orchestrated moment; reduced motion respected.
+   - [ ] One primary per view; destructive confirmed and apart.
+   - [ ] AA contrast; nothing by colour alone; measure ≤90.
+   - [ ] One element removed.
+7. **Pass the medium's blueprint Check.** `BLU-009` web and product ·
+   `BLU-010` pixel · `BLU-011` book and Velo · `BLU-012` deck · `BLU-013`
+   document and invoice · `BLU-014` Platform · `BLU-015` event, 3D, email.
 
-**DSP-002 — The order of decisions.** Medium → register (Umbral, Velo,
-low-poly, Píxel; Velo only in Nocturno) → mode (emits = Nocturno, prints =
-Diurno; Píxel has no Diurno) → language level → tokens → grid → type scale
-→ icons → data palette, rarity, motion only where the piece has them → copy
-at the level fixed → checklist. Out of order is taken again.
-
-**DSP-003 — Values are read, never quoted.** Tokens are read from the
-installed kit (`@numengames/design-kit`, source `machine/packages/design-kit/`) and
-the register `STD-023`. A value copied into prose drifts; a value not in
-either does not exist (`STD-008` DSN-010).
-
-**DSP-004 — The fragment is pasted, not retyped.** The agent instruction is
-`sistema.prompt.txt` in the kit. Where it disagrees with a standard, the
-standard wins.
-
-**DSP-005 — One element removed.** Before delivery, one element has been
-taken out of the piece.
-
-## 3. Checklist
-
-Every piece:
-
-- [ ] Register declared before the medium; the boundary visible.
-- [ ] Mode, language level and 40/40/20 dose correct.
-- [ ] Colours from the register only; max three; Coral and Grana never together.
-- [ ] Spacing on the 4-scale; one display level; tabular Mono figures.
-- [ ] Icons by weight; label on first use; the scarab and the Moon never as icons.
-- [ ] Brand: monochrome signature on the corporate; colour and glyphs only in play.
-- [ ] Texture only on Nocturno backgrounds ≤6 %; never in Diurno.
-- [ ] Motion from the catalogue; one orchestrated moment; reduced motion respected.
-- [ ] One primary per view; destructive confirmed and apart.
-- [ ] AA contrast; nothing by colour alone; measure ≤90.
-- [ ] The medium's blueprint Check passed.
-- [ ] One element removed.
-
-Then the medium's Check: `BLU-009` web and product · `BLU-010` pixel ·
-`BLU-011` book and Velo · `BLU-012` deck · `BLU-013` document and invoice ·
-`BLU-014` Platform · `BLU-015` event, 3D, email.
-
-## 4. Verification
+## 3. Verification
 
 | Step | Evidence |
 |---|---|
-| DSP-002 | the register, mode and level named in the piece's brief or commit |
-| DSP-003 | `node machine/tools/generate-design-kit.mjs --check` passes; no hex outside the token file |
-| Checklist | the ticked list attached to the delivery |
+| 3 | the register, mode and level named in the piece's brief or commit |
+| 4 | `node machine/tools/generate-design-kit.mjs --check` passes; no hex outside the token file |
+| 6–7 | the ticked list attached to the delivery |
 | Public route | the accessibility test (`ACC-004`) green in both modes |
 
-## 5. Escalation
+## 4. Escalation
 
 A piece that needs a value the register lacks stops; the value is proposed
 to `STD-023` by PR and the piece waits. A new register is a `CAN-008`
 decision — the Oracle's.
+
+## References
+
+| Document | Title | Why it obliges here |
+|---|---|---|
+| `STD-008` | Design tokens | the rules this order applies |
+| `STD-023` | Design values | where the values are read |
+| `PRO-022` | Building the living pieces | the sky, the Velo and the reading player |

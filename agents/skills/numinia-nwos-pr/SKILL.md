@@ -58,7 +58,7 @@ before acting (`git fetch && git log -1 origin/main`, `gh pr list --state open`)
    went out and where it now lives.
 7. **Telemetry last**: `node machine/scripts/telemetry.mjs && git add telemetry` in its
    own commit; `node machine/scripts/telemetry.mjs --check` must report OK on HEAD.
-   Never regenerate before an amend (`RUP-005`).
+   Never regenerate before an amend (telemetry is the last commit).
 8. `git push -u origin <branch>`; `gh pr create --base main --body-file`;
    `gh pr edit N --add-reviewer PabloFMM,Christian-Numen,MariaGarciaJordan`;
    `sleep 80; gh pr checks N`.

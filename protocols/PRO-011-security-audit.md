@@ -4,11 +4,11 @@ uid: ""
 title: "Auditing identity, authorization and secrets"
 type: protocol
 status: draft
-version: "1.0.2"
+version: "2.0.0"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-09-26T14:43:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 tags: [protocols, security, audit, credentials, secrets, identity, authorization]
@@ -29,8 +29,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** How an agent measures the distance between what the
 > documentation claims about identities, authorizations and secrets and
 > what exists — census, verification, report — and where it stops.
-> **Epistemic:** An audit that finds nothing is suspect only if it cannot
-> show where it looked. The deliverable is coverage, not a count.
+> **Epistemic:** How is a security audit run so that it shows where it looked and stops before it changes anything?
 > **Pragmatic:** Once a year and on every trigger below. The agent censuses
 > and verifies, then stops; correction needs a signature.
 > **Audience:** Agents · Oracle
@@ -46,61 +45,53 @@ when a person or agent leaves or changes role; when a provider, worker,
 domain or pipeline enters production; when the base document changes an
 automated claim. Executor: an agent with read access to the scope.
 
-## 2. Rules
+## 2. Procedure
 
-**SEC-001 — Denominator first.** The universe MUST be enumerated from the
-API and its count published before anything is censused. Every row then
-counts against it; a resource not inspected is listed as not inspected.
+1. **Publish the denominator.** Enumerate the universe from the API and
+   publish its count, with the command, before censusing anything. Every
+   row counts against it; list a resource not inspected as not inspected.
+2. **Census, largest blind spot first.** Recovery, machine and agent
+   credentials, third-party apps, DNS, signing keys, humans, billing,
+   declared secrets (names, never values), last use, declared controls.
+   Give every row the command, the date and the credential used; a row
+   without them is a memory.
+3. **Verify passively.** Full history, a dated baseline of live flows,
+   divergence in both directions. Write nothing.
+4. **Test actively, only with throwaway material.** A throwaway branch, a
+   synthetic canary (valid format, non-existent value), a pull request
+   closed unmerged and deleted; never in a public repository without
+   signature. Record the block message. If the control does not block,
+   stop: the finding exists.
+5. **Stop on a real value.** A secret seen live or of unknown state is
+   never copied, not even truncated: reference it by location and report
+   it out of band (`KEY-056`). Treat a repository that has ever been public
+   as compromised: rotate first, history later.
+6. **Tier before filing.** Public (findings, gaps, scores; no identifiers),
+   internal (names, dates, addresses; never in a public repository), hot
+   (out of band) never share a document. No destination for the internal
+   tier is the audit's first finding.
+7. **Report** (`RPT-TEMPLATE`, `subtype: audit`, shape in the template's
+   audit note). Score doctrine, execution and coverage out of ten from
+   verified evidence; low coverage caps the other two, it does not average
+   with them. Correct false documentation claims in the document, not in
+   a note.
+8. **Prepare the correction and wait.** Revoke, delete, rotate or modify
+   nothing. Write the list, the order and what each step breaks, and file
+   it as an approval request (`PRO-008`).
+9. **Close.** Delete canaries and branches, revoke the audit credential,
+   update `review_next`.
 
-**SEC-002 — Provenance on every row.** Each census row MUST carry the
-command, the date and the credential used. Without them it is a memory.
-
-**SEC-003 — Read-only until the allowlist.** Census and passive
-verification write nothing. An active test MUST use a throwaway branch, a
-synthetic canary (valid format, non-existent value), a pull request closed
-unmerged and deleted — never in a public repository without signature. If
-the control does not block, stop: the finding exists.
-
-**SEC-004 — No correction without a signature.** The agent MUST NOT revoke,
-delete, rotate or modify anything. It prepares
-the list, the order and what each step breaks, and waits (`PRO-008`).
-
-**SEC-005 — A real value stops the audit.** A secret value seen live or of
-unknown state MUST NOT be copied anywhere, not truncated; it is referenced
-by location and reported out of band (`KEY-056`). A repository that has
-ever been public is treated as compromised: rotate first, history later.
-
-**SEC-006 — Tier before file.** Public (findings, gaps, scores; no
-identifiers), internal (names, dates, addresses; never a public repository),
-hot (out of band) MUST NOT share a document. No destination for the
-internal tier is the audit's first finding.
-
-**SEC-007 — Coverage caps the scores.** The report MUST score doctrine,
-execution and coverage out of ten from verified evidence; low coverage
-caps the other two rather than averaging with them.
-
-## 3. Procedure
-
-**A · Census**, largest blind spot first: recovery, machine and agent
-credentials, third-party apps, DNS, signing keys, humans, billing, declared
-secrets (names, never values), last use, declared controls.
-**B · Verify.** Passive: full history, dated baseline of live flows,
-divergence in both directions. Active: `SEC-003`, block message recorded.
-**C · Report** (`RPT-TEMPLATE`, `subtype: audit`): the shape is in the
-template's audit note. False documentation claims are corrected in the
-document, not noted.
-**D · Close.** Canaries and branches deleted, audit credential revoked,
-`review_next` updated.
-
-## 4. Verification
+## 3. Verification
 
 | Check | Evidence |
 |---|---|
 | Denominator | the count and its command, before the first row |
+| Provenance | every row names command, date, credential |
 | Read-only held | no commit on the trunk by the audit credential |
 | Tiered | no identifier or address in the public report |
+| Scored | coverage score stated; the other two do not exceed it |
 
-## 5. Escalation
+## 4. Escalation
 
 The brief does not match what is seen, or an irreversible action is within
 reach: stop, `PRO-005`. Another organization's scope receives an offer, never a

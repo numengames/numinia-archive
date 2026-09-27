@@ -4,9 +4,9 @@ uid: ""
 title: "Building the living pieces"
 type: protocol
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-26T18:00:00+02:00"
-updated: "2026-09-26T18:00:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -25,8 +25,8 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** How the three pieces of the house that move or sit over the
 > reading are built: the sky, the Velo layer and the reading-aloud player.
-> **Epistemic:** How each piece is put together and why. Every number it
-> uses is a value of `STD-023`; none is written here.
+> **Epistemic:** How are the sky, the Velo layer and the reading player
+> built, taking every number from the design values?
 > **Pragmatic:** Build or change one of the three pieces without breaking
 > what a reader already relies on.
 > **Audience:** Agents · Oracles

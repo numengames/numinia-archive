@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: protocol
 status: draft
-version: "2.0.2"
+version: "3.0.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-26T14:43:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, rollup, deflation, weekly, reports]
@@ -27,8 +27,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Once a week one agent turns every record that closed into
 > one line in the weekly report and deletes the record. Quarterly and
 > annual roll-ups are the same procedure applied to the level below.
-> **Epistemic:** The procedure that makes `STD-012` happen without the
-> Oracle in the loop. The criterion is `DEF-003`; only the steps are here.
+> **Epistemic:** How does the week's closed work become one report and leave the corpus smaller?
 > **Pragmatic:** Fifteen minutes on Monday; the corpus does not grow.
 > **Audience:** Agents
 
@@ -41,48 +40,37 @@ Quarterly on the first Monday of a quarter over thirteen weeklies; annual
 on the first Monday of a year over four quarterlies. Executor: any agent on
 `PRO-001` session; the Oracle reviews the pull request.
 
-## 2. Rules
+## 2. Procedure
 
-**RUP-001 — The line is copied, not written.** Each line MUST be taken from
-the record's own Closure: identifier, title, one sentence, the commit or PR
-that proves it. A Closure the tree does not show is carried as *claimed,
-not delivered*.
-
-**RUP-002 — Every line is classified.** Each line MUST carry one of
-`DEF-003`'s three marks — `rule`, `debt`, `address` — or `none`. A line the
-executor cannot classify is marked `oracle` and stays until the Oracle
-rules.
-
-**RUP-003 — The report absorbs before the file dies.** The identifier MUST
-be in the report's `absorbs:` (both `MIS-NNN` and `MIS-NNNN` forms) and its
-public URL MUST redirect, both locales, before `git rm`.
-
-**RUP-004 — Deletion is not the executor's call.** A record the executor
-thinks should stay MUST still be deleted, its line marked `oracle`. Git
-holds the body.
-
-**RUP-005 — Telemetry is the last commit.** The dataset MUST be regenerated
-after the final content commit and `--check` MUST pass before push.
-
-## 3. Procedure
-
-1. Open or create `reports/RPT-NNN-<yyyy>-w<ww>.md`, `subtype: rollup`,
-   with two sections: *Closed this week*, *Carried up*.
-2. `node machine/scripts/check-deletable.mjs --candidates` lists what closed;
-   `git log --since=<monday>` is the daily record (`DEF-001`).
-3. One line per record (`RUP-001`), classified (`RUP-002`).
-4. `absorbs:` and redirects in `web/astro.config.mjs` (`RUP-003`).
-5. `git rm` the records. Add one line to the open phase report citing this
-   week's report, not its lines (`DEF-006`).
-6. Guards, `npm run build`, commit, telemetry, commit (`RUP-005`).
-7. PR titled `rollup: <period>`: the lines, the token delta, the four
-   `ADR-030` tests answered.
+1. **Open the report.** Open or create `reports/RPT-NNN-<yyyy>-w<ww>.md`,
+   `subtype: rollup`, with two sections: *Closed this week*, *Carried up*.
+2. **List what closed.** `node machine/scripts/check-deletable.mjs
+   --candidates`; `git log --since=<monday>` is the daily record (`DEF-001`).
+3. **Copy one line per record.** Take it from the record's own Closure:
+   identifier, title, one sentence, the commit or PR that proves it. Do not
+   write it. A Closure the tree does not show is carried as *claimed, not
+   delivered*.
+4. **Classify every line.** Mark it with one of `DEF-003`'s three marks —
+   `rule`, `debt`, `address` — or `none`. A line you cannot classify is
+   marked `oracle` and stays until the Oracle rules.
+5. **Absorb before deleting.** Put the identifier in the report's
+   `absorbs:` (both `MIS-NNN` and `MIS-NNNN` forms) and redirect its public
+   URL in `web/astro.config.mjs`, both locales.
+6. **Delete the records.** `git rm` every one — including a record you
+   think should stay: mark its line `oracle`; git holds the body. Add one
+   line to the open phase report citing this week's report, not its lines
+   (`DEF-006`).
+7. **Build and commit.** Guards, `npm run build`, commit.
+8. **Regenerate telemetry last.** Regenerate the dataset after the final
+   content commit; `--check` passes before push. Commit.
+9. **Open the PR.** Title `rollup: <period>`: the lines, the token delta,
+   the four `ADR-030` tests answered.
 
 Quarterly and annual: the "records" are the reports of the level below.
-Only `rule`, `debt`, `address` lines are carried up; `absorbs:` lists move
-whole (`DEF-011`); redirects are repointed (`URL-005`); the lower reports are deleted.
+Carry up only `rule`, `debt`, `address` lines; move `absorbs:` lists whole
+(`DEF-011`); repoint redirects (`URL-005`); delete the lower reports.
 
-## 4. Verification
+## 3. Verification
 
 | Check | Evidence |
 |---|---|
@@ -91,7 +79,7 @@ whole (`DEF-011`); redirects are repointed (`URL-005`); the lower reports are de
 | Nothing lost | `absorbs:` equals the set of deleted identifiers |
 | Nothing grew | `tokens.total` in `machine/telemetry/latest.json` lower than before; if not, the PR says why |
 
-## 5. Escalation
+## 4. Escalation
 
 A Closure the executor believes was deliberately false: `PRO-005`. The
 Oracle wants a body back: `git show <commit>:<path>`.
@@ -102,4 +90,4 @@ Oracle wants a body back: `git show <commit>:<path>`.
 |---|---|---|
 | `STD-012` | The corpus does not grow | `DEF-001..007`, the rule this executes |
 | `ADR-030` | Lifecycle and deletion | the four tests a deletion answers |
-| `RPT-018` | Alpha story | the open phase report step 5 points at |
+| `RPT-018` | Alpha story | the open phase report step 6 points at |

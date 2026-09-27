@@ -41,7 +41,7 @@ does NOT:
   the old ADR stays as the photograph it is;
 - classify the task or cite practice plates in commits (`PRO-016`);
 - score its context load, write a `divergence_log`, or update `OPS-008`
-  at close (`PRO-001` SES-004, SES-005);
+  at close (`PRO-001`);
 - stop a second time before pushing: the operator's go on a plan covers
   commits, push and the pull request.
 

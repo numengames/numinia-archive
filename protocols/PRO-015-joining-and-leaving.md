@@ -4,9 +4,9 @@ uid: ""
 title: "Joining and leaving Numinia: the phases, the gates and who owns each step"
 type: protocol
 status: draft
-version: "1.0.4"
+version: "1.0.5"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-09-26T14:43:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -28,9 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The phases, gates and owners for bringing someone into Numinia
 > and for letting them go.
-> **Epistemic:** Moved out of `CAN-001` on 2026-09-07 unchanged in substance.
-> It was never canon: it has phases, gates and named owners, which is what a
-> protocol is.
+> **Epistemic:** How does a person come into Numinia, and how are they let go?
 > **Pragmatic:** Follow it in order. A phase does not start until the previous
 > gate is met.
 > **Audience:** Everyone
