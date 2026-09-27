@@ -3,10 +3,10 @@ id: "PRO-023"
 uid: ""
 title: "Bringing a rule into force"
 type: protocol
-status: draft
-version: "0.2.0"
+status: active
+version: "1.0.0"
 created: "2026-09-27T14:30:00+02:00"
-updated: "2026-09-27T15:00:00+02:00"
+updated: "2026-09-27T15:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
