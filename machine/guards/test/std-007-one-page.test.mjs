@@ -115,6 +115,18 @@ test('DOC-004: no plate in either place is still a finding', () => {
   assert.equal(findings(text, 'DOC-004').length, 1);
 });
 
+test('DOC-004: a protocol is numbered steps and needs no plate', () => {
+  const pro = [
+    '---', 'id: "PRO-900"', 'type: protocol', 'status: draft', '---', '',
+    '# Doing a thing', '',
+    '> **Summary:** s.', '> **Epistemic:** What must be true first?', '> **Pragmatic:** p.', '',
+    '**Binds:** whoever does the thing.', '',
+    '## 1. Procedure', '', '1. **Do it.** The command.', '',
+  ].join('\n');
+  const f = run(scratch({ 'protocols/PRO-900-doing-a-thing.md': pro })).filter((x) => x.plate === 'DOC-004');
+  assert.deepEqual(f, []);
+});
+
 test('DOC-008: an identifier in the Check table is apparatus, not prose', () => {
   const text = std('**A rule in words.** Everyone MUST do it.',
     '| Plate | Rule | Source | Verified by |\n|---|---|---|---|\n| ABC-001 | A rule in words | [a norm](https://example.org/) | nothing yet (DBT-020) |');
