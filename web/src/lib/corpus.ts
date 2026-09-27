@@ -552,6 +552,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/protocols/pro-011-security-audit",
     "/protocols/pro-013-handing-a-guard-to-ci",
     "/protocols/pro-018-publishing-a-repository",
+    // 2026-09-27: a draft becomes binding — after publishing, before the
+    // pieces that are built under the rules.
+    "/protocols/pro-023-bringing-a-rule-into-force",
     // 2026-09-26: how the sky, the Velo and the reading player are built.
     "/protocols/pro-022-building-the-living-pieces",
     // 2026-09-24 (ADR-065): money, last — something goes on sale, then the

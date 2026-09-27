@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-27 (PRO-023, bringing a rule into force)
+At the Oracle's word in session: he wants each activation reviewed, one by one, and was sure protocols were missing. **`PRO-023` — Bringing a rule into force** (draft 0.1.0): twelve steps from a candidate to `status: active` — run its guard, fix the findings in the documents that break the rule, read every MUST for a yes or no, list the by-hand checks reviewers inherit, show the Oracle the activation before the branch, change only the header, restore a protocol's ceremony in `AGENTS.md`, base the pull request on `main` and check it landed. It writes down what #517 and #518 did by hand, including the lesson of #517 (a pull request based on another branch never reached `main`). `/binding` and `/binding.md` link it; it reads on the protocols shelf after publishing a repository. **Mechanism:** a test in `binding.test.mjs`, committed first and seen failing. Site v0.67.0.
+
 ### Changed — 2026-09-27 (the entry door, and six standards in force)
 At the Oracle's word in session ("go").
 - **`CONTRIBUTING.md` rewritten.** It cited a protocol renamed long ago (`P-001-agent-briefing`), a `STATUS.md` no agent keeps and a mould path without its extension, and called the canon "immutable by policy" while `AGENTS.md` says canon changes through the operator in chat. It now sends readers to `/binding` and `AGENTS.md`, lists the pull-request steps and what needs the Oracle first. `AGENTS.md` names the mission mould with its extension. **Mechanism:** two tests in `agent-context.test.mjs`, committed first and seen failing, hold CONTRIBUTING to paths that exist and to deferring to `AGENTS.md`.
