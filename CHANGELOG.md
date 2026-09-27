@@ -19,6 +19,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-27 (Books)
+At the Oracle's word in session ("genial"): the compilations are not series and belong to no one function, so they get a menu of their own.
+- **A Books menu in the bar and the mobile panel**, read from one list (`BOOKS` in `web/src/lib/suma.ts`): the core and the design system, with the role-playing manual and the legal playbook listed as coming (each says why it is not served yet).
+- **Each served book is also in the ring its documents come from** (The rules, on the map and in the Archive menu), so it is reachable both ways.
+- **`books.test.mjs`** fails if a served book loses its page, is missing from the rings, or the bar stops reading the list.
+
 ### Added — 2026-09-27 (the core, as a flow)
 At the Oracle's word in session ("es mejor hacer ya la web"), to review the core by listening to it end to end.
 - **`/core`** lists each canon with the standards that make it concrete and the protocols that carry it out. **`/core/<canon>`** puts one canon's whole chain on one page, in the order canon → standards → protocols, each marked in force or draft, without the Check tables and References, so the Listen button reads it as one episode. Each page has its `.md`.
