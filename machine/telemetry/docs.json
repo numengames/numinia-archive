@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 161015,
+  "chars": 162567,
   "apparatus": false,
   "archived": false,
-  "tokens": 42983
+  "tokens": 43359
  },
  {
   "path": "CLAUDE.md",
@@ -533,10 +533,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 21053,
+  "chars": 21060,
   "apparatus": false,
   "archived": false,
-  "tokens": 5820
+  "tokens": 5821
  },
  {
   "path": "blueprints/BLU-010-pixel-register.md",
@@ -544,10 +544,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 15429,
+  "chars": 15436,
   "apparatus": false,
   "archived": false,
-  "tokens": 3632
+  "tokens": 3633
  },
  {
   "path": "blueprints/BLU-011-book-and-velo.md",
@@ -555,10 +555,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 14860,
+  "chars": 14867,
   "apparatus": false,
   "archived": false,
-  "tokens": 4053
+  "tokens": 4054
  },
  {
   "path": "blueprints/BLU-012-presentation-deck.md",
@@ -566,10 +566,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 3355,
+  "chars": 3362,
   "apparatus": false,
   "archived": false,
-  "tokens": 1037
+  "tokens": 1038
  },
  {
   "path": "blueprints/BLU-013-document-and-invoice.md",
@@ -577,10 +577,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 2727,
+  "chars": 2734,
   "apparatus": false,
   "archived": false,
-  "tokens": 826
+  "tokens": 827
  },
  {
   "path": "blueprints/BLU-014-platform.md",
@@ -588,10 +588,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 4181,
+  "chars": 4188,
   "apparatus": false,
   "archived": false,
-  "tokens": 1225
+  "tokens": 1226
  },
  {
   "path": "blueprints/BLU-015-event-3d-and-email.md",
@@ -599,10 +599,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 2153,
+  "chars": 2160,
   "apparatus": false,
   "archived": false,
-  "tokens": 637
+  "tokens": 638
  },
  {
   "path": "blueprints/BLU-016-one-question-per-standard.md",
@@ -1930,10 +1930,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5217,
+  "chars": 5480,
   "apparatus": false,
   "archived": false,
-  "tokens": 1467
+  "tokens": 1533
  },
  {
   "path": "protocols/PRO-003-mission-cycle.md",
@@ -1952,10 +1952,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3214,
+  "chars": 3409,
   "apparatus": false,
   "archived": false,
-  "tokens": 867
+  "tokens": 917
  },
  {
   "path": "protocols/PRO-008-decision.md",
@@ -1963,10 +1963,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4187,
+  "chars": 4403,
   "apparatus": false,
   "archived": false,
-  "tokens": 1093
+  "tokens": 1143
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -1974,10 +1974,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4723,
+  "chars": 5099,
   "apparatus": false,
   "archived": false,
-  "tokens": 1193
+  "tokens": 1282
  },
  {
   "path": "protocols/PRO-013-handing-a-guard-to-ci.md",
@@ -1985,10 +1985,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3376,
+  "chars": 3619,
   "apparatus": false,
   "archived": false,
-  "tokens": 945
+  "tokens": 1004
  },
  {
   "path": "protocols/PRO-014-producing-a-design-piece.md",
@@ -1996,10 +1996,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4376,
+  "chars": 4634,
   "apparatus": false,
   "archived": false,
-  "tokens": 1216
+  "tokens": 1280
  },
  {
   "path": "protocols/PRO-015-joining-and-leaving.md",
@@ -2018,10 +2018,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4237,
+  "chars": 4459,
   "apparatus": false,
   "archived": false,
-  "tokens": 1148
+  "tokens": 1198
  },
  {
   "path": "protocols/PRO-017-rolling-up-the-week.md",
@@ -2029,10 +2029,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3816,
+  "chars": 4029,
   "apparatus": false,
   "archived": false,
-  "tokens": 1090
+  "tokens": 1145
  },
  {
   "path": "protocols/PRO-018-publishing-a-repository.md",
@@ -2040,10 +2040,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4311,
+  "chars": 4801,
   "apparatus": false,
   "archived": false,
-  "tokens": 1151
+  "tokens": 1282
  },
  {
   "path": "protocols/PRO-019-holding-a-ritual.md",
