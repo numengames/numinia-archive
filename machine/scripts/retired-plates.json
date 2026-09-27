@@ -31,7 +31,7 @@
     },
     "APV-008": {
       "was": "PRO-008 Requesting approval, issuing rulings",
-      "now": "step 8 of Requesting approval, issuing rulings"
+      "now": "steps 5 and 8 of Requesting approval, issuing rulings"
     },
     "ARC-003": {
       "was": "STD-015 Engineering checks",
@@ -147,7 +147,7 @@
     },
     "ESC-002": {
       "was": "PRO-005 Escalating to the Oracle",
-      "now": "step 4 of Escalating to the Oracle"
+      "now": "step 4 and the template of Escalating to the Oracle"
     },
     "ESC-003": {
       "was": "PRO-005 Escalating to the Oracle",
@@ -335,19 +335,19 @@
     },
     "SES-002": {
       "was": "PRO-001 Opening and closing a session",
-      "now": "dropped: missions board check, suspended by the transition regime"
+      "now": "steps 5 and 6 of Opening and closing a session"
     },
     "SES-003": {
       "was": "PRO-001 Opening and closing a session",
-      "now": "step 6 of Opening and closing a session"
+      "now": "step 9 of Opening and closing a session"
     },
     "SES-004": {
       "was": "PRO-001 Opening and closing a session",
-      "now": "step 7 of Opening and closing a session, without the load score"
+      "now": "steps 10 to 12 and the load table of Opening and closing a session"
     },
     "SES-005": {
       "was": "PRO-001 Opening and closing a session",
-      "now": "step 8 of Opening and closing a session; divergence_log and OPS-008 dropped"
+      "now": "steps 13 to 15 of Opening and closing a session"
     },
     "SES-042": {
       "was": "PRO-001 Opening and closing a session",
@@ -355,11 +355,11 @@
     },
     "SES-043": {
       "was": "PRO-001 Opening and closing a session",
-      "now": "steps 9 to 11 of Opening and closing a session"
+      "now": "steps 16 to 18 of Opening and closing a session"
     },
     "SES-044": {
       "was": "PRO-001 Opening and closing a session",
-      "now": "step 5 of Opening and closing a session"
+      "now": "step 8 of Opening and closing a session"
     },
     "SRE-006": {
       "was": "STD-015 Engineering checks",
@@ -379,15 +379,15 @@
     },
     "TSK-003": {
       "was": "PRO-016 Applying the engineering standard",
-      "now": "dropped: practice plates in commits, suspended by the transition regime"
+      "now": "step 5 of Applying the engineering standard"
     },
     "TSK-004": {
       "was": "PRO-016 Applying the engineering standard",
-      "now": "step 5 of Applying the engineering standard"
+      "now": "step 6 of Applying the engineering standard"
     },
     "TSK-005": {
       "was": "PRO-016 Applying the engineering standard",
-      "now": "step 6 of Applying the engineering standard"
+      "now": "step 7 of Applying the engineering standard"
     },
     "VER-064": {
       "was": "STD-019 Versions",

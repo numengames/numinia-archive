@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "cd3a1d1",
-  "corpus_hash": "7816aac00f3b87edeb551718f588e70371a06196450e25052dc02957b3d0c8e1",
+  "head": "f22e773",
+  "corpus_hash": "24d9b316f8348247100c30c324b40cb037476fb18ba1de0031df633203acd830",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T10:44:48Z",
+  "measured_at": "2026-09-27T11:04:42Z",
   "families": [
     "corpus",
     "series",
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 885063,
+      "value": 885892,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,14 +336,14 @@
       "value": {
         "lore": 495248,
         "standards": 64199,
-        "": 48252,
+        "": 48502,
         "missions": 45768,
         "decisions": 39436,
         "reports": 29376,
         "agents": 29130,
         "blueprints": 25512,
+        "protocols": 20641,
         "system": 20599,
-        "protocols": 20062,
         "canon": 19757,
         "machine": 16691,
         "operations": 15345,
@@ -357,8 +357,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 543582,
-        "draft": 156038,
+        "(none)": 543832,
+        "draft": 156617,
         "active": 138187,
         "done": 26539,
         "todo": 15975,
@@ -380,7 +380,7 @@
         ],
         [
           "CHANGELOG.md",
-          41136
+          41386
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -660,17 +660,17 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1098
+          "3": 1105
         },
         "MIS": {
           "3": 689,
           "4": 185
         },
         "PRO": {
-          "3": 324
+          "3": 337
         },
         "OPS": {
-          "3": 73
+          "3": 84
         },
         "CAN": {
           "3": 501
@@ -689,7 +689,7 @@
           "3": 134
         },
         "SYS": {
-          "3": 63
+          "3": 65
         },
         "DBT": {
           "3": 72
