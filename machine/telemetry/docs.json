@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 156116,
+  "chars": 157677,
   "apparatus": false,
   "archived": false,
-  "tokens": 41752
+  "tokens": 42172
  },
  {
   "path": "CLAUDE.md",
@@ -82,10 +82,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 6809,
+  "chars": 6791,
   "apparatus": true,
   "archived": false,
-  "tokens": 1779
+  "tokens": 1770
  },
  {
   "path": "SECURITY.md",
@@ -786,10 +786,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 3784,
+  "chars": 3884,
   "apparatus": false,
   "archived": false,
-  "tokens": 1204
+  "tokens": 1258
  },
  {
   "path": "decisions/ADR-041-git-is-the-archive.md",
@@ -873,8 +873,8 @@
   "dir": "decisions",
   "series": "decisions",
   "type": "adr",
-  "status": "draft",
-  "chars": 6690,
+  "status": "withdrawn",
+  "chars": 6694,
   "apparatus": false,
   "archived": false,
   "tokens": 1738
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 15703,
+  "chars": 15750,
   "apparatus": true,
   "archived": false,
-  "tokens": 4038
+  "tokens": 4055
  },
  {
   "path": "machine/templates/MIS-TEMPLATE-EXAMPLE.md",
@@ -1710,10 +1710,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 6702,
+  "chars": 6809,
   "apparatus": false,
   "archived": false,
-  "tokens": 1912
+  "tokens": 1943
  },
  {
   "path": "missions/MIS-0121-header-baseline-burndown.md",
@@ -2535,10 +2535,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10496,
+  "chars": 10443,
   "apparatus": false,
   "archived": false,
-  "tokens": 2860
+  "tokens": 2841
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
@@ -2546,10 +2546,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 13538,
+  "chars": 13579,
   "apparatus": false,
   "archived": false,
-  "tokens": 3464
+  "tokens": 3468
  },
  {
   "path": "system/SYS-003-archive-fondos.md",
