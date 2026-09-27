@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14059,
+  "chars": 14257,
   "apparatus": false,
   "archived": false,
-  "tokens": 3456
+  "tokens": 3507
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 154692,
+  "chars": 156116,
   "apparatus": false,
   "archived": false,
-  "tokens": 41386
+  "tokens": 41752
  },
  {
   "path": "CLAUDE.md",
@@ -522,10 +522,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 8649,
+  "chars": 9000,
   "apparatus": false,
   "archived": false,
-  "tokens": 2206
+  "tokens": 2287
  },
  {
   "path": "blueprints/BLU-009-web-pieces.md",
@@ -1688,10 +1688,10 @@
   "series": "missions",
   "type": "meta",
   "status": "draft",
-  "chars": 4071,
+  "chars": 4193,
   "apparatus": true,
   "archived": false,
-  "tokens": 1145
+  "tokens": 1176
  },
  {
   "path": "missions/MIS-0100-branch-protection-org-settings.md",
@@ -1732,10 +1732,10 @@
   "series": "missions",
   "type": "mission",
   "status": "done",
-  "chars": 10230,
+  "chars": 10734,
   "apparatus": false,
   "archived": false,
-  "tokens": 2892
+  "tokens": 3025
  },
  {
   "path": "missions/MIS-0127-entropy-reduction.md",
@@ -2094,8 +2094,8 @@
   "dir": "protocols",
   "series": "protocols",
   "type": "protocol",
-  "status": "draft",
-  "chars": 4651,
+  "status": "active",
+  "chars": 4652,
   "apparatus": false,
   "archived": false,
   "tokens": 1248
@@ -2117,10 +2117,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 18243,
+  "chars": 18420,
   "apparatus": false,
   "archived": false,
-  "tokens": 4273
+  "tokens": 4319
  },
  {
   "path": "reports/RPT-017-mvp-story.md",
@@ -2237,8 +2237,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 7805,
+  "status": "active",
+  "chars": 7806,
   "apparatus": false,
   "archived": false,
   "tokens": 2060

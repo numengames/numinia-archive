@@ -7,10 +7,10 @@ title: "GAPS.md — Numen Games' map of blind spots"
 type: report
 subtype: analysis
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
-updated: "2026-09-02T00:20:00+02:00"
+updated: "2026-09-27T13:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [gaps, strategy, capability-map]
@@ -28,6 +28,10 @@ SPDX-License-Identifier: CC-BY-4.0
 
 > **Summary:** Critical analysis of the Narrative Work OS from three
 > perspectives: business, product, and organizational theory. No filters.
+> **Epistemic:** Which blind spots of the Narrative Work OS will the market
+> see before we do?
+> **Pragmatic:** Read each gap and answer the question it puts to the
+> Oracles.
 > **Audience:** Public (NWOS — Gaps). Each gap includes the question the
 > Oracles should ask themselves.
 

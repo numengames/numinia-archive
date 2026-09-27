@@ -5,11 +5,11 @@ title: "Draft — how the next mission is chosen"
 status: draft
 
 type: meta
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-08-25T20:05:59Z"
 created_source: "git:5abd27f"
 created_confidence: exact
-updated: "2026-08-25T20:05:59Z"
+updated: "2026-09-27T13:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [missions, policy, draft, board]
@@ -31,6 +31,8 @@ SPDX-License-Identifier: CC0-1.0
 > August tests. A bad rule on paper can be corrected; an invented one cannot
 > even be found.
 >
+> **Summary:** The ordering rule applied once, to a real board of 111
+> missions, to choose which mission goes next.
 > **Epistemic:** what ordering rule survived contact with a real board of 111
 > missions.
 > **Pragmatic:** an order you can argue with, instead of one you have to guess.

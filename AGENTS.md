@@ -25,7 +25,7 @@ the Claude Code adapter and points here; it does not restate these rules.
 ## Transition regime (MVP → alpha) — read this before any protocol
 
 Oracle instruction, 2026-09-18. Every protocol in this archive is
-`status: draft` because the system is being cut down from the
+`status: draft`, save those named in force below, because the system is being cut down from the
 MVP to the alpha. While a document is draft it DESCRIBES a practice; it
 does not BIND. The ceremony below was written for the system in its
 place; today it only slows the operator and the agent down. Until the
@@ -71,6 +71,10 @@ What still holds, because each rule protects something that can be seen:
 
 Promotion out of draft is the act that restores each rule; nothing
 restores them by default.
+
+In force: `PRO-023` (bringing a rule into force, since 2026-09-27): no
+rule leaves draft without its steps, and the Oracle sees each activation
+before the branch.
 
 <!-- transition-regime:end -->
 

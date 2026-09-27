@@ -19,6 +19,13 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (bringing a rule into force, and one page per document, in force)
+At the Oracle's word in session ("ok"), after he was shown what each changes (`PRO-023` step 8).
+- **`PRO-023` — Bringing a rule into force is `active` at 1.0.0**, the first protocol to leave draft. No rule now starts to bind without its steps: its guard run, its findings fixed in the documents that break it, every requirement read for a yes or a no, and the activation shown to the Oracle before the branch. It is read at review; no guard watches it. `AGENTS.md` names it on a new "In force:" line inside the transition regime, as its step 10 asks.
+- **`STD-007` — One page per document is `active` at 2.2.0.** From now on the build fails if a standard, protocol or other governed page lacks its card (Summary, Epistemic, Pragmatic), a standard or protocol lacks its Binds line, or a standard has no plated rule. Sizes stay warnings. Reviewers now read for three things by hand: one question per document, obligation words in their one meaning, and English.
+- **Findings fixed first, in the documents:** `BLU-007`, `RPT-008`, `MIS-0123` and the mission-selection annex get the card parts they lacked (patch bumps). STD-007's guard: all hold.
+- **Mechanism:** `agent-context.test.mjs` now checks that the protocols in force are exactly the ones `AGENTS.md` names, and every other is draft. It is committed first and seen failing.
+
 ### Fixed — 2026-09-27 (the protocols keep the designed system)
 At the Oracle's ruling, after #521 merged: a form pass changes shape, not substance. #521 had also adapted five protocols to the transition regime, and that is reverted here. The designed system is safer, and it is what lets the system know what is being done and learn from how it works. The transition regime suspends it only in `AGENTS.md`, and a protocol's promotion restores it as written. What comes back, as steps: in `PRO-001`, the missions board, the briefing, the load score, the `divergence_log`, `OPS-008`, `OPS-009` and decisions to `decisions/`; in `PRO-005` and `PRO-008`, the mission line and the decision record; in `PRO-016`, task classification, practice plates in commits and a weakened check coming as a decision record; in `PRO-018` and `PRO-019`, the mission and the card. The test-first step #521 added to `PRO-016` stays. The retired-plates ledger now points at the new step numbers. Site v0.69.0.
 

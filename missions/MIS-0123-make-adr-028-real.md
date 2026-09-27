@@ -14,11 +14,11 @@ completed: "2026-09-09"
 
 # REGISTRO
 type: mission
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-30T09:00:00Z"
 created_source: "git:765ee27"
 created_confidence: exact
-updated: "2026-09-02T01:55:26+02:00"
+updated: "2026-09-27T13:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [standards, frontmatter, guard, vocabulary, adr-028, tba]
@@ -35,6 +35,14 @@ SPDX-License-Identifier: CC0-1.0
 -->
 
 # MIS-123 — Make ADR-027 real
+
+> **Summary:** Build the value checks, the TBA counter and the vocabulary
+> reading that turn the signed decision ADR-027 into something the guard
+> verifies.
+> **Epistemic:** What has to exist for a signed decision about closed
+> vocabularies to change what a machine checks?
+> **Pragmatic:** The checks, the counter and the fixed values, done and
+> verified; the record of how.
 
 **Base:** `main` @ `fd4d045` · **Decisions:** `ADR-027`, `ADR-027`
 
@@ -213,3 +221,4 @@ open.
 ## Version history
 
 - v1.1.0 (2026-09-02) — retired identifiers repointed: P-013→PRO-013; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 4.
+- v1.1.1 (2026-09-27) — card added (Summary, Epistemic, Pragmatic) so the page answers STD-007 before it comes into force.
