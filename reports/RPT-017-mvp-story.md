@@ -522,3 +522,5 @@ resolve there. `absorbs:` above is final.
 - v0.4.0 (2026-09-08) — The alpha focus cut: 23 missions (2 done, 11 April
   stubs, 1 by order, 9 outside the alpha); `missions/` is the alpha board.
 - v0.5.0 (2026-09-08) — closed for growth; alpha-board closures go to `RPT-018`.
+- v0.5.1 (2026-09-10) — a citation of the licensing canon by section number
+  replaced with the passage it meant.

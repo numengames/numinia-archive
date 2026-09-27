@@ -59,9 +59,9 @@ Measured on v1.1.1:
 | headings, to four levels | 21 |
 | blocks that are indexes of other documents | 2 |
 
-**The indexes are the bulk.** §3.3 says of itself *"this block is an index,
+**The indexes are the bulk.** One block says of itself *"this block is an index,
 not a duplicate"* and lists nine bullets pointing at `BLU-010`, `STD-023` and
-`BLU-009`. §3.4 is a surface map routing ten surfaces to seven blueprints —
+`BLU-009`. The next is a surface map routing ten surfaces to seven blueprints —
 and those seven blueprints exist, one per surface, each already stating what
 it governs.
 

@@ -126,3 +126,25 @@ test('CLAUDE.md is an adapter, not a second copy of the licensing standard', () 
     `CLAUDE.md is ${claude.length} chars — an adapter points, it does not restate`,
   );
 });
+
+// ---------------------------------------------------------------------------
+// CONTRIBUTING.md — the first door an outsider opens
+// ---------------------------------------------------------------------------
+// It named a protocol that was renamed long ago, a mould path without its
+// extension and a STATUS.md no agent keeps, and it told readers the canon is
+// never modified while AGENTS.md says canon changes go through the operator
+// in chat. A newcomer reads this file first; it may not contradict the tree
+// or the rule an agent is actually held to.
+const CONTRIBUTING = readFileSync(path.join(ROOT, 'CONTRIBUTING.md'), 'utf8');
+
+test('CONTRIBUTING.md names only paths that exist', () => {
+  const cited = [...CONTRIBUTING.matchAll(/`((?:[a-z]+\/)+[A-Za-z0-9_.-]+|[A-Z][A-Za-z0-9_-]*\.md)`/g)].map((m) => m[1]);
+  const missing = cited.filter((p) => !tracked.some((f) => f === p || f.startsWith(`${p}/`)));
+  assert.deepEqual(missing, [], `CONTRIBUTING.md names paths the tree does not have: ${missing.join(', ')}`);
+});
+
+test('CONTRIBUTING.md sends readers to AGENTS.md and /binding instead of restating the rules', () => {
+  assert.match(CONTRIBUTING, /AGENTS\.md/);
+  assert.match(CONTRIBUTING, /\/binding/);
+  assert.doesNotMatch(CONTRIBUTING, /immutable by policy/i, 'says canon is never modified; AGENTS.md says it changes through the operator');
+});

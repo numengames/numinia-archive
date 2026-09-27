@@ -70,7 +70,10 @@ export const RING3 = {
     'previous_name', 'previous_name_note', 'translation_note',
     // agents/<agent>/skills/*/SKILL.md (AGENTS.md): the portable skill
     // format every agent platform reads. Both fields are required there.
-    'name', 'description'],
+    'name', 'description',
+    // agents/<agent>/AGENT.md, the entity card (agents/INDEX.md): what the
+    // agent is and the files it is made of — the same shape as objects/.
+    'entity', 'type_execution', 'forms'],
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',
     'visibility_reason',
     // registered 2026-08-31 (RPT-001 §12, the debt renumbering). Same

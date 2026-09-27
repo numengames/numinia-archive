@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.5.0"
+version: "5.6.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-09-27T12:00:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -88,6 +88,7 @@ system, and it belongs to everyone.
 | `legal` | `legal/` | yes |
 | `agent` | `agents/` | yes |
 | `meta` | anywhere — apparatus accompanies its series | no |
+| `entity` | an entity card: `agents/<agent>/AGENT.md`, `objects/` | no |
 
 Three kinds are withdrawn: an audit is now a report of the audit kind, a
 decision is a decision record, and a roster is apparatus.

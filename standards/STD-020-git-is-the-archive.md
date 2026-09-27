@@ -4,10 +4,10 @@ uid: ""
 title: "Git is the archive"
 type: documentation
 subtype: standard
-status: draft
-version: "2.1.4"
+status: active
+version: "2.2.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-27T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"

@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13964,
+  "chars": 13967,
   "apparatus": false,
   "archived": false,
-  "tokens": 3439
+  "tokens": 3440
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 149068,
+  "chars": 150831,
   "apparatus": false,
   "archived": false,
-  "tokens": 39856
+  "tokens": 40344
  },
  {
   "path": "CLAUDE.md",
@@ -71,10 +71,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1436,
+  "chars": 1885,
   "apparatus": false,
   "archived": false,
-  "tokens": 362
+  "tokens": 466
  },
  {
   "path": "README.md",
@@ -962,10 +962,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 5472,
+  "chars": 5481,
   "apparatus": false,
   "archived": false,
-  "tokens": 1426
+  "tokens": 1422
  },
  {
   "path": "decisions/ADR-057-can-004-absorbs-can-003.md",
@@ -1094,10 +1094,10 @@
   "series": "legal",
   "type": "legal",
   "status": "draft",
-  "chars": 8906,
+  "chars": 8913,
   "apparatus": false,
   "archived": false,
-  "tokens": 2289
+  "tokens": 2290
  },
  {
   "path": "lore/README.md",
@@ -1754,10 +1754,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 15670,
+  "chars": 15800,
   "apparatus": false,
   "archived": false,
-  "tokens": 4691
+  "tokens": 4742
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -2117,10 +2117,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 35369,
+  "chars": 35483,
   "apparatus": false,
   "archived": false,
-  "tokens": 10759
+  "tokens": 10793
  },
  {
   "path": "reports/RPT-018-alpha-story.md",
@@ -2172,10 +2172,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5629,
+  "chars": 5703,
   "apparatus": false,
   "archived": false,
-  "tokens": 1681
+  "tokens": 1705
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2193,11 +2193,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 15195,
+  "status": "active",
+  "chars": 15261,
   "apparatus": false,
   "archived": false,
-  "tokens": 4294
+  "tokens": 4313
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2259,8 +2259,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 12132,
+  "status": "active",
+  "chars": 12133,
   "apparatus": false,
   "archived": false,
   "tokens": 3317
@@ -2314,8 +2314,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 5048,
+  "status": "active",
+  "chars": 5049,
   "apparatus": false,
   "archived": false,
   "tokens": 1290
@@ -2325,8 +2325,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 3309,
+  "status": "active",
+  "chars": 3310,
   "apparatus": false,
   "archived": false,
   "tokens": 874
@@ -2336,8 +2336,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 5055,
+  "status": "active",
+  "chars": 5056,
   "apparatus": false,
   "archived": false,
   "tokens": 1291
@@ -2347,8 +2347,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 4438,
+  "status": "active",
+  "chars": 4439,
   "apparatus": false,
   "archived": false,
   "tokens": 1174

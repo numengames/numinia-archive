@@ -101,7 +101,7 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 - `lore/` — the game: RPG manual, adventures, world texts, codex. Each file declares its own licence.
 - `standards/` — this archive's operative standards; the rule index below lists them.
 - `protocols/` — procedures: session close, briefing, archiving.
-- `missions/` — the unit of work; `machine/templates/MIS-TEMPLATE` is the contract.
+- `missions/` — the unit of work; `machine/templates/MIS-TEMPLATE.md` is the contract.
 - `decisions/` — ADRs · `debt/` — what is known to be wrong · `reports/` — audits.
 - `operations/` — business records, one flat `OPS-` series (`OPS-007` is
   reserved — it says so in its own SPDX comment).

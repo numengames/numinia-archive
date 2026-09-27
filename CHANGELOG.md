@@ -19,6 +19,12 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (the entry door, and six standards in force)
+At the Oracle's word in session ("go").
+- **`CONTRIBUTING.md` rewritten.** It cited a protocol renamed long ago (`P-001-agent-briefing`), a `STATUS.md` no agent keeps and a mould path without its extension, and called the canon "immutable by policy" while `AGENTS.md` says canon changes through the operator in chat. It now sends readers to `/binding` and `AGENTS.md`, lists the pull-request steps and what needs the Oracle first. `AGENTS.md` names the mission mould with its extension. **Mechanism:** two tests in `agent-context.test.mjs`, committed first and seen failing, hold CONTRIBUTING to paths that exist and to deferring to `AGENTS.md`.
+- **Six standards are `active`.** Licensing (`STD-010` 2.4.0), one identifier (`STD-018` 1.2.0) and git is the archive (`STD-020` 2.2.0) — approved in #517, which merged into #516's branch after #516 had merged, so they never reached `main`; they land here. With them: the header (`STD-004` 4.2.0), versions (`STD-019` 3.1.0) and evidence and citation (`STD-021` 1.4.0), whose guards now find nothing.
+- **The findings that stood in the way, fixed:** the entity card `agents/ursa/AGENT.md` used a `type` and three fields the header rules did not know — `entity` joins the type list as a card that lives with what it describes (`STD-001` 5.6.0), and `entity`, `type_execution`, `forms` join the `agents/` ring (`STD-004`); the cookie policy's `provenance: agent` becomes `ai-generated`; `RPT-018`'s version log carried five lines copied from `RPT-017` and ran backwards; `RPT-017` and `MIS-135` gain the log line for the version their header already had; `ADR-056` cited two sections of a blueprint by number that the blueprint no longer numbers.
+
 ### Changed — 2026-09-27 (the five longest standards, thinned)
 At the Oracle's word in session. The prose of the header, licensing, design-token, when-a-rule-bites and platform-ranks standards loses repetition, history and doubled reasons; no obligation changes. Every MUST/SHOULD/MAY sequence, table row and plate is identical to main (checked mechanically per file). Tokens 14,365 → 13,768 (−4 %): these five are mostly tables and Check sections, which carry the rules and stay verbatim, so the prose was the only room. Patch bumps: STD-003 3.2.5, STD-004 4.1.4, STD-005 4.0.4, STD-008 10.0.4, STD-010 2.3.5.
 
