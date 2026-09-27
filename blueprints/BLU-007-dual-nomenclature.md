@@ -4,11 +4,11 @@ uid: ""
 title: "Sistema de Nomenclatura Dual — Narrative & Gamification Dials"
 type: blueprint
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-08-27T22:02:10Z"
+updated: "2026-09-27T13:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, nomenclature, narrative-dial, gamification-dial, i18n]
@@ -24,7 +24,13 @@ SPDX-License-Identifier: CC0-1.0
 
 # Two Dials. One System.
 
-> **Numen Games · NWOS · Adaptability**
+> **Summary:** Two independent dials, narrative and gamification, set how
+> much of the world's vocabulary and how much play an organisation takes on;
+> the system underneath stays the same.
+> **Epistemic:** How can one system speak both as a business tool and as a
+> living world?
+> **Pragmatic:** Pick a setting on each dial and read the vocabulary and
+> mechanics that come with it.
 
 The Narrative Work OS speaks any language. Organizations choose how much narrative and how much gamification they want. The system is the same — the vocabulary adapts.
 
