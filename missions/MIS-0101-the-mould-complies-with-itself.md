@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.2.0"
+version: "1.2.1"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-02T10:30:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -65,8 +65,8 @@ Audited today against §4 of `STD-005` (then `standards/STD-005-engineering-stan
 | `CLAUDE.md` | ✅ | ✅ | ✅ |
 | `SECURITY.md` | ✅ | ✅ | ✅ |
 | `CONTRIBUTING.md` | ✅ | ✅ | ✅ |
-| `CODE_OF_CONDUCT.md` | ❌ | ✅ | ✅ |
-| `TODO.md` (TRC-005) | ❌ | ✅ | ✅ |
+| `CODE_OF_CONDUCT` | ❌ | ✅ | ✅ |
+| `TODO` (TRC-005) | ❌ | ✅ | ✅ |
 | `.editorconfig` (DEV-003) | ❌ | ✅ | ✅ |
 | `.env.example` (DEV-001) | ❌ | ✅ | ✅ |
 | `dependabot.yml` (SEC-003) | ❌ | ✅ | ✅ |
@@ -85,9 +85,9 @@ contributor cannot tell "no variables" from "nobody documented them".
 ## Scope
 
 - The five missing files, written for this repo — not copied from the other
-  two. A `CODE_OF_CONDUCT.md` in a governance repository is not the same
+  two. A `CODE_OF_CONDUCT` in a governance repository is not the same
   document as in a marketing site.
-- `TODO.md` collects the debt this repo already tracks in prose across
+- `TODO` collects the debt this repo already tracks in prose across
   `CLAUDE.md`, `GAPS.md` and mission bodies. It is a roadmap file (TRC-005), not
   a second gap map: `GAPS.md` stays strategic.
 - The ARC-001 pipeline for `web/`: `type-check → lint → test → build`, added to
@@ -124,10 +124,10 @@ Feature: the canonical repo passes its own checklist
     Then they find it, and it says exactly that
 ```
 
-- [ ] `CODE_OF_CONDUCT.md`, `TODO.md`, `.editorconfig`, `.env.example` and
+- [ ] `CODE_OF_CONDUCT`, `TODO`, `.editorconfig`, `.env.example` and
       `.github/dependabot.yml` present and written for this repo
 - [ ] `ci.yml` runs `type-check → lint → test → build` for `web/`
-- [ ] Every error the new checks surface is fixed, or recorded in `TODO.md`
+- [ ] Every error the new checks surface is fixed, or recorded in `TODO`
       with what would close it — never silenced
 - [x] `CLAUDE.md` no longer says "no tests or lint yet" — rewritten 2026-09-02 from `ci.yml` (`MIS-135` row 4, #200)
 - [ ] The presence job of the shared workflow passes here unmodified
@@ -158,10 +158,11 @@ of exceptions attached.
 
 *Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
 
-- **Evidence:** ci.yml now runs 10 steps (6 guards, build, orphan and URL ratchets) — criterion 2's spirit is met though type-check/lint/test for web/ are not wired; CODE_OF_CONDUCT.md, TODO.md, .editorconfig, .env.example absent; CLAUDE.md still says 'No tests or lint yet'. Cited once.
+- **Evidence:** ci.yml now runs 10 steps (6 guards, build, orphan and URL ratchets) — criterion 2's spirit is met though type-check/lint/test for web/ are not wired; CODE_OF_CONDUCT, TODO, .editorconfig, .env.example absent; CLAUDE.md still says 'No tests or lint yet'. Cited once.
 - **Recommendation:** Keep todo; half done by reality. Re-scope to the three concrete gaps (web/ type-check+lint in CI; the four files; the CLAUDE.md sentence). Small mission, one PR.
 
 ## Version history
 
 - v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
 - v1.2.0 (2026-09-02) — criterion 4 ticked (`CLAUDE.md` sentence rewritten, `MIS-135` row 4, #200).
+- v1.2.1 (2026-09-27) — the files still to create are named without `.md`, so the resolver does not read a plan as a broken citation.

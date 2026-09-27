@@ -57,6 +57,14 @@ const IGNORED_PREFIX = /^(CON|FLAG|SEC|ARC|G|MISSION|BP)-/;
 // that rule and cite them bare. They are not missing: they are elsewhere.
 const WEB_ADR_RANGE = (n) => n >= 6 && n <= 22;
 const isExample = (id) => id === 'MIS-999';
+// A path qualified by a sibling repository (or numinia-lore's seminal/ shelf)
+// lives elsewhere, not gone — like the web ADR range above.
+const ELSEWHERE = /^(numinia-web|numinia-lore|numengames-web|nwos-deploy|numinia-assets|seminal)\//;
+// CHANGELOG.md is a photograph entry by entry: each is closed the day it is
+// written and names what the tree had that day (CIT-053, a closed record's
+// broken link may stand). Rewriting history to satisfy a resolver would
+// falsify it.
+const isChangelog = (rel) => rel === 'CHANGELOG.md';
 const ID_RE = new RegExp(`\\b(${Object.keys(PREFIX_DIR).join('|')})-(\\d{1,4}|\\d{4}-\\d{2}-\\d{2})\\b`, 'g');
 const LINK_RE = /\[[^\]]*\]\(([^)\s#]+\.md)(?:#[^)]*)?\)/g;
 // Kind 3: a bare filename in prose outside link syntax, resolved by basename —
@@ -72,13 +80,35 @@ const isPlaceholder = (cited) => PLACEHOLDER_RE.test(cited) || /[<>{}]/.test(cit
  *  git log. Exported for the test. */
 export function retiredIds(root) {
   const retired = new Map();
-  const log = execFileSync('git', ['log', '--diff-filter=D', '--name-only', '--format=', '--', '*.md'], { cwd: root, encoding: 'utf8' });
-  for (const line of log.split('\n')) {
-    const base = path.basename(line.trim(), '.md');
-    const m = base.match(/^([A-Z]{2,5})-(\d{3,4})/);
-    if (m && !retired.has(`${m[1]}-${m[2]}`)) retired.set(`${m[1]}-${m[2]}`, line.trim());
+  // One letter is a prefix too: the old debt, protocol and standard series
+  // used one (D-, P-, S-), and their files are in the log.
+  for (const line of deletedMd(root)) {
+    const base = path.basename(line, '.md');
+    const m = base.match(/^([A-Z]{1,5})-(\d{3,4})/);
+    if (m && !retired.has(`${m[1]}-${m[2]}`)) retired.set(`${m[1]}-${m[2]}`, line);
   }
   return retired;
+}
+
+/** Every .md path the tree once had and left, by deletion or rename. */
+function deletedMd(root) {
+  // A rename leaves the old path behind as surely as a deletion: `git mv
+  // P-010-how-to-archive.md PRO-010-…` retires the name P-010. So both count,
+  // deletions (D) and the old side of renames (R).
+  const log = execFileSync('git', ['log', '--diff-filter=DR', '--name-status', '--format=', '--', '*.md'], { cwd: root, encoding: 'utf8' });
+  const out = [];
+  for (const line of log.split('\n')) {
+    const cols = line.trim().split('\t');
+    if (cols.length >= 2 && /^[DR]/.test(cols[0]) && cols[1].endsWith('.md')) out.push(cols[1]);
+  }
+  return out;
+}
+
+/** What the tree had, by file name: a bare filename resolves if any deleted
+ *  .md carried it (MEMORY.md, web/DESIGN.md), not only an identified one.
+ *  Exported for the test. */
+export function retiredBasenames(root) {
+  return new Set(deletedMd(root).map((p) => path.basename(p)));
 }
 
 /** What the tree has: every identifier and basename that resolves. */
@@ -108,13 +138,13 @@ function index(corpus) {
 function brokenReferences(corpus) {
   const { known, basenames } = index(corpus);
   const retired = retiredIds(corpus.root);
-  const retiredBase = new Set([...retired.values()].map((p) => path.basename(p)));
+  const retiredBase = retiredBasenames(corpus.root);
   const out = [];
   const F = (from, kind, target) => out.push({ plate: 'DEF-009', what: `${kind} -> ${target}`, where: from });
 
   for (const rel of corpus.files) {
     const text = corpus.text(rel);
-    if (isPhotograph(rel, corpus.fm(rel)?.status, RULES)) continue;   // CIT-053: a closed record is a photograph
+    if (isPhotograph(rel, corpus.fm(rel)?.status, RULES) || isChangelog(rel)) continue;   // CIT-053: a closed record is a photograph
     const abs = path.join(corpus.root, rel);
     const body = stripFM(text);
     const ownBase = path.basename(rel);
@@ -145,7 +175,7 @@ function brokenReferences(corpus) {
       if (insideLink(m.index)) continue;
       const cited = m[1];
       const bare = path.basename(cited);
-      if (bare === ownBase || isPlaceholder(cited) || seenFile.has(bare)) continue;
+      if (bare === ownBase || isPlaceholder(cited) || ELSEWHERE.test(cited) || seenFile.has(bare)) continue;
       seenFile.add(bare);
       if (basenames.has(bare) || retiredBase.has(bare)) continue;
       F(rel, 'FILE', cited);
