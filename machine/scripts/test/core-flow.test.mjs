@@ -110,6 +110,19 @@ test('the reading keeps the rules and the why, and leaves out the Check and Refe
   }
 });
 
+test('no comment opener survives the reading, even nested or unclosed', () => {
+  const dir = scratch();
+  try {
+    writeFileSync(path.join(dir, 'standards', 'STD-001-x.md'),
+      doc('STD-001', 'Rule X', 'derived_from: "CAN-001"\n', '<!--<!-- x -->-->\n\nKept.\n\n<!-- open\n'));
+    const { code, out } = ask(dir, 'c.coreFlow()[0].standards[0].reading');
+    assert.equal(code, 0, out);
+    assert.doesNotMatch(JSON.parse(out), /<!--/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test('a standard with no canon fails the build rather than vanishing from the flow', () => {
   const dir = scratch();
   try {
