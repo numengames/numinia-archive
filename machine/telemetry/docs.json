@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14350,
+  "chars": 14750,
   "apparatus": false,
   "archived": false,
-  "tokens": 3532
+  "tokens": 3626
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 164092,
+  "chars": 165566,
   "apparatus": false,
   "archived": false,
-  "tokens": 43763
+  "tokens": 44124
  },
  {
   "path": "CLAUDE.md",
@@ -2112,6 +2112,39 @@
   "tokens": 1060
  },
  {
+  "path": "protocols/PRO-025-handling-a-personal-data-breach.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 4505,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1195
+ },
+ {
+  "path": "protocols/PRO-026-answering-a-request-about-personal-data.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 3992,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1059
+ },
+ {
+  "path": "protocols/PRO-027-changing-what-a-site-stores.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 3803,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 987
+ },
+ {
   "path": "reports/RPT-003-wardley-map.md",
   "dir": "reports",
   "series": "reports",
@@ -2513,10 +2546,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5756,
+  "chars": 6160,
   "apparatus": false,
   "archived": false,
-  "tokens": 1663
+  "tokens": 1765
  },
  {
   "path": "standards/STD-036-one-account.md",
