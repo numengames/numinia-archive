@@ -5,11 +5,11 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "4.0.3"
+version: "4.0.4"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T12:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -26,61 +26,60 @@ SPDX-License-Identifier: CC0-1.0
 # When a rule bites
 
 > **Summary:** A rule is worth the machine that checks it. A guard fails the
-> build only while the standard holding its rule is signed. A guard over the
-> thing built always fails. Five repositories share one pipeline.
+> build only while its rule's standard is signed; a guard over the thing built
+> always fails. Five repositories share one pipeline.
 > **Epistemic:** When does a rule bite, and how do the guards come to run?
-> **Pragmatic:** Write, wire or read a guard, and know whether a red build is
-> a broken rule or a broken artefact.
+> **Pragmatic:** Write, wire or read a guard, and tell a broken rule from a
+> broken artefact.
 > **Audience:** Agents · Oracles
 
 **Binds:** this repository and every workspace born from it; personal repositories SHOULD follow.
 
 ## Rules
 
-These rules are edited here and come from nowhere else. A workspace receives
-them at birth and owns them from then on.
+These rules are edited here and nowhere else. A workspace receives them at
+birth and owns them from then on.
 
 ### What a rule is worth
 
-**A rule that does not fail a build is prose.** The automatic checks that run
-on every change are the authority. The documentation explains them. For an
-agent, a rule that no guard runs does not exist.
+**A rule that does not fail a build is prose.** The checks that run on every
+change are the authority; the documentation explains them. For an agent, a
+rule no guard runs does not exist.
 
 **Every practice names its check.** Each practice in the register of
-engineering checks MUST say which machine checks it, or say plainly that a
+engineering checks MUST say which machine checks it, or plainly that a
 person does. Checking by hand is debt, and what a machine can check MUST NOT
 be audited by hand.
 
 **A guard that fails on unstated behaviour is the defect.** When a guard
-fails on something no rule asks for, fix the guard or write the rule. Never
-bend the work to fit the guard.
+fails on something no rule asks for, fix the guard or write the rule, never
+bend the work to fit it.
 
 **A guard bites by the state of its rule.** A finding fails the build only
-while the standard holding the rule it cites is active. While that standard
-is a draft, the guard reports the finding and lets the build pass.
+while the standard holding the rule it cites is active. While it is a draft,
+the guard reports and lets the build pass.
 
 **Signing a standard switches its guards on.** The guard reads the standard's
-state from its header each time it runs, never from its own settings. A
-finding that cites no rule has no state to read and MUST NOT fail a build.
+state from its header on every run, never from its own settings. A finding
+that cites no rule has no state to read and MUST NOT fail a build.
 
 **A guard over the artefact bites always.** A guard that checks the thing
-built, rather than a rule, fails regardless: the build itself, fresh
-measurements, links inside the site, stray pages, cited addresses that still
-answer. It says so where it lists what it cannot see.
+built, not a rule, fails regardless: the build, fresh measurements, links
+inside the site, stray pages, cited addresses that still answer. It says so
+where it lists what it cannot see.
 
 ### How guards come to run
 
 **A guard runs from the change that merges it.** A guard is a script in the
-guards folder. The runner finds it there and runs it. No document or workflow
+guards folder, where the runner finds and runs it. No document or workflow
 line makes it exist. A script that must not run as a guard lives elsewhere.
 
 **The list of guards is read, never remembered.** What runs is what the
 runner finds in the guards folder. The workflow calls the runner and names no
-guard, because a list written by hand is stale the day it is written.
+guard, because a hand-written list is stale the day it is written.
 
-The practices a repository keeps, such as its security score, its changelog
-and its incident reviews, are rows of the register of engineering checks,
-each with its check.
+The practices a repository keeps (its security score, changelog and incident
+reviews) are rows of the register of engineering checks, each with its check.
 
 This standard is over its word budget because the shared pipeline must be
 read whole to be copied.
@@ -89,35 +88,33 @@ read whole to be copied.
 
 Five repositories run the same guards. Four serve a site: this archive, the
 Numinia site, the Numen Games site and the workspace deployer. The fifth, the
-store of shared resources, serves none. A guard is a step or a script that
-says whether something is wrong with the change under review. The rule on
-when a guard bites sorts guards into two kinds:
+store of shared resources, serves none. A guard is a step or script that
+says whether the change under review is wrong. Guards come in two kinds:
 
 | Kind | Steps, in this order | Fails the build? |
 |---|---|---|
 | Artefact | install → type-check → lint → test → build → share card (`web/scripts/share-card.mjs --check`) → version bump (`machine/scripts/check-version-bump.mjs`) | Yes. A page that does not build, a test that fails, a favicon that is missing or a version that did not move is a broken artefact whatever any standard says. |
 | Rule | presence of the files a new repository is born with (see the register of engineering checks) · REUSE lint · OpenSSF Scorecard · dependency audit | No, while the register of engineering checks is `draft`. The step runs on every pull request, prints every finding in the log and the job summary, and exits 0. Promoting that register to `active` is what turns them into failures. |
 
-- **One required check, and it is called build.** The protection on the
-  main line, copied to every repository, can require a check only by name,
-  so the name means the same everywhere. Where the work is split into
-  several jobs, build passes only if every artefact job passed. It never
-  waits on a job that only reports. Renaming it leaves the required check
-  pending for ever and blocks every merge. Requiring no check lets a red run
-  merge. Both failures were measured before this was written.
-- **The store of resources has no site.** It builds nothing. Its artefact
+- **One required check, and it is called build.** The main line's
+  protection, copied to every repository, can require a check only by name,
+  so the name means the same everywhere. Where work is split into jobs,
+  build passes only if every artefact job passed, and never waits on a job
+  that only reports. Renaming it leaves the required check pending for ever
+  and blocks every merge; requiring no check lets a red run merge.
+- **The store of resources has no site.** It builds nothing; its artefact
   guards check that every file declares its licence, with tests proving a
-  missing declaration is refused. Build passes only when all of them do.
+  missing declaration is refused; build passes only when all of them do.
 - **Some files are kept identical across the five, by hand until a shared
-  package carries them.** The table below lists them. Comparing two copies
-  shows their paths and nothing else.
+  package carries them.** They are listed below. A diff of two copies shows
+  only their paths.
 - **Every workflow, every step,** as the register of engineering checks
-  asks: outside actions pinned to the full commit hash of one release, never
-  a tag that can move; read-only permissions at the top of the file, with
-  write granted only to the job that needs it; no secret read by a build,
-  because publishing is connected in the hosting provider's own panel, never
-  through a token in a workflow; and above each step, a comment in English
-  saying what it checks and how to fix it when it fails.
+  asks: outside actions pinned to the full commit hash of one release,
+  never a movable tag; read-only permissions at the top of the file, write
+  granted only to the job that needs it; no secret read by a build, since
+  publishing is connected in the hosting provider's panel, never through a
+  workflow token; and above each step, an English comment saying what it
+  checks and how to fix a failure.
 
 | Kept identical in the five | What it does |
 |---|---|
@@ -142,11 +139,11 @@ Each rule, its code, its source and its check.
 
 ## Why
 
-A practice with no check is a wish with a heading. Writing the check beside
-it shows how much is enforced and how much is only promised. Guards are code,
-and code rots. A guard that bites before its rule is signed turns a draft
-into a law nobody agreed to. With one pipeline in five repositories, a red
-build means the same thing wherever it is read.
+A practice with no check is a wish with a heading; writing the check beside
+it shows what is enforced and what is only promised. Guards are code, and
+code rots. A guard that bites before its rule is signed turns a draft into a
+law nobody agreed to. With one pipeline in five repositories, a red build
+means the same thing everywhere.
 
 ## References
 

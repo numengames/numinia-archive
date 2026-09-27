@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "6c458dd",
-  "corpus_hash": "0ac57bb4dff8a81263eecc6586a776b16eaab657094f8ba8f828db88d83ff800",
+  "head": "db957ae",
+  "corpus_hash": "cc2f57cde3f81cdacff99011599fd425bcdfa02ef5f2f7d7dd97e904282af713",
   "root_dirty": 0,
-  "measured_at": "2026-09-27T09:23:52Z",
+  "measured_at": "2026-09-27T09:37:26Z",
   "families": [
     "corpus",
     "series",
@@ -328,15 +328,15 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 883550,
+      "value": 883130,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 64727,
-        "": 46674,
+        "standards": 64130,
+        "": 46851,
         "missions": 45717,
         "decisions": 39440,
         "reports": 29342,
@@ -357,8 +357,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 542004,
-        "draft": 170041,
+        "(none)": 542181,
+        "draft": 169444,
         "active": 124300,
         "done": 26539,
         "todo": 15975,
@@ -368,7 +368,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.17,
+      "value": 5.18,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -380,7 +380,7 @@
         ],
         [
           "CHANGELOG.md",
-          39679
+          39856
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -545,19 +545,50 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 0,
+      "value": 6,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
-      "value": [],
+      "value": [
+        [
+          "README.md",
+          "2026-04-07",
+          "2026-04-06"
+        ],
+        [
+          "agents/nimrod/OPERATOR.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/nimrod/SOUL.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/skills/numinia-nwos-pr/SKILL.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "protocols/PRO-018-publishing-a-repository.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "reports/RPT-019-2026-w37.md",
+          "2026-09-09",
+          "2026-09-08"
+        ]
+      ],
       "unit": "documents",
       "definition": "[path, created, first-add] for created_ahead_of_commit",
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 175,
+      "value": 31,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -629,7 +660,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1068
+          "3": 1073
         },
         "MIS": {
           "3": 687,
@@ -706,7 +737,7 @@
           "id": "MIS-135#10",
           "severity": "B",
           "state": "open",
-          "where": "standards/STD-004-the-header.md#L213",
+          "where": "standards/STD-004-the-header.md#L207",
           "claim": "STD-004's Ring 3 registry still lists fields the corpus no longer carries as registered. Deferred → STD-004 v1.5.0. Anchor re-pointed 2026-09-03: the original quote lived in an amendment note removed when STD-004 was slimmed to v2.0.0; the registry row it denounces is unchanged, so the claim stays open. Anchor re-pointed 2026-09-09: the registry row moved whole into the register STD-016 under ADR-043. Anchor re-pointed 2026-09-26: STD-016 retired into STD-004, the row unchanged."
         },
         {
@@ -735,14 +766,14 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 337,
+      "value": 338,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
     "figures.live_by_doc": {
       "value": {
         "missions/MIS-0127-entropy-reduction.md": 40,
-        "CHANGELOG.md": 28,
+        "CHANGELOG.md": 29,
         "missions/MIS-0121-header-baseline-burndown.md": 19,
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,

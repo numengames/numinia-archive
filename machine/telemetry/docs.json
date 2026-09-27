@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 148456,
+  "chars": 149068,
   "apparatus": false,
   "archived": false,
-  "tokens": 39679
+  "tokens": 39856
  },
  {
   "path": "CLAUDE.md",
@@ -2183,10 +2183,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8484,
+  "chars": 7804,
   "apparatus": false,
   "archived": false,
-  "tokens": 2070
+  "tokens": 1928
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -2194,10 +2194,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15840,
+  "chars": 15195,
   "apparatus": false,
   "archived": false,
-  "tokens": 4440
+  "tokens": 4294
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2205,10 +2205,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8352,
+  "chars": 8033,
   "apparatus": false,
   "archived": false,
-  "tokens": 2021
+  "tokens": 1953
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -2238,10 +2238,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8945,
+  "chars": 8385,
   "apparatus": false,
   "archived": false,
-  "tokens": 2404
+  "tokens": 2276
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -2260,10 +2260,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 12642,
+  "chars": 12132,
   "apparatus": false,
   "archived": false,
-  "tokens": 3430
+  "tokens": 3317
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",

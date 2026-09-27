@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-27 (the five longest standards, thinned)
+At the Oracle's word in session. The prose of the header, licensing, design-token, when-a-rule-bites and platform-ranks standards loses repetition, history and doubled reasons; no obligation changes. Every MUST/SHOULD/MAY sequence, table row and plate is identical to main (checked mechanically per file). Tokens 14,365 → 13,768 (−4 %): these five are mostly tables and Check sections, which carry the rules and stay verbatim, so the prose was the only room. Patch bumps: STD-003 3.2.5, STD-004 4.1.4, STD-005 4.0.4, STD-008 10.0.4, STD-010 2.3.5.
+
 ### Added — 2026-09-27 (/binding names which documents are draft)
 At the Oracle's word in session: what is draft, what is not, and why, should be visible to a person or an agent at a glance instead of being recalled in chat.
 - **`/binding` lists each canon, standard and protocol** with its state and a link, under the counts it already had. `lifecycle()` in `web/src/lib/binding.ts` now returns the documents of each row (id, title, status, address) read from their headers; the page and `/binding.md` render them. Nothing is typed by hand, so a promotion out of draft moves the document by itself.
