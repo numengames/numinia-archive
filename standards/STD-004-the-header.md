@@ -4,12 +4,12 @@ uid: ""
 title: "The header"
 type: documentation
 subtype: standard
-status: draft
-version: "4.1.4"
+status: active
+version: "4.2.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-27T12:00:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 ratified_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -209,7 +209,7 @@ unaided. The field names stay our own.
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `standards/` | `absorbs` |
 | `canon/` | `absorbs` |
-| `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) |
+| `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) · `entity` `type_execution` `forms` (the entity card `AGENT.md`) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` `legal/` | `extraction_note` `restoration_note` |
 | `blueprints/` | `semaforo` |

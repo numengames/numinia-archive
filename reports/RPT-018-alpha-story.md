@@ -63,6 +63,6 @@ versioned as its record and the next phase opens its own report.
 
 ## Version history
 
-- v0.3.0 (2026-09-09) — first weekly pointer: `RPT-019` (2026-W37).
 - v0.1.0 (2026-09-08) — created as the destination for alpha-board
   closures, so `RPT-017` stops growing.
+- v0.3.0 (2026-09-09) — first weekly pointer: `RPT-019` (2026-W37).

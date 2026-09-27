@@ -13,7 +13,7 @@ author: "ursa"
 owner: "oracle"
 tags: [legal, cookies, privacy, gdpr, lssi, website, numen-games, enforceable]
 license: "LicenseRef-Numen-AllRightsReserved"
-provenance: "agent"
+provenance: "ai-generated"
 language: "en"
 related: ["LEG-001", "LEG-002", "STD-008"]
 review_flags: |
