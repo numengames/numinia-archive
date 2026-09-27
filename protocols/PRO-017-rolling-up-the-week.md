@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: protocol
 status: draft
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, rollup, deflation, weekly, reports]
@@ -15,6 +15,7 @@ applies_to: [all-agents]
 mandatory: true
 ratified_by: "ADR-042"
 related: ["STD-012", "ADR-030", "RPT-018"]
+derived_from: "CAN-009"
 ---
 
 <!--

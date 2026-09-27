@@ -5,13 +5,14 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "5.0.3"
+version: "5.0.4"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
 tags: [standards, engineering, ci, register, practices]
+derived_from: "CAN-010"
 license: "CC0-1.0"
 ---
 

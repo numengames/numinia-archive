@@ -5,9 +5,9 @@ title: "One document, one address"
 type: documentation
 subtype: standard
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-20T20:00:00+02:00"
-updated: "2026-09-27T15:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,6 +16,7 @@ tags: [standards, urls, addresses, citation, publishing, Cool-URIs, RFC-6596, RF
 license: "CC0-1.0"
 ratified_by: "ADR-047"
 related: ["STD-018", "STD-021", "STD-027", "STD-001", "STD-012"]
+derived_from: "CAN-009"
 ---
 
 <!--

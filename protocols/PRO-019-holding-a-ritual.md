@@ -4,9 +4,9 @@ uid: ""
 title: "Holding a ritual"
 type: protocol
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -16,6 +16,7 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 ratified_by: "ADR-048"
 related: ["CAN-001", "CAN-002", "CAN-004", "PRO-005", "PRO-017", "STD-012"]
+derived_from: "CAN-001"
 ---
 
 <!--

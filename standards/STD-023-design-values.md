@@ -5,15 +5,16 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.6.3"
+version: "1.6.4"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
 related: ["STD-008", "STD-034", "CAN-008", "ADR-044", "PRO-022"]
+derived_from: "CAN-008"
 ---
 
 <!--

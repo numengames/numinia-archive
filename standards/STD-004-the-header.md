@@ -5,11 +5,11 @@ title: "The header"
 type: documentation
 subtype: standard
 status: active
-version: "4.2.0"
+version: "4.2.1"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 ratified_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -17,6 +17,7 @@ owner: "oracle"
 territory: "Archive"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata, RFC-3339, YAML, Dublin-Core, PROV, register]
+derived_from: "CAN-009"
 ---
 
 <!--
@@ -168,6 +169,7 @@ standards; those plates are retired there.
 | Relation | Means |
 |---|---|
 | `related` | relevant; no stronger direction known |
+| `derived_from` | on a standard or protocol: the one canon it makes concrete or carries out; `/core` is built from it |
 | `supersedes` / `superseded_by` | a later record replaces an earlier one |
 | `absorbs` | a later record carries the earlier reasoning; the old identifier keeps resolving |
 | `ratified_by` | an authority promoted or confirmed the record |

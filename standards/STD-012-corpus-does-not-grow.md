@@ -5,7 +5,7 @@ title: "The corpus does not grow"
 type: documentation
 subtype: standard
 status: active
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-09-08T22:00:00Z"
 updated: "2026-09-27T15:45:00+02:00"
 author: "ursa"
@@ -14,6 +14,7 @@ license: "CC0-1.0"
 tags: [deflation, lifecycle, reports, missions, debt, compression, records-management, retirement, Dublin-Core]
 ratified_by: "ADR-042"
 related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001", "STD-028"]
+derived_from: "CAN-009"
 ---
 
 <!--

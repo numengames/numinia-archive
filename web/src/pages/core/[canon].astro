@@ -1,0 +1,101 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /core/<canon> — one canon's whole chain on one page, to be read or heard
+// end to end: the canon, then each standard that names it in `derived_from`,
+// then each protocol. The Check tables and References are left out (they are
+// on each document's own page); what remains is what a listener needs —
+// every rule with its obligation, and every step. See web/src/lib/core.ts.
+import Layout from "@/layouts/Layout.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { coreFlow, type CoreDoc } from "@/lib/core";
+import { createMarkdownProcessor } from "@astrojs/markdown-remark";
+
+export function getStaticPaths() {
+  const flow = coreFlow();
+  return flow.map((c, i) => ({
+    params: { canon: c.slug },
+    props: { canon: c, prev: flow[i - 1] ?? null, next: flow[i + 1] ?? null },
+  }));
+}
+
+const { canon, prev, next } = Astro.props;
+const processor = await createMarkdownProcessor({});
+const html = async (md: string) => (await processor.render(md)).code;
+const state = (s: string) => (s === "active" ? "in force" : "draft");
+const render = async (d: CoreDoc) => ({ ...d, html: await html(d.reading) });
+const canonHtml = await html(canon.reading);
+const standards = await Promise.all(canon.standards.map(render));
+const protocols = await Promise.all(canon.protocols.map(render));
+const repo = canon.path;
+---
+
+<Layout
+  title={`${canon.title} — the core, as a flow`}
+  description={`${canon.question} The canon, its standards and its protocols, end to end.`}
+  canonicalPath={`/core/${canon.slug}`}
+>
+  <section class="pb-24 pt-16">
+    <div class="mx-auto max-w-[800px] px-6">
+      <a href="/core" class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-accent hover:underline">← The core</a>
+      <h1 class="font-display text-3xl sm:text-4xl text-foreground mt-4 mb-2">{canon.title}</h1>
+      <p class="text-base italic text-muted-foreground mb-2">{canon.question}</p>
+      <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-8">
+        One canon · {standards.length} standards · {protocols.length} protocols · each marked in force or draft
+      </p>
+
+      <DocToolbar mdUrl={`/core/${canon.slug}.md`} filename={`core-${canon.slug}.md`} lang="en" />
+
+      <article class="mission-md core-flow rounded-xl border border-border bg-card p-6 sm:p-8">
+        <p class="core-state"><strong>The canon</strong> · {state(canon.status)}. {canon.summary}</p>
+        <Fragment set:html={canonHtml} />
+
+        {standards.length > 0 && <h2 class="core-part">The standards</h2>}
+        {standards.map((d) => (
+          <section class="core-doc">
+            <h2 class="core-title">{d.title}</h2>
+            <p class="core-state"><strong>{state(d.status)}</strong> · {d.question} <a href={d.docHref} aria-label={`${d.title}, full document`}>full document</a></p>
+            <Fragment set:html={d.html} />
+          </section>
+        ))}
+
+        {protocols.length > 0 && <h2 class="core-part">The protocols</h2>}
+        {protocols.map((d) => (
+          <section class="core-doc">
+            <h2 class="core-title">{d.title}</h2>
+            <p class="core-state"><strong>{state(d.status)}</strong> · {d.question} <a href={d.docHref} aria-label={`${d.title}, full document`}>full document</a></p>
+            <Fragment set:html={d.html} />
+          </section>
+        ))}
+      </article>
+
+      <nav class="mt-10 flex justify-between gap-4 text-sm" aria-label="Other canons">
+        {prev ? <a href={prev.href} class="text-accent hover:underline">← {prev.title}</a> : <span />}
+        {next ? <a href={next.href} class="text-accent hover:underline">{next.title} →</a> : <span />}
+      </nav>
+    </div>
+  </section>
+</Layout>
+
+<style is:global>
+  .core-flow h2.core-part {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    text-transform: none;
+    letter-spacing: 0;
+    color: rgb(var(--text));
+    margin: 3rem 0 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgb(var(--border));
+  }
+  .core-flow h2.core-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    text-transform: none;
+    letter-spacing: 0;
+    color: rgb(var(--text));
+    margin: 2rem 0 0.25rem;
+  }
+  .core-flow .core-state { font-size: 0.8rem; font-style: italic; }
+</style>

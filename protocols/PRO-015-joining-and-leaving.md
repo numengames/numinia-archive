@@ -4,14 +4,15 @@ uid: ""
 title: "Joining and leaving Numinia: the phases, the gates and who owns each step"
 type: protocol
 status: draft
-version: "1.0.5"
+version: "1.0.6"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
 territory: "CAO"
 tags: [protocol, onboarding, offboarding, people, lifecycle]
+derived_from: "CAN-001"
 license: "CC0-1.0"
 visibility: "public"
 applies_to: "anyone joining or leaving Numinia, and whoever runs the process"

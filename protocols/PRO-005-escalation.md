@@ -4,11 +4,11 @@ uid: ""
 title: "Escalating to the Oracle"
 type: protocol
 status: draft
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [protocol, escalation, security]
@@ -16,6 +16,7 @@ applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
 related: ["STD-017", "PRO-008"]
+derived_from: "CAN-004"
 ---
 
 <!--

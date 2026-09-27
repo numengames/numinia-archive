@@ -5,9 +5,9 @@ title: "Every charge delivers something"
 type: documentation
 subtype: standard
 status: draft
-version: "0.4.4"
+version: "0.4.5"
 created: "2026-09-24T17:40:00+02:00"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -15,6 +15,7 @@ license: "CC0-1.0"
 tags: [standards, economy, payments, consumer-law]
 ratified_by: "ADR-064"
 related: ["CAN-011", "STD-036", "STD-022", "STD-003", "STD-035", "BLU-017"]
+derived_from: "CAN-011"
 ---
 
 <!--

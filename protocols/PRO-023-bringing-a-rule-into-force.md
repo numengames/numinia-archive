@@ -4,7 +4,7 @@ uid: ""
 title: "Bringing a rule into force"
 type: protocol
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-27T14:30:00+02:00"
 updated: "2026-09-27T15:30:00+02:00"
 author: "ursa"
@@ -14,6 +14,7 @@ tags: [protocol, lifecycle, draft, active, promotion, guards]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-004", "STD-005", "STD-009", "STD-017", "STD-019", "STD-024"]
+derived_from: "CAN-009"
 ---
 
 <!--

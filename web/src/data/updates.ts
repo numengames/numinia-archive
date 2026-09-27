@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.70.0",
+    date: "2026-09-27",
+    entries: [
+      {
+        type: "ADD",
+        text: "The core, as a flow: a new page at /core shows each canon with the standards that make it concrete and the protocols that carry it out. Open a canon and its whole chain is on one page — the canon, then every rule, then every step — ready to be heard end to end with the Listen button. Nothing on it is typed by hand: each standard and protocol now names its canon in its own header, and the page is built from that.",
+      },
+    ],
+  },
+  {
     version: "v0.69.0",
     date: "2026-09-27",
     entries: [

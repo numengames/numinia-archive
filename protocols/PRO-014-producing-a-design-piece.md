@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: protocol
 status: draft
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-09-27T13:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -18,6 +18,7 @@ applies_to: "any agent producing a design piece"
 mandatory: true
 supersedes_version: "1.1.0"
 related: ["STD-008", "STD-023", "CAN-008", "ADR-044"]
+derived_from: "CAN-008"
 ---
 
 <!--

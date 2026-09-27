@@ -5,14 +5,15 @@ title: "Secrets"
 type: documentation
 subtype: standard
 status: draft
-version: "1.2.4"
+version: "1.2.5"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
 license: "CC0-1.0"
 tags: [standards, security, secrets]
+derived_from: "CAN-010"
 
 ---
 

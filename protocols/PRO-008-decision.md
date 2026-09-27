@@ -4,9 +4,9 @@ uid: ""
 title: "Requesting approval, issuing rulings"
 type: protocol
 status: draft
-version: "5.0.0"
+version: "5.0.1"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-27T14:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,6 +16,7 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
 related: ["STD-017", "PRO-005", "PRO-016"]
+derived_from: "CAN-004"
 ---
 
 <!--
