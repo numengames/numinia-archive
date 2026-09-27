@@ -19,6 +19,24 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-27 (the corpus-does-not-grow guard reads what the tree had)
+At the Oracle's word in session ("limpieza"). This clears the way for `STD-012` to come into force, and the Oracle is shown that activation separately (`PRO-023`). The guard's 84 findings go to 0.
+- **83 were the resolver's own blindness.** It knew only deleted files whose name started with two to five capitals and three digits. It now also knows:
+  - the one-letter series the archive used before (`P-`, `S-`, `D-`);
+  - files that were renamed away, not only deleted;
+  - deleted files with no identifier (`MEMORY.md`, `web/DESIGN.md`);
+  - paths in a sibling repository (`numinia-web/…`, `seminal/…`), which are elsewhere, not gone.
+- **`CHANGELOG.md` is now read as a photograph.** Each entry is closed the day it is written (`CIT-053`), so its entries are no longer walked as citers. That blindness is declared in `blind-spots.json`.
+- **The real citations are fixed in the documents:**
+  - `README.md` cited a deleted decision for "written in English"; it now cites `STD-007`.
+  - `SYS-001` linked a deleted blueprint.
+  - `SYS-002` named a runtime file outside the archive.
+  - `MIS-TEMPLATE-CHANGES` now qualifies its web-repo paths.
+  - `MIS-0101` names files still to be created without `.md`.
+  - `ADR-036` declares the `S-` identifiers it absorbed.
+  - `ADR-048`, which names its successor `ADR-049`, is now `withdrawn` (`DEF-008`).
+- **Mechanism:** `machine/guards/test/std-012-corpus-does-not-grow.test.mjs`, committed first and seen failing against main's guard.
+
 ### Changed — 2026-09-27 (bringing a rule into force, and one page per document, in force)
 At the Oracle's word in session ("ok"), after he was shown what each changes (`PRO-023` step 8).
 - **`PRO-023` — Bringing a rule into force is `active` at 1.0.0**, the first protocol to leave draft. No rule now starts to bind without its steps: its guard run, its findings fixed in the documents that break it, every requirement read for a yes or a no, and the activation shown to the Oracle before the branch. It is read at review; no guard watches it. `AGENTS.md` names it on a new "In force:" line inside the transition regime, as its step 10 asks.

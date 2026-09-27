@@ -4,9 +4,9 @@ uid: ""
 title: "The canon is CAN-"
 type: adr
 status: active
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-01T00:00:00+02:00"
-updated: "2026-09-10T03:00:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,6 +16,7 @@ license: "CC-BY-4.0"
 related: ["CAN-005", "STD-018", "SYS-003"]
 threshold: governed
 supersedes_record_of: ["canon/INDEX.md", "canon/README.md"]
+absorbs: ["S-001", "S-002", "S-003", "S-004", "S-005", "S-006", "S-007", "S-008", "S-009", "S-010"]
 ---
 
 <!--

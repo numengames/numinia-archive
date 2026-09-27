@@ -5,9 +5,9 @@ title: "CAO Architecture — Complete System Reference"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-09-24T18:30:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, cao, architecture, agents, protocols, tools]
@@ -263,7 +263,6 @@ CEO visits pablofm.com/velo → Fills DeployForm
 
 ## Related documents
 
-- [BP-cao.md](BP-cao.md) — CAO status and objectives
 - [BLU-002-business-metrics.md](../blueprints/BLU-002-business-metrics.md) — KPI framework
 - [STD-009-which-rule-wins.md](../standards/STD-009-which-rule-wins.md) — precedence; [STD-017](../standards/STD-017-who-may-change-what.md) — who may change what
 - [agents/INDEX.md](../agents/INDEX.md) — Agent registry

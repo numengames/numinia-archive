@@ -397,7 +397,7 @@
     },
     "std-012-corpus-does-not-grow": {
       "script": "machine/guards/rules/std-012-corpus-does-not-grow.mjs",
-      "sees": "DEF-009 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted .md; closed records (CIT-053) are indexed but not walked as citers. DEF-008 on the bound corpus: an heir named by a record not withdrawn.",
+      "sees": "DEF-009 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted or renamed .md (one-letter prefixes included); closed records (CIT-053) and CHANGELOG.md, whose entries are each closed the day written, are indexed but not walked as citers; a path qualified by a sibling repository is elsewhere, not gone. DEF-008 on the bound corpus: an heir named by a record not withdrawn.",
       "blind_to": [
         {
           "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
@@ -415,6 +415,10 @@
           "covered_by": "its own untracked-file warning (D-049)",
           "debt": "D-049",
           "fixture": "untracked"
+        },
+        {
+          "spot": "CHANGELOG.md is not walked: a citation broken in a NEW entry the day it is written reads as green",
+          "covered_by": "review"
         },
         {
           "spot": "DEF-008 reads `superseded_by` and `status` only — whether the named heir EXISTS is DEF-009's question, answered only if the heir is cited in the body, not in the header (HDR-016 is manual)",

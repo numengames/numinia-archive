@@ -5,9 +5,9 @@ title: "What changed in the mission template, and the figures that decided it"
 status: active
 
 type: documentation
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-25"
-updated: "2026-08-25"
+updated: "2026-09-27T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [missions, template, standards]
@@ -142,8 +142,8 @@ intention.
 
 ## What did not come in
 
-`Mission_Template_v0_2_0.md` and `Definition_of_Done_v0.2.0.md` live in
-`numinia-web/docs/`, not in this repo. The DoD has **14 checkboxes**, and they
+`numinia-web/docs/Mission_Template_v0_2_0.md` and
+`numinia-web/docs/Definition_of_Done_v0.2.0.md` live in the web repository, not in this one. The DoD has **14 checkboxes**, and they
 are the acceptance criteria of a TypeScript codebase: *"`machine/packages/*`: 100%
 statement coverage"*, *"`npm run verify` green"*, *"no `any`, no `console.*`,
 components ≤ 200 lines"*, *"every interactive element carries `data-metric`"*.

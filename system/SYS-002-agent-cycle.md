@@ -5,11 +5,11 @@ title: "The Agent Cycle — experience and operation"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-08-31T22:20:00+02:00"
+updated: "2026-09-27T14:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, agents, cycle, experience]
@@ -126,7 +126,7 @@ Visual sequence on the page: **⬇️ BOOT → ⚡ EXECUTE → ⬆️ COMMIT**
 - **How:** git pull → loads SOUL.md, OPERATOR.md, the previous day's memory, active protocols.
 - **🧠 Epistemic value:** An agent without BOOT is amnesiac. Without loaded identity, it is a generic model with no personality and no laws. BOOT transforms 'an LLM' into 'Nimrod'.
 - **⚡ Pragmatic value:** Cold boot takes 30-60 seconds. With a well-structured Archive, the agent operates with full context from the first message.
-- **📍 Real case:** 07:00 UTC — Nimrod boots for the daily report. It reads MEMORY.md (context from previous sessions), HEARTBEAT.md (pending tasks), and the latest reports. In 45 seconds it has the full context of the last 5 days.
+- **📍 Real case:** 07:00 UTC — Nimrod boots for the daily report. It reads MEMORY.md (context from previous sessions), its runtime heartbeat file (pending tasks, kept outside this archive), and the latest reports. In 45 seconds it has the full context of the last 5 days.
 
 ### ⚡ EXECUTE (color `#3fb950`)
 
