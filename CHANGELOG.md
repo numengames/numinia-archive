@@ -19,6 +19,13 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-28 (Training, the offer; selling as wired)
+At the Oracle's word in session, once the protocols (#536) were merged: the surface the sales system consumes.
+- **`OPS-012` Training — the offer** (draft 0.1.0, CC-BY-4.0, public by the Oracle's decision): the service in one paragraph; what is delivered — the place, the accesses, the trace per learner, the files under the proposal's licence, the measure; how learning is judged at one of Kirkpatrick's four levels with an example indicator each; two cases with the clients unnamed (a large retailer's first day; a police force's crime scene); price on quote from a floor the Oracle sets; re-checked every time a proposal is won or lost. The old numen.games Training page promised expert, empowering and collaborative and delivered nothing nameable; this record replaces the promise with the deliverable.
+- **`SYS-010` Selling, as wired today** (active 0.1.0): the components table — rules, steps, offer record, moulds, tool wired; the closed place for records, the ledger handover and the scheduled report not wired — the flow of an opportunity through them, and how to verify it on the fixtures.
+- **The Summa map:** the *Training* entry of the Learn district's offer ring points at the offer record instead of saying *In preparation*; the district's line drops *soon*.
+- Shelves: the offer record among operations after the sales strategy; the system note after the account. Site v0.74.0. No ADR, under the transition regime.
+
 ### Added — 2026-09-28 (the three moments of a sale, as protocols)
 At the Oracle's word in session, once the data layer (#535) was merged: the actors that move an opportunity through the stages register.
 - **`PRO-028` Qualifying an opportunity** (draft 0.1.0): open the record the day a sign of interest arrives; the fit question — is it learnt by walking it, or made of participation; who signs and from which budget line; pursue or decline with a reason, within the register's stale days. Sources: the house's own commercial phase, the APMP pursuit decision, ISO 9001 8.2.2.
