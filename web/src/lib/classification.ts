@@ -155,9 +155,9 @@ const SERVED_AT: Record<string, { href: string | null; label?: string; unpublish
     label: "Telemetry",
   },
   "machine/templates/": {
-    href: "/system/sys-007-the-instruments#machinetemplates--templating",
+    href: "/templates",
     label: "Templates",
-    unpublished: "A short-lived record that never binds — the moulds a document is cut from; read in the repository, explained in the manual.",
+    unpublished: "A short-lived record that never binds — the moulds a document is cut from; shown side by side, headers compared.",
   },
 };
 

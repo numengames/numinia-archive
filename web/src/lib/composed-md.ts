@@ -43,6 +43,7 @@ import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, 
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { pipeline as salesPipeline, PIPELINE_SOURCES } from "@/lib/pipeline";
+import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -761,8 +762,48 @@ export function coreCanonPage(slug: string): ComposedPage {
  * Every composed page, for the routes that serve them and for the guard that
  * checks none is forgotten.
  */
+/** `/templates` — every mould, and every header field of every mould. */
+export function templatesPage(): ComposedPage {
+  const ms = templateMoulds();
+  const rows = templateMatrix(ms);
+  const mark = (c: string | null) => (c === "filled" ? "●" : c === "optional" ? "○" : " ");
+  const body = [
+    "# Templates",
+    "",
+    `The ${ms.length} moulds every document of the archive is copied from, and their headers side by side. ● the mould writes the field, to be filled; ○ it offers it commented, to add when it applies; blank, it does not know it.`,
+    "",
+    "## The moulds",
+    "",
+    table(["Mould", "Makes", "Copy to", "Type"], ms.map((m) => [`\`${m.file}\``, templateMakes(m.prefix), `\`${m.destination}\``, `\`${m.type}\``])),
+    "",
+    "## Every header field, every mould",
+    "",
+    `| Field | ${ms.map((m) => m.prefix).join(" | ")} | Registered for |`,
+    `|---|${ms.map(() => ":-:").join("|")}|---|`,
+    ...rows.map((r) => `| \`${r.name}\` | ${r.cells.map(mark).join(" | ")} | ${r.reach === "every" ? "every document" : r.series.join(", ")} |`),
+    "",
+    ...ms.flatMap((m) => [
+      `## ${m.prefix} — ${templateMakes(m.prefix)}`,
+      "",
+      `Copy to \`${m.destination}\`. Title, as the mould teaches it: *${m.titleHint}*`,
+      "",
+      ...m.fields.map((f) => `- \`${f.name}\`${f.kind === "optional" ? " (optional)" : ""}${f.note ? ` — ${f.note}` : ""}`),
+      ...(m.outOfOrder ? ["", `Writes the common header in another order than the other moulds: ${m.outOfOrder.join(" · ")}.`] : []),
+      ...(m.unoffered.length ? ["", `Registered for this series and not in the mould: ${m.unoffered.map((k) => `\`${k}\``).join(", ")}.`] : []),
+      "",
+      m.sections.length ? `Body: ${m.sections.join(" · ")}.` : "Body: prose, guided by the notes in the mould.",
+      "",
+    ]),
+    "## Moulds that live elsewhere",
+    "",
+    ...TEMPLATES_ELSEWHERE.map((e) => `- \`${e.path}\` — ${e.makes}. ${e.why}.`),
+    "",
+  ].join("\n");
+  return { route: "/templates", filename: "numinia-templates.md", sources: TEMPLATES_SOURCES, body: preamble(TEMPLATES_SOURCES) + body };
+}
+
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), designPage(), accountPage(), pipelinePage(), corePage()];
+  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), designPage(), accountPage(), pipelinePage(), templatesPage(), corePage()];
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));

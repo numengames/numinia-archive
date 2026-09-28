@@ -149,7 +149,7 @@ check('T-09: a context card without its Pragmatic line is reported', (dir) => {
   assert.match(run(dir).log, /T-09 context card has no \*\*Pragmatic:\*\* line/);
 });
 
-check('the companions (MIS-TEMPLATE-EXAMPLE, -CHANGES) are records, not moulds: destination checks do not apply', (dir) => {
+check('the companion (MIS-TEMPLATE-EXAMPLE) is a record, not a mould: destination checks do not apply', (dir) => {
   // a filled example legitimately carries a real status and a real version
   setFM(dir, 'machine/templates/MIS-TEMPLATE-EXAMPLE.md', 'version', '"3.2.1"');
   const r = run(dir);

@@ -2,25 +2,25 @@
 id: "MIS-EXAMPLE"
 uid: ""
 title: "Example — a real small mission written with this template"
-status: done
-priority: medium
-effort: S
-guild: "Alchemists"
-territory: "TBA"
-type_execution: digital
-assigned_to: "ursa"
-completed: "2026-08-25"
-
 type: mission
-version: "1.1.0"
+status: done
+version: "1.2.0"
 created: "2026-08-25"
 created_source: "git:c2ee691"
 created_confidence: exact
-updated: "2026-08-25"
+updated: "2026-09-28"
 author: "ursa"
 owner: "oracle"
+guild: "Alchemists"
+territory: "Archive"
 tags: [web, archive, example]
 license: "CC0-1.0"
+
+priority: medium
+effort: S
+type_execution: digital
+assigned_to: "ursa"
+completed: "2026-08-25"
 
 context: "2026-08-25"
 paths: [web/dist/print/, web/package.json, web/astro.config.mjs]
@@ -38,15 +38,15 @@ paths: [web/dist/print/, web/package.json, web/astro.config.mjs]
 
 > **This document is an example, not a mission.** It is filled with a real,
 > measured case so the template is read one way instead of five. It carries
-> `id: MIS-EXAMPLE` rather than a number, so it consumes no identifier and the
-> glob that publishes `MIS-*.md` does not pick it up as work.
+> `id: MIS-EXAMPLE` rather than a number, so it consumes no identifier, and it
+> lives beside the mould, not in `missions/`, so the board never counts it.
 >
 > It is shown **closed**, because the parts that go wrong are the ones written
 > at closing time.
 
 ---
 
-## Scope
+## 1. Scope
 
 `web/dist/print/**` and the site that serves it. Only the serving of those
 routes — **not** the PDF pipeline itself, and **not** `generate-pdfs.mjs`.
@@ -63,7 +63,7 @@ three options is chosen there.
 
 ---
 
-## Acceptance criteria
+## 2. Acceptance criteria
 
 *(Every line states what it returns TODAY, so it is visibly false at the base
 commit `c2ee691`. A criterion that already passed would graduate nothing.)*
@@ -78,7 +78,7 @@ commit `c2ee691`. A criterion that already passed would graduate nothing.)*
 
 ---
 
-## Closure
+## 3. Closure
 
 *(Written at closing. Nothing above this line was edited — the plan says 247
 and stays saying 247, even though the number turned out to be wrong.)*

@@ -255,7 +255,7 @@ test('one activity may produce several series, as the standard writes them', () 
   rmSync(dir, { recursive: true, force: true });
 });
 
-test('an instrument is classified, has no page of its own, and links to the manual with the reason beside it', () => {
+test('an instrument is classified, and the reason it is not a series prints beside its link', () => {
   // STD-027 CLS-002: an instrument is a short-lived record that never binds. It appears in the scheme
   // and the menu because an activity produced it; its address is the manual
   // that explains it (SYS-007), anchored at the folder, and the row says why.
@@ -271,7 +271,26 @@ test('an instrument is classified, has no page of its own, and links to the manu
   const moulds = JSON.parse(r.out);
   assert.equal(moulds.instrument, true);
   assert.equal(moulds.label, 'Templates');
-  assert.match(moulds.href, /^\/system\/sys-007-the-instruments#/);
+  // 2026-09-28: the moulds have a page of their own, /templates, that shows
+  // them side by side; the reason they are not a series still prints beside it.
+  assert.equal(moulds.href, '/templates');
   assert.match(moulds.note, /short-lived record that never binds/);
+  rmSync(dir, { recursive: true, force: true });
+});
+
+test('an instrument with no page of its own links to the manual', () => {
+  const dir = scratch({
+    scheme: SCHEME.replace(
+      '| **Creation** | Worldbuilding | `lore/` |',
+      '| **Assurance** | Verifying | `machine/guards/` |',
+    ),
+    series: SERIES_REGISTER,
+  });
+  const r = ask(dir, 'm.allSeries().find((s) => s.folder === "machine/guards/")');
+  assert.equal(r.code, 0, r.out);
+  const g = JSON.parse(r.out);
+  assert.equal(g.instrument, true);
+  assert.match(g.href, /^\/system\/sys-007-the-instruments#/);
+  assert.match(g.note, /short-lived record that never binds/);
   rmSync(dir, { recursive: true, force: true });
 });

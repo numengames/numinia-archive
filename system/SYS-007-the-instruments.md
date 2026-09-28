@@ -5,9 +5,9 @@ title: "The instruments: what checks, measures and moulds the archive"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-21T18:00:00+02:00"
-updated: "2026-09-25T15:00:00+02:00"
+updated: "2026-09-28T17:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, instruments, guards, tools, scripts, telemetry, templates]
@@ -114,15 +114,15 @@ Read: [machine/telemetry/](https://github.com/numengames/numinia-archive/tree/ma
 
 ### `machine/templates/` — Templating
 
-The moulds, one per series: `CAN-TEMPLATE.md`, `STD-TEMPLATE.md`,
-`PRO-TEMPLATE.md`, `ADR-TEMPLATE.md`, `MIS-TEMPLATE.md`, `RPT-TEMPLATE.md`,
-`BLU-TEMPLATE.md`, `DBT-TEMPLATE.md`, `OPS-TEMPLATE.md`, `SYS-TEMPLATE.md`. A
+The moulds, one per kind of document — every series has one, and
+`opportunities/` two (the record and its proposal). A
 document is copied from its mould, filled, and the guidance deleted; the
 mould's own `README.md` says how. `check-templates` holds the moulds to the
 same header rules as the documents cut from them.
 
 Run: copy the mould to its series with the destination's own filename.
 Read: [machine/templates/](https://github.com/numengames/numinia-archive/tree/main/machine/templates)
+· [/templates](/templates), every mould's header side by side
 
 ### `machine/packages/` — not classified
 

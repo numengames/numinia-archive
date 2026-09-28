@@ -107,7 +107,7 @@ export const SEGMENTS: Segment[] = [
     E("Open books", "What Numinia costs and takes in", "/system/open-books"),
     E("Opportunities", "Whom we are trying to sell to, in public", "/opportunities/", "opportunities"),
     E("The pipeline", "Every opportunity at its stage; where sales are won and lost", "/system/pipeline"),
-    E("Templates", "The mould of every document type", null),
+    E("Templates", "The mould of every document type, headers side by side", "/templates"),
     E("The repository", "README, contributing, changelog, security", null),
   ] },
   { id: "world-play", ring: "world", district: "play", word: "Game", title: "Play · its world", a: [0, 90], entries: [
