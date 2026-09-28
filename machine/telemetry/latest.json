@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "24fdd54",
-  "corpus_hash": "9426614903b93ab5128685c9450fb4ed17eca41d37f2ddf9f45d6a2ba96fb82f",
+  "head": "0a93e49",
+  "corpus_hash": "589ea58ec1e2e0d50afb054accd18a32805ceb989fc4e53e9501dd02fe049078",
   "root_dirty": 0,
-  "measured_at": "2026-09-28T12:34:08Z",
+  "measured_at": "2026-09-28T12:45:28Z",
   "families": [
     "corpus",
     "series",
@@ -329,28 +329,28 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 912590,
+      "value": 913166,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 69173,
-        "": 54020,
+        "standards": 69298,
+        "": 54390,
         "missions": 45963,
         "decisions": 39490,
         "reports": 29422,
         "agents": 29130,
-        "protocols": 27370,
+        "protocols": 27415,
         "blueprints": 25741,
         "system": 22056,
-        "machine": 20581,
+        "machine": 20591,
         "canon": 19762,
         "operations": 16669,
         "legal": 9925,
         "debt": 2986,
-        "opportunities": 2277,
+        "opportunities": 2303,
         "objects": 1865,
         ".github": 912
       },
@@ -359,8 +359,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 555509,
-        "draft": 162797,
+        "(none)": 555915,
+        "draft": 162967,
         "active": 145126,
         "done": 26672,
         "todo": 16006,
@@ -371,7 +371,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.04,
+      "value": 5.03,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -383,7 +383,7 @@
         ],
         [
           "CHANGELOG.md",
-          46479
+          46849
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -483,7 +483,6 @@
         "level": 4,
         "opportunity": 4,
         "price": 4,
-        "reviewed_by": 4,
         "scope": 4,
         "severity": 4,
         "tax_rate": 4,
@@ -548,7 +547,7 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 3,
-        "empty_values": 203,
+        "empty_values": 200,
         "v_prefixed_versions": 0,
         "placeholders": 8
       },
@@ -658,7 +657,7 @@
       "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-004 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 75,
+      "value": 76,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -691,14 +690,14 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1219
+          "3": 1222
         },
         "MIS": {
           "3": 689,
           "4": 187
         },
         "PRO": {
-          "3": 425
+          "3": 427
         },
         "OPS": {
           "3": 95

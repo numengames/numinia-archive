@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.1"
+version: "0.3.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T21:00:00+02:00"
+updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -56,7 +56,8 @@ proposed one the proposal's path; a won one the agreement's path.
 **The stage is a value from the register.** The stage MUST be one of the
 stages register's states, written in the header and never in the filename
 or the folder. The reason of a lost record MUST be one of the register's
-reasons.
+reasons. From agreed on, the record MUST carry the role of whoever can sign
+for the client; before that it MAY be empty, and the record says so.
 
 **Every open record knows its next step.** A record in an open stage MUST
 carry a next action and its date. A record whose next date has passed is
@@ -107,7 +108,7 @@ Each rule, its code, its source and its check.
 |---|---|---|---|
 | OPP-001 | One file per opportunity | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), a record is evidence of a transaction (clause unverified) | `machine/packages/sales-kit/pipeline.mjs`: one header per file |
 | OPP-002 | The header carries the fields the pipeline needs | [ISO 9001:2015](https://www.iso.org/standard/62085.html) 8.2.2, requirements determined before commitment (clause unverified) | `pipeline.mjs`: required fields present |
-| OPP-003 | The stage is a value from the register | `STD-038` | `pipeline.mjs`: stage and reason read from the register's table |
+| OPP-003 | The stage is a value from the register | `STD-038` | `pipeline.mjs`: stage and reason read from the register's table; the decider's role present from `agreed` |
 | OPP-004 | Every open record knows its next step | — | `pipeline.mjs`: overdue and stale listed |
 | OPP-005 | Every move leaves a line | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), metadata of the transaction (clause unverified) | `pipeline.mjs`: last transition's `to` matches the stage |
 | OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001 | `pipeline.mjs`: header fields against a closed list, and the body scanned for an e-mail address or a phone number; by hand for a name |

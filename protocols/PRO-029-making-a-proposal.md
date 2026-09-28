@@ -4,9 +4,9 @@ uid: ""
 title: "Making a proposal"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-28T16:00:00+02:00"
+updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -27,11 +27,10 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** From a qualified opportunity to a proposal sent: hear the
 > need in the client's words, draw it on one page with the specialist,
-> write the four things a proposal owes, have it reviewed and approved,
-> send it.
+> write the four things a proposal owes, read it, send it.
 > **Epistemic:** How does a qualified opportunity become a proposal the client can sign?
 > **Pragmatic:** Never write a proposal before the four things are on
-> paper; never send one nobody else has read.
+> paper; never send one its writer alone has read.
 > **Audience:** Agents · Oracles
 
 **Binds:** whoever analyses a need, writes, reviews or approves a proposal
@@ -50,8 +49,8 @@ lists what a proposal contains; this protocol walks those steps in order.
 It starts when an opportunity reaches `qualified`. **Whoever sells** hears
 the need and owns the proposal; **the specialist** the offer calls for —
 the game master for a place of learning, the experience designer for an
-event — gives it shape; **a reviewer** other than the writer checks it;
-**the Oracle** approves it before it leaves.
+event — gives it shape; **whoever sends it** — the Oracle today — reads it
+before it leaves, and sending it is the approval.
 
 ---
 
@@ -91,13 +90,13 @@ event — gives it shape; **a reviewer** other than the writer checks it;
 4. **Decide the demonstration.** Only if no earlier case can be shown does
    the Oracle decide whether to build a room before signing — days of work
    without a contract. If yes, it is small, and it is the map's first room.
-5. **Review.** Someone other than the writer reads it against the proposal
-   standard and the tool's checks, and writes their name in it. What fails
-   goes back to step 3.
-6. **Approve and send.** The Oracle reads it and says yes. Whoever sells
-   sends it, writes the proposal's path in the record, a next action with
-   its date, and the transition to `proposed`.
-7. **Run the pipeline tool** with proposals on. The record and the proposal
+5. **Read it and send it.** Whoever sends it — never its writer alone —
+   reads it against the proposal standard and the tool's checks; what fails
+   goes back to step 3. Sending is the approval: the record gets the
+   proposal's path, a next action with its date, and the transition to
+   `proposed` with the sender's name in *By*. That row is the evidence; no
+   field in the proposal repeats it. Who signs lives in the agreement.
+6. **Run the pipeline tool** with proposals on. The record and the proposal
    conform, or the tool says what does not.
 
 ---
@@ -108,9 +107,9 @@ event — gives it shape; **a reviewer** other than the writer checks it;
 |---|---|
 | 1 | The record's Need section holds the four things; stage `analysed` |
 | 2 | The one-page map exists and the client has seen it |
-| 3–5 | The proposal file carries the four sections, the level, the tax rate, the three answers and a reviewer's name |
-| 6 | Stage `proposed`; the record points to the proposal; a next date is set |
-| 7 | The pipeline tool, with proposals on, reports no breach |
+| 3–4 | The proposal file carries the four sections, the level, the tax rate and the three answers |
+| 5 | Stage `proposed`; the record points to the proposal; the transition row names who sent it; a next date is set |
+| 6 | The pipeline tool, with proposals on, reports no breach |
 
 ---
 

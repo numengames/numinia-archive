@@ -19,6 +19,13 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-28 (the process is the evidence)
+At the Oracle's word after reading the first real record ("es el proceso el que te va a decir si esto ha pasado"; signatures live in the contract, private unless the contract is public): two fields the system demanded said twice what an act already says.
+- **`STD-040` 0.2.0:** *Reviewed before commitment* becomes *Read before it is sent* — whoever sends a proposal has read it, sending is the approval, and the evidence is the record's transition to `proposed` with a name in *By*; the proposal carries no `reviewed_by`. Who signs is written in the agreement.
+- **`STD-039` 0.3.0 and `STD-038` 0.3.0:** the role of whoever can sign for the client is required from `agreed`, not from `qualified` — the first opportunity showed the house may not know it after one good conversation, and a record that cannot advance for a field nobody can fill teaches the wrong thing.
+- **`pipeline.mjs`:** checks the decider's role at `agreed`/`won` and a name in the transition to `proposed`; drops the reviewer check. 25 tests. **`PRO-029` 0.2.0:** the review and approval steps become one, *Read it and send it*. **`PRO-028` 0.2.0:** what is known of who signs is written, what is not is asked next.
+- **`OPP-2026-001`** now points at `PRP-2026-001`, still at `lead`: drafted, not sent. Site v0.77.0.
+
 ### Added — 2026-09-28 (the first opportunity, the first proposal)
 At the Oracle's word in session ("ahí va el cuerpo…"): the first real record of the sales system, written by an agent from the Oracle's account and the qualifying protocol's questions, as the test of the whole circuit.
 - **`opportunities/OPP-2026-001`** — a national police force's training academy; stage `lead` (the decider is not yet known, so the qualifying protocol does not let it pass); the four things of the need written from one informal conversation, to confirm at the first meeting; value 14,500 EUR before tax, set under the minor-contract threshold; next action the meeting within two weeks. Expansion noted, not proposed: several scenes, live escape-room sessions.

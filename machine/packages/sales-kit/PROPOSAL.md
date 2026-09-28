@@ -1,7 +1,9 @@
 ---
 # Copy this file beside its opportunity record, as PRP-YYYY-NNN.md; point the
 # record's `proposal:` at it once sent. The rules are STD-040. A revised
-# proposal is a new file; never edit a sent one.
+# proposal is a new file; never edit a sent one. Whoever sends it has read
+# it: the record's transition to `proposed`, with a name in By, is the
+# evidence â€” no field here says so twice. Signatures live in the agreement.
 id: "PRP-YYYY-NNN"
 opportunity: "OPP-YYYY-NNN"
 title: "what the client will be able to do, as a title"
@@ -11,7 +13,6 @@ level: "learning"                 # reaction | learning | behaviour | results â€
 price: 0                          # without tax
 tax_rate: 21                      # per cent, shown to the client
 currency: "EUR"
-reviewed_by: ""                   # someone other than the writer; the Oracle approves after
 license: "CC0-1.0"
 ---
 
