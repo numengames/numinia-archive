@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.80.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "Metis, the sales agent, joins the roster at /agent. She is named after the Titaness of practical intelligence and prudence: she qualifies opportunities, prepares client meetings, keeps each record at its true stage, drafts proposals from the defined offer and follows them to a clear end. The sales system had its rules, its tool and its first opportunity; now it has an agent whose work it is.",
+      },
+    ],
+  },
+  {
     version: "v0.79.0",
     date: "2026-09-28",
     entries: [
