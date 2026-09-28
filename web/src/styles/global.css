@@ -559,3 +559,14 @@ html[data-modo="diurno"] #archive-3d .graph-sub {
 	color: rgb(var(--text-dim));
 	text-shadow: 0 0 4px rgb(var(--bg-card));
 }
+
+/* Moving between pages (2026-09-28): the browser cross-fades one page into
+   the next instead of blanking the screen, and the bar and the sky stay put.
+   Browsers without cross-document view transitions simply navigate. */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 160ms; }
+nav[aria-label="Primary"] { view-transition-name: bar; }
+#starfield { view-transition-name: sky; }
+@media (prefers-reduced-motion: reduce) {
+	@view-transition { navigation: none; }
+}

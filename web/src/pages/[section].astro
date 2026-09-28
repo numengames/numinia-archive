@@ -253,7 +253,7 @@ const strip = functions().map((fn) => ({
       )}
 
       {docs.length > 0 && shelves.map((shelf) => (
-        <div class="space-y-2">
+        <div class="space-y-2 scroll-mt-32" id={shelf.id}>
           {shelf.label && (
             <div class="pt-4 pb-1">
               <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">

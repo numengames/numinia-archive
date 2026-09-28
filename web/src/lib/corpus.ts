@@ -337,6 +337,8 @@ export interface ReadingGroup {
   label: string;
   line: string;
   hrefs: string[];
+  /** anchor of the shelf, so the menu can open the index at it (/lore/#codex) */
+  id?: string;
 }
 
 const READING_GROUPS_CANON: ReadingGroup[] = [
@@ -487,9 +489,31 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
   },
 ];
 
+// The lore shelves (2026-09-28): the Archive menu's World, Codex and
+// Adventures each open the lore index at their own shelf, so the anchors are
+// addresses the menu relies on — rename one and the menu lands on the top.
+const READING_GROUPS_LORE: ReadingGroup[] = [
+  {
+    numeral: "I", id: "world", label: "The world",
+    line: "Who Numinia is: the city, the culture, the roles people play in it.",
+    hrefs: ["/lore/world/welcome-to-numinia", "/lore/world/brand-and-culture", "/lore/world/role-structure"],
+  },
+  {
+    numeral: "II", id: "adventures", label: "Adventures",
+    line: "How a game is actually played: the tutorial first, then a whole adventure to run at a table.",
+    hrefs: ["/lore/adventures/virtual-worlds/session-zero", "/lore/adventures/tabletop/el-espejo-roto", "/lore/adventures/tabletop/the-broken-mirror", "/lore/game/attributes-and-ranks"],
+  },
+  {
+    numeral: "III", id: "codex", label: "Codex",
+    line: "The reference shelf a Director reaches for mid-session: the glossary, the character sheet, the credits.",
+    hrefs: ["/lore/codex/glosario", "/lore/codex/en/glossary", "/lore/codex/hoja-de-personaje", "/lore/codex/en/character-sheet", "/lore/codex/agradecimientos", "/lore/codex/en/acknowledgments", "/lore/codex/legal"],
+  },
+];
+
 export const READING_GROUPS: Record<string, ReadingGroup[]> = {
   canon: READING_GROUPS_CANON,
   standards: READING_GROUPS_STANDARDS,
+  lore: READING_GROUPS_LORE,
 };
 
 // ---------------------------------------------------------------------------

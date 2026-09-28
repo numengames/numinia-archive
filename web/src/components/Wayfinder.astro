@@ -25,7 +25,7 @@ const rad: Record<string, number> = { offer: 38, world: 29, work: 20, core: 11 }
         {seg && <><span>/</span><a href={`/#s-${seg.id}`}>{RINGS[seg.ring].name}</a></>}
         {seg?.district && <><span>/</span><a href={`/#d-${seg.district}`}>{DISTRICTS[seg.district].name}</a></>}
         {here?.entry && <><span>/</span>{here.entry.href ? <a href={here.entry.href}>{here.entry.label}</a> : <span>{here.entry.label}</span>}</>}
-        {!seg && <><span>/</span><a href="/about">Every series</a></>}
+        {!seg && <><span>/</span><a href="/about">The archive</a></>}
       </nav>
       {seg && (
         <div class="wf-depth" aria-hidden="true">

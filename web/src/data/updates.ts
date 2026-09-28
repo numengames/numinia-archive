@@ -32,6 +32,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.86.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "CHG",
+        text: "The bar keeps two buttons: Map and Archive. Hovering Archive still opens its four blocks — the rules, the work, the world, the offer; clicking it now takes you to the archive page, which opens with those same four blocks. The books moved to a row at the foot of that menu.",
+      },
+      {
+        type: "CHG",
+        text: "The archive page lost the six function cards and the turning graph: they drew a second map of the same archive in older words, and disagreed with the four blocks. What only this page says stays — who writes this, what state it is in, how a document announces itself. The classification in full is still at /scheme.",
+      },
+      {
+        type: "FIX",
+        text: "Codex, World and Adventures in the menu took you into one document (the glossary, the welcome essay, one adventure). Each now opens the lore page at its own shelf.",
+      },
+      {
+        type: "FIX",
+        text: "Moving between pages no longer flashes white: the page's own colour is painted before anything else loads, browsers that can cross-fade from one page to the next, and a page starts loading while the pointer rests on its link. The descriptions under the menu entries now appear at once, in the site's own style.",
+      },
+    ],
+  },
+  {
     version: "v0.85.0",
     date: "2026-09-28",
     entries: [

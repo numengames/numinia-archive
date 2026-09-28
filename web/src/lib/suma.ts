@@ -9,6 +9,10 @@
 // the sister sites that paint a part of the Summa and hold no text of their
 // own.
 //
+// The world entries (2026-09-28) point at their own shelf of the lore index
+// (/lore/#codex, #world, #adventures), never at one document inside it: the
+// Codex used to open the glossary and World the first essay.
+//
 // Every entry that names a `folder` is counted from the tree at build time;
 // an entry with no folder yet is a series still to be created and says so.
 // This module is the one source for the home map, the bar, the wayfinder
@@ -112,11 +116,11 @@ export const SEGMENTS: Segment[] = [
   ] },
   { id: "world-play", ring: "world", district: "play", word: "Game", title: "Play · its world", a: [0, 90], entries: [
     E("The game", "The role-playing manual, ES and EN", null),
-    E("Adventures", "Tabletop and virtual worlds", "/lore/adventures/tabletop/the-broken-mirror", "lore/adventures"),
+    E("Adventures", "Tabletop and virtual worlds", "/lore/#adventures", "lore/adventures"),
   ] },
   { id: "world-learn", ring: "world", district: "learn", word: "Codex", title: "Learn · its world", a: [90, 180], entries: [
-    E("Codex", "Glossary, character sheet, acknowledgments", "/lore/codex/en/glossary", "lore/codex"),
-    E("World", "The city, its districts, its species", "/lore/world/welcome-to-numinia", "lore/world"),
+    E("Codex", "Glossary, character sheet, acknowledgments", "/lore/#codex", "lore/codex"),
+    E("World", "The city, its districts, its species", "/lore/#world", "lore/world"),
   ] },
   { id: "world-order", ring: "world", district: "order", word: "Agents", title: "Organise · its world", a: [180, 270], entries: [
     E("Agents", "Biological and digital: who does the work", "/agent", "agents"),
@@ -188,7 +192,8 @@ export function locate(pathname: string): { seg: Segment; entry?: Entry } | null
   let best: { seg: Segment; entry: Entry; len: number } | null = null;
   for (const seg of SEGMENTS) {
     for (const e of seg.entries) {
-      const keys = [e.href, e.folder ? "/" + e.folder : null].filter(Boolean) as string[];
+      // A shelf link (/lore/#codex) is not an address of its own: its folder matches.
+      const keys = [e.href?.includes("#") ? null : e.href, e.folder ? "/" + e.folder : null].filter(Boolean) as string[];
       for (const k of keys) {
         const kk = k.replace(/\/+$/, "");
         if (p === kk || p.startsWith(kk + "/")) {
