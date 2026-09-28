@@ -19,6 +19,11 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-28 (Metis, the sales agent)
+At the Oracle's word in session ("nos falta un agente digital encargado de la parte de ventas"): the sales system had its standards, protocols, tool and first record, and no agent whose work it was.
+- **`agents/metis/`** — the eleventh digital agent, Sales Agent, Procurators guild, named after the Titaness of practical intelligence and prudence. Born in the entity shape: `AGENT.md` (draft, forms → copies), not the `AGENT.yaml` the older agents still carry. `SOUL.md`, `OPERATOR.md` (escalates anything sent to, promised to or signed with a client, any price or term not set, and every `won`/`lost`), `SOURCES.md` (the offer, positioning and strategy in `operations/`, `STD-038`..`040`, `PRO-028`..`030`, `SYS-010`, `opportunities/` and the sales kit), and the Hermes adapter.
+- **`agents/INDEX.md` 3.2.0:** Metis's row. The site reads it: `/agent` gains her card; `web/src/lib/agents.ts` gives her presentation. Site v0.80.0. The Hermes profile itself is not instantiated.
+
 ### Fixed — 2026-09-28 (every page links back to its file)
 At the Oracle's word during QA of `/opportunities/opp-2026-001` ("no hay un link al archivo en el github… hay que estructurarlo como el resto de la página web"): the "View on GitHub" button was missing from every page under `opportunities/`, `legal/`, `lore/` and `objects/`. `web/src/lib/build-info.ts` `REPO_DIRS` gains those four folders (the list decides whether a file gets its link; a folder absent from it returns no link, silently). `[...slug].astro` names the same folders, plus `history/` and `system/`, in the breadcrumb, which printed "raíz" for them. Site v0.79.0.
 

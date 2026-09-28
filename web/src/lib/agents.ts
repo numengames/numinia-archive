@@ -143,6 +143,13 @@ const PRESENTATION: Record<
     specialties: ["CI/CD", "Safeguards", "Automation integrity", "Control verification", "Operational assurance"],
     bio: "Talos guards the machinery. He checks that the pipelines, guards and safeguards the archive claims to run actually run — and says so plainly when they do not.",
   },
+  metis: {
+    color: "var(--ink-ceniza)", mark: "◐", className: "Counsel",
+    quote: "A clear no is worth more than a vague maybe.",
+    stats: [["Judgement", "S+"], ["Patience", "S"], ["Pressure", "C"]],
+    specialties: ["Qualifying", "Discovery", "Proposals", "Pipeline", "Follow-up"],
+    bio: "Metis carries a sale from the first signal to a clear end. She reads the client before she speaks, keeps every opportunity's record true, and promises only what the house can deliver.",
+  },
 };
 
 const NEUTRAL: Omit<DigitalAgent, "id" | "name" | "role" | "route" | "since" | "href"> = {

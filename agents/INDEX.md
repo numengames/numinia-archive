@@ -3,11 +3,11 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.1.0"
+version: "3.2.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-24T19:00:00+02:00"
+updated: "2026-09-28T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, index]
@@ -75,6 +75,7 @@ register, and the canon says what the house is, not who staffs it.
 | [Calliope](calliope/SOUL.md) | Copywriter & Professional Writer | copywriting, editorial writing, channel adaptation | 2026-09-04 |
 | [Nimrod](nimrod/SOUL.md) | Repository Guide & Knowledge Navigator | repository navigation, authority mapping, provenance | 2026-09-04 |
 | [Talos](talos/SOUL.md) | Repository Security & Operational Assurance | CI/CD, safeguards, automation integrity, control verification | 2026-09-04 |
+| [Metis](metis/SOUL.md) | Sales Agent | opportunities, qualification, proposals, pipeline | 2026-09-28 |
 
 Routing does not transfer authority: a specialist escalates or consults
 another specialist when a task materially exceeds its own domain
@@ -114,6 +115,7 @@ and session metrics belong to the platform, not the canon.
 
 ## Version history
 
+- v3.2.0 (2026-09-28) — Metis, the sales agent, joins the roster (Procurators).
 - v3.1.0 (2026-09-24) — ADR-061: the Oracles table, carried from `CAN-002`.
   The site reads it here for the biological roster.
 - v3.0.0 (2026-08-28) — MIS-118: full roster replacement. Seven operative

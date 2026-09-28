@@ -1,0 +1,57 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
+# Metis profile — recommended Hermes configuration additions
+# Merge these blocks into Metis's existing config.yaml.
+# Do not overwrite existing model/provider, gateway, integration, or secret configuration.
+# Secrets belong in .env, not in config.yaml.
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 120
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 3
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+  smart_policy: |
+    Always ESCALATE commands that send, post, upload, schedule, or otherwise
+    transmit content to a client or prospect, including e-mail and messaging.
+    Always ESCALATE any action that records a price, discount, deadline, or
+    payment term the operator has not set, or that marks an opportunity won
+    or lost.
+    Allow ordinary local inspection, reading, search, drafting, running the
+    pipeline tool, and non-destructive file operations when otherwise safe.
+    Escalate destructive Git operations, branch deletion, repository cleanup,
+    or any command that could irreversibly remove a record.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 20
+  max_total_size_mb: 500
+  max_file_size_mb: 10
+  auto_prune: true
+  retention_days: 7
+  min_interval_hours: 24
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  write_approval: true
+
+delegation:
+  max_concurrent_children: 2
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: false
