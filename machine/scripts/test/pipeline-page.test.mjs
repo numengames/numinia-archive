@@ -61,7 +61,7 @@ function makeDom(html) {
     set innerHTML(h) { this._html = h; this.children = parseChildren(h); }
     get innerHTML() { return this._html; }
     set textContent(t) { this._html = t; this.children = []; }
-    get textContent() { return this.children.length ? this.children.map((c) => c.textContent).join('') : this._html.replace(/<[^>]+>/g, ''); }
+    get textContent() { return this.children.map((c) => c.textContent).join(''); }
     querySelector(s) { return this.querySelectorAll(s)[0] ?? null; }
     querySelectorAll(s) { return select(this, s); }
   }
@@ -81,7 +81,10 @@ function makeDom(html) {
     const tail = h.slice(last); if (tail.trim()) stack.at(-1).children.push(new Text(decode(tail)));
     return root.children;
   }
-  const decode = (t) => t.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+  // One pass, one table: an entity is decoded once and its output is never
+  // re-read, so '&amp;lt;' yields '&lt;' as a browser would, not '<'.
+  const ENTITY = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'" };
+  const decode = (t) => t.replace(/&(?:amp|lt|gt|quot|#39);/g, (e) => ENTITY[e]);
   function walk(el, out = []) { for (const c of el.children) { if (c instanceof El) { out.push(c); walk(c, out); } } return out; }
   function matches(el, part) {
     const m = part.match(/^([a-z]+)?(#[\w-]+)?((?:\.[\w-]+)*)((?:\[[^\]]+\])*)$/);
