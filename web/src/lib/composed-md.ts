@@ -39,7 +39,7 @@ import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
-import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears } from "@/lib/account";
+import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears, split as accountSplit, AMOUNTS as ACCOUNT_AMOUNTS, type Line } from "@/lib/account";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { pipeline as salesPipeline, PIPELINE_SOURCES } from "@/lib/pipeline";
@@ -606,6 +606,20 @@ export function accountPage(): ComposedPage {
   const ys = [...years.keys()].sort();
   const cats = Object.keys(CATEGORY_LABEL);
   const eur = (n: number) => (n < 0 ? "−€" : "€") + Math.round(Math.abs(n)).toLocaleString("en-GB");
+  const eur2 = (n: number) => "€" + Math.abs(n).toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  // Usage billed by the day is one invoice a month, so one line (the page folds it the same way).
+  const folded = new Map<string, Line>();
+  const docs: Line[] = [];
+  for (const l of all) {
+    if (t(l.date) > t1) continue;
+    if (l.billing === "usage" && l.period_from === l.period_to) {
+      const key = l.supplier + l.concept + l.date.slice(0, 7), x = folded.get(key);
+      if (x) { x.base = String(Number(x.base) + Number(l.base)); if (l.date > x.date) { x.date = l.date; x.document = l.document; } continue; }
+      const y = { ...l }; folded.set(key, y); docs.push(y); continue;
+    }
+    docs.push(l);
+  }
+  const latest = docs.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.document < b.document ? 1 : -1)).slice(0, 20);
   const cost = (r: Record<string, number>) => cats.reduce((s, k) => s + (r[k] ?? 0), 0);
   const rows = cats
     .filter((k) => ys.some((y) => (years.get(y)![k] ?? 0) > 0.5))
@@ -625,6 +639,18 @@ export function accountPage(): ComposedPage {
     table(["Concept", ...ys], rows),
     "",
     `The ledger itself, one line per document (${all.length} lines): [/system/open-books.csv](/system/open-books.csv).`,
+    "",
+    "## The last lines",
+    "",
+    "The twenty newest lines of the ledger, without VAT; the page lists every one with filters.",
+    "",
+    table(["Date", "Who", "What", "Amount"], latest.map((l) => [l.date, l.supplier, l.concept + (l.headcount ? ` (${l.headcount} people)` : ""), (l.kind === "income" ? "+" : "−") + eur2(Number(l.base))])),
+    "",
+    "## VAT, and what each payment turns into",
+    "",
+    "Costs carry no VAT: the VAT on an invoice the company receives is deducted in the same quarterly return, so it passes through and is not a cost. Invoices from companies outside Spain arrive without VAT and the receiver declares it and deducts it at once (reverse charge, marked ISP in the book). Salaries carry no VAT and count at their cost to the company. A person's support is shown VAT included, as consumer law requires; of it, 21 % over the base goes to the tax authority and the card processor takes 1.5 % plus €0.25, and 0.7 % more for a repeating payment.",
+    "",
+    table(["A person pays", "VAT", "Processor", "Reaches Numinia"], ACCOUNT_AMOUNTS.map(accountSplit).map((r) => [eur2(r.price), eur2(r.vat), eur2(r.fee), eur2(r.net)])),
     "",
     ...forecastMd(),
   ].join("\n");
