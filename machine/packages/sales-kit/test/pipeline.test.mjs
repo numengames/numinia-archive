@@ -61,7 +61,7 @@ test('STD-039 and the tool agree on the fields of the record', () => {
   const mould = parseFM(readFileSync(path.join(KIT, 'OPPORTUNITY.md'), 'utf8'));
   const std = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf8').replace(/\s+/g, ' ');
   for (const k of Object.keys(mould)) {
-    const word = { contact_role: "contact's role", contact_channel: 'contact channel', decider_role: "decider's role", next_action: 'next action', next_date: 'next date', id: 'identifier', value: 'value without tax', proposal: "proposal's path", agreement: "agreement's path", opened: 'opened', closed: 'closed', state: 'stage', reason: 'reason' }[k] ?? k;
+    const word = { contact_role: "contact's role", contact_channel: 'contact channel', decider_role: "decider's role", next_action: 'next action', next_date: 'next date', id: 'identifier', value: 'value without tax', proposal: "proposal's path", agreement: "agreement's path", opened: 'opened', closed: 'closed', state: 'stage', reason: 'reason', license: 'licence' }[k] ?? k;
     assert.ok(std.includes(word), `STD-039 does not name the field \`${k}\` (looked for "${word}")`);
   }
 });

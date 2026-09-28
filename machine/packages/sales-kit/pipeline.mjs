@@ -46,7 +46,7 @@ const DEFAULT_REGISTER = path.join(ROOT, 'standards', 'STD-038-the-stages-of-a-s
 
 export const REQUIRED = ['id', 'organisation', 'sector', 'offer', 'source', 'state', 'value',
   'currency', 'contact_role', 'contact_channel', 'decider_role', 'next_action', 'next_date',
-  'opened', 'closed', 'reason', 'proposal', 'agreement'];
+  'opened', 'closed', 'reason', 'proposal', 'agreement', 'license'];
 /* Roles and channels, never names (OPP-006): the header may carry only these. */
 export const ALLOWED = new Set(REQUIRED);
 export const SOURCES = ['referral', 'inbound', 'outbound', 'event', 'partner'];

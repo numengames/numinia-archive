@@ -19,6 +19,13 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-28 (the first opportunity, the first proposal)
+At the Oracle's word in session ("ahí va el cuerpo…"): the first real record of the sales system, written by an agent from the Oracle's account and the qualifying protocol's questions, as the test of the whole circuit.
+- **`opportunities/OPP-2026-001`** — a national police force's training academy; stage `lead` (the decider is not yet known, so the qualifying protocol does not let it pass); the four things of the need written from one informal conversation, to confirm at the first meeting; value 14,500 EUR before tax, set under the minor-contract threshold; next action the meeting within two weeks. Expansion noted, not proposed: several scenes, live escape-room sessions.
+- **`opportunities/PRP-2026-001`** *The scene before the scene* — the four things of the proposal standard: objectives in the client's words; capacity (a walkable demo built before the meeting, the retailer case unnamed, what the technology asks); one scene in three moments with the level **learning** and its indicator, sequence errors per walk; 14,500 + 21 % = 17,545 EUR, valid 30 days, 50/50 invoicing, twelve months' access, maintenance as a separate optional line. Not yet reviewed nor approved, so the record does not point at it yet; `reviewed_by` is empty on purpose.
+- The pipeline tool passes on the folder: one record, 14,500 EUR at `lead`, nothing overdue. Site v0.76.0.
+- Learnt for the standards, not yet applied: 30 days as the default validity of a proposal; the minor-contract threshold as a value the proposal standard could name for public-sector clients.
+
 ### Added — 2026-09-28 (opportunities, a public series)
 At the Oracle's word in session ("transparencia radical … casi que debería ser hasta público"; option A chosen: the organisation named only once it has agreed): the records of a sale live in the archive, not in a closed place.
 - **`opportunities/`**, a new series under Administration · Selling (`STD-001` 5.7.0, `STD-027` 0.4.0, `rules.json`): one record per opportunity, `OPP-YYYY-NNN.md`, its proposals beside it; no filename scheme of the archive's — the identifier and the header are `STD-039`'s; not header-governed — `pipeline.mjs` is its guard, and CI runs it on every change (an empty folder is green).
