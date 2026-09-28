@@ -5,9 +5,9 @@ title: "Selling, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-28T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, sales, pipeline, records]
@@ -62,7 +62,7 @@ account's reference. Building what was sold is outside this document.
 | **The records** | one file per opportunity, its proposals beside it | `opportunities/`, public, nobody's name in them | wired — the folder exists; the first record is the Oracle's |
 | **The agreement** | the signed contract per project | with the company, outside every repository | wired, on paper |
 | **The ledger handover** | a won record's value and dates as income lines | the account's reference | **not wired** — first with the first won record |
-| **The report where people see it** | the pipeline, run on a schedule | CI runs the tool on every change and fails on a breach; the report itself is read by running it | half wired — CI validates; nothing publishes the figures yet |
+| **The report where people see it** | the pipeline, as three readers see it | `/system/pipeline` reads the records through the tool at every build — what needs a move, the funnel, days per stage, why lost, and what happened by week, month, quarter and year; `/system/pipeline.md` is the same figures as text | wired — the weekly, quarterly and annual report is a view, not a document |
 
 Agents hold no key to the agreement or the ledger. The tool reads the
 stages from the register in this repository, so a consumer copying it alone
