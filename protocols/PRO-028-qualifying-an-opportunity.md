@@ -4,9 +4,9 @@ uid: ""
 title: "Qualifying an opportunity"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-28T16:00:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -54,8 +54,8 @@ Oracle today, or whom he names) qualifies it and decides.
 
 ## 2. Preconditions
 
-- The closed place where records live, named by the Oracle; the mould of
-  the record from the sales kit.
+- The opportunities series, where every record lives in public; the mould
+  of the record from the sales kit.
 - The record of the offer this would sell, published; without one, there is
   nothing to qualify against.
 - The stages register at hand for the stage, its evidence and its stale
@@ -65,11 +65,11 @@ Oracle today, or whom he names) qualifies it and decides.
 
 ## 3. Procedure
 
-1. **Open the record, that day.** Copy the mould; fill the organisation,
-   sector, source, the contact's role and channel, what they said in their
-   words, and a next action with its date. Stage `lead`. Roles in the
-   header, never a name: what identifies a person goes in the body
-   (`STD-039`).
+1. **Open the record, that day.** Copy the mould; fill the organisation by
+   sector and size, the source, the contact's role and channel, what they
+   said in their words, and a next action with its date. Stage `lead`. The
+   record is public: nobody's name, e-mail or phone in it, and the
+   organisation unnamed until it agrees (`STD-039`).
 2. **Ask the fit question.** Is what they need learnt by walking it, or made
    of people participating? If they need a course, a video or a report,
    say so and decline: `lost`, reason `not-a-fit`, and point them
@@ -92,7 +92,7 @@ Oracle today, or whom he names) qualifies it and decides.
 
 | Step | Evidence it completed |
 |---|---|
-| 1 | A record exists in the closed place, opened the day the sign arrived, stage `lead` |
+| 1 | A record exists in the opportunities series, opened the day the sign arrived, stage `lead` |
 | 2–3 | The body holds the fit answer, the decider's role and the budget line — or the record is `lost` with its reason |
 | 4 | Stage `qualified` with a transition row, or `lost`; the next action names the needs analysis |
 | 5 | The pipeline tool reports no breach on the record |

@@ -1,9 +1,10 @@
 ---
-# Copy this file to the closed records folder as OPP-YYYY-NNN.md and fill it in.
-# The rules are STD-039 (the record) and STD-038 (stages, reasons, retention).
-# Roles and channels in the header; a person's name only in the body, if at all.
+# Copy this file to opportunities/OPP-YYYY-NNN.md and fill it in. The record
+# is PUBLIC: the rules are STD-039 (the record) and STD-038 (stages, reasons,
+# when the organisation is named). Nobody's name, e-mail or phone, anywhere
+# in it. The organisation by sector and size until it agrees.
 id: "OPP-YYYY-NNN"
-organisation: "the organisation, as it names itself"
+organisation: "a large retailer"   # sector and size until `agreed`; its name from then on
 sector: "retail | public-sector | education | technology | events | other"
 offer: "OPS-NNN"                  # the offer record this sells
 source: "referral"                # referral | inbound | outbound | event | partner
@@ -47,5 +48,5 @@ The four things, in the client's words, written at `analysed`:
 
 ## Notes
 
-Meetings, who said what, and the personal data that must not enter the header.
-Erased twelve months after a `lost` closing date; the record stays.
+What was said and decided, dated, without anyone's name: the record is
+public. Who said it stays where the conversation happened.

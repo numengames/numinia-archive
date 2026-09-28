@@ -5,9 +5,9 @@ title: "Selling, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-09-28T17:00:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, sales, pipeline, records]
@@ -59,19 +59,21 @@ account's reference. Building what was sold is outside this document.
 | **The offer record** | what Training is, delivers, costs | `operations/OPS-012` | wired, in draft; one record per offer as others are written |
 | **The moulds** | an opportunity, a proposal | `machine/packages/sales-kit/OPPORTUNITY.md`, `PROPOSAL.md` | wired |
 | **The tool** | validation and the pipeline report | `machine/packages/sales-kit/pipeline.mjs` | wired; runs by hand on any folder |
-| **The records** | one file per opportunity, its proposals beside it | a closed place the Oracle names | **not wired** — no place named yet; a local folder meanwhile |
+| **The records** | one file per opportunity, its proposals beside it | `opportunities/`, public, nobody's name in them | wired — the folder exists; the first record is the Oracle's |
 | **The agreement** | the signed contract per project | with the company, outside every repository | wired, on paper |
 | **The ledger handover** | a won record's value and dates as income lines | the account's reference | **not wired** — first with the first won record |
-| **The report where people see it** | the pipeline, run on a schedule | the closed place's own checks | **not wired** — the tool runs by hand |
+| **The report where people see it** | the pipeline, run on a schedule | CI runs the tool on every change and fails on a breach; the report itself is read by running it | half wired — CI validates; nothing publishes the figures yet |
 
 Agents hold no key to the agreement or the ledger. The tool reads the
 stages from the register in this repository, so a consumer copying it alone
-passes `--register` with its own copy.
+passes `--register` with its own copy. The records are public by the
+Oracle's ruling: what identifies a person never enters one, and the
+organisation is named only once it has agreed.
 
 ### How an opportunity flows
 
 1. A sign of interest reaches whoever sells; a record is opened from the
-   mould in the closed place, stage `lead` (qualifying).
+   mould in `opportunities/`, stage `lead` (qualifying).
 2. It is qualified or declined; the decider's role is written; stage
    `qualified` or `lost`.
 3. The need is heard and written as four things; the specialist draws it
@@ -91,8 +93,8 @@ passes `--register` with its own copy.
 
 ## 3. How to verify it
 
-The rules and the tool are in the tree; the records are not, so the tool is
-verified on its fixtures:
+The rules, the tool and the records' folder are in the tree; until the
+first record lands, the tool is verified on its fixtures:
 
 ```
 $ node machine/packages/sales-kit/pipeline.mjs machine/packages/sales-kit/fixtures --today 2026-10-15 --proposals
@@ -105,8 +107,8 @@ $ node machine/packages/sales-kit/pipeline.mjs machine/packages/sales-kit/fixtur
   the register from the standard and the fields from the mould.
 - **Every stage is moved by a protocol:** a check in the regime tests
   reads the register and the protocols of the Sales territory.
-- **Real records:** none in any tree the archive can see. When the closed
-  place exists, the same command on it is the verification.
+- **Real records:** `node machine/packages/sales-kit/pipeline.mjs
+  opportunities` — CI runs it on every change; an empty folder is green.
 
 ---
 
@@ -115,8 +117,9 @@ $ node machine/packages/sales-kit/pipeline.mjs machine/packages/sales-kit/fixtur
 **Verified against:** `main` on 2026-09-28, after the three sales pull
 requests.
 
-- The closed place for records is the Oracle's decision, not yet taken; a
-  private repository of the company exists and is not yet connected.
+- The records are public in `opportunities/` by the Oracle's ruling of
+  2026-09-28 (radical transparency; nobody's name; the organisation named
+  once it agrees). No real record has landed yet.
 - The price floor of the Training offer is the Oracle's; the offer record
   says *on quote* until he sets it.
 - ISO 29993:2017, which the proposal standard follows, was read in its

@@ -9,9 +9,11 @@
  * A pipeline typed into a sheet is wrong by the second week, and a sale kept
  * in one head is lost with a holiday. STD-039 makes every opportunity one
  * Markdown file with a header; this script is the only place the figures
- * about those files come from (OPP-009). It reads the stages, the reasons
- * and the retention from STD-038's tables — one source — so a stage renamed
- * in the register is renamed here without touching code.
+ * about those files come from (OPP-009). It reads the stages and the reasons
+ * from STD-038's tables — one source — so a stage renamed in the register is
+ * renamed here without touching code. The records are public (OPP-008), so
+ * it also refuses what identifies a person (OPP-006) and an organisation
+ * named before it agreed (OPP-011).
  *
  * WHAT IT DOES
  *
@@ -48,6 +50,11 @@ export const REQUIRED = ['id', 'organisation', 'sector', 'offer', 'source', 'sta
 /* Roles and channels, never names (OPP-006): the header may carry only these. */
 export const ALLOWED = new Set(REQUIRED);
 export const SOURCES = ['referral', 'inbound', 'outbound', 'event', 'partner'];
+/* OPP-011: before `agreed`, the organisation is a sector and a size, never a name. */
+export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police|forces?|academy|school|university|hospital|health|bank|insurer|utility|logistics|manufacturer|industry|technology|software|agency|non-profit|foundation|association|municipality|ministry|company|firm|organisation|organization|studio|startup|sme|enterprise|chain|group)\b/i;
+/* OPP-006: what identifies a person — an e-mail, a phone — never enters a record. */
+export const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
+export const PHONE_RE = /(?:\+\d{1,3}[\s-]?)?(?:\(?\d{2,4}\)?[\s-]?)\d{3}[\s-]?\d{3,4}\b/;
 export const CHANNELS = ['email', 'phone', 'meeting', 'form'];
 export const LEVELS = ['reaction', 'learning', 'behaviour', 'results'];
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -102,16 +109,12 @@ export function loadRegister(file = DEFAULT_REGISTER) {
     stale: /^\d+/.test(stale) ? Number(stale.match(/^\d+/)[0]) : null,
   }));
   const reasons = tableUnder(text, 'Reasons a sale is lost').map(([r]) => tick(r));
-  const retention = tableUnder(text, 'Retention');
-  const lostRow = retention.find(([what]) => /`lost`/.test(what));
-  const eraseAfterMonths = lostRow ? Number(lostRow[1].match(/^\d+/)?.[0] ?? 12) : 12;
   if (!stages.length || !reasons.length) throw new Error(`register has no stages or no reasons: ${file}`);
   return {
     order: stages.map((s) => s.name),
     closed: stages.filter((s) => s.stale === null).map((s) => s.name),
     staleDays: Object.fromEntries(stages.map((s) => [s.name, s.stale])),
     reasons,
-    eraseAfterMonths,
   };
 }
 
@@ -154,6 +157,11 @@ export function validate(rec, reg) {
   if (fm.state === 'proposed' && !fm.proposal) F('OPP-002', 'proposed with no proposal path');
   if (fm.state === 'won' && !fm.agreement) F('OPP-010', 'won with no agreement path');
   if (['qualified', 'analysed', 'proposed', 'agreed', 'won'].includes(fm.state) && !fm.decider_role) F('OPP-002', `${fm.state} with no decider role`);
+  const body = rec.text.replace(/^---\s*\n[\s\S]*?\n---/, '');
+  if (EMAIL_RE.test(body) || EMAIL_RE.test(Object.values(fm).join(' '))) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
+  if (PHONE_RE.test(body)) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
+  const before = reg.order.indexOf(fm.state) < reg.order.indexOf('agreed') || fm.state === 'lost';
+  if (before && fm.organisation && !SECTOR_WORDS.test(fm.organisation)) F('OPP-011', `organisation "${fm.organisation}" reads as a name; before agreed it is a sector and a size ("a large retailer")`);
   if (!transitions.length) F('OPP-005', 'no transitions table, or no dated row in it');
   else {
     const last = transitions[transitions.length - 1];
@@ -200,7 +208,7 @@ export function validateProposal(file, text) {
 
 export function figures(records, reg, today) {
   const byStage = Object.fromEntries(reg.order.map((s) => [s, { count: 0, value: 0 }]));
-  const overdue = [], stale = [], toErase = [];
+  const overdue = [], stale = [];
   const reasons = {};
   const perStage = Object.fromEntries(reg.order.map((s) => [s, []]));
   const byOrg = {};
@@ -217,13 +225,7 @@ export function figures(records, reg, today) {
       const limit = reg.staleDays[fm.state];
       if (limit !== null && since > limit) stale.push({ id: fm.id, state: fm.state, days: since, limit });
     }
-    if (fm.state === 'lost') {
-      reasons[fm.reason] = (reasons[fm.reason] ?? 0) + 1;
-      if (ISO_DATE.test(fm.closed)) {
-        const erase = new Date(fm.closed); erase.setUTCMonth(erase.getUTCMonth() + reg.eraseAfterMonths);
-        if (erase.toISOString().slice(0, 10) <= today) toErase.push({ id: fm.id, closed: fm.closed });
-      }
-    }
+    if (fm.state === 'lost') reasons[fm.reason] = (reasons[fm.reason] ?? 0) + 1;
     // time per stage, from the transitions: each row closes the previous stage
     for (let i = 1; i < r.transitions.length; i++) {
       const from = r.transitions[i - 1];
@@ -238,7 +240,7 @@ export function figures(records, reg, today) {
     .map((r) => days(r.transitions[0].date, r.fm.closed));
   const avg = (a) => (a.length ? Math.round(a.reduce((x, y) => x + y, 0) / a.length) : null);
   return {
-    today, records: records.length, byStage, overdue, stale, toErase, reasons,
+    today, records: records.length, byStage, overdue, stale, reasons,
     timePerStage: Object.fromEntries(Object.entries(perStage).map(([s, a]) => [s, avg(a)])),
     funnel, won, lost, winRate: won + lost ? Math.round((100 * won) / (won + lost)) : null,
     cycleDays: avg(cycle), byOrg,
@@ -267,10 +269,6 @@ export function report(fig, reg) {
   if (Object.keys(fig.reasons).length) {
     L.push('', '| Reason lost | Records |', '|---|---|');
     for (const [r, n] of Object.entries(fig.reasons).sort((a, b) => b[1] - a[1])) L.push(`| \`${r}\` | ${n} |`);
-  }
-  if (fig.toErase.length) {
-    L.push('', '## Personal data to erase', '');
-    for (const e of fig.toErase) L.push(`- **${e.id}** lost on ${e.closed}: past the register's ${reg.eraseAfterMonths} months`);
   }
   L.push('', '## By organisation', '', '| Organisation | Records | Stages |', '|---|---|---|');
   for (const [org, rs] of Object.entries(fig.byOrg).sort()) L.push(`| ${org} | ${rs.length} | ${rs.map((r) => `\`${r.state}\``).join(' ')} |`);

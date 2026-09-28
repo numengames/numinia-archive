@@ -13,6 +13,7 @@
     "blueprints": { "prefix": ["BLU"],        "digits": 3, "threshold": "open" },
     "system":     { "prefix": ["SYS"],        "digits": 3, "threshold": "governed" },
     "legal":      { "prefix": ["LEG"],        "digits": 3, "threshold": "governed" },
+    "opportunities": { "prefix": [],          "digits": 0, "threshold": "open", "naming": false },
     "agents":     { "prefix": [],             "digits": 0, "threshold": "live", "naming": false }
   },
   "retiredPrefixes": {
