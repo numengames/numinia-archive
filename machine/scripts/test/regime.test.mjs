@@ -209,7 +209,7 @@ check('tree: opportunities have one home — opportunities/, registered in STD-0
   if (!/`opportunities\/`/.test(s027)) return 'STD-027 does not place opportunities/ in the scheme';
   const s039 = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf-8');
   if (/Outside the public archive/.test(s039)) return 'STD-039 still says records live outside the public archive';
-  if (!/named only once/.test(s039)) return 'STD-039 does not say when the organisation is named';
+  if (!/by sector until it agrees/i.test(s039)) return 'STD-039 does not say when the organisation is named';
   const ci = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf-8');
   if (!/pipeline\.mjs opportunities/.test(ci)) return 'CI does not run pipeline.mjs on opportunities/';
   return true;
