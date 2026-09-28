@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 10452,
+  "chars": 10661,
   "apparatus": false,
   "archived": false,
-  "tokens": 2862
+  "tokens": 2911
  },
  {
   "path": "CLAUDE.md",
@@ -115,10 +115,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 4977,
+  "chars": 5661,
   "apparatus": true,
   "archived": false,
-  "tokens": 1455
+  "tokens": 1618
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -126,10 +126,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1109,
+  "chars": 890,
   "apparatus": true,
   "archived": false,
-  "tokens": 287
+  "tokens": 248
  },
  {
   "path": "agents/_template/SOUL.md",
@@ -159,10 +159,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1598,
+  "chars": 1214,
   "apparatus": false,
   "archived": false,
-  "tokens": 388
+  "tokens": 315
  },
  {
   "path": "agents/antunj/SOUL.md",
@@ -192,10 +192,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1691,
+  "chars": 1307,
   "apparatus": false,
   "archived": false,
-  "tokens": 414
+  "tokens": 341
  },
  {
   "path": "agents/byblos/SOUL.md",
@@ -225,10 +225,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2188,
+  "chars": 1815,
   "apparatus": false,
   "archived": false,
-  "tokens": 494
+  "tokens": 425
  },
  {
   "path": "agents/calliope/SOUL.md",
@@ -258,10 +258,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1481,
+  "chars": 1097,
   "apparatus": false,
   "archived": false,
-  "tokens": 367
+  "tokens": 294
  },
  {
   "path": "agents/doulos/SOUL.md",
@@ -291,10 +291,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1640,
+  "chars": 1256,
   "apparatus": false,
   "archived": false,
-  "tokens": 397
+  "tokens": 324
  },
  {
   "path": "agents/lexa/SOUL.md",
@@ -335,10 +335,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2123,
+  "chars": 1912,
   "apparatus": false,
   "archived": false,
-  "tokens": 522
+  "tokens": 478
  },
  {
   "path": "agents/metis/SOUL.md",
@@ -368,10 +368,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2199,
+  "chars": 1919,
   "apparatus": false,
   "archived": false,
-  "tokens": 493
+  "tokens": 439
  },
  {
   "path": "agents/nimrod/SOUL.md",
@@ -401,10 +401,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1550,
+  "chars": 1166,
   "apparatus": false,
   "archived": false,
-  "tokens": 376
+  "tokens": 303
  },
  {
   "path": "agents/procyon/SOUL.md",
@@ -434,10 +434,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1521,
+  "chars": 1137,
   "apparatus": false,
   "archived": false,
-  "tokens": 379
+  "tokens": 306
  },
  {
   "path": "agents/senet/SOUL.md",
@@ -478,10 +478,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2951,
+  "chars": 2654,
   "apparatus": false,
   "archived": false,
-  "tokens": 648
+  "tokens": 592
  },
  {
   "path": "agents/talos/SOUL.md",
@@ -522,10 +522,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1484,
+  "chars": 1102,
   "apparatus": false,
   "archived": false,
-  "tokens": 377
+  "tokens": 304
  },
  {
   "path": "agents/ursa/SOUL.md",
@@ -951,10 +951,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2318,
+  "chars": 2362,
   "apparatus": true,
   "archived": false,
-  "tokens": 646
+  "tokens": 656
  },
  {
   "path": "lore/adventures/README.md",
@@ -1336,21 +1336,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 51393,
+  "chars": 47561,
   "apparatus": false,
   "archived": false,
-  "tokens": 11467
- },
- {
-  "path": "lore/world/epistemic-relations.md",
-  "dir": "lore",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 13193,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2640
+  "tokens": 10556
  },
  {
   "path": "lore/world/role-structure.md",
@@ -2447,10 +2436,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7617,
+  "chars": 7375,
   "apparatus": false,
   "archived": false,
-  "tokens": 1680
+  "tokens": 1621
  },
  {
   "path": "standards/STD-031-a-canon-states.md",
