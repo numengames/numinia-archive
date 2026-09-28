@@ -1021,9 +1021,6 @@ and user-centric functionalities.
 
 Business › Product › Data
 
-01010000 01110101 01100010 01101100 01101001 01100011 00100000 01100100
-01101111 01101101 01101101 01100001 01101001 01101110
-
 AARRR
 
 Acquisition
@@ -1305,11 +1302,6 @@ What is branding?
 
 Brand › Personality
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 Personality
 
 BIG FIVE PERSONALITY TRAITS
@@ -1360,11 +1352,6 @@ Joy
 
 Brand › Emotion
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 Emotion
 
 PLUTCHIK'S WHEEL OF EMOTIONS
@@ -1382,11 +1369,6 @@ WIKIPEDIA
 
 Brand › Cause
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 Digital Humanism. Humans are not the problem.
 
 Brand › High Expectation Customer
@@ -1399,11 +1381,6 @@ benefits.
 Build organizations that elevate lives.
 
 Brand › Hobbies and Tastes
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 Hobbies
 
@@ -1440,11 +1417,6 @@ Neuroscience
 Mediterranean
 
 Brand › Visual identity
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 Khepri
 
@@ -1543,11 +1515,6 @@ Geist Mono Bold
 
 Brand › Verbal identity
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 VERBAL IDENTITY
 
 Technology and Humanity
@@ -1582,11 +1549,6 @@ accessibility.
 
 Brand › Creative direction
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 CREATIVE DIRECTION
 
 History, Myths and Fantasy
@@ -1609,17 +1571,7 @@ turning digital ruins into realms of endless creation.
 
 Brand › Community & Content
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 Brand › Marketing and PR
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 Q2 2024
 
@@ -1636,11 +1588,6 @@ Redes
 Productivity and Trust
 
 Culture › Rules & Regulations
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 Respect. Regardless of who they are or if their opinions differ from
 yours. This applies to everyone from the Numinia citizens, also our
@@ -1667,11 +1614,6 @@ Sentinels). These rules are reviewed periodically by the Numinia team.
 
 Culture › Processes
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 Processes
 
 Feedback Loops Sustainability Practices Regular Performance Reviews
@@ -1681,11 +1623,6 @@ Ethical Decision-Making Frameworks Crisis Management and Adaptation
 Protocols Community Engagement and Customer Interaction Protocols
 
 Culture › Attitudes & Behaviors
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 Attitudes
 
@@ -1701,11 +1638,6 @@ Learning and Sharing Recognition and Celebration of Success
 
 Culture › Beliefs
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 Ten Beliefs
 
 Human-Centric Design Diversity and Inclusivity Innovation as a Tradition
@@ -1714,11 +1646,6 @@ Growth Resilience Through Challenge Sustainability and Responsibility
 Empowerment Through Autonomy Continuous Learning and Adaptability
 
 Culture › Rituals
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 Weekly
 
@@ -1755,11 +1682,6 @@ and also often features a comprehensive annual review.
 
 Culture › Symbols & References
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 Symbols
 
 Khepri, the scarab-faced god
@@ -1780,17 +1702,7 @@ Fusion between the scientific universe and the fantastic universe
 
 Culture › Incentives
 
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
-
 Culture › Promotions
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 Promotions Protocol
 
@@ -1808,11 +1720,6 @@ Leveling Up Mechanics Digital Badges and Titles Interactive Career
 Pathways
 
 Culture › Advantages & Benefits
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 Advantages
 
@@ -1851,11 +1758,6 @@ Improved Employee Engagement and Retention
 Leave things better than we found them
 
 Narrative Exercices › Research phase
-
-101001010010100101010100101010100101000010100101010
-01001001001001001010xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-xxxxxxxxxxxxxxxxxxxxxxx
 
 FAQFAQ
 

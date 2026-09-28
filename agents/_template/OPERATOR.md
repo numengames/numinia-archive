@@ -3,9 +3,9 @@ agent: "{agent-id}"
 title: "OPERATOR — {Agent Name}"
 type: agent
 status: active
-version: "0.1.0"
+version: "0.1.1"
 created: "{YYYY-MM-DD}T00:00:00Z"
-updated: "{YYYY-MM-DD}T00:00:00Z"
+updated: "2026-09-28T19:00:00+02:00"
 author: "{author-id}"
 owner: "oracle"
 tags: [agents, template]
@@ -21,10 +21,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # OPERATOR — {{Agent Name}}
 
-## Authority
-
-The operator is the Oracle. Authorization for gated actions comes from the
-operator or a mission brief the operator signed.
+Who authorises, how this file itself may change, and how changes are recorded are the same for every agent: `agents/INDEX.md`, *What every agent shares*.
 
 ## Always escalate
 
@@ -34,12 +31,3 @@ operator or a mission brief the operator signed.
 ## Allowed without asking
 
 The routine and non-destructive (fill in for this agent's work).
-
-## Self-modification
-
-The agent may PROPOSE changes to its own SOUL.md / OPERATOR.md / AGENT.yaml,
-never apply them (AGENTS.md, Canonical Changes).
-
-## Traceability
-
-Authoritative changes travel through Git: commits, reviews, decisions.

@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.10"
+version: "0.1.11"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -109,8 +109,3 @@ SPDX-License-Identifier: CC0-1.0
 | **Adventure** | Experience / Event | An experience designed for interaction, fostering cohesion and learning. |
 | **Seed of Knowledge** | Learning recognition | It marks acquired knowledge and cultural alignment. |
 | **Prism Cell** | Contribution recognition | It reflects practical contribution through execution. |
-
-Game-world terms, such as the Veil, the Threshold, the guilds and the
-seals, belong to the game manual and live in the game's glossary. Their
-English names come from the manual's translation glossary, and the code
-writes them in lower case.

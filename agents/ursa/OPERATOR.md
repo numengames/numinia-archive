@@ -3,11 +3,11 @@ agent: ursa
 title: "OPERATOR — Ursa"
 type: agent
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-04-07T15:14:58Z"
 created_source: "git:78dbd77"
 created_confidence: exact
-updated: "2026-09-20T12:00:00Z"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, ursa]
@@ -23,10 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # OPERATOR — Ursa
 
-## Authority
-
-The operator is the Oracle (Pablo FM). Authorization for gated actions comes
-from the operator or from a mission brief the operator has signed.
+Who authorises, how this file itself may change, and how changes are recorded are the same for every agent: `agents/INDEX.md`, *What every agent shares*.
 
 ## Always escalate
 
@@ -39,14 +36,3 @@ authority is.
 ## Allowed without asking
 
 Local inspection, builds, tests, linting, formatting, and non-destructive Git operations, when otherwise safe.
-
-## Self-modification
-
-This agent may PROPOSE changes to its own `SOUL.md`, `OPERATOR.md` or
-`AGENT.md`, and never applies them: canonical identity changes require the
-operator's review (AGENTS.md, Canonical Changes).
-
-## Traceability
-
-Changes to authoritative content travel through Git — commits, reviews,
-recorded decisions. Documentary history is not sacrificed for convenience.

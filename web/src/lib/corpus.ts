@@ -668,7 +668,6 @@ const READING_ORDER: Record<string, string[]> = {
   // images that were never committed. See content.config.ts.
   lore: [
     "/lore/world/welcome-to-numinia",
-    "/lore/world/epistemic-relations",
     "/lore/world/brand-and-culture",
     "/lore/world/role-structure",
     "/lore/adventures/virtual-worlds/session-zero",

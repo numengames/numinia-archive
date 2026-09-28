@@ -1,7 +1,7 @@
 {
   "$comment": "URL manifest — D-028/ADR-033. Every public address the site published at the last accepted build. check-url-lifecycle.mjs fails when one of these stops being built without a redirect in web/astro.config.mjs. Regenerate deliberately with --write-baseline, in the same PR as the deletion that changed it, never to silence a failure.",
   "generated": "2026-09-28",
-  "count": 406,
+  "count": 405,
   "urls": [
     "/",
     "/about",
@@ -216,7 +216,6 @@
     "/lore/codex/legal",
     "/lore/game/attributes-and-ranks",
     "/lore/world/brand-and-culture",
-    "/lore/world/epistemic-relations",
     "/lore/world/role-structure",
     "/lore/world/welcome-to-numinia",
     "/missions",

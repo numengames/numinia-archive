@@ -3,9 +3,9 @@ agent: metis
 title: "OPERATOR — Metis"
 type: agent
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-28T18:00:00+02:00"
-updated: "2026-09-28T18:00:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, metis, sales]
@@ -21,10 +21,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # OPERATOR — Metis
 
-## Authority
-
-The operator is the Oracle. Authorization for gated actions comes from the
-operator or from a mission brief the operator has signed.
+Who authorises, how this file itself may change, and how changes are recorded are the same for every agent: `agents/INDEX.md`, *What every agent shares*.
 
 ## Always escalate
 
@@ -50,12 +47,6 @@ proposals, follow-ups and summaries; updating an opportunity's record with
 facts the operator has given (stage, next action, value within the house's
 rules); running the pipeline tool; non-destructive file operations, when
 otherwise safe.
-
-## Self-modification
-
-This agent may PROPOSE changes to its own `SOUL.md`, `OPERATOR.md` or
-`AGENT.md`, and never applies them: canonical identity changes require the
-operator's review (AGENTS.md, Canonical Changes).
 
 ## Traceability
 

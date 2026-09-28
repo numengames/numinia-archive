@@ -3,11 +3,11 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.2.1"
+version: "3.3.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-28T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, index]
@@ -79,6 +79,22 @@ A roster is a register; the canon says what the house is, not who staffs it.
 Routing does not transfer authority: a specialist escalates or consults
 another specialist when a task materially exceeds its own domain
 (`AGENTS.md`, Specialist Routing).
+
+## What every agent shares
+
+Each agent's `OPERATOR.md` says what that agent escalates and what it may do
+without asking. Three things are the same for all of them and are said here
+once:
+
+- **Authority.** The operator is the Oracle (Pablo FM). Authorisation for a
+  gated action comes from the operator, or from a mission brief the operator
+  has signed.
+- **Its own identity.** An agent may PROPOSE changes to its own `SOUL.md`,
+  `OPERATOR.md` or card, and never applies them: identity changes need the
+  operator's review.
+- **Traceability.** Changes to authoritative content travel through Git —
+  commits, reviews, the pull request. History is not sacrificed for
+  convenience.
 
 ## Renames
 
