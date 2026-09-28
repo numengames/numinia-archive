@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 174917,
+  "chars": 176262,
   "apparatus": false,
   "archived": false,
-  "tokens": 46479
+  "tokens": 46849
  },
  {
   "path": "CLAUDE.md",
@@ -1545,10 +1545,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2587,
+  "chars": 2667,
   "apparatus": true,
   "archived": false,
-  "tokens": 691
+  "tokens": 717
  },
  {
   "path": "machine/packages/sales-kit/README.md",
@@ -1611,10 +1611,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1134,
+  "chars": 1112,
   "apparatus": true,
   "archived": false,
-  "tokens": 341
+  "tokens": 333
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-002.md",
@@ -1622,10 +1622,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1152,
+  "chars": 1130,
   "apparatus": true,
   "archived": false,
-  "tokens": 346
+  "tokens": 338
  },
  {
   "path": "machine/templates/ADR-TEMPLATE.md",
@@ -2040,10 +2040,10 @@
   "series": "opportunities",
   "type": null,
   "status": null,
-  "chars": 3086,
+  "chars": 3117,
   "apparatus": false,
   "archived": false,
-  "tokens": 778
+  "tokens": 792
  },
  {
   "path": "opportunities/PRP-2026-001.md",
@@ -2051,10 +2051,10 @@
   "series": "opportunities",
   "type": null,
   "status": null,
-  "chars": 5078,
+  "chars": 5124,
   "apparatus": false,
   "archived": false,
-  "tokens": 1264
+  "tokens": 1276
  },
  {
   "path": "opportunities/README.md",
@@ -2293,10 +2293,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4348,
+  "chars": 4456,
   "apparatus": false,
   "archived": false,
-  "tokens": 1145
+  "tokens": 1171
  },
  {
   "path": "protocols/PRO-029-making-a-proposal.md",
@@ -2304,10 +2304,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5309,
+  "chars": 5383,
   "apparatus": false,
   "archived": false,
-  "tokens": 1332
+  "tokens": 1351
  },
  {
   "path": "protocols/PRO-030-closing-a-sale.md",
@@ -2755,10 +2755,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3450,
+  "chars": 3532,
   "apparatus": false,
   "archived": false,
-  "tokens": 913
+  "tokens": 929
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
@@ -2766,10 +2766,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7358,
+  "chars": 7536,
   "apparatus": false,
   "archived": false,
-  "tokens": 1911
+  "tokens": 1955
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -2777,10 +2777,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6440,
+  "chars": 6662,
   "apparatus": false,
   "archived": false,
-  "tokens": 1679
+  "tokens": 1744
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
