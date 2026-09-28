@@ -66,8 +66,11 @@ export const REPO_URL = "https://github.com/numengames/numinia-archive";
  * Returns null rather than a wrong URL when the path is not recognised — a
  * broken link into GitHub is worse than no link.
  */
+// Every folder the site renders from belongs here. A folder missing from
+// the list loses its link silently — opportunities/, legal/, lore/ and
+// objects/ published for weeks with no way back to GitHub.
 const REPO_DIRS =
-  "agents|blueprints|canon|decisions|guilds|history|missions|operations|protocols|reports|standards|system|debt|web";
+  "agents|blueprints|canon|debt|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|protocols|reports|standards|system|web";
 
 export function repoFileUrl(filePath: string, branch = "main"): string | null {
   const rel = String(filePath).replace(/\\/g, "/");

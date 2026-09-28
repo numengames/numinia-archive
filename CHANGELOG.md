@@ -19,6 +19,9 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Fixed — 2026-09-28 (every page links back to its file)
+At the Oracle's word during QA of `/opportunities/opp-2026-001` ("no hay un link al archivo en el github… hay que estructurarlo como el resto de la página web"): the "View on GitHub" button was missing from every page under `opportunities/`, `legal/`, `lore/` and `objects/`. `web/src/lib/build-info.ts` `REPO_DIRS` gains those four folders (the list decides whether a file gets its link; a folder absent from it returns no link, silently). `[...slug].astro` names the same folders, plus `history/` and `system/`, in the breadcrumb, which printed "raíz" for them. Site v0.79.0.
+
 ### Added — 2026-09-28 (the pipeline, as three readers see it)
 At the Oracle's word ("en open books se suponía que íbamos a tener algo dedicado al pipeline de ventas… que le valiera tanto al management como al equipo de ventas y el equipo de transparencia… para el reporting semanal, trimestral y anual"): the report is published, not asked for.
 - **`/system/pipeline`** — a page in the mould of the open books: it states no figure of its own. `web/src/lib/pipeline.ts` reads `opportunities/` at build time **through the sales kit's own tool** (`machine/packages/sales-kit/pipeline.mjs`), so the page and the CI step cannot disagree on a number; a record breaking a rule fails the build as it fails CI. The browser cuts the records: three lenses (whoever sells — what needs a move, overdue first, then stale; management — weighted value, win rate, cycle, days per stage flagged past the register's limit, why lost; anyone — the same public records) and four periods (week, month, quarter, year: opened, moved forward, proposals sent, won, lost, value won — read from the transitions each record carries). The funnel, every record with its proposal beside it. SVG drawn by the page, no library.
