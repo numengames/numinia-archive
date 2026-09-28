@@ -194,6 +194,27 @@ check('tree: legal texts have one home — legal/, registered in STD-001, STD-02
   return true;
 });
 
+check('tree: opportunities have one home — opportunities/, registered in STD-001 and STD-027, read by the pipeline tool', () => {
+  // The Oracle's ruling (2026-09-28): the records of a sale live in the
+  // public archive — transparency — with roles in the header and no personal
+  // data in the body, the organisation named only once it has agreed. The
+  // folder is not header-governed: its records carry the header STD-039
+  // fixes, and pipeline.mjs is the instrument that reads them in CI.
+  const rules = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/lib/rules.json'), 'utf-8'));
+  if (!rules.series.opportunities) return 'rules.json registers no opportunities series';
+  if (rules.governed.dirs.includes('opportunities')) return 'opportunities/ is header-governed; its header is STD-039\'s, read by pipeline.mjs';
+  const s001 = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf-8');
+  if (!/^\| `opportunities\/` \|/m.test(s001)) return 'STD-001 has no row for opportunities/';
+  const s027 = readFileSync(path.join(ROOT, 'standards/STD-027-the-classification-scheme.md'), 'utf-8');
+  if (!/`opportunities\/`/.test(s027)) return 'STD-027 does not place opportunities/ in the scheme';
+  const s039 = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf-8');
+  if (/Outside the public archive/.test(s039)) return 'STD-039 still says records live outside the public archive';
+  if (!/by sector until it agrees/i.test(s039)) return 'STD-039 does not say when the organisation is named';
+  const ci = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf-8');
+  if (!/pipeline\.mjs opportunities/.test(ci)) return 'CI does not run pipeline.mjs on opportunities/';
+  return true;
+});
+
 check('tree: no living text types a range of identifiers — a count is read from the tree, never written', () => {
   // "STD-001…STD-028" was true once and false eleven standards later. The
   // rule index in AGENTS.md is generated; a hand-typed range beside it is a

@@ -220,6 +220,17 @@ export const SECTIONS: Section[] = [
     epistemic: "What the company is doing right now.",
     pragmatic: "Act on the live state of the business.",
   },
+  // Opportunities — its own series since 2026-09-28, by the Oracle's word:
+  // the records of a sale are public, radically. Roles in the header, no
+  // personal data in the body, the organisation named only once it has
+  // agreed (STD-039). The pipeline tool reads them in CI.
+  { prefix: "opportunities/", slug: "opportunities", label: "Opportunities", collection: "corpus",
+    question: "Whom are we trying to sell to, and where does each sale stand?",
+    emptyMeans: "No opportunity is open. The folder exists and its records are read at build time and by the pipeline tool, so the first record to land appears here on its own.",
+    blurb: "One record per chance to sell something: the organisation by sector until it agrees, the stage it is at, what happens next, and the proposals sent. Nobody's name.",
+    epistemic: "Whom the company is trying to sell to, and where each sale stands.",
+    pragmatic: "See the pipeline as it is, and open the record before talking to a client again.",
+  },
   // Legal — its own series since 2026-09-27. These texts were loose in
   // operations/ while three sources disagreed on where they belonged. They are
   // the company's promises to the public in law, and they change when the law
@@ -618,6 +629,11 @@ const READING_ORDER: Record<string, string[]> = {
     "/operations/ops-009-secrets-handling",
   ],
 
+  // Records of a sale, newest first would be a list of accidents; the tool
+  // reads them all, so the order here is by identifier — the year and the
+  // running number — which is the order they were opened.
+  opportunities: [],
+
   // The three promises the company makes to anyone who uses its sites, in the
   // order a visitor meets them: what we do with your data, the terms of use,
   // then what the browser keeps.
@@ -720,6 +736,7 @@ export const READING_NOTE: Record<string, string> = {
   blueprints: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
   system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the instruments that check those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
+  opportunities: "Every chance to sell something, in the order it was opened: who (by sector, until they agree), at which stage, and what happens next.",
   operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, what it offers, and the handling of keys.",
   legal: "The three texts written for someone outside the company: what we do with your data, the terms of using our sites, and what your browser keeps. Each is the master copy every site publishes.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",

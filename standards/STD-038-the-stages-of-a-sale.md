@@ -5,9 +5,9 @@ title: "The stages of a sale"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T13:00:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -29,7 +29,7 @@ SPDX-License-Identifier: CC0-1.0
 > of a need to a signed agreement or a closed door: what each state means,
 > the evidence that puts an opportunity there, who moves it, and how many
 > days without movement make it stale. The closed list of reasons a sale is
-> lost, and how long personal data outlives a lost one. The standard of the
+> lost, and from which stage the organisation is named. The standard of the
 > opportunity record cites these values; the pipeline tool reads them here
 > and nowhere else. A register records: nothing in it binds by itself.
 > **Epistemic:** Which stages does a sale pass through, and what moves it?
@@ -63,10 +63,12 @@ new record that names the old one.
 | `silence` | two follow-ups unanswered |
 | `we-declined` | the house chose not to pursue it |
 
-## Retention
+## Naming the organisation
 
-| Value | Days or months |
+| From stage | The organisation is written as |
 |---|---|
-| Personal data in a `lost` record, erased after | 12 months from the closing date |
-| Personal data in a `won` record | kept while the agreement lives, then as the ledger's documents are kept |
-| The record itself, without the personal data | kept: the statistics are made from it |
+| `lead` to `proposed`, and `lost` before agreeing | its sector and size: *a large retailer*, *a provincial police force* |
+| `agreed` and `won` | its name, unless it asked not to be named |
+
+Records are public and hold nobody's name at any stage; they are kept as
+they stand, since the statistics are made from them.

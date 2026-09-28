@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.75.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "Opportunities, a new series and a new section: every chance to sell something, as a public record. The Oracle's word: radical transparency — the pipeline is read by anyone, the records carry nobody's name, e-mail or phone, and they name the organisation by sector and size until it has agreed to a proposal. The folder is empty today; the first record to land appears here on its own, and the pipeline tool checks every record on every change.",
+      },
+      {
+        type: "CHG",
+        text: "'An opportunity has a record' no longer sends the records to a closed place: they live here, public, with a person never in them and the organisation named only once it agrees. 'The stages of a sale' says from which stage the organisation is named instead of how long personal data is kept.",
+      },
+    ],
+  },
+  {
     version: "v0.74.0",
     date: "2026-09-28",
     entries: [

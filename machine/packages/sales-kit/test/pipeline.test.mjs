@@ -45,13 +45,12 @@ function check(name, fn) {
 
 /* ---- the register is the one source ---- */
 
-test('the register is read from STD-038: seven stages, two closed, eight reasons, twelve months', () => {
+test('the register is read from STD-038: seven stages, two closed, eight reasons', () => {
   const reg = loadRegister();
   assert.deepEqual(reg.order, ['lead', 'qualified', 'analysed', 'proposed', 'agreed', 'won', 'lost']);
   assert.deepEqual(reg.closed, ['won', 'lost']);
   assert.equal(reg.reasons.length, 8);
   assert.ok(reg.reasons.includes('not-a-fit') && reg.reasons.includes('we-declined'));
-  assert.equal(reg.eraseAfterMonths, 12);
   assert.equal(reg.staleDays.qualified, 30);
 });
 
@@ -72,12 +71,12 @@ test('STD-039 and the tool agree on the fields of the record', () => {
 check('the fixtures conform, and the report carries every section', (dir) => {
   const r = run(dir, '--proposals');
   assert.equal(r.code, 0, r.err);
-  for (const h of ['## By stage', '## Needs a move', '## Time per stage', '## Funnel', '## Won and lost', '## Personal data to erase', '## By organisation'])
+  for (const h of ['## By stage', '## Needs a move', '## Time per stage', '## Funnel', '## Won and lost', '## By organisation'])
     assert.ok(r.out.includes(h), `report lacks ${h}`);
+  assert.doesNotMatch(r.out, /Personal data/, 'nothing personal is in a public record, so nothing is due for erasure');
   assert.match(r.out, /Won 1 · lost 1 · win rate 50 %/);
   assert.match(r.out, /OPP-2026-002\*\* overdue since 2026-10-01/);
   assert.match(r.out, /OPP-2026-003\*\* stale: 48 days in `qualified` \(limit 30\)/);
-  assert.match(r.out, /OPP-2026-004\*\* lost on 2025-09-15/);
 });
 
 check('--json prints the same figures as data', (dir) => {
@@ -131,6 +130,27 @@ check('OPP-005: a record with no transitions fails', (dir) => {
 check('OPP-006: a name in the header is refused', (dir) => {
   edit(dir, 'OPP-2026-002.md', (t) => t.replace('contact_role:', 'contact_name: "Someone Real"\ncontact_role:'));
   assert.match(run(dir).err, /OPP-006.*header carries `contact_name`/);
+});
+
+check('OPP-006: an e-mail address anywhere in a record is refused — the record is public', (dir) => {
+  edit(dir, 'OPP-2026-002.md', (t) => t.replace('First follow-up 2026-09-16, no answer.', 'First follow-up to head.training@example.org, no answer.'));
+  assert.match(run(dir).err, /OPP-006.*e-mail address/);
+});
+
+check('OPP-006: a phone number in the body is refused', (dir) => {
+  edit(dir, 'OPP-2026-003.md', (t) => t.replace('Stale on purpose', 'Call +34 612 345 678. Stale on purpose'));
+  assert.match(run(dir).err, /OPP-006.*phone number/);
+});
+
+check('OPP-011: an organisation named before agreed is reported; the won one may be named', (dir) => {
+  edit(dir, 'OPP-2026-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Provincial Forensic Unit"'));
+  assert.match(run(dir).err, /OPP-011.*"Provincial Forensic Unit" reads as a name/);
+});
+
+check('OPP-011: the won record keeps its name without a finding', (dir) => {
+  const r = run(dir);
+  assert.equal(r.code, 0, r.err);
+  assert.match(r.out, /Meridian Outfitters/);
 });
 
 check('OPP-002: a missing field is named', (dir) => {

@@ -19,6 +19,14 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-28 (opportunities, a public series)
+At the Oracle's word in session ("transparencia radical … casi que debería ser hasta público"; option A chosen: the organisation named only once it has agreed): the records of a sale live in the archive, not in a closed place.
+- **`opportunities/`**, a new series under Administration · Selling (`STD-001` 5.7.0, `STD-027` 0.4.0, `rules.json`): one record per opportunity, `OPP-YYYY-NNN.md`, its proposals beside it; no filename scheme of the archive's — the identifier and the header are `STD-039`'s; not header-governed — `pipeline.mjs` is its guard, and CI runs it on every change (an empty folder is green).
+- **`STD-039` 0.2.0:** *Outside the public archive* becomes *In the public archive*; *Roles in the header, names in the body* becomes *Nobody's name* — what identifies a person never enters a record, in header or body; new rule *The organisation, by sector until it agrees* (OPP-011); *Minimal, with its basis* loses its erasure clause, since nothing personal is kept. **`STD-038` 0.2.0:** the retention table becomes *Naming the organisation* — sector and size up to `proposed`, the name from `agreed` on unless the client asks otherwise.
+- **`pipeline.mjs`:** refuses an e-mail address or a phone number anywhere in a record, and an organisation that reads as a name before `agreed`; drops the erasure figure. Four new tests (23).
+- `PRO-028` and `PRO-030` follow the ruling (0.1.1); `SYS-010` 0.2.0 marks the records wired. Site v0.75.0: an *Opportunities* section, empty until the first record.
+- **Mechanism:** a check in `regime.test.mjs`, committed first and seen failing: the series is registered in `rules.json`, `STD-001` and `STD-027`, `STD-039` no longer says *outside*, and CI runs the tool on the folder.
+
 ### Added — 2026-09-28 (Training, the offer; selling as wired)
 At the Oracle's word in session, once the protocols (#536) were merged: the surface the sales system consumes.
 - **`OPS-012` Training — the offer** (draft 0.1.0, CC-BY-4.0, public by the Oracle's decision): the service in one paragraph; what is delivered — the place, the accesses, the trace per learner, the files under the proposal's licence, the measure; how learning is judged at one of Kirkpatrick's four levels with an example indicator each; two cases with the clients unnamed (a large retailer's first day; a police force's crime scene); price on quote from a floor the Oracle sets; re-checked every time a proposal is won or lost. The old numen.games Training page promised expert, empowering and collaborative and delivered nothing nameable; this record replaces the promise with the deliverable.

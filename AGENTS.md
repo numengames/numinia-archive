@@ -111,6 +111,10 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
   reserved — it says so in its own SPDX comment).
 - `legal/` — the legal texts the public sites are bound by, one `LEG-` series;
   every one is reserved and says so in its own SPDX comment.
+- `opportunities/` — every chance to sell something, one public record each
+  (`OPP-YYYY-NNN.md`, its proposals beside it); nobody's name in them, the
+  organisation by sector until it agrees. `machine/packages/sales-kit/` holds
+  the moulds and the tool that reads them.
 - `objects/` — entity cards: one Markdown per registered thing that is not a
   document (an avatar, a model). The bytes live in the depot.
 - `system/` — reference manuals of how the system works today.

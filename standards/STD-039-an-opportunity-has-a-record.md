@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T13:00:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -28,8 +28,8 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Every chance to sell something is one file with a header:
 > who, what, at which stage, worth how much, and what happens next. The
 > stage comes from the register of stages; the pipeline is computed from
-> the files, never typed; names stay in the body and out of the header;
-> the records live outside this public archive.
+> the files, never typed; the records are public, carry nobody's name, and
+> name the organisation only once it has agreed.
 > **Epistemic:** What must the record of an opportunity contain?
 > **Pragmatic:** Open a record when someone shows a need, and know what a
 > tool will refuse. Read the pipeline from the tool, never from memory.
@@ -66,23 +66,30 @@ overdue; one unmoved longer than the register's stale days is stale.
 record's transitions table: date, from, to, who, evidence. The time a sale
 spends in each stage is read from these rows.
 
-### What it says about people
+### What it says about people and organisations
 
-**Roles in the header, names in the body.** The header MUST carry roles and
-channels, never a person's name, address or number. Those MAY be written in
-the body, so the header can be aggregated and published while the body
-stays closed.
+**Nobody's name.** A record MUST carry roles and channels, never a person's
+name, address, number or anything that identifies one — in the header or
+in the body. Who said what is kept where the conversation happened, outside
+the archive. The record is public; a person did not choose to be.
 
-**Minimal, with its basis, then erased.** Personal data in a record MUST be
-the least needed to pursue the sale, held under the house's legitimate
-interest in offering its services to organisations, and erased after the
-register's retention period for a lost record. The record itself stays.
+**The organisation, by sector until it agrees.** A record MUST name the
+organisation by sector and size, not by name, until the client has agreed to
+the proposal; from the stage agreed on, the name MAY be written, and the
+earlier records of the same organisation MAY be updated. A client who asks
+not to be named is not named, and the record says so.
+
+**Minimal, with its basis.** What a record says about an organisation MUST
+be the least needed to pursue the sale, held under the house's legitimate
+interest in offering its services. A lost record is kept as it stands; it
+holds nothing that outlives its use.
 
 ### Where it lives and what it hands on
 
-**Outside the public archive.** Records MUST be kept in a closed place the
-Oracle names, never in this repository. The rules, the moulds and the tool
-are here; the records are not.
+**In the public archive.** Records MUST be kept in this repository, in the
+opportunities series, one file each; the pipeline is read from there by
+anyone. Transparency is the house's rule, and a sale is no exception once
+nobody's name is in it.
 
 **The pipeline is computed.** Counts, values, overdue and stale records,
 time per stage and reasons lost MUST be read from the records by a tool.
@@ -103,9 +110,10 @@ Each rule, its code, its source and its check.
 | OPP-003 | The stage is a value from the register | `STD-038` | `pipeline.mjs`: stage and reason read from the register's table |
 | OPP-004 | Every open record knows its next step | — | `pipeline.mjs`: overdue and stale listed |
 | OPP-005 | Every move leaves a line | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), metadata of the transaction (clause unverified) | `pipeline.mjs`: last transition's `to` matches the stage |
-| OPP-006 | Roles in the header, names in the body | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 5(1)(c), data minimisation | `pipeline.mjs`: header fields against a closed list; by hand for the values |
-| OPP-007 | Minimal, with its basis, then erased | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(e), 6(1)(f), recital 47 | by hand, at the register's retention; `pipeline.mjs` lists lost records past it |
-| OPP-008 | Outside the public archive | `CAN-012`; `STD-035` | by hand at every pull request: no record in this tree |
+| OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001 | `pipeline.mjs`: header fields against a closed list, and the body scanned for an e-mail address or a phone number; by hand for a name |
+| OPP-011 | The organisation, by sector until it agrees | — (the client's interest, and public-procurement rules that forbid a bidder disclosing a live negotiation) | `pipeline.mjs`: a record before `agreed` whose organisation is not one of the sector words is reported; by hand for the client's wish |
+| OPP-007 | Minimal, with its basis | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6(1)(f), recital 47 | by hand, at the review of every record |
+| OPP-008 | In the public archive | `CAN-009`; the Oracle's ruling | the tree: `opportunities/` is the series; `pipeline.mjs opportunities` runs in CI |
 | OPP-009 | The pipeline is computed | `CAN-009` | `pipeline.mjs` is the only source of pipeline figures |
 | OPP-010 | A won record hands on | `STD-036` LED-001 | by hand, at the ledger's month close |
 
@@ -116,8 +124,8 @@ typed into a sheet is wrong by the second week. One file per opportunity,
 with a header a tool can read, is what this archive already does with
 every mission and every decision: the same discipline, applied to the one
 function the house had never written down. The record outlives the seller;
-the figures come from the files; a person's name never travels further
-than it must.
+the figures come from the files; and because no person is in it, the whole
+pipeline can be as public as everything else here.
 
 ## References
 
