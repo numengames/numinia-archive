@@ -19,6 +19,14 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-27 (What is yours stays with you, carried out)
+At the Oracle's word in session ("ok continua"), after the protocols review found that the canon of ownership (`CAN-012`) had no protocol and the personal data standard said, in its own check table, that no breach procedure was written.
+- **`PRO-025` Handling a personal data breach** (draft 0.1.0): from the moment anyone suspects data we hold leaked, to the notice to the Spanish data protection authority within 72 hours and to the people affected when the risk is high; every breach logged, notified or not.
+- **`PRO-026` Answering a person's request about their data** (draft 0.1.0): see, correct, erase, limit, take away or object — acknowledged within a week, answered within a month, only to the right person, with what the law makes us keep blocked and named.
+- **`PRO-027` Changing what a site stores or loads** (draft 0.1.0): before a site adds a cookie, a stored value or another company's script, the cookie policy gets its line, the Oracle approves it, the consent version rises if consent is needed, and site and policy change in the same release.
+- **`STD-035` 0.3.6:** its check table names the three protocols; the breach row no longer says no procedure is written.
+- **Mechanism:** a test in `regime.test.mjs`, committed first and seen failing: `CAN-012` must have a protocol for a breach, a rights request and a stored thing, and `STD-035` must not say the breach procedure is missing.
+
 ### Changed — 2026-09-27 (joining and leaving, two protocols; the living pieces, thinner)
 At the Oracle's word in session ("ok", on splitting it and keeping only what the house does today).
 - **`PRO-015` *Joining and leaving Numinia* becomes two protocols, each with the mould's five parts.** `PRO-015` *Joining Numinia* (2.0.0, a major: its obligations change) and a new `PRO-024` *Leaving Numinia* (0.1.0). The old text was a corporate onboarding and offboarding plan: tools the archive names nowhere else (Huly, Microsoft 365, AWS, a VPN), a *buddy* no other document knows, titles in Spanish, 1,472 words. What stays is what a house of this size does: the agreement before any access, one access list per person opened on the way in and revoked from on the way out, secrets rotated when someone leaves, personal data closed as `STD-035` says, a welcome and a goodbye. The access list is the handover between the two.
