@@ -3,904 +3,221 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC-BY-4.0
 -->
 
-# Changelog — numinia-digital-agents
+# Changelog — numinia-archive
 
-> **Summary:** NWOS system document — CHANGELOG.
-> **Epistemic:** Complete history of changes to the Archive Summa.
-> **Pragmatic:** What changed and when — consult to understand system evolution.
+> **Summary:** One line per change to the archive, newest first, grouped by day.
+> **Epistemic:** An index: the pull request in each line holds the detail, git holds the rest.
+> **Pragmatic:** Read the top after pulling to see what moved; open the pull request for why.
 > **Audience:** Agents · Oracles
 
----
-
-All notable changes to the Archive Summa are documented here.
-Format: [type] description — date — author
-
----
+Format: [Keep a Changelog 1.1](https://keepachangelog.com/en/1.1.0/), one line
+per entry — its kind, what changed in words, the pull request. Entries before
+2026-09-28 were written as paragraphs; their full text is in git
+(`git show 2d2f465:CHANGELOG.md`). The April releases 0.1.0–0.5.0 are there too.
 
 ## [Unreleased]
 
-### Added — 2026-09-28 (the moulds, side by side)
-At the Oracle's word in session ("en estos templates es importante que aparezcan el tipo de cabecera… para ver que no haya duplicidades con las cabeceras"; the mission moulds, cleaned, first): the map's *Templates* entry led nowhere; the moulds could only be compared by opening thirteen files.
-- **`/templates`** — every mould in `machine/templates/`: what it makes, where the copy goes, the header it teaches (each field with the mould's own note on it, filled or optional), the sections of its body. Above them, one table with every header field of every mould and where each is registered (`rings.mjs`), the common header first in the order a mould writes it. A mould that writes that header in another order, or a field its series registers and the mould never offers, is printed on the mould's card. Read at build time by `web/src/lib/templates.ts` through the guards' own reader and registry; nothing typed. Markdown twin at `/templates.md`. `/templates` joins `check-url-shape`'s standalone pages; the map (`suma.ts`) and the scheme (`classification.ts`) point there. Site v0.82.0.
-- **The mission moulds cleaned.** `MIS-TEMPLATE.md` opens with the common header in the common order (it put the board's fields first, `type` and `version` after them), then the board's fields; the comment that called them "the ten fields the build verifies" was false — the build requires two. `MIS-TEMPLATE-EXAMPLE.md` follows the same order and the mould's numbered sections. **`MIS-TEMPLATE-CHANGES.md` removed**: a record of the August redesign whose figures (106 missions, an `area` field, a mould at `missions/TEMPLATE.md`) described a tree that no longer exists; git keeps it. References updated (`check-templates.mjs`, its test, `rings.mjs`, `REUSE.toml`, `corpus.ts`, the folder's README, which also gains the `OPP`/`PRP` rows it lacked).
-- **Three moulds aligned:** `BLU`, `STD` and `SYS` wrote `tags` out of the common order. `SYS-007` 0.1.2: the list of moulds that had gone stale becomes a sentence, and links the page.
-- **`machine/scripts/test/templates-page.test.mjs`** — every mould writes the common header in one order; the mission mould and its example agree; the built page and its `.md` carry every mould and every field the folder holds. `classification.test.mjs`: the templates row now links `/templates`; a second case keeps an instrument with no page of its own linking to the manual.
-
-### Changed — 2026-09-28 (a sale's record is a document like every other)
-At the Oracle's QA of `/opportunities/opp-2026-001` ("siempre metemos un valor pragmático, un valor epistémico… me da un poco de pena que no seamos capaces de inferir cómo funciona el sistema"): the opportunity and the proposal had a header of their own, no card, and moulds apart from every other mould. Same day the folder was opened; reversed before a third record existed.
-- **Governed like any series.** `opportunities/` joins `governed.dirs` (`rules.json`); prefixes `OPP` and `PRP`; two new types, `opportunity` and `proposal`, both at home in `opportunities/` (`STD-001` 5.8.0, the series and genre tables). The sale's own fields are registered in `STD-004`'s ring 3 for the series (4.3.0; `rings.mjs`), so the header guard accepts them and still refuses any other.
-- **Two states, two meanings.** `status` is the document's (a record `active` while kept; a proposal `draft` until sent, `active` once sent, `withdrawn` when revised or lapsed); `state` stays the sale's stage. `STD-040` 0.3.0 says so.
-- **Empty is absent.** `decider_role`, `closed`, `reason`, `proposal`, `agreement` are written when their stage asks for them and left out before (`STD-004` HDR-009), not written as `""`. `STD-039` 0.4.0; `pipeline.mjs` `REQUIRED` / `WHEN_DUE` / `COMMON` — the tool accepts every document's header and a test holds its copy equal to `rings.mjs`.
-- **The moulds with the others.** `machine/packages/sales-kit/OPPORTUNITY.md` and `PROPOSAL.md` become `machine/templates/OPP-TEMPLATE.md` and `PRP-TEMPLATE.md`, with the full header and the card; `check-templates.mjs` checks one mould per prefix, so both are held to T-01…T-10. References updated: `STD-001`, `SYS-010` 0.4.0, `PRO-028`, `PRO-029`, the kit's README, `opportunities/README.md` (now with a header and card of its own).
-- **The two records migrated.** `OPP-2026-001` and `PRP-2026-001` 0.2.0: common header (created from `git:1da1c49`), the card, sale fields unchanged.
-- **The page.** `[...slug].astro`: title falls back to the first heading before the file name; `state` shows when there is no `status`; `date` / `opened` stand in for `updated`.
-- **Guards.** `std-012` no longer reads `OPP-NNN` / `PRP-NNN` rule codes as missing documents (a series with no filename scheme is left out of the identifier resolver). `regime.test.mjs` now asserts the folder IS governed and both moulds exist. Site v0.81.0.
-
-### Added — 2026-09-28 (Metis, the sales agent)
-At the Oracle's word in session ("nos falta un agente digital encargado de la parte de ventas"): the sales system had its standards, protocols, tool and first record, and no agent whose work it was.
-- **`agents/metis/`** — the eleventh digital agent, Sales Agent, Procurators guild, named after the Titaness of practical intelligence and prudence. Born in the entity shape: `AGENT.md` (draft, forms → copies), not the `AGENT.yaml` the older agents still carry. `SOUL.md`, `OPERATOR.md` (escalates anything sent to, promised to or signed with a client, any price or term not set, and every `won`/`lost`), `SOURCES.md` (the offer, positioning and strategy in `operations/`, `STD-038`..`040`, `PRO-028`..`030`, `SYS-010`, `opportunities/` and the sales kit), and the Hermes adapter.
-- **`agents/INDEX.md` 3.2.0:** Metis's row. The site reads it: `/agent` gains her card; `web/src/lib/agents.ts` gives her presentation. Site v0.80.0. The Hermes profile itself is not instantiated.
-
-### Fixed — 2026-09-28 (every page links back to its file)
-At the Oracle's word during QA of `/opportunities/opp-2026-001` ("no hay un link al archivo en el github… hay que estructurarlo como el resto de la página web"): the "View on GitHub" button was missing from every page under `opportunities/`, `legal/`, `lore/` and `objects/`. `web/src/lib/build-info.ts` `REPO_DIRS` gains those four folders (the list decides whether a file gets its link; a folder absent from it returns no link, silently). `[...slug].astro` names the same folders, plus `history/` and `system/`, in the breadcrumb, which printed "raíz" for them. Site v0.79.0.
-
-### Added — 2026-09-28 (the pipeline, as three readers see it)
-At the Oracle's word ("en open books se suponía que íbamos a tener algo dedicado al pipeline de ventas… que le valiera tanto al management como al equipo de ventas y el equipo de transparencia… para el reporting semanal, trimestral y anual"): the report is published, not asked for.
-- **`/system/pipeline`** — a page in the mould of the open books: it states no figure of its own. `web/src/lib/pipeline.ts` reads `opportunities/` at build time **through the sales kit's own tool** (`machine/packages/sales-kit/pipeline.mjs`), so the page and the CI step cannot disagree on a number; a record breaking a rule fails the build as it fails CI. The browser cuts the records: three lenses (whoever sells — what needs a move, overdue first, then stale; management — weighted value, win rate, cycle, days per stage flagged past the register's limit, why lost; anyone — the same public records) and four periods (week, month, quarter, year: opened, moved forward, proposals sent, won, lost, value won — read from the transitions each record carries). The funnel, every record with its proposal beside it. SVG drawn by the page, no library.
-- **`/system/pipeline.md`** — the markdown twin, composed from the same records and tool (`composed-md.ts pipelinePage`): by stage, needs a move, the funnel, by month, why lost, every record. What a weekly roll-up pastes or links.
-- **The map and the section:** *Opportunities* and *The pipeline* in the Administration district beside the open books (`suma.ts`); the pipeline in `SECTION_VIEWS.system` (`corpus.ts`). **`SYS-010` 0.3.0:** the report row is *wired*.
-- **`machine/scripts/test/pipeline-page.test.mjs`** — three tests: the page library imports the tool and fails on a breach; the browser script, run against the kit's fixtures (won, lost, stale, overdue) in a minimal DOM, puts the tool's figures where each reader looks — KPIs, the overdue row first, the funnel's bars, the month with the win, the years newest first, the lens switches, no email on the page; the built page carries as many records as the folder holds and the same `byStage` the tool computes. Site v0.78.0.
-
-### Changed — 2026-09-28 (the process is the evidence)
-At the Oracle's word after reading the first real record ("es el proceso el que te va a decir si esto ha pasado"; signatures live in the contract, private unless the contract is public): two fields the system demanded said twice what an act already says.
-- **`STD-040` 0.2.0:** *Reviewed before commitment* becomes *Read before it is sent* — whoever sends a proposal has read it, sending is the approval, and the evidence is the record's transition to `proposed` with a name in *By*; the proposal carries no `reviewed_by`. Who signs is written in the agreement.
-- **`STD-039` 0.3.0 and `STD-038` 0.3.0:** the role of whoever can sign for the client is required from `agreed`, not from `qualified` — the first opportunity showed the house may not know it after one good conversation, and a record that cannot advance for a field nobody can fill teaches the wrong thing.
-- **`pipeline.mjs`:** checks the decider's role at `agreed`/`won` and a name in the transition to `proposed`; drops the reviewer check. 25 tests. **`PRO-029` 0.2.0:** the review and approval steps become one, *Read it and send it*. **`PRO-028` 0.2.0:** what is known of who signs is written, what is not is asked next.
-- **`OPP-2026-001`** now points at `PRP-2026-001`, still at `lead`: drafted, not sent. Site v0.77.0.
-
-### Added — 2026-09-28 (the first opportunity, the first proposal)
-At the Oracle's word in session ("ahí va el cuerpo…"): the first real record of the sales system, written by an agent from the Oracle's account and the qualifying protocol's questions, as the test of the whole circuit.
-- **`opportunities/OPP-2026-001`** — a national police force's training academy; stage `lead` (the decider is not yet known, so the qualifying protocol does not let it pass); the four things of the need written from one informal conversation, to confirm at the first meeting; value 14,500 EUR before tax, set under the minor-contract threshold; next action the meeting within two weeks. Expansion noted, not proposed: several scenes, live escape-room sessions.
-- **`opportunities/PRP-2026-001`** *The scene before the scene* — the four things of the proposal standard: objectives in the client's words; capacity (a walkable demo built before the meeting, the retailer case unnamed, what the technology asks); one scene in three moments with the level **learning** and its indicator, sequence errors per walk; 14,500 + 21 % = 17,545 EUR, valid 30 days, 50/50 invoicing, twelve months' access, maintenance as a separate optional line. Not yet reviewed nor approved, so the record does not point at it yet; `reviewed_by` is empty on purpose.
-- The pipeline tool passes on the folder: one record, 14,500 EUR at `lead`, nothing overdue. Site v0.76.0.
-- Learnt for the standards, not yet applied: 30 days as the default validity of a proposal; the minor-contract threshold as a value the proposal standard could name for public-sector clients.
-
-### Added — 2026-09-28 (opportunities, a public series)
-At the Oracle's word in session ("transparencia radical … casi que debería ser hasta público"; option A chosen: the organisation named only once it has agreed): the records of a sale live in the archive, not in a closed place.
-- **`opportunities/`**, a new series under Administration · Selling (`STD-001` 5.7.0, `STD-027` 0.4.0, `rules.json`): one record per opportunity, `OPP-YYYY-NNN.md`, its proposals beside it; no filename scheme of the archive's — the identifier and the header are `STD-039`'s; not header-governed — `pipeline.mjs` is its guard, and CI runs it on every change (an empty folder is green).
-- **`STD-039` 0.2.0:** *Outside the public archive* becomes *In the public archive*; *Roles in the header, names in the body* becomes *Nobody's name* — what identifies a person never enters a record, in header or body; new rule *The organisation, by sector until it agrees* (OPP-011); *Minimal, with its basis* loses its erasure clause, since nothing personal is kept. **`STD-038` 0.2.0:** the retention table becomes *Naming the organisation* — sector and size up to `proposed`, the name from `agreed` on unless the client asks otherwise.
-- **`pipeline.mjs`:** refuses an e-mail address or a phone number anywhere in a record, and an organisation that reads as a name before `agreed`; drops the erasure figure. Four new tests (23).
-- `PRO-028` and `PRO-030` follow the ruling (0.1.1); `SYS-010` 0.2.0 marks the records wired. Site v0.75.0: an *Opportunities* section, empty until the first record.
-- **Mechanism:** a check in `regime.test.mjs`, committed first and seen failing: the series is registered in `rules.json`, `STD-001` and `STD-027`, `STD-039` no longer says *outside*, and CI runs the tool on the folder.
-
-### Added — 2026-09-28 (Training, the offer; selling as wired)
-At the Oracle's word in session, once the protocols (#536) were merged: the surface the sales system consumes.
-- **`OPS-012` Training — the offer** (draft 0.1.0, CC-BY-4.0, public by the Oracle's decision): the service in one paragraph; what is delivered — the place, the accesses, the trace per learner, the files under the proposal's licence, the measure; how learning is judged at one of Kirkpatrick's four levels with an example indicator each; two cases with the clients unnamed (a large retailer's first day; a police force's crime scene); price on quote from a floor the Oracle sets; re-checked every time a proposal is won or lost. The old numen.games Training page promised expert, empowering and collaborative and delivered nothing nameable; this record replaces the promise with the deliverable.
-- **`SYS-010` Selling, as wired today** (active 0.1.0): the components table — rules, steps, offer record, moulds, tool wired; the closed place for records, the ledger handover and the scheduled report not wired — the flow of an opportunity through them, and how to verify it on the fixtures.
-- **The Summa map:** the *Training* entry of the Learn district's offer ring points at the offer record instead of saying *In preparation*; the district's line drops *soon*.
-- Shelves: the offer record among operations after the sales strategy; the system note after the account. Site v0.74.0. No ADR, under the transition regime.
-
-### Added — 2026-09-28 (the three moments of a sale, as protocols)
-At the Oracle's word in session, once the data layer (#535) was merged: the actors that move an opportunity through the stages register.
-- **`PRO-028` Qualifying an opportunity** (draft 0.1.0): open the record the day a sign of interest arrives; the fit question — is it learnt by walking it, or made of participation; who signs and from which budget line; pursue or decline with a reason, within the register's stale days. Sources: the house's own commercial phase, the APMP pursuit decision, ISO 9001 8.2.2.
-- **`PRO-029` Making a proposal** (draft 0.1.0): hear the four things in the client's words — objectives, learners and devices, conditions, what the responsible will see at which level; draw it on one page with the specialist; write the proposal from the mould with the four contents of ISO 29993 §5.2; a demonstration only when no case can be shown; review by someone other than the writer; the Oracle approves; send. Sources: ISO 29993 §5–7, Kirkpatrick's four levels, ADDIE's analysis phase.
-- **`PRO-030` Closing a sale** (draft 0.1.0): follow up on the register's cadence and close on silence; take the answer; fix scope and calendar from the proposal; the agreement under the house's terms, changed clauses read by the legal specialist; the Oracle signs; hand over to whoever builds and to the ledger; write why it was won or lost, and the case for the next proposal. Sources: the APMP win/loss review, `LEG-002`, `STD-036`.
-- **Mechanism:** a check in `regime.test.mjs`, committed first and seen failing: every stage the register `STD-038` names is moved by a protocol of the Sales territory.
-- The three read among the protocols after *Putting something on sale* and before *Closing the month*. Site v0.73.0. No ADR, under the transition regime.
-
-### Added — 2026-09-28 (how a sale is written down)
-At the Oracle's word in session ("vamos con la PR"), after a planning pass on how Numen Games sells its Training offer: the house had no record of an opportunity, no pipeline and nothing ready to send, and its survival depends on selling. The first piece of a sales system, built so a team, a CRM or an ERP can inherit it: the data layer.
-- **`STD-038` *The stages of a sale*** (register, draft 0.1.0): seven stages `lead → qualified → analysed → proposed → agreed → won`, and `lost` from any open one; per stage the evidence that puts an opportunity there, who moves it and the days after which it is stale; eight closed reasons a sale is lost; twelve months' retention of personal data after a loss. The tool reads every value here.
-- **`STD-039` *An opportunity has a record*** (draft 0.1.0, plates OPP-001…010): one file per opportunity with the header the pipeline needs; the stage from the register, never in the filename; every open record with a next action and date; every move a row in a transitions table; roles in the header, names only in the body; minimal data with its basis and its erasure; records kept outside this public archive; the pipeline computed, never typed; a won record handed to the ledger. Sources: ISO 15489, ISO 9001 8.2, GDPR arts. 5–6.
-- **`STD-040` *A proposal says four things*** (draft 0.1.0, plates PRP-001…009): the four contents ISO 29993:2017 §5.2 asks of a learning-service proposal — objectives in the client's words, capacity shown, how it teaches and how it measures at one of Kirkpatrick's four levels, price with tax visible — plus what the client must know before agreeing (§6), the three questions of the canon of money, review before commitment (ISO 9001 8.2.3), one record rendering document and page, kept beside its opportunity. Clauses read in the public preview are cited; the rest say so.
-- **`machine/packages/sales-kit/`**: the moulds `OPPORTUNITY.md` and `PROPOSAL.md`, and `pipeline.mjs` — zero dependencies, reads the stages from `STD-038`, validates a folder of records against `STD-039` (and their proposals against `STD-040` with `--proposals`), exits 1 naming each breach, prints the pipeline as Markdown or JSON: by stage, overdue and stale, time per stage, funnel, won and lost with reasons, personal data due for erasure, by organisation. Four invented fixtures and nineteen tests under `npm test`.
-- The three read on the shelf *What leaves the house*, after what is charged for and before the account. `BLU-016` carries their questions. Site v0.72.0. No ADR, under the transition regime.
-
-### Added — 2026-09-27 (What is yours stays with you, carried out)
-At the Oracle's word in session ("ok continua"), after the protocols review found that the canon of ownership (`CAN-012`) had no protocol and the personal data standard said, in its own check table, that no breach procedure was written.
-- **`PRO-025` Handling a personal data breach** (draft 0.1.0): from the moment anyone suspects data we hold leaked, to the notice to the Spanish data protection authority within 72 hours and to the people affected when the risk is high; every breach logged, notified or not.
-- **`PRO-026` Answering a person's request about their data** (draft 0.1.0): see, correct, erase, limit, take away or object — acknowledged within a week, answered within a month, only to the right person, with what the law makes us keep blocked and named.
-- **`PRO-027` Changing what a site stores or loads** (draft 0.1.0): before a site adds a cookie, a stored value or another company's script, the cookie policy gets its line, the Oracle approves it, the consent version rises if consent is needed, and site and policy change in the same release.
-- **`STD-035` 0.3.6:** its check table names the three protocols; the breach row no longer says no procedure is written.
-- **Mechanism:** a test in `regime.test.mjs`, committed first and seen failing: `CAN-012` must have a protocol for a breach, a rights request and a stored thing, and `STD-035` must not say the breach procedure is missing.
-
-### Changed — 2026-09-27 (joining and leaving, two protocols; the living pieces, thinner)
-At the Oracle's word in session ("ok", on splitting it and keeping only what the house does today).
-- **`PRO-015` *Joining and leaving Numinia* becomes two protocols, each with the mould's five parts.** `PRO-015` *Joining Numinia* (2.0.0, a major: its obligations change) and a new `PRO-024` *Leaving Numinia* (0.1.0). The old text was a corporate onboarding and offboarding plan: tools the archive names nowhere else (Huly, Microsoft 365, AWS, a VPN), a *buddy* no other document knows, titles in Spanish, 1,472 words. What stays is what a house of this size does: the agreement before any access, one access list per person opened on the way in and revoked from on the way out, secrets rotated when someone leaves, personal data closed as `STD-035` says, a welcome and a goodbye. The access list is the handover between the two.
-- **`PRO-022` *Building the living pieces* 0.2.0.** The reading-aloud part was a four-row table restating the numbers and the history of `STD-023` §22. It is now seven numbered steps that cite §22 for every value; no number or behaviour changes. 1,285 words → 881.
-- `/protocols/pro-015-joining-and-leaving` redirects to `/protocols/pro-015-joining`. `CAN-001` names `PRO-024` among its related documents (patch).
-- **Mechanism:** in `regime.test.mjs`, committed first and seen failing on both: joining and leaving leaves the mould test's exclusion, and a new test fails on any protocol over 900 words.
-
-### Changed — 2026-09-27 (every protocol has the five parts)
-At the Oracle's word in session ("ok go"), after a review of the sixteen protocols: they should all read alike before any more of them come into force.
-- **Nine protocols take the mould's five parts:** purpose and trigger, preconditions, procedure, verification, escalation (`machine/templates/PRO-TEMPLATE.md`). Session (`PRO-001`), escalation (`PRO-005`), approval (`PRO-008`), security audit (`PRO-011`), guard to CI (`PRO-013`), design piece (`PRO-014`), engineering standard (`PRO-016`), weekly roll-up (`PRO-017`) and publishing (`PRO-018`) had four, under a heading called Trigger. Each gains a Preconditions section naming what must be true before step 1; no step changes. Minor bump each.
-- **Handing a guard to CI and publishing a repository number their steps.** Their procedures were tables; they are now numbered lists, with the same step numbers, so the retired-plates ledger still points at the right step.
-- **Seven blueprints (`BLU-009` to `BLU-015`) cited the design checklist as `PRO-014` §4.** That section was escalation. They now cite step 6. Patch bump each.
-- **Not in this change:** running a mission (`PRO-003`) stays as it is while missions are suspended; joining and leaving (`PRO-015`) and the living pieces (`PRO-022`, over its length budget) are reshaped next, in their own change.
-- **Mechanism:** two tests in `regime.test.mjs`, committed first and seen failing on the nine: every protocol has the five parts in order, and its procedure is a numbered list.
-
-### Added — 2026-09-27 (Books)
-At the Oracle's word in session ("genial"): the compilations are not series and belong to no one function, so they get a menu of their own.
-- **A Books menu in the bar and the mobile panel**, read from one list (`BOOKS` in `web/src/lib/suma.ts`): the core and the design system, with the role-playing manual and the legal playbook listed as coming (each says why it is not served yet).
-- **Each served book is also in the ring its documents come from** (The rules, on the map and in the Archive menu), so it is reachable both ways.
-- **`books.test.mjs`** fails if a served book loses its page, is missing from the rings, or the bar stops reading the list.
-
-### Added — 2026-09-27 (the core, as a flow)
-At the Oracle's word in session ("es mejor hacer ya la web"), to review the core by listening to it end to end.
-- **`/core`** lists each canon with the standards that make it concrete and the protocols that carry it out. **`/core/<canon>`** puts one canon's whole chain on one page, in the order canon → standards → protocols, each marked in force or draft, without the Check tables and References, so the Listen button reads it as one episode. Each page has its `.md`.
-- **Every standard and protocol names its canon** in its header with `derived_from` (a relation `STD-004` already registered; its relation table now says what it means here). Fifteen standards cited no canon; they were anchored by theme: the form of the archive under *The archive is the organisation*, the engineering checks and secrets under *Leave things better*, accessibility and what every site carries under *One identity, three forces*, personal data under *What is yours stays with you*. Patch bump on the 48 headers, no text change.
-- **A test holds it** (`core-flow.test.mjs`): a standard or protocol with no canon, or naming one that does not exist, fails; the page throws rather than dropping it.
-
-### Changed — 2026-09-27 (the corpus does not grow, in force)
-At the Oracle's word in session ("ok activala"). Before the change he was shown what activating it means (`PRO-023` step 8).
-- **`STD-012` — The corpus does not grow is `active` at 2.1.0.** Only the header changes.
-- **What now fails the build:**
-  - deleting a document that a living document still cites (`DEF-009`);
-  - a record that names a replacement in its header but has not been withdrawn (`DEF-008`).
-  The guard reported 0 findings after #524.
-- **What reviewers now check by hand** (the rules no guard reads yet, all tied to the roll-up protocol, which is still draft):
-  - the history is the daily record;
-  - there are three roll-up levels, no more;
-  - three kinds of line survive a roll-up;
-  - a phase is an index, not a level;
-  - the written procedure authorises every removal.
-- **Mechanism:** `regime.test.mjs` asserts that `STD-012` is active and that both plates bind. It was committed first and seen failing.
-- **Two blindness fixtures hardened.** They build a copy of the repository without its history, and they had asserted that the guard exits 0. With the rule in force, that copy fails on citations that only the history resolves. The fixtures now check only their probe file. The wrong-folder probe named a guild charter that has since been deleted, so it now uses `canon/INDEX.md`. It had passed only while `STD-012` was a draft.
-
-### Fixed — 2026-09-27 (the corpus-does-not-grow guard reads what the tree had)
-At the Oracle's word in session ("limpieza"). This clears the way for `STD-012` to come into force, and the Oracle is shown that activation separately (`PRO-023`). The guard's 84 findings go to 0.
-- **83 were the resolver's own blindness.** It knew only deleted files whose name started with two to five capitals and three digits. It now also knows:
-  - the one-letter series the archive used before (`P-`, `S-`, `D-`);
-  - files that were renamed away, not only deleted;
-  - deleted files with no identifier (`MEMORY.md`, `web/DESIGN.md`);
-  - paths in a sibling repository (`numinia-web/…`, `seminal/…`), which are elsewhere, not gone.
-- **`CHANGELOG.md` is now read as a photograph.** Each entry is closed the day it is written (`CIT-053`), so its entries are no longer walked as citers. That blindness is declared in `blind-spots.json`.
-- **The real citations are fixed in the documents:**
-  - `README.md` cited a deleted decision for "written in English"; it now cites `STD-007`.
-  - `SYS-001` linked a deleted blueprint.
-  - `SYS-002` named a runtime file outside the archive.
-  - `MIS-TEMPLATE-CHANGES` now qualifies its web-repo paths.
-  - `MIS-0101` names files still to be created without `.md`.
-  - `ADR-036` declares the `S-` identifiers it absorbed.
-  - `ADR-048`, which names its successor `ADR-049`, is now `withdrawn` (`DEF-008`).
-- **Mechanism:** `machine/guards/test/std-012-corpus-does-not-grow.test.mjs`, committed first and seen failing against main's guard.
-
-### Changed — 2026-09-27 (bringing a rule into force, and one page per document, in force)
-At the Oracle's word in session ("ok"), after he was shown what each changes (`PRO-023` step 8).
-- **`PRO-023` — Bringing a rule into force is `active` at 1.0.0**, the first protocol to leave draft. No rule now starts to bind without its steps: its guard run, its findings fixed in the documents that break it, every requirement read for a yes or a no, and the activation shown to the Oracle before the branch. It is read at review; no guard watches it. `AGENTS.md` names it on a new "In force:" line inside the transition regime, as its step 10 asks.
-- **`STD-007` — One page per document is `active` at 2.2.0.** From now on the build fails if a standard, protocol or other governed page lacks its card (Summary, Epistemic, Pragmatic), a standard or protocol lacks its Binds line, or a standard has no plated rule. Sizes stay warnings. Reviewers now read for three things by hand: one question per document, obligation words in their one meaning, and English.
-- **Findings fixed first, in the documents:** `BLU-007`, `RPT-008`, `MIS-0123` and the mission-selection annex get the card parts they lacked (patch bumps). STD-007's guard: all hold.
-- **Mechanism:** `agent-context.test.mjs` now checks that the protocols in force are exactly the ones `AGENTS.md` names, and every other is draft. It is committed first and seen failing.
-
-### Fixed — 2026-09-27 (the protocols keep the designed system)
-At the Oracle's ruling, after #521 merged: a form pass changes shape, not substance. #521 had also adapted five protocols to the transition regime, and that is reverted here. The designed system is safer, and it is what lets the system know what is being done and learn from how it works. The transition regime suspends it only in `AGENTS.md`, and a protocol's promotion restores it as written. What comes back, as steps: in `PRO-001`, the missions board, the briefing, the load score, the `divergence_log`, `OPS-008`, `OPS-009` and decisions to `decisions/`; in `PRO-005` and `PRO-008`, the mission line and the decision record; in `PRO-016`, task classification, practice plates in commits and a weakened check coming as a decision record; in `PRO-018` and `PRO-019`, the mission and the card. The test-first step #521 added to `PRO-016` stays. The retired-plates ledger now points at the new step numbers. Site v0.69.0.
-
-### Changed — 2026-09-27 (every protocol is steps)
-At the Oracle's word in session ("ok go"; running a mission stays as it is, in draft). A standard is complied with, a protocol is carried out (`STD-024`), and yet fourteen protocols carried a Rules section of plated MUSTs. **Twelve protocols rewritten to one form:** an Epistemic line that is the protocol's question, then numbered steps, verification, escalation. Every rule became a step. The plates (SES, ESC, APV, GRD, RLS, DSP, TSK, RUP, RIT, SAL, MON) go to `machine/scripts/retired-plates.json`, each with the step that now carries it. `PRO-011`'s SEC-001..007 are gone, so SEC now has one holder, `STD-015`. **The protocols now describe what we do today:** `PRO-001` (session) no longer asks for a missions board, a load score, a `divergence_log` or `OPS-008`; `PRO-005`, `PRO-008`, `PRO-016` and `PRO-018` stop pointing at mission cards and ADRs; `PRO-016` adds test first and drops plates in commits. `PRO-015` and `PRO-022` get a question as their Epistemic line. `PRO-003` (running a mission) is left untouched. **`STD-007` 2.1.0:** a plated rule is asked of a standard; a protocol holds none (guard `NEEDS_PLATES` is standards only). **Mechanism:** three tests in `regime.test.mjs` and one in `std-007-one-page.test.mjs`, committed first and seen failing. Site v0.68.0.
-
-### Changed — 2026-09-27 (one document, one address, in force)
-First activation run through `PRO-023`, at the Oracle's word in session ("ok go") after he was shown what it changes. **`STD-028` — One document, one address is `active` at 1.0.0** (from draft 0.3.4). Its five machine-checked rules already pass (`check-url-shape`, run in the web build); what activation adds is one rule read at review — a document is cited by its name, not by its web address. `PRO-023` 0.2.0: step 9 says a document below 1.0.0 reaches 1.0.0 when it comes into force, as `STD-019` makes reaching one a major move.
-
-### Added — 2026-09-27 (PRO-023, bringing a rule into force)
-At the Oracle's word in session: he wants each activation reviewed, one by one, and was sure protocols were missing. **`PRO-023` — Bringing a rule into force** (draft 0.1.0): twelve steps from a candidate to `status: active` — run its guard, fix the findings in the documents that break the rule, read every MUST for a yes or no, list the by-hand checks reviewers inherit, show the Oracle the activation before the branch, change only the header, restore a protocol's ceremony in `AGENTS.md`, base the pull request on `main` and check it landed. It writes down what #517 and #518 did by hand, including the lesson of #517 (a pull request based on another branch never reached `main`). `/binding` and `/binding.md` link it; it reads on the protocols shelf after publishing a repository. **Mechanism:** a test in `binding.test.mjs`, committed first and seen failing. Site v0.67.0.
-
-### Changed — 2026-09-27 (the entry door, and six standards in force)
-At the Oracle's word in session ("go").
-- **`CONTRIBUTING.md` rewritten.** It cited a protocol renamed long ago (`P-001-agent-briefing`), a `STATUS.md` no agent keeps and a mould path without its extension, and called the canon "immutable by policy" while `AGENTS.md` says canon changes through the operator in chat. It now sends readers to `/binding` and `AGENTS.md`, lists the pull-request steps and what needs the Oracle first. `AGENTS.md` names the mission mould with its extension. **Mechanism:** two tests in `agent-context.test.mjs`, committed first and seen failing, hold CONTRIBUTING to paths that exist and to deferring to `AGENTS.md`.
-- **Six standards are `active`.** Licensing (`STD-010` 2.4.0), one identifier (`STD-018` 1.2.0) and git is the archive (`STD-020` 2.2.0) — approved in #517, which merged into #516's branch after #516 had merged, so they never reached `main`; they land here. With them: the header (`STD-004` 4.2.0), versions (`STD-019` 3.1.0) and evidence and citation (`STD-021` 1.4.0), whose guards now find nothing.
-- **The findings that stood in the way, fixed:** the entity card `agents/ursa/AGENT.md` used a `type` and three fields the header rules did not know — `entity` joins the type list as a card that lives with what it describes (`STD-001` 5.6.0), and `entity`, `type_execution`, `forms` join the `agents/` ring (`STD-004`); the cookie policy's `provenance: agent` becomes `ai-generated`; `RPT-018`'s version log carried five lines copied from `RPT-017` and ran backwards; `RPT-017` and `MIS-135` gain the log line for the version their header already had; `ADR-056` cited two sections of a blueprint by number that the blueprint no longer numbers.
-
-### Changed — 2026-09-27 (the five longest standards, thinned)
-At the Oracle's word in session. The prose of the header, licensing, design-token, when-a-rule-bites and platform-ranks standards loses repetition, history and doubled reasons; no obligation changes. Every MUST/SHOULD/MAY sequence, table row and plate is identical to main (checked mechanically per file). Tokens 14,365 → 13,768 (−4 %): these five are mostly tables and Check sections, which carry the rules and stay verbatim, so the prose was the only room. Patch bumps: STD-003 3.2.5, STD-004 4.1.4, STD-005 4.0.4, STD-008 10.0.4, STD-010 2.3.5.
-
-### Added — 2026-09-27 (/binding names which documents are draft)
-At the Oracle's word in session: what is draft, what is not, and why, should be visible to a person or an agent at a glance instead of being recalled in chat.
-- **`/binding` lists each canon, standard and protocol** with its state and a link, under the counts it already had. `lifecycle()` in `web/src/lib/binding.ts` now returns the documents of each row (id, title, status, address) read from their headers; the page and `/binding.md` render them. Nothing is typed by hand, so a promotion out of draft moves the document by itself.
-- **The mechanism:** two tests in `binding.test.mjs`, committed first and seen failing, check that each row names its documents and that both the page and its markdown list them. Site v0.66.0.
-
-### Added — 2026-09-27 (legal is its own series)
-At the Oracle's word in session. Where legal texts live had three answers that disagreed: `STD-001` said `operations/legal/` (which did not exist), `rules.json` mapped `type: legal` to `canon/`, and the files sat loose in `operations/`. The Oracle doubted `operations/` was their place; Byblos proposed a series of their own and he said to create it.
-- **`legal/` is a series, `LEG-NNN`, threshold `governed`,** under Administration · *Committing* in the scheme (`STD-027` 0.3.0): the company's promises to the public in law, which change when the law or the service does. `STD-001` 5.5.0 gives it its row and moves `type: legal` there; `operations/` now holds strategy, sales and continuity.
-- **The three texts move unchanged:** `OPS-003` → `LEG-001` privacy, `OPS-004` → `LEG-002` terms, `OPS-010` → `LEG-003` cookies. Each carries `former_id`, so every old citation still resolves. Living citers (`STD-035`, `STD-037`, `BLU-017`, `LEG-003`, `AGENTS.md`, Lexa's sources) name the new identifiers; closed records keep the old ones.
-- **`LEG-TEMPLATE.md`** is the mould; `rings.mjs` registers the fields the texts carry; `STD-004` lists `legal/` beside `operations/`.
-- **The site:** a `/legal/` shelf, the three texts at `/legal/leg-00N-…`, `/legal/terms`, `/legal/privacy` and `/legal/cookies` unchanged, and every old `/operations/ops-00N-…` address redirects. `/legal` leaves the standalone list of the URL checker: it is a series address now. Site v0.65.0.
-- **The mechanism:** a test in `regime.test.mjs`, committed first and seen failing, fails if `type: legal` sits outside `legal/` or the series is missing from `STD-001`, `STD-027` or `rules.json`. The template test no longer types "12 templates"; it counts the folder.
-- **Not in this change:** numen.games keeps verbatim copies of the privacy policy and terms whose header still says `OPS-003`/`OPS-004`; they are refreshed from the master in that repository.
-
-### Changed — 2026-09-27 (one answer per question)
-At the Oracle's word in session, after Byblos's review: where a document goes, and what a change to it costs, had more than one written answer, and the copies had begun to disagree. Each fact now lives in one place, and a test fails if a second copy comes back.
-- **The function of a series is `STD-027`'s alone.** `STD-001`'s series table loses its *Function · Activity* column and its paragraph restating the scheme; it files, the scheme classifies. The site already read the function from `STD-027`; `web/src/lib/classification.ts` now reads the narrower table.
-- **The threshold is `STD-001`'s alone.** The `threshold:` header field leaves 11 canons, 20 standards and the canon mould; `STD-004` retires it (HDR-031) outside `decisions/`, where it still marks a decision that sits at a sealed threshold. Every touched document takes a patch bump.
-- **No living text types a range of identifiers.** "STD-001…STD-028" in `AGENTS.md` was eleven standards out of date; the rule index below it is generated. The ranges in `AGENTS.md` and two agents' `SOURCES.md` go.
-- `regime.test.mjs` holds all three: a `threshold:` in a canon, standard, protocol or mould header, a function column in `STD-001`, or a typed identifier range in the entry doors, agents, canon, standards, protocols or system fails `npm test`.
-- **Not in this change:** where legal texts live. `STD-001` says `operations/legal/`, which does not exist; `rules.json` says `canon/`; `OPS-003`, `OPS-004` and `OPS-010` sit in `operations/`. The Oracle is not sure `operations/` is their place; it waits for his answer. Site v0.64.0.
-
-### Changed — 2026-09-26 (a requirement answers yes or no)
-At the Oracle's word in session, after Byblos's review of the rule shelves: the definition of a standard had lost the test he had set for it — that it can be answered with a yes or a no — and the last trace of it went in the copy pass (`STD-008`'s summary, "answer yes or no" → "pass or fail"). Asked for the best definition of a standard, the Oracle confirmed the narrower reading: the test holds for each requirement, not for the whole document.
-- **`STD-024` 3.0.0 adds SER-008, *A requirement answers yes or no*.** It carries the international definition (ISO/IEC Guide 2: rules, guidelines or characteristics for common and repeated use) and the drafting rule that a requirement is objectively verifiable. Every MUST in a standard must let anyone, holding the thing made, say yes or no to whether it is met. A standard that only fixes values or terms is a register: still a standard, still in `standards/`, and the norm that cites it holds the requirement. A new obligation, so a major.
-- **`STD-001` 5.4.6:** the `standards/` row says each requirement is answered yes or no, and that a register fixes the values or terms a norm cites.
-- No document moves. The registers (`STD-001`, `STD-015`, `STD-023`, `STD-026`, `STD-030`) stay where they are.
-
-### Added — 2026-09-26 (a canon for ownership)
-At the Oracle's word in session: the coherence review found digital sovereignty — the wallet, progressive identity, *digital ownership, not digital rental* — carried by the vocabulary register and the ranks standard with no canon saying why. He chose to write it.
-- **`CAN-012` *What is yours stays with you*, in draft (0.1.0).** What a person holds here is theirs, not lent; it is kept in a form they can take whole, without asking; leaving is made easy because loyalty is only worth having from someone who could go; nobody needs a key of their own to come in, and each step up the staircase hands them more of what is theirs. It closes on three questions to put to anything that will hold something of a person's. No ADR, under the transition regime.
-- It reads on the shelf *The citizens*, after *Opening is an act* and before the closing ethics canon. `standards-index.test.mjs` now fails if any canon sits on no reading shelf. Site v0.63.0.
-
-### Changed — 2026-09-26 (the canon shows its question)
-At the Oracle's word in session, with the ten questions approved in chat before the branch existed. The format from the standards index is carried over to the canon.
-- **Each canon's Epistemic line is now the question a newcomer asks before reading it,** and its title is the answer. The question never repeats the title's words, so the two read together: *Opening is an act* answers *Why give away what we make?* Each canon takes a patch bump; nothing else in the canon changes.
-- `/canon` shows the question under each title, from the same build-time reader as `/standards`.
-- `standards-index.test.mjs` fails if a canon's question runs past ten words, stops being one question, or repeats its title. Site v0.62.0.
-
-### Changed — 2026-09-26 (the standards index shows each question)
-At the Oracle's word in session, after a 1–10 review of the standards section: a newcomer should read what each standard is for before its code.
-- **Every standard's Epistemic line is now its one question,** word for word as in the map of `BLU-016` (0.8.1). The three registers, which had only a summary, gain the line too. Each standard takes a patch bump.
-- **`/standards` shows the question under each title,** read from the card at build time. On every index the title comes first and the code, date and status sit on a quieter line under it.
-- **The note above the shelves** no longer promises "language first"; it names the five shelves in their real order.
-- `standards-index.test.mjs` holds the three together: every standard states one question, the map says the same words, the index renders it, and the note names the shelves in order. Site v0.61.0.
-
-### Changed — 2026-09-26 (the copy pass)
-At the Oracle's word in session: the standards must read intelligible, beautiful and direct. Written in the voice of Calliope, the archive's copywriter.
-- **Scope is one line.** The "Does not bind" line leaves all 32 standards, 15 protocols and the standard mould: it added nothing, and it put in a reader's mind the very thing it named. `STD-007` 2.0.0 drops the obligation (DOC-003 is now one Binds line); the one-page guard no longer asks for it, and a test fails if it comes back in any standard, protocol or mould.
-- **No law-or-choice coda.** "Our choice", "the law requires this", "not law for us" and their kin leave the reading and the check tables. A rule that rests on a law still cites it in its Source column. A test fails if the coda comes back into a standard.
-- **Every standard reread for its reader.** Shorter sentences, the obligation first, one idea per sentence, no stacked semicolons. No obligation word changed: the MUST/SHOULD/MAY sequence of every file is identical before and after. Every touched standard and protocol takes a patch bump; `BLU-016` 0.8.0.
-
-### Changed — 2026-09-26 (thinning the apparatus)
-At the Oracle's word in session: clean first, sign nothing yet. The standards go from 71,212 tokens to 67,467 (−5.3 %), 32 documents, and no rule changes.
-- **The header's note on the latest change (`series_change`) is retired.** The changelog and git already hold it. The field leaves Ring 3 of `STD-004`, the ring registry and the mould, and the header guard now names it as a retired field.
-- **Retired plates leave the standards for one ledger,** `machine/scripts/retired-plates.json`: 36 plates, each with the document that held it and the rule that holds its obligation now. `STD-007` 1.5.0 says so where it says a code is never reused. `regime.test.mjs` fails if a ledger plate is held again, or if a retired row or `series_change` comes back.
-- **Reference tables list only what a standard depends on,** as `STD-007` asks. Fifteen rows pointing at decisions, reports and debt, which record history, leave. Eight titles are corrected to the cited document's own title.
-- Every touched standard takes a patch bump (`STD-007` a minor). `BLU-016` 0.7.1.
-
-### Changed — 2026-09-26 (one document, one question: the last rows)
-At the Oracle's word in session: the last three open rows of the map close in one pull request.
-- **`STD-005` 4.0.0 is renamed *When a rule bites*** (the old address redirects). It now answers one question: when a guard fails the build, and how guards and the shared pipeline come to run.
-  - The family pipeline moves in whole from `STD-015`.
-  - Its other practices leave for their holders, and each old plate keeps a retired row pointing there:
-    - settings in the environment → KEY-057 of `STD-022` 1.2.0;
-    - leave it better → GIT-050 of `STD-020` 2.1.0;
-    - the security score, migrating in order, incidents and the platform as a product → register rows SEC-013, SEC-014, SRE-007 and AGT-007 of `STD-015` 5.0.0 (54 practices);
-    - the changelog rule → register row TRC-004, which now says it whole.
-- **`STD-032` becomes `SYS-009`**, on the system shelf. A map of which documents make up the design system binds nobody. The design page, its markdown, its download and the kit manifest read it from there; the old address redirects.
-- **Citers follow:** `AGENTS.md`, the agents' sources, `PRO-013`, `PRO-016`, `STD-009`, `STD-034`, the design kit prompt, the orphan and address checks, the reading shelves.
-- `regime.test.mjs` checks each new holder. `BLU-016` 0.7.0: no row of the map is open; 32 standards. Site v0.59.0.
-
-### Changed — 2026-09-26 (thinning the standards: design values)
-At the Oracle's word in session: *the recipes do not belong in a blueprint; at most they belong in a protocol, which says how things are built. Standards hold the colours and the very concrete things.*
-- **`STD-023` 1.6.0 holds values only.** About 11,661 tokens become about 7,900.
-  - How the sky moves, where each Velo layer may go and how the reading-aloud player is built move whole to **`PRO-022` Building the living pieces**, a new protocol. It has numbered steps and no rules: a protocol says how a thing is built, not what may be done with it.
-  - The Píxel-16 table drops its origin column.
-  - The external references drop the three rows that `STD-008` and `STD-034` already hold.
-  - A drift note already fixed in production is removed.
-  - The sky no longer says it can never react to cursor or scroll. The Oracle plans an interactive background.
-- **The kit promise is now checked.** `STD-023` used to say the kit fails to build when the two differ, but nothing compared them. `rules.test.mjs` now fails if a colour in `STD-023` is missing from `sistema.tokens.json`, and if the recipes come back into the values.
-- **Pointers follow the move:**
-  - `BLU-011` 1.1.1 now cites `PRO-022` for the sky.
-  - `PRO-014` names `PRO-022`.
-  - The `BLU-016` row is closed.
-  - The comment in the site's reading player now cites `PRO-022`.
-- Site v0.58.0.
-
-### Changed — 2026-09-26 (thinning the standards: the header)
-At the Oracle's word in session: the header and its fields are one question, and the rings must not be lost.
-- **`STD-016` is retired into `STD-004` 4.1.0.** Everything below its heading moves over whole, under the Check table, in this order: Ring 1 (identity), Ring 2 (provenance, with its relations), the outside meaning (Dublin Core and PROV), Ring 3 (extension by series), the vocabularies and the one table of status lifecycles. No field, plate or rule changes.
-- **A test now guards the rings.** `rules.test.mjs` fails if `STD-004` loses any of the six ring headings. The lifecycle mirror now reads `STD-004`.
-- **Citations follow the move.** Every pointer at `STD-016` now points at `STD-004`: the templates, guards, libraries, agents' sources, the README, the site pages and the claims register anchor. The old address redirects.
-- `BLU-016` 0.5.0. Site v0.57.0. Standards go from 34 documents and 75,217 tokens to 33 and 74,964.
-
-### Changed — 2026-09-26 (thinning the standards)
-At the Oracle's word in session: the fat comes off before anything else is split. The standards go from 35 documents and 78,102 tokens to 34 and 75,217, 3.7 % less, and no rule is dropped.
-- **`STD-013` is retired into `STD-010` 2.3.0.** The allowlist, the in-file fields and the licence texts move over whole, since they answer the same question. `PRO-018` 1.0.1 and the site follow, and the old address redirects.
-- **`series_change` keeps only the latest version.** Older entries were already in git and here (−1,164 tokens).
-- **The footer and the share card are written once, in `STD-037` 0.2.0.** `STD-023` 1.5.0 points to it and keeps its section numbers.
-- **The scarab's SVG, which was duplicated in `STD-023` §13, is now its file** `web/src/brand/Khepri_Logo.svg`.
-- **The sentence introducing the Check table is shorter,** in 30 standards and in the template.
-- `BLU-016` 0.4.0. Site v0.56.0.
-
-### Changed — 2026-09-26 (one document, one question: the second cut)
-At the Oracle's word in session: the money standard is split, and three more rows of the map close.
-- **Charging and keeping the account are two questions.** `STD-033` 0.4.0, renamed *Every charge delivers something* (the old address redirects), keeps PAY-001…009. The eight LED rules move whole, plates unchanged, to the new `STD-036` *One account* 0.1.0. `SYS-008`, `PRO-021`, `/system/open-books` and its sources now cite `STD-036`.
-- **What every site carries is its own question.** The footer, the share card and day and night (DSN-013, DSN-014, DSN-016) move from `STD-008` 10.0.0 to the new `STD-037` *What every site carries* 0.1.0 as SIT-001, SIT-002 and SIT-003. Code comments, the CI step, `BLU-009` and `OPS-010` cite the new plates. `STD-037` joins the "Showing it" shelf.
-- **The secret scan is said once.** `STD-014` 1.1.1 PUB-003 points at KEY-054 of `STD-022` instead of restating it.
-- **The accessibility test is said once.** Register row ARC-010 retires into ACC-004 (`STD-015` 4.0.0, 50 practices; `STD-034` 0.2.2). `PRO-014` 2.0.2 cites ACC-004.
-- **`BLU-016` 0.3.0:** four rows closed and two added. Four stay open: 005, 015, 023, 032.
-- Site v0.55.0. Test first: `regime.test.mjs` asks for one holder per question.
-
-### Changed — 2026-09-26 (one document, one question)
-At the Oracle's word in session: each document answers one question; two that answer the same are merged, one that answers two is split. First cut over the standards shelf.
-- **`STD-007`** 1.4.0: new DOC-012, one document, one question, stated in the epistemic line (DITA 1.3, the topic answers a single question). Obligation words (HDR-046 → DOC-013) move here from the header, which now answers only what a correct header is (`STD-004` 4.0.0).
-- **Who may change what** has one answer, `STD-017` 2.1.0: the five thresholds (SER-003 → AUT-068), the three layers of a practice (ENG-034) and who moves which version number (VER-064) join AUT-065. `STD-024` 2.0.0, `STD-019` 3.0.0 and `STD-005` 3.0.0 drop them.
-- **How a document leaves** has one answer, `STD-012` 2.0.0, now binding every document that leaves: the heir in the header (GIT-045 → DEF-008), nothing deleted while cited (GIT-048 → DEF-009), moving series (SER-005 → DEF-010), absorption (SER-006 → DEF-011). The redirect rule, written three times (DEF-005, GIT-046, GIT-047), is URL-005 of `STD-028` 0.3.0 alone, now saying one step and moving with its answer. Link, never copy (GIT-049 → TXT-008) goes to `STD-006` 2.1.0.
-- **How a change reaches main** has one answer, `STD-020` 2.0.0: trunk-based development (ENG-003) joins GIT-025, and the seven commit kinds move in from `STD-015` 3.0.0.
-- **What a site may store** is personal data: DSN-015 → PRV-008 of `STD-035` 0.3.0; `STD-008` 9.0.0.
-- **Guards:** the citation resolver and the heir check leave the git guard for a new `std-012-corpus-does-not-grow` (DEF-008, DEF-009); `std-020-git-is-the-archive` keeps only GIT-026. Findings are the same 84, under the new plates. Test first.
-- **`BLU-016`** 0.2.0, renamed *One question per standard*: the map of each standard's question and what it still carries (eight rows open: 005, 008, 014, 015, 023, 032, 033, 034), and one line per outside standard not yet decided; the five adopted in #499 leave the list. The old address redirects.
-- **`BLU-017`** 0.2.0: two more to confirm — the working-time record and saying when an agent speaks (AI Act art. 50).
-
-### Changed — 2026-09-25 (we are a microenterprise)
-- **`STD-034`** 0.2.1 and **`BLU-017`** 0.1.1: the Oracle confirmed Numen Games S.L. is a microenterprise, so the European Accessibility Act does not oblige us; WCAG 2.2 AA and the store's accessibility information stay our choice. To review if the company grows.
-
-### Changed — 2026-09-25 (outside standards adopted where they say it better)
-At the Oracle's word in session, after a rule-by-rule audit of 278 plated rules against recognised outside standards. Each adopted norm stays a rule written our way: what it makes you do, why it is worth it, whether the law requires it; the norm and clause sit in the Check table.
-- **Engineering, repository, licensing** (STD-005, 010, 013, 014, 015, 019, 020, 022): Trunk-Based Development, Twelve-Factor, OpenSSF Scorecard and Best Practices Badge, Google SRE postmortems, Keep a Changelog, Conventional Commits, REUSE, DCO, ISO/IEC 5230, OWASP. Register rows SRE-006, DEV-007, ARC-003, OSS-003, TRC-008 retired as duplicates. Conflicts resolved for the outside side: TRC-004 (changelog from commits → Keep a Changelog), VER-022/023 (a new required obligation is major, as SemVer means). SPDX identifiers in the allowlist corrected. Wrong verifiers fixed (SEC-001, OSS-001, SEC-007).
-- **Header, identity, text, one page, citation, address** (STD-004, 006, 007, 016, 018, 021, 028): YAML 1.2, RFC 3339, BCP 14, BCP 47, Dublin Core and PROV mapping, Cool URIs, CURIE, GFM, ISO 690, RFC 6596. HDR-041 retired into TXT-002; CIT-050's text merged into DOC-008. URL-005 now asks 301 or 410 Gone (RFC 9110); the site's 404 is debt.
-- **Records and authority** (STD-001, 009, 012, 017, 024, 025, 027): framed as ISO 15489 records management, ISO 9001 7.5 document control, ISO/IEC 27001 A.5.3. CLS-002 reversed: instruments are short-lived records that never bind (site label and test follow; SYS-007 and README too).
-- **Design and accessibility** (STD-008 8.0.0, STD-034, STD-023, STD-032): obligations WCAG 2.2 AA owns move to Accessibility; DSN-006 and DSN-011 retired into ACC-002 and ACC-004. New ACC-005: anything moving by itself over 5 s has a pause control (the sky loop does not yet). Cookies cite ePrivacy, LSSI and the AEPD guide as law.
-- **Community, ranks, money, data, canon, vocabularies** (STD-003, 026, 029, 030, 031, 033, 035): Contributor Covenant 3.0 with its ladder (CMS-002, CMS-006 retired into CMS-001), DSA statement of reasons (new CMS-008); NIST RBAC and OWASP ASVS for ranks; consumer, accounting and tax law marked as law; GDPR and LOPDGDD (new PRV-004..007: minors, record of processing, processor contracts, breach notice).
-- **New `BLU-017`** — legal obligations to confirm with the gestoría or a lawyer.
-
-### Changed — 2026-09-25 (every standard reads for people first; STD-011 shared out)
-- **All standards** (STD-001, 003–010, 012–033) rewritten for a listener first, at the Oracle's word in session: from the title to the last rule no plate, document identifier, file name, link or unexplained acronym; rules under headings by purpose, titled in words. Plates, sources and what verifies each rule wait in one Check table at the foot. MUST / SHOULD / MAY stay in capitals, as RFC 2119 says. Registers keep their tables; only their summary and prose changed. No plate renumbered or dropped.
-- **`STD-011` is withdrawn and shared out** by purpose; the address redirects to engineering. Dates (HDR-045) and obligation words (HDR-046) → the header; Semantic Versioning → VER-021 of Versions; SPDX, REUSE and the certificate of origin → Licensing (already); Scorecard (ENG-068) and Keep a Changelog (ENG-069) → Engineering, whose other five outside standards were already our rules and become their sources; tokens → DSN-010; accounting plan and FOCUS → LED-001 and LED-003. `STD-005` declares `absorbs: ["STD-011"]`.
-- **New `STD-034` Accessibility** (WCAG 2.2 AA, ACC-001..004) and **`STD-035` Personal data** (GDPR, PRV-001..003), draft 0.1.0.
-- **New `BLU-016`** — the twelve outside standards under consideration, each with what it is, why it matters and what adopting it takes.
-- **`STD-007`** 1.2.0 and its guard: a plate may live in a rule title or in the Check table (DOC-004); identifiers are allowed in the Check table (DOC-008). Test first. `STD-TEMPLATE.md` takes the new shape.
-- **Duplication with outside standards, found while rewriting:** VER-021 is Semantic Versioning; ENG-006 blameless postmortems, ENG-003/GIT-025 trunk-based development, ENG-004/KEY-054 Twelve-Factor config, ARC-006 Conventional Commits, AGT-005 Gherkin; community conduct (CMS-001..003, 005..007) largely repeats the Contributor Covenant; records rules in STD-012/024/025/027 are ISO 15489; address rules in STD-028 are W3C Cool URIs, RFC 6596 and RFC 9110; citation rules in STD-021 are ISO 690. Each is now named as the rule's source.
-- Verified-by corrections: several Check rows claimed a guard that does not check the rule (DEF-001, MSN-001/002/039, CLS-004, DSN checks run only on numinia.com); they now say what really verifies them.
-
-### Changed — 2026-09-25 (licensing in plain words)
-- **`standards/STD-010-licensing.md`** `2.1.0`: no licence code, acronym or file name in the reading, from the card to the last rule — each licence is described by what it lets people do (open and changes shared, open with no conditions, belongs to everyone, reusable with credit, stays ours). A second table at the foot pairs each kind of piece with its exact licence; the first keeps every plate, source and check. No obligation added or dropped. The Oracle's word in session.
-
-### Changed — 2026-09-25 (licensing leans on SPDX, REUSE and the DCO)
-- **`standards/STD-010-licensing.md`** `2.0.0`: first step of sharing the external standards out by purpose. The three outside standards licensing rests on — SPDX, REUSE and the Developer Certificate of Origin — leave `STD-011` and each rule of Licensing now names the one it follows. Rules are grouped in four (what we publish, what we depend on, how a file says its licence, who may contribute), titled in words, read aloud with no code or path in the way; plates and sources wait in one table at the foot. No obligation added or dropped. The Oracle's word in session.
-- **`standards/STD-011-external-standards.md`** `2.1.0`: EXT-004, EXT-005 and EXT-012 leave for Licensing; their plates are retired.
-- **`machine/scripts/lib/regime.mjs`**: a plate is held where the standard writes it — a rule title, or the first column of its Check table (`platesIn`). Without it, the licensing guard's plates had no holder once Licensing moved them to the foot. Test first in `regime.test.mjs`.
-
-### Changed — 2026-09-25 (plates and sources leave the reading)
-- **`standards/STD-011-external-standards.md`** `2.0.0`, follow-up to #493: the rules are titled in words alone; one Check table at the foot pairs each plate with its rule, its source and what verifies it today, so any screen reader — not only ours — reads the rules without a code or a URL in the way. The Oracle's word in session.
-
-### Changed — 2026-09-25 (external standards are rules, told aloud)
-- **`standards/STD-011-external-standards.md`** `2.0.0`: from register to standard, at the Oracle's word in session. The eighteen outside standards we use become eighteen rules (EXT-001..018) in five groups — writing rules, keeping files, building software, how the sites look and read, money and personal data — each named and explained in words a narrator can read aloud. The twelve under consideration are one paragraph that binds nobody. Every source link moves to a list at the foot so it does not interrupt the reading. The distance column and the notes become the Check table.
-- **`AGENTS.md`**: the rule index regenerated — STD-011 now names whom it binds.
-
-### Changed — 2026-09-24 (the map of the Summa is the home)
-- **numinia.org site v0.52.0**: the home is the map — four rings (the rules, the work, the world, the offer) and four districts on the outer two. The bar is *Map* + *Archive* (a mega menu with the same rings as columns); every page carries a wayfinder strip and a compass. One model, `web/src/lib/suma.ts`, feeds the map, the menu, the strip and `/home.md`. The former home moves to `/about` (`/about.md`); `machine/scripts/check-url-shape.mjs` declares `/about` standalone. Oracle's word in session. — Ursa
-
-### Fixed — 2026-09-24 (the cookie policy says what the sites keep)
-- **`operations/OPS-010-cookie-policy-numengames.md`** v1.1.0: the inventory is re-measured. With the day/night switch (DSN-016), numinia.org, numen.games and nwos.numen.games keep `numinia-modo`, so "stores nothing" was no longer true. numinia.org also keeps the page reader's speed (`sp:rate`) and resume point (session storage). numinia.com lists five more preferences it already kept: `numinia-lap-hidden` and the manual reader's `numinia-codex-modo`, `-tam`, `-marca` and `-ritmo`. No cookie is added and nothing needs consent: every entry is a preference set by the visitor's own action. — Ursa (MIS-154)
-
-### Changed — 2026-09-24 (Open books)
-- **`/system/account` → `/system/open-books`**, and its CSV routes to `/system/open-books.csv` and `/system/open-books-forecast.csv`: *the account* read as a user account; *open books* is the page's claim. Oracle's word in session. No redirect: the old address never reached the live site (the deploy queue stalled after v0.44.0). Files `web/src/pages/system/open-books{,.csv,-forecast.csv}.ts|astro`; `corpus.ts` lists it as *Open books*.
-
-### Changed — 2026-09-24 (the Codex is the shared source)
-- **`lore/adventures/README.md`**, **`lore/README.md`**, **`lore/adventures/virtual-worlds/README.md`**: what tabletop modules and virtual-world experiences both draw from is named — the **Codex**, Numinia's roleplaying game (`lore/game/`: the manual in Spanish, the original, and English, its glossary, `attributes-and-ranks.md`). No shared-reference folder is created and nothing moves: the Codex already is that source. Oracle's word in session.
-- **`lore/adventures/tabletop/README.md`**: the placeholder row for a table Session Zero is removed; the Oracle and Christian will write it themselves.
-
-### Added — 2026-09-24 (the account looks ahead)
-- **`/system/account`** gains **The next two years** (finance and public views): monthly forecast to 2028-12 — costs by concept, support, loan, cash at month end, the month cash runs out — with supporters and the loan switchable; a year table (support, staff costs, other operating expenses, operating result, loan in and out, cash at year end, supporters); what it starts from and what it assumes. Computed once at build time in `web/src/lib/account.ts` (`forecast()`), drawn by the page and summed into `/system/account.md` from the same months.
-- **`web/src/data/account-forecast-simulated.csv`** (CC0, `REUSE.toml`): the assumptions, one plain-worded line each, served at **`/system/account-forecast.csv`**. The run-rate each concept starts from is read from the ledger's closed months, never typed. Structure follows the Oracle's business-plan workbook (operating account, cash flow, loans, runway); its figures are not used.
-
-### Changed — 2026-09-24 (adventures on two shelves: tabletop and virtual worlds)
-- **`lore/adventures/`** splits in two folders that never share a file: **`tabletop/`** — modules a Game Director runs at a table with the manual (`el-espejo-roto.md`, `the-broken-mirror.md`, `TEMPLATE.md`) — and **`virtual-worlds/`** — experiences inside Numinia's 3D spaces (`session-zero.md`, the city's tutorial). Each folder has a README saying who runs it and by which rules; `tabletop/README.md` records that a table version of Session Zero is not written yet. What both draw from stays where it is for now (`lore/world/`, the manual); a shared reference folder is a separate step. Oracle's decision in session; files moved with `git mv`, content unchanged. numinia.com reads the module from the new path (numinia-web#51, with the old path as fallback).
-- References follow: `lore/README.md`, the manual's `es/` and `en/` READMEs, `agents/senet/SOURCES.md`, `STD-001`, `STD-032`, `web/src/lib/corpus.ts` (reading order, now with *The Broken Mirror*), `web/src/content.config.ts`. The two published addresses redirect to their new homes (`web/astro.config.mjs`).
-
-### Fixed — 2026-09-24 (Nimrod is the Gatekeeper)
-- **`system/SYS-001-cao-architecture.md`** `0.2.1` and **`operations/OPS-001-continuity.md`** `1.0.1`: Nimrod's title follows the English the authors fixed for *Guardián de las Puertas* — **Gatekeeper** (was *Guardian of the Gates*). Oracle's word in session.
-
-### Fixed — 2026-09-24 (the ledger carries staff in one line)
-- **`protocols/PRO-021-closing-the-month.md`** `0.2.0`: MON-002 and steps 1 and 3 — staff enter the ledger as one line per month for all staff (gross, employer's social security, headcount), no longer one line per person code. The ledger is public; a line per person would publish each one's pay, which `STD-033` LED-006 forbids. **`system/SYS-008-the-account.md`** `0.1.1` says the same.
-
-### Added — 2026-09-24 (the account, simulated)
-- **`web/src/pages/system/account.astro`**: the cost register the charges-and-account standard asks for (`STD-033` LED-001..003), with **simulated** lines until the first month closes (`PRO-021`). Four views from one ledger — anyone, CTO, finance and bank, gestoría — by day, week, month, quarter and year, consumed (spread over the period covered) or billed (on the document date), with or without people; profit and loss in the abbreviated PGC headings; cash and runway; the received-invoices book by quarter; support simulator; homage list, anonymous by default. Listed under System.
-- **`web/src/lib/account.ts`** reads the ledger for the page, the CSV route and the markdown view (`/system/account.md`, composed in `composed-md.ts`: consumed cost by year and concept, summed from the same lines).
-- **`web/src/data/account-simulated.csv`** (CC0, annotated in `REUSE.toml`): the ledger, one line per document; staff one line a month for all, with headcount (`MON-002`). Served as it is at **`/system/account.csv`** (`web/src/pages/system/account.csv.ts`).
-
-### Changed — 2026-09-24 (the standards read in five shelves)
-- **`/standards/` groups its 32 documents by purpose**, under a Roman numeral, a label and one line, like `/canon/` but in its own words: I *Living together* (STD-003, 029, 017, 030, 026) · II *Writing it down* (STD-001, 024, 027, 004, 016, 007, 031, 025, 018, 028, 019, 021, 009, 012) · III *Showing it* (STD-032, 008, 023) · IV *What leaves the house* (STD-010, 013, 014, 022, 033) · V *What makes it last* (STD-006, 020, 005, 015, 011). The citizen first; the ground last. Eight standards the old reading order never named now have a place. `READING_GROUPS_STANDARDS` in `web/src/lib/corpus.ts` is the source of the standards reading order and is checked at build. No standard's text changes. Oracle's word in session.
-
-### Added — 2026-09-24 (PRO-020 and PRO-021, two protocols for money, ADR-065)
-- **`protocols/PRO-020-putting-something-on-sale.md`** `0.1.0`, draft: record, three questions, Oracle's approval, product and link in the processor, link back to the record, test-mode path, publish; withdrawal marks the record, deactivates the link, tells subscribers. SAL-001..004.
-- **`protocols/PRO-021-closing-the-month.md`** `0.1.0`, draft: documents to lines (never committed), staff by person code and published only aggregated, income from the processor's report, homage list as chosen, views recomputed and in agreement, one pull request per month; the quarter's received-invoices book exported for the gestoría. MON-001..004. Both close the protocols' reading order. `AGENTS.md` stops typing how many rule documents there are (it said 52 over 56).
-
-### Added — 2026-09-24 (SYS-008, the account as wired today)
-- **`system/SYS-008-the-account.md`** `0.1.0`: the components of Numinia's money (bank account, payment processor, gestoría, invoices and payrolls, records of things on sale, the ledger, the views), who holds each key, how a payment and a cost flow into the ledger, what each reader — citizen, CTO, finance and lender, gestoría, auditor or tax authority — reads and asks of it. Each piece marked wired or not wired; the processor account's being live is the Oracle's word, not inspected. Reading order after `SYS-007`.
-
-### Fixed — 2026-09-24 (the manual as its authors meant it; the English names the authors chose)
-- **The seven doubts of the Spanish manual, settled by its authors** (Oracle and Christian), in `lore/game/manual/es/` and `en/` together: two authoring notes left inside chapter 6 deleted (*"Y esta última frase me parece…"*, *"Hay una frase del documento original… Yo le añadiría…"*); the first of the two near-identical paragraphs on Prism Cells deleted, the second (fungible, accumulable **and consumable**) kept; the relic is the **Cuenco de Consagración** / *Bowl of Consecration* in its text too; the Archivist's aptitude 5 is **Índice Fantasma** / *Phantom Index* (it had the Runner of the Veil's *Silencio de Resonancia* by mistake); linguistic variations are **three** (Dialects, Sociolects, Lingos); chapter 3's *Fragmento 8: Puntos de Prestigio* is **Fragmento 6**; chapter 4's phases are **six**. The last four were inherited from the previous version of the manual.
-- **English names corrected by the authors**, in `glossary-es-en.md`, the English manual, *The Broken Mirror*, the Codex's English glossary, `STD-030` 0.1.3 and `lore/world/role-structure.md`: Proyectistas → **Draftsmen** (was Projectors), Autómatas → **Automatons** (Automata), Conejos Legales → **Legal Rabbits** (Legal Counsels — it is not a typo), Intendentes → **Stewards** (Intendants), Menestrales → **Handcrafters** (Artisans), Síndicos → **Trustees** (Syndics), Serafines → **Seraphs** (Seraphim), Humanitas → **Humanites** (Humanitas; singular Humanite), Guardián de las Puertas → **Gatekeeper** (Guardian of the Gates). **LAP** stays LAP in both languages but reads *Lector Akáshico Personal* in Spanish and **Lore Akashic Processor** in English. The glossary gains the long names of two factions (*Stellar Circle for the Study of the Venus Table*, *International Confederation of the Sixth Root Race*) and opens section B with the three great forces, Umbral/Velo/Prisma → Threshold/Veil/Prism; its open question on Conejos Legales is closed. `session-zero.md` is left alone (pending the Oracle's talk with Christian).
-
-### Added — 2026-09-24 (the four sites against the design system)
-- **`reports/RPT-021-four-sites-design-audit.md`**: phase 1 of `MIS-154` (bring the four sites to the design system). The sixteen design rules against the source and the served home of numinia.org, numinia.com, numen.games and nwos.numen.games. Only numinia.com serves day and night; numen.games runs a draft palette and type of its own; nwos.numen.games animates outside the catalogue; numinia.com stores three keys the cookie policy does not name. numinia.org is recorded as the design lead: its departures go to the Oracle before any fix.
-
-### Added — 2026-09-24 (STD-033, every charge delivers something; the account is one, ADR-064)
-- **`standards/STD-033-charges-and-the-account.md`** `0.1.0`, draft: PAY-001..009 for a charge (something in return, whole price with VAT, no record no charge, one account and the Oracle's keys, no card on our sites, leaving in one step, remembered by choice, open stays open, a resaleable token waits for legal review) and LED-001..008 for the account (one ledger of lines, four views that agree, billed and consumed, closed from documents, traceable to the paper for an auditor or the tax authority, people counted not named, documents out of the tree, kept six years and while a tax right can be checked). Reading order after `STD-022`.
-- **`standards/STD-003-platform-ranks.md`** `3.1.3`: payment points at `STD-033` instead of `operations/`. **`standards/STD-011-external-standards.md`**: two Funding rows, the Spanish accounting plan and FinOps FOCUS.
-
-### Fixed — 2026-09-24 (the English glossary follows the Token correction)
-- **`lore/codex/en/glossary.md`**: the Tokens entry quotes the corrected manual — *They represent a bond, and may represent wealth as well* — as the Spanish glossary and both manuals do since `ADR-063`. It arrived with the old sentence from the branch that was open when the correction landed.
-
-### Added — 2026-09-24 (the Codex's edition matter, in English)
-- **`lore/codex/en/glossary.md`**, **`acknowledgments.md`**, **`character-sheet.md`**: the English of the Codex's glossary (79 entries, re-sorted by English headword; same 81 headings), acknowledgments and character sheet (same 7 headings). Numinia terms from `lore/game/manual/glossary-es-en.md`; quotes reuse the wording of the English chapters. numinia.com's English Codex reads them. The Spanish stays the original. CC0.
-
-### Added — 2026-09-24 (CAN-011, what has value also makes a bond, ADR-063)
-- **`canon/CAN-011-value-makes-a-bond.md`** `0.1.0`, in draft and said so in its body: a payment is a bond worth money, never a donation; every charge delivers a good named before paying, price shown whole; the payer is remembered by the name they choose or by none, no amount shown; the account is open and one — citizen, lender, auditor and tax authority read the same figures — closed from documents, people's time counted, no person's pay published. Three questions for any charge. Reads in *The Summa* after `CAN-009` (`corpus.ts`); `AGENTS.md` rule index regenerated. The standard and protocols it justifies come next.
-- **Tokens** (Oracle's correction): `lore/game/manual/es/06-inventario-y-bestiario.md`, `lore/game/manual/en/06-inventory-and-bestiary.md` and `lore/codex/glosario.md` — Tokens *represent a bond, and may represent wealth as well*; they may be exchanged. The English glossary on the open `lore/codex-en` branch still carries the old sentence.
-
-### Added — 2026-09-24 (day and night on every site)
-- **`standards/STD-008-design-tokens.md`** `7.3.0`: **DSN-016 — day and night on every site.** Every public web serves Nocturno and Diurno and carries the moon/sun switch `BLU-009` §5 specifies (the icon shows where a tap leads; follows the device until the visitor chooses; remembered under `numinia-modo`; applied before painting). Until now the recipe said how, not that every site must; today only numinia.com serves it. At the Oracle's word in session. `BLU-009` `1.1.1` points at the rule.
-- **numinia.org/design** shows the switch working on a small page specimen, says who the page is for (who designs, an AI, who checks a site) and explains the words it uses without stopping (Umbral, Velo, Prisma; Nocturno, Diurno; tokens; read alongside).
-- **`missions/MIS-0154-four-sites-design-audit.md`**: audit the four sites against the sixteen rules, one report, then one PR per site starting with day and night; carries the prompt for the session that runs it.
-
-### Changed — 2026-09-24 (the design system, seen)
-- **numinia.org/design** draws what it only listed: the fifteen animations running, each at its own token (typing, reveal, sweep, elevation, legendary pulse, the computed moon, dots, cursor, the orchestrated moment, surfacing, crystallization, the trazo, the sky at its rarity weights, the reading light with its drying ink; 12 kept dashed, retired), with *Replay* on the ones that run once and every card still under reduced motion; text over light, the data palette, Píxel-16, the scarab, the binary sentence, the three forces as surfaces, the pixel references and the five how-yes/how-no pairs at ×8 with the coin turning, focus and elevation. Component `web/src/components/design/MotionCatalogue.astro`; values read from the kit's tokens.
-- **`standards/STD-032-the-design-system.md`** `0.2.0`: a row whose *Gives* opens **Read alongside** is linked, not carried. The adventure chapter of the RPG manual (now the English one), the adventure mould, the character sheet and the ES–EN glossary become such rows: the compiled system drops from 5,400 lines to about 2,150, more than half of it had been game rules. `BLU-007` (the narrative dial) joins Word.
-
-### Added — 2026-09-24 (The Broken Mirror, in English)
-- **`lore/adventures/the-broken-mirror.md`**: *El Espejo Roto*, the module for Distrito Ouroboros, in English — same 45 headings, glossary names throughout; English word count 1.04× the Spanish. The Spanish stays the original, untouched. **`lore/game/manual/glossary-es-en.md`** gains the module's 53 names (Splintered Mirror, Möbius Corridor, Typographic Sphinx, Drusa's Chamber…) and loses the open question it answers (*The Broken Mirror* is the title). `lore/adventures/README.md` and `lore/game/manual/en/README.md` list it. CC0.
-
-### Fixed — 2026-09-24 (AGENTS.md types no protocol count; REUSE lint clean)
-- **`AGENTS.md`**: "Every protocol in this archive is `status: draft`" loses its "(12 of 12)". The number drifted twice (12 over a folder of 11, then 11 over 12); the Oracle's word: do not state how many there are. **`machine/scripts/test/agent-context.test.mjs`** now checks the claim itself — every `protocols/PRO-*` file is draft — and refuses a typed "(N of N)" count.
-- **`reuse lint`** is compliant again: the example `SPDX-License-Identifier` lines in `machine/scripts/lib/reuse.mjs` (a regex) and `machine/scripts/test/licence-per-file.test.mjs` (test fixtures) sit between `REUSE-IgnoreStart`/`REUSE-IgnoreEnd`, so the tool no longer reads them as licence declarations. No licence changes.
-
-### Fixed — 2026-09-24 (the READMEs know the manual is whole in English)
-- **`lore/README.md`** and **`lore/game/manual/es/README.md`** still said only the introduction and chapters 1–2 were in English; since #466 all eight chapters are. Wording only.
-
-### Added — 2026-09-24 (the manual in English: chapters 3 to 7)
-- **`lore/game/manual/en/03-character-creation.md` … `07-building-the-adventure.md`**: the rest of the manual in English — *Character creation*, *Game system*, *Geography and culture of Numinia*, *Inventory and bestiary*, *Building the adventure*. The eight chapters now exist in both languages. Each keeps the Spanish's headings (34, 44, 45, 29, 67), tables, footnotes and dice; English word count 0.99–1.05× the Spanish. Glossary names throughout; one outcome vocabulary for every roll (Total Success … Critical Failure); DJ → GD, *Maestro de Juego* (the Position) → Game Master. **`lore/game/manual/glossary-es-en.md`** section B2 gains 504 names (the Positions' aptitudes, districts, cycles and festivals, relics, weapons, residues, creatures, the PC States). Slips of the Spanish corrected in the English only; the Spanish is untouched. `en/README.md` marks every chapter translated. CC0.
-
-### Added — 2026-09-24 (the Numinia Design System, whole)
-- **`standards/STD-032-the-design-system.md`** `0.1.0`, a register: which documents make up the design system, in four parts — Core, Languages (Image, Word, Sound, Motion, Play), Recipes, Toolkit — and what each gives. Design is the whole experience, not only graphics (the Oracle's word); the rows with no document are the parts not written yet: sound, how we write, how a mission, a character or a place is designed.
-- **numinia.org/design** draws the system from that register: the core, the colours, fonts, scale, radii, icons and the animation catalogue read from the kit's tokens and `STD-023`, every document as a card, the gaps shown. `/design.md` is every listed document compiled whole into one file; `/design/numinia-design-system.zip` carries it plus each document, the tokens, the kit, fonts, icons, the scarab, the pixel references and the invoice template, with `LICENSES.md` resolving every file's own licence. Generated in `web/src/lib/design-system.ts` and `design-download.ts`.
-- **`standards/STD-021-evidence-and-citation.md`** `1.2.0`: **CIT-055 — a quote carries its author.** A person's words keep their name as they sign it (*Pablo FM*), wherever an agent writes them; an agent does not pass a phrase off as its own or the house's. `[MANUAL]`. At the Oracle's word in session.
-
-### Removed — 2026-09-24 (the v5 guide)
-- **`web/public/diseno/index.html`** deleted: the v5.0.0 guide of August, one frozen HTML file describing four registers after `CAN-008` moved to three forces. It stays in git. `/diseno` redirects to `/design`; `web/public/diseno/` becomes `web/public/design/` (kit, fonts, pixel, templates), and the four `/diseno/kit/5.1.0/*` redirects go with it.
-- **`web/DESIGN.md`** deleted: the pablofm.com design notes, marked superseded since 2026-08-18.
-
-### Changed — 2026-09-24 (the kit speaks the current system)
-- **`machine/packages/design-kit`** `6.2.0`: the agent instruction opens with the three forces (Umbral, Velo, Prisma) instead of the four v5 registers, names the four typefaces, points at `STD-008`, `STD-023` and `STD-032` over the retired v5 section numbers, and asks for quotes to carry their author. The manifest names the system and fixes its source path.
-
-### Added — 2026-09-24 (the manual in English: chapter 2)
-- **`lore/game/manual/en/02-history-and-legends-of-numinia.md`**: chapter 2, *History and legends of Numinia* (Fragments 1–5 and 7, as in the Spanish: there is no Fragment 6 in the original), translated with the glossary's fixed terms. Same 37 headings, both images and the footnotes kept; English word count 0.98× the Spanish. 30 names met on the way (Black Engineers, Watchmaker of the Cosmos, Three Wheels of Chaos, Cryptahedra…) join the glossary, section B2. Slips of the Spanish corrected in the English only (Monte Verità, Hermann Hesse, Ida Hofmann, *antinomy*); the Spanish is untouched. CC0.
-
-### Added — 2026-09-24 (STD-031, A canon states, ADR-062)
-- **`standards/STD-031-a-canon-states.md`** `0.1.0`: the canon mould as twelve plated rules STA-001..012 — says what is so, says why, leaves the reader able to do something; obligations not sections; the title is a claim; no tool, no clock, no restatement; a border only when real; no date or byline; identifiers at the foot; the manual names the world. Carried from `ADR-048`, `ADR-049` and `ADR-053`, where — by `SER-001` — they bound nobody. The 1 500-word budget stays a SHOULD (`DOC-006`): reported, never enforced, at the Oracle's word. Ten of twelve checks are `[MANUAL]`, said so.
-- **`machine/templates/CAN-TEMPLATE.md`**: the HTML comment no longer restates the rules; it names `STD-031`, keeps the three admission questions and how to hold the pen, and adds *read it aloud*.
-
-### Changed — 2026-09-24 (the canon reads in four shelves)
-- **`/canon/` groups its documents** under a Roman numeral, a label in the city's words and one line each: I *The city* (CAN-001) · II *The citizens* (CAN-004, 002, 008, 005, 010) · III *The Summa* (CAN-009) · IV *The ground* (CAN-007, 006). The order a stranger needs; the theory last, on purpose. `READING_GROUPS` in `web/src/lib/corpus.ts` is the source of the canon reading order and is checked at build like it. Oracle's word in session.
-- **Three titles shortened to their claim** (DOC-001, the canon mould's title note), patch each: `CAN-004` 4.0.1 *You are what you are doing*; `CAN-006` 2.0.1 *The model needs a story*; `CAN-007` 2.1.1 *Renaming is not transforming*. References in `CAN-009` 1.0.1 and `STD-003` 3.1.2 follow. `AGENTS.md` rule index regenerated.
-
-### Changed — 2026-09-24 (three canons of the house, ADR-061)
-- **`canon/CAN-002-brand-and-culture.md`** `4.0.0`: gains *Why a game* (play is our first narrative, first lesson and first creative drive — the manual's introduction, and the long role-structure text's opening in plain words); loses *Who we are* (history with a clock) and *Where the imagery comes from* (CAN-008 owns it); closes on CAN-010. 875 → 891 words.
-- **`canon/CAN-008-visual-identity.md`** `3.0.0`, retitled *One identity, three forces*: loses *Where it comes from* (CAN-002's purpose, values and pillars restated) and keeps what each value obliges of a piece; the four registers become the three forces of the manual — Umbral, Velo, Prisma — with low-poly and pixel as the Prisma's two manifestations; the voice defers to CAN-002; names follow the manual and its translation glossary. Every rule on low-poly and pixel unchanged. Three glyphs stay three. 1 436 → 1 497 words.
-- **`canon/CAN-005-licensing.md`** `5.0.0`: every thesis kept, rewritten around a reader who wants to use something of ours; five kinds of thing each with the reader it serves; a case per rule. No licence, regime or gate changes. 616 → 1 041 words.
-- **`agents/INDEX.md`** `3.1.0`: the Oracles table, carried from CAN-002 under a new *Oracles* heading; `web/src/lib/agents.ts` reads it there. `AGENTS.md` rule index regenerated.
-
-### Added — 2026-09-24 (CAN-010, leave things better than you found them, ADR-060)
-- **`canon/CAN-010-leave-things-better.md`** `0.1.0`, in draft and said so in its body: the sentence that closes every canon is the house's ethics, applied to people (`STD-029`), their data (`STD-026` data dignity, `OPS-010`), the commons (`CAN-005`, `STD-014`) and the acts of a digital agent (`CAN-009`). Inferred from the corpus at the Oracle's word; no rule of its own. Closes the reading order; `AGENTS.md` rule index regenerated.
-
-### Added — 2026-09-24 (CAN-009, the archive is the organisation, ADR-059)
-- **`canon/CAN-009-the-archive-is-the-organisation.md`** `1.0.0`: the memory is a text; a document is a claim and the history is the record; only the axis obliges; work is a change to the text; an agent is a citizen. States as canon the reasoning `STD-006`, `STD-020`, `STD-012`, `STD-024` and `STD-009` carried in their Why sections — no rule moves. 945 words. Enters the reading order fourth (`corpus.ts`), reading note rewritten; `AGENTS.md` rule index regenerated.
-### Fixed — 2026-09-24 (STD-030 follows the translation glossary)
-- **`standards/STD-030-the-worlds-vocabulary.md`** `0.1.2`: five house and branch names take the English the manual's translation glossary fixes — the one numinia.com's code already shows players: Artisans (was Artificers), Projectors (Project designers), Scholars (Erudites), Legal Counsels (Legal rabbits), Explorers (Pathfinders). The register's note names the glossary as the source of the English. Oracle's word in session; ADR-053's rule (the manual names the world) applied to the translation.
-
-### Changed — 2026-09-24 (CAN-007 says what function is, ADR-058)
-- **`canon/CAN-007-pragmatic-numen-system.md`** `2.1.0`: one new section, *Function is a frame of ends and values* — function answers *what is it for?* and *what is it worth?*; interpreting meaning is asking those two questions; a use is a fact about the object, a function a relation between object, need and value (the microscope drives the nail); function reaches into structure through dependency, and the need comes before both (the birds and the wings); the test of a functional intervention is whether the two questions were answered. Carried from the long role-structure text, where the canon of roles had kept the image and lost the argument. Card's Pragmatic line adds the two questions. 1 028 → 1 366 words.
-
-### Changed — 2026-09-24 (CAN-004 absorbs CAN-003, ADR-057)
-- **`canon/CAN-004-role-structure.md`** rewritten at `4.0.0`, *Nobody here has a role; you are what you are doing*: the six attributes of `CAN-003`, Eco's opposition, Basic Level Theory for the guilds and Prototype Theory for the factions, the systems-thinking line between qualification, role and position, the six ranks by what each is, the five approaches. Out: the 4×2×2 guild tree (a register, `STD-030`), *positions belong to non-player characters* (obsolete, the Oracle's word), the character-sheet remainder, the district sentence. Function-is-not-utility is stated in two sentences and left to `CAN-007`.
-- **`canon/CAN-003-attributes-and-ranks.md` deleted.** `absorbs: ["CAN-003"]` on `CAN-004` keeps the identifier resolving; the site redirects the address and four older ones to the heir.
-- **`absorbs` registered for `canon/`** — `STD-016` `2.1.0` (Ring 3) and `machine/scripts/lib/rings.mjs`.
-- Citations repointed: `CAN-001` (`related:`), `STD-003` `3.1.1`, `STD-030` `0.1.1`, `STD-026` `0.1.1` (English names now sourced from the translation glossary), `PRO-015` `1.0.3`, `web/src/lib/corpus.ts` (reading order), `web/astro.config.mjs` (redirects), `AGENTS.md` (rule index regenerated).
-
-### Added — 2026-09-24 (the manual in English: introduction and chapter 1)
-- **`lore/game/manual/en/`** starts: `00-introduction.md` and `01-welcome-to-numinia.md`, translated from `es/` following `glossary-es-en.md`, plus a README with the chapter status. Same headings, same paragraphs; each paragraph on one line (the Spanish keeps the PDF's line breaks). New names met on the way (Formrender, Etheric Wall, Mnemonic Eclipse…) are added to the glossary, section B2. CC0.
-
-### Added — 2026-09-24 (the translation glossary)
-- **`lore/game/manual/glossary-es-en.md`** fixes the English for every Numinia term before the manual is translated. Section A: 145 names numinia.com already shows in English (ranks, districts, factions, guilds, species, positions, competences, archetypes, humours, seals, places), taken verbatim from `numinia-web/packages/domain`. Section B: 81 of the manual's concepts, from the Codex glossary plus the game system. Section C: three open questions for the Oracle (*Conejos Legales*, *Game Director* vs *Game Master*, the module's title). CC0.
-
-### Changed — 2026-09-24 (the manual, chapter by chapter)
-- **The RPG manual is split by chapter.** `lore/game/manual-v0.6.0.md` (21,459 lines) becomes `lore/game/manual/es/00-introduccion.md` … `07-construyendo-la-aventura.md` plus a README index. Text untouched: every non-blank line of the original is in the chapters, in order (checked); only runs of blank lines at the cuts differ. Each chapter carries its own CC0 SPDX comment, so the manual's exact-path entry leaves `REUSE.toml`. `manual/en/` is where the English translation will go.
-- ***El Espejo Roto* leaves the manual.** It is a module, not a chapter (Oracle, 2026-09-24): the copy at the end of the manual was byte-identical to `lore/adventures/el-espejo-roto.md`, which is now its only home.
-- Paired with numinia-web (the Codex reads the chapters and the module file); merge this first.
-
-### Changed — 2026-09-24 (the lore is CC0)
-- **Every file in `lore/` is CC0-1.0.** The 14 Markdown files change their own SPDX line; the manual and the character-sheet image change their exact-path entry in `REUSE.toml`. Rights holder Numen Games S.L.; the Oracle and co-author Christian Märtens agree (Oracle, 2026-09-24). Irrevocable once published — deliberately.
-- **What stays reserved:** the brand mark (`web/src/brand/Khepri_Logo.svg`), the names and marks (`TRADEMARKS.md`), and the legal texts and sales document in `operations/`.
-- **The texts say so.** `lore/codex/legal.md` (the Codex's legal note) now states the CC0 waiver and the trademark carve-out; `lore/README.md`; `CAN-005` 4.1.0 (the world is given away, only the name is kept); `STD-010` 1.3.0 (LIC-002); `AGENTS.md`, `SYS-003`, `STD-026`, Senet's sources; the `/lore` section drops its amber "all rights reserved" notice.
-
-### Changed — 2026-09-24 (the licence is the file's)
-- **Every file declares its own licence; no folder does.** `REUSE.toml` used to hand licences to whole directories (`lore/**`, `canon/**`, `missions/**`, `web/**` …) and a file inherited its shelf's — a new file got a licence nobody chose, a moved file changed licence without being touched. Oracle, 2026-09-24: licences go per file. 154 text files that relied on a folder glob now carry an SPDX comment in their first lines (`<!-- -->` in Markdown, `//` in code, `#` in YAML/TOML/text). `REUSE.toml` keeps only the 155 files that cannot hold a comment — images, fonts, JSON, generated or pinned copies, the moulds, and the RPG manual numinia-web reads verbatim — by exact path, no globs. The two nested `REUSE.toml` (icons, fonts) are folded into the root one.
-- **No licence changed.** `reuse spdx` before and after, compared file by file: 525 → 526 files (the new test), 0 differences. `reuse lint` 526/526.
-- **Readers follow.** `machine/scripts/lib/reuse.mjs` gains `declaredIn()` and `licenceOfFile()` (own SPDX first, then `REUSE.toml` for that exact path); the licence guard, the machine index (`/index.json`, `/llms.txt`) and the tests read through it. `check-templates` T-04 now holds a mould to a licence with a text in `LICENSES/` — a destination folder has no licence to hold it to. New `machine/scripts/test/licence-per-file.test.mjs`: no glob in `REUSE.toml`, no nested `REUSE.toml`, no text file licensed from outside, every file resolves, header and SPDX agree.
-- **Prose follows.** `LICENSE`, `README.md`, `AGENTS.md`, `STD-010` (LIC-008, 1.2.0), `STD-013` (1.1.0), `STD-011`, the PR template, the footer link (now to `LICENSE`).
-
-### Added — 2026-09-23 (what binds today)
-- **The archive publishes the rule that governs, not only the rules that are written.** Two statements were live on numinia.org and the sentence they imply was not: eleven protocols, twenty-seven standards and eight canons rendered in full, and the definition of `draft` — *written, not yet in force: it binds nobody* (`STD-016`) — printed on the home, in `/llms.txt` and in `/scheme.md`. Nothing anywhere answered the question that follows: **if none of it binds, what does?** The answer has existed since 2026-09-18 as the transition regime in `AGENTS.md`, a file the viewer does not serve (`ADR-047`: the repository's furniture is not a document of a series), so the only readers who ever saw it were the ones already inside the repository. Everyone else read derogated ceremony as if it were live — and an agent arriving through `/llms.txt`, the door this site advertises to machines, obeyed it. `/binding` now carries that instruction **verbatim**, beside the state of every rule document counted from each file's own `status:` header: 0 in force, 46 draft. A promotion changes the page with nothing edited.
-- **`web/src/lib/binding.ts`.** Reads the regime from between `<!-- transition-regime:begin -->` and `:end` in `AGENTS.md`, and counts the states of `canon/`, `standards/` and `protocols/` from the tree. Markers rather than a heading: the prose is the Oracle's and he rewords it, and a parser anchored on his title would empty the page silently the first time he did. A missing marker **throws** — a page titled *what binds today* with nothing under it reads as *nothing binds*, which is the most expensive lie an archive about governance can tell. `decisions/` is deliberately excluded: an ADR records a choice that was made, it imposes no obligation to be in force.
-- **`machine/scripts/test/binding.test.mjs`**, written before the code. Nine tests, none of which pins today's answer: the reading is verified against a scratch archive with states of its own, exactly as `composed-md.test.mjs` does, so promoting a protocol turns the page green rather than the suite red.
-- **Signs on the door.** The home's third question, `robots.txt`, `/llms.txt`, the `about` block of `/index.json`, and a band on every `draft` document rendered by the corpus mirror — which until now printed the bare word as a chip and left the reader to work out what it meant.
-
-### Added — 2026-09-23 (a door for machines)
-- **The site says how to read it without HTML.** Every page here has always been served twice — as HTML, and as the markdown file behind it at the same address plus `.md` — and nothing announced it. `robots.txt` offered a sitemap of 192 HTML addresses; the convention that makes this archive cheap for an agent to read was folklore. `/llms.txt` now states it in its first screen and lists every document with its own licence; `/index.json` carries the same rows as data, each with its markdown address, state, licence and whether it is a record or a view of records; `/telemetry.json` serves the measured dataset unchanged, so figures can be read instead of scraped out of a table.
-- **`check-machine-index`, a build guard.** Route and index derive each address in different files and can drift apart with nothing failing — the first draft of this work published fifteen addresses that were never built, with a green build and a correct sitemap. The guard reads the built index back against `web/dist` and fails on a page or `.md` that does not exist, on a document that resolves to no licence, and on an empty index. Registered in `machine/scripts/blind-spots.json` with what it cannot see: whether the index is *complete* is a question about the collection query, not about a file comparison.
-
-### Fixed — 2026-09-23
-- **Eleven documents were published with no licence at all.** The `lore/` documents carry no frontmatter (converted from PDFs), so their rights come from the REUSE record for their path — and `machine/scripts/lib/reuse.mjs` locates the repository from its own file path, which is right under bare node and wrong once Vite bundles it. An absent `REUSE.toml` returns an empty map rather than an error, so every header-less document silently resolved to `null`. The unit tests passed because they run under bare node; the defect was found by reading the built `index.json`. The annotations are read from the site root now, and the test asserts the exact licence instead of "a non-empty string" — a test that accepts any answer cannot tell *resolved* from *gave up*.
-
-### Changed — 2026-09-23
-- **Rights are stated per document, never per folder** (Oracle, 2026-09-23). The licence of a file is the file's own: 121 documents are CC0-1.0, 28 CC-BY-4.0, four all rights reserved, and they do not sort by directory — `operations/` and `reports/` each hold two regimes today. No generated surface summarises rights by folder, and a test fails on any sentence binding a licence to a directory. `lore/` is not a reserved block and `canon/` is not an open one; the record is the header, and `REUSE.toml` for the files that carry none.
-
-### Changed — 2026-09-22 (fourteen gaps that were never gaps)
-- **`PRO-015` declares its scope.** It was the only standard or protocol with no `**Binds:**` line that no exemption covered. Not new information: its `applies_to` field already read *"anyone joining or leaving Numinia, and whoever runs the process"* — the body never repeated it where a reader looks. It now binds *whoever brings a person into Numinia, and whoever lets one go*, and does not bind what a rank is (`CAN-003`) or who may change what (`STD-017`).
-- **The rule index explains a missing scope instead of just reporting it.** It printed `no scope line` fifteen times, which read like fifteen defects in the corpus. Fourteen of them are `STD-007` working exactly as written: the guard asks for `Binds:` in `standards/` and `protocols/` only, and skips `subtype: register` inside them (`if (!register && NEEDS_PLATES.has(dir))`). Those rows now say *register — scope belongs to the standard that cites it* or *canon — states why, binds whoever leans on it*. The distinction is about where a reader goes next: a bare gap sends them nowhere, `register` sends them to the standard that cites it. The plain wording survives for real omissions, so an unexplained gap still looks like one rather than being dressed up as a category.
-- **A register governs nobody by itself.** `STD-016` lists the header fields, `STD-013` the licence allowlist, `STD-011` the external standards. Each is a lookup table; the authority belongs to the standard pointing at it. Whether that should change — and with it `STD-007` and the guard's exemption — is a decision about what a register is, and it is not taken here.
-
-### Added — 2026-09-22 (a SHOULD that nothing would ever fail)
-- **`machine/guards/test/std-007-one-page.test.mjs`.** `DOC-003` is a SHOULD, so `std-007-one-page.mjs` reports it under *"measured, not judged"* and exits 0 — a plain protocol could lose its scope line and only a human reading guard output would notice. The test is the judgement the guard withholds: the two exemptions are the *only* reason a document may lack the line. It also holds that a document which binds says what it does **not** bind (a scope with no edge reads as *everything*), and that a `Binds:` line shares a subject with the `applies_to` field above it — two statements of scope in one file are two things to keep true.
-
-### Added — 2026-09-22 (46 rules, and no cheap way to know which ones apply)
-- **`AGENTS.md` carries a generated index of every rule document.** `standards/`, `protocols/` and `canon/` hold 46 of them, 91k tokens measured with the repository's own tokenizer. An agent starting a task read everything or guessed; the file said the documents exist and that each opens with a `**Binds:**` line, which is true and not actionable — reading 46 lines still meant opening 46 files. `machine/tools/rule-index.mjs` brings the lines to it: one row per rule, quoted from the document's own scope line, 1160 tokens for the set. Generated, never hand-written — `node machine/tools/rule-index.mjs --check` exits 1 when a `Binds:` line has moved and names the rule, the way `ruleset-export.mjs` already does for branch protection. A hand-written index of 46 documents is `D-031` again: stale the first time someone edits a scope line, with nothing reading it back.
-- **15 of the 46 never say whom they bind, and the index says so.** The eight `canon/` by design (`STD-007` asks for `Binds` in `standards/` and `protocols/` only), plus `STD-011`, `STD-013`, `STD-015`, `STD-016`, `STD-023`, `STD-026` and `PRO-015`. Those rows read `no scope line` rather than carry a guess: a stated gap sends a reader to the document, an invented scope sends them away from it. They are 58% of the corpus by weight, so the hole is worth closing — that is writing, not code, and it is the operator's call.
-- **Two defects the tool found in its own first draft.** The `Binds:` line wraps at 80 columns and the first reader stopped at the newline: `PRO-003` ended at *"the Oracle who opens, reviews"* and `STD-004` at *"under the directories `machine/scripts/lib/rules.json`"* — which reverses its meaning, since `rules.json` lists the governed directories rather than being one. Both are fixed and the test quotes each cell back to its source document.
-
-### Changed — 2026-09-22 (the agent context said a great deal and checked none of it)
-- **`AGENTS.md` drops half its words and gains a test.** Roughly half the file was generic hygiene — do not invent facts, say what you do not know, runtime memory is provisional — and much of the rest restated documents that already own their subject. A study of 138 repositories (Gloaguen et al., 2026) measured the cost: context files carrying unnecessary requirements *lower* task success and raise inference cost by over 20%, because the agent follows them faithfully and widens its search for no return. Removed: `Purpose`, `Source authority`, `Platform independence`, `Memory`, `Context hierarchy`, `Canonical agent definitions`, `Project knowledge`, `Skills`, `Traceability`, `Uncertainty`, `Working principle`. One sentence of `Memory` survives — runtime memory is never synchronised into a canonical `MEMORY.md` automatically — because it is judgement a model cannot infer. The transition regime is kept whole.
-- **Four counts were wrong, and now a test holds them.** The file claimed 12 protocols over a folder of 11 — the sentence the whole transition regime rests on; the repository map omitted `machine/`, `objects/` and `system/`; it named three reserved `operations/` files where `REUSE.toml` pins four (`OPS-010` joined on 2026-09-18); and it carried a copy of the roster listing seven agents where the tree has ten, while `agents/INDEX.md` is the source `web/src/lib/agents.ts` already reads at build time. `machine/scripts/test/agent-context.test.mjs` takes each of those counts from the tree.
-- **`npm run build:pdf` does not exist and has not for some time.** It was documented as part of the deploy flow in `CLAUDE.md` and `OPS-008`; `web/package.json` defines no such script and the `/print/*` routes it claimed to print are not in the tree. `machine/templates/MIS-TEMPLATE-EXAMPLE.md` had already recorded that it never runs. It survived in the instructions because nothing read them back.
-- **`CLAUDE.md` becomes the adapter it says it is.** The hand-copied 620-word licensing block is gone and cites `STD-010`, closing the duplication `DBT-020` records — `reuse lint` reported the same two defects twice, once per copy. Its stack section still said Astro 5 and Tailwind 3 the day after #426 shipped Astro 7 and Tailwind 4. `AGENTS.md` 2859 → 1798 tokens; `CLAUDE.md` 2300 → 841.
-
-### Changed — 2026-09-22 (the register named one vendor's adapter)
-- **`AGENTS.md` is the canonical agent context; `CLAUDE.md` is the Claude Code adapter.** `STD-015` AGT-001 required a `CLAUDE.md` at the root and `AGT-006` put the AI stance in it. Both were written when Claude Code was the only agent working here. Agents now run on several models and every one of them reads `AGENTS.md` — the open format donated to the Agentic AI Foundation in December 2025 — so the register was enforcing the adapter while nothing guarded the file the other runtimes load. `machine/tools/check-register.mjs` now opens `AGENTS.md` for the AGT-001 presence check and reads its **First instruction** line there; `AGENTS.md` carries that line and says what it is; `CLAUDE.md` declares itself the adapter and points at it. No practice is reversed and none is added — the same obligation names the file it was always about. AGT-006 stays `DEBT`: still nothing reads the stance, only the file it should be read from changed.
-
-### Changed — 2026-09-22 (a retired connector held every Astro update hostage)
-- **The site builds on Astro 7 and Tailwind 4; `@astrojs/tailwind` is gone.** The integration that joined the two was retired upstream and its peer range stops at Astro 5, so `npm ci` failed to resolve before installing anything: PRs #414 and #415 died at that line, and so would every future Astro bump. The red of Dependabot had stopped carrying information — it was the permanent state of the repository, not a verdict on a change. Tailwind is now a Vite plugin (`@tailwindcss/vite`, registered in `vite.plugins`), and `web/tailwind.config.mjs` is deleted: the theme moved into `web/src/styles/global.css` as an `@theme` block, one `--color-*` per palette entry. The RGB triplets in `:root` stay where they are and every hand-written rule keeps reading them, so the two layers still share one source of truth.
-- **Two v3 reset defaults restored by hand, because they were what the site already looked like.** v4 gives every border `currentColor` (the archive draws every hairline from one variable) and dropped `button, [role=button] { cursor: pointer }` (22 buttons where the hand cursor is the only clickability signal). Both are declared in `@layer base`, not annotated onto elements.
-- **PR #415 is not a migration and was not attempted here.** It jumps to TypeScript 7 and dies against `@astrojs/check@0.9.10`, whose peer range is `^5 || ^6`. There is nothing to change in this repository: the check tool has to ship v7 support first.
-- **`astro.config.mjs` needs `@astrojs/markdown-remark` installed explicitly.** Astro 7 defaults to a different markdown processor; `markdown.rehypePlugins` still runs on the unified processor, which is no longer a default dependency. Without it the build refuses to start — the two rehype plugins that draw the context card and shift the headings are not optional here.
-- **`DocToolbar.astro`: an HTML comment can no longer open a `{cond && (…)}` block.** The Astro 7 compiler rejects it (`Unexpected token`). The comment moved outside the expression; the markup is unchanged.
-- **`reports/index.astro` sorted on the date alone, and Astro 7 broke the tie the other way.** `RPT-017` and `RPT-018` share `2026-09-08`, so their order was whatever the content collection happened to return — the upgrade silently swapped them. The comparator now falls back to the full timestamp and then to the identifier: the order is a property of the documents, and the same build twice produces the same page. This was found by diffing the built output, not by reading the diff — no guard looks at row order.
-- **Verified by comparing the 331 built pages before and after, normalised for whitespace and scoped-style hashes:** every page is byte-identical except the version in the footer (`v0.14.1` → `v0.15.0`), `/updates`, `/telemetry` and `/reports`. Build green, 17 guards green, 266/267 tests pass (one skipped, as on `main`), type-check reports the same 4 pre-existing errors. Site `v0.14.1` → `v0.15.0`.
-
-### Fixed — 2026-09-22 (the listen button had nothing to read)
-- **The toolbar shipped on 179 pages and the listen button was dead on nine of them.** `SpeechPlayer` extracts its text from `<article>`, which only document views have; the composed pages — the home, `/scheme`, the six function pages, the indexes, the agent front doors — are a `<main>` full of sections. The player found no text, disabled its own button and said nothing, which is exactly what it should do on an empty page and indistinguishable from a defect. The selector now falls back through the declared selector, `<article>`, `<main id="main">`, `<main>`; `Layout` gives every page a `<main>` and it excludes the header, the nav and the footer by construction. The resume key is keyed on the element that actually resolved, so a stored position measured against one target is never replayed against another.
-- **`check-md-portability` gains PORT-004.** A page carrying the toolbar must have text the player can find, by the player's own selector chain, with a twenty-word floor. Verified in both directions: green on the built site, red on a copy of the home with its `<main>` removed. A toolbar that is present but mute is worse than an absent one — it promises a reader who cannot read that the page can be heard, which is the one promise this change was made to keep.
-- Measured on the fixed build: the nine composed pages speak 53–562 words; document views keep reading `<article>` unchanged at 1 825 words for `CAN-001`. Site `v0.14.0` → `v0.14.1`.
-
-### Added — 2026-09-22 (every page offers its own markdown)
-- **The toolbar reaches 179 of 192 published pages; it was on 8.** Listen · copy · download `.md` · source was on every document detail view and on none of the pages a reader actually arrives at: the home, the six function pages, every section index, the mission board, the reports index, `/decisions`, `/blueprints`, and all ten agent front doors. The asymmetry produced no error — a valid site in which the pages that explain the archive were the least portable thing in it. The Oracle's reason, stated as accessibility: a reader who listens rather than reads was served by the documents and abandoned by everything above them.
-- **`web/src/lib/composed-md.ts` — new: the markdown of a page that has no file behind it.** The composed pages are generated at build time from `STD-027` and `STD-001` through `@/lib/classification`; their `.md` is generated from those same registers, in the same pass. Not a transcription of the rendered HTML and not a second copy of the scheme — the same question asked of the same registers, answered in markdown. A function gains an activity in `STD-027` and the page and its file change together; they cannot disagree. Every file opens with the documents it was read from and the instruction to cite those, never the file: a view is not a record, and a downloadable view is the easiest thing in the archive to mistake for one.
-- **`[...slug].md.ts` serves both kinds.** Documents keep returning their canonical file byte-for-byte — `getStaticPaths` is the union of the corpus and the composed pages, so the reader cannot tell which is which and does not need to. 15 composed files plus one per agent.
-- **`machine/scripts/check-md-portability.mjs` — new build guard (17 guards, was 16).** For every built page that is not a redirect: it carries a toolbar, the `.md` that toolbar names was produced by this build, and that file is not empty. Reads `web/dist`, so it verifies the artefact rather than a rule in prose — the `ENG-067` exception `check-url-shape` already takes. Blind spots declared: it cannot know whether the markdown *says* what the page shows.
-- **`machine/scripts/test/composed-md.test.mjs`** — 5 tests (267 total, was 262). The scheme-level ones build a scratch archive with a scheme of their own rather than asserting today's six functions: a test that reads the real tree pins the archive instead of verifying the reading of it, and goes red the day a function is added — which is a correct change.
-
-### Changed — 2026-09-22 (Source points at the document that governs, not the template that draws)
-- On a function page `Source` opens the classification scheme; on a section index, the series register; on an agent's page, `agents/INDEX.md`; on the home, `STD-027`. Never the `.astro`. A reader who wants to argue with what a page says is sent where arguing changes something — which is the Oracle's framing of this site: the place where a standard is discussed before it is changed.
-
-### Debt — 2026-09-22
-- **`DBT-021` — six pages hold their content in the template instead of the corpus.** Found by asking, for each page, which document governs what it states. `/system/cao`, `/system/language`, `/system/sales`, `/system/simulations`, `/system/solutions` carry their data as arrays inside the `.astro`; `/blueprints/meta` is a hand-written protocol in Spanish with no counterpart in `protocols/`. Three of them have the sharper version: `OPS-005`, `OPS-006` and `OPS-007` already exist and the pages do not read them — two archives of one thing, one of them silent. `/system/language` presents **five** narrative levels where `CAN-002` declares **three**; both are published today. They are exempt from the new guard with a written reason each, and the exemption *is* the debt. A `.md` generated from a hardcoded array was refused deliberately: it would be downloadable, quotable and wrong, and the guard would be green.
-- Site `v0.13.0` → `v0.14.0`. Measured on the build: 195 pages (+1), 17 guards 0 failed, 267 tests 0 failed.
-- Owed, named here and not done: `/archive/<function>` still carries a segment that says nothing — the six pages are about the classification, the one case `STD-014` already admits as standalone, and `numinia.org/governance` would say the same with one word less. Cheap, separate, and not mixed into a change that touches 17 pages.
-
-### Changed — 2026-09-22 (the home is a threshold, not a filing plan)
-- **The home opens where a reader arrives, not where the archivist works.** `/` led with "One producer, one fond, six functions" and spent its next two screens on the vocabulary of the classification and a table of all eighteen series. `CAN-002` → Verbal Identity names the register this page owes — the voice is "cultivated, plain and clear", technicisms avoided where possible, and three declared levels of language: colloquial, literary, technical. The page now **descends** through them: literary at the threshold ("Welcome, curious explorer"), colloquial for the pain and the doors, technical left inside the documents where it belongs. The Oracle's framing in session: this is a viewer for biological agents curious about Numinia, and its job is to reduce uncertainty and surprise — which is `CAN-002`'s own value *Curiosity*, "actively inferring to minimize the surprise".
-- **The pain is stated, second block, before anything is explained.** Documents scattered, interests in some of them not being found, an organisation that ends up not knowing itself. Without it the archive reads as bureaucracy for its own sake; it was the last thing the Oracle said when asked to explain the system out loud, and it belongs first.
-- **The home shows a document instead of describing the corpus.** `web/src/lib/doc-header.ts` — new: reads the quoted block `STD-004` requires (Summary · Epistemic · Pragmatic · Audience) out of a canonical `.md` at build time. The home renders it for `STD-027`, the document the page is generated from, under plain headings: *What it is · What you learn · What you can do with it*. Nothing is transcribed — if the document's wording changes the home changes with it, and if the block goes missing the build throws naming the field. `machine/scripts/test/doc-header.test.mjs`: 7 tests against scratch archives (wrapped fields joined, body prose not bled into the last field, missing block and moved file both fail loudly) plus one coupling test that `STD-027`'s path still resolves.
-- **What is not here, said on the page.** Protected matter — what is under another's licence, what would expose a person — is named as an absence instead of being silently absent. A gap reads as an oversight; a statement reads as a policy.
-- **Khepri closes the page.** The city is being repopulated, five years is not long, and the scarab pushes the sun up every morning: `CAN-002` → Visual Identity, the house's own figure for iteration, and the first time the viewer uses it. Beside it the measured figures — documents, missions, measurement date, site version — read from `machine/telemetry/latest.json` through `@/lib/telemetry`, never typed, with a link to `/telemetry`. The page ends on the purpose and on "Leave things better than we found them".
-- **`/scheme` — new page.** The vocabulary block, the eighteen-row table and the second-fond note moved there whole: same rows, same two standards (`STD-027`, `STD-001`) through `@/lib/classification`, nothing rewritten and nothing deleted. They are the most convincing material the archive has for a reader evaluating the system and the worst possible first paragraph for one who has just arrived. `machine/scripts/check-url-shape.mjs`: `/scheme` declared in `STANDALONE` — the one place a new top-level address is admitted.
-- The six function cards lead with a sentence in plain words (`FN_DOOR`, presentation, so it lives in the page and not in the standard) and keep the activity verbs under a rule; the folder chips are gone, they repeated the table below them. The relation graph stays, by the Oracle's word: a reader who thinks in structures enters through it. A decision is cited by name before code — "Classification by function (ADR-046)".
-- Site `v0.12.0` → `v0.13.0` (`web/src/data/updates.ts`). Measured on the build: 194 pages (+1), 330 indexed; 16 guards, 0 failed; 262 tests, 0 failed.
-- Owed, named here and not done: the toolbar (listen · copy · download `.md` · source) reaches 8 of 26 pages — every document detail view, none of the composed ones, the home and the six function pages included. Those pages have no file behind them, so the `.md` has to be generated from the corpus rather than linked; and where the web changes how the scheme is presented, the change returns to the corpus rather than living in a template. Its own mission.
-
-### Changed — 2026-09-21 (the viewer's skeleton: the Summa is the home, the functions are the menu)
-- **`/` is the classification.** The home was `web/src/views/HomeView.astro`, 285 hand-written lines restating `BLU-008` from memory (layers L0–L4, six features, six principles); the page that reads the scheme from `STD-027` and `STD-001` sat at `/archive`, behind the tenth entry of the bar. Oracle's ruling in session: the classification carries the weight of a home; the pitch is a manual. `web/src/pages/index.astro` is the old `/archive` page with a hero on it (`BLU-009` §12: eyebrow, one typed sentence with one word in Ámbar, the site's own line from the share-card table, one primary action); `HomeView.astro` is deleted; `/archive` redirects to `/` (URL-005: the question is answered at the root). `/archive/<function>` keeps its six addresses.
-- **The navigation is derived, not typed.** `web/src/data/navigation.ts` was a hand-kept list of ten entries with three hidden in the footer for width; it now exports `navGroups`, six menus computed from `functions()` in `web/src/lib/classification.ts` — one per function in `STD-027`'s order, each listing the series its activities produce with the activity verb beside it. A series the scheme names and the viewer cannot address throws at build. `Navigation.astro` rewritten on the `BLU-009` §12 recipe: Mono uppercase, 2 px Ámbar underline on the active function, hover/click/keyboard menus, full-screen mobile panel as an accordion. **Six entries against the recipe's ≤5, by the Oracle's word** ("si hay 7, pues 7"): the amendment to `BLU-009` is owed and not made here. The footer's Navigation column lists the six functions plus Updates and Telemetry.
-- `web/src/lib/classification.ts`: `Series` gains `label`, `activity`, `note`, `instrument`; `Fn` gains `href`; `placeOf(folder)` answers where a folder sits in the scheme. **Three `SERVED_AT` rows were stale**: `objects/` → one card, `operations/` → one document, `lore/` → `null` "served by numinia.com" the day after `/lore/` went live here. All three point at the folder's index. The five instrument folders point at `SYS-007`'s anchors with the reason kept beside the link. A `—` in the register reads as "none", not as a prefix. `machine/scripts/test/classification.test.mjs`: 11 → 15 tests (index-not-document, label/activity, dash-is-none, `placeOf`, function href; the instrument test now asserts the manual link).
-- **Every section index says which drawer it is.** `[section].astro`'s hero label was `CAO · NWOS` on all of them; it is now the place in the scheme (`Governance · Standardising`) read through `placeOf`, which throws for a section the scheme does not classify. The strip at the foot groups the sections by function. The four typed indexes (`/decisions`, `/blueprints`, `/reports`, `/missions`) carry the same label.
-- **The instruments have a manual.** `system/SYS-007-the-instruments.md` — new: one section per `machine/` folder (guards, tools, scripts, telemetry, templates, and `packages/` which the scheme does not list): what it is, what it verifies or produces, the command, the GitHub folder. `STD-001` 5.3.0 → 5.4.0: five rows for the instrument folders so the `Holds` column stops being blank where `STD-027` classifies them; prefix, threshold, budget and mould `—`.
-- **`BLU-008` → `SYS-006`.** "NWOS — System Description, Layers and Principles" describes what runs; `ADR-035`'s test for `system/`, same move as `BLU-005` → `SYS-003`. `former_id` kept; body unchanged; the header gains the three-part card. `/blueprints/nwos-system` redirects. Reading orders in `web/src/lib/corpus.ts` updated for both series.
-- **The graph is lawful.** It loaded `three@0.163` from `esm.sh` at runtime (DSN-002) and rotated forever (DSN-012, DSN-008). `three` is a dependency of `web/`; the scene is still, turned by pointer drag, enters with one surfacing (catalogue 10) on intersection, appears placed under `prefers-reduced-motion`. The relations are also emitted as a visually hidden list.
-- **Eight orphan pages filed under `/system/`.** `/cao` `/continuity` `/gaps` `/language` `/sales` `/simulations` `/solutions` `/wardley` had zero inbound links. Moved to `web/src/pages/system/`, listed at the foot of `/system/` from `SECTION_VIEWS` in `corpus.ts` — checked at build against `import.meta.glob` of the folder, so a page with no row or a row with no page fails the build — and marked as views the site draws, not documents, with language (`es` on four) and age stated. Oracle's ruling: "las cosas en su cajón, y luego ya vemos qué hay dentro" — appraisal deferred. Old addresses redirect; the dead `"/gaps" → RPT-008` rule that a built page had shadowed is removed. `check-url-shape` `STANDALONE` loses the eight roots.
-- Measured on the build: 193 pages; `check-url-shape` 191 addresses hold, 136 redirects lead to a document; `check-url-lifecycle` **0 vanished, 35 added** (292 → 327), baseline regenerated in this commit. `astro check`: 11 errors, all pre-existing on `main` (12 there; the duplicate `"/gaps"` key is gone).
-- Site `v0.11.0` → `v0.12.0` (`web/src/data/updates.ts`).
-- Owed, named here and not done: the ≤5 → "one per function" amendment to `BLU-009` §12; a "Products and services" drawer the Oracle wants for the filed views; the appraisal of the four August pages; `axe` on the new bar in both modes (no Chromium in the build environment this session).
-
-### Changed — 2026-09-20 (one document, one address: /corpus/ removed, 482 addresses deleted)
-- `standards/STD-028-one-document-one-address.md` — new. Six plates: the address is `/<series>/<id>` (URL-001), the function never appears in it (URL-002, following `STD-027` CLS-001), one address per document (URL-003), English (URL-004), a retired address leads to the document answering its question or it is removed (URL-005), and a citation is the identifier, not a URL (URL-006).
-- `decisions/ADR-047-one-document-one-address.md` — new, and it **amends `ADR-030`**. The no-address-dies ratchet held while the archive only grew; during the refactor an honest deletion ADDED an address instead of removing one, which is how the site came to publish 599 redirects against 175 pages. `ADR-030`'s four tests before deleting a document stand; the fourth stops being absolute. Oracle instruction, 2026-09-20: what no longer serves is deleted.
-- **`/corpus/` is gone.** It stood in front of `canon/`, `standards/`, `protocols/`, `system/`, `operations/`, `agents/`, `objects/` and `debt/` but not `decisions/`, `blueprints/`, `missions/` or `reports/` — `web/src/lib/corpus.ts` documented the split instead of resolving it ("four sections resolve under /corpus/, two do NOT … predating this model"). 111 addresses lose the segment; the routes move from `web/src/pages/corpus/` to the site root. Not redirected: an alias differing only by a dead prefix is what URL-003 forbids.
-- **482 addresses deleted.** 373 redirects whose target answered nothing (262 → `RPT-017`, the report saying a batch of missions was cancelled; 45 → the debt register; 37 → the reports index), 40 Spanish paths duplicating an English one, 35 whose chain ended at a page the build does not publish, and the repository's own files as pages (`/readme`, `/changelog`, `/claude`, `/contributing`, `/security`, `/trademarks` — furniture, not a series) plus `/corpus` itself and `/openclaw-test`. Measured: **774 addresses → 292** (166 pages, 126 redirects), and every one of the 126 now resolves to a document.
-- `machine/scripts/check-url-shape.mjs` — new build guard, registered in `blind-spots.json` and run by `--build`. It parses `STD-001`'s series register and `STD-027`'s scheme and rejects: a first segment that is neither a series nor a declared standalone page, a function or activity named in a path, two addresses declaring one canonical, a retired Spanish segment, a redirect into an index (unless the retired address named the FOLDER, where the folder's index is the answer), a redirect chain, and a redirect to something the build does not publish. It bites — it verifies the artefact, not a rule in prose (ENG-067 exception).
-- `machine/scripts/check-url-lifecycle.mjs`: **reports, no longer blocks** (`ADR-047`). It prints the addresses a cut removed — 673 on this one — and the PR states the figure; the baseline is regenerated in the same commit (774 → 292). The biting half is now `check-url-shape`.
-- `standards/STD-015-engineering-checks.md` 1.4.0 → 1.5.0: row TRC-008, `[AUTO: machine/scripts/check-url-shape.mjs]`. 56 practices, 24 AUTO.
-- `machine/scripts/test/check-url-shape.test.mjs`: 15 tests, each against a scratch archive with an address space of its own — asserting against this repository's build would pin today's addresses rather than the rule. Written first; failed with `MODULE_NOT_FOUND`. Proven by mutation (`DEV-008`): 13 rules disabled one at a time, every one caught.
-- Still owed, not done here: `lore/` as a second fond (`ADR-046`). It moves published addresses and is now cheap, because the rule it needed exists.
-
-### Changed — 2026-09-20 (the /archive pages read the archive, instead of remembering it)
-- `web/src/lib/classification.ts` — new: the scheme, parsed at build time from `standards/STD-027-the-classification-scheme.md` (functions, activities, series) and `standards/STD-001-the-series.md` (what each series holds, its prefix, its threshold). The only fact written in the module is `SERVED_AT`, the map of where this viewer serves each folder — the one thing the archive does not state about itself. A series named by `STD-027` with no entry there **fails the build** rather than rendering a row that links nowhere; so does a function the diagram has no node for, an empty scheme table and an empty series register.
-- `web/src/pages/archive/index.astro` rewritten. It held a hardcoded Spanish array of seven "fondos" naming `agents/guilds/`, `missions/active/`, `missions/done/`, `missions/backlog/` and `canon/platform-role-system.md` — none of which had existed for months — plus twelve "operating principles" and five "critical failure patterns" attributed to a hundred mental simulations no document in this repository records. All deleted. The page now prints the scheme, the counted figures (1 fond · 6 functions · 16 activities · 18 series · 13 published here) and one row per series with what it holds and where to read it.
-- `web/src/pages/archive/[fondo].astro` → `web/src/pages/archive/[function].astro`. The seven fondo pages named SERIES, not fonds, and rendered `SYS-003`'s retired `fondos:` array; five of them duplicated a corpus section index. The shelf is now one page per function (`/archive/governance` … `/archive/administration`), listing its activities, the series each produces with prefix and threshold, and for an instrument or the lore the line saying why it is not published here.
-- `web/astro.config.mjs`: seven redirects, one per retired address (`ADR-030` tests applied one by one). `canon`, `protocols`, `decisions`, `blueprints` → their corpus section index; `missions` → `/missions`; `agents` → `/archive/agency` and `operations` → `/archive/administration`, the two whose folders have no section index and whose question the function answers. `check-url-lifecycle` on the real build: **0 URLs died, 24 added**; baseline regenerated in the same commit (750 → 774).
-- `system/SYS-003-archive-fondos.md` 2.0.0 → 3.0.0: the `fondos:` array and the `graph:` block are deleted from its frontmatter. A reference manual was doubling as the viewer's database, which is how the published model and the archive's own model drifted apart. The document is prose; the standards are the source. Major: the header stops obliging a consumer that read those two fields.
-- `machine/scripts/lib/rings.mjs`: `fondos` and `graph` unregistered from `system/` and `blueprints/`. A document carrying them again is restating a standard from memory, which is what the header vocabulary exists to catch.
-- `machine/scripts/test/classification.test.mjs`: 11 tests, each against a SCRATCH archive with a scheme of its own — a test asserting "six functions" against the real tree would pin today's scheme instead of the reading of it. Written first; failed with `MODULE_NOT_FOUND`. Proven by mutation (`DEV-008`): 8 rules disabled one at a time in the module, each caught — SERVED_AT lookup 2 · NODE_STYLE lookup 2 · empty scheme 2 · empty register 2 · table-end detection 16 · emphasis stripping 20 · series splitting 2 · the unpublished reason 4.
-- Not in this cut, and named in the PR: `lore/` is recognised as a second fond by `ADR-046` and is still not separated — it moves published addresses, so it waits for the URL standard. That standard is the other half of this brief and is its own cut.
-
-### Changed — 2026-09-20 (the first agent card: agents/ursa/AGENT.md replaces AGENT.yaml)
-- `agents/ursa/AGENT.md`: Ursa's entity card — the same shape as an object card (entity → forms → copies), `entity: agent`, `type_execution: digital`, `status: draft`. Five forms, every copy a path in this repository: soul, operator, sources, the two Hermes adapter files, the shared `numinia-nwos-pr` skill. Body: why draft, description (what she does, when to route to her), history.
-- `agents/ursa/AGENT.yaml` deleted. Oracle's ruling, 2026-09-20: a card that points at a second identity file is the duplication the archive exists to remove — one file says who Ursa is. Measured before deleting: eleven `AGENT.yaml` in the tree, no script, page or workflow reads any of them (`grep -rl` over `*.mjs *.ts *.astro *.yml *.json`: zero); the promised routers never arrived. The other ten agents convert one by one; `AGENTS.md` and `agents/INDEX.md` say so.
-- `machine/scripts/entities.mjs`: the walk reaches `agents/*/AGENT.md`; a copy that is a `path` with no `commit` is this repository's own file — git pins it, so the card repeats neither commit nor hash, and `--check` records the hash, size and last commit seen on disk. `objects/catalogue.json` and `CHECK.md` regenerated: 2 cards, 6 forms, 8 copies — 7 ok, 1 unreachable (the legacy R2 bucket did not answer from this network today; the depot copy did).
-- `machine/scripts/test/entities.test.mjs`: sixth test — an agent card in a scratch tree is walked, its slug is the folder name, its path copy is hashed and reported ok. Written first; failed (the walk read `objects/` only).
-- **The cost test the plan asked for**: files this card touches — one in (`AGENT.md`), one out (`AGENT.yaml`), plus the prose that named the YAML (`AGENTS.md`, `agents/INDEX.md`, `agents/ursa/OPERATOR.md`) and the script that walks it. No new series, no guard, no `rules.json`, no viewer change: `agents/` was already in the corpus mirror, so the card renders at `/corpus/agents/ursa/AGENT`. The header guard reports four findings on the card (`type: entity`, and `entity`, `type_execution`, `forms` unregistered for `agents/`) — reported, not enforced, while STD-004 is draft; registering the vocabulary is the registry standard's cut, distilled from real cards, not this one.
-
-### Changed — 2026-09-20 (the Avocado card is a draft, like the model it tests)
-- `objects/avocado.md`: `status: active` → `draft`. Oracle's correction on reading #408: the bytes are verified and the licence is inside the file, but the card itself is not settled — what a history must contain, which forms an avatar has beyond its model, who admits an entity and how. Until an admission procedure exists no card is `active`; a "Why draft" section in the card says so. `catalogue.json` and `CHECK.md` regenerated (2 ok at `c3fb073`). Nothing under `web/src` changes; the page re-renders with the new status on the next deploy.
-
-### Added — 2026-09-20 (the first entity card: objects/avocado.md)
-- `objects/` — a new top-level folder for entity cards: one Markdown per thing the archive registers that is not a document. The model, fixed with the Oracle on 2026-09-19 and 2026-09-20, has three levels — **entity → forms → copies**: the card is the entity (one id, one status, one story); a form is how it manifests (a model, a portrait, a sound, a sheet), each with its own `license` and `rights_holder`; a copy is where a form's bytes are (a URL, or a repository path pinned to a commit) with `sha256` and `bytes`. The card is an index, never a copy: no graphics inside the Markdown, the depot holds the bytes and the sites render them. File names are human names (`avocado.md`), never the id; the id lives in `id`. The header is Ring 1 of STD-016 plus two fields, `entity` and `forms`; status reuses the corpus lifecycle (`draft` = not admitted, `active`, `withdrawn`). English only.
-- `objects/avocado.md`: the Avocado avatar (Polygonal Mind, CC0, `ndg-019d4075-…`), the one legacy resource whose bytes declare the licence its catalogue claimed. One form (the VRM, licence read from inside the file: `CC0 by Polygonal Mind`), two copies (the depot at `numinia-assets@56b2830`, the legacy R2 bucket), hashes from SYS-005. Pot Vapor 02 does not enter: its GLB carries no licence inside itself, and the Oracle's rule (2026-09-20) is that only files that say their own terms are admitted — the rest are re-baked with the licence written in, at upload, and enter then.
-- `machine/scripts/entities.mjs` + `machine/scripts/lib/entity-card.mjs`: one walk, two outputs. `objects/catalogue.json` (the index numinia.com will read; header data only, never the body) and, with `--check`, `objects/CHECK.md` — every copy fetched, hashed, compared with the card, the embedded licence read where the format has a slot (VRM meta, glTF extras); dated and signed with the commit; exit 1 on a mismatch or an unreachable copy. Registered in `machine/scripts/blind-spots.json` as manual: CI never fetches a third-party host. First report committed: 2 ok · 0 mismatch · 0 unreachable.
-- `machine/scripts/test/entities.test.mjs`: five tests against a scratch tree (walk, catalogue shape, check ok, tampered hash → mismatch and exit 1, committed catalogue equals the tree). Written first; failed 5 of 5 with `MODULE_NOT_FOUND`.
-- `REUSE.toml`: `objects/**` = CC0-1.0 (card text and generated files; each form's licence is its own). `web/src/content.config.ts`: `objects/**/*.md` joins the corpus mirror, so the card renders at `/corpus/objects/avocado`. Site v0.4.0.
-- Not in this cut, on purpose: `objects/` is not in the governed set (no header guard reads it, no template) until the registry standard is distilled from real cards; no `/corpus` section; no thumbnail; the agent card (Ursa) is the next cut — `agents/ursa/AGENT.yaml` becomes a Markdown card of the same name, the card replacing the YAML rather than pointing at it (decided 2026-09-20: two files saying who Ursa is would be the duplication the archive exists to remove).
-
-### Added — 2026-09-20 (the template guard, proven)
-- `machine/scripts/test/check-templates.test.mjs`: 20 tests drive the real `check-templates.mjs` on a scratch git copy of the tree, break one thing each, and read the finding it reports — T-01 through T-11, the companions' exemption, the withdrawn stub's exemption. Characterisation of an existing guard: each test was shown to bite by disabling the T-code it pins in the script (12 mutations, each caught by exactly the test written for it). The guard was one of the twelve files no test loaded.
-- `.github/workflows/ci.yml`: the coverage summary now tells three groups apart — loaded by a test (node measured it), tested as a child process (a `<name>.test.mjs` exists but node cannot see inside a spawn), and no test at all. On 2026-09-20: 36 source files · 24 loaded · 4 tested as a process (`check-templates`, `check-register`, `rename-series`, `ruleset-export`) · **8 with no test**, named in the summary: `check-deletable`, `check-internal-links`, `check-orphan-content`, `check-responsive`, `check-url-lifecycle`, `check-version-bump`, `generate-design-kit`, `run-guards`.
-
-### Added — 2026-09-20 (coverage of the guards and tools is seen in CI, not enforced)
-- `package.json` `test`: `node --test --experimental-test-coverage` over `machine/scripts/`, `machine/guards/` and `machine/tools/`, the tests themselves excluded. No threshold: while `STD-015` is draft the guard sees and does not bite (ENG-067); the threshold arrives with the register `active`, pinned to the value measured then.
-- `.github/workflows/ci.yml`: the tests step keeps its output; a second step (`if: always()`) writes two numbers to the job summary — node's figure, and how many source files no test loads. Node only reports files that ran, so the figure alone overstates: on 2026-09-20, `all files 95.81 %` lines over 25 files loaded, and **12 of 37 never loaded** (`check-templates`, `check-orphan-content`, `check-url-lifecycle`, `check-deletable`, `check-responsive`, `check-internal-links`, `check-register`, `check-version-bump`, `run-guards`, `rename-series`, `ruleset-export`, `generate-design-kit`). Three of those (`check-register`, `rename-series`, `ruleset-export`) have tests that run them as a child process, which node's coverage cannot see; the other nine have none.
-- `machine/scripts/test/coverage-visible.test.mjs`: pins the flags, the absence of a threshold, and a summary that carries both numbers. Written first; failed 2 of 3.
-
-### Added — 2026-09-19 (DEV-008: the test before the code)
-- `standards/STD-015-engineering-checks.md` 1.4.0: row DEV-008 (Ergonomics, MUST) — the test that describes a change is written, run and seen to fail before the code, and the pull request shows the test commit before the code commit. Check: `[GATE: .github/PULL_REQUEST_TEMPLATE.md → the reviewer reads the commit order before approving]`. A diff cannot tell the order; the history can. Born draft: read at review, fails no build (ENG-067). Register now 55 rows (23 AUTO, 5 GATE, 27 DEBT).
-- `.github/PULL_REQUEST_TEMPLATE.md`: a Definition-of-Done line asks for it.
-- `AGENTS.md`: the rule in the transition regime's "what still holds" list, so every runtime and the three consumer repositories read it.
-- `machine/tools/test/check-register.test.mjs`: the row exists, is a gate on the template, and the template asks; the summary count follows. Written first; failed with "STD-015 has no DEV-008 row".
-- Measured before the row, 2026-09-19: five repositories, each with a test runner in CI (≈636 tests, all green), none with a written rule on when the test is written; numinia-web at 100 % of what it measures under a per-file threshold, the archive at 94.7 % lines by habit, numengames-web and nwos-deploy at 27 % and 15 % of their logic.
-
-### Fixed — 2026-09-19 (the repository is numengames/numinia-archive on every live surface)
-- Fourteen live files still spelled the org/repo path as `numengames/numinia-nwos`, the name retired on 2026-09-17. The one that bit: `web/src/lib/build-info.ts` — `REPO_URL` and `COMMIT_URL` feed the footer of numinia.org, so every commit link went through GitHub's redirect and would land on a stranger's repository the day one called `numinia-nwos` exists. Also the ruleset snapshot, `SECURITY.md`, the PR skill's description, the design-kit package URL and manifest, `STD-005` Binds and five `STD-015` check paths, `machine/tools/generate-design-kit.mjs`, `machine/tools/ruleset-export.mjs`, `web/README.md`, `wardley.astro`, `ContinuityView`, `HomeView`. Site v0.3.1.
-- `web/wrangler.toml` keeps `name = "numinia-nwos"`: it is the deployed Cloudflare service, and changing the name creates a new empty worker instead of renaming this one. A comment above the line says so.
-- `machine/scripts/test/rename-residue.test.mjs`: pins the live surfaces to the current name (`git grep` over code, configuration, standards, agents, the site). Records — closed missions, reports, operations, this changelog, telemetry, `lore/` — keep the name the repository had on their day. Written first; failed on 15 files.
-
-### Fixed — 2026-09-19 (telemetry: main no longer turns red with the calendar)
-- `machine/scripts/lib/families/provenance.mjs`: the four figures that compare `created:` with the day a commit added the file (`created_ahead_of_commit`, `created_ahead_list`, `created_behind_commit`, `regime_crossings_list`) carry `volatile: "commit-date"`. main is squash-merged, so the first-add day is the merge day, not the branch day: a document created on the 18th and merged on the 19th moved `created_behind_commit` from 28 to 29 between the branch and main with the same `corpus_hash`, and the build guard failed (#401). The figures are descriptive ("counted, not judged"), not invariants a contributor can restore.
-- `machine/scripts/telemetry.mjs --check`: skips volatile figures in the equality and says how many it skipped. They stay in `latest.json`, `latest.md` and `history.jsonl`.
-- `machine/scripts/test/telemetry.test.mjs`: a scratch clone regenerates telemetry on a branch, squashes the commits to a later date, and `--check` must still say OK. Written first; failed on the old code with the exact message from the red run.
-
-### Added — 2026-09-19 (ci: the web is type-checked and every file declares its licence — both report, neither bites yet)
-- `.github/workflows/ci.yml`, two steps between `install` and `build`, per STD-015 § The family pipeline: **type-check** (`npm run type-check` = `astro check` over `web/src`: a prop a component does not declare, a dictionary key that does not exist, an untyped map — what `astro build` renders as `undefined` without complaint) and **REUSE lint** (`reuse lint` 6.2.0: every file under a `REUSE.toml` annotation or an SPDX header, every named licence text in `LICENSES/`; the archive's own `std-010-licensing` reads documents' headers, not the web, the scripts or the images). Both print their findings in the log and the job summary and exit 0 — Oracle instruction, 2026-09-18: the guards look but do not bite while the standards are draft (ENG-067). `astro check` reports 12 pre-existing errors on this tree (`DocToolbar.astro` carries an HTML comment inside a JSX expression; `components/ui/button.tsx` and `card.tsx` import a `@/lib/utils` that was never created; `openclaw-test.astro` imports three.js from a URL; two untyped maps in `archive/[fondo].astro` and `MissionsView.astro`) — fixing them is the cut that turns the step into a gate.
-- `web/package.json`: `@astrojs/check` and `typescript@^6` as dev dependencies (TypeScript 7 does not expose the API `astro check` needs), script `type-check` (DEV-002: the same name in every repository).
-- `REUSE.toml`: `.github/dependabot.yml`, `.github/workflows/dependabot-auto-merge.yml` and the root `package.json` join the CC0 metadata annotation — the three files `reuse lint` found undeclared (474/477 → 477/477). No `web/src` change: no `/updates` entry due.
-
-### Added — 2026-09-18 (first CC0 resource intake)
-- `system/SYS-005-digital-resource-register.md`: canonical intake record for all 32 legacy candidates. Avocado and Pot Vapor 02 have primary CC0 evidence and unchanged originals in the companion numinia-assets cut; the other 30 stay outside it with specific provenance questions. IDs and historical declarations remain explicit. No consumer cutover, private data, thumbnails or legacy cleanup.
-
-### Added — 2026-09-18 (a site says what it stores: OPS-010, DSN-015)
-- `operations/OPS-010-cookie-policy-numengames.md` (legal, reserved, pinned in `REUSE.toml` with OPS-003/004): the Cookie Policy of the four sites, written from a measured inventory per site — numinia.com's consent, session and preference entries; the other three store nothing. Resolves OPS-003's FLAG-4 (the cited policy exists now); opens OPS-010's FLAG-2 (OPS-003 §2 overstates).
-- `standards/STD-008-design-tokens.md` 7.2.0: DSN-015 — a site stores nothing and loads nothing third-party that the policy does not name; consent before anything not necessary; check `check-storage`.
-- `web/`: `/legal/cookies` served from the master (collection, slugs, footer link); the Umami script removed from every page (a personal analytics server the policy did not name). `/updates` v0.3.0.
-
-### Fixed — 2026-09-18 (the home page said the service's line)
-- `web/src/views/HomeView.astro`: the home passed its own title and description ("Narrative Work OS — Numen Games", the service's line) over the layout's default; it reads the layout's now — the archive's row of STD-023 §19. `/updates` v0.2.1.
-
-### Changed — 2026-09-18 (STD-015 1.3.0: the family pipeline — what every Numen repository runs)
-- `standards/STD-015-engineering-checks.md` gains a section naming the five repositories that run the same guards — the four sites (`numinia-archive/web`, `numinia-web`, `numengames-web`, `nwos-deploy`) and the resource depot `numinia-assets` — and what each of them runs: the artefact steps that fail a build (install → type-check → lint → test → build → share card → version bump), the rule steps that only report while the register is `draft` (presence, REUSE lint, Scorecard, dependency audit — ENG-067), the one required check literally named `build`, the files kept identical across repositories by hand, and the security rules every workflow obeys (actions pinned by SHA, read-only tokens, no secret read by a build, a comment on every step). Oracle instruction, 2026-09-18: coherence of the guards across the repositories, "miran pero no muerden" while the standards are draft.
-- Measured before the section, on fresh clones of `main`: `nwos-deploy`'s ruleset required no status check and its CI had no job named `build` (a red run could merge); `numengames-web`'s `ci.yml` and `check-version-bump.mjs` were written in Spanish and its pipeline had no lint; Scorecard ran only here and in `nwos-deploy`; REUSE lint ran only in `numinia-web`; `numinia-assets` (born today) had no ruleset, no Dependabot, no CODEOWNERS. The consumer pull requests follow, one per repository; the archive's own gaps (`astro check` and REUSE lint before the web build) are the next cut here.
-
-### Added — 2026-09-18 (DSN-014 on numinia.org: a link presents itself)
-- `web/scripts/share-card.mjs`: draws the favicon set (`favicon.svg`, `favicon.png` 32, `apple-touch-icon.png` 180 — the canonical scarab, Marfil on Carbón) and the 1200×630 share card of STD-023 §19 into `web/public/` before `astro build`, with the house type embedded (Geist, Geist Mono; woff2 → TTF at render, no browser, no system font). `--check` is a CI step. The four files are build output, gitignored.
-- `web/src/layouts/Layout.astro`: default title and description are this site's row of §19 — the archive, not the service; `og:site_name`, PNG and Apple touch icons; `og:image` → `/og-card.png`.
-- Removed `web/public/og-default.png` (said "Numinia · Narrative Work OS", the service's line) and the Astro template favicon (a pink-and-cyan M).
-- `/updates` v0.2.0.
-
-### Added — 2026-09-18 (dependencies: always the latest, merged by the checks)
-- `.github/dependabot.yml` (daily, npm in `web/` grouped by family + GitHub Actions) and `.github/workflows/dependabot-auto-merge.yml`: a Dependabot pull request is approved and set to auto-merge by the workflow, so it lands the moment the required checks are green and stays open for a human when one is red. Oracle rule, 2026-09-18: "quiero actualizar siempre las librerías, no deberíamos quedarnos anclados a ninguna versión anterior". Needs *Allow auto-merge* in the repository settings (operator act).
-- `machine/scripts/lib/corpus.mjs`: the corpus seal (`corpus_hash`) no longer covers dependency manifests, lockfiles or workflow files (`SEAL_EXEMPT_RE`). A version bump changes no figure, yet it shifted the hash and every Dependabot PR was born `STALE` — the seal now names the corpus, not the toolchain. ALTERED still compares every figure. Test added.
-
-### Added — 2026-09-18 (STD-026: the operative vocabulary comes to the archive)
-- `standards/STD-026-operative-vocabulary.md` (register): the twenty-five working terms — Web3, wallet, CC0, digital sovereignty, file over app, data dignity, digital and biological agent, active inference, VRM… — each in one row: what it is, what knowing it clears up, what it enables here. Written in English (`DOC-011`). Origin: `numinia-web/docs/conceptual-glossary.md`, Spanish, which is retired in that repository's clean-up: the consumers drink from the archive, they do not keep constitutions of their own (Oracle, 2026-09-18). Two vocabularies now, deliberately: this one is operative; the game's words stay in `lore/codex/glosario.md`, reserved, in the manual's language. The ES↔EN↔`id` naming table that travelled with it is not migrated: the English names are already in `CAN-003`/`CAN-004`, and the lower-case identifiers belong to the code that uses them.
-
-### Changed — 2026-09-18 (transition regime: draft describes, it does not bind)
-- `AGENTS.md` § Transition regime (MVP → alpha), pointed at from `CLAUDE.md`'s second instruction. Oracle instruction, 2026-09-18: the ceremony the draft protocols prescribe — mission card and activation commit per task (`PRO-003`), ADR per decision stated in chat, task classification and practice plates (`PRO-016`), load score, `divergence_log` and `OPS-008` at close (`PRO-001`) — "ahora mismo lo único que hacen es frenar y complicar la operativa". While a protocol is `status: draft` it describes; it binds again when the Oracle promotes it. The section lists what still holds (one PR per repo per cut, CI green with telemetry regenerated, `/updates` entry and version bump per site change, CHANGELOG entry, reserved regimes, canon discussed in chat). The protocols themselves are not edited: they are the target shape, not the current one.
-
-### Added — 2026-09-17 (lore/: the game comes home)
-- `lore/` — the world and the game, reserved regime (`REUSE.toml`, `CAN-005` fourth regime). Oracle instruction, 2026-09-17: "el lore tiene que vivir en numinia-nwos; el repo de lore ya no tiene sentido" — reversing the 2026-08-16 extraction (`numinia-web` ADR-020) and `ADR-036`'s "pointer only, never copied", which stand as the records they are. Four folders: `game/` (the manual v0.6.0, the attributes compendium), `adventures/` (Session Zero; *El Espejo Roto*, split out of the manual's tail — the manual keeps it too; `TEMPLATE.md` with the manual's chapter-7 structure for the next one), `world/` (welcome, brand and culture, role structure, epistemic relations), `codex/` (glossary, acknowledgments, character sheet + image, edition legal note). `seminal-legacy/` and the pre-v0.6.0 manual did not travel: superseded copies, still in `numinia-lore`'s history.
-- Guards: `lore/**` is outward of `std-004` and `std-020` (prose the archive holds, not documents it governs); `content.config.ts` does not mirror it (the viewer is public). Pointers repointed in `SYS-003`, `agents/senet/SOURCES.md`, `AGENTS.md`, `corpus.ts`.
-- Consumer: `numinia-web` reads `lore/` from this repository at build (`LORE_REPO` in its `fetch-lore.mjs`); its PR follows. Archiving `numengames/numinia-lore` on GitHub is an operator act.
-
-### Changed — 2026-09-16 (web: footer round two, /updates, legal slugs, version-bump guard)
-- `web/src/components/Footer.astro` takes the final house shape the Oracle approved: brand as written name + one line; Navigation in two columns when > 4; a **Numen Games** column naming the four sites (numen.games, numinia.com, numinia.org, nwos.numen.games) with this one as text; Legal; Social (GitHub org now, X/Discord when the accounts exist); closing line unchanged. Data: `web/src/data/house-links.ts`, `web/src/data/social-links.ts`.
-- `/updates` (new, `web/src/pages/updates.astro`): the SITE's version timeline, newest first, with a Pending block — modelled on numinia.com/updates and mirrored on the other sites. The footer's version now comes from `web/src/data/updates.ts` (`v0.1.0`), not from `web/package.json` (`0.0.1`, never raised).
-- `machine/scripts/check-version-bump.mjs` (new build guard, registered in `machine/scripts/blind-spots.json`, step `version bump` in `ci.yml`): a PR that changes `web/src/**` must add an entry and raise the version in `updates.ts`, or CI refuses it. The Oracle's rule: each production push raises the minor.
-- Legal slugs unified with the other sites: `/legal/terms`, `/legal/privacy` (and `.md`); `/legal/terminos`, `/legal/privacidad` redirect (`web/astro.config.mjs`). `OPS-002` CON-004 keeps its dated "current state" line as the record it is.
-
-### Changed — 2026-09-16 (web: the house footer, the same on the three sites)
-- `web/src/components/Footer.astro` takes the shape numinia.com and numen.games now share (Oracle instruction, 2026-09-16): brand · Navigation · Legal · Social, then the closing line — the scarab, `by Numen Games — we build for a better future.`, and the build line `licence · telemetry · version · commit`. The licence link moves from `CAN-005` to `REUSE.toml` (the map answers "which licence?" per path; the tooltip spells out the regimes); the version now links to this `CHANGELOG.md`; the commit keeps its GitHub link.
-- `web/src/data/social-links.ts` emptied: the two personal accounts it held were a placeholder, and the column is drawn only when the house has accounts. The company URLs (X, Discord, GitHub) arrive with the Oracle; then the same list goes to the three sites.
-- `web/src/brand/Khepri_Logo.svg` copied from `numinia-web/packages/ui/src/assets/brand/` and annotated reserved in `REUSE.toml` (after the `web/**` MIT block, last match wins). A copy, not an install: no brand package exists yet — `STD-023 §7` catalogues `Numen_Games_Horizontal_Word.svg` and `Khepri_NG_Logo.svg`, and neither file is in any of the three repositories. Recorded here as the gap it is.
-
-### Removed — 2026-09-09 (guilds/ and infra/: two series without a consumer, ADR-045)
-- `guilds/` deleted (8 files: GLD-001..004 charters, GLD-005..008 rosters). Nothing read them — `corpus.ts` excluded the folder, `lint-frontmatter.mjs` validates `guild:` against a typed list — and the charters' branch tables contradicted `CAN-004` on every guild. The one live fact, agent → guild, now lives in `agents/<id>/AGENT.yaml` as `guild:` (Ursa → Alchemists, Talos → Sentinels, Byblos/Senet/Calliope → Exegetes; the five agents in no roster carry `null` for the Oracle). Eight `/corpus/guilds/...` URLs redirect to `CAN-004`.
-- `infra/` deleted; `ruleset-protect-main.json` moved to `.github/rulesets/protect-main.json` with a short README carrying the re-export command. The `INF` series (0 documents in 15 days) leaves the register; `MIS-0135` row 7 records the ruling.
-- Registers updated in the same change: `STD-001` 5.1.0 (rows `guilds/`, `infra/`, genre `charter`), `rules.json`, `content.config.ts`, `REUSE.toml`, `LICENSE`, `SYS-003`, `machine/templates/README.md`, `rings.mjs`, `README.md`, `AGENTS.md`, `CLAUDE.md`, three `SOURCES.md`. The two moulds (GLD, INF) deleted from `machine/templates/`. `legacy.mjs` keeps both prefixes: it reproduces a frozen golden at `6a97fbf` and is historical by contract.
-
-### Removed — 2026-09-09 (machine/scripts/: eight dead files, tests gathered under machine/scripts/test/)
-- Deleted, criterion 0 citations from living documents ∧ 0 invocations from CI, `web/package.json` or another script: `verify-orphan-guard.sh` (absolute path to one machine), `verify-declaration-rule.sh`, `translate-corpus.mjs` (MIS-120d, Ollama; cache untracked), `measuring_root.py` (its importers left with `count-evidence.py`, #198), `field-decisions.{mjs,json}` (MIS-126, JSON read by nobody), `rename-plates.mjs` (one-shot, ran in #301; ADR-043 v1.1.3 now points at `9645477`), `experiments/` (four August censuses cited only by closed missions). ~2,600 lines. All remain in git (STD-020).
-- `lint-naming.test.mjs` and `rename-series.test.mjs` moved to `machine/scripts/test/`, beside the other tests. `lint-naming.test.mjs` was already 4/9 before the move (dated-id cases the guard stopped enforcing) — moved as-is, not repaired here; the failure is pre-existing and recorded so nobody reads it as caused by the move.
-- `CLAUDE.md` test line corrected: only `telemetry.test.mjs` runs in CI.
-
-### Removed — 2026-09-04 (reports/ series extinction, Oracle instruction)
-- 22 of 24 `reports/RPT-*.md` deleted: none post-dates 2026-08-26, no report series has produced anything since, register judged obsolete noise. `RPT-003-wardley-map.md` and `RPT-008-gaps-capability-map.md` kept — `web/src/lib/wardley.ts` and `gaps.ts` parse them at build time as the data source for `/wardley` and `/gaps`; they are live inputs, not archive prose.
-- `reports/evidence/` removed in full (`RPT-011` licensing-audit annex — SBOM, `reuse lint` transcript, seven `robots.txt` captures; `RPT-2026-08-25` forensic note on the 2026-04-15 canon deletion), overriding ADR-005 v1.2.0 rule 5's "never rewritten" guarantee by explicit dated Oracle authority — see `decisions/ADR-005-prefix-ruling.md` §Note, 2026-09-04. Both remain reachable in git history.
-- `machine/scripts/references-baseline.json` regenerated to absorb now-broken citations to the deleted IDs (881 → 632 known-broken references — a net decrease, most prior entries were internal to the deleted files) rather than rewriting the ~30 citing documents.
-- `web/astro.config.mjs`: 22 `/reports/rpt-*` addresses (plus their `/reportes/diario-*` and `/reports/daily-*` aliases) 301 to `/reports`, the section index — the question each report answered was withdrawn, not moved, same precedent as the debt register extinction (#244).
-
-### Changed — 2026-09-03 (STD refactor, licensing: STD-003 reservation reversed)
-- STD-003 (then `platform-role-system`, now `standards/STD-003-platform-ranks.md`): `license` LicenseRef-Numen-AllRightsReserved → CC0-1.0. Oracle ruling, 2026-09-03: the 2026-08-25 reservation (rank names and promotion mechanics as Numinia trade secret) rests on a premise the Oracle now holds false. Recorded as a dated licence-amendment note at the top of the document body, alongside the original `series_change` field it reverses — preserved unmodified, as the record of the ruling it supersedes.
-- Verified against git history rather than assumed: the file was born 2026-04-07 under its old canon name, carried no `license:` field until 2026-08-25, and the repository's root `LICENSE` has been CC0-1.0 since the initial commit `9f51ad1` (2026-04-06). For four and a half months in a public repository the only licence statement covering it was CC0. The reservation was therefore unenforceable when written; this entry records a release that had already happened rather than performing a new one. The waiver remains irrevocable and is accepted as such.
-- REUSE.toml: removed the STD-003 exclusion annotation. `standards/**` CC0-1.0 now applies without exception. The 2026-08-31 MIS-127 note had already flagged this exception as probably moot; that open question is now closed rather than left flagged.
-- Scope note: licensing only. The broader standards refactor (STD-005's draft/MUST contradiction, STD-002's dead debt links, the amendment-in-place practice in decisions/) remains open and is being carried in separate PRs.
-
-### Changed — 2026-09-02 (MIS-138 step 7: closure — §10.5 proposed, README, ledger repaired)
-- standards/STD-001-glossary.md v5.3.0: §10.5 *A corpus figure is produced once and cited everywhere else* added as PROPOSED (decision 2 = citation form); awaits the Oracle's signature.
-- machine/telemetry/README.md: what each file is, who writes it, how to run and read the instrument.
-- machine/telemetry/history.jsonl repaired from git: the ship steps of #211–#213 deleted `machine/telemetry/` before measuring and truncated the ledger to one line each time (criterion 9 violated three times, unnoticed). Every line ever committed restored in order (5 @ `924ca38`); a test now fails if any committed line is missing.
-- Acceptance run at `924ca38`: 87 figures, 9 families; see the mission's closure for the per-criterion reading.
-
-### Added — 2026-09-02 (MIS-138 step 6: families `contradictions` and `figures` — D4, D5)
-- machine/scripts/lib/families/claims.mjs. `contradictions` layer 1, extractor classes: status vocabulary vs rules.json, `[CI]` rows of STD-001 vs `run: node` steps of ci.yml (6 scripts run that no row claims @ `0d0d5e7`), id digit width per series (MIS, RPT cited with both widths). Layer 2, the verified register `machine/telemetry/claims.json`: MIS-135's deferred rows with a locating quote; every run checks each quote → open · resolved · moved (5 open @ `0d0d5e7`). Not built, said so: `pages_built`, `series_registered`.
-- `figures`: `live` = lines outside machine/telemetry/ stating a corpus-shaped figure with no `@ head` beside it (661 @ `0d0d5e7` — a detector, not a verdict), `cited` and `stale_citations` for the §10.5 form `key = value @ head`. 87 figures in 9 families; instrument v0.5.0. The instrument never edits a document.
-
-### Changed — 2026-09-02 (MIS-138 step 5: families `headers` and `provenance`, five censuses retired)
-- machine/scripts/lib/families/provenance.mjs: `headers` (docs with/without frontmatter, field_usage, uid_present/collisions, created_T000000Z, hygiene) and `provenance` (authorship by nature of `author:`, created vs first-add commit over the whole corpus with renames followed, REUSE regime crossings over every rename in history, P-003 anchor rule on missions). One `git log` walk per run. 72 figures in 7 families; instrument v0.4.0.
-- Retired, their predicate now in the dataset with its definition: machine/scripts/experiments/{frontmatter-census, provenance-census, dates-vs-commits, regime-crossings, protocol-anchor}.py. Two were not reproducible as they stood (hard-coded `/repos/numinia-nwos` root; protocol-anchor read its input from /tmp) — the dataset states what was ported and what was not. Kept: complexity-census, index-coverage, public-surface-census, mis127-token-delta (MIS-127's ledger, not measurement of this kind), resolve-citations (a guard-shaped check, not a count).
-- Where the old and new predicates differ they differ on purpose and the definition says so: `headers.docs_with_frontmatter` uses the shared reader (264) where frontmatter-census used a raw regex (262); `provenance.authorship` classifies the whole corpus, not the RPT-011 SBOM grant list.
-
-### Added — 2026-09-02 (MIS-138 step 4: family `tokens`, no tokenizer dependency)
-- machine/scripts/lib/cl100k.mjs: cl100k_base encoder over the rank file, ≈60 lines, no package. Rank file pinned by sha256 (the one tiktoken pins), fetched by `node machine/scripts/telemetry.mjs --fetch-tokenizer` into `machine/scripts/lib/tokenizer/` (gitignored). Equal to `tiktoken.encode_ordinary` over every tracked .md (criterion 6, by test — tiktoken venv present; named skip otherwise).
-- machine/scripts/lib/families/tokens.mjs: `tokens.total` = 601857 @ `19c5b96` (whole file, frontmatter included, tracked .md outside web/), `by_dir`, `by_status`, `missions_share_pct` (39.21 %), `largest`; per-document `tokens` column in `machine/telemetry/docs.json`. Rank file absent → every key `null` with the reason, exit 0. 56 figures in 5 families; instrument v0.3.0.
-
-### Changed — 2026-09-02 (MIS-138 step 3: family `legacy`, `count-evidence.py` retired)
-- machine/scripts/telemetry.mjs v0.2.0: family `legacy` — the 20 keys of `count-evidence.py --json`, same names, same values, each with its predicate written out (including the reproduced defects: `uid_colisiones` counts shared placeholders, `misiones_por_status` counts TEMPLATE/ANNEX/INDEX). `--legacy-json` prints the old dict. 50 figures in the dataset. Declares its blind spots on exit, as the guards do.
-- machine/scripts/count-evidence.py removed (criterion 2): dict-equal to `--legacy-json` at `6a97fbf`, golden kept as `machine/scripts/test/fixtures/count-evidence-6a97fbf.json` and re-run against that tree by `telemetry.test.mjs`. `measuring_root.py` stays (formatter; MIS-127's scripts import it).
-- Live citers re-pointed, text only, no figure re-typed: STD-001 v5.2.0 (`evidence_script`, §0, §4.1, §8), DBT-001 v4.3.1, PRO-010 v0.8.3, machine/scripts/blind-spots.json (`count-evidence` → `telemetry`). Records — done missions, reports, ADR-005 L44, this file — keep their citations.
-
-### Added — 2026-09-02 (MIS-138 step 2: the instrument, first three families)
-- machine/scripts/telemetry.mjs (new, v0.1.0): measures the corpus and writes `machine/telemetry/latest.json` (every figure with value · unit · definition, plus `head`, `corpus_hash`, `root_dirty`), `machine/telemetry/docs.json` (one row per document), `machine/telemetry/latest.md` (rendered view — the only document that states figures, D5) and appends `machine/telemetry/history.jsonl` on committed trees. `--check` exits 1 when the dataset is stale (other `corpus_hash`) or altered (same corpus, other values); `--key family.key` prints one figure with its predicate. Not wired to CI.
-- machine/scripts/lib/corpus.mjs + machine/scripts/lib/families/{corpus,series,missions}.mjs: 30 figures, families `corpus` · `series` · `missions`. `series.registration` reproduces `count-evidence.py matricula` per series (registered/total/apparatus) — checked by test while both exist (criterion 2); `count-evidence.py` is not retired yet.
-- machine/scripts/test/telemetry.test.mjs (new, 8 checks): shape, determinism, legacy equality, three fixtures in a scratch repo (added mission moves `missions.total` and `done_without_closure` by 1; mis-named file lowers `pct` not `registered`; changed tree → `--check` STALE).
-- REUSE.toml: `machine/telemetry/**` → CC0-1.0 (data, the regime of what it describes). references-baseline 670 → 669: the planned-artefact entry for `machine/telemetry/latest.md` resolves now.
-
-### Changed — 2026-09-02 (MIS-138 step 1: shared classifiers — `machine/scripts/lib/rules.json`)
-- machine/scripts/lib/rules.json (new): the series register (ADR-005 v1.2.0), retired prefixes, apparatus list (DBT-001 ruling 2026-08-31), type/status/subtype vocabularies (STD-004 §4–5) and governed dirs (§8) as one data file. machine/scripts/lib/frontmatter.mjs (new): the one `parseFM` (lint-frontmatter's, NESTED contract kept), `loadRules`, `prefixToDir`, `isApparatus`, `isTemplate`.
-- machine/scripts/lint-naming.mjs, lint-frontmatter.mjs, check-references.mjs: read the register and vocabularies from rules.json instead of three private copies (D1.1 of MIS-138). Verdicts identical before and after on `--report` output; the five baselines unchanged byte for byte; 147 lines removed, 50 added.
-- machine/scripts/test/rules.test.mjs (new, 17 checks): the data is well-formed, every target series exists in the tree, each guard imports the lib and keeps no private map, `parseFM` keeps the NESTED contract, `isApparatus`/`isTemplate` agree with the lists they replaced.
-
-### Changed — 2026-09-02 (MIS-138 v1.1.0: iteration 1 with the Oracle, `in-progress`)
-- missions/MIS-0138 → v1.1.0, `status: in-progress`: Design section (D1–D6) — one instrument in Node beside the guards, 12 measurers absorbed and retired, guards not; families `corpus` · `tokens` · `contradictions` · `provenance`; `corpus_hash` as the authority for a committed `machine/telemetry/` dataset; the v1.0.0 render markers inside other documents dropped for one rendered dataset document; STD-001 §10.5 re-drafted as the citation form (pure ban costed as the alternative); criteria in key + target form; adds/removes and surprise accounted in tokens. No instrument code.
-- guards: references-baseline 669 → 670 (+1, deliberate: the brief names the planned rendered dataset document, which does not exist yet; the entry is removed by the PR that creates it).
-
-### Added — 2026-09-02 (MIS-138: telemetry instrument — brief)
-- missions/MIS-0138 opened (`todo`, Alchemists, effort L): one program measures the corpus and writes one dataset with each figure's unit, definition and `HEAD`; `count-evidence.py` and the one-shot censuses fold into it; two documents rendered from it (STD-001 §4.1, DBT-001 coverage). Every figure in the brief was measured at `e4b94e7` by script — 152 hand-typed live figures in 28 documents; "pages built" carries 6 different values across 6 documents. Four decisions for the Oracle. No instrument code in this PR.
-
-### Changed — 2026-09-02 (missions/ normalisation, lots 2–4 — judgement; PR #198)
-- missions/ bodies, all 134: the 2026-04 import placeholders in 37 context cards replaced with each brief's own Story/Epistemic/Pragmatic text; 85 inline attribute lines (`**Area:** … **Effort:**`) removed — they disagreed with the frontmatter in 38; import-era `---` rules removed. Closed records: form only (STD-001 §2.1), each with a dated version-history line.
-- live missions (66): a dated `## Status check — 2026-09-02` with evidence and a recommendation — status **not** changed (PRO-003 §2). Retired ids repointed in live text only (P-→PRO-, C-→CAN-, S-→STD-, D-→DBT- per `absorbs`). 8 todo missions assigned to agents retired 2026-08-28 → `assigned_to: null`; 6 with a repository or model name as assignee → null; MIS-084 gets its `freeze_reason`; the four in-progress hubs get `started` from git.
-- MIS-135 opened: register of 20 incoherences found at other levels (protocols, standards, guards, web) and left untouched by instruction. MIS-127 ledger row 10.
-- guards: lint-naming treats `type: meta` as apparatus (the rule count-evidence already applied) — naming-baseline 2 → 0; references-baseline 671 → 669; url-baseline 622 → 624. count-evidence missions 132/132 · 100 %.
-
-### Changed — 2026-09-02 (missions/ normalisation, lot 1 of 4 — mechanical)
-- missions/: all 134 series files renamed `MIS-NNN-*` → `MIS-0NNN-*` (ADR-005 v1.1.0). The `id:` field keeps the registered number, as the MIS-0129 precedent did, so no citation, URL or relation entry changes. `MIS-115a`/`MIS-115b` (letter suffix, never a legal id shape) → `MIS-132`/`MIS-133` with `former_id`; `PROPOSAL-closure-guard` (unregistered prefix) → `MIS-134`, todo. Three `-v1`/`-v2` slug suffixes retired (N-02).
-- missions/ headers: `uid: ""` declared on all 135 (STD-004 HDR-020); `license: CC0-1.0` on all 135 and `REUSE.toml` follows (Oracle, 2026-09-01: every mission is CC0); `mission_id` removed (58, identical to `id` in 58/58) and retired from STD-004 + lint-frontmatter; `owner: oracle` on 25 that lacked it; `created_source`/`created_confidence` from first commit on 35 (STD-001 §8: never invented); `territory`/`assigned_to`/`completed` completed where the CORE block was short. Field order: CORE · REGISTRO · optional, as TEMPLATE.md. No body text changed except the H1 of the three re-numbered files.
-- norms: PRO-003 v4.1.0 (§Mission IDs still prescribed `MIS-NNN`, max 999, and the dot form; sub-missions now take a number and `parent_mission`); ADR-004 v1.1.1; PRO-010 v0.8.2; STD-001 v5.1.1 (§4.1 missions 0/131 → 134/134); STD-004 v1.4.1; README v2.0.1.
-- guards: lint-naming and count-evidence treat `missions/TEMPLATE-*.md` as apparatus (lint-frontmatter already did). naming-baseline 135 → 2; references-baseline 599 → 671 (+73: basename citations in three closed records and one done mission, not rewritten per PRO-010 §3.4 rule 2; −1 healed); url-baseline 616 → 622 (+6, 0 died; 5 redirects for the retired ids).
-
-### Changed — 2026-09-01 (ADR-005 v1.2.0, reports/ normalisation — PRs #193, #194)
-- decisions/ADR-005 v1.2.0: dailies keep `RPT-YYYY-MM-DD` (subtype daily only); everything else in `reports/` is `RPT-NNN`; subtype vocabulary closed (daily · audit · analysis · proposal); folder flat; evidence in `reports/evidence/<RPT-id>/`; `AUD-`, `PROP-` retired. PRO-010 v0.8.0, STD-001 v5.1.0, STD-002 v2.1.0, STD-004 v1.4.0, DBT-001 v4.2.0 follow.
-- reports/ flattened: `audits/` and `daily/` removed; 11 `AUD-*` + wardley/gaps/PROP → `RPT-003`…`RPT-016` by `created` (former_id on each); 8 dailies moved, ids unchanged; licensing annex → `reports/evidence/RPT-011/` (opaque block); `reports/INDEX.md` deleted (stale apparatus, ADR-030); `evidence/*.py` → `machine/scripts/experiments/` with MIT SPDX; deleted-canon text → `Epistemic_Relations (deleted 2026-09-08)`.
-- scripts: lint-naming/lint-frontmatter/count-evidence implement v1.2.0; `lint-naming.test.mjs` new (9 cases); rename-series.mjs gains `--into`, reserved numbers, dated-id handling, refuses baselines and test files (26 tests).
-- web: collection `reports` reads `reports/RPT-*.md`; `/reports` (index by subtype) + `/reports/[id]` + `/reports/[id].md` for every report; wardley/gaps read the collection; 30 redirects, 0 dead URLs.
-- web (PR #195): `pages/reports.astro` + 5 `daily-*.astro` (41.7 KB of hand-written Spanish copies, MIS-065 debt) and `pages/audits/*` deleted; `/audits*`, `/reportes/*`, `/reports/daily-*` redirect to `/reports/*`. One folder, one collection, one head.
-
-### Added — 2026-08-21 (P-011, security audit protocol)
-- protocols/P-011-security-audit.md v0.1.0 (draft) — how a security audit is scoped, executed, classified and closed: identity/authorization axes, phases A/B1/B2/C/D with a hard gate before any irreversible act, hot-finding incident path, output tiering (public/internal/hot), stable `FND-YYYY-NN` finding IDs, and three separate scores (doctrine, execution, coverage). Runs at least annually plus event triggers. Touches SEC-004, SEC-006, LEG-01
-- README protocol table completed: P-010 was missing from it, P-011 added
-
-### Changed — 2026-08-17 (MIS-066, mission system unification)
-- missions/ flattened: 81 files in 4 status directories → 66 unique missions in one folder; `status:` frontmatter is the only state surface
-- All missions in English; 15 duplicate IDs merged; MIS-00058 renumbered to MIS-067 (collision with MIS-058); padded IDs unpadded
-- States renamed: todo→backlog, freeze→frozen; draft added (P-003 v3.0.0, STANDARDS §4B/§5 updated)
-- /missions builds from missions/ at deploy; /misiones and missions-index.json retired (redirects in place)
-- queue/INDEX.md and protocols/P-001-briefing-agente-v1.md deleted (stale duplicates)
-- Earlier same day (LD-001 closure): presentation layer aligned with per-path licensing, SPDX headers in all first-party code, frontmatter license fields matched to REUSE.toml, license guard added to the build
-
-## [0.5.0] — 2026-04-07 (evening)
-
-### Added
-- DEC-006: English as official NWOS repo language
-- decisions/INDEX.md updated with DEC-006
-- agents/INDEX.md v2.0.0 — updated to flat structure, real agents (MIS-057 QA)
-
-### Fixed
-- MIS-037 closed (was open in active/ while also in done/)
-- CHANGELOG updated to reflect full history
-
-### Changed
-- MIS-056 acceptance criteria fully completed
-
-## [0.4.0] — 2026-04-07 (afternoon, MIS-056)
-
-### Added
-- the constitution (superseded, deleted 2026-09-08) v1.2.0 — full English translation + language policy
-- agents/nimrod/MEMORY.md → v0.2.0 (EN)
-- agents/ursa/STATUS.md → v0.2.0 (EN)
-- agents/senet/SOUL.md, OPERATOR.md, STATUS.md → v0.2.0 (EN)
-- agents/procurador-01/SOUL.md → v0.2.0 (EN)
-- agents/_template/SOUL.md — updated to English standard
-- reports/daily/RPT-2026-04-04 through 07-tarde → v1.1.0 (EN)
-- missions/backlog/MIS-056 v2.0.0 — translation scope defined
-- missions/backlog/MIS-060 v1.2.0 — agent sync architecture
-- missions/backlog/MIS-061 — El Sistema web visualization
-- DEC-006 — English as official NWOS repo language
-
-### Changed
-- All protocols P-001 through P-008 → v1.1.0 (EN)
-- All operations documents → v1.1.0 (EN)
-- All guild charters and rosters → v1.1.0 (EN)
-- All decisions ADR-001, ADR-001 (formerly ADR-002), DEC-001 through DEC-005 → v1.1.0 (EN)
-
-## [0.3.0] — 2026-04-07 (morning)
-
-### Added
-- the constitution (superseded, deleted 2026-09-08) v1.1.0 — Active Inference, OODA, BML, context cards (§7G-I, §8)
-- P-007 Context Load Protocol
-- P-008 Approval Brief Protocol
-- APPROVAL-REQUEST-template.md
-- agents/nimrod/ — SOUL.md, OPERATOR.md, STATUS.md, MEMORY.md (flat structure)
-- agents/adonaz/ — complete pack (SOUL, OPERATOR, STATUS, MEMORY)
-- agents/ursa/ — SOUL.md, OPERATOR.md (new — replaces Alquimista-01)
-- agents/senet/ — SOUL.md (new — replaces Exégeta-01)
-- guilds/ — charters + rosters for sentinels, exegetas, procuradores
-- missions/active/MIS-057 — Deep QA of the NWOS System
-- missions/active/MIS-058 — Approval Brief Protocol
-- missions/backlog/MIS-050 — Backlog review ritual
-- Audit document — web vs repo coherence
-- AUDIT-2026-04-07-web-vs-repo.md
-
-### Changed
-- Agent architecture migrated to flat structure (agents/{name}/ instead of agents/guilds/{guild}/)
-- P-001 updated to flat agent path
-- P-003 added ID verification rule before assigning mission IDs
-- OPERATOR.md updated: git pull as mandatory startup step
-
-### Fixed
-- Duplicate agents/guilds/sentinels and agents/guilds/centinelas bug resolved
-
-## [0.2.0] — 2026-04-06 (Dark Council session with Christian Märtens)
-
-### Added
-- the constitution (superseded, deleted 2026-09-08) v1.0.0 — ISO 8601 timestamps, UUID v7, frontmatter schema, commit conventions, BDD/Cucumber, ADR, Wardley, DORA, SemVer
-- P-006 Session Close Protocol (Alquimista-01 proposal + Nimrod validation)
-- agents/adonaz/ initial design
-- guild charters — sentinels, alquimistas, exegetas
-- canon/INDEX.md v1.1.0 — S-009 Rank Specifications added
-- operations/STD-002-governance.md, security-policy.md, credential-map.md
-- missions/active/MIS-037 — Archive Summa (Adonaz MIS-037 completed)
-- missions/active/MIS-054 — Multi-Oracle Telegram access
-- missions/active/MIS-055 — Dual Nomenclature System
-- decisions/ADR-001, ADR-001, DEC-001 through DEC-005
-- reports/daily/RPT-2026-04-06
-
-## [0.1.0] — 2026-04-06 (initial)
-
-### Added
-- Initial repository structure (8 documentary funds)
-- README.md — ontological portal of the system
-- GOVERNANCE.md — modification rules derived from 100 simulations
-- CONTRIBUTING.md — guide for external contributors
-- agents/ — Nimrod and Adonaz initial profiles
-- protocols/ — P-001 to P-005
-- missions/ — Template v2 + active and completed missions
-- decisions/ — ADR-001
-- blueprints/ — architecture documents
-- canon/ — index of the 9 seminal documents
-- reports/daily/ — RPT-2026-04-04, RPT-2026-04-05
-
----
-
-*Maintained by Nimrod 🗡️ — Numen Games — CC0 1.0*
+### 2026-09-28
+
+- **Removed** The fat of the archive: the CHANGELOG becomes an index of one line per change, five closed missions and one closed report leave the corpus, and the MVP story drops its appendices (#546)
+- **Added** The moulds, side by side (#545)
+- **Changed** A sale's record is a document like every other (#544)
+- **Added** Metis, the sales agent (#543)
+- **Fixed** Every page links back to its file (#542)
+- **Added** The pipeline, as three readers see it (#541)
+- **Changed** The process is the evidence (#540)
+- **Added** The first opportunity, the first proposal (#539)
+- **Added** Opportunities, a public series (#538)
+- **Added** Training, the offer; selling as wired (#537)
+- **Added** The three moments of a sale, as protocols (#536)
+- **Added** How a sale is written down (#535)
+
+### 2026-09-27
+
+- **Added** What is yours stays with you, carried out (#530)
+- **Changed** Joining and leaving, two protocols; the living pieces, thinner (#529)
+- **Changed** Every protocol has the five parts (#528)
+- **Added** Books (#527)
+- **Added** The core, as a flow (#526)
+- **Changed** The corpus does not grow, in force (#525)
+- **Fixed** The corpus-does-not-grow guard reads what the tree had (#524)
+- **Changed** Bringing a rule into force, and one page per document, in force (#523)
+- **Fixed** The protocols keep the designed system (#522)
+- **Changed** Every protocol is steps (#521)
+- **Changed** One document, one address, in force (#520)
+- **Added** PRO-023, bringing a rule into force (#519)
+- **Changed** The entry door, and six standards in force (#518)
+- **Changed** The five longest standards, thinned (#516)
+- **Added** /binding names which documents are draft (#515)
+- **Added** Legal is its own series (#514)
+- **Changed** One answer per question (#513)
+
+### 2026-09-26
+
+- **Changed** A requirement answers yes or no (#512)
+- **Added** A canon for ownership (#511)
+- **Changed** The canon shows its question (#510)
+- **Changed** The standards index shows each question (#509)
+- **Changed** The copy pass (#508)
+- **Changed** Thinning the apparatus (#507)
+- **Changed** One document, one question: the last rows (#506)
+- **Changed** Thinning the standards: design values (#505)
+- **Changed** Thinning the standards: the header (#504)
+- **Changed** Thinning the standards (#503)
+- **Changed** One document, one question: the second cut (#502)
+- **Changed** One document, one question (#501)
+
+### 2026-09-25
+
+- **Changed** We are a microenterprise (#500)
+- **Changed** Outside standards adopted where they say it better (#499)
+- **Changed** Every standard reads for people first; STD-011 shared out (#498)
+- **Changed** Licensing in plain words (#496)
+- **Changed** Licensing leans on SPDX, REUSE and the DCO (#495)
+- **Changed** Plates and sources leave the reading (#494)
+- **Changed** External standards are rules, told aloud (#493)
+
+### 2026-09-24
+
+- **Changed** The map of the Summa is the home (#491)
+- **Fixed** The cookie policy says what the sites keep (#489)
+- **Changed** Open books (#487)
+- **Changed** The Codex is the shared source (#486)
+- **Added** The account looks ahead (#485)
+- **Changed** Adventures on two shelves: tabletop and virtual worlds (#484)
+- **Fixed** Nimrod is the Gatekeeper (#482)
+- **Fixed** The ledger carries staff in one line (#481)
+- **Added** The account, simulated (#483)
+- **Changed** The standards read in five shelves (#480)
+- **Added** PRO-020 and PRO-021, two protocols for money, ADR-065 (#479)
+- **Added** SYS-008, the account as wired today (#478)
+- **Fixed** The manual as its authors meant it; the English names the authors chose (#477)
+- **Added** The four sites against the design system (#475)
+- **Added** STD-033, every charge delivers something; the account is one, ADR-064 (#476)
+- **Fixed** The English glossary follows the Token correction (#474)
+- **Added** The Codex's edition matter, in English (#471)
+- **Added** CAN-011, what has value also makes a bond, ADR-063 (#473)
+- **Added** Day and night on every site (#472)
+- **Changed** The design system, seen (#470)
+- **Added** The Broken Mirror, in English (#469)
+- **Fixed** AGENTS.md types no protocol count; REUSE lint clean (#468)
+- **Fixed** The READMEs know the manual is whole in English (#467)
+- **Added** The manual in English: chapters 3 to 7 (#466)
+- **Added** The Numinia Design System, whole (#465)
+- **Removed** The v5 guide (#465)
+- **Changed** The kit speaks the current system (#465)
+- **Added** The manual in English: chapter 2 (#464)
+- **Added** STD-031, A canon states, ADR-062 (#462)
+- **Changed** The canon reads in four shelves (#461)
+- **Changed** Three canons of the house, ADR-061 (#459)
+- **Added** CAN-010, leave things better than you found them, ADR-060 (#457)
+- **Added** CAN-009, the archive is the organisation, ADR-059 (#457)
+- **Fixed** STD-030 follows the translation glossary (#456)
+- **Changed** CAN-007 says what function is, ADR-058 (#455)
+- **Changed** CAN-004 absorbs CAN-003, ADR-057 (#454)
+- **Added** The manual in English: introduction and chapter 1 (#453)
+- **Added** The translation glossary (#451)
+- **Changed** The manual, chapter by chapter (#450)
+- **Changed** The lore is CC0 (#449)
+- **Changed** The licence is the file's (#448)
+
+### 2026-09-23
+
+- **Added** What binds today (#437)
+- **Added** A door for machines (#436)
+- **Fixed** Eleven documents were published with no licence at all (#436)
+- **Changed** Rights are stated per document, never per folder (#436)
+
+### 2026-09-22
+
+- **Changed** Fourteen gaps that were never gaps (#431)
+- **Added** A SHOULD that nothing would ever fail (#431)
+- **Added** 46 rules, and no cheap way to know which ones apply (#430)
+- **Changed** The agent context said a great deal and checked none of it (#429)
+- **Changed** The register named one vendor's adapter (#428)
+- **Changed** A retired connector held every Astro update hostage (#426)
+- **Fixed** The listen button had nothing to read (#425)
+- **Added** Every page offers its own markdown (#424)
+- **Changed** Source points at the document that governs, not the template that draws (#424)
+- **Debt** `DBT-021` — six pages hold their content in the template instead of the corpus (#424)
+- **Changed** The home is a threshold, not a filing plan (#423)
+
+### 2026-09-21
+
+- **Changed** The viewer's skeleton: the Summa is the home, the functions are the menu (#422)
+
+### 2026-09-20
+
+- **Changed** One document, one address: /corpus/ removed, 482 addresses deleted (#413)
+- **Changed** The /archive pages read the archive, instead of remembering it (#412)
+- **Changed** The first agent card: agents/ursa/AGENT.md replaces AGENT.yaml (#410)
+- **Changed** The Avocado card is a draft, like the model it tests (#409)
+- **Added** The first entity card: objects/avocado.md (#408)
+- **Added** The template guard, proven (#407)
+- **Added** Coverage of the guards and tools is seen in CI, not enforced (#406)
+
+### 2026-09-19
+
+- **Added** DEV-008: the test before the code (#405)
+- **Fixed** The repository is numengames/numinia-archive on every live surface (#404)
+- **Fixed** Telemetry: main no longer turns red with the calendar (#403)
+- **Added** Ci: the web is type-checked and every file declares its licence — both report, neither bites yet (#402)
+
+### 2026-09-18
+
+- **Added** First CC0 resource intake (#401)
+- **Added** A site says what it stores: OPS-010, DSN-015 (#400)
+- **Fixed** The home page said the service's line (#399)
+- **Changed** STD-015 1.3.0: the family pipeline — what every Numen repository runs (#398)
+- **Added** DSN-014 on numinia.org: a link presents itself (#397)
+- **Added** Dependencies: always the latest, merged by the checks (#383)
+- **Added** STD-026: the operative vocabulary comes to the archive (#382)
+- **Changed** Transition regime: draft describes, it does not bind (#381)
+
+### 2026-09-17
+
+- **Added** Lore/: the game comes home (#379)
+
+### 2026-09-16
+
+- **Changed** Web: footer round two, /updates, legal slugs, version-bump guard (#377)
+- **Changed** Web: the house footer, the same on the three sites (#376)
+
+### 2026-09-09
+
+- **Removed** Guilds/ and infra/: two series without a consumer, ADR-045 (#343)
+- **Removed** Machine/scripts/: eight dead files, tests gathered under machine/scripts/test/ (#411)
+
+### 2026-09-04
+
+- **Removed** Reports/ series extinction, Oracle instruction (#248)
+
+### 2026-09-03
+
+- **Changed** STD refactor, licensing: STD-003 reservation reversed (#227)
+
+### 2026-09-02
+
+- **Changed** MIS-138 step 7: closure — §10.5 proposed, README, ledger repaired (#215)
+- **Added** MIS-138 step 6: families `contradictions` and `figures` — D4, D5 (#214)
+- **Changed** MIS-138 step 5: families `headers` and `provenance`, five censuses retired (#213)
+- **Added** MIS-138 step 4: family `tokens`, no tokenizer dependency (#212)
+- **Changed** MIS-138 step 3: family `legacy`, `count-evidence.py` retired (#211)
+- **Added** MIS-138 step 2: the instrument, first three families (#209)
+- **Changed** MIS-138 step 1: shared classifiers — `machine/scripts/lib/rules.json` (#411)
+- **Changed** MIS-138 v1.1.0: iteration 1 with the Oracle, `in-progress` (#205)
+- **Added** MIS-138: telemetry instrument — brief (#204)
+- **Changed** Missions/ normalisation, lots 2–4 — judgement; PR #198 (#198)
+- **Changed** Missions/ normalisation, lot 1 of 4 — mechanical (#198)
+
+### 2026-09-01
+
+- **Changed** ADR-005 v1.2.0, reports/ normalisation — PRs #193, #194 (#194)
+
+### 2026-08-21
+
+- **Added** P-011, security audit protocol
+
+### 2026-08-17
+
+- **Changed** MIS-066, mission system unification

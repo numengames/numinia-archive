@@ -5,11 +5,11 @@ title: "The Alpha story: what missions/ ships while it is the alpha board"
 type: report
 subtype: analysis
 status: active
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-08T20:30:00Z"
 created_source: "git:4a60735"
 created_confidence: exact
-updated: "2026-09-09T00:45:00Z"
+updated: "2026-09-28T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -44,9 +44,8 @@ SPDX-License-Identifier: CC-BY-4.0
 *Amended 2026-09-08 (`ADR-042`):* this report is an **index**, not a
 ledger. Closures land as one line each in the **weekly roll-up** report
 (`PRO-017`); this report cites the week, not the line (`STD-012`,
-`DEF-006`). The two lines already below — `MIS-121`, `MIS-151` — stay as
-written and move to week 37's report at the first roll-up, Monday
-2026-09-14. When the Oracle declares the alpha shipped, this report is
+`DEF-006`). The two alpha closures of 2026-09-08 — `MIS-121`, `MIS-151` —
+have their lines in week 37's report. When the Oracle declares the alpha shipped, this report is
 versioned as its record and the next phase opens its own report.
 
 ## Board at the start
@@ -66,3 +65,4 @@ versioned as its record and the next phase opens its own report.
 - v0.1.0 (2026-09-08) — created as the destination for alpha-board
   closures, so `RPT-017` stops growing.
 - v0.3.0 (2026-09-09) — first weekly pointer: `RPT-019` (2026-W37).
+- v0.3.1 (2026-09-28) — the two alpha closures now point at their lines in week 37.
