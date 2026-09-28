@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 15478,
+  "chars": 15750,
   "apparatus": false,
   "archived": false,
-  "tokens": 3818
+  "tokens": 3890
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 171504,
+  "chars": 173292,
   "apparatus": false,
   "archived": false,
-  "tokens": 45593
+  "tokens": 46089
  },
  {
   "path": "CLAUDE.md",
@@ -1534,10 +1534,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2261,
+  "chars": 2334,
   "apparatus": true,
   "archived": false,
-  "tokens": 571
+  "tokens": 590
  },
  {
   "path": "machine/packages/sales-kit/PROPOSAL.md",
@@ -1556,10 +1556,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1436,
+  "chars": 1569,
   "apparatus": true,
   "archived": false,
-  "tokens": 381
+  "tokens": 419
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-001.md",
@@ -1567,10 +1567,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1661,
+  "chars": 1669,
   "apparatus": true,
   "archived": false,
-  "tokens": 477
+  "tokens": 483
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-002.md",
@@ -1578,10 +1578,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1372,
+  "chars": 1374,
   "apparatus": true,
   "archived": false,
-  "tokens": 400
+  "tokens": 399
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-003.md",
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 899,
+  "chars": 926,
   "apparatus": true,
   "archived": false,
-  "tokens": 273
+  "tokens": 277
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-004.md",
@@ -1600,10 +1600,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 880,
+  "chars": 866,
   "apparatus": true,
   "archived": false,
-  "tokens": 270
+  "tokens": 266
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-001.md",
@@ -1622,10 +1622,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1136,
+  "chars": 1133,
   "apparatus": true,
   "archived": false,
-  "tokens": 337
+  "tokens": 336
  },
  {
   "path": "machine/templates/ADR-TEMPLATE.md",
@@ -2035,6 +2035,17 @@
   "tokens": 1324
  },
  {
+  "path": "opportunities/README.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": null,
+  "status": null,
+  "chars": 878,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 235
+ },
+ {
   "path": "protocols/PRO-001-agent-session.md",
   "dir": "protocols",
   "series": "protocols",
@@ -2260,10 +2271,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4293,
+  "chars": 4348,
   "apparatus": false,
   "archived": false,
-  "tokens": 1136
+  "tokens": 1145
  },
  {
   "path": "protocols/PRO-029-making-a-proposal.md",
@@ -2282,10 +2293,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4959,
+  "chars": 5039,
   "apparatus": false,
   "archived": false,
-  "tokens": 1298
+  "tokens": 1317
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2370,10 +2381,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5727,
+  "chars": 5985,
   "apparatus": false,
   "archived": false,
-  "tokens": 1713
+  "tokens": 1781
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2612,10 +2623,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7425,
+  "chars": 7478,
   "apparatus": false,
   "archived": false,
-  "tokens": 1838
+  "tokens": 1853
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -2722,10 +2733,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3381,
+  "chars": 3450,
   "apparatus": false,
   "archived": false,
-  "tokens": 895
+  "tokens": 913
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
@@ -2733,10 +2744,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6497,
+  "chars": 7317,
   "apparatus": false,
   "archived": false,
-  "tokens": 1698
+  "tokens": 1902
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -2843,9 +2854,9 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 5231,
+  "chars": 5564,
   "apparatus": false,
   "archived": false,
-  "tokens": 1388
+  "tokens": 1472
  }
 ]
