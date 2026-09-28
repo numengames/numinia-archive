@@ -18,7 +18,7 @@ import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadRegister, parseFM, figures, readFolder } from '../pipeline.mjs';
+import { loadRegister, parseFM, figures, readFolder, COMMON, WHEN_DUE } from '../pipeline.mjs';
 
 const KIT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ROOT = path.resolve(KIT, '..', '..', '..');
@@ -58,12 +58,25 @@ test('STD-039 and the tool agree on the fields of the record', () => {
   // The standard's second rule lists the header fields in prose; the tool's
   // REQUIRED list must not drift from it. Read the mould, which is the
   // standard made concrete, and compare.
-  const mould = parseFM(readFileSync(path.join(KIT, 'OPPORTUNITY.md'), 'utf8'));
+  // The mould lives with every other mould (machine/templates/). Its header
+  // opens with every document's fields (STD-004); only the sale's own fields,
+  // and the ones due later (commented in the mould), are STD-039's to name.
+  const mould = parseFM(readFileSync(path.join(ROOT, 'machine/templates/OPP-TEMPLATE.md'), 'utf8'));
   const std = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf8').replace(/\s+/g, ' ');
-  for (const k of Object.keys(mould)) {
+  const own = [...Object.keys(mould).filter((k) => !COMMON.includes(k)), ...WHEN_DUE];
+  for (const k of own) {
     const word = { contact_role: "contact's role", contact_channel: 'contact channel', decider_role: "decider's role", next_action: 'next action', next_date: 'next date', id: 'identifier', value: 'value without tax', proposal: "proposal's path", agreement: "agreement's path", opened: 'opened', closed: 'closed', state: 'stage', reason: 'reason', license: 'licence' }[k] ?? k;
     assert.ok(std.includes(word), `STD-039 does not name the field \`${k}\` (looked for "${word}")`);
   }
+});
+
+test('the header every document carries is the one the archive registers', () => {
+  // The kit keeps its own copy so it runs outside this repository; the copy
+  // must not drift from STD-004's rings (machine/scripts/lib/rings.mjs).
+  const rings = readFileSync(path.join(ROOT, 'machine/scripts/lib/rings.mjs'), 'utf8');
+  const list = (name) => [...rings.slice(rings.indexOf(`export const ${name}`)).split(';')[0].matchAll(/'([a-z_]+)'/g)].map((m) => m[1]);
+  const archive = [...list('RING1'), ...list('RING2'), ...list('RING3_ALL')].filter((k) => !['id', 'license'].includes(k));
+  assert.deepEqual([...COMMON].sort(), [...new Set(archive)].sort());
 });
 
 /* ---- a clean folder passes and reports ---- */

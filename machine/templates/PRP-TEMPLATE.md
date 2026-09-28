@@ -1,19 +1,38 @@
 ---
-# Copy this file beside its opportunity record, as PRP-YYYY-NNN.md; point the
-# record's `proposal:` at it once sent. The rules are STD-040. A revised
-# proposal is a new file; never edit a sent one. Whoever sends it has read
-# it: the record's transition to `proposed`, with a name in By, is the
+# Copy this file beside its opportunity record, as opportunities/PRP-YYYY-NNN.md;
+# point the record's `proposal:` at it once sent. The rules are STD-040. A
+# revised proposal is a new file; never edit a sent one. Whoever sends it has
+# read it: the record's transition to `proposed`, with a name in By, is the
 # evidence — no field here says so twice. Signatures live in the agreement.
+# The header is every document's (STD-004), then the proposal's own fields.
 id: "PRP-YYYY-NNN"
+uid: ""
+title: "What the client will be able to do, as a title"
+type: proposal
+# status: draft while it is written; active from the day it is sent;
+# withdrawn if it is replaced by a revision or expires unanswered.
+status: draft
+version: "0.1.0"
+created: "YYYY-MM-DDTHH:MM:SSZ"
+updated: "YYYY-MM-DDTHH:MM:SSZ"
+author: "agent-id"
+owner: "oracle"
+guild: "Procurators"
+territory: "Sales"
+tags: [opportunities, sales, proposal]
+license: "CC0-1.0"
+
+# THE PROPOSAL — read by the pipeline tool with --proposals.
 opportunity: "OPP-YYYY-NNN"
-title: "what the client will be able to do, as a title"
 date: "YYYY-MM-DD"
 valid_until: "YYYY-MM-DD"
-level: "learning"                 # reaction | learning | behaviour | results — the level agreed with the client
-price: 0                          # without tax
-tax_rate: 21                      # per cent, shown to the client
+# level: reaction | learning | behaviour | results — the level agreed with the client
+level: "learning"
+# price: without tax
+price: 0
+# tax_rate: per cent, shown to the client
+tax_rate: 21
 currency: "EUR"
-license: "CC0-1.0"
 ---
 
 <!--

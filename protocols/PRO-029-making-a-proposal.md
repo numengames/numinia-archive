@@ -4,7 +4,7 @@ uid: ""
 title: "Making a proposal"
 type: protocol
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-28T16:00:00+02:00"
 updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
@@ -57,7 +57,7 @@ before it leaves, and sending it is the approval.
 ## 2. Preconditions
 
 - The opportunity record at `qualified`, with the decider's role written.
-- The proposal standard and its mould from the sales kit (`STD-040`).
+- The proposal standard and its mould, with the other moulds of the archive (`STD-040`).
 - At least one earlier case the house may tell with the client unnamed;
   without one, step 4 will need a demonstration, and the Oracle decides
   whether to build it.

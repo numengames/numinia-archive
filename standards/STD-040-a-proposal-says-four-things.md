@@ -5,7 +5,7 @@ title: "A proposal says four things"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-28T13:00:00+02:00"
 updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
@@ -87,7 +87,9 @@ is edited on its own.
 
 **Kept with its opportunity.** A sent proposal MUST be kept, unchanged,
 beside the opportunity record that points to it. A revised proposal is a
-new file; the record points to the current one.
+new file; the record points to the current one. It opens with the header
+every document carries: draft while it is written, active once sent,
+withdrawn when a revision replaces it or it lapses unanswered.
 
 ## Check
 

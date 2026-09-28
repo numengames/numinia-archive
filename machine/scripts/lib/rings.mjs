@@ -139,6 +139,17 @@ export const RING3 = {
   'system': ['extraction_note', 'restoration_note', 'mission',
     'former_id', 'former_id_note', 'accuracy_warning'],
   'history': ['former_id', 'former_id_note', 'supersedes_version'],
+  // opportunities/ governed 2026-09-28: a sale's record and its proposal
+  // open with every document's header, then carry the fields the pipeline
+  // tool reads (STD-039 the record, STD-040 the proposal). Listed here so the
+  // header guard accepts them; their values are judged by the tool.
+  'opportunities': [
+    // the record (OPP-)
+    'organisation', 'sector', 'offer', 'source', 'state', 'value', 'currency',
+    'contact_role', 'contact_channel', 'decider_role', 'next_action', 'next_date',
+    'opened', 'closed', 'reason', 'proposal', 'agreement',
+    // the proposal (PRP-)
+    'opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'],
 };
 
 export const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',

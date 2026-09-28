@@ -3,18 +3,17 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# sales-kit — the moulds and the tool for opportunity records
+# sales-kit — the tool for opportunity records
 
 The rules are `standards/STD-038` (the stages), `STD-039` (the record) and
-`STD-040` (the proposal). This folder is one implementation of them: two
-moulds to copy, one script that reads a folder of records and prints the
-pipeline. The records themselves live in `opportunities/`, public, with
+`STD-040` (the proposal). This folder is one implementation of them: one
+script that reads a folder of records and prints the pipeline. The moulds
+to copy live with every other mould, `machine/templates/OPP-TEMPLATE.md`
+and `PRP-TEMPLATE.md`. The records themselves live in `opportunities/`, public, with
 nobody's name in them.
 
 ```
 sales-kit/
-├── OPPORTUNITY.md      ← copy to opportunities/OPP-YYYY-NNN.md
-├── PROPOSAL.md         ← copy per proposal, keep it beside its record
 ├── pipeline.mjs        ← node pipeline.mjs <folder> [--proposals] [--json] [--today YYYY-MM-DD]
 └── fixtures/           ← invented records the tests run against
 ```

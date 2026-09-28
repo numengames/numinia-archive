@@ -5,7 +5,7 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.7.0"
+version: "5.8.0"
 created: "2026-08-24T16:00:00Z"
 updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
@@ -49,7 +49,7 @@ SPDX-License-Identifier: CC0-1.0
 | `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
 | `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
 | `operations/` | what sustains the business: strategy, sales, continuity | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
-| `opportunities/` | each chance to sell something, one record per opportunity, its proposals beside it; the header is the opportunity record standard's, read by the pipeline tool | `OPP-YYYY-NNN` | `open` | — | `machine/packages/sales-kit/OPPORTUNITY.md` |
+| `opportunities/` | each chance to sell something, one record per opportunity, its proposals beside it; every document's header, then the fields the pipeline tool reads | `OPP-YYYY-NNN` · `PRP-YYYY-NNN` | `open` | — | `OPP-TEMPLATE.md` · `PRP-TEMPLATE.md` |
 | `legal/` | what the company has promised the public in law: privacy, terms, cookies; changes when the law or the service does | `LEG-NNN` | `governed` | — | — |
 | `system/` | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
 | `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
@@ -89,6 +89,7 @@ system, and it belongs to everyone.
 | `report` | `reports/` | yes |
 | `legal` | `legal/` | yes |
 | `agent` | `agents/` | yes |
+| `opportunity` · `proposal` | `opportunities/` | yes |
 | `meta` | anywhere — apparatus accompanies its series | no |
 | `entity` | an entity card: `agents/<agent>/AGENT.md`, `objects/` | no |
 

@@ -42,6 +42,12 @@ export const meta = { family: 'DEF', plates: ['DEF-008', 'DEF-009'] };
 
 const RULES = loadRules();
 const PREFIX_DIR = prefixToDir(RULES);   // includes retired prefixes (D-): they must keep resolving
+// opportunities/ names its documents OPP-YYYY-NNN and PRP-YYYY-NNN, and its
+// standards use the same letters for their rule codes (OPP-001, PRP-004). The
+// resolver below reads `PFX-NNN` as a document; for these two it would read
+// every rule code as a missing record. Their citations are resolved by the
+// pipeline tool (PRP-009), not here — as before the series was governed.
+for (const [p, dir] of Object.entries(PREFIX_DIR)) if (RULES.series[dir]?.naming === false) delete PREFIX_DIR[p];
 // lore/** is the game (the RPG manual, the codex matter): prose the archive
 // HOLDS, not documents it governs — no series, no header ring. Opaque to the
 // rules, like reports/evidence/. Each file declares its own licence.

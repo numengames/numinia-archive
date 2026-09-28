@@ -45,10 +45,23 @@ const DEFAULT_REGISTER = path.join(ROOT, 'standards', 'STD-038-the-stages-of-a-s
 /* ---------- the record, as STD-039 defines it ---------- */
 
 export const REQUIRED = ['id', 'organisation', 'sector', 'offer', 'source', 'state', 'value',
-  'currency', 'contact_role', 'contact_channel', 'decider_role', 'next_action', 'next_date',
-  'opened', 'closed', 'reason', 'proposal', 'agreement', 'license'];
+  'currency', 'contact_role', 'contact_channel', 'next_action', 'next_date',
+  'opened', 'license'];
+/* Written when the stage asks for them, absent before (empty is absent,
+   STD-004): who signs from agreed, the closed date at won or lost, the
+   reason when lost, the proposal's path once sent, the agreement's once won. */
+export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement'];
+/* The header every document of the archive opens with (STD-004, rings 1 and
+   2 and the fields of every series). A record carries it like any document;
+   the tool accepts it and reads none of it. Kept here, not imported, so the
+   kit runs outside this repository; a test holds it equal to rings.mjs. */
+export const COMMON = ['title', 'type', 'status', 'version', 'created', 'updated',
+  'author', 'owner', 'provenance', 'created_source', 'created_confidence', 'requested_by',
+  'supersedes', 'superseded_by', 'derived_from',
+  'tags', 'visibility', 'guild', 'territory', 'registration', 'registration_reason',
+  'registration_exemption', 'evidence_script', 'evidence_head', 'related', 'uid'];
 /* Roles and channels, never names (OPP-006): the header may carry only these. */
-export const ALLOWED = new Set(REQUIRED);
+export const ALLOWED = new Set([...REQUIRED, ...WHEN_DUE, ...COMMON]);
 export const SOURCES = ['referral', 'inbound', 'outbound', 'event', 'partner'];
 /* OPP-011: before `agreed`, the organisation is a sector and a size, never a name. */
 export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police|forces?|academy|school|university|hospital|health|bank|insurer|utility|logistics|manufacturer|industry|technology|software|agency|non-profit|foundation|association|municipality|ministry|company|firm|organisation|organization|studio|startup|sme|enterprise|chain|group)\b/i;

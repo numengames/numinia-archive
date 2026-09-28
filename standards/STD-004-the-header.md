@@ -5,11 +5,11 @@ title: "The header"
 type: documentation
 subtype: standard
 status: active
-version: "4.2.1"
+version: "4.3.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-28T16:42:57+02:00"
 ratified_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -217,6 +217,7 @@ unaided. The field names stay our own.
 | `blueprints/` | `semaforo` |
 | `protocols/` | `applies_to` `mandatory` |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
+| `opportunities/` | the record: `organisation` `sector` `offer` `source` `state` `value` `currency` `contact_role` `contact_channel` `decider_role` `next_action` `next_date` `opened` `closed` `reason` `proposal` `agreement` · the proposal: `opportunity` `date` `valid_until` `level` `price` `tax_rate` — their values are judged by the pipeline tool (`STD-039`, `STD-040`) |
 | all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
 
 Retired fields are reported wherever they remain: `area` (now `territory`),
