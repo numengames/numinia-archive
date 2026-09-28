@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "4bd7c91",
-  "corpus_hash": "054e7871064cef6c8002a15f331300820429905117dc4067947c52608c4cd248",
+  "head": "7d1cd1b",
+  "corpus_hash": "6bde2257654b556d8822ca2e9a0f3990ab30afc1922ecd22c4a6c8f0a862b4c4",
   "root_dirty": 0,
-  "measured_at": "2026-09-28T13:35:16Z",
+  "measured_at": "2026-09-28T14:21:23Z",
   "families": [
     "corpus",
     "series",
@@ -329,7 +329,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 913750,
+      "value": 913927,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -337,7 +337,7 @@
       "value": {
         "lore": 495248,
         "standards": 69298,
-        "": 54935,
+        "": 55112,
         "missions": 45963,
         "decisions": 39490,
         "reports": 29422,
@@ -359,7 +359,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 556460,
+        "(none)": 556637,
         "draft": 162967,
         "active": 145165,
         "done": 26672,
@@ -383,7 +383,7 @@
         ],
         [
           "CHANGELOG.md",
-          47394
+          47571
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
