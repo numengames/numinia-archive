@@ -24,8 +24,8 @@
   "apparatus": {
     "_comment": "D-014: scaffolding around a series, not a member of it. A document is apparatus if `type: meta`, or its basename is listed here, or its path matches a pattern. lint-naming, lint-frontmatter (IS_TEMPLATE) and count-evidence each held a partial copy of this list.",
     "basenames": ["README.md", "INDEX.md", "TEMPLATE.md", "TEMPLATE-EXAMPLE.md", "TEMPLATE-CHANGES.md", "STANDARDS.md", "APPROVAL-REQUEST-template.md"],
-    "pathPatterns": ["/_template/", "^agents/_template/", "^missions/TEMPLATE-", "^machine/templates/"],
-    "templatePatterns": ["^agents/_template/", "^missions/TEMPLATE(\\.md$|-)", "^machine/templates/"]
+    "pathPatterns": ["/_template/", "^agents/_template/", "^missions/TEMPLATE-", "^machine/templates/", "^machine/packages/sales-kit/"],
+    "templatePatterns": ["^agents/_template/", "^missions/TEMPLATE(\\.md$|-)", "^machine/templates/", "^machine/packages/sales-kit/"]
   },
   "types": {
     "_comment": "STD-004 §5 HDR-003 closed type vocabulary; HDR-017 type ↔ series, strict except `lax`.",

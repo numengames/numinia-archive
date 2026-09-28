@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14750,
+  "chars": 15099,
   "apparatus": false,
   "archived": false,
-  "tokens": 3626
+  "tokens": 3714
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 165566,
+  "chars": 168177,
   "apparatus": false,
   "archived": false,
-  "tokens": 44124
+  "tokens": 44781
  },
  {
   "path": "CLAUDE.md",
@@ -610,10 +610,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 9435,
+  "chars": 10027,
   "apparatus": false,
   "archived": false,
-  "tokens": 2522
+  "tokens": 2663
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -1527,6 +1527,105 @@
   "apparatus": false,
   "archived": false,
   "tokens": 6804
+ },
+ {
+  "path": "machine/packages/sales-kit/OPPORTUNITY.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 2261,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 571
+ },
+ {
+  "path": "machine/packages/sales-kit/PROPOSAL.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 2568,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 681
+ },
+ {
+  "path": "machine/packages/sales-kit/README.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1436,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 381
+ },
+ {
+  "path": "machine/packages/sales-kit/fixtures/OPP-2026-001.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1661,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 477
+ },
+ {
+  "path": "machine/packages/sales-kit/fixtures/OPP-2026-002.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1372,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 400
+ },
+ {
+  "path": "machine/packages/sales-kit/fixtures/OPP-2026-003.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 899,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 273
+ },
+ {
+  "path": "machine/packages/sales-kit/fixtures/OPP-2026-004.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 880,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 270
+ },
+ {
+  "path": "machine/packages/sales-kit/fixtures/PRP-2026-001.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1115,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 331
+ },
+ {
+  "path": "machine/packages/sales-kit/fixtures/PRP-2026-002.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1136,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 337
  },
  {
   "path": "machine/templates/ADR-TEMPLATE.md",
@@ -2572,6 +2671,39 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2137
+ },
+ {
+  "path": "standards/STD-038-the-stages-of-a-sale.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3381,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 895
+ },
+ {
+  "path": "standards/STD-039-an-opportunity-has-a-record.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 6497,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1698
+ },
+ {
+  "path": "standards/STD-040-a-proposal-says-four-things.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 6440,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1679
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
