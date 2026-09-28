@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 10935,
+  "chars": 11134,
   "apparatus": false,
   "archived": false,
-  "tokens": 2972
+  "tokens": 3026
  },
  {
   "path": "CLAUDE.md",
@@ -2154,6 +2154,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3035
+ },
+ {
+  "path": "reports/RPT-022-the-newcomer-test.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "active",
+  "chars": 7538,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2028
  },
  {
   "path": "standards/STD-001-the-series.md",
