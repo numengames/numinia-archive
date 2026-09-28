@@ -20,8 +20,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ### 2026-09-28
 
 - **Added** Open books lists every line of the ledger with filters, explains VAT and reverse charge, shows what each payment turns into, and adds the year to its panel (site v0.85.0) (#551)
+- **Added** The newcomer test: two blind readers with only the canon answer 23 questions — 10 of the canons' own 11, 5 of a newcomer's 12; the baseline any canon rewrite is measured against (RPT-022)
 - **Changed** The front door says what binds: the README carries the repository's name, starts at /binding and AGENTS.md instead of a draft protocol, and names only sibling repositories that exist; the home page and every page's head point at /binding and /llms.txt (#549)
-
 - **Removed** Duplicates: the old lore copy of the Numen Games–Numinia text, 78 filler lines in Brand and Culture, the three paragraphs every agent repeated, and a paragraph the two vocabularies shared (#548)
 - **Removed** History that adds nothing: 18 decision records whose change is already in the text they decided, and the version logs, status checks and execution logs kept inside documents (#547)
 - **Removed** The fat of the archive: the CHANGELOG becomes an index of one line per change, five closed missions and one closed report leave the corpus, and the MVP story drops its appendices (#546)
