@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 173292,
+  "chars": 174917,
   "apparatus": false,
   "archived": false,
-  "tokens": 46089
+  "tokens": 46479
  },
  {
   "path": "CLAUDE.md",
@@ -1534,10 +1534,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2334,
+  "chars": 2413,
   "apparatus": true,
   "archived": false,
-  "tokens": 590
+  "tokens": 611
  },
  {
   "path": "machine/packages/sales-kit/PROPOSAL.md",
@@ -1545,10 +1545,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2568,
+  "chars": 2587,
   "apparatus": true,
   "archived": false,
-  "tokens": 681
+  "tokens": 691
  },
  {
   "path": "machine/packages/sales-kit/README.md",
@@ -1567,10 +1567,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1669,
+  "chars": 1688,
   "apparatus": true,
   "archived": false,
-  "tokens": 483
+  "tokens": 493
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-002.md",
@@ -1578,10 +1578,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1374,
+  "chars": 1393,
   "apparatus": true,
   "archived": false,
-  "tokens": 399
+  "tokens": 409
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-003.md",
@@ -1589,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 926,
+  "chars": 945,
   "apparatus": true,
   "archived": false,
-  "tokens": 277
+  "tokens": 287
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-004.md",
@@ -1600,10 +1600,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 866,
+  "chars": 885,
   "apparatus": true,
   "archived": false,
-  "tokens": 266
+  "tokens": 276
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-001.md",
@@ -1611,10 +1611,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1115,
+  "chars": 1134,
   "apparatus": true,
   "archived": false,
-  "tokens": 331
+  "tokens": 341
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-002.md",
@@ -1622,10 +1622,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1133,
+  "chars": 1152,
   "apparatus": true,
   "archived": false,
-  "tokens": 336
+  "tokens": 346
  },
  {
   "path": "machine/templates/ADR-TEMPLATE.md",
@@ -2033,6 +2033,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1324
+ },
+ {
+  "path": "opportunities/OPP-2026-001.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": null,
+  "status": null,
+  "chars": 3086,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 778
+ },
+ {
+  "path": "opportunities/PRP-2026-001.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": null,
+  "status": null,
+  "chars": 5078,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1264
  },
  {
   "path": "opportunities/README.md",
@@ -2744,10 +2766,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7317,
+  "chars": 7358,
   "apparatus": false,
   "archived": false,
-  "tokens": 1902
+  "tokens": 1911
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
