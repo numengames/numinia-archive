@@ -4,9 +4,9 @@ uid: ""
 title: "Qualifying an opportunity"
 type: protocol
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -74,15 +74,16 @@ Oracle today, or whom he names) qualifies it and decides.
    of people participating? If they need a course, a video or a report,
    say so and decline: `lost`, reason `not-a-fit`, and point them
    somewhere honest. The house sells what it makes.
-3. **Find who signs and from where.** In one conversation or two: the role
+3. **Ask who signs and from where.** In one conversation or two: the role
    of the person who can approve the spend, and the budget line it would
-   come from. Neither found after two attempts: `lost`, reason
-   `no-decider` or `no-budget`.
-4. **Decide to pursue.** Whoever sells weighs the fit, the decider and the
-   house's capacity to deliver in the time asked, and decides. Pursue:
-   stage `qualified`, the decider's role in the header, a transition row,
-   and the next action is the needs analysis. Decline: `lost`, reason
-   `we-declined`, and the reason in a sentence in the body.
+   come from. Write what is known; what is not yet known is asked at the
+   next meeting, and the record says so. Nobody who can sign reached after
+   two attempts: `lost`, reason `no-decider` or `no-budget`.
+4. **Decide to pursue.** Whoever sells weighs the fit, what is known of who
+   signs, and the house's capacity to deliver in the time asked, and
+   decides. Pursue: stage `qualified`, a transition row, and the next
+   action is the needs analysis. Decline: `lost`, reason `we-declined`, and
+   the reason in a sentence in the body.
 5. **Run the pipeline tool.** The record conforms, or the tool says which
    rule it breaks; fix it before the day ends.
 
@@ -93,7 +94,7 @@ Oracle today, or whom he names) qualifies it and decides.
 | Step | Evidence it completed |
 |---|---|
 | 1 | A record exists in the opportunities series, opened the day the sign arrived, stage `lead` |
-| 2–3 | The body holds the fit answer, the decider's role and the budget line — or the record is `lost` with its reason |
+| 2–3 | The body holds the fit answer and what is known of who signs and from which budget — or the record is `lost` with its reason |
 | 4 | Stage `qualified` with a transition row, or `lost`; the next action names the needs analysis |
 | 5 | The pipeline tool reports no breach on the record |
 

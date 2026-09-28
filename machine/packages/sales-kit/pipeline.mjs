@@ -156,7 +156,11 @@ export function validate(rec, reg) {
   if (fm.state !== 'lost' && fm.reason) F('OPP-003', `reason "${fm.reason}" on a record that is not lost`);
   if (fm.state === 'proposed' && !fm.proposal) F('OPP-002', 'proposed with no proposal path');
   if (fm.state === 'won' && !fm.agreement) F('OPP-010', 'won with no agreement path');
-  if (['qualified', 'analysed', 'proposed', 'agreed', 'won'].includes(fm.state) && !fm.decider_role) F('OPP-002', `${fm.state} with no decider role`);
+  if (['agreed', 'won'].includes(fm.state) && !fm.decider_role) F('OPP-003', `${fm.state} with no decider role — who signs for the client is known by the time they agree`);
+  if (fm.state === 'proposed') {
+    const sent = transitions.find((t) => t.to === 'proposed');
+    if (sent && !(sent.by ?? '').trim()) F('PRP-007', 'the transition to proposed names nobody in By — whoever sent it read it, and the row is the evidence');
+  }
   const body = rec.text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   if (EMAIL_RE.test(body) || EMAIL_RE.test(Object.values(fm).join(' '))) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
   if (PHONE_RE.test(body)) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
@@ -200,7 +204,6 @@ export function validateProposal(file, text) {
   if (!/^\d+(\.\d+)?$/.test(fm.tax_rate ?? '')) F('PRP-004', 'no tax rate in the header');
   if (!/^\d+(\.\d+)?$/.test(fm.price ?? '')) F('PRP-004', 'no price in the header');
   if (/…/.test(body.slice(body.indexOf('## The three questions')))) F('PRP-006', 'the three questions still hold the mould\'s ellipsis');
-  if (!fm.reviewed_by) F('PRP-007', 'no reviewer named');
   return bad;
 }
 

@@ -186,6 +186,18 @@ check('PRP-006: the three questions still holding the mould\'s ellipsis fail', (
   assert.match(run(dir, '--proposals').err, /PRP-006.*ellipsis/);
 });
 
+check('PRP-007: a record at proposed whose transition names nobody in By fails', (dir) => {
+  edit(dir, 'OPP-2026-002.md', (t) => t.replace('| 2026-09-02 | analysed | proposed | Oracle | PRP-2026-002 sent |', '| 2026-09-02 | analysed | proposed |  | PRP-2026-002 sent |'));
+  assert.match(run(dir).err, /PRP-007.*names nobody in By/);
+});
+
+check('OPP-003: the decider\'s role is required from agreed, not before', (dir) => {
+  edit(dir, 'OPP-2026-003.md', (t) => t.replace('decider_role: "people director"', 'decider_role: ""'));
+  assert.equal(run(dir).code, 0, 'a qualified record may not yet know who signs');
+  edit(dir, 'OPP-2026-001.md', (t) => t.replace('decider_role: "people director"', 'decider_role: ""'));
+  assert.match(run(dir).err, /OPP-003.*won with no decider role/);
+});
+
 check('PRP-004: a proposal without a tax rate fails', (dir) => {
   edit(dir, 'PRP-2026-001.md', (t) => t.replace(/^tax_rate: .*\n/m, ''));
   assert.match(run(dir, '--proposals').err, /PRP-004.*no tax rate/);

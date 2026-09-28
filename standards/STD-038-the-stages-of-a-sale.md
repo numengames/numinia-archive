@@ -5,9 +5,9 @@ title: "The stages of a sale"
 type: documentation
 subtype: register
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -39,10 +39,10 @@ SPDX-License-Identifier: CC0-1.0
 | Stage | Means | Evidence that puts an opportunity here | Moved by | Stale after |
 |---|---|---|---|---|
 | `lead` | someone showed a need, or the house chose to approach them | the record exists | whoever hears of it | 14 days |
-| `qualified` | it fits what the house makes; a decider and a budget line are named | the fit question answered yes; the decider's role written | whoever sells | 30 days |
+| `qualified` | it fits what the house makes, and the house chose to pursue it | the fit question answered yes; the decision to pursue, with what is known of who signs and from which budget | whoever sells | 30 days |
 | `analysed` | the need is understood, in the client's words | the four things written: objectives · learners and their devices · conditions · what the responsible will see, and at which level | whoever sells, with the specialist | 21 days |
 | `proposed` | a proposal meeting the proposal standard has been sent | the proposal's path and a next date written | whoever sells, after the Oracle's approval | 21 days |
-| `agreed` | the client said yes to the proposal; the agreement is being written | the client's yes, written in the record | whoever sells | 30 days |
+| `agreed` | the client said yes to the proposal; the agreement is being written | the client's yes, written in the record; the role of whoever signs for them | whoever sells | 30 days |
 | `won` | the agreement is signed | the agreement's path and the closing date; the value handed to the ledger | the Oracle | — |
 | `lost` | it will not happen | the closing date and a reason from the list below | whoever sells | — |
 

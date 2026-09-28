@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.77.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "CHG",
+        text: "The process is the evidence. A proposal no longer carries a reviewer's name: whoever sends it has read it, and the record's transition to proposed — dated, with the sender's name — says so once. Who signs lives in the agreement, private unless the contract is public. The role of whoever can sign for the client is required from agreed, not from qualified: the first real opportunity showed the house may not know it after one good conversation. The first proposal, 'The scene before the scene', now sits beside its record, drafted and not yet sent.",
+      },
+    ],
+  },
+  {
     version: "v0.76.0",
     date: "2026-09-28",
     entries: [

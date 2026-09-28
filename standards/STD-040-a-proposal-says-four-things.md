@@ -5,9 +5,9 @@ title: "A proposal says four things"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T13:00:00+02:00"
+updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -28,11 +28,11 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** Before a proposal leaves the house it says what the client
 > will be able to do afterwards, why the house can deliver it, how it will
 > teach and how it will measure, and what it costs on what terms. It answers
-> the three questions any charge must answer, it is reviewed before it is
-> sent, and one record renders both the document and the page.
+> the three questions any charge must answer, it is read by whoever sends
+> it, and one record renders both the document and the page.
 > **Epistemic:** What must a proposal contain before it is sent?
-> **Pragmatic:** Write a proposal from the mould and check it against ten
-> rules before the Oracle sees it. This is not legal advice.
+> **Pragmatic:** Write a proposal from the mould and check it against nine
+> rules before it is sent. This is not legal advice.
 > **Audience:** Agents · Oracles
 
 **Binds:** every proposal for a service that Numen Games sends to an
@@ -74,9 +74,12 @@ as information owed before acquisition.
 what whoever pays takes away, where that is written, and whether the whole
 price can be seen.
 
-**Reviewed before commitment.** A proposal MUST be checked against these
-rules by someone other than its writer, and approved by the Oracle, before
-it is sent. The review is noted in the opportunity record.
+**Read before it is sent.** A proposal MUST be read against these rules by
+whoever sends it, who is never its writer alone; sending it is the approval.
+The evidence is the opportunity record's transition to proposed, dated and
+signed by whoever sent it — no field in the proposal says so twice. Who
+signs the agreement is written in the agreement, which is where signatures
+live.
 
 **One record, two renderings.** A proposal MUST be one file from which the
 document sent and any page shown to the client are both rendered. Neither
@@ -98,7 +101,7 @@ Each rule, its code, its source and its check.
 | PRP-004 | Price, terms and conditions | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 d), 14 invoicing (clause 14 unverified); `STD-033` PAY-001 | `pipeline.mjs --proposals`: the section exists and states a tax rate; by hand |
 | PRP-005 | What the client must know first | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 6 (items beyond title, objectives and prerequisites unverified) | by hand, at the review |
 | PRP-006 | The three questions answered | `CAN-011` | `pipeline.mjs --proposals`: the three answers present; by hand for their truth |
-| PRP-007 | Reviewed before commitment | [ISO 9001:2015](https://www.iso.org/standard/62085.html) 8.2.3, review before committing to supply (clause unverified) | by hand: the review row in the opportunity record's transitions |
+| PRP-007 | Read before it is sent | [ISO 9001:2015](https://www.iso.org/standard/62085.html) 8.2.3, review before committing to supply (clause unverified) | `pipeline.mjs`: a record at `proposed` has a transition row to it with a date and a name in *By*; the reading itself, by hand |
 | PRP-008 | One record, two renderings | `CAN-009` | by hand until a renderer exists |
 | PRP-009 | Kept with its opportunity | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html) (clause unverified) | `pipeline.mjs`: a proposed record's `proposal` path resolves |
 
