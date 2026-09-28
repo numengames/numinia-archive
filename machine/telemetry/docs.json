@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 180109,
+  "chars": 182560,
   "apparatus": false,
   "archived": false,
-  "tokens": 47857
+  "tokens": 48591
  },
  {
   "path": "CLAUDE.md",
@@ -357,10 +357,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2219,
+  "chars": 2271,
   "apparatus": false,
   "archived": false,
-  "tokens": 610
+  "tokens": 627
  },
  {
   "path": "agents/nimrod/OPERATOR.md",
@@ -1573,37 +1573,15 @@
   "tokens": 6804
  },
  {
-  "path": "machine/packages/sales-kit/OPPORTUNITY.md",
-  "dir": "machine",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 2413,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 611
- },
- {
-  "path": "machine/packages/sales-kit/PROPOSAL.md",
-  "dir": "machine",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 2667,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 717
- },
- {
   "path": "machine/packages/sales-kit/README.md",
   "dir": "machine",
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1569,
+  "chars": 1506,
   "apparatus": true,
   "archived": false,
-  "tokens": 419
+  "tokens": 396
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-001.md",
@@ -1611,10 +1589,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1688,
+  "chars": 1677,
   "apparatus": true,
   "archived": false,
-  "tokens": 493
+  "tokens": 490
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-002.md",
@@ -1622,10 +1600,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1393,
+  "chars": 1357,
   "apparatus": true,
   "archived": false,
-  "tokens": 409
+  "tokens": 399
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-003.md",
@@ -1633,10 +1611,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 945,
+  "chars": 896,
   "apparatus": true,
   "archived": false,
-  "tokens": 287
+  "tokens": 274
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-004.md",
@@ -1644,10 +1622,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 885,
+  "chars": 841,
   "apparatus": true,
   "archived": false,
-  "tokens": 276
+  "tokens": 264
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-001.md",
@@ -1760,6 +1738,17 @@
   "tokens": 1526
  },
  {
+  "path": "machine/templates/OPP-TEMPLATE.md",
+  "dir": "machine",
+  "series": null,
+  "type": "opportunity",
+  "status": "active",
+  "chars": 3429,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 927
+ },
+ {
   "path": "machine/templates/OPS-TEMPLATE.md",
   "dir": "machine",
   "series": null,
@@ -1780,6 +1769,17 @@
   "apparatus": true,
   "archived": false,
   "tokens": 885
+ },
+ {
+  "path": "machine/templates/PRP-TEMPLATE.md",
+  "dir": "machine",
+  "series": null,
+  "type": "proposal",
+  "status": "draft",
+  "chars": 3631,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 995
  },
  {
   "path": "machine/templates/README.md",
@@ -2082,34 +2082,34 @@
   "path": "opportunities/OPP-2026-001.md",
   "dir": "opportunities",
   "series": "opportunities",
-  "type": null,
-  "status": null,
-  "chars": 3117,
+  "type": "opportunity",
+  "status": "active",
+  "chars": 3992,
   "apparatus": false,
   "archived": false,
-  "tokens": 792
+  "tokens": 1049
  },
  {
   "path": "opportunities/PRP-2026-001.md",
   "dir": "opportunities",
   "series": "opportunities",
-  "type": null,
-  "status": null,
-  "chars": 5124,
+  "type": "proposal",
+  "status": "draft",
+  "chars": 6001,
   "apparatus": false,
   "archived": false,
-  "tokens": 1276
+  "tokens": 1537
  },
  {
   "path": "opportunities/README.md",
   "dir": "opportunities",
   "series": "opportunities",
-  "type": null,
-  "status": null,
-  "chars": 878,
+  "type": "meta",
+  "status": "active",
+  "chars": 1918,
   "apparatus": true,
   "archived": false,
-  "tokens": 235
+  "tokens": 547
  },
  {
   "path": "protocols/PRO-001-agent-session.md",
@@ -2337,10 +2337,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4456,
+  "chars": 4475,
   "apparatus": false,
   "archived": false,
-  "tokens": 1171
+  "tokens": 1176
  },
  {
   "path": "protocols/PRO-029-making-a-proposal.md",
@@ -2348,10 +2348,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5383,
+  "chars": 5402,
   "apparatus": false,
   "archived": false,
-  "tokens": 1351
+  "tokens": 1356
  },
  {
   "path": "protocols/PRO-030-closing-a-sale.md",
@@ -2447,10 +2447,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5985,
+  "chars": 6042,
   "apparatus": false,
   "archived": false,
-  "tokens": 1781
+  "tokens": 1811
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2469,10 +2469,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 15406,
+  "chars": 15781,
   "apparatus": false,
   "archived": false,
-  "tokens": 4351
+  "tokens": 4465
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2810,10 +2810,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7536,
+  "chars": 7625,
   "apparatus": false,
   "archived": false,
-  "tokens": 1955
+  "tokens": 1973
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -2821,10 +2821,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6662,
+  "chars": 6819,
   "apparatus": false,
   "archived": false,
-  "tokens": 1744
+  "tokens": 1777
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -2920,9 +2920,9 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 5717,
+  "chars": 5804,
   "apparatus": false,
   "archived": false,
-  "tokens": 1511
+  "tokens": 1529
  }
 ]

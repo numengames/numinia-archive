@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "eee3193",
-  "corpus_hash": "47f61dc79dcf054334708ce80ae1b3efa7ccd948a422887dd64dd6571382db0a",
+  "head": "a27850d",
+  "corpus_hash": "86fd377aaf2c3334b192c819d6e2605b712539b831fe7689c8e64dd338f43ed3",
   "root_dirty": 0,
-  "measured_at": "2026-09-28T14:43:01Z",
+  "measured_at": "2026-09-28T14:50:39Z",
   "families": [
     "corpus",
     "series",
@@ -83,15 +83,17 @@
     },
     "corpus.docs_by_type": {
       "value": {
-        "(none)": 60,
+        "(none)": 55,
         "adr": 28,
         "agent": 37,
         "blueprint": 12,
         "documentation": 61,
         "entity": 3,
         "legal": 4,
-        "meta": 3,
+        "meta": 4,
         "mission": 13,
+        "opportunity": 2,
+        "proposal": 2,
         "protocol": 25,
         "report": 8,
         "seminal": 12
@@ -100,7 +102,7 @@
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
     },
     "corpus.docs_without_frontmatter": {
-      "value": 49,
+      "value": 48,
       "unit": "documents",
       "definition": "corpus documents with no `---` block at the top"
     },
@@ -329,28 +331,28 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 917507,
+      "value": 919844,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 495248,
-        "standards": 69298,
-        "": 55398,
+        "standards": 69493,
+        "": 56132,
         "missions": 45963,
         "decisions": 39490,
-        "agents": 32424,
+        "agents": 32441,
         "reports": 29422,
-        "protocols": 27415,
+        "protocols": 27425,
         "blueprints": 25741,
-        "system": 22095,
-        "machine": 20591,
+        "system": 22113,
+        "machine": 21124,
         "canon": 19762,
         "operations": 16669,
         "legal": 9925,
+        "opportunities": 3133,
         "debt": 2986,
-        "opportunities": 2303,
         "objects": 1865,
         ".github": 912
       },
@@ -359,9 +361,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 556923,
-        "draft": 166199,
-        "active": 145227,
+        "(none)": 553965,
+        "draft": 168839,
+        "active": 147882,
         "done": 26672,
         "todo": 16006,
         "in-progress": 4742,
@@ -371,7 +373,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.01,
+      "value": 5,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -383,7 +385,7 @@
         ],
         [
           "CHANGELOG.md",
-          47857
+          48591
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -402,38 +404,38 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 217,
+      "value": 218,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
     "headers.docs_without_frontmatter": {
-      "value": 49,
+      "value": 48,
       "unit": "documents",
       "definition": "corpus docs minus docs_with_frontmatter"
     },
     "headers.field_usage": {
       "value": {
-        "license": 216,
-        "title": 210,
-        "author": 206,
-        "created": 206,
-        "status": 206,
-        "type": 206,
-        "updated": 206,
-        "version": 206,
-        "owner": 205,
-        "tags": 203,
-        "id": 179,
-        "uid": 163,
-        "territory": 132,
-        "related": 109,
-        "guild": 88,
-        "created_source": 68,
-        "created_confidence": 67,
+        "license": 217,
+        "title": 213,
+        "author": 211,
+        "created": 211,
+        "status": 211,
+        "type": 211,
+        "updated": 211,
+        "version": 211,
+        "owner": 210,
+        "tags": 208,
+        "id": 180,
+        "uid": 167,
+        "territory": 136,
+        "related": 111,
+        "guild": 92,
+        "created_source": 71,
+        "created_confidence": 70,
         "derived_from": 58,
         "subtype": 56,
-        "registration": 47,
-        "registration_reason": 43,
+        "registration": 48,
+        "registration_reason": 44,
         "agent": 36,
         "deciders": 25,
         "applies_to": 24,
@@ -459,19 +461,14 @@
         "amends": 9,
         "paths": 9,
         "provenance": 8,
-        "agreement": 6,
-        "closed": 6,
         "contact_channel": 6,
         "contact_role": 6,
-        "decider_role": 6,
         "depends_on": 6,
         "next_action": 6,
         "next_date": 6,
         "offer": 6,
         "opened": 6,
         "organisation": 6,
-        "proposal": 6,
-        "reason": 6,
         "requires_oracle_approval": 6,
         "sector": 6,
         "source": 6,
@@ -487,15 +484,18 @@
         "severity": 4,
         "tax_rate": 4,
         "valid_until": 4,
+        "decider_role": 3,
         "detected": 3,
         "entity": 3,
         "evidence_head": 3,
         "forms": 3,
         "parent_mission": 3,
+        "proposal": 3,
         "requested_by": 3,
         "severity_reason": 3,
         "visibility_reason": 3,
         "accuracy_warning": 2,
+        "closed": 2,
         "evidence_script": 2,
         "human_approval_score": 2,
         "language": 2,
@@ -507,6 +507,7 @@
         "superseded_by": 2,
         "supersedes": 2,
         "about": 1,
+        "agreement": 1,
         "blocked_by": 1,
         "description": 1,
         "labels": 1,
@@ -515,6 +516,7 @@
         "period": 1,
         "previous_name": 1,
         "previous_name_note": 1,
+        "reason": 1,
         "review_next": 1,
         "source_title": 1,
         "supersedes_record_of": 1,
@@ -547,7 +549,7 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 3,
-        "empty_values": 200,
+        "empty_values": 184,
         "v_prefixed_versions": 0,
         "placeholders": 8
       },
@@ -556,18 +558,18 @@
     },
     "provenance.authorship": {
       "value": {
-        "ai-persona": 168,
-        "no-frontmatter": 49,
-        "other": 25,
-        "no-author": 11,
+        "ai-persona": 171,
+        "no-frontmatter": 48,
+        "other": 27,
         "ai-model": 8,
+        "no-author": 7,
         "human": 5
       },
       "unit": "documents",
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 192,
+      "value": 195,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -641,8 +643,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 85,
-        "draft": 107,
+        "active": 88,
+        "draft": 109,
         "withdrawn": 1,
         "done": 6,
         "todo": 6,
@@ -690,17 +692,17 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1226
+          "3": 1239
         },
         "MIS": {
           "3": 689,
           "4": 187
         },
         "PRO": {
-          "3": 431
+          "3": 433
         },
         "OPS": {
-          "3": 98
+          "3": 100
         },
         "CAN": {
           "3": 578
@@ -709,7 +711,15 @@
           "3": 493
         },
         "SYS": {
-          "3": 75
+          "3": 76
+        },
+        "OPP": {
+          "3": 13,
+          "4": 17
+        },
+        "PRP": {
+          "3": 10,
+          "4": 12
         },
         "LEG": {
           "3": 41
@@ -734,6 +744,8 @@
     "contradictions.id_form_mixed": {
       "value": [
         "MIS",
+        "OPP",
+        "PRP",
         "RPT"
       ],
       "unit": "prefixes",
