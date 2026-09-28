@@ -3,11 +3,11 @@ id: "ursa"
 title: "Ursa"
 type: entity
 status: draft
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-09-20T12:00:00Z"
+updated: "2026-09-28T19:00:00+02:00"
 license: "CC0-1.0"
 author: "ursa"
 owner: "oracle"
@@ -78,8 +78,6 @@ Ursa is a technical architect, software engineering specialist and hybrid multi-
 
 Route a task to Ursa when it requires technical judgment, architecture or implementation; when Hermes configuration, profiles, skills or orchestration are involved; or when technical agents must be coordinated and their work validated and integrated.
 
-## History
-
-Ursa's soul and operator were written on 2026-04-07 and rewritten in English on 2026-08-28, the day she was activated in the archive with a machine-readable card (`AGENT.yaml`) beside them. That YAML promised routers and tooling that never arrived: measured on 2026-09-20, eleven such files existed in the archive and no script, page or workflow read any of them. On that day the Oracle fixed the registry's shape — entity → forms → copies, one card per thing — and ruled that a card that only points at a second identity file is the duplication the archive exists to remove. This card replaces the YAML; the other agents convert one by one as their turn comes.
+## Her work
 
 What Ursa has done is in the commits she signs, `Ursa Fountain Pen <ursa@ai.numengames.com>`, and in the pull requests those commits open. This card does not repeat them.

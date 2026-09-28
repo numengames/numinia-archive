@@ -17,11 +17,11 @@ completed: null
 # REGISTRO — not consumed by the build, but every document in this archive
 # carries them (`STD-024`).
 type: mission
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-02T15:10:00Z"
 created_source: "git:db37686"
 created_confidence: exact
-updated: "2026-09-03T11:16:00Z"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [debt, security, dependencies, dependabot, triage, DBT-007]
@@ -175,56 +175,3 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
 - **Closed:** YYYY-MM-DD · **by:**
 
 ---
-
-## Execution log
-
-*(one line per significant step: date · step · evidence)*
-
-- 2026-09-02 — Draft registered (MIS-145) by Ursa, at the Oracle's
-  request, converting `DBT-007` into a mission. Branch
-  `missions/mis-145-dependabot-advisories-triage` from `main` `db37686`.
-  Status `todo`; not assigned, not executed. Next free mission number
-  verified against the remote (MIS-144 claimed by
-  `mission/MIS-0144-scripts-cleanup`).
-- 2026-09-03 — **Renumbered MIS-145 → MIS-146** (ID collision, PRO-003
-  §4). `mission/MIS-0145-series-template-library` claimed the same ID; by
-  the letter of the rule (first committer keeps the ID) MIS-145 was ours
-  (09:53Z vs 10:39Z), but the Oracle decided we renumber to end the
-  collision — MIS-146 verified free against `origin/main` and all remote
-  branches. Branch renamed to
-  `missions/mis-146-dependabot-advisories-triage`, rebased onto `main`
-  `3ada698`. Content and `todo` state carried over; the old remote branch
-  is deleted. Still not assigned, not executed.
-- 2026-09-04 — **Renumbered 146 → 150** (ID collision, PRO-003 §4, third
-  time for this draft). While this branch sat unmerged, `MIS-146` was taken
-  by `MIS-0146-normative-refoundation`, merged into `main` by #239. Same
-  outcome as the previous two moves and for the same reason: a branch claim
-  only binds the agents who can see it, and the merged document is in the
-  tree while this one is not. 150 is the first free number — 147, 148 and
-  149 are held by `main` or by live branches, and no branch, file or open PR
-  mentions 150. Rebased onto `main` `3020ab2`. Content, scope and `todo`
-  state unchanged. *(The numbers in the two entries above are left as they
-  were written. This entry writes its own bare, without the `MIS-` prefix,
-  because they name numbers this mission carried, not other documents:
-  spelled as identifiers the reference lint reads them as citations of the
-  missions that now hold them and fails.)*
-- 2026-09-04 — **Partial re-measurement, not the triage.** Recorded because
-  the mission's own premise is now known to be stale, and a `todo` document
-  that states a false number is worse than one that states none.
-  - `npm audit` in `web/` at `main` `3020ab2`: **4 advisories — 2 high
-    (astro, sharp), 2 low (esbuild, @astrojs/tailwind)**. The banner's
-    10 · 3 · 4 · 3 does not reproduce.
-  - `gh api /repos/numengames/numinia-nwos/dependabot/alerts` → **HTTP 403,
-    "Resource not accessible by personal access token"**. The enumeration
-    DBT-007 asks for cannot be produced with the agent's current token. This
-    is a blocker for execution, not a finding: whoever executes needs a token
-    with `security_events`, or an Oracle reading the alerts UI.
-  - Every one of the four reports `fixAvailable: astro@7.3.1`. The repo is on
-    `astro@^5.18.1`, and this mission's scope explicitly excludes the Astro
-    major upgrade (DBT-007 §"Why it is registered" point 2). On the evidence
-    available today the verdict for all four would be **accept with reason**,
-    and the mission would close having patched nothing. That is a real
-    outcome, but it is the executor's call with the Oracle, not the
-    renumbering agent's — so nothing here is decided, only measured.
-  - No dependency was bumped, no lockfile touched, no verdict written into
-    the mission body. Status stays `todo`.

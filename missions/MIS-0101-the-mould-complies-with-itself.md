@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.2.1"
+version: "1.2.2"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -153,16 +153,3 @@ of exceptions attached.
 *(Fill when closing)*
 
 > *"The ideal plans show the intention. The real plans show the knowledge."*
-
-## Status check — 2026-09-02
-
-*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
-
-- **Evidence:** ci.yml now runs 10 steps (6 guards, build, orphan and URL ratchets) — criterion 2's spirit is met though type-check/lint/test for web/ are not wired; CODE_OF_CONDUCT, TODO, .editorconfig, .env.example absent; CLAUDE.md still says 'No tests or lint yet'. Cited once.
-- **Recommendation:** Keep todo; half done by reality. Re-scope to the three concrete gaps (web/ type-check+lint in CI; the four files; the CLAUDE.md sentence). Small mission, one PR.
-
-## Version history
-
-- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
-- v1.2.0 (2026-09-02) — criterion 4 ticked (`CLAUDE.md` sentence rewritten, `MIS-135` row 4, #200).
-- v1.2.1 (2026-09-27) — the files still to create are named without `.md`, so the resolver does not read a plan as a broken citation.

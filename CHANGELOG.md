@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-28
 
+- **Removed** History that adds nothing: 18 decision records whose change is already in the text they decided, and the version logs, status checks and execution logs kept inside documents (#547)
 - **Removed** The fat of the archive: the CHANGELOG becomes an index of one line per change, five closed missions and one closed report leave the corpus, and the MVP story drops its appendices (#546)
 - **Added** The moulds, side by side (#545)
 - **Changed** A sale's record is a document like every other (#544)
