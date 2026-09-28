@@ -1815,6 +1815,17 @@
   "tokens": 1049
  },
  {
+  "path": "opportunities/OPP-2026-002.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 3721,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1016
+ },
+ {
   "path": "opportunities/PRP-2026-001.md",
   "dir": "opportunities",
   "series": "opportunities",
@@ -1824,6 +1835,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1537
+ },
+ {
+  "path": "opportunities/PRP-2026-002.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "proposal",
+  "status": "draft",
+  "chars": 6033,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1554
  },
  {
   "path": "opportunities/README.md",

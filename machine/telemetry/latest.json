@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "475c004",
-  "corpus_hash": "da37807a86dea3cee3f979e60cf4056db3e24fda4c6b34bf38741e86cfe136d4",
+  "head": "941c9a0",
+  "corpus_hash": "c283bda8a88d360a04eb066092e34b2fd891ffedafdebe2c5643ab7c36e3c67e",
   "root_dirty": 0,
-  "measured_at": "2026-09-28T20:35:18Z",
+  "measured_at": "2026-09-28T21:21:54Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 624,
+      "value": 626,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 15,
-        ".md": 242,
+        ".md": 244,
         ".mjs": 88,
         ".png": 35,
         ".svg": 72,
@@ -48,12 +48,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 242,
+      "value": 244,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 241,
+      "value": 243,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -72,7 +72,7 @@
         "missions": 7,
         "objects": 2,
         "operations": 9,
-        "opportunities": 3,
+        "opportunities": 5,
         "protocols": 23,
         "reports": 7,
         "standards": 35,
@@ -92,8 +92,8 @@
         "legal": 4,
         "meta": 4,
         "mission": 8,
-        "opportunity": 2,
-        "proposal": 2,
+        "opportunity": 3,
+        "proposal": 3,
         "protocol": 25,
         "report": 8,
         "seminal": 12
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 800164,
+      "value": 802734,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -348,7 +348,7 @@
         "": 10116,
         "legal": 9925,
         "decisions": 9669,
-        "opportunities": 3133,
+        "opportunities": 5703,
         "debt": 2986,
         "objects": 1865,
         ".github": 912
@@ -359,8 +359,8 @@
     "tokens.by_status": {
       "value": {
         "(none)": 506309,
-        "draft": 140244,
-        "active": 134450,
+        "draft": 141798,
+        "active": 135466,
         "todo": 13532,
         "in-progress": 4513,
         "done": 1116
@@ -369,7 +369,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 2.21,
+      "value": 2.2,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -400,7 +400,7 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 193,
+      "value": 195,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -411,21 +411,21 @@
     },
     "headers.field_usage": {
       "value": {
-        "license": 192,
-        "title": 188,
-        "author": 186,
-        "created": 186,
-        "status": 186,
-        "type": 186,
-        "updated": 186,
-        "version": 186,
-        "owner": 185,
-        "tags": 184,
-        "id": 155,
-        "uid": 142,
-        "territory": 113,
-        "related": 92,
-        "guild": 69,
+        "license": 194,
+        "title": 190,
+        "author": 188,
+        "created": 188,
+        "status": 188,
+        "type": 188,
+        "updated": 188,
+        "version": 188,
+        "owner": 187,
+        "tags": 186,
+        "id": 157,
+        "uid": 144,
+        "territory": 115,
+        "related": 94,
+        "guild": 71,
         "created_source": 65,
         "created_confidence": 64,
         "derived_from": 58,
@@ -437,12 +437,12 @@
         "ratified_by": 24,
         "extraction_note": 16,
         "former_id": 13,
+        "currency": 12,
         "former_id_note": 12,
         "related_missions": 11,
         "role": 11,
         "visibility": 11,
         "absorbs": 10,
-        "currency": 10,
         "mandatory": 10,
         "supersedes_version": 10,
         "type_execution": 10,
@@ -452,29 +452,30 @@
         "priority": 8,
         "provenance": 8,
         "amends": 7,
+        "contact_channel": 7,
+        "contact_role": 7,
         "deciders": 7,
-        "contact_channel": 6,
-        "contact_role": 6,
-        "next_action": 6,
-        "next_date": 6,
-        "offer": 6,
-        "opened": 6,
-        "organisation": 6,
-        "sector": 6,
-        "source": 6,
-        "state": 6,
-        "value": 6,
+        "next_action": 7,
+        "next_date": 7,
+        "offer": 7,
+        "opened": 7,
+        "organisation": 7,
+        "sector": 7,
+        "source": 7,
+        "state": 7,
+        "value": 7,
         "context": 5,
+        "date": 5,
         "depends_on": 5,
+        "level": 5,
+        "opportunity": 5,
         "paths": 5,
+        "price": 5,
         "requires_oracle_approval": 5,
-        "date": 4,
-        "level": 4,
-        "opportunity": 4,
-        "price": 4,
+        "tax_rate": 5,
+        "valid_until": 5,
+        "proposal": 4,
         "scope": 4,
-        "tax_rate": 4,
-        "valid_until": 4,
         "consulted": 3,
         "decider_role": 3,
         "decision": 3,
@@ -484,7 +485,6 @@
         "forms": 3,
         "outcome": 3,
         "parent_mission": 3,
-        "proposal": 3,
         "requested_by": 3,
         "severity": 3,
         "severity_reason": 3,
@@ -545,7 +545,7 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 2,
-        "empty_values": 159,
+        "empty_values": 161,
         "v_prefixed_versions": 0,
         "placeholders": 8
       },
@@ -556,7 +556,7 @@
       "value": {
         "ai-persona": 146,
         "no-frontmatter": 48,
-        "other": 27,
+        "other": 29,
         "ai-model": 8,
         "no-author": 7,
         "human": 5
@@ -565,7 +565,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 170,
+      "value": 172,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -633,8 +633,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 86,
-        "draft": 92,
+        "active": 87,
+        "draft": 93,
         "done": 1,
         "todo": 6,
         "in-progress": 1
@@ -687,7 +687,7 @@
           "3": 288
         },
         "OPS": {
-          "3": 58
+          "3": 62
         },
         "CAN": {
           "3": 292
@@ -720,11 +720,11 @@
         },
         "OPP": {
           "3": 11,
-          "4": 14
+          "4": 19
         },
         "PRP": {
           "3": 9,
-          "4": 9
+          "4": 11
         }
       },
       "unit": "citations",
@@ -797,7 +797,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 224,
+      "value": 229,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
