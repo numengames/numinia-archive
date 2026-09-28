@@ -19,6 +19,14 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Added — 2026-09-28 (the three moments of a sale, as protocols)
+At the Oracle's word in session, once the data layer (#535) was merged: the actors that move an opportunity through the stages register.
+- **`PRO-028` Qualifying an opportunity** (draft 0.1.0): open the record the day a sign of interest arrives; the fit question — is it learnt by walking it, or made of participation; who signs and from which budget line; pursue or decline with a reason, within the register's stale days. Sources: the house's own commercial phase, the APMP pursuit decision, ISO 9001 8.2.2.
+- **`PRO-029` Making a proposal** (draft 0.1.0): hear the four things in the client's words — objectives, learners and devices, conditions, what the responsible will see at which level; draw it on one page with the specialist; write the proposal from the mould with the four contents of ISO 29993 §5.2; a demonstration only when no case can be shown; review by someone other than the writer; the Oracle approves; send. Sources: ISO 29993 §5–7, Kirkpatrick's four levels, ADDIE's analysis phase.
+- **`PRO-030` Closing a sale** (draft 0.1.0): follow up on the register's cadence and close on silence; take the answer; fix scope and calendar from the proposal; the agreement under the house's terms, changed clauses read by the legal specialist; the Oracle signs; hand over to whoever builds and to the ledger; write why it was won or lost, and the case for the next proposal. Sources: the APMP win/loss review, `LEG-002`, `STD-036`.
+- **Mechanism:** a check in `regime.test.mjs`, committed first and seen failing: every stage the register `STD-038` names is moved by a protocol of the Sales territory.
+- The three read among the protocols after *Putting something on sale* and before *Closing the month*. Site v0.73.0. No ADR, under the transition regime.
+
 ### Added — 2026-09-28 (how a sale is written down)
 At the Oracle's word in session ("vamos con la PR"), after a planning pass on how Numen Games sells its Training offer: the house had no record of an opportunity, no pipeline and nothing ready to send, and its survival depends on selling. The first piece of a sales system, built so a team, a CRM or an ERP can inherit it: the data layer.
 - **`STD-038` *The stages of a sale*** (register, draft 0.1.0): seven stages `lead → qualified → analysed → proposed → agreed → won`, and `lost` from any open one; per stage the evidence that puts an opportunity there, who moves it and the days after which it is stale; eight closed reasons a sale is lost; twelve months' retention of personal data after a loss. The tool reads every value here.
