@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.76.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "The first opportunity record, and the first proposal beside it: a national police force's training academy, where future officers would rehearse a crime scene — which evidence is there, what is done with each piece, in which order — from a phone, a computer or a headset. The record is at lead: the first meeting is still to happen. The proposal, 'The scene before the scene', is a draft for that meeting; it names the level at which learning will be judged (sequence errors, first walk against last) and shows the whole price. Nobody's name in either; the organisation by sector until it agrees.",
+      },
+    ],
+  },
+  {
     version: "v0.75.0",
     date: "2026-09-28",
     entries: [

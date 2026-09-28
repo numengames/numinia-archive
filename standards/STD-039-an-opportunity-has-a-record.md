@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-28T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -49,9 +49,9 @@ opportunities has three files; the view by organisation is computed.
 **The header carries the fields the pipeline needs.** The header MUST carry:
 identifier, organisation, sector, the offer it sells, source, stage, value
 without tax, currency, the contact's role, the contact channel, the
-decider's role, next action, next date, and the dates opened and closed.
-A lost record adds its reason; a proposed one the proposal's path; a won
-one the agreement's path.
+decider's role, next action, next date, the dates opened and closed, and
+the licence every document here carries. A lost record adds its reason; a
+proposed one the proposal's path; a won one the agreement's path.
 
 **The stage is a value from the register.** The stage MUST be one of the
 stages register's states, written in the header and never in the filename

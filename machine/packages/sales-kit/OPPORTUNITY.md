@@ -21,6 +21,7 @@ closed: ""                        # won or lost
 reason: ""                        # lost only: not-a-fit | no-budget | no-decider | price | timing | chose-another | silence | we-declined
 proposal: ""                      # path to the proposal file, once sent
 agreement: ""                     # path to the signed agreement, once won
+license: "CC0-1.0"                # the record is public, like everything here
 ---
 
 <!--

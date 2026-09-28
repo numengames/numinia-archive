@@ -12,6 +12,7 @@ price: 0                          # without tax
 tax_rate: 21                      # per cent, shown to the client
 currency: "EUR"
 reviewed_by: ""                   # someone other than the writer; the Oracle approves after
+license: "CC0-1.0"
 ---
 
 <!--
