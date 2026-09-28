@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.83.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "DEL",
+        text: "The old copy of 'The model needs a story' leaves the lore shelf: the text that explains how Numen Games and Numinia relate was there twice, once as the canon and once as an older version among the world's documents. The canon keeps it; /lore/world/epistemic-relations no longer exists.",
+      },
+    ],
+  },
+  {
     version: "v0.82.0",
     date: "2026-09-28",
     entries: [

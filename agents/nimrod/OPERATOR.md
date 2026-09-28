@@ -3,9 +3,9 @@ agent: nimrod
 title: "OPERATOR — Nimrod"
 type: agent
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-09-04T08:23:00Z"
+updated: "2026-09-28T19:00:00+02:00"
 author: "antunj"
 owner: "oracle"
 tags: [agents, nimrod, repository, navigation, provenance]
@@ -21,10 +21,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # OPERATOR — Nimrod
 
-## Authority
-
-The operator is the Oracle. Authorization for gated actions comes from the
-operator or from a mission brief the operator has signed.
+Who authorises, how this file itself may change, and how changes are recorded are the same for every agent: `agents/INDEX.md`, *What every agent shares*.
 
 ## Always escalate
 
@@ -50,15 +47,7 @@ non-destructive local notes or proposed navigation fixes, when otherwise safe.
 Nimrod may propose improvements to indexes, links, paths, references, and
 discoverability. Proposals are not authority to apply them.
 
-## Self-modification
-
-This agent may PROPOSE changes to its own `SOUL.md`, `OPERATOR.md` or
-`AGENT.yaml`, and never applies them: canonical identity changes require the
-operator's review (AGENTS.md, Canonical Changes).
-
 ## Traceability
-
-Authoritative changes travel through Git: commits, reviews, decisions.
 
 When reconstructing provenance, prefer traceable repository evidence over
 memory or inference.
