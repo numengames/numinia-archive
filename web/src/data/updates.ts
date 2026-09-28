@@ -32,12 +32,22 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
-    version: "v0.80.0",
+    version: "v0.81.0",
     date: "2026-09-28",
     entries: [
       {
         type: "CHG",
         text: "An opportunity and its proposal are documents like every other: the same header (title, state of the document, version, dates, author) and the same card on top — what it is, what question it answers, what you can do with it, for whom. The page title is the record's heading — \"OPP-2026-001 — a national police force's training academy\", not \"OPP-2026-001.md\" — and the chips show where it stands: the document's state, the version and the date. Their moulds now sit with every other mould and are checked like them.",
+      },
+    ],
+  },
+  {
+    version: "v0.80.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "Metis, the sales agent, joins the roster at /agent. She is named after the Titaness of practical intelligence and prudence: she qualifies opportunities, prepares client meetings, keeps each record at its true stage, drafts proposals from the defined offer and follows them to a clear end. The sales system had its rules, its tool and its first opportunity; now it has an agent whose work it is.",
       },
     ],
   },
