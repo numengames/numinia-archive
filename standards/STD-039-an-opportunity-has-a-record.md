@@ -5,7 +5,7 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-28T13:00:00+02:00"
 updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
@@ -46,18 +46,20 @@ name, and every tool that reads them.
 with a header, named by its identifier. An organisation with three
 opportunities has three files; the view by organisation is computed.
 
-**The header carries the fields the pipeline needs.** The header MUST carry:
-identifier, organisation, sector, the offer it sells, source, stage, value
-without tax, currency, the contact's role, the contact channel, the
-decider's role, next action, next date, the dates opened and closed, and
-the licence every document here carries. A lost record adds its reason; a
-proposed one the proposal's path; a won one the agreement's path.
+**The header carries the fields the pipeline needs.** The header MUST open
+with the fields every document carries, then carry: identifier,
+organisation, sector, the offer it sells, source, stage, value without tax,
+currency, the contact's role, the contact channel, next action, next date,
+the date opened, and the licence. The rest are written when due and absent
+before: the decider's role from agreed, the date closed at won or lost, the
+reason when lost, the proposal's path once sent, the agreement's path once
+won.
 
 **The stage is a value from the register.** The stage MUST be one of the
 stages register's states, written in the header and never in the filename
 or the folder. The reason of a lost record MUST be one of the register's
 reasons. From agreed on, the record MUST carry the role of whoever can sign
-for the client; before that it MAY be empty, and the record says so.
+for the client; before that it MAY be absent, and the record says so.
 
 **Every open record knows its next step.** A record in an open stage MUST
 carry a next action and its date. A record whose next date has passed is

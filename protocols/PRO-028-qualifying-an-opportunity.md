@@ -4,7 +4,7 @@ uid: ""
 title: "Qualifying an opportunity"
 type: protocol
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-28T16:00:00+02:00"
 updated: "2026-09-28T22:00:00+02:00"
 author: "ursa"
@@ -55,7 +55,7 @@ Oracle today, or whom he names) qualifies it and decides.
 ## 2. Preconditions
 
 - The opportunities series, where every record lives in public; the mould
-  of the record from the sales kit.
+  of the record, with the other moulds of the archive.
 - The record of the offer this would sell, published; without one, there is
   nothing to qualify against.
 - The stages register at hand for the stage, its evidence and its stale

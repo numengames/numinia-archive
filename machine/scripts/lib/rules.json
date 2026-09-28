@@ -13,7 +13,7 @@
     "blueprints": { "prefix": ["BLU"],        "digits": 3, "threshold": "open" },
     "system":     { "prefix": ["SYS"],        "digits": 3, "threshold": "governed" },
     "legal":      { "prefix": ["LEG"],        "digits": 3, "threshold": "governed" },
-    "opportunities": { "prefix": [],          "digits": 0, "threshold": "open", "naming": false },
+    "opportunities": { "prefix": ["OPP", "PRP"], "digits": 0, "threshold": "open", "naming": false },
     "agents":     { "prefix": [],             "digits": 0, "threshold": "live", "naming": false }
   },
   "retiredPrefixes": {
@@ -30,8 +30,8 @@
   },
   "types": {
     "_comment": "STD-004 §5 HDR-003 closed type vocabulary; HDR-017 type ↔ series, strict except `lax`.",
-    "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "documentation", "meta", "agent", "entity"],
-    "series": { "mission": "missions", "adr": "decisions", "protocol": "protocols", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "legal": "legal", "agent": "agents" },
+    "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "documentation", "meta", "agent", "entity", "opportunity", "proposal"],
+    "series": { "mission": "missions", "adr": "decisions", "protocol": "protocols", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "legal": "legal", "agent": "agents", "opportunity": "opportunities", "proposal": "opportunities" },
     "lax": ["documentation", "meta", "entity"]
   },
   "status": {
@@ -47,6 +47,6 @@
   },
   "governed": {
     "_comment": "STD-004 §10: the top-level directories whose tracked .md files std-004-the-header governs. Everything else (web/, machine/scripts/, root, .github/) is out of its scope.",
-    "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "operations", "system", "legal"]
+    "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "operations", "system", "legal", "opportunities"]
   }
 }

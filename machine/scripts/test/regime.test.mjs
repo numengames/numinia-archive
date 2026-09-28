@@ -14,7 +14,7 @@
 //                      draft. Exit is injected so the test observes the code.
 //
 // Run: npm test
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
@@ -197,12 +197,17 @@ check('tree: legal texts have one home — legal/, registered in STD-001, STD-02
 check('tree: opportunities have one home — opportunities/, registered in STD-001 and STD-027, read by the pipeline tool', () => {
   // The Oracle's ruling (2026-09-28): the records of a sale live in the
   // public archive — transparency — with roles in the header and no personal
-  // data in the body, the organisation named only once it has agreed. The
-  // folder is not header-governed: its records carry the header STD-039
-  // fixes, and pipeline.mjs is the instrument that reads them in CI.
+  // data in the body, the organisation named only once it has agreed.
+  // Reversed the same day at the Oracle's QA ("no seamos capaces de inferir
+  // cómo funciona el sistema"): the folder IS header-governed like every
+  // other — every document's header and card, then the sale's own fields,
+  // registered in STD-004's ring 3 — and pipeline.mjs still judges the
+  // sale's values in CI. Its moulds sit with the others in machine/templates/.
   const rules = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/lib/rules.json'), 'utf-8'));
   if (!rules.series.opportunities) return 'rules.json registers no opportunities series';
-  if (rules.governed.dirs.includes('opportunities')) return 'opportunities/ is header-governed; its header is STD-039\'s, read by pipeline.mjs';
+  if (!rules.governed.dirs.includes('opportunities')) return 'opportunities/ is not header-governed: its documents would open with a header nobody checks';
+  for (const m of ['OPP-TEMPLATE.md', 'PRP-TEMPLATE.md'])
+    if (!existsSync(path.join(ROOT, 'machine/templates', m))) return `machine/templates/${m} is missing`;
   const s001 = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf-8');
   if (!/^\| `opportunities\/` \|/m.test(s001)) return 'STD-001 has no row for opportunities/';
   const s027 = readFileSync(path.join(ROOT, 'standards/STD-027-the-classification-scheme.md'), 'utf-8');

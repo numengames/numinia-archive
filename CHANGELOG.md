@@ -19,6 +19,16 @@ Format: [type] description — date — author
 
 ## [Unreleased]
 
+### Changed — 2026-09-28 (a sale's record is a document like every other)
+At the Oracle's QA of `/opportunities/opp-2026-001` ("siempre metemos un valor pragmático, un valor epistémico… me da un poco de pena que no seamos capaces de inferir cómo funciona el sistema"): the opportunity and the proposal had a header of their own, no card, and moulds apart from every other mould. Same day the folder was opened; reversed before a third record existed.
+- **Governed like any series.** `opportunities/` joins `governed.dirs` (`rules.json`); prefixes `OPP` and `PRP`; two new types, `opportunity` and `proposal`, both at home in `opportunities/` (`STD-001` 5.8.0, the series and genre tables). The sale's own fields are registered in `STD-004`'s ring 3 for the series (4.3.0; `rings.mjs`), so the header guard accepts them and still refuses any other.
+- **Two states, two meanings.** `status` is the document's (a record `active` while kept; a proposal `draft` until sent, `active` once sent, `withdrawn` when revised or lapsed); `state` stays the sale's stage. `STD-040` 0.3.0 says so.
+- **Empty is absent.** `decider_role`, `closed`, `reason`, `proposal`, `agreement` are written when their stage asks for them and left out before (`STD-004` HDR-009), not written as `""`. `STD-039` 0.4.0; `pipeline.mjs` `REQUIRED` / `WHEN_DUE` / `COMMON` — the tool accepts every document's header and a test holds its copy equal to `rings.mjs`.
+- **The moulds with the others.** `machine/packages/sales-kit/OPPORTUNITY.md` and `PROPOSAL.md` become `machine/templates/OPP-TEMPLATE.md` and `PRP-TEMPLATE.md`, with the full header and the card; `check-templates.mjs` checks one mould per prefix, so both are held to T-01…T-10. References updated: `STD-001`, `SYS-010` 0.4.0, `PRO-028`, `PRO-029`, the kit's README, `opportunities/README.md` (now with a header and card of its own).
+- **The two records migrated.** `OPP-2026-001` and `PRP-2026-001` 0.2.0: common header (created from `git:1da1c49`), the card, sale fields unchanged.
+- **The page.** `[...slug].astro`: title falls back to the first heading before the file name; `state` shows when there is no `status`; `date` / `opened` stand in for `updated`.
+- **Guards.** `std-012` no longer reads `OPP-NNN` / `PRP-NNN` rule codes as missing documents (a series with no filename scheme is left out of the identifier resolver). `regime.test.mjs` now asserts the folder IS governed and both moulds exist. Site v0.81.0.
+
 ### Added — 2026-09-28 (Metis, the sales agent)
 At the Oracle's word in session ("nos falta un agente digital encargado de la parte de ventas"): the sales system had its standards, protocols, tool and first record, and no agent whose work it was.
 - **`agents/metis/`** — the eleventh digital agent, Sales Agent, Procurators guild, named after the Titaness of practical intelligence and prudence. Born in the entity shape: `AGENT.md` (draft, forms → copies), not the `AGENT.yaml` the older agents still carry. `SOUL.md`, `OPERATOR.md` (escalates anything sent to, promised to or signed with a client, any price or term not set, and every `won`/`lost`), `SOURCES.md` (the offer, positioning and strategy in `operations/`, `STD-038`..`040`, `PRO-028`..`030`, `SYS-010`, `opportunities/` and the sales kit), and the Hermes adapter.

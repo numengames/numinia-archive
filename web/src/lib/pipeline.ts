@@ -52,8 +52,8 @@ export function pipeline(today = new Date().toISOString().slice(0, 10)) {
     return {
       id: fm.id, organisation: fm.organisation, sector: fm.sector, offer: fm.offer, source: fm.source,
       state: fm.state, value: Number(fm.value) || 0, currency: fm.currency || "EUR",
-      next_action: fm.next_action, next_date: fm.next_date, opened: fm.opened, closed: fm.closed,
-      reason: fm.reason, proposal: fm.proposal, slug: fm.id.toLowerCase(),
+      next_action: fm.next_action, next_date: fm.next_date, opened: fm.opened, closed: fm.closed ?? "",
+      reason: fm.reason ?? "", proposal: fm.proposal ?? "", slug: fm.id.toLowerCase(),
       // The addresses are made HERE, at build time, not in the browser: the
       // link guard reads hrefs out of the built HTML, and a template literal
       // inside a script is not an address it can follow.

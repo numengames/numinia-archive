@@ -63,8 +63,9 @@ const RULES = loadRules();
    template (a filled example, a design record) and not templates themselves. */
 const DEST = {};
 for (const dir of seriesDirs(RULES)) {
-  const pfx = RULES.series[dir].prefix[0];
-  if (pfx) DEST[`${pfx}-TEMPLATE.md`] = dir;
+  // Every prefix a series admits has its mould: opportunities/ holds two
+  // kinds of document, the record (OPP) and its proposal (PRP).
+  for (const pfx of RULES.series[dir].prefix) DEST[`${pfx}-TEMPLATE.md`] = dir;
 }
 const COMPANIONS = { 'MIS-TEMPLATE-EXAMPLE.md': 'missions', 'MIS-TEMPLATE-CHANGES.md': 'missions' };
 const EXEMPT = new Set(['README.md']);

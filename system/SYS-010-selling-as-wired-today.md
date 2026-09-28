@@ -5,7 +5,7 @@ title: "Selling, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-28T17:00:00+02:00"
 updated: "2026-09-28T23:30:00+02:00"
 author: "ursa"
@@ -57,7 +57,7 @@ account's reference. Building what was sold is outside this document.
 | **The rules** | the stages, the record, the proposal | `standards/STD-038`, `STD-039`, `STD-040` | wired, in draft |
 | **The steps** | qualifying, proposing, closing | `protocols/PRO-028`, `PRO-029`, `PRO-030` | wired, in draft |
 | **The offer record** | what Training is, delivers, costs | `operations/OPS-012` | wired, in draft; one record per offer as others are written |
-| **The moulds** | an opportunity, a proposal | `machine/packages/sales-kit/OPPORTUNITY.md`, `PROPOSAL.md` | wired |
+| **The moulds** | an opportunity, a proposal — every document's header and card, then the sale's fields | `machine/templates/OPP-TEMPLATE.md`, `PRP-TEMPLATE.md` | wired; checked with every other mould |
 | **The tool** | validation and the pipeline report | `machine/packages/sales-kit/pipeline.mjs` | wired; runs by hand on any folder |
 | **The records** | one file per opportunity, its proposals beside it | `opportunities/`, public, nobody's name in them | wired — the folder exists; the first record is the Oracle's |
 | **The agreement** | the signed contract per project | with the company, outside every repository | wired, on paper |

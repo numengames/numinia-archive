@@ -20,13 +20,16 @@ const { Content } = await render(entry);
 const raw = entry.data as Record<string, unknown>;
 // Frontmatter varies wildly across the repo — display only string values.
 const str = (v: unknown) => (typeof v === "string" ? v : undefined);
+// Sales records (STD-039, STD-040) name their stage `state` and their day
+// `opened` / `date`; they are read here like any status and date, so the
+// chips say where the record stands instead of nothing.
 const f = {
   id: str(raw.id),
-  status: str(raw.status),
+  status: str(raw.status) ?? str(raw.state),
   version: str(raw.version),
   license: str(raw.license),
   created: raw.created,
-  updated: raw.updated,
+  updated: raw.updated ?? raw.date ?? raw.opened,
 };
 const rel = (entry.filePath as string).replace(/\\/g, "/");
 const mdFilename = rel.split("/").pop()!;
@@ -38,7 +41,11 @@ const m = rel.match(
   /(?:^|\/)(agents|blueprints|canon|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|protocols|reports|standards|system)\/(.+)$/
 );
 const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
-const title = str(raw.title) ?? mdFilename;
+// A document with no `title` field still has one: its first heading. The
+// file name is the last resort, not the first — "OPP-2026-001.md" told a
+// reader nothing the identifier chip had not said.
+const h1 = (entry.body ?? "").match(/^#\s+(.+?)\s*$/m)?.[1];
+const title = str(raw.title) ?? h1 ?? mdFilename;
 // A draft document binds nobody (STD-004), and the corpus mirror renders the
 // canon, the standards and the protocols — the three folders where that fact
 // changes what a reader should do. Printing the bare word as a chip left them
