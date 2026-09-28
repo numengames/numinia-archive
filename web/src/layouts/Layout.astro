@@ -63,6 +63,11 @@ const ogLocale = "en_US";
     <meta name="theme-color" content="#14110F" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#F9EBDC" media="(prefers-color-scheme: light)" />
     <link rel="canonical" href={canonical} />
+    <!-- The machine doors (/llms.txt says how to read the site with no HTML;
+         every page also exists at its address + .md). Advertised here so an
+         agent finds them without guessing. -->
+    <link rel="alternate" type="text/plain" title="llms.txt" href="/llms.txt" />
+    <link rel="alternate" type="application/json" title="Every address" href="/index.json" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

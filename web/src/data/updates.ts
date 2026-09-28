@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.84.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "The home page now answers 'what binds today?' before anything else: most documents are drafts and bind nobody, and one link leads to /binding, the page that lists the few in force. The same panel tells an agent to start at /llms.txt and that any address plus .md gives the file behind the page. Every page's head now points at /llms.txt and /index.json, so a program finds them without guessing.",
+      },
+    ],
+  },
+  {
     version: "v0.83.0",
     date: "2026-09-28",
     entries: [

@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 10661,
+  "chars": 10935,
   "apparatus": false,
   "archived": false,
-  "tokens": 2911
+  "tokens": 2972
  },
  {
   "path": "CLAUDE.md",
@@ -80,12 +80,12 @@
   "path": "README.md",
   "dir": "",
   "series": null,
-  "type": "documentation",
-  "status": "active",
-  "chars": 6791,
+  "type": null,
+  "status": null,
+  "chars": 4171,
   "apparatus": true,
   "archived": false,
-  "tokens": 1770
+  "tokens": 1106
  },
  {
   "path": "SECURITY.md",
