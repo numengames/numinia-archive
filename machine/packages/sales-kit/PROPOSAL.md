@@ -23,6 +23,15 @@ SPDX-License-Identifier: CC0-1.0
 
 # Title — for the organisation
 
+> **Summary:** What the client will be able to do, how it is proved, what
+> it costs and until when it holds — in two or three lines.
+> **Epistemic:** What exactly is offered to this client, and on what terms?
+> **Pragmatic:** Read it before sending it; check a delivery or an invoice
+> against it.
+> **Audience:** Sales · Oracles · the client
+<!-- The card is the archive's. The copy sent to the client may leave it
+     out; the six sections below are what the client reads. -->
+
 ## 1. Objectives
 
 <!-- ISO 29993 5.2 a). In the client's words: what the learners will be able

@@ -31,6 +31,13 @@ SPDX-License-Identifier: CC0-1.0
 
 # OPP-YYYY-NNN — the organisation
 
+> **Summary:** Who asked, for what, where the sale stands and what happens
+> next — in two or three lines a stranger understands without the header.
+> **Epistemic:** Is this opportunity worth pursuing, and what is still
+> unknown about it?
+> **Pragmatic:** Prepare the next step, or decide to drop it.
+> **Audience:** Sales · Oracles
+
 ## Need
 
 The four things, in the client's words, written at `analysed`:

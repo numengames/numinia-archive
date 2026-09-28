@@ -39,6 +39,10 @@ export const UPDATES: readonly UpdateVersion[] = [
         type: "FIX",
         text: "Every page again has its \"View on GitHub\" link: the opportunities, the proposals, the legal texts, the lore (adventures, codex, world) and the object cards were rendered with no way back to the file they come from, because their folders were missing from the list that builds the link. Their breadcrumb now names the folder too, instead of \"raíz\".",
       },
+      {
+        type: "CHG",
+        text: "An opportunity and its proposal open like every other document: a card saying what it is (summary), what question it answers (epistemic), what you can do with it (pragmatic) and for whom. The page title is the record's heading — \"OPP-2026-001 — a national police force's training academy\", not \"OPP-2026-001.md\" — and the chips show the stage (lead, proposed…) and the date.",
+      },
     ],
   },
   {

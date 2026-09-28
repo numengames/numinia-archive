@@ -21,6 +21,8 @@ Format: [type] description — date — author
 
 ### Fixed — 2026-09-28 (every page links back to its file)
 At the Oracle's word during QA of `/opportunities/opp-2026-001` ("no hay un link al archivo en el github… hay que estructurarlo como el resto de la página web"): the "View on GitHub" button was missing from every page under `opportunities/`, `legal/`, `lore/` and `objects/`. `web/src/lib/build-info.ts` `REPO_DIRS` gains those four folders (the list decides whether a file gets its link; a folder absent from it returns no link, silently). `[...slug].astro` names the same folders, plus `history/` and `system/`, in the breadcrumb, which printed "raíz" for them. Site v0.79.0.
+- **The card on sales records.** `OPP-2026-001` and `PRP-2026-001` gain the Summary / Epistemic / Pragmatic / Audience card every other document carries (`STD-007`); so do the moulds `machine/packages/sales-kit/OPPORTUNITY.md` and `PROPOSAL.md`, so every record copied from them starts with it. The proposal's mould notes the card is the archive's; the copy sent to the client may leave it out.
+- **The page reads a record's header.** `[...slug].astro`: the title falls back to the document's first heading before the file name; `state` shows as the status chip and `date` / `opened` as the date, so an opportunity says `lead` and its day like any document says `draft`.
 
 ### Added — 2026-09-28 (the pipeline, as three readers see it)
 At the Oracle's word ("en open books se suponía que íbamos a tener algo dedicado al pipeline de ventas… que le valiera tanto al management como al equipo de ventas y el equipo de transparencia… para el reporting semanal, trimestral y anual"): the report is published, not asked for.
