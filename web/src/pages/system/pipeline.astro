@@ -174,7 +174,7 @@ const money = n => new Intl.NumberFormat('en-GB', { style: 'currency', currency:
 const days = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const stageOf = r => `<span class="cq-stage">${r.state}</span>`;
-const link = r => `<a href="/opportunities/${r.slug}">${r.id}</a>`;
+const link = r => `<a href="${r.url}">${r.id}</a>`;
 const lastMove = r => r.transitions.length ? r.transitions[r.transitions.length - 1].date : r.opened;
 
 /* ---- lenses ---- */
@@ -310,7 +310,7 @@ $$('#pq-gran .cq-tab').forEach(b => b.addEventListener('click', () => { gran = b
 /* ---- every record ---- */
 function allTable() {
   $('#pq-all tbody').innerHTML = R.slice().sort((a, b) => a.id.localeCompare(b.id)).map(r =>
-    `<tr><td>${link(r)}${r.proposal ? ` · <a href="/opportunities/${r.proposal.replace(/\.md$/, '').toLowerCase()}">proposal</a>` : ''}</td><td class="cq-l">${esc(r.organisation)}</td><td>${esc(r.sector)}</td><td>${esc(r.source)}</td><td>${stageOf(r)}</td><td>${money(r.value)}</td><td>${r.opened}</td><td>${r.closed || '—'}</td><td class="cq-l">${esc(r.reason || '')}</td></tr>`).join('');
+    `<tr><td>${link(r)}${r.proposalUrl ? ` · <a href="${r.proposalUrl}">proposal</a>` : ''}</td><td class="cq-l">${esc(r.organisation)}</td><td>${esc(r.sector)}</td><td>${esc(r.source)}</td><td>${stageOf(r)}</td><td>${money(r.value)}</td><td>${r.opened}</td><td>${r.closed || '—'}</td><td class="cq-l">${esc(r.reason || '')}</td></tr>`).join('');
 }
 
 applyLens(); openTable(); funnel(); stageDays(); reasons(); periods(); allTable();

@@ -32,6 +32,7 @@ test('the page states no figure: its data comes through the tool', () => {
   assert.match(lib, /throw new Error\(`opportunities\/:/, 'a breach fails the build, as it fails CI');
   const page = readFileSync(PAGE, 'utf8');
   assert.doesNotMatch(page, /\b1[0-9],[0-9]{3}\b|€\s?\d/, 'no amount is typed in the page');
+  assert.doesNotMatch(page, /href="\/[^"]*\$\{/, 'no address is composed in the browser: the link guard reads every href="/… out of the built HTML, template or not');
 });
 
 // ---- a DOM just wide enough for the page script ------------------------------
@@ -123,7 +124,7 @@ test('the browser script puts the tool\'s figures where each reader looks', asyn
   const reg = tool.loadRegister();
   const raw = tool.readFolder(FIXTURES);
   const figures = tool.figures(raw, reg, TODAY);
-  const records = raw.filter((r) => r.fm).map((r) => ({ ...r.fm, value: Number(r.fm.value), slug: r.fm.id.toLowerCase(), transitions: r.transitions }));
+  const records = raw.filter((r) => r.fm).map((r) => ({ ...r.fm, value: Number(r.fm.value), slug: r.fm.id.toLowerCase(), url: `/opportunities/${r.fm.id.toLowerCase()}`, proposalUrl: r.fm.proposal ? `/opportunities/${r.fm.proposal.replace(/\.md$/, '').toLowerCase()}` : '', transitions: r.transitions }));
   const html = pageHtml() + `<script id="pq-data" type="application/json">${JSON.stringify({ today: TODAY, register: reg, records, figures })}</script>`;
   const { document } = makeDom(html);
   const g = globalThis;
