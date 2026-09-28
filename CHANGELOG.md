@@ -19,7 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-28
 
-- **Fixed** The door names only what exists: AGENTS.md takes the repository's name, opens with the rules in force, and drops references the tree does not hold; a test pins every path and code in the root files to the tree (#551)
+- **Fixed** The door names only what exists: AGENTS.md takes the repository's name, opens with the rules in force, and drops references the tree does not hold; a test pins every path and code in the root files to the tree (#552)
 
 - **Changed** The front door says what binds: the README carries the repository's name, starts at /binding and AGENTS.md instead of a draft protocol, and names only sibling repositories that exist; the home page and every page's head point at /binding and /llms.txt (#549)
 
