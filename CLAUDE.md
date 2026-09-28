@@ -7,11 +7,11 @@ SPDX-License-Identifier: CC-BY-4.0
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-**`AGENTS.md` is the canonical agent context (AGT-001); this file is the Claude Code adapter.** Read `AGENTS.md` first: the branch audit, the transition regime, the repository map, the root commands and the rules that govern work here live there and are not restated below. What follows is only what is specific to `web/`, the Astro viewer that serves numinia.org.
+**`AGENTS.md` is the canonical agent context; this file is the Claude Code adapter.** Read `AGENTS.md` first: the branch audit, the transition regime, the repository map, the root commands and the rules that govern work here live there and are not restated below. What follows is only what is specific to `web/`, the Astro viewer that serves numinia.org.
 
 ## Stack (`web/`)
 
-Astro 7, `output: "static"`, no adapter — fully static, deployed to Cloudflare Workers as static assets (`web/wrangler.toml`, worker `numinia-nwos`, domain `numinia.org`). React 19 islands only where a `client:` directive is used. Tailwind 4 as a Vite plugin (`@tailwindcss/vite`): there is no `tailwind.config.mjs`, the theme is an `@theme` block in `web/src/styles/global.css`, and the RGB triplets in `:root` remain the source every hand-written rule reads. shadcn/ui in `web/src/components/ui/`. Path alias `@/*` → `web/src/*`. Dark-only design system in `web/DESIGN.md`; accent teal `#2DD4BF`, fonts Geist/Geist Mono.
+Astro 7, `output: "static"`, no adapter — fully static, deployed to Cloudflare Workers as static assets (`web/wrangler.toml`, worker `numinia-nwos`, domain `numinia.org`). React 19 islands only where a `client:` directive is used. Tailwind 4 as a Vite plugin (`@tailwindcss/vite`): there is no `tailwind.config.mjs`, the theme is an `@theme` block in `web/src/styles/global.css`, and the RGB triplets in `:root` remain the source every hand-written rule reads. shadcn/ui in `web/src/components/ui/`. Path alias `@/*` → `web/src/*`. Dark-only; the tokens are `STD-008` and the kit `machine/packages/design-kit/`; accent teal `#2DD4BF`, fonts Geist/Geist Mono.
 
 - **Routes**: `web/src/pages/`. Dynamic routes map over TS modules in `web/src/data/` with `getStaticPaths()`.
 - **Corpus data**: the repository's own folders are the source, read at build time through Astro's Content Layer (`web/src/content.config.ts`). No index file, no client-side GitHub calls — a document added to `missions/` or `standards/` appears because the folder changed.
@@ -28,7 +28,7 @@ There is no `build:pdf`. It was documented here and in `OPS-008` as part of the 
 
 ## Engineering standard
 
-`STD-005` is this repository's own operative standard, not a copy of anyone else's, and `PRO-016` is how it is applied to a task. Numinia is NWOS's first client: a practice is proven here and only then offered to `nwos-workspace-template` as a proposal other organisations may adopt and then govern themselves. There is no upstream — a change to `STD-005` is a local ADR and PR in `decisions/`, never routed elsewhere, and the mould's copy diverging is adoption, not drift (`ADR-001`).
+`STD-005` is this repository's own operative standard, not a copy of anyone else's, and `PRO-016` is how it is applied to a task. Numinia is NWOS's first client: a practice is proven here and only then offered to `nwos-workspace-template` as a proposal other organisations may adopt and then govern themselves. There is no upstream — a change to `STD-005` is a local ADR and PR in `decisions/`, never routed elsewhere, and the mould's copy diverging is adoption, not drift (`OPS-002`, the contradictions register, records the ruling).
 
 ## Licensing
 
