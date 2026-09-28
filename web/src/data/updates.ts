@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.73.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "Three protocols carry out how a sale is written down, in draft: 'Qualifying an opportunity' (open the record the day a sign of interest arrives, ask whether what they need is what we make, find who signs, decide within two weeks), 'Making a proposal' (hear the four things in the client's words, draw the procedure on one page with the specialist, write the proposal from the mould, have it reviewed and approved, send it) and 'Closing a sale' (follow up on a cadence, fix the scope, sign under the house's terms, hand over to whoever builds and to the ledger, write down why it was won or lost). They read among the protocols after 'Putting something on sale' and before 'Closing the month'. A test now fails if the register of stages names a state no protocol moves an opportunity into.",
+      },
+    ],
+  },
+  {
     version: "v0.72.0",
     date: "2026-09-28",
     entries: [

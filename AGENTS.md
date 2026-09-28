@@ -167,6 +167,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-025` | Handling a personal data breach | whoever learns of a possible breach of personal data we hold… |
 | `PRO-026` | Answering a person's request about their data | whoever receives or answers a request from a person about the data we hold on them |
 | `PRO-027` | Changing what a site stores or loads | whoever changes a site so that it stores, loads or sends something it did not before… |
+| `PRO-028` | Qualifying an opportunity | whoever hears of a chance to sell something in Numen Games' or Numinia's name… |
+| `PRO-029` | Making a proposal | whoever analyses a need, writes, reviews or approves a proposal in Numen Games' or Numinia's… |
+| `PRO-030` | Closing a sale | whoever follows up, negotiates, signs or hands over a sale in Numen Games' or Numinia's name |
 | `STD-001` | The series | every tracked document of the archive |
 | `STD-003` | Platform ranks | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | every document's header, and every date the archive writes |
@@ -203,7 +206,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-039` | An opportunity has a record | every record of an opportunity kept in Numen Games' or Numinia's name… |
 | `STD-040` | A proposal says four things | every proposal for a service that Numen Games sends to an organisation, and whoever writes… |
 
-66 rule documents; 5 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+69 rule documents; 5 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
