@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 185013,
+  "chars": 10257,
   "apparatus": false,
   "archived": false,
-  "tokens": 49197
+  "tokens": 2823
  },
  {
   "path": "CLAUDE.md",
@@ -1848,39 +1848,6 @@
   "tokens": 1943
  },
  {
-  "path": "missions/MIS-0121-header-baseline-burndown.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 32543,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 9064
- },
- {
-  "path": "missions/MIS-0123-make-adr-028-real.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 10734,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3025
- },
- {
-  "path": "missions/MIS-0127-entropy-reduction.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 32765,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 9484
- },
- {
   "path": "missions/MIS-0135-normalisation-residue-register.md",
   "dir": "missions",
   "series": "missions",
@@ -1912,28 +1879,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2845
- },
- {
-  "path": "missions/MIS-0151-accessibility-gate-single-home.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 8710,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2503
- },
- {
-  "path": "missions/MIS-0153-agent-roster-page.md",
-  "dir": "missions",
-  "series": "missions",
-  "type": "mission",
-  "status": "done",
-  "chars": 6002,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1489
  },
  {
   "path": "missions/MIS-0154-four-sites-design-audit.md",
@@ -2381,10 +2326,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 35483,
+  "chars": 10701,
   "apparatus": false,
   "archived": false,
-  "tokens": 10793
+  "tokens": 3873
  },
  {
   "path": "reports/RPT-018-alpha-story.md",
@@ -2392,10 +2337,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 2522,
+  "chars": 2572,
   "apparatus": false,
   "archived": false,
-  "tokens": 803
+  "tokens": 827
  },
  {
   "path": "reports/RPT-019-2026-w37.md",
@@ -2403,21 +2348,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 10774,
+  "chars": 11806,
   "apparatus": false,
   "archived": false,
-  "tokens": 3421
- },
- {
-  "path": "reports/RPT-020-what-the-guards-see.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "active",
-  "chars": 7229,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2357
+  "tokens": 3758
  },
  {
   "path": "reports/RPT-021-four-sites-design-audit.md",
