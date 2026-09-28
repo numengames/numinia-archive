@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.78.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "The pipeline, as three readers see it: /system/pipeline reads every opportunity record through the sales kit's own tool at build time — no figure typed — and cuts them in the browser. Whoever sells gets what needs a move today, overdue first; management gets weighted value, win rate, cycle, days per stage and why lost; anyone gets the same records, public as they stand. What happened by week, month, quarter and year is read from the transitions each record carries: the weekly, quarterly and annual report as a view, not a document. A markdown twin at /system/pipeline.md says the same figures as text. Opportunities and the pipeline now sit on the map, in Administration, beside the open books.",
+      },
+    ],
+  },
+  {
     version: "v0.77.0",
     date: "2026-09-28",
     entries: [

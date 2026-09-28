@@ -105,6 +105,8 @@ export const SEGMENTS: Segment[] = [
     E("Operations", "Legal, continuity, secrets", "/operations/", "operations"),
     E("System", "How the machine is wired today", "/system/", "system"),
     E("Open books", "What Numinia costs and takes in", "/system/open-books"),
+    E("Opportunities", "Whom we are trying to sell to, in public", "/opportunities/", "opportunities"),
+    E("The pipeline", "Every opportunity at its stage; where sales are won and lost", "/system/pipeline"),
     E("Templates", "The mould of every document type", null),
     E("The repository", "README, contributing, changelog, security", null),
   ] },

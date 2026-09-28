@@ -42,6 +42,7 @@ import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/bin
 import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears } from "@/lib/account";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
+import { pipeline as salesPipeline, PIPELINE_SOURCES } from "@/lib/pipeline";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -629,6 +630,71 @@ export function accountPage(): ComposedPage {
   return { route: "/system/open-books", filename: "numinia-open-books.md", sources: [...ACCOUNT_SOURCES], body: preamble([...ACCOUNT_SOURCES]) + body };
 }
 
+/**
+ * /system/pipeline — every opportunity, the tool's own figures, and what
+ * happened per month: the weekly, quarterly and annual report as a view. The
+ * same records and the same tool the page reads (STD-039 OPP-009), so the
+ * markdown and the page agree.
+ */
+export function pipelinePage(): ComposedPage {
+  const P = salesPipeline();
+  const { register: reg, records, figures: F, today } = P;
+  const eur = (n: number) => "€" + Math.round(n).toLocaleString("en-GB");
+  const open = records.filter((r) => !reg.closed.includes(r.state));
+  const stageRows = reg.order.map((s) => `| ${s} | ${F.byStage[s].count} | ${F.byStage[s].value ? eur(F.byStage[s].value) : ""} | ${F.timePerStage[s] === null ? "—" : `${F.timePerStage[s]} d`} | ${reg.staleDays[s] === null ? "—" : `${reg.staleDays[s]} d`} |`);
+  const months = new Map<string, { opened: number; forward: number; won: number; lost: number; wonValue: number }>();
+  for (const r of records) for (const t of r.transitions) {
+    const k = t.date.slice(0, 7), m = months.get(k) ?? { opened: 0, forward: 0, won: 0, lost: 0, wonValue: 0 };
+    if (t.to === "lead") m.opened++; else if (t.to === "lost") m.lost++; else if (t.to === "won") { m.won++; m.wonValue += r.value; m.forward++; } else m.forward++;
+    months.set(k, m);
+  }
+  const monthRows = [...months.keys()].sort().reverse().map((k) => { const m = months.get(k)!; return `| ${k} | ${m.opened} | ${m.forward} | ${m.won} | ${m.lost} | ${m.wonValue ? eur(m.wonValue) : ""} |`; });
+  const body = [
+    "# The pipeline",
+    "",
+    `Every chance to sell something, as of ${today}: ${records.length} record${records.length === 1 ? "" : "s"}, ${open.length} open worth ${eur(open.reduce((a, r) => a + r.value, 0))} before tax, ${F.won} won, ${F.lost} lost${F.winRate === null ? "" : ` (win rate ${F.winRate} %)`}${F.cycleDays === null ? "" : `, ${F.cycleDays} days from first sign to signature on average`}. Nobody's name in any record; the organisation a sector until it agrees.`,
+    "",
+    "## By stage",
+    "",
+    "| Stage | Open | Value | Average days held | Stale after |",
+    "|---|---:|---:|---:|---:|",
+    ...stageRows,
+    "",
+    "## Needs a move",
+    "",
+    ...(F.overdue.length || F.stale.length ? [
+      ...F.overdue.map((o: { id: string; next_date: string; next_action: string }) => `- **${o.id}** — overdue since ${o.next_date}: ${o.next_action}`),
+      ...F.stale.map((s: { id: string; state: string; days: number; limit: number }) => `- **${s.id}** — ${s.days} days at ${s.state}, the register allows ${s.limit}`),
+    ] : ["Nothing overdue, nothing stale."]),
+    "",
+    "## The funnel",
+    "",
+    "| Stage | Reached, ever |",
+    "|---|---:|",
+    ...F.funnel.map((f: { stage: string; reached: number }) => `| ${f.stage} | ${f.reached} |`),
+    "",
+    "## By month",
+    "",
+    "| Month | Opened | Moved forward | Won | Lost | Value won |",
+    "|---|---:|---:|---:|---:|---:|",
+    ...(monthRows.length ? monthRows : ["| — | | | | | |"]),
+    "",
+    "## Why lost",
+    "",
+    ...(Object.keys(F.reasons).length ? Object.entries(F.reasons as Record<string, number>).sort((a, b) => b[1] - a[1]).map(([k, n]) => `- ${k}: ${n}`) : ["Nothing lost yet."]),
+    "",
+    "## Every record",
+    "",
+    "| Record | Organisation | Sector | Stage | Value | Opened | Closed | Reason |",
+    "|---|---|---|---|---:|---|---|---|",
+    ...records.slice().sort((a, b) => a.id.localeCompare(b.id)).map((r) => `| [${r.id}](/opportunities/${r.slug}) | ${r.organisation} | ${r.sector} | ${r.state} | ${eur(r.value)} | ${r.opened} | ${r.closed || ""} | ${r.reason || ""} |`),
+    "",
+    "The records themselves: [/opportunities/](/opportunities/). The tool that computes this: `machine/packages/sales-kit/pipeline.mjs`, run in CI on every change.",
+    "",
+  ].join("\n");
+  return { route: "/system/pipeline", filename: "numinia-pipeline.md", sources: [...PIPELINE_SOURCES], body: preamble([...PIPELINE_SOURCES]) + body };
+}
+
 /** The forecast section of /system/open-books.md: the same computation the page draws. */
 function forecastMd(): string[] {
   const f = accountForecast();
@@ -696,7 +762,7 @@ export function coreCanonPage(slug: string): ComposedPage {
  * checks none is forgotten.
  */
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), designPage(), accountPage(), corePage()];
+  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), designPage(), accountPage(), pipelinePage(), corePage()];
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));
