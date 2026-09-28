@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 15099,
+  "chars": 15478,
   "apparatus": false,
   "archived": false,
-  "tokens": 3714
+  "tokens": 3818
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 168177,
+  "chars": 170009,
   "apparatus": false,
   "archived": false,
-  "tokens": 44781
+  "tokens": 45240
  },
  {
   "path": "CLAUDE.md",
@@ -2242,6 +2242,39 @@
   "apparatus": false,
   "archived": false,
   "tokens": 987
+ },
+ {
+  "path": "protocols/PRO-028-qualifying-an-opportunity.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 4293,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1136
+ },
+ {
+  "path": "protocols/PRO-029-making-a-proposal.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 5309,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1332
+ },
+ {
+  "path": "protocols/PRO-030-closing-a-sale.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 4959,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1298
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
