@@ -1,17 +1,18 @@
 <!--
 SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC-BY-4.0
-Multi-platform agent context (MIS-118). Supplied by the Oracle 2026-08-28.
+Multi-platform agent context. Supplied by the Oracle 2026-08-28.
 CLAUDE.md is the Claude Code runtime adapter; this file is the platform-
-neutral layer every runtime reads (AGT-001). Hermes reads both
+neutral layer every runtime reads. Hermes reads both
 (agent/coding_context.py: _CONTEXT_FILES).
 -->
 
-# Numinia NWOS — Agent Context
+# numinia-archive — agent context
 
-**First instruction (AGT-001): audit the current branch state before assuming
+**First instruction: audit the current branch state before assuming
 anything.** Never trust that the repository matches this file, a README or a
 mission brief — read what is actually there first.
+(This is the `AGT-001` row of `STD-015`, the engineering register.)
 
 This file is the platform-neutral layer every runtime reads. `CLAUDE.md` is
 the Claude Code adapter and points here; it does not restate these rules.
@@ -22,28 +23,30 @@ the Claude Code adapter and points here; it does not restate these rules.
      rather than serving an empty page under the title "what binds today".
      Edit freely between them; do not remove them. -->
 
-## Transition regime (MVP → alpha) — read this before any protocol
+## What binds today — read this before any other rule
 
-Oracle instruction, 2026-09-18. Every protocol in this archive is
-`status: draft`, save those named in force below, because the system is being cut down from the
-MVP to the alpha. While a document is draft it DESCRIBES a practice; it
-does not BIND. The ceremony below was written for the system in its
-place; today it only slows the operator and the agent down. Until the
-Oracle promotes a protocol out of draft, an agent working here or in a
-consumer repository (`numinia-web`, `numengames-web`, `nwos-deploy`)
-does NOT:
+Oracle instruction, 2026-09-18. The system is being cut down from the MVP
+to the alpha, so almost every rule document here is `status: draft`. While a
+document is draft it DESCRIBES a practice; it does not BIND.
+Every protocol in this archive is `status: draft`, save those named in force
+below.
 
-- open or activate a mission card for a task the operator asked for in
-  chat (`PRO-003` MCY-001, MSN-002): the chat instruction is the
-  briefing, the pull request is the record;
-- write an ADR to set or reverse a decision the operator stated in chat:
-  the reversal goes in the `CHANGELOG.md` entry and the commit body, and
-  the old ADR stays as the photograph it is;
-- classify the task or cite practice plates in commits (`PRO-016`);
-- score its context load, write a `divergence_log`, or update `OPS-008`
-  at close (`PRO-001`);
-- stop a second time before pushing: the operator's go on a plan covers
-  commits, push and the pull request.
+In force: `PRO-023` (bringing a rule into force, since 2026-09-27): no
+rule leaves draft without its steps, and the Oracle sees each activation
+before the branch. And the standards whose header says `active`:
+`STD-004` the header every document opens with ·
+`STD-007` one page per document ·
+`STD-010` licensing ·
+`STD-012` the corpus does not grow ·
+`STD-018` one document, one identifier ·
+`STD-019` versions ·
+`STD-020` git is the archive ·
+`STD-021` evidence and citation ·
+`STD-028` one document, one address.
+
+Nothing else in `canon/`, `standards/` or `protocols/` binds you. A test
+(`machine/scripts/test/door-resolves.test.mjs`) fails if this list and the
+headers disagree, so a promotion out of draft shows up here or CI goes red.
 
 What still holds, because each rule protects something that can be seen:
 
@@ -56,27 +59,34 @@ What still holds, because each rule protects something that can be seen:
 - every pull request that changes a site adds its `/updates` entry and
   raises the version (`machine/scripts/check-version-bump.mjs`);
 - a `CHANGELOG.md` entry for what changed in this archive;
-- the test before the code (`STD-015` DEV-008): for a feature, a fix or a
-  refactor, the test that describes the change is written first, run, and
-  seen to fail for the right reason; then the code that makes it pass; then
-  the clean-up with everything green. The pull request shows that order —
-  a `test(...)` commit before the `feat`/`fix` commit — because a diff
-  cannot tell when a test was written and the history can. Behaviour that
-  already exists and has no test gets one when it is touched; a bug gets
-  the test that reproduces it before the fix. Read at review; it fails no
-  build while the register is draft;
-- the reserved files (the legal texts in `legal/`, sales in `operations/`) and the brand mark stay reserved; canon
-  changes are said to the operator in chat before the branch exists —
-  his answer there is the consensus, no further ceremony.
+- the test before the code: for a feature, a fix or a refactor, the test
+  that describes the change is written first, run, and seen to fail for the
+  right reason; then the code that makes it pass; then the clean-up with
+  everything green. The pull request shows that order — a `test(...)`
+  commit before the `feat`/`fix` commit — because a diff cannot tell when a
+  test was written and the history can. Behaviour that already exists and
+  has no test gets one when it is touched; a bug gets the test that
+  reproduces it before the fix. Read at review; it fails no build while the
+  register is draft;
+- the reserved files (the legal texts in `legal/`, sales in `operations/`)
+  and the brand mark stay reserved; canon changes are said to the operator
+  in chat before the branch exists — his answer there is the consensus, no
+  further ceremony.
+
+What the draft protocols describe and you do NOT do while they are draft:
+open a mission card for a task the operator asked for in chat (the chat is
+the briefing, the pull request is the record); write a decision record to
+set or reverse what the operator stated in chat (the reversal goes in the
+`CHANGELOG.md` entry and the commit body); classify the task or cite
+practice codes in commits; score your context load or keep a session log;
+stop a second time before pushing — the operator's go on a plan covers
+commits, push and the pull request.
 
 Promotion out of draft is the act that restores each rule; nothing
 restores them by default.
 
-In force: `PRO-023` (bringing a rule into force, since 2026-09-27): no
-rule leaves draft without its steps, and the Oracle sees each activation
-before the branch.
-
 <!-- transition-regime:end -->
+
 
 ## Commands
 
@@ -121,9 +131,8 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 - `blueprints/` — architecture documents · `web/` — the Astro viewer ·
   `machine/` — guards, scripts, tools and telemetry.
 
-There is no `domains/` or `shared/` tree: this repository IS the archive
-domain. Do not infer a directory's purpose from its name when its function
-is not documented.
+The folders above are all there is. Do not infer a directory's purpose from
+its name when its function is not documented.
 
 ## The rules that govern work here
 
