@@ -594,6 +594,9 @@ const READING_ORDER: Record<string, string[]> = {
     // 2026-09-26: the design system map, reshelved from STD-032 — a map of
     // which documents make it up is a manual, not a rule.
     "/system/sys-009-the-design-system",
+    // 2026-09-28: selling — the pieces a sale passes through and which of
+    // them run, beside the account it hands its value to.
+    "/system/sys-010-selling-as-wired-today",
   ],
 
   // The company looking at itself, from the inside out: how it survives its own
@@ -609,6 +612,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/operations/ops-005-simulations",
     "/operations/ops-006-solutions",
     "/operations/ops-007-sales",
+    // 2026-09-28: the first offer record — what Training is, delivers and
+    // costs — read after the strategy, before the keys.
+    "/operations/ops-012-training-the-offer",
     "/operations/ops-009-secrets-handling",
   ],
 
@@ -714,7 +720,7 @@ export const READING_NOTE: Record<string, string> = {
   blueprints: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
   system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the instruments that check those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
-  operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy and the handling of keys.",
+  operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, what it offers, and the handling of keys.",
   legal: "The three texts written for someone outside the company: what we do with your data, the terms of using our sites, and what your browser keeps. Each is the master copy every site publishes.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",
   lore: "The world first, then the table, then the shelf: who Numinia is and why its fiction does real work, then how a game is actually played in it — the tutorial before the adventure — and last the reference matter a Director reaches for mid-session.",

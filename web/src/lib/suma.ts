@@ -69,7 +69,7 @@ export const RING_ORDER: RingId[] = ["core", "work", "world", "offer"];
 
 export const DISTRICTS: Record<DistrictId, { name: string; place: string; faction: string; a: number; line: string }> = {
   play: { name: "Play", place: "Ouroboros", faction: "Heirs of Eleusis", a: 45, line: "The labyrinth of play: the role-playing game, the adventures and experiences for events." },
-  learn: { name: "Learn", place: "Vitruvian", faction: "Hermeticists", a: 135, line: "The temple of knowledge: the codex, the world's vocabulary and, soon, training." },
+  learn: { name: "Learn", place: "Vitruvian", faction: "Hermeticists", a: 135, line: "The temple of knowledge: the codex, the world's vocabulary and training." },
   order: { name: "Organise", place: "Solomon", faction: "Stellar Circle", a: 225, line: "The gearwork of order: the agents, NWOS for your organisation, and our partners." },
   make: { name: "Collect", place: "Sycamore", faction: "Neo-Atlanteans", a: 315, line: "The canvas of imagination: objects, the world, the shop and supporting Numinia." },
 };
@@ -129,7 +129,8 @@ export const SEGMENTS: Segment[] = [
     X("Events", "Experiences designed for your event", "numen.games"),
   ] },
   { id: "offer-learn", ring: "offer", district: "learn", word: "Training", title: "Learn · what it offers", a: [90, 180], entries: [
-    E("Training", "In preparation", null),
+    // 2026-09-28: the offer has its record; the map points at it.
+    E("Training", "A place where your people rehearse a procedure before the day it counts", "/operations/ops-012-training-the-offer"),
   ] },
   { id: "offer-order", ring: "offer", district: "order", word: "NWOS", title: "Organise · what it offers", a: [180, 270], entries: [
     X("NWOS for your organisation", "The whole structure, set up for you", "nwos.numen.games"),

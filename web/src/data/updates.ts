@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.74.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "Training has its offer record. 'Training — the offer' says what Numen Games sells under that name — a browser-based place, built from a client's own procedure, where their people rehearse it before the day it counts — what is delivered (the place, the accesses, the trace each learner leaves, the files, the measure), how learning is judged at one of four levels, two cases with the clients unnamed, and that the price is on quote. The map of the Summa no longer says 'In preparation' under Training: it points here.",
+      },
+      {
+        type: "ADD",
+        text: "'Selling, as wired today', on the system shelf: the pieces a sale passes through — rules, steps, offer record, moulds, tool, records, agreement, ledger — each marked wired or not yet, and how an opportunity flows through them.",
+      },
+    ],
+  },
+  {
     version: "v0.73.0",
     date: "2026-09-28",
     entries: [

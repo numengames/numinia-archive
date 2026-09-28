@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 170009,
+  "chars": 171504,
   "apparatus": false,
   "archived": false,
-  "tokens": 45240
+  "tokens": 45593
  },
  {
   "path": "CLAUDE.md",
@@ -2024,6 +2024,17 @@
   "tokens": 1298
  },
  {
+  "path": "operations/OPS-012-training-the-offer.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5440,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1324
+ },
+ {
   "path": "protocols/PRO-001-agent-session.md",
   "dir": "protocols",
   "series": "protocols",
@@ -2825,5 +2836,16 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1833
+ },
+ {
+  "path": "system/SYS-010-selling-as-wired-today.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5231,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1388
  }
 ]
