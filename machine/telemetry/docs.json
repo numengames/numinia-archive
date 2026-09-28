@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 179083,
+  "chars": 180109,
   "apparatus": false,
   "archived": false,
-  "tokens": 47571
+  "tokens": 47857
  },
  {
   "path": "CLAUDE.md",
@@ -115,10 +115,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 5407,
+  "chars": 5593,
   "apparatus": true,
   "archived": false,
-  "tokens": 1595
+  "tokens": 1657
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -317,6 +317,50 @@
   "apparatus": false,
   "archived": false,
   "tokens": 404
+ },
+ {
+  "path": "agents/metis/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 2888,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 782
+ },
+ {
+  "path": "agents/metis/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2123,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 522
+ },
+ {
+  "path": "agents/metis/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 5620,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1318
+ },
+ {
+  "path": "agents/metis/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2219,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 610
  },
  {
   "path": "agents/nimrod/OPERATOR.md",
