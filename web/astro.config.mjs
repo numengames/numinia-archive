@@ -17,6 +17,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
 	site: "https://numinia.org",
 	output: "static",
+	// Load the next page while the pointer rests on its link, so a click lands
+	// on a page already in memory (2026-09-28).
+	prefetch: { prefetchAll: true, defaultStrategy: "hover" },
 	// /misiones merged into /missions (MIS-066); old URLs keep resolving.
 	// MIS-109 phase B: the six seminal canon documents took C-NNN filenames,
 	// and Astro derives /corpus/<id> from the filename — so every published

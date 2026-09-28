@@ -54,6 +54,11 @@ const ogLocale = "en_US";
         /* storage blocked: the page opens in Nocturno */
       }
     </script>
+    <!-- No white flash between pages (2026-09-28): the page's own colour is
+         painted before the stylesheet arrives, and the browser is told the
+         site is dark or light so it never shows its default white canvas. -->
+    <meta name="color-scheme" content="dark light" />
+    <style is:inline>html{background:#14110F;color-scheme:dark}html[data-modo="diurno"]{background:#F9EBDC;color-scheme:light}</style>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

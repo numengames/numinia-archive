@@ -240,11 +240,6 @@ export function bindingPage(): ComposedPage {
 /** `/` — the threshold. */
 export function homePage(): ComposedPage {
   const n = counts();
-  const doors = functions().map((f) => [
-    f.name,
-    f.activities.map((a) => a.name).join(" · "),
-    `/archive/${f.slug}`,
-  ]);
 
   const body = [
     preamble([SCHEME_DOC, SERIES_DOC]),
@@ -283,21 +278,27 @@ export function homePage(): ComposedPage {
     "",
     "**What can you do with it?** Read all of it — every page is a rendering of a",
     "real file, and every page hands you that file to copy, download or open where",
-    "it lives. Take it, too: everything outside `lore/` is open by licence, so the",
-    "scheme, the standards or the whole method can be lifted into your own",
-    "organisation. And if you would rather talk to us first, write to",
+    "it lives. Take it, too: each file states its own licence, so the scheme, the",
+    "standards or the whole method can be lifted into your own organisation.",
+    "And if you would rather talk to us first, write to",
     "hola@numengames.com — a person answers.",
     "",
-    "## What you will find",
+    "## Every series, in four blocks",
     "",
-    table(["Function", "Activities", "Address"], doors),
+    "From the centre out: the rules, the work, the world, the offer — the same",
+    "four blocks the page and the Archive menu show.",
     "",
+    ...RING_ORDER.flatMap((ring) => [
+      `### ${RINGS[ring].name}`,
+      "",
+      RINGS[ring].line,
+      "",
+      table(["Entry", "What it is", "Address"], SEGMENTS.filter((sg) => sg.ring === ring).flatMap((sg) =>
+        sg.entries.map((e) => [e.label, e.line, e.href ?? "to create"]))),
+      "",
+    ]),
     `${n.published} of ${n.series} series have an address on this site.`,
     "The classification in full is at \`/scheme\`.",
-    "",
-    "## How the functions relate",
-    "",
-    ...RELATIONS.map(([a, b]) => `- ${a} → ${b}`),
     "",
     "## What is not here",
     "",
