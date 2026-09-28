@@ -199,8 +199,11 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-035` | Personal data | everything of ours that collects or keeps data about a person |
 | `STD-036` | One account | the ledger of what Numen Games and Numinia cost and take in, and every view published from it |
 | `STD-037` | What every site carries | every public site of Numen Games and Numinia: numinia.org, numinia.com… |
+| `STD-038` | The stages of a sale | register — scope belongs to the standard that cites it |
+| `STD-039` | An opportunity has a record | every record of an opportunity kept in Numen Games' or Numinia's name… |
+| `STD-040` | A proposal says four things | every proposal for a service that Numen Games sends to an organisation, and whoever writes… |
 
-63 rule documents; 4 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
+66 rule documents; 5 are registers and takes their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

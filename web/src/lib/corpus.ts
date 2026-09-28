@@ -443,15 +443,21 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
   {
     numeral: "IV",
     label: "What leaves the house",
-    line: "What we give away, what never goes out, and what we charge for, on what terms.",
+    line: "What we give away, what never goes out, what we charge for, and how a sale is written down.",
     // What we give, then the one-way doors, then what must never leave, then
     // what is charged for — all four answer what crosses the threshold.
+    // 2026-09-28: then how a sale to an organisation is written — the stages,
+    // the record of each opportunity, the proposal — before the money lands
+    // in the account.
     hrefs: [
       "/standards/std-010-licensing",
       "/standards/std-014-publishing-gates",
       "/standards/std-022-secrets",
       "/standards/std-035-personal-data",
       "/standards/std-033-every-charge-delivers-something",
+      "/standards/std-038-the-stages-of-a-sale",
+      "/standards/std-039-an-opportunity-has-a-record",
+      "/standards/std-040-a-proposal-says-four-things",
       "/standards/std-036-one-account",
     ],
   },

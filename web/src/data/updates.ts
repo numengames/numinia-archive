@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.72.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "Three standards for how a sale is written down, opened in draft on the shelf What leaves the house. 'The stages of a sale' is a register: the seven states an opportunity passes through, what moves it, when it goes stale, the reasons one is lost. 'An opportunity has a record' says what the file of each opportunity must carry, with roles in the header and names only in the body, kept outside the public archive. 'A proposal says four things' follows the international standard for learning services: objectives in the client's words, why us, how it teaches and how it measures, price with tax visible. The repository ships a small kit beside them: two moulds and a script that reads a folder of records and prints the pipeline.",
+      },
+    ],
+  },
+  {
     version: "v0.71.0",
     date: "2026-09-27",
     entries: [

@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.8.1"
+version: "0.9.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-26T20:00:00+02:00"
+updated: "2026-09-28T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -38,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 26 September 2026 the shelf holds 32 standards.
+As of 28 September 2026 the shelf holds 35 standards.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
@@ -63,7 +63,12 @@ line saying whom a document binds, and the coda saying whether the law or
 we chose each rule left the reading; a rule that rests on a law cites it in
 its check table. Each standard's card now states its question in the same words as the map
 below, and the standards index shows it under each title; a test holds the
-three together. What is left is the outside standards.
+three together. The eighth opened the shelf to the one function the house
+had never written down: how a sale is made. Three standards — the stages a
+sale passes through, the record every opportunity keeps, what a proposal
+must say before it is sent — each resting on an outside standard for
+learning services or for records, with a tool that reads the records and
+computes the pipeline. What is left is the outside standards.
 
 ## Future state
 
@@ -107,6 +112,9 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-035` | What may we keep about a person? | — |
 | `STD-036` | How is the money written down? | — |
 | `STD-037` | What does every one of our sites carry? | — |
+| `STD-038` | Which stages does a sale pass through, and what moves it? | register |
+| `STD-039` | What must the record of an opportunity contain? | — |
+| `STD-040` | What must a proposal contain before it is sent? | — |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.
