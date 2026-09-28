@@ -288,6 +288,25 @@ check('tree: a protocol fits in 900 words — a longer one is two protocols, or 
   return bad.length === 0 || bad.join('; ');
 });
 
+check('tree: every stage of a sale is moved by a protocol — the register names the states, the protocols carry each transition', () => {
+  // STD-038 is the register of stages; a stage no protocol moves an
+  // opportunity into is a state the pipeline can show and nobody can reach.
+  // The three sales protocols are the ones derived from the archive canon
+  // or the money canon and filed under the Sales territory.
+  const dir = path.join(ROOT, 'protocols');
+  const reg = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-a-sale.md'), 'utf-8');
+  const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## Reasons'));
+  const stages = [...table.matchAll(/^\| `([a-z]+)` \|/gm)].map((m) => m[1]);
+  if (stages.length < 5) return `the register names only ${stages.length} stages`;
+  const sales = readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))
+    .map((n) => readFileSync(path.join(dir, n), 'utf-8'))
+    .filter((t) => /^territory: "Sales"/m.test(t));
+  if (sales.length < 3) return `only ${sales.length} protocol(s) in the Sales territory`;
+  const text = sales.join('\n');
+  const unmoved = stages.filter((s) => !new RegExp('`' + s + '`').test(text));
+  return unmoved.length === 0 || `no sales protocol moves an opportunity to: ${unmoved.join(', ')}`;
+});
+
 check('tree: What is yours stays with you is carried out — a breach, a rights request and a new stored thing each have a protocol', () => {
   // The personal data standard (STD-035) asks for three acts nobody had
   // written: report a breach within 72 hours, answer a person within a

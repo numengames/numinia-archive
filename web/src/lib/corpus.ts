@@ -566,6 +566,12 @@ const READING_ORDER: Record<string, string[]> = {
     // 2026-09-24 (ADR-065): money, last — something goes on sale, then the
     // month closes on what it brought in.
     "/protocols/pro-020-putting-something-on-sale",
+    // 2026-09-28: a sale to an organisation, in its three moments — a sign
+    // of interest is qualified, a proposal is made, the sale is closed and
+    // handed over — before the month closes on what it brought in.
+    "/protocols/pro-028-qualifying-an-opportunity",
+    "/protocols/pro-029-making-a-proposal",
+    "/protocols/pro-030-closing-a-sale",
     "/protocols/pro-021-closing-the-month",
   ],
 
