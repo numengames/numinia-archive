@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-28
 
+- **Added** Open books lists every line of the ledger with filters, explains VAT and reverse charge, shows what each payment turns into, and adds the year to its panel (site v0.85.0) (#PR)
 - **Changed** The front door says what binds: the README carries the repository's name, starts at /binding and AGENTS.md instead of a draft protocol, and names only sibling repositories that exist; the home page and every page's head point at /binding and /llms.txt (#549)
 
 - **Removed** Duplicates: the old lore copy of the Numen Games–Numinia text, 78 filler lines in Brand and Culture, the three paragraphs every agent repeated, and a paragraph the two vocabularies shared (#548)

@@ -21,11 +21,11 @@
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
-import { lines, AS_OF, START, CASH, forecast } from "@/lib/account";
+import { lines, AS_OF, START, CASH, forecast, split, AMOUNTS, FEE, VAT_RATE, CATEGORY_LABEL } from "@/lib/account";
 import { repoFileUrl } from "@/lib/build-info";
 
 const rows = lines();
-const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast() };
+const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast(), fee: FEE, vat: VAT_RATE, amounts: AMOUNTS, splits: AMOUNTS.map(split) };
 ---
 
 <Layout
@@ -112,6 +112,26 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
     <div class="cq-card" id="cq-people"></div>
    </div>
 
+   <div class="cq-sec" id="cq-sec-lines" data-l="pub cto cfo">
+    <h2>Every line</h2>
+    <p class="cq-sub">The ledger itself, newest first: one line per document, who billed it, for what, and how much without VAT. The invoices stay with the company; their lines are public. Staff are one line a month for everyone together.</p>
+    <div class="cq-card">
+     <div class="cq-lctrl">
+      <input type="search" id="cq-lq" placeholder="Search a supplier or a concept" aria-label="Search the lines" autocomplete="off">
+      <select id="cq-lcat" aria-label="Category"><option value="">All categories</option>{Object.entries(CATEGORY_LABEL).map(([k, v]) => <option value={k}>{v}</option>)}</select>
+      <select id="cq-lyear" aria-label="Year"><option value="">All years</option></select>
+      <div class="cq-tabs" role="tablist" aria-label="Kind" id="cq-lkind" style="margin:0">
+       <button type="button" class="cq-tab" role="tab" data-lk="" aria-selected="true">All</button>
+       <button type="button" class="cq-tab" role="tab" data-lk="cost" aria-selected="false">Out</button>
+       <button type="button" class="cq-tab" role="tab" data-lk="income" aria-selected="false">In</button>
+      </div>
+     </div>
+     <p class="cq-note" id="cq-lcount" aria-live="polite"></p>
+     <ol class="cq-lines" id="cq-lines"></ol>
+     <div class="cq-lfoot"><button type="button" class="cq-pill" id="cq-lmore">Show 50 more</button><a class="cq-pill cq-dl" href="/system/open-books.csv" download="numinia-open-books-simulated.csv">Download every line (CSV)</a></div>
+    </div>
+   </div>
+
    <div class="cq-sec" id="cq-sec-pyg" data-l="cfo">
     <h2>Profit and loss</h2>
     <p class="cq-sub">In the headings of the abbreviated model of the Spanish General Accounting Plan, year by year, on an accrual basis. It is the first thing a bank reads.</p>
@@ -186,6 +206,22 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
       <p id="cq-r3"></p>
      </div>
     </div>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-vat" data-l="pub cfo ges">
+    <h2>VAT, and what each payment turns into</h2>
+    <p class="cq-sub">Every figure on this page is without VAT. Here is why, and where each euro a person pays ends up.</p>
+    <div class="cq-card">
+     <div class="cq-tablewrap"><table class="cq-t" id="cq-split"><thead><tr><th>A person pays</th><th>VAT, to the tax authority</th><th>The card processor</th><th>Reaches Numinia</th></tr></thead><tbody>{DATA.splits.map((r) => <tr><td>€{r.price}</td><td>€{r.vat.toFixed(2)}</td><td>€{r.fee.toFixed(2)}</td><td>€{r.net.toFixed(2)}</td></tr>)}</tbody></table></div>
+     <p class="cq-note">The price a person sees is the whole price, VAT included, as consumer law requires. Of it, 21 % over the base is VAT: Numen Games collects it and hands it to the tax authority in the quarterly return. The processor takes 1.5 % plus €0.25 per standard European card, and 0.7 % more because the payment repeats each month. The rest is what the support is worth to Numinia — and the figure this page counts as income.</p>
+    </div>
+    <ul class="cq-list" id="cq-vatwhy" style="margin-top:16px">
+     <li><b>Why costs carry no VAT.</b> The VAT on an invoice Numen Games receives is deducted in the same quarterly return: the company pays it to the supplier and takes it back from the tax authority. It passes through; it is not a cost. What Numinia costs is the base.</li>
+     <li><b>ISP, reverse charge.</b> Most of what Numinia pays for comes from companies outside Spain: the AI API, the code host, the network. Their invoices arrive without VAT. Spanish law then makes the receiver the taxable person: Numen Games declares the 21 % itself and deducts it in the same return. Nothing is paid, but the line must appear in the return, so the received-invoices book marks it.</li>
+     <li><b>EX and NS.</b> Exempt (a bank's fees, insurance) and not subject (a public fee, a tax): no VAT either way, and nothing to deduct.</li>
+     <li><b>Staff.</b> Salaries carry no VAT. The ledger counts them at their cost to the company: gross pay plus the employer's social security.</li>
+     <li><b>What is decided elsewhere.</b> Whether the VAT on a person's support is declared in Spain, under the European one-stop shop once cross-border sales pass €10,000 a year, or by the processor as seller of record, is the gestoría's call. Until then this page assumes Spanish VAT at 21 %.</li>
+    </ul>
    </div>
 
    <div class="cq-sec" id="cq-sec-homage" data-l="pub">
@@ -316,6 +352,24 @@ table.cq-t{border-collapse:collapse;width:100%;font-size:.875rem}
 .cq-plist p{margin:0;color:rgb(var(--text-muted));line-height:1.6}
 .cq-plist b{color:rgb(var(--text));font-weight:600}
 .cq-future-bar{opacity:.45}
+.cq-kpis{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:1023px){.cq-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.cq-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cq-lctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.cq-lctrl input[type=search]{flex:1 1 220px;min-height:36px;padding:0 12px;border-radius:6px;border:1px solid rgb(var(--border));background:rgb(var(--bg));color:rgb(var(--text));font-family:var(--font-sans);font-size:.875rem}
+.cq-lctrl select{min-height:36px;padding:0 10px;border-radius:6px;border:1px solid rgb(var(--border));background:rgb(var(--bg));color:rgb(var(--text));font-family:var(--font-sans);font-size:.875rem}
+@media (max-width:1023px){.cq-lctrl input[type=search],.cq-lctrl select{min-height:44px}}
+.cq-lines{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid rgb(var(--border))}
+.cq-line{display:grid;grid-template-columns:92px minmax(0,1fr) auto;gap:4px 14px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgb(var(--border))}
+.cq-ld{font-family:var(--font-mono);font-size:.75rem;color:rgb(var(--text-dim));white-space:nowrap}
+.cq-lt{min-width:0;color:rgb(var(--text-muted));line-height:1.45;font-size:.9375rem}
+.cq-lt b{color:rgb(var(--text));font-weight:500}
+.cq-lt small{display:block;font-size:.75rem;color:rgb(var(--text-dim));font-family:var(--font-mono);margin-top:2px;overflow-wrap:anywhere}
+.cq-la{font-family:var(--font-mono);font-variant-numeric:tabular-nums;white-space:nowrap;color:rgb(var(--text));text-align:right}
+.cq-la.cq-in{color:rgb(var(--teal))}
+@media (max-width:640px){.cq-line{grid-template-columns:minmax(0,1fr) auto}.cq-ld{grid-column:1/-1}}
+.cq-lfoot{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+#cq-lmore[hidden]{display:none}
 #cq-q{max-width:140px}
 #cq-book{font-size:.8125rem}
 #cq-book th,#cq-book td{padding-left:8px;padding-right:8px}
@@ -406,7 +460,7 @@ function periods(g, mode) {
 const total = sumRange(EFF, 0, TD), income = incRange(0, TD);
 const today = sumRange(EFF, TD, TD), avg30 = sumRange(EFF, TD - 29, TD) / 30;
 const ext30 = sumRange(EFF, TD - 29, TD, K.filter(k => k !== 'personas')) / 30;
-const monthNow = periods('month', 'eff').at(-1);
+const monthNow = periods('month', 'eff').at(-1), yearNow = periods('year', 'eff').at(-1);
 
 // ---- lens
 let LENS = 'pub';
@@ -421,6 +475,7 @@ function kpis() {
   $('#cq-kpis').innerHTML = [
     kpi('Costs today', eur(today, 2), `average of the last 30 days: ${eur(avg30, 2)} a day`, 'cq-kpi--today'),
     kpi(`In ${MESL[+monthNow.key.slice(5) - 1]}`, eur(monthNow.t), `in ${monthNow.days} days; by the end of the month, about ${eur(monthNow.t / monthNow.days * (monthNow.b - monthNow.a + 1))}`),
+    kpi(`In ${yearNow.key}`, eur(yearNow.t), `in ${yearNow.days} days; by the end of the year, about ${eur(yearNow.t / yearNow.days * (yearNow.b - yearNow.a + 1))}`),
     kpi('Since 2020', eur(total), `in ${fmt(TD + 1)} days. ${eur(income)} has come in, ${fmt(100 * income / total, 1)} %`),
     kpi('Numen Games has put in', eur(total - income), 'the difference, paid by the company', 'cq-kpi--put'),
   ].join('');
@@ -573,8 +628,8 @@ $('#cq-q').addEventListener('change', book);
 
 // ---- looking ahead
 let N = 300, A = 5;
-const AMOUNTS = [3, 5, 10, 20];
-const split = a => { const iva = a - a / 1.21, fee = a * 0.022 + 0.25; return { iva, fee, net: a - iva - fee }; };
+const AMOUNTS = RAW.amounts;
+const split = a => { const iva = a - a / (1 + RAW.vat), fee = a * RAW.fee.pct + RAW.fee.fixed; return { iva, fee, net: a - iva - fee }; };
 function scen() {
   const { iva, fee, net } = split(A), monthly = N * net, all = avg30 * 365 / 12, ext = ext30 * 365 / 12;
   const pAll = 100 * monthly / all, pExt = 100 * monthly / ext;
@@ -589,6 +644,33 @@ function scen() {
 $('#cq-amt').innerHTML = AMOUNTS.map(a => `<button type="button" class="cq-pill" role="radio" aria-checked="false" data-a="${a}">€${a}</button>`).join('');
 $$('#cq-amt .cq-pill').forEach(b => b.addEventListener('click', () => { A = +b.dataset.a; scen(); }));
 $('#cq-range').addEventListener('input', e => { N = +e.target.value; scen(); });
+
+// ---- every line: the ledger newest first, with filters
+// Usage billed by the day (the AI API) is one invoice a month, so one line, as in the book.
+const LINES = RAW.rows.filter(r => di(r.date) <= TD).reduce((acc, r) => {
+  if (r.billing === 'usage' && r.period_from === r.period_to) { const key = r.supplier + r.concept + r.date.slice(0, 7); const x = acc.m.get(key); if (x) { x.base = String(+x.base + +r.base); if (r.date > x.date) { x.date = r.date; x.document = r.document; } x.period_to = r.date > x.period_to ? r.date : x.period_to; return acc; } const y = { ...r, period_from: r.date.slice(0, 8) + '01' }; acc.m.set(key, y); acc.l.push(y); return acc; }
+  acc.l.push({ ...r }); return acc; }, { l: [], m: new Map() }).l
+  .map(r => ({ ...r, y: r.date.slice(0, 4), q: r.kind === 'income' ? '' : `${r.document} · ${r.account}${r.vat === 'ISP' ? ' · reverse charge' : ''}` }))
+  .sort((a, b) => a.date < b.date ? 1 : a.date > b.date ? -1 : a.document < b.document ? 1 : -1);
+const LSTEP = 50;
+let LQ = '', LC = '', LY = '', LK = '', LN = LSTEP;
+$('#cq-lyear').innerHTML += [...new Set(LINES.map(r => r.y))].sort().reverse().map(y => `<option value="${y}">${y}</option>`).join('');
+const period = r => r.period_from === r.period_to ? '' : r.period_from.slice(0, 7) === r.period_to.slice(0, 7) ? ` · ${MESL[+r.period_from.slice(5, 7) - 1]} ${r.period_from.slice(0, 4)}` : ` · ${r.period_from} to ${r.period_to}`;
+const esc = x => x.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+function linesView() {
+  const q = LQ.trim().toLowerCase();
+  const L = LINES.filter(r => (!LC || r.category === LC) && (!LY || r.y === LY) && (!LK || r.kind === LK) && (!q || (r.supplier + ' ' + r.concept).toLowerCase().includes(q)));
+  const out = L.reduce((s, r) => s + (r.kind === 'income' ? +r.base : 0), 0), cost = L.reduce((s, r) => s + (r.kind === 'income' ? 0 : +r.base), 0);
+  $('#cq-lcount').textContent = `${fmt(L.length)} of ${fmt(LINES.length)} lines` + (L.length ? `: ${eur(cost, 2)} out` + (out ? `, ${eur(out, 2)} in` : '') : '') + '. Without VAT.';
+  $('#cq-lines').innerHTML = L.slice(0, LN).map(r => `<li class="cq-line"><span class="cq-ld">${r.date.split('-').reverse().join('/')}</span><span class="cq-lt"><b>${esc(r.supplier)}</b> — ${esc(r.concept)}${r.headcount ? `, ${r.headcount} people` : ''}${period(r)}${r.q ? `<small>${r.q}</small>` : ''}</span><span class="cq-la${r.kind === 'income' ? ' cq-in' : ''}">${r.kind === 'income' ? '+' : '−'}${eur(+r.base, 2)}</span></li>`).join('')
+    || '<li class="cq-line"><span class="cq-lt cq-zero">No line matches.</span></li>';
+  const more = $('#cq-lmore'); more.hidden = L.length <= LN; more.textContent = `Show ${Math.min(LSTEP, L.length - LN)} more of ${fmt(L.length - LN)}`;
+}
+$('#cq-lq').addEventListener('input', e => { LQ = e.target.value; LN = LSTEP; linesView(); });
+$('#cq-lcat').addEventListener('change', e => { LC = e.target.value; LN = LSTEP; linesView(); });
+$('#cq-lyear').addEventListener('change', e => { LY = e.target.value; LN = LSTEP; linesView(); });
+$$('[data-lk]').forEach(b => b.addEventListener('click', () => { LK = b.dataset.lk; LN = LSTEP; $$('[data-lk]').forEach(x => x.setAttribute('aria-selected', String(x === b))); linesView(); }));
+$('#cq-lmore').addEventListener('click', () => { LN += LSTEP; linesView(); });
 
 // ---- homage (invented names)
 const HOM = { month: ['Lucía M.', 'Jordi P.', 'Anonymous', 'Aitana R.', 'Kyrie', 'Nerea G.', 'Anonymous', 'Samuel O.', 'Carmen and Iker', 'Anonymous', 'Tomás L.', 'archivist_03', 'Irene V.', 'Anonymous'],
@@ -610,7 +692,7 @@ $$('[data-as]').forEach(b => b.addEventListener('click', () => showAs(b.dataset.
 $('#cq-how').innerHTML = [
   'Every cost and every income is one line of one ledger, with two dates: when it is billed and the period it covers. “Billed” puts it on the invoice date; “consumed” spreads it over the days it covers. It is the distinction FOCUS makes — the FinOps Foundation’s open specification for cloud, SaaS and AI costs.',
   'Each line carries its account in the Spanish General Accounting Plan (what the gestoría uses) and a category of the TBM taxonomy (what a CTO uses). All four views come from the same lines, so they cannot disagree.',
-  'Amounts are shown without VAT: the VAT the company pays is recovered, so it is not a cost. Income is also shown without VAT.',
+  'Amounts are shown without VAT: the VAT the company pays is recovered, so it is not a cost. Income is also shown without VAT. The section on VAT above says why, line by line.',
   'People count at their cost to the company: gross pay plus the employer’s social security. The ledger holds all of them in one line a month.',
   'Each month is closed from its invoices, the payroll and the payment processor’s report; until then it is provisional. A closed month is never edited: a correction is a new line. The whole ledger is downloadable, one line per document.',
 ].map(x => `<li>${x}</li>`).join('');
@@ -709,9 +791,9 @@ $('#cq-fassume').innerHTML = F.assumptions.map(a => `<li>${a.note}.</li>`).join(
 $$('[data-fs]').forEach(b => b.addEventListener('click', () => { FS = b.dataset.fs === '1'; $$('[data-fs]').forEach(x => x.setAttribute('aria-selected', String(x === b))); forecastView(); }));
 $$('[data-fl]').forEach(b => b.addEventListener('click', () => { FL = b.dataset.fl === '1'; $$('[data-fl]').forEach(x => x.setAttribute('aria-selected', String(x === b))); forecastView(); }));
 
-kpis(); services(); people(); pyg(); cash(); book(); showH('month'); showAs('anon'); scen(); setLens('pub');
+kpis(); services(); people(); pyg(); cash(); book(); linesView(); showH('month'); showAs('anon'); scen(); setLens('pub');
 let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { drawBars(); forecastView(); }, 120); });
-window.CQ = { fcRun, setFc: (s, l) => { FS = s; FL = l; forecastView(); return fcRun(); }, F, total, income, today, avg30, ext30, periods, sumRange, EFF, BIL, BOOK, ITEMS, INCOME, scen: (n, a) => { N = n; A = a; return scen(); }, setLens };
+window.CQ = { LINES, linesView, setLines: (q, c, y, k) => { LQ = q; LC = c; LY = y; LK = k; LN = LSTEP; linesView(); return document.querySelectorAll('#cq-lines .cq-line').length; }, fcRun, setFc: (s, l) => { FS = s; FL = l; forecastView(); return fcRun(); }, F, total, income, today, avg30, ext30, periods, sumRange, EFF, BIL, BOOK, ITEMS, INCOME, scen: (n, a) => { N = n; A = a; return scen(); }, setLens };
 })();
 
 </script>

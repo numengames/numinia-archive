@@ -26,6 +26,23 @@ export const HORIZON = "2028-12";
 /** Invented bank balance, for the runway view. */
 export const CASH = 48000;
 export const SIMULATED = true;
+/** Spanish VAT on a digital good sold to a person. */
+export const VAT_RATE = 0.21;
+/**
+ * The payment processor's fee on a recurring card payment, as Stripe prices
+ * it for Spain: 1.5 % + €0.25 per standard European card, plus 0.7 % of the
+ * amount when the payment is a subscription (Stripe Billing). Charged on the
+ * price the person pays, VAT included.
+ */
+export const FEE = { pct: 0.022, fixed: 0.25 };
+/** What a price the person pays turns into: VAT for the tax authority, the processor's fee, and what reaches Numinia. */
+export function split(price: number) {
+  const vat = price - price / (1 + VAT_RATE);
+  const fee = price * FEE.pct + FEE.fixed;
+  return { price, vat, fee, net: price - vat - fee };
+}
+/** The amounts a person may choose to give a month. */
+export const AMOUNTS = [3, 5, 10, 20];
 /** The documents that govern the account. */
 export const ACCOUNT_SOURCES = [
   "standards/STD-036-one-account.md",

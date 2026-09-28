@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.85.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "Open books now shows every line of the ledger, newest first, with a search box and filters by category, year and direction — the way Open Collective lists its transactions. One line per document, without VAT; usage billed by the day appears as the one invoice a month it is; staff stay one line a month for everyone together.",
+      },
+      {
+        type: "ADD",
+        text: "A section on VAT: why every figure on the page carries none, what reverse charge (ISP) is and why most of Numinia's invoices fall under it, and a table of what each amount a person might pay turns into — the VAT for the tax authority, the card processor's fee and what reaches Numinia. The support simulator now uses the same split.",
+      },
+      {
+        type: "CHG",
+        text: "The panel at the top gains the year: costs today, this month, this year, since 2020, and what Numen Games has put in.",
+      },
+    ],
+  },
+  {
     version: "v0.84.0",
     date: "2026-09-28",
     entries: [
