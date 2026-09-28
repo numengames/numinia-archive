@@ -54,6 +54,10 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
           <h2>What is this?</h2>
           <p>The archive of Numen Games: everything we decide, build and offer, written down and open. Numinia is the story we tell it in — a city where work is a game. {total} documents, and every one of them has its page here.</p>
           <div class="qa">
+            <h2>What binds today?</h2>
+            <p>Most documents here are drafts: they describe a practice and bind nobody. <a href="/binding">What binds today</a> lists the few in force. Reading as an agent? Start at <a href="/llms.txt">llms.txt</a>; any address plus <code>.md</code> gives the file behind the page.</p>
+          </div>
+          <div class="qa">
             <h2>What brings you here?</h2>
             <ul class="jump">
               {INTENTS.map((i) => <li><button type="button" data-go={i.target}><span>{i.label}</span><small>{i.hint} →</small></button></li>)}
