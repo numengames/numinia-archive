@@ -13,11 +13,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-02T02:10:00+02:00"
 created_source: declared
 created_confidence: exact
-updated: "2026-09-09T15:10:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 requested_by: "oracle"
@@ -101,10 +101,3 @@ Severity: **A** — a norm and a guard, or two norms, contradict each other; **B
 - **What diverged, and why:**
 - **Evidence:**
 - **Closed:** YYYY-MM-DD · **by:**
-
-## Version history
-
-- v1.0.0 (2026-09-02) — Opened at the end of the missions/ normalisation (PR #198, lots 1–4), by the Oracle's instruction of 2026-09-01. Twenty rows, measured against `7f51235` + `#198`.
-- v1.1.0 (2026-09-02) — every row carries a disposition; seven executed in #200, one rejected as a wrong finding (14), the rest deferred to named work. `status: in-progress`.
-- v1.1.1 (2026-09-02) — row 20 figure corrected: "43 of 62" withdrawn (unreproducible), replaced by the measured 34 of 62 with its definition stated. Author's error, #202.
-- v1.1.2 (2026-09-09) — rows 7 and 20 record the rulings of 2026-09-09: `infra/` retired (ADR-045), MIS-134 closed unimplemented.

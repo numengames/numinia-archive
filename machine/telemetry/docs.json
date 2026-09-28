@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 10257,
+  "chars": 10452,
   "apparatus": false,
   "archived": false,
-  "tokens": 2823
+  "tokens": 2862
  },
  {
   "path": "CLAUDE.md",
@@ -115,10 +115,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 5593,
+  "chars": 4977,
   "apparatus": true,
   "archived": false,
-  "tokens": 1657
+  "tokens": 1455
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -324,10 +324,10 @@
   "series": "agents",
   "type": "entity",
   "status": "draft",
-  "chars": 2888,
+  "chars": 2597,
   "apparatus": false,
   "archived": false,
-  "tokens": 782
+  "tokens": 714
  },
  {
   "path": "agents/metis/OPERATOR.md",
@@ -511,10 +511,10 @@
   "series": "agents",
   "type": "entity",
   "status": "draft",
-  "chars": 4159,
+  "chars": 3502,
   "apparatus": false,
   "archived": false,
-  "tokens": 1077
+  "tokens": 930
  },
  {
   "path": "agents/ursa/OPERATOR.md",
@@ -911,204 +911,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1827
- },
- {
-  "path": "decisions/ADR-048-can-001-principle-and-rituals.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "withdrawn",
-  "chars": 6694,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1738
- },
- {
-  "path": "decisions/ADR-049-canon-is-written-as-prose.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 6494,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1610
- },
- {
-  "path": "decisions/ADR-050-can-006-argument-and-appendices.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 4899,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1255
- },
- {
-  "path": "decisions/ADR-051-can-007-laid-out-as-its-argument.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 6034,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1499
- },
- {
-  "path": "decisions/ADR-052-can-002-split.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 6743,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1700
- },
- {
-  "path": "decisions/ADR-053-lore-names-the-world.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 6368,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1660
- },
- {
-  "path": "decisions/ADR-054-can-003-theory-of-attributes.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 5639,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1448
- },
- {
-  "path": "decisions/ADR-055-licensing-canon-states-direction.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 5889,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1466
- },
- {
-  "path": "decisions/ADR-056-can-008-direction-not-values.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 5481,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1422
- },
- {
-  "path": "decisions/ADR-057-can-004-absorbs-can-003.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 9761,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2603
- },
- {
-  "path": "decisions/ADR-058-can-007-function-is-ends-and-values.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 6100,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1544
- },
- {
-  "path": "decisions/ADR-059-a-canon-for-the-work.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 7153,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1874
- },
- {
-  "path": "decisions/ADR-060-a-canon-for-ethics.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 6163,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1624
- },
- {
-  "path": "decisions/ADR-061-three-canons-of-the-house.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 9227,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2523
- },
- {
-  "path": "decisions/ADR-062-the-canon-mould-becomes-a-standard.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 5731,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1572
- },
- {
-  "path": "decisions/ADR-063-a-canon-for-money.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 6197,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1571
- },
- {
-  "path": "decisions/ADR-064-charges-and-the-account.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 5981,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1573
- },
- {
-  "path": "decisions/ADR-065-two-protocols-for-money.md",
-  "dir": "decisions",
-  "series": "decisions",
-  "type": "adr",
-  "status": "draft",
-  "chars": 4370,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1139
  },
  {
   "path": "legal/LEG-001-privacy-policy-numengames.md",
@@ -1831,10 +1633,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 10851,
+  "chars": 9325,
   "apparatus": false,
   "archived": false,
-  "tokens": 2723
+  "tokens": 2318
  },
  {
   "path": "missions/MIS-0101-the-mould-complies-with-itself.md",
@@ -1842,10 +1644,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 6809,
+  "chars": 5600,
   "apparatus": false,
   "archived": false,
-  "tokens": 1943
+  "tokens": 1587
  },
  {
   "path": "missions/MIS-0135-normalisation-residue-register.md",
@@ -1853,10 +1655,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 15800,
+  "chars": 15115,
   "apparatus": false,
   "archived": false,
-  "tokens": 4742
+  "tokens": 4513
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -1864,10 +1666,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 21912,
+  "chars": 19001,
   "apparatus": false,
   "archived": false,
-  "tokens": 5218
+  "tokens": 4416
  },
  {
   "path": "missions/MIS-0150-dependabot-advisories-triage.md",
@@ -1875,10 +1677,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 10690,
+  "chars": 7344,
   "apparatus": false,
   "archived": false,
-  "tokens": 2845
+  "tokens": 1907
  },
  {
   "path": "missions/MIS-0154-four-sites-design-audit.md",
@@ -1996,10 +1798,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5620,
+  "chars": 5608,
   "apparatus": false,
   "archived": false,
-  "tokens": 1298
+  "tokens": 1293
  },
  {
   "path": "operations/OPS-012-training-the-offer.md",
@@ -2337,10 +2139,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 2572,
+  "chars": 2288,
   "apparatus": false,
   "archived": false,
-  "tokens": 827
+  "tokens": 723
  },
  {
   "path": "reports/RPT-019-2026-w37.md",
@@ -2656,10 +2458,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5674,
+  "chars": 5652,
   "apparatus": false,
   "archived": false,
-  "tokens": 1541
+  "tokens": 1531
  },
  {
   "path": "standards/STD-033-every-charge-delivers-something.md",

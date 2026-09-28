@@ -19,11 +19,11 @@ completed: null
 # REGISTRO — not consumed by the build, but every document in this archive
 # carries them (`STD-024`).
 type: mission
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-02T09:40:00Z"
 created_source: "git:68bd5f1"
 created_confidence: exact
-updated: "2026-09-02T14:45:00Z"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [ursa, bootstrap, context, hermes, onboarding, continuity, cold-start]
@@ -417,50 +417,3 @@ Add here — never edit `Scope` or the criteria to match what happened.)*
 - **Closed:** YYYY-MM-DD · **by:**
 
 ---
-
-## Execution log
-
-*(one line per significant step: date · step · evidence)*
-
-- 2026-09-02 — Draft v1 registered (as MIS-137) by Ursa, at the Oracle's
-  request. Base commit `68bd5f1`. Status `draft` per PRO-003 §2. Known
-  deviation: lint-frontmatter does not accept `draft` for missions (STD-001
-  §7 set); recorded rather than silently normalised.
-- 2026-09-02 — **Reformulated to v2.0.0** per the Oracle's review.
-  Reoriented from “study which bootstrap mechanism to use” to “integrate
-  into Ursa's existing canonical definition the behaviour and context the
-  operator currently supplies manually, using Hermes only as
-  runtime/adapter”. Explicit: no new conceptual artefact unless
-  demonstrated necessary; responsibility matrix defined in advance (D1);
-  acceptance test uses the real first instruction and fails on any listed
-  follow-up prompt; measurement protocol expanded. Still `draft`; no
-  execution, no canonical changes.
-- 2026-09-02 — **Renumbered MIS-137 → 143** (PRO-003 §4, ID
-  collision). `MIS-137` was already assigned in `origin/main`
-  (`MIS-137` (now in `RPT-017`), merged after this draft was
-  created); the surviving equivalent `todo` state and all content were
-  carried over. Next free number that did not collide with an existing
-  branch claim: 143 (MIS-140 was claimed by
-  `mission/MIS-0140-publish-coverage-guard`). *(The two numbers in this entry
-  are written bare, without the `MIS-` prefix, because they name the number
-  this mission carried, not another document. Spelled as identifiers the
-  reference lint reads them as a citation of the mission that now holds 143 —
-  a different mission entirely, since #240 — and fails. The fact recorded is
-  unchanged.)*
-- 2026-09-02 — **Moved to `todo`** (the board's backlog equivalent) by the
-  Oracle (PRO-003 §2). The Oracle asked for `backlog`; `STD-001` (mission status) retired
-  that value on 2026-08-30, so the surviving equivalent `todo` was applied,
-  recorded here, and the PRO-003/STD-001 conflict re-registered in this
-  mission's context (MIS-135 row 1). Branch rebased onto `main` `b9ed412`.
-  Still not assigned, not executed.
-- 2026-09-04 — **Renumbered `MIS-0143` → MIS-149** (PRO-003 §4, ID collision
-  again). This draft claimed that number on 2026-09-02 and would have kept it
-  under "whoever committed first", but it sat unmerged for two days while
-  `MIS-0143` (integrate three new agents) was written,
-  reviewed and merged into `main` (#240, 2026-09-04). The number is taken by
-  a document that is in the tree; this one is not. A branch claim only binds
-  the agents who can see it, so the merged document wins and this draft
-  moves. `MIS-149` is the first free number: 144…148 are held by `main` or by
-  live branches. Content unchanged; only the identifier, the filename and the
-  H1 move. The entries above keep the numbers they were written with — an
-  out-of-date record is history (`STD-024`).

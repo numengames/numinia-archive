@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.2.0"
+version: "1.2.1"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-11T14:30:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -156,12 +156,6 @@ is done, each one has to argue for its own relevance.
   finding is the audit's 🟠 5, unresolved by MIS-091 by design: an agent
   cannot set branch protection.
 
-## Execution Reality
-
-*(Fill when closing)*
-
-> *"The ideal plans show the intention. The real plans show the knowledge."*
-
 ## Board triage — 2026-08-25: stays open, with two scenarios resolved
 
 **Category E — alive.** Classified by running the brief's Gherkin scenarios
@@ -234,15 +228,3 @@ work. The API hides `security_and_analysis` from unauthenticated reads, so the
 honest state is *unknown*, not *absent*.
 
 - **Signed by:** Oracle, 2026-08-25.
-
-## Status check — 2026-09-02
-
-*Read against `8907a56` during the missions/ normalisation (lot 3). Recorded, not decided: `done` and `frozen` are the Oracle's (PRO-003 §2).*
-
-- **Evidence:** Triaged E (alive) 2026-08-25 with two Gherkin scenarios already passing (branch protection + CI on main exist: PRs #130–#198 all merged via PR). Remaining: org settings (2FA, secret scanning, Dependabot, base permission) — Oracle-only actions (org admin). 0/9 boxes ticked despite the triage's own finding.
-- **Recommendation:** Keep todo; tick the two scenarios the triage verified (form, from its own record) and mark the rest as Oracle-executed. DBT-007 (Dependabot untriaged) is its live symptom.
-
-## Version history
-
-- v1.1.0 (2026-09-02) — inline attribute line removed (the frontmatter is the only source of guild/territory/priority/effort, STD-004); import-era `---` rules removed; retired identifiers repointed: C-005→CAN-005; §Status check added (evidence + recommendation; status unchanged). missions/ normalisation, lot 3.
-- v1.2.0 (2026-09-11) — §Board triage amended: the signed `required_approving_review_count: 0` exception no longer describes the live ruleset (now 1, plus dismiss-stale and strict-checks on, and Workers Builds dropped from the required set). The record is amended in place, not rewritten: the reasoning was sound and its premise expired. Minor — new finding, status unchanged.

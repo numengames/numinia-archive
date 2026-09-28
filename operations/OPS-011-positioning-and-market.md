@@ -5,9 +5,9 @@ title: "Positioning and market"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-09-23T20:00:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -116,4 +116,4 @@ Market sizing, revenue targets, headcount and dated milestones were carried in
 `CAN-002` and are not reproduced here. They were stale on arrival — a market
 table with unfilled placeholders, and a 2026–2027 objective list whose first
 milestone was dated 2024. Figures belong where they are measured and revised,
-not in the archive (`ADR-052`).
+not in the archive.

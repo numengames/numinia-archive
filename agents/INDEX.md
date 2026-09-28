@@ -3,11 +3,11 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.2.0"
+version: "3.2.1"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-28T18:00:00+02:00"
+updated: "2026-09-28T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, index]
@@ -51,8 +51,7 @@ agents/{name}/
 ## Oracles
 
 The biological agents. They govern; the rank is the ceiling (`STD-003`).
-Carried here from the canon of brand and culture (`ADR-061`): a roster is a
-register, and the canon says what the house is, not who staffs it.
+A roster is a register; the canon says what the house is, not who staffs it.
 
 | Name | Role |
 |---|---|
@@ -112,14 +111,3 @@ character-voiced Senet/Ursa personas, with their `STATUS.md`/`MEMORY.md`
 state files) was retired by `MIS-118` and remains in Git history. Runtime
 state no longer lives in the archive: `status:` is a field in `AGENT.md`,
 and session metrics belong to the platform, not the canon.
-
-## Version history
-
-- v3.2.0 (2026-09-28) — Metis, the sales agent, joins the roster (Procurators).
-- v3.1.0 (2026-09-24) — ADR-061: the Oracles table, carried from `CAN-002`.
-  The site reads it here for the biological roster.
-- v3.0.0 (2026-08-28) — MIS-118: full roster replacement. Seven operative
-  definitions under CC0 (ADR-026); adapters/ structure; STATUS/MEMORY files
-  retired; archaeology table made independent of living folders.
-- v2.0.0 (2026-04-07) — historical-identities table added (D-027).
-- v1.0.0 (2026-04-06) — initial index.
