@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "df44125",
-  "corpus_hash": "7d5fc9ba205aaaf982e35ea695647088db1ab9de286532b60209d086a17a4159",
+  "head": "e3ab511",
+  "corpus_hash": "fc8a46ac5782a781638f143cb5a502adf119ba60f16595c3d2b42e75fd2fb7e8",
   "root_dirty": 0,
-  "measured_at": "2026-09-28T18:14:36Z",
+  "measured_at": "2026-09-28T18:39:40Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 621,
+      "value": 622,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 15,
         ".md": 241,
-        ".mjs": 87,
+        ".mjs": 88,
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
@@ -112,13 +112,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 53,
+      "value": 54,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 53
+        "node": 54
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 797869,
+      "value": 797976,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -345,8 +345,8 @@
         "missions": 17668,
         "machine": 17236,
         "operations": 16664,
+        "": 9956,
         "legal": 9925,
-        "": 9849,
         "decisions": 9669,
         "opportunities": 3133,
         "debt": 2986,
@@ -358,7 +358,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 506042,
+        "(none)": 506149,
         "draft": 140244,
         "active": 132422,
         "todo": 13532,
@@ -680,14 +680,10 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 743
-        },
-        "MIS": {
-          "3": 404,
-          "4": 165
+          "3": 753
         },
         "PRO": {
-          "3": 291
+          "3": 288
         },
         "OPS": {
           "3": 58
@@ -696,13 +692,17 @@
           "3": 286
         },
         "ADR": {
-          "3": 239
+          "3": 238
         },
         "SYS": {
           "3": 42
         },
         "DBT": {
           "3": 46
+        },
+        "MIS": {
+          "3": 403,
+          "4": 165
         },
         "LEG": {
           "3": 36
