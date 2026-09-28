@@ -13,8 +13,8 @@ created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
-tags: [system, reference]
 territory: "Archive"
+tags: [system, reference]
 license: "CC0-1.0"
 
 # OPTIONAL — use when they apply, omit without guilt.

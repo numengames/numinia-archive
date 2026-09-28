@@ -27,7 +27,7 @@ export const RING2 = ['author', 'owner', 'provenance', 'created_source', 'create
 export const RING3 = {
   'missions': ['priority', 'effort', 'assigned_to', 'started',
     // mission_id retired 2026-09-02 (missions/ normalisation): it duplicated
-    // `id` in 58/58 files (TEMPLATE-CHANGES) and now appears in none.
+    // `id` in 58/58 files and now appears in none.
     'completed', 'type_execution', 'freeze_reason', 'in_review_at',
     'depends_on', 'parent_mission', 'sub_missions', 'blocked_by',
     'requires_oracle_approval', 'human_approval_score', 'paths', 'context',

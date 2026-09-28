@@ -31,7 +31,7 @@
 // --------------
 //   T-01  every machine/templates/*.md parses as frontmatter + body
 //   T-02  the filename is <PREFIX>-TEMPLATE.md for a registered prefix
-//         (plus the sanctioned -EXAMPLE / -CHANGES companions, and README.md)
+//         (plus the sanctioned -EXAMPLE companion, and README.md)
 //   T-03  no inline `# comment` after a scalar value — the D-009 shape
 //   T-04  `license:` names a licence this repository ships a text for
 //         (LICENSES/). A folder has no licence (Oracle, 2026-09-24), so
@@ -67,7 +67,7 @@ for (const dir of seriesDirs(RULES)) {
   // kinds of document, the record (OPP) and its proposal (PRP).
   for (const pfx of RULES.series[dir].prefix) DEST[`${pfx}-TEMPLATE.md`] = dir;
 }
-const COMPANIONS = { 'MIS-TEMPLATE-EXAMPLE.md': 'missions', 'MIS-TEMPLATE-CHANGES.md': 'missions' };
+const COMPANIONS = { 'MIS-TEMPLATE-EXAMPLE.md': 'missions' };
 const EXEMPT = new Set(['README.md']);
 
 /* Ring 1, ring 2 and the per-series registry come from lib/rings.mjs — the

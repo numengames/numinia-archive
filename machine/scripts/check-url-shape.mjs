@@ -88,6 +88,7 @@ const STANDALONE = new Set([
   // admits /legal/terms, /legal/privacy and /legal/cookies as series addresses.
   '/core',        // the core as a flow: each canon, its standards, its protocols (web/src/lib/core.ts)
   '/design',      // the design system whole (SYS-009), its download and the kit's served files
+  '/templates',   // every mould (machine/templates/), their headers side by side — an instrument has no series
   '/404',
 ]);
 

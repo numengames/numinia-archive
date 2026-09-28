@@ -1,0 +1,190 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /templates — every mould the archive has, and their headers side by side.
+//
+// A mould is the file a new document is copied from (machine/templates/).
+// This page is where they are gathered to be worked on: for each, what it
+// makes, where the copy goes, the header it teaches and the sections of its
+// body; and above them all, ONE table with every header field of every mould,
+// so a field written twice under two names, or taught by one mould and
+// forgotten by its neighbour, is seen at a glance.
+//
+// Nothing is typed here: @/lib/templates reads the moulds and the field
+// registry the guards enforce, at build time.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl, REPO_URL } from "@/lib/build-info";
+import { moulds, matrix, figures, makes, ELSEWHERE, repoPath } from "@/lib/templates";
+
+const ms = moulds();
+const rows = matrix(ms);
+const F = figures(ms);
+const blob = (p: string) => `${REPO_URL}/blob/main/${p}`;
+const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
+---
+<Layout
+  title="Templates — Numinia"
+  description={`The ${F.moulds} moulds every document of the archive is copied from, with their headers side by side: which fields each one teaches, and which are shared.`}
+  canonicalPath="/templates"
+>
+  <PageHero
+    label="Administration — Templates"
+    title="The moulds, side by side"
+    description="Every new document starts as a copy of one of these files. Here they are together, so their headers can be compared and cleaned: the same field should have the same name everywhere."
+  />
+  <div class="mx-auto max-w-[1100px] px-6 pb-8">
+    <DocToolbar mdUrl="/templates.md" filename="numinia-templates.md" repoUrl={repoFileUrl("machine/templates/README.md") ?? tree("machine/templates")} lang="en" />
+  </div>
+
+  <section class="pb-20"><div class="mx-auto max-w-[1100px] px-6">
+    <div class="tp-kpis">
+      <div class="tp-kpi"><span class="tp-k">Moulds</span><span class="tp-v">{F.moulds}</span><span class="tp-s">one per kind of document</span></div>
+      <div class="tp-kpi"><span class="tp-k">Header fields</span><span class="tp-v">{F.fields}</span><span class="tp-s">different names, across all of them</span></div>
+      <div class="tp-kpi"><span class="tp-k">In every mould</span><span class="tp-v">{F.inAll}</span><span class="tp-s">the common header</span></div>
+      <div class="tp-kpi"><span class="tp-k">In one mould only</span><span class="tp-v">{F.inOne}</span><span class="tp-s">a series' own fields</span></div>
+    </div>
+
+    <div class="tp-sec">
+      <h2>The moulds</h2>
+      <p class="tp-sub">What each one makes and where the copy goes. Open one to see the fields it asks for and the sections its body has.</p>
+      <div class="tp-grid">
+        {ms.map((m) => (
+          <a class="tp-card" href={`#${m.prefix.toLowerCase()}`}>
+            <span class="tp-pfx">{m.prefix}</span>
+            <span class="tp-makes">{makes(m.prefix)}</span>
+            <span class="tp-dest">{m.destination}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="tp-sec">
+      <h2>Every header field, every mould</h2>
+      <p class="tp-sub">
+        One row per field, one column per mould. <span class="tp-dot tp-on" aria-hidden="true">●</span> the mould writes it, to be filled;
+        <span class="tp-dot tp-off" aria-hidden="true">○</span> the mould offers it commented, to add when it applies; empty, it does not know it.
+        The common header comes first, in the order a mould writes it; the shaded rows are mandatory for every document. The last column says where the field is registered — for every document, or only for some series.
+      </p>
+      <div class="tp-tablewrap">
+        <table class="tp-t">
+          <thead><tr>
+            <th class="tp-l">Field</th>
+            {ms.map((m) => <th><a href={`#${m.prefix.toLowerCase()}`} title={makes(m.prefix)}>{m.prefix}</a></th>)}
+            <th class="tp-l">Registered for</th>
+          </tr></thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr class={r.mandatory ? "tp-must" : ""}>
+                <td class="tp-l"><code>{r.name}</code></td>
+                {r.cells.map((c) => <td>{c === "filled" ? <span class="tp-on" aria-label="written">●</span> : c === "optional" ? <span class="tp-off" aria-label="offered">○</span> : ""}</td>)}
+                <td class="tp-l tp-reach">{r.reach === "every" ? "every document" : r.series.join(", ")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    {ms.map((m) => (
+      <div class="tp-sec tp-mould" id={m.prefix.toLowerCase()}>
+        <h2><span class="tp-pfx">{m.prefix}</span> {makes(m.prefix)}</h2>
+        <p class="tp-sub">Copy to <code>{m.destination}</code> · type <code>{m.type}</code> · licence <code>{m.licence}</code> · <a href={blob(repoPath(m.file))}>{m.file}</a></p>
+        <p class="tp-hint">Title, as the mould teaches it: <em>{m.titleHint}</em></p>
+        <div class="tp-two">
+          <div>
+            <h3>Header</h3>
+            <ul class="tp-fields">
+              {m.fields.map((f) => (
+                <li class={f.kind === "optional" ? "tp-opt" : ""}>
+                  <code>{f.name}</code>{f.kind === "optional" && <span class="tp-tag">optional</span>}
+                  {f.note && <span class="tp-note">{f.note}</span>}
+                </li>
+              ))}
+            </ul>
+            {m.outOfOrder && (
+              <p class="tp-gap">Writes the common header in another order than the other moulds: {m.outOfOrder.join(" · ")}.</p>
+            )}
+            {m.unoffered.length > 0 && (
+              <p class="tp-gap">Registered for this series and not in the mould: {m.unoffered.map((k, i) => <><code>{k}</code>{i < m.unoffered.length - 1 ? ", " : ""}</>)}.</p>
+            )}
+          </div>
+          <div>
+            <h3>Body</h3>
+            {m.sections.length ? (
+              <ol class="tp-secs">{m.sections.map((s) => <li>{s}</li>)}</ol>
+            ) : (
+              <p class="tp-note">No sections of its own: the body is prose, guided by the notes in the mould.</p>
+            )}
+            {m.companions.map((c) => (
+              <p class="tp-note">Beside it: <a href={blob(repoPath(c.file))}>{c.file}</a> — {c.what}.</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+
+    <div class="tp-sec">
+      <h2>Moulds that live elsewhere</h2>
+      <p class="tp-sub">These are moulds too, but the tool that reads them needs them where they are.</p>
+      <ul class="tp-list">
+        {ELSEWHERE.map((e) => <li><a href={blob(e.path)}><code>{e.path}</code></a> — {e.makes}. {e.why}.</li>)}
+      </ul>
+    </div>
+
+    <div class="tp-sec">
+      <h2>How this page is made</h2>
+      <ul class="tp-list">
+        <li>Everything on it is read at build time from the moulds themselves, in <a href={tree("machine/templates")}>machine/templates/</a>, and from the registry of header fields the guards enforce. Add a field to a mould and it appears here.</li>
+        <li>How to use a mould, and what the guard checks on each, is in the folder's <a href={blob("machine/templates/README.md")}>README</a>. The rules for the header are <a href="/standards/std-004-the-header">The header</a>.</li>
+      </ul>
+    </div>
+  </div></section>
+</Layout>
+
+<style is:global>
+.tp-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.tp-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tp-kpi{background:rgb(var(--bg-card));border:1px solid rgb(var(--border));border-radius:var(--radius);padding:14px 16px;min-width:0}
+.tp-k{display:block;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgb(var(--text-dim))}
+.tp-v{display:block;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:clamp(1.1rem,4.2vw,1.6rem);line-height:1.2;margin:6px 0 4px;color:rgb(var(--text))}
+.tp-s{display:block;font-size:.8125rem;line-height:1.45;color:rgb(var(--text-dim))}
+.tp-sec{margin-top:56px;scroll-margin-top:80px}
+.tp-sec h2{font-family:var(--font-display);font-size:1.5rem;line-height:1.25;margin:0 0 6px;color:rgb(var(--text))}
+.tp-sec h3{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgb(var(--text-dim));margin:16px 0 8px}
+.tp-sub{color:rgb(var(--text-muted));margin:0 0 16px;max-width:80ch;line-height:1.6}
+.tp-sub a,.tp-list a,.tp-note a,.tp-t th a{color:rgb(var(--accent));text-decoration:underline;text-underline-offset:2px}
+.tp-hint{color:rgb(var(--text-muted));margin:0;font-size:.9rem}
+.tp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.tp-card{display:grid;gap:2px;background:rgb(var(--bg-card));border:1px solid rgb(var(--border));border-radius:var(--radius);padding:12px 14px;min-height:44px;color:rgb(var(--text));text-decoration:none;transition:border-color .15s}
+.tp-card:hover,.tp-card:focus-visible{border-color:rgb(var(--accent)/.5)}
+.tp-pfx{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;color:rgb(var(--accent))}
+.tp-makes{font-size:1rem}
+.tp-dest{font-family:var(--font-mono);font-size:.7rem;color:rgb(var(--text-dim));overflow-wrap:anywhere}
+.tp-tablewrap{overflow-x:auto;border:1px solid rgb(var(--border));border-radius:var(--radius)}
+.tp-t{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:.78rem}
+.tp-t th,.tp-t td{padding:5px 8px;text-align:center;border-bottom:1px solid rgb(var(--border));white-space:nowrap}
+.tp-t th{position:sticky;top:0;background:rgb(var(--bg-card));color:rgb(var(--text-dim));font-weight:500;font-size:.7rem;letter-spacing:.06em}
+.tp-t .tp-l{text-align:left}
+.tp-t td.tp-l code{color:rgb(var(--text))}
+.tp-t tr.tp-must td{background:rgb(var(--accent)/.05)}
+.tp-t tbody tr:hover td{background:rgb(var(--accent)/.1)}
+.tp-reach{color:rgb(var(--text-dim));white-space:normal!important;min-width:14ch}
+.tp-on{color:rgb(var(--accent))}
+.tp-off{color:rgb(var(--text-dim))}
+.tp-dot{font-family:var(--font-mono)}
+.tp-two{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:24px}
+@media (max-width:860px){.tp-two{grid-template-columns:1fr;gap:0}}
+.tp-fields{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.tp-fields li{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;padding:4px 0;border-bottom:1px dashed rgb(var(--border))}
+.tp-fields code{font-size:.82rem;color:rgb(var(--text))}
+.tp-opt code{color:rgb(var(--text-muted))}
+.tp-tag{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.06em;border:1px solid rgb(var(--border));border-radius:999px;padding:0 8px;color:rgb(var(--text-dim))}
+.tp-note{font-size:.82rem;color:rgb(var(--text-dim));line-height:1.45}
+.tp-fields .tp-note{flex-basis:100%}
+.tp-gap{margin:10px 0 0;font-size:.82rem;color:rgb(var(--yellow))}
+.tp-secs{margin:0;padding-left:1.4em;color:rgb(var(--text-muted));line-height:1.8}
+.tp-list{margin:0;padding-left:1.2em;color:rgb(var(--text-muted));line-height:1.7;max-width:80ch}
+</style>

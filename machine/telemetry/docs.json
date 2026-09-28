@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 182560,
+  "chars": 185013,
   "apparatus": false,
   "archived": false,
-  "tokens": 48591
+  "tokens": 49197
  },
  {
   "path": "CLAUDE.md",
@@ -1705,26 +1705,15 @@
   "tokens": 494
  },
  {
-  "path": "machine/templates/MIS-TEMPLATE-CHANGES.md",
-  "dir": "machine",
-  "series": null,
-  "type": "documentation",
-  "status": "active",
-  "chars": 15750,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 4055
- },
- {
   "path": "machine/templates/MIS-TEMPLATE-EXAMPLE.md",
   "dir": "machine",
   "series": null,
   "type": "mission",
   "status": "done",
-  "chars": 4103,
+  "chars": 4130,
   "apparatus": true,
   "archived": false,
-  "tokens": 1107
+  "tokens": 1116
  },
  {
   "path": "machine/templates/MIS-TEMPLATE.md",
@@ -1732,10 +1721,10 @@
   "series": null,
   "type": "mission",
   "status": "todo",
-  "chars": 5866,
+  "chars": 5990,
   "apparatus": true,
   "archived": false,
-  "tokens": 1526
+  "tokens": 1553
  },
  {
   "path": "machine/templates/OPP-TEMPLATE.md",
@@ -1787,10 +1776,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4677,
+  "chars": 5125,
   "apparatus": true,
   "archived": false,
-  "tokens": 1290
+  "tokens": 1421
  },
  {
   "path": "machine/templates/RPT-TEMPLATE.md",
@@ -2887,10 +2876,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6769,
+  "chars": 6730,
   "apparatus": false,
   "archived": false,
-  "tokens": 1808
+  "tokens": 1782
  },
  {
   "path": "system/SYS-008-the-account.md",

@@ -15,8 +15,8 @@ created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
-license: "CC0-1.0"
 tags: [area, subject]
+license: "CC0-1.0"
 
 # OPTIONAL — use when they apply, omit without guilt.
 # ratified_by: "ADR-NNN"            # the decision that moved this from draft to active

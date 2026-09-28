@@ -27,13 +27,18 @@ member of any series, never published, never counted in the corpus figures.
 | `CAN-TEMPLATE.md` | a canon text | `canon/CAN-NNN-slug.md` |
 | `BLU-TEMPLATE.md` | a blueprint | `blueprints/BLU-NNN-slug.md` |
 | `SYS-TEMPLATE.md` | a system reference | `system/SYS-NNN-slug.md` |
+| `OPP-TEMPLATE.md` | a sales opportunity | `opportunities/OPP-YYYY-NNN.md` |
+| `PRP-TEMPLATE.md` | a proposal to a client | `opportunities/PRP-YYYY-NNN.md` |
 
-Two companions of the mission mould, which are records rather than moulds:
+One companion of the mission mould, a record rather than a mould:
+`MIS-TEMPLATE-EXAMPLE.md`, a real mission written with it and closed, to read
+next to the blank one.
 
-| File | What it is |
-|---|---|
-| `MIS-TEMPLATE-EXAMPLE.md` | a filled mission, to read next to the blank one |
-| `MIS-TEMPLATE-CHANGES.md` | why the mission mould has the shape it has |
+**Every mould opens with the same header, in the same order** — `id`, `uid`,
+`title`, `type`, `status`, `version`, `created`, `updated`, `author`, `owner`,
+then `guild`, `territory`, `tags`, `license` where the series uses them —
+and only then the series' own fields. Side by side, with every field of every
+mould in one table: [numinia.org/templates](https://numinia.org/templates).
 
 **Not here, deliberately:**
 

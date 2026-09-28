@@ -28,7 +28,6 @@ path = [
   "machine/templates/BLU-TEMPLATE.md",
   "machine/templates/CAN-TEMPLATE.md",
   "machine/templates/DBT-TEMPLATE.md",
-  "machine/templates/MIS-TEMPLATE-CHANGES.md",
   "machine/templates/MIS-TEMPLATE-EXAMPLE.md",
   "machine/templates/MIS-TEMPLATE.md",
   "machine/templates/OPS-TEMPLATE.md",

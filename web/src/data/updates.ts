@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.82.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "ADD",
+        text: "/templates — every mould a document of the archive is copied from, gathered on one page to be worked on. A table puts every header field of every mould side by side, so a field that means the same thing under two names, or that one mould teaches and its neighbour forgets, is visible at a glance. Then each mould on its own: what it makes, where the copy goes, the fields it asks for and the sections of its body. It is read from the moulds themselves at build time; the map's Templates entry, which led nowhere, now leads here.",
+      },
+      {
+        type: "CHG",
+        text: "The mission mould opens with the same header as every other mould, in the same order (identifier, title, type, state, version, dates, author, owner, guild, territory, tags, licence), then the board's own fields. The filled example beside it follows the same order and the same numbered sections, and the long record of why the mould changed in August — its figures long stale — is gone; git keeps it.",
+      },
+    ],
+  },
+  {
     version: "v0.81.0",
     date: "2026-09-28",
     entries: [

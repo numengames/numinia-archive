@@ -265,9 +265,9 @@ export const SECTIONS: Section[] = [
 //   missions/   The 111 MIS-* documents are NOT in this collection; they have
 //               their own typed collection and their index is the board at
 //               /missions (MIS-115 redesigns it). What remains under
-//               missions/ in the corpus is 5 system documents — TEMPLATE,
-//               TEMPLATE-CHANGES, TEMPLATE-EXAMPLE, PROPOSAL-closure-guard,
-//               ANNEX-mission-selection-draft. Those describe how missions are
+//               missions/ in the corpus is ANNEX-mission-selection-draft (the
+//               moulds moved to machine/templates/, shown at /templates). It
+//               describes how missions are
 //               written; they are not a browsable family of their own, and
 //               listing them as "Missions" beside a board of 111 would be a
 //               second, poorer answer to the same question.

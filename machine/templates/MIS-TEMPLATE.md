@@ -3,37 +3,38 @@
 # The filename carries FOUR digits, zero-padded (MIS-0145-...); the `id` field
 # carries three (MIS-145). That asymmetry is deliberate and enforced.
 #
-# CORE — the ten fields the build verifies (web/src/content.config.ts).
-# If one is missing or changes type, `npm run build` fails.
+# THE COMMON HEADER — every document carries these, in this order (STD-004).
 id: "MIS-NNN"
+# reserved for the universal identifier: always written, always empty
 uid: ""
 title: "One line, in the imperative: what this mission does"
+type: mission
 # status: todo | in-progress | in-review | done | frozen
 status: todo
-# priority: critical | high | medium | low
-priority: medium
-# effort: XS | S | M | L | XL
-effort: S
+version: "0.1.0"
+created: "YYYY-MM-DDTHH:MM:SSZ"
+updated: "YYYY-MM-DDTHH:MM:SSZ"
+author: "agent-id"
+owner: "oracle"
 # guild: Sentinels | Alchemists | Exegetes | Procurators
 guild: "Alchemists"
 # territory: CAO | Product | Platform | Infrastructure | Content | Sales | Funding | Archive
 territory: "Archive"
+tags: [area, guild]
+license: "CC0-1.0"
+
+# THE BOARD — what /missions paints. The build needs `id` and `title`; the
+# rest have defaults, and a card that leaves them out is painted wrong.
+# priority: critical | high | medium | low
+priority: medium
+# effort: XS | S | M | L | XL
+effort: S
 # type_execution: digital = an agent can do it; biological = needs a human; hybrid
 type_execution: digital
 # agent-id, or null while unassigned
 assigned_to: null
 # YYYY-MM-DD, filled when status becomes done
 completed: null
-
-# REGISTRO — not consumed by the build, but every document carries them.
-type: mission
-version: "0.1.0"
-created: "YYYY-MM-DDTHH:MM:SSZ"
-updated: "YYYY-MM-DDTHH:MM:SSZ"
-author: "agent-id"
-owner: "oracle"
-tags: [area, guild]
-license: "CC0-1.0"
 
 # OPTIONAL — use when they apply, omit without guilt.
 # depends_on: ["MIS-NNN"]           # missions that must land first
@@ -43,8 +44,8 @@ license: "CC0-1.0"
 # context: "YYYY-MM-DD"             # when the premise was last checked
 # paths: []                         # repo paths to start from — a hint, not a fence
 # freeze_reason: "why this is frozen"
+# started: "YYYY-MM-DDTHH:MM:SSZ"   # when status became in-progress
 # in_review_at: "YYYY-MM-DDTHH:MM:SSZ"
-# started: "YYYY-MM-DDTHH:MM:SSZ"
 ---
 
 # MIS-NNN — Verb + object + result
