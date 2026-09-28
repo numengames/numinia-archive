@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "0070661",
-  "corpus_hash": "7d819095e201adb0700a1f17cc060fab26abdd5131ab6d9761317f75a89c78ba",
+  "head": "f35070c",
+  "corpus_hash": "c2af6a5805e3aa693ff1ed5439b3a80a4fe3c9943420829be11281d01572b7e6",
   "root_dirty": 0,
-  "measured_at": "2026-09-28T11:22:21Z",
+  "measured_at": "2026-09-28T11:29:17Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 628,
+      "value": 630,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -31,7 +31,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 15,
-        ".md": 258,
+        ".md": 260,
         ".mjs": 83,
         ".png": 35,
         ".svg": 72,
@@ -48,12 +48,12 @@
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 258,
+      "value": 260,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 257,
+      "value": 259,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -71,11 +71,11 @@
         "machine": 23,
         "missions": 12,
         "objects": 2,
-        "operations": 8,
+        "operations": 9,
         "protocols": 23,
         "reports": 7,
         "standards": 35,
-        "system": 8
+        "system": 9
       },
       "unit": "documents",
       "definition": "corpus documents by top-level directory; root files under `(root)`"
@@ -86,7 +86,7 @@
         "adr": 28,
         "agent": 34,
         "blueprint": 12,
-        "documentation": 59,
+        "documentation": 61,
         "entity": 2,
         "legal": 4,
         "meta": 3,
@@ -170,8 +170,8 @@
           "pct": 100
         },
         "operations": {
-          "registered": 8,
-          "total": 8,
+          "registered": 9,
+          "total": 9,
           "apparatus": 0,
           "archived": 0,
           "pct": 100
@@ -198,8 +198,8 @@
           "pct": 100
         },
         "system": {
-          "registered": 8,
-          "total": 8,
+          "registered": 9,
+          "total": 9,
           "apparatus": 0,
           "archived": 0,
           "pct": 100
@@ -209,12 +209,12 @@
       "definition": "per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`."
     },
     "series.registered_total": {
-      "value": 146,
+      "value": 148,
       "unit": "documents",
       "definition": "sum of `registration[*].registered`"
     },
     "series.registrable_total": {
-      "value": 146,
+      "value": 148,
       "unit": "documents",
       "definition": "sum of `registration[*].total`"
     },
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 905712,
+      "value": 908777,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,17 +336,17 @@
       "value": {
         "lore": 495248,
         "standards": 68859,
-        "": 52709,
+        "": 53062,
         "missions": 45963,
         "decisions": 39490,
         "reports": 29422,
         "agents": 29130,
         "protocols": 27342,
         "blueprints": 25741,
-        "system": 20584,
+        "system": 21972,
         "machine": 20429,
         "canon": 19762,
-        "operations": 15345,
+        "operations": 16669,
         "legal": 9925,
         "debt": 2986,
         "objects": 1865,
@@ -357,9 +357,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 551769,
-        "draft": 161131,
-        "active": 143654,
+        "(none)": 552122,
+        "draft": 162455,
+        "active": 145042,
         "done": 26672,
         "todo": 16006,
         "in-progress": 4742,
@@ -369,7 +369,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 5.07,
+      "value": 5.06,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -381,7 +381,7 @@
         ],
         [
           "CHANGELOG.md",
-          45240
+          45593
         ],
         [
           "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
@@ -400,7 +400,7 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 209,
+      "value": 211,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -411,25 +411,25 @@
     },
     "headers.field_usage": {
       "value": {
-        "title": 203,
-        "author": 200,
-        "created": 200,
-        "license": 200,
-        "status": 200,
-        "type": 200,
-        "updated": 200,
-        "version": 200,
-        "owner": 199,
-        "tags": 197,
-        "id": 174,
-        "uid": 161,
-        "territory": 130,
-        "related": 107,
-        "guild": 86,
+        "title": 205,
+        "author": 202,
+        "created": 202,
+        "license": 202,
+        "status": 202,
+        "type": 202,
+        "updated": 202,
+        "version": 202,
+        "owner": 201,
+        "tags": 199,
+        "id": 176,
+        "uid": 163,
+        "territory": 132,
+        "related": 109,
+        "guild": 87,
         "created_source": 68,
         "created_confidence": 67,
         "derived_from": 58,
-        "subtype": 55,
+        "subtype": 56,
         "registration": 43,
         "registration_reason": 39,
         "agent": 33,
@@ -546,7 +546,7 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 3,
-        "empty_values": 195,
+        "empty_values": 197,
         "v_prefixed_versions": 0,
         "placeholders": 8
       },
@@ -555,7 +555,7 @@
     },
     "provenance.authorship": {
       "value": {
-        "ai-persona": 162,
+        "ai-persona": 164,
         "no-frontmatter": 48,
         "other": 25,
         "no-author": 9,
@@ -566,7 +566,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 186,
+      "value": 188,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -640,8 +640,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 84,
-        "draft": 102,
+        "active": 85,
+        "draft": 103,
         "withdrawn": 1,
         "done": 6,
         "todo": 6,
@@ -689,32 +689,32 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1201
+          "3": 1209
         },
         "MIS": {
           "3": 689,
           "4": 187
         },
         "PRO": {
-          "3": 413
+          "3": 420
         },
         "OPS": {
-          "3": 88
+          "3": 94
         },
         "CAN": {
-          "3": 576
+          "3": 577
         },
         "ADR": {
           "3": 489
         },
+        "SYS": {
+          "3": 71
+        },
         "LEG": {
-          "3": 40
+          "3": 41
         },
         "BLU": {
           "3": 138
-        },
-        "SYS": {
-          "3": 67
         },
         "RPT": {
           "3": 63,
