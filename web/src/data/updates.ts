@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.100.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "ADD",
+        text: "This page can be listened to: the same reading player as every document, above the timeline.",
+      },
+      {
+        type: "ADD",
+        text: "Every version says the hour it shipped, in Central European Time, and the build it names — the commit that shipped it, linked to GitHub. Until now only the newest version had a commit, and none had an hour. Both are read from the repository's history when the site is built, not typed.",
+      },
+    ],
+  },
+  {
     version: "v0.99.0",
     date: "2026-09-29",
     entries: [

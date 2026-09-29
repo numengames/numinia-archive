@@ -12,6 +12,12 @@ import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import { UPDATES, PENDING } from "@/data/updates";
 import { COMMIT_SHA, COMMIT_URL } from "@/lib/build-info";
+import { readUpdateStamps } from "@/lib/update-stamps";
+import SpeechPlayer from "@/components/SpeechPlayer.astro";
+
+// Each version carries the hour it shipped (Central European Time) and the
+// build it names — the commit that wrote it, read from git at build time.
+const STAMPS = readUpdateStamps(UPDATES.map((u) => u.version));
 
 const TYPE_LABEL: Record<string, string> = { ADD: "added", CHG: "changed", FIX: "fixed", DEL: "removed" };
 const STATUS_LABEL: Record<string, string> = { planned: "planned", blocked: "blocked" };
@@ -26,11 +32,14 @@ const STATUS_LABEL: Record<string, string> = { planned: "planned", blocked: "blo
   <PageHero
     label="Updates"
     title="What changed, and when"
-    description="The site's timeline, newest first. Every production push raises the version and leaves its line here; the footer prints the newest one. This is the viewer's record — the corpus has its own CHANGELOG in the repository."
+    description="The site's timeline, newest first. Every production push raises the version and leaves its line here; the footer prints the newest one. Each carries the hour it shipped, in Central European Time, and the build it came from. This is the viewer's record — the corpus has its own CHANGELOG in the repository."
   />
 
   <section class="pb-20">
     <div class="mx-auto max-w-[800px] px-6">
+      <div class="doc-toolbar mb-8 flex flex-wrap items-center gap-2">
+        <SpeechPlayer textSelector="main#main" lang="en" />
+      </div>
       {PENDING.length > 0 && (
         <div class="mb-12 rounded-lg border border-border bg-card/40 p-6">
           <h2 class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Pending</h2>
@@ -53,12 +62,23 @@ const STATUS_LABEL: Record<string, string> = { planned: "planned", blocked: "blo
             <h2 class="flex flex-wrap items-baseline gap-3">
               <span class="font-display text-2xl text-foreground">{u.version}</span>
               {i === 0 && <span class="rounded bg-accent/15 px-1.5 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-accent">latest</span>}
-              <time datetime={u.date} class="font-mono text-xs text-dim">{u.date}</time>
-              {i === 0 && (COMMIT_URL ? (
-                <a href={COMMIT_URL} target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-dim hover:text-accent" title="The commit this build came from">{COMMIT_SHA}</a>
-              ) : (
-                <span class="font-mono text-xs text-dim">{COMMIT_SHA}</span>
-              ))}
+              {(() => {
+                const st = STAMPS.get(u.version);
+                const sha = st?.short ?? (i === 0 ? COMMIT_SHA : null);
+                const url = st?.url ?? (i === 0 ? COMMIT_URL : null);
+                return (
+                  <>
+                    <time datetime={st?.iso ?? u.date} class="font-mono text-xs text-dim" title="Central European Time">
+                      {u.date}{st && ` · ${st.time}`}
+                    </time>
+                    {sha && (url ? (
+                      <a href={url} target="_blank" rel="noopener noreferrer" class="font-mono text-xs text-dim hover:text-accent" title="The build this version names: the commit that shipped it">{sha}</a>
+                    ) : (
+                      <span class="font-mono text-xs text-dim">{sha}</span>
+                    ))}
+                  </>
+                );
+              })()}
             </h2>
             <ul class="mt-4 flex flex-col gap-3">
               {u.entries.map((e) => (
