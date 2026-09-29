@@ -1809,10 +1809,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 3659,
+  "chars": 6180,
   "apparatus": false,
   "archived": false,
-  "tokens": 973
+  "tokens": 1603
  },
  {
   "path": "operations/OPS-014-supporting-numinia-the-offer.md",
@@ -1859,6 +1859,17 @@
   "tokens": 802
  },
  {
+  "path": "opportunities/OPP-2026-004.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 3559,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 965
+ },
+ {
   "path": "opportunities/PRP-2026-001.md",
   "dir": "opportunities",
   "series": "opportunities",
@@ -1890,6 +1901,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1108
+ },
+ {
+  "path": "opportunities/PRP-2026-004.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "proposal",
+  "status": "active",
+  "chars": 6123,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1584
  },
  {
   "path": "opportunities/README.md",
