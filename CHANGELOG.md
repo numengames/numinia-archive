@@ -19,7 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-28
 
-- **Changed** The site bar drops the Archive drop-down: Archive is a plain link to the archive page, whose four blocks are now drawn as buttons, with the books and the sister sites beneath them (#PR)
+- **Changed** The site bar drops the Archive drop-down: Archive is a plain link to the archive page, whose four blocks are now drawn as buttons, with the books and the sister sites beneath them (#556)
 - **Changed** The site bar keeps Map and Archive only; Archive opens a page drawn from the same four blocks as its menu; the lore index gains its three shelves (world, adventures, codex) and the menu opens each at its own; no white flash between pages (#553)
 - **Fixed** The door names only what exists: AGENTS.md takes the repository's name, opens with the rules in force, and drops references the tree does not hold; a test pins every path and code in the root files to the tree (#552)
 - **Added** Open books lists every line of the ledger with filters, explains VAT and reverse charge, shows what each payment turns into, and adds the year to its panel (site v0.85.0) (#551)
