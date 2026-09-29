@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.94.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "FIX",
+        text: "The archive's map now leads to Contribute. Under The offer, Collect, the entry Support Numinia was marked 'to create' with no link; it opens /contribute, and says what it is: Backer from €5 a month, Sponsor from €200. It no longer promises a one-off payment, which is not offered.",
+      },
+    ],
+  },
+  {
     version: "v0.93.0",
     date: "2026-09-29",
     entries: [

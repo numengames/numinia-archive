@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-29T10:12:26Z"
+updated: "2026-09-29T10:23:28Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `cd952b2`  · corpus_hash: `8d024fa55f9199d6…`  · measured_at: 2026-09-29T10:12:26Z  · root_dirty: 0
+- head: `facd91f`  · corpus_hash: `3f93bcfa547db012…`  · measured_at: 2026-09-29T10:23:28Z  · root_dirty: 0
 
 ## corpus
 
@@ -207,7 +207,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 842733 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 842774 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 2.1 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -228,7 +228,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | canon | 19794 |
 | missions | 17668 |
 | machine | 17389 |
-|  | 10993 |
+|  | 11034 |
 | opportunities | 10236 |
 | legal | 9925 |
 | decisions | 9669 |
@@ -240,7 +240,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 507232 |
+| (none) | 507273 |
 | draft | 171549 |
 | active | 144791 |
 | todo | 13532 |
