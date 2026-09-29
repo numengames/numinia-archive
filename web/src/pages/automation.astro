@@ -1,0 +1,323 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /automation — what an agent may do without asking, level by level.
+//
+// WHY THIS PAGE EXISTS
+// An agent asks its operator for permission many times a session, and each
+// request arrives as a line of shell: "git clone --depth 50 …" flagged as "URL
+// points to IP address 0.0.0.50". The operator did not write the shell and is
+// asked to answer for it. He asked for the permissions an agent needs here to
+// be drawn somewhere, in his words: what each one is, what it implies, and
+// at which level of automation it is granted alone.
+//
+// THIS PAGE STATES NOTHING OF ITS OWN. It arranges what the archive already
+// says — who may change what, the approval protocol, the engineering
+// protocol, each agent's OPERATOR.md, the transition regime — into the five
+// levels of the ISO/IEC 22989 automation scale, and grades every permission
+// at each. The data is web/src/lib/automation-levels.ts; a test holds it to
+// shape. The instrument is the home's astrolabe: five rings from the least
+// automated at the centre to the most at the rim, and a dotted line beyond
+// the rim for the floor — what no level grants alone.
+//
+// Sibling of /binding: that page says which rules bind today; this one says
+// what an agent may do today under them.
+import Layout from "@/layouts/Layout.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
+import { LEVELS, PERMISSIONS, AGENTS, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
+import type { Grade } from "@/lib/automation-levels";
+
+const CX = 360, CY = 360;
+const P = (r: number, a: number) => { const t = ((a - 90) * Math.PI) / 180; return [CX + r * Math.cos(t), CY + r * Math.sin(t)]; };
+const RR: [number, number][] = [[0, 70], [76, 124], [130, 178], [184, 232], [238, 286]];
+const disc = (r: number) => `M${CX - r},${CY}a${r},${r} 0 1,0 ${2 * r},0a${r},${r} 0 1,0 ${-2 * r},0Z`;
+const ringPath = (r0: number, r1: number) => (r0 === 0 ? disc(r1) : `${disc(r1)} ${disc(r0)}`);
+const textArc = (rm: number) => { const [x0, y0] = P(rm, -88), [x1, y1] = P(rm, 88); return `M${x0},${y0}A${rm},${rm} 0 0,1 ${x1},${y1}`; };
+const ticks = Array.from({ length: 72 }, (_, i) => i * 5).map((a) => {
+  const L = a % 45 === 0; const [x0, y0] = P(288, a), [x1, y1] = P(L ? 302 : a % 15 === 0 ? 296 : 292, a);
+  return { x0, y0, x1, y1, L };
+});
+const marks = AGENTS.map((m) => {
+  const r = RR[m.level]; const rm = m.level === 0 ? 40 : (r[0] + r[1]) / 2;
+  const [x, y] = P(rm, m.angle); const [lx, ly] = P(rm + 16, m.angle);
+  return { ...m, x, y, lx, ly, end: m.angle > 180 };
+});
+const today = LEVELS.find((l) => l.today)!;
+const grade = (g: Grade) => `pill ${g}`;
+---
+
+<Layout
+  title="What an agent may do without asking — numinia-archive"
+  description="The permissions an agent needs to operate here, in the approver's words, graded at five levels of automation. Nothing new: the rules the archive already holds, arranged for the person who says yes."
+  canonicalPath="/automation"
+>
+  <section class="auto mx-auto max-w-[1280px] px-6 pb-24 pt-10">
+    <div class="stage">
+      <div class="ctx" aria-live="polite">
+        <div class="et">Beside <a href="/binding">what binds today</a></div>
+        <h1>What an agent may do without asking</h1>
+        <p>Every permission an agent asks for arrives as a line of shell. This view puts it in the approver's words: which permissions exist, what each implies, and which are granted alone at each level of automation. It states nothing of its own: it reads each agent's operator file, the permission register and the approval protocol.</p>
+        <div class="qa">
+          <div class="depth" role="tablist" aria-label="Level">
+            {LEVELS.map((l) => <button type="button" role="tab" data-l={l.id} aria-selected={l.today ? "true" : "false"}><span></span><i>{l.name}</i></button>)}
+          </div>
+          {LEVELS.map((l) => (
+            <div class="lv" data-l={l.id} hidden={!l.today}>
+              <h2>{l.name}{l.today && <span class="today">Ursa is here</span>}</h2>
+              <p>{l.line}</p>
+              <div class="kv"><b>You</b><span>{l.you}</span><b>Where you approve</b><span>{l.where}</span><b>The agent does alone</b><span>{l.alone}</span><b>It asks</b><span>{l.asks}</span></div>
+              <p class="classic">Equivalent: {l.equiv}</p>
+            </div>
+          ))}
+        </div>
+        <div class="qa">
+          <h2>What no level grants alone</h2>
+          <p>Four permissions are floor across the whole scale: the repository's settings, the domains, money, and the agent's own identity. The dotted line around the circle is that floor. Beyond it, a system that sets its own goals: out of the map by design.</p>
+        </div>
+      </div>
+
+      <div class="mapcol">
+        <div class="lenses"><span class="et">Show</span><button type="button" class="ctl on" data-view="levels">The levels</button><button type="button" class="ctl" data-view="agents">Where each agent is</button></div>
+        <svg class="astro" viewBox="-20 -20 760 760" role="group" aria-label="The five levels of automation">
+          <defs>
+            {RR.map((r, i) => <path id={`t-${i}`} d={textArc((r[0] + r[1]) / 2)} />)}
+            <path id="t-floor" d={textArc(322)} />
+          </defs>
+          <circle class="rim" cx={CX} cy={CY} r="288" />
+          {ticks.map((t) => <line class:list={["tick", t.L && "l"]} x1={t.x0} y1={t.y0} x2={t.x1} y2={t.y1} />)}
+          {LEVELS.map((l, i) => (
+            <g class:list={["ring", l.today && "sel"]} data-l={l.id} tabindex="0" role="button" aria-label={l.name} aria-pressed={l.today ? "true" : "false"} data-tip={`${l.name}|${l.you}`}>
+              <path class="f" d={ringPath(RR[i][0], RR[i][1])} fill-rule="evenodd" />
+              {i === 0
+                ? <><text class="core-t" x={CX} y={CY + 2}>{l.name}</text><text class="core-s" x={CX} y={CY + 20}>the person does</text></>
+                : <text class="w"><textPath href={`#t-${i}`} startOffset="50%" text-anchor="middle">{l.name}</textPath></text>}
+            </g>
+          ))}
+          <circle class="floor-ring" cx={CX} cy={CY} r="312" />
+          <text class="floor-l"><textPath href="#t-floor" startOffset="50%" text-anchor="middle">the floor · what no level grants alone</textPath></text>
+          <g class="marks" hidden>
+            {marks.map((m) => (
+              <g data-tip={`${m.name}|${LEVELS[m.level].name} · ${m.note}`}>
+                <circle class:list={["agent-dot", m.ghost && "ghost"]} cx={m.x} cy={m.y} r="5" />
+                <text class="agent-l" x={m.lx} y={m.ly + 3} text-anchor={m.end ? "end" : "start"}>{m.name}</text>
+              </g>
+            ))}
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <h2 class="sec">The permissions, level by level</h2>
+    <p class="lede">A permission is always described the same way: what it is, what it lets the agent do, what could go wrong, whether it can be undone, and who grants it today. Open a row to read it; pick a column to change level.</p>
+    <div class="legend"><span class="pill alone">alone</span><span>does it without asking</span><span class="pill ask">asks</span><span>stops and waits for a yes</span><span class="pill never">never</span><span>no level grants it alone</span></div>
+    <div class="overflow-x-auto">
+      <table class="matrix">
+        <thead><tr><th></th><th>Permission</th>{LEVELS.map((l) => <th class:list={["lvl", l.today && "active"]} data-l={l.id}><button type="button" data-l={l.id}>{l.name}</button></th>)}<th>Undone</th></tr></thead>
+        <tbody>
+          {PERMISSIONS.map((p) => (
+            <>
+              <tr class="perm" data-n={p.n}>
+                <td class="n">{String(p.n).padStart(2, "0")}</td>
+                <td><button type="button" class="row-btn" aria-expanded="false" aria-controls={`d-${p.n}`}>{p.name}</button></td>
+                {p.levels.map((g, i) => <td class:list={["lvl", LEVELS[i].today && "active"]} data-l={i}><span class={grade(g)}>{GRADE_LABEL[g]}</span></td>)}
+                <td class="undo">{p.undo}</td>
+              </tr>
+              <tr class="detail" id={`d-${p.n}`} hidden>
+                <td colspan="8">
+                  <div class="grid"><div><b>What it lets it do</b>{p.lets}</div><div><b>What could go wrong</b>{p.wrong}</div><div><b>Undone</b>{p.undo}</div><div><b>Who grants it today</b>{p.who}</div><div><b>Risk it bounds</b>{p.risk}</div></div>
+                  {p.floor && <div class="floor"><b>Floor.</b> {p.floor}</div>}
+                  <div class="why">{p.levels.map((g, i) => <span data-l={i} hidden={!LEVELS[i].today}>At <b>{LEVELS[i].name}</b>: {g === "alone" ? "it does it alone, without notice; it stays in the session's record." : g === "ask" ? "it stops, explains it in your words and waits for your go." : "it does not do it. If it needs it, it asks you as a decision of yours, never as a permission."}</span>)}</div>
+                </td>
+              </tr>
+            </>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h2 class="sec">How a request reads</h2>
+    <p class="lede">The approval protocol says this; here it is only shown. The same request, written twice. Whatever the level, the question is asked the same way: what I am about to do, what could go wrong, whether it can be undone. The shell goes underneath, for whoever wants to read it.</p>
+    <div class="dialogs">
+      <div class="dlg">
+        <div class="et">Today</div>
+        <pre>Command required approval (Security scan — [MEDIUM] URL uses raw IP address: URL points to IP address 0.0.0.50 instead of a domain name; [MEDIUM] Schemeless URL in sink context: URL without explicit scheme passed to a command that downloads/executes content)
+
+cd …/scratch && git clone -q --depth 50 https://github.com/numengames/numinia-archive.git</pre>
+        <div class="btns"><span class="btn">Approve</span><span class="btn">Deny</span></div>
+      </div>
+      <div class="dlg new">
+        <div class="et">Proposed</div>
+        <pre><b>I am about to copy the archive (numinia.org) to my desk.</b>
+Permissions: <span class="pill alone">read the repositories</span> <span class="pill alone">write on my desk</span>
+What could go wrong: nothing outside my folder; about 40 MB of disk.
+Undone: yes, it is deleted.
+At your level today (<b>{today.name}</b>) this asks; at Conditional it would go alone.<span class="cmd">git clone --depth 50 https://github.com/numengames/numinia-archive.git</span></pre>
+        <div class="btns"><span class="btn enter">Go ahead</span><span class="btn">Not this time</span><span class="btn stop">Stop and explain</span></div>
+      </div>
+    </div>
+
+    <h2 class="sec">Where this comes from</h2>
+    <ul class="sources">
+      {SOURCES.map((s) => <li>{s.href ? <a href={s.href}>{s.text}</a> : s.text}</li>)}
+    </ul>
+    <div class="mt-10">
+      <DocToolbar
+        mdUrl="/automation.md"
+        filename="automation.md"
+        repoUrl={repoFileUrl(AUTOMATION_SOURCES[0]) ?? "https://github.com/numengames/numinia-archive/blob/main/standards/STD-017-who-may-change-what.md"}
+        lang="en"
+      />
+    </div>
+  </section>
+  <div class="tip" id="tip" role="tooltip"></div>
+</Layout>
+
+<style is:global>
+  .auto { --t1: rgb(var(--text)); --t2: rgb(var(--text-muted)); --t3: rgb(var(--text-dim)); --lf: rgb(var(--border)); --int: rgb(var(--teal)); --amb: rgb(var(--ambar)); }
+  .auto .stage { display: grid; grid-template-columns: minmax(340px, 440px) 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 1000px) { .auto .stage { grid-template-columns: 1fr; gap: 20px; } .auto .mapcol { order: -1; } }
+  .auto .et { font: 500 .75rem/1.3 var(--font-mono); letter-spacing: .10em; text-transform: uppercase; color: var(--t2); }
+  .auto .et a { color: rgb(var(--accent)); }
+  .auto .ctx { position: sticky; top: 76px; background: rgb(var(--bg-card) / .55); border: 1px solid rgb(var(--border) / .6); backdrop-filter: blur(14px); border-radius: 8px; padding: 24px; }
+  @media (max-width: 1000px) { .auto .ctx { position: static; } }
+  .auto .ctx h1 { font: 500 2.488rem/1.08 var(--font-sans); letter-spacing: -.02em; margin: 6px 0 14px; color: var(--t1); }
+  .auto .ctx h2 { font: 600 1.2rem/1.3 var(--font-sans); margin: 0 0 6px; color: var(--t1); }
+  .auto .ctx p { color: var(--t2); margin: 0 0 14px; }
+  .auto .qa { border-top: 1px solid rgb(var(--border) / .6); padding-top: 14px; margin-top: 14px; }
+  .auto .depth { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; margin: 0 0 16px; }
+  .auto .depth button { text-align: center; background: none; border: 0; padding: 0; cursor: pointer; }
+  .auto .depth span { display: block; height: 3px; border-radius: 2px; background: var(--lf); margin-bottom: 5px; transition: background .2s; }
+  .auto .depth button[aria-selected="true"] span { background: var(--int); }
+  .auto .depth button.past span { background: rgb(var(--teal) / .45); }
+  .auto .depth i { font: 500 .625rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--t2); font-style: normal; }
+  .auto .depth button[aria-selected="true"] i { color: var(--t1); }
+  .auto .kv { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; margin: 0 0 6px; font-size: .9375rem; }
+  .auto .kv b { font: 500 .6875rem var(--font-mono); letter-spacing: .10em; text-transform: uppercase; color: var(--t2); padding-top: 3px; white-space: nowrap; }
+  .auto .kv span { color: var(--t1); }
+  .auto .today { display: inline-block; margin-left: 8px; font: 500 .625rem var(--font-mono); letter-spacing: .10em; text-transform: uppercase; border: 1px solid var(--amb); color: var(--amb); border-radius: 9999px; padding: 1px 8px; vertical-align: middle; }
+  .auto .classic { font: 400 .8125rem var(--font-mono); color: var(--t2) !important; }
+  .auto .mapcol { display: flex; flex-direction: column; gap: 10px; }
+  .auto .lenses { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: flex-end; }
+  .auto .ctl { min-height: 44px; font: 500 .75rem var(--font-mono); letter-spacing: .08em; color: var(--t2); background: transparent; border: 1px dashed var(--lf); border-radius: 6px; padding: 0 12px; cursor: pointer; }
+  .auto .ctl:hover { border-color: var(--int); color: var(--t1); }
+  .auto .ctl.on { border-style: solid; border-color: var(--int); color: var(--t1); background: rgb(var(--teal) / .12); }
+  .auto svg.astro { width: 100%; max-width: 720px; height: auto; display: block; margin-left: auto; }
+  .auto .rim { fill: none; stroke: var(--lf); }
+  .auto .tick { stroke: var(--lf); } .auto .tick.l { stroke: var(--t3); }
+  .auto .ring { cursor: pointer; outline: none; }
+  .auto .ring path.f { fill: rgb(var(--text) / .035); stroke: var(--lf); stroke-width: 1; transition: fill .25s, stroke .25s; }
+  .auto .ring:hover path.f { stroke: var(--int); stroke-width: 1.5; fill: rgb(var(--text) / .08); }
+  .auto .ring:focus-visible path.f { stroke: var(--int); stroke-width: 2.5; }
+  .auto .ring.in path.f { fill: rgb(var(--teal) / .10); stroke: rgb(var(--teal) / .7); }
+  .auto .ring.sel path.f { fill: rgb(var(--teal) / .18); stroke: var(--int); stroke-width: 2; }
+  .auto .ring text { pointer-events: none; }
+  .auto .ring .w { fill: var(--t2); font: 500 12px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
+  .auto .ring.in .w, .auto .ring.sel .w { fill: var(--t1); }
+  .auto .core-t { fill: var(--t1); font: 500 20px var(--font-sans); text-anchor: middle; pointer-events: none; }
+  .auto .core-s { fill: var(--t2); font: 500 10px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; text-anchor: middle; pointer-events: none; }
+  .auto .floor-ring { fill: none; stroke: rgb(var(--red) / .55); stroke-dasharray: 2 5; }
+  .auto .floor-l { fill: rgb(var(--red)); font: 500 10px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
+  .auto .marks[hidden] { display: none; }
+  .auto .agent-dot { fill: var(--amb); stroke: rgb(var(--bg)); stroke-width: 2; }
+  .auto .agent-dot.ghost { fill: var(--t3); }
+  .auto .agent-l { fill: var(--t2); font: 500 10px var(--font-mono); letter-spacing: .10em; text-transform: uppercase; pointer-events: none; }
+  @media (max-width: 600px) { .auto .ring .w { font-size: 18px; letter-spacing: .06em; } }
+  .auto h2.sec { font: 500 1.728rem/1.15 var(--font-sans); letter-spacing: -.01em; margin: 64px 0 8px; color: var(--t1); }
+  .auto p.lede { color: var(--t2); max-width: 720px; margin: 0 0 18px; }
+  .auto .legend { display: flex; gap: 18px; flex-wrap: wrap; font-size: .8125rem; color: var(--t2); margin: 0 0 12px; align-items: center; }
+  .auto .pill { display: inline-flex; align-items: center; gap: 6px; padding: 1px 9px; border-radius: 9999px; font: 500 .6875rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; border: 1px solid; }
+  .auto .pill.alone { color: rgb(var(--green)); border-color: rgb(var(--green) / .5); }
+  .auto .pill.ask { color: var(--amb); border-color: rgb(var(--ambar) / .5); }
+  .auto .pill.never { color: rgb(var(--red)); border-color: rgb(var(--red) / .5); }
+  .auto table.matrix { width: 100%; border-collapse: collapse; font-size: .9375rem; }
+  .auto .matrix th { font: 500 .6875rem var(--font-mono); letter-spacing: .10em; text-transform: uppercase; color: var(--t2); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--lf); }
+  .auto .matrix th.lvl { text-align: center; width: 11%; }
+  .auto .matrix th.lvl button { background: none; border: 0; padding: 0; font: inherit; color: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; }
+  .auto .matrix th.active { color: var(--int); }
+  .auto .matrix td { padding: 10px; border-bottom: 1px solid rgb(var(--border) / .5); vertical-align: top; }
+  .auto .matrix td.n { font: 500 .75rem var(--font-mono); color: var(--t2); width: 36px; }
+  .auto .matrix td.lvl { text-align: center; }
+  .auto .matrix td.lvl.active { background: rgb(var(--teal) / .07); }
+  .auto .matrix td.undo { color: var(--t2); font-size: .875rem; }
+  .auto .row-btn { background: none; border: 0; padding: 0; font: inherit; color: var(--t1); text-align: left; cursor: pointer; }
+  .auto .row-btn:hover { color: rgb(var(--accent)); }
+  .auto tr.perm.open td { background: rgb(var(--bg-card) / .55); }
+  .auto tr.detail td { background: rgb(var(--bg-card) / .55); padding: 14px 16px 18px; border-bottom: 1px solid var(--lf); }
+  .auto tr.detail[hidden] { display: none; }
+  .auto .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px 24px; font-size: .9375rem; color: var(--t1); }
+  .auto .grid b { display: block; font: 500 .6875rem var(--font-mono); letter-spacing: .10em; text-transform: uppercase; color: var(--t2); margin-bottom: 2px; }
+  .auto .floor { margin-top: 14px; padding: 10px 12px; border-left: 2px solid rgb(var(--red)); background: rgb(var(--red) / .06); font-size: .9375rem; color: var(--t1); }
+  .auto .floor b { color: rgb(var(--red)); font-weight: 600; }
+  .auto .why { margin-top: 10px; font-size: .9375rem; color: var(--t2); }
+  .auto .why b { color: var(--t1); font-weight: 500; }
+  .auto .why span[hidden] { display: none; }
+  .auto .dialogs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 800px) { .auto .dialogs { grid-template-columns: 1fr; } }
+  .auto .dlg { background: rgb(var(--bg-card) / .55); border: 1px solid rgb(var(--border) / .6); border-radius: 8px; padding: 18px; }
+  .auto .dlg .et { margin-bottom: 10px; }
+  .auto .dlg pre { white-space: pre-wrap; margin: 0; font: 400 .8125rem/1.45 var(--font-mono); color: var(--t2); }
+  .auto .dlg.new pre { font: 400 .9375rem/1.5 var(--font-sans); color: var(--t1); }
+  .auto .dlg.new pre .cmd { display: block; margin-top: 10px; font: 400 .75rem var(--font-mono); color: var(--t3); }
+  .auto .btns { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .auto .btn { display: inline-flex; align-items: center; min-height: 40px; border: 1px solid var(--lf); color: var(--t1); border-radius: 6px; padding: 0 14px; font: 500 .75rem var(--font-mono); letter-spacing: .10em; text-transform: uppercase; }
+  .auto .btn.enter { background: #016E7D; color: #F9EBDC; border-color: #016E7D; }
+  .auto .btn.stop { border-color: rgb(var(--red) / .6); color: rgb(var(--red)); }
+  .auto .sources { font-size: .875rem; color: var(--t2); padding-left: 18px; }
+  .auto .sources li { margin-bottom: 6px; }
+  .auto .sources a { color: rgb(var(--accent)); }
+  .auto ~ .tip, .tip { position: fixed; pointer-events: none; z-index: 70; max-width: 280px; background: rgb(var(--text)); color: rgb(var(--bg)); font: 400 .8125rem/1.4 var(--font-sans); padding: 8px 10px; border-radius: 6px; opacity: 0; transition: opacity .2s; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
+  .tip b { display: block; font: 500 .625rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; opacity: .7; margin-bottom: 2px; }
+  @media (prefers-reduced-motion: reduce) { .auto * { transition: none !important; } }
+</style>
+
+<script>
+  // Every level is real HTML already on the page; the script only chooses
+  // which one shows. Without it, the page shows Ursa's level today.
+  const root = document.querySelector<HTMLElement>(".auto")!;
+  const rings = [...root.querySelectorAll<SVGGElement>(".ring")];
+  const tabs = [...root.querySelectorAll<HTMLButtonElement>(".depth button")];
+  const panels = [...root.querySelectorAll<HTMLElement>(".lv")];
+  const ths = [...root.querySelectorAll<HTMLElement>("th.lvl")];
+  const tds = [...root.querySelectorAll<HTMLElement>("td.lvl")];
+  const whys = [...root.querySelectorAll<HTMLElement>(".why span")];
+
+  function setLevel(l: number) {
+    rings.forEach((r) => { const i = +r.dataset.l!; r.classList.toggle("sel", i === l); r.classList.toggle("in", i < l); r.setAttribute("aria-pressed", String(i === l)); });
+    tabs.forEach((t) => { const i = +t.dataset.l!; t.setAttribute("aria-selected", String(i === l)); t.classList.toggle("past", i < l); });
+    panels.forEach((p) => (p.hidden = +p.dataset.l! !== l));
+    ths.forEach((t) => t.classList.toggle("active", +t.dataset.l! === l));
+    tds.forEach((t) => t.classList.toggle("active", +t.dataset.l! === l));
+    whys.forEach((w) => (w.hidden = +w.dataset.l! !== l));
+    history.replaceState(null, "", `#level-${l}`);
+  }
+  root.addEventListener("click", (e) => {
+    const t = (e.target as Element).closest<HTMLElement>("[data-l]");
+    if (t && (t.closest(".ring, .depth, th.lvl"))) { setLevel(+t.dataset.l!); return; }
+    const row = (e.target as Element).closest<HTMLButtonElement>(".row-btn");
+    if (row) {
+      const tr = row.closest("tr")!; const d = document.getElementById(row.getAttribute("aria-controls")!)!;
+      const open = d.hidden; d.hidden = !open; tr.classList.toggle("open", open); row.setAttribute("aria-expanded", String(open));
+    }
+    const v = (e.target as Element).closest<HTMLElement>("[data-view]");
+    if (v) {
+      root.querySelectorAll("[data-view]").forEach((b) => b.classList.toggle("on", b === v));
+      root.querySelector<SVGGElement>(".marks")!.hidden = v.dataset.view !== "agents";
+    }
+  });
+  rings.forEach((r) => r.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLevel(+r.dataset.l!); } }));
+
+  const tip = document.getElementById("tip")!;
+  const hover = matchMedia("(hover: hover)").matches;
+  root.querySelectorAll<HTMLElement>("[data-tip]").forEach((el) => {
+    const show = (x: number, y: number) => { const [l, t] = (el.dataset.tip ?? "").split("|"); tip.innerHTML = `<b>${l}</b>${t ?? ""}`; tip.style.left = Math.min(x + 14, innerWidth - 300) + "px"; tip.style.top = Math.min(y + 16, innerHeight - 90) + "px"; tip.style.opacity = "1"; };
+    if (hover) el.addEventListener("mousemove", (e) => show((e as MouseEvent).clientX, (e as MouseEvent).clientY));
+    el.addEventListener("mouseleave", () => (tip.style.opacity = "0"));
+    el.addEventListener("focus", () => { const r = el.getBoundingClientRect(); show(r.left + r.width / 2, r.bottom); });
+    el.addEventListener("blur", () => (tip.style.opacity = "0"));
+  });
+
+  const m = location.hash.match(/^#level-([0-4])$/);
+  if (m) setLevel(+m[1]);
+</script>

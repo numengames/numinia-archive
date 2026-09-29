@@ -81,6 +81,7 @@ const STANDALONE = new Set([
   '/telemetry',   // the measured figures
   '/agent',       // the roster's detail view
   '/binding',     // what is in force while the rules are draft — the regime, from AGENTS.md
+  '/automation',  // what an agent may do without asking, level by level — a view over STD-017, PRO-008, PRO-016 and the OPERATOR files
   // 2026-09-21: /wardley /gaps /cao /continuity /language /sales /simulations
   // /solutions moved under /system/ — a series segment, so URL-001 admits
   // them without a line here. Their old roots are redirects now.

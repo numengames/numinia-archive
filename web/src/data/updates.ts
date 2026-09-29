@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.89.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "ADD",
+        text: "What an agent may do without asking, at /automation. An agent asks its operator for permission many times a session, and each request arrives as a line of shell he did not write. The page draws the five levels of automation as the home's astrolabe — Assisted at the centre, Partial, Conditional, High and Full at the rim, a dotted line beyond it for the floor no level grants alone — and grades sixteen permissions at each level: what each lets the agent do, what could go wrong, whether it can be undone, who grants it today. A lens shows where each agent of the house sits; the same request is shown as the shell it arrives in and as the words it should arrive in. Nothing new: the rules the archive already holds, arranged for the person who says yes. Linked from what binds today.",
+      },
+    ],
+  },
+  {
     version: "v0.88.0",
     date: "2026-09-28",
     entries: [
