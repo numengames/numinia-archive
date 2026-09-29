@@ -1,5 +1,5 @@
 {
-  "$description": "Numinia Design System · v6.3.0 · Solar 40 / Steam 40 / Cyber 20",
+  "$description": "Numinia Design System · v6.4.0 · Solar 40 / Steam 40 / Cyber 20",
   "color": {
     "$type": "color",
     "marca": {
@@ -959,9 +959,14 @@
     "barra-entrada": {
       "$value": "etiqueta Mono versal + icono Phosphor 14px"
     },
-    "nombre": {
-      "$value": "escrito en Geist display, nunca el logo",
-      "$description": "Numinia · Numen Games · NWOS"
+    "marca": {
+      "$value": {
+        "numinia.org": "Numinia_Word.svg",
+        "numinia.com": "Numinia_Word.svg",
+        "numen.games": "Numen_Games_Horizontal_Word.svg",
+        "nwos.numen.games": "Numen_Games_Horizontal_Word.svg"
+      },
+      "$description": "El wordmark de la barra, currentColor, 20px de alto (16 en móvil), con aria-label (Oráculo, 2026-09-29)"
     },
     "titular-peso": {
       "$type": "fontWeight",

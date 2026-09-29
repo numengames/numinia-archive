@@ -109,3 +109,22 @@ test('ETIQUETA: the kit label type is the bar\'s: 0.7rem, tracking 0.15em', () =
   const kitCss = read('machine/packages/design-kit/sistema.css');
   assert.match(kitCss, /\.etiqueta\{[^}]*font-size:\.7rem[^}]*letter-spacing:\.15em/);
 });
+
+// THE MARK  The bar opens with the site's wordmark, not the name typed out
+//           (the Oracle, 2026-09-29): Numinia on the Numinia sites, Numen
+//           Games on the company's. The file is the canonical one, never redrawn.
+test('MARK: the bar carries the Numinia wordmark, as an image with the name for a screen reader', () => {
+  const nav = read('web/src/components/Navigation.astro');
+  assert.match(nav, /import \w+ from "@\/brand\/Numinia_Word\.svg\?raw"/);
+  assert.match(nav, /aria-label="Numinia"[^>]*set:html=\{\w+\}|set:html=\{\w+\}[^>]*aria-label="Numinia"/s);
+});
+
+test('MARK: the web piece names which wordmark each site carries', () => {
+  const std = read('standards/STD-023-design-values.md');
+  const s23 = std.slice(std.indexOf('## 23. '));
+  assert.match(s23, /`Numinia_Word`[^|]*numinia\.org[^|]*numinia\.com/);
+  assert.match(s23, /`Numen_Games_Horizontal_Word`[^|]*numen\.games[^|]*nwos\.numen\.games/);
+  assert.doesNotMatch(s23, /never the logo/);
+  assert.equal(tokens.web.marca.$value['numinia.org'], 'Numinia_Word.svg');
+  assert.equal(tokens.web.marca.$value['numen.games'], 'Numen_Games_Horizontal_Word.svg');
+});

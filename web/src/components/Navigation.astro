@@ -31,13 +31,14 @@ const inBook = BOOKS.some((b) => b.href && (path === b.href || path.startsWith(b
 // The bar's own text style: Mono, uppercase, tracked — type.etiqueta.
 const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
 import NarrativeDial from "@/components/NarrativeDial.astro";
+// The bar opens with the wordmark (the Oracle, 2026-09-29): the canonical
+// file, in currentColor, named for a screen reader. Never redrawn.
+import wordmark from "@/brand/Numinia_Word.svg?raw";
 ---
 
 <nav data-pagefind-ignore="all" class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl" aria-label="Primary">
   <div class="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
-    <a href={homeHref} class="flex min-h-[44px] items-center font-display text-xl text-foreground transition-colors hover:text-accent">
-      Numinia
-    </a>
+    <a href={homeHref} aria-label="Numinia" class="wordmark flex min-h-[44px] items-center text-foreground transition-colors hover:text-accent" set:html={wordmark} />
 
     <!--
       Desktop bar. `lg` breakpoint, as before: measured at 768 px the entries
@@ -108,6 +109,9 @@ import NarrativeDial from "@/components/NarrativeDial.astro";
 
 
 <style>
+  /* The wordmark at 20 px high, 16 on a phone, as numinia.com draws it. */
+  .wordmark :global(svg) { height: 20px; width: auto; display: block; }
+  @media (max-width: 48rem) { .wordmark :global(svg) { height: 16px; } }
   /* Pure-CSS icon swap keyed on the html attribute: no flash, no JS paint. */
   :global(html:not([data-modo="diurno"])) .solo-diurno,
   :global(html[data-modo="diurno"]) .solo-nocturno {

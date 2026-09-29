@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.104.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "CHG",
+        text: "The bar opens with the Numinia wordmark instead of the name typed out, as numinia.com does. The design system now says it: every site's bar carries its wordmark, Numinia's on the Numinia sites and Numen Games' on the company's.",
+      },
+    ],
+  },
+  {
     version: "v0.103.0",
     date: "2026-09-29",
     entries: [

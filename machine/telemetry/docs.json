@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17332,
+  "chars": 17599,
   "apparatus": false,
   "archived": false,
-  "tokens": 4705
+  "tokens": 4799
  },
  {
   "path": "CLAUDE.md",
@@ -577,10 +577,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 21463,
+  "chars": 21544,
   "apparatus": false,
   "archived": false,
-  "tokens": 5948
+  "tokens": 5976
  },
  {
   "path": "blueprints/BLU-010-pixel-register.md",
@@ -2546,10 +2546,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 29641,
+  "chars": 29939,
   "apparatus": false,
   "archived": false,
-  "tokens": 8957
+  "tokens": 9039
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
@@ -2689,10 +2689,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8276,
+  "chars": 8297,
   "apparatus": false,
   "archived": false,
-  "tokens": 2137
+  "tokens": 2144
  },
  {
   "path": "standards/STD-038-the-stages-of-a-sale.md",

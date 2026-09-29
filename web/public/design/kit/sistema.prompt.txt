@@ -77,8 +77,9 @@ sedimento x — cópiala de tokens binaria.bits o usa binaria() del kit; no inve
 Forma: dos radios — control 6px, marco 8px, y ninguno más (ni 4, ni 12, ni 16; una
 barra fina es cápsula); el registro píxel conserva cantos rectos.
 Pieza web (STD-023 §23, manda numinia.org): columna 1100px (un mapa entero, 1280); barra pegada arriba de
-56px, fondo al 85% + blur 24px; el nombre del sitio ESCRITO a la izquierda, nunca el
-logo; entradas en etiqueta Mono versal con icono Phosphor 14px; activa subrayada 2px
+56px, fondo al 85% + blur 24px; a la izquierda el wordmark del sitio en currentColor,
+20px de alto (Numinia_Word en numinia.org/.com, Numen_Games_Horizontal_Word en
+numen.games y nwos), con aria-label; entradas en etiqueta Mono versal con icono Phosphor 14px; activa subrayada 2px
 Turquesa; a la derecha búsqueda y modo, botones de 44px; en móvil panel a pantalla
 completa con lo mismo. Tarjetas superficie al 60%, línea fuerte, 8px, 20px dentro.
 Mensajes (§9.7): qué pasó + qué hacer, nivel I; el error mudo está prohibido; tooltip

@@ -1,6 +1,6 @@
 {
   "sistema": "Numinia Design System",
-  "version": "6.3.0",
+  "version": "6.4.0",
   "source": {
     "package": "@numengames/design-kit",
     "path": "machine/packages/design-kit",
@@ -15,9 +15,9 @@
     "url": "https://numinia.org/design"
   },
   "files": {
-    "sistema.css": "7122cebdb3df630eeef83fad597d4af7dbf0f518e01b22bf0740d8a2f606ad1e",
-    "sistema.js": "a0fa49211474e9c92878738be241f2dbfcc43dc717f3b08159ea413eb803c020",
-    "sistema.tokens.json": "952c1957097be985212e984fbcb470e5eed84551a291f13e10af9da9b70e9841",
-    "sistema.prompt.txt": "cca01516a9ec5d1a9ff54a709ff641c9642464fb9e2fd2f681a67a7ca55ac176"
+    "sistema.css": "d1c6f173d94f7263dc5dfe19cacf4ceb7a69a0b4e6c0a6169853685031ebedc2",
+    "sistema.js": "ec2efb9d5933c5a07827db1d23beaf46a8d2db64a5e6a732d8090db2b0162550",
+    "sistema.tokens.json": "dee1e35bf8941611f5dbdce03687be7ffd157caee7df7abfc488e87ec0fba1e2",
+    "sistema.prompt.txt": "a0703070c8a9e6f0cf8fdb545ae1c4afa9727098fb139563b31b7b91a6052dcb"
   }
 }
