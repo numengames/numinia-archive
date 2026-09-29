@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "a870cf9",
-  "corpus_hash": "3b1e3e7d13bfede137afa74428c5373d6d12dba55e8f50cd10789cfecb9dc199",
+  "head": "c8f8f0e",
+  "corpus_hash": "96e3f7fa91b854338cfae04f0449247cbb557c2a27d49ef40b30fc0452e578e6",
   "root_dirty": 0,
-  "measured_at": "2026-09-29T14:59:36Z",
+  "measured_at": "2026-09-29T15:13:11Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 668,
+      "value": 669,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -37,7 +37,7 @@
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
-        ".ts": 44,
+        ".ts": 45,
         ".tsx": 2,
         ".txt": 11,
         ".webp": 1,
