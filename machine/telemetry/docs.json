@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 15712,
+  "chars": 15723,
   "apparatus": false,
   "archived": false,
-  "tokens": 4212
+  "tokens": 4239
  },
  {
   "path": "CLAUDE.md",
@@ -962,10 +962,10 @@
   "series": "legal",
   "type": "legal",
   "status": "draft",
-  "chars": 11695,
+  "chars": 11903,
   "apparatus": false,
   "archived": false,
-  "tokens": 2979
+  "tokens": 3033
  },
  {
   "path": "legal/LEG-004-legal-notice-numengames.md",
