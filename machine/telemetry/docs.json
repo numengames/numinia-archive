@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14882,
+  "chars": 15148,
   "apparatus": false,
   "archived": false,
-  "tokens": 3999
+  "tokens": 4065
  },
  {
   "path": "CLAUDE.md",
@@ -2788,10 +2788,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 5824,
+  "chars": 5999,
   "apparatus": false,
   "archived": false,
-  "tokens": 1562
+  "tokens": 1601
  },
  {
   "path": "system/semantic-census/artefact-lap.md",
@@ -2810,10 +2810,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 7428,
+  "chars": 9437,
   "apparatus": false,
   "archived": false,
-  "tokens": 2252
+  "tokens": 2774
  },
  {
   "path": "system/semantic-census/faction-heirs-of-eleusis.md",
@@ -2821,10 +2821,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9007,
+  "chars": 9175,
   "apparatus": false,
   "archived": false,
-  "tokens": 2587
+  "tokens": 2635
  },
  {
   "path": "system/semantic-census/force-threshold.md",

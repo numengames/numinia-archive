@@ -5,9 +5,9 @@ title: "The semantic census"
 type: documentation
 subtype: reference
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-29T12:15:00+02:00"
-updated: "2026-09-29T12:15:00+02:00"
+updated: "2026-09-29T14:08:00+02:00"
 author: "ursa"
 owner: "oracle"
 provenance: ai-assisted
@@ -66,7 +66,7 @@ Eight, in this order. One valid entity is enough to open a category.
 |---|---|---|
 | `guild` | the four guilds and their houses | [Exegetes](/system/semantic-census/guild-exegetes/) |
 | `faction` | the factions of the world | [Heirs of Eleusis](/system/semantic-census/faction-heirs-of-eleusis/) |
-| `district` | the city's districts | [Ouroboros District](/system/semantic-census/district-ouroboros/) |
+| `district` | the operative territory of a faction, with a character of its own; tied to no guild or institution | [Ouroboros District](/system/semantic-census/district-ouroboros/) |
 | `rank` | six ranks, lowest to highest: Nomad, Citizen, Pilgrim, Vernacular, Archon, Oracle | [Oracle](/system/semantic-census/rank-oracle/) |
 | `force` | Veil, Threshold, Prism | [Threshold](/system/semantic-census/force-threshold/) |
 | `institution` | bodies of the world | [Summa Archive](/system/semantic-census/institution-summa-archive/) |
@@ -96,6 +96,9 @@ equivalence is judged *complete*, *partial*, *reductive*, *ambiguous*,
 - **cited** — a source says it; the card quotes it and names the file.
 - **inferred** — several uses support it; the card names them.
 - **proposed** — a plausible reading nobody has confirmed yet.
+
+A reviewer's written answer is a source: the card cites it by name and date,
+quoting its words.
 
 ## Stages
 
