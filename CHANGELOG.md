@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Added** /updates shows the hour each version shipped (Central European Time) and the build it names, read from git at build time; the page gets the reading player (site v0.100.0).
 - **Changed** Christian answers the census: Exegetes govern meaning (brand is one strand); Heirs of Eleusis' field is narrative projection holding gamification; four Oracles remain; the Threshold is also a sign-in. Chapter 2's bards become chroniclers
 - **Fixed** The Veil in English (was «Velo»; BLU-011 now book-and-veil); the Summa Archive with two m's and in that order; a test keeps both; the moon dial gains seven words (site v0.99.0)
 - **Changed** Legal notice (`LEG-004` 0.2.0) gives the Mercantile Registry entry and postal code; `DBT-022` 0.2.0 strikes nine closed rows, adds two and carries the letter to counsel (§5 and a .docx); the cookie notice keeps Accept and Reject side by side on desktop (site v0.98.0)
