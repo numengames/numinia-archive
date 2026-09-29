@@ -144,7 +144,8 @@ export const SEGMENTS: Segment[] = [
   ] },
   { id: "offer-make", ring: "offer", district: "make", word: "Shop", title: "Collect · what it offers", a: [270, 360], entries: [
     E("Shop", "Objects on sale", null),
-    E("Support Numinia", "Monthly, yearly or once, always with a good in return", null),
+    // 2026-09-29: the page exists; the cards are read from OPS-014.
+    E("Support Numinia", "Backer from €5 a month, Sponsor from €200; always with something in return", "/contribute"),
   ] },
 ];
 

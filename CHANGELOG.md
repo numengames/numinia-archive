@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Fixed** The archive's map leads to /contribute: Support Numinia, under The offer · Collect, was marked to create with no link (site v0.94.0)
 - **Added** The semantic census (`SYS-011`): one card per Numinia entity, facet by facet, every claim cited, inferred or proposed; eight pilot cards in draft for Christian. `RPT-023`: a newcomer's wall is the house's words, not the game's
 - **Added** /contribute: Open Collective's Contribute cards and path (details, how you appear, payment) read from `OPS-014` 0.3.0's `goods` (a field `STD-004` 4.5.0 registers for operations/); pay button Coming soon; a block at the foot of every document links to it (site v0.93.0)
 - **Added** Two registers: The levels of automation (STD-041) and What an agent may do without asking (STD-042); /automation reads them instead of carrying the tables; Requesting approval asks for the plain words before the command (site v0.92.0)
