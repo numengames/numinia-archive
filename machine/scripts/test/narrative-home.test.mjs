@@ -30,7 +30,8 @@ const HOME = path.join(ROOT, 'web', 'dist', 'index.html');
 const built = existsSync(HOME);
 const GLOSSARY = readFileSync(path.join(ROOT, 'lore', 'codex', 'en', 'glossary.md'), 'utf8').toLowerCase();
 
-const unesc = (s) => s.replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+// &amp; last, so "&amp;lt;" reads as the text "&lt;" and is not unescaped twice
+const unesc = (s) => s.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
 const swappable = new Set(WORDS.filter((w) => w.plain || w.numinia).map((w) => w.bridge));
 
 test('wordAt gives the stop\'s word, or today\'s word when the register has none', () => {
