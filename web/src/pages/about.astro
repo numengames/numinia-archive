@@ -45,10 +45,11 @@ import SummaColumns from "@/components/SummaColumns.astro";
 import { headerOf } from "@/lib/doc-header";
 import { dataset } from "@/lib/telemetry";
 import { VERSION, repoFileUrl } from "@/lib/build-info";
+import { BOOKS, LENSES } from "@/lib/suma";
 
 // 2026-09-28 — THE ARCHIVE PAGE. The Archive button in the bar opens this
-// page, and the page opens with the same four blocks the Archive menu shows
-// (one component, @/components/SummaColumns). What left: the six-function
+// page; since the drop-down left the bar, the four blocks, the books and the
+// sister sites live only here (@/components/SummaColumns). What left: the six-function
 // cards and the relation graph, a second map of the same archive in an older
 // vocabulary that disagreed with the rings; they live on at /scheme and
 // /archive/<function>. What left too: the welcome, which the home already
@@ -81,8 +82,12 @@ const measuredAt = dataset.measured_at?.slice(0, 10);
         Every series, in <span class="text-yellow">four</span> blocks.
       </h1>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-        From the centre out: the rules, the work, the world, the offer. The same four you see in the
-        map and in the Archive menu. Rest on any entry to read what it is; click to go in.
+        One of two ways to move through the archive. The <a href="/" class="text-accent hover:underline">map</a>{" "}
+        lets you explore it; this page takes you straight to a series.
+      </p>
+      <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
+        Every framed name below is a button: rest on it to read what it is, click to go in. Dashed
+        ones are not written yet.
       </p>
       <div class="mt-6">
         <DocToolbar mdUrl="/about.md" filename="about.md" repoUrl={repoFileUrl(SHOWN.path)} lang="en" />
@@ -92,7 +97,28 @@ const measuredAt = dataset.measured_at?.slice(0, 10);
 
   <section class="pb-24">
     <div class="mx-auto max-w-[1100px] px-6">
-      <div class="mb-16"><SummaColumns variant="page" /></div>
+      <div class="mb-10"><SummaColumns /></div>
+
+      <!-- What the old drop-down carried and the page did not: the books and
+           the sister sites (2026-09-28). Buttons, like the blocks above. -->
+      <div class="mb-16 grid gap-6 lg:grid-cols-2">
+        <div class="rounded-[8px] border border-border bg-card/60 p-5">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-1">Books</p>
+          <p class="text-sm text-muted-foreground mb-3">Documents from several series gathered to read or hear end to end.</p>
+          <div class="flex flex-wrap gap-2">
+            {BOOKS.map((b) => b.href
+              ? <a href={b.href} class="pill" title={b.line}>{b.label} →</a>
+              : <span class="pill todo" title={b.pending}>{b.label} · soon</span>)}
+          </div>
+        </div>
+        <div class="rounded-[8px] border border-border bg-card/60 p-5">
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-1">Our other sites</p>
+          <p class="text-sm text-muted-foreground mb-3">Each one shows a part of this archive to the people it is for.</p>
+          <div class="flex flex-wrap gap-2">
+            {LENSES.map((l) => <a href={l.href} rel="noopener" class="pill" title={`${l.who}. ${l.line}`}>{l.site} ↗</a>)}
+          </div>
+        </div>
+      </div>
 
       <div class="mb-4 flex items-center gap-3">
         <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Before you open a door</span>
@@ -120,7 +146,7 @@ const measuredAt = dataset.measured_at?.slice(0, 10);
           <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">What state is it in?</h2>
           <p class="text-sm leading-relaxed text-muted-foreground">
             Early, and openly so. Most documents say <code class="font-mono text-xs text-foreground">draft</code>:
-            written, not yet in force, binding nobody. <a href="/binding" class="text-accent hover:underline">What binds today</a>
+            written, not yet in force, binding nobody. <a href="/binding" class="text-accent hover:underline">What binds today</a>{" "}
             lists the few that do; what is broken is in <a href="/debt/" class="text-accent hover:underline">the debt register</a>,
             what changed in <a href="/updates/" class="text-accent hover:underline">Updates</a>.
           </p>
@@ -129,7 +155,7 @@ const measuredAt = dataset.measured_at?.slice(0, 10);
           <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">What can you do with it?</h2>
           <p class="text-sm leading-relaxed text-muted-foreground">
             Read all of it, and take it: every page hands you its file to copy or download, and each
-            file states its own licence. Would you rather talk first? Write to
+            file states its own licence. Would you rather talk first? Write to{" "}
             <a href="mailto:hola@numengames.com" class="text-accent hover:underline">hola@numengames.com</a> — a person answers.
           </p>
         </div>
@@ -211,5 +237,8 @@ const measuredAt = dataset.measured_at?.slice(0, 10);
   /* Block cursor (catalogue 08): 1 s, steps(2). */
   @keyframes cursor { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   .animate-cursor { animation: cursor 1s steps(2, start) infinite; }
+  .pill { display: inline-flex; align-items: center; min-height: 40px; padding: 6px 14px; border: 1px solid rgb(var(--border)); border-radius: 6px; background: rgb(var(--bg)); color: rgb(var(--text)); font-size: .9375rem; transition: border-color .15s, background-color .15s, color .15s; }
+  a.pill:hover, a.pill:focus-visible { border-color: rgb(var(--accent)); background: rgb(var(--accent) / .08); color: rgb(var(--accent)); }
+  .pill.todo { border-style: dashed; background: transparent; color: rgb(var(--text-muted)); }
   @media (prefers-reduced-motion: reduce) { .animate-cursor { animation: none; } }
 </style>

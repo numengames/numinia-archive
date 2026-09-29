@@ -2,22 +2,16 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The bar: two ways to look at the same Summa, plus search and day/night.
+// The bar: two ways to move through the same Summa, plus search and day/night.
 //
-// WHAT CHANGED ON 2026-09-24
-// The six function menus (2026-09-21) gave way to the map. "Map" is the home:
-// the astrolabe, to explore. "Archive" is a mega menu with the SAME four rings
-// as columns — the rules, the work, the world, the offer — to go straight to a
-// series. Both read @/lib/suma, so they cannot disagree. On mobile the panel
-// groups the same entries by ring. Every series as one list stays at /about.
-//
-// The menus open on hover and on click (the button toggles them for touch and
-// keyboard; Escape closes). The bridge div under each button keeps the panel
-// open across the gap. Reduced motion: no transition, the panel simply is.
+// 2026-09-28 (second pass): no drop-down. The Archive mega menu opened on
+// hover every time the pointer crossed the bar and covered the page; the
+// Oracle found it in the way. "Map" is the home (the astrolabe, to explore);
+// "Archive" is a plain link to /about, which lays out the same four blocks,
+// the books and the sister sites as a page — every name there a link.
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
-import SummaColumns from "@/components/SummaColumns.astro";
-import { RINGS, RING_ORDER, SEGMENTS, LENSES, BOOKS, locate } from "@/lib/suma";
+import { BOOKS, locate } from "@/lib/suma";
 import { useT } from "@/i18n/ui";
 
 interface Props {
@@ -54,27 +48,7 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
     <div class="flex items-center gap-1">
     <div class="hidden items-center gap-1 lg:flex">
       <a href="/" data-nav="map" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, isHome ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
-      <!-- Two ways to look at the same Summa: the map (explore) and the
-           archive menu (go straight to a series). Same data, suma.ts. -->
-      <div data-dropdown>
-        <a href="/about" data-dropdown-btn data-nav="menu" aria-haspopup="true" aria-expanded="false"
-           class:list={["flex min-h-[44px] items-center gap-1 px-3 transition-colors", etiqueta, (here || isIndex || inBook) ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}>
-          Archive <span data-chevron class="inline-flex transition-transform duration-200 motion-reduce:transition-none"><Icon name="caret-down" size={10} /></span>
-        </a>
-        <div class="fixed inset-x-0 top-14 h-3" data-bridge></div>
-        <div data-dropdown-panel class="mega fixed inset-x-0 top-14 mt-px hidden border-b border-border shadow-xl">
-          <div class="mx-auto max-w-[1100px] px-6 pb-6 pt-6"><SummaColumns /></div>
-          <!-- Books (the compilations) live here since 2026-09-28: the bar keeps
-               two buttons only, Map and Archive. -->
-          <div class="mfoot mx-auto flex max-w-[1100px] flex-wrap items-center gap-x-4 gap-y-2 border-t border-border/50 px-6 py-3">
-            <span class="mbooks">Books</span>
-            {BOOKS.map((b) => b.href
-              ? <a href={b.href} data-nav="menu" class="mbook" data-tip={b.line}>{b.label}</a>
-              : <span class="mbook todo" data-tip={b.pending}>{b.label} <small>soon</small></span>)}
-            <span class="ml-auto">Our other sites {LENSES.map((l) => <a href={`/#l-${l.site}`} class="mlens">{l.site}</a>)}</span>
-          </div>
-        </div>
-      </div>
+      <a href="/about" data-nav="archive" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, (here || isIndex || inBook) ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="archive" size={14} /> Archive</a>
       <SiteSearch />
     </div>
 
@@ -122,34 +96,8 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
   >
     <div class="mx-auto flex max-w-[1100px] flex-col gap-1 px-6 py-4">
       <div class="mb-2"><SiteSearch /></div>
-      <a href="/" class:list={["flex min-h-[44px] items-center gap-2", etiqueta, "text-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
-      <a href="/about" class:list={["flex min-h-[44px] items-center gap-2", etiqueta, "text-foreground"]}>Archive →</a>
-      {RING_ORDER.map((ring) => (
-        <details class="group border-b border-border/50" open={here?.seg.ring === ring}>
-          <summary class:list={["flex min-h-[44px] cursor-pointer list-none items-center justify-between", etiqueta, here?.seg.ring === ring ? "text-foreground" : "text-muted-foreground"]}>
-            <span>{RINGS[ring].name}</span>
-            <span class="inline-flex transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"><Icon name="caret-down" size={12} /></span>
-          </summary>
-          <div class="flex flex-col pb-3">
-            {SEGMENTS.filter((sg) => sg.ring === ring).flatMap((sg) => sg.entries.filter((e) => e.href).map((e) => (
-              <a href={e.href!} class="flex min-h-[44px] items-baseline justify-between gap-3 rounded-[6px] px-3 text-foreground hover:bg-card">
-                <span>{e.label}</span><span class="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-muted-foreground">{sg.district ? sg.word : sg.title}</span>
-              </a>)))}
-          </div>
-        </details>
-      ))}
-      <details class="group border-b border-border/50" open={inBook}>
-        <summary class:list={["flex min-h-[44px] cursor-pointer list-none items-center justify-between", etiqueta, inBook ? "text-foreground" : "text-muted-foreground"]}>
-          <span>Books</span>
-          <span class="inline-flex transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"><Icon name="caret-down" size={12} /></span>
-        </summary>
-        <div class="flex flex-col pb-3">
-          {BOOKS.map((b) => b.href
-            ? <a href={b.href} class="flex min-h-[44px] items-baseline justify-between gap-3 rounded-[6px] px-3 text-foreground hover:bg-card"><span>{b.label}</span><span class="font-mono text-[0.625rem] uppercase tracking-[0.1em] text-muted-foreground">{b.from}</span></a>
-            : <span class="flex min-h-[44px] items-baseline justify-between gap-3 px-3 text-muted-foreground" title={b.pending}><span>{b.label}</span><span class="font-mono text-[0.625rem] uppercase tracking-[0.1em]">soon</span></span>)}
-        </div>
-      </details>
-
+      <a href="/" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, isHome ? "text-foreground" : "text-muted-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
+      <a href="/about" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, (here || isIndex || inBook) ? "text-foreground" : "text-muted-foreground"]}><Icon name="archive" size={14} /> Archive</a>
     </div>
   </div>
 
@@ -160,15 +108,6 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
   :global(html[data-modo="diurno"]) .solo-nocturno {
     display: none;
   }
-  .mega { background: rgb(var(--bg)); }
-  .mfoot { font-size: .875rem; color: rgb(var(--text-muted)); }
-  .mfoot a { color: rgb(var(--accent)); }
-  .mbooks { font: 500 .6875rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; }
-  .mbook { position: relative; border: 1px solid rgb(var(--border)); border-radius: 9999px; padding: 2px 12px; }
-  .mbook.todo { border-style: dashed; color: rgb(var(--text-muted)); }
-  .mbook.todo small { font: 500 .625rem var(--font-mono); text-transform: uppercase; letter-spacing: .08em; }
-  .mbook[data-tip]:hover::after { content: attr(data-tip); position: absolute; left: 0; bottom: calc(100% + 6px); z-index: 20; width: max-content; max-width: 260px; padding: 6px 10px; border-radius: 6px; background: rgb(var(--bg-card-hover)); border: 1px solid rgb(var(--border)); color: rgb(var(--text)); font-size: .8125rem; line-height: 1.4; pointer-events: none; }
-  .mfoot .mlens { font: 500 .6875rem var(--font-mono); border: 1px dashed rgb(var(--border)); border-radius: 9999px; padding: 2px 10px; margin-left: 6px; color: rgb(var(--text-muted)); }
 </style>
 
 <script>
@@ -216,59 +155,4 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
       if (e.key === "Escape" && !menu.classList.contains("hidden")) setOpen(false);
     });
   }
-
-  // Desktop menus: hover opens, click on the function label navigates on a
-  // second click and toggles on the first (so touch and keyboard can open the
-  // list without leaving the page), Escape and outside-click close.
-  document.querySelectorAll<HTMLElement>("[data-dropdown]").forEach((dropdown) => {
-    const dropBtn = dropdown.querySelector<HTMLAnchorElement>("[data-dropdown-btn]");
-    const panel = dropdown.querySelector<HTMLElement>("[data-dropdown-panel]");
-    const bridge = dropdown.querySelector<HTMLElement>("[data-bridge]");
-    const chevron = dropdown.querySelector<HTMLElement>("[data-chevron]");
-    if (!dropBtn || !panel) return;
-
-    let closeTimer: ReturnType<typeof setTimeout> | null = null;
-    const isOpen = () => !panel.classList.contains("hidden");
-
-    function openPanel() {
-      if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
-      panel!.classList.remove("hidden");
-      dropBtn!.setAttribute("aria-expanded", "true");
-      chevron?.classList.add("rotate-180");
-    }
-    function closePanel() {
-      panel!.classList.add("hidden");
-      dropBtn!.setAttribute("aria-expanded", "false");
-      chevron?.classList.remove("rotate-180");
-      closeTimer = null;
-    }
-    function scheduleClose() {
-      closeTimer = setTimeout(closePanel, 120);
-    }
-
-    // Pointer: hover keeps it open across button, bridge and panel.
-    [dropdown, bridge, panel].forEach((el) => {
-      if (!el) return;
-      // pointerenter, mouse only: a tap also fires an emulated enter, which
-      // would open the panel and let the same tap follow the link.
-      el.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") openPanel(); });
-      el.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") scheduleClose(); });
-    });
-
-    // Click / tap / Enter on the label follows the link (2026-09-28): Archive
-    // is a page, and the page opens with the same four blocks as this panel.
-    // Hover still shows the panel; ArrowDown opens it from the keyboard.
-    dropBtn.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowDown") { e.preventDefault(); openPanel(); panel.querySelector<HTMLElement>("a")?.focus(); }
-    });
-    panel.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") { closePanel(); dropBtn.focus(); }
-    });
-    document.addEventListener("click", (e) => {
-      if (isOpen() && !dropdown.contains(e.target as Node)) closePanel();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && isOpen()) closePanel();
-    });
-  });
 </script>

@@ -489,9 +489,9 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
   },
 ];
 
-// The lore shelves (2026-09-28): the Archive menu's World, Codex and
+// The lore shelves (2026-09-28): the archive page's World, Codex and
 // Adventures each open the lore index at their own shelf, so the anchors are
-// addresses the menu relies on — rename one and the menu lands on the top.
+// addresses those buttons rely on — rename one and they land on the top.
 const READING_GROUPS_LORE: ReadingGroup[] = [
   {
     numeral: "I", id: "world", label: "The world",

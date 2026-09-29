@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.87.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "CHG",
+        text: "No more drop-down in the bar. Archive is a plain button: it opened a large panel every time the pointer crossed the bar and covered the page. The bar now has two ways in — the map, to explore, and the archive page, to go straight to a series.",
+      },
+      {
+        type: "CHG",
+        text: "On the archive page every entry of the four blocks is drawn as a button, so it is plain that each one is a link; the ones not written yet are dashed. The books and our other sites, which only the drop-down listed, now sit under the blocks.",
+      },
+    ],
+  },
+  {
     version: "v0.86.0",
     date: "2026-09-28",
     entries: [

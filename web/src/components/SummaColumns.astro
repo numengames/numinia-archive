@@ -4,60 +4,54 @@
 //
 // The four rings as four columns: the rules, the work, the world, the offer.
 //
-// One component for the two places that show them (2026-09-28): the Archive
-// mega menu in the bar, and the /about page that the Archive button opens.
-// Both read @/lib/suma, so the page is the menu, laid out to stay — the
-// Oracle asked that clicking Archive show exactly the blocks the menu shows.
-// Every entry carries its one-line description as a tooltip.
-import { RINGS, RING_ORDER, SEGMENTS, TO_CREATE, locate } from "@/lib/suma";
-
-interface Props {
-  /** "menu" inside the bar's panel; "page" on /about, with the ring's line */
-  variant?: "menu" | "page";
-}
-const { variant = "menu" } = Astro.props;
-const here = locate(Astro.url.pathname);
+// Drawn on /about, the page the bar's Archive button opens (2026-09-28). It
+// was also a hover drop-down in the bar; the Oracle found the drop-down in
+// the way, so this page is now the one place it lives. Every entry that
+// exists is drawn as a button — bordered, with an arrow — so a reader sees at
+// a glance that each one is a link; what does not exist yet is dashed and
+// says so. Each entry carries its one-line description as a tooltip.
+import { RINGS, RING_ORDER, SEGMENTS, TO_CREATE } from "@/lib/suma";
 ---
 
-<div class:list={["sc grid gap-8", variant === "page" ? "sc-page sm:grid-cols-2 lg:grid-cols-4" : "grid-cols-4"]}>
+<div class="sc grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
   {RING_ORDER.map((ring, i) => (
-    <div class:list={["mcol", here?.seg.ring === ring && "here"]}>
+    <div class="mcol" id={`ring-${ring}`}>
       <div class="mring"><span class="mdepth">{RING_ORDER.map((_, j) => <i class:list={[j === i && "on"]}></i>)}</span>{RINGS[ring].name}</div>
       <p class="mline">{RINGS[ring].classic.split(" — ")[0]}</p>
-      {variant === "page" && <p class="mabout">{RINGS[ring].line}</p>}
+      <p class="mabout">{RINGS[ring].line}</p>
       {SEGMENTS.filter((sg) => sg.ring === ring).map((sg) => (
         <div class="mgroup">
           {sg.ring !== "core" && <div class="mhead">{sg.district ? sg.title.split(" · ")[0] : sg.title}</div>}
           {sg.entries.map((e) => e.external
-            ? <a href={e.href!} rel="noopener" data-nav="menu" class="mitem" data-tip={e.line}><span>{e.label}</span><small class="ext">{e.external} ↗</small></a>
+            ? <a href={e.href!} rel="noopener" class="mitem" data-tip={e.line}><span>{e.label}</span><small class="ext">{e.external} ↗</small></a>
             : e.href
-            ? <a href={e.href} data-nav="menu" class:list={["mitem", here?.entry === e && "cur"]} data-tip={e.line}><span>{e.label}</span>{e.count ? <small>{e.count}</small> : null}</a>
+            ? <a href={e.href} class="mitem" data-tip={e.line}><span>{e.label}</span><small>{e.count ? `${e.count} ` : ""}→</small></a>
             : <span class="mitem todo" data-tip={`${e.line}. ${TO_CREATE}`}><span>{e.label}</span><small>to create</small></span>)}
         </div>))}
     </div>))}
 </div>
 
 <style>
-  .mitem > span { min-width: 0; }
-  .mitem small { flex: none; white-space: nowrap; }
+  .mcol { border: 1px solid rgb(var(--border)); border-radius: 8px; background: rgb(var(--bg-card) / .6); padding: 20px; scroll-margin-top: 7rem; }
   .mring { display: flex; align-items: center; gap: 10px; font: 600 1.2rem var(--font-sans); color: rgb(var(--text)); }
   .mdepth { display: inline-flex; gap: 2px; }
   .mdepth i { width: 10px; height: 3px; border-radius: 2px; background: rgb(var(--border)); }
   .mdepth i.on { background: rgb(var(--teal)); }
   .mline { font: 500 .625rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: rgb(var(--text-muted)); margin: 4px 0 10px; }
   .mabout { font-size: .875rem; line-height: 1.5; color: rgb(var(--text-muted)); margin: 0 0 6px; }
-  .mgroup { margin-top: 12px; }
-  .mhead { font: 500 .6875rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--text-muted)); padding-bottom: 4px; border-bottom: 1px solid rgb(var(--border) / .5); margin-bottom: 2px; }
-  .mitem { position: relative; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; min-height: 36px; padding: 5px 6px; margin: 0 -6px; border-radius: 6px; color: rgb(var(--text)); font-size: .9375rem; }
-  a.mitem:hover { background: rgb(var(--bg-card)); color: rgb(var(--accent)); }
-  .mitem.cur { background: rgb(var(--teal) / .12); }
-  .mitem small { font: 500 .6875rem var(--font-mono); color: rgb(var(--text-muted)); }
-  .mitem.todo { color: rgb(var(--text-muted)); }
+  .mgroup { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .mhead { font: 500 .6875rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--text-muted)); }
+  /* A button, not a line of text: a border, a fill on hover, an arrow. */
+  .mitem { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 8px; min-height: 40px; padding: 6px 12px; border: 1px solid rgb(var(--border)); border-radius: 6px; background: rgb(var(--bg)); color: rgb(var(--text)); font-size: .9375rem; transition: border-color .15s, background-color .15s, color .15s; }
+  .mitem > span { min-width: 0; }
+  .mitem small { flex: none; white-space: nowrap; font: 500 .6875rem var(--font-mono); color: rgb(var(--text-muted)); }
+  a.mitem:hover, a.mitem:focus-visible { border-color: rgb(var(--accent)); background: rgb(var(--accent) / .08); color: rgb(var(--accent)); }
+  a.mitem:hover small, a.mitem:focus-visible small { color: rgb(var(--accent)); }
   .mitem small.ext { font-size: .625rem; }
-  .mitem.todo small { border: 1px dashed rgb(var(--border)); border-radius: 9999px; padding: 0 6px; font-size: .625rem; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
-  .mcol.here .mring { color: rgb(var(--accent)); }
-  /* The tooltip: what the entry is, on hover or keyboard focus. Instant and
-     styled like the site, instead of the browser's slow native title. */
+  .mitem.todo { border-style: dashed; background: transparent; color: rgb(var(--text-muted)); }
+  .mitem.todo small { font-size: .625rem; letter-spacing: .08em; text-transform: uppercase; }
+  @media (prefers-reduced-motion: reduce) { .mitem { transition: none; } }
+  /* The tooltip: what the entry is, on hover or keyboard focus. */
   .mitem[data-tip]:hover::after, .mitem[data-tip]:focus-visible::after {
     content: attr(data-tip); position: absolute; left: 0; top: calc(100% + 4px); z-index: 20;
     width: max-content; max-width: 260px; padding: 6px 10px; border-radius: 6px;
@@ -65,5 +59,4 @@ const here = locate(Astro.url.pathname);
     color: rgb(var(--text)); font: 400 .8125rem/1.4 var(--font-sans); letter-spacing: 0; text-transform: none;
     box-shadow: 0 6px 20px rgb(0 0 0 / .25); pointer-events: none;
   }
-  .sc-page .mcol { border: 1px solid rgb(var(--border)); border-radius: 8px; background: rgb(var(--bg-card) / .6); padding: 20px; }
 </style>

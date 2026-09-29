@@ -286,7 +286,7 @@ export function homePage(): ComposedPage {
     "## Every series, in four blocks",
     "",
     "From the centre out: the rules, the work, the world, the offer — the same",
-    "four blocks the page and the Archive menu show.",
+    "four blocks as the map. Every entry is a link.",
     "",
     ...RING_ORDER.flatMap((ring) => [
       `### ${RINGS[ring].name}`,
@@ -315,7 +315,7 @@ export function homePage(): ComposedPage {
 
 /**
  * `/` — the map: the Summa as four rings, as text. The same model the
- * astrolabe, the Archive menu and the wayfinder read (@/lib/suma).
+ * astrolabe, the archive page and the wayfinder read (@/lib/suma).
  */
 export function mapPage(): ComposedPage {
   const line = (e: { label: string; line: string; href: string | null; external?: string; count?: number }) =>
