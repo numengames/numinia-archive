@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.93.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "ADD",
+        text: "Contribute, at /contribute: the ways to help keep Numinia going, modelled on Open Collective's Contribute page without its Donation card. Two cards, Backer from €5 a month and Sponsor from €200, each read from the record of what is on sale. Open one and walk the path: amount and how often, how you appear on the wall (name, alias or none; with the amount or without), and a summary with what each payment turns into. Nothing is on sale yet, so the last button says Coming soon until the terms for selling to people are published.",
+      },
+      {
+        type: "ADD",
+        text: "At the foot of every document, one short block: the archive is open and stays open, and you can hold it up from €5 a month. It links to /contribute; the footer does too.",
+      },
+    ],
+  },
+  {
     version: "v0.92.0",
     date: "2026-09-29",
     entries: [

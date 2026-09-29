@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-29T09:51:22Z"
+updated: "2026-09-29T10:00:59Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `77e8163`  · corpus_hash: `0a1abbb46dcd5a95…`  · measured_at: 2026-09-29T09:51:22Z  · root_dirty: 0
+- head: `88f7ee4`  · corpus_hash: `f04caa2d0a977b7a…`  · measured_at: 2026-09-29T10:00:59Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 640 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 643 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.md_total` | 253 | files | tracked `.md` anywhere, including `web/` |
 | `corpus.docs_total` | 252 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
@@ -43,7 +43,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | files |
 |---|---|
 | (none) | 2 |
-| .astro | 58 |
+| .astro | 60 |
 | .css | 3 |
 | .csv | 2 |
 | .gitignore | 2 |
@@ -56,7 +56,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .png | 35 |
 | .svg | 72 |
 | .toml | 2 |
-| .ts | 41 |
+| .ts | 42 |
 | .tsx | 2 |
 | .txt | 11 |
 | .webp | 1 |
@@ -207,7 +207,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 817773 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 818210 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 2.16 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -218,17 +218,17 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 491707 |
-| standards | 73651 |
+| standards | 73685 |
 | agents | 31484 |
 | protocols | 27662 |
 | blueprints | 27519 |
 | reports | 22430 |
 | system | 22114 |
-| operations | 19917 |
+| operations | 20234 |
 | canon | 19794 |
 | missions | 17668 |
 | machine | 17389 |
-|  | 10845 |
+|  | 10931 |
 | opportunities | 10236 |
 | legal | 9925 |
 | decisions | 9669 |
@@ -240,9 +240,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 507084 |
-| draft | 149921 |
-| active | 141607 |
+| (none) | 507170 |
+| draft | 150238 |
+| active | 141641 |
 | todo | 13532 |
 | in-progress | 4513 |
 | done | 1116 |
@@ -363,6 +363,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | description | 1 |
 | disclosure | 1 |
 | evidence_script | 1 |
+| goods | 1 |
 | labels | 1 |
 | language_note | 1 |
 | mission | 1 |
@@ -471,9 +472,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 793 |
-| PRO | 303 |
-| OPS | 77 |
+| STD | 796 |
+| PRO | 304 |
+| OPS | 78 |
 | CAN | 300 |
 | ADR | 238 |
 | BLU | 104 |

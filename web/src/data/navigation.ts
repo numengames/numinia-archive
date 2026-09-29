@@ -87,6 +87,7 @@ export function activeGroupOf(activeNav: string | undefined): string | undefined
 export const siteLinks: readonly { label: string; href: string }[] = [
   { label: "The core", href: "/core" },
   { label: "Design system", href: "/design" },
+  { label: "Contribute", href: "/contribute" },
   { label: "Updates", href: "/updates" },
   { label: "Telemetry", href: "/telemetry" },
 ];
