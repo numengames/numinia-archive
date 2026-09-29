@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12776,
+  "chars": 13030,
   "apparatus": false,
   "archived": false,
-  "tokens": 3430
+  "tokens": 3498
  },
  {
   "path": "CLAUDE.md",
@@ -1815,6 +1815,17 @@
   "tokens": 973
  },
  {
+  "path": "operations/OPS-014-supporting-numinia-the-offer.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 4797,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1349
+ },
+ {
   "path": "opportunities/OPP-2026-001.md",
   "dir": "opportunities",
   "series": "opportunities",
@@ -2678,10 +2689,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6574,
+  "chars": 6611,
   "apparatus": false,
   "archived": false,
-  "tokens": 1669
+  "tokens": 1685
  },
  {
   "path": "system/SYS-009-the-design-system.md",
