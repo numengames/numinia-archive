@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12550,
+  "chars": 12536,
   "apparatus": false,
   "archived": false,
-  "tokens": 3366
+  "tokens": 3364
  },
  {
   "path": "CLAUDE.md",
@@ -126,10 +126,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 890,
+  "chars": 959,
   "apparatus": true,
   "archived": false,
-  "tokens": 248
+  "tokens": 263
  },
  {
   "path": "agents/_template/SOUL.md",
@@ -159,10 +159,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1214,
+  "chars": 1241,
   "apparatus": false,
   "archived": false,
-  "tokens": 315
+  "tokens": 320
  },
  {
   "path": "agents/antunj/SOUL.md",
@@ -192,10 +192,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1307,
+  "chars": 1334,
   "apparatus": false,
   "archived": false,
-  "tokens": 341
+  "tokens": 346
  },
  {
   "path": "agents/byblos/SOUL.md",
@@ -225,10 +225,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1815,
+  "chars": 1842,
   "apparatus": false,
   "archived": false,
-  "tokens": 425
+  "tokens": 430
  },
  {
   "path": "agents/calliope/SOUL.md",
@@ -258,10 +258,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1097,
+  "chars": 1124,
   "apparatus": false,
   "archived": false,
-  "tokens": 294
+  "tokens": 299
  },
  {
   "path": "agents/doulos/SOUL.md",
@@ -291,10 +291,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1256,
+  "chars": 1283,
   "apparatus": false,
   "archived": false,
-  "tokens": 324
+  "tokens": 329
  },
  {
   "path": "agents/lexa/SOUL.md",
@@ -335,10 +335,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1912,
+  "chars": 1939,
   "apparatus": false,
   "archived": false,
-  "tokens": 478
+  "tokens": 483
  },
  {
   "path": "agents/metis/SOUL.md",
@@ -368,10 +368,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1919,
+  "chars": 1946,
   "apparatus": false,
   "archived": false,
-  "tokens": 439
+  "tokens": 444
  },
  {
   "path": "agents/nimrod/SOUL.md",
@@ -401,10 +401,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1166,
+  "chars": 1193,
   "apparatus": false,
   "archived": false,
-  "tokens": 303
+  "tokens": 308
  },
  {
   "path": "agents/procyon/SOUL.md",
@@ -434,10 +434,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1137,
+  "chars": 1164,
   "apparatus": false,
   "archived": false,
-  "tokens": 306
+  "tokens": 311
  },
  {
   "path": "agents/senet/SOUL.md",
@@ -478,10 +478,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2654,
+  "chars": 2681,
   "apparatus": false,
   "archived": false,
-  "tokens": 592
+  "tokens": 597
  },
  {
   "path": "agents/talos/SOUL.md",
@@ -522,10 +522,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1102,
+  "chars": 1128,
   "apparatus": false,
   "archived": false,
-  "tokens": 304
+  "tokens": 309
  },
  {
   "path": "agents/ursa/SOUL.md",
@@ -2249,10 +2249,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 15781,
+  "chars": 15884,
   "apparatus": false,
   "archived": false,
-  "tokens": 4465
+  "tokens": 4489
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
