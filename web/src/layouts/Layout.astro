@@ -54,6 +54,12 @@ const ogLocale = "en_US";
       } catch {
         /* storage blocked: the page opens in Nocturno */
       }
+      /* The narrative dial (NarrativeDial.astro): the stop the reader chose,
+         before paint, so the page never flashes the other words' styles. */
+      try {
+        const nw = localStorage.getItem("numinia-narrative");
+        if (nw === "plain" || nw === "numinia") document.documentElement.dataset.narrative = nw;
+      } catch { /* storage blocked: the half moon */ }
     </script>
     <!-- No white flash between pages (2026-09-28): the page's own colour is
          painted before the stylesheet arrives, and the browser is told the

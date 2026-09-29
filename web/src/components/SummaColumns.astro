@@ -11,21 +11,22 @@
 // a glance that each one is a link; what does not exist yet is dashed and
 // says so. Each entry carries its one-line description as a tooltip.
 import { RINGS, RING_ORDER, SEGMENTS, TO_CREATE } from "@/lib/suma";
+import { wordAttrs } from "@/lib/narrative-words.mjs";
 ---
 
 <div class="sc grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
   {RING_ORDER.map((ring, i) => (
     <div class="mcol" id={`ring-${ring}`}>
-      <div class="mring"><span class="mdepth">{RING_ORDER.map((_, j) => <i class:list={[j === i && "on"]}></i>)}</span>{RINGS[ring].name}</div>
+      <div class="mring"><span class="mdepth">{RING_ORDER.map((_, j) => <i class:list={[j === i && "on"]}></i>)}</span><span {...wordAttrs(RINGS[ring].name)}>{RINGS[ring].name}</span></div>
       <p class="mline">{RINGS[ring].classic.split(" — ")[0]}</p>
       <p class="mabout">{RINGS[ring].line}</p>
       {SEGMENTS.filter((sg) => sg.ring === ring).map((sg) => (
         <div class="mgroup">
-          {sg.ring !== "core" && <div class="mhead">{sg.district ? sg.title.split(" · ")[0] : sg.title}</div>}
+          {sg.ring !== "core" && <div class="mhead" {...wordAttrs(sg.district ? sg.title.split(" · ")[0] : sg.title)}>{sg.district ? sg.title.split(" · ")[0] : sg.title}</div>}
           {sg.entries.map((e) => e.external
             ? <a href={e.href!} rel="noopener" class="mitem" data-tip={e.line}><span>{e.label}</span><small class="ext">{e.external} ↗</small></a>
             : e.href
-            ? <a href={e.href} class="mitem" data-tip={e.line}><span>{e.label}</span><small>{e.count ? `${e.count} ` : ""}→</small></a>
+            ? <a href={e.href} class="mitem" data-tip={e.line}><span {...wordAttrs(e.label)}>{e.label}</span><small>{e.count ? `${e.count} ` : ""}→</small></a>
             : <span class="mitem todo" data-tip={`${e.line}. ${TO_CREATE}`}><span>{e.label}</span><small>to create</small></span>)}
         </div>))}
     </div>))}

@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.97.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "ADD",
+        text: "How the archive speaks to you. A moon beside day and night opens a small dial with three moons. New moon: plain words, the ones any company's documentation uses (Governance, Project, Process, Knowledge Base). Half moon: the archive as it is today, where every visitor arrives. Full moon: Numinia's own words (the districts Ouroboros, Vitruvian, Solomon and Sycamore; the Archive Summa) and the book's typeface, with the columns of the archive surfacing slowly, one after another. The page dissolves and returns in the new words; documents keep their own text. No word is invented: each one is copied from an archive file, and a test fails if it is not there. Where the archive has no word yet, today's stays.",
+      },
+    ],
+  },
+  {
     version: "v0.96.0",
     date: "2026-09-29",
     entries: [

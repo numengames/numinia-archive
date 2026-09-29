@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "d18abfa",
-  "corpus_hash": "2ee0507dfa5bc16c63e98693fb6312eaf63f08267fb900559bc09959720ae756",
+  "head": "cc1a4d3",
+  "corpus_hash": "5db6084861fa7de8c7c19100ff30d98dfaa690a99d7c775985e4213283ca6e8e",
   "root_dirty": 0,
-  "measured_at": "2026-09-29T13:04:48Z",
+  "measured_at": "2026-09-29T13:40:20Z",
   "families": [
     "corpus",
     "series",
@@ -16,14 +16,14 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 663,
+      "value": 666,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
     "corpus.files_by_ext": {
       "value": {
         "(none)": 2,
-        ".astro": 62,
+        ".astro": 63,
         ".css": 3,
         ".csv": 2,
         ".gitignore": 2,
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 15,
         ".md": 265,
-        ".mjs": 95,
+        ".mjs": 97,
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
@@ -112,13 +112,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 60,
+      "value": 61,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 60
+        "node": 61
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 849344,
+      "value": 849425,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -345,8 +345,8 @@
         "canon": 19794,
         "missions": 17668,
         "machine": 17389,
-        "legal": 12936,
-        "": 11372,
+        "legal": 12990,
+        "": 11399,
         "opportunities": 10236,
         "decisions": 9669,
         "debt": 5686,
@@ -358,8 +358,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 507640,
-        "draft": 174279,
+        "(none)": 507667,
+        "draft": 174333,
         "active": 148264,
         "todo": 13532,
         "in-progress": 4513,
@@ -702,11 +702,11 @@
         "ADR": {
           "3": 238
         },
+        "LEG": {
+          "3": 65
+        },
         "DBT": {
           "3": 59
-        },
-        "LEG": {
-          "3": 64
         },
         "SYS": {
           "3": 74

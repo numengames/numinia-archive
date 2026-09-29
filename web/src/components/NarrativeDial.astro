@@ -1,0 +1,222 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The narrative dial: how the archive speaks to the reader.
+//
+// A moon in the bar, beside day and night. It opens a small dial with three
+// moons — new (plain words), half (the site as it is), full (Numinia's own
+// words) — turned by a tap, a drag or the arrow keys. The choice is kept in
+// localStorage under `numinia-narrative` (the cookie policy lists it) and set
+// on <html data-narrative> before paint by the boot script in Layout.
+//
+// What changes is every element marked `data-nw` (see @/lib/narrative-words):
+// its text is swapped for the stop's word, which the register copies from an
+// archive file. The change is a slow dissolve of the page (Surfacing, the
+// catalogue's animation 10, run out and back in); nothing moves while reading.
+import { STOPS } from "@/lib/narrative-words.mjs";
+interface Props { variant?: "bar" | "menu" }
+const { variant = "bar" } = Astro.props;
+---
+{variant === "bar" ? (
+  <button type="button" class="nd-btn flex h-11 w-11 items-center justify-center rounded-[6px] text-muted-foreground transition-colors hover:bg-card hover:text-foreground" data-nd-open aria-controls="nd-pop" aria-expanded="false" aria-label="How the archive speaks to you" title="How the archive speaks to you">
+    <svg viewBox="-12 -12 24 24" width="20" height="20" aria-hidden="true"><circle r="9" fill="none" stroke="currentColor" stroke-width="1.4"/><path class="nd-lit" fill="currentColor" d=""/></svg>
+  </button>
+) : (
+  <button type="button" class="nd-btn flex min-h-[44px] items-center gap-2 border-b border-border/50 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-muted-foreground" data-nd-open data-nd-menu aria-controls="nd-pop" aria-expanded="false">
+    <svg viewBox="-12 -12 24 24" width="14" height="14" aria-hidden="true"><circle r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path class="nd-lit" fill="currentColor" d=""/></svg>
+    How the archive speaks to you
+  </button>
+)}
+
+{variant === "bar" && (
+  <div class="nd-pop" id="nd-pop" hidden role="dialog" aria-labelledby="nd-title" data-pagefind-ignore="all">
+    <p class="nd-t" id="nd-title">How the archive speaks to you</p>
+    <svg class="nd-dial" viewBox="-130 -118 260 132" role="radiogroup" aria-label="How the archive speaks to you">
+      <path class="nd-arc" d="M -90.6 -16 A 92 92 0 0 1 90.6 -16" />
+      <g class="nd-ticks"></g>
+      <g class="nd-needle"><line x1="0" y1="0" x2="0" y2="-74" /><circle r="4" /></g>
+      {STOPS.map((s, i) => {
+        const a = ((-58 + i * 58) - 90) * Math.PI / 180;
+        const x = Math.cos(a) * 104, y = Math.sin(a) * 104;
+        return (
+          <g class="nd-stop" role="radio" tabindex="-1" data-stop={s.id} aria-label={s.say} transform={`translate(${x.toFixed(2)} ${y.toFixed(2)})`}>
+            <circle class="hit" r="20" />
+            <circle class="disc" r="9" />
+            {s.moon === "half" && <path class="lit" d="M0 -9 A9 9 0 0 1 0 9 Z" />}
+            {s.moon === "full" && <circle class="lit" r="8.4" />}
+          </g>
+        );
+      })}
+    </svg>
+    <p class="nd-say" aria-live="polite"></p>
+  </div>
+)}
+
+<style is:global>
+  .nd-pop { position: fixed; right: 16px; top: 64px; z-index: 60; width: 340px; padding: 22px 22px 18px; border-radius: 8px; border: 1px solid rgb(var(--border)); background: rgb(var(--bg-card)); }
+  html[data-modo="diurno"] .nd-pop { box-shadow: 0 1px 2px rgba(20,17,15,.08), 0 8px 24px rgba(20,17,15,.06); }
+  .nd-pop[hidden] { display: none; }
+  .nd-t { margin: 0 0 4px; font: 500 .7rem var(--font-mono); letter-spacing: .2em; text-transform: uppercase; color: rgb(var(--text-dim)); }
+  .nd-dial { display: block; width: 100%; overflow: visible; touch-action: none; user-select: none; cursor: grab; }
+  .nd-arc { fill: none; stroke: rgb(var(--border)); }
+  .nd-ticks line { stroke: rgb(var(--text-dim)); stroke-width: .8; }
+  .nd-needle { transition: transform 560ms cubic-bezier(.33,0,.15,1); }
+  .nd-needle line { stroke: rgb(var(--yellow)); stroke-width: 2; stroke-linecap: round; }
+  .nd-needle circle { fill: rgb(var(--text)); }
+  .nd-stop { cursor: pointer; }
+  .nd-stop .hit { fill: transparent; pointer-events: all; }
+  .nd-stop :not(.hit) { pointer-events: none; }
+  .nd-stop:focus { outline: none; }
+  .nd-stop:focus-visible .hit { stroke: rgb(var(--teal)); stroke-width: 2; }
+  .nd-stop .disc { fill: rgb(var(--bg)); stroke: rgb(var(--text-muted)); stroke-width: 1.2; }
+  .nd-stop .lit { fill: rgb(var(--text-muted)); }
+  .nd-stop.on .disc { stroke: rgb(var(--yellow)); }
+  .nd-stop.on .lit { fill: rgb(var(--yellow)); }
+  .nd-say { min-height: 2.8em; margin: 6px 0 0; text-align: center; font-size: .9rem; line-height: 1.45; color: rgb(var(--text-muted)); }
+  @media (max-width: 640px) { .nd-pop { left: 12px; right: 12px; width: auto; top: 60px; } }
+
+  /* The change: the page dissolves out and surfaces back (animation 10). */
+  main#main { transition: opacity 320ms cubic-bezier(.33,0,.15,1), filter 320ms cubic-bezier(.33,0,.15,1); }
+  html.nd-out main#main { opacity: 0; filter: blur(6px); }
+
+  /* New moon — plain documentation: no sky, no grid, labels in sentence case. */
+  html[data-narrative="plain"] body::before, html[data-narrative="plain"] #starfield { display: none; }
+  html[data-narrative="plain"] main .font-mono.uppercase, html[data-narrative="plain"] main .mhead,
+  html[data-narrative="plain"] .crumbs { font-family: var(--font-sans) !important; text-transform: none !important; letter-spacing: 0 !important; font-size: .875rem !important; }
+  html[data-narrative="plain"] main .mline, html[data-narrative="plain"] main .mdepth { display: none; }
+
+  /* Full moon — Numinia: the book's voice (BLU-011 §1), same colours and structure. */
+  @font-face { font-family: "Alegreya"; src: url("/design/assets/fonts/Alegreya-Variable.woff2") format("woff2"); font-weight: 400 900; font-display: swap; }
+  @font-face { font-family: "Alegreya"; font-style: italic; src: url("/design/assets/fonts/Alegreya-Italic-Variable.woff2") format("woff2"); font-weight: 400 900; font-display: swap; }
+  @font-face { font-family: "Alegreya SC"; src: url("/design/assets/fonts/AlegreyaSC-Medium.woff2") format("woff2"); font-weight: 500; font-display: swap; }
+  html[data-narrative="numinia"] main h1, html[data-narrative="numinia"] main h2, html[data-narrative="numinia"] main .mring { font-family: "Alegreya", Georgia, serif !important; font-weight: 500 !important; letter-spacing: 0 !important; }
+  html[data-narrative="numinia"] main .mring { font-size: 1.45rem; }
+  html[data-narrative="numinia"] main .mabout, html[data-narrative="numinia"] main [data-nw-lead] { font-family: "Alegreya", Georgia, serif; font-style: italic; font-size: 1.1em; }
+  html[data-narrative="numinia"] main .font-mono.uppercase, html[data-narrative="numinia"] main .mline, html[data-narrative="numinia"] main .mhead,
+  html[data-narrative="numinia"] .crumbs { font-family: "Alegreya SC", "Alegreya", Georgia, serif !important; text-transform: lowercase !important; letter-spacing: .14em !important; font-size: .95rem !important; }
+  html[data-narrative="numinia"] main .mitem > span { font-family: "Alegreya", Georgia, serif; font-size: 1.05rem; }
+
+  /* Full moon, calm motion: the columns surface one after another (animation 10,
+     staggered as the orchestrated moment 09), and a link warms slowly. */
+  @keyframes nd-surface { from { opacity: 0; filter: blur(8px); transform: translateY(8px); } to { opacity: 1; filter: none; transform: none; } }
+  html[data-narrative="numinia"] main .mcol { animation: nd-surface 560ms cubic-bezier(.33,0,.15,1) both; }
+  html[data-narrative="numinia"] main .mcol:nth-child(2) { animation-delay: 80ms; }
+  html[data-narrative="numinia"] main .mcol:nth-child(3) { animation-delay: 160ms; }
+  html[data-narrative="numinia"] main .mcol:nth-child(4) { animation-delay: 240ms; }
+  html[data-narrative="numinia"] main a.mitem { transition: border-color 560ms, background-color 560ms, color 560ms, box-shadow 560ms; }
+  html[data-narrative="numinia"] main a.mitem:hover { box-shadow: 0 0 0 1px rgb(var(--yellow) / .35), 0 6px 22px -10px rgb(var(--yellow) / .55); }
+
+  @media (prefers-reduced-motion: reduce) {
+    main#main, .nd-needle { transition: none !important; }
+    html.nd-out main#main { opacity: 1; filter: none; }
+    html[data-narrative="numinia"] main .mcol { animation: none !important; }
+  }
+</style>
+
+{variant === "bar" && (
+<script>
+  import { STOPS, DEFAULT_STOP } from "@/lib/narrative-words.mjs";
+  const KEY = "numinia-narrative";
+  const root = document.documentElement;
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ANGLE: Record<string, number> = { plain: -58, bridge: 0, numinia: 58 };
+  const LIT: Record<string, string> = { plain: "", bridge: "M0 -9 A9 9 0 0 1 0 9 Z", numinia: "M0 -9 A9 9 0 0 1 0 9 A9 9 0 0 1 0 -9 Z" };
+
+  // Remember what each marked element says on the page as served.
+  // Each marked element carries its served text in data-nw-bridge (set at
+  // build); an element without it (a lead holding a link) is snapshotted here.
+  const marked = [...document.querySelectorAll<HTMLElement>("[data-nw]")];
+  const served = new Map<HTMLElement, string>();
+  for (const el of marked) if (el.dataset.nwBridge === undefined) served.set(el, el.innerHTML);
+  const apply = (stop: string) => {
+    for (const el of marked) {
+      const v = stop === "bridge" ? undefined : el.dataset[stop === "plain" ? "nwPlain" : "nwNuminia"];
+      if (v !== undefined) el.textContent = v;
+      else if (served.has(el)) el.innerHTML = served.get(el)!;
+      else el.textContent = el.dataset.nwBridge ?? "";
+    }
+  };
+
+  const pop = document.getElementById("nd-pop")!;
+  const dial = pop.querySelector<SVGSVGElement>(".nd-dial")!;
+  const needle = dial.querySelector<SVGGElement>(".nd-needle")!;
+  const say = pop.querySelector<HTMLElement>(".nd-say")!;
+  const ticks = dial.querySelector(".nd-ticks")!;
+  for (let a = -75; a <= 75; a += 5) {
+    const r = (d: number) => [Math.cos((a - 90) * Math.PI / 180) * d, Math.sin((a - 90) * Math.PI / 180) * d];
+    const [x0, y0] = r(a % 15 ? 88 : 85), [x1, y1] = r(92);
+    const l = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    l.setAttribute("x1", String(x0)); l.setAttribute("y1", String(y0)); l.setAttribute("x2", String(x1)); l.setAttribute("y2", String(y1));
+    l.setAttribute("opacity", a % 15 ? ".45" : ".9");
+    ticks.appendChild(l);
+  }
+
+  let cur = STOPS.some((s) => s.id === root.dataset.narrative) ? root.dataset.narrative! : DEFAULT_STOP;
+  const paint = () => {
+    root.dataset.narrative = cur;
+    needle.style.transform = `rotate(${ANGLE[cur]}deg)`;
+    dial.querySelectorAll<SVGGElement>(".nd-stop").forEach((g) => {
+      const on = g.dataset.stop === cur;
+      g.classList.toggle("on", on); g.setAttribute("aria-checked", String(on)); g.setAttribute("tabindex", on ? "0" : "-1");
+    });
+    say.textContent = STOPS.find((s) => s.id === cur)!.say;
+    document.querySelectorAll(".nd-lit").forEach((p) => p.setAttribute("d", LIT[cur]));
+    apply(cur);
+  };
+  const go = (id: string) => {
+    if (id === cur) return;
+    cur = id;
+    try { localStorage.setItem(KEY, id); } catch { /* private mode: this page only */ }
+    needle.style.transform = `rotate(${ANGLE[cur]}deg)`;
+    if (reduce) { paint(); return; }
+    root.classList.add("nd-out");
+    setTimeout(() => {
+      paint();
+      document.querySelectorAll<HTMLElement>("main .mcol").forEach((c) => { c.style.animation = "none"; void c.offsetWidth; c.style.animation = ""; });
+      root.classList.remove("nd-out");
+    }, 340);
+  };
+
+  dial.querySelectorAll<SVGGElement>(".nd-stop").forEach((g) => g.addEventListener("click", () => go(g.dataset.stop!)));
+  let drag = false;
+  const angleAt = (e: PointerEvent) => {
+    const p = dial.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
+    const q = p.matrixTransform(dial.getScreenCTM()!.inverse());
+    return Math.atan2(q.x, -q.y) * 180 / Math.PI;
+  };
+  dial.addEventListener("pointerdown", (e) => { if ((e.target as Element).closest(".nd-stop")) return; drag = true; dial.setPointerCapture(e.pointerId); needle.style.transition = "none"; });
+  dial.addEventListener("pointermove", (e) => { if (drag) needle.style.transform = `rotate(${Math.max(-70, Math.min(70, angleAt(e)))}deg)`; });
+  dial.addEventListener("pointerup", (e) => {
+    if (!drag) return; drag = false; needle.style.transition = "";
+    const a = angleAt(e);
+    const near = Object.entries(ANGLE).reduce((b, x) => (Math.abs(x[1] - a) < Math.abs(b[1] - a) ? x : b));
+    if (near[0] === cur) paint(); else go(near[0]);
+  });
+  dial.addEventListener("keydown", (e) => {
+    const i = STOPS.findIndex((s) => s.id === cur);
+    let n = i;
+    if (e.key === "ArrowRight" || e.key === "ArrowUp") n = Math.min(STOPS.length - 1, i + 1);
+    if (e.key === "ArrowLeft" || e.key === "ArrowDown") n = Math.max(0, i - 1);
+    if (n !== i) { e.preventDefault(); go(STOPS[n].id); dial.querySelector<SVGGElement>(`.nd-stop[data-stop="${STOPS[n].id}"]`)?.focus(); }
+  });
+
+  const openers = [...document.querySelectorAll<HTMLButtonElement>("[data-nd-open]")];
+  const setOpen = (open: boolean, focus = false) => {
+    pop.hidden = !open;
+    openers.forEach((b) => b.setAttribute("aria-expanded", String(open)));
+    if (open && focus) dial.querySelector<SVGGElement>(`.nd-stop[data-stop="${cur}"]`)?.focus();
+  };
+  openers.forEach((b) => b.addEventListener("click", (e) => {
+    if (b.hasAttribute("data-nd-menu")) document.getElementById("mobile-menu-btn")?.click();
+    setOpen(pop.hidden, (e as MouseEvent).detail === 0);
+  }));
+  document.addEventListener("click", (e) => {
+    const t = e.target as Element;
+    if (!pop.hidden && !t.closest("#nd-pop") && !t.closest("[data-nd-open]")) setOpen(false);
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !pop.hidden) { setOpen(false); openers[0]?.focus(); } });
+
+  paint();
+</script>
+)}

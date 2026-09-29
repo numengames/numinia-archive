@@ -15,6 +15,7 @@ const here = locate(path);
 const seg = here?.seg;
 const lenses = seg ? LENSES.filter((l) => l.paints.includes(seg.id)) : [];
 const rad: Record<string, number> = { offer: 38, world: 29, work: 20, core: 11 };
+import { wordAttrs } from "@/lib/narrative-words.mjs";
 ---
 
 {!isHome && (
@@ -22,10 +23,10 @@ const rad: Record<string, number> = { offer: 38, world: 29, work: 20, core: 11 }
     <div class="wf-in">
       <nav class="crumbs" aria-label="Where you are in the Summa">
         <a href="/">The Summa</a>
-        {seg && <><span>/</span><a href={`/#s-${seg.id}`}>{RINGS[seg.ring].name}</a></>}
-        {seg?.district && <><span>/</span><a href={`/#d-${seg.district}`}>{DISTRICTS[seg.district].name}</a></>}
-        {here?.entry && <><span>/</span>{here.entry.href ? <a href={here.entry.href}>{here.entry.label}</a> : <span>{here.entry.label}</span>}</>}
-        {!seg && <><span>/</span><a href="/about">The archive</a></>}
+        {seg && <><span>/</span><a href={`/#s-${seg.id}`} {...wordAttrs(RINGS[seg.ring].name)}>{RINGS[seg.ring].name}</a></>}
+        {seg?.district && <><span>/</span><a href={`/#d-${seg.district}`} {...wordAttrs(DISTRICTS[seg.district].name)}>{DISTRICTS[seg.district].name}</a></>}
+        {here?.entry && <><span>/</span>{here.entry.href ? <a href={here.entry.href} {...wordAttrs(here.entry.label)}>{here.entry.label}</a> : <span {...wordAttrs(here.entry.label)}>{here.entry.label}</span>}</>}
+        {!seg && <><span>/</span><a href="/about" {...wordAttrs("The archive")}>The archive</a></>}
       </nav>
       {seg && (
         <div class="wf-depth" aria-hidden="true">

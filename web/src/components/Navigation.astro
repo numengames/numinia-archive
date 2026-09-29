@@ -30,6 +30,7 @@ const inBook = BOOKS.some((b) => b.href && (path === b.href || path.startsWith(b
 
 // The bar's own text style: Mono, uppercase, tracked — type.etiqueta.
 const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
+import NarrativeDial from "@/components/NarrativeDial.astro";
 ---
 
 <nav data-pagefind-ignore="all" class="sticky top-0 z-50 border-b border-border/50 bg-background/85 backdrop-blur-xl" aria-label="Primary">
@@ -51,6 +52,9 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
       <a href="/about" data-nav="archive" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, (here || isIndex || inBook) ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="archive" size={14} /> Archive</a>
       <SiteSearch />
     </div>
+
+    <!-- The narrative dial: how the archive speaks to you (new, half, full moon). -->
+    <NarrativeDial />
 
     <!-- The mode switch (STD-037 SIT-003), numinia.com's copied: the icon shows where
          a tap leads — moon with stars to the night, sun to the day. -->
@@ -98,6 +102,7 @@ const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
       <div class="mb-2"><SiteSearch /></div>
       <a href="/" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, isHome ? "text-foreground" : "text-muted-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
       <a href="/about" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, (here || isIndex || inBook) ? "text-foreground" : "text-muted-foreground"]}><Icon name="archive" size={14} /> Archive</a>
+      <NarrativeDial variant="menu" />
     </div>
   </div>
 

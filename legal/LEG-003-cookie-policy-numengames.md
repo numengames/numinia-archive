@@ -6,9 +6,9 @@ uid: ""
 title: "Cookie Policy — Numen Games"
 type: legal
 status: draft
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-09-18T17:00:00+02:00"
-updated: "2026-09-29T18:00:00+02:00"
+updated: "2026-09-29T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [legal, cookies, privacy, gdpr, lssi, website, numen-games, enforceable]
@@ -114,13 +114,14 @@ font, image or embed from any other organisation.
 
 ### 3.2 numinia.org
 
-One cookie, which records your choice on the cookie notice. It keeps two
+One cookie, which records your choice on the cookie notice. It keeps three
 preferences and one bookmark, and only when you act:
 
 | Name | Kind | Purpose | Set when | Lasts | Necessary? |
 |---|---|---|---|---|---|
 | `numen_consent` | first-party cookie | Records that you saw the cookie notice and what you chose, and which version of this policy. | You press a button on the notice | 6 months | Yes — it is how the site remembers your choice |
 | `numinia-modo` | local storage | Your chosen display mode (day / night). | You press the sun / moon button | Until you clear it | Preference — set only when you choose |
+| `numinia-narrative` | local storage | How the archive speaks to you: plain words, as it is, or Numinia's own words. | You turn the moon dial | Until you clear it | Preference — set only when you choose |
 | `sp:rate` | local storage | The speed you chose for the page reader (read aloud). | You change the speed | Until you clear it | Preference — set only when you choose |
 | `sp:` + the page address | session storage | Where you paused the page reader, so it can resume on that page. | You pause the reader | Until you close the tab | Preference — set only when you act |
 

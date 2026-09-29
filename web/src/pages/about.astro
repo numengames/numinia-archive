@@ -68,6 +68,7 @@ const figure = (k: string) => dataset.figures.find((f) => f.key === k);
 const docsTotal = figure("corpus.docs_total")?.value as number | undefined;
 const missionsTotal = figure("missions.total")?.value as number | undefined;
 const measuredAt = dataset.measured_at?.slice(0, 10);
+import { wordAttrs, textAttrs } from "@/lib/narrative-words.mjs";
 ---
 
 <Layout
@@ -77,11 +78,11 @@ const measuredAt = dataset.measured_at?.slice(0, 10);
 >
   <section class="pb-8 pt-14 sm:pt-20">
     <div class="mx-auto max-w-[1100px] px-6">
-      <span class="mb-3 inline-block font-mono text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent">The archive</span>
-      <h1 id="thesis" data-tecleo class="font-display text-4xl tracking-tight text-foreground sm:text-5xl">
+      <span class="mb-3 inline-block font-mono text-[0.7rem] font-medium uppercase tracking-[0.25em] text-accent" {...wordAttrs("The archive")}>The archive</span>
+      <h1 id="thesis" data-tecleo class="font-display text-4xl tracking-tight text-foreground sm:text-5xl" {...textAttrs("about.thesis")}>
         Every series, in <span class="text-yellow">four</span> blocks.
       </h1>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground" data-nw-lead {...textAttrs("about.lead")}>
         One of two ways to move through the archive. The <a href="/" class="text-accent hover:underline">map</a>{" "}
         lets you explore it; this page takes you straight to a series.
       </p>
