@@ -19,7 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
-- **Added** What an agent may do without asking: /automation draws the five levels of automation as the home's astrolabe and grades sixteen permissions at each, with the floor no level grants alone and where each agent sits today; a test holds the data to shape (site v0.89.0)
+- **Added** What an agent may do without asking: /automation draws five levels of automation as the home's astrolabe and grades sixteen permissions at each; every OPERATOR.md declares its `automation_level` and the page reads it; a test holds both (site v0.89.0)
 
 ### 2026-09-28
 
