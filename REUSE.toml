@@ -236,3 +236,11 @@ path = [
 ]
 SPDX-FileCopyrightText = "2021 The Pixelify Sans Project Authors (https://github.com/eifetx/Pixelify-Sans)"
 SPDX-License-Identifier = "OFL-1.1"
+
+# CC-BY-4.0 — a Word file cannot hold a comment: the letter to counsel, laid out from DBT-022 §5 (the text there is the source)
+[[annotations]]
+path = [
+  "debt/DBT-022-questions-for-counsel.docx",
+]
+SPDX-FileCopyrightText = "2026 Numen Games S.L."
+SPDX-License-Identifier = "CC-BY-4.0"
