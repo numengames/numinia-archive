@@ -42,7 +42,7 @@ const PAGE = path.resolve(ROOT, 'web', 'src', 'pages', 'automation.astro');
 function load() {
   const script =
     `import(${JSON.stringify(DATA)}).then((m) => {` +
-    `  console.log(JSON.stringify({ LEVELS: m.LEVELS, PERMISSIONS: m.PERMISSIONS, SOURCES: m.SOURCES }));` +
+    `  console.log(JSON.stringify({ LEVELS: m.LEVELS, PERMISSIONS: m.PERMISSIONS, SOURCES: m.SOURCES, AGENTS: m.agentMarks() }));` +
     `}).catch((e) => { console.error(e.message); process.exit(1); });`;
   const out = execFileSync('node', ['--experimental-strip-types', '-e', script], {
     cwd: path.join(ROOT, 'web'),
@@ -107,4 +107,43 @@ test('the page exists and shows the same request as shell and as prose', () => {
   assert.match(page, /git clone/, 'the page shows the real shell of a request');
   assert.match(page, /Qué puede salir mal|What could go wrong/, 'the page shows the same request in the approver\'s words');
   assert.doesNotMatch(page, /href="\/[^"]*\$\{/, 'addresses are made at build time, never composed in the browser');
+});
+
+// ---------------------------------------------------------------------------
+// The level is declared where the agent is operated, not typed on the page.
+// ---------------------------------------------------------------------------
+
+const OPERATORS = execFileSync('git', ['-C', ROOT, 'ls-files', 'agents/*/OPERATOR.md'], { encoding: 'utf8' })
+  .split('\n').filter((f) => f && !f.includes('/_template/'));
+
+function field(text, name) {
+  const m = text.match(new RegExp(`^${name}:\\s*"?([^"\\n]*)"?\\s*$`, 'm'));
+  return m ? m[1].trim() : undefined;
+}
+
+test('every agent\'s OPERATOR.md declares its automation level, one of the five', () => {
+  const { LEVELS } = load();
+  const names = new Set(LEVELS.map((l) => l.name.toLowerCase()));
+  assert.ok(OPERATORS.length >= 10, `only ${OPERATORS.length} operator files`);
+  const bad = OPERATORS
+    .map((f) => [f, field(readFileSync(path.join(ROOT, f), 'utf8'), 'automation_level')])
+    .filter(([, v]) => !v || !names.has(v))
+    .map(([f, v]) => `${f}: automation_level ${v === undefined ? 'missing' : `"${v}" is not one of ${[...names].join('/')}`}`);
+  assert.deepEqual(bad, [], `an agent without a declared level is treated as Assisted, but must say so:\n  ${bad.join('\n  ')}`);
+});
+
+test('the template declares the field, so a new agent cannot forget it', () => {
+  const t = readFileSync(path.join(ROOT, 'agents', '_template', 'OPERATOR.md'), 'utf8');
+  assert.match(t, /^automation_level:/m, 'agents/_template/OPERATOR.md carries no automation_level');
+});
+
+test('the page reads each agent\'s level from its OPERATOR.md — the marks are not typed in the data module', () => {
+  const { AGENTS } = load();
+  const declared = new Map(OPERATORS.map((f) => [f.split('/')[1], field(readFileSync(path.join(ROOT, f), 'utf8'), 'automation_level')]));
+  const drift = AGENTS.filter((a) => a.id && declared.has(a.id))
+    .filter((a) => a.levelName.toLowerCase() !== declared.get(a.id).toLowerCase())
+    .map((a) => `${a.id}: page says ${a.levelName}, OPERATOR.md says ${declared.get(a.id)}`);
+  assert.deepEqual(drift, [], `the page and the operator files disagree:\n  ${drift.join('\n  ')}`);
+  const withFile = AGENTS.filter((a) => a.id).map((a) => a.id).sort();
+  assert.deepEqual(withFile, [...declared.keys()].sort(), 'every agent with an OPERATOR.md is on the page, and nobody else with an id');
 });
