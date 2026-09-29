@@ -78,6 +78,34 @@
         }
       ]
     },
+    "check-reachable": {
+      "script": "machine/scripts/check-reachable.mjs",
+      "build_guard": "verifies the built site, not a rule in prose — a page no link leads to is hidden from every reader, whatever the standards say (ENG-067 exception)",
+      "needs": "web/dist",
+      "sees": "every built page that is not a redirect: that it is reached by following links in page bodies from the Map (/) or the Archive (/about). The bar and the footer are left out, since they sit on every page",
+      "blind_to": [
+        {
+          "spot": "EXEMPT is hand-kept in the guard. A page added there is admitted without argument; the guard only checks that each entry still names a built page",
+          "covered_by": "review",
+          "debt": null
+        },
+        {
+          "spot": "how FAR a page is from the doors. A page reached only after five clicks through an unlikely route passes; whether it is easy to find is a judgement",
+          "covered_by": "review",
+          "debt": null
+        },
+        {
+          "spot": "links added by client-side script (drawers, search results). Only href attributes present in the built HTML are followed",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "documents with no page at all. It checks that built pages are reachable, not that every file in the tree was built",
+          "covered_by": "check-machine-index",
+          "debt": null
+        }
+      ]
+    },
     "check-templates": {
       "script": "machine/scripts/check-templates.mjs",
       "sees": "machine/templates/ against the contract of the series each mould scaffolds — name, destination licence, type, lifecycle, ring registry, SemVer, context card, and whether every registered series has a mould at all",

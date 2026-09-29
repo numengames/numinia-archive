@@ -106,7 +106,8 @@ export const SEGMENTS: Segment[] = [
     E("Telemetry", "What is measured, never typed", "/telemetry"),
   ] },
   { id: "administration", ring: "work", word: "Administration", title: "Administration", a: [240, 360], entries: [
-    E("Operations", "Legal, continuity, secrets", "/operations/", "operations"),
+    E("Operations", "Continuity, strategy, secrets", "/operations/", "operations"),
+    E("Legal", "Privacy, terms and cookies: the texts every site publishes", "/legal/", "legal"),
     E("System", "How the machine is wired today", "/system/", "system"),
     E("Open books", "What Numinia costs and takes in", "/system/open-books"),
     E("Opportunities", "Whom we are trying to sell to, in public", "/opportunities/", "opportunities"),
@@ -124,6 +125,7 @@ export const SEGMENTS: Segment[] = [
   ] },
   { id: "world-order", ring: "world", district: "order", word: "Agents", title: "Organise · its world", a: [180, 270], entries: [
     E("Agents", "Biological and digital: who does the work", "/agent", "agents"),
+    E("Agents' index", "Every agent's file: its role, its operator, its sources", "/agents"),
   ] },
   { id: "world-make", ring: "world", district: "make", word: "Objects", title: "Collect · its world", a: [270, 360], entries: [
     E("Objects", "The catalogue of things in the world", "/objects/", "objects"),
@@ -140,6 +142,9 @@ export const SEGMENTS: Segment[] = [
   ] },
   { id: "offer-order", ring: "offer", district: "order", word: "NWOS", title: "Organise · what it offers", a: [180, 270], entries: [
     X("NWOS for your organisation", "The whole structure, set up for you", "nwos.numen.games"),
+    // 2026-09-29: the four settings of NWOS (narrative, gamification,
+    // automation, the team) were four pages filed in four places.
+    E("Configure NWOS", "Narrative, gamification, automation and the team: the settings an organisation chooses", "/configure"),
     E("Partners", "Who walks with us", null),
   ] },
   { id: "offer-make", ring: "offer", district: "make", word: "Shop", title: "Collect · what it offers", a: [270, 360], entries: [

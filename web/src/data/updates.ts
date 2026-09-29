@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.95.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "ADD",
+        text: "Configure NWOS (/configure) gathers the four settings an organisation chooses: the narrative dial, the gamification dial, the level of automation and the team of agents. Each had its own page filed in a different place — the dials sat at the foot of /system behind a single link. The map and the archive reach it from The offer · Organise, and it also opens the moulds a new agent is copied from.",
+      },
+      {
+        type: "FIX",
+        text: "Nothing is hidden any more. Pages no link led to from the map or the archive now have a door: the agents' index and Legal in the map and the archive, the draft on how the next mission is chosen on the mission board, the agent moulds on /configure. A new check fails the build when a page cannot be reached from the map or the archive.",
+      },
+    ],
+  },
+  {
     version: "v0.94.0",
     date: "2026-09-29",
     entries: [
