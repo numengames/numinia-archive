@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "facd91f",
-  "corpus_hash": "3f93bcfa547db012a4754325fc7ddb1410b19bad07670fd28748d75bfe2779c1",
+  "head": "5c4b610",
+  "corpus_hash": "0e4d8550cb081d454f30d2cd28e943f852ece025a42652d853a6b7ba36ae4d55",
   "root_dirty": 0,
-  "measured_at": "2026-09-29T10:23:28Z",
+  "measured_at": "2026-09-29T11:30:04Z",
   "families": [
     "corpus",
     "series",
@@ -16,14 +16,14 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 654,
+      "value": 658,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
     "corpus.files_by_ext": {
       "value": {
         "(none)": 2,
-        ".astro": 60,
+        ".astro": 61,
         ".css": 3,
         ".csv": 2,
         ".gitignore": 2,
@@ -32,11 +32,11 @@
         ".js": 2,
         ".json": 15,
         ".md": 263,
-        ".mjs": 92,
+        ".mjs": 94,
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
-        ".ts": 42,
+        ".ts": 43,
         ".tsx": 2,
         ".txt": 11,
         ".webp": 1,
@@ -112,19 +112,19 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 57,
+      "value": 59,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 57
+        "node": 59
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 19,
+      "value": 20,
       "unit": "files",
       "definition": "guards the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)"
     },
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 842774,
+      "value": 842832,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -345,7 +345,7 @@
         "canon": 19794,
         "missions": 17668,
         "machine": 17389,
-        "": 11034,
+        "": 11092,
         "opportunities": 10236,
         "legal": 9925,
         "decisions": 9669,
@@ -358,7 +358,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 507273,
+        "(none)": 507331,
         "draft": 171549,
         "active": 144791,
         "todo": 13532,
@@ -678,6 +678,7 @@
         "machine/scripts/check-machine-index.mjs",
         "machine/scripts/check-md-portability.mjs",
         "machine/scripts/check-orphan-content.mjs",
+        "machine/scripts/check-reachable.mjs",
         "machine/scripts/telemetry.mjs",
         "machine/tools/check-register.mjs"
       ],
