@@ -3,11 +3,11 @@ id: "opportunities-index"
 title: "Opportunities — index"
 type: meta
 status: active
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-28T14:05:55+02:00"
 created_source: "git:d620635"
 created_confidence: exact
-updated: "2026-09-28T16:45:00+02:00"
+updated: "2026-09-29T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [opportunities, index]
@@ -44,7 +44,8 @@ record is kept; a proposal is `draft` until sent), `state` is the sale's
 
 The records are public. They carry nobody's name, e-mail or phone — who
 said what stays where the conversation happened — and they name the
-organisation by sector and size until it has agreed to a proposal. CI runs
+organisation by sector and size until the proposal has told the client the
+house works in the open — never once a sale is lost. CI runs
 `node machine/packages/sales-kit/pipeline.mjs opportunities` on every
 change and fails on a record that breaks a rule; run it yourself to read
 the pipeline.

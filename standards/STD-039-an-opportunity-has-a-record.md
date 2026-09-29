@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T22:00:00+02:00"
+updated: "2026-09-29T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -51,9 +51,10 @@ with the fields every document carries, then carry: identifier,
 organisation, sector, the offer it sells, source, stage, value without tax,
 currency, the contact's role, the contact channel, next action, next date,
 the date opened, and the licence. The rest are written when due and absent
-before: the decider's role from agreed, the date closed at won or lost, the
-reason when lost, the proposal's path once sent, the agreement's path once
-won.
+before: the decider's role from agreed, the date closed at won or lost, the reason when lost, the proposal's path once sent, the agreement's path
+once won, and the disclosure once the client has been told the house works
+in the open — `open` if it did not object, `unnamed` if it asked to stay
+out.
 
 **The stage is a value from the register.** The stage MUST be one of the
 stages register's states, written in the header and never in the filename
@@ -76,11 +77,13 @@ name, address, number or anything that identifies one — in the header or
 in the body. Who said what is kept where the conversation happened, outside
 the archive. The record is public; a person did not choose to be.
 
-**The organisation, by sector until it agrees.** A record MUST name the
-organisation by sector and size, not by name, until the client has agreed to
-the proposal; from the stage agreed on, the name MAY be written, and the
-earlier records of the same organisation MAY be updated. A client who asks
-not to be named is not named, and the record says so.
+**The organisation, named when it knows.** A record MUST name the
+organisation by sector and size until the client has been told, in the
+proposal, that the house works in the open. From then on the record MAY
+carry its name with the disclosure `open`. A client who asks not to be
+named is not named, at any stage, and the record carries `unnamed`. A lost
+record MUST go back to sector and size, whatever it said before: why a sale
+was lost is public; who lost it to us is not.
 
 **Minimal, with its basis.** What a record says about an organisation MUST
 be the least needed to pursue the sale, held under the house's legitimate
@@ -114,7 +117,7 @@ Each rule, its code, its source and its check.
 | OPP-004 | Every open record knows its next step | — | `pipeline.mjs`: overdue and stale listed |
 | OPP-005 | Every move leaves a line | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), metadata of the transaction (clause unverified) | `pipeline.mjs`: last transition's `to` matches the stage |
 | OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001 | `pipeline.mjs`: header fields against a closed list, and the body scanned for an e-mail address or a phone number; by hand for a name |
-| OPP-011 | The organisation, by sector until it agrees | — (the client's interest, and public-procurement rules that forbid a bidder disclosing a live negotiation) | `pipeline.mjs`: a record before `agreed` whose organisation is not one of the sector words is reported; by hand for the client's wish |
+| OPP-011 | The organisation, named when it knows | the client's interest; customer-reference practice — a client's name used with its consent, withdrawable; `LCSP` art. 133 (a bidder's own offer is not the authority's to disclose) | `pipeline.mjs`: a name without `disclosure: open`, or any name in a lost record, is reported; by hand for the client's wish |
 | OPP-007 | Minimal, with its basis | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6(1)(f), recital 47 | by hand, at the review of every record |
 | OPP-008 | In the public archive | `CAN-009`; the Oracle's ruling | the tree: `opportunities/` is the series; `pipeline.mjs opportunities` runs in CI |
 | OPP-009 | The pipeline is computed | `CAN-009` | `pipeline.mjs` is the only source of pipeline figures |

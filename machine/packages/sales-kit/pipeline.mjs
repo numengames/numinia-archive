@@ -13,7 +13,7 @@
  * from STD-038's tables — one source — so a stage renamed in the register is
  * renamed here without touching code. The records are public (OPP-008), so
  * it also refuses what identifies a person (OPP-006) and an organisation
- * named before it agreed (OPP-011).
+ * named without the openness notice, or named in a lost record (OPP-011).
  *
  * WHAT IT DOES
  *
@@ -45,12 +45,18 @@ const DEFAULT_REGISTER = path.join(ROOT, 'standards', 'STD-038-the-stages-of-a-s
 /* ---------- the record, as STD-039 defines it ---------- */
 
 export const REQUIRED = ['id', 'organisation', 'sector', 'offer', 'source', 'state', 'value',
-  'currency', 'contact_role', 'contact_channel', 'next_action', 'next_date',
-  'opened', 'license'];
+  'currency', 'contact_role', 'contact_channel', 'opened', 'license'];
+/* An open record also carries its next step (OPP-004); a closed one has none,
+   and an empty value is absent (STD-004 HDR-009), so it is not written. */
+export const WHEN_OPEN = ['next_action', 'next_date'];
 /* Written when the stage asks for them, absent before (empty is absent,
    STD-004): who signs from agreed, the closed date at won or lost, the
    reason when lost, the proposal's path once sent, the agreement's once won. */
-export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement'];
+export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement', 'disclosure'];
+/* OPP-011: `open` — the client was told the house works in the open and did
+   not ask to stay unnamed, so the record may name it; absent or `unnamed` —
+   sector and size only. A lost record is never named, whatever it says. */
+export const DISCLOSURES = ['open', 'unnamed'];
 /* The header every document of the archive opens with (STD-004, rings 1 and
    2 and the fields of every series). A record carries it like any document;
    the tool accepts it and reads none of it. Kept here, not imported, so the
@@ -61,9 +67,10 @@ export const COMMON = ['title', 'type', 'status', 'version', 'created', 'updated
   'tags', 'visibility', 'guild', 'territory', 'registration', 'registration_reason',
   'registration_exemption', 'evidence_script', 'evidence_head', 'related', 'uid'];
 /* Roles and channels, never names (OPP-006): the header may carry only these. */
-export const ALLOWED = new Set([...REQUIRED, ...WHEN_DUE, ...COMMON]);
+export const ALLOWED = new Set([...REQUIRED, ...WHEN_OPEN, ...WHEN_DUE, ...COMMON]);
 export const SOURCES = ['referral', 'inbound', 'outbound', 'event', 'partner'];
-/* OPP-011: before `agreed`, the organisation is a sector and a size, never a name. */
+/* OPP-011: without `disclosure: open`, and always once lost, the organisation
+   is a sector and a size, never a name. */
 export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police|forces?|academy|school|university|hospital|health|bank|insurer|utility|logistics|manufacturer|industry|technology|software|agency|non-profit|foundation|association|municipality|ministry|company|firm|organisation|organization|studio|startup|sme|enterprise|chain|group)\b/i;
 /* OPP-006: what identifies a person — an e-mail, a phone — never enters a record. */
 export const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
@@ -177,8 +184,10 @@ export function validate(rec, reg) {
   const body = rec.text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   if (EMAIL_RE.test(body) || EMAIL_RE.test(Object.values(fm).join(' '))) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
   if (PHONE_RE.test(body)) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
-  const before = reg.order.indexOf(fm.state) < reg.order.indexOf('agreed') || fm.state === 'lost';
-  if (before && fm.organisation && !SECTOR_WORDS.test(fm.organisation)) F('OPP-011', `organisation "${fm.organisation}" reads as a name; before agreed it is a sector and a size ("a large retailer")`);
+  if (fm.disclosure && !DISCLOSURES.includes(fm.disclosure)) F('OPP-011', `disclosure "${fm.disclosure}" is not one of ${DISCLOSURES.join(' · ')}`);
+  const named = fm.organisation && !SECTOR_WORDS.test(fm.organisation);
+  if (named && fm.state === 'lost') F('OPP-011', `organisation "${fm.organisation}" reads as a name in a lost record; a lost sale is kept by sector and size ("a large retailer") — the reason is public, the name is not`);
+  else if (named && fm.disclosure !== 'open') F('OPP-011', `organisation "${fm.organisation}" reads as a name; without \`disclosure: open\` it is a sector and a size ("a large retailer")`);
   if (!transitions.length) F('OPP-005', 'no transitions table, or no dated row in it');
   else {
     const last = transitions[transitions.length - 1];
@@ -202,7 +211,7 @@ export function readFolder(folder) {
 
 /* ---------- proposals (STD-040, the mechanical rows) ---------- */
 
-const PRP_SECTIONS = ['Objectives', 'Why us', 'How it teaches, and how it measures', 'Price, terms and conditions', 'Before you agree', 'The three questions'];
+const PRP_SECTIONS = ['Objectives', 'Why us', 'How it teaches, and how it measures', 'Price, terms and conditions', 'Before you agree', 'The three questions', 'In the open'];
 
 export function validateProposal(file, text) {
   const bad = [];
@@ -211,7 +220,7 @@ export function validateProposal(file, text) {
   if (!fm) { F('PRP-001', 'no frontmatter'); return bad; }
   const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   const heads = [...body.matchAll(/^## (?:\d+\.\s+)?(.+)$/gm)].map((m) => m[1].trim());
-  const plates = ['PRP-001', 'PRP-002', 'PRP-003', 'PRP-004', 'PRP-005', 'PRP-006'];
+  const plates = ['PRP-001', 'PRP-002', 'PRP-003', 'PRP-004', 'PRP-005', 'PRP-006', 'PRP-010'];
   PRP_SECTIONS.forEach((s, i) => { if (!heads.includes(s)) F(plates[i], `no section "${s}"`); });
   if (!LEVELS.includes(fm.level)) F('PRP-003', `level "${fm.level}" is not one of ${LEVELS.join(' · ')}`);
   if (!/^\d+(\.\d+)?$/.test(fm.tax_rate ?? '')) F('PRP-004', 'no tax rate in the header');

@@ -203,6 +203,8 @@ check('tree: opportunities have one home — opportunities/, registered in STD-0
   // other — every document's header and card, then the sale's own fields,
   // registered in STD-004's ring 3 — and pipeline.mjs still judges the
   // sale's values in CI. Its moulds sit with the others in machine/templates/.
+  // 2026-09-29, the Oracle: the house works in the open and says so in every
+  // proposal; the organisation is named once told, never once lost.
   const rules = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/lib/rules.json'), 'utf-8'));
   if (!rules.series.opportunities) return 'rules.json registers no opportunities series';
   if (!rules.governed.dirs.includes('opportunities')) return 'opportunities/ is not header-governed: its documents would open with a header nobody checks';
@@ -214,7 +216,7 @@ check('tree: opportunities have one home — opportunities/, registered in STD-0
   if (!/`opportunities\/`/.test(s027)) return 'STD-027 does not place opportunities/ in the scheme';
   const s039 = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf-8');
   if (/Outside the public archive/.test(s039)) return 'STD-039 still says records live outside the public archive';
-  if (!/by sector until it agrees/i.test(s039)) return 'STD-039 does not say when the organisation is named';
+  if (!/named when it knows/i.test(s039)) return 'STD-039 does not say when the organisation is named';
   const ci = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf-8');
   if (!/pipeline\.mjs opportunities/.test(ci)) return 'CI does not run pipeline.mjs on opportunities/';
   return true;

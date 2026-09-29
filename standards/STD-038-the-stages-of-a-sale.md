@@ -5,9 +5,9 @@ title: "The stages of a sale"
 type: documentation
 subtype: register
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T22:00:00+02:00"
+updated: "2026-09-29T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -65,10 +65,18 @@ new record that names the old one.
 
 ## Naming the organisation
 
-| From stage | The organisation is written as |
+The house works in the open, and says so in every proposal. The record
+names the organisation when the organisation knows it may be named.
+
+| When | The organisation is written as |
 |---|---|
-| `lead` to `proposed`, and `lost` before agreeing | its sector and size: *a large retailer*, *a provincial police force* |
-| `agreed` and `won` | its name, unless it asked not to be named |
+| before a proposal is sent, or when the client was never told | its sector and size: *a large retailer*, *a provincial police force* |
+| from the proposal sent, told in it, and the client did not ask otherwise | its name |
+| the client asked not to be named, at any stage | its sector and size |
+| `lost`, always | its sector and size — the reason is public, the name is not |
 
 Records are public and hold nobody's name at any stage; they are kept as
-they stand, since the statistics are made from them.
+they stand, since the statistics are made from them. A buyer bound by
+public procurement is named only when it has been told, like any other:
+what a contracting authority itself publishes about a minor contract —
+object, duration, amount, awardee — is public in any case once awarded.

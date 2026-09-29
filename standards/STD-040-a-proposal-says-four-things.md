@@ -5,9 +5,9 @@ title: "A proposal says four things"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-28T22:00:00+02:00"
+updated: "2026-09-29T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -81,6 +81,11 @@ signed by whoever sent it — no field in the proposal says so twice. Who
 signs the agreement is written in the agreement, which is where signatures
 live.
 
+**In the open, said first.** A proposal MUST end by telling the client
+that the house works in the open and publishes its proposals, and that
+the client may ask not to be named. What the house offers and at what
+price is the house's to publish; the client's name is theirs to withhold.
+
 **One record, two renderings.** A proposal MUST be one file from which the
 document sent and any page shown to the client are both rendered. Neither
 is edited on its own.
@@ -104,6 +109,7 @@ Each rule, its code, its source and its check.
 | PRP-005 | What the client must know first | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 6 (items beyond title, objectives and prerequisites unverified) | by hand, at the review |
 | PRP-006 | The three questions answered | `CAN-011` | `pipeline.mjs --proposals`: the three answers present; by hand for their truth |
 | PRP-007 | Read before it is sent | [ISO 9001:2015](https://www.iso.org/standard/62085.html) 8.2.3, review before committing to supply (clause unverified) | `pipeline.mjs`: a record at `proposed` has a transition row to it with a date and a name in *By*; the reading itself, by hand |
+| PRP-010 | In the open, said first | customer-reference practice (consent to be named, withdrawable); `CAN-009` | `pipeline.mjs --proposals`: the section *In the open* exists |
 | PRP-008 | One record, two renderings | `CAN-009` | by hand until a renderer exists |
 | PRP-009 | Kept with its opportunity | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html) (clause unverified) | `pipeline.mjs`: a proposed record's `proposal` path resolves |
 

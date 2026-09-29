@@ -160,6 +160,27 @@ check('OPP-011: an organisation named before agreed is reported; the won one may
   assert.match(run(dir).err, /OPP-011.*"Provincial Forensic Unit" reads as a name/);
 });
 
+check('OPP-011: a proposed record may be named once the client was told and did not object', (dir) => {
+  edit(dir, 'OPP-2026-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Provincial Forensic Unit"\ndisclosure: "open"'));
+  const r = run(dir);
+  assert.doesNotMatch(r.err, /OPP-011/);
+});
+
+check('OPP-011: a lost record is never named, even open', (dir) => {
+  edit(dir, 'OPP-2026-001.md', (t) => t.replace('state: "won"', 'state: "lost"\nreason: "price"'));
+  assert.match(run(dir).err, /OPP-011.*"Meridian Outfitters" reads as a name in a lost record/);
+});
+
+check('OPP-011: a disclosure outside the list is refused', (dir) => {
+  edit(dir, 'OPP-2026-004.md', (t) => t.replace(/^(organisation: .*)$/m, '$1\ndisclosure: "maybe"'));
+  assert.match(run(dir).err, /OPP-011.*disclosure "maybe"/);
+});
+
+check('PRP-010: a proposal without the openness notice fails', (dir) => {
+  edit(dir, 'PRP-2026-001.md', (t) => t.replace('## In the open', '## Elsewhere'));
+  assert.match(run(dir, '--proposals').err, /PRP-010.*In the open/);
+});
+
 check('OPP-011: the won record keeps its name without a finding', (dir) => {
   const r = run(dir);
   assert.equal(r.code, 0, r.err);
