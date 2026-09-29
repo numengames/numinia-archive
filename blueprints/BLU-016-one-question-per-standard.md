@@ -117,6 +117,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-040` | What must a proposal contain before it is sent? | — |
 | `STD-041` | At which levels may an agent be operated, and what does the person do in each? | register |
 | `STD-042` | Which permission is granted alone at each level of automation? | register |
+| `STD-043` | What does a period report say, and to whom? | — |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.

@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.102.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "ADD",
+        text: "A new standard on the second shelf of /standards, beside the one that rolls the reports up: A report speaks to the board. The weekly, quarterly and annual reports are written for a board and for the public, under nine headings — the period in brief, business and customers, money, products and services, the world and its creations, people and agents, governance, risks and debts, the outlook. /templates shows the three moulds beside the report mould.",
+      },
+    ],
+  },
+  {
     version: "v0.101.0",
     date: "2026-09-29",
     entries: [

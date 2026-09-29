@@ -67,7 +67,13 @@ for (const dir of seriesDirs(RULES)) {
   // kinds of document, the record (OPP) and its proposal (PRP).
   for (const pfx of RULES.series[dir].prefix) DEST[`${pfx}-TEMPLATE.md`] = dir;
 }
-const COMPANIONS = { 'MIS-TEMPLATE-EXAMPLE.md': 'missions' };
+const COMPANIONS = {
+  'MIS-TEMPLATE-EXAMPLE.md': 'missions',
+  // The three roll-up moulds (STD-043): a report's shape at each level.
+  'RPT-TEMPLATE-WEEK.md': 'reports',
+  'RPT-TEMPLATE-QUARTER.md': 'reports',
+  'RPT-TEMPLATE-YEAR.md': 'reports',
+};
 const EXEMPT = new Set(['README.md']);
 
 /* Ring 1, ring 2 and the per-series registry come from lib/rings.mjs — the

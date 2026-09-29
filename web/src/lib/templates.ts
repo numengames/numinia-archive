@@ -70,6 +70,11 @@ const MAKES: Record<string, string> = {
 /** Records that sit beside a mould and explain it; not moulds themselves. */
 const COMPANIONS: Record<string, { file: string; what: string }[]> = {
   MIS: [{ file: "MIS-TEMPLATE-EXAMPLE.md", what: "a real mission written with this mould, closed, to read beside the blank one" }],
+  RPT: [
+    { file: "RPT-TEMPLATE-WEEK.md", what: "the weekly report: the nine headings on one page, for the board" },
+    { file: "RPT-TEMPLATE-QUARTER.md", what: "the quarterly report: the nine headings, one row per week" },
+    { file: "RPT-TEMPLATE-YEAR.md", what: "the annual report: the nine headings and the organisation's story so far" },
+  ],
 };
 
 /** Moulds that live elsewhere, because the tool that reads them needs them there. */

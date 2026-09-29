@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: protocol
 status: draft
-version: "3.1.0"
+version: "3.2.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-09-29T19:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, rollup, deflation, weekly, reports]
@@ -14,7 +14,7 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
 ratified_by: "ADR-042"
-related: ["STD-012", "ADR-030", "RPT-018"]
+related: ["STD-012", "STD-043", "ADR-030", "RPT-018"]
 derived_from: "CAN-009"
 ---
 
@@ -49,8 +49,9 @@ on the first Monday of a year over four quarterlies. Executor: any agent on
 
 ## 3. Procedure
 
-1. **Open the report.** Open or create `reports/RPT-NNN-<yyyy>-w<ww>.md`,
-   `subtype: rollup`, with two sections: *Closed this week*, *Carried up*.
+1. **Open the report.** Copy `machine/templates/RPT-TEMPLATE-WEEK.md` to
+   `reports/RPT-NNN-<yyyy>-w<ww>.md`. It is written for the board, under the
+   nine headings of `STD-043`, not for the people who did the work.
 2. **List what closed.** `node machine/scripts/check-deletable.mjs
    --candidates`; `git log --since=<monday>` is the daily record (`DEF-001`).
 3. **Copy one line per record.** Take it from the record's own Closure:
@@ -73,7 +74,8 @@ on the first Monday of a year over four quarterlies. Executor: any agent on
 9. **Open the PR.** Title `rollup: <period>`: the lines, the token delta,
    the four `ADR-030` tests answered.
 
-Quarterly and annual: the "records" are the reports of the level below.
+Quarterly and annual: copy `RPT-TEMPLATE-QUARTER.md` or `RPT-TEMPLATE-YEAR.md`;
+the "records" are the reports of the level below.
 Carry up only `rule`, `debt`, `address` lines; move `absorbs:` lists whole
 (`DEF-011`); repoint redirects (`URL-005`); delete the lower reports.
 
@@ -96,5 +98,6 @@ Oracle wants a body back: `git show <commit>:<path>`.
 | Document | Title | Why it obliges here |
 |---|---|---|
 | `STD-012` | The corpus does not grow | `DEF-001..007`, the rule this executes |
+| `STD-043` | A report speaks to the board | the nine headings every roll-up carries |
 | `ADR-030` | Lifecycle and deletion | the four tests a deletion answers |
 | `RPT-018` | Alpha story | the open phase report step 6 points at |
