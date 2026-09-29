@@ -75,7 +75,7 @@ export const DISTRICTS: Record<DistrictId, { name: string; place: string; factio
   play: { name: "Play", place: "Ouroboros", faction: "Heirs of Eleusis", a: 45, line: "The labyrinth of play: the role-playing game, the adventures and experiences for events." },
   learn: { name: "Learn", place: "Vitruvian", faction: "Hermeticists", a: 135, line: "The temple of knowledge: the codex, the world's vocabulary and training." },
   order: { name: "Organise", place: "Solomon", faction: "Stellar Circle", a: 225, line: "The gearwork of order: the agents, NWOS for your organisation, and our partners." },
-  make: { name: "Collect", place: "Sycamore", faction: "Neo-Atlanteans", a: 315, line: "The canvas of imagination: objects, the world, the shop and supporting Numinia." },
+  make: { name: "Collect", place: "Sycamore", faction: "Neo-Atlantists", a: 315, line: "The canvas of imagination: objects, the world, the shop and supporting Numinia." },
 };
 
 const E = (label: string, line: string, href: string | null, folder?: string): Entry => ({

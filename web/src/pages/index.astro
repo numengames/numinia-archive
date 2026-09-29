@@ -16,6 +16,7 @@ import type { Entry } from "@/lib/summa";
 import SummaRow from "@/components/SummaRow.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
+import { wordAttrs, textAttrs, wordAt, attrsAt } from "@/lib/narrative-words.mjs";
 
 const CX = 360, CY = 360;
 const P = (r: number, a: number) => { const t = ((a - 90) * Math.PI) / 180; return [CX + r * Math.cos(t), CY + r * Math.sin(t)]; };
@@ -39,6 +40,25 @@ const distBoxes = Object.entries(DISTRICTS).map(([k, d]) => { const [x, y] = P(3
 const total = SEGMENTS.flatMap((s) => s.entries).reduce((n, e) => n + (e.count ?? 0), 0);
 const lensSegs = (site: string) => LENSES.find((l) => l.site === site)!.paints;
 const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
+// The narrative dial (the moon in the bar) swaps every label below that the
+// register holds: text through wordAttrs, tooltips and aria-labels through
+// attrsAt. A segment's title is its district's name plus a tail ("Play · its
+// world"), so only the name is swapped and the tail stays.
+type Stop = "plain" | "bridge" | "numinia";
+const titleAt = (s: (typeof SEGMENTS)[number], stop: Stop) =>
+  s.district ? wordAt(DISTRICTS[s.district].name, stop) + s.title.slice(DISTRICTS[s.district].name.length) : wordAt(s.title, stop);
+const segAttrs = (s: (typeof SEGMENTS)[number]) => attrsAt({
+  "aria-label": (st: Stop) => titleAt(s, st),
+  "data-tip": (st: Stop) => `${titleAt(s, st)}|${s.entries.map((e) => wordAt(e.label, st)).join(" · ")}`,
+});
+// Under a district's name, its place; at the full moon the name already IS
+// the place, so the line under it names the faction (codex glossary).
+const placeAttrs = (d: { place: string; faction: string }) => ({ "data-nw": "", "data-nw-bridge": d.place, "data-nw-numinia": d.faction });
+// A ring word that repeats its district's name ("Play" on the offer ring)
+// names the offer, not the place: it keeps its word at every stop.
+const segWordAttrs = (s: (typeof SEGMENTS)[number]) =>
+  s.district && s.word === DISTRICTS[s.district].name ? { "data-nw-hold": "" } : wordAttrs(s.word);
+const RINGS_LINE = "From the centre out: the rules, the work, the world, the offer.";
 ---
 
 <Layout title="Numinia — the Summa" description="The archive of Numen Games, drawn as a map: the rules, the work, the world and the offer." canonicalPath="/">
@@ -46,11 +66,11 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
     <div class="stage">
       <!-- ── context: one panel per state ── -->
       <div class="ctx" aria-live="polite">
-        <a class="home-btn" href="#" data-go="" hidden><Icon name="crosshair" size={14} /> The Summa · overview</a>
+        <a class="home-btn" href="#" data-go="" hidden><Icon name="crosshair" size={14} /> <span {...wordAttrs("The Summa")}>The Summa</span> · overview</a>
 
         <div class="panel" data-state="">
           <div class="et">numinia.org</div>
-          <h1>The Summa</h1>
+          <h1 {...wordAttrs("The Summa")}>The Summa</h1>
           <h2>What is this?</h2>
           <p>The archive of Numen Games: everything we decide, build and offer, written down and open. Numinia is the story we tell it in — a city where work is a game. {total} documents, and every one of them has its page here.</p>
           <div class="qa">
@@ -60,12 +80,12 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
           <div class="qa">
             <h2>What brings you here?</h2>
             <ul class="jump">
-              {INTENTS.map((i) => <li><button type="button" data-go={i.target}><span>{i.label}</span><small>{i.hint} →</small></button></li>)}
+              {INTENTS.map((i) => <li><button type="button" data-go={i.target}><span>{i.label}</span><small><span {...wordAttrs(i.hint)}>{i.hint}</span> →</small></button></li>)}
             </ul>
           </div>
           <div class="qa">
             <h2>How to read the map</h2>
-            <p>From the centre out: the rules, the work, the world, the offer. The four corners are districts. Click any piece; the panel explains it, and <em>Open</em> takes you in. Or <a href="/about">see every series as a list</a>, or press <kbd>/</kbd> to search.</p>
+            <p><span {...textAttrs("home.rings", RINGS_LINE)}>{RINGS_LINE}</span> The four corners are districts. Click any piece; the panel explains it, and <em>Open</em> takes you in. Or <a href="/about">see every series as a list</a>, or press <kbd>/</kbd> to search.</p>
           </div>
           <div class="qa"><DocToolbar mdUrl="/home.md" filename="home.md" repoUrl={repoFileUrl("standards/STD-027-the-classification-scheme.md")} lang="en" /></div>
         </div>
@@ -74,24 +94,24 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
           const r = RINGS[s.ring]; const d = s.district && DISTRICTS[s.district];
           return (
             <div class="panel" data-state={`s-${s.id}`} hidden>
-              <div class="depth">{RING_ORDER.map((k) => <div class:list={[k === s.ring && "on"]}><span></span><i>{RINGS[k].name}</i></div>)}</div>
-              <div class="et">{r.name}{d && ` · ${d.place}`}</div>
-              <h1 class="h1s">{s.title}</h1>
+              <div class="depth">{RING_ORDER.map((k) => <div class:list={[k === s.ring && "on"]}><span></span><i {...wordAttrs(RINGS[k].name)}>{RINGS[k].name}</i></div>)}</div>
+              <div class="et"><span {...wordAttrs(r.name)}>{r.name}</span>{d && ` · ${d.place}`}</div>
+              <h1 class="h1s">{d ? <><span {...wordAttrs(d.name)}>{d.name}</span>{s.title.slice(d.name.length)}</> : <span {...wordAttrs(s.title)}>{s.title}</span>}</h1>
               <p class="classic">{r.classic}</p>
               <p>{s.ring === "world" ? "Its part of the world. " : s.ring === "offer" ? "What it offers. " : ""}{r.line}</p>
               <ul class="jump">
                 {s.entries.map((e) => <SummaRow e={e} />)}
               </ul>
-              {first(s.entries) && <p class="mt"><a class="enter" href={first(s.entries)!.href!}>Open {first(s.entries)!.label} →</a></p>}
+              {first(s.entries) && <p class="mt"><a class="enter" href={first(s.entries)!.href!}>Open <span {...wordAttrs(first(s.entries)!.label)}>{first(s.entries)!.label}</span> →</a></p>}
               {s.entries.some((e) => !e.href) && <p class="todo-note"><span class="chip">to create</span> {TO_CREATE}</p>}
-              {d && <p class="mt-s"><button type="button" class="lnk" data-go={`d-${s.district}`}>All of {d.name} →</button></p>}
+              {d && <p class="mt-s"><button type="button" class="lnk" data-go={`d-${s.district}`}>All of <span {...wordAttrs(d.name)}>{d.name}</span> →</button></p>}
             </div>);
         })}
 
         {Object.entries(DISTRICTS).map(([k, d]) => (
           <div class="panel" data-state={`d-${k}`} hidden>
             <div class="et">District · {d.place} · {d.faction}</div>
-            <h1 class="h1s">{d.name}</h1>
+            <h1 class="h1s" {...wordAttrs(d.name)}>{d.name}</h1>
             <p>{d.line}</p>
             {["world", "offer"].map((ring) => { const s = SEGMENTS.find((x) => x.ring === ring && x.district === k)!; return (
               <div class="qa"><div class="et">{ring === "world" ? "Its world" : "What it offers"}</div>
@@ -105,7 +125,7 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
             <h1 class="h1s">{l.site}</h1>
             <p>{l.line}</p>
             <div class="qa"><div class="et">What it shows from the Summa</div>
-              <ul class="jump">{l.paints.map((id) => { const s = SEGMENTS.find((x) => x.id === id)!; return <li><button type="button" data-go={`s-${id}`}><span>{s.title}</span><small>{RINGS[s.ring].name}</small></button></li>; })}</ul></div>
+              <ul class="jump">{l.paints.map((id) => { const s = SEGMENTS.find((x) => x.id === id)!; return <li><button type="button" data-go={`s-${id}`}><span>{s.district ? <><span {...wordAttrs(DISTRICTS[s.district].name)}>{DISTRICTS[s.district].name}</span>{s.title.slice(DISTRICTS[s.district].name.length)}</> : <span {...wordAttrs(s.title)}>{s.title}</span>}</span><small {...wordAttrs(RINGS[s.ring].name)}>{RINGS[s.ring].name}</small></button></li>; })}</ul></div>
             <p class="mt"><a class="enter" href={l.href} rel="noopener">Visit {l.site} ↗</a></p>
             <p class="et mt-s">It holds no text of its own: if you read it there, it is here.</p>
           </div>
@@ -126,24 +146,24 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
             const R = RINGS[s.ring].r;
             return (
               <g class:list={["seg", `r-${s.ring}`]} data-go={`s-${s.id}`} data-seg={s.id} data-district={s.district ?? ""} tabindex="0" role="button" aria-label={s.title}
-                 data-tip={`${s.title}|${s.entries.map((e) => e.label).join(" · ")}`}>
+                 data-tip={`${s.title}|${s.entries.map((e) => e.label).join(" · ")}`} {...segAttrs(s)}>
                 <path class="f" d={arc(R[0], R[1], s.a[0], s.a[1])} />
                 {s.ring === "core"
-                  ? <><text class="c1" x={CX} y={CY + 2} text-anchor="middle">The rules</text><text class="w" x={CX} y={CY + 24} text-anchor="middle">the core</text></>
-                  : <text class="w" dy="4" text-anchor="middle"><textPath href={`#t-${s.id}`} startOffset="50%">{s.word}</textPath></text>}
+                  ? <><text class="c1" x={CX} y={CY + 2} text-anchor="middle" {...wordAttrs("The rules")}>The rules</text><text class="w" x={CX} y={CY + 24} text-anchor="middle">the core</text></>
+                  : <text class="w" dy="4" text-anchor="middle"><textPath href={`#t-${s.id}`} startOffset="50%" {...segWordAttrs(s)}>{s.word}</textPath></text>}
               </g>);
           })}
           {distBoxes.map(({ k, d, x, y }) => (
-            <g class="dist" data-go={`d-${k}`} data-d={k} tabindex="0" role="button" aria-label={`${d.name} — ${d.place}`} data-tip={`${d.place} · ${d.faction}|${d.line}`}>
+            <g class="dist" data-go={`d-${k}`} data-d={k} tabindex="0" role="button" aria-label={`${d.name} — ${d.place}`} {...attrsAt({ "aria-label": (st: Stop) => `${wordAt(d.name, st)} — ${st === "numinia" ? d.faction : d.place}` })} data-tip={`${d.place} · ${d.faction}|${d.line}`}>
               <rect class="hit" x={x - 80} y={y - 40} width="160" height="80" rx="10" />
               <rect class="box" x={x - 70} y={y - 27} width="140" height="54" rx="8" />
-              <text class="d1" x={x} y={y + 3} text-anchor="middle">{d.name}</text>
-              <text class="d2" x={x} y={y + 19} text-anchor="middle">{d.place}</text>
+              <text class="d1" x={x} y={y + 3} text-anchor="middle" {...wordAttrs(d.name)}>{d.name}</text>
+              <text class="d2" x={x} y={y + 19} text-anchor="middle" {...placeAttrs(d)}>{d.place}</text>
             </g>
           ))}
         </svg>
         <div class="dgrid" role="group" aria-label="Districts">
-          {distBoxes.map(({ k, d }) => <button type="button" class="dbtn" data-go={`d-${k}`} data-d={k}><b>{d.name}</b><span>{d.place}</span></button>)}
+          {distBoxes.map(({ k, d }) => <button type="button" class="dbtn" data-go={`d-${k}`} data-d={k}><b {...wordAttrs(d.name)}>{d.name}</b><span {...placeAttrs(d)}>{d.place}</span></button>)}
         </div>
       </div>
     </div>

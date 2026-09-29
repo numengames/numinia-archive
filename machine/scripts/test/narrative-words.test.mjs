@@ -40,6 +40,7 @@ test('hand-written texts use only words the register holds', () => {
   const allowed = new Set(WORDS.flatMap((w) => [w.plain?.text, w.numinia?.text]).filter(Boolean).map((t) => t.toLowerCase()));
   assert.ok(allowed.has('knowledge base') && allowed.has('summa archive'));
   for (const [key, t] of Object.entries(TEXTS)) {
+    if (!t.uses?.includes('The archive')) continue;
     if (t.plain) assert.match(t.plain.toLowerCase(), /knowledge base/, `${key}: the plain text names the archive by its register word`);
     if (t.numinia) assert.match(t.numinia.toLowerCase(), /summa archive/, `${key}: the Numinia text names the archive by its register word`);
   }

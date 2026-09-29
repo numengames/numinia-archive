@@ -6,11 +6,12 @@
 // count), an offer a sister site already serves (↗), or a record still to
 // create (no link, the tag says why).
 import { TO_CREATE, type Entry } from "@/lib/summa";
+import { wordAttrs } from "@/lib/narrative-words.mjs";
 interface Props { e: Entry }
 const { e } = Astro.props;
 ---
 {e.external
-  ? <li><a href={e.href!} rel="noopener"><span>{e.label}<span class="chip ext">on {e.external} ↗</span></span><small>{e.line}</small></a></li>
+  ? <li><a href={e.href!} rel="noopener"><span><span {...wordAttrs(e.label)}>{e.label}</span><span class="chip ext">on {e.external} ↗</span></span><small>{e.line}</small></a></li>
   : e.href
-    ? <li><a href={e.href}><span>{e.label}{e.count ? <span class="n">{e.count}</span> : null}</span><small>{e.line}</small></a></li>
-    : <li><span class="todo" title={TO_CREATE}><span>{e.label}<span class="chip">to create</span></span><small>{e.line}</small></span></li>}
+    ? <li><a href={e.href}><span><span {...wordAttrs(e.label)}>{e.label}</span>{e.count ? <span class="n">{e.count}</span> : null}</span><small>{e.line}</small></a></li>
+    : <li><span class="todo" title={TO_CREATE}><span><span {...wordAttrs(e.label)}>{e.label}</span><span class="chip">to create</span></span><small>{e.line}</small></span></li>}
