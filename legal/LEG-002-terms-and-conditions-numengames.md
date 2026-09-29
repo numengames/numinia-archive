@@ -6,11 +6,11 @@ uid: ""
 title: "Terms and Conditions — Numen Games"
 type: legal
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-17T14:34:34Z"
 created_source: "git:54f7b0b"
 created_confidence: inferred
-updated: "2026-08-25T11:00:28Z"
+updated: "2026-09-29T18:00:00+02:00"
 author: "oracle"
 owner: "oracle"
 tags: [legal, terms, website, numen-games, enforceable]
@@ -18,6 +18,18 @@ license: "LicenseRef-Numen-AllRightsReserved"
 source_title: "2025_01_12-NUMEN - Terms and Conditions"
 provenance: "human"
 restoration_note: "Ingested 2026-08-17 from the original document. A find-and-replace corruption in the source (the string 'app' had been replaced by 'Website', producing non-words like 'Websitelicable', 'Websitely', 'Websiteroval', 'Websiteropriate', 'Websiterove') was reversed to restore the intended words (applicable, apply, approval, appropriate, approve); 'Webite' typo corrected; §14 'In any provision' corrected to 'If any provision'. No legal substance was altered. Verify against the original before external use."
+review_flags: |
+  FLAG-1: v1.0.1 (2026-09-29) changes only the card above the text: it
+  said "Audience: Oracle · Legal · Agents", which the sites published.
+  The body is the lawyers' text, untouched.
+  FLAG-2: These terms are written for businesses (§4.2 "Business purpose
+  only") and for numen.games. numinia.com will sell to consumers and
+  numinia.org is an open archive: both need their own terms; until then
+  the Legal Notice (LEG-004) governs visitors (DBT-022 #9, #14).
+  FLAG-3: §5.3 forbids any bot or scraper, which contradicts the open
+  licences of the archive and legitimate indexing (DBT-022 #13).
+  FLAG-4: §14 submits disputes exclusively to Madrid; not valid against
+  a consumer (DBT-022 #11).
 ---
 
 <!--
@@ -26,12 +38,10 @@ SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
 -->
 # Terms and Conditions — Numen Games
 
-> **Summary:** The Terms and Conditions governing www.numen.games and its
-> pre-contractual Services. Enforceable legal artifact — all rights
-> reserved; this text is not offered under any open licence.
-> **Epistemic:** The legal frame every Numen Games web interaction sits in.
-> **Pragmatic:** The canonical source for the T&C published on the website.
-> **Audience:** Oracle · Legal · Agents (read-only reference)
+> **Summary:** The terms for businesses that ask Numen Games for a demo, a proposal or a service: Engage, Training and Experience.
+> **Epistemic:** What binds a business before and around a signed agreement; visitors are covered by the Legal Notice.
+> **Pragmatic:** Read it before requesting a demo or a proposal; a signed agreement prevails over it.
+> **Audience:** Businesses
 
 ---
 

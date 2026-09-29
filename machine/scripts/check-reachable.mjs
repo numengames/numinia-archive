@@ -44,6 +44,7 @@ export const EXEMPT = new Map([
   ["/legal/privacy", "short address of LEG-001 for the footer and the sister sites; the document itself is reached from /legal"],
   ["/legal/terms", "short address of LEG-002 for the footer and the sister sites; the document itself is reached from /legal"],
   ["/legal/cookies", "short address of LEG-003 for the footer and the sister sites; the document itself is reached from /legal"],
+  ["/legal/notice", "short address of LEG-004 for the footer and the sister sites; the document itself is reached from /legal"],
 ]);
 
 const isRedirect = (html) => /http-equiv="refresh"/i.test(html);

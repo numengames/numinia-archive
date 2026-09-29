@@ -1,0 +1,58 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+// The cookie notice (LEG-003 §4): the library's stylesheet dressed in the
+// site's own tokens, day and night, and one module that starts it.
+import "vanilla-cookieconsent/dist/cookieconsent.css";
+---
+
+<script>
+  import { startCookieNotice, reopenCookieNotice } from "@/lib/cookie-notice";
+  startCookieNotice();
+  document.querySelectorAll<HTMLElement>("[data-cookie-choice]").forEach((b) => {
+    b.addEventListener("click", () => reopenCookieNotice());
+  });
+</script>
+
+<style is:global>
+  #cc-main {
+    --cc-font-family: var(--font-sans, inherit);
+    --cc-bg: rgb(var(--bg-card));
+    --cc-primary-color: rgb(var(--text));
+    --cc-secondary-color: rgb(var(--text-muted));
+    --cc-link-color: rgb(var(--text));
+    --cc-separator-border-color: rgb(var(--border));
+    --cc-footer-bg: rgb(var(--bg));
+    --cc-footer-color: rgb(var(--text-muted));
+    --cc-footer-border-color: rgb(var(--border));
+    --cc-modal-border-radius: 12px;
+    --cc-btn-border-radius: 8px;
+    /* Accept and Reject wear the same dress (equal weight). */
+    --cc-btn-primary-bg: rgb(var(--text));
+    --cc-btn-primary-color: rgb(var(--bg));
+    --cc-btn-primary-border-color: rgb(var(--text));
+    --cc-btn-primary-hover-bg: rgb(var(--text-muted));
+    --cc-btn-primary-hover-color: rgb(var(--bg));
+    --cc-btn-primary-hover-border-color: rgb(var(--text-muted));
+    --cc-btn-secondary-bg: rgb(var(--bg));
+    --cc-btn-secondary-color: rgb(var(--text));
+    --cc-btn-secondary-border-color: rgb(var(--border));
+    --cc-btn-secondary-hover-bg: rgb(var(--bg-card-hover));
+    --cc-btn-secondary-hover-color: rgb(var(--text));
+    --cc-btn-secondary-hover-border-color: rgb(var(--text-muted));
+    --cc-toggle-readonly-bg: rgb(var(--border));
+    --cc-toggle-readonly-knob-bg: rgb(var(--bg-card));
+    --cc-toggle-readonly-knob-icon-color: rgb(var(--text-muted));
+    --cc-cookie-category-block-bg: rgb(var(--bg));
+    --cc-cookie-category-block-border: rgb(var(--border));
+    --cc-cookie-category-block-hover-bg: rgb(var(--bg-card-hover));
+    --cc-cookie-category-block-hover-border: rgb(var(--border));
+    --cc-cookie-category-expanded-block-bg: rgb(var(--bg));
+    --cc-cookie-category-expanded-block-hover-bg: rgb(var(--bg-card-hover));
+    --cc-overlay-bg: rgba(0, 0, 0, 0.6);
+  }
+  #cc-main a { text-decoration: underline; }
+  /* 44 px touch targets, the house minimum for main controls. */
+  #cc-main .cm__btn,
+  #cc-main .pm__btn { min-height: 44px; }
+</style>

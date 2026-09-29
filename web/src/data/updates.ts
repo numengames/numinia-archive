@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.96.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "ADD",
+        text: "A cookie notice on the first visit, with Accept all and Reject all side by side. This site has nothing optional to switch off — it keeps only your day or night mode, the reader's speed and your answer — and the notice says so. The footer gains Change my cookie choice.",
+      },
+      {
+        type: "ADD",
+        text: "Legal notice (/legal/notice): who runs the four sites — Numen Games S.L., tax ID, address, legal@numengames.com — what each licence lets you do, and the rules for using the sites. The registry entry is still to come.",
+      },
+      {
+        type: "FIX",
+        text: "The legal pages no longer show notes meant for us: review flags, archival notes, 'see the frontmatter', 'Audience: Oracle'. The privacy policy now says what the sites do: who hosts them, who handles sign-in, which providers are in the United States, and that services are for people aged 18 or over. A test fails the build if an internal note or an old email address comes back.",
+      },
+    ],
+  },
+  {
     version: "v0.95.0",
     date: "2026-09-29",
     entries: [

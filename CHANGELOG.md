@@ -19,6 +19,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Added** Legal debts and questions for counsel (`DBT-022`): 33 gaps between what the four sites do and what their legal texts say, each marked ours, counsel's (ATH21) or the company's. Legal notice (`LEG-004`) with the company's identity and the licence of what we publish; cookie notice with equal Accept and Reject on numinia.org; `LEG-001` 2.1.0 names the providers and the transfers outside the EEA it used to deny; `LEG-003` 2.0.0 lists the missing keys and the notice; a test keeps internal notes and old emails out of the published texts (site v0.96.0)
+
 - **Changed** The semantic census answers its first question: a district is a faction's operative territory, tied to no guild or institution; Ouroboros is the Heirs of Eleusis' ground, play first with narration, ritual and dream inside it (Christian, SYS-011 0.2.0)
 - **Fixed** The LAP's name, by the Oracle's ruling: LAP in every language, no dots; *Lector Akáshico Personal* in Spanish, *Lore Akashic Processor* in English. The translation glossary and the LAP census card say so; census dates no longer lie in the future
 - **Added** /configure gathers the settings of NWOS (narrative, gamification, automation, the team); every page is reachable from the map or the archive, and `check-reachable` fails the build when one is not (site v0.95.0)

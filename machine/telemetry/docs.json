@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 15148,
+  "chars": 15712,
   "apparatus": false,
   "archived": false,
-  "tokens": 4065
+  "tokens": 4212
  },
  {
   "path": "CLAUDE.md",
@@ -825,6 +825,17 @@
   "tokens": 1415
  },
  {
+  "path": "debt/DBT-022-legal-debts-and-questions-for-counsel.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 10346,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2700
+ },
+ {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
   "dir": "decisions",
   "series": "decisions",
@@ -929,10 +940,10 @@
   "series": "legal",
   "type": "legal",
   "status": "active",
-  "chars": 12642,
+  "chars": 14743,
   "apparatus": false,
   "archived": false,
-  "tokens": 2939
+  "tokens": 3513
  },
  {
   "path": "legal/LEG-002-terms-and-conditions-numengames.md",
@@ -940,10 +951,10 @@
   "series": "legal",
   "type": "legal",
   "status": "active",
-  "chars": 22317,
+  "chars": 23000,
   "apparatus": false,
   "archived": false,
-  "tokens": 4696
+  "tokens": 4895
  },
  {
   "path": "legal/LEG-003-cookie-policy-numengames.md",
@@ -951,10 +962,21 @@
   "series": "legal",
   "type": "legal",
   "status": "draft",
-  "chars": 8913,
+  "chars": 11695,
   "apparatus": false,
   "archived": false,
-  "tokens": 2290
+  "tokens": 2979
+ },
+ {
+  "path": "legal/LEG-004-legal-notice-numengames.md",
+  "dir": "legal",
+  "series": "legal",
+  "type": "legal",
+  "status": "draft",
+  "chars": 6009,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1549
  },
  {
   "path": "lore/README.md",
