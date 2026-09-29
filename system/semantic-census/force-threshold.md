@@ -1,0 +1,116 @@
+---
+id: "SYS-011:force-threshold"
+title: "Threshold"
+type: entity
+status: draft
+version: "0.1.0"
+created: "2026-09-29T21:00:00+02:00"
+updated: "2026-09-29T21:00:00+02:00"
+author: "ursa"
+owner: "oracle"
+license: "CC0-1.0"
+category: "force"
+stage: draft
+confidence: "medium"
+---
+
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+-->
+
+# Threshold
+
+> **Summary:** In the world, the Threshold is the force through which things take a body:
+> physical energy, matter, action. In the house it names the everyday design surface
+> (pages, invoices), and on numinia.com it is the gate at the end of the free chapters.
+
+Every claim ends with where it comes from: **(cited: `path` — «heading»)**
+when a source says it (quote it, in the source's language), **(inferred)**
+when several uses support it (name them), **(proposed)** when it is a
+plausible reading nobody has confirmed yet.
+
+## Entity
+
+| | |
+|---|---|
+| Name in the manual (ES) | Umbral (cited: `lore/game/manual/glossary-es-en.md` — «\| Umbral \| Threshold \|») |
+| Name in English | Threshold (cited: same) |
+| Category | force |
+| Also written as | «Umbral» left in Spanish in English house texts (cited: `canon/CAN-008-visual-identity.md` — «The three forces»); lower-case in code (cited: `standards/STD-026-operative-vocabulary.md` — «the code writes them in lower case»); «Umbrales» for the four guild portals (cited: `glossary-es-en.md` — «Umbrales y sellos») |
+
+## Concept
+
+The Threshold is one of Numinia's three forces, alongside the Velo and the Prisma, and it is the Velo's antagonist: «la materialización de energías físicas» (cited: `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md` — «Las fronteras del Umbral»). It is not a wall or a portal: «es el punto exacto donde el mundo toma cuerpo» (cited: same). It is also a dynamic limit, «la línea en la que la realidad se afirma frente al caos» (cited: same). What every use shares is *the point where something becomes concrete or can be crossed* (inferred: uses in `02-historia…`, `CAN-008`, `CodexUmbral.astro`).
+
+## Constitutive traits
+
+- Manifestation and action: «Activar, mover, señalar las fronteras» (cited: `02-historia…` — «ASPECTO|VELO|UMBRAL|PRISMA»).
+- It executes: «el Akasha registra y el Velo revela, el Umbral ejecuta» (cited: same).
+- It holds tensions, not memories (cited: same — «guarda tensiones»).
+
+## Facets
+
+| Facet | What it is | Provenance |
+|---|---|---|
+| Cosmic force | The physical pole of the three forces | cited: `02-historia…` — «Las fronteras del Umbral» |
+| Character resource | Points that add to physical rolls; at 0 the character enters Imbalance | cited: `lore/game/manual/es/03-creacion-del-personaje.md` — «su comunión y armonía con el mundo» |
+| Border between order and chaos | The meaning behind the Legion's name | cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «El Umbral como frontera» |
+| Trial portal | The four guild Thresholds in Session Zero, each earning seals | cited: `lore/adventures/virtual-worlds/session-zero.md` — «a portal that bears a significant name» |
+| Design register | The base system, «the force that invoices» | cited: `canon/CAN-008-visual-identity.md` — «The three forces» |
+| Access gate | Where the free Codex chapters end and the reader signs in | cited: `numinia-web:apps/store/src/components/lap/codex/CodexUmbral.astro` — «an identity funnel, not a wall» |
+
+## Contexts
+
+| Facet | Context that activates it | Provenance |
+|---|---|---|
+| Cosmic force | Lore, world-building | cited: `02-historia…` |
+| Character resource | Character sheet, Action rolls | cited: `lore/game/manual/es/04-sistema-de-juego.md` — «reserva de D6 del Umbral» |
+| Border | Peacekeeping plots involving the Legion | cited: `05-geografia…` — «La Legión del Umbral» |
+| Trial portal | Onboarding escape rooms | cited: `session-zero.md` |
+| Design register | Corporate or product pieces, everyday UI | cited: `web/src/pages/design.astro` — «the everyday surface (a page, an invoice)» |
+| Access gate | A visitor without a session reaches the end of the open content | cited: `numinia-web:apps/store/src/i18n/codex.ts` — «Aquí termina lo que la ciudad muestra a los viajeros.» |
+
+## Relations
+
+- **Velo**: its antagonist in the world; in the design system, the register of depth (cited: `02-historia…`; `CAN-008`).
+- **Prisma**: refracts the other two forces (cited: `02-historia…` — «Si el Velo y el Umbral son fuerzas antagónicas»).
+- **Imbalance**: the state reached when Threshold points hit 0 (cited: `03-creacion…`).
+- **Legion / Bearers of the Threshold**: groups of people named after the force (cited: `05-geografia…`; `02-historia…` — «Portadores del Umbral»).
+- **Seals**: the reward for crossing the guild Thresholds (cited: `glossary-es-en.md`).
+
+## Current manifestations
+
+| Where | How it shows up | Source |
+|---|---|---|
+| Game (manual, adventures) | A force, a stat, the Legion, the four portals | `lore/game/manual/es/02–05`, `session-zero.md` |
+| House (canon, standards, agents, guilds of the archive) | The base design register; the token `velo.lectura`: «What lies beyond the Umbral is seen and not read» | `CAN-008`, `standards/STD-023-design-values.md` |
+| Web (numinia.org, numinia.com) | The three forces on the design page; the «Cruzar el Umbral» button; chapters marked «tras el Umbral»; the «Umbral seal» | `web/src/pages/design.astro`, `codex.ts`, `blueprints/BLU-011-book-and-velo.md` |
+| Processes | None; only a homonym (see Observations) | `standards/STD-001-the-series.md` |
+
+## Existing equivalences
+
+| Source | Equivalence it proposes | Evaluation | Why |
+|---|---|---|---|
+| `STD-030` | none | pending | The Threshold does not appear in it |
+| `BLU-007` | none | pending | Its «thresholds» are gamification levels |
+| `glossary-es-en.md` | Umbral → Threshold | complete | Covers the language only |
+| `CAN-008` | the base register, «the force that invoices» | partial | Keeps manifestation and action. Drops the antagonism with the Velo and the order/chaos limit. Its reason for the name («the border anyone can cross») conflicts with «no es una muralla ni un portal» |
+| `design.astro` | «the everyday surface» | reductive | Keeps only the plain, everyday side |
+| `CodexUmbral.astro` / `BLU-011` | the sign-in gate | contradictory | The manual says the force «No separa dos mundos»; the gate separates open content from locked content. The Session Zero portal fits it better (proposed) |
+
+## Observations
+
+- **Homonym clash:** the archive's rules use «threshold» for how hard a document is to change (`STD-001`, `STD-017`, `STD-027`, `web/src/lib/classification.ts`). `BLU-007` uses it for gamification levels, and `about.astro` calls the home page «the threshold». If the dial matches on the word alone, it will confuse these with the force.
+- **Two web meanings:** in `CAN-008` the Umbral is a register; on numinia.com it is a gate. So one Umbral-register page can contain an Umbral gate. Pending for Christian.
+- **Citation not found:** `BLU-011` cites «`CAN-008` §3.10» for `abierto / tras el Umbral`. `CAN-008` has no numbered sections, and a grep finds neither term in it.
+- **Empty table cell:** in the forces table, the UMBRAL «Simbolismo» cell is empty, while the VELO column lists «umbral» as one of its symbols (`02-historia…`). Pending for the Oracle.
+- Common-noun «umbral» in the lore («siglo Umbral», «un umbral entre un ciclo y otro») is not the force.
+
+## Sources
+
+- `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md`, `03-creacion-del-personaje.md`, `04-sistema-de-juego.md`, `05-geografia-y-cultura-de-numinia.md`
+- `lore/game/manual/glossary-es-en.md`, `lore/codex/glosario.md`, `lore/adventures/virtual-worlds/session-zero.md`
+- `canon/CAN-008-visual-identity.md`, `standards/STD-023-design-values.md`, `STD-026`, `STD-030`, `STD-001`
+- `blueprints/BLU-011-book-and-velo.md`, `blueprints/BLU-007-dual-nomenclature.md`
+- `web/src/pages/design.astro`; `numinia-web:apps/store/src/components/lap/codex/CodexUmbral.astro`, `numinia-web:apps/store/src/i18n/codex.ts`
