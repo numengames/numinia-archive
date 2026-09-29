@@ -104,7 +104,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
       <!-- The routing line: the single most useful fact about an agent is
            when to bring it work. It comes verbatim from agents/INDEX.md. -->
       <div
-        class="rounded-xl border px-5 py-4"
+        class="rounded-[8px] border px-5 py-4"
         style={`border-color: color-mix(in srgb, ${agent.color} 20%, transparent); background: color-mix(in srgb, ${agent.color} 5%, transparent);`}
       >
         <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] mb-1.5" style={`color: ${agent.color}`}>
@@ -133,7 +133,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
             {docs.map((doc) => (
               <a
                 href={doc.href}
-                class="block rounded-lg border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
+                class="block rounded-[8px] border border-border bg-card px-4 py-3 hover:bg-card-hover transition-colors"
               >
                 <div class="flex flex-wrap items-center gap-3 mb-1.5">
                   <span class="font-mono text-[0.65rem] uppercase tracking-widest" style={`color: ${agent.color}`}>
@@ -169,7 +169,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
           </h2>
           <div class="flex flex-wrap gap-2">
             {agent.specialties.map((s) => (
-              <span class="rounded-lg border border-border bg-card px-3 py-2 font-mono text-[0.65rem] text-muted-foreground">
+              <span class="rounded-[8px] border border-border bg-card px-3 py-2 font-mono text-[0.65rem] text-muted-foreground">
                 {s}
               </span>
             ))}
@@ -177,7 +177,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
         </div>
       )}
 
-      <div class="rounded-xl border border-border bg-card px-5 py-4">
+      <div class="rounded-[8px] border border-border bg-card px-5 py-4">
         <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim mb-1.5">
           On the roster since
         </p>
@@ -197,7 +197,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
           {others.map((a) => (
             <a
               href={a.href}
-              class="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
+              class="inline-flex min-h-[44px] items-center gap-2 rounded-[8px] border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors"
             >
               <span style={`color: ${a.color}`}>{a.mark}</span>
               {a.name}
@@ -205,7 +205,7 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
           ))}
           <a
             href="/agent"
-            class="inline-flex min-h-[44px] items-center rounded-lg border border-accent/40 bg-accent/10 px-3 font-mono text-[0.7rem] text-accent hover:bg-accent/20 transition-colors"
+            class="inline-flex min-h-[44px] items-center rounded-[8px] border border-accent/40 bg-accent/10 px-3 font-mono text-[0.7rem] text-accent hover:bg-accent/20 transition-colors"
           >
             The whole roster
           </a>

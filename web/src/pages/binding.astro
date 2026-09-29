@@ -64,15 +64,15 @@ const regimeHtml = (await processor.render(regime.body)).code;
 
       <!-- The counts. Read from the headers, never typed. -->
       <div class="grid gap-4 grid-cols-3 mb-12">
-        <div class="rounded-xl border border-border bg-card p-5">
+        <div class="rounded-[8px] border border-border bg-card p-5">
           <div class="font-display text-3xl text-foreground">{n.active}</div>
           <div class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mt-1">in force</div>
         </div>
-        <div class="rounded-xl border border-border bg-card p-5">
+        <div class="rounded-[8px] border border-border bg-card p-5">
           <div class="font-display text-3xl text-foreground">{n.draft}</div>
           <div class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mt-1">draft</div>
         </div>
-        <div class="rounded-xl border border-border bg-card p-5">
+        <div class="rounded-[8px] border border-border bg-card p-5">
           <div class="font-display text-3xl text-foreground">{n.total}</div>
           <div class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mt-1">rule documents</div>
         </div>
@@ -131,7 +131,7 @@ const regimeHtml = (await processor.render(regime.body)).code;
             <h3 class="font-mono text-[0.75rem] text-foreground mb-3">
               {r.label} <span class="text-dim">· {r.states.active ?? 0} in force · {r.states.draft ?? 0} draft</span>
             </h3>
-            <ul class="divide-y divide-border rounded-xl border border-border bg-card">
+            <ul class="divide-y divide-border rounded-[8px] border border-border bg-card">
               {r.documents.map((d) => (
                 <li class="flex items-baseline gap-3 px-4 py-2 text-sm">
                   <span class="font-mono text-[0.7rem] text-dim shrink-0 w-16">{d.id}</span>
@@ -156,7 +156,7 @@ const regimeHtml = (await processor.render(regime.body)).code;
         governing instruction is a second instruction.
       </p>
 
-      <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8" set:html={regimeHtml} />
+      <article class="mission-md rounded-[8px] border border-border bg-card p-6 sm:p-8" set:html={regimeHtml} />
 
       <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mt-12 mb-4">
         If you are an agent

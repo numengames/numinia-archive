@@ -1,5 +1,5 @@
 {
-  "$description": "Numinia Design System · v6.2.0 · Solar 40 / Steam 40 / Cyber 20",
+  "$description": "Numinia Design System · v6.3.0 · Solar 40 / Steam 40 / Cyber 20",
   "color": {
     "$type": "color",
     "marca": {
@@ -268,7 +268,7 @@
       "$value": "0.875rem"
     },
     "etiqueta": {
-      "$value": "0.750rem"
+      "$value": "0.700rem"
     }
   },
   "space": {
@@ -333,6 +333,10 @@
     "largo": {
       "$value": "560ms"
     },
+    "entrada": {
+      "$value": "600ms",
+      "$description": "Entrada (animación 16): el hero de numinia.org, 24px de ascenso"
+    },
     "tecleo-caracter": {
       "$value": "22ms"
     },
@@ -359,6 +363,10 @@
     },
     "escalonado": {
       "$value": "80ms"
+    },
+    "escalonado-entrada": {
+      "$value": "100ms",
+      "$description": "Paso entre las líneas de una entrada"
     }
   },
   "cubicBezier": {
@@ -829,33 +837,78 @@
       ]
     },
     "subconjunto": {
-      "$description": "Los 26 iconos que la casa usa (§7.3)",
+      "$description": "Los 71 iconos que la casa usa (STD-023 §11): los que numinia.org sirve",
       "$value": [
         "archive",
+        "arrow-down-bold",
+        "arrows-clockwise",
+        "bank",
         "bell",
         "book-open",
+        "books",
+        "brain",
+        "buildings",
+        "calendar-blank",
         "caret-down",
         "caret-left",
         "chart-bar",
+        "chart-line",
+        "check",
+        "circle",
+        "clipboard-text",
+        "coins",
+        "confetti",
+        "copy",
+        "crane-tower",
+        "crosshair",
+        "desktop",
+        "dna",
         "download-simple",
+        "eye",
+        "file-text",
         "flame",
         "flame-light",
+        "flask",
+        "game-controller",
         "gear",
+        "git-branch",
         "github-logo",
         "globe-hemisphere-west",
         "globe-hemisphere-west-light",
+        "hourglass",
         "house",
+        "lightning",
+        "list",
+        "lock-key",
         "magnifying-glass",
+        "map-pin",
+        "mask-happy",
         "moon",
         "moon-stars",
         "music-notes",
+        "note-pencil",
         "package",
+        "palette",
+        "pause-fill",
+        "play-fill",
+        "prohibit",
+        "push-pin",
+        "robot",
+        "ruler",
+        "scroll",
+        "shield-check",
         "sign-out",
+        "snowflake",
+        "sparkle",
         "sun",
         "sword",
         "sword-light",
+        "target",
+        "upload-simple",
         "user",
         "users",
+        "warning",
+        "x",
         "x-logo"
       ]
     },
@@ -882,6 +935,46 @@
         ]
       },
       "$description": "§7.5 [EXTENSIÓN]"
+    }
+  },
+  "web": {
+    "$description": "La pieza web de la casa, medida en numinia.org, que manda (STD-023 §23)",
+    "columna": {
+      "$type": "dimension",
+      "$value": "1100px",
+      "$description": "Ancho máximo del contenido, con 24px de margen"
+    },
+    "barra-alto": {
+      "$type": "dimension",
+      "$value": "56px"
+    },
+    "barra-fondo": {
+      "$value": "fondo al 85% + blur(24px)",
+      "$description": "Pegada arriba; borde inferior línea fuerte al 50%"
+    },
+    "barra-activo": {
+      "$value": "subrayado 2px Turquesa",
+      "$description": "La entrada activa del menú"
+    },
+    "barra-entrada": {
+      "$value": "etiqueta Mono versal + icono Phosphor 14px"
+    },
+    "nombre": {
+      "$value": "escrito en Geist display, nunca el logo",
+      "$description": "Numinia · Numen Games · NWOS"
+    },
+    "titular-peso": {
+      "$type": "fontWeight",
+      "$value": 400,
+      "$description": "El titular de página en Geist regular, tracking -0.025em"
+    },
+    "cielo": {
+      "$value": [
+        "numinia.org",
+        "numinia.com",
+        "nwos.numen.games"
+      ],
+      "$description": "Dónde vive el cielo del Velo; numen.games no lo lleva (Oráculo, 2026-09-29)"
     }
   }
 }

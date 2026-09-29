@@ -5,9 +5,9 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.6.4"
+version: "1.7.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-29T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -126,14 +126,14 @@ Intelligence reports are product: charts have canonical color. Like the ramps, t
 
 ## 8. Type scale
 
-Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50pt · `display.l` 3.583/42 · `display.m` 2.986/34 · `titulo.l` 2.488/28 · `titulo.m` 2.074/24 · `titulo.s` 1.728/20 · `cuerpo.l` 1.440/17 · `cuerpo.m` 1/14 · `cuerpo.s` 0.875/12 · `etiqueta` 0.750/11 (Mono 500, small caps, tracking `+0.10em`) · `dato.xl` 2.986 Mono 500 · `dato.m` 1 Mono 400. Display weights 500, titles 600; display tracking `-0.03/-0.02em`.
+Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50pt · `display.l` 3.583/42 · `display.m` 2.986/34 · `titulo.l` 2.488/28 · `titulo.m` 2.074/24 · `titulo.s` 1.728/20 · `cuerpo.l` 1.440/17 · `cuerpo.m` 1/14 · `cuerpo.s` 0.875/12 · `etiqueta` 0.700/11 (Mono, uppercase, tracking `+0.15em`; Verdemar when it heads a section, secondary text in the bar) · `dato.xl` 2.986 Mono 500 · `dato.m` 1 Mono 400. The page headline is Geist **400** with tracking `-0.025em`; titles 600. **[1.7.0 — numinia.org leads]** the label and the headline are read from numinia.org, which set them before this register did.
 
 ## 9. Space, grid, shape, elevation, focus
 
 
 **Spacing** base 4 px: `4·8·12·16·24·32·48·64·96·128` (`space.100–1000`); every gap MUST be from the scale.
-**Grids**: web ≤1280 / 12 col / margin 64 / gutter 24; tablet 8/40/24; mobile 4/20/16; slide 1920×1080 / 12 / 120 / 32; A4 12 / 20 mm / 5 mm. Baseline 8 (4 mm printed). Rhythm: sections `s900` web · `s800` deck; blocks `s700`; headline→body `s400`; card `s500`.
-**Shape [CANON — direction decision, 4.0.0]**: two radii and nothing more — **control `6px`** (buttons, fields, chips, toggles) and **frame `8px`** (cards, panels, dialogs, canvases, status bands). Warm without fashion: the frame rounds a little; the content inside inherits no radius of its own. Circle only in markers, avatars and stickers; the pill is a capsule. **The pixel register keeps its straight edges** (the pixel does not curve) and printed tables too. Borders 1 px.
+**Grids**: web column **≤1100** / 12 col / margin 24 / gutter 24 (numinia.org's column, 1.7.0); tablet 8/40/24; mobile 4/20/16; slide 1920×1080 / 12 / 120 / 32; A4 12 / 20 mm / 5 mm. Baseline 8 (4 mm printed). Rhythm: sections `s900` web · `s800` deck; blocks `s700`; headline→body `s400`; card `s500`.
+**Shape [CANON — direction decision, 4.0.0]**: two radii and nothing more — **control `6px`** (buttons, fields, chips, toggles) and **frame `8px`** (cards, panels, dialogs, canvases, status bands). Warm without fashion: the frame rounds a little; the content inside inherits no radius of its own. Circle only in markers, avatars and stickers; the pill is a capsule. **No third radius** [1.7.0]: 12 and 16 px cards, 4 px buttons and 2–3 px bars are all read as one of the two, or as a capsule when the piece is a thin bar; a framework's own radius scale (`rounded-xl`, `rounded-lg`…) is not used, only the two values. **The pixel register keeps its straight edges** (the pixel does not curve) and printed tables too. Borders 1 px.
 **Elevation**: in Nocturno no shadows — surface step + hairline (`base→superficie→elevada`); sole exception the legendary halo. In Diurno a single shadow `0 1px 2px rgba(20,17,15,.08), 0 8px 24px rgba(20,17,15,.06)`.
 **Focus**: `outline: 2px solid #018EA1; offset 2px`, never animated — the look is ours; that it is always visible and never hidden is the accessibility standard's. Non-negotiable.
 
@@ -145,7 +145,17 @@ Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50p
 ## 11. The icon subset
 
 
-**The house subset [CANON — audited in production, 5.0.0].** Of Phosphor's ~1,500 glyphs, the organization uses **twenty-six**, self-hosted in `machine/packages/ui/src/icons/` and served as inline SVG with `currentColor`. This is the vocabulary, not a sample of someone else's catalogue: `archive · bell · book-open · caret-down · caret-left · chart-bar · download-simple · flame · flame-light · gear · github-logo · globe-hemisphere-west · globe-hemisphere-west-light · house · magnifying-glass · moon · moon-stars · music-notes · package · sign-out · sun · sword · sword-light · user · users · x-logo`. Expanding it is a decision, not an oversight: a new icon enters the subset with its concept declared. **Entered in 1.3.0** (the reading player, below): `play-fill` and `pause-fill` — the voice runs or rests (fill: an active state); `arrow-down-bold` — where the reading is, at 11 px (bold under 16 px). `x` (close) and `copy` were already served by the site and are named here for completeness.
+**The house subset [CANON — numinia.org leads, 1.7.0].** Of Phosphor's ~1,500 glyphs, the organization uses **seventy-one**: exactly the ones numinia.org serves from `web/src/icons/`, as one sprite of `<symbol>`s with `currentColor`. The kit's `icon.subconjunto` lists the same names, and a test fails if the two part. One concept, one glyph, across the four sites:
+
+- **Navigation and the bar:** `archive` · `crosshair` · `house` · `list` · `magnifying-glass` · `caret-down` · `caret-left` · `x` · `moon` · `moon-stars` · `sun` · `globe-hemisphere-west` · `globe-hemisphere-west-light`
+- **Reading and documents:** `book-open` · `books` · `scroll` · `file-text` · `clipboard-text` · `note-pencil` · `copy` · `download-simple` · `upload-simple` · `push-pin` · `ruler` · `play-fill` · `pause-fill` · `arrow-down-bold` · `music-notes`
+- **The archive's six functions:** `bank` (governance) · `crane-tower` (production) · `shield-check` (assurance) · `robot` (agency) · `sparkle` (creation) · `gear` (administration)
+- **State of a piece of work:** `check` · `circle` · `hourglass` · `lightning` · `eye` · `snowflake` · `prohibit` · `warning` · `lock-key` · `arrows-clockwise` · `bell`
+- **Kinds of work and people:** `dna` (biological) · `git-branch` (hybrid) · `brain` · `flask` · `target` · `user` · `users` · `sign-out` · `buildings` · `map-pin` · `calendar-blank` · `desktop`
+- **Play and the world:** `game-controller` · `mask-happy` · `confetti` · `sword` · `sword-light` · `flame` · `flame-light` · `package` · `coins` · `palette`
+- **Data and outward links:** `chart-bar` · `chart-line` · `github-logo` · `x-logo`
+
+Until 1.7.0 the subset named twenty-six and the site served seventy-one; the Oracle ruled that the site leads (2026-09-29). Expanding it further is still a decision: a new icon enters here with its concept, in the same pull request as its file.
 
 ## 12. Brand inventory
 
@@ -177,7 +187,7 @@ Selection: horizontal by default → vertical in square → NG under 120 px → 
 The scarab's only drawing is the file `web/src/brand/Khepri_Logo.svg`,
 viewBox 75.44×75.53, `fill="currentColor"`; every copy is taken from it.
 
-## 14. The animation catalogue — fifteen, and no more
+## 14. The animation catalogue — sixteen, and no more
 
 
 | # | Animation | Specification | Where yes | Where no |
@@ -195,10 +205,11 @@ viewBox 75.44×75.53, `fill="currentColor"`; every copy is taken from it.
 | **11** | **Crystallization** — the glass materializes [5.0.0] | `320 ms` · ciclo; `backdrop-blur 0→12px` + border 0→50 % + opacity | Veil panels and modals (`BLU-009`) | Outside the Veil; over backgrounds without atmosphere |
 | **12** | **Page turn** — **RETIRED in 5.1.0 (H5)** | 5.0.0 registered it "to be verified against the LAP"; verification came back empty: the codex does not animate the page turn — the only living thing in that view is the Trazo (13). The number is not reused (append-only catalogue); if someday the paper turns pages with animation, it will enter as a new piece with its own specs | — | — |
 | **13** | **Trazo** — the corners draw themselves [5.0.0 · in production] | `1.6 s` · ease · `stroke-dashoffset: 340 → 0`; four engraving frames staggered at `120 ms` | Book cover and chapter opening (`BLU-011`, the living paper) — it **is** that view's orchestrated moment | Interface; re-firing on scroll; alongside another orchestrated moment |
-| **14** | **Sky** — the Veil's background breathes [5.0.0 · in production] | Drift of `±0.06 px`/frame with reappearance on the opposite side + alpha oscillating between `.05` and `.85` at its own rhythm (`.002–.006`) | Background of the Veil register (the sky, below) — **a sanctioned exception** to the ambient-loop veto | Over long reading |
+| **14** | **Sky** — the Veil's background breathes [5.0.0 · in production] | Drift of `±0.06 px`/frame with reappearance on the opposite side + alpha oscillating between `.05` and `.85` at its own rhythm (`.002–.006`) | Background of the Veil register (the sky, below) — **a sanctioned exception** to the ambient-loop veto; at night on numinia.org, numinia.com and nwos.numen.games | Over long reading; **numen.games** (the Oracle, 2026-09-29) |
 | **15** | **Reading light** — a light follows the voice [1.4.0 · in production] | A diffuse Arena halo (14 px, a small ink core, never pure white) just above the spoken word, a trail of 12 fading copies; critically damped spring (k 90); gliding along the word at the voice's pace, resting where it rests; 45 % on pause | Following a voice or any playback through a text (the reading player, `PRO-022`) — **the second sanctioned loop**: it lives only while the voice plays and moves only because the voice moves | Ambient; decoration; without a voice or playback behind it; with `prefers-reduced-motion` (it jumps: no trail, no spring, no bob) |
+| **16** | **Entrance** — a page's first lines arrive [1.7.0 · in production, numinia.org] | `600 ms` · ciclo; opacity 0→1 + **24 px** rise; the hero's lines staggered at `100 ms` (label, headline, line) | The top of a page: its label, headline and one line, once on load | Content further down (reveal 02 does that); controls; re-firing on scroll |
 
-The first three 5.0.0 pieces (10–12) are **transitions, not loops** and **invent no durations**: they reuse `duration.largo` (560) and `duration.medio` (320). The **trazo** (13) arrives measured from production with its own `1.6 s` — it is the catalogue's only new duration, and it is justified because drawing four corners faster turns them into a blink. The **sky** (14) is a sanctioned exception to the ambient-loop veto (DSN-012): it is authorized because it is the **register's background**, not a view's ornament. It starts by itself and lasts longer than five seconds, so the accessibility guidelines require a visible control to pause it; asking the system for less motion is not enough, and the sites do not meet this yet. The **reading light** (15) is the other one, for the opposite reason: it is not ambient at all — it lives only while a voice plays, and it moves only because the voice does. The codex's **reading moon** is not a new animation: it is the lunar phase (06) demonstrated in production. 10–12 belong to the Veil register and the living paper; the 01–09 catalogue serves Umbral and Veil alike. The orchestrated moment remains **one per piece**. With `prefers-reduced-motion`, surfacing and crystallization appear instantly: opacity is kept, blur and displacement are removed.
+The first three 5.0.0 pieces (10–12) are **transitions, not loops** and **invent no durations**: they reuse `duration.largo` (560) and `duration.medio` (320). The **trazo** (13) arrives measured from production with its own `1.6 s` — it is the catalogue's only new duration, and it is justified because drawing four corners faster turns them into a blink. The **sky** (14) is a sanctioned exception to the ambient-loop veto (DSN-012): it is authorized because it is the **register's background**, not a view's ornament. It starts by itself and lasts longer than five seconds, so the accessibility guidelines require a visible control to pause it; asking the system for less motion is not enough, and the sites do not meet this yet. The **entrance** (16) came from numinia.org, where every page opened with it before the catalogue knew it: its 600 ms and 24 px are the site's, taken as they are because the site leads (1.7.0); it is a transition, not a loop, and it replaces nothing — reveal (02) still serves what the reader scrolls to. The **reading light** (15) is the other one, for the opposite reason: it is not ambient at all — it lives only while a voice plays, and it moves only because the voice does. The codex's **reading moon** is not a new animation: it is the lunar phase (06) demonstrated in production. 10–12 belong to the Veil register and the living paper; the 01–09 catalogue serves Umbral and Veil alike. The orchestrated moment remains **one per piece**. With `prefers-reduced-motion`, surfacing and crystallization appear instantly: opacity is kept, blur and displacement are removed.
 
 ## 15. The sky
 
@@ -302,5 +313,32 @@ The values of the reading-aloud player; how it is built is `PRO-022`.
 **Catalogue status.** The drying ink is a state, and the dock uses the
 surfacing animation; neither adds an animation. The reading light is
 animation fifteen in the catalogue above.
+
+## 23. The web piece
+
+What the four sites share above the footer, read from numinia.org, which
+leads the design (the Oracle, 2026-09-24 and 2026-09-29). Where this
+register and numinia.org differed, the register moved.
+
+| Piece | Value |
+|---|---|
+| Column | content `≤1100 px`, margin `24 px` each side; a map that must be seen whole (the home's astrolabe, the automation map) opens to `1280 px` |
+| The bar | sticky at the top, `56 px`; the page's background at 85 % with `blur(24px)`; a hairline below in the strong line at 50 % |
+| The name | on the left, **written** in Geist, never the logo: Numinia, Numen Games, NWOS |
+| Entries | the label type of the type scale with a Phosphor glyph at 14 px before it; secondary text, primary on hover |
+| Active entry | primary text and a **2 px Turquesa** underline (Ámbar until 1.7.0; the Ámbar stays for emphasis) |
+| Utilities | on the right: search, the mode switch, a 44 px button; nothing else |
+| Mobile | a full-screen panel under the bar, the same entries and nothing else |
+| Headline | Geist 400, tracking `-0.025em`, `3–3.75 rem` |
+| Section label | the label type in Verdemar, tracking `+0.25em` above a headline, `+0.15em` elsewhere |
+| Cards | surface at 60 %, the strong line, the frame radius (8 px), padding `20 px` |
+| Entrance | animation 16 on the label, headline and line of the page's top |
+| The sky | animation 14 behind everything, at night, on numinia.org, numinia.com and nwos.numen.games — not on numen.games |
+
+**Why.** A visitor who has learnt one of the four has learnt the other
+three: the bar is in the same place, says things the same way and marks
+where they are with the same line. numen.games carries no sky because it
+is the company's door to clients, not a room of the world.
+
 
 ---

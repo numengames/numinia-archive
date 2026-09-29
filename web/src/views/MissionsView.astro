@@ -207,7 +207,7 @@ const stats = [
       <!-- Stats -->
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3 mb-10">
         {stats.map((s) => (
-          <div class={"rounded-xl border p-4 text-center " + s.box}>
+          <div class={"rounded-[8px] border p-4 text-center " + s.box}>
             <p class={"font-display text-2xl sm:text-3xl " + s.text}>{s.value}</p>
             <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim mt-1">{s.label}</p>
           </div>
@@ -225,12 +225,12 @@ const stats = [
             type="search"
             placeholder={t("board.searchPlaceholder")}
             autocomplete="off"
-            class="w-full bg-card border border-border rounded-xl pl-10 pr-10 py-3 font-mono text-sm text-foreground placeholder:text-dim/40 focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/20 transition-all duration-200 hover:border-border/80"
+            class="w-full bg-card border border-border rounded-[8px] pl-10 pr-10 py-3 font-mono text-sm text-foreground placeholder:text-dim/40 focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/20 transition-all duration-200 hover:border-border/80"
             aria-label={t("board.searchAria")}
           />
           <button
             id="search-clear"
-            class="absolute right-3 top-1/2 -translate-y-1/2 text-dim hover:text-foreground transition-colors duration-150 hidden p-0.5 rounded"
+            class="absolute right-3 top-1/2 -translate-y-1/2 text-dim hover:text-foreground transition-colors duration-150 hidden p-0.5 rounded-[6px]"
             aria-label={t("board.clearAria")}
             tabindex="0"
           >
@@ -298,13 +298,13 @@ const stats = [
               </div>
               <div class="col-cards flex flex-col gap-2 min-h-[80px]" id={"col-" + col.key}>
                 {colMissions.length === 0 ? (
-                  <div class="rounded-lg border border-dashed border-border/20 p-6 text-center">
+                  <div class="rounded-[8px] border border-dashed border-border/20 p-6 text-center">
                     <p class="font-mono text-[0.6rem] text-dim/30">empty</p>
                   </div>
                 ) : colMissions.map((m) => (
                   <a
                     href={"/missions/" + m.id.toLowerCase()}
-                    class={(STATUS_COLOR[m.status] || STATUS_COLOR["todo"]) + " " + (PRIORITY_BORDER[m.priority] || "border-l-border") + " rounded-lg border border-l-[3px] p-4 mission-card cursor-pointer block"}
+                    class={(STATUS_COLOR[m.status] || STATUS_COLOR["todo"]) + " " + (PRIORITY_BORDER[m.priority] || "border-l-border") + " rounded-[8px] border border-l-[3px] p-4 mission-card cursor-pointer block"}
                     data-status={m.status}
                     data-priority={m.priority}
                     data-effort={m.effort}
@@ -382,7 +382,7 @@ const stats = [
           </button>
           <div id="freeze-cards" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {frozen.map((m) => (
-              <div class="rounded-lg border border-dim/20 bg-dim/5 p-3.5 mission-card"
+              <div class="rounded-[8px] border border-dim/20 bg-dim/5 p-3.5 mission-card"
                 data-status={m.status} data-priority={m.priority} data-effort={m.effort} data-guild={m.guild}
                 data-searchable={[m.id, m.title, m.assignedTo || "", m.guild].join(" ").toLowerCase()}>
                 {/* MIS-133 (was MIS-115b) — same three levels as the column cards. Frozen
@@ -413,14 +413,14 @@ const stats = [
 
       <!-- Footer -->
       <div class="mt-12 grid sm:grid-cols-2 gap-4">
-        <div class="rounded-xl border border-border/50 bg-card/50 p-5">
+        <div class="rounded-[8px] border border-border/50 bg-card/50 p-5">
           <p class="font-mono text-[0.65rem] uppercase tracking-widest text-accent mb-3">{t("board.costLegend")}</p>
           <div class="space-y-2">
             <p class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] text-dim leading-relaxed"><Icon name="user" size={10} /> Human estimate — hours × €65/h freelancer rate</p>
             <p class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] text-dim leading-relaxed"><Icon name="robot" size={10} /> Compute — AI API cost (mock until MIS-048)</p>
           </div>
         </div>
-        <div class="rounded-xl border border-border/50 bg-card/50 p-5">
+        <div class="rounded-[8px] border border-border/50 bg-card/50 p-5">
           <p class="font-mono text-[0.65rem] uppercase tracking-widest text-accent mb-3">{t("board.about")}</p>
           <p class="font-mono text-[0.6rem] text-dim leading-relaxed">
             Built from the <span class="text-accent">missions/</span> folder of numinia-archive
@@ -469,7 +469,7 @@ function applyFilters() {
     let emptyState = col.querySelector(".col-empty-state");
     if (!emptyState) {
       emptyState = document.createElement("div");
-      emptyState.className = "col-empty-state rounded-lg border border-dashed border-border/20 p-6 text-center";
+      emptyState.className = "col-empty-state rounded-[8px] border border-dashed border-border/20 p-6 text-center";
       emptyState.innerHTML = '<p class="font-mono text-[0.6rem] text-dim/30">no matches</p>';
       col.appendChild(emptyState);
     }

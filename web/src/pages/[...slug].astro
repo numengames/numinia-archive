@@ -87,7 +87,7 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{title}</h1>
 
       {isDraft && (
-        <aside class="mb-6 rounded-xl border border-accent/30 bg-accent/5 p-4">
+        <aside class="mb-6 rounded-[8px] border border-accent/30 bg-accent/5 p-4">
           <p class="text-sm leading-relaxed text-muted-foreground">
             <strong class="text-foreground">This document is <code>draft</code>: written, not yet in force — it binds nobody</strong>
             (<a href="/standards/std-004-the-header" class="text-accent underline underline-offset-2">STD-004</a>).
@@ -98,7 +98,7 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
       )}
 
       <DocToolbar mdUrl={mdUrl} filename={mdFilename} lang={docLang} repoUrl={repoUrl} />
-      <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
+      <article class="mission-md rounded-[8px] border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>
       <ContributeBlock />
@@ -141,9 +141,9 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
     font-size: 0.8em;
     background: rgb(var(--border) / 0.5);
     padding: 0.1em 0.35em;
-    border-radius: 0.25rem;
+    border-radius: 6px;
   }
-  .mission-md pre { overflow-x: auto; padding: 1rem; border-radius: 0.5rem; margin: 0.75rem 0; background: rgb(var(--bg-card-hover)); }
+  .mission-md pre { overflow-x: auto; padding: 1rem; border-radius: 8px; margin: 0.75rem 0; background: rgb(var(--bg-card-hover)); }
   .mission-md pre code { background: none; padding: 0; }
   .mission-md table { display: block; overflow-x: auto; font-size: 0.8rem; margin: 0.75rem 0; border-collapse: collapse; }
   .mission-md th, .mission-md td { border: 1px solid rgb(var(--border)); padding: 0.4rem 0.6rem; text-align: left; color: rgb(var(--text-muted)); }

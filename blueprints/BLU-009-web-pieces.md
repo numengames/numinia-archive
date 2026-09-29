@@ -4,9 +4,9 @@ uid: ""
 title: "Web pieces"
 type: blueprint
 status: active
-version: "1.1.2"
+version: "1.2.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-09-29T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -48,7 +48,7 @@ First the six canonicals; then luminosity variants; never foreign hues. Every ca
 **Sans for what is stated, Mono for what is measured.** Headlines, body and interface in Sans; figures, coordinates, labels, code and technical lore in Mono. The monospace *is* the machine: it resolves the steampunk without themed typefaces.
 
 ### Scale
-Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50pt · `display.l` 3.583/42 · `display.m` 2.986/34 · `titulo.l` 2.488/28 · `titulo.m` 2.074/24 · `titulo.s` 1.728/20 · `cuerpo.l` 1.440/17 · `cuerpo.m` 1/14 · `cuerpo.s` 0.875/12 · `etiqueta` 0.750/11 (Mono 500, small caps, tracking `+0.10em`) · `dato.xl` 2.986 Mono 500 · `dato.m` 1 Mono 400. Display weights 500, titles 600; display tracking `-0.03/-0.02em`.
+Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50pt · `display.l` 3.583/42 · `display.m` 2.986/34 · `titulo.l` 2.488/28 · `titulo.m` 2.074/24 · `titulo.s` 1.728/20 · `cuerpo.l` 1.440/17 · `cuerpo.m` 1/14 · `cuerpo.s` 0.875/12 · `etiqueta` 0.700/11 (Mono, uppercase, tracking `+0.15em`) · `dato.xl` 2.986 Mono 500 · `dato.m` 1 Mono 400. The page headline is Geist 400 with tracking `-0.025em`; titles 600 (numinia.org leads, `STD-023` §8).
 
 ### Composition
 
@@ -205,7 +205,7 @@ The full text MUST be in the DOM before animating (SEO and accessibility): `aria
 
 ## 12. The web page
 
-Nocturno, 12 col ≤1280 px, hero = the thesis with relief at the back and headline typing (the orchestrated moment); level II on home, I/III on inner pages; LCP < 2.5 s, < 1 MB initial; fonts and icons self-hosted.
+Nocturno, 12 col, content ≤1100 px (`STD-023` §23), hero = the thesis with relief at the back and headline typing (the orchestrated moment); level II on home, I/III on inner pages; LCP < 2.5 s, < 1 MB initial; fonts and icons self-hosted.
 
 **Hero skeleton** (annotated; the piece's only orchestrated moment):
 
@@ -221,7 +221,7 @@ Nocturno, 12 col ≤1280 px, hero = the thesis with relief at the back and headl
 
 Following sections: `eyebrow` → `h2` → prose/cards with `.reveal`; at most one signal `barrido` per view.
 
-**The menu** (web and public platform): one-line top bar — wordmark on the left; **≤5 entries** in Mono `type.etiqueta` uppercase; utilities on the right (language, mode, GitHub/X) as Phosphor `regular` 20 px icons; active entry with a 2 px Ámbar underline; on mobile, a full-screen panel with the same entries and nothing else. The menu is skin, not architecture: which entries exist is each product's decision.
+**The menu** (web and public platform), as numinia.org draws it (`STD-023` §23): one-line bar, sticky, 56 px, the page's background at 85 % behind a 24 px blur — the site's **name written** on the left, never the logo; **≤5 entries** in Mono `type.etiqueta` uppercase, each with its Phosphor glyph at 14 px; utilities on the right (search, mode) as 44 px buttons; active entry in primary text with a **2 px Turquesa** underline; on mobile, a full-screen panel with the same entries and nothing else. The menu is skin, not architecture: which entries exist is each product's decision.
 
 ## 13. Product and interface
 
@@ -231,8 +231,9 @@ Nocturno by default, level I, Turquesa for the interactive, Phosphor by weight (
 
 After the general checklist in step 6 of `PRO-014`, and before delivering:
 
-- [ ] Hero = the thesis with relief at the back and headline typing: the only orchestrated moment; at most one `barrido` per view.
-- [ ] Menu: ≤5 entries in Mono uppercase; active with a 2 px Ámbar underline; mobile = full-screen panel, nothing else.
+- [ ] Hero = the thesis, with the entrance (16) or headline typing as the only orchestrated moment; at most one `barrido` per view.
+- [ ] The web piece of `STD-023` §23: 1100 px column, Geist 400 headline, 6 / 8 px radii only; the sky at night except on numen.games.
+- [ ] Menu: the name written; ≤5 entries in Mono uppercase with a 14 px glyph; active with a 2 px Turquesa underline; mobile = full-screen panel, nothing else.
 - [ ] LCP < 2.5 s, < 1 MB initial; fonts and icons self-hosted.
 - [ ] Controls (§9): active in ink, label always, modal with the canonical veil and trapped focus, `aria-sort` on tables, bar only with a real percentage.
 - [ ] Messages (§8): cause + way out, never mute.

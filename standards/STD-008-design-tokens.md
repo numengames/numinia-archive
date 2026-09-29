@@ -5,9 +5,9 @@ title: "Design tokens"
 type: documentation
 subtype: standard
 status: draft
-version: "10.0.5"
+version: "10.0.6"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-29T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -26,7 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The parts of our design that pass or fail: sixteen colours,
 > four self-served typefaces, one spacing scale, two roundings, one icon
-> family, fifteen animations and one kit installed from its package.
+> family, sixteen animations and one kit installed from its package.
 > **Epistemic:** What can a design piece fail an audit on?
 > **Pragmatic:** Know what an audit of any piece we make can fail on.
 > **Audience:** Agents · Oracles
@@ -77,7 +77,7 @@ any animation starts and within two and a half seconds, with the layout
 shifting under the reader by less than a tenth, as the web's page-experience
 measures count it.
 
-**Motion is catalogued.** Every animation MUST be one of the fifteen in the
+**Motion is catalogued.** Every animation MUST be one of the sixteen in the
 design values. Parallax, glitch, moving focus, sound that plays by itself,
 and endless background loops beyond the two allowed are forbidden. The two
 allowed loops still carry the pause the accessibility standard requires.

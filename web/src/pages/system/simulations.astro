@@ -200,7 +200,7 @@ function pctBar(n: number, max = 100) {
   <!-- Nota metodológica -->
   <section class="pb-10">
     <div class="mx-auto max-w-[1100px] px-6">
-      <div class="rounded-lg border border-border bg-card/50 px-5 py-4 text-xs text-muted-foreground/70 max-w-[720px]">
+      <div class="rounded-[8px] border border-border bg-card/50 px-5 py-4 text-xs text-muted-foreground/70 max-w-[720px]">
         <strong class="text-muted-foreground">Methodological note.</strong> This study simulates 100 NWOS implementations through a parametric model based on the gaps identified earlier, the change management literature (Kotter, Prosci ADKAR), burnout theory (Maslach) and comparable data on the adoption of corporate cultural systems. The results are modelled projections, not field data — no external organisation has implemented the system yet. This is the starting point, not the destination.
       </div>
     </div>
@@ -212,22 +212,22 @@ function pctBar(n: number, max = 100) {
       <SectionHeader label="Global results" title="The 100 simulations taken together" />
 
       <div class="mt-8 grid gap-4 sm:grid-cols-4">
-        <div class="rounded-xl border border-teal/30 bg-teal/10 p-6 text-center space-y-1">
+        <div class="rounded-[8px] border border-teal/30 bg-teal/10 p-6 text-center space-y-1">
           <div class="text-4xl font-display font-bold text-accent">{totalExito}</div>
           <div class="text-sm text-muted-foreground">Complete success</div>
           <div class="text-xs text-muted-foreground/60">Sustained adoption 6+ months</div>
         </div>
-        <div class="rounded-xl border border-blue/30 bg-blue/10 p-6 text-center space-y-1">
+        <div class="rounded-[8px] border border-blue/30 bg-blue/10 p-6 text-center space-y-1">
           <div class="text-4xl font-display font-bold text-blue">{totalParcial}</div>
           <div class="text-sm text-muted-foreground">Partial success</div>
           <div class="text-xs text-muted-foreground/60">Core adopted, lore pending</div>
         </div>
-        <div class="rounded-xl border border-yellow/30 bg-yellow/10 p-6 text-center space-y-1">
+        <div class="rounded-[8px] border border-yellow/30 bg-yellow/10 p-6 text-center space-y-1">
           <div class="text-4xl font-display font-bold text-yellow">{totalEstancado}</div>
           <div class="text-sm text-muted-foreground">Stalled</div>
           <div class="text-xs text-muted-foreground/60">Initial enthusiasm without traction</div>
         </div>
-        <div class="rounded-xl border border-red/30 bg-red/10 p-6 text-center space-y-1">
+        <div class="rounded-[8px] border border-red/30 bg-red/10 p-6 text-center space-y-1">
           <div class="text-4xl font-display font-bold text-red">{totalFallo}</div>
           <div class="text-sm text-muted-foreground">Abandonment</div>
           <div class="text-xs text-muted-foreground/60">Dropped in under 3 months</div>
@@ -264,11 +264,11 @@ function pctBar(n: number, max = 100) {
         {archetypes.map((a) => {
           const successRate = Math.round(((a.results.exito + a.results.parcial) / a.n) * 100);
           return (
-            <div class={`rounded-xl border p-6 ${a.twLight} ${a.twBorder}`}>
+            <div class={`rounded-[8px] border p-6 ${a.twLight} ${a.twBorder}`}>
               <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
                 <div>
                   <div class="flex items-center gap-2">
-                    <span class={`rounded font-mono text-xs px-2 py-0.5 border ${a.twLight} ${a.twBorder} ${a.twText}`}>{a.id}</span>
+                    <span class={`rounded-[6px] font-mono text-xs px-2 py-0.5 border ${a.twLight} ${a.twBorder} ${a.twText}`}>{a.id}</span>
                     <h3 class="font-display text-lg text-foreground">{a.label}</h3>
                   </div>
                   <p class="mt-1 text-sm text-muted-foreground max-w-[560px]">{a.description}</p>
@@ -360,7 +360,7 @@ function pctBar(n: number, max = 100) {
             <div class="flex justify-between items-center">
               <span class="text-sm text-foreground">{f.label}</span>
               <div class="flex items-center gap-2 shrink-0 ml-4">
-                <span class="font-mono text-xs text-muted-foreground border border-border rounded px-1.5 py-0.5">{f.cluster}</span>
+                <span class="font-mono text-xs text-muted-foreground border border-border rounded-[6px] px-1.5 py-0.5">{f.cluster}</span>
                 <span class="font-mono text-sm text-foreground">{f.pct}%</span>
               </div>
             </div>
@@ -381,7 +381,7 @@ function pctBar(n: number, max = 100) {
 
       <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {successPatterns.map((p) => (
-          <div class="rounded-xl border border-border bg-card p-5 space-y-3">
+          <div class="rounded-[8px] border border-border bg-card p-5 space-y-3">
             <div class="flex justify-between items-start">
               <h3 class="font-display text-base text-foreground leading-snug">{p.nombre}</h3>
               <span class="shrink-0 ml-2 text-xl font-display font-bold text-accent">{p.pct}%</span>

@@ -96,7 +96,7 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
 
         <div class="flex-1 min-w-0">
 
-          <div class={`rounded-xl border ${a.border} ${a.bg} p-6 mb-8`}>
+          <div class={`rounded-[8px] border ${a.border} ${a.bg} p-6 mb-8`}>
             <div class="flex items-center gap-3 mb-3">
               <span class={a.text}><Icon name={FN_ICON[fn.slug] ?? "archive"} size={20} /></span>
               <p class={`font-mono text-[0.65rem] uppercase tracking-[0.2em] ${a.text}`}>
@@ -119,11 +119,11 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
 
               <div class="grid gap-4 sm:grid-cols-2">
                 {act.series.map((s) => (
-                  <div class="border border-border bg-card p-5 rounded-xl flex flex-col gap-3">
+                  <div class="border border-border bg-card p-5 rounded-[8px] flex flex-col gap-3">
                     <div class="flex items-start justify-between gap-2">
                       <code class={`font-mono text-sm font-medium ${a.text}`}>{s.folder}</code>
                       {s.prefix && (
-                        <span class="shrink-0 font-mono text-[0.55rem] text-dim bg-background/50 border border-border/50 rounded px-1.5 py-0.5">{s.prefix}</span>
+                        <span class="shrink-0 font-mono text-[0.55rem] text-dim bg-background/50 border border-border/50 rounded-[6px] px-1.5 py-0.5">{s.prefix}</span>
                       )}
                     </div>
                     <p class="text-xs text-muted-foreground leading-relaxed flex-1">
@@ -153,7 +153,7 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
               {others.map((f) => (
                 <a
                   href={f.href}
-                  class="flex items-center gap-2.5 rounded-lg border border-border bg-card px-3 py-2.5 hover:border-accent/50 hover:bg-accent/5 transition-all group"
+                  class="flex items-center gap-2.5 rounded-[8px] border border-border bg-card px-3 py-2.5 hover:border-accent/50 hover:bg-accent/5 transition-all group"
                 >
                   <span class="text-dim shrink-0"><Icon name={FN_ICON[f.slug] ?? "archive"} size={16} /></span>
                   <div class="min-w-0">
@@ -164,7 +164,7 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
               ))}
               <a
                 href="/"
-                class="flex items-center gap-2.5 rounded-lg border border-border/50 px-3 py-2.5 hover:border-accent/30 transition-all mt-2"
+                class="flex items-center gap-2.5 rounded-[8px] border border-border/50 px-3 py-2.5 hover:border-accent/30 transition-all mt-2"
               >
                 <span class="text-dim shrink-0"><Icon name="archive" size={16} /></span>
                 <p class="font-mono text-xs text-dim hover:text-foreground transition-colors">← The whole scheme</p>

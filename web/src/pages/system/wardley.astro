@@ -75,11 +75,11 @@ const layers = doc.layers.map((l) => {
         A strategic map of the Narrative Work OS. Two axes tell the full story: <strong class="text-foreground">how visible</strong> each component is to the user, and <strong class="text-foreground">how evolved</strong> it is in the market.
       </p>
       <div class="grid sm:grid-cols-2 gap-4">
-        <div class="rounded-xl border border-border bg-card p-5">
+        <div class="rounded-[8px] border border-border bg-card p-5">
           <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Y axis — Visibility</p>
           <p class="text-sm text-muted-foreground">From <span class="text-foreground">infrastructure</span> (invisible to users) to <span class="text-foreground">visible</span> (what users interact with directly).</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-5">
+        <div class="rounded-[8px] border border-border bg-card p-5">
           <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">X axis — Evolution</p>
           <p class="text-sm text-muted-foreground">From <span class="text-foreground">Genesis</span> (novel, unstable) → Custom → Product → <span class="text-foreground">Commodity</span> (standardized, available everywhere).</p>
         </div>
@@ -92,7 +92,7 @@ const layers = doc.layers.map((l) => {
     <div class="mx-auto max-w-[800px] px-6 space-y-16">
       {layers.map((layer, i) => (
         <div class="story-layer opacity-0 translate-y-6 transition-all duration-700" data-layer={layer.id}>
-          <div class={`rounded-2xl border ${layer.border} ${layer.bg} p-8`}>
+          <div class={`rounded-[8px] border ${layer.border} ${layer.bg} p-8`}>
             <div class="flex items-start gap-4 mb-4">
               <span class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim mt-1">Layer {i + 1}</span>
               <div>
@@ -127,7 +127,7 @@ const layers = doc.layers.map((l) => {
         <span class="font-mono text-[0.6rem] text-dim">Click any node for detail</span>
       </div>
 
-      <div class="relative rounded-2xl border border-border bg-card overflow-hidden">
+      <div class="relative rounded-[8px] border border-border bg-card overflow-hidden">
         <!-- Axis labels -->
         <div class="absolute left-0 top-0 bottom-8 w-8 flex items-center justify-center">
           <span class="font-mono text-[0.55rem] uppercase tracking-[0.15em] text-dim rotate-[-90deg] whitespace-nowrap">Visible to user ↑</span>
@@ -226,7 +226,7 @@ const layers = doc.layers.map((l) => {
       </div>
 
       <!-- Detail card (hidden by default) -->
-      <div id="detail-card" class="hidden mt-6 rounded-2xl border border-accent/30 bg-card p-6 transition-all">
+      <div id="detail-card" class="hidden mt-6 rounded-[8px] border border-accent/30 bg-card p-6 transition-all">
         <div class="flex items-start justify-between gap-4 mb-4">
           <div>
             <p id="detail-evolution" class="font-mono text-[0.6rem] text-dim mb-1"></p>
@@ -282,7 +282,7 @@ const layers = doc.layers.map((l) => {
             sev: "medium",
           },
         ].map((item) => (
-          <div class={`rounded-xl border p-5 ${item.sev === "high" ? "border-red/20 bg-red/5" : "border-yellow/20 bg-yellow/5"}`}>
+          <div class={`rounded-[8px] border p-5 ${item.sev === "high" ? "border-red/20 bg-red/5" : "border-yellow/20 bg-yellow/5"}`}>
             <div class="flex items-start gap-3">
               <span class={`inline-flex items-center gap-1 font-mono text-[0.6rem] mt-0.5 flex-shrink-0 ${item.sev === "high" ? "text-red" : "text-yellow"}`}>
                 <Icon name={item.sev === "high" ? "warning" : "circle"} size={10} />
@@ -306,7 +306,7 @@ const layers = doc.layers.map((l) => {
         <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">The strategic bet</span>
         <span class="h-px flex-1 bg-border"></span>
       </div>
-      <div class="rounded-2xl border border-accent/30 bg-accent/5 p-7 mb-6">
+      <div class="rounded-[8px] border border-accent/30 bg-accent/5 p-7 mb-6">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-4">The moat is what the system doesn't lose</p>
         <p class="text-sm text-muted-foreground leading-relaxed mb-4">
           Notion AI can answer questions about what you have in Notion. But it can't answer:
@@ -317,7 +317,7 @@ const layers = doc.layers.map((l) => {
             { q: "\"What have we learned across the last 20 missions that should change how we approach the next ones?\"", why: "Notion has tasks with checkboxes. NWOS missions have Epistemic Value and Execution Reality — the learning is the artifact." },
             { q: "\"What's the gap between where we are today and where we need to be, and which missions close it?\"", why: "Notion has pages. NWOS Blueprints have delta tables that map gaps to missions explicitly." },
           ].map((item) => (
-            <div class="rounded-xl border border-border bg-card/50 p-4">
+            <div class="rounded-[8px] border border-border bg-card/50 p-4">
               <p class="text-sm italic text-foreground/70 mb-2">{item.q}</p>
               <p class="font-mono text-[0.6rem] text-accent">→ {item.why}</p>
             </div>
@@ -332,7 +332,7 @@ const layers = doc.layers.map((l) => {
           </p>
         </div>
       </div>
-      <div class="rounded-xl border border-border bg-card p-5">
+      <div class="rounded-[8px] border border-border bg-card p-5">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">The window: 18–24 months</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
           The goal is to establish Mission System + Decision Registry + Blueprints as the standard for AI-integrated organizations before large players commoditize individual components. Not to be the first to use LLMs — to be the first to build knowledge infrastructure that compounds.

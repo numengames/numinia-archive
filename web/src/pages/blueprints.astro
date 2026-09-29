@@ -62,7 +62,7 @@ const planos = (await getCollection("blueprints")).sort((a, b) =>
           return (
             <a
               href={"/blueprints/" + slug(p.id as string)}
-              class="block rounded-xl border border-border bg-card p-6 hover:bg-card-hover transition-colors"
+              class="block rounded-[8px] border border-border bg-card p-6 hover:bg-card-hover transition-colors"
             >
               <div class="flex flex-wrap items-center gap-3 mb-2">
                 <span class="font-mono text-[0.65rem] text-accent">{p.data.id}</span>

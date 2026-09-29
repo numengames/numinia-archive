@@ -54,7 +54,10 @@ test('RADII: no Tailwind radius step in web/src — only rounded-[6px], rounded-
   const allowed = /^rounded(-[trblse]{1,2})?-(\[6px\]|\[8px\]|full|none)$/;
   const bad = [];
   for (const f of SOURCE) {
-    for (const m of read(f).matchAll(/(?<![\w-])rounded(?:-[a-z0-9]+)*(?:-\[[^\]]+\])?(?![\w-])/g)) {
+    // Only inside class strings: the word «rounded» in prose is not a class.
+    const classes = [...read(f).matchAll(/class(?:Name)?=\{?["'`]([^"'`]*)["'`]|["'`]([^"'`]*\brounded[^"'`]*)["'`]/g)]
+      .map((c) => c[1] ?? c[2]).filter((c) => /\brounded/.test(c) && !/\s(to|the|of|a)\s/.test(c)).join(' ');
+    for (const m of classes.matchAll(/(?<![\w-])rounded(?:-[a-z0-9]+)*(?:-\[[^\]]+\])?(?![\w-])/g)) {
       if (!allowed.test(m[0])) bad.push(`${f}: ${m[0]}`);
     }
   }
@@ -62,7 +65,7 @@ test('RADII: no Tailwind radius step in web/src — only rounded-[6px], rounded-
 });
 
 test('RADII: every border-radius in web/src is 6px, 8px, a circle, a capsule, 0 or a variable', () => {
-  const ok = /^(6px|8px|50%|999px|9999px|99px|0|var\(--[\w-]+\)|8px 8px 0 0|\$\{[^}]+\})$/;
+  const ok = /^(6px|8px|50%|999px|9999px|99px|0|var\(--[\w-]+\)|8px 8px 0 0|\$\{[^}]*\}?)$/;
   const bad = [];
   for (const f of SOURCE) {
     for (const m of read(f).matchAll(/border-radius:\s*([^;"}\n]+)/g)) {
@@ -85,6 +88,9 @@ test('MOTION: the kit instruction counts the living animations of STD-023 §14',
   const words = { 14: 'catorce', 15: 'quince', 16: 'dieciséis', 17: 'diecisiete' };
   const prompt = read('machine/packages/design-kit/sistema.prompt.txt');
   assert.match(prompt, new RegExp(`solo estas ${words[living]}`), `the prompt should say «solo estas ${words[living]}»`);
+  const numbers = { 15: 'fifteen', 16: 'sixteen', 17: 'seventeen' }[rows.length];
+  assert.match(std, new RegExp(`## 14\\. The animation catalogue — ${numbers}`));
+  assert.match(read('standards/STD-008-design-tokens.md'), new RegExp(`${numbers} animations`));
 });
 
 test('MOTION: the entrance (16) runs at the catalogued duration, rise and stagger', () => {

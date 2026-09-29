@@ -50,7 +50,7 @@ const subtype = typeof f.subtype === "string" ? f.subtype : "report";
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{f.title}</h1>
 
       <DocToolbar mdUrl={mdUrl} filename={mdFilename} repoUrl={repoUrl} />
-      <article class="mission-md rounded-xl border border-border bg-card p-6 sm:p-8">
+      <article class="mission-md rounded-[8px] border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>
 
@@ -91,9 +91,9 @@ const subtype = typeof f.subtype === "string" ? f.subtype : "report";
     font-size: 0.8em;
     background: rgb(var(--border) / 0.5);
     padding: 0.1em 0.35em;
-    border-radius: 0.25rem;
+    border-radius: 6px;
   }
-  .mission-md pre { overflow-x: auto; padding: 1rem; border-radius: 0.5rem; margin: 0.75rem 0; background: rgb(var(--bg-card-hover)); }
+  .mission-md pre { overflow-x: auto; padding: 1rem; border-radius: 8px; margin: 0.75rem 0; background: rgb(var(--bg-card-hover)); }
   .mission-md pre code { background: none; padding: 0; }
   .mission-md table { display: block; overflow-x: auto; font-size: 0.8rem; margin: 0.75rem 0; border-collapse: collapse; }
   .mission-md th, .mission-md td { border: 1px solid rgb(var(--border)); padding: 0.4rem 0.6rem; text-align: left; color: rgb(var(--text-muted)); }

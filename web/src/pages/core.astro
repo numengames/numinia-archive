@@ -53,7 +53,7 @@ const state = (s: string) => (s === "active" ? "in force" : s);
 
       <ol class="space-y-6">
         {flow.map((c) => (
-          <li class="rounded-xl border border-border bg-card p-5 sm:p-6">
+          <li class="rounded-[8px] border border-border bg-card p-5 sm:p-6">
             <a href={c.href} class="group block">
               <div class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-1">
                 Canon · {state(c.status)} · {c.standards.length} standards · {c.protocols.length} protocols

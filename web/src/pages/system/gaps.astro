@@ -102,7 +102,7 @@ const bgColor = (n: number) =>
         )}
         <div class="mt-8 space-y-6">
           {p.gaps.map((gap) => (
-            <div class={`rounded-lg border p-6 space-y-4 ${bgColor(Math.max(gap.impact, gap.urgency))}`}>
+            <div class={`rounded-[8px] border p-6 space-y-4 ${bgColor(Math.max(gap.impact, gap.urgency))}`}>
               <div class="flex flex-wrap items-start justify-between gap-4">
                 <h3 class="font-display text-lg text-foreground">{gap.name}</h3>
                 <div class="flex gap-4 text-sm font-mono shrink-0">
@@ -115,7 +115,7 @@ const bgColor = (n: number) =>
                 <p class="text-xs text-muted-foreground/70 uppercase tracking-wider mb-1">Blind spot</p>
                 <p class="text-sm text-muted-foreground italic">{gap.blindSpot}</p>
               </div>
-              <div class="rounded bg-accent/5 border border-accent/20 px-4 py-3">
+              <div class="rounded-[6px] bg-accent/5 border border-accent/20 px-4 py-3">
                 <p class="text-xs text-accent uppercase tracking-wider mb-1">Question for the Oracles</p>
                 <p class="text-sm text-foreground">"{gap.question}"</p>
               </div>
@@ -136,7 +136,7 @@ const bgColor = (n: number) =>
       </p>
       <div class="mt-8 grid gap-6 sm:grid-cols-3">
         {top3.map((gap, i) => (
-          <div class="rounded-lg border border-red/30 bg-red/5 p-6 space-y-3">
+          <div class="rounded-[8px] border border-red/30 bg-red/5 p-6 space-y-3">
             <div class="text-xs font-semibold uppercase tracking-wider text-red">
               Critical gap #{i + 1}
             </div>

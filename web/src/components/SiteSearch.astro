@@ -31,7 +31,7 @@ const t = useT();
   <!-- §9.8: the canonical veil, the same piece that founds every modal -->
   <div data-search-veil class="absolute inset-0" style="background: rgba(20,17,15,.72)"></div>
 
-  <div class="relative mx-4 w-full max-w-xl rounded-xl border border-border bg-background shadow-xl">
+  <div class="relative mx-4 w-full max-w-xl rounded-[8px] border border-border bg-background shadow-xl">
     <!-- Input per §9.3: base bg, linea.fuerte border via border-border, Turquesa focus -->
     <div class="flex items-center gap-3 border-b border-border px-4">
       <Icon name="magnifying-glass" size={16} class="shrink-0 text-muted-foreground" />
@@ -43,7 +43,7 @@ const t = useT();
         spellcheck="false"
         class="h-12 w-full bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
       />
-      <kbd class="hidden rounded border border-border px-1.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground sm:inline">ESC</kbd>
+      <kbd class="hidden rounded-[6px] border border-border px-1.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground sm:inline">ESC</kbd>
     </div>
 
     <div data-search-results class="max-h-[50vh] overflow-y-auto overscroll-contain p-2" role="listbox">
@@ -127,7 +127,7 @@ const t = useT();
       a.href = item.url;
       a.setAttribute("role", "option");
       a.className =
-        "flex min-h-10 flex-col justify-center gap-0.5 rounded-lg px-3 py-2 transition-colors hover:bg-card focus:bg-card focus:outline-none";
+        "flex min-h-10 flex-col justify-center gap-0.5 rounded-[8px] px-3 py-2 transition-colors hover:bg-card focus:bg-card focus:outline-none";
       const title = document.createElement("span");
       title.className = "font-mono text-xs text-foreground";
       title.textContent = item.meta.title ?? item.url;

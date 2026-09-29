@@ -123,21 +123,21 @@ const PRESENTATION: Record<
   // The three the hand-written array never gained. Their cards exist now for
   // the same reason the other seven do: the INDEX lists them.
   calliope: {
-    color: "var(--ink-rosa)", mark: "✎", className: "Voice smith",
+    color: "var(--ink-arena)", mark: "✎", className: "Voice smith",
     quote: "The sentence people remember is the one that was cut down to fit.",
     stats: [["Voice", "S+"], ["Register", "S"], ["Economy", "A"]],
     specialties: ["Copywriting", "Editorial writing", "Channel adaptation", "Tone of voice", "Editing"],
     bio: "Calliope writes what the organization says out loud. She adapts one message to the channel it lands in without letting it become a different message.",
   },
   nimrod: {
-    color: "var(--ink-aguamarina)", mark: "⌖", className: "Pathfinder",
+    color: "var(--ink-turquesa)", mark: "⌖", className: "Pathfinder",
     quote: "Every answer in here has an address. I know the address.",
     stats: [["Recall", "S+"], ["Provenance", "S"], ["Speed", "A"]],
     specialties: ["Repository navigation", "Authority mapping", "Provenance", "Cross-referencing", "Search"],
     bio: "Nimrod knows where things are and which of them governs. He answers 'where is this written, and does it still hold' without reopening the argument the document already settled.",
   },
   talos: {
-    color: "var(--ink-plata)", mark: "⛨", className: "Gatekeeper",
+    color: "var(--ink-niebla)", mark: "⛨", className: "Gatekeeper",
     quote: "A control nobody verifies is a rumour with a ticket number.",
     stats: [["Vigilance", "S+"], ["Rigour", "S"], ["Trust", "C"]],
     specialties: ["CI/CD", "Safeguards", "Automation integrity", "Control verification", "Operational assurance"],

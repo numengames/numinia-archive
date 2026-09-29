@@ -197,7 +197,7 @@ const colorMap: Record<string, string> = {
       <SectionHeader label="The blockers" title="What prevents selling today" />
       <div class="mt-8 space-y-4">
         {blockers.map((b) => (
-          <div class="rounded-xl border border-border bg-card p-5 flex gap-4">
+          <div class="rounded-[8px] border border-border bg-card p-5 flex gap-4">
             <div class="shrink-0 pt-1.5"><span class={"inline-block h-2.5 w-2.5 rounded-full " + b.dot} title={"urgency " + b.urgencia + "/10"}></span></div>
             <div class="flex-1 space-y-2">
               <div class="flex items-center gap-3">
@@ -206,7 +206,7 @@ const colorMap: Record<string, string> = {
                 <span class="ml-auto font-mono text-xs text-muted-foreground">urgency {b.urgencia}/10</span>
               </div>
               <p class="text-sm text-muted-foreground">{b.desc}</p>
-              <div class="rounded-lg bg-accent/5 border border-accent/20 px-4 py-2.5">
+              <div class="rounded-[8px] bg-accent/5 border border-accent/20 px-4 py-2.5">
                 <span class="text-xs text-accent font-mono uppercase tracking-wider">Concrete action → </span>
                 <span class="text-sm text-foreground">{b.accion}</span>
               </div>
@@ -233,9 +233,9 @@ const colorMap: Record<string, string> = {
                 <span class="text-foreground font-medium">#{icp.rank} {icp.label}</span>
                 <span class={`text-xs font-mono rounded-full border px-2.5 py-0.5 ${classes}`}>{icp.verdict}</span>
               </div>
-              <div class="h-8 rounded-lg bg-border/20 overflow-hidden relative">
+              <div class="h-8 rounded-[8px] bg-border/20 overflow-hidden relative">
                 <div
-                  class={`h-full rounded-lg transition-all flex items-center px-3`}
+                  class={`h-full rounded-[8px] transition-all flex items-center px-3`}
                   style={`width:${icp.score}%; background: var(--bar-bg)`}
                   data-color={icp.color}
                 >
@@ -255,7 +255,7 @@ const colorMap: Record<string, string> = {
         {icpRanking.slice(0, 3).map((icp) => {
           const classes = colorMap[icp.color];
           return (
-            <div class={`rounded-xl border p-5 space-y-4 ${classes}`}>
+            <div class={`rounded-[8px] border p-5 space-y-4 ${classes}`}>
               <div>
                 <div class="text-xs font-mono uppercase tracking-wider opacity-70 mb-1">#{icp.rank} — {icp.verdict}</div>
                 <h3 class="font-display text-base text-foreground">{icp.label}</h3>
@@ -279,7 +279,7 @@ const colorMap: Record<string, string> = {
       <SectionHeader label="Sales message" title="What to say to each decision-maker" />
       <div class="mt-8 space-y-5">
         {valueProps.map((vp, i) => (
-          <div class="rounded-xl border border-border bg-card p-6 grid sm:grid-cols-[200px_1fr] gap-6">
+          <div class="rounded-[8px] border border-border bg-card p-6 grid sm:grid-cols-[200px_1fr] gap-6">
             <div>
               <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Decision-maker</div>
               <div class="font-display text-base text-accent">{vp.buyer}</div>
@@ -291,7 +291,7 @@ const colorMap: Record<string, string> = {
                 <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider mb-1">Your message</div>
                 <p class="text-sm text-foreground leading-relaxed">{vp.message}</p>
               </div>
-              <div class="rounded-lg bg-teal/10 border border-teal/20 px-4 py-2.5">
+              <div class="rounded-[8px] bg-teal/10 border border-teal/20 px-4 py-2.5">
                 <span class="text-xs text-accent font-mono uppercase tracking-wider">Promised KPI → </span>
                 <span class="text-sm text-foreground">{vp.metric}</span>
               </div>
@@ -318,9 +318,9 @@ const colorMap: Record<string, string> = {
                 <span class="text-foreground font-medium">{stage.label}</span>
                 <span class="font-mono text-muted-foreground">{stage.n.toLocaleString()}</span>
               </div>
-              <div class="h-9 rounded-lg bg-border/20 overflow-hidden">
+              <div class="h-9 rounded-[8px] bg-border/20 overflow-hidden">
                 <div
-                  class="h-full rounded-lg flex items-center px-4"
+                  class="h-full rounded-[8px] flex items-center px-4"
                   style={`width:${pct}%; background-color:${stage.color}25; border: 1px solid ${stage.color}50`}
                 >
                   <span class="text-xs text-muted-foreground">{stage.desc}</span>
@@ -351,7 +351,7 @@ const colorMap: Record<string, string> = {
         {pilotWeeks.map((phase) => {
           const c = colorMap[phase.color];
           return (
-            <div class={`rounded-xl border p-5 space-y-3 ${c}`}>
+            <div class={`rounded-[8px] border p-5 space-y-3 ${c}`}>
               <div>
                 <div class="text-xs font-mono opacity-70">{phase.week}</div>
                 <h3 class="font-display text-base text-foreground mt-0.5">{phase.label}</h3>
@@ -371,18 +371,18 @@ const colorMap: Record<string, string> = {
 
       <!-- Pricing -->
       <div class="mt-8 grid gap-4 sm:grid-cols-3 max-w-[720px]">
-        <div class="rounded-xl border border-border bg-card p-5 space-y-2">
+        <div class="rounded-[8px] border border-border bg-card p-5 space-y-2">
           <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">Startup (&lt;15p)</div>
           <div class="text-2xl font-display font-bold text-foreground">€1.500</div>
           <div class="text-xs text-muted-foreground">8-week pilot · everything included</div>
         </div>
-        <div class="rounded-xl border border-accent/40 bg-accent/5 p-5 space-y-2 relative">
+        <div class="rounded-[8px] border border-accent/40 bg-accent/5 p-5 space-y-2 relative">
           <div class="absolute -top-2.5 left-4 text-[0.6rem] font-mono uppercase tracking-wider bg-accent text-background px-2 py-0.5 rounded-full">Recommended</div>
           <div class="text-xs font-mono text-accent/70 uppercase tracking-wider">Startup (15–50p)</div>
           <div class="text-2xl font-display font-bold text-foreground">€3.500</div>
           <div class="text-xs text-muted-foreground">8-week pilot · with digital agent</div>
         </div>
-        <div class="rounded-xl border border-border bg-card p-5 space-y-2">
+        <div class="rounded-[8px] border border-border bg-card p-5 space-y-2">
           <div class="text-xs font-mono text-muted-foreground/60 uppercase tracking-wider">Agency / SME</div>
           <div class="text-2xl font-display font-bold text-foreground">€6.000</div>
           <div class="text-xs text-muted-foreground">8-week pilot · 2 agents + corp. mode</div>
@@ -404,7 +404,7 @@ const colorMap: Record<string, string> = {
           { n: "05", plazo: "Week 3", accion: "First exploratory conversation with 3 contacts from ICP #1. It is not a demo — it is listening.", owner: "Pablo" },
           { n: "06", plazo: "Week 4", accion: "If there is a positive signal: formalised pilot proposal. Price, deliverables, criterion. Signature.", owner: "Pablo + legal Oracle" },
         ].map((step) => (
-          <div class="flex gap-4 rounded-xl border border-border bg-card p-4">
+          <div class="flex gap-4 rounded-[8px] border border-border bg-card p-4">
             <div class="font-mono text-2xl font-bold text-accent/30 shrink-0 w-8 text-center">{step.n}</div>
             <div class="flex-1 space-y-1">
               <div class="flex flex-wrap items-center gap-2">

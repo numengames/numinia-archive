@@ -100,7 +100,7 @@ for (const g of groups)
           <p class="mb-4 text-sm text-muted-foreground">{g.blurb}</p>
           <div class="space-y-4">
             {g.rows.map((r) => (
-              <a href={"/reports/" + r.id} class="block rounded-xl border border-border bg-card p-6 hover:bg-card-hover transition-colors">
+              <a href={"/reports/" + r.id} class="block rounded-[8px] border border-border bg-card p-6 hover:bg-card-hover transition-colors">
                 <div class="flex flex-wrap items-center gap-3 mb-2">
                   <span class="font-mono text-[0.65rem] text-accent">{r.docId}</span>
                   <span class="font-mono text-[0.6rem] text-dim">{r.created}</span>

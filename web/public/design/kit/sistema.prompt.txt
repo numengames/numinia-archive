@@ -19,8 +19,9 @@ Rareza (solo juego, borde progresivo + nombre escrito): pobre #F9EBDC, común #8
 poco común #8FC46B, raro #5D9BD6, épico #A98BE0, legendario #EFA517.
 Tipografía: Geist y Geist Mono (Vercel, autoalojadas) en todo; Alegreya solo libro/códex;
 Pixelify Sans solo registro píxel. Sans afirma, Mono mide; etiquetas Mono versales
-+0.10em; cifras tabulares.
-Iconos: Phosphor. regular defecto, fill activo, bold <16px, light ≥48px; thin y duotone
+0.7rem +0.15em (Verdemar sobre una sección); titular de página Geist 400 −0.025em;
+cifras tabulares.
+Iconos: Phosphor, los 71 del subconjunto (tokens icon.subconjunto = los de numinia.org). regular defecto, fill activo, bold <16px, light ≥48px; thin y duotone
 prohibidos; etiqueta en primer uso; el escarabajo y la Luna no son iconos.
 Materia: relieve de circuito solo en fondos Nocturno ≤6% cover sin repeat; binaria
 10100→xxx como separador; superficies elevadas lisas; nada de textura en Diurno.
@@ -39,7 +40,7 @@ relieve. El libro es Diurno con conmutador propio, la luna es el marcapáginas, 
 la factura no hereda nada de esto. Piezas editoriales en §9.9; iconos del libro en §7.5
 (rejilla 16, trazo 1.5) — fuera del libro manda Phosphor, subconjunto de §7.3, y el
 conmutador de modo muestra el modo AL QUE LLEVA un toque, no el actual.
-Animación, solo estas catorce: tecleo 22ms/car con cursor de bloque (titulares hero, lore,
+Animación, solo estas quince (dieciséis números, la 12 retirada): tecleo 22ms/car con cursor de bloque (titulares hero, lore,
 cargas — la bandera, herencia de aventuras gráficas); revelado 320ms al entrar en
 viewport; barrido de señal 8s máx. uno; elevación 120ms sin desplazamiento; pulso
 legendario 2.4s ×2 solo al obtener; fase lunar 560ms/paso en cargas largas; puntos de
@@ -51,7 +52,9 @@ cielo (deriva ±0.06px + alfa .05–.85 — única excepción al veto de loops, 
 del Velo). La 12 está retirada: el códex no anima el paso de hoja. Luz lectora (15):
 halo difuso Arena con núcleo de tinta, nunca blanco puro, sobre la palabra que suena,
 estela de 12 y muelle críticamente amortiguado; solo mientras suena una voz — el otro
-loop permitido, porque no es ambiental. Prohibido: parallax, glitch, loops ambientales,
+loop permitido, porque no es ambiental. Entrada (16): etiqueta, titular y línea del
+principio de página aparecen 600ms con 24px de ascenso, escalonadas 100ms (la de
+numinia.org). El cielo, de noche en numinia.org, numinia.com y nwos; numen.games no. Prohibido: parallax, glitch, loops ambientales,
 animar foco o color de texto.
 Leer en voz alta (STD-023 §22): el lector manda el scroll — seguir la voz solo hasta que
 él desplaza, luego «Volver a la lectura»; controles abajo en cristal del Velo al ancho
@@ -71,7 +74,13 @@ pátina de imagen única (§6.3); la época es sabor, no skin. El registro píxe
 Diurno: sus escenas permanecen Nocturno aunque la pieza que las enmarca sea clara.
 La binaria habla: codifica «Leave things better than we found them.» en 8 bits +
 sedimento x — cópiala de tokens binaria.bits o usa binaria() del kit; no inventes ruido.
-Forma: dos radios — control 6px, marco 8px; el registro píxel conserva cantos rectos.
+Forma: dos radios — control 6px, marco 8px, y ninguno más (ni 4, ni 12, ni 16; una
+barra fina es cápsula); el registro píxel conserva cantos rectos.
+Pieza web (STD-023 §23, manda numinia.org): columna 1100px (un mapa entero, 1280); barra pegada arriba de
+56px, fondo al 85% + blur 24px; el nombre del sitio ESCRITO a la izquierda, nunca el
+logo; entradas en etiqueta Mono versal con icono Phosphor 14px; activa subrayada 2px
+Turquesa; a la derecha búsqueda y modo, botones de 44px; en móvil panel a pantalla
+completa con lo mismo. Tarjetas superficie al 60%, línea fuerte, 8px, 20px dentro.
 Mensajes (§9.7): qué pasó + qué hacer, nivel I; el error mudo está prohibido; tooltip
 habla en el modo contrario; aviso 6s máx 3; destructivo nunca preenfocado.
 Entregable: el kit zip (readme en raíz); kit/sistema.{css,js,tokens.json} generados —
