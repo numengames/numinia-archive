@@ -90,7 +90,7 @@ test('the footnote counts what the table shows', () => {
   const count = (re) => rows.filter((r) => re.test(r.cell)).length;
   assert.match(foot, new RegExp(`^${rows.length} rule documents`), 'the footnote miscounts the corpus');
   const reg = count(/^register —/);
-  if (reg) assert.match(foot, new RegExp(`${reg} are registers`), `the footnote does not report ${reg} registers`);
+  if (reg) assert.match(foot, new RegExp(`${reg} (are registers|is a register)`), `the footnote does not report ${reg} registers`);
   const can = count(/^canon —/);
   if (can) assert.match(foot, new RegExp(`${can} are canon`), `the footnote does not report ${can} canon`);
   // The honest half: unexplained gaps are reported as such, or their absence is.
