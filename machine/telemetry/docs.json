@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 14624,
+  "chars": 14882,
   "apparatus": false,
   "archived": false,
-  "tokens": 3932
+  "tokens": 3999
  },
  {
   "path": "CLAUDE.md",
@@ -1336,10 +1336,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 41939,
+  "chars": 42034,
   "apparatus": false,
   "archived": false,
-  "tokens": 13493
+  "tokens": 13522
  },
  {
   "path": "lore/world/brand-and-culture.md",
@@ -2799,10 +2799,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8079,
+  "chars": 7752,
   "apparatus": false,
   "archived": false,
-  "tokens": 2383
+  "tokens": 2266
  },
  {
   "path": "system/semantic-census/district-ouroboros.md",
