@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.90.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "CHG",
+        text: "Whoever supports Numinia now chooses two things about how they appear: with a name, an alias or none, and with what they gave or without it. Saying nothing still means no name and no amount. The money canon, its standard, the account's system document and the protocol for putting something on sale all said an amount was never shown; they now say it is the payer's to show. Open books' homage list shows the second choice. Nobody's pay on the team is published: that rule is a different one and stays.",
+      },
+    ],
+  },
+  {
     version: "v0.89.0",
     date: "2026-09-29",
     entries: [

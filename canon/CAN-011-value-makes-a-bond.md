@@ -4,9 +4,9 @@ uid: ""
 title: "What has value also makes a bond"
 type: seminal
 status: draft
-version: "0.1.2"
+version: "0.2.0"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-09-29T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -25,9 +25,10 @@ SPDX-License-Identifier: CC0-1.0
 # What has value also makes a bond
 
 > **Summary:** Whoever pays in Numinia receives something they can name
-> before paying, sees the whole price, and is remembered for it by the name
-> they choose — or by none. The city writes down what it costs and what comes
-> in, so that anyone entitled to check the account finds it whole.
+> before paying, sees the whole price, and is remembered for it as they
+> choose — by a name or by none, with what they gave or without it. The
+> city writes down what it costs and what comes in, so that anyone entitled
+> to check the account finds it whole.
 > **Epistemic:** What do you get when you pay?
 > **Pragmatic:** Three questions to put to any charge before it exists.
 > **Audience:** Everyone
@@ -75,8 +76,9 @@ Whoever holds the city up is written into it. The city remembers those who
 keep it standing in each period — by their name, by a name they choose, or
 by none. The choice is theirs and is not presumed: whoever says nothing
 appears without a name, and may change their mind or leave the list
-whenever they like. What each person gave is never shown. The bond is the
-fact worth recording; the amount is theirs.
+whenever they like. What each person gave is theirs too: it is shown only
+if they ask for it, and whoever says nothing appears without it. The bond
+is the fact worth recording; the amount is theirs to show.
 
 ## The open account
 

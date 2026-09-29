@@ -5,9 +5,9 @@ title: "The account: how money moves and is recorded, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-24T18:00:00+02:00"
-updated: "2026-09-24T18:30:00+02:00"
+updated: "2026-09-29T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, economy, payments, ledger, accounting]
@@ -77,7 +77,8 @@ and may be written in a record.
    (`STD-033` PAY-005).
 3. The processor pays out to Numen Games' bank account, net of its fees.
 4. The payer chooses, on that page, how to appear in the homage list: by
-   name, by alias or not at all. Silence is *not at all*.
+   name, by alias or not at all, and whether what they paid is shown.
+   Silence is *no name and no amount*.
 5. At the month's close, the processor's report enters the ledger as income
    lines: gross, VAT, fees, net.
 

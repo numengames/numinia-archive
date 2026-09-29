@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Changed** Whoever pays chooses what is public about their payment: a name, an alias or none, and whether the amount shows; silence hides both. CAN-011, STD-033 PAY-007, SYS-008, PRO-020 and Open books' homage list follow (site v0.90.0)
 - **Added** What an agent may do without asking: /automation draws five levels of automation as the home's astrolabe and grades sixteen permissions at each; every OPERATOR.md declares its `automation_level` and the page reads it; a test holds both (site v0.89.0)
 
 ### 2026-09-28

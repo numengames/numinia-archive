@@ -5,9 +5,9 @@ title: "Every charge delivers something"
 type: documentation
 subtype: standard
 status: draft
-version: "0.4.5"
+version: "0.5.0"
 created: "2026-09-24T17:40:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-29T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -66,8 +66,9 @@ European payment law asks for to the payment company.
 easily as it was started, from a link on every receipt and on the site.
 
 **Remembered by choice.** A payer MUST appear only as they choose: by name,
-by alias or not at all. Silence means not at all, and consent can be
-withdrawn as easily as it was given. We never publish what one person paid.
+by alias or not at all, and with what they paid or without it. Silence means
+no name and no amount, and consent can be withdrawn as easily as it was
+given. We publish what one person paid only when that person asks for it.
 
 **Open stays open.** A good MUST NOT be the key to something the archive
 already gives freely.
