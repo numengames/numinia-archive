@@ -668,6 +668,7 @@ const READING_ORDER: Record<string, string[]> = {
     "/legal/leg-001-privacy-policy-numengames",
     "/legal/leg-002-terms-and-conditions-numengames",
     "/legal/leg-003-cookie-policy-numengames",
+    "/legal/leg-004-legal-notice-numengames",
   ],
 
   // The card first, then the audit of whether its bytes are still where the

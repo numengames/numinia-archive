@@ -26,6 +26,8 @@ const en = {
   "footer.terms": "Terms and conditions",
   "footer.privacy": "Privacy policy",
   "footer.cookies": "Cookies",
+  "footer.notice": "Legal notice",
+  "footer.cookieChoice": "Change my cookie choice",
   "footer.social": "Social",
   "footer.licence": "Open by licence, per file",
   "footer.licenceTitle": "Each file declares its own licence in its first lines — two files in one folder may differ. LICENSE explains how to read them",

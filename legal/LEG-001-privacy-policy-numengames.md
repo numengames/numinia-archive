@@ -6,11 +6,11 @@ uid: ""
 title: "Privacy Policy — Numen Games"
 type: legal
 status: active
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-08-17T14:37:43Z"
 created_source: "git:5d7bd39"
 created_confidence: inferred
-updated: "2026-08-27T19:59:10Z"
+updated: "2026-09-29T18:00:00+02:00"
 author: "oracle"
 owner: "oracle"
 tags: [legal, privacy, gdpr, lopdgdd, website, numen-games, enforceable]
@@ -25,13 +25,13 @@ review_flags: |
   template leftover); corrected to legal@numengames.com. Per Oracle,
   these texts are NOT yet published on any website — this archive copy
   is the master; whatever gets published later must derive from it.
-  FLAG-2: §3 numbers its purposes 1, 2, 7, 8 — purposes 3–6 are missing,
-  suggesting the source was cut down from a longer template.
-  FLAG-3: §5 mentions debt communication on unpaid "cuota de socio"
-  (membership fee) — an association-template leftover; Numen sells B2B
-  services, not memberships.
-  FLAG-4: §2 references a cookie policy that is not yet in this
-  archive — next candidate for operations/legal/.
+  FLAG-2: §3 numbered its purposes 1, 2, 7, 8 — purposes 3–6 are missing,
+  suggesting the source was cut down from a longer template. v2.1.0
+  renumbers them 1–4 without adding content; counsel confirms nothing
+  was lost (DBT-022 #17).
+  FLAG-3: RESOLVED 2026-09-29 (v2.1.0) — the "cuota de socio" line (an
+  association-template leftover) is removed; Numen has no members.
+  FLAG-4: RESOLVED 2026-09-18 by LEG-003 — the cookie policy exists.
   FLAG-5: RESOLVED 2026-08-27 by Oracle decision (MIS-116) — the
   website's legal corpus is consistent in English: this policy joins
   the T&C in English, and the English text is the master. Recorded in
@@ -40,6 +40,13 @@ review_flags: |
   doubled word, likely in the original; the translation does not
   reproduce the typo, but the flag stays until the source is verified
   against the original.
+  FLAG-7: v2.1.0 (2026-09-29) was edited by an agent, not a lawyer, to
+  say what the four sites actually do: §2 no longer claims cookies that
+  collect browsing, §3 adds the hosting logs and the sign-in account,
+  §5 names the providers and replaces "we do not transfer data outside
+  the EEA" — false for Cloudflare, thirdweb, GitHub and Anthropic — with
+  the transfers that happen, and §8 states the age of 18. Review
+  pending with ATH21; open questions in DBT-022.
 ---
 
 <!--
@@ -48,14 +55,12 @@ SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
 -->
 # Privacy Policy — Numen Games
 
-> **Summary:** The Privacy Policy of www.numen.games (GDPR +
-> LOPDGDD). Enforceable legal artifact — all rights reserved; this
-> text is not offered under any open license. **Contains open review
-> flags in the frontmatter (FLAG-1 and FLAG-5 resolved by Oracle
-> order) — resolve before external use.**
-> **Epistemic:** Numen Games' data-protection framework.
-> **Pragmatic:** Canonical source of the policy published on the web.
-> **Audience:** Oracle · Legal · Agents (read-only reference)
+> **Summary:** What Numen Games S.L. does with the personal data of anyone who uses its four websites, why, for how long, who else sees it, and how to exercise your rights.
+> **Epistemic:** What you can hold the company to about your data.
+> **Pragmatic:** Read it before signing in, buying or sending us a form; write to legal@numengames.com to exercise any right.
+> **Audience:** Visitors · Customers
+
+**Applies to:** numen.games · numinia.com · numinia.org · nwos.numen.games.
 
 ---
 
@@ -80,13 +85,23 @@ to the processing of your data.
 
 Your personal data may be collected at the following moments:
 
-- **Through contact and/or registration form(s):** our website
-  provides different forms that request different data for different
-  purposes — for example, contacting us or requesting a demo, among
-  others.
-- **Through Cookies:** our website installs cookies that collect
-  information about your browsing; we recommend you read the cookie
-  policy for complete information on the matter.
+- **When you visit any of our websites:** the hosting provider records
+  each request — your IP address, your browser's identification, the
+  page asked for and the time — to deliver the page and protect the
+  site from abuse.
+- **When you sign in on numinia.com:** you sign in with a wallet, or
+  with an email address, a Google account or a passkey through our
+  sign-in provider, which creates a wallet for you. We keep your wallet
+  address and a session.
+- **When you send us a form:** the workspace request on
+  nwos.numen.games asks for your company's name and a contact email.
+- **When you write to us:** by email, including through the contact
+  page of numen.games, which opens your own email program.
+- **Through cookies and similar technologies:** our websites store only
+  what the Cookie Policy lists — your own preferences, your session
+  and, on numinia.com, the record of your choice on the cookie notice.
+  None of it follows your browsing. Read the Cookie Policy for the
+  complete list, site by site.
 
 ## 3. For what purpose and on what legal basis do we process your data?
 
@@ -103,9 +118,9 @@ Your personal data may be collected at the following moments:
    messaging systems, among others) that may be of interest to you.
    The processing is carried out on the basis of your consent when
    subscribing to the promotional-communications service (Article
-   6.1(a) GDPR).
+   6.1(a) GDPR). No such service exists today.
 
-7. The information will be processed to comply with our legal
+3. The information will be processed to comply with our legal
    obligations, possible judicial decisions and other determinations
    made by the authorities. This includes communicating your personal
    data to law-enforcement authorities whenever we have suspicions or
@@ -113,17 +128,24 @@ Your personal data may be collected at the following moments:
    basis for the processing is compliance with our legal obligations
    (Article 6.1(c) GDPR).
 
-8. We will process your information to perform statistical analyses
+4. We will process your information to perform statistical analyses
    anonymously in order to understand how our product and/or service
    performs, with the aim of improving the development and
    personalization of our services. The processing is carried out to
    satisfy our legitimate interest, which consists of managing and
    improving our products and services (Article 6.1(f) GDPR) — always
    ensuring that our interest does not override your fundamental
-   interests, rights and freedoms.
+   interests, rights and freedoms. Today numinia.com counts clicks
+   inside your browser and sends nothing to any server.
 
-*(Archival note: the numbering 1, 2, 7, 8 is the source document's —
-see FLAG-2 in the frontmatter.)*
+5. To deliver our websites and keep them secure, the hosting logs
+   described in §2 are processed on the basis of our legitimate
+   interest in operating a working, protected service (Article 6.1(f)
+   GDPR).
+
+6. To let you sign in on numinia.com and keep your player area, your
+   wallet address and session are processed to perform the service you
+   ask for (Article 6.1(b) GDPR).
 
 ## 4. For how long will we keep your personal data?
 
@@ -140,6 +162,9 @@ relationship lasts); (b) the reasons for which the data is collected
 (e.g. where consent is the basis, you may revoke it at any time); and
 (c) mandatory storage periods under contractual and regulatory
 requirements.
+
+Two periods are fixed today: hosting logs are kept by the hosting
+provider for a few days, and the numinia.com session lasts one hour.
 
 Please note that, in some cases, we may retain your data for the
 period necessary for the formulation, exercise or defence of claims,
@@ -161,21 +186,23 @@ access such information:
   indications and/or suspicions of an unlawful act or criminal
   offence.
 - Third-party service providers that process information as data
-  processors. With all our providers, the corresponding
-  data-processing agreement has been concluded in accordance with
-  personal data protection regulations.
-- In the event of non-payment of the membership fee ("cuota de
-  socio"), the debt may be communicated to duly legally authorized
-  third-party companies in charge of managing the breach of monetary
-  obligations. *(Archival note: association-template leftover — see
-  FLAG-3.)*
+  processors, listed below.
 
-We inform you that NUMEN does not transfer your personal data to a
-country outside the European Economic Area (E.E.A.). However, if such
-a transfer were to take place, we would ensure adequate protection of
-the personal data through the safeguards permitted by the regulations
-— in particular, the use of the standard contractual clauses approved
-by the European Commission.
+| Provider | What it does for us | What it receives | Where |
+|---|---|---|---|
+| Cloudflare, Inc. | Hosts and delivers the four websites | The request data in §2 | Worldwide network, including the United States |
+| Non-Fungible Labs, Inc. (thirdweb) | Sign-in on numinia.com with email, Google or passkey | Your email or Google identity and your wallet | United States |
+| GitHub, Inc. | Stores the workspace created from the nwos.numen.games form | Your company's name and contact email | United States |
+| Anthropic, PBC | Drafts the first documents of that workspace | Your company's name | United States |
+| Microsoft Corporation | Runs our email | Whatever you write to us | Per our email service's region |
+
+**International transfers.** Some of the providers above process data
+in the United States. Where they do, the transfer relies on the
+safeguards the GDPR allows: the European Commission's adequacy
+decision for companies certified under the EU-U.S. Data Privacy
+Framework, or the standard contractual clauses approved by the
+European Commission. You may ask us at legal@numengames.com for a copy
+of the safeguard that applies to each provider.
 
 ## 6. What are your rights when you provide us with personal data?
 
@@ -221,10 +248,11 @@ informed.
 
 ## 8. Additional information
 
-- **Policy on use by minors.** Our services are aimed exclusively at
-  adults. Accordingly, we do not deliberately collect information from
-  minors. In any case, if you are a parent or legal guardian and you
-  believe that your children or wards have sent us personal data,
+- **Policy on use by minors.** Our services, and anything you sign
+  up for, buy or contract on our websites, are reserved to people aged
+  18 or over. Accordingly, we do not deliberately collect information
+  from minors. In any case, if you are a parent or legal guardian and
+  you believe that your children or wards have sent us personal data,
   please contact us by sending an email to: legal@numengames.com.
 - **Specially protected data.** NUMEN does not collect or process
   personal data revealing ethnic or racial origin, political opinions,

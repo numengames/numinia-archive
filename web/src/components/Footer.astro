@@ -92,9 +92,11 @@ const heading = "mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-d
       <div class="flex flex-col gap-2">
         <nav aria-label={t("footer.legal")} class="flex flex-col gap-2">
           <span class={heading}>{t("footer.legal")}</span>
-          <a href="/legal/terms" class={link}>{t("footer.terms")}</a>
+          <a href="/legal/notice" class={link}>{t("footer.notice")}</a>
           <a href="/legal/privacy" class={link}>{t("footer.privacy")}</a>
           <a href="/legal/cookies" class={link}>{t("footer.cookies")}</a>
+          <a href="/legal/terms" class={link}>{t("footer.terms")}</a>
+          <button type="button" data-cookie-choice class={`${link} text-left`}>{t("footer.cookieChoice")}</button>
         </nav>
         {socialLinks.length > 0 && (
           <nav aria-label={t("footer.social")} class="mt-4 flex flex-col gap-2">

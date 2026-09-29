@@ -10,6 +10,7 @@ const SLUGS: Record<string, string> = {
   terms: "leg-002-terms-and-conditions-numengames",
   privacy: "leg-001-privacy-policy-numengames",
   cookies: "leg-003-cookie-policy-numengames",
+  notice: "leg-004-legal-notice-numengames",
 };
 
 export async function getStaticPaths() {
