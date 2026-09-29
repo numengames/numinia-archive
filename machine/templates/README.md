@@ -34,6 +34,11 @@ One companion of the mission mould, a record rather than a mould:
 `MIS-TEMPLATE-EXAMPLE.md`, a real mission written with it and closed, to read
 next to the blank one.
 
+Three companions of the report mould, one per roll-up level:
+`RPT-TEMPLATE-WEEK.md`, `RPT-TEMPLATE-QUARTER.md`, `RPT-TEMPLATE-YEAR.md`.
+Same nine headings at every level, for a board that does not know the work
+(`STD-043`); only the scale changes.
+
 **Every mould opens with the same header, in the same order** — `id`, `uid`,
 `title`, `type`, `status`, `version`, `created`, `updated`, `author`, `owner`,
 then `guild`, `territory`, `tags`, `license` where the series uses them —

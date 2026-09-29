@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Added** STD-043 A report speaks to the board: weekly, quarterly and annual reports under nine headings for a board and the public; three moulds (week, quarter, year); PRO-017 uses them; RPT-024 week 39 as the first test (site v0.102.0).
 - **Added** The moon dial reaches the map: rings, astrolabe, districts, panel rows, tooltips and aria labels speak at the chosen stop; Neo-Atlantists spelt as the glossary spells it (site v0.101.0) (#578)
 - **Added** /updates shows the hour each version shipped (Central European Time) and the build it names, read from git at build time; the page gets the reading player (site v0.100.0).
 - **Changed** Christian answers the census: Exegetes govern meaning (brand is one strand); Heirs of Eleusis' field is narrative projection holding gamification; four Oracles remain; the Threshold is also a sign-in. Chapter 2's bards become chroniclers

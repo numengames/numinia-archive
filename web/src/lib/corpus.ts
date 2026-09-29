@@ -441,6 +441,8 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-021-evidence-and-citation",
       "/standards/std-009-which-rule-wins",
       "/standards/std-012-corpus-does-not-grow",
+      // 2026-09-29: what the roll-ups say, and to whom — beside how they roll up.
+      "/standards/std-043-a-report-speaks-to-the-board",
     ],
   },
   {

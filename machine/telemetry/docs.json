@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 16880,
+  "chars": 16987,
   "apparatus": false,
   "archived": false,
-  "tokens": 4162
+  "tokens": 4192
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 16835,
+  "chars": 17076,
   "apparatus": false,
   "archived": false,
-  "tokens": 4544
+  "tokens": 4610
  },
  {
   "path": "CLAUDE.md",
@@ -654,10 +654,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 10224,
+  "chars": 10288,
   "apparatus": false,
   "archived": false,
-  "tokens": 2712
+  "tokens": 2733
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -1600,10 +1600,43 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 5125,
+  "chars": 5374,
   "apparatus": true,
   "archived": false,
-  "tokens": 1421
+  "tokens": 1491
+ },
+ {
+  "path": "machine/templates/RPT-TEMPLATE-QUARTER.md",
+  "dir": "machine",
+  "series": null,
+  "type": "report",
+  "status": "draft",
+  "chars": 3296,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 879
+ },
+ {
+  "path": "machine/templates/RPT-TEMPLATE-WEEK.md",
+  "dir": "machine",
+  "series": null,
+  "type": "report",
+  "status": "draft",
+  "chars": 3324,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 890
+ },
+ {
+  "path": "machine/templates/RPT-TEMPLATE-YEAR.md",
+  "dir": "machine",
+  "series": null,
+  "type": "report",
+  "status": "draft",
+  "chars": 3247,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 859
  },
  {
   "path": "machine/templates/RPT-TEMPLATE.md",
@@ -2062,10 +2095,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4029,
+  "chars": 4254,
   "apparatus": false,
   "archived": false,
-  "tokens": 1145
+  "tokens": 1212
  },
  {
   "path": "protocols/PRO-018-publishing-a-repository.md",
@@ -2299,6 +2332,17 @@
   "tokens": 3118
  },
  {
+  "path": "reports/RPT-024-2026-w39.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 5702,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1548
+ },
+ {
   "path": "standards/STD-001-the-series.md",
   "dir": "standards",
   "series": "standards",
@@ -2403,10 +2447,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 7294,
+  "chars": 7377,
   "apparatus": false,
   "archived": false,
-  "tokens": 1876
+  "tokens": 1900
  },
  {
   "path": "standards/STD-014-publishing-gates.md",
@@ -2704,6 +2748,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2273
+ },
+ {
+  "path": "standards/STD-043-a-report-speaks-to-the-board.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5006,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1278
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
