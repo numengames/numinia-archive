@@ -42,7 +42,7 @@ export function split(price: number) {
   return { price, vat, fee, net: price - vat - fee };
 }
 /** The amounts a person may choose to give a month. */
-export const AMOUNTS = [3, 5, 10, 20];
+export const AMOUNTS = [5, 10, 25]; // OPS-014, the Backer card
 /** The documents that govern the account. */
 export const ACCOUNT_SOURCES = [
   "standards/STD-036-one-account.md",
