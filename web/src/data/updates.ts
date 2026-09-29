@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.98.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "FIX",
+        text: "The cookie notice shows Accept all and Reject all side by side and the same size on every screen, as on the other three sites. On a computer they were stacked one above the other.",
+      },
+      {
+        type: "CHG",
+        text: "The legal notice (/legal/notice, version 0.2.0) gives the company's entry in the Mercantile Registry of Madrid — volume 46518, folio 130, sheet M-816810, entry 1 — and the postal code of its registered address, 28290 Las Rozas de Madrid. The law asks every website to show them.",
+      },
+    ],
+  },
+  {
     version: "v0.97.0",
     date: "2026-09-29",
     entries: [

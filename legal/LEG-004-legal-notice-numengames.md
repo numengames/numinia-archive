@@ -4,9 +4,9 @@ uid: ""
 title: "Legal Notice — Numen Games"
 type: legal
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-09-29T18:00:00+02:00"
+updated: "2026-09-29T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [legal, legal-notice, lssi, website, numen-games, enforceable]
@@ -18,9 +18,11 @@ review_flags: |
   FLAG-1: Written by an agent from the company facts the other masters
   already publish (name, tax ID, address, email) and from each site's
   licence declarations, not by a lawyer. Review pending with ATH21.
-  FLAG-2: The Mercantile Registry entry (LSSI art. 10.1.b) is missing;
-  the Oracle will provide it. It is left out rather than shown as a
-  placeholder (DBT-022 #1).
+  FLAG-2 (closed 2026-09-29): Mercantile Registry entry given by the
+  Oracle from the registration notice (volume 46518, folio 130, sheet
+  M-816810, entry 1, 11 March 2024). Postal code 28290 taken from the
+  public company record (eInforma), which gives the same registered
+  address (DBT-022 #1, #2).
   FLAG-3: §8 keeps a consumer's own courts. Whether the business
   clause of LEG-002 §14 applies to businesses is counsel's call
   (DBT-022 #11).
@@ -48,7 +50,9 @@ websites is:
 
 - **Company:** NUMEN GAMES S.L.
 - **Tax ID (CIF):** B70735949
-- **Address:** Calle Chile 10, Las Rozas, Madrid (Spain)
+- **Registered address:** Calle Chile 10, 28290 Las Rozas de Madrid, Madrid (Spain)
+- **Registration:** Mercantile Registry of Madrid, volume 46518, folio 130,
+  sheet M-816810, entry 1, registered on 11 March 2024
 - **Email:** legal@numengames.com
 
 Numen Games designs games, immersive experiences and the tools that make

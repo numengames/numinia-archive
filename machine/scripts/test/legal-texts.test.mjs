@@ -48,8 +48,17 @@ for (const f of masters) {
 
 test('the legal notice names the company, its tax ID and its address', () => {
   const body = bodyOf(masters.find((f) => f.startsWith('LEG-004')));
-  for (const fact of ['NUMEN GAMES S.L.', 'B70735949', 'Calle Chile 10', 'legal@numengames.com'])
+  for (const fact of ['NUMEN GAMES S.L.', 'B70735949', 'Calle Chile 10', '28290', 'legal@numengames.com'])
     assert.ok(body.includes(fact), `LEG-004 lacks ${fact}`);
+});
+
+// LSSI art. 10.1.b: the Mercantile Registry entry, as the registration
+// notice gives it (DBT-022 #1). Never a placeholder.
+test('the legal notice gives the Mercantile Registry entry', () => {
+  const body = bodyOf(masters.find((f) => f.startsWith('LEG-004')));
+  for (const fact of ['Mercantile Registry of Madrid', 'volume 46518', 'folio 130', 'sheet M-816810', 'entry 1'])
+    assert.ok(body.includes(fact), `LEG-004 lacks ${fact}`);
+  assert.doesNotMatch(body, /\[PENDING|TODO|XXX/);
 });
 
 test('the privacy policy and the legal notice state the age of 18', () => {

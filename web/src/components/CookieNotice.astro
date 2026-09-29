@@ -55,4 +55,16 @@ import "vanilla-cookieconsent/dist/cookieconsent.css";
   /* 44 px touch targets, the house minimum for main controls. */
   #cc-main .cm__btn,
   #cc-main .pm__btn { min-height: 44px; }
+  /* Accept all and Reject all side by side, same width, on every screen:
+     the box layout stacks them (a grid on desktop, a column with
+     !important on phones). Same rule on the four sites of Numen Games. */
+  #cc-main .cm .cm__btn-group {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.375rem;
+  }
+  #cc-main .cm .cm__btn-group .cm__btn {
+    flex: 1 1 0 !important;
+    margin: 0 !important;
+  }
 </style>

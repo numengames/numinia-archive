@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-09-29T18:00:00+02:00"
+updated: "2026-09-29T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -48,8 +48,8 @@ decision from Numen Games S.L.
 
 | # | Item | Who |
 |---|---|---|
-| 1 | The Mercantile Registry entry (registry, volume, folio, sheet, entry) is missing from the legal notice. LSSI art. 10 requires it. The Oracle has it and will provide it. | company |
-| 2 | The legal notice gives the address as "Calle Chile 10, Las Rozas, Madrid". Confirm it is the registered address and add the postal code. | company |
+| ~~1~~ | ~~The Mercantile Registry entry (registry, volume, folio, sheet, entry) is missing from the legal notice. LSSI art. 10 requires it. The Oracle has it and will provide it.~~ — closed by the legal-notice update (LEG-004 0.2.0): volume 46518, folio 130, sheet M-816810, entry 1 | company |
+| ~~2~~ | ~~The legal notice gives the address as "Calle Chile 10, Las Rozas, Madrid". Confirm it is the registered address and add the postal code.~~ — closed by LEG-004 0.2.0: Calle Chile 10, 28290 Las Rozas de Madrid | company |
 | 3 | There is no signed assignment of rights from the manual's authors (Christian Märtens 80 %, Pablo Fernández-Maquieira 20 %) to Numen Games S.L., yet the company declares itself rights holder and released the lore under CC0. Draft and sign the assignment; file it with the signed contracts. | company · counsel |
 | 3b | The retired `numinia-lore` repository is still public and its README says the lore is "all rights reserved", while the archive and the Codex publish the same lore as CC0. Archive or delete the old repository, or add a line pointing at the current licence. | company |
 
@@ -98,8 +98,8 @@ numen.games and say so. See also BLU-017.
 
 | # | Item | Who |
 |---|---|---|
-| 22 | numinia.com's /legal/cookies page is a draft that says the site stores nothing, while the site sets three cookies and nine local-storage keys. The measured policy (LEG-003) is published on numinia.org only. | ours |
-| 23 | numinia.com's banner accepts the Terms and the Cookie Policy with one button and offers no Reject. The AEPD guide asks for Accept and Reject at the same level, and a separate act for each purpose. Replace it with a consent manager (vanilla-cookieconsent, MIT). | ours |
+| ~~22~~ | ~~numinia.com's /legal/cookies page is a draft that says the site stores nothing, while the site sets three cookies and nine local-storage keys. The measured policy (LEG-003) is published on numinia.org only.~~ — closed by numinia-web #64 (the measured LEG-003 on numinia.com) | ours |
+| ~~23~~ | ~~numinia.com's banner accepts the Terms and the Cookie Policy with one button and offers no Reject. The AEPD guide asks for Accept and Reject at the same level, and a separate act for each purpose. Replace it with a consent manager (vanilla-cookieconsent, MIT).~~ — closed by numinia-web #64 (vanilla-cookieconsent, Accept and Reject equal) | ours |
 | 24 | Today no site stores anything that needs prior consent: preferences set by the visitor, the session and the sign-in challenge are exempt, and numinia.com's click counts never leave the browser. The day counts are sent to a server, consent becomes mandatory. Confirm this reading. | counsel |
 | 25 | The thirdweb sign-in widget writes its own keys to local storage (`thirdweb:*`, `walletToken-*`, `thirdwebEwsWalletUserId-*`, `a-*`). Named in LEG-003 2.0.0 as part of the sign-in; confirm they are exempt. | counsel |
 
@@ -107,13 +107,15 @@ numen.games and say so. See also BLU-017.
 
 | # | Item | Who |
 |---|---|---|
-| 26 | numinia.com and numen.games publish copies of LEG-001/002 that still show review notes, "see FLAG-2 in the frontmatter" and "Audience: Oracle". Re-copy from the cleaned masters. | ours |
-| 27 | nwos.numen.games links to numen.games' texts; its workspace form collects data the numen.games texts do not describe. It needs its own legal pages. | ours |
-| 28 | No site had a legal notice (LSSI art. 10). LEG-004 is written; every footer must link it. | ours |
-| 29 | numinia.com's legal notice page is a draft with "[PENDING: legal name, tax ID…]". | ours |
-| 30 | The Codex (numinia.com/lap/codex) has no legal links: its shell hides the site footer. | ours |
+| ~~26~~ | ~~numinia.com and numen.games publish copies of LEG-001/002 that still show review notes, "see FLAG-2 in the frontmatter" and "Audience: Oracle". Re-copy from the cleaned masters.~~ — closed by numinia-web #64 and numengames-web #54 | ours |
+| ~~27~~ | ~~nwos.numen.games links to numen.games' texts; its workspace form collects data the numen.games texts do not describe. It needs its own legal pages.~~ — closed by nwos-deploy #67 | ours |
+| ~~28~~ | ~~No site had a legal notice (LSSI art. 10). LEG-004 is written; every footer must link it.~~ — closed by numinia-archive #572, numengames-web #54, nwos-deploy #67, numinia-web #64 | ours |
+| ~~29~~ | ~~numinia.com's legal notice page is a draft with "[PENDING: legal name, tax ID…]".~~ — closed by numinia-web #64 | ours |
+| ~~30~~ | ~~The Codex (numinia.com/lap/codex) has no legal links: its shell hides the site footer.~~ — closed by numinia-web #64 (legal line at the foot of the Codex) | ours |
 | 31 | Digital Services Act: numinia.com will host community content. A contact point, a notice-and-action form and statements of reasons are required (BLU-017). | counsel |
 | 32 | AI Act art. 50: nwos.numen.games generates documents with an AI model for the visitor's company. Say so where the visitor sees the result. | counsel |
+| 33 | numinia.com's cookie notice in Japanese and Korean shows the English text, and the Brazilian Portuguese text has not been read by a native speaker. Machine translation is not a legal text: have both reviewed by people. Listed as pending on numinia.com/updates. | company |
+| 34 | The privacy policy (LEG-001 §1) still gives the postal address without the postal code. Align it with LEG-004 0.2.0 in its next revision. | ours |
 
 ## 2. Evidence
 
