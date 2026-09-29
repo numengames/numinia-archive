@@ -71,7 +71,7 @@ test('cards: at least one card, each shaped as the index declares', () => {
 
 test('one list: the index table and the folder name the same cards', () => {
   const text = readFileSync(INDEX, 'utf8');
-  const listed = [...text.matchAll(/semantic-census\/([a-z0-9-]+)\.md/g)].map((m) => `${m[1]}.md`);
+  const listed = [...text.matchAll(/semantic-census\/([a-z0-9-]+)(?:\.md|\/)/g)].map((m) => `${m[1]}.md`);
   const onDisk = cards();
   assert.deepEqual([...new Set(listed)].sort(), onDisk);
 });

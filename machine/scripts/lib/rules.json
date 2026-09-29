@@ -28,6 +28,10 @@
     "pathPatterns": ["/_template/", "^agents/_template/", "^missions/TEMPLATE-", "^machine/templates/", "^machine/packages/sales-kit/"],
     "templatePatterns": ["^agents/_template/", "^missions/TEMPLATE(\\.md$|-)", "^machine/templates/", "^machine/packages/sales-kit/"]
   },
+  "entries": {
+    "_comment": "A folder whose files are entries of one registered document, not documents of the series (the census cards of SYS-011, 2026-09-29). An entry's id is <owner>:<file name>; the naming guards hold it to no series scheme. Same idea as objects/, but inside a governed folder.",
+    "system/semantic-census/": "SYS-011"
+  },
   "types": {
     "_comment": "STD-004 §5 HDR-003 closed type vocabulary; HDR-017 type ↔ series, strict except `lax`.",
     "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "documentation", "meta", "agent", "entity", "opportunity", "proposal"],

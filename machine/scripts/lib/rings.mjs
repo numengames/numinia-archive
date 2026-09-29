@@ -142,7 +142,12 @@ export const RING3 = {
   // a document that carries them again is restating a standard from memory,
   // which is what this vocabulary exists to catch.
   'system': ['extraction_note', 'restoration_note', 'mission',
-    'former_id', 'former_id_note', 'accuracy_warning'],
+    'former_id', 'former_id_note', 'accuracy_warning',
+    // registered 2026-09-29 with the semantic census (SYS-011): a census
+    // card, an entry of SYS-011 in system/semantic-census/, says which of
+    // the eight categories it belongs to, where it stands in its validation
+    // (draft → validated → approved → explicit) and how sure it is.
+    'category', 'stage', 'confidence'],
   'history': ['former_id', 'former_id_note', 'supersedes_version'],
   // opportunities/ governed 2026-09-28: a sale's record and its proposal
   // open with every document's header, then carry the fields the pipeline
