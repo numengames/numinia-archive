@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.104.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "CHG",
+        text: "The bar opens with the Numinia wordmark instead of the name typed out, as numinia.com does. The design system now says it: every site's bar carries its wordmark, Numinia's on the Numinia sites and Numen Games' on the company's.",
+      },
+    ],
+  },
+  {
     version: "v0.103.0",
     date: "2026-09-29",
     entries: [
@@ -42,10 +52,6 @@ export const UPDATES: readonly UpdateVersion[] = [
       {
         type: "FIX",
         text: "Two roundings and no more: every card, box and panel has 8 px corners and every button or small control 6 px. Some cards had 12 or 16 px and some buttons 4 px; thin bars are fully rounded.",
-      },
-      {
-        type: "FIX",
-        text: "The bar opens with the Numinia wordmark instead of the name typed out, as numinia.com does. The design system now says it: every site's bar carries its wordmark, Numinia's on the Numinia sites and Numen Games' on the company's.",
       },
       {
         type: "FIX",
