@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "1c2ec9a",
-  "corpus_hash": "701cbd56a9f1b3c2eecae5f03a60b852991fc18af39d4bde956eed57538f1ea5",
+  "head": "6bae3cf",
+  "corpus_hash": "e5784f267f3011dcde49369afba2de171bac3c012ca455a585926517bea3fb18",
   "root_dirty": 0,
-  "measured_at": "2026-09-29T06:41:56Z",
+  "measured_at": "2026-09-29T06:57:22Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 626,
+      "value": 628,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 15,
         ".md": 244,
-        ".mjs": 88,
+        ".mjs": 90,
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
@@ -112,13 +112,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 54,
+      "value": 55,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 54
+        "node": 55
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 802778,
+      "value": 803018,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -345,7 +345,7 @@
         "missions": 17668,
         "machine": 17236,
         "operations": 16664,
-        "": 10160,
+        "": 10400,
         "legal": 9925,
         "decisions": 9669,
         "opportunities": 5703,
@@ -358,7 +358,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 506353,
+        "(none)": 506593,
         "draft": 141798,
         "active": 135466,
         "todo": 13532,
