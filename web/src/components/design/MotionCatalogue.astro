@@ -5,7 +5,7 @@
 // The animation catalogue, running. One card per row of STD-023 §14.
 //
 // WHY
-// A list of fifteen names and durations says what the motion is; it does not
+// A list of sixteen names and durations says what the motion is; it does not
 // show it. Each card here plays its animation at the catalogue's own values —
 // the durations are the kit's tokens, passed in as CSS variables, so a change
 // to a token changes the specimen. "Replay" restarts the ones that run once;
@@ -34,7 +34,7 @@ const cssVars = [
 ].join(";");
 
 // Which cards run once and can be replayed.
-const ONCE = new Set(["01", "02", "04", "05", "09", "10", "11", "13"]);
+const ONCE = new Set(["01", "02", "04", "05", "09", "10", "11", "13", "16"]);
 const brief = (spec: string) => {
   const t = spec.replace(/\[[^\]]*\]/g, "").replace(/^[^:]{0,20}:\s*/, "").split(/[;.]\s| — /)[0].trim();
   return t.length > 90 ? t.slice(0, 88).replace(/\s\S*$/, "") + "…" : t;
@@ -111,6 +111,13 @@ const rarity = v.rarity.map((r) => r.hex);
           )}
           {a.n === "14" && (
             <canvas class="ds-sky" width="300" height="120" data-sky={JSON.stringify({ ...sky, colours: rarity.slice(1) })}></canvas>
+          )}
+          {a.n === "16" && (
+            <div class="ds-entrance">
+              <span class="ds-ent-l" style="--i:0">the archive</span>
+              <span class="ds-ent-h" style="--i:1">A page arrives.</span>
+              <span class="ds-ent-p" style="--i:2">label, headline, line</span>
+            </div>
           )}
           {a.n === "15" && (
             <p class="ds-read" data-read>
@@ -294,6 +301,15 @@ const rarity = v.rarity.map((r) => r.hex);
   .ds-field { border-bottom: 1px solid var(--line); padding: 4px 2px; min-width: 60%; color: var(--ash); }
   @keyframes ds-blink { 50% { opacity: 0; } }
 
+  /* 16 entrance — numinia.org's page top: 600 ms, 24 px, 100 ms apart */
+  .ds-entrance { display: grid; gap: 4px; }
+  .ds-entrance span { opacity: 0; transform: translateY(24px); }
+  .ds-ent-l { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .25em; text-transform: uppercase; color: var(--sea); }
+  .ds-ent-h { font-size: 1.1rem; letter-spacing: -.025em; color: var(--sand); }
+  .ds-ent-p { font-size: .7rem; color: var(--ash); }
+  .run .ds-entrance span { animation: ds-entrance 600ms var(--ease) both; animation-delay: calc(var(--i) * 100ms); }
+  @keyframes ds-entrance { to { opacity: 1; transform: none; } }
+
   /* 02 reveal on approach */
   .ds-reveal { opacity: 0; transform: translateY(8px); }
   .run .ds-reveal { animation: ds-reveal var(--d-medio) var(--ease) 200ms both; }
@@ -333,7 +349,7 @@ const rarity = v.rarity.map((r) => r.hex);
   /* 09 orchestrated moment: headline typing, then blocks staggered */
   .ds-orch { width: 70%; }
   .ds-orch-h { font-family: var(--font-mono); color: var(--sand); font-size: 1.1rem; margin-bottom: 8px; }
-  .ds-orch-b { display: block; height: 6px; border-radius: 3px; background: var(--line); margin-top: 6px; opacity: 0; transform: translateY(8px); }
+  .ds-orch-b { display: block; height: 6px; border-radius: 999px; background: var(--line); margin-top: 6px; opacity: 0; transform: translateY(8px); }
   .ds-orch-b:nth-of-type(2) { width: 80%; } .ds-orch-b:nth-of-type(3) { width: 60%; }
   .run .ds-orch-b { animation: ds-reveal var(--d-medio) var(--ease) both; animation-delay: calc(7 * var(--d-tecleo-caracter) + var(--i) * var(--d-escalonado)); }
 
@@ -383,7 +399,7 @@ const rarity = v.rarity.map((r) => r.hex);
   @media (prefers-reduced-motion: reduce) {
     .ds-motion *, .ds-motion *::before { animation: none !important; transition: none !important; }
     .ds-typing { width: 18ch; } .ds-typing-short { width: 7ch; }
-    .ds-reveal, .ds-orch-b, .ds-surface { opacity: 1; transform: none; filter: none; }
+    .ds-reveal, .ds-orch-b, .ds-surface, .ds-entrance span { opacity: 1; transform: none; filter: none; }
     .ds-trazo path { stroke-dashoffset: 0; }
   }
 </style>

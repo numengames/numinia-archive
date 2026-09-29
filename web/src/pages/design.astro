@@ -306,11 +306,11 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
                 <div class="rounded-[8px] border border-border bg-card p-4">
                   <p class="mb-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim">Image · data — six series at most</p>
                   <div class="flex items-end gap-1.5 h-16">
-                    {v.data.categorical.map((h, i) => <span class="flex-1 rounded-t-[2px]" style={`background:${h};height:${[90, 70, 55, 45, 35, 25][i]}%`}></span>)}
+                    {v.data.categorical.map((h, i) => <span class="flex-1 rounded-none" style={`background:${h};height:${[90, 70, 55, 45, 35, 25][i]}%`}></span>)}
                   </div>
-                  <div class="mt-3 flex h-3 overflow-hidden rounded-[2px]">{v.data.sequential.map((h) => <span class="flex-1" style={`background:${h}`}></span>)}</div>
+                  <div class="mt-3 flex h-3 overflow-hidden rounded-none">{v.data.sequential.map((h) => <span class="flex-1" style={`background:${h}`}></span>)}</div>
                   <p class="mt-1 font-mono text-[0.55rem] text-dim">sequential</p>
-                  <div class="mt-2 flex h-3 overflow-hidden rounded-[2px]">{v.data.divergent.map((h) => <span class="flex-1" style={`background:${h}`}></span>)}</div>
+                  <div class="mt-2 flex h-3 overflow-hidden rounded-none">{v.data.divergent.map((h) => <span class="flex-1" style={`background:${h}`}></span>)}</div>
                   <p class="mt-1 font-mono text-[0.55rem] text-dim">divergent</p>
                 </div>
                 <div class="rounded-[8px] border border-border bg-card p-4">

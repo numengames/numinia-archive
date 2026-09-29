@@ -102,12 +102,12 @@ const que_contiene = [
         ¿Puede un agente reconstruirse al 100% en una nueva máquina solo con acceso al repositorio? Esta página documenta la prueba que lo garantiza — y los gaps que encontramos al hacerla.
       </p>
       <div class="flex flex-wrap gap-4">
-        <div class="rounded-xl border border-red/20 bg-red/5 px-5 py-3 text-center">
+        <div class="rounded-[8px] border border-red/20 bg-red/5 px-5 py-3 text-center">
           <p class="font-display text-3xl text-red">{score_before}/10</p>
           <p class="font-mono text-[0.6rem] text-dim mt-1">Antes de la auditoría</p>
         </div>
         <div class="flex items-center text-dim text-2xl">→</div>
-        <div class="rounded-xl border border-green/20 bg-green/5 px-5 py-3 text-center">
+        <div class="rounded-[8px] border border-green/20 bg-green/5 px-5 py-3 text-center">
           <p class="font-display text-3xl text-green">{score_after}/10</p>
           <p class="font-mono text-[0.6rem] text-dim mt-1">Después de la auditoría</p>
         </div>
@@ -118,7 +118,7 @@ const que_contiene = [
   <!-- La pregunta fundamental -->
   <section class="py-16 border-b border-border">
     <div class="mx-auto max-w-[800px] px-6">
-      <div class="rounded-2xl border border-accent/30 bg-accent/5 p-8">
+      <div class="rounded-[8px] border border-accent/30 bg-accent/5 p-8">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-4">La prueba de continuidad</p>
         <p class="font-display text-2xl text-foreground mb-4">
           "Instala el mismo sistema en una máquina nueva. Dale acceso solo al repositorio. ¿Puede el agente reconstruirse al 100%?"
@@ -139,7 +139,7 @@ const que_contiene = [
       </div>
       <div class="space-y-4">
         {gaps.map((gap) => (
-          <div class={`rounded-xl border overflow-hidden ${gap.estado === "resuelto" ? "border-green/20" : "border-yellow/20"}`}>
+          <div class={`rounded-[8px] border overflow-hidden ${gap.estado === "resuelto" ? "border-green/20" : "border-yellow/20"}`}>
             <div class={`px-5 py-3 border-b flex items-center justify-between gap-3 ${gap.estado === "resuelto" ? "bg-green/5 border-green/10" : "bg-yellow/5 border-yellow/10"}`}>
               <div class="flex items-center gap-2">
                 {gap.critico && <span class="font-mono text-[0.55rem] bg-red/10 text-red px-2 py-0.5 rounded-full">CRÍTICO</span>}
@@ -176,7 +176,7 @@ const que_contiene = [
       </div>
       <div class="space-y-4">
         {ciclo_continuidad.map((fase) => (
-          <div class="rounded-xl border border-border bg-card overflow-hidden">
+          <div class="rounded-[8px] border border-border bg-card overflow-hidden">
             <div class="px-5 py-3 border-b border-border/50 flex items-center gap-3" style={`background: color-mix(in srgb, ${fase.color} 3%, transparent)`}>
               <span style={`color: ${fase.color}`}><Icon name={fase.icono} size={16} /></span>
               <span class="font-display text-base" style={`color: ${fase.color}`}>{fase.fase}</span>
@@ -187,11 +187,11 @@ const que_contiene = [
                 <p class="font-mono text-[0.55rem] uppercase tracking-widest text-dim mb-2">Qué hace</p>
                 <p class="text-xs text-muted-foreground leading-relaxed">{fase.respuesta}</p>
               </div>
-              <div class="rounded-lg border border-red/15 bg-red/5 p-3">
+              <div class="rounded-[8px] border border-red/15 bg-red/5 p-3">
                 <p class="font-mono text-[0.55rem] text-red mb-1 flex items-center gap-1"><Icon name="x" size={11} /> Sin repo</p>
                 <p class="text-xs text-muted-foreground italic">{fase.sin_repo}</p>
               </div>
-              <div class="rounded-lg border border-green/15 bg-green/5 p-3">
+              <div class="rounded-[8px] border border-green/15 bg-green/5 p-3">
                 <p class="font-mono text-[0.55rem] text-green mb-1 flex items-center gap-1"><Icon name="check" size={11} /> Con repo</p>
                 <p class="text-xs text-muted-foreground italic">{fase.con_repo}</p>
               </div>
@@ -211,13 +211,13 @@ const que_contiene = [
       </div>
       <div class="grid sm:grid-cols-2 gap-3">
         {que_contiene.map((item) => (
-          <div class={`rounded-xl border p-5 ${item.critico ? "border-accent/30 bg-accent/5" : "border-border bg-card"}`}>
+          <div class={`rounded-[8px] border p-5 ${item.critico ? "border-accent/30 bg-accent/5" : "border-border bg-card"}`}>
             <div class="flex items-start gap-3">
               <span class={`flex-shrink-0 ${item.critico ? "text-accent" : "text-dim"}`}><Icon name={item.icono} size={20} /></span>
               <div>
                 <div class="flex items-center gap-2 mb-1">
                   <code class="font-mono text-[0.7rem] text-accent">{item.carpeta}</code>
-                  {item.critico && <span class="font-mono text-[0.5rem] bg-accent/10 text-accent px-1.5 py-0.5 rounded">crítico</span>}
+                  {item.critico && <span class="font-mono text-[0.5rem] bg-accent/10 text-accent px-1.5 py-0.5 rounded-[6px]">crítico</span>}
                 </div>
                 <p class="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
               </div>
@@ -250,7 +250,7 @@ const que_contiene = [
             desc: "La prueba real de continuidad no es si el sistema puede reconstruirse — es si puede reconstruirse rápido. Con el repo completo, el tiempo entre 'máquina nueva' y 'agente operativo con contexto completo' es menor de 10 minutos.",
           },
         ].map((item) => (
-          <div class="rounded-xl border border-border bg-card p-6">
+          <div class="rounded-[8px] border border-border bg-card p-6">
             <p class="font-semibold text-sm text-foreground mb-2">{item.titulo}</p>
             <p class="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
           </div>
@@ -262,7 +262,7 @@ const que_contiene = [
   <!-- Score final -->
   <section class="py-16">
     <div class="mx-auto max-w-[800px] px-6">
-      <div class="rounded-2xl border border-green/30 bg-green/5 p-8 text-center">
+      <div class="rounded-[8px] border border-green/30 bg-green/5 p-8 text-center">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-green mb-4">Estado actual del sistema</p>
         <p class="font-display text-6xl text-green mb-2">{score_after}/10</p>
         <p class="text-muted-foreground text-sm mb-6">Auditoría realizada el 2026-04-07</p>

@@ -1,5 +1,5 @@
-/* GENERADO de machine/packages/design-kit (@numengames/design-kit v6.2.0) — no editar aquí: la fuente es el paquete */
-/* Sistema de Diseño v5.0.0 · kit de arranque */
+/* GENERADO de machine/packages/design-kit (@numengames/design-kit v6.3.0) — no editar aquí: la fuente es el paquete */
+/* Sistema de Diseño · kit 6.3.0 · manda numinia.org */
 @font-face{font-family:'Geist';src:url('assets/fonts/Geist-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 @font-face{font-family:'Geist Mono';src:url('assets/fonts/GeistMono-Variable.woff2') format('woff2');font-weight:100 900;font-display:swap}
 :root{
@@ -25,8 +25,8 @@ body{margin:0;background:var(--fondo);color:var(--texto);font-family:var(--sans)
 :focus-visible{outline:2px solid #018EA1;outline-offset:2px}
 a{color:var(--enlace)}
 h1,h2,h3{font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0 0 var(--s4)}
-h1{font-size:2.986rem;font-weight:500}
-.etiqueta{font-family:var(--mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ambar)}
+h1{font-size:2.986rem;font-weight:400;letter-spacing:-.025em}
+.etiqueta{font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--verdemar)}
 .mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .binaria{font-family:var(--mono);font-size:.875rem;color:var(--linea-f);letter-spacing:.15em;white-space:nowrap;overflow:hidden;user-select:none}
 .tarjeta{background:var(--superficie);border:1px solid var(--linea);padding:var(--s5);border-radius:var(--radio-marco)}
@@ -44,7 +44,16 @@ h1{font-size:2.986rem;font-weight:500}
 .aviso[data-tono="critico"]{border-left-color:var(--grana)}
 [data-tip]{position:relative}
 [data-tip]:hover::after,[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;font-size:.875rem;padding:4px 10px;border-radius:var(--radio-control);background:var(--texto);color:var(--fondo);transition-delay:400ms}
+/* La pieza web (STD-023 §23): la barra y la columna de numinia.org */
+.columna{max-width:1100px;margin-inline:auto;padding-inline:var(--s5)}
+.barra{position:sticky;top:0;z-index:50;height:56px;display:flex;align-items:center;border-bottom:1px solid rgba(58,51,45,.5);
+  background:color-mix(in srgb,var(--fondo) 85%,transparent);backdrop-filter:blur(24px)}
+.barra a[data-nav]{font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-2);
+  min-height:44px;display:inline-flex;align-items:center;gap:var(--s2);padding-inline:var(--s3);border-bottom:2px solid transparent;text-decoration:none}
+.barra a[data-nav]:hover{color:var(--texto)}.barra a[aria-current="page"]{color:var(--texto);border-bottom-color:var(--turquesa)}
 @media(prefers-reduced-motion:no-preference){
+  .entrada{animation:entrada 600ms var(--ciclo) both}.entrada-1{animation-delay:100ms}.entrada-2{animation-delay:200ms}
+  @keyframes entrada{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
   .reveal{opacity:0;transform:translateY(8px);transition:opacity 320ms var(--ciclo),transform 320ms var(--ciclo)}
   .reveal.visible{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}}

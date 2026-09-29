@@ -47,7 +47,7 @@ const repo = canon.path;
 
       <DocToolbar mdUrl={`/core/${canon.slug}.md`} filename={`core-${canon.slug}.md`} lang="en" />
 
-      <article class="mission-md core-flow rounded-xl border border-border bg-card p-6 sm:p-8">
+      <article class="mission-md core-flow rounded-[8px] border border-border bg-card p-6 sm:p-8">
         <p class="core-state"><strong>The canon</strong> · {state(canon.status)}. {canon.summary}</p>
         <Fragment set:html={canonHtml} />
 

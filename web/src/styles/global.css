@@ -50,8 +50,8 @@
 	--color-ambar: rgb(var(--ambar));
 
 	--radius-lg: var(--radius);
-	--radius-md: calc(var(--radius) - 2px);
-	--radius-sm: calc(var(--radius) - 4px);
+	--radius-md: 6px;
+	--radius-sm: 6px;
 
 	/* §4.1: Geist with the canonical system fallbacks. Declared here and not
 	   in :root below, because @theme emits them as :root variables anyway —
@@ -65,12 +65,14 @@
 	--shadow-cobre-sm: 0 0 12px rgba(184, 115, 51, 0.3);
 	--shadow-cobre-md: 0 0 24px rgba(184, 115, 51, 0.4);
 
-	--animate-slide-up: slideUp 0.6s ease-out both;
-	--animate-slide-up-1: slideUp 0.7s ease-out 0.1s both;
-	--animate-slide-up-2: slideUp 0.7s ease-out 0.2s both;
-	--animate-slide-up-3: slideUp 0.7s ease-out 0.3s both;
-	--animate-slide-up-4: slideUp 0.7s ease-out 0.4s both;
-	--animate-twinkle: twinkle 3s ease-in-out infinite;
+	/* The entrance (STD-023 §14, animation 16): 600 ms on the house curve,
+	   24 px of rise, the lines of a hero staggered 100 ms apart. It was the
+	   site's own before the catalogue had it; the catalogue took it as it is. */
+	--animate-slide-up: slideUp 600ms cubic-bezier(0.2, 0, 0, 1) both;
+	--animate-slide-up-1: slideUp 600ms cubic-bezier(0.2, 0, 0, 1) 100ms both;
+	--animate-slide-up-2: slideUp 600ms cubic-bezier(0.2, 0, 0, 1) 200ms both;
+	--animate-slide-up-3: slideUp 600ms cubic-bezier(0.2, 0, 0, 1) 300ms both;
+	--animate-slide-up-4: slideUp 600ms cubic-bezier(0.2, 0, 0, 1) 400ms both;
 }
 
 /* ── Two Tailwind 3 defaults the v4 reset dropped ─────────────────────────
@@ -161,7 +163,8 @@
 		--cobre-glow: rgba(1, 142, 161, 0.18);
 
 		/* ── Radius ──────────────────────────────────────────────────────── */
-		--radius: 0.75rem;
+		/* Two radii (STD-023 §9): the frame is 8 px, a control 6 px. */
+		--radius: 8px;
 
 		/* ── shadcn compat aliases ───────────────────────────────────────── */
 		--background: var(--bg);
@@ -175,9 +178,9 @@
 
 		/* ── Inks for pages that paint a colour per item (agents, the
 		   language dials) — the same hex they carried inline, now named so
-		   the day can swap them for their text-over-light voices. Three are
-		   agent colours outside the palette (rosa, aguamarina, plata), kept
-		   as they were: their fate is the Oracle's call (RPT-021). */
+		   the day can swap them for their text-over-light voices. Every one is
+		   a palette colour (STD-023 §1–4); the last three agents outside it
+		   took palette inks on 2026-09-29. */
 		--ink-ceniza: #8a7d72;
 		--ink-niebla: #c4b5a6;
 		--ink-ambar: #efa517;
@@ -186,9 +189,10 @@
 		--ink-verdemar: #a6dad5;
 		--ink-azul: #5d9bd6;
 		--ink-grana: #d33440;
-		--ink-rosa: #e08bb5;
-		--ink-aguamarina: #7fc4b8;
-		--ink-plata: #b0b7c3;
+		/* Three agents painted outside the palette until 2026-09-29; they now
+		   take palette inks (the closed palette, DSN-001): Turquesa, Arena. */
+		--ink-turquesa: #018ea1;
+		--ink-arena: #f9ebdc;
 		/* How much a thinned ink keeps (the language table): 80 % at night,
 		   full by day, where thinning drops it under 4.5:1. */
 		--ink-soft: 80%;
@@ -243,11 +247,8 @@
 		--ink-verdemar: #1f6b5f;
 		--ink-azul: #2e6bb0;
 		--ink-grana: #b02330;
-		/* The three off-palette agent colours, darkened by the same rule
-		   (same hue, lightness to ~4.5:1 over Arena), pending the decision. */
-		--ink-rosa: #a3386d;
-		--ink-aguamarina: #1f6b5f;
-		--ink-plata: #4f5866;
+		--ink-turquesa: #016e7d;   /* turquesa-texto */
+		--ink-arena: #14110f;      /* by day the paper's ink is Noche */
 		--ink-soft: 100%;
 	}
 	html[data-modo="diurno"] {
@@ -352,7 +353,7 @@
 	}
 	::-webkit-scrollbar-thumb {
 		background: rgba(1, 142, 161, 0.35);
-		border-radius: 3px;
+		border-radius: 999px;
 	}
 	::-webkit-scrollbar-thumb:hover {
 		background: rgba(1, 142, 161, 0.6);
@@ -388,15 +389,6 @@
 		}
 	}
 
-	@keyframes twinkle {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.2; }
-	}
-
-	@keyframes twinkle-slow {
-		0%, 100% { opacity: 0.9; }
-		50% { opacity: 0.15; }
-	}
 }
 
 /* ── Long strings must not widen the page ─────────────────────────────────
@@ -446,7 +438,7 @@
 	padding: 1.1rem 1.25rem;
 	border: 1px solid rgb(var(--border));
 	border-left: 2px solid rgb(var(--accent) / 0.55);
-	border-radius: 0.6rem;
+	border-radius: 8px;
 	background: rgb(var(--bg-card-hover) / 0.45);
 	display: grid;
 	grid-template-columns: 1fr;

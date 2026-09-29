@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.103.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "CHG",
+        text: "numinia.org now leads the design of the four sites, and the design system was rewritten to say what this site already does. The system page shows sixteen animations instead of fifteen: the entrance that opens every page here (label, headline and line rising 24 px over 600 ms, one after another) is now in the catalogue. The icon list names the 71 glyphs the site uses, grouped by what they mean. The page column, the bar (the name written, labels with a small icon, the active entry underlined in turquoise) and the headline in regular Geist are written down, so numinia.com, numen.games and nwos.numen.games can copy them.",
+      },
+      {
+        type: "FIX",
+        text: "Two roundings and no more: every card, box and panel has 8 px corners and every button or small control 6 px. Some cards had 12 or 16 px and some buttons 4 px; thin bars are fully rounded.",
+      },
+      {
+        type: "FIX",
+        text: "Three agents on /agents were painted in colours outside the palette (pink, aquamarine, silver); they now take palette colours: Arena, Turquesa and the veiled Arena.",
+      },
+    ],
+  },
+  {
     version: "v0.102.0",
     date: "2026-09-29",
     entries: [

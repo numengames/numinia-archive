@@ -142,22 +142,22 @@ const estadoLabel: Record<string, string> = {
 
       <!-- Global KPIs -->
       <div class="grid gap-4 sm:grid-cols-4 mb-12">
-        <div class="rounded-xl border border-border bg-card p-6">
+        <div class="rounded-[8px] border border-border bg-card p-6">
           <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Missions</p>
           <p class="font-display text-4xl text-foreground">{metrics.totales.misiones}</p>
           <p class="text-xs text-muted-foreground mt-1">completed</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6">
+        <div class="rounded-[8px] border border-border bg-card p-6">
           <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Total cost</p>
           <p class="font-display text-4xl text-foreground">${metrics.totales.coste}</p>
           <p class="text-xs text-muted-foreground mt-1">USD over 3 days</p>
         </div>
-        <div class="rounded-xl border border-border bg-card p-6">
+        <div class="rounded-[8px] border border-border bg-card p-6">
           <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-2">Active agents</p>
           <p class="font-display text-4xl text-foreground">{metrics.totales.activos}<span class="text-muted-foreground text-2xl">/{metrics.totales.total}</span></p>
           <p class="text-xs text-muted-foreground mt-1">of {metrics.totales.total} designed</p>
         </div>
-        <div class="rounded-xl border border-accent/20 bg-accent/5 p-6">
+        <div class="rounded-[8px] border border-accent/20 bg-accent/5 p-6">
           <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-2">Estimated ROI</p>
           <p class="font-display text-2xl text-foreground">+40x</p>
           <p class="text-xs text-muted-foreground mt-1">infrastructure valued >$2K</p>
@@ -172,7 +172,7 @@ const estadoLabel: Record<string, string> = {
 
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {metrics.agentes.map((agente) => (
-          <div class="rounded-xl border border-border bg-card p-6">
+          <div class="rounded-[8px] border border-border bg-card p-6">
             <div class="flex items-start justify-between mb-4">
               <span class:list={["inline-flex rounded-full px-2 py-0.5 font-mono text-[0.6rem] font-medium", estadoStyles[agente.estado] || "bg-muted text-muted-foreground"]}>
                 {estadoLabel[agente.estado] || agente.estado}
@@ -203,7 +203,7 @@ const estadoLabel: Record<string, string> = {
       </div>
 
       <!-- Note -->
-      <div class="mt-12 rounded-xl border border-border/50 bg-card/50 p-6">
+      <div class="mt-12 rounded-[8px] border border-border/50 bg-card/50 p-6">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent mb-2">About this dashboard</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
           Metrics of the CAO (Centralised Autonomous Organisation) of Numen Games. The digital agents operate around the clock running missions while the Oracles rest. Updated automatically on each reporting cycle.

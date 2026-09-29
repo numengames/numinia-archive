@@ -73,7 +73,7 @@ const t = useT();
 >
   <button
     type="button"
-    class="sp-toggle inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-lg px-3 py-2 sm:py-1.5 min-h-[44px] lg:min-h-0 transition-colors aria-pressed:border-accent/60 aria-pressed:text-accent"
+    class="sp-toggle inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.1em] text-dim hover:text-accent border border-border hover:border-accent/40 rounded-[8px] px-3 py-2 sm:py-1.5 min-h-[44px] lg:min-h-0 transition-colors aria-pressed:border-accent/60 aria-pressed:text-accent"
     aria-pressed="false"
     aria-label={t("speech.listenAria")}
   >
@@ -1366,7 +1366,7 @@ const t = useT();
     cursor: pointer;
     touch-action: none;
     outline: none;
-    border-radius: 3px;
+    border-radius: 999px;
   }
   .sp-ticks {
     position: absolute;
