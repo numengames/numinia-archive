@@ -3,9 +3,9 @@ id: "SYS-011:faction-heirs-of-eleusis"
 title: "Heirs of Eleusis"
 type: entity
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-09-29T12:10:00+02:00"
+updated: "2026-09-29T14:08:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -79,7 +79,7 @@ development, not a kind of knowledge (cited: `canon/CAN-004-role-structure.md` �
 
 ## Relations
 
-- **Ouroboros district** — its domain (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «han hecho de este distrito su dominio»).
+- **Ouroboros district** — its territory: the faction's territorial frame, with a character of its own (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «han hecho de este distrito su dominio»; Christian's review, 2026-09-29 — «el distrito Ouroboros es el territorio de los Herederos de Eleusis»).
 - **Hermeticists / Stellar Circle** — peripheral fields that point back to play; **Neo-Atlantists** — itinerant (cited: `canon/CAN-004-role-structure.md`).
 - **Archetypes** Innocent, Destroyer, Jester (cited: `numinia-web:packages/domain/src/constants/archetypes.ts` — «alignedFactions: ['heirs-of-eleusis']»).
 

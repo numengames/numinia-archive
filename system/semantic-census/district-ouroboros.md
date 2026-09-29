@@ -3,15 +3,15 @@ id: "SYS-011:district-ouroboros"
 title: "Ouroboros District"
 type: entity
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-09-29T12:10:00+02:00"
+updated: "2026-09-29T14:08:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
 category: "district"
 stage: draft
-confidence: "medium"
+confidence: "high"
 ---
 
 <!--
@@ -21,7 +21,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # Ouroboros District
 
-> **Summary:** In the world, one of Numinia's four districts: the labyrinth of play, home of the Heirs of Eleusis, where riddles, rituals and the black market live. In the house, numinia.org uses it as the place behind the "Play" district of its map: the game, the adventures, event experiences.
+> **Summary:** The territory of the Heirs of Eleusis: one of Numinia's four
+> districts, the operative ground a faction stands on. Its nature holds play,
+> narration, dream and ritual at once; play comes first, which is why the
+> numinia.org map files it under "Play".
 
 Every claim ends with where it comes from: **(cited: `path` — «heading»)**
 when a source says it (quote it, in the source's language), **(inferred)**
@@ -39,7 +42,9 @@ plausible reading nobody has confirmed yet.
 
 ## Concept
 
-Districts are «la manifestación territorial y funcional» of what guilds and factions stand for (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Los cuatro distritos»). Ouroboros stands for play as uncertainty: «el gran teatro de la incertidumbre» (cited: same — «Distrito Ouroboros – El Laberinto del juego»). It is also where what the city loses or forbids «termina adquiriendo un precio» (cited: `lore/codex/glosario.md` — «Barrio Viejo de Ouroboros»).
+A district is an operative territory bound to a faction: the territorial frame of that faction, with a character of its own. It is not tied to a guild or to an institution, which is why districts are a category in their own right (cited: Christian's review, 2026-09-29 — «los distritos son territorios operativos que están ligados a las facciones»; «representa el marco territorial de una facción, tomando un carácter autónomo»). The manual calls districts «la manifestación territorial y funcional» of what the city's groups stand for (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Los cuatro distritos»).
+
+Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent: play, narration, dream and ritual are not alternatives but parts of one nature (cited: Christian's review, 2026-09-29 — «su naturaleza engloba todas esas ideas»). Play is its prevailing meaning; narrative projection works inside play as a kind of recursion, play about play (cited: same — «su significación preeminente es el juego, aunque eso también implique proyección narrativa (como un modo de recursividad o de metacategorización), ritual, esfera del sueño»). Ouroboros stands for play as uncertainty: «el gran teatro de la incertidumbre» (cited: same — «Distrito Ouroboros – El Laberinto del juego»). It is also where what the city loses or forbids «termina adquiriendo un precio» (cited: `lore/codex/glosario.md` — «Barrio Viejo de Ouroboros»).
 
 ## Constitutive traits
 
@@ -52,7 +57,8 @@ Districts are «la manifestación territorial y funcional» of what guilds and f
 
 | Facet | What it is | Provenance |
 |---|---|---|
-| Place of play | Adventures designed, tested, played | cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Casa de los Acertijos» |
+| Place of play (prevailing) | Adventures designed, tested, played | cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Casa de los Acertijos»; Christian's review, 2026-09-29 — «significación preeminente» |
+| Narrative projection | Play that tells, and tells about itself: recursion, meta-categorisation | cited: Christian's review, 2026-09-29 — «como un modo de recursividad o de metacategorización»; manual — «Foco: Proyección narrativa» |
 | Ritual/dream | Esoteric seat; Temple of Khepri | cited: same — «Carácter: espiritual, onírico» |
 | Underground economy | Black market, rumours | cited: `lore/game/manual/es/04-sistema-de-juego.md` — «mercado negro del Distrito Ouroboros» |
 | House business line | "Play": RPG, adventures, events | cited: `web/src/lib/suma.ts` — «The labyrinth of play» |
@@ -68,7 +74,8 @@ Districts are «la manifestación territorial y funcional» of what guilds and f
 
 ## Relations
 
-- **Heirs of Eleusis** — ruling faction (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «han hecho de este distrito su dominio»).
+- **Heirs of Eleusis** — the faction whose territorial frame it is (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «han hecho de este distrito su dominio»; Christian's review, 2026-09-29).
+- **Guilds and institutions** — no direct tie; the district belongs to the faction, not to them (cited: Christian's review, 2026-09-29 — «no está relacionado con un gremio ni con una institución»).
 - **Khepri** — its temple (cited: same — «Templo de Khepri»).
 - **Street of Mysteries** — its black market (cited: `lore/codex/glosario.md` — «Calle de los Misterios»).
 
@@ -85,19 +92,19 @@ Districts are «la manifestación territorial y funcional» of what guilds and f
 
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
-| `STD-030` | Only via its faction: Heirs of Eleusis = «Gamification / Experience» | pending | Indirect; would drop ritual, trauma, black market |
+| `STD-030` | Only via its faction: Heirs of Eleusis = «Gamification / Experience» | reductive | The district is the faction's territory, so the faction's label reaches it; «gamification» keeps a tool of play and drops narration, ritual and dream |
 | `BLU-007` | None | pending | District not named |
-| `web/src/lib/suma.ts` | "Play" = «the role-playing game, the adventures and experiences for events» | reductive | Keeps the play facet as a product line; drops the rest |
+| `web/src/lib/suma.ts` | "Play" = «the role-playing game, the adventures and experiences for events» | partial | Right label: it names the prevailing meaning, and the other facets sit inside play (Christian's review, 2026-09-29). What the map lists under it is the product line only |
 | `numinia-web:packages/domain/src/constants/districts.ts` | «The labyrinth of play: the theatre of uncertainty» | partial | Faithful to one heading; ignores «Ritual y el Sueño» |
 
 ## Observations
 
 - **Canon gap confirmed:** `CAN-005` is the only canon use (cited: `reports/RPT-022-the-newcomer-test.md` — «the Ouroboros»).
-- **Two characters:** chapter 5 calls it «El Laberinto del juego» and «El Distrito del Ritual y el Sueño» and doesn't say how the two fit (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`). Unresolved.
+- **Two characters, one nature (resolved):** chapter 5 calls it both «El Laberinto del juego» and «El Distrito del Ritual y el Sueño». They are not two identities: play, narration, dream and ritual are one nature, play first (cited: Christian's review, 2026-09-29).
 - **Draft residue:** «Altura sugerida» / «Justificación» read like design notes left in the manual (inferred: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`).
 - **Naming drift:** manual «Casa de los Acertijos» / «Taberna Hiperbórea» vs numinia.com «Casa de los Enigmas» / «Taberna Hyperborean» (cited: `numinia-web:apps/store/src/i18n/city-landing.ts` — «spaces:»).
 - **"Where the adventures happen" is only partly true:** one tabletop module is set there. Session Zero never names it, and its Forge is in Sycamore (cited: `lore/adventures/virtual-worlds/session-zero.md` — «a space located in the Sycamore District»).
-- **House use:** there is no workspace or guild called Ouroboros; it appears only as the numinia.org "Play" map region. Is that official? Question for Christian.
+- **House use (resolved):** Ouroboros under "Play" on the numinia.org map is the intended reading, because play is its prevailing meaning (cited: Christian's review, 2026-09-29 — «por ese motivo, está contenido en el mapa de numinia.org dentro del apartado "Play"»).
 
 ## Sources
 
@@ -107,3 +114,4 @@ Districts are «la manifestación territorial y funcional» of what guilds and f
 - `lore/adventures/tabletop/el-espejo-roto.md`, `lore/adventures/virtual-worlds/session-zero.md` — settings
 - `canon/CAN-005-licensing.md`, `reports/RPT-022-the-newcomer-test.md`, `standards/STD-030-the-worlds-vocabulary.md` — house
 - `web/src/lib/suma.ts`, `numinia-web:packages/domain/src/constants/districts.ts`, `numinia-web:apps/store/src/i18n/city-landing.ts` — web
+- Christian's review, 2026-09-29, written in chat to the Oracle — what a district is, and how Ouroboros' facets fit
