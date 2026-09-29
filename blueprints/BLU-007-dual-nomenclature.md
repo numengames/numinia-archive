@@ -106,7 +106,7 @@ Gamification has qualitative jumps, not a smooth curve. Five named thresholds. I
 *Full immersion. The city is the system.*
 
 - **Who:** Numen Games. Organizations ready for a complete narrative operating system.
-- **Feel:** "The Guardián de las Puertas runs the Dark Council. The Oráculos govern from the Archive Summa."
+- **Feel:** "The Guardián de las Puertas runs the Dark Council. The Oráculos govern from the Summa Archive."
 
 ---
 
@@ -139,7 +139,7 @@ Gamification has qualitative jumps, not a smooth curve. Five named thresholds. I
 | Division / Area | Division | Area | Faction | Facción | Facción |
 | Operations Center | Operations Center | Ops Center | CAO | CAO | CAO |
 | System Blueprint | System Blueprint | System Map | Blueprint | Plano | Plano |
-| Knowledge Base | Knowledge Base | Knowledge Base | Archive | Archivo | Archive Summa |
+| Knowledge Base | Knowledge Base | Knowledge Base | Archive | Archivo | Summa Archive |
 | Decision Record | Decision Record | Decision Record | Decision Stone | Decisión | Piedra del Camino |
 | Report | Report | Report | Dispatch | Reporte | Reporte |
 | Process / SOP | Process / SOP | Protocol | Protocol | Protocolo | Protocolo |

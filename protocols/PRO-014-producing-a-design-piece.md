@@ -30,7 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The order in which design decisions are taken, where the
 > values come from, and the checklist every piece passes before delivery.
-> The recipe for each medium is its blueprint; how the sky, the Velo and
+> The recipe for each medium is its blueprint; how the sky, the Veil and
 > the reading player are built is `PRO-022`.
 > **Epistemic:** In what order does an agent take the design decisions of a piece, and what does it check before delivering?
 > **Pragmatic:** Followed literally by an agent producing a piece.
@@ -61,8 +61,8 @@ must decide how it looks. Runs before the first pixel.
 2. **Paste the fragment.** Paste the agent instruction `sistema.prompt.txt`
    from the kit; do not retype it. Where it disagrees with a standard, the
    standard wins.
-3. **Take the decisions in order.** Medium → register (Umbral, Velo,
-   low-poly, Píxel; Velo only in Nocturno) → mode (emits = Nocturno,
+3. **Take the decisions in order.** Medium → register (Umbral, Veil,
+   low-poly, Píxel; Veil only in Nocturno) → mode (emits = Nocturno,
    prints = Diurno; Píxel has no Diurno) → language level → tokens → grid →
    type scale → icons → data palette, rarity, motion only where the piece
    has them → copy at the level fixed. A decision taken out of order is
@@ -86,7 +86,7 @@ must decide how it looks. Runs before the first pixel.
    - [ ] AA contrast; nothing by colour alone; measure ≤90.
    - [ ] One element removed.
 7. **Pass the medium's blueprint Check.** `BLU-009` web and product ·
-   `BLU-010` pixel · `BLU-011` book and Velo · `BLU-012` deck · `BLU-013`
+   `BLU-010` pixel · `BLU-011` book and Veil · `BLU-012` deck · `BLU-013`
    document and invoice · `BLU-014` Platform · `BLU-015` event, 3D, email.
 
 ## 4. Verification
@@ -110,4 +110,4 @@ decision — the Oracle's.
 |---|---|---|
 | `STD-008` | Design tokens | the rules this order applies |
 | `STD-023` | Design values | where the values are read |
-| `PRO-022` | Building the living pieces | the sky, the Velo and the reading player |
+| `PRO-022` | Building the living pieces | the sky, the Veil and the reading player |

@@ -38,7 +38,7 @@ plausible reading nobody has confirmed yet.
 | Name in the manual (ES) | Distrito Ouroboros (cited: `lore/game/manual/glossary-es-en.md` — «Distrito Ouroboros \| Ouroboros District») |
 | Name in English | Ouroboros District; the proper name stays untranslated (cited: same — «solo se traduce la palabra común») |
 | Category | district |
-| Also written as | «el Ouroboros» (cited: `lore/game/manual/es/04-sistema-de-juego.md` — «las calles enredadas del Ouroboros»); "Play" (cited: `web/src/lib/suma.ts` — «name: "Play", place: "Ouroboros"») |
+| Also written as | «el Ouroboros» (cited: `lore/game/manual/es/04-sistema-de-juego.md` — «las calles enredadas del Ouroboros»); "Play" (cited: `web/src/lib/summa.ts` — «name: "Play", place: "Ouroboros"») |
 
 ## Concept
 
@@ -61,7 +61,7 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 | Narrative projection | Play that tells, and tells about itself: recursion, meta-categorisation | cited: Christian's review, 2026-09-29 — «como un modo de recursividad o de metacategorización»; manual — «Foco: Proyección narrativa» |
 | Ritual/dream | Esoteric seat; Temple of Khepri | cited: same — «Carácter: espiritual, onírico» |
 | Underground economy | Black market, rumours | cited: `lore/game/manual/es/04-sistema-de-juego.md` — «mercado negro del Distrito Ouroboros» |
-| House business line | "Play": RPG, adventures, events | cited: `web/src/lib/suma.ts` — «The labyrinth of play» |
+| House business line | "Play": RPG, adventures, events | cited: `web/src/lib/summa.ts` — «The labyrinth of play» |
 
 ## Contexts
 
@@ -70,7 +70,7 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 | Place of play | A GM setting a module | cited: `lore/adventures/tabletop/el-espejo-roto.md` — «Ámbito principal: Distrito Ouroboros» |
 | Underground economy | Seeking items that remove states | cited: `lore/game/manual/es/04-sistema-de-juego.md` — «mercado negro» |
 | Identity | Character sheet | cited: `lore/game/attributes-and-ranks.md` — «DISTRICT Ouroboros (Identity)» |
-| House business line | Browsing the numinia.org map | cited: `web/src/lib/suma.ts` — «Four districts cross ONLY the two outer rings» |
+| House business line | Browsing the numinia.org map | cited: `web/src/lib/summa.ts` — «Four districts cross ONLY the two outer rings» |
 
 ## Relations
 
@@ -85,7 +85,7 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 |---|---|---|
 | Game (manual, adventures) | Chapters 03–07; *El Espejo Roto* | `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`; `lore/adventures/tabletop/el-espejo-roto.md` |
 | House (canon, standards, agents, guilds of the archive) | One canon mention (a fan's story setting); flagged undefined | `canon/CAN-005-licensing.md` — «a story set in the Ouroboros»; `reports/RPT-022-the-newcomer-test.md` — «Names used and never defined in canon» |
-| Web (numinia.org, numinia.com) | .org: "Play" district. .com: district record, seal, four spaces | `web/src/lib/suma.ts`; `numinia-web:packages/domain/src/constants/districts.ts` |
+| Web (numinia.org, numinia.com) | .org: "Play" district. .com: district record, seal, four spaces | `web/src/lib/summa.ts`; `numinia-web:packages/domain/src/constants/districts.ts` |
 | Processes | None found in `agents/`, `AGENTS.md`, STD-026, BLU-007, BLU-011 | inferred: grep of those paths |
 
 ## Existing equivalences
@@ -94,7 +94,7 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 |---|---|---|---|
 | `STD-030` | Only via its faction: Heirs of Eleusis = «Gamification / Experience» | reductive | The district is the faction's territory, so the faction's label reaches it; «gamification» keeps a tool of play and drops narration, ritual and dream |
 | `BLU-007` | None | pending | District not named |
-| `web/src/lib/suma.ts` | "Play" = «the role-playing game, the adventures and experiences for events» | partial | Right label: it names the prevailing meaning, and the other facets sit inside play (Christian's review, 2026-09-29). What the map lists under it is the product line only |
+| `web/src/lib/summa.ts` | "Play" = «the role-playing game, the adventures and experiences for events» | partial | Right label: it names the prevailing meaning, and the other facets sit inside play (Christian's review, 2026-09-29). What the map lists under it is the product line only |
 | `numinia-web:packages/domain/src/constants/districts.ts` | «The labyrinth of play: the theatre of uncertainty» | partial | Faithful to one heading; ignores «Ritual y el Sueño» |
 
 ## Observations
@@ -113,5 +113,5 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 - `lore/game/manual/glossary-es-en.md`, `lore/codex/glosario.md` — names
 - `lore/adventures/tabletop/el-espejo-roto.md`, `lore/adventures/virtual-worlds/session-zero.md` — settings
 - `canon/CAN-005-licensing.md`, `reports/RPT-022-the-newcomer-test.md`, `standards/STD-030-the-worlds-vocabulary.md` — house
-- `web/src/lib/suma.ts`, `numinia-web:packages/domain/src/constants/districts.ts`, `numinia-web:apps/store/src/i18n/city-landing.ts` — web
+- `web/src/lib/summa.ts`, `numinia-web:packages/domain/src/constants/districts.ts`, `numinia-web:apps/store/src/i18n/city-landing.ts` — web
 - Christian's review, 2026-09-29, written in chat to the Oracle — what a district is, and how Ouroboros' facets fit

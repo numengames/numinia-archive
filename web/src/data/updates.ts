@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.99.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "FIX",
+        text: "Two names of the world are written one way only. The Veil is the Veil in English — the design page, the canon and the recipes said «Velo»; the recipe for the book and the Veil moves to /blueprints/book-and-veil and the old address leads there. The Summa Archive keeps two m's and that word order everywhere.",
+      },
+      {
+        type: "ADD",
+        text: "The moon dial finds more words: at the Numinia stop, The work reads The guilds, The world reads The City, Decisions read Decision Stone and Reports read Dispatch; at the plain stop, Canon reads Purpose, Standards read Policies and Agents read Team. Words for now, accepted until the census understands them better.",
+      },
+    ],
+  },
+  {
     version: "v0.98.0",
     date: "2026-09-29",
     entries: [

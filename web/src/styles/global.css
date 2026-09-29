@@ -155,7 +155,7 @@
 		--blue: 93 155 214;        /* #5D9BD6 */
 		--purple: 169 139 224;     /* #A98BE0 */
 
-		/* ── Glow — el Velo: solo alfas sobre canónicos (§2.7) ───────────── */
+		/* ── Glow — the Veil: only alphas over canonicals (§2.7) ─────────── */
 		--accent-glow: rgba(1, 142, 161, 0.10);
 		--veil-glow: rgba(1, 142, 161, 0.06);   /* velo.niebla */
 		--cobre-glow: rgba(1, 142, 161, 0.18);
@@ -309,8 +309,8 @@
 		color: rgb(var(--text));
 	}
 
-	/* ── Registro del Velo (§2.7): niebla + rejilla del Akasha en UNA capa
-	   compuesta — menos capas fijas, menos coste de composición. ─────────── */
+	/* ── The Veil register (§2.7): the Akasha's fog + grid in ONE composed
+	   layer — fewer fixed layers, less compositing cost. ──────────────────── */
 	body::before {
 		content: "";
 		position: fixed;

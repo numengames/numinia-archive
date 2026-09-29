@@ -3,15 +3,15 @@ id: "SYS-011:guild-exegetes"
 title: "Exegetes"
 type: entity
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-09-29T12:10:00+02:00"
+updated: "2026-09-29T16:39:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
 category: "guild"
 stage: draft
-confidence: "medium"
+confidence: "high"
 ---
 
 <!--
@@ -21,9 +21,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # Exegetes
 
-> **Summary:** In the world, the guild of language, culture and critical
-> interpretation: those who keep, tell, study and govern meaning. In the
-> house, the guild the archive files its canon and vocabulary under.
+> **Summary:** The guild whose original work is to govern the meaning of
+> ideas, and of words as their expression. It holds many functions and no
+> single facet covers it; brand is one strand of that work. In the house,
+> the guild the archive files its canon and vocabulary under.
 
 Every claim ends with where it comes from: **(cited: `path` — «heading»)**
 when a source says it (quote it, in the source's language), **(inferred)**
@@ -41,6 +42,8 @@ plausible reading nobody has confirmed yet.
 
 ## Concept
 
+The Exegetes cover many functions and cannot be grasped in a single facet; their original occupation is to govern the meaning of ideas, and of words as the expression of ideas. Brand is one strand of that work (cited: Christian's review, 2026-09-29 — «su ocupación original es la de gobernar sobre el significado de las ideas, y de las palabras como expresión de las ideas. En una vertiente de esa labor, trabajan sobre la marca»).
+
 The guild that holds meaning: it records what happened, studies what is known, and decides what words mean (inferred: uses in `lore/game/manual/es/03-creacion-del-personaje.md`, `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`). The manual calls it «Gremio del Lenguaje, la Cultura y la Interpretación Crítica» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «EXÉGETAS»). It is defined by opposition to the other three guilds: «an Exegete keeps the word» (cited: `canon/CAN-004-role-structure.md` — «A guild is what you know»).
 
 ## Constitutive traits
@@ -54,10 +57,11 @@ The guild that holds meaning: it records what happened, studies what is known, a
 
 | Facet | What it is | Provenance |
 |---|---|---|
-| Chronicle / memory | Record events, diachronic (Logógrafos) and synchronic (Bardos) | cited: `lore/game/manual/es/03-creacion-del-personaje.md` — «perspectiva diacrónica… sincrónica» |
+| Chronicle / memory | Record events: histories and legends are the Logographers' (diachronic); chronicles, glosses, news and commentary on the present are the Bards' (synchronic) | cited: `lore/game/manual/es/03-creacion-del-personaje.md` — «perspectiva diacrónica… sincrónica» |
 | Scholarship / teaching | Experts across disciplines (Hierofantes) | cited: same — «especialistas en distintos campos» |
 | Culture-making / ideation | «moldean la cultura y desarrollan nuevas ideas» (Taumaturgos) | cited: same |
-| Semantic governance | Keep the Corpus Numiniense, the Lex Perennis, terminological pacts, «sentencias semióticas» | cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Tesaurum Verba» |
+| Semantic governance (original occupation) | Keep the Corpus Numiniense, the Lex Perennis, terminological pacts, «sentencias semióticas» | cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Tesaurum Verba»; Christian's review, 2026-09-29 |
+| Brand | One strand of governing meaning | cited: Christian's review, 2026-09-29 — «En una vertiente de esa labor, trabajan sobre la marca» |
 | Living-text restoration | Chamber of Palimpsests: «preservar lo mutable», truth «en su deriva, no en su origen» | cited: same — «Cámara de Palimpsestos» |
 | Decoding / esoteric reading | Cryptology, chronomancy; interpreting Akashic currents in Ouroboros | cited: `lore/game/manual/es/03-creacion-del-personaje.md` — «Competencias por Gremio»; `…/05-geografia-y-cultura-de-numinia.md` — «Círculo del Umbra» |
 
@@ -89,7 +93,7 @@ The guild that holds meaning: it records what happened, studies what is known, a
 
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
-| `standards/STD-030-the-worlds-vocabulary.md` | «Brand / Communication / Strategy» | reductive | Captures communication and ideation (Bards, Thaumaturges); drops memory/archive, teaching, semantic governance, decoding. «Brand» has no support in the manual. |
+| `standards/STD-030-the-worlds-vocabulary.md` | «Brand / Communication / Strategy» | reductive | Brand is a real strand of the guild's work, but only one: it takes a branch of governing meaning for the whole and drops memory, teaching, semantic governance and decoding (Christian's review, 2026-09-29) |
 | `blueprints/BLU-007-dual-nomenclature.md` | «Chief of Staff / Knowledge» → «Knowledge Lead» | partial | Captures scholarship and memory; drops narrative and culture-making. «Chief of Staff» is a coordination role no source gives the guild. |
 | `web/src/pages/system/cao.astro` | «Content & Lore» / «Archivist General» | partial | Captures chronicle and archive; drops scholarship and governance. |
 | `lore/world/welcome-to-numinia.md` | «History, theory, and narrative» | partial | Closest to the manual; drops semantic governance. |
@@ -99,11 +103,11 @@ The three business readings (brand, knowledge lead, content/archive) point at th
 ## Observations
 
 - **Conflict:** STD-030 says the operational equivalent is «an exact or close match» (cited: `standards/STD-030-the-worlds-vocabulary.md` — «Summary»), yet BLU-007 and `web/src/pages/system/cao.astro` point at other departments. Not resolved here.
-- **Gap:** no equivalence names the facet the manual stresses most in the Tesaurum Verba: terminology and meaning governance. That is the work the archive does when it files vocabulary standards under this guild (inferred: `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-026-operative-vocabulary.md` headers).
+- **Resolved — the core:** governing the meaning of ideas and words is the guild's original occupation; brand is one strand of it (Christian's review, 2026-09-29). No existing equivalence names that core. That is the work the archive does when it files vocabulary standards under this guild (inferred: `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-026-operative-vocabulary.md` headers).
 - **Conflict (house):** the archive puts its records agent (Byblos) under Exegetes. STD-030 puts no records or archive function in the guild (cited: `agents/byblos/AGENT.yaml` — «records-management»).
 - **Ambiguity:** «exegetas» in the Circle of Umbra is lower-case. It could mean guild members or a generic noun (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`).
 - **Gap:** cryptology is shared with Procurators, and chronomancy has no business reading anywhere (cited: `lore/game/manual/es/03-creacion-del-personaje.md` — «Competencias por Gremio»).
-- **Tension:** STD-030 maps Bards to «Social media». The manual's Bards keep «noticias y crónicas actuales», and Chapter 2 treats bards as legend-tellers (cited: `lore/game/manual/es/03-creacion-del-personaje.md`; `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md` — «los bardos»).
+- **Resolved — the Bards:** they keep synchronic records: chronicles, glosses, news and commentary on the present. Telling legends is the Logographers' work, so chapter 2's «las leyendas que susurran los bardos» is wrong and the English chapter follows it (Christian's review, 2026-09-29 — «La mención como narradores de leyendas es incorrecta, puesto que esa función recae sobre los Cronistas»). STD-030's «Social media» is at best one channel of the Bards' work. Earlier note: the manual's Bards keep «noticias y crónicas actuales», and Chapter 2 treats bards as legend-tellers (cited: `lore/game/manual/es/03-creacion-del-personaje.md`; `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md` — «los bardos»).
 
 ## Sources
 

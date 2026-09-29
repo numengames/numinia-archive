@@ -32,10 +32,18 @@ export const DEFAULT_STOP = "bridge";
  */
 export const WORDS = [
   // ── the four rings: their classical names, already printed under each ring
-  { bridge: "The rules", plain: { text: "Governance", source: "web/src/lib/suma.ts" } },
-  { bridge: "The work", plain: { text: "Operations", source: "web/src/lib/suma.ts" } },
-  { bridge: "The world", plain: { text: "Product and brand", source: "web/src/lib/suma.ts" } },
-  { bridge: "The offer", plain: { text: "Offer and relations", source: "web/src/lib/suma.ts" } },
+  { bridge: "The rules", plain: { text: "Governance", source: "web/src/lib/summa.ts" } },
+  {
+    bridge: "The work",
+    plain: { text: "Operations", source: "web/src/lib/summa.ts" },
+    numinia: { text: "The guilds", source: "lore/world/welcome-to-numinia.md" },
+  },
+  {
+    bridge: "The world",
+    plain: { text: "Product and brand", source: "web/src/lib/summa.ts" },
+    numinia: { text: "The City", source: "blueprints/BLU-007-dual-nomenclature.md" },
+  },
+  { bridge: "The offer", plain: { text: "Offer and relations", source: "web/src/lib/summa.ts" } },
 
   // ── the districts, by the names the lore gives them
   { bridge: "Play", numinia: { text: "Ouroboros", source: "lore/codex/en/glossary.md" } },
@@ -43,18 +51,29 @@ export const WORDS = [
   { bridge: "Organise", numinia: { text: "Solomon", source: "lore/codex/en/glossary.md" } },
   { bridge: "Collect", numinia: { text: "Sycamore", source: "lore/codex/en/glossary.md" } },
 
-  // ── the series, by their operational equivalents
+  // ── the series, by their operational equivalents. Canon, Standards,
+  // Decisions, Reports and Agents: accepted for now by Christian and the
+  // Oracle (2026-09-29) — finding a word is finding a meaning, and these
+  // will change as the census understands them better.
+  { bridge: "Canon", plain: { text: "Purpose", source: "lore/world/brand-and-culture.md" } },
+  { bridge: "Standards", plain: { text: "Policies", source: "web/src/lib/summa.ts" } },
   { bridge: "Missions", plain: { text: "Project", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Adventures", plain: { text: "Experience", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Blueprints", plain: { text: "System Blueprint", source: "blueprints/BLU-007-dual-nomenclature.md" } },
   { bridge: "Protocols", plain: { text: "Process", source: "blueprints/BLU-007-dual-nomenclature.md" } },
-  { bridge: "Decisions", plain: { text: "Decision Record", source: "blueprints/BLU-007-dual-nomenclature.md" } },
+  {
+    bridge: "Decisions",
+    plain: { text: "Decision Record", source: "blueprints/BLU-007-dual-nomenclature.md" },
+    numinia: { text: "Decision Stone", source: "blueprints/BLU-007-dual-nomenclature.md" },
+  },
+  { bridge: "Reports", numinia: { text: "Dispatch", source: "blueprints/BLU-007-dual-nomenclature.md" } },
+  { bridge: "Agents", plain: { text: "Team", source: "blueprints/BLU-007-dual-nomenclature.md" } },
 
   // ── the archive itself
   {
     bridge: "The archive",
     plain: { text: "Knowledge Base", source: "blueprints/BLU-007-dual-nomenclature.md" },
-    numinia: { text: "Archive Summa", source: "blueprints/BLU-007-dual-nomenclature.md" },
+    numinia: { text: "Summa Archive", source: "blueprints/BLU-007-dual-nomenclature.md" },
   },
 ];
 
@@ -65,20 +84,17 @@ export const WORDS = [
 export const TEXTS = {
   "about.thesis": {
     plain: "Our knowledge base, in four blocks.",
-    numinia: "The Archive Summa, in four blocks.",
+    numinia: "The Summa Archive, in four blocks.",
   },
   "about.lead": {
     plain: "One of two ways to move through our knowledge base. The map shows how it fits together; this page takes you straight to a section.",
-    numinia: "One of two ways to walk the Archive Summa. The map lets you explore it; this page takes you straight to a series.",
+    numinia: "One of two ways to walk the Summa Archive. The map lets you explore it; this page takes you straight to a series.",
   },
 };
 
 /** Stops the archive has no word for yet, per label: the conversation owed. */
 export const GAPS = [
-  "The four rings at the Numinia stop (the rules, the work, the world, the offer)",
-  "Canon and Standards at the plain stop",
-  "Decisions and Reports at the Numinia stop (the English of «Piedra del Camino» is not fixed)",
-  "Agents at the plain stop (the section holds people and digital agents)",
+  "The rules and The offer at the Numinia stop: no good candidate yet",
 ];
 
 /** Attributes for an element whose text is `label`, or {} when the register has no entry. */

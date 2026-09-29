@@ -8,7 +8,7 @@
 // role-playing manual and the legal playbook are not series and belong to no
 // one function — each gathers documents from several. They are books: read or
 // heard end to end. The bar gets a Books menu, read from one list in
-// web/src/lib/suma.ts, and each book is also reachable from the ring its
+// web/src/lib/summa.ts, and each book is also reachable from the ring its
 // documents come from.
 //
 // Run: npm test
@@ -19,10 +19,10 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
 
-const SUMA = path.join(ROOT, 'web', 'src', 'lib', 'suma.ts');
+const SUMMA = path.join(ROOT, 'web', 'src', 'lib', 'summa.ts');
 
 function ask(expression) {
-  const script = `import(${JSON.stringify(SUMA)}).then((s) => console.log(JSON.stringify(${expression})))` +
+  const script = `import(${JSON.stringify(SUMMA)}).then((s) => console.log(JSON.stringify(${expression})))` +
     `.catch((e) => { console.error(e.message); process.exit(1); });`;
   return JSON.parse(execFileSync('node', ['--experimental-strip-types', '-e', script],
     { cwd: path.join(ROOT, 'web'), encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }));
@@ -49,6 +49,6 @@ test('the archive page prints the books from BOOKS', () => {
   // 2026-09-28: the bar keeps Map and Archive only, with no drop-down; the
   // books are listed on /about, the page the Archive button opens.
   const page = readFileSync(path.join(ROOT, 'web', 'src', 'pages', 'about.astro'), 'utf8');
-  assert.match(page, /import \{[^}]*\bBOOKS\b[^}]*\} from "@\/lib\/suma"/);
+  assert.match(page, /import \{[^}]*\bBOOKS\b[^}]*\} from "@\/lib\/summa"/);
   assert.match(page, /BOOKS\.map/, 'BOOKS must render on the archive page');
 });

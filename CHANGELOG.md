@@ -19,6 +19,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Changed** Christian answers the census: Exegetes govern meaning (brand is one strand); Heirs of Eleusis' field is narrative projection holding gamification; four Oracles remain; the Threshold is also a sign-in. Chapter 2's bards become chroniclers
+- **Fixed** The Veil in English (was «Velo»; BLU-011 now book-and-veil); the Summa Archive with two m's and in that order; a test keeps both; the moon dial gains seven words (site v0.99.0)
 - **Changed** Legal notice (`LEG-004` 0.2.0) gives the Mercantile Registry entry and postal code; `DBT-022` 0.2.0 strikes nine closed rows and adds two; the cookie notice keeps Accept and Reject side by side on desktop (site v0.98.0)
 - **Added** The narrative dial: a moon in the bar sets how the archive speaks — plain, as it is, or Numinia's own words — from a register whose every word is copied from an archive file (`web/src/lib/narrative-words.mjs`, tested); `LEG-003` 2.1.0 lists `numinia-narrative` (site v0.97.0)
 - **Added** Legal debts for counsel (`DBT-022`, 33 gaps); legal notice (`LEG-004`); cookie notice with equal Accept and Reject; `LEG-001` 2.1.0 names providers and transfers outside the EEA; `LEG-003` 2.0.0 lists every key; a test keeps internal notes out of legal texts (site v0.96.0)

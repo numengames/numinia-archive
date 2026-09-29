@@ -25,14 +25,14 @@ SPDX-License-Identifier: CC0-1.0
 # PRO-022 — Building the living pieces
 
 > **Summary:** How the three pieces of the house that move or sit over the
-> reading are built: the sky, the Velo layer and the reading-aloud player.
-> **Epistemic:** How are the sky, the Velo layer and the reading player
+> reading are built: the sky, the Veil layer and the reading-aloud player.
+> **Epistemic:** How are the sky, the Veil layer and the reading player
 > built, taking every number from the design values?
 > **Pragmatic:** Build or change one of the three pieces without breaking
 > what a reader already relies on.
 > **Audience:** Agents · Oracles
 
-**Binds:** whoever builds, changes or reviews the sky, the Velo layer or the
+**Binds:** whoever builds, changes or reviews the sky, the Veil layer or the
 reading-aloud player on a site of the house.
 
 ---
@@ -49,7 +49,7 @@ builds; the **Oracle** approves anything that changes what a reader sees.
 
 ## 2. Preconditions
 
-The values the piece uses are in `STD-023`: the sky's tiers in §15, the Velo
+The values the piece uses are in `STD-023`: the sky's tiers in §15, the Veil
 tokens and their ceilings in §20, the reading player's numbers in §22. A
 value that is not there is proposed there first.
 
@@ -69,10 +69,10 @@ value that is not there is proposed there first.
 4. **Stop it under `prefers-reduced-motion`.** The stars stay fixed at mid
    alpha.
 
-### 3.2 The Velo layer
+### 3.2 The Veil layer
 
 **Ceilings and placement.** As built today, in Nocturno only: in Diurno the
-Velo does not exist, same logic as the relief.
+Veil does not exist, same logic as the relief.
 1. **Lay grid and fog as background layers**, behind the reading text and
    outside cards and elevated surfaces.
 2. **Put `velo.cristal` over something**: a grid, fog or veiled image behind
@@ -126,7 +126,7 @@ in the history of that section and of this one.
 | Step | Evidence it completed |
 |---|---|
 | 3.1 | The sky stops with reduced motion on, and is absent in Diurno |
-| 3.2 | No Velo layer sits over reading text or inside a card; contrast AA over the worst background (`STD-034`) |
+| 3.2 | No Veil layer sits over reading text or inside a card; contrast AA over the worst background (`STD-034`) |
 | 3.3 | Scrolling while it speaks keeps the page where the reader put it; browser translation still works while it plays |
 
 ---

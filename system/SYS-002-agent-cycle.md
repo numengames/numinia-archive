@@ -48,7 +48,7 @@ Representation of the original page's visual stack (top to bottom):
 | L2 | L2 · Substrate | 🖥️ INFRASTRUCTURE | Server · GPU · Tools · Auth · Observability |
 | L4 | L4 · Media | 🎨 DIGITAL ASSETS (CDN) | jpg · mp4 · glb · vrm · mp3 · R2 / AWS S3 |
 
-*L3 (Archive Summa) is transversal — it is neither above nor below, it connects all the layers*
+*L3 (Summa Archive) is transversal — it is neither above nor below, it connects all the layers*
 
 ---
 
@@ -74,7 +74,7 @@ Representation of the original page's visual stack (top to bottom):
 - **⚡ Pragmatic value:** The dedicated PC (Ryzen 9 7950X + RTX 4080) will cut inference cost by 60-70% when it arrives. Infrastructure is the difference between $50/month and $5/month.
 - **📍 Real case — Nimrod:** When Nimrod runs `gog gmail send`, the orchestrator verifies the agent's permissions before executing the tool. If Law 1 is not authorized, the action does not happen.
 
-### L3 — 📚 Archive Summa
+### L3 — 📚 Summa Archive
 
 *The permanent memory. The nervous system of the NWOS.* (color `#58a6ff`)
 
@@ -92,7 +92,7 @@ Representation of the original page's visual stack (top to bottom):
 
 - **🧠 Epistemic value:** Assets are knowledge embodied — the way the system exists perceptually. A .vrm avatar is the agent's visual identity. A .glb of Numinia is the space where interactions happen.
 - **⚡ Pragmatic value:** Assets are served via CDN — globally available, no latency. Separate from the Archive because they have different lifecycles: an .md is versioned with git, an .mp4 is not.
-- **📍 Real case — Nimrod:** The game 'El Velo' at pablofm.com/openclaw-test uses Three.js with procedural geometries. When there are real .vrm avatars, they will be served from R2 and the digital agent will be able to 'embody' them in Numinia sessions.
+- **📍 Real case — Nimrod:** The game «El Velo» at pablofm.com/openclaw-test uses Three.js with procedural geometries. When there are real .vrm avatars, they will be served from R2 and the digital agent will be able to 'embody' them in Numinia sessions.
 
 ### L5 — 👤 Biological Agent
 
@@ -108,7 +108,7 @@ Representation of the original page's visual stack (top to bottom):
 
 *The emergent. The sum that exceeds its parts.* (color `#2dd4bf`)
 
-**Components:** Not instantiated — it emerges · It is the sum of L1+L2+L3+L4+L5 in continuous operation · Culture = the system's repeated behaviors · Institutional memory = a living Archive Summa · Collective intelligence = Digital + Biological in a loop
+**Components:** Not instantiated — it emerges · It is the sum of L1+L2+L3+L4+L5 in continuous operation · Culture = the system's repeated behaviors · Institutional memory = a living Summa Archive · Collective intelligence = Digital + Biological in a loop
 
 - **🧠 Epistemic value:** The organization is not an object you can create directly. It is a pattern that emerges when all the components operate together over time. That is why 'deploying NWOS' is not enough — the system has to be lived.
 - **⚡ Pragmatic value:** When the cycle works (Biological activates → Digital executes → Archive receives → Biological reviews), the organization learns. Every completed mission makes the system slightly more intelligent. That is the promise of the NWOS.
@@ -122,7 +122,7 @@ Visual sequence on the page: **⬇️ BOOT → ⚡ EXECUTE → ⬆️ COMMIT**
 
 ### ⬇️ BOOT (color `#58a6ff`)
 
-- **What:** The agent boots and reads its identity from the Archive Summa.
+- **What:** The agent boots and reads its identity from the Summa Archive.
 - **How:** git pull → loads SOUL.md, OPERATOR.md, the previous day's memory, active protocols.
 - **🧠 Epistemic value:** An agent without BOOT is amnesiac. Without loaded identity, it is a generic model with no personality and no laws. BOOT transforms 'an LLM' into 'Nimrod'.
 - **⚡ Pragmatic value:** Cold boot takes 30-60 seconds. With a well-structured Archive, the agent operates with full context from the first message.
@@ -138,7 +138,7 @@ Visual sequence on the page: **⬇️ BOOT → ⚡ EXECUTE → ⬆️ COMMIT**
 
 ### ⬆️ COMMIT (color `#ffa657`)
 
-- **What:** The agent writes the generated knowledge back to the Archive Summa.
+- **What:** The agent writes the generated knowledge back to the Summa Archive.
 - **How:** git add → git commit → git push → the knowledge is permanent.
 - **🧠 Epistemic value:** This is the most critical moment of the cycle. Knowledge that is not COMMITted disappears when the session ends. There is no gradual amnesia — there is total loss. COMMIT is the act of turning ephemeral experience into institutional memory.
 - **⚡ Pragmatic value:** Every COMMIT is a recovery point. If the system has to be rebuilt from scratch tomorrow, the Archive has everything. Commits are also auditable — you can see exactly which agent did what and when.
@@ -154,7 +154,7 @@ Visual sequence on the page: **⬇️ BOOT → ⚡ EXECUTE → ⬆️ COMMIT**
 
 The team clones the NWOS reference repo. Each person creates their SOUL.md with their role and guild. The CTO configures the orchestrator with the Centinela agent.
 
-→ *Acme Studio's Archive Summa has documented identities. The agent knows who each person is and what their authority is.*
+→ *Acme Studio's Summa Archive has documented identities. The agent knows who each person is and what their authority is.*
 
 ### Week 2 — First mission
 
@@ -187,7 +187,7 @@ Every Monday, the agent generates the previous week's report. Every day it close
 
 **Signature:** Diagram C · Nimrod 🗡️ + Alquimista-01 + Exégeta-01 · 2026-04-07
 
-- Archive Summa → `/archive`
+- Summa Archive → `/archive`
 - NWOS overview → `/nwos`
 - Wardley Map → `/wardley`
 

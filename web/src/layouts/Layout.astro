@@ -103,7 +103,7 @@ const ogLocale = "en_US";
     <slot name="head" />
   </head>
   <body class="relative overflow-x-hidden">
-    <!-- El cielo del Velo (§2.7.1).
+    <!-- The Veil's sky (§2.7.1).
          `width`/`height` are set in JS from window.innerWidth, which on mobile
          includes the scrollbar gutter: measured at 375 px the canvas came back
          399 px and dragged the page 24 px wide. The attribute below only sizes
@@ -115,8 +115,8 @@ const ogLocale = "en_US";
       class="pointer-events-none fixed inset-0 -z-10 h-full w-full"
       aria-hidden="true"
     ></canvas>
-    <!-- Registro del Velo (§2.7): niebla + rejilla las pinta body::before
-         en una sola capa (global.css). /design/kit y sus fuentes son ficheros estáticos, no pasan por este Layout. -->
+    <!-- The Veil register (§2.7): fog + grid are painted by body::before
+         in a single layer (global.css). /design/kit and its fonts are static files; they do not go through this Layout. -->
 
     <Navigation activeNav={activeNav} />
     <Wayfinder />

@@ -41,7 +41,7 @@ import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
 import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears, split as accountSplit, AMOUNTS as ACCOUNT_AMOUNTS, type Line } from "@/lib/account";
-import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
+import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { pipeline as salesPipeline, PIPELINE_SOURCES } from "@/lib/pipeline";
 import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
@@ -385,7 +385,7 @@ export function homePage(): ComposedPage {
 
 /**
  * `/` — the map: the Summa as four rings, as text. The same model the
- * astrolabe, the archive page and the wayfinder read (@/lib/suma).
+ * astrolabe, the archive page and the wayfinder read (@/lib/summa).
  */
 export function mapPage(): ComposedPage {
   const line = (e: { label: string; line: string; href: string | null; external?: string; count?: number }) =>

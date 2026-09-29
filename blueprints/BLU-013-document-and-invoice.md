@@ -55,4 +55,4 @@ After the general checklist in step 6 of `PRO-014`, and before delivering:
 - [ ] Diurno, A4, level III, no texture; figures in tabular Mono; footer `AAAA_MM · Confidencial`.
 - [ ] Section rhythm `s500`, interior `s300–s400`; nothing at `s700`.
 - [ ] The invoice fits on one page; total as the only display figure, in toasted Ámbar; `page-break-inside: avoid` on rows and footer.
-- [ ] The invoice inherits nothing from the living paper (`BLU-011`): pure Geist, no third voice, no Velo frame.
+- [ ] The invoice inherits nothing from the living paper (`BLU-011`): pure Geist, no third voice, no Veil frame.

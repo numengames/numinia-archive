@@ -181,14 +181,14 @@ The carpentry that was missing, unified by a single rule: **the active dresses i
 
 **Progress selection rule:** discrete sequence or reading? moon. Short unmeasured wait? dots. Real percentage? bar. Three shapes, zero ambiguity.
 
-**Velo nuance (5.0.0):** on Velo-register surfaces, the modal MAY enter by **crystallization** (§9.1-11) instead of reveal 02; the background veil is still the canonical `velo.imagen` and the focus rules do not change. In the Umbral, the modal does not change.
+**Veil nuance (5.0.0):** on Veil-register surfaces, the modal MAY enter by **crystallization** (§9.1-11) instead of reveal 02; the background veil is still the canonical `velo.imagen` and the focus rules do not change. In the Umbral, the modal does not change.
 
 ---
 
 ## 10. Motion: forbidden, and the typing reference
 
 
-*5.0.0 amendment: the Velo's sky (§9.1-14) is the only sanctioned exception to the ambient-loop veto; any other remains forbidden.*
+*5.0.0 amendment: the Veil's sky (§9.1-14) is the only sanctioned exception to the ambient-loop veto; any other remains forbidden.*
 
 Parallax. **Glitch** (tempting with cyber at 20 %: it breaks the solar calm and accessibility). Ambient loops outside the sweep. Animating reading-text color. Animating focus. Autoplay with sound.
 

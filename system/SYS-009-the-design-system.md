@@ -81,7 +81,7 @@ accessibility standard, which every row here serves.
 | Recipes | Any piece | `protocols/PRO-014-producing-a-design-piece.md` | The order in which a piece's decisions are taken |
 | Recipes | Web | `blueprints/BLU-009-web-pieces.md` | A web page, a product screen, every component |
 | Recipes | Pixel | `blueprints/BLU-010-pixel-register.md` | A sprite, a scene, a HUD |
-| Recipes | Book and Velo | `blueprints/BLU-011-book-and-velo.md` | The codex, the archive, the atmosphere |
+| Recipes | Book and Veil | `blueprints/BLU-011-book-and-veil.md` | The codex, the archive, the atmosphere |
 | Recipes | Deck | `blueprints/BLU-012-presentation-deck.md` | A presentation |
 | Recipes | Document | `blueprints/BLU-013-document-and-invoice.md` | A document and an invoice |
 | Recipes | Platform | `blueprints/BLU-014-platform.md` | The Platform |
