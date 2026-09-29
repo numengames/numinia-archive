@@ -22,7 +22,7 @@ import { wordAttrs } from "@/lib/narrative-words.mjs";
   <div class="wf">
     <div class="wf-in">
       <nav class="crumbs" aria-label="Where you are in the Summa">
-        <a href="/">The Summa</a>
+        <a href="/" {...wordAttrs("The Summa")}>The Summa</a>
         {seg && <><span>/</span><a href={`/#s-${seg.id}`} {...wordAttrs(RINGS[seg.ring].name)}>{RINGS[seg.ring].name}</a></>}
         {seg?.district && <><span>/</span><a href={`/#d-${seg.district}`} {...wordAttrs(DISTRICTS[seg.district].name)}>{DISTRICTS[seg.district].name}</a></>}
         {here?.entry && <><span>/</span>{here.entry.href ? <a href={here.entry.href} {...wordAttrs(here.entry.label)}>{here.entry.label}</a> : <span {...wordAttrs(here.entry.label)}>{here.entry.label}</span>}</>}

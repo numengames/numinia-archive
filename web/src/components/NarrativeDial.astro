@@ -136,6 +136,14 @@ const { variant = "bar" } = Astro.props;
       else if (served.has(el)) el.innerHTML = served.get(el)!;
       else el.textContent = el.dataset.nwBridge ?? "";
     }
+    // Attributes that name a label (a tooltip, an aria-label): each listed in
+    // data-nw-attrs keeps its served value in data-nw-bridge-<name>.
+    for (const el of document.querySelectorAll<Element>("[data-nw-attrs]")) {
+      for (const name of (el.getAttribute("data-nw-attrs") ?? "").split(" ").filter(Boolean)) {
+        const v = el.getAttribute(`data-nw-${stop}-${name}`) ?? el.getAttribute(`data-nw-bridge-${name}`);
+        if (v !== null) el.setAttribute(name, v);
+      }
+    }
   };
 
   const pop = document.getElementById("nd-pop")!;

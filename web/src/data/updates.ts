@@ -32,6 +32,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.101.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "ADD",
+        text: "The moon in the bar now reaches the map. Turn it and the home speaks at the stop you chose: the name at the top, the rings in each panel and in the astrolabe's centre, the district boxes, the rows of each panel, the \"What brings you here?\" answers, the line on how to read the map, the tooltips and what a screen reader hears. Until now only the Archive page listened to it.",
+      },
+      {
+        type: "ADD",
+        text: "At the full moon the four district boxes carry their faction under the name (Heirs of Eleusis, Hermeticists, Stellar Circle, Neo-Atlantists), since the name already is the place. At the new moon the centre reads Governance and the agents' piece reads Team.",
+      },
+      {
+        type: "FIX",
+        text: "The Sycamore faction is written Neo-Atlantists, as the codex glossary and the manual's name table write it; the map said Neo-Atlanteans.",
+      },
+    ],
+  },
+  {
     version: "v0.100.0",
     date: "2026-09-29",
     entries: [

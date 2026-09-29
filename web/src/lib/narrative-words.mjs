@@ -69,7 +69,12 @@ export const WORDS = [
   { bridge: "Reports", numinia: { text: "Dispatch", source: "blueprints/BLU-007-dual-nomenclature.md" } },
   { bridge: "Agents", plain: { text: "Team", source: "blueprints/BLU-007-dual-nomenclature.md" } },
 
-  // ── the archive itself
+  // ── the archive itself, by both of the names the site gives it
+  {
+    bridge: "The Summa",
+    plain: { text: "Knowledge Base", source: "blueprints/BLU-007-dual-nomenclature.md" },
+    numinia: { text: "Summa Archive", source: "blueprints/BLU-007-dual-nomenclature.md" },
+  },
   {
     bridge: "The archive",
     plain: { text: "Knowledge Base", source: "blueprints/BLU-007-dual-nomenclature.md" },
@@ -79,16 +84,27 @@ export const WORDS = [
 
 /**
  * Texts written by hand at each stop (method 2 of the design): only the
- * archive page's heading and lead. They use no word the register lacks.
+ * archive page's heading and lead, and the map's line on its rings. They use
+ * no word the register lacks: `uses` lists the labels each one names, and the
+ * test checks that each stop names them by the register's word.
  */
 export const TEXTS = {
   "about.thesis": {
+    uses: ["The archive"],
     plain: "Our knowledge base, in four blocks.",
     numinia: "The Summa Archive, in four blocks.",
   },
   "about.lead": {
+    uses: ["The archive"],
     plain: "One of two ways to move through our knowledge base. The map shows how it fits together; this page takes you straight to a section.",
     numinia: "One of two ways to walk the Summa Archive. The map lets you explore it; this page takes you straight to a series.",
+  },
+  // The map's first line on how to read it names the four rings, so it says
+  // them in the register's words at each stop (narrative-home.test.mjs).
+  "home.rings": {
+    uses: ["The rules", "The work", "The world", "The offer"],
+    plain: "From the centre out: governance, operations, product and brand, offer and relations.",
+    numinia: "From the centre out: the rules, the guilds, the City, the offer.",
   },
 };
 
@@ -119,5 +135,36 @@ export function textAttrs(key, served) {
   if (served) a["data-nw-bridge"] = served;
   if (t.plain) a["data-nw-plain"] = t.plain;
   if (t.numinia) a["data-nw-numinia"] = t.numinia;
+  return a;
+}
+
+/** The word a label takes at a stop: the register's, or the label itself. */
+export function wordAt(label, stop) {
+  if (stop === "bridge") return label;
+  const w = WORDS.find((x) => x.bridge === label);
+  return w?.[stop]?.text ?? label;
+}
+
+/**
+ * Attributes for an element whose ATTRIBUTES name a label (a tooltip, an
+ * aria-label): `spec` maps each attribute to a function of the stop that
+ * composes its value, usually with wordAt. Only attributes that some stop
+ * says differently are marked; {} when none does. The dial reads
+ * data-nw-attrs and swaps each one listed.
+ */
+export function attrsAt(spec) {
+  const a = {};
+  const names = [];
+  for (const [name, at] of Object.entries(spec)) {
+    const bridge = at("bridge");
+    const plain = at("plain"), numinia = at("numinia");
+    if (plain === bridge && numinia === bridge) continue;
+    names.push(name);
+    a[`data-nw-bridge-${name}`] = bridge;
+    if (plain !== bridge) a[`data-nw-plain-${name}`] = plain;
+    if (numinia !== bridge) a[`data-nw-numinia-${name}`] = numinia;
+  }
+  if (!names.length) return {};
+  a["data-nw-attrs"] = names.join(" ");
   return a;
 }

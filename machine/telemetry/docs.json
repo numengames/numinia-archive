@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 16630,
+  "chars": 16835,
   "apparatus": false,
   "archived": false,
-  "tokens": 4487
+  "tokens": 4544
  },
  {
   "path": "CLAUDE.md",
