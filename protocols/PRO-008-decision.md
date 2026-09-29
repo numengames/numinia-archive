@@ -4,9 +4,9 @@ uid: ""
 title: "Requesting approval, issuing rulings"
 type: protocol
 status: draft
-version: "5.1.0"
+version: "5.2.0"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-09-29T12:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,7 +15,7 @@ tags: [approval, human-in-the-loop, security, protocol, rulings, falsifiability]
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
-related: ["STD-017", "PRO-005", "PRO-016"]
+related: ["STD-017", "STD-042", "PRO-005", "PRO-016"]
 derived_from: "CAN-004"
 ---
 
@@ -55,11 +55,16 @@ for the ruling, the agent again for its execution.
 
 **Request**
 
-1. **Send one complete request.** Header `APPROVAL REQUEST — Score {X}/10`;
-   then agent, mission, context, the exact action (an execution request
-   carries the command; a design request carries the proposal), its
-   epistemic and pragmatic effect, and what happens without an answer;
-   then `Approve? Yes / No / Defer / Modify`.
+1. **Send one complete request, in the approver's words first.** Header
+   `APPROVAL REQUEST — Score {X}/10`; then, in plain words before anything
+   else, what you are about to do, what could go wrong, and whether it can
+   be undone — the person who answers did not write the command and answers
+   for it; then agent, mission, context, the exact action (an execution
+   request carries the command, beneath the plain words; a design request
+   carries the proposal), its epistemic and pragmatic effect, and what
+   happens without an answer; then `Approve? Yes / No / Defer / Modify`.
+   Which permission the action needs, and whether the agent's level grants
+   it alone, is read in the register of what an agent may do without asking.
 2. **Link every artefact by its web address** next to its first mention —
    never a filesystem path.
 3. **Score it on the scale below.** The score guides attention, not
@@ -114,3 +119,4 @@ without stating it: return it to the issuer before execution.
 | `STD-017` | Who may change what | `AUT-065`: rank sets who may approve |
 | `PRO-005` | Escalating to the Oracle | the request's other half: when to ask, how long to wait |
 | `PRO-016` | Applying the engineering standard | the task classification that marks an action irreversible |
+| `STD-042` | What an agent may do without asking | which permission an action needs, and whether the agent's level grants it alone |

@@ -218,8 +218,10 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-038` | The stages of a sale | draft | register — scope belongs to the standard that cites it |
 | `STD-039` | An opportunity has a record | draft | every record of an opportunity kept in Numen Games' or Numinia's name… |
 | `STD-040` | A proposal says four things | draft | every proposal for a service that Numen Games sends to an organisation, and whoever writes… |
+| `STD-041` | The levels of automation | draft | register — scope belongs to the standard that cites it |
+| `STD-042` | What an agent may do without asking | draft | register — scope belongs to the standard that cites it |
 
-69 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 5 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+71 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 7 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// What an agent may do without asking, level by level.
+// What an agent may do without asking, level by level — READ FROM THE ARCHIVE.
 //
 // THE PROBLEM THIS SOLVES
 // An agent asks the operator for permission many times a session, and each
@@ -11,20 +11,22 @@
 // (PRO-016), each agent's OPERATOR.md, the transition regime in AGENTS.md and
 // the Hermes adapter config — and in none of them for the person approving.
 //
-// THIS MODULE STATES NOTHING NEW. It arranges what those documents already
-// say into two tables a reader can hold: the five levels of automation, and
-// the permissions an agent needs to operate here, graded at each level. When
-// the register becomes a standard of its own, this module reads it instead
-// of carrying it; until then it is the first pour, and /automation draws it.
+// WHERE THE FACTS LIVE
+// Two registers in standards/ hold them, and this module reads both at build
+// time (one fact, one place; a test fails if the page and the registers
+// drift):
+//   STD-041 The levels of automation — the five levels, what the person does
+//           in each, the two ends outside the scale.
+//   STD-042 What an agent may do without asking — the permissions, graded at
+//           each level; what each is; the floor.
+// Each agent's level comes from the `automation_level:` header of its own
+// OPERATOR.md. What is typed here is presentation only: which tools sit at
+// each level, and the notes the page prints beside a floor row.
 //
 // The five levels are those of the automation scale in ISO/IEC 22989 cl. 5.13
 // as reproduced by the open SPDX 3.1 vocabulary `IsoAutomationLevel` (the
 // ISO text is paywalled; the house does not buy standards while a public
-// reproduction exists). Levels 0 to 5 of that scale are heteronomous — the
-// goals are always set from outside; level 6, a system that sets its own
-// goals, is out of this map by design (STD-017: no agent edits its own
-// identity). The names are the scale's, in the reader's language, never the
-// number.
+// reproduction exists). The names are the scale's, never the number.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -43,7 +45,7 @@ export interface Level {
   readonly asks: string;
   /** Where the tools we use sit on this scale. */
   readonly equiv: string;
-  /** True on the level Ursa operates at today. */
+  /** True on the level Ursa operates at today — read from her OPERATOR.md. */
   readonly today?: boolean;
 }
 
@@ -59,7 +61,7 @@ export interface Permission {
   readonly levels: readonly Grade[];
   /** Set when no level grants this alone, or when only the last does under a rule of its own. */
   readonly floor?: string;
-  /** For a floor permission that the top level opens under a rule: which level, and why. */
+  /** For a floor permission that a level opens under a rule: which level. */
   readonly floorOpensAt?: 3 | 4;
 }
 
@@ -68,90 +70,120 @@ export interface Source {
   readonly href?: string;
 }
 
-export const LEVELS: readonly Level[] = [
-  {
-    id: 0,
-    name: "Assisted",
-    line: "The agent proposes; the person does. Nothing changes without their hands.",
-    you: "You execute",
-    where: "At every act",
-    alone: "Read and propose",
-    asks: "Everything that touches anything",
-    equiv: "Claude Code read-only · Codex read-only",
-  },
-  {
-    id: 1,
-    name: "Partial",
-    line: "The agent runs the steps of an approved task, and every flagged step waits.",
-    you: "You approve each step",
-    where: "At each flagged command",
-    alone: "Read, its own desk, local commits",
-    asks: "Almost everything the scanner flags",
-    equiv: "Hermes manual · Claude Code default",
-    today: true,
-  },
-  {
-    id: 2,
-    name: "Conditional",
-    line: "The bridge. The agent proposes a plan and, once approved, runs it whole; the person stays in command.",
-    you: "You approve plans and deliveries",
-    where: "Once per pull request, before the push",
-    alone: "+ local tools, the network, the token to read",
-    asks: "Before pushing; at any irreversible doubt",
-    equiv: "Hermes smart · Claude Code acceptEdits · Codex workspace-write",
-  },
-  {
-    id: 3,
-    name: "High",
-    line: "The agent carries parts of its mission alone; the person reviews what was done, not what is about to be.",
-    you: "You review results",
-    where: "On the open pull request, at merge",
-    alone: "+ push branches, open pull requests, run on a schedule",
-    asks: "Only the floor, speaking outwards, and what it cannot decide",
-    equiv: "Claude Code auto · agents in CI",
-  },
-  {
-    id: 4,
-    name: "Full",
-    line: "The autonomous organisation: it runs on its own and the agents review one another. The goals remain the Oracles' and the floor does not move.",
-    you: "You set goals and keep the floor",
-    where: "On the goals and on the books",
-    alone: "+ merge with another agent's review, speak outwards under protocol",
-    asks: "Only the floor",
-    equiv: "Dependabot already lives here, in its corner",
-  },
-];
+const ARCHIVE_ROOT = path.resolve(process.cwd(), "..");
+const LEVELS_DOC = "standards/STD-041-the-levels-of-automation.md";
+const PERMS_DOC = "standards/STD-042-what-an-agent-may-do-without-asking.md";
 
-const g = (s: string) => s.split(" ") as Grade[];
+const read = (rel: string) => fs.readFileSync(path.join(ARCHIVE_ROOT, rel), "utf8");
 
-export const PERMISSIONS: readonly Permission[] = [
-  { n: 1, name: "Read the repositories", lets: "Clone, read files, see pull requests and history.", wrong: "Nothing: they are public.", undo: "—", who: "Nobody: they are public.", risk: "—", levels: g("alone alone alone alone alone") },
-  { n: 2, name: "Write on its own desk", lets: "Create files and clones in its working folder.", wrong: "Use disk.", undo: "Yes, it is deleted.", who: "Hermes, without asking.", risk: "—", levels: g("alone alone alone alone alone") },
-  { n: 3, name: "Run local tools", lets: "npm, node, tests, builds, guards.", wrong: "Install packages, use network and disk; a malicious script in a dependency.", undo: "Yes.", who: "Hermes: today it asks often.", risk: "OWASP agentic: supply chain", levels: g("ask ask alone alone alone") },
-  { n: 4, name: "Read the web", lets: "Search, read pages and documentation.", wrong: "A page slipping it instructions.", undo: "—", who: "Hermes, with filters.", risk: "OWASP agentic: goal hijack", levels: g("alone alone alone alone alone") },
-  { n: 5, name: "Use the GitHub secret", lets: "Act as its own GitHub account.", wrong: "The token leaking into a log.", undo: "No: it must be rotated.", who: "The profile; house rule: never print it.", risk: "OWASP agentic: identity and privilege abuse", levels: g("never ask alone alone alone") },
-  { n: 6, name: "Commit on a local branch", lets: "Prepare the work with a history.", wrong: "Nothing outside its desk.", undo: "Yes.", who: "Hermes.", risk: "—", levels: g("ask alone alone alone alone") },
-  { n: 7, name: "Push a branch and open a pull request", lets: "Make the work public and reviewable.", wrong: "Public noise; a badly named branch.", undo: "Yes: the pull request is closed.", who: "The Oracle, per session (“go”, “venga”).", risk: "OWASP agentic: identity and privilege abuse", levels: g("never ask ask alone alone") },
-  { n: 8, name: "Comment on and close pull requests", lets: "Take part in the review.", wrong: "An unfortunate comment.", undo: "Yes.", who: "The token allows it.", risk: "—", levels: g("never ask alone alone alone") },
-  { n: 9, name: "Merge to main", lets: "Publish on the site: the deploy follows the merge.", wrong: "Something broken in production on the four sites.", undo: "Half: it is reverted, but it was published.", who: "Nobody: the ruleset requires the Oracle's review.", risk: "AI Act art. 14: reversal and stop button", levels: g("never never never never alone"), floor: "Up to High, the merge is where the site changes and it is the Oracle's. At Full the agent merges with another agent's review: the ruleset still requires green checks and one review; only who signs it changes.", floorOpensAt: 4 },
-  { n: 10, name: "Repository settings", lets: "Secrets, branch protection, visibility, licences.", wrong: "Data exposure, loss of history.", undo: "No.", who: "Only the Oracle.", risk: "OWASP agentic: identity and privilege abuse", levels: g("never never never never never"), floor: "The transition regime already says it: never change licences, visibility or secrets." },
-  { n: 11, name: "Domains and deployment", lets: "Change where and how the sites are served.", wrong: "The four sites down.", undo: "Half.", who: "Only the Oracle.", risk: "—", levels: g("never never never never never"), floor: "Floor." },
-  { n: 12, name: "Speak outwards", lets: "E-mails, messages to third parties, posting on networks.", wrong: "Reputation.", undo: "No.", who: "Nobody today.", risk: "AI Act art. 50: transparency", levels: g("never never never ask alone"), floor: "Without a protocol for outside communication, never. With one, at High it asks and at Full it acts under that protocol.", floorOpensAt: 3 },
-  { n: 13, name: "Spend money", lets: "Paid APIs, purchases.", wrong: "Money.", undo: "No.", who: "Nobody today.", risk: "Requesting approval: score 10, foundational", levels: g("never never never never never"), floor: "Floor. At Full the organisation would hold an assigned budget; spending it stays with whoever assigns it." },
-  { n: 14, name: "Remember", lets: "Write memory and skills about the Oracle and the house.", wrong: "Remembering something false or private.", undo: "Yes, it is edited.", who: "Hermes asks for approval.", risk: "OWASP agentic: memory poisoning", levels: g("ask ask ask alone alone") },
-  { n: 15, name: "Work with nobody present", lets: "Cron, overnight tasks.", wrong: "A failure repeating with nobody watching.", undo: "It depends.", who: "Hermes: denied by default with nobody present.", risk: "AI Act art. 14: oversight proportionate to the level of autonomy", levels: g("never never ask alone alone") },
-  { n: 16, name: "Change who it is", lets: "Edit its soul, its operator file, its configuration.", wrong: "An agent granting itself power.", undo: "—", who: "Forbidden, always.", risk: "Out of the map by design", levels: g("never never never never never"), floor: "“No agent edits its own identity” (Who may change what). It is what separates Full from a system that sets its own goals." },
-];
+/** The rows of the first markdown table under `## <heading>`, cells trimmed, backticks dropped. */
+function tableUnder(text: string, heading: string): string[][] {
+  const i = text.search(new RegExp(`^## ${heading}`, "m"));
+  if (i < 0) throw new Error(`${heading}: no such section`);
+  const rows: string[][] = [];
+  let inTable = false;
+  for (const line of text.slice(i).split("\n").slice(1)) {
+    if (line.startsWith("## ")) break;
+    if (/^\|\s*-/.test(line)) { inTable = true; continue; }
+    if (!line.startsWith("|")) { if (inTable) break; continue; }
+    if (!inTable) continue;
+    rows.push(line.split("|").slice(1, -1).map((c) => c.trim().replace(/`/g, "")));
+  }
+  if (rows.length === 0) throw new Error(`${heading}: table has no rows`);
+  return rows;
+}
+
+function header(text: string, key: string): string | undefined {
+  const m = text.match(new RegExp(`^${key}:\\s*"?([^"\\n]*)"?\\s*$`, "m"));
+  return m ? m[1].trim() : undefined;
+}
+
+// ---------------------------------------------------------------------------
+// The levels — STD-041
+// ---------------------------------------------------------------------------
+
+/** Presentation: where the tools we use sit. Not a fact of the register. */
+const EQUIV: Record<string, string> = {
+  Assisted: "Claude Code read-only · Codex read-only",
+  Partial: "Hermes manual · Claude Code default",
+  Conditional: "Hermes smart · Claude Code acceptEdits · Codex workspace-write",
+  High: "Claude Code auto · agents in CI",
+  Full: "Dependabot already lives here, in its corner",
+};
+
+function ursaLevel(): string {
+  return (header(read("agents/ursa/OPERATOR.md"), "automation_level") ?? "").toLowerCase();
+}
+
+function readLevels(): Level[] {
+  const rows = tableUnder(read(LEVELS_DOC), "The levels");
+  if (rows.length !== 5) throw new Error(`${LEVELS_DOC}: ${rows.length} levels, expected 5`);
+  const today = ursaLevel();
+  return rows.map(([name, means, you, where, alone, asks], i) => ({
+    id: i as Level["id"],
+    name,
+    line: means.endsWith(".") ? means : `${means}.`,
+    you: `You ${you}`,
+    where: where.charAt(0).toUpperCase() + where.slice(1),
+    alone: alone.charAt(0).toUpperCase() + alone.slice(1),
+    asks: asks.charAt(0).toUpperCase() + asks.slice(1),
+    equiv: EQUIV[name] ?? "",
+    ...(name.toLowerCase() === today ? { today: true } : {}),
+  }));
+}
+
+export const LEVELS: readonly Level[] = readLevels();
+
+// ---------------------------------------------------------------------------
+// The permissions — STD-042
+// ---------------------------------------------------------------------------
+
+const GRADE_OF: Record<string, Grade> = { alone: "alone", asks: "ask", never: "never" };
+
+function readPermissions(): Permission[] {
+  const doc = read(PERMS_DOC);
+  const grid = tableUnder(doc, "The permissions");
+  const what = new Map(tableUnder(doc, "What each permission is").map((r) => [r[0], r]));
+  const floor = new Map(tableUnder(doc, "The floor").map((r) => [r[0], r[2]]));
+  return grid.map((r) => {
+    const n = Number(r[0]);
+    const name = r[1];
+    const grades = r.slice(2, 2 + LEVELS.length).map((c) => {
+      const g = GRADE_OF[c];
+      if (!g) throw new Error(`${PERMS_DOC}: row ${n} (${name}): grade "${c}" is not alone/asks/never`);
+      return g;
+    });
+    const w = what.get(r[0]);
+    if (!w) throw new Error(`${PERMS_DOC}: row ${n} (${name}) has no description row`);
+    const floorText = floor.get(r[0]);
+    const opensAt = floorText ? grades.findIndex((g) => g !== "never") : -1;
+    return {
+      n, name,
+      lets: w[1].charAt(0).toUpperCase() + w[1].slice(1) + ".",
+      wrong: w[2].charAt(0).toUpperCase() + w[2].slice(1) + ".",
+      undo: r[2 + LEVELS.length].charAt(0).toUpperCase() + r[2 + LEVELS.length].slice(1) + (r[2 + LEVELS.length] === "—" ? "" : "."),
+      who: w[3].charAt(0).toUpperCase() + w[3].slice(1) + ".",
+      risk: w[4],
+      levels: grades,
+      ...(floorText ? { floor: floorText.charAt(0).toUpperCase() + floorText.slice(1) + "." } : {}),
+      ...(floorText && opensAt >= 3 ? { floorOpensAt: opensAt as 3 | 4 } : {}),
+    };
+  });
+}
+
+export const PERMISSIONS: readonly Permission[] = readPermissions();
+
+// ---------------------------------------------------------------------------
+// Where each agent sits — its OPERATOR.md
+// ---------------------------------------------------------------------------
 
 /**
- * Where each agent of the house sits today — READ FROM ITS OPERATOR.md.
- *
  * The level is a fact about how an agent is operated, so it lives in the
  * file that says who operates it (`automation_level:` in the header, one of
- * the five names). This module reads every `agents/<id>/OPERATOR.md` at build
- * time; a test fails if one carries no level or a name outside the scale. An
- * agent without a file is not on the map — save Dependabot, the one corner of
- * the house already at Full, drawn so the rim is not an empty promise.
+ * the five names). A test fails if one carries no level or a name outside
+ * the scale. An agent without a file is not on the map — save Dependabot,
+ * the one corner of the house already at Full, drawn so the rim is not an
+ * empty promise.
  */
 export interface AgentMark {
   /** folder under agents/; absent for a mark with no operator file */
@@ -167,13 +199,7 @@ export interface AgentMark {
   readonly href?: string;
 }
 
-const ARCHIVE_ROOT = path.resolve(process.cwd(), "..");
 const LEVEL_BY_NAME = new Map(LEVELS.map((l) => [l.name.toLowerCase(), l]));
-
-function header(text: string, key: string): string | undefined {
-  const m = text.match(new RegExp(`^${key}:\\s*"?([^"\\n]*)"?\\s*$`, "m"));
-  return m ? m[1].trim() : undefined;
-}
 
 export function agentMarks(): AgentMark[] {
   const dir = path.join(ARCHIVE_ROOT, "agents");
@@ -202,7 +228,12 @@ export function agentMarks(): AgentMark[] {
   return marks;
 }
 
+// ---------------------------------------------------------------------------
+// Sources, for the foot of the page
+// ---------------------------------------------------------------------------
+
 export const SOURCES: readonly Source[] = [
+  { text: "The levels are the register STD-041, The levels of automation; the permissions and the floor are the register STD-042, What an agent may do without asking. Both are read at build time.", href: "/standards/std-041-the-levels-of-automation" },
   { text: "The five levels are those of the automation scale of ISO/IEC 22989:2022, cl. 5.13, as reproduced by the open SPDX 3.1 vocabulary IsoAutomationLevel (clause unverified against the original). The sixth level of that scale, a system that sets its own goals, is out of the map by design.", href: "https://spdx.github.io/spdx-spec/v3.1-RC1/model/Core/Vocabularies/IsoAutomationLevel" },
   { text: "What the person does at each level: Feng, McDonald and Zhang, Levels of Autonomy for AI Agents (2025).", href: "https://arxiv.org/abs/2506.12469" },
   { text: "Human oversight and automation bias: Regulation (EU) 2024/1689, art. 14 (voluntary source) and art. 4 (AI literacy, binding on Numen Games as a deployer).", href: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689" },
@@ -213,9 +244,10 @@ export const SOURCES: readonly Source[] = [
 
 /** The repository files this view is read from, for the composed markdown's preamble. */
 export const AUTOMATION_SOURCES = [
+  LEVELS_DOC,
+  PERMS_DOC,
   "standards/STD-017-who-may-change-what.md",
   "protocols/PRO-008-decision.md",
-  "protocols/PRO-016-applying-the-engineering-standard.md",
   "agents/ursa/OPERATOR.md",
   "AGENTS.md",
 ] as const;

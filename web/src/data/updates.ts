@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.92.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "CHG",
+        text: "The levels and the permissions on /automation are now two registers of the archive, read at build time: The levels of automation (STD-041, the five levels, what the person does in each, and the two ends outside the scale) and What an agent may do without asking (STD-042, sixteen permissions graded at each level, and the floor). Edit a register and the page changes; a test fails if they drift. Both sit on the first shelf of /standards, beside who may change what.",
+      },
+      {
+        type: "CHG",
+        text: "Requesting approval now asks for the plain words first — what I am about to do, what could go wrong, whether it can be undone — with the command beneath, because the person who answers did not write the command and answers for it.",
+      },
+    ],
+  },
+  {
     version: "v0.91.0",
     date: "2026-09-29",
     entries: [

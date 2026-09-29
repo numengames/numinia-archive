@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.9.0"
+version: "0.10.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-28T13:00:00+02:00"
+updated: "2026-09-29T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -115,6 +115,8 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-038` | Which stages does a sale pass through, and what moves it? | register |
 | `STD-039` | What must the record of an opportunity contain? | — |
 | `STD-040` | What must a proposal contain before it is sent? | — |
+| `STD-041` | At which levels may an agent be operated, and what does the person do in each? | register |
+| `STD-042` | Which permission is granted alone at each level of automation? | register |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.

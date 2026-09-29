@@ -38,6 +38,24 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
 const DATA = path.resolve(ROOT, 'web', 'src', 'lib', 'automation-levels.ts');
 const PAGE = path.resolve(ROOT, 'web', 'src', 'pages', 'automation.astro');
+const LEVELS_DOC = path.resolve(ROOT, 'standards', 'STD-041-the-levels-of-automation.md');
+const PERMS_DOC = path.resolve(ROOT, 'standards', 'STD-042-what-an-agent-may-do-without-asking.md');
+
+/** The rows of the first markdown table under a `## heading` whose text matches. */
+function tableUnder(text, heading) {
+  const i = text.search(new RegExp(`^## ${heading}`, 'm'));
+  assert.ok(i >= 0, `no "## ${heading}" section`);
+  const rows = [];
+  let inTable = false;
+  for (const line of text.slice(i).split('\n').slice(1)) {
+    if (line.startsWith('## ')) break;
+    if (/^\|\s*-/.test(line)) { inTable = true; continue; }
+    if (!line.startsWith('|')) { if (inTable) break; continue; }
+    if (!inTable) continue;
+    rows.push(line.split('|').slice(1, -1).map((c) => c.trim()));
+  }
+  return rows;
+}
 
 function load() {
   const script =
@@ -146,4 +164,41 @@ test('the page reads each agent\'s level from its OPERATOR.md — the marks are 
   assert.deepEqual(drift, [], `the page and the operator files disagree:\n  ${drift.join('\n  ')}`);
   const withFile = AGENTS.filter((a) => a.id).map((a) => a.id).sort();
   assert.deepEqual(withFile, [...declared.keys()].sort(), 'every agent with an OPERATOR.md is on the page, and nobody else with an id');
+});
+
+// ---------------------------------------------------------------------------
+// The two registers in standards/ are the source; the module reads them.
+// ---------------------------------------------------------------------------
+
+test('the levels register exists, is a register, and its five rows are the module\'s five levels in order', () => {
+  assert.ok(existsSync(LEVELS_DOC), 'standards/STD-041-the-levels-of-automation.md is missing');
+  const doc = readFileSync(LEVELS_DOC, 'utf8');
+  assert.match(doc, /^subtype: register$/m);
+  assert.match(doc, /^derived_from: "CAN-004"$/m, 'the levels derive from the roles canon: rank sets the reach');
+  const rows = tableUnder(doc, 'The levels');
+  const { LEVELS } = load();
+  assert.deepEqual(rows.map((r) => r[0].replace(/`/g, '')), LEVELS.map((l) => l.name), 'the register\'s level names, in order, are what the page draws');
+  assert.match(doc, /## Outside the scale/, 'the register names the two ends outside the scale');
+});
+
+test('the permissions register exists, is a register, cites the levels register, and its rows are the module\'s permissions', () => {
+  assert.ok(existsSync(PERMS_DOC), 'standards/STD-042-what-an-agent-may-do-without-asking.md is missing');
+  const doc = readFileSync(PERMS_DOC, 'utf8');
+  assert.match(doc, /^subtype: register$/m);
+  assert.match(doc, /^related: \[[^\]]*"STD-041"/m, 'the permissions register cites the levels register');
+  const rows = tableUnder(doc, 'The permissions');
+  const { PERMISSIONS, LEVELS } = load();
+  assert.equal(rows.length, PERMISSIONS.length, 'as many rows as permissions the page draws');
+  rows.forEach((r, i) => {
+    assert.equal(r[1], PERMISSIONS[i].name, `row ${i + 1}: name`);
+    const grades = r.slice(2, 2 + LEVELS.length).map((c) => c.replace(/`/g, ''));
+    assert.deepEqual(grades, PERMISSIONS[i].levels.map((g) => ({ alone: 'alone', ask: 'asks', never: 'never' })[g]), `row ${i + 1} (${r[1]}): grades`);
+  });
+});
+
+test('the module reads the two registers rather than carrying the tables (one fact, one place)', () => {
+  const src = readFileSync(DATA, 'utf8');
+  assert.match(src, /STD-041/, 'the module names the levels register');
+  assert.match(src, /STD-042/, 'the module names the permissions register');
+  assert.doesNotMatch(src, /levels:\s*g\("/, 'the grades are not typed in the module any more');
 });

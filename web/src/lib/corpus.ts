@@ -404,14 +404,17 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
   {
     numeral: "I",
     label: "Living together",
-    line: "What you may do here, how we treat each other, and what we call things.",
+    line: "What you may do here, how we treat each other, how far an agent may go alone, and what we call things.",
     // Who you are to the others comes first: what your rank lets you do, how
-    // the commons expects you to behave, who may change which document, and
+    // the commons expects you to behave, who may change which document, at
+    // which level an agent is operated and what it may do alone there, and
     // the two vocabularies — the world's and the business's.
     hrefs: [
       "/standards/std-003-platform-ranks",
       "/standards/std-029-community-conduct",
       "/standards/std-017-who-may-change-what",
+      "/standards/std-041-the-levels-of-automation",
+      "/standards/std-042-what-an-agent-may-do-without-asking",
       "/standards/std-030-the-worlds-vocabulary",
       "/standards/std-026-operative-vocabulary",
     ],
