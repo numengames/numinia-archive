@@ -4,9 +4,9 @@ uid: ""
 title: "Making a proposal"
 type: protocol
 status: draft
-version: "0.2.1"
+version: "0.3.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-28T22:00:00+02:00"
+updated: "2026-09-29T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -85,8 +85,9 @@ before it leaves, and sending it is the approval.
    how it measures — the one-page map, the level agreed and its indicator,
    the trace each learner leaves; price with tax visible, dates, what is
    delivered and under which licence, when it is invoiced, the house's
-   terms. Then what the client must know before agreeing, and the three
-   questions of the canon of money, answered.
+   terms. Then what the client must know before agreeing, the three
+   questions of the canon of money, and last, that the house publishes its
+   proposals and the client may ask not to be named.
 4. **Decide the demonstration.** Only if no earlier case can be shown does
    the Oracle decide whether to build a room before signing — days of work
    without a contract. If yes, it is small, and it is the map's first room.
@@ -96,6 +97,8 @@ before it leaves, and sending it is the approval.
    proposal's path, a next action with its date, and the transition to
    `proposed` with the sender's name in *By*. That row is the evidence; no
    field in the proposal repeats it. Who signs lives in the agreement.
+   From here the record may name the organisation, `disclosure: open`;
+   asked not to, `unnamed`.
 6. **Run the pipeline tool** with proposals on. The record and the proposal
    conform, or the tool says what does not.
 

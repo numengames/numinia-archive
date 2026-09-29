@@ -4,9 +4,9 @@ uid: ""
 title: "Qualifying an opportunity"
 type: protocol
 status: draft
-version: "0.2.1"
+version: "0.3.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-28T22:00:00+02:00"
+updated: "2026-09-29T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -69,7 +69,8 @@ Oracle today, or whom he names) qualifies it and decides.
    sector and size, the source, the contact's role and channel, what they
    said in their words, and a next action with its date. Stage `lead`. The
    record is public: nobody's name, e-mail or phone in it, and the
-   organisation unnamed until it agrees (`STD-039`).
+   organisation by sector and size until the proposal tells the client the
+   house works in the open (`STD-039`).
 2. **Ask the fit question.** Is what they need learnt by walking it, or made
    of people participating? If they need a course, a video or a report,
    say so and decline: `lost`, reason `not-a-fit`, and point them

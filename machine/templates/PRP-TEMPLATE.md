@@ -14,7 +14,7 @@ type: proposal
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
-updated: "YYYY-MM-DDTHH:MM:SSZ"
+updated: "2026-09-29T12:00:00+02:00"
 author: "agent-id"
 owner: "oracle"
 guild: "Procurators"
@@ -101,3 +101,9 @@ SPDX-License-Identifier: CC0-1.0
 - **What does whoever pays take away?** …
 - **Where is it written?** …
 - **Can the whole price be seen?** Yes: section 4, tax included.
+
+## In the open
+
+Numen Games works in the open: we publish our proposals — what we offer,
+how, and at what price. If you would rather your organisation were not
+named, tell us and it will appear by its sector only.
