@@ -4,9 +4,9 @@ uid: ""
 title: "Closing a sale"
 type: protocol
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-29T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -69,9 +69,11 @@ ledger** receive the handover.
    if silence, a second a fortnight later. Each one is a transition row's
    evidence and a new next date. After the second silence: `lost`, reason
    `silence`, and a last courteous line to the client.
-2. **Take the answer.** A yes in writing moves the record to `agreed`, and
-   from here the organisation may be named in it, unless it asks not to be.
-   A no moves it to `lost` with the reason the client gave, from the
+2. **Take the answer.** A yes in writing moves the record to `agreed`; the
+   name stays as the disclosure says. A client who asks now not to be named
+   is written back to its sector, `unnamed`.
+   A no moves it to `lost` with the reason the client gave — and the record
+   back to sector and size, whatever its disclosure — from the
    register's list, and their words in the body. A "later" sets a next date
    and stays at `proposed`.
 3. **Fix the scope and the calendar.** From the proposal, the definitive

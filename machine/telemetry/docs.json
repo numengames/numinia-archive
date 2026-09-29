@@ -1380,10 +1380,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1677,
+  "chars": 1666,
   "apparatus": true,
   "archived": false,
-  "tokens": 490
+  "tokens": 488
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-002.md",
@@ -1413,10 +1413,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 841,
+  "chars": 811,
   "apparatus": true,
   "archived": false,
-  "tokens": 264
+  "tokens": 256
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-001.md",
@@ -1424,10 +1424,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1112,
+  "chars": 1230,
   "apparatus": true,
   "archived": false,
-  "tokens": 333
+  "tokens": 361
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-002.md",
@@ -1435,10 +1435,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1130,
+  "chars": 1248,
   "apparatus": true,
   "archived": false,
-  "tokens": 338
+  "tokens": 366
  },
  {
   "path": "machine/templates/ADR-TEMPLATE.md",
@@ -1523,10 +1523,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 3429,
+  "chars": 3633,
   "apparatus": true,
   "archived": false,
-  "tokens": 927
+  "tokens": 977
  },
  {
   "path": "machine/templates/OPS-TEMPLATE.md",
@@ -1556,10 +1556,10 @@
   "series": null,
   "type": "proposal",
   "status": "draft",
-  "chars": 3631,
+  "chars": 3851,
   "apparatus": true,
   "archived": false,
-  "tokens": 995
+  "tokens": 1052
  },
  {
   "path": "machine/templates/README.md",
@@ -1804,15 +1804,26 @@
   "tokens": 1324
  },
  {
+  "path": "operations/OPS-013-live-gamification-the-offer.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3659,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 973
+ },
+ {
   "path": "opportunities/OPP-2026-001.md",
   "dir": "opportunities",
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 3992,
+  "chars": 4393,
   "apparatus": false,
   "archived": false,
-  "tokens": 1049
+  "tokens": 1149
  },
  {
   "path": "opportunities/OPP-2026-002.md",
@@ -1820,10 +1831,21 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 3721,
+  "chars": 3935,
   "apparatus": false,
   "archived": false,
-  "tokens": 1016
+  "tokens": 1062
+ },
+ {
+  "path": "opportunities/OPP-2026-003.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2813,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 802
  },
  {
   "path": "opportunities/PRP-2026-001.md",
@@ -1831,21 +1853,32 @@
   "series": "opportunities",
   "type": "proposal",
   "status": "draft",
-  "chars": 6001,
+  "chars": 6447,
   "apparatus": false,
   "archived": false,
-  "tokens": 1537
+  "tokens": 1634
  },
  {
   "path": "opportunities/PRP-2026-002.md",
   "dir": "opportunities",
   "series": "opportunities",
   "type": "proposal",
-  "status": "draft",
-  "chars": 6033,
+  "status": "active",
+  "chars": 5533,
   "apparatus": false,
   "archived": false,
-  "tokens": 1554
+  "tokens": 1371
+ },
+ {
+  "path": "opportunities/PRP-2026-003.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "proposal",
+  "status": "active",
+  "chars": 4263,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1108
  },
  {
   "path": "opportunities/README.md",
@@ -1853,10 +1886,10 @@
   "series": "opportunities",
   "type": "meta",
   "status": "active",
-  "chars": 1918,
+  "chars": 1979,
   "apparatus": true,
   "archived": false,
-  "tokens": 547
+  "tokens": 561
  },
  {
   "path": "protocols/PRO-001-agent-session.md",
@@ -2084,10 +2117,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4475,
+  "chars": 4537,
   "apparatus": false,
   "archived": false,
-  "tokens": 1176
+  "tokens": 1190
  },
  {
   "path": "protocols/PRO-029-making-a-proposal.md",
@@ -2095,10 +2128,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5402,
+  "chars": 5579,
   "apparatus": false,
   "archived": false,
-  "tokens": 1356
+  "tokens": 1399
  },
  {
   "path": "protocols/PRO-030-closing-a-sale.md",
@@ -2106,10 +2139,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5039,
+  "chars": 5154,
   "apparatus": false,
   "archived": false,
-  "tokens": 1317
+  "tokens": 1344
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2546,10 +2579,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 3532,
+  "chars": 4085,
   "apparatus": false,
   "archived": false,
-  "tokens": 929
+  "tokens": 1045
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
@@ -2557,10 +2590,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7625,
+  "chars": 7951,
   "apparatus": false,
   "archived": false,
-  "tokens": 1973
+  "tokens": 2065
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -2568,10 +2601,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6819,
+  "chars": 7284,
   "apparatus": false,
   "archived": false,
-  "tokens": 1777
+  "tokens": 1894
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

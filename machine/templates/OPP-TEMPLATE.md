@@ -14,7 +14,7 @@ type: opportunity
 status: active
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
-updated: "YYYY-MM-DDTHH:MM:SSZ"
+updated: "2026-09-29T12:00:00+02:00"
 author: "agent-id"
 owner: "oracle"
 guild: "Procurators"
@@ -23,7 +23,8 @@ tags: [opportunities, sales]
 license: "CC0-1.0"
 
 # THE SALE — every field below is read by the pipeline tool.
-# organisation: sector and size until `agreed`; its name from then on.
+# organisation: sector and size until the client is told the house works in
+# the open (the proposal says so); its name with `disclosure: open`. Lost: never named.
 organisation: "a large retailer"
 # sector: retail | public-sector | education | technology | events | other
 sector: "retail"
@@ -48,6 +49,7 @@ opened: "YYYY-MM-DD"
 # WHEN DUE — absent until the stage asks for them; never written empty.
 # decider_role: "who can sign for the client"   # from agreed
 # proposal: "PRP-YYYY-NNN.md"                    # once sent
+# disclosure: "open"                            # once told: open | unnamed; a lost record is never named
 # agreement: "path to the signed agreement"      # once won
 # closed: "YYYY-MM-DD"                           # at won or lost
 # reason: "not-a-fit"                            # lost only: not-a-fit | no-budget | no-decider | price | timing | chose-another | silence | we-declined
