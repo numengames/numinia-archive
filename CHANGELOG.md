@@ -19,7 +19,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
-- **Added** Legal debts and questions for counsel (`DBT-022`): 33 gaps between what the four sites do and what their legal texts say, each marked ours, counsel's (ATH21) or the company's. Legal notice (`LEG-004`) with the company's identity and the licence of what we publish; cookie notice with equal Accept and Reject on numinia.org; `LEG-001` 2.1.0 names the providers and the transfers outside the EEA it used to deny; `LEG-003` 2.0.0 lists the missing keys and the notice; a test keeps internal notes and old emails out of the published texts (site v0.96.0)
+- **Added** The narrative dial: a moon in the bar sets how the archive speaks — plain, as it is, or Numinia's own words — from a register whose every word is copied from an archive file (`web/src/lib/narrative-words.mjs`, tested); `LEG-003` 2.1.0 lists `numinia-narrative` (site v0.97.0)
+- **Added** Legal debts for counsel (`DBT-022`, 33 gaps); legal notice (`LEG-004`); cookie notice with equal Accept and Reject; `LEG-001` 2.1.0 names providers and transfers outside the EEA; `LEG-003` 2.0.0 lists every key; a test keeps internal notes out of legal texts (site v0.96.0)
 
 - **Changed** The semantic census answers its first question: a district is a faction's operative territory, tied to no guild or institution; Ouroboros is the Heirs of Eleusis' ground, play first with narration, ritual and dream inside it (Christian, SYS-011 0.2.0)
 - **Fixed** The LAP's name, by the Oracle's ruling: LAP in every language, no dots; *Lector Akáshico Personal* in Spanish, *Lore Akashic Processor* in English. The translation glossary and the LAP census card say so; census dates no longer lie in the future
