@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Added** The semantic census (`SYS-011`): one card per Numinia entity, facet by facet, every claim cited, inferred or proposed; eight pilot cards in draft for Christian. `RPT-023`: a newcomer's wall is the house's words, not the game's
 - **Added** Two registers: The levels of automation (STD-041) and What an agent may do without asking (STD-042); /automation reads them instead of carrying the tables; Requesting approval asks for the plain words before the command (site v0.92.0)
 - **Changed** `OPS-014` 0.2.0: Backer starts at 5 EUR (5, 10 or 25 a month; 2 lost 18 % to the processor's fixed fee), yearly for ten months' price, what each card delivers proposed from common practice; Open books' simulator follows (site v0.91.0)
 - **Added** `BLU-018` Our own payment gateway: Redsys and Bizum through our bank — what Stripe costs on small payments, what doing it ourselves would take, and the trigger to revisit (100 EUR a month in fees)
