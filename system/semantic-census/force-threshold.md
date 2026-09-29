@@ -4,8 +4,8 @@ title: "Threshold"
 type: entity
 status: draft
 version: "0.1.0"
-created: "2026-09-29T21:00:00+02:00"
-updated: "2026-09-29T21:00:00+02:00"
+created: "2026-09-29T12:10:00+02:00"
+updated: "2026-09-29T12:10:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"

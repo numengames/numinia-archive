@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Fixed** The LAP's name, by the Oracle's ruling: LAP in every language, no dots; *Lector Akáshico Personal* in Spanish, *Lore Akashic Processor* in English. The translation glossary and the LAP census card say so; census dates no longer lie in the future
 - **Added** /configure gathers the settings of NWOS (narrative, gamification, automation, the team); every page is reachable from the map or the archive, and `check-reachable` fails the build when one is not (site v0.95.0)
 - **Fixed** The archive's map leads to /contribute: Support Numinia, under The offer · Collect, was marked to create with no link (site v0.94.0)
 - **Added** The semantic census (`SYS-011`): one card per Numinia entity, facet by facet, every claim cited, inferred or proposed; eight pilot cards in draft for Christian. `RPT-023`: a newcomer's wall is the house's words, not the game's
