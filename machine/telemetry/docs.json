@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 16398,
+  "chars": 16446,
   "apparatus": false,
   "archived": false,
-  "tokens": 4428
+  "tokens": 4442
  },
  {
   "path": "CLAUDE.md",
@@ -830,10 +830,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 11426,
+  "chars": 21453,
   "apparatus": false,
   "archived": false,
-  "tokens": 3014
+  "tokens": 5803
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
