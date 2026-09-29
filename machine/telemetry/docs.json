@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 16657,
+  "chars": 16880,
   "apparatus": false,
   "archived": false,
-  "tokens": 4109
+  "tokens": 4162
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13030,
+  "chars": 13277,
   "apparatus": false,
   "archived": false,
-  "tokens": 3498
+  "tokens": 3557
  },
  {
   "path": "CLAUDE.md",
@@ -654,10 +654,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 10027,
+  "chars": 10224,
   "apparatus": false,
   "archived": false,
-  "tokens": 2663
+  "tokens": 2712
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -1963,10 +1963,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4403,
+  "chars": 4955,
   "apparatus": false,
   "archived": false,
-  "tokens": 1143
+  "tokens": 1275
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -2638,6 +2638,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1894
+ },
+ {
+  "path": "standards/STD-041-the-levels-of-automation.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 6212,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1588
+ },
+ {
+  "path": "standards/STD-042-what-an-agent-may-do-without-asking.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 8205,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2273
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
