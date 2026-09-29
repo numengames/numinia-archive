@@ -257,7 +257,7 @@ nota solo aparece cuando la elección no es obvia.
 | Tirada de Prisma | Prism Roll |  |
 | Akasha / Registros Akáshicos | Akasha / Akashic Records | Ya así en los textos del mundo. |
 | Red akáshica | Akashic network |  |
-| LAP (Lector Akáshico Personal) | LAP (Lore Akashic Processor) | La sigla es LAP en los dos idiomas, pero no significa lo mismo: en español *Lector Akáshico Personal*, en inglés *Lore Akashic Processor*. |
+| LAP (Lector Akáshico Personal) | LAP (Lore Akashic Processor) | Se conserva la sigla LAP en los dos idiomas aunque la traducción no sea literal; el sentido es el mismo. En español *Lector Akáshico Personal*, en inglés *Lore Akashic Processor*. Siempre sin puntos. Decisión del Oráculo, 2026-09-29. |
 | Oráculos | Oracles |  |
 | Consejo de Concordia | Concordia Council | Así en numinia.com. |
 | Decálogo Fundacional | Founding Decalogue |  |

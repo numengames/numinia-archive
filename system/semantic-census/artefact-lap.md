@@ -3,9 +3,9 @@ id: "SYS-011:artefact-lap"
 title: "LAP (Lore Akashic Processor)"
 type: entity
 status: draft
-version: "0.1.0"
-created: "2026-09-29T21:00:00+02:00"
-updated: "2026-09-29T21:00:00+02:00"
+version: "0.1.1"
+created: "2026-09-29T12:10:00+02:00"
+updated: "2026-09-29T13:50:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -35,7 +35,7 @@ plausible reading nobody has confirmed yet.
 | Name in the manual (ES) | LAP, «Lector Akáshico Personal» (cited: `lore/game/manual/glossary-es-en.md` — «LAP (Lector Akáshico Personal)») |
 | Name in English | LAP, «Lore Akashic Processor» (cited: same) |
 | Category | artefact |
-| Also written as | «L.A.P.» (cited: `numinia-web:apps/store/src/i18n/messages.ts` — «navLap: 'L.A.P.'»); «Akashic Reader» (cited: `numinia-web:apps/store/src/i18n/codex.ts` — «Lector Akáshico → Akashic Reader»); «Ficha LAP» / «LAP Card» (cited: `lore/game/manual/glossary-es-en.md` — «Ficha LAP») |
+| Also written as | «Ficha LAP» / «LAP Card» (cited: `lore/game/manual/glossary-es-en.md` — «Ficha LAP»). The forms «L.A.P.» and «Akashic Reader», once on numinia.com, were corrected to the ruling below |
 
 ## Concept
 
@@ -90,18 +90,16 @@ The LAP is the everyday interface between an individual and the city's informati
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
 | `STD-030`, `BLU-007` | none | pending | Term absent |
-| `glossary-es-en.md` | Lector Akáshico Personal = Lore Akashic Processor | ambiguous | «Personal» (the device) becomes «Lore» (the content); «Lector» becomes «Processor», implying computation the manual never describes |
-| `numinia-web:.../i18n/codex.ts` (comment) | Lector Akáshico = Akashic Reader | contradictory | Cites the glossary but does not match it; the same file's English string says «Lore Akashic Processor» |
+| `glossary-es-en.md` | Lector Akáshico Personal = Lore Akashic Processor | complete | The Oracle's ruling (2026-09-29): the acronym is kept in both languages though the translation is not literal; the sense is the same |
 | `LEG-003` | LAP = «player area» | reductive | Keeps the personal-access facet; drops the world artefact and its limits |
 | `BLU-011` | LAP = reading frame of the codex | partial | Captures interface-around-content; one facet of the house use |
 | `lore/codex/glosario.md` | Digest of Ch. 6 | complete | No reframing |
 
 ## Observations
 
-- **Acronym divergence** (ES «Lector…Personal» vs EN «Lore…Processor») is documented, not resolved; production code adds a third, «Akashic Reader». Pending for Christian/Oracle (cited: `glossary-es-en.md`; `codex.ts`).
+- **Name — settled by the Oracle's ruling, 2026-09-29:** *LAP*, no dots, in every language; it stands for *Lector Akáshico Personal* in Spanish and *Lore Akashic Processor* in English. The acronym is kept although the translation is not literal, because the sense is the same. Any other form is corrected (cited: `lore/game/manual/glossary-es-en.md` — «LAP (Lector Akáshico Personal)»).
 - **Access conflict:** in the world, every citizen has a LAP. `LapShell.astro` says «Open to Nomads (D16): no wall, ever», yet `permissions.ts` grants `access-lap` at rank *vernacular*, not *nomad* or *citizen*. Not resolved here.
 - **Shared core:** the world LAP «debe mostrar el límite con claridad»; the product promises «honest empty states» (inferred: uses in `06-inventario-y-bestiario.md`, `numinia-web:apps/store/src/i18n/lap.ts`). Candidate Puente core (proposed).
-- The English manual already uses «Lore Akashic Processor», so changing the expansion would touch published text (cited: `lore/game/manual/en/06-inventory-and-bestiary.md` — «Fragment 3: The LAP»).
 
 ## Sources
 
