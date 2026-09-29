@@ -32,7 +32,7 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
-    version: "v0.90.0",
+    version: "v0.92.0",
     date: "2026-09-29",
     entries: [
       {
@@ -42,6 +42,16 @@ export const UPDATES: readonly UpdateVersion[] = [
       {
         type: "CHG",
         text: "Requesting approval now asks for the plain words first — what I am about to do, what could go wrong, whether it can be undone — with the command beneath, because the person who answers did not write the command and answers for it.",
+      },
+    ],
+  },
+  {
+    version: "v0.91.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "CHG",
+        text: "Open books' support simulator offers 5, 10 and 25 euros a month, the amounts of the Backer card that Numinia will sell. It offered 3, 5, 10 and 20; below 5, the payment processor's fixed fee eats too much of each payment.",
       },
     ],
   },

@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 16880,
+  "chars": 16657,
   "apparatus": false,
   "archived": false,
-  "tokens": 4162
+  "tokens": 4109
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13277,
+  "chars": 13488,
   "apparatus": false,
   "archived": false,
-  "tokens": 3557
+  "tokens": 3626
  },
  {
   "path": "CLAUDE.md",
@@ -654,10 +654,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 10224,
+  "chars": 10027,
   "apparatus": false,
   "archived": false,
-  "tokens": 2712
+  "tokens": 2663
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -669,6 +669,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2081
+ },
+ {
+  "path": "blueprints/BLU-018-our-own-gateway.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "draft",
+  "chars": 6093,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1729
  },
  {
   "path": "canon/CAN-001-welcome-to-numinia.md",
@@ -1820,10 +1831,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 4797,
+  "chars": 5864,
   "apparatus": false,
   "archived": false,
-  "tokens": 1349
+  "tokens": 1650
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -1963,10 +1974,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4955,
+  "chars": 4403,
   "apparatus": false,
   "archived": false,
-  "tokens": 1275
+  "tokens": 1143
  },
  {
   "path": "protocols/PRO-011-security-audit.md",
@@ -2638,28 +2649,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1894
- },
- {
-  "path": "standards/STD-041-the-levels-of-automation.md",
-  "dir": "standards",
-  "series": "standards",
-  "type": "documentation",
-  "status": "draft",
-  "chars": 6212,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1588
- },
- {
-  "path": "standards/STD-042-what-an-agent-may-do-without-asking.md",
-  "dir": "standards",
-  "series": "standards",
-  "type": "documentation",
-  "status": "draft",
-  "chars": 8205,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2273
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
