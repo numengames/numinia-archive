@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Changed** Legal notice (`LEG-004` 0.2.0) gives the Mercantile Registry entry and postal code; `DBT-022` 0.2.0 strikes nine closed rows and adds two; the cookie notice keeps Accept and Reject side by side on desktop (site v0.98.0)
 - **Added** The narrative dial: a moon in the bar sets how the archive speaks — plain, as it is, or Numinia's own words — from a register whose every word is copied from an archive file (`web/src/lib/narrative-words.mjs`, tested); `LEG-003` 2.1.0 lists `numinia-narrative` (site v0.97.0)
 - **Added** Legal debts for counsel (`DBT-022`, 33 gaps); legal notice (`LEG-004`); cookie notice with equal Accept and Reject; `LEG-001` 2.1.0 names providers and transfers outside the EEA; `LEG-003` 2.0.0 lists every key; a test keeps internal notes out of legal texts (site v0.96.0)
 

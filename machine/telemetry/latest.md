@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-09-29T13:40:20Z"
+updated: "2026-09-29T14:07:12Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `cc1a4d3`  · corpus_hash: `5db6084861fa7de8…`  · measured_at: 2026-09-29T13:40:20Z  · root_dirty: 0
+- head: `66301a9`  · corpus_hash: `0b49473913994716…`  · measured_at: 2026-09-29T14:07:12Z  · root_dirty: 0
 
 ## corpus
 
@@ -207,7 +207,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 849425 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 849900 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 2.08 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -228,11 +228,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | canon | 19794 |
 | missions | 17668 |
 | machine | 17389 |
-| legal | 12990 |
-|  | 11399 |
+| legal | 13081 |
+|  | 11469 |
 | opportunities | 10236 |
 | decisions | 9669 |
-| debt | 5686 |
+| debt | 6000 |
 | objects | 1865 |
 | .github | 912 |
 
@@ -240,9 +240,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 507667 |
-| draft | 174333 |
-| active | 148264 |
+| (none) | 507737 |
+| draft | 174424 |
+| active | 148578 |
 | todo | 13532 |
 | in-progress | 4513 |
 | done | 1116 |
@@ -480,8 +480,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | OPS | 82 |
 | CAN | 345 |
 | ADR | 238 |
-| LEG | 65 |
-| DBT | 59 |
+| LEG | 71 |
+| DBT | 60 |
 | SYS | 74 |
 | RPT | 47 |
 | BLU | 154 |
