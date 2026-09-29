@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17076,
+  "chars": 17332,
   "apparatus": false,
   "archived": false,
-  "tokens": 4610
+  "tokens": 4705
  },
  {
   "path": "CLAUDE.md",
@@ -577,10 +577,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 21060,
+  "chars": 21463,
   "apparatus": false,
   "archived": false,
-  "tokens": 5821
+  "tokens": 5948
  },
  {
   "path": "blueprints/BLU-010-pixel-register.md",
@@ -2546,10 +2546,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 25773,
+  "chars": 29641,
   "apparatus": false,
   "archived": false,
-  "tokens": 7768
+  "tokens": 8957
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
