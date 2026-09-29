@@ -93,7 +93,7 @@ a poco en un nuevo entorno digital, cargado de símbolos, mitos y significados o
 
 
 Este capítulo explora los relatos que dieron forma a la ciudad: las leyendas que susurran
-los bardos, los textos antiguos que custodian los Exégetas, y las profecías enigmáticas que
+los cronistas, los textos antiguos que custodian los Exégetas, y las profecías enigmáticas que
 murmuran las Pitias en sus templos etéreos. Cada historia, cada fragmento del pasado, es
 una pieza clave para comprender el presente de Numinia y los misterios que aún guarda en
 su interior.

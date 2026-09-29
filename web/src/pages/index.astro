@@ -11,9 +11,9 @@
 // The old home (the scheme, every series) now lives at /about.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
-import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
-import type { Entry } from "@/lib/suma";
-import SumaRow from "@/components/SumaRow.astro";
+import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
+import type { Entry } from "@/lib/summa";
+import SummaRow from "@/components/SummaRow.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
 
@@ -42,7 +42,7 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
 ---
 
 <Layout title="Numinia — the Summa" description="The archive of Numen Games, drawn as a map: the rules, the work, the world and the offer." canonicalPath="/">
-  <section class="suma mx-auto max-w-[1280px] px-6 pb-24 pt-10">
+  <section class="summa mx-auto max-w-[1280px] px-6 pb-24 pt-10">
     <div class="stage">
       <!-- ── context: one panel per state ── -->
       <div class="ctx" aria-live="polite">
@@ -80,7 +80,7 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
               <p class="classic">{r.classic}</p>
               <p>{s.ring === "world" ? "Its part of the world. " : s.ring === "offer" ? "What it offers. " : ""}{r.line}</p>
               <ul class="jump">
-                {s.entries.map((e) => <SumaRow e={e} />)}
+                {s.entries.map((e) => <SummaRow e={e} />)}
               </ul>
               {first(s.entries) && <p class="mt"><a class="enter" href={first(s.entries)!.href!}>Open {first(s.entries)!.label} →</a></p>}
               {s.entries.some((e) => !e.href) && <p class="todo-note"><span class="chip">to create</span> {TO_CREATE}</p>}
@@ -95,7 +95,7 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
             <p>{d.line}</p>
             {["world", "offer"].map((ring) => { const s = SEGMENTS.find((x) => x.ring === ring && x.district === k)!; return (
               <div class="qa"><div class="et">{ring === "world" ? "Its world" : "What it offers"}</div>
-                <ul class="jump">{s.entries.map((e) => <SumaRow e={e} />)}</ul></div>); })}
+                <ul class="jump">{s.entries.map((e) => <SummaRow e={e} />)}</ul></div>); })}
           </div>
         ))}
 
@@ -152,7 +152,7 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
 </Layout>
 
 <style is:global>
-  .suma { --t1: rgb(var(--text)); --t2: rgb(var(--text-muted)); --t3: rgb(var(--text-dim)); --lf: rgb(var(--border)); --int: rgb(var(--teal)); --amb: rgb(var(--ambar)); --sup: rgb(var(--bg-card)); }
+  .summa { --t1: rgb(var(--text)); --t2: rgb(var(--text-muted)); --t3: rgb(var(--text-dim)); --lf: rgb(var(--border)); --int: rgb(var(--teal)); --amb: rgb(var(--ambar)); --sup: rgb(var(--bg-card)); }
   .stage { display: grid; grid-template-columns: minmax(340px, 440px) 1fr; gap: 48px; align-items: start; }
   @media (max-width: 1000px) { .stage { grid-template-columns: 1fr; gap: 20px; } .mapcol { order: -1; display: flex; flex-direction: column; } .mapcol svg.astro { order: 0; } .mapcol .dgrid { order: 1; } }
   .dgrid { display: none; }
@@ -295,7 +295,7 @@ const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
     }
     segs.forEach((s) => s.setAttribute("aria-pressed", String(s.classList.contains("sel"))));
     history.replaceState(null, "", state ? "#" + state : location.pathname);
-    document.dispatchEvent(new CustomEvent("suma:state", { detail: state }));
+    document.dispatchEvent(new CustomEvent("summa:state", { detail: state }));
     if (scroll && innerWidth <= 1000 && state) ctx.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 

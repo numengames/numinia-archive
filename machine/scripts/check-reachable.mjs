@@ -124,7 +124,7 @@ if (isMain) {
     for (const k of lost) console.log(`  ✗ REACH-001  ${k}`);
     console.log(
       "\nEvery page is reached by following links from / or /about (bar and footer\n" +
-        "not counted). Give each page above a door: an entry in web/src/lib/suma.ts,\n" +
+        "not counted). Give each page above a door: an entry in web/src/lib/summa.ts,\n" +
         "a row on the index of the drawer it belongs to, or a link from its parent page.",
     );
     process.exit(1);

@@ -3,9 +3,9 @@ id: "SYS-011:institution-summa-archive"
 title: "Summa Archive"
 type: entity
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-09-29T12:10:00+02:00"
+updated: "2026-09-29T16:39:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -37,7 +37,7 @@ plausible reading nobody has confirmed yet.
 | Name in the manual (ES) | Archivo Summa (cited: `lore/game/manual/glossary-es-en.md` — «Así en numinia.com.») |
 | Name in English | Summa Archive (cited: same) |
 | Category | institution |
-| Also written as | «El Archivo» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «conocido coloquialmente»); "Archive Summa" (cited: `system/SYS-002-agent-cycle.md` — «L3 — 📚 Archive Summa»); "the Summa" (cited: `web/src/pages/index.astro` — «The Summa»); `suma` (cited: `web/src/lib/suma.ts`); `archive-summa` (cited: `numinia-web:packages/domain/src/constants/portals.ts`) |
+| Also written as | «El Archivo» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «conocido coloquialmente»); "Summa Archive" (cited: `system/SYS-002-agent-cycle.md` — «L3 — 📚 Summa Archive»); "the Summa" (cited: `web/src/pages/index.astro` — «The Summa»); `summa` (cited: `web/src/lib/summa.ts`); `archive-summa` (cited: `numinia-web:packages/domain/src/constants/portals.ts`) |
 
 ## Concept
 
@@ -57,10 +57,10 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 | Facet | What it is | Provenance |
 |---|---|---|
 | Frontier research | Exploring the peripheries | cited: manual ch. 5 — «estudio sistemático y multidisciplinar» |
-| Containment / secrecy | Classified files, Aleph | cited: manual ch. 5 — «Sus archivos son clasificados» |
+| Aleph Section | The small classified part of an open archive; in the house, the future home of private documents | cited: manual ch. 5 — «Sus archivos son clasificados»; Christian's review, 2026-09-29 |
 | Record-keeper | Reports, ID cards | cited: `lore/adventures/tabletop/el-espejo-roto.md` — «Tarjeta rígida del Archivo Summa» |
 | House memory | Repository as organisational memory | cited: `system/SYS-002-agent-cycle.md` — «The permanent memory» |
-| Map | numinia.org home, four rings | cited: `web/src/lib/suma.ts` — «Four rings from the centre out» |
+| Map | numinia.org home, four rings | cited: `web/src/lib/summa.ts` — «Four rings from the centre out» |
 | Civic registry | numinia.com place | cited: `numinia-web:packages/domain/src/constants/portals.ts` — «The great record: laws, minutes, and rulings.» |
 | Object catalogue | numinia.com entity cards | cited: `numinia-web:apps/store/src/lib/summa.ts` — «Summa entity cards (experiment» |
 
@@ -78,7 +78,7 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 ## Relations
 
 - **Concordia Council** — parent body (cited: manual ch. 5 — «Dependencia: Consejo de Concordia»).
-- **Oracles** — endorse it; in the house they «govern from the Archive Summa» (cited: `blueprints/BLU-007-dual-nomenclature.md`).
+- **Oracles** — endorse it; in the house they «govern from the Summa Archive» (cited: `blueprints/BLU-007-dual-nomenclature.md`).
 - **CAN-009** — house principle behind the memory facet (cited: `canon/CAN-009-the-archive-is-the-organisation.md` — «The archive is the organisation»).
 
 ## Current manifestations
@@ -95,19 +95,19 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 | Source | Equivalence | Evaluation | Why |
 |---|---|---|---|
 | `STD-030` | none found | pending | No Summa entry (inferred: grep of `standards/STD-030-the-worlds-vocabulary.md`) |
-| `BLU-007` | Knowledge Base = Archive Summa | reductive | Keeps memory; drops research, secrecy, ambiguity |
+| `BLU-007` | Knowledge Base = Summa Archive | reductive | Keeps memory; drops research, secrecy, ambiguity |
 | `SYS-002` | L3 permanent memory | partial | Memory and transversality only |
-| `OPS-001` | Archive Summa → `/archive` | reductive | One URL |
+| `OPS-001` | Summa Archive → `/archive` | reductive | One URL |
 | `web/src/lib/corpus.ts` | the Summa = manual's Archivo Summa = whole archive | partial | Only explicit bridge; omits containment |
 | `numinia-web:…/portals.ts` | laws, minutes, rulings | contradictory | Manual gives an exploratory body, not a legal registry |
 | glossary | Archivo Summa ↔ Summa Archive | complete | Name only |
 
 ## Observations
 
-- Spelling: «Summa» in lore and UI; `suma` in module and CSS (`web/src/lib/suma.ts`, `web/src/pages/index.astro`); Spanish «suma» is also an unrelated word in the manual (cited: `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md` — «la suma del 3 sagrado»). Word order varies: "Summa Archive" (lore, .com) vs "Archive Summa" (BLU-007, SYS-002, OPS-001).
+- **Spelling (resolved):** Summa, with two m's, in English and Spanish alike, and «Summa Archive» in that order in English; any other spelling is a mistake to correct (Christian's review, 2026-09-29). The site's module and its styles used a one-m spelling and the house wrote «Archive» first; both were corrected the same day. The Spanish common noun «suma» (a sum) in the manual is another word (cited: `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md` — «la suma del 3 sagrado»).
 - `web/src/lib/corpus.ts` says Summa is the name the repository «has always given its own changelog», yet `CHANGELOG.md` is titled «Changelog — numinia-archive».
 - numinia.com's legal-registry reading conflicts with the manual; which binds is for the Oracle.
-- Secrecy (Aleph) vs a public archive (cited: `README.md` — «The archive is public.»): does the house inherit that facet?
+- **Secrecy (resolved, no conflict):** the Summa Archive is open; only a small part, the Aleph Section, is classified. The repository and its site will have their own Aleph Section when private documents arrive — keys, workers' personal records — that cannot be public (Christian's review, 2026-09-29 — «el Archivo Summa es abierto, y solo una pequeña parte del Archivo Summa, la Sección Aleph, es clasificada»).
 - "The Summa" names both the whole archive and canon shelf III (cited: `web/src/lib/corpus.ts`).
 - `SYS-003`, `STD-026`, `STD-001`, `README.md`, `AGENTS.md` never say "Summa" (inferred: grep).
 
@@ -116,5 +116,5 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 - `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` ("manual ch. 5"), `lore/game/manual/es/02-…`, `06-…`, `07-…` ("manual ch. 7")
 - `lore/adventures/tabletop/el-espejo-roto.md`; `lore/codex/glosario.md`; `lore/game/manual/glossary-es-en.md`
 - `blueprints/BLU-007-dual-nomenclature.md`, `system/SYS-002-agent-cycle.md`, `operations/OPS-001-continuity.md`, `canon/CAN-009-the-archive-is-the-organisation.md`
-- `web/src/lib/suma.ts`, `web/src/lib/corpus.ts`, `web/src/pages/index.astro`, `web/src/components/Wayfinder.astro`
+- `web/src/lib/summa.ts`, `web/src/lib/corpus.ts`, `web/src/pages/index.astro`, `web/src/components/Wayfinder.astro`
 - `numinia-web:packages/domain/src/constants/portals.ts`, `numinia-web:apps/store/src/lib/summa.ts`

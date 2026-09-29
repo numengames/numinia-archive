@@ -3,9 +3,9 @@ id: "SYS-011:rank-oracle"
 title: "Oracle"
 type: entity
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-09-29T12:10:00+02:00"
+updated: "2026-09-29T16:39:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC0-1.0"
@@ -46,7 +46,7 @@ The Oracle is the highest rank. Each rank contains every rank below it (cited: `
 ## Constitutive traits
 
 - Founding: they «soñaron la ciudad y abrieron el paso a su reconstrucción» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Los Oráculos, Arquitectos del Equilibrio»).
-- Collective and small: five in the world (cited: same — «Los Oráculos son cinco»), and no more than four on the platform (cited: `standards/STD-003-platform-ranks.md` — «No more than four Oracles»).
+- Collective and small: they began as five (cited: same — «Los Oráculos son cinco»); one was lost on the way, so four remain, as on the platform (cited: `standards/STD-003-platform-ranks.md` — «No more than four Oracles»; Christian's review, 2026-09-29).
 - Held by being named, not by being counted: «An Oracle is named on the list of Oracles» (cited: `standards/STD-003-platform-ranks.md` — «What each rank adds»).
 - Cannot be banned, and every privileged action it takes is logged (cited: same — «Nobody acts upward»).
 - Exclusive space: the Cámara de los Secretos is «accesible únicamente para los Oráculos» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Templo de Khepri»).
@@ -94,14 +94,14 @@ The Oracle is the highest rank. Each rank contains every rank below it (cited: `
 |---|---|---|---|
 | `STD-030` | none for Oracle; it defers the ranks to «a document of their own» | pending | No business term has been proposed yet |
 | `BLU-007` | Executive / Founder / Council Lead / Arconte / Oráculo | reductive | «Founder» captures the founding facet. «Executive» contradicts the manual's «no gobiernan». Using «Arconte» at stop 7 merges two ranks |
-| `BLU-007` Numinia stop | «The Oráculos govern from the Archive Summa» | contradictory | Manual: «no gobiernan»; the Archive was founded by the Council, with the Oracles' endorsement |
+| `BLU-007` Numinia stop | «The Oráculos govern from the Summa Archive» | contradictory | Manual: «no gobiernan»; the Archive was founded by the Council, with the Oracles' endorsement |
 | `STD-003` | admin / top RBAC role | partial | Covers permissions and the facet of being unbannable. Drops the founding and ethical facets |
 | `CAN-004` | co-founder | partial | Accurate, but says nothing of the approver or operator facets |
 
 ## Observations
 
 - **Ladder check:** `attributes-and-ranks.md`, `CAN-004`, `STD-003`, the glossary and `ranks.ts` all match the ruling: six ranks, same order. But no ES manual chapter defines the ladder (Nómada and Peregrino never appear there as ranks), and the glossary's rank table came from web code (cited: `lore/game/manual/glossary-es-en.md` — «Taken verbatim from `numinia-web/packages/domain/src/constants/`»).
-- **Count conflict:** the manual says five Oracles, STD-003 says at most four, and `agents/INDEX.md` names four (Clio Beruete, Daniel Garrido, Christian Märtens, Pablo Fernández-Maquieira). `ranks.ts` avoids the number on purpose: «no Oracle cardinality anywhere in this file».
+- **Count (resolved):** the Oracles began as five and one was lost. The Chronicles of Numinia tell that he was caught in a sandstorm and, lost and confused, entered the Inversion Rift in the Neuma Subvale, passing to another plane of existence and leaving Numinia (Christian's review, 2026-09-29 — «quedó atrapado en una tormenta de arena […] terminó por introducirse en la Grieta de Inversión, en el Subvalle de Neuma»). Four remain: STD-003's cap and the four named in `agents/INDEX.md` agree with that. The manual still says «son cinco» without the loss; this story is not yet in the manual (proposed: a line in chapter 5 beside «La Grieta de Inversión»).
 - **Singular vs plural:** the house says «the Oracle» (Pablo, as operator; `agents/INDEX.md`), but the rank has four holders. Does «the Oracle's approval» (`STD-017`) mean Pablo or any Oracle?
 - **Rank vs institution:** the manual presents a founding collective with an «Órgano Creador», which reads close to an institution. The ruling says rank. Left open.
 - **Observers conflict:** the Oracles' observers on the Council are «Arcontes» in one passage and «Vernáculos» in another (`05-geografia-y-cultura-de-numinia.md`, «Pensamiento organizado» section vs «El Consejo de Concordia»).

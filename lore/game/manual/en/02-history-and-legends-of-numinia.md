@@ -41,7 +41,7 @@ The history of Numinia is the history of a city born of human ingenuity, banishe
 
 Numinia's destiny then became trapped in the Akasha, the great universal memory that holds the vestiges of all that was and all that will be. From that nebula of scattered data, the echoes of the city found their way back, reconfiguring themselves little by little in a new digital environment, laden with symbols, myths and hidden meanings.
 
-This chapter explores the tales that gave shape to the city: the legends whispered by the Bards, the ancient texts guarded by the Exegetes, and the enigmatic prophecies murmured by the Pythias in their ethereal temples. Every story, every fragment of the past, is a key piece for understanding Numinia's present and the mysteries it still keeps within.
+This chapter explores the tales that gave shape to the city: the legends whispered by the Chroniclers, the ancient texts guarded by the Exegetes, and the enigmatic prophecies murmured by the Pythias in their ethereal temples. Every story, every fragment of the past, is a key piece for understanding Numinia's present and the mysteries it still keeps within.
 
 Legends, myths and historical accounts do not only build the setting; they are narrative tools that the Narrator can use to sow clues, create mysteries or inspire memorable moments. Because in Numinia, the echo of an ancient prophecy, the vestige of a forgotten city or the trace of an arcane symbol may be the key to understanding the true meaning of the events yet to come.
 

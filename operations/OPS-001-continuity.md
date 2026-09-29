@@ -53,7 +53,7 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 
 - **State:** ✅ Resolved
 - **Problem:** The 9 seminal documents — Numinia's Constitution — lived only in /workspace/seminal-documents/. If the machine died, the canon disappeared.
-- **Solution:** Copied into the repository under canon/. They are now part of the Archive Summa and versioned with git.
+- **Solution:** Copied into the repository under canon/. They are now part of the Summa Archive and versioned with git.
 
 ### G3 — Daily memory was not persisted to git
 
@@ -114,7 +114,7 @@ A backup stores files. NWOS continuity guarantees that identity, laws, knowledge
 
 ### Institutional knowledge cannot die with one person
 
-In traditional organizations, when a key person leaves, they take years of context with them. The NWOS inverts this: every decision, every learning, every important conversation ends up in the Archive Summa. The organization knows what it knows, regardless of who is present.
+In traditional organizations, when a key person leaves, they take years of context with them. The NWOS inverts this: every decision, every learning, every important conversation ends up in the Summa Archive. The organization knows what it knows, regardless of who is present.
 
 ### A new agent must be able to operate in < 10 minutes
 
@@ -141,7 +141,7 @@ The real continuity test is not whether the system can be rebuilt — it is whet
 
 - How the agent works → `/agente`
 - See the repository → https://github.com/numengames/numinia-nwos
-- Archive Summa → `/archive`
+- Summa Archive → `/archive`
 
 ---
 

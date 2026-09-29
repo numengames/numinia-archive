@@ -5,9 +5,9 @@ title: "The semantic census"
 type: documentation
 subtype: reference
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-29T12:15:00+02:00"
-updated: "2026-09-29T14:08:00+02:00"
+updated: "2026-09-29T16:39:00+02:00"
 author: "ursa"
 owner: "oracle"
 provenance: ai-assisted
@@ -96,6 +96,9 @@ equivalence is judged *complete*, *partial*, *reductive*, *ambiguous*,
 - **cited** — a source says it; the card quotes it and names the file.
 - **inferred** — several uses support it; the card names them.
 - **proposed** — a plausible reading nobody has confirmed yet.
+
+After the pilot, Christian found the fields sufficient for now; they may change
+later.
 
 A reviewer's written answer is a source: the card cites it by name and date,
 quoting its words.

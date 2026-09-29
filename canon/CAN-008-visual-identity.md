@@ -26,7 +26,7 @@ SPDX-License-Identifier: CC0-1.0
 # One identity, three forces
 
 > **Summary:** Numen Games has one visual identity that speaks through the
-> three forces of its world — the Umbral, the Velo and the Prisma — and stays
+> three forces of its world — the Umbral, the Veil and the Prisma — and stays
 > recognisable in all of them, because the foundation underneath never
 > changes.
 > **Epistemic:** Why does it all look like this?
@@ -101,7 +101,7 @@ used wrong.
 ## The three forces
 
 The world of Numinia moves by three forces, and the identity speaks through
-the same three. Where the Velo keeps, the Umbral manifests, and the Prisma
+the same three. Where the Veil keeps, the Umbral manifests, and the Prisma
 unfolds. Every piece declares the force it lives in **before it declares its
 medium**.
 
@@ -110,11 +110,11 @@ cross. It is the base system: websites, presentations, documents, invoices,
 interface, events, email. It sets the priors of whoever arrives from outside,
 and it is the force that invoices.
 
-**The Velo** is the force of depth. In the world it is the symbolic skin that
+**The Veil** is the force of depth. In the world it is the symbolic skin that
 sustains the city, where knowledge orders itself upon being discovered; in
 the system it is the atmosphere seen behind and through things — archive,
 viewers, discovery surfaces. It makes visible how knowledge settles, as
-literal layers. Its single rule: **the Velo adds no new colour, only
+literal layers. Its single rule: **the Veil adds no new colour, only
 transparency.** Nothing enters the system through that door.
 
 **The Prisma** is the force of refraction: it creates no truths, it
@@ -137,7 +137,7 @@ narrative scenes — never corporate communication, where the pixel would be
 costume rather than narrative. It lives in the night: a pixel scene inside a
 light piece keeps its dark canvas, framed, and is never recoloured.
 
-Where the Velo asks for rite and the Umbral for action, the Prisma asks for a
+Where the Veil asks for rite and the Umbral for action, the Prisma asks for a
 choice — and that is why its two manifestations are entered and left
 completely: a refraction is an angle, and an angle is not mixed.
 

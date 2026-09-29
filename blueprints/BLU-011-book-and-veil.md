@@ -1,12 +1,12 @@
 ---
 id: "BLU-011"
 uid: ""
-title: "The book and the Velo"
+title: "The book and the Veil"
 type: blueprint
 status: active
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-09-29T16:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -22,11 +22,11 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# BLU-011 — The book and the Velo
+# BLU-011 — The book and the Veil
 
 > **Summary:** How the two discovered registers are built: the serif that narrates, the atmosphere and the paper's grain, the book's icons and components, the sky's behaviour and the reading veil.
-> **Epistemic:** The recipes the old standard carried for the codex and the Velo; their values are `STD-023`, their direction `CAN-008`.
-> **Pragmatic:** Building or reviewing a codex page, a Velo surface or the archive.
+> **Epistemic:** The recipes the old standard carried for the codex and the Veil; their values are `STD-023`, their direction `CAN-008`.
+> **Pragmatic:** Building or reviewing a codex page, a Veil surface or the archive.
 > **Audience:** Agents · Oracles
 
 > **A blueprint is a design not yet executed.** This one is: every recipe here is in production. It stays a blueprint because a recipe is how, not whether — the rules are `STD-008`, the values `STD-023`.
@@ -47,12 +47,12 @@ The **small caps is the piece that was missing from the record**: it is not a si
 
 ## 2. The atmosphere and the grain
 
-§5 had two textures: the signal (what flows) and the circuit (where it flows). 5.0.0 names the third: **the atmosphere** — the Velo's grid and fog (§10), the medium where the discovered orders itself. The three share the Nocturno background — and the grain (§5.5) takes the Diurno —: **the signal separates, the circuit gives body, the atmosphere gives depth, the grain gives paper.** Coexistence: hard rules in §10 (one dominates per view; fog over relief at half alpha; grid and relief do not coexist). In Diurno none of the three exists: paper is paper.
+§5 had two textures: the signal (what flows) and the circuit (where it flows). 5.0.0 names the third: **the atmosphere** — the Veil's grid and fog (§10), the medium where the discovered orders itself. The three share the Nocturno background — and the grain (§5.5) takes the Diurno —: **the signal separates, the circuit gives body, the atmosphere gives depth, the grain gives paper.** Coexistence: hard rules in §10 (one dominates per view; fog over relief at half alpha; grid and relief do not coexist). In Diurno none of the three exists: paper is paper.
 
 ### The grammage — the paper's grain
 The codex in production demonstrates the fourth matter, and it is the Diurno's: **the grain**. Generated fractal noise (`feTurbulence` `fractalNoise`, `baseFrequency 0.85`, `numOctaves 3`, tinted to `rgba(74,64,51,.045)` by color matrix), fixed on the background, in an embedded 240² SVG — no download, no image.
 
-**Why it does not contradict §5.2.** That rule — "no texture in Diurno" — forbids the **circuit relief** over paper: the machine is not printed. The grain is not a texture *applied* to the paper: it **is** the paper. Rules: maximum **5 %** intensity; background layer only, `position: fixed`, `pointer-events: none`; never on elevated surfaces nor under data tables; in Nocturno the same grain **drops to half** (night paper is the same paper with less light); it does not combine with relief or the Velo's grid — paper has neither circuit nor Akasha.
+**Why it does not contradict §5.2.** That rule — "no texture in Diurno" — forbids the **circuit relief** over paper: the machine is not printed. The grain is not a texture *applied* to the paper: it **is** the paper. Rules: maximum **5 %** intensity; background layer only, `position: fixed`, `pointer-events: none`; never on elevated surfaces nor under data tables; in Nocturno the same grain **drops to half** (night paper is the same paper with less light); it does not combine with relief or the Veil's grid — paper has neither circuit nor Akasha.
 
 With this, the matters are four and each has its world: **the signal separates, the circuit gives body, the atmosphere gives depth, the grain gives paper.**
 
@@ -87,7 +87,7 @@ The codex's editorial carpentry. They live **inside the paper register** (`BLU-0
 | **Rating gears** [5.1.0 · H2] | row of Phosphor `gear` 0–5, `regular` 18 px; the reached ones in `fill`; on setting the value, the set ones turn **a quarter turn** (120 ms, elevation 04) | Sheet rating (MIS-085); only where the user rates — never to display data they did not set; with `prefers-reduced-motion`, no turn |
 | **The Narrator** [5.1.0 · H3] | play/pause in the book bar (proper icon of the §6.5 set); reads aloud via Web Speech, **highlights the block being read** (solar edge, like the reached glossary term), pace control next to the A·A·A | Scope: codex body, glossary and sheet — never interface; if Web Speech is unavailable, the control is not shown (no dead buttons); the highlight follows the audio, not the scroll |
 
-## 5. The Velo: sky behaviour and the reading veil
+## 5. The Veil: sky behaviour and the reading veil
 
 
 The register is decided in `CAN-008` §3.6. These are its numbers.
@@ -97,11 +97,11 @@ The register is decided in `CAN-008` §3.6. These are its numbers.
 ### The reading veil · seen, not read
 The codex's session boundary, already in production: the closed chapter **is shown** blurred (`blur(2.2px)`) and dissolving downward with a linear mask of `0→90 %`. It is not a wall that hides — it is a veil that promises; the funnel is soft by decision (D2 of the LAP). Rules: veiled text stays **inert** (`user-select:none`, `pointer-events:none`, out of the focus order); the Umbral's seal and its call float **sharp above**; content the person already had open is never veiled.
 
-**Its animations** live in §9.1 (10–14). The 01–09 catalogue remains available to Umbral and Velo alike; 10–12 are exclusive to the Velo and the living paper (`BLU-011` §6).
+**Its animations** live in §9.1 (10–14). The 01–09 catalogue remains available to Umbral and Veil alike; 10–12 are exclusive to the Veil and the living paper (`BLU-011` §6).
 
 ## 6. The living paper — the codex's blueprint
 
-*The blueprint in one line:* Diurno by default (it is paper) with Nocturno toggle as real night reading; the third voice narrates the body (`BLU-011` §1); the reading frame belongs to the Velo; the book can always be taken away.
+*The blueprint in one line:* Diurno by default (it is paper) with Nocturno toggle as real night reading; the third voice narrates the body (`BLU-011` §1); the reading frame belongs to the Veil; the book can always be taken away.
 
 All long-reading paper (codex, book, digital editorial) uses these pieces, **verified in production** at `numinia.com/lap/codex`:
 
@@ -128,7 +128,7 @@ PORTADA                                CAPÍTULO
 
 **Rules of the living paper:**
 
-- **Frame and page are distinct registers.** The page (the paper) is Umbral-Diurno with the third voice; the **reading frame** (the LAP's bar, bookmark, A·A·A controls, switch) MAY live in Velo when the mode is Nocturno. The boundary is visible.
+- **Frame and page are distinct registers.** The page (the paper) is Umbral-Diurno with the third voice; the **reading frame** (the LAP's bar, bookmark, A·A·A controls, switch) MAY live in Veil when the mode is Nocturno. The boundary is visible.
 - **The moon is the bookmark** (`STD-023` §14-06, waxing phases): reading progress is told in moon, from new to full — finishing is a full moon. The reading position is persisted.
 - **A · A · A:** the reading size belongs to the reader, not the designer — three steps over the type scale (`STD-023` §8), without breaking the grid.
 - **The access state is named in the world:** chapters `abierto` / `tras el Umbral` — the session boundary uses the canonical lexicon (`CAN-008` §3.10), never "login required".
@@ -139,13 +139,13 @@ PORTADA                                CAPÍTULO
 - **The book's inks** [5.1.0 · H1]: the system's tertiary text (`#6E6259`/`#8A7D72`) sits at 3.7:1 over the codex's paper — below AA. Inside the paper register, the tertiary is `#75695E` (Diurno) and `#97897D` (Nocturno) — token `papel.tinta-terciaria`, verified in production. Outside the paper, the system's inks stay intact.
 - **The editions are blueprint, not courtesy** [5.1.0 · H4]: the **pdf** is produced by printing the site's CSS (`@media print`, A4 — the full codex prints like a real book, ~413 pages); the **printable sheet** ships without the action bar or controls (paper carries no buttons); the **epub** keeps the glossary links. No edition is generated with a separate typesetter: the source is one, the CSS is the same.
 - **The editorial pieces** (drop cap, reading box, plate, numbered table, margin note, fillet, seal, glossary, downloads, colophon, rating gears, Narrator) are specified in `BLU-011` §4; the book's icons, in `BLU-011` §3; the grain, in `BLU-011` §2.
-- **The invoice inherits none of it** (`BLU-011` §2): administrative paper remains pure Geist, one page, total in toasted Ámbar; neither third voice nor Velo frame.
+- **The invoice inherits none of it** (`BLU-011` §2): administrative paper remains pure Geist, one page, total in toasted Ámbar; neither third voice nor Veil frame.
 
 ## Check
 
 After the general checklist in step 6 of `PRO-014`, and before delivering:
 
-- [ ] Velo: only alphas over canonicals; grid ≤3 %, fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Velo in Diurno; one dominant matter per view; animations 10–11 only here; still one orchestrated moment.
+- [ ] Veil: only alphas over canonicals; grid ≤3 %, fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Veil in Diurno; one dominant matter per view; animations 10–11 only here; still one orchestrated moment.
 - [ ] Sky built as `PRO-022` §3.1; grain (§2) only on paper, ≤5 %, never with relief or grid.
 - [ ] Living paper: third voice only in the book (roman body, SC drop cap and titles, italic lore, no synthetic small caps); bar that yields but does not disappear; glossary with a source per definition; moon as bookmark; `abierto / tras el Umbral` states; .md/pdf/epub visible; literary opening separated; full colophon with the scarab.
 - [ ] The invoice inherits none of it (`BLU-013`).

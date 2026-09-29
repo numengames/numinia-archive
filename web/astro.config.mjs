@@ -51,6 +51,9 @@ export default defineConfig({
 		"/legal/privacidad.md": "/legal/privacy.md",
 		"/legal/terminos": "/legal/terms",
 		"/legal/terminos.md": "/legal/terms.md",
+		// → the Veil is its English name (2026-09-29): BLU-011 renamed
+		"/blueprints/book-and-velo": "/blueprints/book-and-veil",
+		"/blueprints/book-and-velo.md": "/blueprints/book-and-veil.md",
 		// → the design kit
 		// → / — the classification is the home (2026-09-21). /archive asked
 		// "how is this organised?"; the root now answers it. Its children keep

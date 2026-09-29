@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "66301a9",
-  "corpus_hash": "0b494739139947166ce88c3dbc6bc40b891d006e0296999f220719809465fcda",
+  "head": "eef56e7",
+  "corpus_hash": "ae1e38d399f08ef878ba1234286c6f293531a6b20eecc1da0f49bdebcae06496",
   "root_dirty": 0,
-  "measured_at": "2026-09-29T14:07:12Z",
+  "measured_at": "2026-09-29T14:40:48Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 666,
+      "value": 667,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".js": 2,
         ".json": 15,
         ".md": 265,
-        ".mjs": 97,
+        ".mjs": 98,
         ".png": 35,
         ".svg": 72,
         ".toml": 2,
@@ -112,13 +112,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 61,
+      "value": 62,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 61
+        "node": 62
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -328,7 +328,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 849900,
+      "value": 851081,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -336,7 +336,7 @@
       "value": {
         "lore": 491736,
         "standards": 73717,
-        "system": 43917,
+        "system": 44979,
         "agents": 31484,
         "protocols": 27662,
         "blueprints": 27519,
@@ -346,7 +346,7 @@
         "missions": 17668,
         "machine": 17389,
         "legal": 13081,
-        "": 11469,
+        "": 11588,
         "opportunities": 10236,
         "decisions": 9669,
         "debt": 6000,
@@ -358,8 +358,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 507737,
-        "draft": 174424,
+        "(none)": 507856,
+        "draft": 175486,
         "active": 148578,
         "todo": 13532,
         "in-progress": 4513,
@@ -694,13 +694,16 @@
           "3": 306
         },
         "OPS": {
-          "3": 82
+          "3": 81
         },
         "CAN": {
-          "3": 345
+          "3": 346
         },
         "ADR": {
           "3": 238
+        },
+        "BLU": {
+          "3": 154
         },
         "LEG": {
           "3": 71
@@ -709,14 +712,11 @@
           "3": 60
         },
         "SYS": {
-          "3": 74
+          "3": 73
         },
         "RPT": {
           "3": 47,
           "4": 4
-        },
-        "BLU": {
-          "3": 154
         },
         "MIS": {
           "3": 403,
@@ -823,7 +823,7 @@
         "missions/MIS-0135-normalisation-residue-register.md": 7,
         "operations/OPS-001-continuity.md": 7,
         "blueprints/BLU-009-web-pieces.md": 6,
-        "blueprints/BLU-011-book-and-velo.md": 6,
+        "blueprints/BLU-011-book-and-veil.md": 6,
         "reports/RPT-017-mvp-story.md": 6
       },
       "unit": "lines",

@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 15957,
+  "chars": 16398,
   "apparatus": false,
   "archived": false,
-  "tokens": 4309
+  "tokens": 4428
  },
  {
   "path": "CLAUDE.md",
@@ -594,7 +594,7 @@
   "tokens": 3633
  },
  {
-  "path": "blueprints/BLU-011-book-and-velo.md",
+  "path": "blueprints/BLU-011-book-and-veil.md",
   "dir": "blueprints",
   "series": "blueprints",
   "type": "blueprint",
@@ -1182,7 +1182,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 127459,
+  "chars": 127465,
   "apparatus": false,
   "archived": false,
   "tokens": 26982
@@ -1281,7 +1281,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 135750,
+  "chars": 135753,
   "apparatus": false,
   "archived": false,
   "tokens": 38607
@@ -2810,10 +2810,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 5999,
+  "chars": 6087,
   "apparatus": false,
   "archived": false,
-  "tokens": 1601
+  "tokens": 1619
  },
  {
   "path": "system/semantic-census/artefact-lap.md",
@@ -2821,10 +2821,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 7752,
+  "chars": 7764,
   "apparatus": false,
   "archived": false,
-  "tokens": 2266
+  "tokens": 2273
  },
  {
   "path": "system/semantic-census/district-ouroboros.md",
@@ -2832,10 +2832,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9437,
+  "chars": 9443,
   "apparatus": false,
   "archived": false,
-  "tokens": 2774
+  "tokens": 2780
  },
  {
   "path": "system/semantic-census/faction-heirs-of-eleusis.md",
@@ -2843,10 +2843,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9175,
+  "chars": 10377,
   "apparatus": false,
   "archived": false,
-  "tokens": 2635
+  "tokens": 2925
  },
  {
   "path": "system/semantic-census/force-threshold.md",
@@ -2854,10 +2854,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8060,
+  "chars": 8697,
   "apparatus": false,
   "archived": false,
-  "tokens": 2355
+  "tokens": 2525
  },
  {
   "path": "system/semantic-census/guild-exegetes.md",
@@ -2865,10 +2865,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9024,
+  "chars": 10364,
   "apparatus": false,
   "archived": false,
-  "tokens": 2674
+  "tokens": 3008
  },
  {
   "path": "system/semantic-census/institution-summa-archive.md",
@@ -2876,10 +2876,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8249,
+  "chars": 8771,
   "apparatus": false,
   "archived": false,
-  "tokens": 2422
+  "tokens": 2538
  },
  {
   "path": "system/semantic-census/rank-oracle.md",
@@ -2887,10 +2887,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9353,
+  "chars": 9789,
   "apparatus": false,
   "archived": false,
-  "tokens": 2715
+  "tokens": 2836
  },
  {
   "path": "system/semantic-census/resource-prism-cells.md",
