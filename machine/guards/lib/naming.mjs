@@ -35,6 +35,10 @@ export const SERIES = Object.fromEntries(Object.entries(RULES.series)
     dailyDate: !!v.dailyDate,
   }]));
 
+/* folder → owning document, for folders of entries (rules.json `entries`). */
+export const ENTRIES = Object.fromEntries(Object.entries(RULES.entries ?? {})
+  .filter(([k]) => !k.startsWith('_')));
+
 export const ROOT_UPPERCASE_RE = /^[A-Z][A-Z_]*\.md$/;
 export const KEBAB_SLUG_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 export const VERSION_SUFFIX_RE = /-v\d+(\.\d+){0,2}\.md$/i;
@@ -68,7 +72,11 @@ export function classify(rel, fm) {
      authored (IDN-011). Captured artefacts, not documents of the series.
      Still a living name (N-02), never a scheme. */
   const evidence = top === 'reports' && parts[1] === 'evidence';
-  if (!scheme || evidence) return { kind: 'series', base, top, scheme: null, dailyReport: false, slug: null };
+  /* An entry folder (rules.json `entries`): its files are entries of one
+     registered document — the census cards of SYS-011 — named after what
+     they describe. The owner carries the series identifier; they do not. */
+  const entry = Object.keys(ENTRIES).some((dir) => rel.startsWith(dir));
+  if (!scheme || evidence || entry) return { kind: 'series', base, top, scheme: null, dailyReport: false, slug: null };
 
   const dailyReport = scheme.dailyDate && DAILY_REPORT_RE.test(base);
   const m = dailyReport ? null : base.match(new RegExp(`^${scheme.prefix}-\\d{${scheme.digits}}-(.+)\\.md$`));
