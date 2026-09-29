@@ -119,14 +119,23 @@ function whyNoScope(file, fm) {
   return 'no scope line';
 }
 
+/** In force or not, read from the header — never typed. A `Binds:` line in
+ *  the imperative is a description while its document is draft (STD-004);
+ *  without this column the index told every agent that forty rules bound it. */
+function stateOf(fm) {
+  if (fm.status === 'active') return 'in force';
+  return typeof fm.status === 'string' && fm.status ? fm.status : 'no status';
+}
+
 /** The line under the table: what the gaps mean, in the corpus's own terms. */
 function footnote(rows) {
   const n = (p) => rows.filter(p).length;
   const reg = n((r) => r.binds === null && r.cell.startsWith('register'));
   const can = n((r) => r.binds === null && r.cell.startsWith('canon'));
   const gap = n((r) => r.cell === 'no scope line');
-  const parts = [`${rows.length} rule documents`];
-  if (reg) parts.push(`${reg} are registers and ${can ? 'take' : 'takes'} their scope from the standard that cites them`);
+  const live = n((r) => r.state === 'in force');
+  const parts = [`${rows.length} rule documents, of which ${live} ${live === 1 ? 'is' : 'are'} in force; a \`draft\` binds nobody until promoted, whatever its Binds line says`];
+  if (reg) parts.push(`${reg} ${reg === 1 ? 'is a register and takes its' : 'are registers and take their'} scope from the standard that cites them`);
   if (can) parts.push(`${can} are canon, which state why rather than whom`);
   parts.push(gap
     ? `${gap} declare no scope and no exemption covers ${gap === 1 ? 'it' : 'them'} — open ${gap === 1 ? 'it' : 'those'} when in doubt`
@@ -149,15 +158,16 @@ export function buildIndex(root = ROOT) {
       binds,
       title: cleanTitle(fm.title, id),
       cell: binds === null ? whyNoScope(file, fm) : shorten(binds),
+      state: stateOf(fm),
     });
   }
   rows.sort((a, b) => a.id.localeCompare(b.id));
   const lines = [
     BEGIN,
     '',
-    `| Rule | What it rules | Binds |`,
-    '|---|---|---|',
-    ...rows.map((r) => `| \`${r.id}\` | ${r.title} | ${r.cell} |`),
+    `| Rule | What it rules | State | Binds |`,
+    '|---|---|---|---|',
+    ...rows.map((r) => `| \`${r.id}\` | ${r.title} | ${r.state} | ${r.cell} |`),
     '',
     footnote(rows),
     END,

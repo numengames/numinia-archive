@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.88.0",
+    date: "2026-09-28",
+    entries: [
+      {
+        type: "CHG",
+        text: "A rule says whether it binds you where it says whom it binds. Every rule document opens with a Binds line — 'every agent, in every session' — and on a draft that sentence was not true today: draft binds nobody. The band under the title said draft, /binding said draft, and the first line of the document kept saying the opposite in the imperative, so a reader obeyed it. On a draft the line now reads 'Would bind, once in force:', followed by the document's own words, untouched; the day a rule is promoted it reads 'Binds:' again with nothing edited. The rule index agents read in AGENTS.md gains a State column for the same reason.",
+      },
+      {
+        type: "CHG",
+        text: "One name for one archive: document pages are titled '— numinia-archive' instead of '— Corpus NWOS', and the agent context is titled after the repository.",
+      },
+    ],
+  },
+  {
     version: "v0.87.0",
     date: "2026-09-28",
     entries: [

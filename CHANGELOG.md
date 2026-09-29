@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-28
 
+- **Changed** A draft rule no longer says it binds: its Binds line reads "Would bind, once in force" on the site, and the rule index in AGENTS.md shows each rule's state; AGENTS.md and document pages carry the repository's name (site v0.88.0)
 - **Changed** The site bar drops the Archive drop-down: Archive is a plain link to the archive page, whose four blocks are now drawn as buttons, with the books and the sister sites beneath them (#556)
 - **Changed** The site bar keeps Map and Archive only; Archive opens a page drawn from the same four blocks as its menu; the lore index gains its three shelves (world, adventures, codex) and the menu opens each at its own; no white flash between pages (#553)
 - **Fixed** The door names only what exists: AGENTS.md takes the repository's name, opens with the rules in force, and drops references the tree does not hold; a test pins every path and code in the root files to the tree (#552)

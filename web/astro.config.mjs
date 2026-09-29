@@ -9,6 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
 import pagefind from "astro-pagefind";
 import { defineConfig } from "astro/config";
 import rehypeContextCard from "./src/lib/rehype-context-card.mjs";
+import rehypeBindsState from "./src/lib/rehype-binds-state.mjs";
 import { rehypeShiftHeadings } from "./src/lib/rehype-shift-headings.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -243,7 +244,7 @@ export default defineConfig({
 		// Order matters: the card is built from the document's opening
 		// blockquote, then every heading drops one level so the page keeps the
 		// single h1 it printed itself. See rehype-shift-headings.mjs.
-		rehypePlugins: [rehypeContextCard, rehypeShiftHeadings],
+		rehypePlugins: [rehypeContextCard, rehypeBindsState, rehypeShiftHeadings],
 	},
 	vite: {
 		// Tailwind 4 is a Vite plugin: the @astrojs/tailwind integration was
