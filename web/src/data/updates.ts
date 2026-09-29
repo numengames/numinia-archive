@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.91.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "CHG",
+        text: "Open books' support simulator offers 5, 10 and 25 euros a month, the amounts of the Backer card that Numinia will sell. It offered 3, 5, 10 and 20; below 5, the payment processor's fixed fee eats too much of each payment.",
+      },
+    ],
+  },
+  {
     version: "v0.90.0",
     date: "2026-09-29",
     entries: [

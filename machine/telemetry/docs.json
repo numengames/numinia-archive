@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13030,
+  "chars": 13488,
   "apparatus": false,
   "archived": false,
-  "tokens": 3498
+  "tokens": 3626
  },
  {
   "path": "CLAUDE.md",
@@ -669,6 +669,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2081
+ },
+ {
+  "path": "blueprints/BLU-018-our-own-gateway.md",
+  "dir": "blueprints",
+  "series": "blueprints",
+  "type": "blueprint",
+  "status": "draft",
+  "chars": 6093,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1729
  },
  {
   "path": "canon/CAN-001-welcome-to-numinia.md",
@@ -1820,10 +1831,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 4797,
+  "chars": 5864,
   "apparatus": false,
   "archived": false,
-  "tokens": 1349
+  "tokens": 1650
  },
  {
   "path": "opportunities/OPP-2026-001.md",
