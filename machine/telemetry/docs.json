@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 15723,
+  "chars": 15957,
   "apparatus": false,
   "archived": false,
-  "tokens": 4239
+  "tokens": 4309
  },
  {
   "path": "CLAUDE.md",
@@ -830,10 +830,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 10346,
+  "chars": 11426,
   "apparatus": false,
   "archived": false,
-  "tokens": 2700
+  "tokens": 3014
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -973,10 +973,10 @@
   "series": "legal",
   "type": "legal",
   "status": "draft",
-  "chars": 6009,
+  "chars": 6305,
   "apparatus": false,
   "archived": false,
-  "tokens": 1549
+  "tokens": 1640
  },
  {
   "path": "lore/README.md",
