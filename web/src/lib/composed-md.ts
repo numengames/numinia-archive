@@ -39,7 +39,7 @@ import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
-import { LEVELS, PERMISSIONS, AGENTS, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
+import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
 import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears, split as accountSplit, AMOUNTS as ACCOUNT_AMOUNTS, type Line } from "@/lib/account";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
@@ -290,7 +290,9 @@ export function automationPage(): ComposedPage {
     ]),
     "## Where each agent is today",
     "",
-    ...AGENTS.map((a) => `- **${a.name}** — ${LEVELS[a.level].name}: ${a.note}${a.ghost ? " (designed, not activated)" : ""}`),
+    "Read from the `automation_level` header of each agent's operator file.",
+    "",
+    ...agentMarks().map((a) => `- **${a.name}** — ${a.levelName}: ${a.note}${a.href ? ` ([card](${a.href}.md))` : ""}`),
     "",
     "## Where this comes from",
     "",

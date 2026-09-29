@@ -3,11 +3,12 @@ agent: nimrod
 title: "OPERATOR — Nimrod"
 type: agent
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-29T11:00:00+02:00"
 author: "antunj"
 owner: "oracle"
+automation_level: assisted
 tags: [agents, nimrod, repository, navigation, provenance]
 license: "CC0-1.0"
 registration: exempt

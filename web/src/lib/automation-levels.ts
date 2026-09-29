@@ -26,6 +26,9 @@
 // identity). The names are the scale's, in the reader's language, never the
 // number.
 
+import fs from "node:fs";
+import path from "node:path";
+
 export type Grade = "alone" | "ask" | "never";
 
 export interface Level {
@@ -140,25 +143,64 @@ export const PERMISSIONS: readonly Permission[] = [
   { n: 16, name: "Change who it is", lets: "Edit its soul, its operator file, its configuration.", wrong: "An agent granting itself power.", undo: "—", who: "Forbidden, always.", risk: "Out of the map by design", levels: g("never never never never never"), floor: "“No agent edits its own identity” (Who may change what). It is what separates Full from a system that sets its own goals." },
 ];
 
-/** Where each agent of the house sits today. Read from its OPERATOR.md by hand for now. */
+/**
+ * Where each agent of the house sits today — READ FROM ITS OPERATOR.md.
+ *
+ * The level is a fact about how an agent is operated, so it lives in the
+ * file that says who operates it (`automation_level:` in the header, one of
+ * the five names). This module reads every `agents/<id>/OPERATOR.md` at build
+ * time; a test fails if one carries no level or a name outside the scale. An
+ * agent without a file is not on the map — save Dependabot, the one corner of
+ * the house already at Full, drawn so the rim is not an empty promise.
+ */
 export interface AgentMark {
+  /** folder under agents/; absent for a mark with no operator file */
+  readonly id?: string;
   readonly name: string;
   readonly level: Level["id"];
+  readonly levelName: string;
   /** Angle on the astrolabe, degrees from the top. */
   readonly angle: number;
   readonly note: string;
-  /** Designed, not activated. */
+  /** Designed, not activated (no `activated:` date on its card). */
   readonly ghost?: boolean;
   readonly href?: string;
 }
 
-export const AGENTS: readonly AgentMark[] = [
-  { name: "Ursa", level: 1, angle: 20, note: "today; its operator file recommends Conditional", href: "/agents/ursa" },
-  { name: "Talos", level: 0, angle: 200, note: "read, verify, propose; never apply", href: "/agents/talos" },
-  { name: "Byblos", level: 1, angle: 110, note: "designed, not activated", ghost: true, href: "/agents/byblos" },
-  { name: "Calliope", level: 1, angle: 290, note: "designed, not activated", ghost: true, href: "/agents/calliope" },
-  { name: "Dependabot", level: 4, angle: 150, note: "merges alone within its bounded mission, the ruleset watching" },
-];
+const ARCHIVE_ROOT = path.resolve(process.cwd(), "..");
+const LEVEL_BY_NAME = new Map(LEVELS.map((l) => [l.name.toLowerCase(), l]));
+
+function header(text: string, key: string): string | undefined {
+  const m = text.match(new RegExp(`^${key}:\\s*"?([^"\\n]*)"?\\s*$`, "m"));
+  return m ? m[1].trim() : undefined;
+}
+
+export function agentMarks(): AgentMark[] {
+  const dir = path.join(ARCHIVE_ROOT, "agents");
+  const ids = fs.readdirSync(dir).filter((d) => !d.startsWith("_") && fs.existsSync(path.join(dir, d, "OPERATOR.md"))).sort();
+  const marks: AgentMark[] = ids.map((id, i) => {
+    const op = fs.readFileSync(path.join(dir, id, "OPERATOR.md"), "utf8");
+    const raw = header(op, "automation_level") ?? "";
+    const level = LEVEL_BY_NAME.get(raw.toLowerCase());
+    if (!level) throw new Error(`agents/${id}/OPERATOR.md: automation_level "${raw}" is not one of ${[...LEVEL_BY_NAME.keys()].join("/")}`);
+    const cardMd = path.join(dir, id, "AGENT.md");
+    const cardYaml = path.join(dir, id, "AGENT.yaml");
+    const card = (fs.existsSync(cardMd) ? fs.readFileSync(cardMd, "utf8") : "") + (fs.existsSync(cardYaml) ? fs.readFileSync(cardYaml, "utf8") : "");
+    // AGENT.yaml carries `activated: "YYYY-MM-DD"` (null while designed);
+    // AGENT.md, the converted card, says it in its summary line.
+    const activated = /^activated:\s*"?\d{4}-\d{2}-\d{2}/m.test(card) || /activated \d{4}-\d{2}-\d{2}/.test(card);
+    const name = header(op, "title")?.replace(/^OPERATOR\s+—\s+/, "") ?? id;
+    return {
+      id, name, level: level.id, levelName: level.name,
+      angle: Math.round((360 / (ids.length + 1)) * i + 15),
+      note: activated ? (level.today ? "today" : "as its operator file declares") : "designed, not activated",
+      ghost: !activated,
+      href: `/agents/${id}`,
+    };
+  });
+  marks.push({ name: "Dependabot", level: 4, levelName: LEVELS[4].name, angle: 150, note: "merges alone within its bounded mission, the ruleset watching" });
+  return marks;
+}
 
 export const SOURCES: readonly Source[] = [
   { text: "The five levels are those of the automation scale of ISO/IEC 22989:2022, cl. 5.13, as reproduced by the open SPDX 3.1 vocabulary IsoAutomationLevel (clause unverified against the original). The sixth level of that scale, a system that sets its own goals, is out of the map by design.", href: "https://spdx.github.io/spdx-spec/v3.1-RC1/model/Core/Vocabularies/IsoAutomationLevel" },

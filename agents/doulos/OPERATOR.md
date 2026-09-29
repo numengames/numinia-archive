@@ -3,13 +3,14 @@ agent: doulos
 title: "OPERATOR — Doulos"
 type: agent
 status: active
-version: "1.0.1"
+version: "1.1.0"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-29T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
+automation_level: assisted
 tags: [agents, doulos]
 license: "CC0-1.0"
 registration: exempt
