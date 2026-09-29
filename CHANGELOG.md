@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-29
 
+- **Added** /configure gathers the settings of NWOS (narrative, gamification, automation, the team); every page is reachable from the map or the archive, and `check-reachable` fails the build when one is not (site v0.95.0)
 - **Fixed** The archive's map leads to /contribute: Support Numinia, under The offer · Collect, was marked to create with no link (site v0.94.0)
 - **Added** The semantic census (`SYS-011`): one card per Numinia entity, facet by facet, every claim cited, inferred or proposed; eight pilot cards in draft for Christian. `RPT-023`: a newcomer's wall is the house's words, not the game's
 - **Added** /contribute: Open Collective's Contribute cards and path (details, how you appear, payment) read from `OPS-014` 0.3.0's `goods` (a field `STD-004` 4.5.0 registers for operations/); pay button Coming soon; a block at the foot of every document links to it (site v0.93.0)

@@ -46,6 +46,7 @@ import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { pipeline as salesPipeline, PIPELINE_SOURCES } from "@/lib/pipeline";
 import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
 import { goods as contributeGoods, onSale as contributeOnSale, CONTRIBUTE_SOURCES, OFFER_ROUTE } from "@/lib/contribute";
+import { settings as configSettings, MOULDS as CONFIG_MOULDS, CONFIG_INTRO } from "@/lib/configuration";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -939,8 +940,32 @@ export async function contributePage(): Promise<ComposedPage> {
   return { route: "/contribute", filename: "numinia-contribute.md", sources: [...CONTRIBUTE_SOURCES], body: preamble([...CONTRIBUTE_SOURCES]) + body };
 }
 
+/** `/configure` — the settings of NWOS, gathered, from @/lib/configuration. */
+export function configurePage(): ComposedPage {
+  const sources = ["web/src/lib/configuration.ts", ...CONFIG_MOULDS.map((m) => m.file)];
+  const body = [
+    preamble(sources),
+    "# Configure NWOS",
+    "",
+    CONFIG_INTRO,
+    "",
+    "## The four settings",
+    "",
+    table(["Setting", "The question", "Scale", "Where"], configSettings().map((s) => [s.label, s.question, s.scale, `[${s.href}](${s.href})`])),
+    "",
+    ...configSettings().flatMap((s) => [`### ${s.label}`, "", s.line, ""]),
+    "## Building a new agent",
+    "",
+    "A new agent starts as a copy of these moulds:",
+    "",
+    ...CONFIG_MOULDS.map((m) => `- [${m.label}](${m.href}) — ${m.line}. \`${m.file}\``),
+    "",
+  ].join("\n");
+  return { route: "/configure", filename: "numinia-configure.md", sources, body };
+}
+
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), designPage(), accountPage(), await contributePage(), pipelinePage(), templatesPage(), corePage()];
+  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), await contributePage(), pipelinePage(), templatesPage(), corePage()];
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));

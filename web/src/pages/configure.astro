@@ -1,0 +1,75 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /configure — the settings of NWOS, gathered: narrative, gamification,
+// automation and the team. The data is @/lib/configuration; the markdown
+// twin (/configure.md) is built from the same module in @/lib/composed-md.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import Icon from "@/components/Icon.astro";
+import { repoFileUrl } from "@/lib/build-info";
+import { settings, CONFIG_INTRO, MOULDS } from "@/lib/configuration";
+
+const S = settings();
+---
+
+<Layout
+  title="Configure NWOS — Numinia"
+  description="The four settings an organisation chooses in NWOS: narrative, gamification, automation and the team of agents — each with its own page."
+  canonicalPath="/configure"
+>
+  <PageHero
+    label="The offer · Organise"
+    title="Configure NWOS"
+    description={CONFIG_INTRO}
+  />
+  <div class="mx-auto max-w-[1100px] px-6 pb-8">
+    <DocToolbar mdUrl="/configure.md" filename="numinia-configure.md" repoUrl={repoFileUrl("web/src/lib/configuration.ts")} lang="en" />
+  </div>
+
+  <section class="pb-12">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <div class="grid gap-4 sm:grid-cols-2">
+        {S.map((s) => (
+          <a href={s.href} class="cfg group">
+            <span class="cfg-top"><Icon name={s.icon} size={18} /><span class="cfg-label">{s.label}</span><span class="cfg-scale">{s.scale}</span></span>
+            <span class="cfg-q">{s.question}</span>
+            <span class="cfg-line">{s.line}</span>
+            <span class="cfg-go">Open {s.label.toLowerCase()} →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <article class="rounded-[8px] border border-border bg-card/60 p-6">
+        <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">Building a new agent</h2>
+        <p class="text-sm leading-relaxed text-muted-foreground mb-4">
+          Every agent of the team is a folder of files. A new one starts as a copy of these moulds: who it answers to,
+          who it is, and where its knowledge comes from. The skill below is what an agent reads to open a pull request here.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {MOULDS.map((m) => <a href={m.href} class="pill" title={m.line}>{m.label} →</a>)}
+        </div>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .cfg { display: flex; flex-direction: column; gap: 8px; padding: 20px; border: 1px solid rgb(var(--border)); border-radius: 8px; background: rgb(var(--bg-card) / .6); color: rgb(var(--text)); transition: border-color .15s, background-color .15s; }
+  .cfg:hover, .cfg:focus-visible { border-color: rgb(var(--accent)); background: rgb(var(--accent) / .06); }
+  .cfg-top { display: flex; align-items: center; gap: 10px; color: rgb(var(--teal)); }
+  .cfg-label { font: 600 1.15rem var(--font-sans); color: rgb(var(--text)); }
+  .cfg-scale { margin-left: auto; font: 500 .625rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--text-muted)); }
+  .cfg-q { font-size: 1rem; color: rgb(var(--text)); }
+  .cfg-line { font-size: .875rem; line-height: 1.5; color: rgb(var(--text-muted)); }
+  .cfg-go { margin-top: 4px; font: 500 .75rem var(--font-mono); color: rgb(var(--accent)); }
+  .pill { display: inline-flex; align-items: center; min-height: 40px; padding: 6px 14px; border: 1px solid rgb(var(--border)); border-radius: 6px; background: rgb(var(--bg)); color: rgb(var(--text)); font-size: .9375rem; transition: border-color .15s, background-color .15s, color .15s; }
+  a.pill:hover, a.pill:focus-visible { border-color: rgb(var(--accent)); background: rgb(var(--accent) / .08); color: rgb(var(--accent)); }
+  @media (prefers-reduced-motion: reduce) { .cfg, .pill { transition: none; } }
+</style>
