@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13974,
+  "chars": 14017,
   "apparatus": false,
   "archived": false,
-  "tokens": 3747
+  "tokens": 3771
  },
  {
   "path": "CLAUDE.md",
@@ -1831,10 +1831,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5864,
+  "chars": 6980,
   "apparatus": false,
   "archived": false,
-  "tokens": 1650
+  "tokens": 1967
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2266,17 +2266,6 @@
   "tokens": 2028
  },
  {
-  "path": "reports/RPT-023-the-wall-is-the-house-not-the-world.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "active",
-  "chars": 11442,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3118
- },
- {
   "path": "standards/STD-001-the-series.md",
   "dir": "standards",
   "series": "standards",
@@ -2304,10 +2293,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 15987,
+  "chars": 15997,
   "apparatus": false,
   "archived": false,
-  "tokens": 4521
+  "tokens": 4523
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2781,104 +2770,5 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1529
- },
- {
-  "path": "system/SYS-011-semantic-census.md",
-  "dir": "system",
-  "series": "system",
-  "type": "documentation",
-  "status": "draft",
-  "chars": 5824,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1562
- },
- {
-  "path": "system/semantic-census/artefact-lap.md",
-  "dir": "system",
-  "series": "system",
-  "type": "entity",
-  "status": "draft",
-  "chars": 8079,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2383
- },
- {
-  "path": "system/semantic-census/district-ouroboros.md",
-  "dir": "system",
-  "series": "system",
-  "type": "entity",
-  "status": "draft",
-  "chars": 7428,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2252
- },
- {
-  "path": "system/semantic-census/faction-heirs-of-eleusis.md",
-  "dir": "system",
-  "series": "system",
-  "type": "entity",
-  "status": "draft",
-  "chars": 9007,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2587
- },
- {
-  "path": "system/semantic-census/force-threshold.md",
-  "dir": "system",
-  "series": "system",
-  "type": "entity",
-  "status": "draft",
-  "chars": 8060,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2355
- },
- {
-  "path": "system/semantic-census/guild-exegetes.md",
-  "dir": "system",
-  "series": "system",
-  "type": "entity",
-  "status": "draft",
-  "chars": 9024,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2674
- },
- {
-  "path": "system/semantic-census/institution-summa-archive.md",
-  "dir": "system",
-  "series": "system",
-  "type": "entity",
-  "status": "draft",
-  "chars": 8249,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2422
- },
- {
-  "path": "system/semantic-census/rank-oracle.md",
-  "dir": "system",
-  "series": "system",
-  "type": "entity",
-  "status": "draft",
-  "chars": 9353,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2715
- },
- {
-  "path": "system/semantic-census/resource-prism-cells.md",
-  "dir": "system",
-  "series": "system",
-  "type": "entity",
-  "status": "draft",
-  "chars": 8148,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2361
  }
 ]

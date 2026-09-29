@@ -4,9 +4,9 @@ uid: ""
 title: "Supporting Numinia — the offer"
 type: documentation
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-29T13:00:00+02:00"
-updated: "2026-09-29T14:00:00+02:00"
+updated: "2026-09-29T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -14,6 +14,33 @@ territory: "Funding"
 tags: [operations, offer, support, backer, sponsor, payments]
 license: "CC-BY-4.0"
 related: ["CAN-011", "STD-033", "SYS-008", "PRO-020", "PRO-021", "BLU-018"]
+
+# The cards on sale, read by numinia.org/contribute (STD-033 PAY-003: sites
+# read the price from this record). Prices are with VAT, in EUR. A yearly
+# payment costs `year_months` months. `link` is the payment link an Oracle
+# creates (PRO-020 step 5); empty means the button says "Coming soon".
+goods:
+  - id: backer
+    name: "Backer"
+    kind: "Recurring contribution"
+    sentence: "Support Numinia every month and help it keep going."
+    delivers: "Your place on the wall of those who hold Numinia up, as you choose to appear, and a backer's badge."
+    amounts: [5, 10, 25]
+    intervals: [month, year]
+    year_months: 10
+    state: "not on sale"
+    link: ""
+  - id: sponsor
+    name: "Sponsor"
+    kind: "Recurring contribution"
+    sentence: "Become a sponsor with a monthly payment of at least 200 EUR."
+    delivers: "Your logo on numinia.org with a link to your site, sized by level, a place on the wall, and an invoice after each payment."
+    amounts: [200, 2000, 10000]
+    levels: ["Bronze", "Silver", "Gold"]
+    intervals: [month, year]
+    year_months: 10
+    state: "not on sale"
+    link: ""
 ---
 
 <!--

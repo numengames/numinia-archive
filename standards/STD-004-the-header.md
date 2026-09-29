@@ -5,7 +5,7 @@ title: "The header"
 type: documentation
 subtype: standard
 status: active
-version: "4.5.0"
+version: "4.6.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
@@ -214,6 +214,7 @@ unaided. The field names stay our own.
 | `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) · `entity` `type_execution` `forms` (the entity card `AGENT.md`) · `automation_level` (the operator file `OPERATOR.md`: assisted · partial · conditional · high · full) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` `legal/` | `extraction_note` `restoration_note` |
+| `operations/` | `goods` — an offer's cards on sale, which the site reads its prices from (`STD-033` PAY-003) |
 | `blueprints/` | `semaforo` |
 | `protocols/` | `applies_to` `mandatory` |
 | `system/` | `category` `stage` `confidence` (a card of the semantic census, an entry of `SYS-011`) |
