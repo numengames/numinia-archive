@@ -16,9 +16,10 @@
 // says — who may change what, the approval protocol, the engineering
 // protocol, each agent's OPERATOR.md, the transition regime — into the five
 // levels of the ISO/IEC 22989 automation scale, and grades every permission
-// at each. The data is web/src/lib/automation-levels.ts; each agent's level
-// is read from the `automation_level:` header of its OPERATOR.md; a test
-// holds both to shape. The instrument is the home's astrolabe: five rings from the least
+// at each. The levels are read from STD-041 and the permissions from STD-042
+// (web/src/lib/automation-levels.ts parses both at build time); each agent's
+// level from the `automation_level:` header of its OPERATOR.md; a test holds
+// page and registers together. The instrument is the home's astrolabe: five rings from the least
 // automated at the centre to the most at the rim, and a dotted line beyond
 // the rim for the floor — what no level grants alone.
 //
@@ -59,7 +60,7 @@ const grade = (g: Grade) => `pill ${g}`;
       <div class="ctx" aria-live="polite">
         <div class="et">Beside <a href="/binding">what binds today</a></div>
         <h1>What an agent may do without asking</h1>
-        <p>Every permission an agent asks for arrives as a line of shell. This view puts it in the approver's words: which permissions exist, what each implies, and which are granted alone at each level of automation. It states nothing of its own: it reads each agent's operator file, the permission register and the approval protocol.</p>
+        <p>Every permission an agent asks for arrives as a line of shell. This view puts it in the approver's words: which permissions exist, what each implies, and which are granted alone at each level of automation. It states nothing of its own: the levels are one register, the permissions another, each agent's level is in its operator file, and the approval protocol says how a permission is asked for; this page reads them all at build time.</p>
         <div class="qa">
           <div class="depth" role="tablist" aria-label="Level">
             {LEVELS.map((l) => <button type="button" role="tab" data-l={l.id} aria-selected={l.today ? "true" : "false"}><span></span><i>{l.name}</i></button>)}

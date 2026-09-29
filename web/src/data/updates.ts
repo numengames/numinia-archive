@@ -37,6 +37,20 @@ export const UPDATES: readonly UpdateVersion[] = [
     entries: [
       {
         type: "CHG",
+        text: "The levels and the permissions on /automation are now two registers of the archive, read at build time: The levels of automation (STD-041, the five levels, what the person does in each, and the two ends outside the scale) and What an agent may do without asking (STD-042, sixteen permissions graded at each level, and the floor). Edit a register and the page changes; a test fails if they drift. Both sit on the first shelf of /standards, beside who may change what.",
+      },
+      {
+        type: "CHG",
+        text: "Requesting approval now asks for the plain words first — what I am about to do, what could go wrong, whether it can be undone — with the command beneath, because the person who answers did not write the command and answers for it.",
+      },
+    ],
+  },
+  {
+    version: "v0.90.0",
+    date: "2026-09-29",
+    entries: [
+      {
+        type: "CHG",
         text: "Whoever supports Numinia now chooses two things about how they appear: with a name, an alias or none, and with what they gave or without it. Saying nothing still means no name and no amount. The money canon, its standard, the account's system document and the protocol for putting something on sale all said an amount was never shown; they now say it is the payer's to show. Open books' homage list shows the second choice. Nobody's pay on the team is published: that rule is a different one and stays.",
       },
     ],
