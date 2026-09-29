@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 12536,
+  "chars": 12776,
   "apparatus": false,
   "archived": false,
-  "tokens": 3364
+  "tokens": 3430
  },
  {
   "path": "CLAUDE.md",
@@ -775,10 +775,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4794,
+  "chars": 4921,
   "apparatus": false,
   "archived": false,
-  "tokens": 1235
+  "tokens": 1267
  },
  {
   "path": "canon/CAN-012-what-is-yours-stays-with-you.md",
@@ -2029,10 +2029,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3867,
+  "chars": 3928,
   "apparatus": false,
   "archived": false,
-  "tokens": 1041
+  "tokens": 1062
  },
  {
   "path": "protocols/PRO-021-closing-the-month.md",
@@ -2524,10 +2524,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5529,
+  "chars": 5607,
   "apparatus": false,
   "archived": false,
-  "tokens": 1513
+  "tokens": 1530
  },
  {
   "path": "standards/STD-034-accessibility.md",
@@ -2678,10 +2678,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6523,
+  "chars": 6574,
   "apparatus": false,
   "archived": false,
-  "tokens": 1658
+  "tokens": 1669
  },
  {
   "path": "system/SYS-009-the-design-system.md",

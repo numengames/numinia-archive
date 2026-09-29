@@ -4,9 +4,9 @@ uid: ""
 title: "Putting something on sale"
 type: protocol
 status: draft
-version: "0.2.1"
+version: "0.3.0"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-29T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -66,8 +66,9 @@ A withdrawal starts when the Oracle decides the thing comes off sale.
 4. **Create it in the processor from the record.** Oracle: product and price
    carry the record's good, price with VAT and period, exactly. For a
    recurring price, turn on the customer portal so cancelling is one step;
-   add the optional question *How would you like to appear in the homage
-   list?* — name, alias or none, *none* by default.
+   add the optional questions *How would you like to appear in the homage
+   list?* — name, alias or none, *none* by default — and *Show what you
+   gave?* — yes or no, *no* by default.
 5. **Create the payment link.** Oracle, and hand it to the agent. A payment
    link is not a key.
 6. **Add the link to the record.** Agent, in a pull request.

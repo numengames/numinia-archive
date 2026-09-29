@@ -226,7 +226,7 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
 
    <div class="cq-sec" id="cq-sec-homage" data-l="pub">
     <h2>Who holds Numinia up</h2>
-    <p class="cq-sub">Whoever supports Numinia in a month, a quarter or a year appears here, in order of arrival and without amounts. Each person chooses how. <span class="cq-flag">invented names</span></p>
+    <p class="cq-sub">Whoever supports Numinia in a month, a quarter or a year appears here, in order of arrival. Each person chooses how: with a name or without, with what they gave or without it. <span class="cq-flag">invented names</span></p>
     <div class="cq-card">
      <div class="cq-tabs" role="tablist" aria-label="Homage period">
       <button type="button" class="cq-tab" role="tab" data-h="month" aria-selected="true"></button>
@@ -236,11 +236,15 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
      <p class="cq-count" id="cq-hcount"></p>
      <p class="cq-names" id="cq-names" role="tabpanel"></p>
      <div class="cq-choice">
-      <span class="cq-k">When paying, each person chooses how to appear. Saying nothing means no name</span>
+      <span class="cq-k">When paying, each person chooses how to appear. Saying nothing means no name and no amount</span>
       <div class="cq-pills" role="radiogroup" aria-label="How to appear">
        <button type="button" class="cq-pill" role="radio" aria-checked="true" data-as="anon">No name</button>
        <button type="button" class="cq-pill" role="radio" aria-checked="false" data-as="alias">An alias</button>
        <button type="button" class="cq-pill" role="radio" aria-checked="false" data-as="name">My name</button>
+      </div>
+      <div class="cq-pills" role="radiogroup" aria-label="Show what I gave">
+       <button type="button" class="cq-pill" role="radio" aria-checked="true" data-amt="0">Without the amount</button>
+       <button type="button" class="cq-pill" role="radio" aria-checked="false" data-amt="1">With the amount</button>
       </div>
       <p class="cq-note" id="cq-as"></p>
      </div>
@@ -322,6 +326,7 @@ table.cq-t{border-collapse:collapse;width:100%;font-size:.875rem}
 .cq-names{font-size:1.0625rem;line-height:2;color:rgb(var(--text));margin:0}
 .cq-names span{white-space:nowrap}
 .cq-names span:not(:last-child)::after{content:"·";color:rgb(var(--text-dim));margin:0 .3em 0 .55em}
+.cq-hamt{font-family:var(--font-mono);font-size:.75rem;color:rgb(var(--text-dim))}
 .cq-names .cq-anon{color:rgb(var(--text-dim));font-style:italic}
 .cq-choice{margin-top:18px;padding-top:16px;border-top:1px solid rgb(var(--border));display:grid;gap:10px}
 .cq-choice .cq-note{margin:0}
@@ -673,21 +678,24 @@ $$('[data-lk]').forEach(b => b.addEventListener('click', () => { LK = b.dataset.
 $('#cq-lmore').addEventListener('click', () => { LN += LSTEP; linesView(); });
 
 // ---- homage (invented names)
-const HOM = { month: ['Lucía M.', 'Jordi P.', 'Anonymous', 'Aitana R.', 'Kyrie', 'Nerea G.', 'Anonymous', 'Samuel O.', 'Carmen and Iker', 'Anonymous', 'Tomás L.', 'archivist_03', 'Irene V.', 'Anonymous'],
-  q: ['Hugo', 'Yui K.', 'Pau S.', 'Anonymous', 'Elena', 'Ana B.', 'Anonymous', 'Diego F.', 'Anonymous'],
-  y: ['María José', 'Kevin', 'Anonymous', 'Laura T.', 'Óscar', 'Noa', 'Anonymous', 'The Weaver'] };
+// A name with ':' carries the amount its payer chose to show (each chooses; silence hides it).
+const HOM = { month: ['Lucía M.:5', 'Jordi P.', 'Anonymous', 'Aitana R.', 'Kyrie:20', 'Nerea G.', 'Anonymous', 'Samuel O.', 'Carmen and Iker:10', 'Anonymous', 'Tomás L.', 'archivist_03:2', 'Irene V.', 'Anonymous'],
+  q: ['Hugo', 'Yui K.:5', 'Pau S.', 'Anonymous', 'Elena', 'Ana B.', 'Anonymous', 'Diego F.:200', 'Anonymous'],
+  y: ['María José', 'Kevin:5', 'Anonymous', 'Laura T.', 'Óscar', 'Noa', 'Anonymous', 'The Weaver'] };
 const HM = { month: HOM.month, quarter: HOM.month.concat(HOM.q), year: HOM.month.concat(HOM.q, HOM.y) };
 const HL = { month: 'This month', quarter: 'This quarter', year: 'This year' };
 function showH(k) {
-  const list = HM[k], anon = list.filter(x => x === 'Anonymous').length;
+  const list = HM[k].map(x => { const [n, a] = x.split(':'); return { n, a }; }), anon = list.filter(x => x.n === 'Anonymous').length, shown = list.filter(x => x.a).length;
   $$('[data-h]').forEach(b => { b.textContent = `${HL[b.dataset.h]} · ${HM[b.dataset.h].length}`; b.setAttribute('aria-selected', String(b.dataset.h === k)); });
-  $('#cq-hcount').textContent = `${list.length} people, ${anon} without a name`;
-  $('#cq-names').innerHTML = list.map(x => `<span${x === 'Anonymous' ? ' class="cq-anon"' : ''}>${x}</span>`).join(' ');
+  $('#cq-hcount').textContent = `${list.length} people, ${anon} without a name, ${shown} showing what they gave`;
+  $('#cq-names').innerHTML = list.map(x => `<span${x.n === 'Anonymous' ? ' class="cq-anon"' : ''}>${x.n}${x.a ? ` <small class="cq-hamt">€${x.a} a month</small>` : ''}</span>`).join(' ');
 }
 $$('[data-h]').forEach(b => b.addEventListener('click', () => showH(b.dataset.h)));
-const AS = { name: 'You will appear as <b>Lucía M.</b>, with the name you write.', alias: 'You will appear with <b>the alias you choose</b>, for example “archivist_03”.', anon: 'You will appear as <b>Anonymous</b>. Your support is counted, not your name.' };
-function showAs(k) { $$('[data-as]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.as === k))); $('#cq-as').innerHTML = AS[k]; }
+const AS = { name: 'You will appear as <b>Lucía M.</b>, with the name you write', alias: 'You will appear with <b>the alias you choose</b>, for example “archivist_03”', anon: 'You will appear as <b>Anonymous</b>' };
+let ASK = 'anon', AMT = false;
+function showAs(k) { ASK = k; $$('[data-as]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.as === k))); $$('[data-amt]').forEach(b => b.setAttribute('aria-checked', String(b.dataset.amt === (AMT ? '1' : '0')))); $('#cq-as').innerHTML = AS[k] + (AMT ? ', <b>with what you gave</b>.' : ASK === 'anon' ? '. Your support is counted, not your name or your amount.' : ', without the amount.'); }
 $$('[data-as]').forEach(b => b.addEventListener('click', () => showAs(b.dataset.as)));
+$$('[data-amt]').forEach(b => b.addEventListener('click', () => { AMT = b.dataset.amt === '1'; showAs(ASK); }));
 
 $('#cq-how').innerHTML = [
   'Every cost and every income is one line of one ledger, with two dates: when it is billed and the period it covers. “Billed” puts it on the invoice date; “consumed” spreads it over the days it covers. It is the distinction FOCUS makes — the FinOps Foundation’s open specification for cloud, SaaS and AI costs.',

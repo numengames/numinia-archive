@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "4b76822",
-  "corpus_hash": "f2f17a97caeed151ae7777bb62aa98019f360a57ba87b11383abd89cc88e83c4",
+  "head": "6ea6ef4",
+  "corpus_hash": "e743a5dd70d071baed7fca6a9081b0b2c7894bf255f564c3a2934bca8741cfc0",
   "root_dirty": 0,
-  "measured_at": "2026-09-29T08:51:59Z",
+  "measured_at": "2026-09-29T08:58:22Z",
   "families": [
     "corpus",
     "series",
@@ -328,24 +328,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 806702,
+      "value": 806849,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 491707,
-        "standards": 69773,
+        "standards": 69790,
         "agents": 31484,
-        "protocols": 27509,
+        "protocols": 27530,
         "blueprints": 25741,
         "reports": 22430,
-        "system": 22087,
-        "canon": 19762,
+        "system": 22098,
+        "canon": 19794,
         "missions": 17668,
         "operations": 17637,
         "machine": 17389,
-        "": 10471,
+        "": 10537,
         "legal": 9925,
         "decisions": 9669,
         "opportunities": 7687,
@@ -358,9 +358,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 506710,
-        "draft": 141800,
-        "active": 139031,
+        "(none)": 506776,
+        "draft": 141870,
+        "active": 139042,
         "todo": 13532,
         "in-progress": 4513,
         "done": 1116
@@ -683,26 +683,26 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 759
+          "3": 760
         },
         "PRO": {
-          "3": 290
+          "3": 291
         },
         "OPS": {
           "3": 67
         },
         "CAN": {
-          "3": 293
+          "3": 294
         },
         "ADR": {
           "3": 238
         },
+        "SYS": {
+          "3": 43
+        },
         "RPT": {
           "3": 35,
           "4": 4
-        },
-        "SYS": {
-          "3": 42
         },
         "DBT": {
           "3": 46
