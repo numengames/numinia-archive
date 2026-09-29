@@ -15,9 +15,9 @@
     "url": "https://numinia.org/design"
   },
   "files": {
-    "sistema.css": "7122cebdb3df630eeef83fad597d4af7dbf0f518e01b22bf0740d8a2f606ad1e",
+    "sistema.css": "c1f6ade6b9786d7c566a5dbc186f01c0b50c2a7c4ccc4135b7c448e8c118c3f7",
     "sistema.js": "a0fa49211474e9c92878738be241f2dbfcc43dc717f3b08159ea413eb803c020",
-    "sistema.tokens.json": "952c1957097be985212e984fbcb470e5eed84551a291f13e10af9da9b70e9841",
-    "sistema.prompt.txt": "cca01516a9ec5d1a9ff54a709ff641c9642464fb9e2fd2f681a67a7ca55ac176"
+    "sistema.tokens.json": "88056db1e1b153a576663ab4fc68ab7e836d0361f7ff7ca11d325ad2fc9f14c7",
+    "sistema.prompt.txt": "a0703070c8a9e6f0cf8fdb545ae1c4afa9727098fb139563b31b7b91a6052dcb"
   }
 }

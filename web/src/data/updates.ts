@@ -45,6 +45,10 @@ export const UPDATES: readonly UpdateVersion[] = [
       },
       {
         type: "FIX",
+        text: "The bar opens with the Numinia wordmark instead of the name typed out, as numinia.com does. The design system now says it: every site's bar carries its wordmark, Numinia's on the Numinia sites and Numen Games' on the company's.",
+      },
+      {
+        type: "FIX",
         text: "Three agents on /agents were painted in colours outside the palette (pink, aquamarine, silver); they now take palette colours: Arena, Turquesa and the veiled Arena.",
       },
     ],

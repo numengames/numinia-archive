@@ -324,7 +324,7 @@ register and numinia.org differed, the register moved.
 |---|---|
 | Column | content `≤1100 px`, margin `24 px` each side; a map that must be seen whole (the home's astrolabe, the automation map) opens to `1280 px` |
 | The bar | sticky at the top, `56 px`; the page's background at 85 % with `blur(24px)`; a hairline below in the strong line at 50 % |
-| The name | on the left, **written** in Geist, never the logo: Numinia, Numen Games, NWOS |
+| The mark | on the left, the site's **wordmark** in `currentColor`, 20 px high (16 on a phone), named for a screen reader: `Numinia_Word` on numinia.org and numinia.com, `Numen_Games_Horizontal_Word` on numen.games and nwos.numen.games (the Oracle, 2026-09-29) |
 | Entries | the label type of the type scale with a Phosphor glyph at 14 px before it; secondary text, primary on hover |
 | Active entry | primary text and a **2 px Turquesa** underline (Ámbar until 1.7.0; the Ámbar stays for emphasis) |
 | Utilities | on the right: search, the mode switch, a 44 px button; nothing else |
@@ -337,7 +337,9 @@ register and numinia.org differed, the register moved.
 
 **Why.** A visitor who has learnt one of the four has learnt the other
 three: the bar is in the same place, says things the same way and marks
-where they are with the same line. numen.games carries no sky because it
+where they are with the same line. The mark tells which house they are in:
+Numinia's for the world and its archive, Numen Games' for the company and
+its service. numen.games carries no sky because it
 is the company's door to clients, not a room of the world.
 
 

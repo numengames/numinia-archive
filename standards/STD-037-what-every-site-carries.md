@@ -5,9 +5,9 @@ title: "What every site carries"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.5"
+version: "0.2.6"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-09-29T23:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -92,7 +92,7 @@ a day.
 
 | Element | Value |
 |---|---|
-| Site name | Written, never the logo alone; `Numinia_Word` only on numinia.com |
+| Site name | Written, never the logo alone; the wordmark is the bar's (`STD-023`), not the footer's |
 | One line | The site's line from the share card table below |
 | Navigation | The site's primary routes; two columns from five entries, reading down the first column then the second |
 | Numen Games column | The four sites, in the order of the share-card table, this one marked «you are here» and not linked |
