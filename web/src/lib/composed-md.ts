@@ -45,6 +45,7 @@ import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } fr
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { pipeline as salesPipeline, PIPELINE_SOURCES } from "@/lib/pipeline";
 import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
+import { goods as contributeGoods, onSale as contributeOnSale, CONTRIBUTE_SOURCES, OFFER_ROUTE } from "@/lib/contribute";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -897,8 +898,49 @@ export function templatesPage(): ComposedPage {
   return { route: "/templates", filename: "numinia-templates.md", sources: TEMPLATES_SOURCES, body: preamble(TEMPLATES_SOURCES) + body };
 }
 
+/** `/contribute` — the ways to support Numinia, read from OPS-014's goods. */
+export async function contributePage(): Promise<ComposedPage> {
+  const G = await contributeGoods();
+  const e = (n: number) => `€${n.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  const e0 = (n: number) => `€${n.toLocaleString("en-GB")}`;
+  const cards = G.flatMap((g) => [
+    `## ${g.name}`,
+    "",
+    `*${g.kind}.* ${g.sentence}`,
+    "",
+    `- **You receive:** ${g.delivers}`,
+    `- **Amounts:** ${g.amounts.map((a, i) => (g.levels ? `${g.levels[i]} ` : "") + `${e0(a)} a month`).join(" · ")}, VAT included`,
+    `- **How often:** ${g.intervals.map((i) => (i === "year" ? `yearly, for ${g.year_months} months' price` : "monthly")).join(", or ")}`,
+    `- **State:** ${contributeOnSale(g) ? "on sale" : g.state}`,
+    "",
+    table(["A month", "VAT", "Payment company", "Reaches Numinia"], g.amounts.map((a) => { const x = accountSplit(a); return [e(a), e(x.vat), e(x.fee), e(x.net)]; })),
+    "",
+  ]);
+  const body = [
+    "# Contribute",
+    "",
+    "All the ways to help keep Numinia going, modelled on Open Collective's",
+    "Contribute page without its Donation card: every payment buys something",
+    "named before paying, the whole price is shown, and each person chooses",
+    "how they are remembered.",
+    "",
+    ...(G.some(contributeOnSale) ? [] : ["**Not on sale yet.** Payment opens when the terms for selling to people are published and what each card gives is confirmed.", ""]),
+    ...cards,
+    "## How you appear",
+    "",
+    "On the wall of contributors: with your name, an alias or none, and with",
+    "what you gave or without it. Saying nothing means no name and no amount.",
+    "",
+    "## Where the money goes",
+    "",
+    `Every euro in and out is a line of one public account: [Open books](/system/open-books.md). The record of what is on sale: [${OFFER_ROUTE}](${OFFER_ROUTE}.md).`,
+    "",
+  ].join("\n");
+  return { route: "/contribute", filename: "numinia-contribute.md", sources: [...CONTRIBUTE_SOURCES], body: preamble([...CONTRIBUTE_SOURCES]) + body };
+}
+
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), designPage(), accountPage(), pipelinePage(), templatesPage(), corePage()];
+  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), designPage(), accountPage(), await contributePage(), pipelinePage(), templatesPage(), corePage()];
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));

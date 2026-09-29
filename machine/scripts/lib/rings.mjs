@@ -90,8 +90,10 @@ export const RING3 = {
   'blueprints': ['extraction_note', 'restoration_note', 'semaforo',
     'score', 'score_prev', 'scope', 'mission', 'input',
     'related_missions', 'contributors'],
+  // goods: an offer record's cards on sale, read by the site (STD-033
+  // PAY-003: sites read the price from the record). 2026-09-29, OPS-014.
   'operations': ['extraction_note', 'restoration_note',
-    'language', 'language_note', 'review_flags', 'source_title'],
+    'language', 'language_note', 'review_flags', 'source_title', 'goods'],
   // legal/ opened 2026-09-27 with the three texts operations/ held; they
   // bring their fields, and `former_id` keeps OPS-003/004/010 resolving.
   'legal': ['extraction_note', 'restoration_note',

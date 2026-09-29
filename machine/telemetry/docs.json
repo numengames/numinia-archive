@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 13735,
+  "chars": 14017,
   "apparatus": false,
   "archived": false,
-  "tokens": 3685
+  "tokens": 3771
  },
  {
   "path": "CLAUDE.md",
@@ -1831,10 +1831,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5864,
+  "chars": 6980,
   "apparatus": false,
   "archived": false,
-  "tokens": 1650
+  "tokens": 1967
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2293,10 +2293,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 15884,
+  "chars": 15997,
   "apparatus": false,
   "archived": false,
-  "tokens": 4489
+  "tokens": 4523
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
