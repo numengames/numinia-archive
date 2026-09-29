@@ -31,7 +31,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 > **Summary:** Every known gap between what the four sites do and what their legal texts say, and every question only a lawyer or the company can answer.
 > **Epistemic:** Until these close, the texts are honest drafts, not reviewed law.
-> **Pragmatic:** Take section 2 to ATH21; fix section 1 by pull request; strike each line when closed.
+> **Pragmatic:** Send section 5 to ATH21; fix section 1 by pull request; strike each line when closed.
 > **Audience:** Oracles · Counsel
 
 ---
@@ -147,3 +147,100 @@ of the duty to inform (GDPR arts. 12–13), whatever the processing. Selling to
 consumers without terms leaves every sale open to a refund after use and the
 jurisdiction clause void. The rights assignment is the one that cannot be fixed
 later without the authors: sign it while everyone agrees.
+
+## 5. The letter to counsel
+
+The questions marked **counsel** above, grouped by subject and written in
+plain Spanish for ATH21. The text below is the source; the Word file next to
+this record, [`DBT-022-questions-for-counsel.docx`](DBT-022-questions-for-counsel.docx),
+is the same text laid out to send from legal@numengames.com. Change the text
+here and regenerate the file; never edit the file alone.
+
+**De:** Numen Games S.L. (CIF B70735949) · legal@numengames.com
+
+**Fecha:** 29 de septiembre de 2026
+
+### Para qué es este documento
+
+Numen Games S.L. publica cuatro webs: numen.games (la empresa), numinia.com (el juego, su manual —el Códex— y su tienda), numinia.org (el archivo abierto del sistema) y nwos.numen.games (un servicio que crea el archivo documental de otra organización). Las cuatro comparten cuatro textos legales: aviso legal, política de privacidad, política de cookies y términos y condiciones.
+
+Hemos revisado esos textos contra lo que las webs hacen de verdad y los hemos corregido donde decían algo falso. Lo que queda son decisiones que no podemos tomar solos. Os las enviamos agrupadas por tema. Cada pregunta explica qué hacemos hoy y qué necesitamos que nos digáis. El número entre corchetes, por ejemplo [#4], es el de nuestra lista interna, por si nos contestáis citándolo.
+
+Los textos vigentes están publicados en cualquiera de las cuatro webs, en /legal/notice, /legal/privacy, /legal/cookies y /legal/terms (en numinia.com el aviso legal está en /legal/legal-notice). Están en inglés. Los términos y condiciones (versión 1.0.1) mantienen vuestro texto original; solo hemos corregido el correo de contacto.
+
+### Lo que más nos urge
+
+- Las condiciones de venta a consumidores de numinia.com (bloque 2): vamos a empezar a vender y hoy no existen.
+- Las transferencias fuera del Espacio Económico Europeo (bloque 1): la política de privacidad decía que no había ninguna, y sí las hay.
+- La cesión de derechos de los autores del manual (bloque 7): es la única que no se puede arreglar después sin ellos.
+
+### 1. Datos que salen del Espacio Económico Europeo
+
+La política de privacidad anterior decía que Numen no transfiere datos personales fuera del EEE. No era cierto. La versión 2.1.0 ya nombra a cada proveedor y lo que se transfiere. Queremos saber si lo que decimos es suficiente, y si con estos proveedores cumplimos o debemos cambiarlos.
+
+| # | Proveedor | Qué sale | Adónde y con qué garantía |
+|---|---|---|---|
+| [#4] | Cloudflare (aloja las cuatro webs) | Dirección IP, navegador y página visitada en cada visita, en los registros del servidor | EE. UU., entre otros. Marco de Privacidad UE-EE. UU. y cláusulas contractuales tipo, según su DPA |
+| [#5] | thirdweb (Non-Fungible Labs Inc.), inicio de sesión en numinia.com | Correo o cuenta de Google, dirección del monedero, fragmentos de la clave del dispositivo | EE. UU. Su política lo dice y no nombra ninguna garantía. No tenemos su DPA |
+| [#6] | GitHub, en nwos.numen.games | Nombre de la empresa y correo del responsable que el visitante escribe en el formulario; se guardan en un repositorio privado | EE. UU. Marco de Privacidad, activo |
+| [#7] | Anthropic, en nwos.numen.games | Nombre de la empresa, para investigarla y redactar los documentos del archivo | EE. UU. Garantía no verificada |
+| [#8] | Microsoft, buzón legal@numengames.com | Todo correo que se nos envía | Región del buzón sin confirmar |
+
+**Preguntas:**
+
+- ¿Basta con nombrar cada transferencia y su garantía en la política de privacidad, o hace falta algo más (por ejemplo, un anexo con las cláusulas)?
+- Para thirdweb, sin garantía conocida: ¿podemos seguir usándolo mientras pedimos su DPA, o debemos retirarlo hasta tenerlo?
+- Para Anthropic: ¿qué tendríamos que comprobar en sus condiciones para que la transferencia sea válida?
+- Si el buzón de Microsoft está en EE. UU., ¿qué cambia?
+
+### 2. Venta a consumidores en numinia.com
+
+numinia.com va a vender contenido digital (objetos del juego) a particulares. Los términos publicados (vuestro texto, versión 1.0.1) están escritos para empresas que contratan servicios en numen.games, y así lo dicen. No hay condiciones de venta para consumidores.
+
+**Preguntas:**
+
+- [#9] ¿Podéis redactar unas condiciones de venta para consumidores? Deben cubrir quién vende, qué se vende, precio con IVA, entrega, garantía legal de conformidad del contenido digital y reclamaciones.
+- [#10] Derecho de desistimiento de 14 días: con contenido digital se pierde al entregarlo si el comprador lo consiente expresamente y reconoce que lo pierde. ¿Qué texto exacto debe llevar la casilla del pago, y cómo enviamos la confirmación en soporte duradero (¿basta un correo?)?
+- [#11] Los términos actuales (§14) someten las disputas a los juzgados de Madrid. Eso no puede obligar a un consumidor. ¿Qué cláusula ponemos para consumidores? ¿Y la de §14 sigue sirviendo para empresas?
+- [#12] Idioma: nuestros textos maestros están en inglés. ¿Tiene que haber una versión en español que sea la vinculante para compradores españoles? ¿Y para compradores de otros países de la UE?
+- [#16] Edad: los servicios son para mayores de 18 años. Hoy nada pide al comprador que lo confirme. ¿Basta una declaración en el pago?
+- [#15] Al iniciar sesión, una casilla dice que se aceptan «los Términos y la Política de privacidad». Aceptar una política de privacidad no tiene sentido jurídico; en nwos.numen.games ya decimos «acepto los Términos y he leído la Política de privacidad». ¿Os vale esa fórmula para numinia.com?
+- [#13] Los términos (§5.3) prohíben cualquier bot o rastreador. Eso choca con las licencias abiertas de numinia.org (CC0, CC BY, MIT) y con los buscadores. ¿Podemos limitarlo al uso abusivo?
+
+### 3. Términos de uso de numinia.org y del Códex
+
+numinia.org publica el archivo con licencias abiertas, fichero a fichero. El Códex de numinia.com publica el manual del juego en dominio público (CC0). Hoy ambos enlazan los términos para empresas de numen.games, que no les corresponden. El nuevo aviso legal (versión 0.2.0) explica qué se puede hacer con lo publicado según su licencia.
+
+- [#14] ¿Basta con el aviso legal para estas dos webs, o necesitan sus propios términos de uso?
+
+### 4. Política de privacidad
+
+- [#17] En vuestro original las finalidades iban numeradas 1, 2, 7 y 8; faltaban la 3 a la 6. Las renumeramos 1 a 4 sin añadir contenido. ¿Se perdió algo?
+- [#18] La finalidad 2 (comunicaciones comerciales) describe un servicio que hoy no existe. ¿La mantenemos, la reescribimos o la quitamos?
+- [#19] Plazos de conservación: solo tenemos medidos los registros del servidor (días) y la cookie de sesión (una hora). Los datos de inicio de sesión que guarda thirdweb y los correos no tienen plazo. ¿Qué plazos debemos fijar?
+- [#20] No tenemos registro de actividades de tratamiento (art. 30 RGPD) ni contratos de encargado de tratamiento con ningún proveedor del bloque 1. ¿Nos ayudáis a prepararlos? ¿Nos aplica la excepción de menos de 250 empleados?
+- [#21] El original en español de la política (v1.1.0) solo existe en el historial. ¿Podéis confirmar que la versión en inglés actual respeta vuestro original?
+
+### 5. Cookies
+
+Las cuatro webs muestran ya un aviso de cookies con «Aceptar todo» y «Rechazar todo» del mismo tamaño, uno junto al otro, como pide la guía de la AEPD. La política de cookies (versión 2.1.0) lista, clave por clave, todo lo que cada web guarda en el navegador.
+
+- [#24] Nuestra lectura: hoy ninguna web guarda nada que necesite consentimiento previo. Lo que guardamos son preferencias que elige el visitante (modo día o noche, idioma), la sesión y el reto de inicio de sesión. El contador de clics de numinia.com no sale del navegador, y aun así solo funciona si el visitante acepta. El día que ese contador envíe datos a un servidor, el consentimiento será obligatorio. ¿Es correcta esta lectura?
+- [#25] El widget de inicio de sesión de thirdweb escribe sus propias claves en el navegador (thirdweb:*, walletToken-*, thirdwebEwsWalletUserId-*, a-*). Las tratamos como parte del inicio de sesión, que el visitante pide. ¿Están exentas?
+
+### 6. Comunidad (Reglamento de Servicios Digitales) e inteligencia artificial
+
+- [#31] numinia.com alojará contenido que publiquen los propios usuarios. Entendemos que hacen falta un punto de contacto, un formulario para denunciar contenido y una explicación cada vez que retiremos algo. ¿Qué nos exige exactamente el DSA a nuestro tamaño, y qué textos necesitamos?
+- [#32] nwos.numen.games redacta con un modelo de IA (Claude, de Anthropic) los documentos del archivo que crea para otra empresa. Junto al resultado hemos puesto este aviso provisional: «Written by an AI model. The documents in this workspace were drafted by an artificial intelligence model (Claude, by Anthropic) from public sources about your organisation. They are drafts: check them before relying on them or sharing them.» ¿Cumple el art. 50 del Reglamento de IA? ¿Hay que decirlo también dentro de los documentos? (Ya lo hacemos en un fichero de procedencia dentro del propio archivo generado.)
+
+### 7. Derechos del manual del juego
+
+El manual de Numinia lo escribieron Christian Märtens (80 %) y Pablo Fernández-Maquieira (20 %). Numen Games S.L. se declara titular y lo ha publicado en dominio público (CC0), pero no hay una cesión de derechos firmada de los autores a la empresa.
+
+- [#3] ¿Podéis redactar esa cesión? ¿Hace falta que sea retroactiva para cubrir la publicación en CC0 ya hecha?
+
+### Lo que ya está hecho
+
+Para que sepáis de dónde partís: los cuatro textos están publicados en las cuatro webs como copias literales de un único original; ninguno muestra ya notas internas; el único correo legal es legal@numengames.com; el aviso legal da el CIF, el domicilio social (Calle Chile 10, 28290 Las Rozas de Madrid) y la inscripción en el Registro Mercantil de Madrid (tomo 46518, folio 130, hoja M-816810, inscripción 1.ª, de 11 de marzo de 2024); y el aviso de cookies trata igual aceptar y rechazar.
+
+Cualquier respuesta, a legal@numengames.com. Gracias.
