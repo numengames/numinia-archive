@@ -17,6 +17,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-09-29
+
+- **Added** What an agent may do without asking: /automation draws five levels of automation as the home's astrolabe and grades sixteen permissions at each; every OPERATOR.md declares its `automation_level` and the page reads it; a test holds both (site v0.89.0)
+
 ### 2026-09-28
 
 - **Changed** A draft rule no longer says it binds: its Binds line reads "Would bind, once in force" on the site, and the rule index in AGENTS.md shows each rule's state; AGENTS.md and document pages carry the repository's name (site v0.88.0)

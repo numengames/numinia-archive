@@ -39,6 +39,7 @@ import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
+import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
 import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears, split as accountSplit, AMOUNTS as ACCOUNT_AMOUNTS, type Line } from "@/lib/account";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/suma";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
@@ -235,6 +236,70 @@ export function bindingPage(): ComposedPage {
   ].join("\n");
 
   return { route: "/binding", filename: "binding.md", sources: [...BINDING_SOURCES], body };
+}
+
+/** `/automation` — what an agent may do without asking, level by level. */
+export function automationPage(): ComposedPage {
+  const sources = [...AUTOMATION_SOURCES];
+  const levels = table(
+    ["Level", "Who does", "You", "Where you approve", "The agent does alone", "It asks"],
+    LEVELS.map((l) => [l.name + (l.today ? " (Ursa today)" : ""), l.line, l.you, l.where, l.alone, l.asks]),
+  );
+  const matrix = table(
+    ["#", "Permission", ...LEVELS.map((l) => l.name), "Undone"],
+    PERMISSIONS.map((p) => [String(p.n), p.name, ...p.levels.map((g) => GRADE_LABEL[g]), p.undo]),
+  );
+  const body = [
+    preamble(sources),
+    "# What an agent may do without asking",
+    "",
+    "Every permission an agent asks for arrives as a line of shell. This view",
+    "puts it in the approver's words: which permissions exist, what each",
+    "implies, and which are granted alone at each level of automation. It states",
+    "nothing of its own: it arranges what the archive already says in",
+    "[who may change what](/standards/std-017-who-may-change-what.md),",
+    "[requesting approval](/protocols/pro-008-decision.md), the engineering",
+    "protocol, each agent's operator file and the transition regime",
+    "([what binds today](/binding.md)).",
+    "",
+    "## The five levels",
+    "",
+    "From the least automated to the most. At every level the goals are the",
+    "Oracles' and the floor does not move; a system that set its own goals is",
+    "out of this map by design.",
+    "",
+    levels,
+    "",
+    "## The permissions, level by level",
+    "",
+    "`alone`: it does it without asking. `asks`: it stops and waits for a yes.",
+    "`never`: no level grants it alone.",
+    "",
+    matrix,
+    "",
+    ...PERMISSIONS.flatMap((p) => [
+      `### ${String(p.n).padStart(2, "0")} ${p.name}`,
+      "",
+      `- **What it lets it do:** ${p.lets}`,
+      `- **What could go wrong:** ${p.wrong}`,
+      `- **Undone:** ${p.undo}`,
+      `- **Who grants it today:** ${p.who}`,
+      `- **Risk it bounds:** ${p.risk}`,
+      ...(p.floor ? [`- **Floor:** ${p.floor}`] : []),
+      "",
+    ]),
+    "## Where each agent is today",
+    "",
+    "Read from the `automation_level` header of each agent's operator file.",
+    "",
+    ...agentMarks().map((a) => `- **${a.name}** — ${a.levelName}: ${a.note}${a.href ? ` ([card](${a.href}.md))` : ""}`),
+    "",
+    "## Where this comes from",
+    "",
+    ...SOURCES.map((s) => `- ${s.href ? `[${s.text}](${s.href})` : s.text}`),
+    "",
+  ].join("\n");
+  return { route: "/automation", filename: "automation.md", sources, body };
 }
 
 /** `/` — the threshold. */
@@ -830,7 +895,7 @@ export function templatesPage(): ComposedPage {
 }
 
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), designPage(), accountPage(), pipelinePage(), templatesPage(), corePage()];
+  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), designPage(), accountPage(), pipelinePage(), templatesPage(), corePage()];
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));

@@ -8,6 +8,7 @@ created: "{YYYY-MM-DD}T00:00:00Z"
 updated: "2026-09-28T19:00:00+02:00"
 author: "{author-id}"
 owner: "oracle"
+automation_level: "{assisted · partial · conditional · high · full}"
 tags: [agents, template]
 license: "CC0-1.0"
 registration: exempt

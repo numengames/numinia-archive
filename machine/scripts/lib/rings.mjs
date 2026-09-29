@@ -73,7 +73,12 @@ export const RING3 = {
     'name', 'description',
     // agents/<agent>/AGENT.md, the entity card (agents/INDEX.md): what the
     // agent is and the files it is made of — the same shape as objects/.
-    'entity', 'type_execution', 'forms'],
+    'entity', 'type_execution', 'forms',
+    // agents/<agent>/OPERATOR.md (STD-017 AUT-065, rank sets the reach):
+    // the level of automation the agent is operated at — one of the five
+    // names of web/src/lib/automation-levels.ts (assisted · partial ·
+    // conditional · high · full). Registered 2026-09-29; /automation reads it.
+    'automation_level'],
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',
     'visibility_reason',
     // registered 2026-08-31 (RPT-001 §12, the debt renumbering). Same
