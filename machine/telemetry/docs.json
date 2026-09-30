@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17815,
+  "chars": 18066,
   "apparatus": false,
   "archived": false,
-  "tokens": 4862
+  "tokens": 4937
  },
  {
   "path": "CLAUDE.md",
@@ -1886,10 +1886,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 6980,
+  "chars": 5921,
   "apparatus": false,
   "archived": false,
-  "tokens": 1967
+  "tokens": 1674
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2898,10 +2898,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6611,
+  "chars": 6692,
   "apparatus": false,
   "archived": false,
-  "tokens": 1685
+  "tokens": 1706
  },
  {
   "path": "system/SYS-009-the-design-system.md",

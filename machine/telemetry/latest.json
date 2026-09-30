@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "29f930e",
-  "corpus_hash": "42bc0c2a43c12b1fcd3cd6a633a486d320f62dd3918a68b3842fd37bff414418",
+  "head": "336a81b",
+  "corpus_hash": "1170030554c0311721fa88fdcd3a906ac0a1b478a4da2ad0c81ab369789a182e",
   "root_dirty": 0,
-  "measured_at": "2026-09-30T08:24:05Z",
+  "measured_at": "2026-09-30T09:00:50Z",
   "families": [
     "corpus",
     "series",
@@ -16,14 +16,14 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 684,
+      "value": 681,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
     "corpus.files_by_ext": {
       "value": {
         "(none)": 2,
-        ".astro": 63,
+        ".astro": 61,
         ".css": 3,
         ".csv": 2,
         ".docx": 1,
@@ -37,7 +37,7 @@
         ".png": 35,
         ".svg": 74,
         ".toml": 2,
-        ".ts": 45,
+        ".ts": 44,
         ".tsx": 2,
         ".txt": 11,
         ".webp": 1,
@@ -329,7 +329,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 871012,
+      "value": 870815,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -337,17 +337,17 @@
       "value": {
         "lore": 491736,
         "standards": 76297,
-        "system": 44979,
+        "system": 45000,
         "reports": 36705,
         "agents": 31484,
         "protocols": 27729,
         "blueprints": 27695,
-        "operations": 20234,
         "machine": 20087,
+        "operations": 19941,
         "canon": 19794,
         "missions": 17668,
         "legal": 13081,
-        "": 12052,
+        "": 12127,
         "opportunities": 10236,
         "decisions": 9669,
         "debt": 8789,
@@ -359,9 +359,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 508390,
-        "draft": 192122,
-        "active": 151339,
+        "(none)": 508465,
+        "draft": 191829,
+        "active": 151360,
         "todo": 13532,
         "in-progress": 4513,
         "done": 1116
@@ -689,13 +689,13 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 886
+          "3": 882
         },
         "PRO": {
-          "3": 317
+          "3": 316
         },
         "OPS": {
-          "3": 81
+          "3": 82
         },
         "CAN": {
           "3": 343
@@ -704,7 +704,7 @@
           "3": 228
         },
         "BLU": {
-          "3": 156
+          "3": 155
         },
         "RPT": {
           "3": 67,
@@ -805,7 +805,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 262,
+      "value": 261,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
