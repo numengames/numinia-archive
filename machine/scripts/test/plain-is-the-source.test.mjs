@@ -36,7 +36,8 @@ test('the site opens at the new moon, the plain words', () => {
 });
 
 test('the world\'s vocabulary prefers the operational word', () => {
-  const std = read('standards/STD-030-the-worlds-vocabulary.md');
+  // read as prose: a blockquote wraps its lines with "> "
+  const std = read('standards/STD-030-the-worlds-vocabulary.md').replace(/\n>\s*/g, ' ');
   assert.match(std, /operational equivalent is the preferred label/i);
   assert.match(std, /in-world name is its alternative label/i);
   assert.doesNotMatch(std, /in-world name is the preferred label/i);

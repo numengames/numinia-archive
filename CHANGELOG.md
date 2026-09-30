@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-30
 
+- **Changed** The business's words are the source: the site opens at the new moon; `STD-030` 0.2.0 makes the operational word the preferred label and the in-world name its alternative; `AGENTS.md` says documents are written in plain words (site v0.107.0) (#588)
 - **Changed** `OPS-016` 0.2.0: the eighth door is the pass holders' again, a real lock; a door counts as crossed when the wallet holds its free reward; one buy button, no cart, with the withdrawal acknowledgement; how the industry sells passes
 - **Added** `STD-044` Every purchase ends in thanks: after paying, the buyer lands on our thanks page, which names the good, says what comes next and proves nothing; `PRO-020` 0.4.0 sets it at step 5, `OPS-014` 0.4.1 names the Backer's (site v0.106.0)
 - **Changed** `STD-037` 0.3.0: the house footer carries a visible *Support Numinia* button with a coffee cup under the site's line, leading to numinia.com/support; numinia.org has it; `STD-023` 1.8.0 adds Phosphor's `coffee` as the 72nd icon of the house subset (site v0.106.0)
