@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20362,
+  "chars": 20582,
   "apparatus": false,
   "archived": false,
-  "tokens": 5607
+  "tokens": 5677
  },
  {
   "path": "CLAUDE.md",
@@ -1901,6 +1901,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2485
+ },
+ {
+  "path": "operations/OPS-017-the-enisa-loan.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5147,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1498
  },
  {
   "path": "opportunities/OPP-2026-001.md",
