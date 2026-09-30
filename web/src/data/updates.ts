@@ -32,6 +32,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.108.0",
+    date: "2026-09-30",
+    entries: [
+      {
+        type: "ADD",
+        text: "The moon reaches the shelves. On every section index the big title follows the moon you chose — Canon reads Purpose and Standards reads Policies in plain words, Decisions reads Decision Stone and Reports reads Dispatch in Numinia's — and so do the section names in \"The other drawers\" at the foot. The link back to Decisions or Reports at the top of a decision or a report follows it too. The text of the documents does not change.",
+      },
+    ],
+  },
+  {
     version: "v0.107.0",
     date: "2026-09-30",
     entries: [

@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: MIT
 // Decision detail rendered at build from the repo's decisions/ folder
 // (MIS-065). The full markdown document is the page.
+import { wordAttrs } from "@/lib/narrative-words.mjs";
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
@@ -48,7 +49,7 @@ const STATUS_COLOR: Record<string, string> = {
 
       <a href="/decisions" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
         <Icon name="caret-left" size={12} />
-        Decisions
+        <span {...wordAttrs("Decisions")}>Decisions</span>
       </a>
 
       <div class="flex flex-wrap items-center gap-2 mb-4">

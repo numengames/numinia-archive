@@ -1,6 +1,7 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
+import { wordAttrs } from "@/lib/narrative-words.mjs";
 interface Props {
   label?: string;
   title: string;
@@ -8,6 +9,9 @@ interface Props {
 }
 
 const { label, title, description } = Astro.props;
+// A title the narrative register holds (a series' name) follows the moon in
+// the bar; any other title is left alone (wordAttrs returns nothing).
+const titleWord = wordAttrs(title);
 ---
 
 <section class="pb-12 pt-16 sm:pt-24">
@@ -18,7 +22,7 @@ const { label, title, description } = Astro.props;
       </span>
     )}
     <h1 class="font-display text-4xl tracking-tight text-foreground opacity-0 animate-slide-up-1 sm:text-5xl lg:text-6xl">
-      {title}
+      <span {...titleWord}>{title}</span>
     </h1>
     {description && (
       <p class="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground opacity-0 animate-slide-up-2">

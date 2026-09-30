@@ -6,6 +6,7 @@
 // folder is flat and the subtype lives in frontmatter (ADR-005 v1.2.0).
 // /audits/<id> (the historic address of the audits) redirects here since
 // 2026-09-01: one folder, one collection, one head.
+import { wordAttrs } from "@/lib/narrative-words.mjs";
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
@@ -36,7 +37,7 @@ const subtype = typeof f.subtype === "string" ? f.subtype : "report";
 
       <a href="/reports" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
         <Icon name="caret-left" size={12} />
-        Reports
+        <span {...wordAttrs("Reports")}>Reports</span>
       </a>
 
       <div class="flex flex-wrap items-center gap-2 mb-4">

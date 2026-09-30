@@ -32,6 +32,7 @@ import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
 import { SECTIONS, getSectionDocs, countWithheld, READING_NOTE, READING_GROUPS, SECTION_VIEWS } from "@/lib/corpus";
 import { placeOf, functions } from "@/lib/classification";
+import { wordAttrs } from "@/lib/narrative-words.mjs";
 
 // The site's own pages under a section, checked against the folder that
 // holds them — see SECTION_VIEWS in @/lib/corpus. `import.meta.glob` is
@@ -393,7 +394,7 @@ const strip = functions().map((fn) => ({
                     : "border-border bg-card text-dim hover:bg-card-hover")
                 }
               >
-                {s!.label}
+                <span {...wordAttrs(s!.label)}>{s!.label}</span>
               </a>
             ))}
           </div>
