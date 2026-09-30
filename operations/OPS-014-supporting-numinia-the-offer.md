@@ -4,9 +4,9 @@ uid: ""
 title: "Supporting Numinia — the offer"
 type: documentation
 status: draft
-version: "0.4.0"
+version: "0.4.1"
 created: "2026-09-29T13:00:00+02:00"
-updated: "2026-09-30T12:00:00+02:00"
+updated: "2026-09-30T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -95,6 +95,7 @@ before paying (`STD-033` PAY-001), so the gift is named on the page.
 | **Site** | numinia.com/support |
 | **State** | Test: the payment link is in Stripe's test mode and charges nothing |
 | **Payment link** | `https://buy.stripe.com/test_fZu4gA4WU2ZG3iMgssdMI00` (test) |
+| **Thanks page** | numinia.com/support/thanks/backer, in the buyer's language (`STD-044`); set as the link's confirmation page |
 
 ### Sponsor
 

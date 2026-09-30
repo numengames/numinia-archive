@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.106.0",
+    date: "2026-09-30",
+    entries: [
+      {
+        type: "ADD",
+        text: "A new standard, Every purchase ends in thanks: after paying, a buyer comes back to our own thank-you page, which names what they bought, says what happens next, where the receipt is and how to get help, and proves and keeps nothing. The core's map lists it beside Every charge delivers something.",
+      },
+      {
+        type: "ADD",
+        text: "The footer carries a button, ☕ Support Numinia, under the line that says what the archive is. It opens numinia.com/support: the archive sells nothing itself. The same button is in the footer of all four sites.",
+      },
+    ],
+  },
+  {
     version: "v0.105.0",
     date: "2026-09-30",
     entries: [

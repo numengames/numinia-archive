@@ -4,9 +4,9 @@ uid: ""
 title: "Putting something on sale"
 type: protocol
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-09-29T11:00:00+02:00"
+updated: "2026-09-30T12:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -14,7 +14,7 @@ tags: [protocol, economy, payments, sale, records]
 license: "CC0-1.0"
 applies_to: [all-agents]
 ratified_by: "ADR-065"
-related: ["STD-033", "CAN-011", "SYS-008", "STD-022", "PRO-021"]
+related: ["STD-033", "CAN-011", "SYS-008", "STD-022", "PRO-021", "STD-044"]
 derived_from: "CAN-011"
 ---
 
@@ -70,7 +70,8 @@ A withdrawal starts when the Oracle decides the thing comes off sale.
    list?* — name, alias or none, *none* by default — and *Show what you
    gave?* — yes or no, *no* by default.
 5. **Create the payment link.** Oracle, and hand it to the agent. A payment
-   link is not a key.
+   link is not a key. Its confirmation page redirects to the good's thanks
+   page on the site that sells it (`STD-044`), never to the processor's.
 6. **Add the link to the record.** Agent, in a pull request.
 7. **Test the whole path in test mode.** Agent and Oracle: pay, receive the
    good, appear in the homage list as chosen, cancel. Do not publish until

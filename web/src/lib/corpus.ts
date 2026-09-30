@@ -473,6 +473,8 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-022-secrets",
       "/standards/std-035-personal-data",
       "/standards/std-033-every-charge-delivers-something",
+      // 2026-09-30: what the buyer sees after paying — beside what may be charged.
+      "/standards/std-044-every-purchase-ends-in-thanks",
       "/standards/std-038-the-stages-of-a-sale",
       "/standards/std-039-an-opportunity-has-a-record",
       "/standards/std-040-a-proposal-says-four-things",

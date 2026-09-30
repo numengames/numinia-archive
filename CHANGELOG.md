@@ -19,6 +19,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-30
 
+- **Added** `STD-044` Every purchase ends in thanks: after paying, the buyer lands on our thanks page, which names the good, says what comes next and proves nothing; `PRO-020` 0.4.0 sets it at step 5, `OPS-014` 0.4.1 names the Backer's (site v0.106.0)
+- **Changed** `STD-037` 0.3.0: the house footer carries a visible ☕ *Support Numinia* button under the site's line, leading to numinia.com/support; numinia.org has it (site v0.106.0)
 - **Added** The season pass moves from numinia.store to numinia.com: `OPS-016`, Season I's premium loot and a pass token for 9.99 EUR with VAT, adventures open to all, buyers kept private; not on sale
 
 ### 2026-09-29
