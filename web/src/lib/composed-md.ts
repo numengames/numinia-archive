@@ -34,6 +34,7 @@
 // wants to argue with the content to a rendering component is sending them
 // to the wrong argument. Where a page draws on two registers, `sources`
 // lists both and the toolbar links the first.
+import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
 import { getCollection } from "astro:content";
 import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
@@ -721,6 +722,12 @@ export function accountPage(): ComposedPage {
     "Costs carry no VAT: the VAT on an invoice the company receives is deducted in the same quarterly return, so it passes through and is not a cost. Invoices from companies outside Spain arrive without VAT and the receiver declares it and deducts it at once (reverse charge, marked ISP in the book). Salaries carry no VAT and count at their cost to the company. A person's support is shown VAT included, as consumer law requires; of it, 21 % over the base goes to the tax authority and the card processor takes 1.5 % plus €0.25, and 0.7 % more for a repeating payment.",
     "",
     table(["A person pays", "VAT", "Processor", "Reaches Numinia"], ACCOUNT_AMOUNTS.map(accountSplit).map((r) => [eur2(r.price), eur2(r.vat), eur2(r.fee), eur2(r.net)])),
+    "",
+    "## The ENISA loan",
+    "",
+    `Real figures. A participative loan from ENISA, the Spanish state's lender for innovative companies (${ENISA.lender}), signed on ${ENISA.signed}. It is debt, not equity; what it costs is the interest, a financial expense. The record: [${ENISA.record}](/operations/ops-017-the-enisa-loan).`,
+    "",
+    table(["Quarter", "Interest (net)"], [...ENISA.interest.map((q) => [q.quarter, eur2(q.amount)]), ["**2025**", `**${eur2(ENISA_INTEREST_TOTAL)}**`]]),
     "",
     ...forecastMd(),
   ].join("\n");

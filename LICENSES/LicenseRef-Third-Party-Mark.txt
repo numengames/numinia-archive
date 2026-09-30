@@ -1,0 +1,10 @@
+Third-party mark
+
+The file covered by this license reference is a mark or seal that belongs
+to a third party, shown here as that party offers it to the companies it
+works with. Numen Games S.L. holds no rights in it and grants none: no
+licence in this repository extends to it.
+
+It may be seen where it is published. Any other use is for its holder to
+allow. Each file names its holder in REUSE.toml, and the record that
+explains why the file is here.

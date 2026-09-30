@@ -53,6 +53,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.110.0",
+    date: "2026-09-30",
+    entries: [
+      {
+        type: "ADD",
+        text: "Open books shows the ENISA loan: a participative loan from the Spanish state's lender for innovative companies, signed on 22 October 2024, with its interest quarter by quarter in 2025 and ENISA's seal. These are the first real figures on the page; the rest is still simulated. The record is OPS-017.",
+      },
+    ],
+  },
+  {
     version: "v0.109.0",
     date: "2026-09-30",
     entries: [

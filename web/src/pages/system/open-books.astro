@@ -23,8 +23,10 @@ import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { lines, AS_OF, START, CASH, forecast, split, AMOUNTS, FEE, VAT_RATE, CATEGORY_LABEL } from "@/lib/account";
 import { repoFileUrl } from "@/lib/build-info";
+import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
 
 const rows = lines();
+const eurE = (n: number) => n.toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast(), fee: FEE, vat: VAT_RATE, amounts: AMOUNTS, splits: AMOUNTS.map(split) };
 ---
 
@@ -137,6 +139,18 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
     <p class="cq-sub">In the headings of the abbreviated model of the Spanish General Accounting Plan, year by year, on an accrual basis. It is the first thing a bank reads.</p>
     <div class="cq-tablewrap"><table class="cq-t" id="cq-pyg"><thead></thead><tbody></tbody></table></div>
     <p class="cq-note">¹ From 2 November. ² To the ledger's last day. No depreciation: nothing has been capitalised yet.</p>
+   </div>
+
+   <div class="cq-sec" id="cq-sec-enisa" data-l="pub cfo">
+    <h2>The ENISA loan</h2>
+    <p class="cq-sub">Numen Games holds a participative loan from ENISA, the Spanish state's lender for innovative companies, signed on {ENISA.signed}. It is debt, not equity: ENISA holds no shares. What it costs is the interest, a financial expense. <span class="cq-flag cq-flag--real">real figures</span></p>
+    <div class="cq-card cq-enisa">
+     <a class="cq-enisa-seal" href={ENISA.lenderUrl} target="_blank" rel="noopener noreferrer"><img src={ENISA.seal} width="240" height="160" alt="Financiada por ENISA — Ministerio de Industria y Turismo" loading="lazy" decoding="async" /></a>
+     <div class="cq-enisa-body">
+      <div class="cq-tablewrap"><table class="cq-t"><thead><tr><th class="cq-l">Quarter</th><th>Interest (net)</th></tr></thead><tbody>{ENISA.interest.map((q) => <tr><td class="cq-l">{q.quarter}</td><td>{eurE(q.amount)}</td></tr>)}</tbody><tfoot><tr><td class="cq-l"><b>2025</b></td><td><b>{eurE(ENISA_INTEREST_TOTAL)}</b></td></tr></tfoot></table></div>
+      <p class="cq-note">Principal, term and rates are copied in from the contract as soon as they are to hand. The whole record, with what is still missing and what the public registers say: <a href="/operations/ops-017-the-enisa-loan">{ENISA.record} The ENISA loan</a>. Lender: <a href={ENISA.lenderUrl} target="_blank" rel="noopener noreferrer">{ENISA.lender}</a>.</p>
+     </div>
+    </div>
    </div>
 
    <div class="cq-sec" id="cq-sec-cash" data-l="cfo">
@@ -273,6 +287,12 @@ const DATA = { start: START, asOf: AS_OF, cash: CASH, rows, forecast: forecast()
 .cq-v{display:block;font-family:var(--font-mono);font-variant-numeric:tabular-nums;font-weight:500;font-size:clamp(1.1rem,4.2vw,1.6rem);line-height:1.2;margin:6px 0 4px;color:rgb(var(--text));white-space:nowrap}
 .cq-s{display:block;font-size:.8125rem;line-height:1.45;color:rgb(var(--text-dim))}
 .cq-kpi--put .cq-v{color:rgb(var(--yellow))}
+.cq-flag--real{border-color:rgb(var(--text-dim)/.5);color:rgb(var(--text))}
+.cq-enisa{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:720px){.cq-enisa{grid-template-columns:1fr}}
+/* ENISA's seal is black ink on transparent: it sits on a white plate so it reads by night too. */
+.cq-enisa-seal{display:block;background:#fff;border-radius:var(--radius);padding:12px;max-width:240px}
+.cq-enisa-seal img{display:block;width:100%;height:auto}
 .cq-kpi--today .cq-v{color:rgb(var(--accent))}
 .cq-sec{margin-top:56px}
 .cq-sec h2{font-family:var(--font-display);font-size:1.5rem;line-height:1.25;margin:0 0 6px;color:rgb(var(--text))}
