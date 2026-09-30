@@ -10,7 +10,7 @@
 // scripts/check-version-bump.mjs.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
-import { UPDATES, PENDING } from "@/data/updates";
+import { UPDATES, PENDING, FOLDED } from "@/data/updates";
 import { COMMIT_SHA, COMMIT_URL } from "@/lib/build-info";
 import { readUpdateStamps } from "@/lib/update-stamps";
 import SpeechPlayer from "@/components/SpeechPlayer.astro";
@@ -32,7 +32,7 @@ const STATUS_LABEL: Record<string, string> = { planned: "planned", blocked: "blo
   <PageHero
     label="Updates"
     title="What changed, and when"
-    description="The site's timeline, newest first. Every production push raises the version and leaves its line here; the footer prints the newest one. Each carries the hour it shipped, in Central European Time, and the build it came from. This is the viewer's record — the corpus has its own CHANGELOG in the repository."
+    description="The site's timeline, newest first. Every production push raises the version and leaves its line here; the footer prints the newest one. This week is shown in full; each closed week folds into one line that leads to its report. Each carries the hour it shipped, in Central European Time, and the build it came from. This is the viewer's record — the corpus has its own CHANGELOG in the repository."
   />
 
   <section class="pb-20">
@@ -91,6 +91,25 @@ const STATUS_LABEL: Record<string, string> = { planned: "planned", blocked: "blo
           </li>
         ))}
       </ol>
+
+      {FOLDED.length > 0 && (
+        <section class="mt-16" aria-labelledby="earlier-weeks">
+          <h2 id="earlier-weeks" class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Earlier weeks</h2>
+          <p class="mt-2 text-sm text-muted-foreground">Each closed week folds into one line; its report tells the whole company's week, and git keeps every version.</p>
+          <ol class="mt-6 flex flex-col gap-6">
+            {FOLDED.map((w) => (
+              <li class="border-l border-border pl-4">
+                <p class="flex flex-wrap items-baseline gap-3">
+                  <span class="font-display text-lg text-foreground">{w.week.replace(/^\d{4}-W/, "Week ")}</span>
+                  <span class="font-mono text-xs text-dim">{w.span} · {w.first} → {w.last} · {w.releases} releases</span>
+                </p>
+                <p class="mt-1 text-sm text-muted-foreground">{w.text}</p>
+                <a href={w.report} class="mt-1 inline-block font-mono text-xs text-dim hover:text-accent">Read the week's report →</a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
     </div>
   </section>
 </Layout>
