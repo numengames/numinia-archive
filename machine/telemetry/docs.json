@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18066,
+  "chars": 18284,
   "apparatus": false,
   "archived": false,
-  "tokens": 4937
+  "tokens": 4999
  },
  {
   "path": "CLAUDE.md",
@@ -1892,6 +1892,17 @@
   "tokens": 1674
  },
  {
+  "path": "operations/OPS-016-season-pass-the-offer.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 6439,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1733
+ },
+ {
   "path": "opportunities/OPP-2026-001.md",
   "dir": "opportunities",
   "series": "opportunities",
@@ -2832,10 +2843,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10443,
+  "chars": 10501,
   "apparatus": false,
   "archived": false,
-  "tokens": 2841
+  "tokens": 2856
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
@@ -2898,10 +2909,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6692,
+  "chars": 6733,
   "apparatus": false,
   "archived": false,
-  "tokens": 1706
+  "tokens": 1724
  },
  {
   "path": "system/SYS-009-the-design-system.md",
