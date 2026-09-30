@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 16987,
+  "chars": 17110,
   "apparatus": false,
   "archived": false,
-  "tokens": 4192
+  "tokens": 4222
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18284,
+  "chars": 18719,
   "apparatus": false,
   "archived": false,
-  "tokens": 4999
+  "tokens": 5139
  },
  {
   "path": "CLAUDE.md",
@@ -654,10 +654,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 10288,
+  "chars": 10355,
   "apparatus": false,
   "archived": false,
-  "tokens": 2733
+  "tokens": 2753
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -1886,10 +1886,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5921,
+  "chars": 6051,
   "apparatus": false,
   "archived": false,
-  "tokens": 1674
+  "tokens": 1708
  },
  {
   "path": "operations/OPS-016-season-pass-the-offer.md",
@@ -2139,10 +2139,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3928,
+  "chars": 4065,
   "apparatus": false,
   "archived": false,
-  "tokens": 1062
+  "tokens": 1097
  },
  {
   "path": "protocols/PRO-021-closing-the-month.md",
@@ -2722,10 +2722,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5607,
+  "chars": 5618,
   "apparatus": false,
   "archived": false,
-  "tokens": 1530
+  "tokens": 1535
  },
  {
   "path": "standards/STD-034-accessibility.md",
@@ -2766,10 +2766,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8297,
+  "chars": 8629,
   "apparatus": false,
   "archived": false,
-  "tokens": 2144
+  "tokens": 2232
  },
  {
   "path": "standards/STD-038-the-stages-of-a-sale.md",
@@ -2836,6 +2836,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1278
+ },
+ {
+  "path": "standards/STD-044-every-purchase-ends-in-thanks.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 4836,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1311
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
