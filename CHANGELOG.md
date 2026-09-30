@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-30
 
+- **Added** `DBT-022` 0.3.0 §1.7 *Open books*: naming the people we pay needs their consent, a transparency clause in new contracts and counsel on the legal basis and on payroll; block 8 of the letter, in the text and the Word file
 - **Fixed** Folding closed weeks is numinia.org's alone: the summaries live only in the archive; STD-037 0.4.1 drops the four-site rule, PRO-017 3.3.1 folds on the archive's site only (site v0.109.0).
 - **Changed** `OPS-016` 0.3.0: the season pass takes the Backer's Stripe test link and the old numinia.store contract, in test; its rewards stay figurative for now
 - **Changed** /updates folds each closed week into one line linked to its weekly report; weeks 38–39 folded (76 versions out of the page, in git). STD-037 0.4.0 makes it a house rule for the four sites; PRO-017 3.3.0 adds the step (site v0.108.0).
