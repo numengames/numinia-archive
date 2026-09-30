@@ -23,7 +23,7 @@ goods:
     name: "Season I pass — The Awakening of the Veil"
     kind: "Season pass"
     sentence: "The premium loot of the eight doors of Season I, and a pass token in your wallet."
-    delivers: "The premium reward of each of the eight adventures, and one Season I pass token minted to the wallet you pay with. The eight adventures and their free rewards stay open to everyone."
+    delivers: "The premium reward of each of the eight adventures, and one Season I pass token minted to the wallet you sign in with. The eight adventures and their free rewards stay open to everyone."
     amounts: [9.99]
     intervals: [once]
     year_months: 0
