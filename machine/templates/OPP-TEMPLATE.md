@@ -30,7 +30,7 @@ organisation: "a large retailer"
 sector: "retail"
 # offer: the offer record this sells.
 offer: "OPS-NNN"
-# source: referral | inbound | outbound | event | partner
+# source: referral | inbound | outbound | event | partner | tender
 source: "referral"
 # state: lead | qualified | analysed | proposed | agreed | won | lost (STD-038)
 state: "lead"
@@ -52,7 +52,9 @@ opened: "YYYY-MM-DD"
 # disclosure: "open"                            # once told: open | unnamed; a lost record is never named
 # agreement: "path to the signed agreement"      # once won
 # closed: "YYYY-MM-DD"                           # at won or lost
-# reason: "not-a-fit"                            # lost only: not-a-fit | no-budget | no-decider | price | timing | chose-another | silence | we-declined
+# reason: "not-a-fit"                            # lost only: not-a-fit | no-budget | no-decider | price | timing | chose-another | silence | we-declined | outbid | excluded
+# procedure: "simplified-abridged"               # tender only: minor | simplified-abridged | simplified | open (STD-038)
+# notice: "https://…"                            # tender only: the announcement's address; a minor contract has none
 # related: ["OPS-NNN"]
 ---
 

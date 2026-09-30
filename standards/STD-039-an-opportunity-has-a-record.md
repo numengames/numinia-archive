@@ -5,14 +5,14 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-29T12:00:00+02:00"
+updated: "2026-09-30T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
-tags: [standards, sales, opportunity, record, pipeline, personal-data]
+tags: [standards, sales, opportunity, record, pipeline, personal-data, tenders]
 license: "CC0-1.0"
 related: ["STD-038", "STD-040", "STD-035", "STD-036", "CAN-009", "CAN-012"]
 derived_from: "CAN-009"
@@ -29,7 +29,8 @@ SPDX-License-Identifier: CC0-1.0
 > who, what, at which stage, worth how much, and what happens next. The
 > stage comes from the register of stages; the pipeline is computed from
 > the files, never typed; the records are public, carry nobody's name, and
-> name the organisation only once it has agreed.
+> name the organisation only once it has agreed. A public tender is a sale
+> like any other, with the notice linked and the procedure named.
 > **Epistemic:** What must the record of an opportunity contain?
 > **Pragmatic:** Open a record when someone shows a need, and know what a
 > tool will refuse. Read the pipeline from the tool, never from memory.
@@ -52,9 +53,9 @@ organisation, sector, the offer it sells, source, stage, value without tax,
 currency, the contact's role, the contact channel, next action, next date,
 the date opened, and the licence. The rest are written when due and absent
 before: the decider's role from agreed, the date closed at won or lost, the reason when lost, the proposal's path once sent, the agreement's path
-once won, and the disclosure once the client has been told the house works
+once won, the disclosure once the client has been told the house works
 in the open — `open` if it did not object, `unnamed` if it asked to stay
-out.
+out — and, when the source is a tender, the procedure and the notice.
 
 **The stage is a value from the register.** The stage MUST be one of the
 stages register's states, written in the header and never in the filename
@@ -69,6 +70,17 @@ overdue; one unmoved longer than the register's stale days is stale.
 **Every move leaves a line.** Each change of stage MUST add a row to the
 record's transitions table: date, from, to, who, evidence. The time a sale
 spends in each stage is read from these rows.
+
+**A tender names its procedure and links its notice.** A record whose
+source is a tender MUST carry the procedure the authority buys by, one of
+the register's procedures, and — for every procedure but the minor
+contract, which has no notice — the address of the notice on the
+authority's contracting profile or the public procurement platform. Its
+value is the estimated value the notice states, before tax; the house's
+own price enters the record only once the authority has published the
+award. Its next date while the offer is out is the day the notice names
+for offers to close, then the day to look for the award: a filed offer is
+overdue when that day passes, never stale.
 
 ### What it says about people and organisations
 
@@ -116,6 +128,7 @@ Each rule, its code, its source and its check.
 | OPP-003 | The stage is a value from the register | `STD-038` | `pipeline.mjs`: stage and reason read from the register's table; the decider's role present from `agreed` |
 | OPP-004 | Every open record knows its next step | — | `pipeline.mjs`: overdue and stale listed |
 | OPP-005 | Every move leaves a line | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), metadata of the transaction (clause unverified) | `pipeline.mjs`: last transition's `to` matches the stage |
+| OPP-012 | A tender names its procedure and links its notice | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 63 (the contracting profile), 133 (a bid is confidential until award), 159 (what each procedure asks); `STD-038` | `pipeline.mjs`: `source: tender` requires `procedure` from the register and `notice` unless the procedure is `minor`; a tender at `proposed` is exempt from stale |
 | OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001 | `pipeline.mjs`: header fields against a closed list, and the body scanned for an e-mail address or a phone number; by hand for a name |
 | OPP-011 | The organisation, named when it knows | the client's interest; customer-reference practice — a client's name used with its consent, withdrawable; `LCSP` art. 133 (a bidder's own offer is not the authority's to disclose) | `pipeline.mjs`: a name without `disclosure: open`, or any name in a lost record, is reported; by hand for the client's wish |
 | OPP-007 | Minimal, with its basis | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6(1)(f), recital 47 | by hand, at the review of every record |
@@ -137,7 +150,7 @@ pipeline can be as public as everything else here.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `STD-038` | The stages of a sale | the stages, reasons and retention this record's fields take their values from |
+| `STD-038` | The stages of a sale | the stages, reasons, procedures and retention this record's fields take their values from |
 | `STD-040` | A proposal says four things | what the proposal a record points to must contain |
 | `STD-035` | Personal data | what may be kept about the people named in a record |
 | `STD-036` | One account | where a won record's value goes |

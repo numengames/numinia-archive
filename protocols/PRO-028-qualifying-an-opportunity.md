@@ -4,14 +4,14 @@ uid: ""
 title: "Qualifying an opportunity"
 type: protocol
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-29T12:00:00+02:00"
+updated: "2026-09-30T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
-tags: [protocol, sales, opportunity, qualification, pipeline]
+tags: [protocol, sales, opportunity, qualification, pipeline, tenders]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-038", "STD-039", "PRO-029", "PRO-030", "CAN-002"]
@@ -46,8 +46,8 @@ not make. This protocol puts every sign of interest into a record on the
 day it arrives, and decides within two weeks whether it is worth pursuing.
 
 It starts when an organisation shows a need — a form, an email, a
-conversation at an event, a referral — or when the Oracle chooses one to
-approach. **Whoever hears of it** opens the record; **whoever sells** (the
+conversation at an event, a referral, a public body's notice — or when the
+Oracle chooses one to approach. **Whoever hears of it** opens the record; **whoever sells** (the
 Oracle today, or whom he names) qualifies it and decides.
 
 ---
@@ -59,7 +59,11 @@ Oracle today, or whom he names) qualifies it and decides.
 - The record of the offer this would sell, published; without one, there is
   nothing to qualify against.
 - The stages register at hand for the stage, its evidence and its stale
-  days (`STD-038`).
+  days, and — for a tender — the procedures a public buyer purchases by
+  and what each asks of a bidder (`STD-038`).
+- For tenders: alerts on the public procurement platform, and the
+  bidders' register application filed (the register says which procedures
+  ask for it).
 
 ---
 
@@ -80,12 +84,20 @@ Oracle today, or whom he names) qualifies it and decides.
    come from. Write what is known; what is not yet known is asked at the
    next meeting, and the record says so. Nobody who can sign reached after
    two attempts: `lost`, reason `no-decider` or `no-budget`.
-4. **Decide to pursue.** Whoever sells weighs the fit, what is known of who
+4. **For a tender, read the notice.** Source `tender`; the procedure and
+   the notice's address in the header; the notice's estimated value as the
+   value; the closing day as the next date. Three yes-or-no questions from
+   the terms: is the house eligible (solvency, register, classification);
+   can it deliver in the time and place asked; is the value worth the
+   dossier. One no: `lost`, reason `we-declined`, the failed question in
+   the body. A minor contract has no notice: the record holds the
+   authority's request instead.
+5. **Decide to pursue.** Whoever sells weighs the fit, what is known of who
    signs, and the house's capacity to deliver in the time asked, and
    decides. Pursue: stage `qualified`, a transition row, and the next
    action is the needs analysis. Decline: `lost`, reason `we-declined`, and
    the reason in a sentence in the body.
-5. **Run the pipeline tool.** The record conforms, or the tool says which
+6. **Run the pipeline tool.** The record conforms, or the tool says which
    rule it breaks; fix it before the day ends.
 
 ---
@@ -96,8 +108,9 @@ Oracle today, or whom he names) qualifies it and decides.
 |---|---|
 | 1 | A record exists in the opportunities series, opened the day the sign arrived, stage `lead` |
 | 2–3 | The body holds the fit answer and what is known of who signs and from which budget — or the record is `lost` with its reason |
-| 4 | Stage `qualified` with a transition row, or `lost`; the next action names the needs analysis |
-| 5 | The pipeline tool reports no breach on the record |
+| 4 | A tender's header carries `source: tender`, its procedure and its notice; the body holds the three answers from the terms |
+| 5 | Stage `qualified` with a transition row, or `lost`; the next action names the needs analysis |
+| 6 | The pipeline tool reports no breach on the record |
 
 ---
 
@@ -108,4 +121,5 @@ technology, a deadline — goes to the Oracle before pursuing, with the
 partner or the refusal it would take. A need that would rehearse something
 harmful or unlawful is declined at step 2 and told to the legal specialist.
 A record stale in `lead` past the register's days is decided that week:
-pursue or `lost`, never left open.
+pursue or `lost`, never left open. A tender closing sooner than the
+dossier takes goes to the Oracle that day: bid, find a partner, or decline.
