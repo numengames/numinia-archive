@@ -4,9 +4,9 @@ uid: ""
 title: "Season pass — the offer"
 type: documentation
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-30T13:00:00+02:00"
-updated: "2026-09-30T15:00:00+02:00"
+updated: "2026-09-30T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -17,7 +17,8 @@ related: ["CAN-011", "STD-033", "SYS-008", "PRO-020", "OPS-014"]
 # The season pass on sale, read by numinia.com/lap/seasons (STD-033
 # PAY-003: sites read the price from this record). Price with VAT, in EUR.
 # `link` is the payment link an Oracle creates (PRO-020 step 5); empty
-# means the button says "Coming soon".
+# means the button says "Coming soon". A link starting
+# `https://buy.stripe.com/test_` is test mode and charges nothing.
 goods:
   - id: season-001-pass
     name: "Season I pass — The Awakening of the Veil"
@@ -27,8 +28,8 @@ goods:
     amounts: [9.99]
     intervals: [once]
     year_months: 0
-    state: "not on sale"
-    link: ""
+    state: "test"
+    link: "https://buy.stripe.com/test_fZu4gA4WU2ZG3iMgssdMI00"
 ---
 
 <!--
@@ -90,8 +91,9 @@ It moves with four changes, each for a debt found in the old one:
 | **The token** | One ERC-1155 token on Base, in the contract numinia.store used. Counsel has reviewed it against the European crypto-assets regulation, the Oracle says (2026-09-30), which clears `STD-033` PAY-009 |
 | **Site** | numinia.com, `/lap/seasons/` |
 | **Dates** | To be set by the Oracle when the pass goes on sale |
-| **State** | Not on sale |
-| **Payment link** | None yet |
+| **Contract** | The season pass contract numinia.store used on Base (Oracle, 2026-09-30); its address is set on the numinia.com Worker as `SEASON_PASS_CONTRACT` |
+| **State** | Test: the payment link is in Stripe's test mode and charges nothing |
+| **Payment link** | `https://buy.stripe.com/test_fZu4gA4WU2ZG3iMgssdMI00` (test) — the same test link as `OPS-014`'s Backer, by the Oracle's choice (2026-09-30) |
 
 ### What a payment turns into
 
@@ -149,20 +151,24 @@ is shown in euros, as the CPC principles ask.
 
 ## 3. Why it is not on sale yet
 
-- **The payment link does not exist.** An Oracle creates the product, the
-  price and the link in the processor (`PRO-020` steps 4–5).
+- **The payment link is a test one.** It is the Backer's test link, shared
+  so the whole path can be walked in test mode (`PRO-020` step 7): it shows
+  the Backer's product and 5 EUR on the processor's page, not the pass and
+  9.99 EUR. Going on sale needs the pass's own product, price and live link.
 - **The return path is not built.** Steps 3–5 above need a read-only key
   of the processor and the minting wallet's key, both secrets of the
   numinia.com Worker, never in a repository (`STD-022`).
 - **The dates are not set.**
-- **The rewards are not minted.** Each free and premium reward needs its
-  token id in the season contract before a wallet can hold it, and so
-  before the fog and the progress can work.
+- **The rewards are figurative.** They are named and shown on the track,
+  and have no token yet (Oracle, 2026-09-30: they stay figurative for now).
+  Until each has its token id in the season contract no wallet can hold it,
+  so every door shows and no fog falls.
 - **The eighth world is open on oncyber.** Its address circulated on
   numinia.store; the Oracle closes it there (private or password).
 
 Until then the season page shows the track, both rewards of each door, the
-pass and its price, with the pay button marked *Coming soon*.
+pass and its price, and a buy button that opens the test link with a note
+that nothing is charged.
 
 ---
 
