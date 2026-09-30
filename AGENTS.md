@@ -221,8 +221,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-041` | The levels of automation | draft | register — scope belongs to the standard that cites it |
 | `STD-042` | What an agent may do without asking | draft | register — scope belongs to the standard that cites it |
 | `STD-043` | A report speaks to the board | draft | every roll-up report of a week, a quarter or a year |
+| `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
 
-72 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 7 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+73 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 7 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

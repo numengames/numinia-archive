@@ -5,9 +5,9 @@ title: "What every site carries"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.6"
+version: "0.3.0"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-09-29T23:30:00+02:00"
+updated: "2026-09-30T13:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -41,7 +41,8 @@ numinia.com, numen.games and nwos.numen.games.
 the house footer the design values lay out. It holds the site's written
 name and its line, its navigation, a column naming the four sites with this
 one marked, the legal texts published for the site, and its social
-accounts. The closing line comes last: the scarab, our signature, and the
+accounts. Under the site's line, a button invites support in plain sight
+and leads to the page that sells it. The closing line comes last: the scarab, our signature, and the
 licence, telemetry, version and commit. There is no copyright notice. The
 version opens the updates page, and its minor number moves with every
 release; this is a house rule, not semantic versioning. The legal texts
@@ -82,7 +83,7 @@ a day.
 ```
 <site name, written>                      Navigation        Numen Games       Legal        Social
 <one line: what this site is>             …                 Numen Games       Terms        GitHub
-                                          (two columns      Numinia           Privacy      X
+[cup] Support Numinia                      (two columns      Numinia           Privacy      X
                                            when > 4)        NWOS ← you are here            Discord
                                                             NWOS for your organisation
 ──────────────────────────────────────────────────────────────────────────────────────────────
@@ -94,6 +95,7 @@ a day.
 |---|---|
 | Site name | Written, never the logo alone; the wordmark is the bar's (`STD-023`), not the footer's |
 | One line | The site's line from the share card table below |
+| Support button | The Phosphor coffee cup and *Support Numinia* in the site's language, outlined in the accent, under the line; leads to numinia.com/support, the only page that sells support (`OPS-014`). Opens in a new tab from the other three sites |
 | Navigation | The site's primary routes; two columns from five entries, reading down the first column then the second |
 | Numen Games column | The four sites, in the order of the share-card table, this one marked «you are here» and not linked |
 | Legal | Only texts published for this site's scope; none invented |
