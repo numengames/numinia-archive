@@ -4,9 +4,9 @@ uid: ""
 title: "Season pass — the offer"
 type: documentation
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-30T13:00:00+02:00"
-updated: "2026-09-30T13:00:00+02:00"
+updated: "2026-09-30T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -22,8 +22,8 @@ goods:
   - id: season-001-pass
     name: "Season I pass — The Awakening of the Veil"
     kind: "Season pass"
-    sentence: "The premium loot of the eight doors of Season I, and a pass token in your wallet."
-    delivers: "The premium reward of each of the eight adventures, and one Season I pass token minted to the wallet you sign in with. The eight adventures and their free rewards stay open to everyone."
+    sentence: "The eighth door of Season I, the gold reward of all eight, and a pass token in your wallet."
+    delivers: "Entry to the eighth adventure, The Veil; the premium reward of each of the eight adventures; and one Season I pass token minted to the wallet you sign in with. The first seven adventures and their free rewards stay open to everyone."
     amounts: [9.99]
     intervals: [once]
     year_months: 0
@@ -40,8 +40,9 @@ SPDX-License-Identifier: CC-BY-4.0
 
 > **Summary:** The first thing numinia.com sells: the pass of Season I,
 > *The Awakening of the Veil*, for 9.99 EUR with VAT, paid once. Everyone
-> plays the eight adventures and takes their free rewards; the pass adds the
-> premium reward of each one and a pass token in the buyer's wallet.
+> plays the first seven adventures and takes their free rewards; the pass
+> opens the eighth, adds the premium reward of all eight and puts a pass
+> token in the buyer's wallet.
 > **Epistemic:** The record the season page's price, its button and its
 > payment link read from (`STD-033` PAY-003).
 > **Pragmatic:** Read it before changing the season page on numinia.com or
@@ -60,10 +61,10 @@ nothing. It moves to numinia.com and is launched there for real.
 
 It moves with four changes, each for a debt found in the old one:
 
-- **The adventures are open.** On numinia.store the pass locked the eighth
-  door, but the door's address was public, so the lock held no one. Now
-  every door is open and the pass sells what it can actually deliver: the
-  premium rewards.
+- **The lock on the eighth door is real.** On numinia.store the pass locked
+  the eighth door, but the door's address was public, so the lock held no
+  one. Now the site gives the address only to a wallet that holds the pass,
+  and the world itself is closed on oncyber by the Oracle.
 - **The price lives here.** numinia.store kept the price and the
   processor's price id in a data file of its own. Now the site reads this
   record.
@@ -83,7 +84,7 @@ It moves with four changes, each for a debt found in the old one:
 | | |
 |---|---|
 | **In one sentence** | The premium loot of the eight doors of Season I, and a pass token in your wallet |
-| **Delivers** | The premium reward of each of the eight adventures, and one Season I pass token minted to the wallet the buyer signs in with. The adventures and their free rewards stay open to everyone (`STD-033` PAY-008) |
+| **Delivers** | Entry to the eighth adventure, *The Veil*; the premium reward of each of the eight adventures; and one Season I pass token minted to the wallet the buyer signs in with. The first seven adventures and their free rewards stay open to everyone. The Veil is a game world, not something the archive gives, so locking it keeps `STD-033` PAY-008 |
 | **Price with VAT** | 9.99 EUR |
 | **Period** | One-off. One payment, one pass per wallet, for the whole of Season I |
 | **The token** | One ERC-1155 token on Base, in the contract numinia.store used. Counsel has reviewed it against the European crypto-assets regulation, the Oracle says (2026-09-30), which clears `STD-033` PAY-009 |
@@ -116,6 +117,34 @@ The first mints measure it, and this table gains a row for it.
 5. The token is minted to that wallet. If minting fails the pass still
    holds, and the mint is retried.
 
+### How the season knows how far you got
+
+A door counts as crossed when the wallet holds that door's free reward; the
+pass counts when the wallet holds the pass token (Oracle, 2026-09-30). No
+form and no one marking it by hand: the digital good is the proof. The
+season page reads the wallet's balances on Base and draws it as a game's
+pass track — crossed doors lit, the next one open, the rest in fog, the
+eighth behind a padlock. Until the rewards are minted as tokens, nothing can
+be proven, so every door shows.
+
+### How it is bought
+
+One button with the price in euros on the season page, no cart. Before it,
+a separate box the buyer ticks: they want the content now and lose the
+fourteen days to withdraw — the exception European consumer law allows for
+digital content only with that express consent and acknowledgement,
+confirmed afterwards (Consumer Rights Directive art. 16(m); CPC Network,
+*Key principles on in-game virtual currencies*, 2024, principle 5).
+
+### How the industry does it (read 2026-09-30)
+
+Two parallel tracks — free above, paid below — along one path, as Fortnite
+set it in 2018 and most live games copy. Since 2022 the larger ones sell
+passes that do not expire once bought (Halo Infinite; Helldivers 2's
+Warbonds at 10 USD; Marvel Rivals' 10 USD Luxury pass). Season I follows
+them: the pass is kept after the season ends. No premium currency: the price
+is shown in euros, as the CPC principles ask.
+
 ---
 
 ## 3. Why it is not on sale yet
@@ -126,20 +155,26 @@ The first mints measure it, and this table gains a row for it.
   of the processor and the minting wallet's key, both secrets of the
   numinia.com Worker, never in a repository (`STD-022`).
 - **The dates are not set.**
+- **The rewards are not minted.** Each free and premium reward needs its
+  token id in the season contract before a wallet can hold it, and so
+  before the fog and the progress can work.
+- **The eighth world is open on oncyber.** Its address circulated on
+  numinia.store; the Oracle closes it there (private or password).
 
-Until then the season page shows the eight adventures, both rewards of
-each, the pass and its price, with the pay button marked *Coming soon*.
+Until then the season page shows the track, both rewards of each door, the
+pass and its price, with the pay button marked *Coming soon*.
 
 ---
 
 ## 4. The three questions (`PRO-020` step 2)
 
-- **What does whoever pays take away?** Eight premium rewards and one pass
-  token, in the wallet they signed in with.
+- **What does whoever pays take away?** Entry to The Veil, eight premium
+  rewards and one pass token, in the wallet they signed in with.
 - **Where is it written?** Here, and on the season page before paying,
   reward by reward.
 - **Can it be seen whole?** Yes: the page names every premium reward beside
-  the free one, and every adventure can be played before paying.
+  the free one, and seven of the eight adventures can be played before
+  paying.
 
 ---
 
