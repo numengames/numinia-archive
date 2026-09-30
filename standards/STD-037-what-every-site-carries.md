@@ -5,9 +5,9 @@ title: "What every site carries"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-09-30T13:30:00+02:00"
+updated: "2026-09-30T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -45,7 +45,9 @@ accounts. Under the site's line, a button invites support in plain sight
 and leads to the page that sells it. The closing line comes last: the scarab, our signature, and the
 licence, telemetry, version and commit. There is no copyright notice. The
 version opens the updates page, and its minor number moves with every
-release; this is a house rule, not semantic versioning. The legal texts
+release; this is a house rule, not semantic versioning. The updates page
+shows the current week in full and each closed week as one line that leads
+to that week's report. The legal texts
 include a notice giving every visitor the company's name, address, registry
 entry and tax number, as Spanish law on online services requires.
 

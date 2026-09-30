@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: protocol
 status: draft
-version: "3.2.0"
+version: "3.3.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-29T19:30:00+02:00"
+updated: "2026-09-30T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, rollup, deflation, weekly, reports]
@@ -68,7 +68,10 @@ on the first Monday of a year over four quarterlies. Executor: any agent on
    think should stay: mark its line `oracle`; git holds the body. Add one
    line to the open phase report citing this week's report, not its lines
    (`DEF-006`).
-7. **Build and commit.** Guards, `npm run build`, commit.
+7. **Fold the week on the sites.** On each of the four sites, move the
+   week's versions out of the updates page into one line — versions, what a
+   visitor noticed (copied from the report's products section), a link to
+   the report. Git keeps the entries. Build and commit, guards first.
 8. **Regenerate telemetry last.** Regenerate the dataset after the final
    content commit; `--check` passes before push. Commit.
 9. **Open the PR.** Title `rollup: <period>`: the lines, the token delta,
