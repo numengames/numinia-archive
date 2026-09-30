@@ -17,6 +17,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-09-30
+
+- **Added** The NWOS trial becomes a sale: `OPS-015` *NWOS paid trial*, one workspace and its four AI-drafted documents for 29 EUR with VAT, paid once, deducted from a later contract, refunded if generation fails; not on sale until the link and a terms clause exist; `SYS-008` points to it
+
 ### 2026-09-29
 
 - **Changed** The bar opens with the site's wordmark, by the Oracle's ruling: `Numinia_Word` on numinia.org and numinia.com, `Numen_Games_Horizontal_Word` on numen.games and nwos; `STD-023` §23, `BLU-009`, `STD-037` and kit 6.4.0 (`web.marca`) say so (site v0.104.0)

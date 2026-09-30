@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17815,
+  "chars": 18122,
   "apparatus": false,
   "archived": false,
-  "tokens": 4862
+  "tokens": 4945
  },
  {
   "path": "CLAUDE.md",
@@ -1892,6 +1892,17 @@
   "tokens": 1967
  },
  {
+  "path": "operations/OPS-015-nwos-paid-trial-the-offer.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5038,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1341
+ },
+ {
   "path": "opportunities/OPP-2026-001.md",
   "dir": "opportunities",
   "series": "opportunities",
@@ -2898,10 +2909,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6611,
+  "chars": 6625,
   "apparatus": false,
   "archived": false,
-  "tokens": 1685
+  "tokens": 1693
  },
  {
   "path": "system/SYS-009-the-design-system.md",
