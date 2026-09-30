@@ -1,11 +1,14 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// narrative-home.test.mjs — the moon reaches the map.
+// narrative-pages.test.mjs — the moon reaches the map, the shelves and the
+// head of every document.
 //
-// The home page (the map of the Summa) must speak at the stop the reader
-// chose, like /about already does. Three things are checked on the BUILT
-// page, because what matters is what the browser receives:
+// The home page (the map of the Summa), each section's index, the typed
+// indexes (decisions, blueprints, reports), the function pages and the head
+// of a document must speak at the stop the reader chose, like /about
+// already does. Three things are checked on the BUILT pages, because what
+// matters is what the browser receives:
 //
 //   1. Every label the register can swap is marked where the map prints it
 //      on its own (panel, astrolabe, district boxes, rows, crumbs), or it is
@@ -20,14 +23,44 @@
 // Run: npm test  (needs web/dist: `cd web && npm run build`)
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import path from 'node:path';
 import { WORDS, TEXTS, wordAt, attrsAt } from '../../../web/src/lib/narrative-words.mjs';
 
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
-const HOME = path.join(ROOT, 'web', 'dist', 'index.html');
+const DIST = path.join(ROOT, 'web', 'dist');
+const HOME = path.join(DIST, 'index.html');
 const built = existsSync(HOME);
+const isRedirect = (f) => /http-equiv="refresh"/.test(readFileSync(path.join(DIST, f), 'utf8'));
+// The pages the moon must reach: the map, every section index, the typed
+// indexes, every function page, and one document of each kind.
+const PAGES = [
+  'index.html',
+  ...['canon', 'standards', 'protocols', 'system', 'debt', 'operations', 'opportunities', 'legal', 'objects', 'lore',
+    'decisions', 'blueprints', 'reports'].map((s) => `${s}/index.html`),
+  ...(existsSync(path.join(DIST, 'archive'))
+    ? readdirSync(path.join(DIST, 'archive')).map((d) => `archive/${d}/index.html`)
+    : []),
+  'canon/can-001-welcome-to-numinia/index.html',
+  'standards/std-001-the-series/index.html',
+  'protocols/pro-001-agent-session/index.html',
+  'decisions/adr-030/index.html',
+  'blueprints/book-and-veil/index.html',
+  'reports/rpt-003-wardley-map/index.html',
+].filter((f) => existsSync(path.join(DIST, f)) && !isRedirect(f));
+const read = (f) => readFileSync(path.join(DIST, f), 'utf8');
+// A page's own content. The bar and the footer are the site's chrome, read
+// once on the home; a document's BODY is its author's text and never changes
+// (the dial swaps the site's words, not a document's), so on a document page
+// only what precedes the body is read.
+const own = (f) => {
+  const html = read(f);
+  if (f === 'index.html') return html;
+  const m = html.match(/<main[\s\S]*<\/main>/)?.[0] ?? html;
+  const body = m.search(/<article\b/);
+  return body > 0 ? m.slice(0, body) : m;
+};
 const GLOSSARY = readFileSync(path.join(ROOT, 'lore', 'codex', 'en', 'glossary.md'), 'utf8').toLowerCase();
 
 // &amp; last, so "&amp;lt;" reads as the text "&lt;" and is not unescaped twice
@@ -63,11 +96,16 @@ test('a hand-written text uses, at each stop, the register\'s word for every lab
   }
 });
 
-test('the map marks every swappable label it prints on its own', { skip: !built && 'web/dist not built' }, () => {
-  const html = readFileSync(HOME, 'utf8');
+test('the pages mark every swappable label they print on their own', { skip: !built && 'web/dist not built' }, () => {
+  assert.ok(PAGES.length >= 20, `only ${PAGES.length} of the pages the moon must reach were built`);
+  const all = [];
+  for (const f of PAGES) {
+  const html = own(f);
   // any text that opens an element: a leaf, or a label followed by a child
   // (a row's count, a chip), which a leaf-only reading would miss
   const leaves = [...html.matchAll(/<([a-zA-Z][\w:-]*)(\s[^>]*)?>([^<]+)</g)];
+  // a label right after an icon: <a …><svg …>…</svg> Decisions </a>
+  for (const m of html.matchAll(/<(a|button)(\s[^>]*)?>\s*<svg[\s\S]*?<\/svg>([^<]+)<\/\1>/g)) leaves.push([m[0], m[1], '', m[3]]);
   const unmarked = [];
   for (const [, tag, attrs = '', text] of leaves) {
     const t = unesc(text).trim();
@@ -76,22 +114,27 @@ test('the map marks every swappable label it prints on its own', { skip: !built 
     if (tag === 'title' || tag === 'script' || tag === 'style') continue;
     unmarked.push(`<${tag}> ${t}`);
   }
-  assert.deepEqual(unmarked, [], 'labels the moon cannot reach on the map');
+  all.push(...unmarked.map((u) => `${f}: ${u}`));
+  }
+  assert.deepEqual(all, [], 'labels the moon cannot reach');
 });
 
 test('every tooltip that names a swappable label carries its variants', { skip: !built && 'web/dist not built' }, () => {
-  const html = readFileSync(HOME, 'utf8');
+  for (const f of PAGES) {
+  const html = own(f);
   const bare = [];
   for (const m of html.matchAll(/<[^>]*\sdata-tip="([^"]*)"[^>]*>/g)) {
     const parts = unesc(m[1]).split(/\||·|—/).map((s) => s.trim());
     if (!parts.some((p) => swappable.has(p))) continue;
     if (!/data-nw-attrs="[^"]*data-tip/.test(m[0])) bare.push(unesc(m[1]).slice(0, 60));
   }
-  assert.deepEqual(bare, []);
+  assert.deepEqual(bare, [], f);
+  }
 });
 
-test('the map shows no word the archive does not hold', { skip: !built && 'web/dist not built' }, () => {
-  const html = readFileSync(HOME, 'utf8');
+test('the pages show no word the archive does not hold', { skip: !built && 'web/dist not built' }, () => {
+  for (const f of PAGES) {
+  const html = read(f);
   const words = new Set(WORDS.flatMap((w) => [w.plain?.text, w.numinia?.text]).filter(Boolean).map((s) => s.toLowerCase()));
   const texts = new Set(Object.values(TEXTS).flatMap((t) => [t.plain, t.numinia]).filter(Boolean).map((s) => s.toLowerCase()));
   const strange = [];
@@ -100,6 +143,9 @@ test('the map shows no word the archive does not hold', { skip: !built && 'web/d
     if (words.has(v) || texts.has(v) || GLOSSARY.includes(v)) continue;
     strange.push(`${m[1]}: ${m[2]}`);
   }
-  assert.deepEqual(strange, []);
-  assert.ok(html.includes('data-nw-numinia="The City"'), 'the world ring says The City at the full moon');
+  assert.deepEqual(strange, [], f);
+  }
+  assert.ok(read('index.html').includes('data-nw-numinia="The City"'), 'the world ring says The City at the full moon');
+  assert.match(read('canon/index.html'), /data-nw-plain="Purpose"/, 'the canon index says Purpose at the new moon');
+  assert.match(read('decisions/index.html'), /data-nw-numinia="Decision Stone"/, 'the decisions index says Decision Stone at the full moon');
 });
