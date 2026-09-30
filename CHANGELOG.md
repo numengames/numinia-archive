@@ -17,6 +17,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-01
+
+- **Changed** /system/open-books is the books of Numen Games S.L. from 16 Feb 2024: real FY2025 ledger, company card, six rooms, tooltips that break each bar down; ENISA 100,000 € as ENISA publishes it (`OPS-017` 0.2.0); simulated ledger removed (site v0.111.0)
+
 ### 2026-09-30
 
 - **Added** `OPS-017` The ENISA loan: signed 2024-10-22, 5,666.56 € of interest in 2025, what the public registers show; open books gains its section with ENISA's seal, the first real figures on the page (site v0.110.0)
