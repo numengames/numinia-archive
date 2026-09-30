@@ -29,7 +29,8 @@ export interface UpdateVersion {
  * A closed week, folded into one line. The versions of a week that has
  * ended leave this file when its weekly report is written (PRO-017); the
  * report keeps what a visitor noticed, git keeps every entry. The same
- * rule on the four sites (STD-037, the updates page folds by week).
+ * only on this site: the summaries live in the archive, and the other
+ * three sites keep their updates pages whole (PRO-017).
  */
 export interface FoldedWeek {
   /** ISO week, "2026-W39". */
@@ -52,12 +53,22 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.109.0",
+    date: "2026-09-30",
+    entries: [
+      {
+        type: "FIX",
+        text: "Folding closed weeks into one line is this site's alone. The previous version said the four sites would fold the same way; they will not. The weekly summaries live only in the archive, and numinia.com, numen.games and nwos.numen.games keep their updates pages whole.",
+      },
+    ],
+  },
+  {
     version: "v0.108.0",
     date: "2026-09-30",
     entries: [
       {
         type: "CHG",
-        text: "This page shows the current week in full and every closed week as one line: its versions, what a visitor noticed, and a link to the week's report, where the board reads the whole company. 76 versions of weeks 38 and 39 left the page; every one is still in the repository's history. The four sites will fold the same way.",
+        text: "This page shows the current week in full and every closed week as one line: its versions, what a visitor noticed, and a link to the week's report, where the board reads the whole company. 76 versions of weeks 38 and 39 left the page; every one is still in the repository's history.",
       },
     ],
   },

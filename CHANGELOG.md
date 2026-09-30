@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-30
 
+- **Fixed** Folding closed weeks is numinia.org's alone: the summaries live only in the archive; STD-037 0.4.1 drops the four-site rule, PRO-017 3.3.1 folds on the archive's site only (site v0.109.0).
 - **Changed** `OPS-016` 0.3.0: the season pass takes the Backer's Stripe test link and the old numinia.store contract, in test; its rewards stay figurative for now
 - **Changed** /updates folds each closed week into one line linked to its weekly report; weeks 38–39 folded (76 versions out of the page, in git). STD-037 0.4.0 makes it a house rule for the four sites; PRO-017 3.3.0 adds the step (site v0.108.0).
 - **Changed** The business's words are the source: the site opens at the new moon; `STD-030` 0.2.0 makes the operational word the preferred label and the in-world name its alternative; `AGENTS.md` says documents are written in plain words (site v0.107.0) (#588)
