@@ -4,14 +4,14 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-09-29T20:00:00+02:00"
+updated: "2026-09-30T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
-tags: [debt, legal, gdpr, lssi, consumer-law, cookies, intellectual-property]
+tags: [debt, legal, gdpr, lssi, consumer-law, cookies, intellectual-property, open-books]
 license: "CC-BY-4.0"
 severity: high
 severity_reason: "the four sites publish legal texts that do not describe what the sites do, and numinia.com is about to sell to consumers without consumer terms"
@@ -19,7 +19,7 @@ detected: "2026-09-29"
 visibility: "restricted-oracle"
 visibility_reason: "working list for the Oracle and the company's lawyers (ATH21); it names gaps a reader could mistake for commitments"
 opened_by: "ursa"
-related: ["BLU-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004"]
+related: ["BLU-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021"]
 ---
 
 <!--
@@ -117,6 +117,24 @@ numen.games and say so. See also BLU-017.
 | 33 | numinia.com's cookie notice in Japanese and Korean shows the English text, and the Brazilian Portuguese text has not been read by a native speaker. Machine translation is not a legal text: have both reviewed by people. Listed as pending on numinia.com/updates. | company |
 | 34 | The privacy policy (LEG-001 §1) still gives the postal address without the postal code. Align it with LEG-004 0.2.0 in its next revision. | ours |
 
+### 1.7 Open books: publishing what we pay to people
+
+The Oracle wants the real ledger on numinia.org's open books, starting with
+the input VAT book for FY2025 (kept out of this repository until these rows
+close). A company supplier's name and price may be published. A natural
+person's name next to what they invoiced is personal data (GDPR art. 4.1):
+freelancers, sole traders and lawyers who invoice in their own name. Until a
+row below closes, such a supplier appears by role only, without name or
+initials.
+
+| # | Item | Who |
+|---|---|---|
+| 35 | Consent from every natural person who invoiced Numen Games in 2025, before their name appears: one of them (Christian Märtens) has already agreed. Collect a short signed consent: name, role and amounts invoiced, published on numinia.org. | company |
+| 36 | A transparency clause in every new contract with a freelancer, supplier or collaborator: the amounts invoiced are published with the name and the role; whoever objects appears by role only. Draft the clause. | counsel |
+| 37 | Legal basis for publishing what a natural person invoiced: consent (art. 6.1.a) or legitimate interest (art. 6.1.f); whether role-only is enough while consent is missing; what happens to published history when consent is withdrawn. | counsel |
+| 38 | Payroll and social security are not in the input VAT book and are missing from the ledger. In a team this small an aggregate reveals individual salaries: decide the level at which staff costs are published. | counsel · company |
+| 39 | Signed contracts may make a price confidential (negotiated fees, studio agreements). Check every contract before its amounts are published. | company |
+
 ## 2. Evidence
 
 ```
@@ -158,7 +176,7 @@ here and regenerate the file; never edit the file alone.
 
 **De:** Numen Games S.L. (CIF B70735949) · legal@numengames.com
 
-**Fecha:** 29 de septiembre de 2026
+**Fecha:** 30 de septiembre de 2026
 
 ### Para qué es este documento
 
@@ -238,6 +256,15 @@ Las cuatro webs muestran ya un aviso de cookies con «Aceptar todo» y «Rechaza
 El manual de Numinia lo escribieron Christian Märtens (80 %) y Pablo Fernández-Maquieira (20 %). Numen Games S.L. se declara titular y lo ha publicado en dominio público (CC0), pero no hay una cesión de derechos firmada de los autores a la empresa.
 
 - [#3] ¿Podéis redactar esa cesión? ¿Hace falta que sea retroactiva para cubrir la publicación en CC0 ya hecha?
+
+### 8. Cuentas abiertas: publicar lo que pagamos a personas
+
+Queremos publicar en numinia.org las cuentas reales de la empresa, empezando por el libro de facturas recibidas de 2025. El nombre y el importe de una empresa proveedora se pueden publicar. El de una persona física (autónomos, freelancers, abogados que facturan a su nombre) es un dato personal. Mientras no tengamos su permiso, esas personas aparecerán solo por su función (por ejemplo, «Desarrollo»), sin nombre ni iniciales.
+
+- [#35] Vamos a pedir un consentimiento firmado a cada persona que nos facturó en 2025 (una ya ha dicho que sí). ¿Podéis redactar ese consentimiento, corto: nombre, función e importes facturados, publicados en numinia.org?
+- [#36] ¿Podéis redactar una cláusula de transparencia para todos los contratos nuevos con freelancers, proveedores y colaboradores? Diría que los importes se publican con nombre y función, y que quien se oponga aparece solo por su función.
+- [#37] ¿Cuál es la base legal correcta: el consentimiento o el interés legítimo? ¿Basta con mostrar solo la función mientras falte el consentimiento? Si alguien retira su consentimiento, ¿qué hacemos con lo ya publicado?
+- [#38] Las nóminas y la Seguridad Social no están en ese libro. En un equipo tan pequeño, publicar el total deja adivinar el sueldo de cada persona. ¿Cómo lo publicamos, o no lo publicamos?
 
 ### Lo que ya está hecho
 
