@@ -149,8 +149,9 @@ export const SEGMENTS: Segment[] = [
   ] },
   { id: "offer-make", ring: "offer", district: "make", word: "Shop", title: "Collect · what it offers", a: [270, 360], entries: [
     E("Shop", "Objects on sale", null),
-    // 2026-09-29: the page exists; the cards are read from OPS-014.
-    E("Support Numinia", "Backer from €5 a month, Sponsor from €200; always with something in return", "/contribute"),
+    // 2026-09-30: selling happens on numinia.com, never in the archive;
+    // the record of the offer stays here (OPS-014).
+    X("Support Numinia", "A coffee for €5, or sponsor it from €200; always with something in return", "numinia.com/support"),
   ] },
 ];
 

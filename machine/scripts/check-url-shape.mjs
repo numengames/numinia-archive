@@ -90,7 +90,6 @@ const STANDALONE = new Set([
   '/core',        // the core as a flow: each canon, its standards, its protocols (web/src/lib/core.ts)
   '/design',      // the design system whole (SYS-009), its download and the kit's served files
   '/templates',   // every mould (machine/templates/), their headers side by side — an instrument has no series
-  '/contribute',  // the ways to support Numinia — a view over OPS-014's goods (2026-09-29)
   '/configure',   // the settings of NWOS gathered: narrative, gamification, automation, the team (2026-09-29)
   '/404',
 ]);

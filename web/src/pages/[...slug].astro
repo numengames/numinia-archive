@@ -6,7 +6,6 @@
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
-import ContributeBlock from "@/components/ContributeBlock.astro";
 import { getCollection, render } from "astro:content";
 import { getPublicCorpus } from "@/lib/corpus";
 import { repoFileUrl } from "@/lib/build-info";
@@ -101,7 +100,6 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
       <article class="mission-md rounded-[8px] border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>
-      <ContributeBlock />
 
     </div>
   </section>

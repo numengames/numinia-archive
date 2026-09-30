@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.105.0",
+    date: "2026-09-30",
+    entries: [
+      {
+        type: "DEL",
+        text: "The archive no longer sells. The Contribute page, the block at the foot of every document that led to it, and its footer link are gone: numinia.org is for reading. Supporting Numinia now happens on numinia.com/support, found through a small coffee cup at the foot of numinia.com.",
+      },
+      {
+        type: "CHG",
+        text: "On the map, Support Numinia under The offer · Collect now leads to numinia.com/support. The record of the offer (OPS-014) stays here: a coffee for €5, Sponsor from €200, and a supporter's badge for whoever pays.",
+      },
+    ],
+  },
+  {
     version: "v0.104.0",
     date: "2026-09-29",
     entries: [
