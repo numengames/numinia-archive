@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17599,
+  "chars": 17815,
   "apparatus": false,
   "archived": false,
-  "tokens": 4799
+  "tokens": 4862
  },
  {
   "path": "CLAUDE.md",
@@ -2293,10 +2293,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 11806,
+  "chars": 11909,
   "apparatus": false,
   "archived": false,
-  "tokens": 3758
+  "tokens": 3551
  },
  {
   "path": "reports/RPT-021-four-sites-design-audit.md",
@@ -2337,10 +2337,76 @@
   "series": "reports",
   "type": "report",
   "status": "draft",
-  "chars": 5702,
+  "chars": 5961,
   "apparatus": false,
   "archived": false,
-  "tokens": 1548
+  "tokens": 1602
+ },
+ {
+  "path": "reports/RPT-025-2026-w33.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 5656,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1520
+ },
+ {
+  "path": "reports/RPT-026-2026-w34.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 6048,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1597
+ },
+ {
+  "path": "reports/RPT-027-2026-w35.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 5577,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1476
+ },
+ {
+  "path": "reports/RPT-028-2026-w36.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 5662,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1564
+ },
+ {
+  "path": "reports/RPT-029-2026-w38.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 6226,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1667
+ },
+ {
+  "path": "reports/RPT-030-2026-q3.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 7109,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1938
  },
  {
   "path": "standards/STD-001-the-series.md",
