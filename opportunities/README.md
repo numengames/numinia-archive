@@ -3,11 +3,11 @@ id: "opportunities-index"
 title: "Opportunities — index"
 type: meta
 status: active
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-28T14:05:55+02:00"
 created_source: "git:d620635"
 created_confidence: exact
-updated: "2026-09-29T12:00:00+02:00"
+updated: "2026-09-30T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [opportunities, index]
@@ -41,6 +41,13 @@ steps are `protocols/PRO-028`, `PRO-029`, `PRO-030`.
 Two states, two meanings: `status` is the document's (`active` while the
 record is kept; a proposal is `draft` until sent), `state` is the sale's
 (`lead` … `won` or `lost`).
+
+A public tender is a record like any other, with `source: tender`, the
+procedure the authority buys by (`STD-038` names four and what each asks
+of a bidder) and the address of its notice. Its value is the estimated
+value the notice states; the house's price is written once the award is
+public. The pipeline page reads every open record's next date into a
+calendar, tenders marked, so the days offers close are never typed.
 
 The records are public. They carry nobody's name, e-mail or phone — who
 said what stays where the conversation happened — and they name the
