@@ -21,6 +21,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 - **Changed** The bar opens with the site's wordmark, by the Oracle's ruling: `Numinia_Word` on numinia.org and numinia.com, `Numen_Games_Horizontal_Word` on numen.games and nwos; `STD-023` §23, `BLU-009`, `STD-037` and kit 6.4.0 (`web.marca`) say so (site v0.104.0)
 - **Changed** numinia.org leads the design: `STD-023` 1.7.0 takes its label, headline, column, 71 icons, entrance (animation 16) and §23 *The web piece*; `BLU-009`, `STD-008` and kit 6.3.0 follow; radii 6 / 8 px only; no sky on numen.games (site v0.103.0)
+- **Added** Board reports for weeks 33–38 (RPT-025…029, RPT-019 rewritten) and the first quarterly, 2026-Q3 (RPT-030), reconstructed from git as tests under STD-043; week 39's figures recounted with the same method.
 - **Added** STD-043 A report speaks to the board: weekly, quarterly and annual reports under nine headings for a board and the public; three moulds (week, quarter, year); PRO-017 uses them; RPT-024 week 39 as the first test (site v0.102.0).
 - **Added** The moon dial reaches the map: rings, astrolabe, districts, panel rows, tooltips and aria labels speak at the chosen stop; Neo-Atlantists spelt as the glossary spells it (site v0.101.0) (#578)
 - **Added** /updates shows the hour each version shipped (Central European Time) and the build it names, read from git at build time; the page gets the reading player (site v0.100.0).
