@@ -83,7 +83,7 @@ a day.
 ```
 <site name, written>                      Navigation        Numen Games       Legal        Social
 <one line: what this site is>             …                 Numen Games       Terms        GitHub
-[☕ Support Numinia]                        (two columns      Numinia           Privacy      X
+[cup] Support Numinia                      (two columns      Numinia           Privacy      X
                                            when > 4)        NWOS ← you are here            Discord
                                                             NWOS for your organisation
 ──────────────────────────────────────────────────────────────────────────────────────────────
@@ -95,7 +95,7 @@ a day.
 |---|---|
 | Site name | Written, never the logo alone; the wordmark is the bar's (`STD-023`), not the footer's |
 | One line | The site's line from the share card table below |
-| Support button | ☕ and *Support Numinia* in the site's language, outlined in the accent, under the line; leads to numinia.com/support, the only page that sells support (`OPS-014`). Opens in a new tab from the other three sites |
+| Support button | The Phosphor coffee cup and *Support Numinia* in the site's language, outlined in the accent, under the line; leads to numinia.com/support, the only page that sells support (`OPS-014`). Opens in a new tab from the other three sites |
 | Navigation | The site's primary routes; two columns from five entries, reading down the first column then the second |
 | Numen Games column | The four sites, in the order of the share-card table, this one marked «you are here» and not linked |
 | Legal | Only texts published for this site's scope; none invented |

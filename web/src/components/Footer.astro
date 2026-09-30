@@ -18,6 +18,7 @@
 // declared inside each file — a blanket claim in the footer would contradict
 // them (CAN-005). The link goes to LICENSE, which says how to read them. The signature is brand voice and is never
 // translated.
+import Icon from "@/components/Icon.astro";
 import { navGroups, siteLinks } from "@/data/navigation";
 import { socialLinks } from "@/data/social-links";
 import { HOUSE_LINKS, THIS_SITE } from "@/data/house-links";
@@ -66,7 +67,7 @@ const heading = "mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-d
           target="_blank"
           rel="noopener noreferrer"
           class="mt-3 inline-flex min-h-[44px] items-center gap-2 rounded-[6px] border border-accent px-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10 sm:min-h-[40px]"
-        ><span aria-hidden="true">☕</span> Support Numinia</a>
+        ><Icon name="coffee" size={18} /> Support Numinia</a>
       </div>
 
       <!-- Navigation -->

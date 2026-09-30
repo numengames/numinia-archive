@@ -837,7 +837,7 @@
       ]
     },
     "subconjunto": {
-      "$description": "Los 71 iconos que la casa usa (STD-023 §11): los que numinia.org sirve",
+      "$description": "Los 72 iconos que la casa usa (STD-023 §11): los que numinia.org sirve",
       "$value": [
         "archive",
         "arrow-down-bold",
@@ -856,6 +856,7 @@
         "check",
         "circle",
         "clipboard-text",
+        "coffee",
         "coins",
         "confetti",
         "copy",

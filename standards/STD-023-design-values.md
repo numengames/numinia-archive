@@ -5,9 +5,9 @@ title: "Design values"
 type: documentation
 subtype: register
 status: draft
-version: "1.7.0"
+version: "1.8.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-29T23:30:00+02:00"
+updated: "2026-09-30T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -145,14 +145,14 @@ Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50p
 ## 11. The icon subset
 
 
-**The house subset [CANON — numinia.org leads, 1.7.0].** Of Phosphor's ~1,500 glyphs, the organization uses **seventy-one**: exactly the ones numinia.org serves from `web/src/icons/`, as one sprite of `<symbol>`s with `currentColor`. The kit's `icon.subconjunto` lists the same names, and a test fails if the two part. One concept, one glyph, across the four sites:
+**The house subset [CANON — numinia.org leads, 1.7.0].** Of Phosphor's ~1,500 glyphs, the organization uses **seventy-two**: exactly the ones numinia.org serves from `web/src/icons/`, as one sprite of `<symbol>`s with `currentColor`. The kit's `icon.subconjunto` lists the same names, and a test fails if the two part. One concept, one glyph, across the four sites:
 
 - **Navigation and the bar:** `archive` · `crosshair` · `house` · `list` · `magnifying-glass` · `caret-down` · `caret-left` · `x` · `moon` · `moon-stars` · `sun` · `globe-hemisphere-west` · `globe-hemisphere-west-light`
 - **Reading and documents:** `book-open` · `books` · `scroll` · `file-text` · `clipboard-text` · `note-pencil` · `copy` · `download-simple` · `upload-simple` · `push-pin` · `ruler` · `play-fill` · `pause-fill` · `arrow-down-bold` · `music-notes`
 - **The archive's six functions:** `bank` (governance) · `crane-tower` (production) · `shield-check` (assurance) · `robot` (agency) · `sparkle` (creation) · `gear` (administration)
 - **State of a piece of work:** `check` · `circle` · `hourglass` · `lightning` · `eye` · `snowflake` · `prohibit` · `warning` · `lock-key` · `arrows-clockwise` · `bell`
 - **Kinds of work and people:** `dna` (biological) · `git-branch` (hybrid) · `brain` · `flask` · `target` · `user` · `users` · `sign-out` · `buildings` · `map-pin` · `calendar-blank` · `desktop`
-- **Play and the world:** `game-controller` · `mask-happy` · `confetti` · `sword` · `sword-light` · `flame` · `flame-light` · `package` · `coins` · `palette`
+- **Play and the world:** `game-controller` · `mask-happy` · `confetti` · `sword` · `sword-light` · `flame` · `flame-light` · `package` · `coins` · `palette` · `coffee` (supporting Numinia: the footer's button and its pages)
 - **Data and outward links:** `chart-bar` · `chart-line` · `github-logo` · `x-logo`
 
 Until 1.7.0 the subset named twenty-six and the site served seventy-one; the Oracle ruled that the site leads (2026-09-29). Expanding it further is still a decision: a new icon enters here with its concept, in the same pull request as its file.

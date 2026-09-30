@@ -153,6 +153,7 @@ path = [
   "web/src/icons/chart-bar.svg",
   "web/src/icons/chart-line.svg",
   "web/src/icons/check.svg",
+  "web/src/icons/coffee.svg",
   "web/src/icons/circle.svg",
   "web/src/icons/clipboard-text.svg",
   "web/src/icons/coins.svg",

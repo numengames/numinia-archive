@@ -41,7 +41,7 @@ export const UPDATES: readonly UpdateVersion[] = [
       },
       {
         type: "ADD",
-        text: "The footer carries a button, ☕ Support Numinia, under the line that says what the archive is. It opens numinia.com/support: the archive sells nothing itself. The same button is in the footer of all four sites.",
+        text: "The footer carries a button with a coffee cup, Support Numinia, under the line that says what the archive is. It opens numinia.com/support: the archive sells nothing itself. The same button is in the footer of all four sites.",
       },
     ],
   },
