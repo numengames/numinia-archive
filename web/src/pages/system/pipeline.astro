@@ -63,6 +63,23 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
       <p class="cq-note" id="pq-open-empty" hidden>Nothing is open.</p>
     </div>
 
+    <!-- whoever sells: the calendar, tenders marked -->
+    <div class="cq-sec" data-lens="sell">
+      <h2>Calendar</h2>
+      <p class="cq-sub">Every open record by its next date. A tender's date is the day its offer closes, then the day the award is looked for; its procedure and the notice it answers sit beside it. Cut by the days ahead.</p>
+      <div class="cq-ctrl">
+        <div class="cq-tabs" role="tablist" aria-label="Days ahead" id="pq-horizon">
+          <button type="button" class="cq-tab" role="tab" data-h="30" aria-selected="true">30 days</button>
+          <button type="button" class="cq-tab" role="tab" data-h="60" aria-selected="false">60 days</button>
+          <button type="button" class="cq-tab" role="tab" data-h="90" aria-selected="false">90 days</button>
+          <button type="button" class="cq-tab" role="tab" data-h="0" aria-selected="false">All</button>
+        </div>
+        <label class="cq-note"><input type="checkbox" id="pq-tenders-only"> tenders only</label>
+      </div>
+      <div class="cq-tablewrap"><table class="cq-t" id="pq-cal"><thead><tr><th>Date</th><th>In</th><th>Record</th><th class="cq-l">Organisation</th><th class="cq-l">What</th><th>Procedure</th><th>Notice</th><th>Value</th></tr></thead><tbody></tbody></table></div>
+      <p class="cq-note" id="pq-cal-empty" hidden>Nothing due in this window.</p>
+    </div>
+
     <!-- the funnel: everyone -->
     <div class="cq-sec">
       <h2>The funnel</h2>
@@ -100,7 +117,7 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
     <div class="cq-sec">
       <h2>Every record</h2>
       <p class="cq-sub">One row per opportunity, in the order they were opened. Each links to its record; a sent proposal sits beside it.</p>
-      <div class="cq-tablewrap"><table class="cq-t" id="pq-all"><thead><tr><th>Record</th><th class="cq-l">Organisation</th><th>Sector</th><th>Source</th><th>Stage</th><th>Value</th><th>Opened</th><th>Closed</th><th class="cq-l">Reason</th></tr></thead><tbody></tbody></table></div>
+      <div class="cq-tablewrap"><table class="cq-t" id="pq-all"><thead><tr><th>Record</th><th class="cq-l">Organisation</th><th>Sector</th><th>Source</th><th>Procedure</th><th>Stage</th><th>Value</th><th>Opened</th><th>Closed</th><th class="cq-l">Reason</th></tr></thead><tbody></tbody></table></div>
     </div>
 
     <div class="cq-sec">
@@ -109,6 +126,7 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
         <li>Every figure is computed from the records in <a href="/opportunities/">/opportunities/</a>, read at build time through the same tool that checks them in CI (<code>machine/packages/sales-kit/pipeline.mjs</code>). No number on this page is typed.</li>
         <li>The stages, their stale days and the reasons come from the register <a href="/standards/std-038-the-stages-of-a-sale">The stages of a sale</a>; what a record must contain is <a href="/standards/std-039-an-opportunity-has-a-record">An opportunity has a record</a>.</li>
         <li>The records are public and carry nobody's name; the organisation is written by sector and size until it has agreed to a proposal. Who signs lives in the agreement.</li>
+        <li>A public tender is a record like any other, with <code>source: tender</code>, the procedure the authority buys by and a link to its notice; the register names what each procedure asks of a bidder. A filed offer waits on the authority's clock: overdue when its day passes, never stale.</li>
         <li>A record breaking a rule fails the build of this page, as it fails the CI step: what is shown here has passed.</li>
       </ul>
     </div>
@@ -203,7 +221,7 @@ function kpis() {
   const won = R.filter(r => r.state === 'won'), lost = R.filter(r => r.state === 'lost');
   const wonValue = won.reduce((a, r) => a + r.value, 0);
   const cards = lens === 'sell' ? [
-    ['Open', open.length, `${money(openValue)} before tax`, ''],
+    ['Open', open.length, `${money(openValue)} before tax${F.tenders.open ? ` · ${F.tenders.open} tender${F.tenders.open === 1 ? '' : 's'}` : ''}`, ''],
     ['Overdue', F.overdue.length, 'next date already past', F.overdue.length ? 'cq-kpi--warn' : ''],
     ['Stale', F.stale.length, 'held past the register\'s days', F.stale.length ? 'cq-kpi--warn' : ''],
     ['Proposals out', open.filter(r => r.state === 'proposed').length, 'sent, awaiting an answer', ''],
@@ -224,15 +242,34 @@ function topReason() { const e = Object.entries(F.reasons).sort((a, b) => b[1] -
 
 /* ---- needs a move ---- */
 function openTable() {
+  // Overdue and stale are the tool's verdicts (F.overdue, F.stale), not the
+  // page's arithmetic: a tender at proposed waits on the authority and the
+  // tool exempts it from stale; the page only shows the days held.
+  const STALE = new Set(F.stale.map(s => s.id)), OVERDUE = new Set(F.overdue.map(o => o.id));
   const open = R.filter(r => !REG.closed.includes(r.state)).map(r => {
     const held = days(lastMove(r), TODAY), limit = REG.staleDays[r.state];
-    const overdue = r.next_date && r.next_date < TODAY, stale = limit !== null && held > limit;
+    const overdue = OVERDUE.has(r.id), stale = STALE.has(r.id);
     return { r, held, limit, overdue, stale, rank: overdue ? 0 : stale ? 1 : 2 };
   }).sort((a, b) => a.rank - b.rank || (a.r.next_date || '9').localeCompare(b.r.next_date || '9'));
   $('#pq-open tbody').innerHTML = open.map(({ r, held, limit, overdue, stale }) =>
     `<tr class="${overdue ? 'cq-overdue' : stale ? 'cq-stale' : ''}"><td>${link(r)}</td><td class="cq-l">${esc(r.organisation)}</td><td>${stageOf(r)}</td><td>${money(r.value)}</td><td>${r.next_date || '—'}${overdue ? ' · overdue' : ''}</td><td class="cq-l">${esc(r.next_action)}</td><td>${held}${limit !== null ? ` / ${limit}` : ''}${stale ? ' · stale' : ''}</td></tr>`).join('');
   $('#pq-open-empty').hidden = open.length > 0;
 }
+
+/* ---- the calendar ---- */
+let horizon = 30, tendersOnly = false;
+function calendar() {
+  const rows = F.calendar.filter(c => (!tendersOnly || c.tender) && (horizon === 0 || days(TODAY, c.date) <= horizon));
+  const byId = Object.fromEntries(R.map(r => [r.id, r]));
+  $('#pq-cal tbody').innerHTML = rows.map(c => {
+    const r = byId[c.id], d = days(TODAY, c.date);
+    const when = d < 0 ? `${-d} d ago` : d === 0 ? 'today' : `${d} d`;
+    return `<tr class="${d < 0 ? 'cq-overdue' : ''}"><td>${c.date}</td><td>${when}</td><td>${r ? link(r) : esc(c.id)}</td><td class="cq-l">${esc(c.organisation)}</td><td class="cq-l">${esc(c.action)}</td><td>${c.tender ? `<span class="cq-stage">${esc(c.procedure)}</span>` : '—'}</td><td>${c.notice ? `<a href="${esc(c.notice)}" rel="noopener">notice</a>` : '—'}</td><td>${money(c.value)}</td></tr>`;
+  }).join('');
+  $('#pq-cal-empty').hidden = rows.length > 0;
+}
+$$('#pq-horizon .cq-tab').forEach(b => b.addEventListener('click', () => { horizon = Number(b.dataset.h); $$('#pq-horizon .cq-tab').forEach(x => x.setAttribute('aria-selected', String(x === b))); calendar(); }));
+$('#pq-tenders-only').addEventListener('change', e => { tendersOnly = !!e.target.checked; calendar(); });
 
 /* ---- svg helpers ---- */
 function hbars(el, rows, opts = {}) {
@@ -310,10 +347,10 @@ $$('#pq-gran .cq-tab').forEach(b => b.addEventListener('click', () => { gran = b
 /* ---- every record ---- */
 function allTable() {
   $('#pq-all tbody').innerHTML = R.slice().sort((a, b) => a.id.localeCompare(b.id)).map(r =>
-    `<tr><td>${link(r)}${r.proposalUrl ? ` · <a href="${r.proposalUrl}">proposal</a>` : ''}</td><td class="cq-l">${esc(r.organisation)}</td><td>${esc(r.sector)}</td><td>${esc(r.source)}</td><td>${stageOf(r)}</td><td>${money(r.value)}</td><td>${r.opened}</td><td>${r.closed || '—'}</td><td class="cq-l">${esc(r.reason || '')}</td></tr>`).join('');
+    `<tr><td>${link(r)}${r.proposalUrl ? ` · <a href="${r.proposalUrl}">proposal</a>` : ''}</td><td class="cq-l">${esc(r.organisation)}</td><td>${esc(r.sector)}</td><td>${esc(r.source)}</td><td>${r.procedure ? `<span class="cq-stage">${esc(r.procedure)}</span>` : '—'}</td><td>${stageOf(r)}</td><td>${money(r.value)}</td><td>${r.opened}</td><td>${r.closed || '—'}</td><td class="cq-l">${esc(r.reason || '')}</td></tr>`).join('');
 }
 
-applyLens(); openTable(); funnel(); stageDays(); reasons(); periods(); allTable();
+applyLens(); openTable(); calendar(); funnel(); stageDays(); reasons(); periods(); allTable();
 addEventListener('resize', () => { funnel(); stageDays(); periods(); });
 })();
 </script>
