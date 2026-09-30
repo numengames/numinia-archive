@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19732,
+  "chars": 19933,
   "apparatus": false,
   "archived": false,
-  "tokens": 5424
+  "tokens": 5486
  },
  {
   "path": "CLAUDE.md",
@@ -2106,10 +2106,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4487,
+  "chars": 4513,
   "apparatus": false,
   "archived": false,
-  "tokens": 1267
+  "tokens": 1271
  },
  {
   "path": "protocols/PRO-018-publishing-a-repository.md",
@@ -2766,10 +2766,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8766,
+  "chars": 8651,
   "apparatus": false,
   "archived": false,
-  "tokens": 2261
+  "tokens": 2235
  },
  {
   "path": "standards/STD-038-the-stages-of-a-sale.md",
