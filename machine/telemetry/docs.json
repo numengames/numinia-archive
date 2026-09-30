@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20165,
+  "chars": 20362,
   "apparatus": false,
   "archived": false,
-  "tokens": 5550
+  "tokens": 5607
  },
  {
   "path": "CLAUDE.md",
@@ -2447,10 +2447,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 16100,
+  "chars": 16154,
   "apparatus": false,
   "archived": false,
-  "tokens": 4555
+  "tokens": 4572
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2959,6 +2959,17 @@
   "tokens": 1619
  },
  {
+  "path": "system/SYS-012-suppliers.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 4497,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1350
+ },
+ {
   "path": "system/semantic-census/artefact-lap.md",
   "dir": "system",
   "series": "system",
@@ -3045,5 +3056,148 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2361
+ },
+ {
+  "path": "system/suppliers/advisory-ony.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1325,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 404
+ },
+ {
+  "path": "system/suppliers/ai-cursor.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1301,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 392
+ },
+ {
+  "path": "system/suppliers/ai-openai.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1309,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 404
+ },
+ {
+  "path": "system/suppliers/cloud-aws.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1461,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 420
+ },
+ {
+  "path": "system/suppliers/cloud-livekit.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1259,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 381
+ },
+ {
+  "path": "system/suppliers/event-merge.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1235,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 376
+ },
+ {
+  "path": "system/suppliers/finance-enisa.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1375,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 403
+ },
+ {
+  "path": "system/suppliers/membership-aevi.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1164,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 361
+ },
+ {
+  "path": "system/suppliers/software-docusign.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1215,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 372
+ },
+ {
+  "path": "system/suppliers/software-lastpass.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1271,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 375
+ },
+ {
+  "path": "system/suppliers/software-microsoft-365.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1412,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 419
+ },
+ {
+  "path": "system/suppliers/software-roll20.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1197,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 366
+ },
+ {
+  "path": "system/suppliers/studio-sleepy-studio.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1237,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 373
  }
 ]
