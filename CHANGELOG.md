@@ -17,6 +17,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-09-30
+
+- **Added** The season pass moves from numinia.store to numinia.com: `OPS-016`, Season I's premium loot and a pass token for 9.99 EUR with VAT, adventures open to all, buyers kept private; not on sale
+
 ### 2026-09-29
 
 - **Changed** The bar opens with the site's wordmark, by the Oracle's ruling: `Numinia_Word` on numinia.org and numinia.com, `Numen_Games_Horizontal_Word` on numen.games and nwos; `STD-023` §23, `BLU-009`, `STD-037` and kit 6.4.0 (`web.marca`) say so (site v0.104.0)

@@ -5,9 +5,9 @@ title: "CAO Architecture — Complete System Reference"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-09-30T13:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, cao, architecture, agents, protocols, tools]
@@ -175,8 +175,8 @@ PRO-001 (closing — always)
 | **Umami** | Analytics for pablofm.com | Self-hosted VPS port 3001 |
 | **Cal.com** | Booking / contact for pablofm.com | Self-hosted VPS port 3002 |
 | **Arweave + IPFS** | Permanent asset storage | Configured in numinia-digital-goods |
-| **Stripe** | Payments for Season Pass (numinia.store) | API key in Vercel env |
-| **Thirdweb** | Web3 auth + NFT minting (numinia.store) | API key in Vercel env |
+| **Stripe** | Payments; the season pass moves to numinia.com (`OPS-016`), not on sale | Oracle only (`STD-033` PAY-004) |
+| **Thirdweb** | Web3 auth (numinia.com) + season pass token minting (`OPS-016`) | Worker secrets |
 
 ---
 
