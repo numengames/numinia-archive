@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18719,
+  "chars": 18814,
   "apparatus": false,
   "archived": false,
-  "tokens": 5139
+  "tokens": 5171
  },
  {
   "path": "CLAUDE.md",
@@ -2623,10 +2623,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 29939,
+  "chars": 30006,
   "apparatus": false,
   "archived": false,
-  "tokens": 9039
+  "tokens": 9058
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
@@ -2766,10 +2766,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8629,
+  "chars": 8651,
   "apparatus": false,
   "archived": false,
-  "tokens": 2232
+  "tokens": 2235
  },
  {
   "path": "standards/STD-038-the-stages-of-a-sale.md",
