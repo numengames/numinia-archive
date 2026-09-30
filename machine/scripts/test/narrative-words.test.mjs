@@ -12,9 +12,9 @@ import { STOPS, DEFAULT_STOP, WORDS, TEXTS, wordAttrs, textAttrs } from '../../.
 
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
 
-test('three stops, arriving at the half moon', () => {
+test('three stops, arriving at the new moon (the plain words are the source)', () => {
   assert.deepEqual(STOPS.map((s) => s.id), ['plain', 'bridge', 'numinia']);
-  assert.equal(DEFAULT_STOP, 'bridge');
+  assert.equal(DEFAULT_STOP, 'plain');
 });
 
 test('every word is copied from the archive file it cites', () => {

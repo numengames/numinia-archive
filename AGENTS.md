@@ -140,6 +140,12 @@ its name when its function is not documented.
 with a `**Binds:**` line saying whom it governs. Read that line before
 opening the document.
 
+Documents are written in the business's words — the ones an operations
+lead, a CTO or a CFO already uses. Numinia's words (guilds, ranks, the
+Oracle) enrich that text on the site; they are not its source. Where a
+document needs an in-world name, `STD-030` gives the business's word first
+(the Oracle, 2026-09-29).
+
 Two that decide the rest: `STD-009` says which rule wins when two conflict;
 `STD-017` says who may change what. Licensing is `STD-010`: what we emit, what
 we may consume, and what needs the Oracle before it ships — read it before

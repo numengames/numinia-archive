@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.11"
+version: "0.2.0"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-09-29T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -36,11 +36,12 @@ SPDX-License-Identifier: CC0-1.0
 > ranks, the business's working terms and the game's own terms each have a
 > document of their own.
 >
-> The in-world name is the preferred label, and the operational equivalent
-> is an exact or close match in the business's vocabulary, as the web
-> consortium's model for linking vocabularies lays out. Each description
-> names the kind of thing first, then what sets it apart. Any tool that reads
-> that model can translate in both directions.
+> The operational equivalent is the preferred label: documents are written
+> in the business's words, and Numinia's words enrich them. The in-world name
+> is its alternative label, an exact or close match, as the web consortium's
+> model for linking vocabularies lays out. Each description names the kind of
+> thing first, then what sets it apart. Any tool that reads that model can
+> translate in both directions.
 > **Epistemic:** What do the world's words mean?
 
 ## Guilds — Alchemists

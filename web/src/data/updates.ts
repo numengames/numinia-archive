@@ -32,6 +32,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.107.0",
+    date: "2026-09-30",
+    entries: [
+      {
+        type: "CHG",
+        text: "The site now opens at the new moon: plain words, like any company's documentation. The archive is written in the words an operations lead, a CTO or a CFO already uses, and the half moon and the full moon add Numinia's words on top. Until now it opened at the half moon, as if Numinia's words were the original. Readers who already chose a moon keep theirs.",
+      },
+      {
+        type: "CHG",
+        text: "The dial says so: the new moon reads \"The archive is written in these\", the half moon \"plain words with Numinia's beside them\".",
+      },
+    ],
+  },
+  {
     version: "v0.106.0",
     date: "2026-09-30",
     entries: [

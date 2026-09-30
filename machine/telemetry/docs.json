@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17110,
+  "chars": 17425,
   "apparatus": false,
   "archived": false,
-  "tokens": 4222
+  "tokens": 4308
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19058,
+  "chars": 19320,
   "apparatus": false,
   "archived": false,
-  "tokens": 5232
+  "tokens": 5302
  },
  {
   "path": "CLAUDE.md",
@@ -2700,10 +2700,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7375,
+  "chars": 7446,
   "apparatus": false,
   "archived": false,
-  "tokens": 1621
+  "tokens": 1639
  },
  {
   "path": "standards/STD-031-a-canon-states.md",

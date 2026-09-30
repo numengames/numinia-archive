@@ -16,15 +16,19 @@
 // leaves that stop out and the site keeps today's word. GAPS lists them, for
 // the Oracle and the semantic census to decide.
 
-/** The three stops, in dial order. `bridge` is the site as served. */
+/**
+ * The three stops, in dial order. The plain stop is the SOURCE (the Oracle,
+ * 2026-09-29): documents are written in the business's words, and the half
+ * moon and the full moon enrich them. The site opens there.
+ */
 export const STOPS = [
-  { id: "plain", moon: "new", say: "Plain words, like any company's documentation." },
-  { id: "bridge", moon: "half", say: "Half and half: the archive as it is today." },
+  { id: "plain", moon: "new", say: "Plain words, like any company's documentation. The archive is written in these." },
+  { id: "bridge", moon: "half", say: "Half and half: plain words with Numinia's beside them." },
   { id: "numinia", moon: "full", say: "Numinia's own words, where the archive has them." },
 ];
 
 /** The stop a visitor arrives at. */
-export const DEFAULT_STOP = "bridge";
+export const DEFAULT_STOP = "plain";
 
 /**
  * One label of the site. `bridge` is the text the page serves today, exactly.
