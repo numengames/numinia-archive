@@ -65,7 +65,8 @@ test('seal: the pre-2025 seal is in the tree and REUSE.toml names ENISA as its h
 test('page: open books carries the loan section, the seal and the record', () => {
   const page = read(PAGE);
   assert.match(page, /id="cq-sec-enisa"/);
-  assert.match(page, /partners\/enisa-financiada-por\.png/);
-  assert.match(page, /OPS-017/);
+  assert.match(page, /src=\{ENISA\.seal\}/, 'the section does not draw the seal');
+  assert.match(read(DATA), /seal: "\/partners\/enisa-financiada-por\.png"/, 'the data file does not point at the seal');
+  assert.match(page, /\/operations\/ops-017-the-enisa-loan/);
   assert.match(read(MD), /## The ENISA loan/);
 });

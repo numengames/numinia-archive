@@ -62,6 +62,16 @@ path = [
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"
 
+# LicenseRef-Third-Party-Mark — a third party's mark, shown as its holder offers it; never ours to license.
+# ENISA's seal for companies it financed before 2025, from enisa.es/centro-de-ayuda/recursos-graficos
+# ("Sello horizontal"), resized to 720 px; the original's sha256 is 21aae626…784b28 (OPS-017 §5).
+[[annotations]]
+path = [
+  "web/public/partners/enisa-financiada-por.png",
+]
+SPDX-FileCopyrightText = "Empresa Nacional de Innovación, S.M.E., S.A. (ENISA)"
+SPDX-License-Identifier = "LicenseRef-Third-Party-Mark"
+
 # LicenseRef-Numen-AllRightsReserved — the brand mark: trademarks are never licensed
 [[annotations]]
 path = [

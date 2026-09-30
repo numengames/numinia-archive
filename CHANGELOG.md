@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-09-30
 
+- **Added** `OPS-017` The ENISA loan: signed 2024-10-22, 5,666.56 € of interest in 2025, what the public registers show; open books gains its section with ENISA's seal, the first real figures on the page (site v0.110.0)
 - **Added** `SYS-012` Suppliers: one card per service the company contracts, thirteen from the FY2025 book, in `system/suppliers/`; people stay out; `STD-004` 4.6.1 registers the card's `category`
 - **Added** `DBT-022` 0.3.0 §1.7 *Open books*: naming the people we pay needs their consent, a transparency clause in new contracts and counsel on the legal basis and on payroll; block 8 of the letter, in the text and the Word file
 - **Fixed** Folding closed weeks is numinia.org's alone: the summaries live only in the archive; STD-037 0.4.1 drops the four-site rule, PRO-017 3.3.1 folds on the archive's site only (site v0.109.0).
