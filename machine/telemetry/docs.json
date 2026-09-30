@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19568,
+  "chars": 19732,
   "apparatus": false,
   "archived": false,
-  "tokens": 5378
+  "tokens": 5424
  },
  {
   "path": "CLAUDE.md",
@@ -1897,10 +1897,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 8491,
+  "chars": 9253,
   "apparatus": false,
   "archived": false,
-  "tokens": 2239
+  "tokens": 2485
  },
  {
   "path": "opportunities/OPP-2026-001.md",
