@@ -149,6 +149,8 @@ export const RING3 = {
     // card, an entry of SYS-011 in system/semantic-census/, says which of
     // the eight categories it belongs to, where it stands in its validation
     // (draft → validated → approved → explicit) and how sure it is.
+    // `category` is also the header of a supplier card (SYS-012, 2026-09-30),
+    // an entry of SYS-012 in system/suppliers/.
     'category', 'stage', 'confidence'],
   'history': ['former_id', 'former_id_note', 'supersedes_version'],
   // opportunities/ governed 2026-09-28: a sale's record and its proposal
