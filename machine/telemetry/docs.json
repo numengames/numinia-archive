@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 21155,
+  "chars": 21401,
   "apparatus": false,
   "archived": false,
-  "tokens": 5850
+  "tokens": 5921
  },
  {
   "path": "CLAUDE.md",
@@ -1967,6 +1967,160 @@
   "apparatus": false,
   "archived": false,
   "tokens": 965
+ },
+ {
+  "path": "opportunities/OPP-2026-005.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2864,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 792
+ },
+ {
+  "path": "opportunities/OPP-2026-006.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2776,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 820
+ },
+ {
+  "path": "opportunities/OPP-2026-007.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2738,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 792
+ },
+ {
+  "path": "opportunities/OPP-2026-008.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2818,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 815
+ },
+ {
+  "path": "opportunities/OPP-2026-009.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2682,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 787
+ },
+ {
+  "path": "opportunities/OPP-2026-010.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2687,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 800
+ },
+ {
+  "path": "opportunities/OPP-2026-011.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2580,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 774
+ },
+ {
+  "path": "opportunities/OPP-2026-012.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2631,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 763
+ },
+ {
+  "path": "opportunities/OPP-2026-013.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2559,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 755
+ },
+ {
+  "path": "opportunities/OPP-2026-014.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2606,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 777
+ },
+ {
+  "path": "opportunities/OPP-2026-015.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2408,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 718
+ },
+ {
+  "path": "opportunities/OPP-2026-016.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2565,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 731
+ },
+ {
+  "path": "opportunities/OPP-2026-017.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2549,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 735
+ },
+ {
+  "path": "opportunities/OPP-2026-018.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 2426,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 700
  },
  {
   "path": "opportunities/PRP-2026-001.md",
