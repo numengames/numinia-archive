@@ -1,0 +1,170 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The sales bell (the Oracle, 1 October 2026): one evident button in the bar
+// that says how many sales steps are due, and opens the list of them — each
+// a link to the opportunity it moves. Only selling: every item is an open
+// opportunity's next step from the pipeline tool (src/lib/sales-bell.ts).
+//
+// Every item is rendered here, with its address, at build time (the link
+// guard reads hrefs from the built HTML). The script only decides which
+// items have rung — a day's steps ring at RING_HOUR on that day, reader's
+// clock — and counts them for the badge. Without JavaScript the panel lists
+// every open step, nearest first.
+import Icon from "@/components/Icon.astro";
+import { bellItems, RING_HOUR } from "@/lib/sales-bell";
+
+const items = bellItems();
+const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
+---
+
+<div class="sales-bell relative" data-sales-bell data-ring-hour={RING_HOUR}>
+  <button
+    type="button"
+    data-bell-button
+    class="bell-btn relative flex h-11 w-11 items-center justify-center rounded-[6px] border border-teal/60 text-teal transition-colors hover:bg-card"
+    aria-label="Sales: steps due"
+    aria-expanded="false"
+    aria-controls="sales-bell-panel"
+    title="Sales: steps due"
+  >
+    <Icon name="bell" size={20} />
+    <span data-bell-count class="bell-count hidden" aria-live="polite"></span>
+  </button>
+
+  <div
+    id="sales-bell-panel"
+    data-bell-panel
+    class="bell-panel absolute right-0 top-12 z-[60] hidden w-[min(92vw,26rem)] overflow-hidden rounded-[8px] border border-border bg-background shadow-lg"
+    role="dialog"
+    aria-label="Sales steps due"
+  >
+    <div class="flex items-center justify-between border-b border-border px-4 py-3">
+      <span class:list={[etiqueta, "text-foreground"]}>Sales · due</span>
+      <a href="/system/pipeline" class:list={[etiqueta, "text-accent hover:underline"]}>Pipeline →</a>
+    </div>
+    <p data-bell-empty class="hidden px-4 py-6 text-sm text-muted-foreground">
+      Nothing due yet. The next steps ring at {RING_HOUR}:00 on their day.
+    </p>
+    <ul class="max-h-[60vh] overflow-y-auto">
+      {items.map((it) => (
+        <li data-bell-item data-date={it.date} class="border-b border-border/50 last:border-b-0">
+          <a href={it.url} class="block px-4 py-3 transition-colors hover:bg-card">
+            <span class="flex items-center justify-between gap-3">
+              <span class:list={[etiqueta, "text-muted-foreground"]}>{it.kindLabel} · {it.id}</span>
+              <span data-bell-when class:list={[etiqueta, "text-muted-foreground"]}>{it.date}</span>
+            </span>
+            <span class="mt-1 block text-sm font-medium text-foreground">{it.title}</span>
+            <span class="mt-1 block text-sm text-muted-foreground">{it.action}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<style>
+  .bell-count {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: rgb(var(--red));
+    color: #fff;
+    font: 600 0.72rem/20px var(--font-mono, ui-monospace, monospace);
+    text-align: center;
+  }
+  /* A phone: the panel spans the screen under the bar, never off its left edge. */
+  @media (max-width: 40rem) {
+    .bell-panel {
+      position: fixed;
+      left: 0.75rem;
+      right: 0.75rem;
+      top: 3.75rem;
+      width: auto;
+    }
+  }
+  [data-bell-when] { white-space: nowrap; }
+  .sales-bell[data-ringing] .bell-btn {
+    background: rgb(var(--teal) / 0.12);
+  }
+  [data-bell-item][data-overdue] [data-bell-when] {
+    color: rgb(var(--red));
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .sales-bell[data-ringing] .bell-btn :global(svg) {
+      animation: bell-swing 1.2s ease-in-out 2;
+      transform-origin: 50% 10%;
+    }
+  }
+  @keyframes bell-swing {
+    0%, 100% { transform: rotate(0); }
+    20% { transform: rotate(14deg); }
+    40% { transform: rotate(-12deg); }
+    60% { transform: rotate(8deg); }
+    80% { transform: rotate(-4deg); }
+  }
+</style>
+
+<script>
+  // Which steps have rung: a step dated D rings at RING_HOUR on D, reader's
+  // local clock, and stays until its record moves on. Not yet rung: hidden.
+  const root = document.querySelector<HTMLElement>("[data-sales-bell]");
+  if (root) {
+    const ringHour = Number(root.dataset.ringHour ?? "12");
+    const btn = root.querySelector<HTMLButtonElement>("[data-bell-button]")!;
+    const panel = root.querySelector<HTMLElement>("[data-bell-panel]")!;
+    const count = root.querySelector<HTMLElement>("[data-bell-count]")!;
+    const empty = root.querySelector<HTMLElement>("[data-bell-empty]")!;
+    const items = [...root.querySelectorAll<HTMLElement>("[data-bell-item]")];
+
+    const pad = (n: number) => String(n).padStart(2, "0");
+    const iso = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+
+    const refresh = () => {
+      const now = new Date();
+      const today = iso(now);
+      const rangToday = now.getHours() >= ringHour;
+      let rung = 0;
+      for (const li of items) {
+        const d = li.dataset.date ?? "";
+        const has = d < today || (d === today && rangToday);
+        li.hidden = !has;
+        if (has) rung++;
+        if (d < today) li.dataset.overdue = "";
+        else delete li.dataset.overdue;
+        const when = li.querySelector<HTMLElement>("[data-bell-when]");
+        if (when) when.textContent = d < today ? `overdue · ${d}` : d === today ? "today" : d;
+      }
+      count.textContent = String(rung);
+      count.classList.toggle("hidden", rung === 0);
+      empty.classList.toggle("hidden", rung > 0);
+      if (rung > 0) root.dataset.ringing = "";
+      else delete root.dataset.ringing;
+      btn.setAttribute("aria-label", rung ? `Sales: ${rung} step${rung === 1 ? "" : "s"} due` : "Sales: nothing due");
+    };
+
+    const setOpen = (open: boolean) => {
+      panel.classList.toggle("hidden", !open);
+      btn.setAttribute("aria-expanded", String(open));
+    };
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setOpen(panel.classList.contains("hidden"));
+    });
+    document.addEventListener("click", (e) => {
+      if (!root.contains(e.target as Node)) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+
+    refresh();
+    // A page left open across noon rings without a reload.
+    setInterval(refresh, 60_000);
+  }
+</script>

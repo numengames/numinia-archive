@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.121.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "ADD", text: "A sales bell in the bar, on every page: from noon each day it counts the sales steps due, and a click lists them — each one an open opportunity's next step, linking to its record. A step not done stays, marked overdue." },
+      { type: "ADD", text: "Eleven new opportunities from the sales plan of 1 October: five public training centres for police, emergencies, civil protection and fire, offered a space to rehearse a procedure; six business associations and hubs, offered a free talk on running a company with AI agents." },
+    ],
+  },
+  {
     version: "v0.120.0",
     date: "2026-10-02",
     entries: [
