@@ -24,6 +24,8 @@ const LIB = path.join(ROOT, 'web', 'src', 'lib', 'pipeline.ts');
 const TOOL = path.join(ROOT, 'machine', 'packages', 'sales-kit', 'pipeline.mjs');
 const FIXTURES = path.join(ROOT, 'machine', 'packages', 'sales-kit', 'fixtures');
 const TODAY = '2026-10-15';
+const FTOOL = path.join(ROOT, 'machine', 'packages', 'funding-kit', 'funding.mjs');
+const FFIXTURES = path.join(ROOT, 'machine', 'packages', 'funding-kit', 'fixtures');
 
 test('the page states no figure: its data comes through the tool', () => {
   const lib = readFileSync(LIB, 'utf8');
@@ -127,8 +129,13 @@ test('the browser script puts the tool\'s figures where each reader looks', asyn
   const reg = tool.loadRegister();
   const raw = tool.readFolder(FIXTURES);
   const figures = tool.figures(raw, reg, TODAY);
+  for (const t of figures.tenders.list) t.url = `/opportunities/${t.id.toLowerCase()}`;
+  const ftool = await import(FTOOL);
+  const freg = ftool.loadRegister();
+  const ffig = ftool.figures(ftool.readFolder(FFIXTURES), freg, TODAY);
+  for (const g of ffig.list) g.url = `/funding/${g.id.toLowerCase()}`;
   const records = raw.filter((r) => r.fm).map((r) => ({ ...r.fm, value: Number(r.fm.value), slug: r.fm.id.toLowerCase(), url: `/opportunities/${r.fm.id.toLowerCase()}`, proposalUrl: r.fm.proposal ? `/opportunities/${r.fm.proposal.replace(/\.md$/, '').toLowerCase()}` : '', transitions: r.transitions }));
-  const html = pageHtml() + `<script id="pq-data" type="application/json">${JSON.stringify({ today: TODAY, register: reg, records, figures })}</script>`;
+  const html = pageHtml() + `<script id="pq-data" type="application/json">${JSON.stringify({ today: TODAY, register: reg, records, figures, funding: { register: freg, figures: ffig } })}</script>`;
   const { document } = makeDom(html);
   const g = globalThis;
   const saved = { document: g.document, addEventListener: g.addEventListener, window: g.window };
@@ -162,6 +169,18 @@ test('the browser script puts the tool\'s figures where each reader looks', asyn
     assert.match(noticeLink.getAttribute('href'), /^https:\/\/contrataciondelestado\.es/, 'the notice address comes from the record');
     const box = document.querySelector('#pq-tenders-only'); box.checked = true; for (const f of box.listeners.change ?? []) f({ target: box });
     assert.deepEqual(rows('#pq-cal').map((r) => r[2]), ['OPP-2026-005'], 'tenders only');
+    // tenders: public buyers only, ranked by the house's chance, criteria counted by the tool
+    const tn = rows('#pq-tenders');
+    assert.deepEqual(tn.map((r) => r[0]), ['OPP-2026-005'], 'only the tender, not the private sales');
+    assert.equal(tn[0][2], 'high'); assert.equal(tn[0][3], '6/6', 'criteria met, from the record\'s table');
+    assert.equal(document.querySelectorAll('#pq-tenders tbody a')[0].getAttribute('href'), '/opportunities/opp-2026-005', 'the address made at build');
+    // grants: the funding tool's list, most likely first, how each pays
+    const gr = rows('#pq-grants');
+    assert.deepEqual(gr.map((r) => r[0]), ['GRA-2026-001', 'GRA-2026-002', 'GRA-2026-003'], 'ranked by chance');
+    assert.equal(gr[1][8], '100 % in advance');
+    assert.match(gr[1][9], /est\./, 'an estimated closing day says so');
+    assert.equal(gr[2][5], 'Track record', 'a failed condition is named');
+    assert.match(document.querySelector('#pq-g-chance').textContent, /1 call/);
     // the funnel and the periods, everyone
     assert.equal(document.querySelectorAll('#pq-funnel rect').length, figures.funnel.length, 'one bar per open stage');
     const wonMonth = rows('#pq-ptable').find((r) => r[4] === '1');
@@ -200,4 +219,8 @@ test('the built page carries the real folder through the tool', { skip: !existsS
   assert.equal(data.records.length, raw.filter((r) => r.fm).length, 'as many records as the folder holds');
   assert.deepEqual(data.figures.byStage, tool.figures(raw, tool.loadRegister(), data.today).byStage, 'the same figures the tool computes today');
   assert.ok(existsSync(path.join(ROOT, 'web', 'dist', 'system', 'pipeline.md')), 'the markdown twin is built');
+  const ftool = await import(FTOOL);
+  const fraw = ftool.readFolder(path.join(ROOT, 'funding'));
+  assert.equal(data.funding.figures.list.length, fraw.length, 'every grant record reaches the page');
+  assert.equal(data.figures.tenders.list.length, raw.filter((r) => r.fm?.source === 'tender').length, 'every tender reaches the Tenders section');
 });

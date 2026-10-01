@@ -122,6 +122,7 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 - `legal/` — the legal texts the public sites are bound by, one `LEG-` series;
   every one is reserved and says so in its own SPDX comment.
 - `opportunities/` — every chance to sell something, one public record each
+- `funding/` — every call for public money the house might take, one public record each
   (`OPP-YYYY-NNN.md`, its proposals beside it); nobody's name in them, the
   organisation by sector until it agrees. `machine/packages/sales-kit/` holds
   the moulds and the tool that reads them.
@@ -189,6 +190,8 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-028` | Qualifying an opportunity | draft | whoever hears of a chance to sell something in Numen Games' or Numinia's name… |
 | `PRO-029` | Making a proposal | draft | whoever analyses a need, writes, reviews or approves a proposal in Numen Games' or Numinia's… |
 | `PRO-030` | Closing a sale | draft | whoever follows up, negotiates, signs or hands over a sale in Numen Games' or Numinia's name |
+| `PRO-031` | Bidding for a tender | draft | whoever finds, reads, decides on or files a tender in Numen Games' name |
+| `PRO-032` | Applying for a grant | draft | whoever finds, reads, decides on, applies for or justifies a grant… |
 | `STD-001` | The series | draft | every tracked document of the archive |
 | `STD-003` | Platform ranks | draft | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | in force | every document's header, and every date the archive writes |
@@ -228,8 +231,10 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-042` | What an agent may do without asking | draft | register — scope belongs to the standard that cites it |
 | `STD-043` | A report speaks to the board | draft | every roll-up report of a week, a quarter or a year |
 | `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
+| `STD-045` | The stages of a grant | draft | register — scope belongs to the standard that cites it |
+| `STD-046` | A grant has a record | draft | every record of a grant, public loan or prize kept in Numen Games' name… |
 
-73 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 7 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+77 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

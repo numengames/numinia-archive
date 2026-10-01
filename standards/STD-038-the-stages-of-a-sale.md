@@ -5,14 +5,14 @@ title: "The stages of a sale"
 type: documentation
 subtype: register
 status: draft
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-30T21:00:00+02:00"
+updated: "2026-10-01T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
-tags: [standards, register, sales, pipeline, opportunity, stages, tenders, public-procurement]
+tags: [standards, register, sales, pipeline, opportunity, stages, tenders, public-procurement, chance]
 license: "CC0-1.0"
 related: ["STD-039", "STD-040", "CAN-009", "CAN-011"]
 derived_from: "CAN-009"
@@ -31,7 +31,8 @@ SPDX-License-Identifier: CC0-1.0
 > days without movement make it stale. The closed list of reasons a sale is
 > lost, from which stage the organisation is named, and — when the buyer is
 > a public body that publishes a notice — which procedure it buys by and
-> what each asks of a bidder. The standard of the opportunity record cites
+> what each asks of a bidder, the four values of the house's chance, where a
+> tender was read and what the buyer really buys. The standard of the opportunity record cites
 > these values; the pipeline tool reads them here and nowhere else. A
 > register records: nothing in it binds by itself.
 > **Epistemic:** Which stages does a sale pass through, and what moves it?
@@ -93,6 +94,43 @@ the day to look for the award. The stages read the same as any sale:
 when the offer is filed and the receipt is the evidence, `agreed` when the
 authority proposes the house as awardee, `won` when the contract is
 formalised, `lost` with `outbid` or `excluded`.
+
+## The house's chance
+
+How likely the house is to get the money, read from the call's criteria
+against the house's own cards — the one for tenders and the one for grants.
+A tender record and a grant record carry one of these values; the grant
+register reads them from this table.
+
+| Chance | Means |
+|---|---|
+| `high` | every requirement is met, the money fits the house's cash, and the competition is bounded |
+| `medium` | every requirement is met; what stands in the way is competition, or one fact still unknown |
+| `low` | eligible on paper, but blocked by a requirement the house can only meet with a partner or a change |
+| `none` | a hard requirement fails: the reason is the failed row of the criteria |
+
+## Where a tender was read
+
+A summary is not the tender. Aggregators and alert e-mails paraphrase a
+title and can invent the object; only the authority's own documents say
+what it buys.
+
+| Read from | Means |
+|---|---|
+| `terms` | the authority's own administrative and technical terms, downloaded and read |
+| `notice` | the notice on the authority's profile or the procurement platform, not yet the terms |
+| `aggregator` | a third party's summary only |
+
+## What the buyer really buys
+
+Read from the technical terms, never from the title or the code.
+
+| Object | Means |
+|---|---|
+| `build` | something the house designs and develops: a world, a game, an interactive piece |
+| `deliver` | something the house runs: a workshop, an event, a gamified training |
+| `resale` | another maker's product, a licence or hardware the house would only pass on |
+| `other` | what the house does not make: teaching, managing a centre, children's entertainment, corporate communication |
 
 ## Naming the organisation
 

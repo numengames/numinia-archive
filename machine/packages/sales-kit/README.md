@@ -36,3 +36,16 @@ prints the same figures as JSON for a site or a sheet to read.
 
 Zero dependencies. Runs wherever Node 22 runs: this repository's CI on
 `opportunities/`, a laptop, a CRM export folder.
+
+## Reading a tender from a regional portal with no content in its pages
+
+Some regions publish tenders in an application whose pages hold no text
+(Andalusia's procurement profile is one). Its documents are reached through
+the search service the application itself calls. For Andalusia, POST
+`{"query":{"match":{"_id":"<idExpediente>"}}}` to
+`https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc-front-publico/elastic/sirec_pdc_expedientes_details/_search`;
+the answer lists each document with a direct download address (justification
+memo, administrative and technical terms). For another region, open the
+application's main script and look for an address ending in `/_search` or
+`/elastic/`. Offers in Andalusia are filed in its own portal, SiREC, not the
+state platform.

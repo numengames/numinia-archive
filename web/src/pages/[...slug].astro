@@ -38,7 +38,7 @@ const repoUrl = repoFileUrl(rel);
 // Group from filePath, not id: the loader maps INDEX.md to the bare
 // directory id, which would mislabel section indexes as root files.
 const m = rel.match(
-  /(?:^|\/)(agents|blueprints|canon|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|protocols|reports|standards|system)\/(.+)$/
+  /(?:^|\/)(agents|blueprints|canon|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|funding|protocols|reports|standards|system)\/(.+)$/
 );
 const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
 // A document with no `title` field still has one: its first heading. The

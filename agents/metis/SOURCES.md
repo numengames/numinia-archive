@@ -3,7 +3,7 @@ agent: metis
 title: "SOURCES — Metis"
 type: agent
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-28T18:00:00+02:00"
 updated: "2026-09-28T18:00:00+02:00"
 author: "ursa"
@@ -36,6 +36,12 @@ buyer: the problem it names, who it sells to.
 current blockers.
 
 ## How a sale is run
+
+`agents/skills/tender-screening/SKILL.md` — how a public tender is screened:
+from the terms, never a summary; bid, possible or decline with the clause.
+
+`operations/OPS-018-the-house-card-for-tenders.md` and
+`operations/OPS-019-the-house-card-for-grants.md` — what the house can prove.
 
 `standards/STD-038-the-stages-of-a-sale.md` — the stages and what lets an
 opportunity pass each one.

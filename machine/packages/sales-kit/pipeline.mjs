@@ -22,6 +22,8 @@
  *   node pipeline.mjs <folder> --proposals     also check each proposal a
  *                                              record points to (STD-040)
  *   node pipeline.mjs <folder> --today DATE    fix "today" (tests, replays)
+ *   node pipeline.mjs <folder> --card PATH     the house's card for tenders
+ *                                              (OPS-018): its turnover ceiling
  *   node pipeline.mjs <folder> --register PATH read the stages from another
  *                                              copy of STD-038 (a consumer
  *                                              repo without this tree)
@@ -41,6 +43,7 @@ import { fileURLToPath } from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
 const DEFAULT_REGISTER = path.join(ROOT, 'standards', 'STD-038-the-stages-of-a-sale.md');
+const DEFAULT_CARD = path.join(ROOT, 'operations', 'OPS-018-the-house-card-for-tenders.md');
 
 /* ---------- the record, as STD-039 defines it ---------- */
 
@@ -53,8 +56,14 @@ export const WHEN_OPEN = ['next_action', 'next_date'];
    STD-004): who signs from agreed, the closed date at won or lost, the
    reason when lost, the proposal's path once sent, the agreement's once won;
    and, when the source is a tender (OPP-012), the procedure the authority
-   buys by and the address of its notice. */
-export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement', 'disclosure', 'procedure', 'notice'];
+   buys by and the address of its notice; and its chance (OPP-013), the
+   house's likelihood read from its criteria against the house's card. */
+export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement', 'disclosure', 'procedure', 'notice', 'chance',
+  /* OPP-014/015: where a tender was read, what it really buys, its file
+     reference, the solvency figures the terms ask, the day the service starts */
+  'read_from', 'object', 'file_ref', 'turnover_asked', 'works_asked', 'starts'];
+/* OPP-013: each criterion of a tender says whether the house meets it. */
+export const MEETS = ['yes', 'no', 'check'];
 /* OPP-011: `open` — the client was told the house works in the open and did
    not ask to stay unnamed, so the record may name it; absent or `unnamed` —
    sector and size only. A lost record is never named, whatever it says. */
@@ -140,6 +149,9 @@ export function loadRegister(file = DEFAULT_REGISTER) {
   }));
   const reasons = tableUnder(text, 'Reasons a sale is lost').map(([r]) => tick(r));
   const procedures = tableUnder(text, 'When the buyer publishes a notice').map(([p]) => tick(p));
+  const chances = tableUnder(text, "The house's chance").map(([c]) => tick(c));
+  const readFrom = tableUnder(text, 'Where a tender was read').map(([c]) => tick(c));
+  const objects = tableUnder(text, 'What the buyer really buys').map(([c]) => tick(c));
   if (!stages.length || !reasons.length) throw new Error(`register has no stages or no reasons: ${file}`);
   return {
     order: stages.map((s) => s.name),
@@ -147,10 +159,52 @@ export function loadRegister(file = DEFAULT_REGISTER) {
     staleDays: Object.fromEntries(stages.map((s) => [s.name, s.stale])),
     reasons,
     procedures,
+    chances,
+    readFrom,
+    objects,
   };
 }
 
+/**
+ * The house's card for tenders (OPS-018): the turnover ceiling a tender's
+ * asked turnover is held against, and the title patterns a sweep skips.
+ * Read from the card's own tables, so the card is the one source.
+ */
+export function loadCard(file = DEFAULT_CARD) {
+  if (!existsSync(file)) return { turnoverCeiling: null, outOfDomain: [] };
+  const text = readFileSync(file, 'utf8').replace(/^## \d+\.\s+/gm, '## ');
+  const fig = Object.fromEntries(tableUnder(text, 'The figures the tool reads').map(([k, v]) => [k.toLowerCase(), Number(String(v).replace(/[^\d.]/g, ''))]));
+  return {
+    turnoverCeiling: Number.isFinite(fig['turnover ceiling']) ? fig['turnover ceiling'] : null,
+    outOfDomain: tableUnder(text, 'What the house makes, and what it does not').map(([pattern, why]) => ({ pattern, why })),
+  };
+}
+
+/** A title the card puts out of the house's domain, or null. */
+export function outOfDomain(title, card) {
+  const t = String(title ?? '').toLowerCase();
+  return card.outOfDomain.find((p) => t.includes(p.pattern.toLowerCase())) ?? null;
+}
+
 /* ---------- reading a folder of records ---------- */
+
+/**
+ * The criteria table of a tender (OPP-013): [{criterion, asks, house, meets}].
+ * The last cell is the verdict — yes, no or check — and the first names it.
+ */
+export function criteriaOf(text) {
+  const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
+  if (!/^## Criteria\s*$/m.test(body)) return null;
+  return tableUnder(body, 'Criteria').map((cells) => ({
+    criterion: cells[0] ?? '', asks: cells[1] ?? '', house: cells[2] ?? '', meets: tick(cells[cells.length - 1] ?? '').toLowerCase(),
+  }));
+}
+
+/** Count a criteria table: how many rows, met, failed, still to check. */
+export function tally(criteria) {
+  const c = criteria ?? [];
+  return { rows: c.length, yes: c.filter((r) => r.meets === 'yes').length, no: c.filter((r) => r.meets === 'no').length, check: c.filter((r) => r.meets === 'check').length };
+}
 
 /** The transitions table of a record body: [{date, from, to, by, evidence}]. */
 export function transitionsOf(text) {
@@ -162,7 +216,7 @@ export function transitionsOf(text) {
 const days = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86_400_000);
 
 /** Validate one record against STD-039. Returns the list of breaches (plate + what). */
-export function validate(rec, reg) {
+export function validate(rec, reg, card = { turnoverCeiling: null, outOfDomain: [] }) {
   const { fm, transitions, file } = rec;
   const bad = [];
   const F = (plate, what) => bad.push({ plate, what, file });
@@ -199,9 +253,39 @@ export function validate(rec, reg) {
     else if (!reg.procedures.includes(fm.procedure)) F('OPP-012', `procedure "${fm.procedure}" is not one of ${reg.procedures.join(' · ')}`);
     if (fm.procedure !== 'minor' && !fm.notice) F('OPP-012', 'a tender with no notice — link the announcement on the contracting profile or the procurement platform');
     if (fm.notice && !URL_RE.test(fm.notice)) F('OPP-012', `notice "${fm.notice}" is not an address`);
+    /* OPP-013: the criteria read into a table, each met or not, and a chance
+       that does not contradict them. */
+    if (!fm.chance) F('OPP-013', 'a tender with no chance — read the criteria against the house\'s card and write one of ' + reg.chances.join(' · '));
+    else if (!reg.chances.includes(fm.chance)) F('OPP-013', `chance "${fm.chance}" is not one of ${reg.chances.join(' · ')}`);
+    const crit = criteriaOf(rec.text);
+    if (!crit || !crit.length) F('OPP-013', 'no criteria table — a "## Criteria" table: criterion · the call asks · the house · meets');
+    else {
+      for (const c of crit) if (!MEETS.includes(c.meets)) F('OPP-013', `criterion "${c.criterion}" says "${c.meets}" — meets is one of ${MEETS.join(' · ')}`);
+      const n = tally(crit);
+      if (n.no && ['high', 'medium'].includes(fm.chance)) F('OPP-013', `a criterion fails but the chance says "${fm.chance}" — a failed criterion makes it low (a partner could meet it) or none`);
+      if (n.check && fm.chance === 'high') F('OPP-013', 'a criterion is still to check but the chance says "high" — high is every criterion met');
+      if (fm.chance === 'none' && !n.no) F('OPP-013', 'chance "none" but no criterion says no — name the requirement that fails');
+    }
+    /* OPP-014: a verdict rests on the authority's own terms and on what it
+       really buys, read from them; the card's ceiling bounds the turnover. */
+    if (!fm.read_from) F('OPP-014', 'a tender that does not say where it was read — terms · notice · aggregator');
+    else if (!reg.readFrom.includes(fm.read_from)) F('OPP-014', `read_from "${fm.read_from}" is not one of ${reg.readFrom.join(' · ')}`);
+    else if (['high', 'medium'].includes(fm.chance) && fm.read_from === 'aggregator') F('OPP-014', `chance "${fm.chance}" read from the aggregator — a summary can invent the object; read the notice at least`);
+    else if (fm.chance === 'high' && fm.read_from !== 'terms') F('OPP-014', 'chance "high" before the terms are read');
+    if (!fm.object) F('OPP-014', 'a tender that does not say what the buyer really buys — build · deliver · resale · other');
+    else if (!reg.objects.includes(fm.object)) F('OPP-014', `object "${fm.object}" is not one of ${reg.objects.join(' · ')}`);
+    else if (['resale', 'other'].includes(fm.object) && ['high', 'medium'].includes(fm.chance)) F('OPP-014', `object "${fm.object}" with chance "${fm.chance}" — the house does not win what it does not make`);
+    for (const k of ['turnover_asked', 'works_asked']) if (fm[k] !== undefined && !/^\d+(\.\d+)?$/.test(fm[k])) F('OPP-014', `${k} "${fm[k]}" is not a number`);
+    if (card.turnoverCeiling !== null && Number(fm.turnover_asked) > card.turnoverCeiling && ['high', 'medium'].includes(fm.chance))
+      F('OPP-014', `turnover asked ${Number(fm.turnover_asked).toLocaleString('en-GB')} € is above the card's ${card.turnoverCeiling.toLocaleString('en-GB')} € — low with a partner, or none`);
+    if (fm.starts && !ISO_DATE.test(fm.starts)) F('OPP-014', `starts "${fm.starts}" is not a date`);
+    /* OPP-015: the file reference is what makes two listings one tender */
+    if (!fm.file_ref) F('OPP-015', 'a tender with no file reference — the authority\'s file number, or "unread" until read');
   } else {
+    for (const k of ['read_from', 'object', 'file_ref', 'turnover_asked', 'works_asked', 'starts']) if (fm[k]) F('OPP-014', `${k} on a record whose source is not a tender`);
     if (fm.procedure) F('OPP-012', `procedure "${fm.procedure}" on a record whose source is not a tender`);
     if (fm.notice) F('OPP-012', 'a notice on a record whose source is not a tender');
+    if (fm.chance) F('OPP-013', 'chance on a record whose source is not a tender');
   }
   const body = rec.text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   if (EMAIL_RE.test(body) || EMAIL_RE.test(Object.values(fm).join(' '))) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
@@ -229,6 +313,18 @@ export function readFolder(folder) {
     const text = readFileSync(file, 'utf8');
     return { file, fm: parseFM(text), transitions: transitionsOf(text), text };
   });
+}
+
+/** OPP-015: two records with the same file reference and value are one tender listed twice. */
+export function duplicates(records) {
+  const seen = new Map(), bad = [];
+  for (const r of records) {
+    const fm = r.fm; if (!fm || fm.source !== 'tender' || !fm.file_ref || fm.file_ref === 'unread') continue;
+    const key = `${fm.file_ref.replace(/[\s⁄/]+/g, '/').toLowerCase()}|${Number(fm.value) || 0}`;
+    if (seen.has(key)) bad.push({ plate: 'OPP-015', what: `${fm.id} has the same file "${fm.file_ref}" and value as ${seen.get(key)} — one tender, two listings: keep one record`, file: r.file });
+    else seen.set(key, fm.id);
+  }
+  return bad;
 }
 
 /* ---------- proposals (STD-040, the mechanical rows) ---------- */
@@ -278,7 +374,7 @@ export function figures(records, reg, today) {
     }
     // the calendar: every open record's next date, tenders marked, so the
     // days a notice closes are read from the records and never typed
-    if (open && ISO_DATE.test(fm.next_date)) calendar.push({ date: fm.next_date, id: fm.id, action: fm.next_action, tender: fm.source === 'tender', procedure: fm.procedure ?? '', notice: fm.notice ?? '', value, organisation: fm.organisation });
+    if (open && ISO_DATE.test(fm.next_date)) calendar.push({ date: fm.next_date, id: fm.id, action: fm.next_action, tender: fm.source === 'tender', procedure: fm.procedure ?? '', notice: fm.notice ?? '', chance: fm.chance ?? '', value, organisation: fm.organisation });
     if (fm.state === 'lost') reasons[fm.reason] = (reasons[fm.reason] ?? 0) + 1;
     // time per stage, from the transitions: each row closes the previous stage
     for (let i = 1; i < r.transitions.length; i++) {
@@ -295,18 +391,34 @@ export function figures(records, reg, today) {
   const avg = (a) => (a.length ? Math.round(a.reduce((x, y) => x + y, 0) / a.length) : null);
   calendar.sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
   const tenders = records.filter((r) => r.fm?.source === 'tender');
+  /* a service that starts on or before its offers close is a listing to
+     verify with the authority: often a dead or stale notice */
+  const toVerify = tenders.filter((r) => ISO_DATE.test(r.fm.starts ?? '') && !reg.closed.includes(r.fm.state) && ISO_DATE.test(r.fm.next_date ?? '') && r.fm.starts <= r.fm.next_date)
+    .map((r) => ({ id: r.fm.id, starts: r.fm.starts, closes: r.fm.next_date }));
   const tenderFigures = {
     records: tenders.length,
     open: tenders.filter((r) => !reg.closed.includes(r.fm.state)).length,
     won: tenders.filter((r) => r.fm.state === 'won').length,
     lost: tenders.filter((r) => r.fm.state === 'lost').length,
     byProcedure: Object.fromEntries(reg.procedures.map((p) => [p, tenders.filter((r) => r.fm.procedure === p).length])),
+    byChance: Object.fromEntries((reg.chances ?? []).map((c) => [c, tenders.filter((r) => r.fm.chance === c).length])),
+    // one row per tender, its criteria counted from the table — never typed
+    list: tenders.map((r) => {
+      const crit = criteriaOf(r.text ?? '') ?? [];
+      return {
+        id: r.fm.id, organisation: r.fm.organisation, state: r.fm.state, procedure: r.fm.procedure ?? '', chance: r.fm.chance ?? '',
+        value: Number(r.fm.value) || 0, next_date: r.fm.next_date ?? '', notice: r.fm.notice ?? '',
+        read_from: r.fm.read_from ?? '', object: r.fm.object ?? '', file_ref: r.fm.file_ref ?? '',
+        criteria: tally(crit), failed: crit.filter((c) => c.meets === 'no').map((c) => c.criterion),
+        toCheck: crit.filter((c) => c.meets === 'check').map((c) => c.criterion),
+      };
+    }).sort((a, b) => (reg.chances ?? []).indexOf(a.chance) - (reg.chances ?? []).indexOf(b.chance) || (a.next_date || '9').localeCompare(b.next_date || '9')),
   };
   return {
     today, records: records.length, byStage, overdue, stale, reasons,
     timePerStage: Object.fromEntries(Object.entries(perStage).map(([s, a]) => [s, avg(a)])),
     funnel, won, lost, winRate: won + lost ? Math.round((100 * won) / (won + lost)) : null,
-    cycleDays: avg(cycle), byOrg, calendar, tenders: tenderFigures,
+    cycleDays: avg(cycle), byOrg, calendar, tenders: { ...tenderFigures, toVerify },
   };
 }
 
@@ -332,6 +444,14 @@ export function report(fig, reg) {
   if (fig.tenders.records) {
     L.push('', '## Tenders', '', `${fig.tenders.records} tender(s): ${fig.tenders.open} open · ${fig.tenders.won} won · ${fig.tenders.lost} lost.`, '', '| Procedure | Records |', '|---|---|');
     for (const [p, n] of Object.entries(fig.tenders.byProcedure)) L.push(`| \`${p}\` | ${n} |`);
+    L.push('', '| Chance | Records |', '|---|---|');
+    for (const [c, n] of Object.entries(fig.tenders.byChance)) L.push(`| \`${c}\` | ${n} |`);
+    if (fig.tenders.toVerify.length) {
+      L.push('', '## Listings to verify', '', 'The service starts on or before its offers close: ask the authority whether the notice is alive.', '');
+      for (const v of fig.tenders.toVerify) L.push(`- **${v.id}** starts ${v.starts}, offers close ${v.closes}`);
+    }
+    L.push('', '| Tender | Chance | Criteria met | Fails | To check | Closes |', '|---|---|---|---|---|---|');
+    for (const x of fig.tenders.list) L.push(`| ${x.id} | \`${x.chance}\` | ${x.criteria.yes}/${x.criteria.rows} | ${x.failed.join(', ') || '—'} | ${x.toCheck.join(', ') || '—'} | ${x.next_date || '—'} |`);
   }
   L.push('', '## Time per stage (average days)', '', '| Stage | Days |', '|---|---|');
   for (const s of reg.order) if (!reg.closed.includes(s)) L.push(`| \`${s}\` | ${fig.timePerStage[s] ?? '—'} |`);
@@ -356,6 +476,7 @@ function main(argv) {
   const has = (n) => { const i = args.indexOf(n); if (i < 0) return false; args.splice(i, 1); return true; };
   const today = flag('--today') ?? new Date().toISOString().slice(0, 10);
   const registerPath = flag('--register') ?? DEFAULT_REGISTER;
+  const cardPath = flag('--card') ?? DEFAULT_CARD;
   const json = has('--json'), proposals = has('--proposals');
   const folder = args[0];
   if (!folder || !existsSync(folder) || !statSync(folder).isDirectory()) {
@@ -365,7 +486,8 @@ function main(argv) {
   let reg;
   try { reg = loadRegister(registerPath); } catch (e) { console.error(String(e.message)); return 2; }
   const records = readFolder(folder);
-  const bad = records.flatMap((r) => validate(r, reg));
+  const card = loadCard(cardPath);
+  const bad = [...records.flatMap((r) => validate(r, reg, card)), ...duplicates(records)];
   if (proposals) for (const r of records) {
     if (!r.fm?.proposal) continue;
     const p = path.resolve(path.dirname(r.file), r.fm.proposal);

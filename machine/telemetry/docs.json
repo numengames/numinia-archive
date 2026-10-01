@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17425,
+  "chars": 17970,
   "apparatus": false,
   "archived": false,
-  "tokens": 4308
+  "tokens": 4454
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 21706,
+  "chars": 22243,
   "apparatus": false,
   "archived": false,
-  "tokens": 6009
+  "tokens": 6181
  },
  {
   "path": "CLAUDE.md",
@@ -357,10 +357,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2271,
+  "chars": 2558,
   "apparatus": false,
   "archived": false,
-  "tokens": 627
+  "tokens": 702
  },
  {
   "path": "agents/nimrod/OPERATOR.md",
@@ -471,6 +471,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1238
+ },
+ {
+  "path": "agents/skills/tender-screening/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 6819,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1728
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -654,10 +665,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 10355,
+  "chars": 10502,
   "apparatus": false,
   "archived": false,
-  "tokens": 2753
+  "tokens": 2795
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -933,6 +944,72 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1827
+ },
+ {
+  "path": "funding/GRA-2026-001.md",
+  "dir": "funding",
+  "series": "funding",
+  "type": "grant",
+  "status": "active",
+  "chars": 3092,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 906
+ },
+ {
+  "path": "funding/GRA-2026-002.md",
+  "dir": "funding",
+  "series": "funding",
+  "type": "grant",
+  "status": "active",
+  "chars": 2942,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 865
+ },
+ {
+  "path": "funding/GRA-2026-003.md",
+  "dir": "funding",
+  "series": "funding",
+  "type": "grant",
+  "status": "active",
+  "chars": 2892,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 827
+ },
+ {
+  "path": "funding/GRA-2026-004.md",
+  "dir": "funding",
+  "series": "funding",
+  "type": "grant",
+  "status": "active",
+  "chars": 2577,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 747
+ },
+ {
+  "path": "funding/GRA-2026-005.md",
+  "dir": "funding",
+  "series": "funding",
+  "type": "grant",
+  "status": "active",
+  "chars": 2391,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 742
+ },
+ {
+  "path": "funding/GRA-2026-006.md",
+  "dir": "funding",
+  "series": "funding",
+  "type": "grant",
+  "status": "active",
+  "chars": 2346,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 734
  },
  {
   "path": "legal/LEG-001-privacy-policy-numengames.md",
@@ -1397,15 +1474,59 @@
   "tokens": 6804
  },
  {
+  "path": "machine/packages/funding-kit/README.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1259,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 333
+ },
+ {
+  "path": "machine/packages/funding-kit/fixtures/GRA-2026-001.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1226,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 402
+ },
+ {
+  "path": "machine/packages/funding-kit/fixtures/GRA-2026-002.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 955,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 312
+ },
+ {
+  "path": "machine/packages/funding-kit/fixtures/GRA-2026-003.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 919,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 306
+ },
+ {
   "path": "machine/packages/sales-kit/README.md",
   "dir": "machine",
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1853,
+  "chars": 2644,
   "apparatus": true,
   "archived": false,
-  "tokens": 486
+  "tokens": 676
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-001.md",
@@ -1457,10 +1578,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1500,
+  "chars": 2128,
   "apparatus": true,
   "archived": false,
-  "tokens": 429
+  "tokens": 593
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-001.md",
@@ -1529,6 +1650,17 @@
   "tokens": 945
  },
  {
+  "path": "machine/templates/GRA-TEMPLATE.md",
+  "dir": "machine",
+  "series": null,
+  "type": "grant",
+  "status": "active",
+  "chars": 2814,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 804
+ },
+ {
   "path": "machine/templates/LEG-TEMPLATE.md",
   "dir": "machine",
   "series": null,
@@ -1567,10 +1699,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 3902,
+  "chars": 4670,
   "apparatus": true,
   "archived": false,
-  "tokens": 1035
+  "tokens": 1199
  },
  {
   "path": "machine/templates/OPS-TEMPLATE.md",
@@ -1611,10 +1743,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 5374,
+  "chars": 5450,
   "apparatus": true,
   "archived": false,
-  "tokens": 1491
+  "tokens": 1518
  },
  {
   "path": "machine/templates/RPT-TEMPLATE-QUARTER.md",
@@ -1919,10 +2051,32 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5461,
+  "chars": 5472,
   "apparatus": false,
   "archived": false,
-  "tokens": 1618
+  "tokens": 1623
+ },
+ {
+  "path": "operations/OPS-018-the-house-card-for-tenders.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 9529,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2555
+ },
+ {
+  "path": "operations/OPS-019-the-house-card-for-grants.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 6221,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1731
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -1974,10 +2128,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2864,
+  "chars": 3813,
   "apparatus": false,
   "archived": false,
-  "tokens": 792
+  "tokens": 1037
  },
  {
   "path": "opportunities/OPP-2026-006.md",
@@ -1985,10 +2139,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2776,
+  "chars": 3567,
   "apparatus": false,
   "archived": false,
-  "tokens": 820
+  "tokens": 1054
  },
  {
   "path": "opportunities/OPP-2026-007.md",
@@ -1996,10 +2150,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2738,
+  "chars": 3505,
   "apparatus": false,
   "archived": false,
-  "tokens": 792
+  "tokens": 999
  },
  {
   "path": "opportunities/OPP-2026-008.md",
@@ -2007,10 +2161,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2818,
+  "chars": 3758,
   "apparatus": false,
   "archived": false,
-  "tokens": 815
+  "tokens": 1062
  },
  {
   "path": "opportunities/OPP-2026-009.md",
@@ -2018,10 +2172,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2682,
+  "chars": 3450,
   "apparatus": false,
   "archived": false,
-  "tokens": 787
+  "tokens": 987
  },
  {
   "path": "opportunities/OPP-2026-010.md",
@@ -2029,10 +2183,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2687,
+  "chars": 3637,
   "apparatus": false,
   "archived": false,
-  "tokens": 800
+  "tokens": 1061
  },
  {
   "path": "opportunities/OPP-2026-011.md",
@@ -2040,10 +2194,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2580,
+  "chars": 3275,
   "apparatus": false,
   "archived": false,
-  "tokens": 774
+  "tokens": 961
  },
  {
   "path": "opportunities/OPP-2026-012.md",
@@ -2051,10 +2205,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2631,
+  "chars": 3398,
   "apparatus": false,
   "archived": false,
-  "tokens": 763
+  "tokens": 960
  },
  {
   "path": "opportunities/OPP-2026-013.md",
@@ -2062,10 +2216,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2559,
+  "chars": 3260,
   "apparatus": false,
   "archived": false,
-  "tokens": 755
+  "tokens": 944
  },
  {
   "path": "opportunities/OPP-2026-014.md",
@@ -2073,10 +2227,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2606,
+  "chars": 3140,
   "apparatus": false,
   "archived": false,
-  "tokens": 777
+  "tokens": 918
  },
  {
   "path": "opportunities/OPP-2026-015.md",
@@ -2084,10 +2238,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2408,
+  "chars": 3268,
   "apparatus": false,
   "archived": false,
-  "tokens": 718
+  "tokens": 947
  },
  {
   "path": "opportunities/OPP-2026-016.md",
@@ -2095,10 +2249,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2565,
+  "chars": 3463,
   "apparatus": false,
   "archived": false,
-  "tokens": 731
+  "tokens": 961
  },
  {
   "path": "opportunities/OPP-2026-017.md",
@@ -2106,10 +2260,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2549,
+  "chars": 3209,
   "apparatus": false,
   "archived": false,
-  "tokens": 735
+  "tokens": 907
  },
  {
   "path": "opportunities/OPP-2026-018.md",
@@ -2117,10 +2271,21 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2426,
+  "chars": 2885,
   "apparatus": false,
   "archived": false,
-  "tokens": 700
+  "tokens": 815
+ },
+ {
+  "path": "opportunities/OPP-2026-019.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 3624,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1012
  },
  {
   "path": "opportunities/PRP-2026-001.md",
@@ -2431,6 +2596,28 @@
   "tokens": 1460
  },
  {
+  "path": "protocols/PRO-031-bidding-for-a-tender.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 5841,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1520
+ },
+ {
+  "path": "protocols/PRO-032-applying-for-a-grant.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 5429,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1449
+ },
+ {
   "path": "reports/RPT-003-wardley-map.md",
   "dir": "reports",
   "series": "reports",
@@ -2601,10 +2788,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6042,
+  "chars": 6309,
   "apparatus": false,
   "archived": false,
-  "tokens": 1811
+  "tokens": 1891
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2623,10 +2810,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 16175,
+  "chars": 16509,
   "apparatus": false,
   "archived": false,
-  "tokens": 4578
+  "tokens": 4689
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2843,10 +3030,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7478,
+  "chars": 7507,
   "apparatus": false,
   "archived": false,
-  "tokens": 1853
+  "tokens": 1863
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -2953,10 +3140,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6817,
+  "chars": 8614,
   "apparatus": false,
   "archived": false,
-  "tokens": 1787
+  "tokens": 2209
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
@@ -2964,10 +3151,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9216,
+  "chars": 11752,
   "apparatus": false,
   "archived": false,
-  "tokens": 2368
+  "tokens": 3033
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -3023,6 +3210,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1311
+ },
+ {
+  "path": "standards/STD-045-the-stages-of-a-grant.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3665,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1005
+ },
+ {
+  "path": "standards/STD-046-a-grant-has-a-record.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 5783,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1582
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
@@ -3118,10 +3327,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6260,
+  "chars": 6827,
   "apparatus": false,
   "archived": false,
-  "tokens": 1641
+  "tokens": 1796
  },
  {
   "path": "system/SYS-011-semantic-census.md",

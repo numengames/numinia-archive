@@ -13,7 +13,7 @@ guild: "Procurators"
 territory: "Funding"
 tags: [operations, funding, loan, enisa, open-books, public-funding]
 license: "CC-BY-4.0"
-related: ["SYS-008", "SYS-012", "STD-036", "PRO-021", "DBT-022"]
+related: ["SYS-008", "SYS-012", "STD-036", "PRO-021", "DBT-022", "OPS-019"]
 ---
 
 <!--

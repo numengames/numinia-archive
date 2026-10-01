@@ -18,7 +18,7 @@ import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadRegister, parseFM, figures, readFolder, COMMON, WHEN_DUE } from '../pipeline.mjs';
+import { loadRegister, loadCard, parseFM, figures, readFolder, COMMON, WHEN_DUE } from '../pipeline.mjs';
 
 const KIT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ROOT = path.resolve(KIT, '..', '..', '..');
@@ -45,7 +45,7 @@ function check(name, fn) {
 
 /* ---- the register is the one source ---- */
 
-test('the register is read from STD-038: seven stages, two closed, ten reasons, four procedures', () => {
+test('the register is read from STD-038: seven stages, two closed, ten reasons, four procedures, four chances', () => {
   const reg = loadRegister();
   assert.deepEqual(reg.order, ['lead', 'qualified', 'analysed', 'proposed', 'agreed', 'won', 'lost']);
   assert.deepEqual(reg.closed, ['won', 'lost']);
@@ -53,6 +53,16 @@ test('the register is read from STD-038: seven stages, two closed, ten reasons, 
   assert.ok(reg.reasons.includes('not-a-fit') && reg.reasons.includes('we-declined') && reg.reasons.includes('outbid'));
   assert.equal(reg.staleDays.qualified, 30);
   assert.deepEqual(reg.procedures, ['minor', 'simplified-abridged', 'simplified', 'open']);
+  assert.deepEqual(reg.chances, ['high', 'medium', 'low', 'none']);
+  assert.deepEqual(reg.readFrom, ['terms', 'notice', 'aggregator']);
+  assert.deepEqual(reg.objects, ['build', 'deliver', 'resale', 'other']);
+});
+
+test('the house\'s card is read: the turnover ceiling and the patterns out of its domain', () => {
+  const card = loadCard();
+  assert.equal(card.turnoverCeiling, 50000);
+  assert.ok(card.outOfDomain.length >= 5, 'the patterns a sweep skips');
+  assert.ok(card.outOfDomain.some((p) => /escuela de música/i.test(p.pattern)));
 });
 
 test('STD-039 and the tool agree on the fields of the record', () => {
@@ -66,7 +76,7 @@ test('STD-039 and the tool agree on the fields of the record', () => {
   const std = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf8').replace(/\s+/g, ' ');
   const own = [...Object.keys(mould).filter((k) => !COMMON.includes(k)), ...WHEN_DUE];
   for (const k of own) {
-    const word = { contact_role: "contact's role", contact_channel: 'contact channel', decider_role: "decider's role", next_action: 'next action', next_date: 'next date', id: 'identifier', value: 'value without tax', proposal: "proposal's path", agreement: "agreement's path", opened: 'opened', closed: 'closed', state: 'stage', reason: 'reason', license: 'licence' }[k] ?? k;
+    const word = { contact_role: "contact's role", contact_channel: 'contact channel', decider_role: "decider's role", read_from: 'where it was read', file_ref: 'file reference', object: 'what the buyer really buys', starts: 'the day the service starts', turnover_asked: 'turnover asked', works_asked: 'past works asked', next_action: 'next action', next_date: 'next date', id: 'identifier', value: 'value without tax', proposal: "proposal's path", agreement: "agreement's path", opened: 'opened', closed: 'closed', state: 'stage', reason: 'reason', license: 'licence' }[k] ?? k;
     assert.ok(std.includes(word), `STD-039 does not name the field \`${k}\` (looked for "${word}")`);
   }
 });
@@ -106,6 +116,10 @@ check('--json prints the same figures as data', (dir) => {
   assert.deepEqual(fig.calendar.map((c) => c.id), ['OPP-2026-002', 'OPP-2026-003', 'OPP-2026-005'], 'the calendar is every open record by next date');
   assert.equal(fig.tenders.records, 1);
   assert.equal(fig.tenders.byProcedure['simplified-abridged'], 1);
+  assert.equal(fig.tenders.byChance.high, 1, 'tenders are counted by the house\'s chance');
+  assert.equal(fig.calendar.find((c) => c.id === 'OPP-2026-005').chance, 'high', 'the calendar carries a tender\'s chance');
+  const t5 = fig.tenders.list.find((x) => x.id === 'OPP-2026-005');
+  assert.deepEqual(t5.criteria, { rows: 6, yes: 6, no: 0, check: 0 }, 'the criteria table is counted, never typed');
 });
 
 test('time per stage comes from the transitions, not from the header dates', () => {
@@ -256,6 +270,81 @@ check('OPP-003: a tender lost is lost for a tender\'s reason', (dir) => {
   const r = run(dir);
   assert.equal(r.code, 0, r.err);
   assert.match(r.out, /`outbid` \| 1/);
+});
+
+/* ---- a tender's criteria and chance (OPP-013) ---- */
+
+check('OPP-013: a tender carries the house\'s chance, from the register', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^chance: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-013.*a tender with no chance/);
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('procedure: "simplified-abridged"', 'procedure: "simplified-abridged"\nchance: "maybe"'));
+  assert.match(run(dir).err, /OPP-013.*chance "maybe" is not one of high · medium · low · none/);
+});
+
+check('OPP-013: a tender reads its criteria into a table — no table, no chance', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('## Criteria', '## Criteria read later'));
+  assert.match(run(dir).err, /OPP-013.*no criteria table/);
+});
+
+check('OPP-013: every criterion says whether the house meets it — yes, no or to check', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('| can be lodged | yes |', '| can be lodged | probably |'));
+  assert.match(run(dir).err, /OPP-013.*criterion "Guarantee" says "probably"/);
+});
+
+check('OPP-013: a failed criterion caps the chance — none or low, never high', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('| Economic solvency | none: an abridged simplified procedure exempts it | — | yes |', '| Economic solvency | a turnover of 90,000 € | under 50,000 € | no |'));
+  assert.match(run(dir).err, /OPP-013.*criterion fails but the chance says "high"/);
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('chance: "high"', 'chance: "none"'));
+  assert.equal(run(dir).code, 0, 'a failed criterion and chance none agree');
+});
+
+check('OPP-013: chance none must name the criterion that failed', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('chance: "high"', 'chance: "none"'));
+  assert.match(run(dir).err, /OPP-013.*chance "none" but no criterion says no/);
+});
+
+check('OPP-013: chance and criteria belong to tenders only', (dir) => {
+  edit(dir, 'OPP-2026-003.md', (t) => t.replace('source: "referral"', 'source: "referral"\nchance: "high"'));
+  assert.match(run(dir).err, /OPP-013.*chance on a record whose source is not a tender/);
+});
+
+/* ---- the verdict rests on the terms (OPP-014) and one tender is one record (OPP-015) ---- */
+
+check('OPP-014: a tender says where it was read; high or medium needs the terms themselves', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^read_from: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-014.*where it was read/);
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('object: "build"', 'read_from: "aggregator"\nobject: "build"'));
+  assert.match(run(dir).err, /OPP-014.*chance "high" read from the aggregator/);
+});
+
+check('OPP-014: what the buyer really buys — a resale cannot be high', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('object: "build"', 'object: "resale"'));
+  assert.match(run(dir).err, /OPP-014.*object "resale".*chance "high"/);
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('object: "resale"', 'object: "toaster"'));
+  assert.match(run(dir).err, /OPP-014.*object "toaster" is not one of build · deliver · resale · other/);
+});
+
+check('OPP-014: a turnover asked above the card\'s ceiling cannot be met', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('object: "build"', 'object: "build"\nturnover_asked: 90000'));
+  assert.match(run(dir).err, /OPP-014.*turnover asked 90,000 € is above the card's 50,000 €/);
+});
+
+check('OPP-015: a tender names its file reference, and one file is one record', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^file_ref: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-015.*no file reference/);
+});
+
+check('OPP-015: the same file and value twice is a duplicate listing', (dir) => {
+  const t = readFileSync(path.join(dir, 'OPP-2026-005.md'), 'utf8').replace(/OPP-2026-005/g, 'OPP-2026-006');
+  writeFileSync(path.join(dir, 'OPP-2026-006.md'), t);
+  assert.match(run(dir).err, /OPP-015.*OPP-2026-006.*same file "PE-2026-17" and value as OPP-2026-005/);
+});
+
+check('a service that starts before offers close is a listing to verify, not a breach', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('state: "proposed"', 'state: "proposed"\nstarts: "2026-11-01"'));
+  const r = run(dir);
+  assert.equal(r.code, 0, r.err);
+  assert.match(r.out, /## Listings to verify[\s\S]*OPP-2026-005/);
 });
 
 /* ---- proposals ---- */

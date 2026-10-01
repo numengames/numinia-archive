@@ -82,6 +82,7 @@ export const MOULDS: { label: string; line: string; href: string; file: string }
   { label: "Soul", line: "Who the agent is: character, voice, limits", href: "/agents/_template/soul", file: "agents/_template/SOUL.md" },
   { label: "Sources", line: "Where the agent's knowledge comes from", href: "/agents/_template/sources", file: "agents/_template/SOURCES.md" },
   { label: "Skill: opening a pull request", line: "The procedure an agent follows to change this archive", href: "/agents/skills/numinia-nwos-pr/skill", file: "agents/skills/numinia-nwos-pr/SKILL.md" },
+  { label: "Skill: screening a tender", line: "Bid, possible or decline, from the terms and never from a summary", href: "/agents/skills/tender-screening/skill", file: "agents/skills/tender-screening/SKILL.md" },
 ];
 
 /** Throws at build when a setting or a mould names something not in the tree. */

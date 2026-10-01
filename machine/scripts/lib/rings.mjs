@@ -164,8 +164,18 @@ export const RING3 = {
     'opened', 'closed', 'reason', 'proposal', 'agreement',
     // a tender's record (OPP-012, 2026-09-30): how the authority buys, where it said so
     'procedure', 'notice',
+    // a tender read against the house's card (OPP-013, 2026-10-01)
+    'chance',
+    // read from the terms, what it really buys, one file one record (OPP-014/015)
+    'read_from', 'object', 'file_ref', 'turnover_asked', 'works_asked', 'starts',
     // the proposal (PRP-)
     'opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'],
+  // funding/ governed 2026-10-01: a call for public money the house might
+  // take (STD-046), read against the house's card; the funding tool judges
+  // the values.
+  'funding': ['funder', 'instrument', 'amount', 'currency', 'payment', 'advance',
+    'call', 'opens', 'closes', 'estimated', 'state', 'chance', 'next_action', 'next_date',
+    'opened', 'closed', 'reason', 'granted'],
 };
 
 export const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',

@@ -19,7 +19,7 @@ import DocToolbar from "@/components/DocToolbar.astro";
 import { pipeline } from "@/lib/pipeline";
 import { repoFileUrl } from "@/lib/build-info";
 const P = pipeline();
-const DATA = { today: P.today, register: P.register, records: P.records, figures: P.figures };
+const DATA = { today: P.today, register: P.register, records: P.records, figures: P.figures, funding: P.funding };
 const open = P.records.filter((r) => !P.register.closed.includes(r.state));
 ---
 <Layout
@@ -54,6 +54,28 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
     </div>
 
     <div class="cq-kpis" id="pq-kpis"></div>
+
+    <nav class="cq-jump" aria-label="Sections">
+      <a href="#tenders">Tenders</a> · <a href="#grants">Grants</a> · <a href="#pq-all-sec">Every record</a>
+    </nav>
+
+    <!-- public buyers only: every tender read against the house's card -->
+    <div class="cq-sec" id="tenders">
+      <h2>Tenders</h2>
+      <p class="cq-sub">Public buyers only. Every tender read against <a href="/operations/ops-018-the-house-card-for-tenders">the house's card for tenders</a>, one row per requirement — met, failed or still to check — and the chance that follows, most likely first. What to do with each is <a href="/protocols/pro-031-bidding-for-a-tender">Bidding for a tender</a>.</p>
+      <div class="cq-chips" id="pq-t-chance"></div>
+      <div class="cq-tablewrap"><table class="cq-t" id="pq-tenders"><thead><tr><th>Record</th><th class="cq-l">Buyer</th><th>Chance</th><th>Criteria met</th><th class="cq-l">Fails</th><th class="cq-l">To check</th><th>Procedure</th><th>Value</th><th>Closes</th><th>Notice</th></tr></thead><tbody></tbody></table></div>
+      <p class="cq-note" id="pq-tenders-empty" hidden>No tender on the radar.</p>
+    </div>
+
+    <!-- grants: public money that is not a sale -->
+    <div class="cq-sec" id="grants">
+      <h2>Grants</h2>
+      <p class="cq-sub">Public money that is not a sale: grants, public loans, prizes, programmes. Each call read against <a href="/operations/ops-019-the-house-card-for-grants">the house's card for grants</a>, with how it pays — money in advance is what the house can carry. A day marked <em>est.</em> is last year's, until the call is out. What to do with each is <a href="/protocols/pro-032-applying-for-a-grant">Applying for a grant</a>; the records are in <a href="/funding/">/funding/</a>.</p>
+      <div class="cq-chips" id="pq-g-chance"></div>
+      <div class="cq-tablewrap"><table class="cq-t" id="pq-grants"><thead><tr><th>Record</th><th class="cq-l">Call</th><th class="cq-l">Funder</th><th>Chance</th><th>Criteria met</th><th class="cq-l">Fails</th><th class="cq-l">To check</th><th>Up to</th><th>Pays</th><th>Closes</th><th>Stage</th></tr></thead><tbody></tbody></table></div>
+      <p class="cq-note" id="pq-grants-empty" hidden>No call on the radar.</p>
+    </div>
 
     <!-- whoever sells: what needs a move -->
     <div class="cq-sec" data-lens="sell">
@@ -114,7 +136,7 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
     </div>
 
     <!-- all records -->
-    <div class="cq-sec">
+    <div class="cq-sec" id="pq-all-sec">
       <h2>Every record</h2>
       <p class="cq-sub">One row per opportunity, in the order they were opened. Each links to its record; a sent proposal sits beside it.</p>
       <div class="cq-tablewrap"><table class="cq-t" id="pq-all"><thead><tr><th>Record</th><th class="cq-l">Organisation</th><th>Sector</th><th>Source</th><th>Procedure</th><th>Stage</th><th>Value</th><th>Opened</th><th>Closed</th><th class="cq-l">Reason</th></tr></thead><tbody></tbody></table></div>
@@ -127,6 +149,7 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
         <li>The stages, their stale days and the reasons come from the register <a href="/standards/std-038-the-stages-of-a-sale">The stages of a sale</a>; what a record must contain is <a href="/standards/std-039-an-opportunity-has-a-record">An opportunity has a record</a>.</li>
         <li>The records are public and carry nobody's name; the organisation is written by sector and size until it has agreed to a proposal. Who signs lives in the agreement.</li>
         <li>A public tender is a record like any other, with <code>source: tender</code>, the procedure the authority buys by and a link to its notice; the register names what each procedure asks of a bidder. A filed offer waits on the authority's clock: overdue when its day passes, never stale.</li>
+        <li>Tenders and grants are read against the house's two cards; the chance comes from each record's criteria table and the register's four values, and the tools refuse a chance that contradicts its table. Grants have their own tool (<code>machine/packages/funding-kit/funding.mjs</code>) and their own records in <a href="/funding/">/funding/</a>.</li>
         <li>A record breaking a rule fails the build of this page, as it fails the CI step: what is shown here has passed.</li>
       </ul>
     </div>
@@ -179,6 +202,15 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
 .cq-list code{font-family:var(--font-mono);font-size:.85em}
 .cq-stage{display:inline-block;padding:1px 8px;border-radius:999px;border:1px solid rgb(var(--border));font-size:.7rem}
 .cq-hidden{display:none!important}
+.cq-jump{margin:20px 0 0;font-family:var(--font-mono);font-size:.8125rem;color:rgb(var(--text-dim))}
+.cq-jump a,.cq-sub a{color:rgb(var(--accent));text-decoration:none}
+.cq-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.cq-chip{border:1px solid rgb(var(--border));border-radius:999px;padding:2px 12px;font-family:var(--font-mono);font-size:.75rem;color:rgb(var(--text-muted))}
+.cq-ch{display:inline-block;padding:1px 8px;border-radius:999px;border:1px solid rgb(var(--border));font-size:.7rem}
+.cq-ch--high{border-color:rgb(var(--green)/.6);color:rgb(var(--green))}
+.cq-ch--medium{border-color:rgb(var(--accent)/.6);color:rgb(var(--accent))}
+.cq-ch--low{border-color:rgb(var(--yellow)/.6);color:rgb(var(--yellow))}
+.cq-ch--none{border-color:rgb(var(--red)/.5);color:rgb(var(--red))}
 @media (prefers-reduced-motion:reduce){.cq-tab{transition:none}}
 </style>
 
@@ -344,13 +376,31 @@ function periods() {
 }
 $$('#pq-gran .cq-tab').forEach(b => b.addEventListener('click', () => { gran = b.dataset.g; $$('#pq-gran .cq-tab').forEach(x => x.setAttribute('aria-selected', String(x === b))); periods(); }));
 
+/* ---- tenders and grants: the tools' lists, ranked by chance ---- */
+const chance = c => `<span class="cq-ch cq-ch--${esc(c)}">${esc(c || '—')}</span>`;
+const chips = (el, counts, noun) => { el.innerHTML = REG.chances.map(c => `<span class="cq-chip">${chance(c)} ${counts[c] ?? 0} ${noun}</span>`).join(''); };
+function tenders() {
+  const L = F.tenders.list;
+  chips($('#pq-t-chance'), F.tenders.byChance, 'tender(s)');
+  $('#pq-tenders tbody').innerHTML = L.map(t => `<tr><td><a href="${t.url}">${esc(t.id)}</a></td><td class="cq-l">${esc(t.organisation)}</td><td>${chance(t.chance)}</td><td>${t.criteria.yes}/${t.criteria.rows}</td><td class="cq-l">${esc(t.failed.join(', ') || '—')}</td><td class="cq-l">${esc(t.toCheck.join(', ') || '—')}</td><td><span class="cq-stage">${esc(t.procedure)}</span></td><td>${money(t.value)}</td><td>${t.next_date || '—'}</td><td>${t.notice ? `<a href="${esc(t.notice)}" rel="noopener">notice</a>` : '—'}</td></tr>`).join('');
+  $('#pq-tenders-empty').hidden = L.length > 0;
+}
+function grants() {
+  const G = D.funding.figures, L = G.list;
+  const counts = Object.fromEntries(Object.entries(G.byChance).map(([c, v]) => [c, v.count]));
+  chips($('#pq-g-chance'), counts, 'call(s)');
+  const pays = g => g.payment === 'advance' ? `${g.advance} % in advance` : g.payment === 'on-justification' ? 'after the work' : 'in kind';
+  $('#pq-grants tbody').innerHTML = L.map(g => `<tr><td><a href="${g.url}">${esc(g.id)}</a></td><td class="cq-l">${esc(g.title)}</td><td class="cq-l">${esc(g.funder)}</td><td>${chance(g.chance)}</td><td>${g.criteria.yes}/${g.criteria.rows}</td><td class="cq-l">${esc(g.failed.join(', ') || '—')}</td><td class="cq-l">${esc(g.toCheck.join(', ') || '—')}</td><td>${g.amount ? money(g.amount) : 'services'}</td><td>${pays(g)}</td><td>${g.closes || '—'}${g.estimated ? ' est.' : ''}</td><td><span class="cq-stage">${esc(g.state)}</span></td></tr>`).join('');
+  $('#pq-grants-empty').hidden = L.length > 0;
+}
+
 /* ---- every record ---- */
 function allTable() {
   $('#pq-all tbody').innerHTML = R.slice().sort((a, b) => a.id.localeCompare(b.id)).map(r =>
     `<tr><td>${link(r)}${r.proposalUrl ? ` · <a href="${r.proposalUrl}">proposal</a>` : ''}</td><td class="cq-l">${esc(r.organisation)}</td><td>${esc(r.sector)}</td><td>${esc(r.source)}</td><td>${r.procedure ? `<span class="cq-stage">${esc(r.procedure)}</span>` : '—'}</td><td>${stageOf(r)}</td><td>${money(r.value)}</td><td>${r.opened}</td><td>${r.closed || '—'}</td><td class="cq-l">${esc(r.reason || '')}</td></tr>`).join('');
 }
 
-applyLens(); openTable(); calendar(); funnel(); stageDays(); reasons(); periods(); allTable();
+applyLens(); openTable(); tenders(); grants(); calendar(); funnel(); stageDays(); reasons(); periods(); allTable();
 addEventListener('resize', () => { funnel(); stageDays(); periods(); });
 })();
 </script>
