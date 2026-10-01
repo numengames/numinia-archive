@@ -162,6 +162,8 @@ export const RING3 = {
     'organisation', 'sector', 'offer', 'source', 'state', 'value', 'currency',
     'contact_role', 'contact_channel', 'decider_role', 'next_action', 'next_date',
     'opened', 'closed', 'reason', 'proposal', 'agreement',
+    // a tender's record (OPP-012, 2026-09-30): how the authority buys, where it said so
+    'procedure', 'notice',
     // the proposal (PRP-)
     'opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'],
 };

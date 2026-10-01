@@ -4,9 +4,9 @@ uid: ""
 title: "Closing a sale"
 type: protocol
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-29T12:00:00+02:00"
+updated: "2026-09-30T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -76,6 +76,11 @@ ledger** receive the handover.
    back to sector and size, whatever its disclosure — from the
    register's list, and their words in the body. A "later" sets a next date
    and stays at `proposed`.
+   A tender answers on the authority's clock: no follow-up, the next date
+   is the day the award is looked for. The house proposed as awardee moves
+   it to `agreed`, the authority named (the award is public) and the
+   house's price as the value; another bidder awarded, `lost` with
+   `outbid`; excluded or withdrawn, `excluded`.
 3. **Fix the scope and the calendar.** From the proposal, the definitive
    scope: what is delivered, when, what the client provides and by when,
    how acceptance is declared. The one-page map becomes the plan. Nothing
@@ -85,7 +90,8 @@ ledger** receive the handover.
    anyone signs. The price is the proposal's; a change is the Oracle's,
    written in the record.
 5. **Sign.** The Oracle signs. The record moves to `won`: the agreement's
-   path, the closing date, the value confirmed.
+   path, the closing date, the value confirmed. For a tender, the
+   agreement is the contract the authority formalises.
 6. **Hand over.** To whoever builds: the record's Need, the map, the scope
    and the calendar — the protocol for building starts there. To whoever
    keeps the ledger: the value, the invoicing dates and the agreement, so
@@ -104,7 +110,7 @@ ledger** receive the handover.
 
 | Step | Evidence it completed |
 |---|---|
-| 1 | Every follow-up is a transition row with its date; nothing at `proposed` has a past next date |
+| 1 | Every follow-up is a transition row with its date; nothing at `proposed` has a past next date — a tender's next date is the day the award is looked for |
 | 2 | Stage `agreed`, or `lost` with a reason from the register |
 | 3–4 | The scope and calendar exist; changed clauses carry the legal specialist's reading |
 | 5 | Stage `won`, agreement path, closing date |

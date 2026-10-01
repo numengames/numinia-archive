@@ -51,8 +51,10 @@ export const REQUIRED = ['id', 'organisation', 'sector', 'offer', 'source', 'sta
 export const WHEN_OPEN = ['next_action', 'next_date'];
 /* Written when the stage asks for them, absent before (empty is absent,
    STD-004): who signs from agreed, the closed date at won or lost, the
-   reason when lost, the proposal's path once sent, the agreement's once won. */
-export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement', 'disclosure'];
+   reason when lost, the proposal's path once sent, the agreement's once won;
+   and, when the source is a tender (OPP-012), the procedure the authority
+   buys by and the address of its notice. */
+export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement', 'disclosure', 'procedure', 'notice'];
 /* OPP-011: `open` — the client was told the house works in the open and did
    not ask to stay unnamed, so the record may name it; absent or `unnamed` —
    sector and size only. A lost record is never named, whatever it says. */
@@ -68,7 +70,10 @@ export const COMMON = ['title', 'type', 'status', 'version', 'created', 'updated
   'registration_exemption', 'evidence_script', 'evidence_head', 'related', 'uid'];
 /* Roles and channels, never names (OPP-006): the header may carry only these. */
 export const ALLOWED = new Set([...REQUIRED, ...WHEN_OPEN, ...WHEN_DUE, ...COMMON]);
-export const SOURCES = ['referral', 'inbound', 'outbound', 'event', 'partner'];
+export const SOURCES = ['referral', 'inbound', 'outbound', 'event', 'partner', 'tender'];
+/* OPP-012: a tender's notice lives on a contracting profile or a procurement
+   platform, reached by an address; the record links it rather than copying it. */
+export const URL_RE = /^https?:\/\/\S+$/;
 /* OPP-011: without `disclosure: open`, and always once lost, the organisation
    is a sector and a size, never a name. */
 export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police|forces?|academy|school|university|hospital|health|bank|insurer|utility|logistics|manufacturer|industry|technology|software|agency|non-profit|foundation|association|municipality|ministry|company|firm|organisation|organization|studio|startup|sme|enterprise|chain|group)\b/i;
@@ -120,7 +125,8 @@ const tick = (s) => s.replace(/`/g, '');
 
 /**
  * The stages in order, the closed ones, each stage's stale days, the
- * reasons and the retention — read from the register, never typed here.
+ * reasons, and the procedures a public buyer purchases by — read from the
+ * register, never typed here.
  */
 export function loadRegister(file = DEFAULT_REGISTER) {
   const text = readFileSync(file, 'utf8');
@@ -129,12 +135,14 @@ export function loadRegister(file = DEFAULT_REGISTER) {
     stale: /^\d+/.test(stale) ? Number(stale.match(/^\d+/)[0]) : null,
   }));
   const reasons = tableUnder(text, 'Reasons a sale is lost').map(([r]) => tick(r));
+  const procedures = tableUnder(text, 'When the buyer publishes a notice').map(([p]) => tick(p));
   if (!stages.length || !reasons.length) throw new Error(`register has no stages or no reasons: ${file}`);
   return {
     order: stages.map((s) => s.name),
     closed: stages.filter((s) => s.stale === null).map((s) => s.name),
     staleDays: Object.fromEntries(stages.map((s) => [s.name, s.stale])),
     reasons,
+    procedures,
   };
 }
 
@@ -180,6 +188,16 @@ export function validate(rec, reg) {
   if (fm.state === 'proposed') {
     const sent = transitions.find((t) => t.to === 'proposed');
     if (sent && !(sent.by ?? '').trim()) F('PRP-007', 'the transition to proposed names nobody in By — whoever sent it read it, and the row is the evidence');
+  }
+  /* OPP-012: a tender names how the authority buys and where it said so. */
+  if (fm.source === 'tender') {
+    if (!fm.procedure) F('OPP-012', 'a tender with no procedure — the register names how a public buyer purchases');
+    else if (!reg.procedures.includes(fm.procedure)) F('OPP-012', `procedure "${fm.procedure}" is not one of ${reg.procedures.join(' · ')}`);
+    if (fm.procedure !== 'minor' && !fm.notice) F('OPP-012', 'a tender with no notice — link the announcement on the contracting profile or the procurement platform');
+    if (fm.notice && !URL_RE.test(fm.notice)) F('OPP-012', `notice "${fm.notice}" is not an address`);
+  } else {
+    if (fm.procedure) F('OPP-012', `procedure "${fm.procedure}" on a record whose source is not a tender`);
+    if (fm.notice) F('OPP-012', 'a notice on a record whose source is not a tender');
   }
   const body = rec.text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   if (EMAIL_RE.test(body) || EMAIL_RE.test(Object.values(fm).join(' '))) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
@@ -231,12 +249,16 @@ export function validateProposal(file, text) {
 
 /* ---------- the figures ---------- */
 
+/** A tender at proposed waits on the authority's clock (STD-038): overdue, never stale. */
+const staleExempt = (fm) => fm.source === 'tender' && fm.state === 'proposed';
+
 export function figures(records, reg, today) {
   const byStage = Object.fromEntries(reg.order.map((s) => [s, { count: 0, value: 0 }]));
   const overdue = [], stale = [];
   const reasons = {};
   const perStage = Object.fromEntries(reg.order.map((s) => [s, []]));
   const byOrg = {};
+  const calendar = [];
   for (const r of records) {
     const fm = r.fm; if (!fm || !byStage[fm.state]) continue;
     const value = Number(fm.value) || 0;
@@ -244,12 +266,15 @@ export function figures(records, reg, today) {
     (byOrg[fm.organisation] ??= []).push({ id: fm.id, state: fm.state, value });
     const open = !reg.closed.includes(fm.state);
     if (open && ISO_DATE.test(fm.next_date) && fm.next_date < today) overdue.push({ id: fm.id, next_date: fm.next_date, next_action: fm.next_action });
-    if (open && r.transitions.length) {
+    if (open && r.transitions.length && !staleExempt(fm)) {
       const last = r.transitions[r.transitions.length - 1];
       const since = days(last.date, today);
       const limit = reg.staleDays[fm.state];
       if (limit !== null && since > limit) stale.push({ id: fm.id, state: fm.state, days: since, limit });
     }
+    // the calendar: every open record's next date, tenders marked, so the
+    // days a notice closes are read from the records and never typed
+    if (open && ISO_DATE.test(fm.next_date)) calendar.push({ date: fm.next_date, id: fm.id, action: fm.next_action, tender: fm.source === 'tender', procedure: fm.procedure ?? '', notice: fm.notice ?? '', value, organisation: fm.organisation });
     if (fm.state === 'lost') reasons[fm.reason] = (reasons[fm.reason] ?? 0) + 1;
     // time per stage, from the transitions: each row closes the previous stage
     for (let i = 1; i < r.transitions.length; i++) {
@@ -264,11 +289,20 @@ export function figures(records, reg, today) {
   const cycle = records.filter((r) => r.fm?.state === 'won' && r.transitions.length)
     .map((r) => days(r.transitions[0].date, r.fm.closed));
   const avg = (a) => (a.length ? Math.round(a.reduce((x, y) => x + y, 0) / a.length) : null);
+  calendar.sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+  const tenders = records.filter((r) => r.fm?.source === 'tender');
+  const tenderFigures = {
+    records: tenders.length,
+    open: tenders.filter((r) => !reg.closed.includes(r.fm.state)).length,
+    won: tenders.filter((r) => r.fm.state === 'won').length,
+    lost: tenders.filter((r) => r.fm.state === 'lost').length,
+    byProcedure: Object.fromEntries(reg.procedures.map((p) => [p, tenders.filter((r) => r.fm.procedure === p).length])),
+  };
   return {
     today, records: records.length, byStage, overdue, stale, reasons,
     timePerStage: Object.fromEntries(Object.entries(perStage).map(([s, a]) => [s, avg(a)])),
     funnel, won, lost, winRate: won + lost ? Math.round((100 * won) / (won + lost)) : null,
-    cycleDays: avg(cycle), byOrg,
+    cycleDays: avg(cycle), byOrg, calendar, tenders: tenderFigures,
   };
 }
 
@@ -285,6 +319,16 @@ export function report(fig, reg) {
   if (!fig.overdue.length && !fig.stale.length) L.push('Nothing overdue, nothing stale.');
   for (const o of fig.overdue) L.push(`- **${o.id}** overdue since ${o.next_date}: ${o.next_action}`);
   for (const s of fig.stale) L.push(`- **${s.id}** stale: ${s.days} days in \`${s.state}\` (limit ${s.limit})`);
+  L.push('', '## Calendar', '', 'Every open record by its next date; a tender carries its procedure and its notice.', '');
+  if (!fig.calendar.length) L.push('Nothing is open.');
+  else {
+    L.push('| Date | Record | What | Procedure | Notice |', '|---|---|---|---|---|');
+    for (const c of fig.calendar) L.push(`| ${c.date} | ${c.id} | ${c.action} | ${c.tender ? `\`${c.procedure}\`` : '—'} | ${c.notice ? `[notice](${c.notice})` : '—'} |`);
+  }
+  if (fig.tenders.records) {
+    L.push('', '## Tenders', '', `${fig.tenders.records} tender(s): ${fig.tenders.open} open · ${fig.tenders.won} won · ${fig.tenders.lost} lost.`, '', '| Procedure | Records |', '|---|---|');
+    for (const [p, n] of Object.entries(fig.tenders.byProcedure)) L.push(`| \`${p}\` | ${n} |`);
+  }
   L.push('', '## Time per stage (average days)', '', '| Stage | Days |', '|---|---|');
   for (const s of reg.order) if (!reg.closed.includes(s)) L.push(`| \`${s}\` | ${fig.timePerStage[s] ?? '—'} |`);
   L.push('', '## Funnel', '', '| Stage | Reached |', '|---|---|');

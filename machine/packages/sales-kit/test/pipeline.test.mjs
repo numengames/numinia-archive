@@ -45,13 +45,14 @@ function check(name, fn) {
 
 /* ---- the register is the one source ---- */
 
-test('the register is read from STD-038: seven stages, two closed, eight reasons', () => {
+test('the register is read from STD-038: seven stages, two closed, ten reasons, four procedures', () => {
   const reg = loadRegister();
   assert.deepEqual(reg.order, ['lead', 'qualified', 'analysed', 'proposed', 'agreed', 'won', 'lost']);
   assert.deepEqual(reg.closed, ['won', 'lost']);
-  assert.equal(reg.reasons.length, 8);
-  assert.ok(reg.reasons.includes('not-a-fit') && reg.reasons.includes('we-declined'));
+  assert.equal(reg.reasons.length, 10);
+  assert.ok(reg.reasons.includes('not-a-fit') && reg.reasons.includes('we-declined') && reg.reasons.includes('outbid'));
   assert.equal(reg.staleDays.qualified, 30);
+  assert.deepEqual(reg.procedures, ['minor', 'simplified-abridged', 'simplified', 'open']);
 });
 
 test('STD-039 and the tool agree on the fields of the record', () => {
@@ -84,30 +85,36 @@ test('the header every document carries is the one the archive registers', () =>
 check('the fixtures conform, and the report carries every section', (dir) => {
   const r = run(dir, '--proposals');
   assert.equal(r.code, 0, r.err);
-  for (const h of ['## By stage', '## Needs a move', '## Time per stage', '## Funnel', '## Won and lost', '## By organisation'])
+  for (const h of ['## By stage', '## Needs a move', '## Calendar', '## Tenders', '## Time per stage', '## Funnel', '## Won and lost', '## By organisation'])
     assert.ok(r.out.includes(h), `report lacks ${h}`);
   assert.doesNotMatch(r.out, /Personal data/, 'nothing personal is in a public record, so nothing is due for erasure');
   assert.match(r.out, /Won 1 · lost 1 · win rate 50 %/);
   assert.match(r.out, /OPP-2026-002\*\* overdue since 2026-10-01/);
   assert.match(r.out, /OPP-2026-003\*\* stale: 48 days in `qualified` \(limit 30\)/);
+  assert.doesNotMatch(r.out, /OPP-2026-005\*\* stale/, 'a tender at proposed waits on the authority: overdue, never stale');
+  assert.match(r.out, /\| 2026-11-20 \| OPP-2026-005 \| look for the award .* \| `simplified-abridged` \| \[notice\]\(https:/, 'the calendar carries the tender with its procedure and its notice');
 });
 
 check('--json prints the same figures as data', (dir) => {
   const r = run(dir, '--json');
   assert.equal(r.code, 0, r.err);
   const fig = JSON.parse(r.out);
-  assert.equal(fig.records, 4);
+  assert.equal(fig.records, 5);
   assert.equal(fig.byStage.won.value, 18000);
   assert.equal(fig.winRate, 50);
-  assert.equal(fig.funnel[0].reached, 4);
+  assert.equal(fig.funnel[0].reached, 5);
+  assert.deepEqual(fig.calendar.map((c) => c.id), ['OPP-2026-002', 'OPP-2026-003', 'OPP-2026-005'], 'the calendar is every open record by next date');
+  assert.equal(fig.tenders.records, 1);
+  assert.equal(fig.tenders.byProcedure['simplified-abridged'], 1);
 });
 
 test('time per stage comes from the transitions, not from the header dates', () => {
   const reg = loadRegister();
   const fig = figures(readFolder(path.join(KIT, 'fixtures')), reg, TODAY);
   // OPP-001: lead 06-02 → qualified 06-10 = 8; OPP-002: 07-15 → 07-29 = 14;
-  // OPP-003: 08-25 → 08-28 = 3; OPP-004: 08-01 → lost 09-15 = 45. Average 18.
-  assert.equal(fig.timePerStage.lead, 18);
+  // OPP-003: 08-25 → 08-28 = 3; OPP-004: 08-01 → lost 09-15 = 45;
+  // OPP-005: 09-01 → 09-03 = 2. Average 14.
+  assert.equal(fig.timePerStage.lead, 14);
   assert.equal(fig.cycleDays, 100); // OPP-001: 2026-06-02 → 2026-09-10
 });
 
@@ -200,6 +207,47 @@ check('OPP-001: the file is named by its id', (dir) => {
 check('OPP-010: won without an agreement path fails', (dir) => {
   edit(dir, 'OPP-2026-001.md', (t) => t.replace('agreement: "agreements/meridian-2026.pdf"', 'agreement: ""'));
   assert.match(run(dir).err, /OPP-010.*won with no agreement path/);
+});
+
+/* ---- tenders (OPP-012) ---- */
+
+check('OPP-012: a tender names its procedure from the register', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^procedure: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-012.*a tender with no procedure/);
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('source: "tender"', 'source: "tender"\nprocedure: "negotiated"'));
+  assert.match(run(dir).err, /OPP-012.*procedure "negotiated" is not one of minor · simplified-abridged · simplified · open/);
+});
+
+check('OPP-012: a tender links its notice, except a minor contract, which has none', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^notice: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-012.*a tender with no notice/);
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('procedure: "simplified-abridged"', 'procedure: "minor"'));
+  assert.equal(run(dir).code, 0, 'a minor contract has no notice to link');
+});
+
+check('OPP-012: a notice is an address', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^notice: .*$/m, 'notice: "see the platform"'));
+  assert.match(run(dir).err, /OPP-012.*notice "see the platform" is not an address/);
+});
+
+check('OPP-012: procedure and notice belong to tenders only', (dir) => {
+  edit(dir, 'OPP-2026-003.md', (t) => t.replace('source: "referral"', 'source: "referral"\nprocedure: "minor"'));
+  assert.match(run(dir).err, /OPP-012.*procedure "minor" on a record whose source is not a tender/);
+});
+
+check('OPP-012: a tender at proposed is overdue when its day passes, never stale', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('next_date: "2026-11-20"', 'next_date: "2026-10-01"'));
+  const r = run(dir);
+  assert.equal(r.code, 0, r.err);
+  assert.match(r.out, /OPP-2026-005\*\* overdue since 2026-10-01/);
+  assert.doesNotMatch(r.out, /OPP-2026-005\*\* stale/);
+});
+
+check('OPP-003: a tender lost is lost for a tender\'s reason', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('state: "proposed"', 'state: "lost"\nclosed: "2026-10-10"\nreason: "outbid"').replace(/^next_action: .*\n/m, '').replace(/^next_date: .*\n/m, '').replace('| 2026-09-10 | analysed | proposed | Oracle | offer filed on the platform; receipt kept |', '| 2026-09-10 | analysed | proposed | Oracle | offer filed on the platform; receipt kept |\n| 2026-10-10 | proposed | lost | Oracle | award published: another bid scored higher |'));
+  const r = run(dir);
+  assert.equal(r.code, 0, r.err);
+  assert.match(r.out, /`outbid` \| 1/);
 });
 
 /* ---- proposals ---- */

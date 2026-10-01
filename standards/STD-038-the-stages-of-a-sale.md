@@ -5,14 +5,14 @@ title: "The stages of a sale"
 type: documentation
 subtype: register
 status: draft
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-29T12:00:00+02:00"
+updated: "2026-09-30T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
-tags: [standards, register, sales, pipeline, opportunity, stages]
+tags: [standards, register, sales, pipeline, opportunity, stages, tenders, public-procurement]
 license: "CC0-1.0"
 related: ["STD-039", "STD-040", "CAN-009", "CAN-011"]
 derived_from: "CAN-009"
@@ -29,9 +29,11 @@ SPDX-License-Identifier: CC0-1.0
 > of a need to a signed agreement or a closed door: what each state means,
 > the evidence that puts an opportunity there, who moves it, and how many
 > days without movement make it stale. The closed list of reasons a sale is
-> lost, and from which stage the organisation is named. The standard of the
-> opportunity record cites these values; the pipeline tool reads them here
-> and nowhere else. A register records: nothing in it binds by itself.
+> lost, from which stage the organisation is named, and — when the buyer is
+> a public body that publishes a notice — which procedure it buys by and
+> what each asks of a bidder. The standard of the opportunity record cites
+> these values; the pipeline tool reads them here and nowhere else. A
+> register records: nothing in it binds by itself.
 > **Epistemic:** Which stages does a sale pass through, and what moves it?
 
 ## The stages
@@ -62,6 +64,35 @@ new record that names the old one.
 | `chose-another` | they bought it elsewhere |
 | `silence` | two follow-ups unanswered |
 | `we-declined` | the house chose not to pursue it |
+| `outbid` | a tender: another bid scored higher |
+| `excluded` | a tender: the bid was excluded, or the authority withdrew the tender |
+
+## When the buyer publishes a notice
+
+A public body buys by a procedure the law names, and the procedure decides
+what a bidder must hold before the offer and how long the money takes
+afterwards. A record whose source is a tender carries one of these values;
+the thresholds are the 2026 ones.
+
+| Procedure | Services, estimated value before tax | What it asks of the bidder | Source |
+|---|---|---|---|
+| `minor` | under 15,000 € | no notice: the authority asks for an offer and awards directly; no solvency to prove; the award is published quarterly — object, duration, amount, awardee | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 118, 63.4 |
+| `simplified-abridged` | under 60,000 €, not for intellectual services | inscribed in the bidders' register (ROLECE), or the application filed before offers close; no solvency to prove; one envelope; at least ten working days to bid; criteria by formula only | LCSP art. 159.6 |
+| `simplified` | under 140,000 € (the State) or 216,000 € (every other authority) | inscribed in ROLECE or the application filed; solvency as the terms ask — none asked below 35,000 € unless the terms say so; judgement criteria at most a quarter | LCSP art. 159.1–5; [RGLCAP](https://www.boe.es/buscar/act.php?id=BOE-A-2001-19995) art. 11.5; [Orden HAC/1517/2025](https://www.boe.es/buscar/doc.php?id=BOE-A-2025-26605) |
+| `open` | any | solvency as the terms ask; the full dossier | LCSP arts. 156–158 |
+
+Whatever the procedure, the authority pays within thirty days of accepting
+the service, and owes interest from the thirty-first (LCSP art. 198.4).
+
+A tender moves on the authority's clock, not the seller's: the offer closes
+on a day the notice names, and the award comes when the authority decides.
+So a tender at `proposed` is never stale, only overdue — its next date is
+the day to look for the award. The stages read the same as any sale:
+`lead` when the notice is seen, `qualified` when the house decides to bid,
+`analysed` when the terms have been read into the four things, `proposed`
+when the offer is filed and the receipt is the evidence, `agreed` when the
+authority proposes the house as awardee, `won` when the contract is
+formalised, `lost` with `outbid` or `excluded`.
 
 ## Naming the organisation
 
@@ -80,3 +111,6 @@ they stand, since the statistics are made from them. A buyer bound by
 public procurement is named only when it has been told, like any other:
 what a contracting authority itself publishes about a minor contract —
 object, duration, amount, awardee — is public in any case once awarded.
+A tender's notice is already public, so the record links it; the house's
+own price is not written until the authority publishes the award, since a
+bidder's offer is confidential until then (LCSP art. 133).

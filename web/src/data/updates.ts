@@ -53,6 +53,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.112.0",
+    date: "2026-10-01",
+    entries: [
+      {
+        type: "ADD",
+        text: "/system/pipeline gains a calendar: every open opportunity by its next date, cut by 30, 60 or 90 days ahead, with public tenders marked — the procedure the authority buys by and a link to its notice. Tenders enter the pipeline as records like any other (source tender), and a filed offer waits on the authority's clock: overdue, never stale.",
+      },
+    ],
+  },
+  {
     version: "v0.111.0",
     date: "2026-10-01",
     entries: [

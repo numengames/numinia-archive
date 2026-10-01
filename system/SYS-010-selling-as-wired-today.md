@@ -5,9 +5,9 @@ title: "Selling, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-09-28T23:30:00+02:00"
+updated: "2026-09-30T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, sales, pipeline, records]
@@ -62,7 +62,8 @@ account's reference. Building what was sold is outside this document.
 | **The records** | one file per opportunity, its proposals beside it | `opportunities/`, public, nobody's name in them | wired — the folder exists; the first record is the Oracle's |
 | **The agreement** | the signed contract per project | with the company, outside every repository | wired, on paper |
 | **The ledger handover** | a won record's value and dates as income lines | the account's reference | **not wired** — first with the first won record |
-| **The report where people see it** | the pipeline, as three readers see it | `/system/pipeline` reads the records through the tool at every build — what needs a move, the funnel, days per stage, why lost, and what happened by week, month, quarter and year; `/system/pipeline.md` is the same figures as text | wired — the weekly, quarterly and annual report is a view, not a document |
+| **The report where people see it** | the pipeline, as three readers see it | `/system/pipeline` reads the records through the tool at every build — what needs a move, the calendar (30/60/90 days ahead, tenders marked), the funnel, days per stage, why lost, and what happened by week, month, quarter and year; `/system/pipeline.md` is the same figures as text | wired — the weekly, quarterly and annual report is a view, not a document |
+| **Public tenders** | a notice from a public buyer, as a record with its procedure and its notice linked | the same `opportunities/` records with `source: tender`; the procedures and what each asks of a bidder in `STD-038`; the alerts on the public procurement platform and the ROLECE application, outside the archive | wired in the rules and the tool (2026-09-30); no tender record yet — the first is the Oracle's |
 
 Agents hold no key to the agreement or the ledger. The tool reads the
 stages from the register in this repository, so a consumer copying it alone
@@ -114,8 +115,7 @@ $ node machine/packages/sales-kit/pipeline.mjs machine/packages/sales-kit/fixtur
 
 ## 4. Accuracy
 
-**Verified against:** `main` on 2026-09-28, after the three sales pull
-requests.
+**Verified against:** `main` on 2026-09-30, after the tenders cut.
 
 - The records are public in `opportunities/` by the Oracle's ruling of
   2026-09-28 (radical transparency; nobody's name; the organisation named

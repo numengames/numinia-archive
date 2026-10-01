@@ -140,12 +140,28 @@ test('the browser script puts the tool\'s figures where each reader looks', asyn
     // whoever sells
     const k = kpis();
     assert.equal(k.length, 4);
-    assert.deepEqual(k.map((x) => x[1]), ['2', '1', '2', '1'], 'open, overdue, stale, proposals out — from the fixtures');
+    assert.deepEqual(k.map((x) => x[1]), ['3', '1', '2', '2'], 'open, overdue, stale, proposals out — from the fixtures');
+    assert.match(k[0][0] + document.querySelectorAll('#pq-kpis .cq-s')[0].textContent, /1 tender/, 'the open card counts the tenders');
     const open = rows('#pq-open');
-    assert.equal(open.length, 2, 'two open records');
+    assert.equal(open.length, 3, 'three open records');
     assert.equal(open[0][0], 'OPP-2026-002', 'the overdue one first');
     assert.match(open[0][4], /overdue/);
     assert.match(open[1][6], /stale/, 'the stale one second');
+    assert.equal(open[2][0], 'OPP-2026-005', 'the tender at proposed is neither overdue nor stale');
+    assert.doesNotMatch(open[2][6], /stale/);
+    // the calendar: 30 days ahead by default, then all, then tenders only
+    let cal = rows('#pq-cal');
+    assert.deepEqual(cal.map((r) => r[2]), ['OPP-2026-002', 'OPP-2026-003'], 'within 30 days of the fixtures\' today');
+    assert.match(cal[0][1], /ago/, 'a past date says how long ago');
+    document.querySelector('#pq-horizon [data-h="0"]').click();
+    cal = rows('#pq-cal');
+    assert.deepEqual(cal.map((r) => r[2]), ['OPP-2026-002', 'OPP-2026-003', 'OPP-2026-005'], 'all, by date');
+    assert.equal(cal[2][5], 'simplified-abridged', 'the tender carries its procedure');
+    assert.equal(cal[2][6], 'notice', 'and links its notice');
+    const noticeLink = document.querySelectorAll('#pq-cal tbody a').find((a) => a.textContent === 'notice');
+    assert.match(noticeLink.getAttribute('href'), /^https:\/\/contrataciondelestado\.es/, 'the notice address comes from the record');
+    const box = document.querySelector('#pq-tenders-only'); box.checked = true; for (const f of box.listeners.change ?? []) f({ target: box });
+    assert.deepEqual(rows('#pq-cal').map((r) => r[2]), ['OPP-2026-005'], 'tenders only');
     // the funnel and the periods, everyone
     assert.equal(document.querySelectorAll('#pq-funnel rect').length, figures.funnel.length, 'one bar per open stage');
     const wonMonth = rows('#pq-ptable').find((r) => r[4] === '1');
@@ -166,7 +182,8 @@ test('the browser script puts the tool\'s figures where each reader looks', asyn
     document.querySelector('#pq-lens [data-l="anyone"]').click();
     assert.ok(document.querySelector('[data-lens="sell"]').classList.contains('cq-hidden'));
     assert.ok(document.querySelector('[data-lens="manage"]').classList.contains('cq-hidden'));
-    assert.equal(rows('#pq-all').length, 4, 'every record');
+    assert.equal(rows('#pq-all').length, 5, 'every record');
+    assert.ok(rows('#pq-all').some((r) => r[3] === 'tender' && r[4] === 'simplified-abridged'), 'the tender shows its source and procedure');
     assert.doesNotMatch(document.textContent, /[\w.]+@[\w.]+\.\w{2,}/, 'no email on the page');
   } finally {
     Object.assign(g, saved);

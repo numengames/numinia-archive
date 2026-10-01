@@ -24,8 +24,13 @@ against `STD-039` — fields, stage, next step, transitions, nobody's name,
 the organisation by sector before it agrees — and exits 1 naming each
 failure, then prints a
 Markdown report: count and value per stage · overdue and stale records ·
-time per stage from the transitions · won and lost with reasons · the
-funnel · by organisation. With `--proposals` it also checks each proposal a
+the calendar (every open record by its next date, tenders with their
+procedure and notice) · tenders by procedure · time per stage from the
+transitions · won and lost with reasons · the funnel · by organisation. A
+record with `source: tender` also carries `procedure` (from `STD-038`'s
+procedures table) and `notice` (an address, except a minor contract); at
+`proposed` it is exempt from stale, since the award comes on the
+authority's clock. With `--proposals` it also checks each proposal a
 record points to against `STD-040`'s mechanical rows. With `--json` it
 prints the same figures as JSON for a site or a sheet to read.
 

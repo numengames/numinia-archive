@@ -32,9 +32,9 @@ export interface Transition { date: string; from: string; to: string; by: string
 export interface Record_ {
   id: string; organisation: string; sector: string; offer: string; source: string; state: string;
   value: number; currency: string; next_action: string; next_date: string; opened: string; closed: string;
-  reason: string; proposal: string; slug: string; url: string; proposalUrl: string; transitions: Transition[];
+  reason: string; proposal: string; procedure: string; notice: string; slug: string; url: string; proposalUrl: string; transitions: Transition[];
 }
-export interface Register { order: string[]; closed: string[]; staleDays: Record<string, number | null>; reasons: string[] }
+export interface Register { order: string[]; closed: string[]; staleDays: Record<string, number | null>; reasons: string[]; procedures: string[] }
 
 /** The register, the records and the tool's own figures, as of `today`. */
 export function pipeline(today = new Date().toISOString().slice(0, 10)) {
@@ -53,7 +53,7 @@ export function pipeline(today = new Date().toISOString().slice(0, 10)) {
       id: fm.id, organisation: fm.organisation, sector: fm.sector, offer: fm.offer, source: fm.source,
       state: fm.state, value: Number(fm.value) || 0, currency: fm.currency || "EUR",
       next_action: fm.next_action, next_date: fm.next_date, opened: fm.opened, closed: fm.closed ?? "",
-      reason: fm.reason ?? "", proposal: fm.proposal ?? "", slug: fm.id.toLowerCase(),
+      reason: fm.reason ?? "", proposal: fm.proposal ?? "", procedure: fm.procedure ?? "", notice: fm.notice ?? "", slug: fm.id.toLowerCase(),
       // The addresses are made HERE, at build time, not in the browser: the
       // link guard reads hrefs out of the built HTML, and a template literal
       // inside a script is not an address it can follow.
