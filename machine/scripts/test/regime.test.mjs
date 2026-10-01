@@ -222,35 +222,40 @@ check('tree: opportunities have one home — opportunities/, registered in STD-0
   return true;
 });
 
-check('tree: grants have one home — funding/, registered in STD-001 and STD-027, read by the funding tool', () => {
-  // The Oracle (2026-10-01): tenders in the pipeline, and grants beside them
-  // in their own section. A grant is not a sale — no client, no proposal —
-  // so it has its own series, its own stages (STD-045) and its own record
-  // (STD-046), and the funding tool judges it in CI like the sales tool.
+check('tree: grants are records in opportunities/ — funding/ is gone, one series, one mould, one tool', () => {
+  // The Oracle (2026-10-02): one record format for sales, tenders, grants,
+  // collaborations and partners, in one folder, judged by one tool. The
+  // grant series (funding/, GRA-), its standards, its card and its tool were
+  // retired into STD-038, STD-039, OPS-018 and pipeline.mjs.
+  if (existsSync(path.join(ROOT, 'funding'))) return 'funding/ still exists — grants are records of kind grant in opportunities/';
   const rules = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/lib/rules.json'), 'utf-8'));
-  if (!rules.series.funding) return 'rules.json registers no funding series';
-  if (rules.types.series.grant !== 'funding') return 'type grant is not filed in funding/';
-  if (!rules.governed.dirs.includes('funding')) return 'funding/ is not header-governed';
-  if (!existsSync(path.join(ROOT, 'machine/templates/GRA-TEMPLATE.md'))) return 'machine/templates/GRA-TEMPLATE.md is missing';
+  if (rules.series.funding) return 'rules.json still registers a funding series';
+  if (rules.types?.series?.grant) return 'rules.json still files type grant in its own series';
+  if ((rules.governed?.dirs ?? []).includes('funding')) return 'funding/ is still header-governed';
+  if (existsSync(path.join(ROOT, 'machine/templates/GRA-TEMPLATE.md'))) return 'machine/templates/GRA-TEMPLATE.md still exists — one mould, OPP-TEMPLATE.md';
+  if (existsSync(path.join(ROOT, 'machine/packages/funding-kit'))) return 'machine/packages/funding-kit still exists — one tool, pipeline.mjs';
   const s001 = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf-8');
-  if (!/^\| `funding\/` \|/m.test(s001)) return 'STD-001 has no row for funding/';
+  if (/`funding\/`/.test(s001)) return 'STD-001 still has a row for funding/';
   const s027 = readFileSync(path.join(ROOT, 'standards/STD-027-the-classification-scheme.md'), 'utf-8');
-  if (!/`funding\/`/.test(s027)) return 'STD-027 does not place funding/ in the scheme';
+  if (/`funding\/`/.test(s027)) return 'STD-027 still places funding/ in the scheme';
+  const s038 = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
+  const kinds = s038.slice(s038.indexOf('## The kinds'), s038.indexOf('## The stages'));
+  if (!/^\| `grant` \|/m.test(kinds)) return 'STD-038 has no kind grant';
   const ci = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf-8');
-  if (!/funding\.mjs funding/.test(ci)) return 'CI does not run funding.mjs on funding/';
+  if (/funding\.mjs/.test(ci)) return 'CI still runs funding.mjs';
+  if (!/pipeline\.mjs opportunities/.test(ci)) return 'CI does not run pipeline.mjs on opportunities/';
   return true;
 });
 
-check('tree: the house has one card per door to public money, and a protocol walks each', () => {
+check('tree: the house has one card for every call, and a protocol walks each door to public money', () => {
   // A tender and a grant are each read against what the house holds; the
-  // two cards are where that lives, and each record standard cites its card.
-  for (const f of ['operations/OPS-018-the-house-card-for-tenders.md', 'operations/OPS-019-the-house-card-for-grants.md',
+  // one card is where that lives, and the record standard cites it.
+  for (const f of ['operations/OPS-018-the-house-card.md',
     'protocols/PRO-031-bidding-for-a-tender.md', 'protocols/PRO-032-applying-for-a-grant.md'])
     if (!existsSync(path.join(ROOT, f))) return `${f} is missing`;
+  if (existsSync(path.join(ROOT, 'operations/OPS-019-the-house-card-for-grants.md'))) return 'a second card for grants still exists — one card, OPS-018';
   const s039 = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf-8');
-  if (!/`OPS-018`/.test(s039)) return 'STD-039 does not cite the card for tenders';
-  const s046 = readFileSync(path.join(ROOT, 'standards/STD-046-a-grant-has-a-record.md'), 'utf-8');
-  if (!/`OPS-019`/.test(s046)) return 'STD-046 does not cite the card for grants';
+  if (!/`OPS-018`/.test(s039)) return 'STD-039 does not cite the house\'s card';
   return true;
 });
 
@@ -263,7 +268,7 @@ check('tree: screening a tender is a protocol, and the skill only points to it �
   const skill = readFileSync(path.join(ROOT, 'agents/skills/tender-screening/SKILL.md'), 'utf-8');
   if (!/PRO-033/.test(skill)) return 'the tender-screening skill does not send the agent to PRO-033';
   if (/^## Step \d/m.test(skill) || /^## The five questions/m.test(skill)) return 'the skill keeps its own copy of the steps — they live in PRO-033';
-  const s038 = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-a-sale.md'), 'utf-8');
+  const s038 = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
   if (!/^## Weighing a tender$/m.test(s038)) return 'STD-038 holds no Weighing a tender table: the protocol would carry values a register holds';
   const p031 = readFileSync(path.join(ROOT, 'protocols/PRO-031-bidding-for-a-tender.md'), 'utf-8');
   if (!/PRO-033/.test(p031)) return 'PRO-031 does not start from the screening protocol';
@@ -271,9 +276,10 @@ check('tree: screening a tender is a protocol, and the skill only points to it �
 });
 
 check('tree: every stage of a grant is moved by a protocol, and the month takes in public money', () => {
-  const reg = readFileSync(path.join(ROOT, 'standards/STD-045-the-stages-of-a-grant.md'), 'utf-8');
-  const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## What the funder gives'));
-  const stages = [...table.matchAll(/^\| `([a-z]+)` \|/gm)].map((m) => m[1]);
+  const reg = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
+  const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## The events'));
+  const stages = [...table.matchAll(/^\| `grant` \| `([a-z]+)` \|/gm)].map((m) => m[1]);
+  if (stages.length < 3) return `the register names only ${stages.length} stage(s) of a grant`;
   const p032 = readFileSync(path.join(ROOT, 'protocols/PRO-032-applying-for-a-grant.md'), 'utf-8');
   const unmoved = stages.filter((s) => !new RegExp('`' + s + '`').test(p032));
   if (unmoved.length) return `no step of PRO-032 moves a grant to: ${unmoved.join(', ')}`;
@@ -376,22 +382,21 @@ check('tree: a protocol fits in 900 words — a longer one is two protocols, or 
   return bad.length === 0 || bad.join('; ');
 });
 
-check('tree: every stage of a sale is moved by a protocol — the register names the states, the protocols carry each transition', () => {
-  // STD-038 is the register of stages; a stage no protocol moves an
-  // opportunity into is a state the pipeline can show and nobody can reach.
-  // The three sales protocols are the ones derived from the archive canon
-  // or the money canon and filed under the Sales territory.
+check('tree: every stage of every kind is moved by a protocol — the register names the stages, the protocols carry each move', () => {
+  // STD-038 is the register of stages, by kind; a stage no protocol moves a
+  // record into is a state the pipeline can show and nobody can reach.
+  // The protocols that move opportunities are filed under the Sales territory.
   const dir = path.join(ROOT, 'protocols');
-  const reg = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-a-sale.md'), 'utf-8');
-  const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## Reasons'));
-  const stages = [...table.matchAll(/^\| `([a-z]+)` \|/gm)].map((m) => m[1]);
-  if (stages.length < 5) return `the register names only ${stages.length} stages`;
+  const reg = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
+  const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## The events'));
+  const rows = [...table.matchAll(/^\| `([a-z]+)` \| `([a-z]+)` \|/gm)].map((m) => `${m[1]}:${m[2]}`);
+  if (rows.length < 5) return `the register names only ${rows.length} stages`;
   const sales = readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))
     .map((n) => readFileSync(path.join(dir, n), 'utf-8'))
     .filter((t) => /^territory: "Sales"/m.test(t));
   if (sales.length < 3) return `only ${sales.length} protocol(s) in the Sales territory`;
   const text = sales.join('\n');
-  const unmoved = stages.filter((s) => !new RegExp('`' + s + '`').test(text));
+  const unmoved = rows.filter((r) => !new RegExp('`' + r.split(':')[1] + '`').test(text));
   return unmoved.length === 0 || `no sales protocol moves an opportunity to: ${unmoved.join(', ')}`;
 });
 

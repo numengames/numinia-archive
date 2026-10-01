@@ -5,33 +5,42 @@
 // pipeline.test.mjs — the pipeline tool, proven.
 //
 // Each test drives the real script against a scratch copy of the fixtures and
-// reads its verdict: the exit code and what it names. The register it reads
-// is the real STD-038 in this tree, so a stage renamed there without the
-// fixtures following is caught here, not in a consumer's CI.
+// reads its verdict: the exit code and what it names, plate first. The
+// register and the card it reads are the kit's own fixtures (fixtures/
+// register.md, fixtures/card.md), so the kit is proven on its own; one test
+// at the end also runs it on the archive's real records when the real
+// register is present.
 //
-// Run: npm test
+// Run: node --test machine/packages/sales-kit/test/   (or npm test)
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdtempSync, cpSync, rmSync, renameSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, cpSync, rmSync, renameSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadRegister, loadCard, parseFM, figures, readFolder, COMMON, WHEN_DUE } from '../pipeline.mjs';
+import {
+  loadRegister, loadCard, parseFM, timelineOf, criteriaOf, figures, readFolder, validate, outOfDomain,
+  COMMON, REQUIRED, WHEN_DUE, DEFAULT_REGISTER,
+} from '../pipeline.mjs';
 
 const KIT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ROOT = path.resolve(KIT, '..', '..', '..');
 const TOOL = path.join(KIT, 'pipeline.mjs');
-const TODAY = '2026-10-15';
+const FIX = path.join(KIT, 'fixtures');
+const REGISTER = path.join(FIX, 'register.md');
+const CARD = path.join(FIX, 'card.md');
+const TODAY = '2099-10-15';
 
+/* The scratch dir holds the records only; register and card are read in place. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'pipeline-'));
-  cpSync(path.join(KIT, 'fixtures'), dir, { recursive: true });
+  cpSync(FIX, dir, { recursive: true, filter: (src) => !/broken|register\.md$|card\.md$/.test(path.relative(FIX, src)) });
   return dir;
 }
 function run(dir, ...extra) {
-  const r = spawnSync('node', [TOOL, dir, '--today', TODAY, ...extra], { encoding: 'utf8' });
+  const r = spawnSync('node', [TOOL, dir, '--today', TODAY, '--register', REGISTER, '--card', CARD, ...extra], { encoding: 'utf8' });
   return { code: r.status, out: r.stdout, err: r.stderr };
 }
 function edit(dir, file, fn) {
@@ -42,43 +51,58 @@ function edit(dir, file, fn) {
 function check(name, fn) {
   test(name, () => { const dir = scratch(); try { fn(dir); } finally { rmSync(dir, { recursive: true, force: true }); } });
 }
+const json = (dir) => { const r = run(dir, '--json'); assert.equal(r.code, 0, r.err); return JSON.parse(r.out); };
 
-/* ---- the register is the one source ---- */
+/* ---- the register and the card are the one source ---- */
 
-test('the register is read from STD-038: seven stages, two closed, ten reasons, four procedures, four chances', () => {
-  const reg = loadRegister();
-  assert.deepEqual(reg.order, ['lead', 'qualified', 'analysed', 'proposed', 'agreed', 'won', 'lost']);
-  assert.deepEqual(reg.closed, ['won', 'lost']);
-  assert.equal(reg.reasons.length, 10);
-  assert.ok(reg.reasons.includes('not-a-fit') && reg.reasons.includes('we-declined') && reg.reasons.includes('outbid'));
-  assert.equal(reg.staleDays.qualified, 30);
+test('the register is read by heading: five kinds with their stages, seven events, five steps, every closed list', () => {
+  const reg = loadRegister(REGISTER);
+  assert.deepEqual(reg.kinds.map((k) => k.kind), ['sale', 'tender', 'grant', 'collaboration', 'partner']);
+  assert.deepEqual(reg.stages.sale, ['lead', 'qualified', 'analysed', 'proposed', 'agreed', 'won', 'lost']);
+  assert.deepEqual(reg.stages.tender, ['found', 'read', 'bidding', 'filed', 'awarded', 'won', 'lost']);
+  assert.deepEqual(reg.stages.grant, ['foreseen', 'open', 'applied', 'granted', 'justified', 'won', 'lost']);
+  assert.deepEqual(reg.stages.collaboration, ['lead', 'agreed', 'won', 'lost']);
+  assert.deepEqual(reg.stages.partner, ['lead', 'talking', 'agreed', 'filed', 'won', 'lost']);
+  assert.deepEqual(reg.kinds.map((k) => k.stale), [21, null, null, 30, 21]);
+  assert.deepEqual(reg.events.map((e) => e.event), ['found', 'out', 'pos', 'neg', 'won', 'lost', 'next']);
+  assert.deepEqual(reg.events.map((e) => e.step), ['detected', 'contacted', 'positive', null, 'won', null, null]);
+  assert.deepEqual(reg.steps.map((s) => s.step), ['detected', 'contacted', 'positive', 'won', 'again']);
+  assert.equal(reg.reasons.length, 12);
+  assert.ok(['outbid', 'not-eligible', 'no-cash'].every((r) => reg.reasons.includes(r)));
+  assert.deepEqual(reg.pays, ['advance', 'milestones', 'on-delivery', 'on-justification', 'in-kind', 'to-ask']);
+  assert.deepEqual(reg.instruments, ['grant', 'loan', 'prize', 'programme']);
+  assert.deepEqual(reg.sources, ['referral', 'inbound', 'outbound', 'event', 'platform']);
   assert.deepEqual(reg.procedures, ['minor', 'simplified-abridged', 'simplified', 'open']);
-  assert.deepEqual(reg.chances, ['high', 'medium', 'low', 'none']);
-  assert.deepEqual(reg.readFrom, ['terms', 'notice', 'aggregator']);
-  assert.deepEqual(reg.objects, ['build', 'deliver', 'resale', 'other']);
+  assert.deepEqual(reg.readFrom, ['terms', 'notice']);
+  assert.deepEqual(reg.objects, ['build', 'deliver']);
+  assert.deepEqual(reg.chances, ['high', 'medium']);
 });
 
-test('the house\'s card is read: the turnover ceiling and the patterns out of its domain', () => {
-  const card = loadCard();
+test('a register that lacks a table the tool needs stops it: exit 2, the table named', () => {
+  const dir = mkdtempSync(path.join(tmpdir(), 'pipeline-reg-'));
+  try {
+    const bad = path.join(dir, 'register.md');
+    writeFileSync(bad, readFileSync(REGISTER, 'utf8').replace('## The events', '## Events, renamed'));
+    const r = spawnSync('node', [TOOL, FIX, '--register', bad, '--card', CARD], { encoding: 'utf8' });
+    assert.equal(r.status, 2);
+    assert.match(r.stderr, /lacks: .*event `found`/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('the card is read by heading, numbered or not: requirements, the turnover ceiling, what the house does not make', () => {
+  const card = loadCard(CARD);
   assert.equal(card.turnoverCeiling, 50000);
-  assert.ok(card.outOfDomain.length >= 5, 'the patterns a sweep skips');
-  assert.ok(card.outOfDomain.some((p) => /escuela de música/i.test(p.pattern)));
+  assert.deepEqual(card.requirements.map((q) => q.requirement).slice(0, 4), ['Turnover', 'Team', 'Payment', "Bidders' register"]);
+  assert.deepEqual(card.requirements.map((q) => q.state).slice(0, 3), ['check', 'no', 'no']);
+  assert.equal(outOfDomain('Contrato de hinchables para fiestas', card).why, 'inflatables and attractions');
+  assert.equal(outOfDomain('Un mundo virtual', card), null);
+  assert.deepEqual(loadCard(path.join(FIX, 'no-such-card.md')), { requirements: [], turnoverCeiling: null, outOfDomain: [] }, 'a missing default card reads as empty');
 });
 
-test('STD-039 and the tool agree on the fields of the record', () => {
-  // The standard's second rule lists the header fields in prose; the tool's
-  // REQUIRED list must not drift from it. Read the mould, which is the
-  // standard made concrete, and compare.
-  // The mould lives with every other mould (machine/templates/). Its header
-  // opens with every document's fields (STD-004); only the sale's own fields,
-  // and the ones due later (commented in the mould), are STD-039's to name.
-  const mould = parseFM(readFileSync(path.join(ROOT, 'machine/templates/OPP-TEMPLATE.md'), 'utf8'));
-  const std = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf8').replace(/\s+/g, ' ');
-  const own = [...Object.keys(mould).filter((k) => !COMMON.includes(k)), ...WHEN_DUE];
-  for (const k of own) {
-    const word = { contact_role: "contact's role", contact_channel: 'contact channel', decider_role: "decider's role", read_from: 'where it was read', file_ref: 'file reference', object: 'what the buyer really buys', starts: 'the day the service starts', turnover_asked: 'turnover asked', works_asked: 'past works asked', next_action: 'next action', next_date: 'next date', id: 'identifier', value: 'value without tax', proposal: "proposal's path", agreement: "agreement's path", opened: 'opened', closed: 'closed', state: 'stage', reason: 'reason', license: 'licence' }[k] ?? k;
-    assert.ok(std.includes(word), `STD-039 does not name the field \`${k}\` (looked for "${word}")`);
-  }
+test('a card named on the command line must exist: exit 2', () => {
+  const r = spawnSync('node', [TOOL, FIX, '--register', REGISTER, '--card', path.join(FIX, 'nope.md')], { encoding: 'utf8' });
+  assert.equal(r.status, 2);
+  assert.match(r.stderr, /card not found/);
 });
 
 test('the header every document carries is the one the archive registers', () => {
@@ -90,296 +114,380 @@ test('the header every document carries is the one the archive registers', () =>
   assert.deepEqual([...COMMON].sort(), [...new Set(archive)].sort());
 });
 
+test('the record\'s own fields are exactly the ones the opportunities ring registers', () => {
+  // A field the tool accepts but the header guard refuses (or the reverse)
+  // fails one of the two gates on the first real record that uses it.
+  const rings = readFileSync(path.join(ROOT, 'machine/scripts/lib/rings.mjs'), 'utf8');
+  const at = rings.indexOf("'opportunities': [");
+  const ring = [...rings.slice(at, rings.indexOf('],', at)).matchAll(/'([a-z_]+)'/g)].map((m) => m[1]).filter((k) => k !== 'opportunities');
+  const own = [...REQUIRED, ...WHEN_DUE].filter((k) => !['id', 'license'].includes(k));
+  const proposal = ['opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'];
+  assert.deepEqual([...new Set(ring)].sort(), [...new Set([...own, ...proposal])].sort());
+});
+
+test('the mould names every field of the record, each with a comment', () => {
+  const mould = readFileSync(path.join(ROOT, 'machine/templates/OPP-TEMPLATE.md'), 'utf8');
+  const fm = mould.match(/^---\n([\s\S]*?)\n---/)[1];
+  for (const k of [...REQUIRED, ...WHEN_DUE]) assert.match(fm, new RegExp(`^#? ?${k}:`, 'm'), `the mould does not show \`${k}\``);
+  assert.match(mould, /^## Timeline$/m);
+  assert.doesNotMatch(fm, /^(state|next_action|next_date|closed|reason|chance):/m, 'the mould types nothing the tool computes');
+});
+
+/* ---- the timeline grammar ---- */
+
+test('timelineOf reads date · event · text, a backticked stage, a lost line\'s reason', () => {
+  const t = timelineOf('---\nid: x\n---\n## Timeline\n\n- 2099-01-01 · found · seen\n- 2099-01-02 · out · `qualified` it fits · and more\n- 2099-01-03 · lost · price · too dear\nnot a line\n\n## Notes\n- 2099-02-01 · out · ignored: not under Timeline\n');
+  assert.deepEqual(t, [
+    { date: '2099-01-01', event: 'found', stage: null, reason: null, text: 'seen' },
+    { date: '2099-01-02', event: 'out', stage: 'qualified', reason: null, text: 'it fits · and more' },
+    { date: '2099-01-03', event: 'lost', stage: 'lost', reason: 'price', text: 'too dear' },
+  ]);
+  assert.equal(timelineOf('---\nid: x\n---\n# no timeline\n'), null);
+});
+
+test('criteriaOf reads the requirement and the verdict; parseFM drops empty values', () => {
+  const c = criteriaOf(readFileSync(path.join(FIX, 'OPP-2099-004.md'), 'utf8'));
+  assert.deepEqual(c.map((x) => [x.requirement, x.meets]), [['Size', 'yes'], ['Seat', 'yes'], ['Tax and Social Security', 'check']]);
+  assert.deepEqual(parseFM('---\na: "x"\nb: ""\nc: 3 # note\n---\n'), { a: 'x', c: '3' });
+});
+
 /* ---- a clean folder passes and reports ---- */
 
-check('the fixtures conform, and the report carries every section', (dir) => {
+check('the fixtures conform — one record of every kind — and the report carries every section', (dir) => {
   const r = run(dir, '--proposals');
   assert.equal(r.code, 0, r.err);
-  for (const h of ['## By stage', '## Needs a move', '## Calendar', '## Tenders', '## Time per stage', '## Funnel', '## Won and lost', '## By organisation'])
+  for (const h of ['## By kind', "## What's due", '## Needs a move', '## Every record', '## Funnel', '## Reasons lost', '## Days per stage', '## Asked, and what the house holds'])
     assert.ok(r.out.includes(h), `report lacks ${h}`);
-  assert.doesNotMatch(r.out, /Personal data/, 'nothing personal is in a public record, so nothing is due for erasure');
-  assert.match(r.out, /Won 1 · lost 1 · win rate 50 %/);
-  assert.match(r.out, /OPP-2026-002\*\* overdue since 2026-10-01/);
-  assert.match(r.out, /OPP-2026-003\*\* stale: 48 days in `qualified` \(limit 30\)/);
-  assert.doesNotMatch(r.out, /OPP-2026-005\*\* stale/, 'a tender at proposed waits on the authority: overdue, never stale');
-  assert.match(r.out, /\| 2026-11-20 \| OPP-2026-005 \| look for the award .* \| `simplified-abridged` \| \[notice\]\(https:/, 'the calendar carries the tender with its procedure and its notice');
+  assert.match(r.out, /OPP-2099-002\*\* overdue since 2099-10-01/);
+  assert.match(r.out, /OPP-2099-006\*\* stale: 51 days since the last line, at `talking` \(limit 21\)/);
+  assert.doesNotMatch(r.out, /OPP-2099-00[34]\*\* stale/, 'a tender and a grant run on the other side\'s clock: never stale');
 });
 
-check('--json prints the same figures as data', (dir) => {
-  const r = run(dir, '--json');
-  assert.equal(r.code, 0, r.err);
-  const fig = JSON.parse(r.out);
-  assert.equal(fig.records, 5);
-  assert.equal(fig.byStage.won.value, 18000);
-  assert.equal(fig.winRate, 50);
-  assert.equal(fig.funnel[0].reached, 5);
-  assert.deepEqual(fig.calendar.map((c) => c.id), ['OPP-2026-002', 'OPP-2026-003', 'OPP-2026-005'], 'the calendar is every open record by next date');
-  assert.equal(fig.tenders.records, 1);
-  assert.equal(fig.tenders.byProcedure['simplified-abridged'], 1);
-  assert.equal(fig.tenders.byChance.high, 1, 'tenders are counted by the house\'s chance');
-  assert.equal(fig.calendar.find((c) => c.id === 'OPP-2026-005').chance, 'high', 'the calendar carries a tender\'s chance');
-  const t5 = fig.tenders.list.find((x) => x.id === 'OPP-2026-005');
-  assert.deepEqual(t5.criteria, { rows: 6, yes: 6, no: 0, check: 0 }, 'the criteria table is counted, never typed');
+check('--json is the figures\' contract: its keys, records sorted by id, stages and steps computed', (dir) => {
+  const f = json(dir);
+  assert.deepEqual(Object.keys(f), ['today', 'kinds', 'steps', 'records', 'due', 'funnel', 'byKind', 'reasons', 'daysPerStage', 'card', 'ceiling', 'overdue', 'stale']);
+  assert.deepEqual(Object.keys(f.records[0]), ['id', 'kind', 'title', 'organisation', 'sector', 'source', 'offer', 'value', 'currency', 'pays', 'advance',
+    'stage', 'open', 'opened', 'closed', 'reason', 'next', 'overdue', 'stale', 'events', 'steps', 'chance', 'criteria',
+    'call', 'closes', 'opens', 'estimated', 'procedure', 'instrument', 'file_ref', 'gives_back', 'follows']);
+  assert.deepEqual(f.records.map((x) => [x.id, x.kind, x.stage, x.open]), [
+    ['OPP-2099-001', 'sale', 'won', false], ['OPP-2099-002', 'sale', 'proposed', true], ['OPP-2099-003', 'tender', 'filed', true],
+    ['OPP-2099-004', 'grant', 'applied', true], ['OPP-2099-005', 'collaboration', 'won', false], ['OPP-2099-006', 'partner', 'talking', true],
+    ['OPP-2099-007', 'sale', 'lost', false]]);
+  const by = Object.fromEntries(f.records.map((x) => [x.id, x]));
+  assert.deepEqual(by['OPP-2099-002'].next, { date: '2099-10-01', action: 'ask whether the proposal was read' });
+  assert.equal(by['OPP-2099-001'].closed, '2099-09-10');
+  assert.equal(by['OPP-2099-001'].next, null);
+  assert.equal(by['OPP-2099-007'].reason, 'price');
+  assert.equal(by['OPP-2099-001'].advance, 30);
+  assert.equal(by['OPP-2099-003'].chance, 'high', 'every requirement yes');
+  assert.equal(by['OPP-2099-004'].chance, 'medium', 'one requirement still to check');
+  assert.equal(by['OPP-2099-002'].chance, null, 'a sale has no chance');
+  assert.deepEqual(f.overdue, ['OPP-2099-002']);
+  assert.deepEqual(f.stale, [{ id: 'OPP-2099-002', days: 43, limit: 21 }, { id: 'OPP-2099-006', days: 51, limit: 21 }]);
+  assert.deepEqual(f.due.map((d) => d.id), ['OPP-2099-002', 'OPP-2099-006', 'OPP-2099-003', 'OPP-2099-004'], 'open records\' next, by date');
 });
 
-test('time per stage comes from the transitions, not from the header dates', () => {
-  const reg = loadRegister();
-  const fig = figures(readFolder(path.join(KIT, 'fixtures')), reg, TODAY);
-  // OPP-001: lead 06-02 → qualified 06-10 = 8; OPP-002: 07-15 → 07-29 = 14;
-  // OPP-003: 08-25 → 08-28 = 3; OPP-004: 08-01 → lost 09-15 = 45;
-  // OPP-005: 09-01 → 09-03 = 2. Average 14.
-  assert.equal(fig.timePerStage.lead, 14);
-  assert.equal(fig.cycleDays, 100); // OPP-001: 2026-06-02 → 2026-09-10
+check('the funnel: five steps, a later step implies the earlier, `again` comes from another record\'s follows', (dir) => {
+  const f = json(dir);
+  const by = Object.fromEntries(f.records.map((x) => [x.id, x.steps]));
+  assert.deepEqual(by['OPP-2099-001'], { detected: true, contacted: true, positive: true, won: true, again: true }, 'OPP-2099-005 follows it');
+  assert.deepEqual(by['OPP-2099-007'], { detected: true, contacted: true, positive: false, won: false, again: false }, 'a `neg` marks no step');
+  assert.deepEqual(by['OPP-2099-003'], { detected: true, contacted: true, positive: false, won: false, again: false });
+  assert.deepEqual(f.funnel.all, [7, 7, 3, 2, 1]);
+  assert.deepEqual(f.funnel.sale, [3, 3, 1, 1, 1]);
+  assert.deepEqual(f.funnel.tender, [1, 1, 0, 0, 0]);
+});
+
+check('by kind, reasons, days per stage, the card with how many open records hinge on each row', (dir) => {
+  const f = json(dir);
+  assert.deepEqual(f.byKind.sale, { records: 3, open: 1, won: 1, lost: 1, openValue: 24000 });
+  assert.deepEqual(f.byKind.grant, { records: 1, open: 1, won: 0, lost: 0, openValue: 40000 });
+  assert.deepEqual(f.reasons, { price: 1 });
+  // sale lead: OPP-001 06-02→06-10 = 8; OPP-002 07-15→07-29 = 14; OPP-007 08-01→lost 09-15 = 45 → 22
+  assert.equal(f.daysPerStage.sale.lead, 22);
+  assert.equal(f.daysPerStage.sale.agreed, 21, 'OPP-001: agreed 08-20 → won 09-10');
+  assert.equal(f.daysPerStage.tender.filed, null, 'a stage still running is not counted');
+  assert.equal(f.ceiling, 50000);
+  const tax = f.card.find((c) => c.requirement === 'Tax and Social Security');
+  assert.deepEqual([tax.state, tax.yes, tax.check], ['check', 1, 1], 'the open tender at yes, the open grant at check');
+  assert.deepEqual(Object.keys(f.card[0]), ['requirement', 'asks', 'house', 'state', 'unlocks', 'yes', 'check']);
+});
+
+test('figures() read in-process match the CLI\'s', () => {
+  const reg = loadRegister(REGISTER), card = loadCard(CARD);
+  const f = figures(readFolder(FIX), reg, card, TODAY);
+  assert.equal(f.records.length, 7, 'proposals, the register, the card and broken/ are not records');
+  assert.equal(f.records.every((x) => !('_entered' in x)), true);
 });
 
 /* ---- each rule bites ---- */
 
-check('OPP-003: a stage the register does not know fails', (dir) => {
-  edit(dir, 'OPP-2026-003.md', (t) => t.replace('state: "qualified"', 'state: "negotiating"'));
-  const r = run(dir);
-  assert.equal(r.code, 1);
-  assert.match(r.err, /OPP-003.*state "negotiating" is not a stage of the register/);
+test('the broken fixtures each break what they say', () => {
+  const r = spawnSync('node', [TOOL, path.join(FIX, 'broken'), '--today', TODAY, '--register', REGISTER, '--card', CARD], { encoding: 'utf8' });
+  assert.equal(r.status, 1);
+  assert.match(r.stderr, /OPP-013 .*OPP-2099-101.*"Turnover" is not met — a call that fails a requirement is not recorded — take what it taught to the card \(OPS-018\) and delete the record/);
+  assert.match(r.stderr, /OPP-014 .*OPP-2099-101.*turnover asked 450,000 € is above the card's 50,000 €/);
+  assert.match(r.stderr, /OPP-009 .*OPP-2099-102.*header carries `state`/);
+  assert.match(r.stderr, /OPP-009 .*OPP-2099-102.*header carries `next_date`/);
+  assert.match(r.stderr, /OPP-003 .*OPP-2099-102.*stages only move forward/);
+  assert.match(r.stderr, /OPP-004 .*OPP-2099-102.*2 `next` lines/);
+  assert.match(r.stderr, /OPP-011 .*OPP-2099-103.*"Northwind Traders" reads as a name in a lost record/);
+  assert.match(r.stderr, /OPP-003 .*OPP-2099-103.*reason "bad-luck"/);
+  assert.match(r.stderr, /OPP-006 .*OPP-2099-103.*phone number/);
 });
 
-check('OPP-003: a lost record needs a reason from the list', (dir) => {
-  edit(dir, 'OPP-2026-004.md', (t) => t.replace('reason: "not-a-fit"', 'reason: "bad luck"'));
-  assert.match(run(dir).err, /OPP-003.*reason "bad luck"/);
+check('OPP-001: the file is named by its id', (dir) => {
+  renameSync(path.join(dir, 'OPP-2099-007.md'), path.join(dir, 'OPP-2099-099.md'));
+  assert.match(run(dir).err, /OPP-001.*file is named "OPP-2099-099.md", its id is "OPP-2099-007"/);
 });
 
-check('OPP-004: an open record with no next date fails', (dir) => {
-  edit(dir, 'OPP-2026-002.md', (t) => t.replace('next_date: "2026-10-01"', 'next_date: ""'));
-  assert.match(run(dir).err, /OPP-004.*no next date/);
+check('OPP-002: a missing field is named; a sale or a tender names its offer', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace(/^sector: .*\n/m, '').replace(/^offer: .*\n/m, ''));
+  const e = run(dir).err;
+  assert.match(e, /OPP-002.*header lacks `sector`/);
+  assert.match(e, /OPP-002.*a sale with no `offer`/);
 });
 
-check('OPP-005: the header and the last transition must agree', (dir) => {
-  edit(dir, 'OPP-2026-002.md', (t) => t.replace('state: "proposed"', 'state: "agreed"'));
-  assert.match(run(dir).err, /OPP-005.*last transition goes to "proposed", the header says "agreed"/);
+check('OPP-002: pays from the register; advance or milestones carry the share paid first', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('pays: "to-ask"', 'pays: "whenever"'));
+  assert.match(run(dir).err, /OPP-002.*pays "whenever" is not one of advance · milestones/);
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('pays: "whenever"', 'pays: "milestones"'));
+  assert.match(run(dir).err, /OPP-002.*paid by milestones with no `advance`/);
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('pays: "milestones"', 'pays: "milestones"\nadvance: 140'));
+  assert.match(run(dir).err, /OPP-002.*advance "140" is a share of the value: 0 to 100/);
 });
 
-check('OPP-005: a record with no transitions fails', (dir) => {
-  edit(dir, 'OPP-2026-003.md', (t) => t.replace(/## Transitions[\s\S]*?## Notes/, '## Notes'));
-  assert.match(run(dir).err, /OPP-005.*no transitions table/);
+check('OPP-002: a source outside the register, a renamed field', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('source: "outbound"', 'source: "tender"'));
+  assert.match(run(dir).err, /OPP-002.*source "tender" is not one of referral · inbound · outbound · event · platform/);
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace('pays: "advance"', 'pays: "advance"\nfunder: "the ministry"'));
+  assert.match(run(dir).err, /OPP-002.*header carries `funder` — the funder is the `organisation`/);
+});
+
+check('OPP-002: a sale that reached proposed has its proposal path, and `follows` names a record that exists', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace(/^proposal: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-002.*reached `proposed` with no `proposal` path/);
+  edit(dir, 'OPP-2099-005.md', (t) => t.replace('follows: "OPP-2099-001"', 'follows: "OPP-2099-900"'));
+  assert.match(run(dir).err, /OPP-002.*follows "OPP-2099-900", a record that is not in the folder/);
+});
+
+check('OPP-002: gives_back belongs to a collaboration', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('pays: "to-ask"', 'pays: "to-ask"\ngives_back: "a case"'));
+  assert.match(run(dir).err, /OPP-002.*`gives_back` on a sale — it belongs to a collaboration/);
+});
+
+check('OPP-003: a kind the register does not know fails', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('kind: "sale"', 'kind: "donation"'));
+  assert.match(run(dir).err, /OPP-003.*kind "donation" is not one of sale · tender · grant · collaboration · partner/);
+});
+
+check('OPP-003: a stage that is not of the record\'s kind fails', (dir) => {
+  edit(dir, 'OPP-2099-006.md', (t) => t.replace('`talking`', '`proposed`'));
+  assert.match(run(dir).err, /OPP-003.*stage `proposed` is not a stage of a partner/);
+});
+
+check('OPP-003: a record closes only by a won or lost line, never by a token', (dir) => {
+  edit(dir, 'OPP-2099-006.md', (t) => t.replace('`talking`', '`won`'));
+  assert.match(run(dir).err, /OPP-003.*stage `won` written as a token/);
+});
+
+check('OPP-003: the decider\'s role is due at agreed and won, not before', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('ask whether', 'ask whether'));
+  assert.equal(run(dir).code, 0, 'a proposed sale may not yet know who signs');
+  edit(dir, 'OPP-2099-001.md', (t) => t.replace(/^decider_role: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-003.*a sale at `won` with no decider role/);
+});
+
+check('OPP-004: an open record has exactly one next line, and it is the last', (dir) => {
+  edit(dir, 'OPP-2099-006.md', (t) => t.replace(/^- 2099-10-20 · next .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-004.*open record with 0 `next` lines/);
+});
+
+check('OPP-004: the next line comes after everything that happened', (dir) => {
+  edit(dir, 'OPP-2099-006.md', (t) => t.replace('- 2099-10-20 · next · send the one-page offer for the joint bid', '- 2099-10-20 · next · send the one-page offer for the joint bid\n- 2099-10-21 · out · sent early'));
+  assert.match(run(dir).err, /OPP-004.*the `next` line is not the last/);
+});
+
+check('OPP-004: a closed record plans nothing', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace(/(- 2099-09-15 · lost .*)$/m, '$1\n- 2099-10-01 · next · try again'));
+  assert.match(run(dir).err, /OPP-004.*a closed record with a `next` line/);
+});
+
+check('OPP-005: no timeline, or not opening with found, fails', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('## Timeline', '## History'));
+  assert.match(run(dir).err, /OPP-005.*no `## Timeline`/);
+  edit(dir, 'OPP-2099-006.md', (t) => t.replace('2099-08-20 · found ·', '2099-08-20 · out ·'));
+  assert.match(run(dir).err, /OPP-005.*opens with `out`, not `found`/);
+});
+
+check('OPP-005: lines in date order, events from the register, the grammar kept', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('2099-09-01 · neg', '2099-07-01 · neg'));
+  assert.match(run(dir).err, /OPP-005.*comes after one of 2099-08-05/);
+  edit(dir, 'OPP-2099-006.md', (t) => t.replace('2099-08-25 · pos', '2099-08-25 · maybe'));
+  assert.match(run(dir).err, /OPP-005.*timeline event "maybe" is not one of found · out/);
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('- 2099-07-29 · out ·', '- 29 July - out -'));
+  assert.match(run(dir).err, /OPP-005.*timeline line "- 29 July - out - .*" is not "- YYYY-MM-DD · event · text"/);
+});
+
+check('OPP-005: nothing happens after a record closed', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace(/(- 2099-09-15 · lost .*)$/m, '$1\n- 2099-10-01 · pos · they called back'));
+  assert.match(run(dir).err, /OPP-005.*a `pos` line after the record closed on 2099-09-15/);
 });
 
 check('OPP-006: a name in the header is refused', (dir) => {
-  edit(dir, 'OPP-2026-002.md', (t) => t.replace('contact_role:', 'contact_name: "Someone Real"\ncontact_role:'));
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('contact_role:', 'contact_name: "Someone Real"\ncontact_role:'));
   assert.match(run(dir).err, /OPP-006.*header carries `contact_name`/);
 });
 
 check('OPP-006: an e-mail address anywhere in a record is refused — the record is public', (dir) => {
-  edit(dir, 'OPP-2026-002.md', (t) => t.replace('First follow-up 2026-09-16, no answer.', 'First follow-up to head.training@example.org, no answer.'));
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up to head.training@example.org, no answer.'));
   assert.match(run(dir).err, /OPP-006.*e-mail address/);
 });
 
-check('OPP-006: a phone number in the body is refused', (dir) => {
-  edit(dir, 'OPP-2026-003.md', (t) => t.replace('Stale on purpose', 'Call +34 612 345 678. Stale on purpose'));
+check('OPP-006: CPV codes, gazette ids, dates and addresses are not phones; a phone is', (dir) => {
+  assert.equal(run(dir).code, 0, 'OPP-2099-003 carries CPV codes, OPP-2099-004 a BOE id');
+  edit(dir, 'OPP-2099-003.md', (t) => t.replace('(CPV 72212911-3, 80500000-9)', '(call 912 345 678)'));
   assert.match(run(dir).err, /OPP-006.*phone number/);
 });
 
-check('OPP-006: a CPV code with its check digit is a tender\'s classification, not a phone', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('Read from the terms:', 'Read from the terms (CPV 72212911-3, 80500000-9):'));
-  const r = run(dir);
-  assert.equal(r.code, 0, r.err);
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('(CPV 72212911-3, 80500000-9)', '(call 912 345 678)'));
-  assert.match(run(dir).err, /OPP-006.*phone number/);
+check('OPP-009: what is computed is never typed — state, next, closed, reason, chance', (dir) => {
+  edit(dir, 'OPP-2099-003.md', (t) => t.replace('object: "build"', 'object: "build"\nchance: "high"\nnext_action: "wait"'));
+  const e = run(dir).err;
+  assert.match(e, /OPP-009.*header carries `chance` — the chance is computed from the criteria table/);
+  assert.match(e, /OPP-009.*header carries `next_action`/);
 });
 
-check('OPP-011: an organisation named before agreed is reported; the won one may be named', (dir) => {
-  edit(dir, 'OPP-2026-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Provincial Forensic Unit"'));
+check('OPP-010: a sale won with no agreement path fails', (dir) => {
+  edit(dir, 'OPP-2099-001.md', (t) => t.replace(/^agreement: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-010.*a sale won with no agreement path/);
+});
+
+check('OPP-011: an organisation named before it agreed is refused; with disclosure open it may be named', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Provincial Forensic Unit"'));
   assert.match(run(dir).err, /OPP-011.*"Provincial Forensic Unit" reads as a name/);
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "Provincial Forensic Unit"', 'organisation: "Provincial Forensic Unit"\ndisclosure: "open"'));
+  assert.doesNotMatch(run(dir).err, /OPP-011/);
 });
 
-check('OPP-011: a proposed record may be named once the client was told and did not object', (dir) => {
-  edit(dir, 'OPP-2026-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Provincial Forensic Unit"\ndisclosure: "open"'));
-  const r = run(dir);
-  assert.doesNotMatch(r.err, /OPP-011/);
-});
-
-check('OPP-011: a lost record is never named, even open', (dir) => {
-  edit(dir, 'OPP-2026-001.md', (t) => t.replace('state: "won"', 'state: "lost"\nreason: "price"'));
-  assert.match(run(dir).err, /OPP-011.*"Meridian Outfitters" reads as a name in a lost record/);
+check('OPP-011: a public funder or buyer that published its call may be named', (dir) => {
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace('organisation: "the Ministry of Culture"', 'organisation: "Ministerio de Cultura"'));
+  assert.equal(run(dir).code, 0, run(dir).err);
 });
 
 check('OPP-011: a disclosure outside the list is refused', (dir) => {
-  edit(dir, 'OPP-2026-004.md', (t) => t.replace(/^(organisation: .*)$/m, '$1\ndisclosure: "maybe"'));
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace(/^(organisation: .*)$/m, '$1\ndisclosure: "maybe"'));
   assert.match(run(dir).err, /OPP-011.*disclosure "maybe"/);
 });
 
-check('PRP-010: a proposal without the openness notice fails', (dir) => {
-  edit(dir, 'PRP-2026-001.md', (t) => t.replace('## In the open', '## Elsewhere'));
-  assert.match(run(dir, '--proposals').err, /PRP-010.*In the open/);
-});
-
-check('OPP-011: the won record keeps its name without a finding', (dir) => {
-  const r = run(dir);
-  assert.equal(r.code, 0, r.err);
-  assert.match(r.out, /Meridian Outfitters/);
-});
-
-check('OPP-002: a missing field is named', (dir) => {
-  edit(dir, 'OPP-2026-001.md', (t) => t.replace(/^sector: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-002.*header lacks `sector`/);
-});
-
-check('OPP-001: the file is named by its id', (dir) => {
-  renameSync(path.join(dir, 'OPP-2026-003.md'), path.join(dir, 'OPP-2026-099.md'));
-  assert.match(run(dir).err, /OPP-001.*file is named "OPP-2026-099.md", its id is "OPP-2026-003"/);
-});
-
-check('OPP-010: won without an agreement path fails', (dir) => {
-  edit(dir, 'OPP-2026-001.md', (t) => t.replace('agreement: "agreements/meridian-2026.pdf"', 'agreement: ""'));
-  assert.match(run(dir).err, /OPP-010.*won with no agreement path/);
-});
-
-/* ---- tenders (OPP-012) ---- */
-
-check('OPP-012: a tender names its procedure from the register', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^procedure: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-012.*a tender with no procedure/);
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('source: "tender"', 'source: "tender"\nprocedure: "negotiated"'));
+check('OPP-012: a tender names its procedure from the register, and links its call except a minor contract', (dir) => {
+  edit(dir, 'OPP-2099-003.md', (t) => t.replace('procedure: "simplified-abridged"', 'procedure: "negotiated"'));
   assert.match(run(dir).err, /OPP-012.*procedure "negotiated" is not one of minor · simplified-abridged · simplified · open/);
-});
-
-check('OPP-012: a tender links its notice, except a minor contract, which has none', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^notice: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-012.*a tender with no notice/);
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('procedure: "simplified-abridged"', 'procedure: "minor"'));
+  edit(dir, 'OPP-2099-003.md', (t) => t.replace('procedure: "negotiated"', 'procedure: "minor"').replace(/^call: .*\n/m, ''));
   assert.equal(run(dir).code, 0, 'a minor contract has no notice to link');
+  edit(dir, 'OPP-2099-003.md', (t) => t.replace('procedure: "minor"', 'procedure: "open"'));
+  assert.match(run(dir).err, /OPP-012.*a tender with no `call`/);
 });
 
-check('OPP-012: a notice is an address', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^notice: .*$/m, 'notice: "see the platform"'));
-  assert.match(run(dir).err, /OPP-012.*notice "see the platform" is not an address/);
+check('OPP-012: a call is an address; it closes on a date', (dir) => {
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^call: .*$/m, 'call: "see the gazette"').replace(/^closes: .*\n/m, ''));
+  const e = run(dir).err;
+  assert.match(e, /OPP-012.*call "see the gazette" is not an address/);
+  assert.match(e, /OPP-012.*a grant with no `closes`/);
 });
 
-check('OPP-012: procedure and notice belong to tenders only', (dir) => {
-  edit(dir, 'OPP-2026-003.md', (t) => t.replace('source: "referral"', 'source: "referral"\nprocedure: "minor"'));
-  assert.match(run(dir).err, /OPP-012.*procedure "minor" on a record whose source is not a tender/);
+check('OPP-012: a grant names its instrument; its days stop being estimated once the call is out', (dir) => {
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace('instrument: "grant"', 'instrument: "gift"').replace('estimated: "no"', 'estimated: "yes"'));
+  const e = run(dir).err;
+  assert.match(e, /OPP-012.*instrument "gift" is not one of grant · loan · prize · programme/);
+  assert.match(e, /OPP-012.*stage `applied` but the days are still estimated/);
 });
 
-check('OPP-012: a tender at proposed is overdue when its day passes, never stale', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('next_date: "2026-11-20"', 'next_date: "2026-10-01"'));
-  const r = run(dir);
-  assert.equal(r.code, 0, r.err);
-  assert.match(r.out, /OPP-2026-005\*\* overdue since 2026-10-01/);
-  assert.doesNotMatch(r.out, /OPP-2026-005\*\* stale/);
+check('OPP-012: call fields belong to calls — a procedure on a sale fails', (dir) => {
+  edit(dir, 'OPP-2099-007.md', (t) => t.replace('pays: "to-ask"', 'pays: "to-ask"\nprocedure: "minor"'));
+  assert.match(run(dir).err, /OPP-012.*`procedure` on a sale — it belongs to a tender/);
 });
 
-check('OPP-003: a tender lost is lost for a tender\'s reason', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('state: "proposed"', 'state: "lost"\nclosed: "2026-10-10"\nreason: "outbid"').replace(/^next_action: .*\n/m, '').replace(/^next_date: .*\n/m, '').replace('| 2026-09-10 | analysed | proposed | Oracle | offer filed on the platform; receipt kept |', '| 2026-09-10 | analysed | proposed | Oracle | offer filed on the platform; receipt kept |\n| 2026-10-10 | proposed | lost | Oracle | award published: another bid scored higher |'));
-  const r = run(dir);
-  assert.equal(r.code, 0, r.err);
-  assert.match(r.out, /`outbid` \| 1/);
-});
-
-/* ---- a tender's criteria and chance (OPP-013) ---- */
-
-check('OPP-013: a tender carries the house\'s chance, from the register', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^chance: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-013.*a tender with no chance/);
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('procedure: "simplified-abridged"', 'procedure: "simplified-abridged"\nchance: "maybe"'));
-  assert.match(run(dir).err, /OPP-013.*chance "maybe" is not one of high · medium · low · none/);
-});
-
-check('OPP-013: a tender reads its criteria into a table — no table, no chance', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('## Criteria', '## Criteria read later'));
+check('OPP-013: a call reads its requirements into a table; no table fails', (dir) => {
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace('## Criteria', '## Criteria read later'));
   assert.match(run(dir).err, /OPP-013.*no criteria table/);
 });
 
-check('OPP-013: every criterion says whether the house meets it — yes, no or to check', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('| can be lodged | yes |', '| can be lodged | probably |'));
-  assert.match(run(dir).err, /OPP-013.*criterion "Guarantee" says "probably"/);
+check('OPP-013: a requirement not met means the call is not recorded', (dir) => {
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace('| not yet certified | check |', '| not yet certified | no |'));
+  assert.match(run(dir).err, /OPP-013.*"Tax and Social Security" is not met — a call that fails a requirement is not recorded — take what it taught to the card \(OPS-018\) and delete the record/);
 });
 
-check('OPP-013: a failed criterion caps the chance — none or low, never high', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('| Economic solvency | none: an abridged simplified procedure exempts it | — | yes |', '| Economic solvency | a turnover of 90,000 € | under 50,000 € | no |'));
-  assert.match(run(dir).err, /OPP-013.*criterion fails but the chance says "high"/);
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('chance: "high"', 'chance: "none"'));
-  assert.equal(run(dir).code, 0, 'a failed criterion and chance none agree');
+check('OPP-013: a verdict other than yes or check is refused', (dir) => {
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace('| not yet certified | check |', '| not yet certified | probably |'));
+  assert.match(run(dir).err, /OPP-013.*says "probably" — meets is one of yes · check/);
 });
 
-check('OPP-013: chance none must name the criterion that failed', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('chance: "high"', 'chance: "none"'));
-  assert.match(run(dir).err, /OPP-013.*chance "none" but no criterion says no/);
+check('OPP-014: a call says where it was read — an aggregator is never enough', (dir) => {
+  edit(dir, 'OPP-2099-003.md', (t) => t.replace('read_from: "terms"', 'read_from: "aggregator"'));
+  assert.match(run(dir).err, /OPP-014.*read_from "aggregator" is not one of terms · notice/);
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^read_from: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-014.*a grant that does not say where it was read/);
 });
 
-check('OPP-013: chance and criteria belong to tenders only', (dir) => {
-  edit(dir, 'OPP-2026-003.md', (t) => t.replace('source: "referral"', 'source: "referral"\nchance: "high"'));
-  assert.match(run(dir).err, /OPP-013.*chance on a record whose source is not a tender/);
+check('OPP-014: what the buyer really buys — resale is not recorded', (dir) => {
+  edit(dir, 'OPP-2099-003.md', (t) => t.replace('object: "build"', 'object: "resale"'));
+  assert.match(run(dir).err, /OPP-014.*object "resale" is not one of build · deliver/);
 });
 
-/* ---- the verdict rests on the terms (OPP-014) and one tender is one record (OPP-015) ---- */
-
-check('OPP-014: a tender says where it was read; high or medium needs the terms themselves', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^read_from: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-014.*where it was read/);
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('object: "build"', 'read_from: "aggregator"\nobject: "build"'));
-  assert.match(run(dir).err, /OPP-014.*chance "high" read from the aggregator/);
-});
-
-check('OPP-014: what the buyer really buys — a resale cannot be high', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('object: "build"', 'object: "resale"'));
-  assert.match(run(dir).err, /OPP-014.*object "resale".*chance "high"/);
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('object: "resale"', 'object: "toaster"'));
-  assert.match(run(dir).err, /OPP-014.*object "toaster" is not one of build · deliver · resale · other/);
-});
-
-check('OPP-014: a turnover asked above the card\'s ceiling cannot be met', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('object: "build"', 'object: "build"\nturnover_asked: 90000'));
+check('OPP-014: a turnover asked above the card\'s ceiling is not recorded', (dir) => {
+  edit(dir, 'OPP-2099-003.md', (t) => t.replace('turnover_asked: 30000', 'turnover_asked: 90000'));
   assert.match(run(dir).err, /OPP-014.*turnover asked 90,000 € is above the card's 50,000 €/);
 });
 
 check('OPP-015: a tender names its file reference, and one file is one record', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace(/^file_ref: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-015.*no file reference/);
+  const t = readFileSync(path.join(dir, 'OPP-2099-003.md'), 'utf8').replace(/OPP-2099-003/g, 'OPP-2099-008');
+  writeFileSync(path.join(dir, 'OPP-2099-008.md'), t);
+  assert.match(run(dir).err, /OPP-015.*OPP-2099-008 has the same file "PE-2099-17" and value as OPP-2099-003/);
+  edit(dir, 'OPP-2099-008.md', (x) => x.replace(/^file_ref: .*\n/m, ''));
+  assert.match(run(dir).err, /OPP-015.*a tender with no file reference/);
 });
 
-check('OPP-015: the same file and value twice is a duplicate listing', (dir) => {
-  const t = readFileSync(path.join(dir, 'OPP-2026-005.md'), 'utf8').replace(/OPP-2026-005/g, 'OPP-2026-006');
-  writeFileSync(path.join(dir, 'OPP-2026-006.md'), t);
-  assert.match(run(dir).err, /OPP-015.*OPP-2026-006.*same file "PE-2026-17" and value as OPP-2026-005/);
-});
+/* ---- proposals (STD-040) ---- */
 
-check('a service that starts before offers close is a listing to verify, not a breach', (dir) => {
-  edit(dir, 'OPP-2026-005.md', (t) => t.replace('state: "proposed"', 'state: "proposed"\nstarts: "2026-11-01"'));
-  const r = run(dir);
-  assert.equal(r.code, 0, r.err);
-  assert.match(r.out, /## Listings to verify[\s\S]*OPP-2026-005/);
-});
-
-/* ---- proposals ---- */
-
-check('PRP-009: a proposed record whose proposal is missing fails under --proposals', (dir) => {
-  rmSync(path.join(dir, 'PRP-2026-002.md'));
+check('PRP-009: a record whose proposal is missing fails under --proposals', (dir) => {
+  rmSync(path.join(dir, 'PRP-2099-002.md'));
   assert.equal(run(dir).code, 0, 'without --proposals the record alone is fine');
-  assert.match(run(dir, '--proposals').err, /PRP-009.*proposal "PRP-2026-002.md" not found/);
+  assert.match(run(dir, '--proposals').err, /PRP-009.*proposal "PRP-2099-002.md" not found/);
 });
 
-check('PRP-003: a proposal must name one of the four levels', (dir) => {
-  edit(dir, 'PRP-2026-002.md', (t) => t.replace('level: "learning"', 'level: "vibes"'));
-  assert.match(run(dir, '--proposals').err, /PRP-003.*level "vibes"/);
+check('PRP-003, PRP-004, PRP-006, PRP-010: the proposal\'s mechanical rows', (dir) => {
+  edit(dir, 'PRP-2099-002.md', (t) => t.replace('level: "learning"', 'level: "vibes"').replace(/^tax_rate: .*\n/m, '').replace('Section 4.', '…').replace('## In the open', '## Elsewhere'));
+  const e = run(dir, '--proposals').err;
+  assert.match(e, /PRP-003.*level "vibes"/);
+  assert.match(e, /PRP-004.*no tax rate/);
+  assert.match(e, /PRP-006.*ellipsis/);
+  assert.match(e, /PRP-010.*In the open/);
 });
 
-check('PRP-006: the three questions still holding the mould\'s ellipsis fail', (dir) => {
-  edit(dir, 'PRP-2026-002.md', (t) => t.replace('Section 4.', '…'));
-  assert.match(run(dir, '--proposals').err, /PRP-006.*ellipsis/);
+/* ---- in-process validation names the file ---- */
+
+test('validate() returns plates, never throws, on a record with no frontmatter', () => {
+  const reg = loadRegister(REGISTER);
+  assert.deepEqual(validate({ file: 'OPP-2099-009.md', text: '# nothing', fm: null }, reg), [{ plate: 'OPP-001', what: 'no frontmatter', file: 'OPP-2099-009.md' }]);
 });
 
-check('PRP-007: a record at proposed whose transition names nobody in By fails', (dir) => {
-  edit(dir, 'OPP-2026-002.md', (t) => t.replace('| 2026-09-02 | analysed | proposed | Oracle | PRP-2026-002 sent |', '| 2026-09-02 | analysed | proposed |  | PRP-2026-002 sent |'));
-  assert.match(run(dir).err, /PRP-007.*names nobody in By/);
+/* ---- the archive's own records ---- */
+
+test('the archive\'s records conform, read against the kit\'s register and card', () => {
+  const folder = path.join(ROOT, 'opportunities');
+  if (!existsSync(folder)) return;
+  const r = spawnSync('node', [TOOL, folder, '--register', REGISTER, '--card', CARD, '--today', '2026-10-02', '--proposals', '--json'], { encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr);
+  const f = JSON.parse(r.stdout);
+  const ids = f.records.map((x) => x.id);
+  assert.deepEqual(ids, [...ids].sort(), 'records sorted by id');
+  assert.ok(ids.every((id) => !/^OPP-2099-/.test(id)), 'fixture ids never collide with real ones');
 });
 
-check('OPP-003: the decider\'s role is required from agreed, not before', (dir) => {
-  edit(dir, 'OPP-2026-003.md', (t) => t.replace('decider_role: "people director"', 'decider_role: ""'));
-  assert.equal(run(dir).code, 0, 'a qualified record may not yet know who signs');
-  edit(dir, 'OPP-2026-001.md', (t) => t.replace('decider_role: "people director"', 'decider_role: ""'));
-  assert.match(run(dir).err, /OPP-003.*won with no decider role/);
-});
-
-check('PRP-004: a proposal without a tax rate fails', (dir) => {
-  edit(dir, 'PRP-2026-001.md', (t) => t.replace(/^tax_rate: .*\n/m, ''));
-  assert.match(run(dir, '--proposals').err, /PRP-004.*no tax rate/);
+test('with the real register in this tree, the archive\'s records conform to it too', () => {
+  if (!existsSync(DEFAULT_REGISTER)) return; // the register is being renamed; skip until it lands
+  const r = spawnSync('node', [TOOL, path.join(ROOT, 'opportunities'), '--today', '2026-10-02', '--proposals'], { encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr);
 });
 
 /* ---- usage ---- */

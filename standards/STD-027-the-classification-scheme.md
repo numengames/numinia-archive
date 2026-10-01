@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: documentation
 subtype: standard
 status: draft
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-01T15:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -106,7 +106,6 @@ read this table; its shape is their contract.
 | | Cataloguing | `objects/` |
 | **Administration** | Sustaining | `operations/` |
 | | Selling | `opportunities/` |
-| | Financing | `funding/` |
 | | Committing | `legal/` |
 | | Wiring | `system/` |
 | | Templating | `machine/templates/` |

@@ -5,9 +5,9 @@ title: "A proposal says four things"
 type: documentation
 subtype: standard
 status: draft
-version: "0.4.0"
+version: "0.4.1"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-29T12:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -129,6 +129,6 @@ client signs.
 |---|---|---|
 | `CAN-011` | What has value also makes a bond | the three questions every proposal answers |
 | `STD-039` | An opportunity has a record | the record a proposal is kept beside |
-| `STD-038` | The stages of a sale | the stage a sent proposal puts an opportunity in |
+| `STD-038` | The stages of an opportunity | the stage a sent proposal puts a sale in |
 | `STD-033` | Every charge delivers something | the whole price, tax visible |
 | `LEG-002` | Terms and conditions (Numen Games) | the house's terms a proposal names |

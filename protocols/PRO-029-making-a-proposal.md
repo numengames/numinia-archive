@@ -4,9 +4,9 @@ uid: ""
 title: "Making a proposal"
 type: protocol
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-29T12:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -46,7 +46,7 @@ able to check is a brochure. The international standard for learning
 services asks the provider to understand the request before writing, and
 lists what a proposal contains; this protocol walks those steps in order.
 
-It starts when an opportunity reaches `qualified`. **Whoever sells** hears
+It starts when a sale reaches `qualified`. **Whoever sells** hears
 the need and owns the proposal; **the specialist** the offer calls for —
 the game master for a place of learning, the experience designer for an
 event — gives it shape; **whoever sends it** — the Oracle today — reads it
@@ -56,7 +56,7 @@ before it leaves, and sending it is the approval.
 
 ## 2. Preconditions
 
-- The opportunity record at `qualified`, with the decider's role written.
+- The sale's record at `qualified`, with what is known of who signs.
 - The proposal standard and its mould, with the other moulds of the archive (`STD-040`).
 - At least one earlier case the house may tell with the client unnamed;
   without one, step 4 will need a demonstration, and the Oracle decides
@@ -73,7 +73,7 @@ before it leaves, and sending it is the approval.
    devices they enter; when, where and with what support from the client it
    will run; and what the responsible will see to call it good — at which of
    the four levels, and by which indicator. Without the fourth, ask again.
-   Then stage `analysed`, with its transition row.
+   Then a line marked `analysed` in the timeline.
 2. **Draw it on one page.** With the specialist: each objective becomes a
    room, an encounter or a moment of participation, and the page marks
    where each is checked. The client must recognise their own procedure in
@@ -94,9 +94,9 @@ before it leaves, and sending it is the approval.
 5. **Read it and send it.** Whoever sends it — never its writer alone —
    reads it against the proposal standard and the tool's checks; what fails
    goes back to step 3. Sending is the approval: the record gets the
-   proposal's path, a next action with its date, and the transition to
-   `proposed` with the sender's name in *By*. That row is the evidence; no
-   field in the proposal repeats it. Who signs lives in the agreement.
+   proposal's path, an `out` line marked `proposed` saying who sent it,
+   and a new `next` line. That line is the evidence; no field in the
+   proposal repeats it. Who signs lives in the agreement.
    From here the record may name the organisation, `disclosure: open`;
    asked not to, `unnamed`.
 6. **Run the pipeline tool** with proposals on. The record and the proposal
@@ -108,10 +108,10 @@ before it leaves, and sending it is the approval.
 
 | Step | Evidence it completed |
 |---|---|
-| 1 | The record's Need section holds the four things; stage `analysed` |
+| 1 | The record's Need section holds the four things; a line marked `analysed` |
 | 2 | The one-page map exists and the client has seen it |
 | 3–4 | The proposal file carries the four sections, the level, the tax rate and the three answers |
-| 5 | Stage `proposed`; the record points to the proposal; the transition row names who sent it; a next date is set |
+| 5 | An `out` line marked `proposed` names who sent it; the record points to the proposal; a `next` line is set |
 | 6 | The pipeline tool, with proposals on, reports no breach |
 
 ---
@@ -120,7 +120,7 @@ before it leaves, and sending it is the approval.
 
 A client who cannot name what the responsible will see is not ready to buy:
 whoever sells says so, offers to help them find the indicator, and the
-record waits at `qualified` with a next date. A proposal that fails one of
+record waits at `qualified` with a `next` line. A proposal that fails one of
 the three questions is not sent, whoever wrote it. A price below the
 house's floor, or a demonstration before signing, is the Oracle's decision,
 written in the record's body.

@@ -3,9 +3,9 @@ agent: metis
 title: "SOURCES — Metis"
 type: agent
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-28T18:00:00+02:00"
-updated: "2026-09-28T18:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, metis, sales, sources]
@@ -42,14 +42,14 @@ from the terms, never a summary; bid, possible or decline with the clause.
 Then `PRO-031` to bid, and `PRO-032` for a grant. The portable adapter for
 any agent is `agents/skills/tender-screening/SKILL.md`.
 
-`operations/OPS-018-the-house-card-for-tenders.md` and
-`operations/OPS-019-the-house-card-for-grants.md` — what the house can prove.
+`operations/OPS-018-the-house-card.md` — what calls usually ask, what the
+house holds, and what would unlock each gap.
 
-`standards/STD-038-the-stages-of-a-sale.md` — the stages and what lets an
-opportunity pass each one.
+`standards/STD-038-the-stages-of-an-opportunity.md` — the kinds of
+opportunity, the stages of each, and the timeline's events that move it.
 
 `standards/STD-039-an-opportunity-has-a-record.md` — one record per
-opportunity, its header, and what never enters it.
+opportunity of any kind, its header and timeline, and what never enters it.
 
 `standards/STD-040-a-proposal-says-four-things.md` — what a proposal must say
 before it leaves the house.
@@ -65,8 +65,8 @@ are wired today and which are not.
 
 `opportunities/` — every opportunity and its proposals.
 
-`machine/templates/OPP-TEMPLATE.md` and `PRP-TEMPLATE.md` — the record and
-proposal moulds. `machine/packages/sales-kit/pipeline.mjs` — the tool that
+`machine/templates/OPP-TEMPLATE.md` and `PRP-TEMPLATE.md` — the one record
+mould for every kind, and the proposal mould. `machine/packages/sales-kit/pipeline.mjs` — the tool that
 checks the records and computes the pipeline.
 The published view is `/system/pipeline` on numinia.org.
 

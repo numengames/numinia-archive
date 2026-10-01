@@ -4,17 +4,17 @@ uid: ""
 title: "Closing a sale"
 type: protocol
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-30T21:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
-tags: [protocol, sales, follow-up, agreement, handover, win-loss]
+tags: [protocol, sales, follow-up, agreement, handover, win-loss, timeline]
 license: "CC0-1.0"
 applies_to: [all-agents]
-related: ["STD-038", "STD-039", "STD-036", "LEG-002", "PRO-029", "PRO-021"]
+related: ["STD-038", "STD-039", "STD-036", "LEG-002", "PRO-029", "PRO-031", "PRO-021"]
 derived_from: "CAN-011"
 ---
 
@@ -46,41 +46,39 @@ signature on a scope nobody fixed is the second. And a sale closed without a
 sentence on why teaches the next one nothing. This protocol closes all
 three.
 
-It starts when an opportunity reaches `proposed`. **Whoever sells** follows
-up and negotiates; **the legal specialist** reads any clause the client
-changes; **the Oracle** signs; **whoever builds** and **whoever keeps the
-ledger** receive the handover.
+It starts when a sale reaches `proposed`. **Whoever sells** follows up and
+negotiates; **the legal specialist** reads any clause the client changes;
+**the Oracle** signs; **whoever builds** and **whoever keeps the ledger**
+receive the handover. A tender, once its contract is formalised, enters
+at step 3 (`PRO-031`).
 
 ---
 
 ## 2. Preconditions
 
-- The opportunity record at `proposed`, pointing to the proposal sent, with
-  a next date.
+- The sale's record at `proposed`, pointing to the proposal sent, its
+  timeline ending in a `next` line.
 - The house's terms and conditions, which name the written agreement a
   project needs (`LEG-002`).
-- The stages register's stale days and its list of reasons (`STD-038`).
+- The register's stale days for a sale and its list of reasons (`STD-038`).
 
 ---
 
 ## 3. Procedure
 
-1. **Follow up on the register's cadence.** At the next date, one contact;
-   if silence, a second a fortnight later. Each one is a transition row's
-   evidence and a new next date. After the second silence: `lost`, reason
-   `silence`, and a last courteous line to the client.
-2. **Take the answer.** A yes in writing moves the record to `agreed`; the
-   name stays as the disclosure says. A client who asks now not to be named
-   is written back to its sector, `unnamed`.
-   A no moves it to `lost` with the reason the client gave — and the record
-   back to sector and size, whatever its disclosure — from the
-   register's list, and their words in the body. A "later" sets a next date
-   and stays at `proposed`.
-   A tender answers on the authority's clock: no follow-up, the next date
-   is the day the award is looked for. The house proposed as awardee moves
-   it to `agreed`, the authority named (the award is public) and the
-   house's price as the value; another bidder awarded, `lost` with
-   `outbid`; excluded or withdrawn, `excluded`.
+1. **Follow up on the register's cadence.** At the `next` date, one
+   contact; if silence, a second a fortnight later. Each contact is an
+   `out` line in the timeline, and a new `next` line replaces the old one.
+   After the second silence: a `lost` line, `silence`, and a last courteous
+   line to the client.
+2. **Take the answer.** A yes in writing is a `pos` line marked `agreed`;
+   the decider's role goes in the header; the name stays as the disclosure
+   says. A client who asks now not to be named is written back to its
+   sector, `unnamed`.
+   A no is a `lost` line with the reason the client gave, from the
+   register's list, and their words in the body — and the record goes back
+   to sector and size, whatever its disclosure. A "later" is a `neg` line
+   and a `next` line with the new date; the sale stays at `proposed`.
 3. **Fix the scope and the calendar.** From the proposal, the definitive
    scope: what is delivered, when, what the client provides and by when,
    how acceptance is declared. The one-page map becomes the plan. Nothing
@@ -89,9 +87,9 @@ ledger** receive the handover.
    Any clause the client changes is read by the legal specialist before
    anyone signs. The price is the proposal's; a change is the Oracle's,
    written in the record.
-5. **Sign.** The Oracle signs. The record moves to `won`: the agreement's
-   path, the closing date, the value confirmed. For a tender, the
-   agreement is the contract the authority formalises.
+5. **Sign.** The Oracle signs. The record gets a `won` line, the
+   agreement's path and the value confirmed; its `next` line goes. For a
+   tender, the agreement is the contract the authority formalises.
 6. **Hand over.** To whoever builds: the record's Need, the map, the scope
    and the calendar — the protocol for building starts there. To whoever
    keeps the ledger: the value, the invoicing dates and the agreement, so
@@ -100,7 +98,8 @@ ledger** receive the handover.
    the offer record did not answer, what they wanted that the house did not
    offer, and why they chose as they did. What changes the offer goes to
    the offer record, the client unnamed. A won case is written as a case
-   the next proposal may show.
+   the next proposal may show. A client who comes back, or sends another,
+   opens a new record whose `follows` names this one.
 8. **Run the pipeline tool.** The record conforms, and the report shows the
    sale where it ended.
 
@@ -110,10 +109,10 @@ ledger** receive the handover.
 
 | Step | Evidence it completed |
 |---|---|
-| 1 | Every follow-up is a transition row with its date; nothing at `proposed` has a past next date — a tender's next date is the day the award is looked for |
-| 2 | Stage `agreed`, or `lost` with a reason from the register |
+| 1 | Every follow-up is an `out` line with its date; no open sale has a past `next` date |
+| 2 | A `pos` line marked `agreed` with the decider's role, or a `lost` line with a reason from the register |
 | 3–4 | The scope and calendar exist; changed clauses carry the legal specialist's reading |
-| 5 | Stage `won`, agreement path, closing date |
+| 5 | A `won` line, the agreement's path, no `next` line |
 | 6 | Whoever builds has the Need, map, scope and calendar; the ledger has the value and dates |
 | 7 | The record's body holds the lesson; the offer record changed, or a case was written |
 
@@ -123,7 +122,7 @@ ledger** receive the handover.
 
 A clause the legal specialist will not accept stops the signature until the
 Oracle and the client settle it. A client who asks, after agreeing, for
-more than the proposal contained is answered with a revised proposal, never
-with silent extra work. A price the client pushes below the house's floor
-is the Oracle's to accept or refuse, in writing. A won record whose value
-has not reached the ledger by the month's close is raised at that close.
+more than the proposal contained gets a revised proposal, never silent
+extra work. A price below the house's floor is the Oracle's to accept or
+refuse, in writing. A won record whose value has not reached the ledger by
+the month's close is raised at that close.

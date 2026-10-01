@@ -27,9 +27,8 @@ member of any series, never published, never counted in the corpus figures.
 | `CAN-TEMPLATE.md` | a canon text | `canon/CAN-NNN-slug.md` |
 | `BLU-TEMPLATE.md` | a blueprint | `blueprints/BLU-NNN-slug.md` |
 | `SYS-TEMPLATE.md` | a system reference | `system/SYS-NNN-slug.md` |
-| `OPP-TEMPLATE.md` | a sales opportunity | `opportunities/OPP-YYYY-NNN.md` |
+| `OPP-TEMPLATE.md` | an opportunity of any kind — a sale, a tender, a grant, a collaboration, a partner | `opportunities/OPP-YYYY-NNN.md` |
 | `PRP-TEMPLATE.md` | a proposal to a client | `opportunities/PRP-YYYY-NNN.md` |
-| `GRA-TEMPLATE.md` | a call for public money | `funding/GRA-YYYY-NNN.md` |
 
 One companion of the mission mould, a record rather than a mould:
 `MIS-TEMPLATE-EXAMPLE.md`, a real mission written with it and closed, to read

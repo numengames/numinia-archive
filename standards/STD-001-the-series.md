@@ -5,9 +5,9 @@ uid: ""
 type: documentation
 subtype: register
 status: draft
-version: "5.9.0"
+version: "5.10.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-01T15:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -49,8 +49,7 @@ SPDX-License-Identifier: CC0-1.0
 | `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
 | `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
 | `operations/` | what sustains the business: strategy, sales, continuity | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
-| `opportunities/` | each chance to sell something, one record per opportunity, its proposals beside it; every document's header, then the fields the pipeline tool reads | `OPP-YYYY-NNN` · `PRP-YYYY-NNN` | `open` | — | `OPP-TEMPLATE.md` · `PRP-TEMPLATE.md` |
-| `funding/` | each call for public money the house might take — a grant, a public loan, a prize — one record per call; every document's header, then the fields the funding tool reads | `GRA-YYYY-NNN` | `open` | — | `GRA-TEMPLATE.md` |
+| `opportunities/` | each opportunity of any kind — a sale, a tender, a grant, a collaboration, a partner — one record each with its timeline, its proposals beside it; every document's header, then the fields the pipeline tool reads | `OPP-YYYY-NNN` · `PRP-YYYY-NNN` | `open` | — | `OPP-TEMPLATE.md` · `PRP-TEMPLATE.md` |
 | `legal/` | what the company has promised the public in law: privacy, terms, cookies; changes when the law or the service does | `LEG-NNN` | `governed` | — | — |
 | `system/` | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
 | `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
@@ -91,7 +90,6 @@ system, and it belongs to everyone.
 | `legal` | `legal/` | yes |
 | `agent` | `agents/` | yes |
 | `opportunity` · `proposal` | `opportunities/` | yes |
-| `grant` | `funding/` | yes |
 | `meta` | anywhere — apparatus accompanies its series | no |
 | `entity` | an entity card: `agents/<agent>/AGENT.md`, `objects/` | no |
 

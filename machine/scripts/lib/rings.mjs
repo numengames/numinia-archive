@@ -153,29 +153,35 @@ export const RING3 = {
     // an entry of SYS-012 in system/suppliers/.
     'category', 'stage', 'confidence'],
   'history': ['former_id', 'former_id_note', 'supersedes_version'],
-  // opportunities/ governed 2026-09-28: a sale's record and its proposal
-  // open with every document's header, then carry the fields the pipeline
-  // tool reads (STD-039 the record, STD-040 the proposal). Listed here so the
-  // header guard accepts them; their values are judged by the tool.
+  // opportunities/ governed 2026-09-28: an opportunity's record and its
+  // proposal open with every document's header, then carry the fields the
+  // pipeline tool reads (STD-039 the record, STD-040 the proposal). Listed
+  // here so the header guard accepts them; their values are judged by the
+  // tool, whose REQUIRED + WHEN_DUE lists a test holds equal to this ring.
+  // 2026-10-02, one pipeline: sales, tenders, grants, collaborations and
+  // partners are one record. The stage, the next step, the closing day, the
+  // reason and the chance are computed from the `## Timeline` and the
+  // criteria table, so `state`, `next_action`, `next_date`, `closed`,
+  // `reason` and `chance` left the header; `notice` became `call`; the
+  // funding/ series and its ring were retired into this one.
   'opportunities': [
-    // the record (OPP-)
-    'organisation', 'sector', 'offer', 'source', 'state', 'value', 'currency',
-    'contact_role', 'contact_channel', 'decider_role', 'next_action', 'next_date',
-    'opened', 'closed', 'reason', 'proposal', 'agreement',
-    // a tender's record (OPP-012, 2026-09-30): how the authority buys, where it said so
-    'procedure', 'notice',
-    // a tender read against the house's card (OPP-013, 2026-10-01)
-    'chance',
-    // read from the terms, what it really buys, one file one record (OPP-014/015)
-    'read_from', 'object', 'file_ref', 'turnover_asked', 'works_asked', 'starts',
+    // every record (OPP-002)
+    'kind', 'organisation', 'sector', 'source', 'value', 'currency', 'pays',
+    'contact_role', 'contact_channel', 'opened',
+    // written when due: the offer it sells, the share paid first, the
+    // proposal, the agreement, who signs, whether it may be named, the
+    // record it follows, what a collaboration gave back
+    'offer', 'advance', 'proposal', 'agreement', 'decider_role', 'disclosure',
+    'follows', 'gives_back',
+    // a call — tender or grant: where it is, when it closes, what it was read from (OPP-012/014)
+    'call', 'closes', 'read_from',
+    // a tender: how the buyer purchases, its file, what it really buys,
+    // the solvency asked, the day it starts (OPP-012/014/015)
+    'procedure', 'file_ref', 'object', 'turnover_asked', 'works_asked', 'starts',
+    // a grant: what the funder gives, when the call opens, days estimated
+    'instrument', 'opens', 'estimated',
     // the proposal (PRP-)
     'opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'],
-  // funding/ governed 2026-10-01: a call for public money the house might
-  // take (STD-046), read against the house's card; the funding tool judges
-  // the values.
-  'funding': ['funder', 'instrument', 'amount', 'currency', 'payment', 'advance',
-    'call', 'opens', 'closes', 'estimated', 'state', 'chance', 'next_action', 'next_date',
-    'opened', 'closed', 'reason', 'granted'],
 };
 
 export const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',

@@ -4,9 +4,9 @@ description: "Use when a public tender reaches you — a link, an aggregator's c
 title: "SKILL — tender-screening"
 type: agent
 status: active
-version: "2.0.0"
+version: "2.1.0"
 created: "2026-10-01T16:00:00+02:00"
-updated: "2026-10-01T17:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, skill, tenders, public-procurement, screening]
@@ -31,11 +31,11 @@ the tender's link or card.
 
 1. `protocols/PRO-033-screening-a-tender.md` — the steps, from the file
    number to the verdict, the record and the answer to the Oracle.
-2. `operations/OPS-018-the-house-card-for-tenders.md` — what the house can
-   prove, its turnover ceiling, what it does not make.
-3. `standards/STD-038-the-stages-of-a-sale.md` — where a tender was read,
-   what the buyer really buys, the house's chance, and the table for
-   weighing a tender.
+2. `operations/OPS-018-the-house-card.md` — what calls usually ask, what
+   the house holds, its turnover ceiling, what it does not make.
+3. `standards/STD-038-the-stages-of-an-opportunity.md` — a tender's stages,
+   where a call was read, what the buyer really buys, the house's chance,
+   and the table for weighing a tender.
 4. `standards/STD-039-an-opportunity-has-a-record.md` — what the record
    must carry; `node machine/packages/sales-kit/pipeline.mjs opportunities`
    judges it.
@@ -58,9 +58,13 @@ models". If the terms cannot be found, say so and stop.
   "gamification") instead of the deliverable in the technical terms.
 - Forgetting the cash: a contract that makes the house buy material first
   and pays sixty days later can sink a company with no cushion.
+- Recording a tender the house cannot win. A tender that fails a hard
+  requirement is not recorded; its lesson goes to the card.
 
 ## When you are done
 
-The record is written and the tool is green; the Oracle has the answer in
-Spanish, in the form the protocol's last steps give. If the verdict is bid
-or possible, the next protocol is `protocols/PRO-031-bidding-for-a-tender.md`.
+If the verdict is bid or possible, the record is written and the tool is
+green; if decline, nothing is recorded and the card holds the lesson. The
+Oracle has the answer in Spanish, in the form the protocol's last step
+gives. After bid or possible, the next protocol is
+`protocols/PRO-031-bidding-for-a-tender.md`.
