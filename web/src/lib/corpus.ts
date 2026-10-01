@@ -629,6 +629,7 @@ const READING_ORDER: Record<string, string[]> = {
     "/protocols/pro-029-making-a-proposal",
     "/protocols/pro-030-closing-a-sale",
     // 2026-10-01: the two doors to public money — a tender, then a grant.
+    "/protocols/pro-033-screening-a-tender",
     "/protocols/pro-031-bidding-for-a-tender",
     "/protocols/pro-032-applying-for-a-grant",
     "/protocols/pro-021-closing-the-month",

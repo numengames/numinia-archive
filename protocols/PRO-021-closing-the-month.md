@@ -4,9 +4,9 @@ uid: ""
 title: "Closing the month"
 type: protocol
 status: draft
-version: "0.3.1"
+version: "0.4.0"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-01T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -15,7 +15,7 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 ratified_by: "ADR-065"
 supersedes_version: "0.1.0"
-related: ["STD-036", "STD-033", "CAN-011", "SYS-008", "PRO-020"]
+related: ["STD-036", "STD-033", "CAN-011", "SYS-008", "PRO-020", "PRO-031", "PRO-032"]
 derived_from: "CAN-011"
 ---
 
@@ -72,7 +72,10 @@ Nothing is closed from an estimate.
    per-person figures stay with the company and the gestoría: the ledger is
    public.
 4. **Write the income lines.** Agent: from the processor's report — gross,
-   VAT, fees, net, number of payers.
+   VAT, fees, net, number of payers. A public contract invoiced, and a
+   grant or public loan paid in the month, is one line each, naming its
+   record in the opportunities or funding series; a grant's amount is
+   income only once paid, never when granted.
 5. **Update the homage list.** Agent: only as each payer chose; the quarter's
    and the year's lists when those close.
 6. **Recompute the views.** Agent: every view from the lines; the four views

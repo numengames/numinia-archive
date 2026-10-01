@@ -4,9 +4,9 @@ uid: ""
 title: "Bidding for a tender"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-01T15:00:00+02:00"
+updated: "2026-10-01T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -14,7 +14,7 @@ territory: "Sales"
 tags: [protocol, sales, tenders, public-procurement, bid]
 license: "CC0-1.0"
 applies_to: [all-agents]
-related: ["STD-038", "STD-039", "OPS-018", "PRO-028", "PRO-029", "PRO-030"]
+related: ["STD-038", "STD-039", "OPS-018", "PRO-033", "PRO-028", "PRO-029", "PRO-030"]
 derived_from: "CAN-009"
 ---
 
@@ -56,8 +56,8 @@ decides and signs.
 
 ## 2. Preconditions
 
-- The house's card for tenders, current (`OPS-018`), and the screening
-  skill (`agents/skills/tender-screening`).
+- The house's card for tenders, current (`OPS-018`), and the tender
+  screened (`PRO-033`).
 - The stages register, with the procedures and the house's chance
   (`STD-038`), and the record standard (`STD-039`).
 - Alerts on the procurement platform for the house's classification codes:
@@ -70,20 +70,15 @@ decides and signs.
 
 ## 3. Procedure
 
-1. **Open the record, that day.** Copy the mould into the opportunities
-   series: source `tender`, the procedure, the notice's address, the
-   estimated value, the closing day as next date, stage `lead`. The
-   authority by sector and size.
-2. **Read the criteria into a table, from the terms.** Never from an
-   aggregator's summary: the screening skill says how. One row per
-   requirement — fit of the object, economic solvency, technical solvency,
-   registers, certificates, award criteria with their weights, guarantee,
-   time to the closing day. For each: what the call asks, what the card
-   says, yes, no or check.
-3. **Write the chance.** From the rows, by the register: every row yes and
-   the competition bounded, high; only competition or one check in the
-   way, medium; a no a partner could meet, low; a no nobody could meet, or
-   an object the house does not make, none — naming the row.
+1. **Screen it.** Run the screening protocol (`PRO-033`): the terms read,
+   the record open with its criteria table, what the buyer really buys and
+   the chance. A decline ends there; bid or possible goes on.
+2. **Confirm the record for bidding.** Source `tender`, the procedure, the
+   notice's address, the estimated value, the closing day as next date,
+   stage `lead`, the authority by sector and size.
+3. **Re-read the chance against the dossier.** A row still marked check
+   that the bid depends on keeps the chance below high, whatever the
+   screening hoped.
 4. **Resolve the checks that decide it.** Each one is a question with a
    date: read the clause, ask the authority through the platform's
    questions, ask a partner. The record's next action is the first of them.
@@ -114,8 +109,9 @@ decides and signs.
 
 | Step | Evidence it completed |
 |---|---|
-| 1 | A record exists with `source: tender`, its procedure and its notice |
-| 2–3 | The record carries a criteria table and a chance; the pipeline tool reports no breach |
+| 1 | The screening protocol's verdict is in the record |
+| 2 | The record carries `source: tender`, its procedure and its notice |
+| 3 | The chance agrees with the criteria table; the pipeline tool reports no breach |
 | 5 | A transition to `qualified`, or `lost` with `we-declined` and the failed row |
 | 7 | A transition to `proposed` whose evidence is the platform's receipt |
 | 8 | `agreed`, `won`, or `lost` with `outbid` or `excluded` |

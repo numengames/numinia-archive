@@ -34,6 +34,7 @@ export const PIPELINE_SOURCES = [
   "standards/STD-046-a-grant-has-a-record.md",
   "operations/OPS-018-the-house-card-for-tenders.md",
   "operations/OPS-019-the-house-card-for-grants.md",
+  "protocols/PRO-033-screening-a-tender.md",
   "protocols/PRO-031-bidding-for-a-tender.md",
   "protocols/PRO-032-applying-for-a-grant.md",
   "machine/packages/funding-kit/funding.mjs",
