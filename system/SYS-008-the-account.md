@@ -63,7 +63,7 @@ the company's statutory books, which the gestoría keeps; the legal texts
 | **The gestoría** | the statutory books, VAT and corporate tax returns, payroll, the received-invoices book | the gestoría and the company | wired |
 | **Supplier invoices and payrolls** | the documents behind every cost | the company, kept outside this repository (`STD-036` LED-007) | wired, not yet gathered in one place |
 | **Records of things on sale** | what each charge delivers, price with VAT, period, site, state | the archive, by pull request | `OPS-014` *Supporting Numinia* (Backer, Sponsor), sold on numinia.com/support, Backer in test mode; `OPS-016` *Season pass*, numinia.com/lap/seasons, not on sale |
-| **The ledger** | one line per cost or income | the archive, by pull request, from the documents | not wired — first with simulated lines on numinia.org |
+| **The ledger** | one line per cost or income | the archive, by pull request, from the documents | FY2025 wired from the received-invoices book (`web/src/data/ledger-2025.csv`); FY2024 and FY2026 to load |
 | **The views** | public, technology, finance and bank, gestoría — computed from the ledger | numinia.org, built from the archive | not wired — the prototype exists outside the tree |
 
 Agents hold no key to any of these (`STD-022`). A payment link is not a key

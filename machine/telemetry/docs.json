@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20876,
+  "chars": 20861,
   "apparatus": false,
   "archived": false,
-  "tokens": 5760
+  "tokens": 5767
  },
  {
   "path": "CLAUDE.md",
@@ -1402,10 +1402,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1853,
+  "chars": 1506,
   "apparatus": true,
   "archived": false,
-  "tokens": 486
+  "tokens": 396
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-001.md",
@@ -1450,17 +1450,6 @@
   "apparatus": true,
   "archived": false,
   "tokens": 256
- },
- {
-  "path": "machine/packages/sales-kit/fixtures/OPP-2026-005.md",
-  "dir": "machine",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 1500,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 429
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-001.md",
@@ -1567,10 +1556,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 3902,
+  "chars": 3633,
   "apparatus": true,
   "archived": false,
-  "tokens": 1035
+  "tokens": 977
  },
  {
   "path": "machine/templates/OPS-TEMPLATE.md",
@@ -1919,10 +1908,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5147,
+  "chars": 5461,
   "apparatus": false,
   "archived": false,
-  "tokens": 1498
+  "tokens": 1618
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2018,10 +2007,10 @@
   "series": "opportunities",
   "type": "meta",
   "status": "active",
-  "chars": 2404,
+  "chars": 1979,
   "apparatus": true,
   "archived": false,
-  "tokens": 659
+  "tokens": 561
  },
  {
   "path": "protocols/PRO-001-agent-session.md",
@@ -2249,10 +2238,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5600,
+  "chars": 4537,
   "apparatus": false,
   "archived": false,
-  "tokens": 1443
+  "tokens": 1190
  },
  {
   "path": "protocols/PRO-029-making-a-proposal.md",
@@ -2271,10 +2260,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5618,
+  "chars": 5154,
   "apparatus": false,
   "archived": false,
-  "tokens": 1460
+  "tokens": 1344
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2469,10 +2458,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 16175,
+  "chars": 16154,
   "apparatus": false,
   "archived": false,
-  "tokens": 4578
+  "tokens": 4572
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2777,10 +2766,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5257,
+  "chars": 5282,
   "apparatus": false,
   "archived": false,
-  "tokens": 1478
+  "tokens": 1485
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
@@ -2799,10 +2788,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6817,
+  "chars": 4085,
   "apparatus": false,
   "archived": false,
-  "tokens": 1787
+  "tokens": 1045
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
@@ -2810,10 +2799,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 9216,
+  "chars": 7951,
   "apparatus": false,
   "archived": false,
-  "tokens": 2368
+  "tokens": 2065
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -2942,10 +2931,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6733,
+  "chars": 6784,
   "apparatus": false,
   "archived": false,
-  "tokens": 1724
+  "tokens": 1744
  },
  {
   "path": "system/SYS-009-the-design-system.md",
@@ -2964,10 +2953,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6260,
+  "chars": 5804,
   "apparatus": false,
   "archived": false,
-  "tokens": 1641
+  "tokens": 1529
  },
  {
   "path": "system/SYS-011-semantic-census.md",

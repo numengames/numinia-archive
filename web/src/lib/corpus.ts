@@ -744,7 +744,7 @@ export interface SectionView {
 
 export const SECTION_VIEWS: Record<string, SectionView[]> = {
   system: [
-    { href: "/system/open-books", title: "Open books", what: "What Numinia costs and takes in since 2020, by day, week, month, quarter and year — as a citizen, a CTO, a lender and the gestoría read it. Simulated figures until the first month closes." },
+    { href: "/system/open-books", title: "Open books", what: "The books of Numen Games S.L. since it was born on 16 February 2024: what it spends, who governs it, where the money came from and how long it lasts. Real FY2025 figures." },
     { href: "/system/pipeline", title: "The pipeline", what: "Every chance to sell something, at its stage, with what needs a move; where sales are won and lost, by week, month, quarter and year — as whoever sells, management and anyone read it. Computed from the public records." },
     { href: "/system/wardley", title: "Wardley map", what: "A strategic map of the NWOS — what is visible, what is evolving, where the moat is. Rendered from its report." },
     { href: "/system/gaps", title: "Gaps", what: "The blind spots of the NWOS from business, product and organisational theory. Rendered from its report." },

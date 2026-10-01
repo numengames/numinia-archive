@@ -41,7 +41,8 @@ import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
-import { lines as accountLines, AS_OF as ACCOUNT_AS_OF, START as ACCOUNT_START, ACCOUNT_SOURCES, CATEGORY_LABEL, forecast as accountForecast, forecastYears, split as accountSplit, AMOUNTS as ACCOUNT_AMOUNTS, type Line } from "@/lib/account";
+import { bookLines, BOOK_CATEGORIES, BOOKS_SOURCES } from "@/lib/books";
+import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { pipeline as salesPipeline, PIPELINE_SOURCES } from "@/lib/pipeline";
@@ -646,92 +647,72 @@ export function designPage(): ComposedPage {
 }
 
 /**
- * /system/open-books — the ledger, summed. Consumed cost per year and concept,
- * each line spread evenly over the days it covers and cut at the ledger's last
- * day; income on its date. The same lines and the same rule the page uses in
- * the browser, so the two views agree (STD-036 LED-002).
+ * /system/open-books — the books of Numen Games S.L., summed. The same lines
+ * (@/lib/books), the same company (@/data/company) and the same loan
+ * (@/data/enisa) the page draws, so the two views agree (STD-036 LED-002).
  */
 export function accountPage(): ComposedPage {
-  const DAY = 864e5;
-  const t = (s: string) => Date.parse(s + "T00:00:00Z");
-  const t0 = t(ACCOUNT_START), t1 = t(ACCOUNT_AS_OF);
-  const years = new Map<string, Record<string, number>>();
-  const bump = (y: string, k: string, v: number) => {
-    const r = years.get(y) ?? {};
-    r[k] = (r[k] ?? 0) + v;
-    years.set(y, r);
-  };
-  const all = accountLines();
-  for (const l of all) {
-    const base = Number(l.base);
-    if (l.kind === "income") {
-      if (t(l.date) <= t1) bump(l.date.slice(0, 4), "income", base);
-      continue;
-    }
-    const a = Math.max(t(l.period_from), t0), b = t(l.period_to);
-    const days = Math.round((b - Math.max(t(l.period_from), t0)) / DAY) + 1;
-    for (let d = a; d <= Math.min(b, t1); d += DAY) {
-      bump(new Date(d).toISOString().slice(0, 4), l.category, base / days);
-    }
-  }
-  const ys = [...years.keys()].sort();
-  const cats = Object.keys(CATEGORY_LABEL);
-  const eur = (n: number) => (n < 0 ? "−€" : "€") + Math.round(Math.abs(n)).toLocaleString("en-GB");
-  const eur2 = (n: number) => "€" + Math.abs(n).toLocaleString("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  // Usage billed by the day is one invoice a month, so one line (the page folds it the same way).
-  const folded = new Map<string, Line>();
-  const docs: Line[] = [];
-  for (const l of all) {
-    if (t(l.date) > t1) continue;
-    if (l.billing === "usage" && l.period_from === l.period_to) {
-      const key = l.supplier + l.concept + l.date.slice(0, 7), x = folded.get(key);
-      if (x) { x.base = String(Number(x.base) + Number(l.base)); if (l.date > x.date) { x.date = l.date; x.document = l.document; } continue; }
-      const y = { ...l }; folded.set(key, y); docs.push(y); continue;
-    }
-    docs.push(l);
-  }
-  const latest = docs.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : a.document < b.document ? 1 : -1)).slice(0, 20);
-  const cost = (r: Record<string, number>) => cats.reduce((s, k) => s + (r[k] ?? 0), 0);
-  const rows = cats
-    .filter((k) => ys.some((y) => (years.get(y)![k] ?? 0) > 0.5))
-    .map((k) => [CATEGORY_LABEL[k], ...ys.map((y) => ((years.get(y)![k] ?? 0) > 0.5 ? eur(years.get(y)![k]) : ""))]);
-  rows.push(["**Total cost**", ...ys.map((y) => `**${eur(cost(years.get(y)!))}**`)]);
-  rows.push(["Came in", ...ys.map((y) => ((years.get(y)!.income ?? 0) > 0.5 ? eur(years.get(y)!.income) : ""))]);
-  rows.push(["**Numen Games put in**", ...ys.map((y) => `**${eur(cost(years.get(y)!) - (years.get(y)!.income ?? 0))}**`)]);
+  const lines = bookLines();
+  const eur = (n: number, d = 0) => "€" + n.toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const total = lines.reduce((s, l) => s + Number(l.base), 0);
+  const byCat = new Map<string, number>();
+  for (const l of lines) byCat.set(l.category, (byCat.get(l.category) ?? 0) + Number(l.base));
+  const cats = [...byCat.entries()].sort((a, b) => b[1] - a[1]);
+  const byQ = new Map<string, number>();
+  for (const l of lines) { const q = `Q${Math.floor((Number(l.date.slice(5, 7)) - 1) / 3) + 1}`; byQ.set(q, (byQ.get(q) ?? 0) + Number(l.base)); }
+  let run = 0;
   const body = [
-    "# What Numinia costs",
+    "# The books of Numen Games S.L.",
     "",
-    "> **Simulated figures.** No month has been closed yet; every line of the ledger is invented to show the shape. As each real month closes, its lines replace the simulated ones.",
+    `Since ${COMPANY.incorporated}, the day the company was incorporated (Numinia was conceived on ${COMPANY.conceived}). Real figures: the FY2025 received-invoices book, the Mercantile Registry and ENISA's public loan search. FY2024 (from 16 February) and FY2026 are not loaded yet.`,
     "",
-    `Everything Numen Games spends on Numinia from ${ACCOUNT_START} to ${ACCOUNT_AS_OF}, consumed — each cost spread over the days it covers — and without VAT. Staff are one line a month for everyone together; nobody's pay is published.`,
+    "## The company",
     "",
-    "## By year and concept",
+    table(["", ""], [
+      ["Name", COMPANY.name],
+      ["Tax ID", COMPANY.taxId],
+      ["Office", COMPANY.address.join(", ")],
+      ["Incorporated", COMPANY.incorporated],
+      ["Share capital", eur(COMPANY.capital, 2)],
+      ["Registry", COMPANY.registry],
+      ["Activity", COMPANY.activity],
+      ["Governed by", `${COMPANY.governedBy}: ${ORGANS.director.who}`],
+      ["Emerging company", `since ${COMPANY.emerging.since}, ${COMPANY.emerging.years} years (Law 28/2022)`],
+      ["Contact", COMPANY.contact],
+    ]),
     "",
-    table(["Concept", ...ys], rows),
+    "## What it spent in FY2025",
     "",
-    `The ledger itself, one line per document (${all.length} lines): [/system/open-books.csv](/system/open-books.csv).`,
+    `Net of VAT: **${eur(total)}**, ${lines.length} lines. Companies one line per invoice; people and counsel one line a month each group, with a headcount, so nobody's pay can be read.`,
     "",
-    "## The last lines",
+    table(["What", "FY2025", "Share"], [...cats.map(([c, v]) => [BOOK_CATEGORIES[c]?.label ?? c, eur(v), `${((v / total) * 100).toFixed(1)}%`]), ["**Total**", `**${eur(total)}**`, ""]]),
     "",
-    "The twenty newest lines of the ledger, without VAT; the page lists every one with filters.",
+    table(["Quarter", "Net"], [...byQ.entries()].map(([q, v]) => [`${q} 2025`, eur(v)])),
     "",
-    table(["Date", "Who", "What", "Amount"], latest.map((l) => [l.date, l.supplier, l.concept + (l.headcount ? ` (${l.headcount} people)` : ""), (l.kind === "income" ? "+" : "−") + eur2(Number(l.base))])),
+    "The ledger itself: [/system/open-books.csv](/system/open-books.csv).",
     "",
-    "## VAT, and what each payment turns into",
+    "## How the capital grew",
     "",
-    "Costs carry no VAT: the VAT on an invoice the company receives is deducted in the same quarterly return, so it passes through and is not a cost. Invoices from companies outside Spain arrive without VAT and the receiver declares it and deducts it at once (reverse charge, marked ISP in the book). Salaries carry no VAT and count at their cost to the company. A person's support is shown VAT included, as consumer law requires; of it, 21 % over the base goes to the tax authority and the card processor takes 1.5 % plus €0.25, and 0.7 % more for a repeating payment.",
+    table(["Date", "Step", "Increase", "Capital after", "Source"], CAPITAL_STEPS.map((c) => [c.date, c.what, eur(c.increase, 2), eur((run += c.increase), 2), `[${c.borme}](${bormeUrl(c.borme)})`])),
     "",
-    table(["A person pays", "VAT", "Processor", "Reaches Numinia"], ACCOUNT_AMOUNTS.map(accountSplit).map((r) => [eur2(r.price), eur2(r.vat), eur2(r.fee), eur2(r.net)])),
+    "Who holds which part is not in the Registry and is not published here until the partners agree.",
+    "",
+    "## Every registered act",
+    "",
+    ...ACTS.map((a) => `- **${a.date}** — ${a.title}. ${a.text} (${a.source.startsWith("BORME") ? `[${a.source}](${bormeUrl(a.source)})` : `[ENISA](${a.source})`})`),
     "",
     "## The ENISA loan",
     "",
-    `Real figures. A participative loan from ENISA, the Spanish state's lender for innovative companies (${ENISA.lender}), signed on ${ENISA.signed}. It is debt, not equity; what it costs is the interest, a financial expense. The record: [${ENISA.record}](/operations/ops-017-the-enisa-loan).`,
+    `A participative loan of **${eur(ENISA.principal)}** from ENISA (${ENISA.lender}), signed on ${ENISA.signed}, as published in [ENISA's public loan search](${ENISA.register}). It is debt, not equity; what it costs is the interest, a financial expense. The record: [${ENISA.record}](/operations/ops-017-the-enisa-loan).`,
     "",
-    table(["Quarter", "Interest (net)"], [...ENISA.interest.map((q) => [q.quarter, eur2(q.amount)]), ["**2025**", `**${eur2(ENISA_INTEREST_TOTAL)}**`]]),
+    table(["Quarter", "Interest (net)"], [...ENISA.interest.map((q) => [q.quarter, eur(q.amount, 2)]), ["**2025**", `**${eur(ENISA_INTEREST_TOTAL, 2)}**`]]),
     "",
-    ...forecastMd(),
+    "## Grants",
+    "",
+    `None: the national grants register (BDNS) lists nothing for ${COMPANY.taxId}, checked on 2026-09-30.`,
+    "",
   ].join("\n");
-  return { route: "/system/open-books", filename: "numinia-open-books.md", sources: [...ACCOUNT_SOURCES], body: preamble([...ACCOUNT_SOURCES]) + body };
+  return { route: "/system/open-books", filename: "numen-games-open-books.md", sources: [...BOOKS_SOURCES], body: preamble([...BOOKS_SOURCES]) + body };
 }
 
 /**
@@ -813,38 +794,6 @@ export function pipelinePage(): ComposedPage {
   return { route: "/system/pipeline", filename: "numinia-pipeline.md", sources: [...PIPELINE_SOURCES], body: preamble([...PIPELINE_SOURCES]) + body };
 }
 
-/** The forecast section of /system/open-books.md: the same computation the page draws. */
-function forecastMd(): string[] {
-  const f = accountForecast();
-  const eur = (n: number) => (n < -0.5 ? "−€" : "€") + Math.round(Math.abs(n)).toLocaleString("en-GB");
-  const ys = forecastYears(f);
-  const Y = [...ys.keys()];
-  const r = (label: string, fn: (e: ReturnType<typeof ys.get> & object) => number) => [label, ...Y.map((y) => { const v = fn(ys.get(y)!); return Math.abs(v) < 0.5 ? "" : eur(v); })];
-  return [
-    "## The next two years",
-    "",
-    `A forecast from ${f.from} to ${f.horizon}, with supporters and with the loan. It is not a figure of the account: it is never closed, and it changes whenever an assumption does.`,
-    "",
-    table(["Forecast", ...Y], [
-      r("Support, without VAT", (e) => e.income),
-      r("Staff costs", (e) => -e.people),
-      r("Other operating expenses", (e) => -(e.cost - e.people + e.fees)),
-      r("**Operating result**", (e) => e.income - e.cost - e.fees),
-      r("Loan received", (e) => e.loanIn),
-      r("Loan repaid", (e) => -e.loanOut),
-      r("**Cash at year end**", (e) => e.cashEnd),
-    ]),
-    "",
-    "### What it assumes",
-    "",
-    `Each cost starts from its run-rate in the ledger: ${f.baseline.filter((b) => b.monthly > 0.5).map((b) => `${b.label.toLowerCase()} ${eur(b.monthly)} a month (${b.window})`).join("; ")}. Cash starts at ${eur(f.cash)}.`,
-    "",
-    ...f.assumptions.map((a) => `- ${a.note}.`),
-    "",
-    "The assumptions: [/system/open-books-forecast.csv](/system/open-books-forecast.csv).",
-    "",
-  ];
-}
 
 /** `/core` and each `/core/<canon>` — the core as a flow (web/src/lib/core.ts). */
 const stateWord = (s: string) => (s === "active" ? "in force" : s);

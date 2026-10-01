@@ -5,7 +5,7 @@ title: "One account"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.4"
+version: "0.1.5"
 created: "2026-09-26T13:00:00+02:00"
 updated: "2026-09-27T14:30:00+02:00"
 author: "ursa"
@@ -78,8 +78,8 @@ Each rule, its code, its source and its check.
 
 | Plate | Rule | Source | Verified by |
 |---|---|---|---|
-| LED-001 | One ledger | law: [PGC PYMES, RD 1515/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-19966) likely, rather than the full [PGC, RD 1514/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884) — the gestoría confirms; group 62 services, 64 staff | by hand at each month's close; `web/src/lib/account.ts` computes every view from the lines |
-| LED-002 | Same figures, four views | — | `web/src/lib/account.ts` and `/system/open-books` render the four views from one set of lines |
+| LED-001 | One ledger | law: [PGC PYMES, RD 1515/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-19966) likely, rather than the full [PGC, RD 1514/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884) — the gestoría confirms; group 62 services, 64 staff | by hand at each month's close; `web/src/lib/books.ts` reads the lines; `/system/open-books` computes every view from them |
+| LED-002 | Same figures, four views | — | `web/src/lib/books.ts` and `/system/open-books` render every view from one set of lines |
 | LED-003 | Billed and consumed | [FinOps FOCUS 1.2](https://focus.finops.org/docs/specification/v1-2/) BilledCost, EffectiveCost, ChargePeriodStart/End; accrual principle, PGC part one | by hand at each month's close |
 | LED-004 | Closed from documents | law: [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) arts. 25 and 29 | by hand at each month's close |
 | LED-005 | Traceable to the paper | law: [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) art. 25; [Ley General Tributaria 58/2003](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) art. 29 | by hand at each month's close |

@@ -17,9 +17,13 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-01
+
+- **Changed** /system/open-books is the books of Numen Games S.L. from 16 Feb 2024: real FY2025 ledger, company card, six rooms, tooltips that break each bar down; ENISA 100,000 € as ENISA publishes it (`OPS-017` 0.2.0); simulated ledger removed (site v0.112.0)
+
 ### 2026-09-30
 
-- **Added** Public tenders in the pipeline: `STD-038` 0.5.0 registers four procedures and two reasons lost; `STD-039` 0.6.0 OPP-012 (a tender names its procedure and links its notice); the tool exempts a filed offer from stale and computes the calendar `/system/pipeline` shows (site v0.111.0)
+- **Added** Public tenders in the pipeline: `STD-038` 0.5.0 registers four procedures and two reasons lost; `STD-039` 0.6.0 OPP-012 (a tender names its procedure and links its notice); the tool exempts a filed offer from stale and computes the calendar `/system/pipeline` shows (site v0.112.0)
 - **Added** `OPS-017` The ENISA loan: signed 2024-10-22, 5,666.56 € of interest in 2025, what the public registers show; open books gains its section with ENISA's seal, the first real figures on the page (site v0.110.0)
 - **Added** `SYS-012` Suppliers: one card per service the company contracts, thirteen from the FY2025 book, in `system/suppliers/`; people stay out; `STD-004` 4.6.1 registers the card's `category`
 - **Added** `DBT-022` 0.3.0 §1.7 *Open books*: naming the people we pay needs their consent, a transparency clause in new contracts and counsel on the legal basis and on payroll; block 8 of the letter, in the text and the Word file
