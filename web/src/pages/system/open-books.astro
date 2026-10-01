@@ -30,7 +30,9 @@ import { TAX_KINDS, VAT_RESULTS, CALENDAR, VAT_2024_ESTIMATE, CORPORATE, GESTORI
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
 import { ROUNDS, CLIENTS, CASH, FUTURES, PLAN, GLOSSARY, MONEY_IN_TOTAL } from "@/data/money";
-import { repoFileUrl } from "@/lib/build-info";
+import { repoFileUrl, COMMIT_SHA, VERSION } from "@/lib/build-info";
+import { BOOKS_CSV, BOOKS_2026_CSV, PAYROLL_CSV, SALES_CSV } from "@/lib/books";
+import { createHash } from "node:crypto";
 
 type AnyLine = ReturnType<typeof bookLines>[number] & { kind?: string; withholding?: string };
 const lines = ([...bookLines(), ...bookLines2026(), ...payrollLines()] as AnyLine[]).map((l) => ({ d: l.date, a: l.period_from, b: l.period_to, c: l.category, w: l.supplier, n: Number(l.base), h: Number(l.headcount || 0), bl: l.billing, k: l.kind || "real" }));
@@ -101,7 +103,11 @@ const FUT: Record<string, ReturnType<typeof futures>> = {};
 for (const pe of FUTURES.payrollEnds) for (const inc of FUTURES.income) FUT[`${pe}|${inc}`] = futures(BOOKS, { cash: CASH.amount, asOf: CASH.asOf, payrollEnds: pe, oneOff: FUTURES.oneOff, income: inc, incomeFrom: FUTURES.incomeFrom });
 const KIND_PILL: Record<string, [string, string]> = { real: ["ob-pill--real", "real"], declared: ["ob-pill--decl", "declared"], plan: ["ob-pill--plan", "plan"], simulated: ["ob-pill--sim", "estimate"] };
 const ym = (s: string) => new Date(s + "-01T00:00:00Z").toLocaleDateString("en-GB", { month: "long", timeZone: "UTC" });
-const DATA = { fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
+// The audit pack names each source file with its SHA-256, so a figure can be
+// walked back to the exact bytes it came from (STD-036 LED-005).
+const sha = (s: string) => createHash("sha256").update(s).digest("hex");
+const SOURCES = [["web/src/data/ledger-2025.csv", BOOKS_CSV], ["web/src/data/ledger-2026.csv", BOOKS_2026_CSV], ["web/src/data/payroll.csv", PAYROLL_CSV], ["web/src/data/sales.csv", SALES_CSV]].map(([f, s]) => ({ file: f, sha256: sha(s), lines: s.trim().split("\n").length - 1 }));
+const DATA = { company: { taxId: COMPANY.taxId, name: COMPANY.name }, build: { commit: COMMIT_SHA, version: VERSION }, sources: SOURCES, recon: { rows: RECON.rows, moneyIn: RECON.moneyIn, out: RECON.out, missing: RECON.missing, expected: RECON.expected, gap: RECON.gap }, vatQ: VAT_Q.map((v) => ({ q: v.q, out: v.out, inp: v.inp, rc: v.rc, before: v.before, result: v.result, amount: v.amount, kind: v.kind, wh: v.wh, ss: v.ss })), fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
 ---
 
 <Layout
@@ -145,6 +151,32 @@ const DATA = { fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, 
     </header>
 
     <div class="ob-kpis" id="ob-kpis"></div>
+
+    <section class="ob-box ob-dl" id="ob-dl" aria-label="Download">
+     <div class="ob-dl-row">
+      <span class="ob-k">Download · period</span>
+      <div class="ob-seg" id="ob-dl-kind"><button type="button" data-v="month">Month</button><button type="button" data-v="quarter" aria-pressed="true">Quarter</button><button type="button" data-v="year">Year</button><button type="button" data-v="custom">Dates</button></div>
+      <select id="ob-dl-pick" aria-label="Which period"></select>
+      <span class="ob-dl-dates" hidden><input type="date" id="ob-dl-from" aria-label="From" min="2024-02-16" /> – <input type="date" id="ob-dl-to" aria-label="To" min="2024-02-16" /></span>
+     </div>
+     <p class="ob-dl-sum" id="ob-dl-sum" aria-live="polite"></p>
+     <div class="ob-packs">
+      <button type="button" class="ob-pack" data-dl="gestoria"><b>For the gestoría</b><span>The VAT record books in the Tax Agency's own layout (EXPEDIDAS, RECIBIDAS), from 1 January, ready to import into the 303 helper; withholding for the 111 and 190; a 347 draft.</span></button>
+      <button type="button" class="ob-pack" data-dl="cfo"><b>For a CFO</b><span>Profit and loss month by month, spending by category and by supplier, cash reconciled to the bank, the next quarter in three futures, taxes.</span></button>
+      <button type="button" class="ob-pack" data-dl="audit"><b>For an auditor</b><span>Every line as a double entry in the accounting plan, each naming its file and row; a trial balance; the sources with their SHA-256 and the commit they were built from.</span></button>
+     </div>
+     <div class="ob-dl-btns">
+      <span class="ob-k">Single files</span>
+      <button type="button" data-dl="accounts-csv">Accounts · CSV</button>
+      <button type="button" data-dl="received">Received invoices · CSV</button>
+      <button type="button" data-dl="issued">Issued invoices · CSV</button>
+      <button type="button" data-dl="taxes">Taxes · CSV</button>
+      <button type="button" data-dl="plan-xlsx">Business plan · Excel</button>
+      <button type="button" data-dl="plan-pdf">Business plan · PDF</button>
+      <button type="button" data-dl="page-pdf">This page · PDF</button>
+     </div>
+     <p class="ob-note">Built in your browser from the same lines this page draws. The accounts spread each cost over the days it covers, net of VAT; the invoice books go by invoice date and run from 1 January of the period's year, as the Tax Agency asks for them. Every workbook opens with a sheet saying what is real, declared or estimated. PDFs open your browser's print dialog: choose “Save as PDF”.</p>
+    </section>
 
     <nav class="ob-rooms" role="tablist" aria-label="Rooms">
      <button type="button" class="ob-room" role="tab" data-room="spend" aria-selected="true">Spending</button>
@@ -348,9 +380,9 @@ const DATA = { fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, 
       <p class="ob-sub">Three futures from today's monthly cost of {eur(RATE.total)}, looked at for three months and no further: beyond a quarter a forecast is a guess. Each says the day the cash runs out if its third month went on for ever.</p>
       <div class="ob-box ob-sliders" id="ob-fctl">
        <span class="ob-k">Payroll ends at the end of</span>
-       <div class="ob-seg" id="ob-pend">{FUTURES.payrollEnds.map((m, i) => <button type="button" data-v={m} aria-pressed={String(i === 0)}>{ym(m)}</button>)}</div>
+       <div class="ob-seg" id="ob-pend">{FUTURES.payrollEnds.map((m, i) => <button type="button" data-v={m} aria-pressed={i === 0 ? "true" : "false"}>{ym(m)}</button>)}</div>
        <span class="ob-k">Income a month, from {ym(FUTURES.incomeFrom)}</span>
-       <div class="ob-seg" id="ob-finc">{FUTURES.income.map((v, i) => <button type="button" data-v={String(v)} aria-pressed={String(i === 1)}>{eur(v)}</button>)}</div>
+       <div class="ob-seg" id="ob-finc">{FUTURES.income.map((v, i) => <button type="button" data-v={String(v)} aria-pressed={i === 1 ? "true" : "false"}>{eur(v)}</button>)}</div>
        <span class="ob-pill ob-pill--sim">simulated — the futures</span>
       </div>
       <div class="ob-scen" id="ob-futures"></div>
@@ -468,6 +500,7 @@ const DATA = { fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, 
        <label>Growth a year <input type="range" data-k="growth" min="0" max="1" step="0.05" /> <b></b></label>
        <span class="ob-pill ob-pill--plan">plan</span>
       </div>
+      <p class="ob-print-only ob-note" id="ob-plan-print"></p>
      </div>
      <div class="ob-sec ob-grid2">
       <div>
@@ -486,7 +519,7 @@ const DATA = { fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, 
       <p class="ob-sub">The plan's cash for the next 36 months, starting from the cash in the bank on 1 October 2026. Where the line falls below zero, the company needs money before then.</p>
       <div class="ob-box"><div class="ob-chart" id="ob-plan-cash"></div></div>
      </div>
-     <div class="ob-sec ob-grid2">
+     <div class="ob-sec ob-grid2 ob-plan-extra">
       <div>
        <h3>Plan against reality</h3>
        <p class="ob-sub">Each month, what the plan said and what happened. It starts when the plan is a month old.</p>
@@ -693,6 +726,41 @@ table.ob-t{border-collapse:collapse;width:100%;font-size:.84rem;color:rgb(var(--
 .ob-zero{stroke:rgb(var(--red));stroke-dasharray:4 3}
 .ob-line{fill:none;stroke:rgb(var(--accent));stroke-width:2}
 .ob-mark{stroke:rgb(var(--yellow))}
+.ob-print-only{display:none}
+.ob-dl{margin:0 0 22px;display:flex;flex-direction:column;gap:10px}
+.ob-dl-row{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center}
+.ob-dl select,.ob-dl input{background:rgb(var(--bg));color:rgb(var(--text));border:1px solid rgb(var(--border));border-radius:6px;font:inherit;font-size:.85rem;padding:0 10px;min-height:36px;color-scheme:light dark}
+.ob-dl-dates{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap}
+.ob-dl-sum{margin:0;font-size:.86rem;color:rgb(var(--text-muted));font-variant-numeric:tabular-nums}
+.ob-dl-sum b{color:rgb(var(--text));font-family:var(--font-mono);font-weight:500}
+.ob-dl-btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ob-packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.ob-packs{grid-template-columns:1fr}}
+.ob-pack{display:flex;flex-direction:column;gap:4px;text-align:left;background:rgb(var(--accent)/.06);border:1px solid rgb(var(--accent)/.4);border-radius:8px;color:rgb(var(--text));font:inherit;padding:12px 14px;cursor:pointer}
+.ob-pack b{font-weight:600;font-size:.92rem}
+.ob-pack span{font-size:.78rem;line-height:1.45;color:rgb(var(--text-muted))}
+.ob-pack:hover{background:rgb(var(--accent)/.12)}
+.ob-pack:focus-visible{outline:2px solid rgb(var(--accent));outline-offset:2px}
+.ob-dl-btns button{background:none;border:1px solid rgb(var(--border));border-radius:6px;color:rgb(var(--text));font:inherit;font-size:.82rem;padding:0 12px;min-height:36px;cursor:pointer}
+.ob-dl-btns button:hover{border-color:rgb(var(--accent)/.6);background:rgb(var(--accent)/.08)}
+.ob-dl-btns button:focus-visible,.ob-dl select:focus-visible,.ob-dl input:focus-visible{outline:2px solid rgb(var(--accent));outline-offset:2px}
+@media(max-width:1023px){.ob-dl-btns button,.ob-dl select,.ob-dl input{min-height:44px}}
+@media print{
+ @page{margin:14mm}
+ nav,footer,#mobile-menu,.speech-player,.sp-dock,.compass,.wf,.compass,[class^="wf-"],[class*=" wf-"],.ob-rooms,.ob-dl,.ob-toolbar,.ob-sliders,#ob-fctl,[role="dialog"]{display:none!important}
+ .ob-print-only{display:block!important}
+ .ob-panel{display:block!important;break-before:page}
+ .ob-panel:first-of-type{break-before:auto}
+ .ob-box,.ob-kpi,.ob-sc,.ob-card{break-inside:avoid;box-shadow:none!important}
+ .ob-scroll{max-height:none!important;overflow:visible!important}
+ body.ob-print-plan .ob-hero,body.ob-print-plan .ob-kpis,body.ob-print-plan .ob-panel:not(#ob-p-plan){display:none!important}
+ body.ob-print-plan #ob-p-plan{break-before:auto;zoom:.72}
+ body.ob-print-plan main,body.ob-print-plan .ob,body.ob-print-plan .ob-wrap{padding-top:0!important;padding-bottom:0!important;margin:0!important;min-height:0!important}
+ body.ob-print-plan .ob-plan-extra{display:none!important}
+ body.ob-print-plan .ob-sec{margin-bottom:10px}
+ body.ob-print-plan .ob-chart svg{max-height:170px}
+ body.ob-print-plan #ob-p-plan .ob-sub{display:none}
+}
 .ob-alert{border:1px solid rgb(var(--yellow)/.55);background:rgb(var(--yellow)/.08);border-radius:6px;padding:10px 12px;margin:0 0 14px;font-size:.86rem;line-height:1.5;color:rgb(var(--text))}
 .ob-alert b{color:rgb(var(--yellow))}
 .ob-recon .ob-rh td{font:500 .6rem var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:rgb(var(--text-dim));padding-top:14px}
@@ -831,7 +899,6 @@ $('#ob-now').innerHTML = '<thead><tr><th>Service</th><th class="ob-n">A month</t
 // Cash and runway.
 const byCat = {}; for (const l of L) if (l.d.startsWith('2025')) byCat[l.c] = (byCat[l.c] || 0) + l.n;
 const q3 = {}; for (const l of L) if (l.d >= '2026-07-01' && l.d <= '2026-09-30') q3[l.c] = (q3[l.c] || 0) + l.n / 3;
-const payNow = D.payNow; // payroll, all staff together, a month of the last quarter
 const burn = D.monthNow;
 const CLOSE = [['Notary and registry: dissolution, liquidation, cancellation', 1500], ['Gestoría: final accounts and returns', 1800], ['Legal counsel', 1500], ['ENISA: principal still owed', D.principal]];
 const closeTotal = CLOSE.reduce((s, x) => s + x[1], 0);
@@ -902,6 +969,7 @@ const A = { ...D.plan.assumptions };
 const fmtA = { projectsPerYear: (v) => v + ' a year', projectSize: (v) => eur(v), hostingPerWorld: (v) => eur(v), monthlyCost: (v) => eur(v), growth: (v) => '+' + Math.round(v * 100) + '%' };
 $$('#ob-plan-in input').forEach((el) => { const k = el.dataset.k; el.value = A[k]; el.nextElementSibling.textContent = fmtA[k](A[k]); el.addEventListener('input', () => { A[k] = +el.value; el.nextElementSibling.textContent = fmtA[k](A[k]); planDraw(); }); });
 function planDraw() {
+  window.obPlan = { assumptions: { ...A }, start: +D.plan.start, rows: [], cash: [] };
   const y0 = +D.plan.start, rows = []; let worlds = 1, cum = 0;
   for (let i = 0; i < 3; i++) {
     const g = Math.pow(1 + A.growth, i), proj = A.projectsPerYear * g, pr = proj * A.projectSize;
@@ -925,6 +993,8 @@ function planDraw() {
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Planned cash over the next 36 months"><line class="ob-zero" x1="${pl}" x2="${W - 8}" y1="${y(0)}" y2="${y(0)}"/><text class="ob-ax" x="${pl - 6}" y="${y(0) + 4}" text-anchor="end">0 €</text><text class="ob-ax" x="${pl - 6}" y="${y(hi) + 4}" text-anchor="end">${(hi / 1000).toFixed(0)}k</text><polyline points="${pts.map((v, i) => x(i) + ',' + y(v)).join(' ')}" fill="none" stroke="rgb(167 123 224)" stroke-width="2"/>`;
   for (let i = 0; i <= N; i += 6) s += `<text class="ob-ax" x="${x(i)}" y="${H - 10}" text-anchor="middle">+${i} m</text>`;
   $('#ob-plan-cash').innerHTML = s + '</svg>';
+  window.obPlan = { assumptions: { ...A }, start: y0, rows, cash: pts, breakEven: be, need, lowAt };
+  $('#ob-plan-print').textContent = `Assumptions: ${A.projectsPerYear} projects a year · ${eur(A.projectSize)} a project · ${eur(A.hostingPerWorld)} hosting a world a month · ${eur(A.monthlyCost)} cost a month · +${Math.round(A.growth * 100)}% a year. Printed ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} from numinia.org/system/open-books.`;
 }
 
 // Every line.
@@ -948,4 +1018,138 @@ const start = location.hash.slice(1); if ($$('.ob-room').some((b) => b.dataset.r
 
 draw(); runway(); ledger(); tick(); planDraw();
 })();
+</script>
+
+<script>
+  // Downloads (STD-036 LED-002): the same lines the page draws, cut to the
+  // period the reader picks, by @/lib/exports.
+  import { cashBooks, BOOK_CATEGORIES } from "@/lib/books";
+  import { period, accounts, accountsSheet, categorySheet, receivedBook, issuedBook, aeatBooks, withholdingSheet, form347, pnlByMonth, bySupplier, journal, trialBalance, toCsv, toXlsx, type Sheet, type Period } from "@/lib/exports";
+
+  const D = JSON.parse(document.getElementById("ob-data")!.textContent!);
+  const books = cashBooks();
+  const $ = <T extends HTMLElement>(s: string) => document.querySelector(s) as T;
+  const kindSeg = $("#ob-dl-kind"), pick = $<HTMLSelectElement>("#ob-dl-pick"), dates = $(".ob-dl-dates");
+  const from = $<HTMLInputElement>("#ob-dl-from"), to = $<HTMLInputElement>("#ob-dl-to");
+  const LAST = "2026-09-30";
+  const eur = (n: number) => Math.round(n).toLocaleString("en-GB") + " €";
+  let kind: "month" | "quarter" | "year" | "custom" = "quarter";
+
+  function options(): [string, string][] {
+    const out: [string, string][] = [];
+    if (kind === "year") for (const y of ["2026", "2025", "2024"]) out.push([y, period("year", y).label]);
+    if (kind === "quarter") for (let y = 2026; y >= 2024; y--) for (let q = 4; q >= 1; q--) { const v = `${y}-Q${q}`, p = period("quarter", v); if (p.from <= LAST && p.to >= "2024-02-16") out.push([v, p.label]); }
+    if (kind === "month") for (let y = 2026; y >= 2024; y--) for (let m = 12; m >= 1; m--) { const v = `${y}-${String(m).padStart(2, "0")}`, p = period("month", v); if (p.from <= LAST && p.to >= "2024-02-16") out.push([v, p.label]); }
+    return out;
+  }
+  function fill() {
+    const o = options();
+    pick.hidden = kind === "custom"; dates.hidden = kind !== "custom";
+    pick.innerHTML = o.map(([v, l]) => `<option value="${v}">${l}</option>`).join("");
+    const keep = kind === "quarter" ? "2026-Q3" : kind === "year" ? "2025" : "2026-09";
+    if (o.some(([v]) => v === keep)) pick.value = keep;
+    if (!from.value) { from.value = "2025-01-01"; to.value = LAST; }
+    summary();
+  }
+  const current = (): Period => (kind === "custom" ? period("custom", from.value || "2024-02-16", to.value || LAST) : period(kind, pick.value));
+  function summary() {
+    const p = current(), a = accounts(books, p.from, p.to, BOOK_CATEGORIES);
+    $("#ob-dl-sum").innerHTML = `${p.label}: revenue <b>${eur(a.revenue)}</b> · costs <b>${eur(a.supplies + a.staff + a.other + a.financial)}</b> · result <b>${eur(a.beforeTax)}</b>${p.to > LAST ? " · the books reach 30 Sep 2026" : ""}`;
+  }
+  kindSeg.querySelectorAll("button").forEach((b) => b.addEventListener("click", () => {
+    kindSeg.querySelectorAll("button").forEach((x) => x.setAttribute("aria-pressed", "false"));
+    b.setAttribute("aria-pressed", "true"); kind = b.dataset.v as typeof kind; fill();
+  }));
+  [pick, from, to].forEach((el) => el.addEventListener("change", summary));
+
+  const slug = (p: Period) => p.label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  function save(name: string, data: string | Uint8Array, type: string) {
+    const url = URL.createObjectURL(new Blob([data as BlobPart], { type }));
+    const a = Object.assign(document.createElement("a"), { href: url, download: name });
+    document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
+  const XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", CSV = "text/csv;charset=utf-8";
+  const qOf = (d: string) => `${d.slice(0, 4)}-Q${Math.floor((Number(d.slice(5, 7)) - 1) / 3) + 1}`;
+
+  function taxSheet(p: Period): Sheet {
+    const r2 = (n: number) => Math.round(n * 100) / 100;
+    const qs = D.vatQ.filter((v: any) => v.q >= qOf(p.from) && v.q <= qOf(p.to));
+    return {
+      name: "Taxes",
+      head: ["Quarter", "VAT charged (repercutido)", "VAT paid (soportado)", "Reverse charge (autorepercutido = deducido)", "Credit carried in", "Result (303)", "Amount", "Income tax withheld (111)", "Social security", "Kind"],
+      rows: [
+        ...qs.map((v: any) => [v.q, r2(v.out), r2(v.inp), r2(v.rc), r2(v.before), v.result, r2(v.amount), r2(v.wh), r2(v.ss), v.kind]),
+        ["", "", "", "", "", "", "", "", "", ""],
+        ["Calendar: by", "What", "Form", "Estimate", "", "", "", "", "", ""],
+        ...D.tax.calendar.map((c: any) => [c.due, c.what, c.form, c.estimate, "", "", "", "", "", ""]),
+        ["Estimates from the lines until the gestoría's filed returns are loaded (STD-036 LED-009).", "", "", "", "", "", "", "", "", ""],
+      ],
+    };
+  }
+  function planSheets(): Sheet[] {
+    const P = (window as any).obPlan, A = P.assumptions, r = (n: number) => Math.round(n);
+    const m0 = new Date(Date.UTC(P.start, 0, 1));
+    return [
+      { name: "Assumptions", head: ["Assumption", "Value"], rows: [["Projects a year", A.projectsPerYear], ["Average project (EUR)", A.projectSize], ["Hosting a world, a month (EUR)", A.hostingPerWorld], ["Monthly cost (EUR)", A.monthlyCost], ["Growth a year", A.growth], ["Starting cash (EUR), bank 1 Oct 2026, declared", D.cash.amount], ["Projects a year to break even", Math.round(P.breakEven * 10) / 10], ["Money the plan needs (EUR)", r(P.need)], ["A plan, not a fact: the reader's assumptions on numinia.org/system/open-books", ""]] },
+      { name: "Results, 3 years", head: ["Year", "Projects", "Income, projects", "Income, hosting", "Cost of running", "Result", "Accumulated"], rows: P.rows.map((x: any) => [x.y, Math.round(x.proj * 10) / 10, r(x.pr), r(x.host), -r(x.cost), r(x.res), r(x.cum)]) },
+      { name: "Cash, 36 months", head: ["Month", "Cash at month end (EUR)"], rows: P.cash.map((c: number, i: number) => [i === 0 ? "start" : new Date(Date.UTC(m0.getUTCFullYear(), i - 1, 1)).toISOString().slice(0, 7), r(c)]) },
+    ];
+  }
+  function printOnly(plan: boolean) {
+    // Paper is white: print in the day colours, then give the reader's mode back.
+    const html = document.documentElement, mode = html.dataset.modo;
+    html.dataset.modo = "diurno";
+    document.body.classList.toggle("ob-print-plan", plan);
+    const done = () => { document.body.classList.remove("ob-print-plan"); if (mode) html.dataset.modo = mode; else delete html.dataset.modo; window.removeEventListener("afterprint", done); };
+    window.addEventListener("afterprint", done);
+    window.print();
+  }
+
+  document.querySelectorAll<HTMLButtonElement>("[data-dl]").forEach((b) => b.addEventListener("click", () => {
+    const p = current(), a = accounts(books, p.from, p.to, BOOK_CATEGORIES), s = slug(p);
+    const K = { real: "real", declared: "declared", simulated: "estimate" } as Record<string, string>;
+    const about = (what: string, extra: (string | number)[][] = []): Sheet => ({
+      name: "About",
+      head: ["Numen Games S.L. · " + D.company.taxId, ""],
+      rows: [
+        ["What", what], ["Period", `${p.label} · ${p.from} to ${p.to}`], ["Built", new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC, in the reader's browser"],
+        ["From", `numinia.org/system/open-books · site ${D.build.version} · commit ${D.build.commit}`],
+        ["Kinds", "real = booked or public · declared = the company's word, document to load · estimate = computed or simulated until the document arrives"],
+        ["Not loaded yet", "the 2024 received-invoices book, January–June 2026 invoices, the bank statement, the filed returns"],
+        ["People", "payroll, freelancers and the director enter as one block a quarter, at employer cost, never per person (STD-036 LED-006)"],
+        ...extra,
+      ],
+    });
+    const yearOf = p.to.slice(0, 4);
+    switch (b.dataset.dl) {
+      case "gestoria": {
+        const A = aeatBooks(books, D.company, p.from, p.to);
+        save(A.file, toXlsx(A.sheets), XLSX);
+        return setTimeout(() => save(`numen-games-withholding-and-347-${s}.xlsx`, toXlsx([about("Withholding for forms 111 and 190, and a draft of form 347. Drafts for the gestoría, not filed returns."), withholdingSheet(books, p.from, p.to), form347(books, yearOf), taxSheet(p)]), XLSX), 400);
+      }
+      case "cfo": {
+        const R = D.recon, F = D.fut[`${D.futures.payrollEnds[0]}|${D.futures.income[1]}`];
+        const recon: Sheet = { name: "Cash reconciliation", head: ["Step", "Amount (EUR)", "Kind"], rows: [...R.rows.map((r: any) => [r.label, (r.group === "in" ? 1 : -1) * Math.round(r.amount * 100) / 100, K[r.kind] ?? r.kind]), ["Cash the books expect", Math.round(R.expected), "estimate"], [`Cash in the bank, ${D.cash.asOf}`, D.cash.amount, "declared"], ["Difference not explained", Math.round(R.gap), ""]] };
+        const fut: Sheet = { name: "Next quarter", head: ["Future", ...F[0].months.flatMap((m: any) => [`${m.month} out`, `${m.month} in`, `${m.month} cash`]), "Runs out", "Runs out, one-off at its high end"], rows: F.map((f: any) => [({ same: "Nothing changes", cuts: "Cuts in phases", income: "Income arrives" } as Record<string, string>)[f.id], ...f.months.flatMap((m: any) => [-Math.round(m.out), Math.round(m.in), Math.round(m.cash)]), f.tomb, f.tombEarly]) };
+        return save(`numen-games-cfo-${s}.xlsx`, toXlsx([about("A CFO's pack: the profit and loss by month, where the money goes, the cash against the bank and the next quarter."), pnlByMonth(books, p.from, p.to, BOOK_CATEGORIES), accountsSheet(a, p), categorySheet(a), bySupplier(books, p.from, p.to, BOOK_CATEGORIES), recon, fut, taxSheet(p)]), XLSX);
+      }
+      case "audit": {
+        const J = journal(books, p.from, p.to);
+        return save(`numen-games-audit-${s}.xlsx`, toXlsx([about("An auditor's pack: every published line as a balanced double entry in the Spanish accounting plan (PGC PYMES), each naming the file and row it comes from, and the trial balance from them. Only the published lines: no bank, equity or opening balance until the gestoría's books are loaded.", D.sources.map((x: any) => [x.file, `sha256 ${x.sha256} · ${x.lines} lines`])), J, trialBalance(J), receivedBook(books, p.from, p.to), issuedBook(books, p.from, p.to)]), XLSX);
+      }
+      case "accounts-csv": {
+        const parts = [accountsSheet(a, p), categorySheet(a), issuedBook(books, p.from, p.to), taxSheet(p)];
+        const width = Math.max(...parts.map((x) => x.head.length));
+        const rows = parts.flatMap((x) => [[`## ${x.name}`], x.head, ...x.rows, []]).map((r) => [...r, ...Array(width - r.length).fill("")]);
+        return save(`numen-games-accounts-${s}.csv`, toCsv({ head: [`Numen Games S.L. · ${p.label} · ${p.from} to ${p.to}`, ...Array(width - 1).fill("")], rows }), CSV);
+      }
+      case "received": return save(`numen-games-received-invoices-${yearOf}-to-${p.to}.csv`, toCsv(receivedBook(books, p.from, p.to), true), CSV);
+      case "issued": return save(`numen-games-issued-invoices-${yearOf}-to-${p.to}.csv`, toCsv(issuedBook(books, p.from, p.to), true), CSV);
+      case "taxes": return save(`numen-games-taxes-${s}.csv`, toCsv(taxSheet(p)), CSV);
+      case "plan-xlsx": return save("numen-games-business-plan.xlsx", toXlsx(planSheets()), XLSX);
+      case "plan-pdf": return printOnly(true);
+      case "page-pdf": return printOnly(false);
+    }
+  }));
+  fill();
 </script>

@@ -53,6 +53,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.119.0",
+    date: "2026-10-01",
+    entries: [
+      {
+        type: "ADD",
+        text: "Open books lets you download anything for the period you choose — a month, a quarter, a year or two dates — in three packs: for the gestoría, the VAT record books in the Tax Agency's own layout plus withholding and a 347 draft; for a CFO, the profit and loss month by month, spend by supplier, the cash against the bank and the next quarter; for an auditor, every line as a double entry with its source and a trial balance.",
+      },
+      {
+        type: "ADD",
+        text: "Single files too: accounts, invoice books and taxes as CSV, and the business plan with your own assumptions as Excel or a one-page PDF.",
+      },
+      {
+        type: "ADD",
+        text: "The whole page prints to PDF in day colours, every room one after another, without the menus.",
+      },
+    ],
+  },
+  {
     version: "v0.118.0",
     date: "2026-10-02",
     entries: [

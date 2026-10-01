@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 23323,
+  "chars": 23644,
   "apparatus": false,
   "archived": false,
-  "tokens": 6526
+  "tokens": 6630
  },
  {
   "path": "CLAUDE.md",
@@ -2964,10 +2964,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8059,
+  "chars": 8266,
   "apparatus": false,
   "archived": false,
-  "tokens": 2240
+  "tokens": 2290
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
@@ -3129,10 +3129,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 7253,
+  "chars": 7497,
   "apparatus": false,
   "archived": false,
-  "tokens": 1863
+  "tokens": 1929
  },
  {
   "path": "system/SYS-009-the-design-system.md",
