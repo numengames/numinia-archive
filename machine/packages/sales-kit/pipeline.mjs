@@ -53,8 +53,11 @@ export const WHEN_OPEN = ['next_action', 'next_date'];
    STD-004): who signs from agreed, the closed date at won or lost, the
    reason when lost, the proposal's path once sent, the agreement's once won;
    and, when the source is a tender (OPP-012), the procedure the authority
-   buys by and the address of its notice. */
-export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement', 'disclosure', 'procedure', 'notice'];
+   buys by and the address of its notice; and its chance (OPP-013), the
+   house's likelihood read from its criteria against the house's card. */
+export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement', 'disclosure', 'procedure', 'notice', 'chance'];
+/* OPP-013: each criterion of a tender says whether the house meets it. */
+export const MEETS = ['yes', 'no', 'check'];
 /* OPP-011: `open` — the client was told the house works in the open and did
    not ask to stay unnamed, so the record may name it; absent or `unnamed` —
    sector and size only. A lost record is never named, whatever it says. */
@@ -140,6 +143,7 @@ export function loadRegister(file = DEFAULT_REGISTER) {
   }));
   const reasons = tableUnder(text, 'Reasons a sale is lost').map(([r]) => tick(r));
   const procedures = tableUnder(text, 'When the buyer publishes a notice').map(([p]) => tick(p));
+  const chances = tableUnder(text, "The house's chance").map(([c]) => tick(c));
   if (!stages.length || !reasons.length) throw new Error(`register has no stages or no reasons: ${file}`);
   return {
     order: stages.map((s) => s.name),
@@ -147,10 +151,29 @@ export function loadRegister(file = DEFAULT_REGISTER) {
     staleDays: Object.fromEntries(stages.map((s) => [s.name, s.stale])),
     reasons,
     procedures,
+    chances,
   };
 }
 
 /* ---------- reading a folder of records ---------- */
+
+/**
+ * The criteria table of a tender (OPP-013): [{criterion, asks, house, meets}].
+ * The last cell is the verdict — yes, no or check — and the first names it.
+ */
+export function criteriaOf(text) {
+  const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
+  if (!/^## Criteria\s*$/m.test(body)) return null;
+  return tableUnder(body, 'Criteria').map((cells) => ({
+    criterion: cells[0] ?? '', asks: cells[1] ?? '', house: cells[2] ?? '', meets: tick(cells[cells.length - 1] ?? '').toLowerCase(),
+  }));
+}
+
+/** Count a criteria table: how many rows, met, failed, still to check. */
+export function tally(criteria) {
+  const c = criteria ?? [];
+  return { rows: c.length, yes: c.filter((r) => r.meets === 'yes').length, no: c.filter((r) => r.meets === 'no').length, check: c.filter((r) => r.meets === 'check').length };
+}
 
 /** The transitions table of a record body: [{date, from, to, by, evidence}]. */
 export function transitionsOf(text) {
@@ -199,9 +222,23 @@ export function validate(rec, reg) {
     else if (!reg.procedures.includes(fm.procedure)) F('OPP-012', `procedure "${fm.procedure}" is not one of ${reg.procedures.join(' · ')}`);
     if (fm.procedure !== 'minor' && !fm.notice) F('OPP-012', 'a tender with no notice — link the announcement on the contracting profile or the procurement platform');
     if (fm.notice && !URL_RE.test(fm.notice)) F('OPP-012', `notice "${fm.notice}" is not an address`);
+    /* OPP-013: the criteria read into a table, each met or not, and a chance
+       that does not contradict them. */
+    if (!fm.chance) F('OPP-013', 'a tender with no chance — read the criteria against the house\'s card and write one of ' + reg.chances.join(' · '));
+    else if (!reg.chances.includes(fm.chance)) F('OPP-013', `chance "${fm.chance}" is not one of ${reg.chances.join(' · ')}`);
+    const crit = criteriaOf(rec.text);
+    if (!crit || !crit.length) F('OPP-013', 'no criteria table — a "## Criteria" table: criterion · the call asks · the house · meets');
+    else {
+      for (const c of crit) if (!MEETS.includes(c.meets)) F('OPP-013', `criterion "${c.criterion}" says "${c.meets}" — meets is one of ${MEETS.join(' · ')}`);
+      const n = tally(crit);
+      if (n.no && ['high', 'medium'].includes(fm.chance)) F('OPP-013', `a criterion fails but the chance says "${fm.chance}" — a failed criterion makes it low (a partner could meet it) or none`);
+      if (n.check && fm.chance === 'high') F('OPP-013', 'a criterion is still to check but the chance says "high" — high is every criterion met');
+      if (fm.chance === 'none' && !n.no) F('OPP-013', 'chance "none" but no criterion says no — name the requirement that fails');
+    }
   } else {
     if (fm.procedure) F('OPP-012', `procedure "${fm.procedure}" on a record whose source is not a tender`);
     if (fm.notice) F('OPP-012', 'a notice on a record whose source is not a tender');
+    if (fm.chance) F('OPP-013', 'chance on a record whose source is not a tender');
   }
   const body = rec.text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   if (EMAIL_RE.test(body) || EMAIL_RE.test(Object.values(fm).join(' '))) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
@@ -278,7 +315,7 @@ export function figures(records, reg, today) {
     }
     // the calendar: every open record's next date, tenders marked, so the
     // days a notice closes are read from the records and never typed
-    if (open && ISO_DATE.test(fm.next_date)) calendar.push({ date: fm.next_date, id: fm.id, action: fm.next_action, tender: fm.source === 'tender', procedure: fm.procedure ?? '', notice: fm.notice ?? '', value, organisation: fm.organisation });
+    if (open && ISO_DATE.test(fm.next_date)) calendar.push({ date: fm.next_date, id: fm.id, action: fm.next_action, tender: fm.source === 'tender', procedure: fm.procedure ?? '', notice: fm.notice ?? '', chance: fm.chance ?? '', value, organisation: fm.organisation });
     if (fm.state === 'lost') reasons[fm.reason] = (reasons[fm.reason] ?? 0) + 1;
     // time per stage, from the transitions: each row closes the previous stage
     for (let i = 1; i < r.transitions.length; i++) {
@@ -301,6 +338,17 @@ export function figures(records, reg, today) {
     won: tenders.filter((r) => r.fm.state === 'won').length,
     lost: tenders.filter((r) => r.fm.state === 'lost').length,
     byProcedure: Object.fromEntries(reg.procedures.map((p) => [p, tenders.filter((r) => r.fm.procedure === p).length])),
+    byChance: Object.fromEntries((reg.chances ?? []).map((c) => [c, tenders.filter((r) => r.fm.chance === c).length])),
+    // one row per tender, its criteria counted from the table — never typed
+    list: tenders.map((r) => {
+      const crit = criteriaOf(r.text ?? '') ?? [];
+      return {
+        id: r.fm.id, organisation: r.fm.organisation, state: r.fm.state, procedure: r.fm.procedure ?? '', chance: r.fm.chance ?? '',
+        value: Number(r.fm.value) || 0, next_date: r.fm.next_date ?? '', notice: r.fm.notice ?? '',
+        criteria: tally(crit), failed: crit.filter((c) => c.meets === 'no').map((c) => c.criterion),
+        toCheck: crit.filter((c) => c.meets === 'check').map((c) => c.criterion),
+      };
+    }).sort((a, b) => (reg.chances ?? []).indexOf(a.chance) - (reg.chances ?? []).indexOf(b.chance) || (a.next_date || '9').localeCompare(b.next_date || '9')),
   };
   return {
     today, records: records.length, byStage, overdue, stale, reasons,
@@ -332,6 +380,10 @@ export function report(fig, reg) {
   if (fig.tenders.records) {
     L.push('', '## Tenders', '', `${fig.tenders.records} tender(s): ${fig.tenders.open} open · ${fig.tenders.won} won · ${fig.tenders.lost} lost.`, '', '| Procedure | Records |', '|---|---|');
     for (const [p, n] of Object.entries(fig.tenders.byProcedure)) L.push(`| \`${p}\` | ${n} |`);
+    L.push('', '| Chance | Records |', '|---|---|');
+    for (const [c, n] of Object.entries(fig.tenders.byChance)) L.push(`| \`${c}\` | ${n} |`);
+    L.push('', '| Tender | Chance | Criteria met | Fails | To check | Closes |', '|---|---|---|---|---|---|');
+    for (const x of fig.tenders.list) L.push(`| ${x.id} | \`${x.chance}\` | ${x.criteria.yes}/${x.criteria.rows} | ${x.failed.join(', ') || '—'} | ${x.toCheck.join(', ') || '—'} | ${x.next_date || '—'} |`);
   }
   L.push('', '## Time per stage (average days)', '', '| Stage | Days |', '|---|---|');
   for (const s of reg.order) if (!reg.closed.includes(s)) L.push(`| \`${s}\` | ${fig.timePerStage[s] ?? '—'} |`);

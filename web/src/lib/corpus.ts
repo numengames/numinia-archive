@@ -231,6 +231,16 @@ export const SECTIONS: Section[] = [
     epistemic: "Whom the company is trying to sell to, and where each sale stands.",
     pragmatic: "See the pipeline as it is, and open the record before talking to a client again.",
   },
+  // Funding — its own series since 2026-10-01, by the Oracle's word: grants
+  // beside tenders, each read against the house's card. A grant is not a
+  // sale (no client, no proposal), so it has its own stages (STD-045).
+  { prefix: "funding/", slug: "funding", label: "Funding", collection: "corpus",
+    question: "Which public money can the house take, and where does each call stand?",
+    emptyMeans: "No call is on the radar. The folder exists and its records are read at build time and by the funding tool, so the first record to land appears here on its own.",
+    blurb: "One record per call for public money — a grant, a public loan, a prize: the funder, how much and how it pays, the closing day, and the house's chance read from the call's conditions.",
+    epistemic: "Which grants the house could take, and how likely each is.",
+    pragmatic: "See the calls by closing day, read why each is likely or not, and prepare the next one.",
+  },
   // Legal — its own series since 2026-09-27. These texts were loose in
   // operations/ while three sources disagreed on where they belonged. They are
   // the company's promises to the public in law, and they change when the law
@@ -478,6 +488,10 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-038-the-stages-of-a-sale",
       "/standards/std-039-an-opportunity-has-a-record",
       "/standards/std-040-a-proposal-says-four-things",
+      // 2026-10-01: public money that is not a sale — the stages of a grant
+      // and what its record holds, beside the sale's.
+      "/standards/std-045-the-stages-of-a-grant",
+      "/standards/std-046-a-grant-has-a-record",
       "/standards/std-036-one-account",
     ],
   },
@@ -614,6 +628,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/protocols/pro-028-qualifying-an-opportunity",
     "/protocols/pro-029-making-a-proposal",
     "/protocols/pro-030-closing-a-sale",
+    // 2026-10-01: the two doors to public money — a tender, then a grant.
+    "/protocols/pro-031-bidding-for-a-tender",
+    "/protocols/pro-032-applying-for-a-grant",
     "/protocols/pro-021-closing-the-month",
   ],
 
@@ -664,6 +681,7 @@ const READING_ORDER: Record<string, string[]> = {
   // reads them all, so the order here is by identifier — the year and the
   // running number — which is the order they were opened.
   opportunities: [],
+  funding: [],
 
   // The three promises the company makes to anyone who uses its sites, in the
   // order a visitor meets them: what we do with your data, the terms of use,
@@ -769,6 +787,7 @@ export const READING_NOTE: Record<string, string> = {
   system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the instruments that check those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
   opportunities: "Every chance to sell something, in the order it was opened: who (by sector, until they agree), at which stage, and what happens next.",
+  funding: "Every call for public money the house might take, in the order it was opened: the funder, how much, how it pays, when it closes, and the house's chance.",
   operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, what it offers, and the handling of keys.",
   legal: "The three texts written for someone outside the company: what we do with your data, the terms of using our sites, and what your browser keeps. Each is the master copy every site publishes.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",

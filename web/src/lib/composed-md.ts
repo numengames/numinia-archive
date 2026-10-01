@@ -750,7 +750,7 @@ export function accountPage(): ComposedPage {
  */
 export function pipelinePage(): ComposedPage {
   const P = salesPipeline();
-  const { register: reg, records, figures: F, today } = P;
+  const { register: reg, records, figures: F, today, funding: G } = P;
   const eur = (n: number) => "€" + Math.round(n).toLocaleString("en-GB");
   const open = records.filter((r) => !reg.closed.includes(r.state));
   const stageRows = reg.order.map((s) => `| ${s} | ${F.byStage[s].count} | ${F.byStage[s].value ? eur(F.byStage[s].value) : ""} | ${F.timePerStage[s] === null ? "—" : `${F.timePerStage[s]} d`} | ${reg.staleDays[s] === null ? "—" : `${reg.staleDays[s]} d`} |`);
@@ -792,6 +792,26 @@ export function pipelinePage(): ComposedPage {
     "## Tenders",
     "",
     `${F.tenders.records} tender${F.tenders.records === 1 ? "" : "s"}: ${F.tenders.open} open, ${F.tenders.won} won, ${F.tenders.lost} lost. By procedure: ${reg.procedures.map((p) => `${p} ${F.tenders.byProcedure[p]}`).join(" · ")}. What each procedure asks of a bidder is in the register [The stages of a sale](/standards/std-038-the-stages-of-a-sale).`,
+    "",
+    "### Tenders by the house's chance",
+    "",
+    "Public buyers only, each read against [the house's card for tenders](/operations/ops-018-the-house-card-for-tenders).",
+    "",
+    "| Record | Buyer | Chance | Criteria met | Fails | To check | Closes |",
+    "|---|---|---|---|---|---|---|",
+    ...((F.tenders.list as { id: string; organisation: string; chance: string; criteria: { yes: number; rows: number }; failed: string[]; toCheck: string[]; next_date: string }[]).length
+      ? (F.tenders.list as { id: string; organisation: string; chance: string; criteria: { yes: number; rows: number }; failed: string[]; toCheck: string[]; next_date: string }[]).map((t) => `| [${t.id}](/opportunities/${t.id.toLowerCase()}) | ${t.organisation} | ${t.chance} | ${t.criteria.yes}/${t.criteria.rows} | ${t.failed.join(", ") || "—"} | ${t.toCheck.join(", ") || "—"} | ${t.next_date || "—"} |`)
+      : ["| — | | | | | | |"]),
+    "",
+    "## Grants",
+    "",
+    "Public money that is not a sale, each call read against [the house's card for grants](/operations/ops-019-the-house-card-for-grants). A day marked est. is last year's, until the call is out.",
+    "",
+    "| Record | Call | Funder | Chance | Criteria met | Fails | Up to | Pays | Closes | Stage |",
+    "|---|---|---|---|---|---|---:|---|---|---|",
+    ...((G.figures.list as { id: string; title: string; funder: string; chance: string; criteria: { yes: number; rows: number }; failed: string[]; amount: number; payment: string; advance: number; closes: string; estimated: boolean; state: string }[]).length
+      ? (G.figures.list as { id: string; title: string; funder: string; chance: string; criteria: { yes: number; rows: number }; failed: string[]; amount: number; payment: string; advance: number; closes: string; estimated: boolean; state: string }[]).map((g) => `| [${g.id}](/funding/${g.id.toLowerCase()}) | ${g.title} | ${g.funder} | ${g.chance} | ${g.criteria.yes}/${g.criteria.rows} | ${g.failed.join(", ") || "—"} | ${g.amount ? eur(g.amount) : "services"} | ${g.payment === "advance" ? `${g.advance} % in advance` : g.payment === "on-justification" ? "after the work" : "in kind"} | ${g.closes}${g.estimated ? " est." : ""} | ${g.state} |`)
+      : ["| — | | | | | | | | | |"]),
     "",
     "## The funnel",
     "",

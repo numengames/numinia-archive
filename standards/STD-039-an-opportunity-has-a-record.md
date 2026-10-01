@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.6.0"
+version: "0.7.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-09-30T21:00:00+02:00"
+updated: "2026-10-01T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -55,7 +55,7 @@ the date opened, and the licence. The rest are written when due and absent
 before: the decider's role from agreed, the date closed at won or lost, the reason when lost, the proposal's path once sent, the agreement's path
 once won, the disclosure once the client has been told the house works
 in the open — `open` if it did not object, `unnamed` if it asked to stay
-out — and, when the source is a tender, the procedure and the notice.
+out — and, when the source is a tender, the procedure, the notice and the chance.
 
 **The stage is a value from the register.** The stage MUST be one of the
 stages register's states, written in the header and never in the filename
@@ -81,6 +81,12 @@ own price enters the record only once the authority has published the
 award. Its next date while the offer is out is the day the notice names
 for offers to close, then the day to look for the award: a filed offer is
 overdue when that day passes, never stale.
+
+**A tender is read against the house's card.** A record whose source is a
+tender MUST carry a criteria table — each requirement of the call, what the
+house holds, and whether it meets it: yes, no or still to check — and the
+house's chance, one of the register's four. A failed requirement MUST make
+the chance low or none; none MUST name the requirement that failed.
 
 ### What it says about people and organisations
 
@@ -129,6 +135,7 @@ Each rule, its code, its source and its check.
 | OPP-004 | Every open record knows its next step | — | `pipeline.mjs`: overdue and stale listed |
 | OPP-005 | Every move leaves a line | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), metadata of the transaction (clause unverified) | `pipeline.mjs`: last transition's `to` matches the stage |
 | OPP-012 | A tender names its procedure and links its notice | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 63 (the contracting profile), 133 (a bid is confidential until award), 159 (what each procedure asks); `STD-038` | `pipeline.mjs`: `source: tender` requires `procedure` from the register and `notice` unless the procedure is `minor`; a tender at `proposed` is exempt from stale |
+| OPP-013 | A tender is read against the house's card | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 87 (turnover at most 1.5 times the value), 90.4 (no past works asked of a company under five years, below the harmonised threshold), 145 (award criteria); `STD-038` *The house's chance*; the house's card for tenders (`OPS-018`) | `pipeline.mjs`: `source: tender` requires `chance` from the register and a `## Criteria` table whose last column is yes · no · check; a no forbids high and medium, a check forbids high, none needs a no |
 | OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001 | `pipeline.mjs`: header fields against a closed list, and the body scanned for an e-mail address or a phone number; by hand for a name |
 | OPP-011 | The organisation, named when it knows | the client's interest; customer-reference practice — a client's name used with its consent, withdrawable; `LCSP` art. 133 (a bidder's own offer is not the authority's to disclose) | `pipeline.mjs`: a name without `disclosure: open`, or any name in a lost record, is reported; by hand for the client's wish |
 | OPP-007 | Minimal, with its basis | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6(1)(f), recital 47 | by hand, at the review of every record |
@@ -154,4 +161,5 @@ pipeline can be as public as everything else here.
 | `STD-040` | A proposal says four things | what the proposal a record points to must contain |
 | `STD-035` | Personal data | what may be kept about the people named in a record |
 | `STD-036` | One account | where a won record's value goes |
+| `OPS-018` | The house's card for tenders | what the house holds, against which a tender's criteria are read |
 | `CAN-009` | The archive is the organisation | why a sale is a record and the pipeline is computed from records |

@@ -132,6 +132,7 @@ const SERVED_AT: Record<string, { href: string | null; label?: string; unpublish
   "objects/": { href: "/objects/" },
   "operations/": { href: "/operations/" },
   "opportunities/": { href: "/opportunities/" },
+  "funding/": { href: "/funding/" },
   "legal/": { href: "/legal/" },
   "system/": { href: "/system/" },
   "lore/": { href: "/lore/" },

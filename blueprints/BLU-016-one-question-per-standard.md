@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.10.0"
+version: "0.11.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-29T12:30:00+02:00"
+updated: "2026-10-01T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -119,6 +119,8 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-042` | Which permission is granted alone at each level of automation? | register |
 | `STD-043` | What does a period report say, and to whom? | — |
 | `STD-044` | What does a buyer see the moment after paying? | — |
+| `STD-045` | Which stages does a grant pass through, and what moves it? | register |
+| `STD-046` | What must the record of a grant contain? | — |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.

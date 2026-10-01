@@ -53,6 +53,15 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.114.0",
+    date: "2026-10-01",
+    entries: [
+      { type: "ADD", text: "The pipeline has a Tenders section — public buyers only — and a Grants section: every call read against the house's card, its criteria met, failed or still to check, and the house's chance, most likely first." },
+      { type: "ADD", text: "/funding/: one public record per grant, public loan or prize the house might take; the first six are Spanish calls (Community of Madrid, Ministry of Culture, Madrid in Game, INJUVE, CDTI)." },
+      { type: "ADD", text: "The house's two cards — what it can prove to a contracting authority and to a funder — and the two protocols that say what to do with a tender or a grant that fits." },
+    ],
+  },
+  {
     version: "v0.113.0",
     date: "2026-10-01",
     entries: [
