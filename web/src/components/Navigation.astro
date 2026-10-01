@@ -31,6 +31,8 @@ const inBook = BOOKS.some((b) => b.href && (path === b.href || path.startsWith(b
 // The bar's own text style: Mono, uppercase, tracked — type.etiqueta.
 const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
 import NarrativeDial from "@/components/NarrativeDial.astro";
+// The sales bell (the Oracle, 2026-10-01): the day's sales steps, evident on every page.
+import SalesBell from "@/components/SalesBell.astro";
 // The bar opens with the wordmark (the Oracle, 2026-09-29): the canonical
 // file, in currentColor, named for a screen reader. Never redrawn.
 import wordmark from "@/brand/Numinia_Word.svg?raw";
@@ -53,6 +55,9 @@ import wordmark from "@/brand/Numinia_Word.svg?raw";
       <a href="/about" data-nav="archive" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, (here || isIndex || inBook) ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="archive" size={14} /> Archive</a>
       <SiteSearch />
     </div>
+
+    <!-- The sales bell: every open opportunity's next step, ringing from noon of its day. -->
+    <SalesBell />
 
     <!-- The narrative dial: how the archive speaks to you (new, half, full moon). -->
     <NarrativeDial />
