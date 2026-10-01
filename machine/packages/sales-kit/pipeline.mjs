@@ -2,18 +2,28 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 /**
- * pipeline.mjs — the sales pipeline, computed from opportunity records.
+ * pipeline.mjs — every opportunity of the house, computed from its records.
  *
  * THE PROBLEM THIS SOLVES
  *
  * A pipeline typed into a sheet is wrong by the second week, and a sale kept
- * in one head is lost with a holiday. STD-039 makes every opportunity one
- * Markdown file with a header; this script is the only place the figures
- * about those files come from (OPP-009). It reads the stages and the reasons
- * from STD-038's tables — one source — so a stage renamed in the register is
- * renamed here without touching code. The records are public (OPP-008), so
- * it also refuses what identifies a person (OPP-006) and an organisation
- * named without the openness notice, or named in a lost record (OPP-011).
+ * in one head is lost with a holiday. STD-039 makes every opportunity — a
+ * sale, a public tender, a grant, a collaboration, a partner — one Markdown
+ * file with a header and a `## Timeline`: one line per thing that happened.
+ * This script is the only place the figures about those files come from
+ * (OPP-009). The stage, the next step, overdue and stale, the funnel and the
+ * chance of a call are COMPUTED from the timeline and the criteria table,
+ * never typed: a typed stage is a second copy of what the lines already say,
+ * and the second copy is the one that drifts.
+ *
+ * It reads every closed list — kinds, stages, events, steps, reasons, how it
+ * pays, instruments, sources, procedures, where a call was read, what the
+ * buyer buys, the chances — from STD-038's tables (one source), and what the
+ * house holds from its card, OPS-018. A list renamed there is renamed here
+ * without touching code. The records are public (OPP-008), so it also
+ * refuses what identifies a person (OPP-006), an organisation named before
+ * it agreed (OPP-011), and a call that fails a requirement (OPP-013): such a
+ * call is not recorded at all; what it taught goes to the card.
  *
  * WHAT IT DOES
  *
@@ -22,14 +32,11 @@
  *   node pipeline.mjs <folder> --proposals     also check each proposal a
  *                                              record points to (STD-040)
  *   node pipeline.mjs <folder> --today DATE    fix "today" (tests, replays)
- *   node pipeline.mjs <folder> --card PATH     the house's card for tenders
- *                                              (OPS-018): its turnover ceiling
- *   node pipeline.mjs <folder> --register PATH read the stages from another
- *                                              copy of STD-038 (a consumer
- *                                              repo without this tree)
+ *   node pipeline.mjs <folder> --register PATH another copy of STD-038
+ *   node pipeline.mjs <folder> --card PATH     another copy of OPS-018
  *
- * Exit 0 every record conforms · 1 a record breaks a rule (each named) ·
- *      2 the folder or the register cannot be read.
+ * Exit 0 every record conforms · 1 a record breaks a rule (each named by its
+ *      plate) · 2 the folder, the register or a named card cannot be read.
  *
  * Zero dependencies. The frontmatter reader is a deliberate copy of the
  * flat cases of machine/scripts/lib/frontmatter.mjs, because this file is
@@ -42,61 +49,109 @@ import { fileURLToPath } from 'node:url';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
-const DEFAULT_REGISTER = path.join(ROOT, 'standards', 'STD-038-the-stages-of-a-sale.md');
-const DEFAULT_CARD = path.join(ROOT, 'operations', 'OPS-018-the-house-card-for-tenders.md');
+export const DEFAULT_REGISTER = path.join(ROOT, 'standards', 'STD-038-the-stages-of-an-opportunity.md');
+export const DEFAULT_CARD = path.join(ROOT, 'operations', 'OPS-018-the-house-card.md');
 
 /* ---------- the record, as STD-039 defines it ---------- */
 
-export const REQUIRED = ['id', 'organisation', 'sector', 'offer', 'source', 'state', 'value',
-  'currency', 'contact_role', 'contact_channel', 'opened', 'license'];
-/* An open record also carries its next step (OPP-004); a closed one has none,
-   and an empty value is absent (STD-004 HDR-009), so it is not written. */
-export const WHEN_OPEN = ['next_action', 'next_date'];
-/* Written when the stage asks for them, absent before (empty is absent,
-   STD-004): who signs from agreed, the closed date at won or lost, the
-   reason when lost, the proposal's path once sent, the agreement's once won;
-   and, when the source is a tender (OPP-012), the procedure the authority
-   buys by and the address of its notice; and its chance (OPP-013), the
-   house's likelihood read from its criteria against the house's card. */
-export const WHEN_DUE = ['decider_role', 'closed', 'reason', 'proposal', 'agreement', 'disclosure', 'procedure', 'notice', 'chance',
-  /* OPP-014/015: where a tender was read, what it really buys, its file
-     reference, the solvency figures the terms ask, the day the service starts */
-  'read_from', 'object', 'file_ref', 'turnover_asked', 'works_asked', 'starts'];
-/* OPP-013: each criterion of a tender says whether the house meets it. */
-export const MEETS = ['yes', 'no', 'check'];
-/* OPP-011: `open` — the client was told the house works in the open and did
-   not ask to stay unnamed, so the record may name it; absent or `unnamed` —
-   sector and size only. A lost record is never named, whatever it says. */
-export const DISCLOSURES = ['open', 'unnamed'];
+/* On every record, whatever its kind (OPP-002). */
+export const REQUIRED = ['id', 'kind', 'organisation', 'sector', 'source', 'value', 'currency', 'pays',
+  'contact_role', 'contact_channel', 'opened', 'license'];
+/* Written when due — absent before, and an empty value is absent (STD-004
+   HDR-009). Which kind and which stage asks for each is in validate(). */
+export const WHEN_DUE = ['offer', 'advance', 'proposal', 'agreement', 'decider_role', 'disclosure',
+  'follows', 'gives_back',
+  // a call — a tender or a grant: where it is published, when it closes,
+  // what it was read from (OPP-012, OPP-014)
+  'call', 'closes', 'read_from',
+  // a tender: how the buyer purchases, its file, what it really buys, the
+  // solvency the terms ask, the day the service starts (OPP-012/014/015)
+  'procedure', 'file_ref', 'object', 'turnover_asked', 'works_asked', 'starts',
+  // a grant: what the funder gives and when the call opens; `estimated`
+  // marks days copied from last year's call until this year's is out
+  'instrument', 'opens', 'estimated'];
+/* Fields the record no longer carries, each with where its fact lives now.
+   Named apart so the breach says why, instead of "unknown field". The first
+   six are computed (OPP-009): typing them is a second copy that drifts. */
+export const COMPUTED = {
+  state: 'the stage is computed from the timeline',
+  next_action: 'the next step is the timeline\'s `next` line',
+  next_date: 'the next step is the timeline\'s `next` line',
+  closed: 'the closing day is the timeline\'s `won` or `lost` line',
+  reason: 'the reason is written on the timeline\'s `lost` line',
+  chance: 'the chance is computed from the criteria table',
+};
+/* The rest were renamed when grants joined the one record (OPP-002). */
+export const RENAMED = {
+  notice: 'a call\'s address is `call`',
+  funder: 'the funder is the `organisation`',
+  amount: 'the most the house could receive is the `value`',
+  payment: 'how it pays is `pays`',
+  granted: 'what was paid is the `won` line, handed to the ledger',
+};
+/* Fields only some kinds carry: present on another kind, they are a breach. */
+const ONLY = {
+  gives_back: ['collaboration'],
+  call: ['tender', 'grant'], closes: ['tender', 'grant'], read_from: ['tender', 'grant'],
+  procedure: ['tender'], file_ref: ['tender'], object: ['tender'],
+  turnover_asked: ['tender'], works_asked: ['tender'], starts: ['tender'],
+  instrument: ['grant'], opens: ['grant'], estimated: ['grant'],
+};
+/* The rule each kind-bound field answers to: where a call is and when it
+   runs (OPP-012); what it was read from and what it asks (OPP-014). */
+const ONLY_PLATE = { gives_back: 'OPP-002', call: 'OPP-012', closes: 'OPP-012', procedure: 'OPP-012', instrument: 'OPP-012', opens: 'OPP-012', estimated: 'OPP-012', file_ref: 'OPP-015' };
 /* The header every document of the archive opens with (STD-004, rings 1 and
    2 and the fields of every series). A record carries it like any document;
-   the tool accepts it and reads none of it. Kept here, not imported, so the
-   kit runs outside this repository; a test holds it equal to rings.mjs. */
+   the tool accepts it and reads none of it but the title. Kept here, not
+   imported, so the kit runs outside this repository; a test holds it equal
+   to machine/scripts/lib/rings.mjs. */
 export const COMMON = ['title', 'type', 'status', 'version', 'created', 'updated',
   'author', 'owner', 'provenance', 'created_source', 'created_confidence', 'requested_by',
   'supersedes', 'superseded_by', 'derived_from',
   'tags', 'visibility', 'guild', 'territory', 'registration', 'registration_reason',
   'registration_exemption', 'evidence_script', 'evidence_head', 'related', 'uid'];
 /* Roles and channels, never names (OPP-006): the header may carry only these. */
-export const ALLOWED = new Set([...REQUIRED, ...WHEN_OPEN, ...WHEN_DUE, ...COMMON]);
-export const SOURCES = ['referral', 'inbound', 'outbound', 'event', 'partner', 'tender'];
-/* OPP-012: a tender's notice lives on a contracting profile or a procurement
-   platform, reached by an address; the record links it rather than copying it. */
+export const ALLOWED = new Set([...REQUIRED, ...WHEN_DUE, ...COMMON]);
+/* The proposal's own fields (STD-040), kept beside the record in the folder. */
+export const PROPOSAL_FIELDS = ['opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'];
+
+/* OPP-013: each requirement of a call is met, or still to check. A `no` is
+   not a value of the table: a call that fails a requirement is not kept. */
+export const MEETS = ['yes', 'check'];
+/* OPP-011: `open` — told the house works in the open and did not ask to stay
+   unnamed; absent or `unnamed` — sector and size only. Lost: never named. */
+export const DISCLOSURES = ['open', 'unnamed'];
+export const CHANNELS = ['email', 'phone', 'meeting', 'form'];
+export const LEVELS = ['reaction', 'learning', 'behaviour', 'results'];
+/* The events the timeline grammar gives a meaning to. The register lists and
+   explains them; the tool needs each one to exist there, or it cannot read. */
+export const EVENTS = ['found', 'out', 'pos', 'neg', 'won', 'lost', 'next'];
+/* Closing stages: reached only by a `won` or `lost` line, never by a token. */
+export const CLOSED = ['won', 'lost'];
+/* Kinds that are calls a public body publishes: read against the card, with
+   a criteria table and a computed chance; their funder or authority may be
+   named, since it published the call itself (OPP-011). */
+export const CALLS = ['tender', 'grant'];
+/* A sale's stage from which the proposal, the decider and the agreement are
+   due (OPP-002, OPP-010): the stage they become knowable, not earlier. */
+const SALE_PROPOSED = 'proposed', SALE_AGREED = 'agreed';
+
 export const URL_RE = /^https?:\/\/\S+$/;
 /* OPP-011: without `disclosure: open`, and always once lost, the organisation
    is a sector and a size, never a name. */
-export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police|forces?|academy|school|university|hospital|health|bank|insurer|utility|logistics|manufacturer|industry|technology|software|agency|non-profit|foundation|association|municipality|ministry|company|firm|organisation|organization|studio|startup|sme|enterprise|chain|group)\b/i;
+export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police|forces?|academy|school|university|hospital|health|bank|insurer|utility|logistics|manufacturer|industry|technology|software|agency|non-profit|foundation|association|accelerator|municipality|ministry|company|firm|organisation|organization|studio|startup|sme|enterprise|chain|group|community|conference|forum|event|festival|museum|council)\b/i;
 /* OPP-006: what identifies a person — an e-mail, a phone — never enters a record. */
 export const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
 export const PHONE_RE = /(?:\+\d{1,3}[\s-]?)?(?:\(?\d{2,4}\)?[\s-]?)\d{3}[\s-]?\d{3,4}\b/;
-/* A CPV code (the EU's common procurement vocabulary, eight digits and a check
-   digit: 80500000-9) is what a tender is classified by, not a phone; the
-   body is read without them before the phone scan. */
-export const CPV_RE = /\b\d{8}-\d\b/g;
-export const CHANNELS = ['email', 'phone', 'meeting', 'form'];
-export const LEVELS = ['reaction', 'learning', 'behaviour', 'results'];
+/* What looks like a phone and is not: a CPV code (80500000-9), an official
+   gazette's identifier (BOE-B-2026-10741), a date, an address. Read out
+   before the phone scan. */
+export const NOT_A_PHONE = /\b\d{8}-\d\b|\b(?:BOE|BOCM|BORME|DOUE|BOP)-[A-Z]-\d{4}-\d+(?:-\d+)?\b|\b\d{4}-\d{2}-\d{2}\b|https?:\/\/\S+/g;
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const ID_RE = /^OPP-\d{4}-\d{3,}$/;
+const NUMBER = /^\d+(\.\d+)?$/;
+/* The separator of a timeline line: space, U+00B7 middle dot, space. */
+export const SEP = ' · ';
 
 /* ---------- frontmatter (flat scalars only, on purpose) ---------- */
 
@@ -111,71 +166,107 @@ export function parseFM(text) {
     let v = (kv[2] ?? '').trim();
     const q = /^"(.*)"\s*(#.*)?$/.exec(v) ?? /^'(.*)'\s*(#.*)?$/.exec(v);
     v = q ? q[1] : v.replace(/\s+#.*$/, '').trim();
-    out[kv[1]] = v;
+    // empty is absent (STD-004 HDR-009): a field written empty was not written
+    if (v !== '') out[kv[1]] = v;
   }
   return out;
 }
 
-/* ---------- the register: STD-038's tables ---------- */
+/* ---------- Markdown: sections and tables, found by heading ---------- */
 
-/** Parse a Markdown table under the heading `title` into rows of cells. */
-function tableUnder(text, title) {
-  const at = text.indexOf(`## ${title}`);
-  if (at < 0) return [];
-  const block = text.slice(at).split('\n').slice(1);
-  const rows = [];
-  for (const line of block) {
+/** The body without its frontmatter, with numbered headings read plain:
+    `## 2. The card` is `## The card`, so a document may number its sections. */
+const bodyOf = (text) => text.replace(/^---\s*\n[\s\S]*?\n---/, '').replace(/^## \d+\.\s+/gm, '## ');
+
+/** The lines under the heading `## title`, up to the next `## `. Null when absent. */
+function section(text, title) {
+  const re = new RegExp(`^## ${title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`, 'm');
+  const m = re.exec(text);
+  if (!m) return null;
+  const lines = [];
+  for (const line of text.slice(m.index).split('\n').slice(1)) {
     if (line.startsWith('## ')) break;
-    if (!line.startsWith('|')) continue;
-    const cells = line.split('|').slice(1, -1).map((c) => c.trim());
-    if (cells.every((c) => /^-+$/.test(c))) continue;
-    rows.push(cells);
+    lines.push(line);
   }
-  return rows.slice(1); // drop the header row
+  return lines;
 }
 
-const tick = (s) => s.replace(/`/g, '');
+/** A Markdown table under the heading `title`, header row dropped. */
+function tableUnder(text, title) {
+  const rows = [];
+  for (const line of section(bodyOf(text), title) ?? []) {
+    if (!line.startsWith('|')) continue;
+    const cells = line.split('|').slice(1, -1).map((c) => c.trim());
+    if (cells.every((c) => /^:?-+:?$/.test(c))) continue;
+    rows.push(cells);
+  }
+  return rows.slice(1);
+}
+
+const tick = (s) => String(s ?? '').replace(/`/g, '').trim();
+const firsts = (rows) => rows.map(([c]) => tick(c));
+
+/* ---------- the register: STD-038's tables ---------- */
 
 /**
- * The stages in order, the closed ones, each stage's stale days, the
- * reasons, and the procedures a public buyer purchases by — read from the
- * register, never typed here.
+ * Every closed list the records use, read from the register, never typed
+ * here. Throws (exit 2) when a table the tool cannot work without is
+ * missing — better to stop than to judge records against an empty list.
  */
 export function loadRegister(file = DEFAULT_REGISTER) {
   const text = readFileSync(file, 'utf8');
-  const stages = tableUnder(text, 'The stages').map(([stage, , , , stale]) => ({
-    name: tick(stage),
-    stale: /^\d+/.test(stale) ? Number(stale.match(/^\d+/)[0]) : null,
-  }));
-  const reasons = tableUnder(text, 'Reasons a sale is lost').map(([r]) => tick(r));
-  const procedures = tableUnder(text, 'When the buyer publishes a notice').map(([p]) => tick(p));
-  const chances = tableUnder(text, "The house's chance").map(([c]) => tick(c));
-  const readFrom = tableUnder(text, 'Where a tender was read').map(([c]) => tick(c));
-  const objects = tableUnder(text, 'What the buyer really buys').map(([c]) => tick(c));
-  if (!stages.length || !reasons.length) throw new Error(`register has no stages or no reasons: ${file}`);
-  return {
-    order: stages.map((s) => s.name),
-    closed: stages.filter((s) => s.stale === null).map((s) => s.name),
-    staleDays: Object.fromEntries(stages.map((s) => [s.name, s.stale])),
-    reasons,
-    procedures,
-    chances,
-    readFrom,
-    objects,
+  const stageRows = tableUnder(text, 'The stages');
+  const kinds = tableUnder(text, 'The kinds').map(([k, is, stale]) => {
+    const kind = tick(k);
+    const n = /^\d+/.exec(stale ?? '');
+    return { kind, is: is ?? '', stale: n ? Number(n[0]) : null, stages: stageRows.filter((r) => tick(r[0]) === kind).map((r) => tick(r[1])) };
+  });
+  const events = tableUnder(text, 'The events').map(([e, means, step]) => ({ event: tick(e), means: means ?? '', step: /^[a-z]/.test(tick(step)) ? tick(step) : null }));
+  const steps = tableUnder(text, 'The steps').map(([s, means]) => ({ step: tick(s), means: means ?? '' }));
+  const reg = {
+    kinds,
+    stages: Object.fromEntries(kinds.map((k) => [k.kind, k.stages])),
+    events,
+    steps,
+    reasons: firsts(tableUnder(text, 'Reasons an opportunity is lost')),
+    pays: firsts(tableUnder(text, 'How it pays')),
+    instruments: firsts(tableUnder(text, 'What the funder gives')),
+    sources: firsts(tableUnder(text, 'The sources')),
+    procedures: firsts(tableUnder(text, 'When the buyer publishes a notice')),
+    readFrom: firsts(tableUnder(text, 'Where a call was read')),
+    objects: firsts(tableUnder(text, 'What the buyer really buys')),
+    chances: firsts(tableUnder(text, "The house's chance")),
   };
+  const lacks = [];
+  if (!kinds.length) lacks.push('The kinds');
+  for (const k of kinds) {
+    if (!k.stages.length) lacks.push(`stages of \`${k.kind}\``);
+    for (const c of CLOSED) if (k.stages.length && !k.stages.includes(c)) lacks.push(`stage \`${c}\` of \`${k.kind}\``);
+  }
+  for (const e of EVENTS) if (!events.some((x) => x.event === e)) lacks.push(`event \`${e}\``);
+  for (const t of ['reasons', 'pays', 'sources']) if (!reg[t].length) lacks.push(t);
+  if (steps.length !== 5) lacks.push('the five steps');
+  if (lacks.length) throw new Error(`register ${file} lacks: ${lacks.join(', ')}`);
+  return reg;
 }
 
+/* ---------- the card: OPS-018's tables ---------- */
+
 /**
- * The house's card for tenders (OPS-018): the turnover ceiling a tender's
- * asked turnover is held against, and the title patterns a sweep skips.
- * Read from the card's own tables, so the card is the one source.
+ * What the house holds (OPS-018): one row per requirement a call usually
+ * asks, the turnover ceiling a tender's asked turnover is held against, and
+ * the patterns a sweep skips. Read from the card's own tables, so the card
+ * is the one source. A missing file reads as an empty card.
  */
 export function loadCard(file = DEFAULT_CARD) {
-  if (!existsSync(file)) return { turnoverCeiling: null, outOfDomain: [] };
-  const text = readFileSync(file, 'utf8').replace(/^## \d+\.\s+/gm, '## ');
-  const fig = Object.fromEntries(tableUnder(text, 'The figures the tool reads').map(([k, v]) => [k.toLowerCase(), Number(String(v).replace(/[^\d.]/g, ''))]));
+  if (!existsSync(file)) return { requirements: [], turnoverCeiling: null, outOfDomain: [] };
+  const text = readFileSync(file, 'utf8');
+  const fig = Object.fromEntries(tableUnder(text, 'The figures the tool reads').map(([k, v]) => [String(k).toLowerCase(), Number(String(v).replace(/[^\d.]/g, ''))]));
   return {
-    turnoverCeiling: Number.isFinite(fig['turnover ceiling']) ? fig['turnover ceiling'] : null,
+    requirements: tableUnder(text, 'The card').map(([requirement, asks, house, state, unlocks]) => ({
+      requirement: requirement ?? '', asks: asks ?? '', house: house ?? '', state: tick(state).toLowerCase(), unlocks: unlocks ?? '',
+    })),
+    turnoverCeiling: Number.isFinite(fig['turnover ceiling']) && fig['turnover ceiling'] > 0 ? fig['turnover ceiling'] : null,
     outOfDomain: tableUnder(text, 'What the house makes, and what it does not').map(([pattern, why]) => ({ pattern, why })),
   };
 }
@@ -183,145 +274,242 @@ export function loadCard(file = DEFAULT_CARD) {
 /** A title the card puts out of the house's domain, or null. */
 export function outOfDomain(title, card) {
   const t = String(title ?? '').toLowerCase();
-  return card.outOfDomain.find((p) => t.includes(p.pattern.toLowerCase())) ?? null;
+  return (card.outOfDomain ?? []).find((p) => t.includes(String(p.pattern).toLowerCase())) ?? null;
 }
 
-/* ---------- reading a folder of records ---------- */
+/* ---------- reading a record's body ---------- */
 
 /**
- * The criteria table of a tender (OPP-013): [{criterion, asks, house, meets}].
- * The last cell is the verdict — yes, no or check — and the first names it.
+ * The timeline (OPP-005): every line under `## Timeline` that starts with
+ * `- `, read as `- YYYY-MM-DD · EVENT · text`. A `lost` line's first field
+ * after the event is its reason. A text that opens with a backticked word
+ * moves the record to that stage; a `won` or `lost` line moves it to `won`
+ * or `lost`. A line that does not parse is returned with `bad` set, so the
+ * validator can name it instead of skipping it silently.
+ */
+export function timelineOf(text) {
+  const lines = section(bodyOf(text), 'Timeline');
+  if (!lines) return null;
+  return lines.filter((l) => l.startsWith('- ')).map((raw) => {
+    const parts = raw.slice(2).split(SEP);
+    const [date, event] = [parts[0]?.trim() ?? '', parts[1]?.trim() ?? ''];
+    let rest = parts.slice(2);
+    let reason = null;
+    if (event === 'lost' && rest.length) { reason = rest[0].trim(); rest = rest.slice(1); }
+    let body = rest.join(SEP).trim();
+    let stage = null;
+    const tok = /^`([^`]+)`\s*/.exec(body);
+    if (tok) { stage = tok[1].trim(); body = body.slice(tok[0].length); }
+    if (CLOSED.includes(event)) stage = event;
+    const bad = !ISO_DATE.test(date) || parts.length < 3 ? raw : null;
+    return { date, event, stage, reason, text: body, ...(bad ? { bad } : {}) };
+  });
+}
+
+/**
+ * The criteria table of a call (OPP-013): [{requirement, asks, house, meets}].
+ * The last cell is the verdict and the first names the requirement, which
+ * the card's rows name too.
  */
 export function criteriaOf(text) {
-  const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
-  if (!/^## Criteria\s*$/m.test(body)) return null;
-  return tableUnder(body, 'Criteria').map((cells) => ({
-    criterion: cells[0] ?? '', asks: cells[1] ?? '', house: cells[2] ?? '', meets: tick(cells[cells.length - 1] ?? '').toLowerCase(),
+  if (!section(bodyOf(text), 'Criteria')) return null;
+  return tableUnder(text, 'Criteria').map((c) => ({
+    requirement: c[0] ?? '', asks: c[1] ?? '', house: c[2] ?? '', meets: tick(c[c.length - 1]).toLowerCase(),
   }));
-}
-
-/** Count a criteria table: how many rows, met, failed, still to check. */
-export function tally(criteria) {
-  const c = criteria ?? [];
-  return { rows: c.length, yes: c.filter((r) => r.meets === 'yes').length, no: c.filter((r) => r.meets === 'no').length, check: c.filter((r) => r.meets === 'check').length };
-}
-
-/** The transitions table of a record body: [{date, from, to, by, evidence}]. */
-export function transitionsOf(text) {
-  return tableUnder(text.replace(/^---\s*\n[\s\S]*?\n---/, ''), 'Transitions')
-    .map(([date, from, to, by, evidence]) => ({ date, from: tick(from), to: tick(to), by, evidence }))
-    .filter((t) => ISO_DATE.test(t.date));
 }
 
 const days = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 86_400_000);
 
+/**
+ * Walk the timeline against the kind's stages: where the record stands,
+ * the furthest open stage it reached, the day it entered each stage, and
+ * every breach of the grammar met on the way (OPP-003, OPP-004, OPP-005).
+ */
+export function walk(events, stages, reg) {
+  const bad = [];
+  const F = (plate, what) => bad.push({ plate, what });
+  const known = new Set(reg.events.map((e) => e.event));
+  let stage = stages[0] ?? null, reached = stage;
+  const entered = stage && events[0] ? [{ stage, date: events[0].date }] : [];
+  let closedAt = null, reason = null;
+  const real = events.filter((e) => e.event !== 'next');
+  let prev = null; // the last line that parsed: a bad line is named once, not again as out of order
+  events.forEach((e, i) => {
+    if (e.bad) { F('OPP-005', `timeline line "${e.bad}" is not "- YYYY-MM-DD · event · text"`); return; }
+    if (!known.has(e.event)) { F('OPP-005', `timeline event "${e.event}" is not one of ${reg.events.map((x) => x.event).join(' · ')}`); return; }
+    if (prev && e.date < prev) F('OPP-005', `timeline line of ${e.date} comes after one of ${prev} — the lines go in date order`);
+    prev = e.date;
+    if (closedAt && e.event !== 'next') F('OPP-005', `a \`${e.event}\` line after the record closed on ${closedAt} — a closed record that reopens is a new record that follows it`);
+    if (e.event === 'next') {
+      if (e.stage) F('OPP-003', `a \`next\` line carries the stage \`${e.stage}\` — a planned step moves nothing until it happens`);
+      return;
+    }
+    if (e.event === 'lost') {
+      if (!reg.reasons.includes(e.reason)) F('OPP-003', `lost with reason "${e.reason ?? ''}", not one of ${reg.reasons.join(' · ')}`);
+      reason = e.reason;
+    }
+    if (!e.stage) return;
+    const at = stages.indexOf(e.stage);
+    if (at < 0) { F('OPP-003', `stage \`${e.stage}\` is not a stage of a ${stages.kind ?? 'record of this kind'}: ${stages.join(' · ')}`); return; }
+    if (CLOSED.includes(e.stage) && !CLOSED.includes(e.event)) { F('OPP-003', `stage \`${e.stage}\` written as a token — a record closes only by a \`${e.stage}\` line`); return; }
+    if (!CLOSED.includes(e.stage) && at < stages.indexOf(stage)) { F('OPP-003', `stage \`${e.stage}\` on ${e.date} comes after \`${stage}\` — stages only move forward`); return; }
+    if (e.stage !== stage) entered.push({ stage: e.stage, date: e.date });
+    stage = e.stage;
+    if (!CLOSED.includes(stage)) reached = stage;
+    if (CLOSED.includes(e.event)) closedAt = e.date;
+  });
+  // OPP-005: the house detected it first, once
+  const found = events.filter((e) => e.event === 'found');
+  if (!events.length) F('OPP-005', 'the timeline has no line — the first is the `found` line');
+  else if (events[0].event !== 'found') F('OPP-005', `the timeline opens with \`${events[0].event}\`, not \`found\` — the first line is the day the house detected it`);
+  if (found.length > 1) F('OPP-005', `${found.length} \`found\` lines — a record is found once`);
+  // OPP-004: an open record knows its one next step, written last; a closed one has none
+  const nexts = events.filter((e) => e.event === 'next');
+  if (!closedAt) {
+    if (nexts.length !== 1) F('OPP-004', `an open record with ${nexts.length} \`next\` lines — it has exactly one`);
+    else if (events[events.length - 1].event !== 'next') F('OPP-004', 'the `next` line is not the last — the planned step comes after everything that happened');
+  } else if (nexts.length) F('OPP-004', 'a closed record with a `next` line — nothing is planned after it closed');
+  const next = !closedAt && nexts.length ? { date: nexts[nexts.length - 1].date, action: nexts[nexts.length - 1].text } : null;
+  const last = real.length ? real[real.length - 1].date : null;
+  return { stage, reached, entered, closed: closedAt, reason, next, last, bad };
+}
+
+/* ---------- validation ---------- */
+
 /** Validate one record against STD-039. Returns the list of breaches (plate + what). */
-export function validate(rec, reg, card = { turnoverCeiling: null, outOfDomain: [] }) {
-  const { fm, transitions, file } = rec;
+export function validate(rec, reg, card = { requirements: [], turnoverCeiling: null, outOfDomain: [] }) {
+  const { fm, file, text } = rec;
   const bad = [];
   const F = (plate, what) => bad.push({ plate, what, file });
   if (!fm) { F('OPP-001', 'no frontmatter'); return bad; }
-  for (const k of REQUIRED) if (!(k in fm)) F('OPP-002', `header lacks \`${k}\``);
-  for (const k of Object.keys(fm)) if (!ALLOWED.has(k)) F('OPP-006', `header carries \`${k}\`, not a field of the record — a name or an address belongs in the body`);
-  if (!ID_RE.test(fm.id ?? '')) F('OPP-001', `id "${fm.id}" is not OPP-YYYY-NNN`);
+
+  /* OPP-001: one file per opportunity, named by its id */
+  if (!ID_RE.test(fm.id ?? '')) F('OPP-001', `id "${fm.id ?? ''}" is not OPP-YYYY-NNN`);
   if (fm.id && path.basename(file, '.md') !== fm.id) F('OPP-001', `file is named "${path.basename(file)}", its id is "${fm.id}"`);
-  if (!reg.order.includes(fm.state)) F('OPP-003', `state "${fm.state}" is not a stage of the register`);
-  if (fm.source && !SOURCES.includes(fm.source)) F('OPP-002', `source "${fm.source}" is not one of ${SOURCES.join(' · ')}`);
-  if (fm.contact_channel && !CHANNELS.includes(fm.contact_channel)) F('OPP-002', `contact_channel "${fm.contact_channel}" is not one of ${CHANNELS.join(' · ')}`);
-  if (fm.value !== undefined && !/^\d+(\.\d+)?$/.test(fm.value)) F('OPP-002', `value "${fm.value}" is not a number`);
-  if (fm.opened && !ISO_DATE.test(fm.opened)) F('OPP-002', `opened "${fm.opened}" is not a date`);
-  const open = !reg.closed.includes(fm.state);
-  if (open) {
-    if (!fm.next_action) F('OPP-004', 'open record with no next action');
-    if (!ISO_DATE.test(fm.next_date ?? '')) F('OPP-004', 'open record with no next date');
-    if (fm.closed) F('OPP-003', `open stage "${fm.state}" but a closed date "${fm.closed}"`);
-  } else {
-    if (!ISO_DATE.test(fm.closed ?? '')) F('OPP-003', `closed stage "${fm.state}" with no closed date`);
+
+  /* OPP-002: the header carries the fields the pipeline needs, and only those */
+  for (const k of REQUIRED) if (!(k in fm)) F('OPP-002', `header lacks \`${k}\``);
+  for (const k of Object.keys(fm)) {
+    if (COMPUTED[k]) F('OPP-009', `header carries \`${k}\` — ${COMPUTED[k]}; it is computed, never typed`);
+    else if (RENAMED[k]) F('OPP-002', `header carries \`${k}\` — ${RENAMED[k]}`);
+    else if (!ALLOWED.has(k)) F('OPP-006', `header carries \`${k}\`, not a field of the record — a name or an address belongs nowhere in it`);
   }
-  if (fm.state === 'lost' && !reg.reasons.includes(fm.reason)) F('OPP-003', `lost with reason "${fm.reason}", not one of the register's`);
-  if (fm.state !== 'lost' && fm.reason) F('OPP-003', `reason "${fm.reason}" on a record that is not lost`);
-  if (fm.state === 'proposed' && !fm.proposal) F('OPP-002', 'proposed with no proposal path');
-  if (fm.state === 'won' && !fm.agreement) F('OPP-010', 'won with no agreement path');
-  if (['agreed', 'won'].includes(fm.state) && !fm.decider_role) F('OPP-003', `${fm.state} with no decider role — who signs for the client is known by the time they agree`);
-  if (fm.state === 'proposed') {
-    const sent = transitions.find((t) => t.to === 'proposed');
-    if (sent && !(sent.by ?? '').trim()) F('PRP-007', 'the transition to proposed names nobody in By — whoever sent it read it, and the row is the evidence');
+
+  /* OPP-003: the kind comes from the register */
+  const kind = fm.kind;
+  const stages = reg.stages[kind];
+  if (kind !== undefined && !stages) F('OPP-003', `kind "${kind}" is not one of ${reg.kinds.map((k) => k.kind).join(' · ')}`);
+  for (const [k, kinds] of Object.entries(ONLY))
+    if (fm[k] !== undefined && stages && !kinds.includes(kind)) F(ONLY_PLATE[k] ?? 'OPP-014', `\`${k}\` on a ${kind} — it belongs to a ${kinds.join(' or a ')}`);
+
+  const among = (k, list, plate = 'OPP-002') => { if (fm[k] !== undefined && !list.includes(fm[k])) F(plate, `${k} "${fm[k]}" is not one of ${list.join(' · ')}`); };
+  among('source', reg.sources);
+  among('pays', reg.pays);
+  among('contact_channel', CHANNELS);
+  among('disclosure', DISCLOSURES, 'OPP-011');
+  if (fm.currency !== undefined && fm.currency !== 'EUR') F('OPP-002', `currency "${fm.currency}" — values are kept in EUR, so they add up`);
+  if (fm.value !== undefined && !NUMBER.test(fm.value)) F('OPP-002', `value "${fm.value}" is not a number (before tax)`);
+  if (fm.opened !== undefined && !ISO_DATE.test(fm.opened)) F('OPP-002', `opened "${fm.opened}" is not a date`);
+  if (fm.offer !== undefined && !/^OPS-\d{3}$/.test(fm.offer)) F('OPP-002', `offer "${fm.offer}" is not an offer record (OPS-NNN)`);
+  if (['sale', 'tender'].includes(kind) && !fm.offer) F('OPP-002', `a ${kind} with no \`offer\` — name the offer record it sells`);
+  if (fm.follows !== undefined && !ID_RE.test(fm.follows)) F('OPP-002', `follows "${fm.follows}" is not a record's id`);
+
+  /* how it pays: the share before the work, when the work is paid in parts */
+  if (fm.advance !== undefined && (!NUMBER.test(fm.advance) || Number(fm.advance) > 100)) F('OPP-002', `advance "${fm.advance}" is a share of the value: 0 to 100`);
+  if (['advance', 'milestones'].includes(fm.pays) && fm.advance === undefined) F('OPP-002', `paid by ${fm.pays} with no \`advance\` — the share paid before the work`);
+  if (fm.pays === 'advance' && fm.advance !== undefined && !(Number(fm.advance) > 0)) F('OPP-002', 'paid in advance, yet nothing paid before the work');
+  if (fm.pays === 'on-justification' && Number(fm.advance) > 0) F('OPP-002', 'paid on justification, yet a share in advance');
+
+  /* OPP-005, OPP-004, OPP-003: the timeline drives the stage */
+  const events = timelineOf(text);
+  let w = null;
+  if (!events) F('OPP-005', 'no `## Timeline` — one line per thing that happened, `- YYYY-MM-DD · event · text`');
+  else if (stages) {
+    w = walk(events, Object.assign([...stages], { kind }), reg);
+    for (const b of w.bad) F(b.plate, b.what);
   }
-  /* OPP-012: a tender names how the authority buys and where it said so. */
-  if (fm.source === 'tender') {
+  const stage = w?.stage;
+
+  /* a sale: the proposal once proposed, the decider from agreed, the agreement at won */
+  if (kind === 'sale' && w) {
+    const at = (s) => stages.indexOf(w.reached) >= stages.indexOf(s) || w.stage === 'won';
+    if (at(SALE_PROPOSED) && !fm.proposal) F('OPP-002', `a sale that reached \`${SALE_PROPOSED}\` with no \`proposal\` path`);
+    if ([SALE_AGREED, 'won'].includes(stage) && !fm.decider_role) F('OPP-003', `a sale at \`${stage}\` with no decider role — who signs for the client is known by the time they agree`);
+    if (stage === 'won' && !fm.agreement) F('OPP-010', 'a sale won with no agreement path');
+  }
+
+  /* OPP-012: a call links where it is published */
+  if (CALLS.includes(kind)) {
+    if (!fm.call && !(kind === 'tender' && fm.procedure === 'minor')) F('OPP-012', `a ${kind} with no \`call\` — the address of the notice or the call's page`);
+    if (fm.call && !URL_RE.test(fm.call)) F('OPP-012', `call "${fm.call}" is not an address`);
+    if (!fm.closes) F('OPP-012', `a ${kind} with no \`closes\` — the day offers or applications close`);
+    for (const k of ['closes', 'opens', 'starts']) if (fm[k] && !ISO_DATE.test(fm[k])) F('OPP-012', `${k} "${fm[k]}" is not a date`);
+    /* OPP-014: the verdict rests on the call's own words */
+    if (!fm.read_from) F('OPP-014', `a ${kind} that does not say where it was read — ${reg.readFrom.join(' · ')}`);
+    else if (!reg.readFrom.includes(fm.read_from)) F('OPP-014', `read_from "${fm.read_from}" is not one of ${reg.readFrom.join(' · ')} — a summary is never enough to record`);
+  }
+  if (kind === 'tender') {
     if (!fm.procedure) F('OPP-012', 'a tender with no procedure — the register names how a public buyer purchases');
-    else if (!reg.procedures.includes(fm.procedure)) F('OPP-012', `procedure "${fm.procedure}" is not one of ${reg.procedures.join(' · ')}`);
-    if (fm.procedure !== 'minor' && !fm.notice) F('OPP-012', 'a tender with no notice — link the announcement on the contracting profile or the procurement platform');
-    if (fm.notice && !URL_RE.test(fm.notice)) F('OPP-012', `notice "${fm.notice}" is not an address`);
-    /* OPP-013: the criteria read into a table, each met or not, and a chance
-       that does not contradict them. */
-    if (!fm.chance) F('OPP-013', 'a tender with no chance — read the criteria against the house\'s card and write one of ' + reg.chances.join(' · '));
-    else if (!reg.chances.includes(fm.chance)) F('OPP-013', `chance "${fm.chance}" is not one of ${reg.chances.join(' · ')}`);
-    const crit = criteriaOf(rec.text);
-    if (!crit || !crit.length) F('OPP-013', 'no criteria table — a "## Criteria" table: criterion · the call asks · the house · meets');
-    else {
-      for (const c of crit) if (!MEETS.includes(c.meets)) F('OPP-013', `criterion "${c.criterion}" says "${c.meets}" — meets is one of ${MEETS.join(' · ')}`);
-      const n = tally(crit);
-      if (n.no && ['high', 'medium'].includes(fm.chance)) F('OPP-013', `a criterion fails but the chance says "${fm.chance}" — a failed criterion makes it low (a partner could meet it) or none`);
-      if (n.check && fm.chance === 'high') F('OPP-013', 'a criterion is still to check but the chance says "high" — high is every criterion met');
-      if (fm.chance === 'none' && !n.no) F('OPP-013', 'chance "none" but no criterion says no — name the requirement that fails');
-    }
-    /* OPP-014: a verdict rests on the authority's own terms and on what it
-       really buys, read from them; the card's ceiling bounds the turnover. */
-    if (!fm.read_from) F('OPP-014', 'a tender that does not say where it was read — terms · notice · aggregator');
-    else if (!reg.readFrom.includes(fm.read_from)) F('OPP-014', `read_from "${fm.read_from}" is not one of ${reg.readFrom.join(' · ')}`);
-    else if (['high', 'medium'].includes(fm.chance) && fm.read_from === 'aggregator') F('OPP-014', `chance "${fm.chance}" read from the aggregator — a summary can invent the object; read the notice at least`);
-    else if (fm.chance === 'high' && fm.read_from !== 'terms') F('OPP-014', 'chance "high" before the terms are read');
-    if (!fm.object) F('OPP-014', 'a tender that does not say what the buyer really buys — build · deliver · resale · other');
-    else if (!reg.objects.includes(fm.object)) F('OPP-014', `object "${fm.object}" is not one of ${reg.objects.join(' · ')}`);
-    else if (['resale', 'other'].includes(fm.object) && ['high', 'medium'].includes(fm.chance)) F('OPP-014', `object "${fm.object}" with chance "${fm.chance}" — the house does not win what it does not make`);
-    for (const k of ['turnover_asked', 'works_asked']) if (fm[k] !== undefined && !/^\d+(\.\d+)?$/.test(fm[k])) F('OPP-014', `${k} "${fm[k]}" is not a number`);
-    if (card.turnoverCeiling !== null && Number(fm.turnover_asked) > card.turnoverCeiling && ['high', 'medium'].includes(fm.chance))
-      F('OPP-014', `turnover asked ${Number(fm.turnover_asked).toLocaleString('en-GB')} € is above the card's ${card.turnoverCeiling.toLocaleString('en-GB')} € — low with a partner, or none`);
-    if (fm.starts && !ISO_DATE.test(fm.starts)) F('OPP-014', `starts "${fm.starts}" is not a date`);
+    else among('procedure', reg.procedures, 'OPP-012');
+    if (!fm.object) F('OPP-014', `a tender that does not say what the buyer really buys — ${reg.objects.join(' · ')}`);
+    else if (!reg.objects.includes(fm.object)) F('OPP-014', `object "${fm.object}" is not one of ${reg.objects.join(' · ')} — the house does not record what it does not make`);
+    for (const k of ['turnover_asked', 'works_asked']) if (fm[k] !== undefined && !NUMBER.test(fm[k])) F('OPP-014', `${k} "${fm[k]}" is not a number`);
+    if (card.turnoverCeiling !== null && Number(fm.turnover_asked) > card.turnoverCeiling)
+      F('OPP-014', `turnover asked ${Number(fm.turnover_asked).toLocaleString('en-GB')} € is above the card's ${card.turnoverCeiling.toLocaleString('en-GB')} € — not recorded; bid as a partner instead (kind partner)`);
     /* OPP-015: the file reference is what makes two listings one tender */
-    if (!fm.file_ref) F('OPP-015', 'a tender with no file reference — the authority\'s file number, or "unread" until read');
-  } else {
-    for (const k of ['read_from', 'object', 'file_ref', 'turnover_asked', 'works_asked', 'starts']) if (fm[k]) F('OPP-014', `${k} on a record whose source is not a tender`);
-    if (fm.procedure) F('OPP-012', `procedure "${fm.procedure}" on a record whose source is not a tender`);
-    if (fm.notice) F('OPP-012', 'a notice on a record whose source is not a tender');
-    if (fm.chance) F('OPP-013', 'chance on a record whose source is not a tender');
+    if (!fm.file_ref) F('OPP-015', 'a tender with no file reference — the buyer\'s file number');
   }
-  const body = rec.text.replace(/^---\s*\n[\s\S]*?\n---/, '');
-  if (EMAIL_RE.test(body) || EMAIL_RE.test(Object.values(fm).join(' '))) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
-  if (PHONE_RE.test(body.replace(CPV_RE, 'CPV'))) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
-  if (fm.disclosure && !DISCLOSURES.includes(fm.disclosure)) F('OPP-011', `disclosure "${fm.disclosure}" is not one of ${DISCLOSURES.join(' · ')}`);
-  const named = fm.organisation && !SECTOR_WORDS.test(fm.organisation);
-  if (named && fm.state === 'lost') F('OPP-011', `organisation "${fm.organisation}" reads as a name in a lost record; a lost sale is kept by sector and size ("a large retailer") — the reason is public, the name is not`);
+  if (kind === 'grant') {
+    if (!fm.instrument) F('OPP-012', `a grant with no instrument — ${reg.instruments.join(' · ')}`);
+    else among('instrument', reg.instruments, 'OPP-012');
+    if (fm.estimated !== undefined && !['yes', 'no'].includes(fm.estimated)) F('OPP-012', `estimated "${fm.estimated}" is yes or no`);
+    if (fm.estimated === 'yes' && stage && stage !== stages[0] && !CLOSED.includes(stage)) F('OPP-012', `stage \`${stage}\` but the days are still estimated — the call is out: read its days and write estimated: "no"`);
+  }
+
+  /* OPP-013: a call is read against the card; only what passes is recorded */
+  const crit = criteriaOf(text);
+  if (CALLS.includes(kind) && (!crit || !crit.length)) F('OPP-013', 'no criteria table — a "## Criteria" table: Requirement · The call asks · We have · Meets');
+  for (const c of crit ?? []) {
+    if (c.meets === 'no') F('OPP-013', `requirement "${c.requirement}" is not met — a call that fails a requirement is not recorded — take what it taught to the card (OPS-018) and delete the record`);
+    else if (!MEETS.includes(c.meets)) F('OPP-013', `requirement "${c.requirement}" says "${c.meets}" — meets is one of ${MEETS.join(' · ')}`);
+  }
+
+  /* OPP-006: nobody's e-mail or phone, anywhere in a public record */
+  const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
+  if (EMAIL_RE.test(text)) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
+  if (PHONE_RE.test(body.replace(NOT_A_PHONE, ' '))) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
+
+  /* OPP-011: the organisation, named when it knows — a public funder or a
+     buyer that published its own call may always be named */
+  const named = fm.organisation && !CALLS.includes(kind) && !SECTOR_WORDS.test(fm.organisation);
+  if (named && stage === 'lost') F('OPP-011', `organisation "${fm.organisation}" reads as a name in a lost record — a lost one is kept by sector and size ("a large retailer"); the reason is public, the name is not`);
   else if (named && fm.disclosure !== 'open') F('OPP-011', `organisation "${fm.organisation}" reads as a name; without \`disclosure: open\` it is a sector and a size ("a large retailer")`);
-  if (!transitions.length) F('OPP-005', 'no transitions table, or no dated row in it');
-  else {
-    const last = transitions[transitions.length - 1];
-    if (last.to !== fm.state) F('OPP-005', `last transition goes to "${last.to}", the header says "${fm.state}"`);
-    for (const t of transitions) if (t.to !== 'lead' && !reg.order.includes(t.to)) F('OPP-005', `transition to "${t.to}", not a stage`);
-    const dates = transitions.map((t) => t.date);
-    if (dates.some((d, i) => i && d < dates[i - 1])) F('OPP-005', 'transitions are not in date order');
-  }
   return bad;
 }
 
-/** Read every *.md in `folder` (moulds and README skipped) into records. */
+/** Read every OPP-*.md in `folder` into records (proposals, README and moulds skipped). */
 export function readFolder(folder) {
-  const files = readdirSync(folder).filter((f) => f.endsWith('.md') && /^OPP-/.test(f)).sort();
-  return files.map((f) => {
+  return readdirSync(folder).filter((f) => /^OPP-.*\.md$/.test(f)).sort().map((f) => {
     const file = path.join(folder, f);
     const text = readFileSync(file, 'utf8');
-    return { file, fm: parseFM(text), transitions: transitionsOf(text), text };
+    return { file, text, fm: parseFM(text) };
   });
 }
 
-/** OPP-015: two records with the same file reference and value are one tender listed twice. */
+/**
+ * Checks that need the whole folder: OPP-015, two tender records with the
+ * same file reference and value are one call listed twice; OPP-002, a
+ * `follows` names a record that exists.
+ */
 export function duplicates(records) {
   const seen = new Map(), bad = [];
+  const ids = new Set(records.map((r) => r.fm?.id).filter(Boolean));
   for (const r of records) {
-    const fm = r.fm; if (!fm || fm.source !== 'tender' || !fm.file_ref || fm.file_ref === 'unread') continue;
+    const fm = r.fm; if (!fm) continue;
+    if (fm.follows && !ids.has(fm.follows)) bad.push({ plate: 'OPP-002', what: `follows "${fm.follows}", a record that is not in the folder`, file: r.file });
+    if (fm.kind !== 'tender' || !fm.file_ref) continue;
     const key = `${fm.file_ref.replace(/[\s⁄/]+/g, '/').toLowerCase()}|${Number(fm.value) || 0}`;
-    if (seen.has(key)) bad.push({ plate: 'OPP-015', what: `${fm.id} has the same file "${fm.file_ref}" and value as ${seen.get(key)} — one tender, two listings: keep one record`, file: r.file });
+    if (seen.has(key)) bad.push({ plate: 'OPP-015', what: `${fm.id} has the same file "${fm.file_ref}" and value as ${seen.get(key)} — one call, two listings: keep one record`, file: r.file });
     else seen.set(key, fm.id);
   }
   return bad;
@@ -341,130 +529,140 @@ export function validateProposal(file, text) {
   const plates = ['PRP-001', 'PRP-002', 'PRP-003', 'PRP-004', 'PRP-005', 'PRP-006', 'PRP-010'];
   PRP_SECTIONS.forEach((s, i) => { if (!heads.includes(s)) F(plates[i], `no section "${s}"`); });
   if (!LEVELS.includes(fm.level)) F('PRP-003', `level "${fm.level}" is not one of ${LEVELS.join(' · ')}`);
-  if (!/^\d+(\.\d+)?$/.test(fm.tax_rate ?? '')) F('PRP-004', 'no tax rate in the header');
-  if (!/^\d+(\.\d+)?$/.test(fm.price ?? '')) F('PRP-004', 'no price in the header');
+  if (!NUMBER.test(fm.tax_rate ?? '')) F('PRP-004', 'no tax rate in the header');
+  if (!NUMBER.test(fm.price ?? '')) F('PRP-004', 'no price in the header');
   if (/…/.test(body.slice(body.indexOf('## The three questions')))) F('PRP-006', 'the three questions still hold the mould\'s ellipsis');
   return bad;
 }
 
 /* ---------- the figures ---------- */
 
-/** A tender at proposed waits on the authority's clock (STD-038): overdue, never stale. */
-const staleExempt = (fm) => fm.source === 'tender' && fm.state === 'proposed';
+const avg = (a) => (a.length ? Math.round(a.reduce((x, y) => x + y, 0) / a.length) : null);
+const num = (v) => (v === undefined || v === null || v === '' ? null : Number(v));
+const or = (v) => (v === undefined ? null : v);
 
-export function figures(records, reg, today) {
-  const byStage = Object.fromEntries(reg.order.map((s) => [s, { count: 0, value: 0 }]));
-  const overdue = [], stale = [];
-  const reasons = {};
-  const perStage = Object.fromEntries(reg.order.map((s) => [s, []]));
-  const byOrg = {};
-  const calendar = [];
+/**
+ * Everything a page, a sheet or a report shows, computed from the records.
+ * The shape is the contract STD-039 OPP-009 names; the site reads it as is
+ * and never recomputes a verdict (overdue, stale, chance) from dates.
+ */
+export function figures(records, reg, card, today) {
+  card ??= { requirements: [], turnoverCeiling: null, outOfDomain: [] };
+  const kindOf = Object.fromEntries(reg.kinds.map((k) => [k.kind, k]));
+  const followed = new Set(records.map((r) => r.fm?.follows).filter(Boolean));
+  const stepNames = reg.steps.map((s) => s.step);
+  const stepOf = Object.fromEntries(reg.events.map((e) => [e.event, e.step]));
+  const out = [];
   for (const r of records) {
-    const fm = r.fm; if (!fm || !byStage[fm.state]) continue;
-    const value = Number(fm.value) || 0;
-    byStage[fm.state].count++; byStage[fm.state].value += value;
-    (byOrg[fm.organisation] ??= []).push({ id: fm.id, state: fm.state, value });
-    const open = !reg.closed.includes(fm.state);
-    if (open && ISO_DATE.test(fm.next_date) && fm.next_date < today) overdue.push({ id: fm.id, next_date: fm.next_date, next_action: fm.next_action });
-    if (open && r.transitions.length && !staleExempt(fm)) {
-      const last = r.transitions[r.transitions.length - 1];
-      const since = days(last.date, today);
-      const limit = reg.staleDays[fm.state];
-      if (limit !== null && since > limit) stale.push({ id: fm.id, state: fm.state, days: since, limit });
-    }
-    // the calendar: every open record's next date, tenders marked, so the
-    // days a notice closes are read from the records and never typed
-    if (open && ISO_DATE.test(fm.next_date)) calendar.push({ date: fm.next_date, id: fm.id, action: fm.next_action, tender: fm.source === 'tender', procedure: fm.procedure ?? '', notice: fm.notice ?? '', chance: fm.chance ?? '', value, organisation: fm.organisation });
-    if (fm.state === 'lost') reasons[fm.reason] = (reasons[fm.reason] ?? 0) + 1;
-    // time per stage, from the transitions: each row closes the previous stage
-    for (let i = 1; i < r.transitions.length; i++) {
-      const from = r.transitions[i - 1];
-      if (perStage[from.to]) perStage[from.to].push(days(from.date, r.transitions[i].date));
-    }
+    const fm = r.fm; if (!fm || !kindOf[fm.kind]) continue;
+    const k = kindOf[fm.kind];
+    const events = (timelineOf(r.text) ?? []).filter((e) => !e.bad);
+    const w = walk(events, k.stages, reg);
+    const open = !CLOSED.includes(w.stage);
+    const since = w.last ? days(w.last, today) : null;
+    const stale = open && k.stale !== null && since !== null && since > k.stale ? { days: since, limit: k.stale } : null;
+    /* the five steps: each event marks its step (the register's events
+       table); a later step implies the earlier ones, among the first four.
+       `again` is another record's `follows`, and implies nothing — a lost
+       client may still send a referral. */
+    const steps = Object.fromEntries(stepNames.map((s) => [s, false]));
+    for (const e of events) if (stepOf[e.event] && e.event !== 'next') steps[stepOf[e.event]] = true;
+    const chain = stepNames.filter((s) => s !== 'again');
+    for (let i = chain.length - 1; i > 0; i--) if (steps[chain[i]]) steps[chain[i - 1]] = true;
+    if ('again' in steps) steps.again = followed.has(fm.id);
+    const crit = criteriaOf(r.text) ?? [];
+    const chance = CALLS.includes(fm.kind) && crit.length ? (crit.every((c) => c.meets === 'yes') ? 'high' : 'medium') : null;
+    out.push({
+      id: fm.id, kind: fm.kind, title: or(fm.title), organisation: or(fm.organisation), sector: or(fm.sector), source: or(fm.source),
+      offer: or(fm.offer), value: Number(fm.value) || 0, currency: or(fm.currency), pays: or(fm.pays), advance: num(fm.advance),
+      stage: w.stage, open, opened: or(fm.opened), closed: w.closed, reason: w.reason,
+      next: w.next, overdue: !!(open && w.next && w.next.date < today), stale,
+      events: events.map(({ date, event, stage, reason, text }) => ({ date, event, stage, reason, text })),
+      steps, chance, criteria: crit,
+      call: or(fm.call), closes: or(fm.closes), opens: or(fm.opens), estimated: or(fm.estimated), procedure: or(fm.procedure),
+      instrument: or(fm.instrument), file_ref: or(fm.file_ref), gives_back: or(fm.gives_back), follows: or(fm.follows),
+      _entered: w.entered,
+    });
   }
-  const openStages = reg.order.filter((s) => !reg.closed.includes(s));
-  const reached = (s) => records.filter((r) => r.fm && (r.transitions.some((t) => t.to === s) || r.fm.state === s)).length;
-  const funnel = openStages.map((s) => ({ stage: s, reached: reached(s) }));
-  const won = byStage.won?.count ?? 0, lost = byStage.lost?.count ?? 0;
-  const cycle = records.filter((r) => r.fm?.state === 'won' && r.transitions.length)
-    .map((r) => days(r.transitions[0].date, r.fm.closed));
-  const avg = (a) => (a.length ? Math.round(a.reduce((x, y) => x + y, 0) / a.length) : null);
-  calendar.sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
-  const tenders = records.filter((r) => r.fm?.source === 'tender');
-  /* a service that starts on or before its offers close is a listing to
-     verify with the authority: often a dead or stale notice */
-  const toVerify = tenders.filter((r) => ISO_DATE.test(r.fm.starts ?? '') && !reg.closed.includes(r.fm.state) && ISO_DATE.test(r.fm.next_date ?? '') && r.fm.starts <= r.fm.next_date)
-    .map((r) => ({ id: r.fm.id, starts: r.fm.starts, closes: r.fm.next_date }));
-  const tenderFigures = {
-    records: tenders.length,
-    open: tenders.filter((r) => !reg.closed.includes(r.fm.state)).length,
-    won: tenders.filter((r) => r.fm.state === 'won').length,
-    lost: tenders.filter((r) => r.fm.state === 'lost').length,
-    byProcedure: Object.fromEntries(reg.procedures.map((p) => [p, tenders.filter((r) => r.fm.procedure === p).length])),
-    byChance: Object.fromEntries((reg.chances ?? []).map((c) => [c, tenders.filter((r) => r.fm.chance === c).length])),
-    // one row per tender, its criteria counted from the table — never typed
-    list: tenders.map((r) => {
-      const crit = criteriaOf(r.text ?? '') ?? [];
-      return {
-        id: r.fm.id, organisation: r.fm.organisation, state: r.fm.state, procedure: r.fm.procedure ?? '', chance: r.fm.chance ?? '',
-        value: Number(r.fm.value) || 0, next_date: r.fm.next_date ?? '', notice: r.fm.notice ?? '',
-        read_from: r.fm.read_from ?? '', object: r.fm.object ?? '', file_ref: r.fm.file_ref ?? '',
-        criteria: tally(crit), failed: crit.filter((c) => c.meets === 'no').map((c) => c.criterion),
-        toCheck: crit.filter((c) => c.meets === 'check').map((c) => c.criterion),
-      };
-    }).sort((a, b) => (reg.chances ?? []).indexOf(a.chance) - (reg.chances ?? []).indexOf(b.chance) || (a.next_date || '9').localeCompare(b.next_date || '9')),
-  };
+  out.sort((a, b) => a.id.localeCompare(b.id));
+
+  const due = out.filter((x) => x.open && x.next).map((x) => ({ id: x.id, kind: x.kind, date: x.next.date, action: x.next.action, overdue: x.overdue }))
+    .sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
+  const count = (xs) => stepNames.map((s) => xs.filter((x) => x.steps[s]).length);
+  const funnel = { all: count(out), ...Object.fromEntries(reg.kinds.map((k) => [k.kind, count(out.filter((x) => x.kind === k.kind))])) };
+  const byKind = Object.fromEntries(reg.kinds.map((k) => {
+    const xs = out.filter((x) => x.kind === k.kind);
+    return [k.kind, { records: xs.length, open: xs.filter((x) => x.open).length, won: xs.filter((x) => x.stage === 'won').length,
+      lost: xs.filter((x) => x.stage === 'lost').length, openValue: xs.filter((x) => x.open).reduce((a, x) => a + x.value, 0) }];
+  }));
+  const reasons = {};
+  for (const x of out) if (x.stage === 'lost' && x.reason) reasons[x.reason] = (reasons[x.reason] ?? 0) + 1;
+  /* days in each stage: from the day a record entered it to the day it
+     entered the next; a stage still running is not counted yet */
+  const daysPerStage = Object.fromEntries(reg.kinds.map((k) => {
+    const spans = Object.fromEntries(k.stages.filter((s) => !CLOSED.includes(s)).map((s) => [s, []]));
+    for (const x of out.filter((y) => y.kind === k.kind))
+      for (let i = 1; i < x._entered.length; i++) spans[x._entered[i - 1].stage]?.push(days(x._entered[i - 1].date, x._entered[i].date));
+    return [k.kind, Object.fromEntries(Object.entries(spans).map(([s, a]) => [s, avg(a)]))];
+  }));
+  /* the card, with how many open records still hinge on each requirement */
+  const openCrit = out.filter((x) => x.open).flatMap((x) => x.criteria);
+  const cardRows = (card.requirements ?? []).map((q) => {
+    const named = openCrit.filter((c) => c.requirement.trim().toLowerCase() === q.requirement.trim().toLowerCase());
+    return { ...q, yes: named.filter((c) => c.meets === 'yes').length, check: named.filter((c) => c.meets === 'check').length };
+  });
+  for (const x of out) delete x._entered;
   return {
-    today, records: records.length, byStage, overdue, stale, reasons,
-    timePerStage: Object.fromEntries(Object.entries(perStage).map(([s, a]) => [s, avg(a)])),
-    funnel, won, lost, winRate: won + lost ? Math.round((100 * won) / (won + lost)) : null,
-    cycleDays: avg(cycle), byOrg, calendar, tenders: { ...tenderFigures, toVerify },
+    today,
+    kinds: reg.kinds.map(({ kind, is, stale, stages }) => ({ kind, is, stale, stages })),
+    steps: reg.steps,
+    records: out,
+    due,
+    funnel,
+    byKind,
+    reasons: Object.fromEntries(Object.entries(reasons).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))),
+    daysPerStage,
+    card: cardRows,
+    ceiling: card.turnoverCeiling ?? null,
+    overdue: out.filter((x) => x.overdue).map((x) => x.id),
+    stale: out.filter((x) => x.stale).map((x) => ({ id: x.id, ...x.stale })),
   };
 }
 
 /* ---------- the report ---------- */
 
-const money = (n, cur = 'EUR') => `${n.toLocaleString('en-GB')} ${cur}`;
+const money = (n) => `${Math.round(n).toLocaleString('en-GB')} EUR`;
+const pays = (x) => (x.pays === 'advance' || x.pays === 'milestones' ? `${x.pays}, ${x.advance ?? 0} % before the work` : x.pays ?? '—');
 
 export function report(fig, reg) {
   const L = [];
-  L.push(`# Pipeline — ${fig.today}`, '', `${fig.records} records.`, '');
-  L.push('## By stage', '', '| Stage | Records | Value (ex-tax) |', '|---|---|---|');
-  for (const s of reg.order) L.push(`| \`${s}\` | ${fig.byStage[s].count} | ${money(fig.byStage[s].value)} |`);
+  const open = fig.records.filter((x) => x.open);
+  L.push(`# Pipeline — ${fig.today}`, '', `${fig.records.length} records, ${open.length} open, ${money(open.reduce((a, x) => a + x.value, 0))} open value.`, '');
+  L.push('## By kind', '', '| Kind | Records | Open | Won | Lost | Open value |', '|---|---|---|---|---|---|');
+  for (const k of fig.kinds) { const b = fig.byKind[k.kind]; L.push(`| \`${k.kind}\` | ${b.records} | ${b.open} | ${b.won} | ${b.lost} | ${money(b.openValue)} |`); }
+  L.push('', '## What\'s due', '');
+  if (!fig.due.length) L.push('Nothing is open.');
+  else {
+    L.push('| Date | Record | Kind | Next step |', '|---|---|---|---|');
+    for (const d of fig.due) L.push(`| ${d.date}${d.overdue ? ' (overdue)' : ''} | ${d.id} | \`${d.kind}\` | ${d.action} |`);
+  }
   L.push('', '## Needs a move', '');
   if (!fig.overdue.length && !fig.stale.length) L.push('Nothing overdue, nothing stale.');
-  for (const o of fig.overdue) L.push(`- **${o.id}** overdue since ${o.next_date}: ${o.next_action}`);
-  for (const s of fig.stale) L.push(`- **${s.id}** stale: ${s.days} days in \`${s.state}\` (limit ${s.limit})`);
-  L.push('', '## Calendar', '', 'Every open record by its next date; a tender carries its procedure and its notice.', '');
-  if (!fig.calendar.length) L.push('Nothing is open.');
-  else {
-    L.push('| Date | Record | What | Procedure | Notice |', '|---|---|---|---|---|');
-    for (const c of fig.calendar) L.push(`| ${c.date} | ${c.id} | ${c.action} | ${c.tender ? `\`${c.procedure}\`` : '—'} | ${c.notice ? `[notice](${c.notice})` : '—'} |`);
+  for (const id of fig.overdue) { const x = fig.records.find((r) => r.id === id); L.push(`- **${id}** overdue since ${x.next.date}: ${x.next.action}`); }
+  for (const s of fig.stale) { const x = fig.records.find((r) => r.id === s.id); L.push(`- **${s.id}** stale: ${s.days} days since the last line, at \`${x.stage}\` (limit ${s.limit})`); }
+  L.push('', '## Every record', '', '| Record | Kind | Organisation | Stage | Value | Pays | Chance |', '|---|---|---|---|---|---|---|');
+  for (const x of fig.records) L.push(`| ${x.id} | \`${x.kind}\` | ${x.organisation ?? '—'} | \`${x.stage}\`${x.reason ? ` (${x.reason})` : ''} | ${money(x.value)} | ${pays(x)} | ${x.chance ? `\`${x.chance}\`` : '—'} |`);
+  L.push('', '## Funnel', '', `| Kind | ${fig.steps.map((s) => s.step).join(' | ')} |`, `|---|${fig.steps.map(() => '---').join('|')}|`);
+  for (const [k, ns] of Object.entries(fig.funnel)) L.push(`| ${k === 'all' ? '**all**' : `\`${k}\``} | ${ns.join(' | ')} |`);
+  L.push('', '## Reasons lost', '');
+  if (!Object.keys(fig.reasons).length) L.push('Nothing lost yet.');
+  else { L.push('| Reason | Records |', '|---|---|'); for (const [r, n] of Object.entries(fig.reasons)) L.push(`| \`${r}\` | ${n} |`); }
+  L.push('', '## Days per stage', '', '| Kind | Stage | Average days |', '|---|---|---|');
+  for (const [k, st] of Object.entries(fig.daysPerStage)) for (const [s, d] of Object.entries(st)) L.push(`| \`${k}\` | \`${s}\` | ${d ?? '—'} |`);
+  if (fig.card.length) {
+    L.push('', '## Asked, and what the house holds', '', '| Requirement | Usually asked | The house holds | State | Open records at yes | At check | What unlocks it |', '|---|---|---|---|---|---|---|');
+    for (const c of fig.card) L.push(`| ${c.requirement} | ${c.asks} | ${c.house} | \`${c.state}\` | ${c.yes} | ${c.check} | ${c.unlocks} |`);
   }
-  if (fig.tenders.records) {
-    L.push('', '## Tenders', '', `${fig.tenders.records} tender(s): ${fig.tenders.open} open · ${fig.tenders.won} won · ${fig.tenders.lost} lost.`, '', '| Procedure | Records |', '|---|---|');
-    for (const [p, n] of Object.entries(fig.tenders.byProcedure)) L.push(`| \`${p}\` | ${n} |`);
-    L.push('', '| Chance | Records |', '|---|---|');
-    for (const [c, n] of Object.entries(fig.tenders.byChance)) L.push(`| \`${c}\` | ${n} |`);
-    if (fig.tenders.toVerify.length) {
-      L.push('', '## Listings to verify', '', 'The service starts on or before its offers close: ask the authority whether the notice is alive.', '');
-      for (const v of fig.tenders.toVerify) L.push(`- **${v.id}** starts ${v.starts}, offers close ${v.closes}`);
-    }
-    L.push('', '| Tender | Chance | Criteria met | Fails | To check | Closes |', '|---|---|---|---|---|---|');
-    for (const x of fig.tenders.list) L.push(`| ${x.id} | \`${x.chance}\` | ${x.criteria.yes}/${x.criteria.rows} | ${x.failed.join(', ') || '—'} | ${x.toCheck.join(', ') || '—'} | ${x.next_date || '—'} |`);
-  }
-  L.push('', '## Time per stage (average days)', '', '| Stage | Days |', '|---|---|');
-  for (const s of reg.order) if (!reg.closed.includes(s)) L.push(`| \`${s}\` | ${fig.timePerStage[s] ?? '—'} |`);
-  L.push('', '## Funnel', '', '| Stage | Reached |', '|---|---|');
-  for (const f of fig.funnel) L.push(`| \`${f.stage}\` | ${f.reached} |`);
-  L.push('', '## Won and lost', '');
-  L.push(`Won ${fig.won} · lost ${fig.lost}` + (fig.winRate === null ? '' : ` · win rate ${fig.winRate} %`) + (fig.cycleDays === null ? '' : ` · cycle ${fig.cycleDays} days`));
-  if (Object.keys(fig.reasons).length) {
-    L.push('', '| Reason lost | Records |', '|---|---|');
-    for (const [r, n] of Object.entries(fig.reasons).sort((a, b) => b[1] - a[1])) L.push(`| \`${r}\` | ${n} |`);
-  }
-  L.push('', '## By organisation', '', '| Organisation | Records | Stages |', '|---|---|---|');
-  for (const [org, rs] of Object.entries(fig.byOrg).sort()) L.push(`| ${org} | ${rs.length} | ${rs.map((r) => `\`${r.state}\``).join(' ')} |`);
   return L.join('\n') + '\n';
 }
 
@@ -476,17 +674,20 @@ function main(argv) {
   const has = (n) => { const i = args.indexOf(n); if (i < 0) return false; args.splice(i, 1); return true; };
   const today = flag('--today') ?? new Date().toISOString().slice(0, 10);
   const registerPath = flag('--register') ?? DEFAULT_REGISTER;
-  const cardPath = flag('--card') ?? DEFAULT_CARD;
+  const cardFlag = flag('--card');
   const json = has('--json'), proposals = has('--proposals');
   const folder = args[0];
   if (!folder || !existsSync(folder) || !statSync(folder).isDirectory()) {
-    console.error('usage: node pipeline.mjs <folder> [--json] [--proposals] [--today YYYY-MM-DD] [--register PATH]');
+    console.error('usage: node pipeline.mjs <folder> [--json] [--proposals] [--today YYYY-MM-DD] [--register PATH] [--card PATH]');
     return 2;
   }
+  // a card named on the command line must exist; the default may be absent
+  // in a consumer repository, and then reads as an empty card
+  if (cardFlag && !existsSync(cardFlag)) { console.error(`card not found: ${cardFlag}`); return 2; }
   let reg;
   try { reg = loadRegister(registerPath); } catch (e) { console.error(String(e.message)); return 2; }
+  const card = loadCard(cardFlag ?? DEFAULT_CARD);
   const records = readFolder(folder);
-  const card = loadCard(cardPath);
   const bad = [...records.flatMap((r) => validate(r, reg, card)), ...duplicates(records)];
   if (proposals) for (const r of records) {
     if (!r.fm?.proposal) continue;
@@ -499,7 +700,7 @@ function main(argv) {
     for (const b of bad) console.error(`  ${b.plate}  ${path.relative(process.cwd(), b.file)}: ${b.what}`);
     return 1;
   }
-  const fig = figures(records, reg, today);
+  const fig = figures(records, reg, card, today);
   process.stdout.write(json ? JSON.stringify(fig, null, 2) + '\n' : report(fig, reg));
   return 0;
 }

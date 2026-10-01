@@ -2,36 +2,116 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The pipeline — every chance to sell something, as three readers see it
-// (STD-038, STD-039, SYS-010). THIS PAGE STATES NO FIGURE OF ITS OWN: the
-// records in opportunities/ are read at build time through the sales kit's
-// own tool (src/lib/pipeline.ts), and the browser cuts them by week, month,
-// quarter and year. The same tool runs in CI on every change, so the page and
-// the check cannot disagree.
+// The pipeline — sales, tenders, grants, collaborations and partners, one
+// kind of record (STD-038, STD-039, OPS-018). THIS PAGE STATES NO FIGURE OF
+// ITS OWN: the records in opportunities/ are read at build time through the
+// sales kit's own tool (src/lib/pipeline.ts), the same tool CI runs on every
+// change, so the page and the check cannot disagree. Overdue, stale, the
+// stage, the chance, the funnel and the card's counts are the tool's
+// verdicts; the page only lays them out.
 //
-// Three lenses, one set of records: whoever sells (what needs a move today),
-// management (where sales are won and lost, how long they take), anyone
-// (the records are public; nobody's name is in them, the organisation is a
-// sector until it agrees).
+// Two button rows — Kind and View — choose ONE panel. Every panel is real
+// HTML rendered here, one per kind and view; the inline script only says
+// which one shows, and composes no address (every record's `url` is made in
+// src/lib/pipeline.ts). Without JavaScript the default panel — All, What's
+// due — is what a reader sees.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
-import { pipeline } from "@/lib/pipeline";
+import { pipeline, CARD_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, type PRecord } from "@/lib/pipeline";
 import { repoFileUrl } from "@/lib/build-info";
-const P = pipeline();
-const DATA = { today: P.today, register: P.register, records: P.records, figures: P.figures, funding: P.funding };
-const open = P.records.filter((r) => !P.register.closed.includes(r.state));
+
+const F = pipeline();
+const TODAY = F.today;
+const KINDS = F.kinds.map((k) => k.kind);
+const KEYS = ["all", ...KINDS] as const;
+const byId = Object.fromEntries(F.records.map((r) => [r.id, r]));
+const of = (key: string) => (key === "all" ? F.records : F.records.filter((r) => r.kind === key));
+const hasAny = (key: string) => of(key).length > 0;
+
+// presentation only
+const money = (n: number) => new Intl.NumberFormat("en-GB", { style: "currency", currency: "EUR", maximumFractionDigits: 0 }).format(n);
+const value = (r: PRecord) => (r.value ? money(r.value) : "no money");
+const PAYS: Record<string, string> = {
+  advance: "paid in advance", milestones: "paid in milestones", "on-delivery": "paid on delivery",
+  "on-justification": "paid after justification", "in-kind": "paid in kind", unknown: "how it pays: to ask", "to-ask": "how it pays: to ask",
+};
+const pays = (r: PRecord) => {
+  const p = r.pays ? (PAYS[r.pays] ?? r.pays.replace(/-/g, " ")) : "how it pays: to ask";
+  return (r.pays === "advance" || r.pays === "milestones") && r.advance !== null ? `${p}, ${r.advance} % before the work` : p;
+};
+const dayMs = 864e5;
+const t = (d: string) => Date.parse(`${d}T00:00:00Z`);
+const in7 = new Date(t(TODAY) + 7 * dayMs).toISOString().slice(0, 10);
+
+// KPIs per kind key, from the tool's figures
+const kpis = (key: string) => {
+  const rs = of(key), open = rs.filter((r) => r.open);
+  const due = F.due.filter((d) => (key === "all" || d.kind === key) && !d.overdue && d.date >= TODAY && d.date <= in7);
+  const overdue = F.overdue.filter((id) => key === "all" || byId[id]?.kind === key);
+  const adv = open.filter((r) => r.pays === "advance");
+  return [
+    { k: "Open value", v: money(open.reduce((a, r) => a + r.value, 0)), s: `${open.length} open record${open.length === 1 ? "" : "s"}, before tax`, c: "" },
+    { k: "Due in 7 days", v: String(due.length), s: `next steps up to ${in7}`, c: due.length ? "cq-kpi--today" : "" },
+    { k: "Overdue", v: String(overdue.length), s: "next date already past", c: overdue.length ? "cq-kpi--warn" : "" },
+    { k: "Paid in advance", v: money(adv.reduce((a, r) => a + r.value, 0)), s: `open value that pays before the work, ${adv.length} record${adv.length === 1 ? "" : "s"}`, c: "" },
+  ];
+};
+
+// What's due: the tool's due list (overdue first, then by date)
+const dueOf = (key: string) => F.due.filter((d) => key === "all" || d.kind === key)
+  .slice().sort((a, b) => Number(b.overdue) - Number(a.overdue) || a.date.localeCompare(b.date))
+  .map((d) => ({ d, r: byId[d.id] as PRecord }));
+
+// Timeline: open first (by next date), then closed (newest first)
+const rowsOf = (key: string) => {
+  const rs = of(key);
+  const open = rs.filter((r) => r.open).sort((a, b) => (a.next?.date ?? "9").localeCompare(b.next?.date ?? "9"));
+  const closed = rs.filter((r) => !r.open).sort((a, b) => (b.closed ?? "").localeCompare(a.closed ?? ""));
+  return [...open, ...closed];
+};
+const axisOf = (key: string) => {
+  const dates = of(key).flatMap((r) => r.events.map((e) => e.date)).concat(TODAY).sort();
+  let a = t(dates[0]), b = t(dates[dates.length - 1]);
+  if (b - a < 30 * dayMs) b = a + 30 * dayMs;
+  const pad = (b - a) * 0.03; a -= pad; b += pad;
+  const x = (d: string) => Math.round(((t(d) - a) / (b - a)) * 1000) / 10;
+  const months: string[] = [];
+  const s = new Date(a); let y = s.getUTCFullYear(), m = s.getUTCMonth() + 1;
+  if (m > 11) { m = 0; y++; }
+  while (Date.UTC(y, m, 1) <= b) { months.push(new Date(Date.UTC(y, m, 1)).toISOString().slice(0, 10)); m++; if (m > 11) { m = 0; y++; } }
+  const step = Math.max(1, Math.ceil(months.length / 7));
+  return { x, ticks: months.filter((_, i) => i % step === 0) };
+};
+const EV_LABEL: Record<string, string> = { found: "found", out: "the house did", pos: "positive answer", neg: "negative answer", won: "won", lost: "lost", next: "next" };
+
+// Funnel, reasons, days per stage
+const reasonsOf = (key: string): [string, number][] => {
+  if (key === "all") return Object.entries(F.reasons);
+  const c: Record<string, number> = {};
+  for (const r of of(key)) if (r.stage === "lost" && r.reason) c[r.reason] = (c[r.reason] ?? 0) + 1;
+  return Object.entries(c).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+};
+const daysKinds = (key: string) => (key === "all" ? KINDS : [key]).filter((k) => Object.values(F.daysPerStage[k] ?? {}).some((d) => d !== null));
+
+const STATE: Record<string, { mark: string; text: string; cls: string }> = {
+  yes: { mark: "✓", text: "held", cls: "pq-yes" },
+  no: { mark: "✗", text: "not held", cls: "pq-no" },
+  check: { mark: "?", text: "to check", cls: "pq-check" },
+};
+const keyLabel = (k: string) => (k === "all" ? "All" : KIND_PLURAL[k as keyof typeof KIND_PLURAL]);
+const VIEWS = [["due", "What's due"], ["timeline", "Timeline"], ["funnel", "Funnel"], ["card", "Asked / we have"]] as const;
 ---
 <Layout
   title="The pipeline — Numinia"
-  description="Every chance to sell something, as whoever sells, management and anyone read it: what needs a move, where sales are won and lost, by week, month, quarter and year. Computed from public records; nobody's name in them."
+  description="Sales, tenders, grants, collaborations and partners in one pipeline: what is due next, each record's timeline, the funnel from detected to won, and what calls ask against what the house holds. Computed from public records; nobody's name in them."
   canonicalPath="/system/pipeline"
   activeNav="system/"
 >
   <PageHero
     label="System — The pipeline"
-    title="Whom we are trying to sell to"
-    description="Every opportunity, at its stage, with what happens next; where sales are won and lost, and how long they take. Read from the public records, nobody's name in them, the organisation a sector until it agrees."
+    title="Every opportunity, in one pipeline"
+    description="Sales, tenders, grants, collaborations and partners: what is due next, what has happened to each, how far each kind gets, and what calls ask against what the house holds. Read from the public records, nobody's name in them, the organisation a sector until it agrees."
   />
   <div class="mx-auto max-w-[1100px] px-6 pb-8">
     <DocToolbar
@@ -42,125 +122,153 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
     />
   </div>
   <section class="pb-20" id="pq"><div class="mx-auto max-w-[1100px] px-6">
-    <noscript><p class="cq-note">This page computes its views in the browser. The records themselves are plain text: <a href="/opportunities/">/opportunities/</a>.</p></noscript>
+    <noscript><p class="cq-note">Without JavaScript this page shows every kind and what is due. The records themselves are plain text: <a href="/opportunities/">/opportunities/</a>; the same figures as tables: <a href="/system/pipeline.md">pipeline.md</a>.</p></noscript>
 
-    <div class="cq-lensbar">
-      <div class="cq-tabs" role="tablist" aria-label="Reader" id="pq-lens">
-        <button type="button" class="cq-tab" role="tab" data-l="sell" aria-selected="true">Whoever sells</button>
-        <button type="button" class="cq-tab" role="tab" data-l="manage" aria-selected="false">Management</button>
-        <button type="button" class="cq-tab" role="tab" data-l="anyone" aria-selected="false">Anyone</button>
+    <div class="pq-bar">
+      <div class="cq-tabs" role="group" aria-label="Kind" id="pq-kind">
+        {KEYS.map((k) => <button type="button" class="cq-tab" data-k={k} aria-pressed={k === "all" ? "true" : "false"}>{keyLabel(k)}</button>)}
       </div>
-      <p class="cq-note" id="pq-lensnote"></p>
+      <div class="cq-tabs" role="group" aria-label="View" id="pq-view">
+        {VIEWS.map(([v, label]) => <button type="button" class="cq-tab" data-v={v} aria-pressed={v === "due" ? "true" : "false"}>{label}</button>)}
+      </div>
     </div>
 
-    <div class="cq-kpis" id="pq-kpis"></div>
+    <!-- KPIs, one block per kind -->
+    {KEYS.map((key) => (
+      <div class="cq-kpis pq-kpis" data-kind={key} hidden={key !== "all"}>
+        {kpis(key).map((c) => <div class={`cq-kpi ${c.c}`}><span class="cq-k">{c.k}</span><span class="cq-v">{c.v}</span><span class="cq-s">{c.s}</span></div>)}
+      </div>
+    ))}
 
-    <nav class="cq-jump" aria-label="Sections">
-      <a href="#tenders">Tenders</a> · <a href="#grants">Grants</a> · <a href="#pq-all-sec">Every record</a>
-    </nav>
+    <!-- What's due -->
+    {KEYS.map((key) => (
+      <div class="cq-sec pq-panel" data-view="due" data-kind={key} hidden={key !== "all"}>
+        <h2>What's due{key !== "all" && ` — ${keyLabel(key)}`}</h2>
+        {!hasAny(key) ? <p class="cq-note">Nothing of this kind yet.</p> : dueOf(key).length === 0 ? <p class="cq-note">Nothing open of this kind: every record is closed.</p> : (
+          <>
+            <p class="cq-sub">Every open record by its next step, overdue first. Each card opens its record.</p>
+            <div class="pq-cards">
+              {dueOf(key).map(({ d, r }) => (
+                <a class={`pq-card${d.overdue ? " pq-card--overdue" : ""}`} href={r.url} data-id={r.id}>
+                  <span class="pq-card-top">
+                    <span><span class={`pq-tag pq-k-${r.kind}`}>{KIND_LABEL[r.kind]}</span> <span class="pq-id">{r.id}</span></span>
+                    <span class="pq-when">{d.date}{d.overdue && " · overdue"}</span>
+                  </span>
+                  <span class="pq-org">{r.organisation}</span>
+                  <span class="pq-money"><b>{value(r)}</b> · {pays(r)}{r.chance && <> · chance <span class={`cq-ch cq-ch--${r.chance}`}>{r.chance}</span></>}</span>
+                  <span class="pq-next">→ {d.action}</span>
+                  <span class="pq-stage">at <span class="cq-stage">{r.stage}</span></span>
+                </a>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    ))}
 
-    <!-- public buyers only: every tender read against the house's card -->
-    <div class="cq-sec" id="tenders">
-      <h2>Tenders</h2>
-      <p class="cq-sub">Public buyers only. Every tender read against <a href="/operations/ops-018-the-house-card-for-tenders">the house's card for tenders</a>, one row per requirement — met, failed or still to check — and the chance that follows, most likely first. What to do with each is <a href="/protocols/pro-031-bidding-for-a-tender">Bidding for a tender</a>.</p>
-      <div class="cq-chips" id="pq-t-chance"></div>
-      <div class="cq-tablewrap"><table class="cq-t" id="pq-tenders"><thead><tr><th>Record</th><th class="cq-l">Buyer</th><th>Chance</th><th>Criteria met</th><th class="cq-l">Fails</th><th class="cq-l">To check</th><th>Procedure</th><th>Value</th><th>Closes</th><th>Notice</th></tr></thead><tbody></tbody></table></div>
-      <p class="cq-note" id="pq-tenders-empty" hidden>No tender on the radar.</p>
-    </div>
-
-    <!-- grants: public money that is not a sale -->
-    <div class="cq-sec" id="grants">
-      <h2>Grants</h2>
-      <p class="cq-sub">Public money that is not a sale: grants, public loans, prizes, programmes. Each call read against <a href="/operations/ops-019-the-house-card-for-grants">the house's card for grants</a>, with how it pays — money in advance is what the house can carry. A day marked <em>est.</em> is last year's, until the call is out. What to do with each is <a href="/protocols/pro-032-applying-for-a-grant">Applying for a grant</a>; the records are in <a href="/funding/">/funding/</a>.</p>
-      <div class="cq-chips" id="pq-g-chance"></div>
-      <div class="cq-tablewrap"><table class="cq-t" id="pq-grants"><thead><tr><th>Record</th><th class="cq-l">Call</th><th class="cq-l">Funder</th><th>Chance</th><th>Criteria met</th><th class="cq-l">Fails</th><th class="cq-l">To check</th><th>Up to</th><th>Pays</th><th>Closes</th><th>Stage</th></tr></thead><tbody></tbody></table></div>
-      <p class="cq-note" id="pq-grants-empty" hidden>No call on the radar.</p>
-    </div>
-
-    <!-- whoever sells: what needs a move -->
-    <div class="cq-sec" data-lens="sell">
-      <h2>Needs a move</h2>
-      <p class="cq-sub">Open opportunities, most urgent first: a next date already past, then a stage held longer than the register allows, then the rest by next date.</p>
-      <div class="cq-tablewrap"><table class="cq-t" id="pq-open"><thead><tr><th>Record</th><th class="cq-l">Organisation</th><th>Stage</th><th>Value</th><th>Next date</th><th class="cq-l">Next action</th><th>Days in stage</th></tr></thead><tbody></tbody></table></div>
-      <p class="cq-note" id="pq-open-empty" hidden>Nothing is open.</p>
-    </div>
-
-    <!-- whoever sells: the calendar, tenders marked -->
-    <div class="cq-sec" data-lens="sell">
-      <h2>Calendar</h2>
-      <p class="cq-sub">Every open record by its next date. A tender's date is the day its offer closes, then the day the award is looked for; its procedure and the notice it answers sit beside it. Cut by the days ahead.</p>
-      <div class="cq-ctrl">
-        <div class="cq-tabs" role="tablist" aria-label="Days ahead" id="pq-horizon">
-          <button type="button" class="cq-tab" role="tab" data-h="30" aria-selected="true">30 days</button>
-          <button type="button" class="cq-tab" role="tab" data-h="60" aria-selected="false">60 days</button>
-          <button type="button" class="cq-tab" role="tab" data-h="90" aria-selected="false">90 days</button>
-          <button type="button" class="cq-tab" role="tab" data-h="0" aria-selected="false">All</button>
+    <!-- Timeline -->
+    {KEYS.map((key) => {
+      const ax = hasAny(key) ? axisOf(key) : null;
+      return (
+        <div class="cq-sec pq-panel" data-view="timeline" data-kind={key} hidden>
+          <h2>Timeline{key !== "all" && ` — ${keyLabel(key)}`}</h2>
+          {!ax ? <p class="cq-note">Nothing of this kind yet.</p> : (
+            <>
+              <p class="cq-sub">One row per record, open first. A dot per line of its timeline: <span class="pq-lg pq-ev-out"></span> the house did something, <span class="pq-lg pq-ev-pos"></span> a positive answer, <span class="pq-lg pq-ev-neg"></span> a negative one, <span class="pq-lg pq-ev-won"></span> won, <span class="pq-lg pq-ev-lost"></span> lost, <span class="pq-lg pq-ev-next"></span> the next step. The upright line is today, {TODAY}. Point at a dot to read it; the name opens the record.</p>
+              <div class="cq-card pq-gantt">
+                <div class="pq-g-row pq-g-axis"><span></span><span class="pq-g-track">{ax.ticks.map((m) => <span class="pq-tick" style={`left:${ax.x(m)}%`}>{m.slice(0, 7)}</span>)}</span></div>
+                {rowsOf(key).map((r) => (
+                  <div class="pq-g-row" data-id={r.id}>
+                    <a class="pq-g-name" href={r.url} title={r.organisation ?? r.id}><span class={`pq-tag pq-k-${r.kind}`}>{KIND_LABEL[r.kind]}</span> {r.id} <span class="pq-g-org">{r.organisation}</span></a>
+                    <span class="pq-g-track">
+                      <span class="pq-today" style={`left:${ax.x(TODAY)}%`}></span>
+                      <span class="pq-span" style={`left:${ax.x(r.events[0].date)}%;width:${ax.x(r.events[r.events.length - 1].date) - ax.x(r.events[0].date)}%`}></span>
+                      {r.events.map((e) => <span class={`pq-dot pq-ev-${e.event}`} style={`left:${ax.x(e.date)}%`} title={`${e.date} · ${EV_LABEL[e.event] ?? e.event}${e.reason ? ` (${e.reason})` : ""} · ${e.text}`} aria-label={`${e.date} · ${e.event} · ${e.text}`} tabindex="0"></span>)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
         </div>
-        <label class="cq-note"><input type="checkbox" id="pq-tenders-only"> tenders only</label>
-      </div>
-      <div class="cq-tablewrap"><table class="cq-t" id="pq-cal"><thead><tr><th>Date</th><th>In</th><th>Record</th><th class="cq-l">Organisation</th><th class="cq-l">What</th><th>Procedure</th><th>Notice</th><th>Value</th></tr></thead><tbody></tbody></table></div>
-      <p class="cq-note" id="pq-cal-empty" hidden>Nothing due in this window.</p>
-    </div>
+      );
+    })}
 
-    <!-- the funnel: everyone -->
-    <div class="cq-sec">
-      <h2>The funnel</h2>
-      <p class="cq-sub">How many opportunities reached each stage, ever. A stage a record passed through counts even if the record has moved on or closed.</p>
-      <div class="cq-card"><div class="cq-chart" id="pq-funnel"></div></div>
-    </div>
-
-    <!-- by period: everyone -->
-    <div class="cq-sec">
-      <h2>By period</h2>
-      <p class="cq-sub">What happened to the pipeline in each week, month, quarter or year: opened, moved forward, won, lost. Read from the transitions each record carries — this is the weekly, quarterly and annual report, as a view instead of a document.</p>
-      <div class="cq-ctrl">
-        <div class="cq-tabs" role="tablist" aria-label="Period" id="pq-gran">
-          <button type="button" class="cq-tab" role="tab" data-g="week" aria-selected="false">Week</button>
-          <button type="button" class="cq-tab" role="tab" data-g="month" aria-selected="true">Month</button>
-          <button type="button" class="cq-tab" role="tab" data-g="quarter" aria-selected="false">Quarter</button>
-          <button type="button" class="cq-tab" role="tab" data-g="year" aria-selected="false">Year</button>
+    <!-- Funnel -->
+    {KEYS.map((key) => {
+      const n = F.funnel[key] ?? [];
+      const max = Math.max(1, n[0] ?? 0);
+      const rs = reasonsOf(key);
+      const dk = daysKinds(key);
+      return (
+        <div class="cq-sec pq-panel" data-view="funnel" data-kind={key} hidden>
+          <h2>Funnel{key !== "all" && ` — ${keyLabel(key)}`}</h2>
+          {!hasAny(key) ? <p class="cq-note">Nothing of this kind yet.</p> : (
+            <>
+              <p class="cq-sub">How many records reached each step, ever, read from their timelines. A later step counts the earlier ones too; the fifth counts records another record names as the one it came from.</p>
+              <div class="cq-card pq-funnel">
+                {F.steps.map((s, i) => (
+                  <div class="pq-f-row" data-step={s.step} title={s.means}>
+                    <span class="pq-f-label">{STEP_LABEL[s.step] ?? s.step}</span>
+                    <span class="pq-f-track"><span class="pq-f-bar" style={`width:${Math.round(((n[i] ?? 0) / max) * 1000) / 10}%`}></span></span>
+                    <span class="pq-f-n">{n[i] ?? 0}</span>
+                  </div>
+                ))}
+              </div>
+              <div class="cq-two" style="margin-top:12px">
+                <div class="cq-card">
+                  <h3 class="cq-h3" style="margin-top:0">Reasons lost</h3>
+                  {rs.length ? (
+                    <div class="cq-tablewrap"><table class="cq-t"><thead><tr><th class="cq-l">Reason</th><th>Records</th></tr></thead><tbody>
+                      {rs.map(([reason, count]) => <tr><td class="cq-l">{reason}</td><td>{count}</td></tr>)}
+                    </tbody></table></div>
+                  ) : <p class="cq-note">Nothing lost yet.</p>}
+                </div>
+                <div class="cq-card">
+                  <h3 class="cq-h3" style="margin-top:0">Days per stage</h3>
+                  {dk.length ? dk.map((k) => (
+                    <div class="cq-tablewrap pq-days"><table class="cq-t"><thead><tr><th class="cq-l">{key === "all" ? KIND_LABEL[k as keyof typeof KIND_LABEL] : "Stage"}</th><th>Average days</th></tr></thead><tbody>
+                      {Object.entries(F.daysPerStage[k]).map(([stage, d]) => <tr><td class="cq-l"><span class="cq-stage">{stage}</span></td><td>{d === null ? "—" : `${d} d`}</td></tr>)}
+                    </tbody></table></div>
+                  )) : <p class="cq-note">No record has moved past a stage yet, so there are no days to count.</p>}
+                </div>
+              </div>
+            </>
+          )}
         </div>
-      </div>
-      <div class="cq-card"><div class="cq-chart" id="pq-periods"></div></div>
-      <div class="cq-tablewrap" style="margin-top:12px"><table class="cq-t" id="pq-ptable"><thead><tr><th>Period</th><th>Opened</th><th>Moved forward</th><th>Proposals sent</th><th>Won</th><th>Lost</th><th>Value won</th></tr></thead><tbody></tbody></table></div>
-    </div>
+      );
+    })}
 
-    <!-- management: where it is won and lost -->
-    <div class="cq-sec" data-lens="manage">
-      <h2>Where sales are won and lost</h2>
-      <p class="cq-sub">Average days each stage holds an opportunity, computed from every transition; the reasons the lost ones were lost, from the register's closed list.</p>
-      <div class="cq-two">
-        <div class="cq-card"><h3 class="cq-h3" style="margin-top:0">Days per stage</h3><div class="cq-chart" id="pq-stagedays"></div></div>
-        <div class="cq-card"><h3 class="cq-h3" style="margin-top:0">Why lost</h3><div class="cq-tablewrap"><table class="cq-t" id="pq-reasons"><thead><tr><th class="cq-l">Reason</th><th>Records</th></tr></thead><tbody></tbody></table></div><p class="cq-note" id="pq-reasons-empty" hidden>Nothing lost yet.</p></div>
-      </div>
-    </div>
-
-    <!-- all records -->
-    <div class="cq-sec" id="pq-all-sec">
-      <h2>Every record</h2>
-      <p class="cq-sub">One row per opportunity, in the order they were opened. Each links to its record; a sent proposal sits beside it.</p>
-      <div class="cq-tablewrap"><table class="cq-t" id="pq-all"><thead><tr><th>Record</th><th class="cq-l">Organisation</th><th>Sector</th><th>Source</th><th>Procedure</th><th>Stage</th><th>Value</th><th>Opened</th><th>Closed</th><th class="cq-l">Reason</th></tr></thead><tbody></tbody></table></div>
+    <!-- Asked / we have: one card for every kind -->
+    <div class="cq-sec pq-panel" data-view="card" data-kind="any" hidden>
+      <h2>Asked / we have</h2>
+      <p class="cq-sub">What calls usually ask, what the house holds today, and what would unlock each gap — every tender and grant is read against it. The card itself is <a href={CARD_URL}>The house's card</a>.</p>
+      <div class="cq-tablewrap"><table class="cq-t pq-cardt"><thead><tr><th class="cq-l">Requirement</th><th class="cq-l">What calls usually ask</th><th class="cq-l">What we hold</th><th class="cq-l">State</th><th class="cq-l">What unlocks it</th><th>Open records at check</th></tr></thead><tbody>
+        {F.card.map((c) => {
+          const s = STATE[c.state] ?? { mark: "?", text: c.state, cls: "pq-check" };
+          return <tr data-req={c.requirement}><td class="cq-l"><b>{c.requirement}</b></td><td class="cq-l">{c.asks}</td><td class="cq-l">{c.house}</td><td class={`cq-l ${s.cls}`}><span aria-hidden="true">{s.mark}</span> {s.text}</td><td class="cq-l">{c.unlocks}</td><td>{c.check}</td></tr>;
+        })}
+      </tbody></table></div>
     </div>
 
     <div class="cq-sec">
       <h2>How this page is made</h2>
       <ul class="cq-list">
-        <li>Every figure is computed from the records in <a href="/opportunities/">/opportunities/</a>, read at build time through the same tool that checks them in CI (<code>machine/packages/sales-kit/pipeline.mjs</code>). No number on this page is typed.</li>
-        <li>The stages, their stale days and the reasons come from the register <a href="/standards/std-038-the-stages-of-a-sale">The stages of a sale</a>; what a record must contain is <a href="/standards/std-039-an-opportunity-has-a-record">An opportunity has a record</a>.</li>
-        <li>The records are public and carry nobody's name; the organisation is written by sector and size until it has agreed to a proposal. Who signs lives in the agreement.</li>
-        <li>A public tender is a record like any other, with <code>source: tender</code>, the procedure the authority buys by and a link to its notice; the register names what each procedure asks of a bidder. A filed offer waits on the authority's clock: overdue when its day passes, never stale.</li>
-        <li>Tenders and grants are read against the house's two cards; the chance comes from each record's criteria table and the register's four values, and the tools refuse a chance that contradicts its table. Grants have their own tool (<code>machine/packages/funding-kit/funding.mjs</code>) and their own records in <a href="/funding/">/funding/</a>.</li>
+        <li>Every figure is computed from the records in <a href="/opportunities/">/opportunities/</a> by <code>machine/packages/sales-kit/pipeline.mjs</code>, the same tool that checks them in CI. No number on this page is typed.</li>
+        <li>The kinds, the stages, the events and the five steps come from the register <a href="/standards/std-038-the-stages-of-an-opportunity">The stages of an opportunity</a>; what a record contains is <a href="/standards/std-039-an-opportunity-has-a-record">An opportunity has a record</a>.</li>
+        <li>Each record's stage, next step, overdue and stale are read from its timeline; a tender or a grant's chance from its criteria, read against <a href={CARD_URL}>The house's card</a>.</li>
+        <li>A call that fails a requirement is not recorded: what it taught goes into the card.</li>
+        <li>The records are public and carry nobody's name; the organisation is a sector and a size until it agrees to be named. A public funder or contracting authority is named, as it publishes its own call.</li>
         <li>A record breaking a rule fails the build of this page, as it fails the CI step: what is shown here has passed.</li>
       </ul>
     </div>
   </div></section>
 </Layout>
 
-<script is:inline id="pq-data" type="application/json" set:html={JSON.stringify(DATA)} />
+<script is:inline id="pq-data" type="application/json" set:html={JSON.stringify(F)} />
 
 <style is:global>
-.cq-flag{display:inline-flex;border:1px solid rgb(var(--yellow)/.5);color:rgb(var(--yellow));border-radius:999px;padding:1px 10px;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.04em;vertical-align:1px;white-space:nowrap}
-.cq-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cq-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px}
 @media (max-width:860px){.cq-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cq-kpi{background:rgb(var(--bg-card));border:1px solid rgb(var(--border));border-radius:var(--radius);padding:14px 16px;min-width:0}
 .cq-k{display:block;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:rgb(var(--text-dim))}
@@ -168,239 +276,95 @@ const open = P.records.filter((r) => !P.register.closed.includes(r.state));
 .cq-s{display:block;font-size:.8125rem;line-height:1.45;color:rgb(var(--text-dim))}
 .cq-kpi--warn .cq-v{color:rgb(var(--yellow))}
 .cq-kpi--today .cq-v{color:rgb(var(--accent))}
-.cq-sec{margin-top:56px}
+.cq-sec{margin-top:40px}
 .cq-sec h2{font-family:var(--font-display);font-size:1.5rem;line-height:1.25;margin:0 0 6px;color:rgb(var(--text))}
 .cq-sub{color:rgb(var(--text-muted));margin:0 0 16px;max-width:72ch;line-height:1.6}
+.cq-sub a{color:rgb(var(--accent));text-decoration:none}
 .cq-card{background:rgb(var(--bg-card));border:1px solid rgb(var(--border));border-radius:var(--radius);padding:16px}
-.cq-chart{width:100%;min-height:120px}
-.cq-chart svg{display:block;overflow:visible}
-.cq-grid{stroke:rgb(var(--border));stroke-width:1}
-.cq-ax{font-family:var(--font-mono);font-size:10px;fill:rgb(var(--text-dim))}
-.cq-lab{font-family:var(--font-mono);font-size:11px;fill:rgb(var(--text))}
-.cq-tabs{display:inline-flex;gap:4px;padding:3px;border:1px solid rgb(var(--border));border-radius:8px;background:rgb(var(--bg-card))}
+.cq-tabs{display:inline-flex;flex-wrap:wrap;gap:4px;padding:3px;border:1px solid rgb(var(--border));border-radius:8px;background:rgb(var(--bg-card))}
 .cq-tab{min-height:32px;padding:0 12px;border:0;border-radius:6px;background:transparent;color:rgb(var(--text-muted));font-family:var(--font-mono);font-size:.8125rem;cursor:pointer;transition:background .15s,color .15s}
-.cq-tab[aria-selected="true"]{background:rgb(var(--accent)/.15);color:rgb(var(--text))}
+.cq-tab[aria-pressed="true"]{background:rgb(var(--accent)/.15);color:rgb(var(--text))}
 @media (max-width:1023px){.cq-tab{min-height:44px}}
-.cq-ctrl{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 12px}
-.cq-lensbar{display:grid;gap:8px;margin:0 0 20px}
 .cq-note{font-size:.875rem;color:rgb(var(--text-muted));margin:0;line-height:1.55}
 .cq-tablewrap{overflow-x:auto}
 .cq-t{width:100%;border-collapse:collapse;font-family:var(--font-mono);font-size:.8125rem;font-variant-numeric:tabular-nums}
-.cq-t th,.cq-t td{padding:8px 10px;text-align:right;border-bottom:1px solid rgb(var(--border));white-space:nowrap}
+.cq-t th,.cq-t td{padding:8px 10px;text-align:right;border-bottom:1px solid rgb(var(--border));white-space:nowrap;vertical-align:top}
 .cq-t th{color:rgb(var(--text-dim));font-weight:500;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase}
 .cq-t th.cq-l,.cq-t td.cq-l{text-align:left;white-space:normal}
 .cq-t td:first-child,.cq-t th:first-child{text-align:left}
-.cq-t tr.cq-overdue td{color:rgb(var(--red))}
-.cq-t tr.cq-stale td{color:rgb(var(--yellow))}
 .cq-t a{color:rgb(var(--accent));text-decoration:none}
-.cq-t a:hover{text-decoration:underline}
 .cq-h3{font-family:var(--font-display);font-size:1.125rem;margin:28px 0 10px;color:rgb(var(--text))}
 .cq-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 @media (max-width:860px){.cq-two{grid-template-columns:minmax(0,1fr)}}
 .cq-list{color:rgb(var(--text-muted));line-height:1.6;padding-left:20px}
 .cq-list li{margin:6px 0}
+.cq-list a{color:rgb(var(--accent));text-decoration:none}
 .cq-list code{font-family:var(--font-mono);font-size:.85em}
-.cq-stage{display:inline-block;padding:1px 8px;border-radius:999px;border:1px solid rgb(var(--border));font-size:.7rem}
-.cq-hidden{display:none!important}
-.cq-jump{margin:20px 0 0;font-family:var(--font-mono);font-size:.8125rem;color:rgb(var(--text-dim))}
-.cq-jump a,.cq-sub a{color:rgb(var(--accent));text-decoration:none}
-.cq-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
-.cq-chip{border:1px solid rgb(var(--border));border-radius:999px;padding:2px 12px;font-family:var(--font-mono);font-size:.75rem;color:rgb(var(--text-muted))}
+.cq-stage{display:inline-block;padding:1px 8px;border-radius:999px;border:1px solid rgb(var(--border));font-family:var(--font-mono);font-size:.7rem}
 .cq-ch{display:inline-block;padding:1px 8px;border-radius:999px;border:1px solid rgb(var(--border));font-size:.7rem}
 .cq-ch--high{border-color:rgb(var(--green)/.6);color:rgb(var(--green))}
 .cq-ch--medium{border-color:rgb(var(--accent)/.6);color:rgb(var(--accent))}
-.cq-ch--low{border-color:rgb(var(--yellow)/.6);color:rgb(var(--yellow))}
-.cq-ch--none{border-color:rgb(var(--red)/.5);color:rgb(var(--red))}
-@media (prefers-reduced-motion:reduce){.cq-tab{transition:none}}
+.pq-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.pq-tag{display:inline-block;padding:0 8px;border-radius:999px;border:1px solid currentColor;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.04em;line-height:1.6}
+.pq-k-sale{color:rgb(var(--green))}.pq-k-tender{color:rgb(var(--yellow))}.pq-k-grant{color:rgb(var(--blue))}.pq-k-collaboration{color:rgb(var(--purple))}.pq-k-partner{color:rgb(var(--teal))}
+.pq-cards{display:grid;gap:10px}
+.pq-card{display:grid;gap:4px;background:rgb(var(--bg-card));border:1px solid rgb(var(--border));border-radius:var(--radius);padding:12px 16px;color:rgb(var(--text));text-decoration:none;transition:border-color .15s,background .15s}
+.pq-card:hover,.pq-card:focus-visible{border-color:rgb(var(--accent)/.6);background:rgb(var(--bg-card-hover))}
+.pq-card--overdue{border-color:rgb(var(--red)/.6)}
+.pq-card--overdue .pq-when{color:rgb(var(--red))}
+.pq-card-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.pq-id,.pq-when{font-family:var(--font-mono);font-size:.75rem;color:rgb(var(--text-dim))}
+.pq-when{color:rgb(var(--text))}
+.pq-org{font-weight:500}
+.pq-money,.pq-stage{font-size:.875rem;color:rgb(var(--text-muted))}
+.pq-money b{color:rgb(var(--text));font-family:var(--font-mono);font-weight:500}
+.pq-next{font-size:.9rem;line-height:1.5}
+.pq-gantt{display:grid;gap:0;padding:8px 12px;overflow-x:auto}
+.pq-g-row{display:grid;grid-template-columns:minmax(180px,260px) minmax(360px,1fr);align-items:center;border-bottom:1px solid rgb(var(--border));min-height:36px}
+.pq-g-row:last-child{border-bottom:0}
+.pq-g-axis{min-height:22px}
+.pq-g-name{font-family:var(--font-mono);font-size:.75rem;color:rgb(var(--text));text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:10px}
+.pq-g-name:hover .pq-g-org{text-decoration:underline}
+.pq-g-org{color:rgb(var(--text-muted));font-family:var(--font-sans)}
+.pq-g-track{position:relative;height:36px;display:block}
+.pq-g-axis .pq-g-track{height:22px}
+.pq-tick{position:absolute;top:4px;transform:translateX(-50%);font-family:var(--font-mono);font-size:.65rem;color:rgb(var(--text-dim));white-space:nowrap}
+.pq-today{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:rgb(var(--accent)/.5)}
+.pq-span{position:absolute;top:17px;height:2px;background:rgb(var(--border))}
+.pq-dot{position:absolute;top:12px;width:12px;height:12px;margin-left:-6px;border-radius:50%;border:2px solid rgb(var(--text-dim));background:rgb(var(--bg-card));cursor:help}
+.pq-dot:focus-visible{outline:2px solid rgb(var(--accent));outline-offset:2px}
+.pq-lg{display:inline-block;width:10px;height:10px;border-radius:50%;border:2px solid rgb(var(--text-dim));vertical-align:-1px}
+.pq-ev-found{border-color:rgb(var(--text-dim))}
+.pq-ev-out{background:rgb(var(--bg-card));border-color:rgb(var(--text-muted))}
+.pq-ev-pos{background:rgb(var(--green));border-color:rgb(var(--green))}
+.pq-ev-neg{background:rgb(var(--red));border-color:rgb(var(--red))}
+.pq-ev-won{background:rgb(var(--accent));border-color:rgb(var(--accent))}
+.pq-ev-lost{background:rgb(var(--bg-card));border-color:rgb(var(--red))}
+.pq-ev-next{background:transparent;border-style:dashed;border-color:rgb(var(--accent))}
+.pq-funnel{display:grid;gap:8px}
+.pq-f-row{display:grid;grid-template-columns:170px 1fr 48px;gap:10px;align-items:center}
+.pq-f-label{font-family:var(--font-mono);font-size:.8125rem;color:rgb(var(--text))}
+.pq-f-track{display:block;height:20px;border-radius:6px;background:rgb(var(--border)/.4)}
+.pq-f-bar{display:block;height:100%;border-radius:6px;background:rgb(var(--accent))}
+.pq-f-n{font-family:var(--font-mono);font-variant-numeric:tabular-nums;text-align:right;color:rgb(var(--text))}
+.pq-days+.pq-days{margin-top:12px}
+.pq-yes{color:rgb(var(--green))}.pq-no{color:rgb(var(--red))}.pq-check{color:rgb(var(--yellow))}
+.pq-cardt td{min-width:120px}
+@media (prefers-reduced-motion:reduce){.cq-tab,.pq-card{transition:none}}
 </style>
 
 <script is:inline>
 (() => {
-const D = JSON.parse(document.getElementById('pq-data').textContent);
-const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
-const REG = D.register, R = D.records, F = D.figures, TODAY = D.today;
-const OPEN_STAGES = REG.order.filter(s => !REG.closed.includes(s));
-const money = n => new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(n);
-const days = (a, b) => Math.round((Date.parse(b) - Date.parse(a)) / 864e5);
-const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const stageOf = r => `<span class="cq-stage">${r.state}</span>`;
-const link = r => `<a href="${r.url}">${r.id}</a>`;
-const lastMove = r => r.transitions.length ? r.transitions[r.transitions.length - 1].date : r.opened;
-
-/* ---- lenses ---- */
-const LENS_NOTE = {
-  sell: 'What to do today: overdue first, then what the register calls stale. Every row links to its record.',
-  manage: 'Where the pipeline is worth what, how long each stage holds it, why it is lost. Weighted value counts each open opportunity by how far it has come.',
-  anyone: 'The same records, public as they stand: nobody\'s name in them, the organisation a sector until it agrees to a proposal.',
-};
-let lens = 'sell';
-function applyLens() {
-  $$('#pq-lens .cq-tab').forEach(b => b.setAttribute('aria-selected', String(b.dataset.l === lens)));
-  $('#pq-lensnote').textContent = LENS_NOTE[lens];
-  $$('[data-lens]').forEach(el => el.classList.toggle('cq-hidden', el.dataset.lens !== lens && !(lens === 'anyone' && false)));
-  // management also sees "needs a move"; anyone sees neither lens block but the shared ones.
-  if (lens === 'manage') $('[data-lens="sell"]').classList.remove('cq-hidden');
-  kpis();
+const $$ = (s) => [...document.querySelectorAll(s)];
+let kind = 'all', view = 'due';
+function show() {
+  $$('#pq-kind .cq-tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.k === kind)));
+  $$('#pq-view .cq-tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === view)));
+  $$('.pq-kpis').forEach((el) => { el.hidden = el.dataset.kind !== kind; });
+  $$('.pq-panel').forEach((el) => { el.hidden = !(el.dataset.view === view && (el.dataset.kind === kind || el.dataset.kind === 'any')); });
 }
-$$('#pq-lens .cq-tab').forEach(b => b.addEventListener('click', () => { lens = b.dataset.l; applyLens(); }));
-
-/* ---- kpis ---- */
-const WEIGHT = Object.fromEntries(OPEN_STAGES.map((s, i) => [s, (i + 1) / (OPEN_STAGES.length + 1)]));
-function kpis() {
-  const open = R.filter(r => !REG.closed.includes(r.state));
-  const openValue = open.reduce((a, r) => a + r.value, 0);
-  const weighted = open.reduce((a, r) => a + r.value * (WEIGHT[r.state] || 0), 0);
-  const won = R.filter(r => r.state === 'won'), lost = R.filter(r => r.state === 'lost');
-  const wonValue = won.reduce((a, r) => a + r.value, 0);
-  const cards = lens === 'sell' ? [
-    ['Open', open.length, `${money(openValue)} before tax${F.tenders.open ? ` · ${F.tenders.open} tender${F.tenders.open === 1 ? '' : 's'}` : ''}`, ''],
-    ['Overdue', F.overdue.length, 'next date already past', F.overdue.length ? 'cq-kpi--warn' : ''],
-    ['Stale', F.stale.length, 'held past the register\'s days', F.stale.length ? 'cq-kpi--warn' : ''],
-    ['Proposals out', open.filter(r => r.state === 'proposed').length, 'sent, awaiting an answer', ''],
-  ] : lens === 'manage' ? [
-    ['Weighted value', money(weighted), `of ${money(openValue)} open, by stage reached`, ''],
-    ['Win rate', F.winRate === null ? '—' : `${F.winRate} %`, `${won.length} won · ${lost.length} lost`, ''],
-    ['Cycle', F.cycleDays === null ? '—' : `${F.cycleDays} d`, 'first sign to signature, average', ''],
-    ['Won, ever', money(wonValue), `${won.length} agreement${won.length === 1 ? '' : 's'}`, ''],
-  ] : [
-    ['Records', R.length, 'public, nobody\'s name', ''],
-    ['Open', open.length, `${money(openValue)} before tax`, ''],
-    ['Won', won.length, money(wonValue), ''],
-    ['Lost', lost.length, lost.length ? `most often: ${topReason()}` : '—', ''],
-  ];
-  $('#pq-kpis').innerHTML = cards.map(([k, v, s, c]) => `<div class="cq-kpi ${c}"><span class="cq-k">${k}</span><span class="cq-v">${v}</span><span class="cq-s">${esc(s)}</span></div>`).join('');
-}
-function topReason() { const e = Object.entries(F.reasons).sort((a, b) => b[1] - a[1])[0]; return e ? e[0] : '—'; }
-
-/* ---- needs a move ---- */
-function openTable() {
-  // Overdue and stale are the tool's verdicts (F.overdue, F.stale), not the
-  // page's arithmetic: a tender at proposed waits on the authority and the
-  // tool exempts it from stale; the page only shows the days held.
-  const STALE = new Set(F.stale.map(s => s.id)), OVERDUE = new Set(F.overdue.map(o => o.id));
-  const open = R.filter(r => !REG.closed.includes(r.state)).map(r => {
-    const held = days(lastMove(r), TODAY), limit = REG.staleDays[r.state];
-    const overdue = OVERDUE.has(r.id), stale = STALE.has(r.id);
-    return { r, held, limit, overdue, stale, rank: overdue ? 0 : stale ? 1 : 2 };
-  }).sort((a, b) => a.rank - b.rank || (a.r.next_date || '9').localeCompare(b.r.next_date || '9'));
-  $('#pq-open tbody').innerHTML = open.map(({ r, held, limit, overdue, stale }) =>
-    `<tr class="${overdue ? 'cq-overdue' : stale ? 'cq-stale' : ''}"><td>${link(r)}</td><td class="cq-l">${esc(r.organisation)}</td><td>${stageOf(r)}</td><td>${money(r.value)}</td><td>${r.next_date || '—'}${overdue ? ' · overdue' : ''}</td><td class="cq-l">${esc(r.next_action)}</td><td>${held}${limit !== null ? ` / ${limit}` : ''}${stale ? ' · stale' : ''}</td></tr>`).join('');
-  $('#pq-open-empty').hidden = open.length > 0;
-}
-
-/* ---- the calendar ---- */
-let horizon = 30, tendersOnly = false;
-function calendar() {
-  const rows = F.calendar.filter(c => (!tendersOnly || c.tender) && (horizon === 0 || days(TODAY, c.date) <= horizon));
-  const byId = Object.fromEntries(R.map(r => [r.id, r]));
-  $('#pq-cal tbody').innerHTML = rows.map(c => {
-    const r = byId[c.id], d = days(TODAY, c.date);
-    const when = d < 0 ? `${-d} d ago` : d === 0 ? 'today' : `${d} d`;
-    return `<tr class="${d < 0 ? 'cq-overdue' : ''}"><td>${c.date}</td><td>${when}</td><td>${r ? link(r) : esc(c.id)}</td><td class="cq-l">${esc(c.organisation)}</td><td class="cq-l">${esc(c.action)}</td><td>${c.tender ? `<span class="cq-stage">${esc(c.procedure)}</span>` : '—'}</td><td>${c.notice ? `<a href="${esc(c.notice)}" rel="noopener">notice</a>` : '—'}</td><td>${money(c.value)}</td></tr>`;
-  }).join('');
-  $('#pq-cal-empty').hidden = rows.length > 0;
-}
-$$('#pq-horizon .cq-tab').forEach(b => b.addEventListener('click', () => { horizon = Number(b.dataset.h); $$('#pq-horizon .cq-tab').forEach(x => x.setAttribute('aria-selected', String(x === b))); calendar(); }));
-$('#pq-tenders-only').addEventListener('change', e => { tendersOnly = !!e.target.checked; calendar(); });
-
-/* ---- svg helpers ---- */
-function hbars(el, rows, opts = {}) {
-  // rows: [{label, value, sub}] → horizontal bars, label left, value right.
-  const W = Math.max(320, el.clientWidth || 600), rh = 26, pad = 4, lw = opts.labelWidth || 110, vw = 70;
-  const max = Math.max(1, ...rows.map(r => r.value));
-  const H = rows.length * (rh + pad) + 4;
-  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="${esc(opts.aria || '')}">`;
-  rows.forEach((r, i) => {
-    const y = i * (rh + pad), bw = (W - lw - vw) * (r.value / max);
-    s += `<text class="cq-lab" x="0" y="${y + rh * .68}">${esc(r.label)}</text>`;
-    s += `<rect x="${lw}" y="${y + 4}" width="${Math.max(0, bw)}" height="${rh - 8}" rx="3" style="fill:${r.fill || 'rgb(var(--accent))'}"/>`;
-    s += `<text class="cq-ax" x="${lw + Math.max(0, bw) + 6}" y="${y + rh * .68}">${esc(r.text ?? r.value)}</text>`;
-  });
-  el.innerHTML = s + '</svg>';
-}
-function funnel() {
-  const rows = F.funnel.map(f => ({ label: f.stage, value: f.reached, text: String(f.reached) }));
-  hbars($('#pq-funnel'), rows, { aria: 'Opportunities that reached each stage' });
-}
-function stageDays() {
-  const rows = OPEN_STAGES.map(s => ({ label: s, value: F.timePerStage[s] ?? 0, text: F.timePerStage[s] === null || F.timePerStage[s] === undefined ? '—' : `${F.timePerStage[s]} d`, fill: REG.staleDays[s] !== null && (F.timePerStage[s] ?? 0) > REG.staleDays[s] ? 'rgb(var(--yellow))' : 'rgb(var(--accent))' }));
-  hbars($('#pq-stagedays'), rows, { aria: 'Average days per stage' });
-}
-function reasons() {
-  const e = Object.entries(F.reasons).sort((a, b) => b[1] - a[1]);
-  $('#pq-reasons tbody').innerHTML = e.map(([r, n]) => `<tr><td class="cq-l">${esc(r)}</td><td>${n}</td></tr>`).join('');
-  $('#pq-reasons-empty').hidden = e.length > 0;
-}
-
-/* ---- by period ---- */
-let gran = 'month';
-const keyOf = (d, g) => {
-  const dt = new Date(d + 'T00:00:00Z'), y = dt.getUTCFullYear(), m = dt.getUTCMonth();
-  if (g === 'year') return String(y);
-  if (g === 'quarter') return `${y}-Q${Math.floor(m / 3) + 1}`;
-  if (g === 'month') return `${y}-${String(m + 1).padStart(2, '0')}`;
-  // ISO week
-  const t = new Date(Date.UTC(y, m, dt.getUTCDate())); const day = t.getUTCDay() || 7; t.setUTCDate(t.getUTCDate() + 4 - day);
-  const wy = t.getUTCFullYear(); const w = Math.ceil(((t - Date.UTC(wy, 0, 1)) / 864e5 + 1) / 7);
-  return `${wy}-W${String(w).padStart(2, '0')}`;
-};
-function periods() {
-  const P = {};
-  const at = k => (P[k] ??= { opened: 0, forward: 0, sent: 0, won: 0, lost: 0, wonValue: 0 });
-  for (const r of R) for (const t of r.transitions) {
-    const p = at(keyOf(t.date, gran));
-    if (t.to === 'lead') p.opened++;
-    else if (t.to === 'lost') p.lost++;
-    else if (t.to === 'won') { p.won++; p.wonValue += r.value; p.forward++; }
-    else { p.forward++; if (t.to === 'proposed') p.sent++; }
-  }
-  const keys = Object.keys(P).sort();
-  $('#pq-ptable tbody').innerHTML = keys.slice().reverse().map(k => { const p = P[k]; return `<tr><td>${k}</td><td>${p.opened}</td><td>${p.forward}</td><td>${p.sent}</td><td>${p.won}</td><td>${p.lost}</td><td>${money(p.wonValue)}</td></tr>`; }).join('')
-    || '<tr><td colspan="7" class="cq-l">Nothing yet.</td></tr>';
-  // chart: stacked opened / won / lost per period, last 12 periods
-  const last = keys.slice(-12), el = $('#pq-periods');
-  const W = Math.max(320, el.clientWidth || 600), H = 160, padL = 28, padB = 24, bw = Math.max(6, Math.min(40, (W - padL) / Math.max(1, last.length) * .6));
-  const max = Math.max(1, ...last.map(k => P[k].opened + P[k].won + P[k].lost));
-  const y = v => (H - padB) - (H - padB - 8) * (v / max), x = i => padL + (W - padL) * ((i + .5) / Math.max(1, last.length));
-  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="Opened, won and lost per ${gran}">`;
-  for (let g = 0; g <= 4; g++) { const v = max * g / 4; s += `<line class="cq-grid" x1="${padL}" x2="${W}" y1="${y(v)}" y2="${y(v)}"/><text class="cq-ax" x="0" y="${y(v) + 3}">${Math.round(v)}</text>`; }
-  last.forEach((k, i) => {
-    const p = P[k]; let acc = 0;
-    for (const [key, fill] of [['opened', 'rgb(var(--accent))'], ['won', 'rgb(var(--green))'], ['lost', 'rgb(var(--red))']]) {
-      const v = p[key]; if (!v) continue;
-      s += `<rect x="${x(i) - bw / 2}" y="${y(acc + v)}" width="${bw}" height="${Math.max(0, y(acc) - y(acc + v))}" style="fill:${fill}"/>`; acc += v;
-    }
-    s += `<text class="cq-ax" x="${x(i)}" y="${H - 6}" text-anchor="middle">${k.slice(gran === 'year' ? 0 : 5)}</text>`;
-  });
-  el.innerHTML = s + '</svg>';
-}
-$$('#pq-gran .cq-tab').forEach(b => b.addEventListener('click', () => { gran = b.dataset.g; $$('#pq-gran .cq-tab').forEach(x => x.setAttribute('aria-selected', String(x === b))); periods(); }));
-
-/* ---- tenders and grants: the tools' lists, ranked by chance ---- */
-const chance = c => `<span class="cq-ch cq-ch--${esc(c)}">${esc(c || '—')}</span>`;
-const chips = (el, counts, noun) => { el.innerHTML = REG.chances.map(c => `<span class="cq-chip">${chance(c)} ${counts[c] ?? 0} ${noun}</span>`).join(''); };
-function tenders() {
-  const L = F.tenders.list;
-  chips($('#pq-t-chance'), F.tenders.byChance, 'tender(s)');
-  $('#pq-tenders tbody').innerHTML = L.map(t => `<tr><td><a href="${t.url}">${esc(t.id)}</a></td><td class="cq-l">${esc(t.organisation)}</td><td>${chance(t.chance)}</td><td>${t.criteria.yes}/${t.criteria.rows}</td><td class="cq-l">${esc(t.failed.join(', ') || '—')}</td><td class="cq-l">${esc(t.toCheck.join(', ') || '—')}</td><td><span class="cq-stage">${esc(t.procedure)}</span></td><td>${money(t.value)}</td><td>${t.next_date || '—'}</td><td>${t.notice ? `<a href="${esc(t.notice)}" rel="noopener">notice</a>` : '—'}</td></tr>`).join('');
-  $('#pq-tenders-empty').hidden = L.length > 0;
-}
-function grants() {
-  const G = D.funding.figures, L = G.list;
-  const counts = Object.fromEntries(Object.entries(G.byChance).map(([c, v]) => [c, v.count]));
-  chips($('#pq-g-chance'), counts, 'call(s)');
-  const pays = g => g.payment === 'advance' ? `${g.advance} % in advance` : g.payment === 'on-justification' ? 'after the work' : 'in kind';
-  $('#pq-grants tbody').innerHTML = L.map(g => `<tr><td><a href="${g.url}">${esc(g.id)}</a></td><td class="cq-l">${esc(g.title)}</td><td class="cq-l">${esc(g.funder)}</td><td>${chance(g.chance)}</td><td>${g.criteria.yes}/${g.criteria.rows}</td><td class="cq-l">${esc(g.failed.join(', ') || '—')}</td><td class="cq-l">${esc(g.toCheck.join(', ') || '—')}</td><td>${g.amount ? money(g.amount) : 'services'}</td><td>${pays(g)}</td><td>${g.closes || '—'}${g.estimated ? ' est.' : ''}</td><td><span class="cq-stage">${esc(g.state)}</span></td></tr>`).join('');
-  $('#pq-grants-empty').hidden = L.length > 0;
-}
-
-/* ---- every record ---- */
-function allTable() {
-  $('#pq-all tbody').innerHTML = R.slice().sort((a, b) => a.id.localeCompare(b.id)).map(r =>
-    `<tr><td>${link(r)}${r.proposalUrl ? ` · <a href="${r.proposalUrl}">proposal</a>` : ''}</td><td class="cq-l">${esc(r.organisation)}</td><td>${esc(r.sector)}</td><td>${esc(r.source)}</td><td>${r.procedure ? `<span class="cq-stage">${esc(r.procedure)}</span>` : '—'}</td><td>${stageOf(r)}</td><td>${money(r.value)}</td><td>${r.opened}</td><td>${r.closed || '—'}</td><td class="cq-l">${esc(r.reason || '')}</td></tr>`).join('');
-}
-
-applyLens(); openTable(); tenders(); grants(); calendar(); funnel(); stageDays(); reasons(); periods(); allTable();
-addEventListener('resize', () => { funnel(); stageDays(); periods(); });
+$$('#pq-kind .cq-tab').forEach((b) => b.addEventListener('click', () => { kind = b.dataset.k; show(); }));
+$$('#pq-view .cq-tab').forEach((b) => b.addEventListener('click', () => { view = b.dataset.v; show(); }));
+show();
 })();
 </script>

@@ -53,6 +53,15 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.118.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "CHG", text: "One pipeline for sales, tenders, grants, collaborations and partners. /system/pipeline now has two rows of buttons — the kind, and the view — and shows one panel at a time: what is due next, a timeline of every record, the funnel from detected to won, and what calls ask against what the house holds." },
+      { type: "CHG", text: "Grants moved into /opportunities/ as records of kind grant; the old /funding/ addresses lead to them." },
+      { type: "DEL", text: "Tenders and grants the house cannot win are no longer kept as records: what they taught goes into the house's card." },
+    ],
+  },
+  {
     version: "v0.117.0",
     date: "2026-10-01",
     entries: [

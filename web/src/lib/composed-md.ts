@@ -48,7 +48,7 @@ import { ROUNDS, CLIENTS, CASH, FUTURES, PLAN, MONEY_IN_TOTAL } from "@/data/mon
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
-import { pipeline as salesPipeline, PIPELINE_SOURCES } from "@/lib/pipeline";
+import { pipeline as salesPipeline, PIPELINE_SOURCES, CARD_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, recordUrl } from "@/lib/pipeline";
 import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
 import { settings as configSettings, MOULDS as CONFIG_MOULDS, CONFIG_INTRO } from "@/lib/configuration";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
@@ -791,97 +791,82 @@ export function accountPage(): ComposedPage {
 }
 
 /**
- * /system/pipeline — every opportunity, the tool's own figures, and what
- * happened per month: the weekly, quarterly and annual report as a view. The
- * same records and the same tool the page reads (STD-039 OPP-009), so the
- * markdown and the page agree.
+ * /system/pipeline — every opportunity of every kind, the tool's own figures
+ * as tables: the same records and the same tool the page reads (STD-039
+ * OPP-009), so the markdown and the page agree.
  */
 export function pipelinePage(): ComposedPage {
-  const P = salesPipeline();
-  const { register: reg, records, figures: F, today, funding: G } = P;
+  const F = salesPipeline();
   const eur = (n: number) => "€" + Math.round(n).toLocaleString("en-GB");
-  const open = records.filter((r) => !reg.closed.includes(r.state));
-  const stageRows = reg.order.map((s) => `| ${s} | ${F.byStage[s].count} | ${F.byStage[s].value ? eur(F.byStage[s].value) : ""} | ${F.timePerStage[s] === null ? "—" : `${F.timePerStage[s]} d`} | ${reg.staleDays[s] === null ? "—" : `${reg.staleDays[s]} d`} |`);
-  const months = new Map<string, { opened: number; forward: number; won: number; lost: number; wonValue: number }>();
-  for (const r of records) for (const t of r.transitions) {
-    const k = t.date.slice(0, 7), m = months.get(k) ?? { opened: 0, forward: 0, won: 0, lost: 0, wonValue: 0 };
-    if (t.to === "lead") m.opened++; else if (t.to === "lost") m.lost++; else if (t.to === "won") { m.won++; m.wonValue += r.value; m.forward++; } else m.forward++;
-    months.set(k, m);
-  }
-  const monthRows = [...months.keys()].sort().reverse().map((k) => { const m = months.get(k)!; return `| ${k} | ${m.opened} | ${m.forward} | ${m.won} | ${m.lost} | ${m.wonValue ? eur(m.wonValue) : ""} |`; });
+  const cell = (s: string | null | undefined) => String(s ?? "").replace(/[\\|]/g, (c) => "\\" + c);
+  const pays = (r: { pays: string | null; advance: number | null }) =>
+    (r.pays === "advance" || r.pays === "milestones") && r.advance !== null ? `${r.pays}, ${r.advance} % before the work` : (r.pays ?? "");
+  const byId = Object.fromEntries(F.records.map((r) => [r.id, r]));
+  const open = F.records.filter((r) => r.open);
+  const in7 = new Date(Date.parse(`${F.today}T00:00:00Z`) + 7 * 864e5).toISOString().slice(0, 10);
+  const due7 = F.due.filter((d) => !d.overdue && d.date >= F.today && d.date <= in7).length;
+  const adv = open.filter((r) => r.pays === "advance");
+  const due = F.due.slice().sort((a, b) => Number(b.overdue) - Number(a.overdue) || a.date.localeCompare(b.date));
+  const kinds = F.kinds.map((k) => k.kind);
   const body = [
     "# The pipeline",
     "",
-    `Every chance to sell something, as of ${today}: ${records.length} record${records.length === 1 ? "" : "s"}, ${open.length} open worth ${eur(open.reduce((a, r) => a + r.value, 0))} before tax, ${F.won} won, ${F.lost} lost${F.winRate === null ? "" : ` (win rate ${F.winRate} %)`}${F.cycleDays === null ? "" : `, ${F.cycleDays} days from first sign to signature on average`}. Nobody's name in any record; the organisation a sector until it agrees.`,
+    `Sales, tenders, grants, collaborations and partners, as of ${F.today}: ${F.records.length} record${F.records.length === 1 ? "" : "s"}, ${open.length} open. Nobody's name in any record; the organisation a sector until it agrees.`,
     "",
-    "## By stage",
+    "## Key figures",
     "",
-    "| Stage | Open | Value | Average days held | Stale after |",
-    "|---|---:|---:|---:|---:|",
-    ...stageRows,
+    table(["Figure", "Value"], [
+      ["Open value", `${eur(open.reduce((a, r) => a + r.value, 0))} before tax`],
+      ["Due in the next 7 days", String(due7)],
+      ["Overdue", String(F.overdue.length)],
+      ["Open value paid in advance", eur(adv.reduce((a, r) => a + r.value, 0))],
+    ]),
     "",
-    "## Needs a move",
+    "## By kind",
     "",
-    ...(F.overdue.length || F.stale.length ? [
-      ...F.overdue.map((o: { id: string; next_date: string; next_action: string }) => `- **${o.id}** — overdue since ${o.next_date}: ${o.next_action}`),
-      ...F.stale.map((s: { id: string; state: string; days: number; limit: number }) => `- **${s.id}** — ${s.days} days at ${s.state}, the register allows ${s.limit}`),
-    ] : ["Nothing overdue, nothing stale."]),
+    table(["Kind", "Records", "Open", "Won", "Lost", "Open value"], kinds.map((k) => {
+      const b = F.byKind[k];
+      return [KIND_PLURAL[k], String(b.records), String(b.open), String(b.won), String(b.lost), eur(b.openValue)];
+    })),
     "",
-    "## Calendar",
+    "## What's due",
     "",
-    "Every open record by its next date — a tender's is the day its offer closes, then the day the award is looked for. Procedure and notice from the record.",
-    "",
-    "| Date | Record | What | Procedure | Notice |",
-    "|---|---|---|---|---|",
-    ...((F.calendar as { date: string; id: string; action: string; tender: boolean; procedure: string; notice: string }[]).length
-      ? (F.calendar as { date: string; id: string; action: string; tender: boolean; procedure: string; notice: string }[]).map((c) => `| ${c.date} | [${c.id}](/opportunities/${c.id.toLowerCase()}) | ${c.action} | ${c.tender ? c.procedure : "—"} | ${c.notice ? `[notice](${c.notice})` : "—"} |`)
-      : ["| — | | | | |"]),
-    "",
-    "## Tenders",
-    "",
-    `${F.tenders.records} tender${F.tenders.records === 1 ? "" : "s"}: ${F.tenders.open} open, ${F.tenders.won} won, ${F.tenders.lost} lost. By procedure: ${reg.procedures.map((p) => `${p} ${F.tenders.byProcedure[p]}`).join(" · ")}. What each procedure asks of a bidder is in the register [The stages of a sale](/standards/std-038-the-stages-of-a-sale).`,
-    "",
-    "### Tenders by the house's chance",
-    "",
-    "Public buyers only, each read against [the house's card for tenders](/operations/ops-018-the-house-card-for-tenders).",
-    "",
-    "| Record | Buyer | Chance | Criteria met | Fails | To check | Closes |",
-    "|---|---|---|---|---|---|---|",
-    ...((F.tenders.list as { id: string; organisation: string; chance: string; criteria: { yes: number; rows: number }; failed: string[]; toCheck: string[]; next_date: string }[]).length
-      ? (F.tenders.list as { id: string; organisation: string; chance: string; criteria: { yes: number; rows: number }; failed: string[]; toCheck: string[]; next_date: string }[]).map((t) => `| [${t.id}](/opportunities/${t.id.toLowerCase()}) | ${t.organisation} | ${t.chance} | ${t.criteria.yes}/${t.criteria.rows} | ${t.failed.join(", ") || "—"} | ${t.toCheck.join(", ") || "—"} | ${t.next_date || "—"} |`)
-      : ["| — | | | | | | |"]),
-    "",
-    "## Grants",
-    "",
-    "Public money that is not a sale, each call read against [the house's card for grants](/operations/ops-019-the-house-card-for-grants). A day marked est. is last year's, until the call is out.",
-    "",
-    "| Record | Call | Funder | Chance | Criteria met | Fails | Up to | Pays | Closes | Stage |",
-    "|---|---|---|---|---|---|---:|---|---|---|",
-    ...((G.figures.list as { id: string; title: string; funder: string; chance: string; criteria: { yes: number; rows: number }; failed: string[]; amount: number; payment: string; advance: number; closes: string; estimated: boolean; state: string }[]).length
-      ? (G.figures.list as { id: string; title: string; funder: string; chance: string; criteria: { yes: number; rows: number }; failed: string[]; amount: number; payment: string; advance: number; closes: string; estimated: boolean; state: string }[]).map((g) => `| [${g.id}](/funding/${g.id.toLowerCase()}) | ${g.title} | ${g.funder} | ${g.chance} | ${g.criteria.yes}/${g.criteria.rows} | ${g.failed.join(", ") || "—"} | ${g.amount ? eur(g.amount) : "services"} | ${g.payment === "advance" ? `${g.advance} % in advance` : g.payment === "on-justification" ? "after the work" : "in kind"} | ${g.closes}${g.estimated ? " est." : ""} | ${g.state} |`)
-      : ["| — | | | | | | | | | |"]),
-    "",
-    "## The funnel",
-    "",
-    "| Stage | Reached, ever |",
-    "|---|---:|",
-    ...F.funnel.map((f: { stage: string; reached: number }) => `| ${f.stage} | ${f.reached} |`),
-    "",
-    "## By month",
-    "",
-    "| Month | Opened | Moved forward | Won | Lost | Value won |",
-    "|---|---:|---:|---:|---:|---:|",
-    ...(monthRows.length ? monthRows : ["| — | | | | | |"]),
-    "",
-    "## Why lost",
-    "",
-    ...(Object.keys(F.reasons).length ? Object.entries(F.reasons as Record<string, number>).sort((a, b) => b[1] - a[1]).map(([k, n]) => `- ${k}: ${n}`) : ["Nothing lost yet."]),
+    due.length
+      ? table(["Date", "Record", "Kind", "Organisation", "Next step"], due.map((d) => [
+          `${d.date}${d.overdue ? " (overdue)" : ""}`, `[${d.id}](${byId[d.id]?.url ?? recordUrl(d.id)})`, KIND_LABEL[d.kind], cell(byId[d.id]?.organisation), cell(d.action),
+        ]))
+      : "Nothing is open.",
     "",
     "## Every record",
     "",
-    "| Record | Organisation | Sector | Stage | Value | Opened | Closed | Reason |",
-    "|---|---|---|---|---:|---|---|---|",
-    ...records.slice().sort((a, b) => a.id.localeCompare(b.id)).map((r) => `| [${r.id}](/opportunities/${r.slug}) | ${r.organisation} | ${r.sector} | ${r.state} | ${eur(r.value)} | ${r.opened} | ${r.closed || ""} | ${r.reason || ""} |`),
+    table(["Record", "Kind", "Organisation", "Stage", "Value", "Pays", "Next"], F.records.map((r) => [
+      `[${r.id}](${r.url})`, KIND_LABEL[r.kind], cell(r.organisation), `${r.stage}${r.reason ? ` (${r.reason})` : ""}`,
+      r.value ? eur(r.value) : "no money", cell(pays(r)), r.next ? `${r.next.date}: ${cell(r.next.action)}` : "",
+    ])),
+    "",
+    "## Funnel",
+    "",
+    "How many records reached each step, ever, read from their timelines.",
+    "",
+    table(["Kind", ...F.steps.map((s) => STEP_LABEL[s.step] ?? s.step)], ["all", ...kinds].map((k) => [
+      k === "all" ? "All" : KIND_PLURAL[k as keyof typeof KIND_PLURAL], ...(F.funnel[k] ?? []).map(String),
+    ])),
+    "",
+    "## Reasons lost",
+    "",
+    Object.keys(F.reasons).length ? table(["Reason", "Records"], Object.entries(F.reasons).map(([r, n]) => [r, String(n)])) : "Nothing lost yet.",
+    "",
+    "## Days per stage",
+    "",
+    table(["Kind", "Stage", "Average days"], kinds.flatMap((k) => Object.entries(F.daysPerStage[k] ?? {}).map(([s, d]) => [KIND_LABEL[k], s, d === null ? "" : String(d)]))),
+    "",
+    "## Asked / we have",
+    "",
+    `What calls usually ask, what the house holds today, and what would unlock each gap — every tender and grant is read against it. The card: [The house's card](${CARD_URL}).`,
+    "",
+    table(["Requirement", "What calls usually ask", "What we hold", "State", "What unlocks it", "Open records at check"], F.card.map((c) => [
+      c.requirement, cell(c.asks), cell(c.house), c.state, cell(c.unlocks), String(c.check),
+    ])),
     "",
     "The records themselves: [/opportunities/](/opportunities/). The tool that computes this: `machine/packages/sales-kit/pipeline.mjs`, run in CI on every change.",
     "",

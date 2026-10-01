@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.11.0"
+version: "0.12.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-01T15:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -38,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 28 September 2026 the shelf holds 35 standards.
+As of 2 October 2026 the shelf holds 39 standards.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
@@ -68,7 +68,11 @@ had never written down: how a sale is made. Three standards — the stages a
 sale passes through, the record every opportunity keeps, what a proposal
 must say before it is sent — each resting on an outside standard for
 learning services or for records, with a tool that reads the records and
-computes the pipeline. What is left is the outside standards.
+computes the pipeline. The ninth folded the stages of a grant and the
+record of a grant into those two: every opportunity — a sale, a tender, a
+grant, a collaboration, a partner — is one record with a timeline, its
+stages one register by kind, so one question is no longer answered twice.
+What is left is the outside standards.
 
 ## Future state
 
@@ -112,15 +116,13 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-035` | What may we keep about a person? | — |
 | `STD-036` | How is the money written down? | — |
 | `STD-037` | What does every one of our sites carry? | — |
-| `STD-038` | Which stages does a sale pass through, and what moves it? | register |
+| `STD-038` | Which stages does an opportunity pass through, and what moves it? | register |
 | `STD-039` | What must the record of an opportunity contain? | — |
 | `STD-040` | What must a proposal contain before it is sent? | — |
 | `STD-041` | At which levels may an agent be operated, and what does the person do in each? | register |
 | `STD-042` | Which permission is granted alone at each level of automation? | register |
 | `STD-043` | What does a period report say, and to whom? | — |
 | `STD-044` | What does a buyer see the moment after paying? | — |
-| `STD-045` | Which stages does a grant pass through, and what moves it? | register |
-| `STD-046` | What must the record of a grant contain? | — |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.

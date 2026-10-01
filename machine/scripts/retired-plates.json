@@ -181,6 +181,46 @@
       "was": "STD-020 Git is the archive",
       "now": "TXT-008 of Plain text is sovereign"
     },
+    "GRA-001": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-001 of An opportunity has a record"
+    },
+    "GRA-002": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-002 of An opportunity has a record"
+    },
+    "GRA-003": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-003 of An opportunity has a record"
+    },
+    "GRA-004": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-004 of An opportunity has a record"
+    },
+    "GRA-005": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-005 of An opportunity has a record"
+    },
+    "GRA-006": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-013 of An opportunity has a record"
+    },
+    "GRA-007": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-013 of An opportunity has a record"
+    },
+    "GRA-008": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-006 of An opportunity has a record"
+    },
+    "GRA-009": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-008 and OPP-009 of An opportunity has a record"
+    },
+    "GRA-010": {
+      "was": "STD-046 A grant has a record",
+      "now": "OPP-010 of An opportunity has a record"
+    },
     "GRD-001": {
       "was": "PRO-013 Handing a guard to CI",
       "now": "step 4 of Handing a guard to CI"

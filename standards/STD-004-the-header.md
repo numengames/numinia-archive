@@ -5,11 +5,11 @@ title: "The header"
 type: documentation
 subtype: standard
 status: active
-version: "4.9.0"
+version: "4.10.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-01T15:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 ratified_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -219,8 +219,7 @@ unaided. The field names stay our own.
 | `protocols/` | `applies_to` `mandatory` |
 | `system/` | `category` `stage` `confidence` (a card of the semantic census, an entry of `SYS-011`) · `category` (a supplier card, an entry of `SYS-012`) |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
-| `opportunities/` | the record: `organisation` `sector` `offer` `source` `state` `value` `currency` `contact_role` `contact_channel` `decider_role` `next_action` `next_date` `opened` `closed` `reason` `proposal` `agreement` `procedure` `notice` `chance` `read_from` `object` `file_ref` `turnover_asked` `works_asked` `starts` · the proposal: `opportunity` `date` `valid_until` `level` `price` `tax_rate` — their values are judged by the pipeline tool (`STD-039`, `STD-040`) |
-| `funding/` | `funder` `instrument` `amount` `currency` `payment` `advance` `call` `opens` `closes` `estimated` `state` `chance` `next_action` `next_date` `opened` `closed` `reason` `granted` — their values are judged by the funding tool (`STD-046`) |
+| `opportunities/` | the record: `kind` `organisation` `sector` `source` `value` `currency` `pays` `contact_role` `contact_channel` `opened` · written when due: `offer` `advance` `proposal` `agreement` `decider_role` `disclosure` `follows` `gives_back` · a tender or a grant: `call` `closes` `read_from` · a tender: `procedure` `file_ref` `object` `turnover_asked` `works_asked` `starts` · a grant: `instrument` `opens` `estimated` · the proposal: `opportunity` `date` `valid_until` `level` `price` `tax_rate` — their values are judged by the pipeline tool (`STD-039`, `STD-040`); the stage, the next step and the chance are computed from the record's timeline, never written in the header |
 | all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
 
 Retired fields are reported wherever they remain: `area` (now `territory`),

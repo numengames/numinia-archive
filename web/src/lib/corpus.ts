@@ -231,16 +231,6 @@ export const SECTIONS: Section[] = [
     epistemic: "Whom the company is trying to sell to, and where each sale stands.",
     pragmatic: "See the pipeline as it is, and open the record before talking to a client again.",
   },
-  // Funding — its own series since 2026-10-01, by the Oracle's word: grants
-  // beside tenders, each read against the house's card. A grant is not a
-  // sale (no client, no proposal), so it has its own stages (STD-045).
-  { prefix: "funding/", slug: "funding", label: "Funding", collection: "corpus",
-    question: "Which public money can the house take, and where does each call stand?",
-    emptyMeans: "No call is on the radar. The folder exists and its records are read at build time and by the funding tool, so the first record to land appears here on its own.",
-    blurb: "One record per call for public money — a grant, a public loan, a prize: the funder, how much and how it pays, the closing day, and the house's chance read from the call's conditions.",
-    epistemic: "Which grants the house could take, and how likely each is.",
-    pragmatic: "See the calls by closing day, read why each is likely or not, and prepare the next one.",
-  },
   // Legal — its own series since 2026-09-27. These texts were loose in
   // operations/ while three sources disagreed on where they belonged. They are
   // the company's promises to the public in law, and they change when the law
@@ -485,13 +475,11 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-033-every-charge-delivers-something",
       // 2026-09-30: what the buyer sees after paying — beside what may be charged.
       "/standards/std-044-every-purchase-ends-in-thanks",
-      "/standards/std-038-the-stages-of-a-sale",
+      // 2026-10-02: one pipeline — sales, tenders, grants, collaborations
+      // and partners pass through one register and one record.
+      "/standards/std-038-the-stages-of-an-opportunity",
       "/standards/std-039-an-opportunity-has-a-record",
       "/standards/std-040-a-proposal-says-four-things",
-      // 2026-10-01: public money that is not a sale — the stages of a grant
-      // and what its record holds, beside the sale's.
-      "/standards/std-045-the-stages-of-a-grant",
-      "/standards/std-046-a-grant-has-a-record",
       "/standards/std-036-one-account",
     ],
   },
@@ -682,7 +670,6 @@ const READING_ORDER: Record<string, string[]> = {
   // reads them all, so the order here is by identifier — the year and the
   // running number — which is the order they were opened.
   opportunities: [],
-  funding: [],
 
   // The three promises the company makes to anyone who uses its sites, in the
   // order a visitor meets them: what we do with your data, the terms of use,
@@ -764,7 +751,7 @@ export interface SectionView {
 export const SECTION_VIEWS: Record<string, SectionView[]> = {
   system: [
     { href: "/system/open-books", title: "Open books", what: "The books of Numen Games S.L. since it was born on 16 February 2024: what it spends, who governs it, where the money came from and how long it lasts. Real FY2025 figures." },
-    { href: "/system/pipeline", title: "The pipeline", what: "Every chance to sell something, at its stage, with what needs a move; where sales are won and lost, by week, month, quarter and year — as whoever sells, management and anyone read it. Computed from the public records." },
+    { href: "/system/pipeline", title: "The pipeline", what: "Every sale, tender, grant, collaboration and partner in one place: what is due next, each record's timeline, the funnel from detected to won, and what calls ask against what the house holds. Computed from the public records." },
     { href: "/system/wardley", title: "Wardley map", what: "A strategic map of the NWOS — what is visible, what is evolving, where the moat is. Rendered from its report." },
     { href: "/system/gaps", title: "Gaps", what: "The blind spots of the NWOS from business, product and organisational theory. Rendered from its report." },
     { href: "/system/continuity", title: "Continuity", what: "The proof that an agent can rebuild itself from the repository alone.", lang: "es" },
@@ -788,7 +775,6 @@ export const READING_NOTE: Record<string, string> = {
   system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the instruments that check those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
   opportunities: "Every chance to sell something, in the order it was opened: who (by sector, until they agree), at which stage, and what happens next.",
-  funding: "Every call for public money the house might take, in the order it was opened: the funder, how much, how it pays, when it closes, and the house's chance.",
   operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, what it offers, and the handling of keys.",
   legal: "The three texts written for someone outside the company: what we do with your data, the terms of using our sites, and what your browser keeps. Each is the master copy every site publishes.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",

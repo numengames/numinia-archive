@@ -58,17 +58,12 @@ jobs:
       - name: rule guards
         run: npm run guards -- --rules
 
-      # The records of a sale are public and read by a tool (STD-039). Red
-      # means: a record breaks a rule of the opportunity record standard —
-      # the line names the record and the plate. An empty folder is green.
+      # Every opportunity — a sale, a tender, a grant, a collaboration, a
+      # partner — is a public record read by one tool (STD-039). Red means:
+      # a record breaks a rule of the opportunity record standard — the line
+      # names the record and the plate. An empty folder is green.
       - name: opportunities — the records conform
         run: node machine/packages/sales-kit/pipeline.mjs opportunities --proposals > /dev/null
-
-      # The grants the house might take are public records too (STD-046).
-      # Red means: a grant record breaks a rule — the line names it and the
-      # plate. An empty folder is green.
-      - name: funding — the records conform
-        run: node machine/packages/funding-kit/funding.mjs funding > /dev/null
 
       # The guards' own tests, and the telemetry instrument's self-tests on
       # throwaway clones. Red means: a guard or the instrument is broken, not

@@ -4,17 +4,17 @@ uid: ""
 title: "Qualifying an opportunity"
 type: protocol
 status: draft
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-09-30T21:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
-tags: [protocol, sales, opportunity, qualification, pipeline, tenders]
+tags: [protocol, sales, opportunity, qualification, pipeline, timeline, collaboration, partner]
 license: "CC0-1.0"
 applies_to: [all-agents]
-related: ["STD-038", "STD-039", "PRO-029", "PRO-030", "CAN-002"]
+related: ["STD-038", "STD-039", "PRO-029", "PRO-030", "PRO-033", "PRO-032", "CAN-002"]
 derived_from: "CAN-009"
 ---
 
@@ -25,16 +25,17 @@ SPDX-License-Identifier: CC0-1.0
 
 # PRO-028 — Qualifying an opportunity
 
-> **Summary:** From the first sign that an organisation might buy something
-> of ours to a record that says pursue or decline: who they are, whether
-> what they need is what we make, who can sign, and what happens next.
+> **Summary:** From the first sign that an organisation might buy, fund or
+> work with the house to a record that says pursue or decline: who they
+> are, what kind of opportunity it is, whether what they need is what we
+> make, who can sign, and what happens next.
 > **Epistemic:** How does a sign of interest become an opportunity worth pursuing, or a door closed with a reason?
 > **Pragmatic:** Open the record, ask the fit question, name the decider,
 > decide — in days, not weeks.
 > **Audience:** Agents · Oracles
 
-**Binds:** whoever hears of a chance to sell something in Numen Games' or
-Numinia's name, and whoever decides whether to pursue it.
+**Binds:** whoever hears of a chance to sell, collaborate or partner in
+Numen Games' or Numinia's name, and whoever decides whether to pursue it.
 
 ---
 
@@ -45,58 +46,57 @@ nowhere because nobody wrote it down, or effort spent on something we could
 not make. This protocol puts every sign of interest into a record on the
 day it arrives, and decides within two weeks whether it is worth pursuing.
 
-It starts when an organisation shows a need — a form, an email, a
-conversation at an event, a referral, a public body's notice — or when the
-Oracle chooses one to approach. **Whoever hears of it** opens the record; **whoever sells** (the
-Oracle today, or whom he names) qualifies it and decides.
+It starts when an organisation shows a need — a form, an e-mail, a
+conversation at an event, a referral — or proposes working together, or
+when the Oracle chooses one to approach. **Whoever hears of it** opens the
+record; **whoever sells** (the Oracle today, or whom he names) qualifies it
+and decides. A public tender is screened by `PRO-033`, a grant by
+`PRO-032`.
 
 ---
 
 ## 2. Preconditions
 
-- The opportunities series, where every record lives in public; the mould
-  of the record, with the other moulds of the archive.
-- The record of the offer this would sell, published; without one, there is
-  nothing to qualify against.
-- The stages register at hand for the stage, its evidence and its stale
-  days, and — for a tender — the procedures a public buyer purchases by
-  and what each asks of a bidder (`STD-038`).
-- For tenders: alerts on the public procurement platform, and the
-  bidders' register application filed (the register says which procedures
-  ask for it).
+- The opportunities series, where every record lives in public, and the
+  one mould of the record, with the other moulds of the archive.
+- The record of the offer this would sell, published; without one, a sale
+  has nothing to qualify against.
+- The register of the stages of an opportunity at hand: the kinds, their
+  stages, the events a timeline is written in, the reasons (`STD-038`).
 
 ---
 
 ## 3. Procedure
 
-1. **Open the record, that day.** Copy the mould; fill the organisation by
-   sector and size, the source, the contact's role and channel, what they
-   said in their words, and a next action with its date. Stage `lead`. The
-   record is public: nobody's name, e-mail or phone in it, and the
-   organisation by sector and size until the proposal tells the client the
-   house works in the open (`STD-039`).
+1. **Open the record, that day.** Copy the mould; set the kind — `sale`,
+   `collaboration` or `partner` — and fill the organisation by sector and
+   size, the source, the value, how it pays, the contact's role and
+   channel, and what they said in their words. The timeline opens with one
+   `found` line and ends with one `next` line: the next action and its
+   date; the record sits at `lead`. It is public: nobody's name, e-mail or
+   phone, and the organisation by sector and size until the client is told
+   the house works in the open (`STD-039`).
 2. **Ask the fit question.** Is what they need learnt by walking it, or made
    of people participating? If they need a course, a video or a report,
-   say so and decline: `lost`, reason `not-a-fit`, and point them
-   somewhere honest. The house sells what it makes.
-3. **Ask who signs and from where.** In one conversation or two: the role
-   of the person who can approve the spend, and the budget line it would
-   come from. Write what is known; what is not yet known is asked at the
-   next meeting, and the record says so. Nobody who can sign reached after
-   two attempts: `lost`, reason `no-decider` or `no-budget`.
-4. **For a tender, read the notice.** Source `tender`; the procedure and
-   the notice's address in the header; the notice's estimated value as the
-   value; the closing day as the next date. Three yes-or-no questions from
-   the terms: is the house eligible (solvency, register, classification);
-   can it deliver in the time and place asked; is the value worth the
-   dossier. One no: `lost`, reason `we-declined`, the failed question in
-   the body. A minor contract has no notice: the record holds the
-   authority's request instead.
-5. **Decide to pursue.** Whoever sells weighs the fit, what is known of who
+   say so and decline: a `lost` line with the reason `not-a-fit`, and point
+   them somewhere honest. The house sells what it makes.
+3. **Ask who signs and from where.** The role of the person who can
+   approve the spend, and the budget line. Each contact is an `out` line,
+   each answer a `pos` or `neg` line; what is not yet known, the `next`
+   line asks. Nobody who can sign reached after two attempts: a `lost`
+   line, `no-decider` or `no-budget`.
+4. **Decide to pursue.** Whoever sells weighs the fit, what is known of who
    signs, and the house's capacity to deliver in the time asked, and
-   decides. Pursue: stage `qualified`, a transition row, and the next
-   action is the needs analysis. Decline: `lost`, reason `we-declined`, and
-   the reason in a sentence in the body.
+   decides. Pursue: a line marked `qualified`, and the `next` line is the
+   needs analysis (`PRO-029`). Decline: a `lost` line, `we-declined`, with
+   the reason in a sentence.
+5. **A collaboration or a partner.** Write what each side gives. Their
+   yes: a `pos` line marked `talking`; the split agreed — who signs, who
+   does what, the house's share as the value — a line marked `agreed`; a
+   joint offer filed naming the house, a line marked `filed`. Done, or the
+   offer won: a `won` line, and for a collaboration what came back in
+   `gives_back`. A record that comes from an earlier one names it in
+   `follows`.
 6. **Run the pipeline tool.** The record conforms, or the tool says which
    rule it breaks; fix it before the day ends.
 
@@ -106,20 +106,19 @@ Oracle today, or whom he names) qualifies it and decides.
 
 | Step | Evidence it completed |
 |---|---|
-| 1 | A record exists in the opportunities series, opened the day the sign arrived, stage `lead` |
-| 2–3 | The body holds the fit answer and what is known of who signs and from which budget — or the record is `lost` with its reason |
-| 4 | A tender's header carries `source: tender`, its procedure and its notice; the body holds the three answers from the terms |
-| 5 | Stage `qualified` with a transition row, or `lost`; the next action names the needs analysis |
+| 1 | A record exists in the opportunities series, opened the day the sign arrived, with its kind, a `found` line and a `next` line |
+| 2–3 | The timeline holds the contacts and answers, and the body what is known of who signs and from which budget — or a `lost` line with its reason |
+| 4 | A line marked `qualified` and a `next` line naming the needs analysis, or a `lost` line |
+| 5 | A collaboration or partner record says what each side gives; its lines mark `talking`, `agreed`, `filed` or close it |
 | 6 | The pipeline tool reports no breach on the record |
 
 ---
 
 ## 5. Escalation
 
-A need that fits but exceeds what the house can deliver alone — a size, a
-technology, a deadline — goes to the Oracle before pursuing, with the
-partner or the refusal it would take. A need that would rehearse something
-harmful or unlawful is declined at step 2 and told to the legal specialist.
-A record stale in `lead` past the register's days is decided that week:
-pursue or `lost`, never left open. A tender closing sooner than the
-dossier takes goes to the Oracle that day: bid, find a partner, or decline.
+A need that fits but exceeds what the house can deliver alone goes to the
+Oracle before pursuing, with the partner or the refusal it would take. A
+need that would rehearse something harmful or unlawful is declined at step
+2 and told to the legal specialist. A record the tool reports stale is
+decided that week. A partner's share is agreed by the Oracle, in writing,
+before any offer names the house.

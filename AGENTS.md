@@ -121,11 +121,11 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
   reserved — it says so in its own SPDX comment).
 - `legal/` — the legal texts the public sites are bound by, one `LEG-` series;
   every one is reserved and says so in its own SPDX comment.
-- `opportunities/` — every chance to sell something, one public record each
-- `funding/` — every call for public money the house might take, one public record each
+- `opportunities/` — every opportunity — a sale, a tender, a grant, a
+  collaboration, a partner — one public record each
   (`OPP-YYYY-NNN.md`, its proposals beside it); nobody's name in them, the
   organisation by sector until it agrees. `machine/packages/sales-kit/` holds
-  the moulds and the tool that reads them.
+  the tool that reads them.
 - `objects/` — entity cards: one Markdown per registered thing that is not a
   document (an avatar, a model). The bytes live in the depot.
 - `system/` — reference manuals of how the system works today.
@@ -187,11 +187,11 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-025` | Handling a personal data breach | draft | whoever learns of a possible breach of personal data we hold… |
 | `PRO-026` | Answering a person's request about their data | draft | whoever receives or answers a request from a person about the data we hold on them |
 | `PRO-027` | Changing what a site stores or loads | draft | whoever changes a site so that it stores, loads or sends something it did not before… |
-| `PRO-028` | Qualifying an opportunity | draft | whoever hears of a chance to sell something in Numen Games' or Numinia's name… |
+| `PRO-028` | Qualifying an opportunity | draft | whoever hears of a chance to sell, collaborate or partner in Numen Games' or Numinia's name… |
 | `PRO-029` | Making a proposal | draft | whoever analyses a need, writes, reviews or approves a proposal in Numen Games' or Numinia's… |
 | `PRO-030` | Closing a sale | draft | whoever follows up, negotiates, signs or hands over a sale in Numen Games' or Numinia's name |
-| `PRO-031` | Bidding for a tender | draft | whoever finds, reads, decides on or files a tender in Numen Games' name |
-| `PRO-032` | Applying for a grant | draft | whoever finds, reads, decides on, applies for or justifies a grant… |
+| `PRO-031` | Bidding for a tender | draft | whoever reads, decides on or files a tender in Numen Games' name |
+| `PRO-032` | Applying for a grant | draft | whoever finds, reads, decides on, applies for or justifies a grant, a public loan… |
 | `PRO-033` | Screening a tender | draft | whoever judges, in Numen Games' name, whether a tender is worth bidding for — person or agent… |
 | `STD-001` | The series | draft | every tracked document of the archive |
 | `STD-003` | Platform ranks | draft | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
@@ -225,17 +225,15 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-035` | Personal data | draft | everything of ours that collects or keeps data about a person |
 | `STD-036` | One account | draft | the ledger of what Numen Games and Numinia cost and take in, and every view published from it |
 | `STD-037` | What every site carries | draft | every public site of Numen Games and Numinia: numinia.org, numinia.com… |
-| `STD-038` | The stages of a sale | draft | register — scope belongs to the standard that cites it |
-| `STD-039` | An opportunity has a record | draft | every record of an opportunity kept in Numen Games' or Numinia's name… |
+| `STD-038` | The stages of an opportunity | draft | register — scope belongs to the standard that cites it |
+| `STD-039` | An opportunity has a record | draft | every record of an opportunity kept in Numen Games' or Numinia's name — a sale, a tender… |
 | `STD-040` | A proposal says four things | draft | every proposal for a service that Numen Games sends to an organisation, and whoever writes… |
 | `STD-041` | The levels of automation | draft | register — scope belongs to the standard that cites it |
 | `STD-042` | What an agent may do without asking | draft | register — scope belongs to the standard that cites it |
 | `STD-043` | A report speaks to the board | draft | every roll-up report of a week, a quarter or a year |
 | `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
-| `STD-045` | The stages of a grant | draft | register — scope belongs to the standard that cites it |
-| `STD-046` | A grant has a record | draft | every record of a grant, public loan or prize kept in Numen Games' name… |
 
-78 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+76 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 7 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
