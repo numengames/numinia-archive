@@ -200,11 +200,11 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
      <div class="ob-sec">
       <h3>The rounds</h3>
       <p class="ob-sub">What the partners paid in each round, next to the nominal the Registry published. The difference is share premium: equity, not debt. Who paid which part enters from the deeds, with the partners' consent.</p>
-      <div class="ob-box"><table class="ob-t">
+      <div class="ob-box"><div class="ob-xs"><table class="ob-t">
        <thead><tr><th>Date</th><th>Round</th><th class="ob-n">Nominal (BORME)</th><th class="ob-n">Paid in</th><th></th></tr></thead>
        <tbody><tr><td class="ob-mono">2024-02-16</td><td>Incorporation</td><td class="ob-n">3,000 €</td><td class="ob-n">3,000 €</td><td class="ob-n"><span class="ob-pill ob-pill--real">real</span></td></tr>{ROUNDS.map((r) => <tr><td class="ob-mono">{r.date}</td><td>{r.what} · <a href={bormeUrl(r.borme)} target="_blank" rel="noopener noreferrer">BORME</a></td><td class="ob-n">{eur(r.nominal, 2)}</td><td class="ob-n">≈ {eur(r.amount)}</td><td class="ob-n"><span class="ob-pill ob-pill--decl">declared</span></td></tr>)}</tbody>
        <tfoot><tr><td colspan="2">Partners, together</td><td class="ob-n">{eur(COMPANY.capital, 2)}</td><td class="ob-n">≈ {eur(partners)}</td><td></td></tr></tfoot>
-      </table><p class="ob-note"><span class="ob-pill ob-pill--decl">declared</span> The amounts paid are the company's word, rounded; they turn real when the deeds are loaded. ENISA usually lends up to what the partners put in: the first round came six months before the loan.</p></div>
+      </table></div><p class="ob-note"><span class="ob-pill ob-pill--decl">declared</span> The amounts paid are the company's word, rounded; they turn real when the deeds are loaded. ENISA usually lends up to what the partners put in: the first round came six months before the loan.</p></div>
      </div>
      <div class="ob-sec" id="cq-sec-enisa">
       <h3>The ENISA loan</h3>
@@ -273,7 +273,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
      </div>
      <div class="ob-sec ob-grid2">
       <div>
-       <h3>Time to tomb</h3>
+       <h3>Cash, month by month</h3>
        <p class="ob-sub">Cash at the end of each month for the next two years if the company keeps running as in 2025. Where the line crosses zero, it stops.</p>
        <div class="ob-box"><div class="ob-chart" id="ob-tomb"></div></div>
       </div>
@@ -467,6 +467,7 @@ table.ob-t{border-collapse:collapse;width:100%;font-size:.84rem;color:rgb(var(--
 .ob-cnum{font:500 clamp(1.6rem,4vw,2.4rem)/1.1 var(--font-mono);color:rgb(var(--text));font-variant-numeric:tabular-nums;margin-top:6px}
 .ob-clock{font:500 clamp(1.4rem,4.4vw,2.6rem)/1.1 var(--font-mono);color:rgb(var(--red));font-variant-numeric:tabular-nums;margin:6px 0 4px}
 .ob-clock small{font-size:.45em;color:rgb(var(--text-dim));margin:0 .5em 0 .15em}
+.ob-xs{overflow-x:auto}
 .ob-vision{margin:0;font-size:1rem;line-height:1.65;color:rgb(var(--text))}
 .ob-gl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 14px;margin:0;font-size:.84rem}
 @media(max-width:640px){.ob-gl{grid-template-columns:1fr}}
@@ -670,7 +671,7 @@ function runway() {
   $('#ob-tomb').innerHTML = s + '</svg>';
   $('#ob-close').innerHTML = '<thead><tr><th>Item</th><th class="ob-n">Estimate</th></tr></thead><tbody>' + CLOSE.map(([k, v]) => `<tr><td>${k}</td><td class="ob-n">${eur(v)}</td></tr>`).join('') + `</tbody><tfoot><tr><td>To close cleanly</td><td class="ob-n">${eur(closeTotal)}</td></tr><tr><td style="font-weight:400;color:rgb(var(--text-muted))">Cash left after closing</td><td class="ob-n" style="color:rgb(var(${cash - closeTotal < 0 ? '--red' : '--green'}))">${eur(cash - closeTotal)}</td></tr></tfoot>`;
   const m = cash / Math.max(1, burn - inc);
-  $('#ob-kpis').innerHTML = [['Spent in 2025', eur(D.total), `net of VAT · ${L.length} lines`, 'real'], ['A month, on average', eur(burn), 'what running cost in 2025', 'real'], ['Owed to ENISA', eur(D.principal), 'participative loan, 2024', 'real'], ['Money in', '≈ ' + eur(D.moneyIn), 'partners, ENISA and clients since 2024', 'decl'], ['Time to tomb', burn - inc <= 0 ? '—' : m.toFixed(1) + ' months', "at today's cost · simulated cash", 'sim', m < 6]]
+  $('#ob-kpis').innerHTML = [['Spent in 2025', eur(D.total), `net of VAT · ${L.length} lines`, 'real'], ['A month, today', eur(burn), '2025 book plus payroll · payroll simulated', 'sim'], ['Owed to ENISA', eur(D.principal), 'participative loan, 2024', 'real'], ['Money in', '≈ ' + eur(D.moneyIn), 'partners, ENISA and clients since 2024', 'decl'], ['Time to tomb', burn - inc <= 0 ? '—' : m.toFixed(1) + ' months', "at today's cost · simulated cash", 'sim', m < 6]]
     .map(([k, v, sub, t, a]) => `<div class="ob-kpi ${a ? 'alert' : ''}"><span class="dot ${t}" title="${t === 'real' ? 'real figure' : t === 'decl' ? 'declared, document to load' : 'simulated'}"></span><span class="ob-k">${k}</span><span class="v">${v}</span><span class="s">${sub}</span></div>`).join('');
 }
 $('#ob-cash').addEventListener('input', () => { runway(); tick(); planDraw(); });
