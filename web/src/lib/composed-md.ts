@@ -798,7 +798,7 @@ export function accountPage(): ComposedPage {
 export function pipelinePage(): ComposedPage {
   const F = salesPipeline();
   const eur = (n: number) => "€" + Math.round(n).toLocaleString("en-GB");
-  const cell = (s: string | null | undefined) => String(s ?? "").replace(/\|/g, "\\|");
+  const cell = (s: string | null | undefined) => String(s ?? "").replace(/[\\|]/g, (c) => "\\" + c);
   const pays = (r: { pays: string | null; advance: number | null }) =>
     (r.pays === "advance" || r.pays === "milestones") && r.advance !== null ? `${r.pays}, ${r.advance} % before the work` : (r.pays ?? "");
   const byId = Object.fromEntries(F.records.map((r) => [r.id, r]));

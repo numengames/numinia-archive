@@ -126,7 +126,7 @@ test('two button rows choose one panel; the default is server-rendered', { skip:
 
 test('the script shows exactly one panel for each kind and view', { skip: notBuilt }, () => {
   const built = readFileSync(BUILT, 'utf8');
-  const scripts = [...built.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((x) => x[1]);
+  const scripts = [...built.matchAll(/<script>([\s\S]*?)<\/script\s*>/gi)].map((x) => x[1]);
   const script = scripts.find((s) => s.includes('pq-panel'));
   assert.ok(script, 'the page has its switching script');
   // a stand-in DOM: the buttons and panels the built page holds

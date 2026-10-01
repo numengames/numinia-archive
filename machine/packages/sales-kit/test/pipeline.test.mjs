@@ -292,7 +292,6 @@ check('OPP-003: a record closes only by a won or lost line, never by a token', (
 });
 
 check('OPP-003: the decider\'s role is due at agreed and won, not before', (dir) => {
-  edit(dir, 'OPP-2099-002.md', (t) => t.replace('ask whether', 'ask whether'));
   assert.equal(run(dir).code, 0, 'a proposed sale may not yet know who signs');
   edit(dir, 'OPP-2099-001.md', (t) => t.replace(/^decider_role: .*\n/m, ''));
   assert.match(run(dir).err, /OPP-003.*a sale at `won` with no decider role/);
