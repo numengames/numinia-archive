@@ -254,6 +254,34 @@ check('tree: the house has one card per door to public money, and a protocol wal
   return true;
 });
 
+check('tree: screening a tender is a protocol, and the skill only points to it — one procedure, one home', () => {
+  // The Oracle (2026-10-01): "no solo la skill". The screening procedure is
+  // a protocol of the axis; the portable skill is an adapter that sends any
+  // agent to it, so the steps are never kept twice.
+  const pro = path.join(ROOT, 'protocols/PRO-033-screening-a-tender.md');
+  if (!existsSync(pro)) return 'protocols/PRO-033-screening-a-tender.md is missing';
+  const skill = readFileSync(path.join(ROOT, 'agents/skills/tender-screening/SKILL.md'), 'utf-8');
+  if (!/PRO-033/.test(skill)) return 'the tender-screening skill does not send the agent to PRO-033';
+  if (/^## Step \d/m.test(skill) || /^## The five questions/m.test(skill)) return 'the skill keeps its own copy of the steps — they live in PRO-033';
+  const s038 = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-a-sale.md'), 'utf-8');
+  if (!/^## Weighing a tender$/m.test(s038)) return 'STD-038 holds no Weighing a tender table: the protocol would carry values a register holds';
+  const p031 = readFileSync(path.join(ROOT, 'protocols/PRO-031-bidding-for-a-tender.md'), 'utf-8');
+  if (!/PRO-033/.test(p031)) return 'PRO-031 does not start from the screening protocol';
+  return true;
+});
+
+check('tree: every stage of a grant is moved by a protocol, and the month takes in public money', () => {
+  const reg = readFileSync(path.join(ROOT, 'standards/STD-045-the-stages-of-a-grant.md'), 'utf-8');
+  const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## What the funder gives'));
+  const stages = [...table.matchAll(/^\| `([a-z]+)` \|/gm)].map((m) => m[1]);
+  const p032 = readFileSync(path.join(ROOT, 'protocols/PRO-032-applying-for-a-grant.md'), 'utf-8');
+  const unmoved = stages.filter((s) => !new RegExp('`' + s + '`').test(p032));
+  if (unmoved.length) return `no step of PRO-032 moves a grant to: ${unmoved.join(', ')}`;
+  const p021 = readFileSync(path.join(ROOT, 'protocols/PRO-021-closing-the-month.md'), 'utf-8');
+  if (!/grant/i.test(p021) || !/tender|contract/i.test(p021)) return 'the month close takes in no grant and no public contract — PRO-032 and PRO-031 hand their money to it';
+  return true;
+});
+
 check('tree: no living text types a range of identifiers — a count is read from the tree, never written', () => {
   // "STD-001…STD-028" was true once and false eleven standards later. The
   // rule index in AGENTS.md is generated; a hand-typed range beside it is a

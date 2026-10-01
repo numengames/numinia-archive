@@ -37,8 +37,10 @@ current blockers.
 
 ## How a sale is run
 
-`agents/skills/tender-screening/SKILL.md` — how a public tender is screened:
+`protocols/PRO-033-screening-a-tender.md` — how a public tender is screened:
 from the terms, never a summary; bid, possible or decline with the clause.
+Then `PRO-031` to bid, and `PRO-032` for a grant. The portable adapter for
+any agent is `agents/skills/tender-screening/SKILL.md`.
 
 `operations/OPS-018-the-house-card-for-tenders.md` and
 `operations/OPS-019-the-house-card-for-grants.md` — what the house can prove.

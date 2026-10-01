@@ -5,9 +5,9 @@ title: "The stages of a sale"
 type: documentation
 subtype: register
 status: draft
-version: "0.6.0"
+version: "0.7.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-01T15:00:00+02:00"
+updated: "2026-10-01T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -32,7 +32,7 @@ SPDX-License-Identifier: CC0-1.0
 > lost, from which stage the organisation is named, and — when the buyer is
 > a public body that publishes a notice — which procedure it buys by and
 > what each asks of a bidder, the four values of the house's chance, where a
-> tender was read and what the buyer really buys. The standard of the opportunity record cites
+> tender was read, what the buyer really buys and how a tender is weighed. The standard of the opportunity record cites
 > these values; the pipeline tool reads them here and nowhere else. A
 > register records: nothing in it binds by itself.
 > **Epistemic:** Which stages does a sale pass through, and what moves it?
@@ -131,6 +131,21 @@ Read from the technical terms, never from the title or the code.
 | `deliver` | something the house runs: a workshop, an event, a gamified training |
 | `resale` | another maker's product, a licence or hardware the house would only pass on |
 | `other` | what the house does not make: teaching, managing a centre, children's entertainment, corporate communication |
+
+## Weighing a tender
+
+What makes a tender that survives the criteria worth the dossier, read from
+its terms. The screening protocol scores each row; a tender mostly in the
+last column is declined unless the Oracle says otherwise.
+
+| What | Good | Fair | Poor |
+|---|---|---|---|
+| Weight of the judgement criteria | over 50 % | 25–50 % | under 25 % — the price decides |
+| Working days to the closing day | over 10 | 5–10 | under 5 |
+| Definitive guarantee | none, or under 3 % | 5 % | over 5 %, or a provisional one as well |
+| Profiles the terms require in the team | 1–3 | 4–6 | 7 or more |
+| Length | a closed project, in months | one year | several years with extensions |
+| Cash | paid in stages, or nothing to buy first | one payment after acceptance | material bought first, paid after acceptance |
 
 ## Naming the organisation
 

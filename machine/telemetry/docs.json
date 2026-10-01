@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17970,
+  "chars": 18110,
   "apparatus": false,
   "archived": false,
-  "tokens": 4454
+  "tokens": 4490
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 22243,
+  "chars": 22497,
   "apparatus": false,
   "archived": false,
-  "tokens": 6181
+  "tokens": 6261
  },
  {
   "path": "CLAUDE.md",
@@ -357,10 +357,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2558,
+  "chars": 2689,
   "apparatus": false,
   "archived": false,
-  "tokens": 702
+  "tokens": 742
  },
  {
   "path": "agents/nimrod/OPERATOR.md",
@@ -478,10 +478,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 6819,
+  "chars": 2731,
   "apparatus": false,
   "archived": false,
-  "tokens": 1728
+  "tokens": 713
  },
  {
   "path": "agents/talos/OPERATOR.md",
@@ -2491,10 +2491,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4202,
+  "chars": 4446,
   "apparatus": false,
   "archived": false,
-  "tokens": 1107
+  "tokens": 1169
  },
  {
   "path": "protocols/PRO-022-building-the-living-pieces.md",
@@ -2601,10 +2601,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5841,
+  "chars": 5538,
   "apparatus": false,
   "archived": false,
-  "tokens": 1520
+  "tokens": 1441
  },
  {
   "path": "protocols/PRO-032-applying-for-a-grant.md",
@@ -2613,6 +2613,17 @@
   "type": "protocol",
   "status": "draft",
   "chars": 5429,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1449
+ },
+ {
+  "path": "protocols/PRO-033-screening-a-tender.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 5604,
   "apparatus": false,
   "archived": false,
   "tokens": 1449
@@ -3140,10 +3151,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8614,
+  "chars": 9447,
   "apparatus": false,
   "archived": false,
-  "tokens": 2209
+  "tokens": 2427
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
@@ -3327,10 +3338,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6827,
+  "chars": 6879,
   "apparatus": false,
   "archived": false,
-  "tokens": 1796
+  "tokens": 1814
  },
  {
   "path": "system/SYS-011-semantic-census.md",

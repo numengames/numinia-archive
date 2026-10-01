@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.115.0",
+    date: "2026-10-01",
+    entries: [
+      { type: "ADD", text: "Screening a tender is a protocol of the archive, not only an agent's skill: read the authority's terms, decline at the first hard failure, answer five questions with their clauses, weigh what survives, write the record. The skill now sends any agent to it." },
+      { type: "CHG", text: "Closing the month takes in public money: a contract invoiced and a grant paid are income lines naming their record; a grant counts only once paid." },
+    ],
+  },
+  {
     version: "v0.114.0",
     date: "2026-10-01",
     entries: [
