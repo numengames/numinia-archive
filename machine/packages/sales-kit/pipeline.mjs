@@ -80,6 +80,10 @@ export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police
 /* OPP-006: what identifies a person — an e-mail, a phone — never enters a record. */
 export const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
 export const PHONE_RE = /(?:\+\d{1,3}[\s-]?)?(?:\(?\d{2,4}\)?[\s-]?)\d{3}[\s-]?\d{3,4}\b/;
+/* A CPV code (the EU's common procurement vocabulary, eight digits and a check
+   digit: 80500000-9) is what a tender is classified by, not a phone; the
+   body is read without them before the phone scan. */
+export const CPV_RE = /\b\d{8}-\d\b/g;
 export const CHANNELS = ['email', 'phone', 'meeting', 'form'];
 export const LEVELS = ['reaction', 'learning', 'behaviour', 'results'];
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -201,7 +205,7 @@ export function validate(rec, reg) {
   }
   const body = rec.text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   if (EMAIL_RE.test(body) || EMAIL_RE.test(Object.values(fm).join(' '))) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
-  if (PHONE_RE.test(body)) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
+  if (PHONE_RE.test(body.replace(CPV_RE, 'CPV'))) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
   if (fm.disclosure && !DISCLOSURES.includes(fm.disclosure)) F('OPP-011', `disclosure "${fm.disclosure}" is not one of ${DISCLOSURES.join(' · ')}`);
   const named = fm.organisation && !SECTOR_WORDS.test(fm.organisation);
   if (named && fm.state === 'lost') F('OPP-011', `organisation "${fm.organisation}" reads as a name in a lost record; a lost sale is kept by sector and size ("a large retailer") — the reason is public, the name is not`);

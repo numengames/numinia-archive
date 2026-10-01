@@ -162,6 +162,14 @@ check('OPP-006: a phone number in the body is refused', (dir) => {
   assert.match(run(dir).err, /OPP-006.*phone number/);
 });
 
+check('OPP-006: a CPV code with its check digit is a tender\'s classification, not a phone', (dir) => {
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('Read from the terms:', 'Read from the terms (CPV 72212911-3, 80500000-9):'));
+  const r = run(dir);
+  assert.equal(r.code, 0, r.err);
+  edit(dir, 'OPP-2026-005.md', (t) => t.replace('(CPV 72212911-3, 80500000-9)', '(call 912 345 678)'));
+  assert.match(run(dir).err, /OPP-006.*phone number/);
+});
+
 check('OPP-011: an organisation named before agreed is reported; the won one may be named', (dir) => {
   edit(dir, 'OPP-2026-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Provincial Forensic Unit"'));
   assert.match(run(dir).err, /OPP-011.*"Provincial Forensic Unit" reads as a name/);
