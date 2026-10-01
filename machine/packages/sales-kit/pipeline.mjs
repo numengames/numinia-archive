@@ -254,18 +254,31 @@ export function loadRegister(file = DEFAULT_REGISTER) {
 
 /**
  * What the house holds (OPS-018): one row per requirement a call usually
- * asks, the turnover ceiling a tender's asked turnover is held against, and
- * the patterns a sweep skips. Read from the card's own tables, so the card
- * is the one source. A missing file reads as an empty card.
+ * asks, each marked `decides` with its place in the card's list of what
+ * decides most calls (null when it is not on it), the turnover ceiling a
+ * tender's asked turnover is held against, and the patterns a sweep skips.
+ * Read from the card's own tables, so the card is the one source. A missing
+ * file reads as an empty card; a deciding name with no row throws (exit 2).
  */
 export function loadCard(file = DEFAULT_CARD) {
   if (!existsSync(file)) return { requirements: [], turnoverCeiling: null, outOfDomain: [] };
   const text = readFileSync(file, 'utf8');
   const fig = Object.fromEntries(tableUnder(text, 'The figures the tool reads').map(([k, v]) => [String(k).toLowerCase(), Number(String(v).replace(/[^\d.]/g, ''))]));
+  const key = (s) => String(s ?? '').trim().toLowerCase();
+  const requirements = tableUnder(text, 'The card').map(([requirement, asks, house, state, unlocks]) => ({
+    requirement: requirement ?? '', asks: asks ?? '', house: house ?? '', state: tick(state).toLowerCase(), unlocks: unlocks ?? '', decides: null,
+  }));
+  /* The requirements that decide most calls, as the card lists them: each
+     row gets its place in that list (1, 2, …), the rest stay null. A name
+     the card does not hold is an error, not a silent skip — the short list
+     must never drift from the rows it points at. */
+  firsts(tableUnder(text, 'What decides most calls')).forEach((name, i) => {
+    const row = requirements.find((q) => key(q.requirement) === key(name));
+    if (!row) throw new Error(`card ${file}: What decides most calls names "${name}", which is not a requirement of the card`);
+    row.decides = i + 1;
+  });
   return {
-    requirements: tableUnder(text, 'The card').map(([requirement, asks, house, state, unlocks]) => ({
-      requirement: requirement ?? '', asks: asks ?? '', house: house ?? '', state: tick(state).toLowerCase(), unlocks: unlocks ?? '',
-    })),
+    requirements,
     turnoverCeiling: Number.isFinite(fig['turnover ceiling']) && fig['turnover ceiling'] > 0 ? fig['turnover ceiling'] : null,
     outOfDomain: tableUnder(text, 'What the house makes, and what it does not').map(([pattern, why]) => ({ pattern, why })),
   };
@@ -588,7 +601,13 @@ export function figures(records, reg, card, today) {
 
   const due = out.filter((x) => x.open && x.next).map((x) => ({ id: x.id, kind: x.kind, date: x.next.date, action: x.next.action, overdue: x.overdue }))
     .sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
-  const count = (xs) => stepNames.map((s) => xs.filter((x) => x.steps[s]).length);
+  /* the funnel per kind: how many records reached each step, and the share
+     of the step before that reached this one, rounded to a whole per cent;
+     null for the first step and wherever the step before is empty */
+  const count = (xs) => {
+    const counts = stepNames.map((s) => xs.filter((x) => x.steps[s]).length);
+    return { counts, conversion: counts.map((n, i) => (i && counts[i - 1] ? Math.round((100 * n) / counts[i - 1]) : null)) };
+  };
   const funnel = { all: count(out), ...Object.fromEntries(reg.kinds.map((k) => [k.kind, count(out.filter((x) => x.kind === k.kind))])) };
   const byKind = Object.fromEntries(reg.kinds.map((k) => {
     const xs = out.filter((x) => x.kind === k.kind);
@@ -653,15 +672,18 @@ export function report(fig, reg) {
   L.push('', '## Every record', '', '| Record | Kind | Organisation | Stage | Value | Pays | Chance |', '|---|---|---|---|---|---|---|');
   for (const x of fig.records) L.push(`| ${x.id} | \`${x.kind}\` | ${x.organisation ?? '—'} | \`${x.stage}\`${x.reason ? ` (${x.reason})` : ''} | ${money(x.value)} | ${pays(x)} | ${x.chance ? `\`${x.chance}\`` : '—'} |`);
   L.push('', '## Funnel', '', `| Kind | ${fig.steps.map((s) => s.step).join(' | ')} |`, `|---|${fig.steps.map(() => '---').join('|')}|`);
-  for (const [k, ns] of Object.entries(fig.funnel)) L.push(`| ${k === 'all' ? '**all**' : `\`${k}\``} | ${ns.join(' | ')} |`);
+  for (const [k, f] of Object.entries(fig.funnel))
+    L.push(`| ${k === 'all' ? '**all**' : `\`${k}\``} | ${f.counts.map((n, i) => (f.conversion[i] === null ? String(n) : `${n} (${f.conversion[i]} %)`)).join(' | ')} |`);
+  L.push('', 'In brackets, the share of the step before that reached this step.');
   L.push('', '## Reasons lost', '');
   if (!Object.keys(fig.reasons).length) L.push('Nothing lost yet.');
   else { L.push('| Reason | Records |', '|---|---|'); for (const [r, n] of Object.entries(fig.reasons)) L.push(`| \`${r}\` | ${n} |`); }
   L.push('', '## Days per stage', '', '| Kind | Stage | Average days |', '|---|---|---|');
   for (const [k, st] of Object.entries(fig.daysPerStage)) for (const [s, d] of Object.entries(st)) L.push(`| \`${k}\` | \`${s}\` | ${d ?? '—'} |`);
   if (fig.card.length) {
-    L.push('', '## Asked, and what the house holds', '', '| Requirement | Usually asked | The house holds | State | Open records at yes | At check | What unlocks it |', '|---|---|---|---|---|---|---|');
-    for (const c of fig.card) L.push(`| ${c.requirement} | ${c.asks} | ${c.house} | \`${c.state}\` | ${c.yes} | ${c.check} | ${c.unlocks} |`);
+    L.push('', '## Asked, and what the house holds', '', 'Decides: the row\'s place among the requirements that decide most calls.', '',
+      '| Requirement | Usually asked | The house holds | State | Open records at yes | At check | What unlocks it | Decides |', '|---|---|---|---|---|---|---|---|');
+    for (const c of fig.card) L.push(`| ${c.requirement} | ${c.asks} | ${c.house} | \`${c.state}\` | ${c.yes} | ${c.check} | ${c.unlocks} | ${c.decides ?? ''} |`);
   }
   return L.join('\n') + '\n';
 }
@@ -686,7 +708,8 @@ function main(argv) {
   if (cardFlag && !existsSync(cardFlag)) { console.error(`card not found: ${cardFlag}`); return 2; }
   let reg;
   try { reg = loadRegister(registerPath); } catch (e) { console.error(String(e.message)); return 2; }
-  const card = loadCard(cardFlag ?? DEFAULT_CARD);
+  let card;
+  try { card = loadCard(cardFlag ?? DEFAULT_CARD); } catch (e) { console.error(String(e.message)); return 2; }
   const records = readFolder(folder);
   const bad = [...records.flatMap((r) => validate(r, reg, card)), ...duplicates(records)];
   if (proposals) for (const r of records) {

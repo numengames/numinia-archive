@@ -114,7 +114,7 @@ test('a deciding requirement the card does not hold stops the tool: exit 2, the 
     assert.throws(() => loadCard(bad), /What decides most calls.*"Luck"/);
     const r = spawnSync('node', [TOOL, FIX, '--register', REGISTER, '--card', bad], { encoding: 'utf8' });
     assert.equal(r.status, 2);
-    assert.match(r.stderr, /"Luck" is not a requirement of the card/);
+    assert.match(r.stderr, /"Luck", which is not a requirement of the card/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
