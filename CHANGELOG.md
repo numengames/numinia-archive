@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Added** A sales bell in the bar: from noon it counts the open opportunities' due next steps, from the pipeline tool, each linking its record; eleven records from the 1 October sales plan, OPP-2026-025…035 (site v0.121.0)
 - **Changed** /system/pipeline opens on the funnel with each step's conversion from the tool; pill switches with counts, Timeline by default; Asked / we have shows the eight rows `OPS-018` 0.4.0 now marks as deciding most calls; a link to the template (site v0.120.0)
 - **Changed** One pipeline: sales, tenders, grants, collaborations and partners are one record in `opportunities/`, one register `STD-038`, one card `OPS-018`, one tool; /system/pipeline switches by kind and view; grants left `funding/`; calls the house cannot win are not kept (site v0.118.0)
 
