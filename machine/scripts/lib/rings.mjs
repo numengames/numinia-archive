@@ -166,6 +166,8 @@ export const RING3 = {
     'procedure', 'notice',
     // a tender read against the house's card (OPP-013, 2026-10-01)
     'chance',
+    // read from the terms, what it really buys, one file one record (OPP-014/015)
+    'read_from', 'object', 'file_ref', 'turnover_asked', 'works_asked', 'starts',
     // the proposal (PRP-)
     'opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'],
   // funding/ governed 2026-10-01: a call for public money the house might

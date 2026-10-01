@@ -55,6 +55,13 @@ opened: "YYYY-MM-DD"
 # reason: "not-a-fit"                            # lost only: not-a-fit | no-budget | no-decider | price | timing | chose-another | silence | we-declined | outbid | excluded
 # procedure: "simplified-abridged"               # tender only: minor | simplified-abridged | simplified | open (STD-038)
 # notice: "https://…"                            # tender only: the announcement's address; a minor contract has none
+# chance: "low"                                  # tender only: high | medium | low | none, from the ## Criteria table (STD-038)
+# read_from: "terms"                             # tender only: terms | notice | aggregator — high needs the terms
+# object: "build"                                # tender only: build | deliver | resale | other — what the technical terms really buy
+# file_ref: "the authority's file number"        # tender only: one file, one record
+# turnover_asked: 0                              # tender only, from the terms: the annual turnover asked, EUR
+# works_asked: 0                                 # tender only, from the terms: past works asked, EUR
+# starts: "YYYY-MM-DD"                           # tender only: the day the service starts
 # related: ["OPS-NNN"]
 ---
 

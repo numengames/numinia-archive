@@ -31,7 +31,8 @@ SPDX-License-Identifier: CC0-1.0
 > days without movement make it stale. The closed list of reasons a sale is
 > lost, from which stage the organisation is named, and — when the buyer is
 > a public body that publishes a notice — which procedure it buys by and
-> what each asks of a bidder, and the four values of the house's chance. The standard of the opportunity record cites
+> what each asks of a bidder, the four values of the house's chance, where a
+> tender was read and what the buyer really buys. The standard of the opportunity record cites
 > these values; the pipeline tool reads them here and nowhere else. A
 > register records: nothing in it binds by itself.
 > **Epistemic:** Which stages does a sale pass through, and what moves it?
@@ -107,6 +108,29 @@ register reads them from this table.
 | `medium` | every requirement is met; what stands in the way is competition, or one fact still unknown |
 | `low` | eligible on paper, but blocked by a requirement the house can only meet with a partner or a change |
 | `none` | a hard requirement fails: the reason is the failed row of the criteria |
+
+## Where a tender was read
+
+A summary is not the tender. Aggregators and alert e-mails paraphrase a
+title and can invent the object; only the authority's own documents say
+what it buys.
+
+| Read from | Means |
+|---|---|
+| `terms` | the authority's own administrative and technical terms, downloaded and read |
+| `notice` | the notice on the authority's profile or the procurement platform, not yet the terms |
+| `aggregator` | a third party's summary only |
+
+## What the buyer really buys
+
+Read from the technical terms, never from the title or the code.
+
+| Object | Means |
+|---|---|
+| `build` | something the house designs and develops: a world, a game, an interactive piece |
+| `deliver` | something the house runs: a workshop, an event, a gamified training |
+| `resale` | another maker's product, a licence or hardware the house would only pass on |
+| `other` | what the house does not make: teaching, managing a centre, children's entertainment, corporate communication |
 
 ## Naming the organisation
 

@@ -5,7 +5,7 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.7.0"
+version: "0.8.0"
 created: "2026-09-28T13:00:00+02:00"
 updated: "2026-10-01T15:00:00+02:00"
 author: "ursa"
@@ -55,7 +55,10 @@ the date opened, and the licence. The rest are written when due and absent
 before: the decider's role from agreed, the date closed at won or lost, the reason when lost, the proposal's path once sent, the agreement's path
 once won, the disclosure once the client has been told the house works
 in the open — `open` if it did not object, `unnamed` if it asked to stay
-out — and, when the source is a tender, the procedure, the notice and the chance.
+out — and, when the source is a tender, the procedure, the notice, the
+chance, where it was read, what the buyer really buys, the file reference,
+and, once the terms are read, the turnover asked, the past works asked and
+the day the service starts.
 
 **The stage is a value from the register.** The stage MUST be one of the
 stages register's states, written in the header and never in the filename
@@ -87,6 +90,17 @@ tender MUST carry a criteria table — each requirement of the call, what the
 house holds, and whether it meets it: yes, no or still to check — and the
 house's chance, one of the register's four. A failed requirement MUST make
 the chance low or none; none MUST name the requirement that failed.
+
+**A tender's verdict rests on its own terms.** A tender record MUST say where
+it was read and what the buyer really buys, both values of the register,
+and MAY carry the turnover asked, the past works asked and the day the
+service starts. A chance of high or medium MUST NOT rest on an aggregator's
+summary, nor on a resale or an object the house does not make, nor on a
+turnover above the ceiling in the house's card.
+
+**One tender, one record.** A tender record MUST carry the authority's file
+reference; two records with the same file reference and value are one
+tender listed twice, and one of them goes.
 
 ### What it says about people and organisations
 
@@ -136,6 +150,8 @@ Each rule, its code, its source and its check.
 | OPP-005 | Every move leaves a line | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), metadata of the transaction (clause unverified) | `pipeline.mjs`: last transition's `to` matches the stage |
 | OPP-012 | A tender names its procedure and links its notice | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 63 (the contracting profile), 133 (a bid is confidential until award), 159 (what each procedure asks); `STD-038` | `pipeline.mjs`: `source: tender` requires `procedure` from the register and `notice` unless the procedure is `minor`; a tender at `proposed` is exempt from stale |
 | OPP-013 | A tender is read against the house's card | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 87 (turnover at most 1.5 times the value), 90.4 (no past works asked of a company under five years, below the harmonised threshold), 145 (award criteria); `STD-038` *The house's chance*; the house's card for tenders (`OPS-018`) | `pipeline.mjs`: `source: tender` requires `chance` from the register and a `## Criteria` table whose last column is yes · no · check; a no forbids high and medium, a check forbids high, none needs a no |
+| OPP-014 | A tender's verdict rests on its own terms | the Oracle's ruling of 2026-10-01, from a summary that turned a forklift simulator into a 3D platform; LCSP art. 87 (turnover); `STD-038` *Where a tender was read*, *What the buyer really buys*; `OPS-018` | `pipeline.mjs`: `read_from` and `object` from the register; high or medium refused on `aggregator`, on `resale` or `other`, and on a `turnover_asked` above the card's ceiling; high refused before `terms` |
+| OPP-015 | One tender, one record | the Oracle's ruling of 2026-10-01: aggregators list one file twice under different titles | `pipeline.mjs`: `file_ref` required on a tender; the same file reference and value in two records is reported |
 | OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001 | `pipeline.mjs`: header fields against a closed list, and the body scanned for an e-mail address or a phone number; by hand for a name |
 | OPP-011 | The organisation, named when it knows | the client's interest; customer-reference practice — a client's name used with its consent, withdrawable; `LCSP` art. 133 (a bidder's own offer is not the authority's to disclose) | `pipeline.mjs`: a name without `disclosure: open`, or any name in a lost record, is reported; by hand for the client's wish |
 | OPP-007 | Minimal, with its basis | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6(1)(f), recital 47 | by hand, at the review of every record |

@@ -4,7 +4,7 @@ uid: ""
 title: "The house's card for tenders"
 type: documentation
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-01T15:00:00+02:00"
 updated: "2026-10-01T15:00:00+02:00"
 author: "ursa"
@@ -102,7 +102,48 @@ Read from the law, against the card:
 - **Out of reach today** — any tender asking ENS, an ISO certificate or a
   turnover above 50,000 € the house cannot add from a partner.
 
-## 4. How a tender is read against it
+## 4. What the house makes, and what it does not
+
+**Makes:** 3D web worlds with AI agents (on Hyperfy, not Unity or Unreal);
+gamified training and onboarding; culture, heritage and education workshops
+and events; game design and narrative.
+
+**Does not make:** hardware, or another maker's product passed on; desktop
+industrial simulators with replicated controls; generic courses or videos;
+running a centre; children's entertainment; corporate websites.
+
+A sweep skips a notice whose title matches one of these, unless its
+technical terms say otherwise. The pipeline tool reads this table.
+
+| Out of domain | Why |
+|---|---|
+| escuela de música | music teaching |
+| taller de teatro | theatre teaching |
+| actividades infantiles | children's entertainment and play centres |
+| simulador de maquinaria | an industrial simulator with its hardware, bought from its maker |
+| presencia digital | corporate communication |
+| gestión integral | running a centre or a campus |
+
+## 5. The figures the tool reads
+
+| Figure | Value | State |
+|---|---|---|
+| Turnover ceiling | 50000 | check — the best of the last three years is under this; the filed accounts replace it with the real figure |
+
+## 6. Read the terms, never the summary
+
+An aggregator's summary, an alert e-mail or a pasted card paraphrases the
+title and can invent the object: a "multimedia platform with 3D models of
+the marble trades" was a commercial forklift, loader and gantry-crane
+simulator, licence and joysticks included. No verdict is given until the
+authority's own documents are read, in this order: the justification
+memo (criteria, solvency and budget in five pages), the administrative
+terms' table of characteristics, then the technical terms. Where the
+authority uses its own portal rather than the state platform — Andalusia's
+SiREC, for one — the offer is filed there, and the portal's documents are
+reached through its search service; the method is in the tool's README.
+
+## 7. How a tender is read against it
 
 1. Open the notice and, if needed, the administrative terms (the PCAP): the
    solvency clause and the award criteria.
@@ -114,7 +155,7 @@ Read from the law, against the card:
 4. A **check** that decides the chance is a task with a date: the record's
    next action.
 
-## 5. To get, in order
+## 8. To get, in order
 
 1. **ROLECE** — file the application now: it opens every simplified
    procedure, and the filed application is enough until it is granted.
@@ -128,8 +169,14 @@ Read from the law, against the card:
    turnover (LCSP art. 87.1.b).
 6. **A partner with solvency** for the tenders above 33,000 € — named per
    tender, never in this card.
+7. **A partner who makes hardware or physical structures** — for the
+   tenders whose physical part is secondary (a model, a cabinet, a stand);
+   found before deciding to bid, never after.
+8. **Someone with a research or clinical profile** — only if serious games
+   for research centres become a line: their scoring can rest on one
+   person's publications.
 
-## 6. Sources
+## 9. Sources
 
 - [Law 9/2017 on Public Sector Contracts (LCSP)](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902), arts. 65, 69, 75, 77, 87, 90, 107, 118, 159, 198.
 - [Royal Decree 1098/2001, the general regulation (RGLCAP)](https://www.boe.es/buscar/act.php?id=BOE-A-2001-19995), art. 11.5.

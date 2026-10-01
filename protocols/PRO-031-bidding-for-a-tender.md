@@ -47,8 +47,8 @@ register before anyone reads the offer. This protocol reads each tender
 against the house's card, so the decision to bid takes a day and the
 dossier the rest of the time.
 
-It starts when a notice is found: a platform alert, a contracting profile,
-a technician's request for a minor contract. **Whoever
+It starts when a notice is found: an alert, a contracting profile, a
+technician's request for a minor contract. **Whoever
 finds it** opens the record; **whoever sells** reads it; **the Oracle**
 decides and signs.
 
@@ -56,7 +56,8 @@ decides and signs.
 
 ## 2. Preconditions
 
-- The house's card for tenders, current (`OPS-018`).
+- The house's card for tenders, current (`OPS-018`), and the screening
+  skill (`agents/skills/tender-screening`).
 - The stages register, with the procedures and the house's chance
   (`STD-038`), and the record standard (`STD-039`).
 - Alerts on the procurement platform for the house's classification codes:
@@ -73,8 +74,8 @@ decides and signs.
    series: source `tender`, the procedure, the notice's address, the
    estimated value, the closing day as next date, stage `lead`. The
    authority by sector and size.
-2. **Read the criteria into a table.** From the notice, and from the
-   administrative terms where the notice says "see the terms": one row per
+2. **Read the criteria into a table, from the terms.** Never from an
+   aggregator's summary: the screening skill says how. One row per
    requirement — fit of the object, economic solvency, technical solvency,
    registers, certificates, award criteria with their weights, guarantee,
    time to the closing day. For each: what the call asks, what the card
@@ -124,8 +125,8 @@ decides and signs.
 
 ## 5. Escalation
 
-A tender closing in fewer than five working days goes to the Oracle the day
-it is found: bid as it stands, or let it go. A tender asking a solvency the
+A tender closing within five working days goes to the Oracle the day it
+is found: bid as it stands, or let it go. A tender asking a solvency the
 house can only add from a partner goes to the Oracle with the partner named
 before step 6. A guarantee the house cannot lodge in cash is raised before
 filing, never after the award. A requirement that looks disproportionate to
