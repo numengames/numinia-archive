@@ -53,6 +53,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.122.0",
+    date: "2026-10-02",
+    entries: [
+      {
+        type: "ADD",
+        text: "Kairos, the opportunity watcher, joins the roster at /agent. Named after the Greek god of the opportune moment, he sweeps the places where tenders, grants and calls are published, reads their terms, weighs what the house could win and brings the Oracle everything that could fall. His first watch — Spanish and European tenders and grants — already runs every half hour; he hands what the Oracle accepts to Metis.",
+      },
+    ],
+  },
+  {
     version: "v0.121.0",
     date: "2026-10-02",
     entries: [

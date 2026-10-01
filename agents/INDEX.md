@@ -3,11 +3,11 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.3.0"
+version: "3.4.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-28T20:00:00+02:00"
+updated: "2026-10-02T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, index]
@@ -62,6 +62,8 @@ A roster is a register; the canon says what the house is, not who staffs it.
 
 ## Roster
 
+No two digital agents share a first letter: an initial is enough to tell them apart in a log, a mention or a commit.
+
 | Agent | Role | Route here when | Since |
 |---|---|---|---|
 | [Ursa](ursa/SOUL.md) | Technical Architect & Orchestrator | software, architecture, Hermes, orchestration | 2026-08-28 |
@@ -75,6 +77,7 @@ A roster is a register; the canon says what the house is, not who staffs it.
 | [Nimrod](nimrod/SOUL.md) | Repository Guide & Knowledge Navigator | repository navigation, authority mapping, provenance | 2026-09-04 |
 | [Talos](talos/SOUL.md) | Repository Security & Operational Assurance | CI/CD, safeguards, automation integrity, control verification | 2026-09-04 |
 | [Metis](metis/SOUL.md) | Sales Agent | opportunities, qualification, proposals, pipeline | 2026-09-28 |
+| [Kairos](kairos/SOUL.md) | Opportunity Watcher | finding tenders, grants, calls and buyers; scheduled watches; filters | 2026-10-02 |
 
 Routing does not transfer authority: a specialist escalates or consults
 another specialist when a task materially exceeds its own domain

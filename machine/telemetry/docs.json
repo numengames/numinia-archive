@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 24137,
+  "chars": 24407,
   "apparatus": false,
   "archived": false,
-  "tokens": 6760
+  "tokens": 6837
  },
  {
   "path": "CLAUDE.md",
@@ -115,10 +115,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 5661,
+  "chars": 5915,
   "apparatus": true,
   "archived": false,
-  "tokens": 1618
+  "tokens": 1687
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -284,6 +284,50 @@
   "apparatus": false,
   "archived": false,
   "tokens": 310
+ },
+ {
+  "path": "agents/kairos/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 3256,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 864
+ },
+ {
+  "path": "agents/kairos/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 1527,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 396
+ },
+ {
+  "path": "agents/kairos/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 5149,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1225
+ },
+ {
+  "path": "agents/kairos/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2878,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 754
  },
  {
   "path": "agents/lexa/OPERATOR.md",

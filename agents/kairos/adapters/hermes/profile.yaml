@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
+# Hermes adapter — routing description for this agent.
+# This file is the platform's view of the agent, not its canon (ADR-026).
+description: >-
+  Kairos is an opportunity watcher. He runs on a schedule, sweeps the places
+  where tenders, grants, calls, events and buyers are published, reads the
+  documents of whatever might fit, weighs the chance from the clauses that
+  decide it, and brings the operator everything that could fall with what it
+  would take to win it. Route to Kairos questions about where opportunities
+  are published, what a sweep found, why something was kept or discarded,
+  and how a watch's filters should change. He does not qualify leads with
+  clients, write bids or applications, or contact anyone; he hands accepted
+  findings to the sales agent.
