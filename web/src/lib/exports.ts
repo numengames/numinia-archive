@@ -17,8 +17,8 @@
 //   journal()       an auditor's double entries from every line, with source;
 //                   trialBalance() from it
 //   toCsv()         semicolon CSV with a byte-order mark
-//   toXlsx()        an Office Open XML workbook, one sheet per view, no
-//                   library: stored zip entries and inline strings
+//   toXlsx()        an Office Open XML workbook in the house colours, one
+//                   sheet per view (@/lib/workbook)
 import type { Books } from "@/lib/cash";
 
 export const BOOKS_START = "2024-02-16";
@@ -100,11 +100,8 @@ export function accounts(b: Books, from: string, to: string, labels: Record<stri
   return r;
 }
 
-export interface Sheet {
-  name: string;
-  head: string[];
-  rows: (string | number)[][];
-}
+export type { Sheet } from "./workbook.ts";
+import type { Sheet } from "./workbook.ts";
 
 const r2 = (n: number) => Math.round(n * 100) / 100;
 
@@ -112,9 +109,13 @@ const r2 = (n: number) => Math.round(n * 100) / 100;
 export function accountsSheet(a: Accounts, p: Period): Sheet {
   return {
     name: "Profit and loss",
+    title: "Profit and loss",
     head: ["Heading (PGC PYMES, abbreviated)", "Amount (EUR)", "Accounts"],
+    subtitle: `${p.label} · ${p.from} to ${p.to}`,
+    cols: ["text", "eur", "mono"],
+    widths: [46, 20, 12],
+    roles: [undefined, undefined, undefined, undefined, "total", undefined, "total", "muted", "note"],
     rows: [
-      ["Period", p.label, `${p.from} to ${p.to}`],
       ["1. Revenue", r2(a.revenue), "70"],
       ["4. Supplies (work by other companies)", -r2(a.supplies), "60"],
       ["6. Staff costs", -r2(a.staff), "64"],
@@ -130,7 +131,8 @@ export function accountsSheet(a: Accounts, p: Period): Sheet {
 
 export function categorySheet(a: Accounts): Sheet {
   const t = a.byCategory.reduce((s, c) => s + c.amount, 0) || 1;
-  return { name: "Spending by category", head: ["What", "Amount (EUR)", "Share"], rows: a.byCategory.map((c) => [c.label, r2(c.amount), `${((c.amount / t) * 100).toFixed(1)}%`]) };
+  const rows: (string | number)[][] = a.byCategory.map((c) => [c.label, r2(c.amount), c.amount / t]);
+  return { name: "Spending by category", head: ["What", "Amount (EUR)", "Share"], cols: ["text", "eur", "pct"], rows: [...rows, ["Total", r2(t === 1 && !rows.length ? 0 : t), rows.length ? 1 : 0]], roles: [...rows.map(() => undefined), "total"], chart: rows.length ? { type: "bar", title: "Where the money goes", cat: 0, series: [1], rows: [0, rows.length], at: { col: 4, row: 5, cols: 7, rowsTall: Math.max(14, rows.length + 4) } } : undefined };
 }
 
 const cell = (v: string | number, comma = false) => {
@@ -144,61 +146,8 @@ export function toCsv(s: Pick<Sheet, "head" | "rows">, comma = false): string {
   return "\uFEFF" + [s.head.map((h) => cell(h)), ...s.rows.map((r) => r.map((v) => cell(v, comma)))].map((r) => r.join(";")).join("\r\n") + "\r\n";
 }
 
-// ── A workbook without a library ───────────────────────────────────────────
-const enc = new TextEncoder();
-const xml = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const CRC = (() => {
-  const t = new Uint32Array(256);
-  for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; }
-  return t;
-})();
-const crc32 = (d: Uint8Array) => { let c = 0xffffffff; for (const x of d) c = CRC[(c ^ x) & 0xff] ^ (c >>> 8); return (c ^ 0xffffffff) >>> 0; };
-
-/** A zip with stored (uncompressed) entries: enough for a workbook. */
-function zip(files: [string, string][]): Uint8Array {
-  const parts: Uint8Array[] = [], central: Uint8Array[] = [];
-  let off = 0;
-  for (const [name, text] of files) {
-    const n = enc.encode(name), d = enc.encode(text), c = crc32(d);
-    const h = new DataView(new ArrayBuffer(30));
-    h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true); h.setUint32(14, c, true); h.setUint32(18, d.length, true); h.setUint32(22, d.length, true); h.setUint16(26, n.length, true);
-    const cd = new DataView(new ArrayBuffer(46));
-    cd.setUint32(0, 0x02014b50, true); cd.setUint16(4, 20, true); cd.setUint16(6, 20, true); cd.setUint16(8, 0x0800, true); cd.setUint32(16, c, true); cd.setUint32(20, d.length, true); cd.setUint32(24, d.length, true); cd.setUint16(28, n.length, true); cd.setUint32(42, off, true);
-    parts.push(new Uint8Array(h.buffer), n, d);
-    central.push(new Uint8Array(cd.buffer), n);
-    off += 30 + n.length + d.length;
-  }
-  const size = central.reduce((s, x) => s + x.length, 0);
-  const end = new DataView(new ArrayBuffer(22));
-  end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true); end.setUint32(12, size, true); end.setUint32(16, off, true);
-  const all = [...parts, ...central, new Uint8Array(end.buffer)], out = new Uint8Array(all.reduce((s, x) => s + x.length, 0));
-  let p = 0; for (const x of all) { out.set(x, p); p += x.length; }
-  return out;
-}
-
-const col = (i: number) => { let s = ""; for (i++; i; i = Math.floor((i - 1) / 26)) s = String.fromCharCode(65 + ((i - 1) % 26)) + s; return s; };
-
-function sheetXml(s: Sheet): string {
-  const row = (r: (string | number)[], y: number, bold: boolean) => `<row r="${y}">${r.map((v, x) => {
-    const ref = col(x) + y, st = bold ? ' s="1"' : "";
-    const num = typeof v === "number" && isFinite(v), fmt = num && !Number.isInteger(v) ? ' s="2"' : st;
-    return num ? `<c r="${ref}"${fmt}><v>${v}</v></c>` : `<c r="${ref}" t="inlineStr"${st}><is><t xml:space="preserve">${xml(String(v ?? ""))}</t></is></c>`;
-  }).join("")}</row>`;
-  const widths = s.head.map((_, i) => Math.min(60, Math.max(10, ...[s.head, ...s.rows].map((r) => String(r[i] ?? "").length + 2))));
-  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews><cols>${widths.map((w, i) => `<col min="${i + 1}" max="${i + 1}" width="${w}" customWidth="1"/>`).join("")}</cols><sheetData>${row(s.head, 1, true)}${s.rows.map((r, i) => row(r, i + 2, false)).join("")}</sheetData></worksheet>`;
-}
-
-export function toXlsx(sheets: Sheet[]): Uint8Array {
-  const names = sheets.map((s) => s.name.replace(/[\\/?*[\]:]/g, " ").slice(0, 31));
-  return zip([
-    ["[Content_Types].xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>${sheets.map((_, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join("")}</Types>`],
-    ["_rels/.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`],
-    ["xl/workbook.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${names.map((n, i) => `<sheet name="${xml(n)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join("")}</sheets></workbook>`],
-    ["xl/_rels/workbook.xml.rels", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((_, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join("")}<Relationship Id="rId${sheets.length + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`],
-    ["xl/styles.xml", `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border/></borders><cellStyleXfs count="1"><xf/></cellStyleXfs><cellXfs count="3"><xf/><xf fontId="1" applyFont="1"/><xf numFmtId="4" applyNumberFormat="1"/></cellXfs></styleSheet>`],
-    ...sheets.map((s, i) => [`xl/worksheets/sheet${i + 1}.xml`, sheetXml(s)] as [string, string]),
-  ]);
-}
+// The workbook itself, in the house colours, is @/lib/workbook.
+export { toXlsx } from "./workbook.ts";
 
 // ── The packs: what the gestoría, a CFO and an auditor ask for ─────────────
 
@@ -224,7 +173,7 @@ export function issuedBook(b: Books, from: string, to: string): Sheet {
     const [serie, num] = x.invoice.includes("-") ? [x.invoice.slice(0, x.invoice.lastIndexOf("-")), x.invoice.slice(x.invoice.lastIndexOf("-") + 1)] : ["", x.invoice];
     return [Number(x.date.slice(0, 4)), qT(x.date), "A", "03", "", "F1", "", "", dmy(x.date), "", serie, num, "", out ? "06" : "", out ? "US" : "", "", x.sector, "01", out ? "N2" : "S1", "", r2(base + vat), base, rate, vat, "", "", "", "", "", "", "", "", "", "", "", x.original ? `${x.original} @ ${x.fx} (BCE)` : ""];
   });
-  return { name: "EXPEDIDAS", head: AEAT_ISSUED, rows };
+  return { name: "EXPEDIDAS", head: AEAT_ISSUED, rows, plain: true };
 }
 
 export function receivedBook(b: Books, from: string, to: string): Sheet {
@@ -236,7 +185,7 @@ export function receivedBook(b: Books, from: string, to: string): Sheet {
     n++;
     return [Number(l.date.slice(0, 4)), qT(l.date), "A", "03", "", summary ? "F4" : "F1", "", "", dmy(l.date), l.period_from && l.period_from !== l.date ? dmy(l.period_from) : "", l.document, "", dmy(l.date), String(n), "", "", "", "", l.supplier, "01", l.account.startsWith("2") ? "S" : "N", isp ? "S" : "N", "N", "", "", isp ? base : r2(base + vat), base, rate, vat, l.vat === "FOREIGN" ? 0 : vat, "", "", "", "", "", "", "", "", "", "", "", summary ? "Asiento resumen: personas sin consentimiento para ser nombradas (STD-036 LED-006)" : l.vat === "FOREIGN" ? "IVA extranjero, no deducible en España" : ""];
   });
-  return { name: "RECIBIDAS", head: AEAT_RECEIVED, rows };
+  return { name: "RECIBIDAS", head: AEAT_RECEIVED, rows, plain: true };
 }
 
 /** The VAT books as the AEAT names the file: year + tax ID + C + name. */
@@ -284,6 +233,9 @@ export function pnlByMonth(b: Books, from: string, to: string, labels: Record<st
   const line = (h: string, f: (a: Accounts) => number) => [h, ...A.map((a) => r2(f(a))), r2(f(T))];
   return {
     name: "P&L by month",
+    roles: [undefined, undefined, undefined, undefined, "total", undefined, "total", "muted"],
+    cols: ["text", ...months.map(() => "eur0" as const), "eur0"],
+    widths: [36, ...months.map(() => 10), 13],
     head: ["Heading (PGC PYMES, abbreviated)", ...months.map((p) => p.label), "Total"],
     rows: [
       line("1. Revenue", (a) => a.revenue),
@@ -307,9 +259,9 @@ export function bySupplier(b: Books, from: string, to: string, labels: Record<st
   for (const l of ls) (by[l.supplier] ??= []).push(l);
   const rows = Object.entries(by).map(([w, xs]) => {
     const net = xs.reduce((s, l) => s + Number(l.base), 0), ds = xs.map((l) => l.date).sort();
-    return [w, labels[xs[0].category]?.label ?? xs[0].category, xs.length, r2(net), `${((net / total) * 100).toFixed(1)}%`, ds[0], ds[ds.length - 1], r2(xs.filter((l) => l.date > cut).reduce((s, l) => s + Number(l.base), 0) / 3)] as (string | number)[];
+    return [w, labels[xs[0].category]?.label ?? xs[0].category, xs.length, r2(net), net / total, ds[0], ds[ds.length - 1], r2(xs.filter((l) => l.date > cut).reduce((s, l) => s + Number(l.base), 0) / 3)] as (string | number)[];
   }).sort((p, q) => (q[3] as number) - (p[3] as number));
-  return { name: "Spend by supplier", head: ["Supplier", "Category", "Invoices", "Net (EUR)", "Share", "First", "Last", "A month, last 3 months billed (EUR)"], rows };
+  return { name: "Spend by supplier", cols: ["text", "text", "int", "eur", "pct", "mono", "mono", "eur"], head: ["Supplier", "Category", "Invoices", "Net (EUR)", "Share", "First", "Last", "A month, last 3 months billed (EUR)"], rows };
 }
 
 const ACCOUNTS: Record<string, string> = {

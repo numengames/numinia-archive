@@ -167,10 +167,10 @@ const DATA = { company: { taxId: COMPANY.taxId, name: COMPANY.name }, build: { c
      </div>
      <div class="ob-dl-btns">
       <span class="ob-k">Single files</span>
-      <button type="button" data-dl="accounts-csv">Accounts · CSV</button>
+      <button type="button" data-dl="accounts-csv">Accounts · Excel</button>
       <button type="button" data-dl="received">Received invoices · CSV</button>
       <button type="button" data-dl="issued">Issued invoices · CSV</button>
-      <button type="button" data-dl="taxes">Taxes · CSV</button>
+      <button type="button" data-dl="taxes">Taxes · Excel</button>
       <button type="button" data-dl="plan-xlsx">Business plan · Excel</button>
       <button type="button" data-dl="plan-pdf">Business plan · PDF</button>
       <button type="button" data-dl="page-pdf">This page · PDF</button>
@@ -1025,6 +1025,7 @@ draw(); runway(); ledger(); tick(); planDraw();
   // period the reader picks, by @/lib/exports.
   import { cashBooks, BOOK_CATEGORIES } from "@/lib/books";
   import { period, accounts, accountsSheet, categorySheet, receivedBook, issuedBook, aeatBooks, withholdingSheet, form347, pnlByMonth, bySupplier, journal, trialBalance, toCsv, toXlsx, type Sheet, type Period } from "@/lib/exports";
+  import { taxBook, planBook, accountsWorkbook, type Ctx } from "@/lib/open-books-workbooks";
 
   const D = JSON.parse(document.getElementById("ob-data")!.textContent!);
   const books = cashBooks();
@@ -1069,32 +1070,11 @@ draw(); runway(); ledger(); tick(); planDraw();
     document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
   }
   const XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", CSV = "text/csv;charset=utf-8";
-  const qOf = (d: string) => `${d.slice(0, 4)}-Q${Math.floor((Number(d.slice(5, 7)) - 1) / 3) + 1}`;
 
-  function taxSheet(p: Period): Sheet {
-    const r2 = (n: number) => Math.round(n * 100) / 100;
-    const qs = D.vatQ.filter((v: any) => v.q >= qOf(p.from) && v.q <= qOf(p.to));
-    return {
-      name: "Taxes",
-      head: ["Quarter", "VAT charged (repercutido)", "VAT paid (soportado)", "Reverse charge (autorepercutido = deducido)", "Credit carried in", "Result (303)", "Amount", "Income tax withheld (111)", "Social security", "Kind"],
-      rows: [
-        ...qs.map((v: any) => [v.q, r2(v.out), r2(v.inp), r2(v.rc), r2(v.before), v.result, r2(v.amount), r2(v.wh), r2(v.ss), v.kind]),
-        ["", "", "", "", "", "", "", "", "", ""],
-        ["Calendar: by", "What", "Form", "Estimate", "", "", "", "", "", ""],
-        ...D.tax.calendar.map((c: any) => [c.due, c.what, c.form, c.estimate, "", "", "", "", "", ""]),
-        ["Estimates from the lines until the gestoría's filed returns are loaded (STD-036 LED-009).", "", "", "", "", "", "", "", "", ""],
-      ],
-    };
-  }
-  function planSheets(): Sheet[] {
-    const P = (window as any).obPlan, A = P.assumptions, r = (n: number) => Math.round(n);
-    const m0 = new Date(Date.UTC(P.start, 0, 1));
-    return [
-      { name: "Assumptions", head: ["Assumption", "Value"], rows: [["Projects a year", A.projectsPerYear], ["Average project (EUR)", A.projectSize], ["Hosting a world, a month (EUR)", A.hostingPerWorld], ["Monthly cost (EUR)", A.monthlyCost], ["Growth a year", A.growth], ["Starting cash (EUR), bank 1 Oct 2026, declared", D.cash.amount], ["Projects a year to break even", Math.round(P.breakEven * 10) / 10], ["Money the plan needs (EUR)", r(P.need)], ["A plan, not a fact: the reader's assumptions on numinia.org/system/open-books", ""]] },
-      { name: "Results, 3 years", head: ["Year", "Projects", "Income, projects", "Income, hosting", "Cost of running", "Result", "Accumulated"], rows: P.rows.map((x: any) => [x.y, Math.round(x.proj * 10) / 10, r(x.pr), r(x.host), -r(x.cost), r(x.res), r(x.cum)]) },
-      { name: "Cash, 36 months", head: ["Month", "Cash at month end (EUR)"], rows: P.cash.map((c: number, i: number) => [i === 0 ? "start" : new Date(Date.UTC(m0.getUTCFullYear(), i - 1, 1)).toISOString().slice(0, 7), r(c)]) },
-    ];
-  }
+  const ctx = (): Ctx => ({ books, vatQ: D.vatQ, calendar: D.tax.calendar, cash: D.cash, build: D.build, labels: BOOK_CATEGORIES, eur });
+  const taxSheet = (p: Period) => taxBook(ctx(), p);
+  const planSheets = () => planBook(ctx(), (window as any).obPlan);
+  const accountsBook = (p: Period, _a?: unknown) => accountsWorkbook(ctx(), p);
   function printOnly(plan: boolean) {
     // Paper is white: print in the day colours, then give the reader's mode back.
     const html = document.documentElement, mode = html.dataset.modo;
@@ -1110,43 +1090,40 @@ draw(); runway(); ledger(); tick(); planDraw();
     const K = { real: "real", declared: "declared", simulated: "estimate" } as Record<string, string>;
     const about = (what: string, extra: (string | number)[][] = []): Sheet => ({
       name: "About",
+      title: "About this book",
+      cover: { kpis: [{ label: "Revenue", value: Math.round(a.revenue), kind: "real", note: "net of VAT" }, { label: "Costs", value: -Math.round(a.supplies + a.staff + a.other + a.financial), kind: "real", note: "spread over the days they cover" }, { label: "Result before tax", value: Math.round(a.beforeTax), kind: "real", note: p.label }, { label: "Cash in the bank", value: D.cash.amount, kind: "declared", note: D.cash.asOf }] },
       head: ["Numen Games S.L. · " + D.company.taxId, ""],
       rows: [
         ["What", what], ["Period", `${p.label} · ${p.from} to ${p.to}`], ["Built", new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC, in the reader's browser"],
         ["From", `numinia.org/system/open-books · site ${D.build.version} · commit ${D.build.commit}`],
-        ["Kinds", "real = booked or public · declared = the company's word, document to load · estimate = computed or simulated until the document arrives"],
         ["Not loaded yet", "the 2024 received-invoices book, January–June 2026 invoices, the bank statement, the filed returns"],
         ["People", "payroll, freelancers and the director enter as one block a quarter, at employer cost, never per person (STD-036 LED-006)"],
         ...extra,
       ],
     });
     const yearOf = p.to.slice(0, 4);
+    const O = { subtitle: `${p.label} · ${p.from} to ${p.to} · Numen Games S.L. · ${D.company.taxId}`, footer: `numinia.org/system/open-books · built ${new Date().toISOString().slice(0, 10)} · site ${D.build.version}` };
     switch (b.dataset.dl) {
       case "gestoria": {
         const A = aeatBooks(books, D.company, p.from, p.to);
         save(A.file, toXlsx(A.sheets), XLSX);
-        return setTimeout(() => save(`numen-games-withholding-and-347-${s}.xlsx`, toXlsx([about("Withholding for forms 111 and 190, and a draft of form 347. Drafts for the gestoría, not filed returns."), withholdingSheet(books, p.from, p.to), form347(books, yearOf), taxSheet(p)]), XLSX), 400);
+        return setTimeout(() => save(`numen-games-withholding-and-347-${s}.xlsx`, toXlsx([about("Withholding for forms 111 and 190, and a draft of form 347. Drafts for the gestoría, not filed returns."), withholdingSheet(books, p.from, p.to), form347(books, yearOf), taxSheet(p)], O), XLSX), 400);
       }
       case "cfo": {
         const R = D.recon, F = D.fut[`${D.futures.payrollEnds[0]}|${D.futures.income[1]}`];
         const recon: Sheet = { name: "Cash reconciliation", head: ["Step", "Amount (EUR)", "Kind"], rows: [...R.rows.map((r: any) => [r.label, (r.group === "in" ? 1 : -1) * Math.round(r.amount * 100) / 100, K[r.kind] ?? r.kind]), ["Cash the books expect", Math.round(R.expected), "estimate"], [`Cash in the bank, ${D.cash.asOf}`, D.cash.amount, "declared"], ["Difference not explained", Math.round(R.gap), ""]] };
         const fut: Sheet = { name: "Next quarter", head: ["Future", ...F[0].months.flatMap((m: any) => [`${m.month} out`, `${m.month} in`, `${m.month} cash`]), "Runs out", "Runs out, one-off at its high end"], rows: F.map((f: any) => [({ same: "Nothing changes", cuts: "Cuts in phases", income: "Income arrives" } as Record<string, string>)[f.id], ...f.months.flatMap((m: any) => [-Math.round(m.out), Math.round(m.in), Math.round(m.cash)]), f.tomb, f.tombEarly]) };
-        return save(`numen-games-cfo-${s}.xlsx`, toXlsx([about("A CFO's pack: the profit and loss by month, where the money goes, the cash against the bank and the next quarter."), pnlByMonth(books, p.from, p.to, BOOK_CATEGORIES), accountsSheet(a, p), categorySheet(a), bySupplier(books, p.from, p.to, BOOK_CATEGORIES), recon, fut, taxSheet(p)]), XLSX);
+        return save(`numen-games-cfo-${s}.xlsx`, toXlsx([about("A CFO's pack: the profit and loss by month, where the money goes, the cash against the bank and the next quarter."), pnlByMonth(books, p.from, p.to, BOOK_CATEGORIES), accountsSheet(a, p), categorySheet(a), bySupplier(books, p.from, p.to, BOOK_CATEGORIES), recon, fut, taxSheet(p)], O), XLSX);
       }
       case "audit": {
         const J = journal(books, p.from, p.to);
-        return save(`numen-games-audit-${s}.xlsx`, toXlsx([about("An auditor's pack: every published line as a balanced double entry in the Spanish accounting plan (PGC PYMES), each naming the file and row it comes from, and the trial balance from them. Only the published lines: no bank, equity or opening balance until the gestoría's books are loaded.", D.sources.map((x: any) => [x.file, `sha256 ${x.sha256} · ${x.lines} lines`])), J, trialBalance(J), receivedBook(books, p.from, p.to), issuedBook(books, p.from, p.to)]), XLSX);
+        return save(`numen-games-audit-${s}.xlsx`, toXlsx([about("An auditor's pack: every published line as a balanced double entry in the Spanish accounting plan (PGC PYMES), each naming the file and row it comes from, and the trial balance from them. Only the published lines: no bank, equity or opening balance until the gestoría's books are loaded.", D.sources.map((x: any) => [x.file, `sha256 ${x.sha256} · ${x.lines} lines`])), J, trialBalance(J), receivedBook(books, p.from, p.to), issuedBook(books, p.from, p.to)], O), XLSX);
       }
-      case "accounts-csv": {
-        const parts = [accountsSheet(a, p), categorySheet(a), issuedBook(books, p.from, p.to), taxSheet(p)];
-        const width = Math.max(...parts.map((x) => x.head.length));
-        const rows = parts.flatMap((x) => [[`## ${x.name}`], x.head, ...x.rows, []]).map((r) => [...r, ...Array(width - r.length).fill("")]);
-        return save(`numen-games-accounts-${s}.csv`, toCsv({ head: [`Numen Games S.L. · ${p.label} · ${p.from} to ${p.to}`, ...Array(width - 1).fill("")], rows }), CSV);
-      }
+      case "accounts-csv": return save(`numen-games-accounts-${s}.xlsx`, toXlsx(accountsBook(p, a), O), XLSX);
       case "received": return save(`numen-games-received-invoices-${yearOf}-to-${p.to}.csv`, toCsv(receivedBook(books, p.from, p.to), true), CSV);
       case "issued": return save(`numen-games-issued-invoices-${yearOf}-to-${p.to}.csv`, toCsv(issuedBook(books, p.from, p.to), true), CSV);
-      case "taxes": return save(`numen-games-taxes-${s}.csv`, toCsv(taxSheet(p)), CSV);
-      case "plan-xlsx": return save("numen-games-business-plan.xlsx", toXlsx(planSheets()), XLSX);
+      case "taxes": return save(`numen-games-taxes-${s}.xlsx`, toXlsx([{ ...taxSheet(p), title: "Taxes", subtitle: `${p.label} · estimates until the gestoría's filed returns are loaded` }], O), XLSX);
+      case "plan-xlsx": return save("numen-games-business-plan.xlsx", toXlsx(planSheets(), { ...O, subtitle: "A plan, not a fact · Numen Games S.L." }), XLSX);
       case "plan-pdf": return printOnly(true);
       case "page-pdf": return printOnly(false);
     }
