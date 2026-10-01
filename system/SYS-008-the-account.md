@@ -5,9 +5,9 @@ title: "The account: how money moves and is recorded, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-24T18:00:00+02:00"
-updated: "2026-10-01T20:00:00+02:00"
+updated: "2026-10-01T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, economy, payments, ledger, accounting]
@@ -106,7 +106,7 @@ and may be written in a record.
 | A citizen | the public view: what Numinia costs, what came in, who carries the difference, the homage list | that it is whole and plain |
 | Technology (CTO) | cost per service per day, month and year; trend | what each service costs and whether it grows |
 | Finance and a lender | profit and loss by year in the accounting plan's headings; cash reconciled to the bank; the next quarter in three futures, each with its date of running out | whether the company can repay |
-| The gestoría | the received-invoices book per quarter, exportable to a spreadsheet | that it matches the books |
+| The gestoría | the received- and issued-invoices books for any month, quarter, year or dates, downloaded from `/system/open-books` as CSV or a workbook | that it matches the books |
 | An auditor or the tax authority | the same figures, walked from total to line to document | that every figure has its paper |
 
 All five read the same lines (`STD-036` LED-002). Billed and consumed are

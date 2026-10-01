@@ -23,6 +23,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-01
 
+- **Added** Open books downloads by month, quarter, year or dates: accounts (Excel, CSV), gestoría invoice books, taxes, the business plan (Excel, one-page PDF), the page as PDF — all cut from the same lines by `web/src/lib/exports.ts`; STD-036 0.3.1, SYS-008 0.3.1; site v0.119.0.
+
 - **Changed** Open books on the real bank balance (19,500 €, declared), reconciled to the lines with the gap in amber, and the next quarter in three futures; STD-036 0.3.0 (LED-011, LED-012), PRO-021 0.6.0, SYS-008 0.3.0, DBT-022 0.3.2; site v0.117.0.
 
 - **Added** /system/open-books Taxes room for beginners (VAT to pay/offset/refund by quarter, withholding, losses, live filing counter); real payroll and Q3 2026 invoices, people one block a quarter; income book; `STD-036` 0.2.0, `PRO-021` 0.5.0 (site v0.116.0)

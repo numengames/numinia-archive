@@ -53,6 +53,20 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.119.0",
+    date: "2026-10-01",
+    entries: [
+      {
+        type: "ADD",
+        text: "Open books lets you download anything for the period you choose — a month, a quarter, a year or two dates: the accounts as Excel (a sheet per view) or CSV, the received and issued invoice books in the gestoría's layout, the taxes, and the business plan with your own assumptions as Excel or a one-page PDF.",
+      },
+      {
+        type: "ADD",
+        text: "The whole page prints to PDF in day colours, every room one after another, without the menus.",
+      },
+    ],
+  },
+  {
     version: "v0.118.0",
     date: "2026-10-02",
     entries: [
