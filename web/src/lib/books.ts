@@ -62,6 +62,8 @@ export const BOOKS_SOURCES = [
   "system/SYS-008-the-account.md",
   "system/SYS-012-suppliers.md",
   "operations/OPS-017-the-enisa-loan.md",
+  "web/src/data/money.ts",
+  "web/src/data/payroll.csv",
   "standards/STD-036-one-account.md",
   "debt/DBT-022-legal-debts-and-questions-for-counsel.md",
 ] as const;

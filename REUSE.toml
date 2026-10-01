@@ -49,6 +49,7 @@ SPDX-License-Identifier = "CC0-1.0"
 [[annotations]]
 path = [
   "web/src/data/ledger-2025.csv",
+  "web/src/data/payroll.csv",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"

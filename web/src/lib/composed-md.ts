@@ -42,6 +42,7 @@ import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
 import { bookLines, BOOK_CATEGORIES, BOOKS_SOURCES } from "@/lib/books";
+import { ROUNDS, CLIENTS, PLAN, MONEY_IN_TOTAL } from "@/data/money";
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
@@ -706,6 +707,32 @@ export function accountPage(): ComposedPage {
     `A participative loan of **${eur(ENISA.principal)}** from ENISA (${ENISA.lender}), signed on ${ENISA.signed}, as published in [ENISA's public loan search](${ENISA.register}). It is debt, not equity; what it costs is the interest, a financial expense. The record: [${ENISA.record}](/operations/ops-017-the-enisa-loan).`,
     "",
     table(["Quarter", "Interest (net)"], [...ENISA.interest.map((q) => [q.quarter, eur(q.amount, 2)]), ["**2025**", `**${eur(ENISA_INTEREST_TOTAL, 2)}**`]]),
+    "",
+    "## Money in",
+    "",
+    "Each figure says its kind: real (booked or public), declared (the company's word, its document still to load), plan, or simulated.",
+    "",
+    table(["Date", "What", "Amount", "Kind"], [
+      [COMPANY.incorporated, "Share capital at incorporation", eur(3000), "real"],
+      ...ROUNDS.map((r) => [r.date, `${r.what} (nominal ${eur(r.nominal, 2)}, the rest share premium)`, `≈ ${eur(r.amount)}`, r.kind]),
+      [ENISA.signed, "ENISA participative loan", eur(ENISA.principal), "real"],
+      ...CLIENTS.map((c) => ["2025–2026", `Clients · ${c.sector}`, `≈ ${eur(c.amount)}`, c.kind]),
+      ["", "**Together**", `**≈ ${eur(MONEY_IN_TOTAL)}**`, ""],
+    ]),
+    "",
+    "Cash left: very little, in the company's words; the bank balance is not loaded yet. Payroll (two people in 2025, one in 2026) is simulated until the payslips are loaded.",
+    "",
+    "## Business plan",
+    "",
+    `*Plan, drafted ${PLAN.drafted}.* ${PLAN.vision}`,
+    "",
+    table(["Assumption", "Value"], [
+      ["Projects a year", String(PLAN.assumptions.projectsPerYear)],
+      ["Average project", eur(PLAN.assumptions.projectSize)],
+      ["Hosting a world, a month", eur(PLAN.assumptions.hostingPerWorld)],
+      ["Monthly cost", eur(PLAN.assumptions.monthlyCost)],
+      ["Growth a year", `${PLAN.assumptions.growth * 100}%`],
+    ]),
     "",
     "## Grants",
     "",

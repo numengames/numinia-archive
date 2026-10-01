@@ -16,7 +16,9 @@
 // one line per invoice; people and counsel one line a month each group, with
 // a headcount, so nobody's pay can be read (STD-036 LED-006, DBT-022 §1.7).
 // The company is @/data/company (public registers only); the loan is
-// @/data/enisa. The markdown view (composed-md.ts) reads the same three.
+// @/data/enisa; money in, cash and the business plan are @/data/money, each
+// figure real, declared, plan or simulated; payroll is @/data/payroll.csv,
+// one line a month for all staff, simulated until the payslips come. The markdown view (composed-md.ts) reads the same three.
 //
 // Who holds which share is NOT on this page: the Registry does not publish
 // it and the partners have not yet agreed to. It enters from the deeds.
@@ -25,6 +27,8 @@ import DocToolbar from "@/components/DocToolbar.astro";
 import { bookLines, BOOK_CATEGORIES, BOOK_YEARS } from "@/lib/books";
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
+import { ROUNDS, CLIENTS, CASH, PLAN, GLOSSARY, MONEY_IN_TOTAL } from "@/data/money";
+import payrollRaw from "@/data/payroll.csv?raw";
 import { repoFileUrl } from "@/lib/build-info";
 
 const lines = bookLines().map((l) => ({ d: l.date, a: l.period_from, b: l.period_to, c: l.category, w: l.supplier, n: Number(l.base), h: Number(l.headcount || 0) }));
@@ -36,7 +40,12 @@ const eur = (n: number, d = 0) => n.toLocaleString("en-GB", { minimumFractionDig
 const date = (s: string) => new Date(s + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 let capRun = 0;
 const capSteps = CAPITAL_STEPS.map((s) => ({ ...s, after: (capRun += s.increase) }));
-const DATA = { lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
+const payroll = payrollRaw.trim().split("\n").slice(1).map((l) => { const [m, h, g, ss] = l.split(";"); return { m, h: Number(h), g: Number(g), ss: Number(ss) }; });
+const pay25 = payroll.filter((p) => p.m.startsWith("2025")).reduce((s, p) => s + p.g + p.ss, 0);
+const payNow = payroll[payroll.length - 1];
+const partners = 3000 + ROUNDS.reduce((s, r) => s + r.amount, 0);
+const clientsIn = CLIENTS.reduce((s, c) => s + c.amount, 0);
+const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
 ---
 
 <Layout
@@ -54,8 +63,10 @@ const DATA = { lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, ca
       <p class="ob-lead">From {date(COMPANY.incorporated)}, the day the company was incorporated. What it costs to run, who governs it, where the money came from and how long it lasts. Every figure says whether it is real or a simulation you can move.</p>
       <div class="ob-badges">
        <span class="ob-badge ob-real">real — the FY2025 invoice book, the Mercantile Registry, ENISA's loan register</span>
-       <span class="ob-badge ob-sim">simulated — cash in the bank and income, to try scenarios</span>
-       <span class="ob-badge">not loaded yet — FY2024 (from 16 Feb), FY2026, clients</span>
+       <span class="ob-badge ob-decl">declared — said by the company, its document still to load: the rounds, the client income</span>
+       <span class="ob-badge ob-plan">plan — the business plan: what the company intends</span>
+       <span class="ob-badge ob-sim">simulated — cash in the bank, payroll, income, to try scenarios</span>
+       <span class="ob-badge">not loaded yet — FY2024 (from 16 Feb), FY2026 invoices, the bank balance</span>
       </div>
       <div class="ob-toolbar"><DocToolbar mdUrl="/system/open-books.md" filename="numen-games-open-books.md" repoUrl={repoFileUrl("web/src/data/ledger-2025.csv")} lang="en" /></div>
      </div>
@@ -85,6 +96,7 @@ const DATA = { lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, ca
      <button type="button" class="ob-room" role="tab" data-room="funding" aria-selected="false">Funding <small>loans · capital · grants</small></button>
      <button type="button" class="ob-room" role="tab" data-room="clients" aria-selected="false">Clients &amp; tenders</button>
      <button type="button" class="ob-room" role="tab" data-room="cash" aria-selected="false">Cash &amp; runway</button>
+     <button type="button" class="ob-room" role="tab" data-room="plan" aria-selected="false">Business plan</button>
      <button type="button" class="ob-room" role="tab" data-room="lines" aria-selected="false">Every line</button>
     </nav>
 
@@ -175,15 +187,24 @@ const DATA = { lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, ca
     <section class="ob-panel" id="ob-p-funding" role="tabpanel">
      <div class="ob-sec">
       <h3>Where the money came from</h3>
-      <p class="ob-sub">Three kinds of money, never mixed: what the partners put in, what the company owes, and what it was given. Income from clients and tenders is in its own room.</p>
+      <p class="ob-sub">Three kinds of money, never mixed: what the partners put in, what the company owes, and what clients paid. About {eur(MONEY_IN_TOTAL)} in all since 2024. Grants: none.</p>
       <div class="ob-box">
-       <div class="ob-capgrow ob-capgrow--src" aria-hidden="true"><div style={`width:${COMPANY.capital / (COMPANY.capital + ENISA.principal) * 100}%;background:rgb(var(--yellow))`}></div><div style={`width:${ENISA.principal / (COMPANY.capital + ENISA.principal) * 100}%;background:rgb(var(--blue))`}><span>ENISA loan · {eur(ENISA.principal)}</span></div></div>
+       <div class="ob-capgrow ob-capgrow--src" aria-hidden="true"><div style={`width:${partners / MONEY_IN_TOTAL * 100}%;background:rgb(var(--yellow))`}><span>Partners · {eur(partners)}</span></div><div style={`width:${ENISA.principal / MONEY_IN_TOTAL * 100}%;background:rgb(var(--blue))`}><span>ENISA · {eur(ENISA.principal)}</span></div><div style={`width:${clientsIn / MONEY_IN_TOTAL * 100}%;background:rgb(var(--green))`}></div></div>
        <div class="ob-grid3">
-        <div><span class="ob-k">Equity · partners</span><div class="ob-big">{eur(COMPANY.capital, 2)}</div><p class="ob-note">nominal share capital; any premium is in the deeds</p></div>
-        <div><span class="ob-k">Debt · loans</span><div class="ob-big">{eur(ENISA.principal)}</div><p class="ob-note">ENISA, participative</p></div>
-        <div><span class="ob-k">Grants</span><div class="ob-big">0 €</div><p class="ob-note">none in the national grants register</p></div>
+        <div><span class="ob-k">Equity · partners</span><div class="ob-big">{eur(partners)} <span class="ob-pill ob-pill--decl">declared</span></div><p class="ob-note">3,000 € at incorporation and two rounds; the registry shows {eur(COMPANY.capital, 2)} of nominal, the rest is share premium</p></div>
+        <div><span class="ob-k">Debt · loans</span><div class="ob-big">{eur(ENISA.principal)} <span class="ob-pill ob-pill--real">real</span></div><p class="ob-note">ENISA, participative, still owed</p></div>
+        <div><span class="ob-k">Clients</span><div class="ob-big">{eur(clientsIn)} <span class="ob-pill ob-pill--decl">declared</span></div><p class="ob-note">one client so far, in several invoices</p></div>
        </div>
       </div>
+     </div>
+     <div class="ob-sec">
+      <h3>The rounds</h3>
+      <p class="ob-sub">What the partners paid in each round, next to the nominal the Registry published. The difference is share premium: equity, not debt. Who paid which part enters from the deeds, with the partners' consent.</p>
+      <div class="ob-box"><table class="ob-t">
+       <thead><tr><th>Date</th><th>Round</th><th class="ob-n">Nominal (BORME)</th><th class="ob-n">Paid in</th><th></th></tr></thead>
+       <tbody><tr><td class="ob-mono">2024-02-16</td><td>Incorporation</td><td class="ob-n">3,000 €</td><td class="ob-n">3,000 €</td><td class="ob-n"><span class="ob-pill ob-pill--real">real</span></td></tr>{ROUNDS.map((r) => <tr><td class="ob-mono">{r.date}</td><td>{r.what} · <a href={bormeUrl(r.borme)} target="_blank" rel="noopener noreferrer">BORME</a></td><td class="ob-n">{eur(r.nominal, 2)}</td><td class="ob-n">≈ {eur(r.amount)}</td><td class="ob-n"><span class="ob-pill ob-pill--decl">declared</span></td></tr>)}</tbody>
+       <tfoot><tr><td colspan="2">Partners, together</td><td class="ob-n">{eur(COMPANY.capital, 2)}</td><td class="ob-n">≈ {eur(partners)}</td><td></td></tr></tfoot>
+      </table><p class="ob-note"><span class="ob-pill ob-pill--decl">declared</span> The amounts paid are the company's word, rounded; they turn real when the deeds are loaded. ENISA usually lends up to what the partners put in: the first round came six months before the loan.</p></div>
      </div>
      <div class="ob-sec" id="cq-sec-enisa">
       <h3>The ENISA loan</h3>
@@ -212,7 +233,12 @@ const DATA = { lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, ca
       <div>
        <h3>Clients</h3>
        <p class="ob-sub">Who pays Numen Games, and for what: from the issued-invoices book, the way costs come from the received one.</p>
-       <div class="ob-empty"><h4>Not loaded yet</h4>The FY2025 issued-invoices book is the next document to bring. Each client appears by sector until it agrees to be named, as the opportunities already do.</div>
+       <div class="ob-box"><table class="ob-t">
+        <thead><tr><th>Sector</th><th>What for</th><th class="ob-n">Income</th></tr></thead>
+        <tbody>{CLIENTS.map((c) => <tr><td>{c.sector}</td><td>{c.what} <span class="ob-dim">· {c.invoices}</span></td><td class="ob-n">≈ {eur(c.amount)} <span class="ob-pill ob-pill--decl">declared</span></td></tr>)}</tbody>
+        <tfoot><tr><td colspan="2">Since 2024</td><td class="ob-n">≈ {eur(clientsIn)}</td></tr></tfoot>
+       </table>
+       <p class="ob-note">One client so far. Against a monthly cost of about {eur(DATA.total / 12 + pay25 / 12)} that is roughly six weeks of running. Each client appears by sector until it agrees to be named; the invoices enter from the issued-invoices book.</p></div>
       </div>
       <div>
        <h3>Tenders</h3>
@@ -228,10 +254,18 @@ const DATA = { lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, ca
 
     <section class="ob-panel" id="ob-p-cash" role="tabpanel">
      <div class="ob-sec">
+      <h3>Time to tomb</h3>
+      <p class="ob-sub">The company says very little cash is left. Until the bank balance is loaded, the counter runs on the cash you set below, from {date(CASH.asOf)}, at today's monthly cost.</p>
+      <div class="ob-box ob-count" id="ob-countdown" aria-live="off">
+       <div><span class="ob-k">Cash left, now <span class="ob-pill ob-pill--sim">simulated</span></span><div class="ob-cnum" id="ob-cnow">—</div></div>
+       <div><span class="ob-k">The money runs out in</span><div class="ob-clock" id="ob-clock">—</div><div class="ob-dim" id="ob-cdate"></div></div>
+      </div>
+     </div>
+     <div class="ob-sec">
       <h3>How long the money lasts</h3>
-      <p class="ob-sub">Three ways to run the company from here, each with its monthly cost from the FY2025 book and how long the cash would last. The bank balance is not loaded yet: move it, and the income, to see how the answer changes.</p>
+      <p class="ob-sub">Three ways to run the company from here, each with its monthly cost from the FY2025 book and how long the cash would last. The bank balance is not loaded yet: move it, and the income, to see how the answer changes. Payroll is simulated too, until the payslips are loaded.</p>
       <div class="ob-box ob-sliders">
-       <label>Cash in the bank <input type="range" id="ob-cash" min="0" max="150000" step="1000" value="40000" /> <b id="ob-cashv"></b></label>
+       <label>Cash in the bank <input type="range" id="ob-cash" min="0" max="150000" step="500" value="8000" /> <b id="ob-cashv"></b></label>
        <label>Income a month <input type="range" id="ob-inc" min="0" max="20000" step="250" value="0" /> <b id="ob-incv"></b></label>
        <span class="ob-pill ob-pill--sim">simulated — both</span>
       </div>
@@ -247,6 +281,67 @@ const DATA = { lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, ca
        <h3>What closing costs</h3>
        <p class="ob-sub">Winding up a Spanish S.L. is not free, and the loan does not disappear with it.</p>
        <div class="ob-box"><table class="ob-t" id="ob-close"></table><p class="ob-note">Estimates for a company this size, not quotes. A participative loan ranks after ordinary creditors, but it is still owed; the figure assumes no principal repaid yet. The gestoría and the contract give the exact numbers.</p></div>
+      </div>
+     </div>
+    </section>
+
+    <section class="ob-panel" id="ob-p-plan" role="tabpanel">
+     <div class="ob-sec ob-grid2">
+      <div>
+       <h3>The vision</h3>
+       <p class="ob-sub"><span class="ob-pill ob-pill--plan">plan</span> Drafted {date(PLAN.drafted)}. A plan is a promise to ourselves, not a fact; it is shown next to what happened so the gap can be read.</p>
+       <div class="ob-box"><p class="ob-vision">{PLAN.vision}</p></div>
+      </div>
+      <div>
+       <h3>Where we are</h3>
+       <p class="ob-sub">The delicate moment, in four figures.</p>
+       <div class="ob-box"><table class="ob-t"><tbody>
+        <tr><td>Money in since 2024</td><td class="ob-n">≈ {eur(MONEY_IN_TOTAL)}</td></tr>
+        <tr><td>Clients so far</td><td class="ob-n">1 · ≈ {eur(clientsIn)}</td></tr>
+        <tr><td>Still owed to ENISA</td><td class="ob-n">{eur(ENISA.principal)}</td></tr>
+        <tr><td>Cash left</td><td class="ob-n"><span class="ob-pill ob-pill--sim">very little · not loaded</span></td></tr>
+       </tbody></table></div>
+      </div>
+     </div>
+     <div class="ob-sec">
+      <h3>The assumptions</h3>
+      <p class="ob-sub">Move them: the plan below is recomputed from these five numbers. They start where the company hopes to be in {PLAN.start}.</p>
+      <div class="ob-box ob-sliders" id="ob-plan-in">
+       <label>Projects a year <input type="range" data-k="projectsPerYear" min="0" max="12" step="1" /> <b></b></label>
+       <label>Average project <input type="range" data-k="projectSize" min="5000" max="80000" step="1000" /> <b></b></label>
+       <label>Hosting a world, a month <input type="range" data-k="hostingPerWorld" min="0" max="1500" step="50" /> <b></b></label>
+       <label>Monthly cost <input type="range" data-k="monthlyCost" min="2000" max="20000" step="250" /> <b></b></label>
+       <label>Growth a year <input type="range" data-k="growth" min="0" max="1" step="0.05" /> <b></b></label>
+       <span class="ob-pill ob-pill--plan">plan</span>
+      </div>
+     </div>
+     <div class="ob-sec ob-grid2">
+      <div>
+       <h3>Profit and loss, three years</h3>
+       <p class="ob-sub">Income from projects and from hosting the worlds already sold, against the cost of running.</p>
+       <div class="ob-box"><table class="ob-t" id="ob-pl"></table></div>
+      </div>
+      <div>
+       <h3>Break-even and what is missing</h3>
+       <p class="ob-sub">How many projects a year pay the cost, and how much money the plan needs before it pays itself.</p>
+       <div class="ob-box" id="ob-be"></div>
+      </div>
+     </div>
+     <div class="ob-sec">
+      <h3>Cash, month by month</h3>
+      <p class="ob-sub">The plan's cash for the next 36 months, starting from the cash set in Cash &amp; runway. Where the line falls below zero, the company needs money before then.</p>
+      <div class="ob-box"><div class="ob-chart" id="ob-plan-cash"></div></div>
+     </div>
+     <div class="ob-sec ob-grid2">
+      <div>
+       <h3>Plan against reality</h3>
+       <p class="ob-sub">Each month, what the plan said and what happened. It starts when the plan is a month old.</p>
+       <div class="ob-empty"><h4>From November 2026</h4>The first month of the plan closes on 31 October. From then on, a line a month: planned income, real income, planned cost, real cost.</div>
+      </div>
+      <div>
+       <h3>How to read a startup</h3>
+       <p class="ob-sub">The words this page uses, with our figures as the example.</p>
+       <div class="ob-box"><dl class="ob-gl">{GLOSSARY.map(([k, v]) => <><dt>{k}</dt><dd>{v}</dd></>)}</dl></div>
       </div>
      </div>
     </section>
@@ -282,6 +377,8 @@ const DATA = { lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, ca
 .ob-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 .ob-badge{font:500 .66rem var(--font-mono);letter-spacing:.04em;border:1px solid rgb(var(--border));border-radius:999px;padding:3px 10px;color:rgb(var(--text-muted))}
 .ob-badge.ob-real{border-color:rgb(var(--green)/.5)}.ob-badge.ob-real::before{content:"●";color:rgb(var(--green));margin-right:6px}
+.ob-badge.ob-decl{border-color:rgb(var(--blue)/.5)}.ob-badge.ob-decl::before{content:"●";color:rgb(var(--blue));margin-right:6px}
+.ob-badge.ob-plan{border-color:rgb(167 123 224/.55)}.ob-badge.ob-plan::before{content:"●";color:rgb(167 123 224);margin-right:6px}
 .ob-badge.ob-sim{border-color:rgb(var(--yellow)/.5)}.ob-badge.ob-sim::before{content:"●";color:rgb(var(--yellow));margin-right:6px}
 .ob-toolbar{margin-top:18px}
 .ob-card{background:rgb(var(--bg-card));border:1px solid rgb(var(--border));border-radius:var(--radius);padding:18px 18px 14px;position:relative;overflow:hidden}
@@ -362,6 +459,20 @@ table.ob-t{border-collapse:collapse;width:100%;font-size:.84rem;color:rgb(var(--
 .ob-pill{display:inline-block;font:500 .6rem var(--font-mono);letter-spacing:.06em;border-radius:999px;padding:1px 8px;border:1px solid rgb(var(--border));color:rgb(var(--text-muted));white-space:nowrap}
 .ob-pill--real{border-color:rgb(var(--green)/.5);color:rgb(var(--green))}
 .ob-pill--sim{border-color:rgb(var(--yellow)/.5);color:rgb(var(--yellow))}
+.ob-pill--decl{border-color:rgb(var(--blue)/.5);color:rgb(var(--blue))}
+.ob-pill--plan{border-color:rgb(167 123 224/.55);color:rgb(167 123 224)}
+.ob-kpi .dot.decl{background:rgb(var(--blue))}
+.ob-count{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:18px;align-items:center;border-color:rgb(var(--red)/.45)}
+@media(max-width:720px){.ob-count{grid-template-columns:1fr}}
+.ob-cnum{font:500 clamp(1.6rem,4vw,2.4rem)/1.1 var(--font-mono);color:rgb(var(--text));font-variant-numeric:tabular-nums;margin-top:6px}
+.ob-clock{font:500 clamp(1.4rem,4.4vw,2.6rem)/1.1 var(--font-mono);color:rgb(var(--red));font-variant-numeric:tabular-nums;margin:6px 0 4px}
+.ob-clock small{font-size:.45em;color:rgb(var(--text-dim));margin:0 .5em 0 .15em}
+.ob-vision{margin:0;font-size:1rem;line-height:1.65;color:rgb(var(--text))}
+.ob-gl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 14px;margin:0;font-size:.84rem}
+@media(max-width:640px){.ob-gl{grid-template-columns:1fr}}
+.ob-gl dt{font-weight:500;color:rgb(var(--text))}.ob-gl dd{margin:0;color:rgb(var(--text-muted))}
+.ob-be-big{font:500 1.6rem var(--font-mono);color:rgb(var(--text))}
+.ob-pos{color:rgb(var(--green))}.ob-neg{color:rgb(var(--red))}
 .ob-pill--empty{border-style:dashed}
 .ob-tl{position:relative;padding-left:40px}
 .ob-tl::before{content:"";position:absolute;left:24px;top:24px;bottom:24px;width:1px;background:rgb(var(--border))}
@@ -536,8 +647,9 @@ $('#ob-now').innerHTML = '<thead><tr><th>Service</th><th class="ob-n">A month</t
 
 // Cash and runway.
 const byCat = {}; for (const l of L) byCat[l.c] = (byCat[l.c] || 0) + l.n;
-const burn = D.total / 12;
-const lean = burn - ['people', 'counsel', 'studios', 'events', 'hardware'].reduce((s, c) => s + (byCat[c] || 0), 0) / 12;
+const payNow = D.payNow; // simulated: today's payroll, all staff together
+const burn = D.total / 12 + payNow;
+const lean = burn - payNow - ['people', 'counsel', 'studios', 'events', 'hardware'].reduce((s, c) => s + (byCat[c] || 0), 0) / 12;
 const ASLEEP = [['Gestoría, minimum fee', 50], ['Loan interest', D.enisaQuarter / 3], ['Registry and annual accounts filing', 10], ['Bank, domain and mail', 25], ['Password vault and signature', 15]];
 const dorm = ASLEEP.reduce((s, x) => s + x[1], 0);
 const CLOSE = [['Notary and registry: dissolution, liquidation, cancellation', 1500], ['Gestoría: final accounts and returns', 1800], ['Legal counsel', 1500], ['ENISA: principal still owed', D.principal]];
@@ -546,8 +658,8 @@ const lasts = (m) => (m === Infinity ? 'indefinitely' : m > 120 ? 'ten years or 
 function runway() {
   const cash = +$('#ob-cash').value, inc = +$('#ob-inc').value;
   $('#ob-cashv').textContent = eur(cash); $('#ob-incv').textContent = eur(inc);
-  const sc = [['Keep running', burn, 'as in 2025: people, counsel, studios, services, interest', ['Contractors and counsel stay', 'Every service stays', 'Events and hardware as in 2025']],
-    ['Lean', lean, 'services and the loan only', ['Contractors, counsel and studios paused', 'Cloud, AI and software stay', 'The loan keeps costing']],
+  const sc = [['Keep running', burn, 'as in 2025, plus today\'s payroll (simulated)', ['Payroll: one person, ' + eur(payNow) + ' with social security', 'Contractors and counsel stay', 'Every service stays']],
+    ['Lean', lean, 'services and the loan only', ['Payroll, contractors, counsel and studios paused', 'Cloud, AI and software stay', 'The loan keeps costing']],
     ['Asleep', dorm, 'a dormant company that still exists', ASLEEP.map(([k, v]) => `${k}: ${eur(v)}`)]];
   $('#ob-scen').innerHTML = sc.map(([h, c, sub, li], i) => { const net = c - inc, m = net <= 0 ? Infinity : cash / net; return `<div class="ob-sc ${i === 0 ? 'hi' : ''}"><span class="ob-k">${h}</span><div class="v">${eur(c)} <small>/ month</small></div><div style="font-size:.82rem;color:rgb(var(--text-muted))">${sub}</div><div>Lasts <b style="font-family:var(--font-mono)">${lasts(m)}</b></div><ul>${li.map((x) => `<li>${x}</li>`).join('')}</ul></div>`; }).join('');
   const W = 600, H = 210, pl = 50, N = 24, pts = []; let c = cash; for (let i = 0; i <= N; i++) { pts.push(c); c += inc - burn; }
@@ -558,10 +670,56 @@ function runway() {
   $('#ob-tomb').innerHTML = s + '</svg>';
   $('#ob-close').innerHTML = '<thead><tr><th>Item</th><th class="ob-n">Estimate</th></tr></thead><tbody>' + CLOSE.map(([k, v]) => `<tr><td>${k}</td><td class="ob-n">${eur(v)}</td></tr>`).join('') + `</tbody><tfoot><tr><td>To close cleanly</td><td class="ob-n">${eur(closeTotal)}</td></tr><tr><td style="font-weight:400;color:rgb(var(--text-muted))">Cash left after closing</td><td class="ob-n" style="color:rgb(var(${cash - closeTotal < 0 ? '--red' : '--green'}))">${eur(cash - closeTotal)}</td></tr></tfoot>`;
   const m = cash / Math.max(1, burn - inc);
-  $('#ob-kpis').innerHTML = [['Spent in 2025', eur(D.total), `net of VAT · ${L.length} lines`, 'real'], ['A month, on average', eur(burn), 'what running cost in 2025', 'real'], ['Owed to ENISA', eur(D.principal), 'participative loan, 2024', 'real'], ['Share capital', eur(D.capital, 2), 'four steps, 2024–2026', 'real'], ['Time to tomb', burn - inc <= 0 ? '—' : m.toFixed(1) + ' months', "at 2025's pace · simulated cash", 'sim', m < 6]]
-    .map(([k, v, sub, t, a]) => `<div class="ob-kpi ${a ? 'alert' : ''}"><span class="dot ${t}" title="${t === 'real' ? 'real figure' : 'simulated'}"></span><span class="ob-k">${k}</span><span class="v">${v}</span><span class="s">${sub}</span></div>`).join('');
+  $('#ob-kpis').innerHTML = [['Spent in 2025', eur(D.total), `net of VAT · ${L.length} lines`, 'real'], ['A month, on average', eur(burn), 'what running cost in 2025', 'real'], ['Owed to ENISA', eur(D.principal), 'participative loan, 2024', 'real'], ['Money in', '≈ ' + eur(D.moneyIn), 'partners, ENISA and clients since 2024', 'decl'], ['Time to tomb', burn - inc <= 0 ? '—' : m.toFixed(1) + ' months', "at today's cost · simulated cash", 'sim', m < 6]]
+    .map(([k, v, sub, t, a]) => `<div class="ob-kpi ${a ? 'alert' : ''}"><span class="dot ${t}" title="${t === 'real' ? 'real figure' : t === 'decl' ? 'declared, document to load' : 'simulated'}"></span><span class="ob-k">${k}</span><span class="v">${v}</span><span class="s">${sub}</span></div>`).join('');
 }
-$('#ob-cash').addEventListener('input', runway); $('#ob-inc').addEventListener('input', runway);
+$('#ob-cash').addEventListener('input', () => { runway(); tick(); planDraw(); });
+
+// The time-to-tomb counter: the cash set above, spent second by second since
+// the day the company said how little was left, at today's monthly cost.
+const SEC_MONTH = 30.4375 * 86400, ASOF = Date.parse(D.cash.asOf + 'T00:00:00Z');
+function tick() {
+  const cash = +$('#ob-cash').value, inc = +$('#ob-inc').value, net = burn - inc;
+  const now = Date.now(), left = cash - Math.max(0, (now - ASOF) / 1000) * (net / SEC_MONTH);
+  $('#ob-cnow').textContent = eur(Math.max(0, left), 2);
+  if (net <= 0) { $('#ob-clock').textContent = 'it does not run out'; $('#ob-cdate').textContent = 'income covers the cost'; return; }
+  const secs = Math.max(0, (left / net) * SEC_MONTH), dd = Math.floor(secs / 86400), hh = Math.floor(secs % 86400 / 3600), mm = Math.floor(secs % 3600 / 60), ss = Math.floor(secs % 60);
+  const p = (n) => String(n).padStart(2, '0');
+  $('#ob-clock').innerHTML = secs <= 0 ? 'out of cash' : `${dd}<small>days</small>${p(hh)}<small>h</small>${p(mm)}<small>m</small>${p(ss)}<small>s</small>`;
+  $('#ob-cdate').textContent = secs <= 0 ? 'at this cost, the cash set above is already spent' : 'on ' + new Date(now + secs * 1000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ', at ' + eur(net) + ' a month';
+}
+setInterval(tick, 1000);
+
+// The business plan: five assumptions, three years, break-even, cash.
+const A = { ...D.plan.assumptions };
+const fmtA = { projectsPerYear: (v) => v + ' a year', projectSize: (v) => eur(v), hostingPerWorld: (v) => eur(v), monthlyCost: (v) => eur(v), growth: (v) => '+' + Math.round(v * 100) + '%' };
+$$('#ob-plan-in input').forEach((el) => { const k = el.dataset.k; el.value = A[k]; el.nextElementSibling.textContent = fmtA[k](A[k]); el.addEventListener('input', () => { A[k] = +el.value; el.nextElementSibling.textContent = fmtA[k](A[k]); planDraw(); }); });
+function planDraw() {
+  const y0 = +D.plan.start, rows = []; let worlds = 1, cum = 0;
+  for (let i = 0; i < 3; i++) {
+    const g = Math.pow(1 + A.growth, i), proj = A.projectsPerYear * g, pr = proj * A.projectSize;
+    const host = worlds * A.hostingPerWorld * 12 + (proj * A.hostingPerWorld * 12) / 2, cost = A.monthlyCost * 12 * Math.pow(1 + A.growth / 2, i), res = pr + host - cost;
+    cum += res; worlds += proj; rows.push({ y: y0 + i, proj, pr, host, cost, res, cum });
+  }
+  const c = (v) => `<span class="${v < 0 ? 'ob-neg' : 'ob-pos'}">${eur(v)}</span>`;
+  $('#ob-pl').innerHTML = `<thead><tr><th></th>${rows.map((r) => `<th class="ob-n">${r.y}</th>`).join('')}</tr></thead><tbody>` +
+    `<tr><td>Projects</td>${rows.map((r) => `<td class="ob-n">${r.proj.toFixed(1)}</td>`).join('')}</tr>` +
+    `<tr><td>Income, projects</td>${rows.map((r) => `<td class="ob-n">${eur(r.pr)}</td>`).join('')}</tr>` +
+    `<tr><td>Income, hosting</td>${rows.map((r) => `<td class="ob-n">${eur(r.host)}</td>`).join('')}</tr>` +
+    `<tr><td>Cost of running</td>${rows.map((r) => `<td class="ob-n">−${eur(r.cost)}</td>`).join('')}</tr></tbody>` +
+    `<tfoot><tr><td>Result</td>${rows.map((r) => `<td class="ob-n">${c(r.res)}</td>`).join('')}</tr><tr><td style="font-weight:400">Accumulated</td>${rows.map((r) => `<td class="ob-n">${c(r.cum)}</td>`).join('')}</tr></tfoot>`;
+  const be = A.projectSize > 0 ? (A.monthlyCost * 12) / A.projectSize : Infinity;
+  const cash0 = +$('#ob-cash').value; let cash = cash0, low = cash0, lowAt = 0; const pts = [cash0]; let w = 1;
+  for (let m = 1; m <= 36; m++) { const g = Math.pow(1 + A.growth, Math.floor((m - 1) / 12)), pm = (A.projectsPerYear * g) / 12; w += pm; cash += pm * A.projectSize + w * A.hostingPerWorld - A.monthlyCost * Math.pow(1 + A.growth / 2, Math.floor((m - 1) / 12)); pts.push(cash); if (cash < low) { low = cash; lowAt = m; } }
+  const need = Math.max(0, -low);
+  $('#ob-be').innerHTML = `<span class="ob-k">Projects a year to break even</span><div class="ob-be-big">${be === Infinity ? '—' : be.toFixed(1)}</div><p class="ob-note">at ${eur(A.projectSize)} a project and ${eur(A.monthlyCost)} a month, before hosting. Today: one client since 2024.</p>` +
+    `<span class="ob-k" style="margin-top:14px">Money the plan needs</span><div class="ob-be-big ${need ? 'ob-neg' : 'ob-pos'}">${need ? eur(need) : 'none'}</div><p class="ob-note">${need ? `the lowest point of cash, in month ${lowAt}: a round, a loan or a client must arrive before then` : 'the cash never falls below zero in 36 months'}. Starting from ${eur(cash0)} of cash, simulated.</p>`;
+  const W = 1100, H = 240, pl = 56, N = 36, lo = Math.min(0, ...pts), hi = Math.max(1, ...pts), y = (v) => 10 + (H - 40) * (1 - (v - lo) / (hi - lo || 1)), x = (i) => pl + ((W - pl - 8) * i) / N;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Planned cash over the next 36 months"><line class="ob-zero" x1="${pl}" x2="${W - 8}" y1="${y(0)}" y2="${y(0)}"/><text class="ob-ax" x="${pl - 6}" y="${y(0) + 4}" text-anchor="end">0 €</text><text class="ob-ax" x="${pl - 6}" y="${y(hi) + 4}" text-anchor="end">${(hi / 1000).toFixed(0)}k</text><polyline points="${pts.map((v, i) => x(i) + ',' + y(v)).join(' ')}" fill="none" stroke="rgb(167 123 224)" stroke-width="2"/>`;
+  for (let i = 0; i <= N; i += 6) s += `<text class="ob-ax" x="${x(i)}" y="${H - 10}" text-anchor="middle">+${i} m</text>`;
+  $('#ob-plan-cash').innerHTML = s + '</svg>';
+}
+ $('#ob-inc').addEventListener('input', () => { runway(); tick(); });
 
 // Every line.
 let lc = '';
@@ -582,6 +740,6 @@ function open(room, push) {
 $$('.ob-room').forEach((b, i, all) => { b.onclick = () => open(b.dataset.room, true); b.onkeydown = (e) => { const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (d) { const nx = all[(i + d + all.length) % all.length]; nx.focus(); open(nx.dataset.room, true); } }; });
 const start = location.hash.slice(1); if ($$('.ob-room').some((b) => b.dataset.room === start)) open(start, false);
 
-draw(); runway(); ledger();
+draw(); runway(); ledger(); tick(); planDraw();
 })();
 </script>

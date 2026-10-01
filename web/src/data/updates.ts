@@ -53,6 +53,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.113.0",
+    date: "2026-10-01",
+    entries: [
+      {
+        type: "ADD",
+        text: "Open books gain a seventh room, the business plan: a vision, five assumptions the reader can move, profit and loss for three years, the break-even in projects a year, how much money the plan needs, and cash month by month. A short glossary explains burn, runway, break-even, share premium and the participative loan with the company's own figures.",
+      },
+      {
+        type: "ADD",
+        text: "A time-to-tomb counter on Cash & runway: days, hours, minutes and seconds until the money runs out at today's cost, from the cash the reader sets. The company says very little is left; the bank balance is not loaded yet, so the counter says it is simulated.",
+      },
+      {
+        type: "CHG",
+        text: "Money in: the two rounds the partners paid (about 100,000 € in 2024 and 120,000 € in 2026, next to the nominal the Registry published), the ENISA loan and the first client, a public body in the United States (about 20,000 €). Four kinds of figure now: real, declared (the company's word, its document still to load), plan and simulated. Payroll, two people in 2025 and one in 2026, enters the monthly cost as a simulation until the payslips come.",
+      },
+    ],
+  },
+  {
     version: "v0.112.0",
     date: "2026-10-01",
     entries: [
