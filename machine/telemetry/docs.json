@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 23644,
+  "chars": 23912,
   "apparatus": false,
   "archived": false,
-  "tokens": 6630
+  "tokens": 6700
  },
  {
   "path": "CLAUDE.md",
@@ -1413,10 +1413,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4433,
+  "chars": 4862,
   "apparatus": true,
   "archived": false,
-  "tokens": 1174
+  "tokens": 1295
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2099-001.md",
@@ -1556,10 +1556,10 @@
   "series": null,
   "type": "meta",
   "status": "active",
-  "chars": 1461,
+  "chars": 1637,
   "apparatus": true,
   "archived": false,
-  "tokens": 424
+  "tokens": 464
  },
  {
   "path": "machine/packages/sales-kit/fixtures/register.md",
@@ -2018,10 +2018,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 14457,
+  "chars": 14856,
   "apparatus": false,
   "archived": false,
-  "tokens": 3729
+  "tokens": 3823
  },
  {
   "path": "opportunities/OPP-2026-001.md",

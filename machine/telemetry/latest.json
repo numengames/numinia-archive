@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "d97586f",
-  "corpus_hash": "41ff64cd017a148f802b0427bd175a4b8739f262ce7d148b3db17617e2562c68",
+  "head": "0d1ea29",
+  "corpus_hash": "26641ec7fb2f1bec018f028d7e5070e8e8fd11174181e62423a8543e6937d6eb",
   "root_dirty": 0,
-  "measured_at": "2026-10-01T16:56:34Z",
+  "measured_at": "2026-10-01T17:44:58Z",
   "families": [
     "corpus",
     "series",
@@ -329,7 +329,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 912306,
+      "value": 912631,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -341,13 +341,13 @@
         "reports": 36705,
         "protocols": 33051,
         "agents": 32382,
-        "operations": 27812,
+        "operations": 27906,
         "blueprints": 27778,
-        "machine": 26076,
+        "machine": 26237,
         "canon": 19794,
         "missions": 17668,
         "opportunities": 14886,
-        "": 14057,
+        "": 14127,
         "legal": 13081,
         "decisions": 9669,
         "debt": 9643,
@@ -359,9 +359,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 513045,
-        "draft": 218490,
-        "active": 161610,
+        "(none)": 513236,
+        "draft": 218584,
+        "active": 161650,
         "todo": 13532,
         "in-progress": 4513,
         "done": 1116
@@ -723,7 +723,7 @@
           "3": 386
         },
         "OPS": {
-          "3": 137
+          "3": 138
         },
         "CAN": {
           "3": 350

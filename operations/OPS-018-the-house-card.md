@@ -4,9 +4,9 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -86,6 +86,23 @@ named), **no** (not held), **check** (not yet known or not yet loaded).
 | Youth | a legal representative aged 35 or under, and the capital held by people of 35 or under | not known | check | the partners' ages |
 | Women | a woman leading the company or holding a relevant share | not known | check | who leads and who holds the capital |
 | EU partner | a partner in another EU country | none | no | a European partner, the day the house turns to European calls |
+
+## What decides most calls
+
+Of the rows above, these are the ones that settle most calls before the
+offer is read; the pipeline page shows them first, in this order, and
+links the whole card. The tool refuses a name here that has no row above.
+
+| Requirement |
+|---|
+| Team |
+| Payment |
+| Bidders' register |
+| Certification |
+| Turnover |
+| Insurance |
+| Past works |
+| Tax and Social Security |
 
 ## The figures the tool reads
 

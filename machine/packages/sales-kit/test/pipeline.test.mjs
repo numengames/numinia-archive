@@ -99,6 +99,25 @@ test('the card is read by heading, numbered or not: requirements, the turnover c
   assert.deepEqual(loadCard(path.join(FIX, 'no-such-card.md')), { requirements: [], turnoverCeiling: null, outOfDomain: [] }, 'a missing default card reads as empty');
 });
 
+test('the card marks what decides most calls: each row carries its place in that list, or null', () => {
+  const card = loadCard(CARD);
+  assert.deepEqual(card.requirements.map((q) => [q.requirement, q.decides]), [
+    ['Turnover', 2], ['Team', 1], ['Payment', null], ["Bidders' register", null], ['Size', null], ['Seat', null], ['Tax and Social Security', 3],
+  ], 'the order is the list\'s, the rows stay in the card\'s');
+});
+
+test('a deciding requirement the card does not hold stops the tool: exit 2, the name given', () => {
+  const dir = mkdtempSync(path.join(tmpdir(), 'pipeline-card-'));
+  try {
+    const bad = path.join(dir, 'card.md');
+    writeFileSync(bad, readFileSync(CARD, 'utf8').replace('| Turnover |\n| Tax', '| Luck |\n| Tax'));
+    assert.throws(() => loadCard(bad), /What decides most calls.*"Luck"/);
+    const r = spawnSync('node', [TOOL, FIX, '--register', REGISTER, '--card', bad], { encoding: 'utf8' });
+    assert.equal(r.status, 2);
+    assert.match(r.stderr, /"Luck", which is not a requirement of the card/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
 test('a card named on the command line must exist: exit 2', () => {
   const r = spawnSync('node', [TOOL, FIX, '--register', REGISTER, '--card', path.join(FIX, 'nope.md')], { encoding: 'utf8' });
   assert.equal(r.status, 2);
@@ -193,9 +212,18 @@ check('the funnel: five steps, a later step implies the earlier, `again` comes f
   assert.deepEqual(by['OPP-2099-001'], { detected: true, contacted: true, positive: true, won: true, again: true }, 'OPP-2099-005 follows it');
   assert.deepEqual(by['OPP-2099-007'], { detected: true, contacted: true, positive: false, won: false, again: false }, 'a `neg` marks no step');
   assert.deepEqual(by['OPP-2099-003'], { detected: true, contacted: true, positive: false, won: false, again: false });
-  assert.deepEqual(f.funnel.all, [7, 7, 3, 2, 1]);
-  assert.deepEqual(f.funnel.sale, [3, 3, 1, 1, 1]);
-  assert.deepEqual(f.funnel.tender, [1, 1, 0, 0, 0]);
+  assert.deepEqual(f.funnel.all.counts, [7, 7, 3, 2, 1]);
+  assert.deepEqual(f.funnel.sale.counts, [3, 3, 1, 1, 1]);
+  assert.deepEqual(f.funnel.tender.counts, [1, 1, 0, 0, 0]);
+});
+
+check('the funnel carries, per kind, each step\'s share of the step before — null when that step is empty', (dir) => {
+  const f = json(dir);
+  assert.deepEqual(Object.keys(f.funnel), ['all', 'sale', 'tender', 'grant', 'collaboration', 'partner']);
+  for (const v of Object.values(f.funnel)) assert.deepEqual(Object.keys(v), ['counts', 'conversion']);
+  // all: 7 → 7 → 3 → 2 → 1 : 100 %, 43 %, 67 %, 50 %
+  assert.deepEqual(f.funnel.all.conversion, [null, 100, 43, 67, 50], 'the first step has no step before it');
+  assert.deepEqual(f.funnel.tender.conversion, [null, 100, 0, null, null], 'after an empty step there is nothing to carry');
 });
 
 check('by kind, reasons, days per stage, the card with how many open records hinge on each row', (dir) => {
@@ -210,7 +238,16 @@ check('by kind, reasons, days per stage, the card with how many open records hin
   assert.equal(f.ceiling, 50000);
   const tax = f.card.find((c) => c.requirement === 'Tax and Social Security');
   assert.deepEqual([tax.state, tax.yes, tax.check], ['check', 1, 1], 'the open tender at yes, the open grant at check');
-  assert.deepEqual(Object.keys(f.card[0]), ['requirement', 'asks', 'house', 'state', 'unlocks', 'yes', 'check']);
+  assert.deepEqual(Object.keys(f.card[0]), ['requirement', 'asks', 'house', 'state', 'unlocks', 'decides', 'yes', 'check']);
+  assert.equal(f.card.length, 7, 'figures.card keeps every row of the card');
+  assert.deepEqual(f.card.filter((c) => c.decides).sort((a, b) => a.decides - b.decides).map((c) => c.requirement), ['Team', 'Turnover', 'Tax and Social Security']);
+});
+
+check('the report shows the funnel\'s conversion and marks the deciding rows', (dir) => {
+  const r = run(dir);
+  assert.equal(r.code, 0, r.err);
+  assert.match(r.out, /\| \*\*all\*\* \| 7 \| 7 \(100 %\) \| 3 \(43 %\) \| 2 \(67 %\) \| 1 \(50 %\) \|/);
+  assert.match(r.out, /\| Team \| .* \| 1 \|$/m);
 });
 
 test('figures() read in-process match the CLI\'s', () => {

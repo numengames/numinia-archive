@@ -30,6 +30,16 @@ Numbered headings on purpose: the tool reads `## 2. The card` as `## The card`.
 | Seat | a seat in the region | Las Rozas, Madrid | yes | — |
 | Tax and Social Security | up to date, certified | not yet certified | check | request both certificates |
 
+## What decides most calls
+
+The requirements that sink most calls, in the order a reader checks them.
+
+| Requirement |
+|---|
+| Team |
+| Turnover |
+| Tax and Social Security |
+
 ## 3. The figures the tool reads
 
 | Figure | Value | State |

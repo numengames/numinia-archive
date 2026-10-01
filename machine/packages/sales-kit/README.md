@@ -58,7 +58,13 @@ due · overdue and stale · every record · the funnel per kind · reasons lost
 · days per stage · the card with how many open records hinge on each row —
 or, with `--json`, the same figures as data (`figures()`; the keys are the
 contract the site reads: `today, kinds, steps, records, due, funnel,
-byKind, reasons, daysPerStage, card, ceiling, overdue, stale`). With
+byKind, reasons, daysPerStage, card, ceiling, overdue, stale`). The
+`funnel` holds, for `all` and for each kind, `counts` (records that reached
+each of the five steps) and `conversion` (each step's share of the step
+before, a whole per cent; `null` for the first step and after an empty
+one). Each `card` row carries `decides`: its place in the card's
+*What decides most calls* list, or `null`; every row stays in `card`. A
+name in that list the card holds no row for stops the tool (exit 2). With
 `--proposals` it also checks each proposal a record points to against
 `STD-040`'s mechanical rows.
 
