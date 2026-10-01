@@ -116,6 +116,17 @@ export const CALENDAR: readonly Deadline[] = [
   { due: "2027-07-30", what: "File the FY2026 annual accounts", form: "Registry", estimate: "≈ 70 €" },
 ];
 
+/** Questions for the gestoría still open, counted on the Taxes room. The
+ *  topic only: the detail (who, which invoice) stays with the company. */
+export const GESTORIA_QUESTIONS: readonly { topic: string; moves: string }[] = [
+  { topic: "Were the 2024 and 2025 VAT refunds asked for, and paid?", moves: "cash: the 2025 refund alone is estimated near 22,400 €" },
+  { topic: "The withholding rate on one professional's invoices", moves: "withholding to pay" },
+  { topic: "Whether one supplier invoices as a company or as a person", moves: "withholding to pay" },
+  { topic: "A registry fee that may be counted twice", moves: "the books, by 69.54 €" },
+  { topic: "A foreign supplier charging Spanish VAT", moves: "VAT paid that should not be" },
+  { topic: "The ENISA loan's repayment schedule", moves: "cash: when the principal starts to be repaid" },
+];
+
 /** 2024 is not loaded yet: its VAT is estimated from 2025's pace for services. */
 export const VAT_2024_ESTIMATE = {
   kind: "simulated" as const,

@@ -4,9 +4,9 @@ uid: ""
 title: "Closing the month"
 type: protocol
 status: draft
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-10-01T18:00:00+02:00"
+updated: "2026-10-01T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -80,12 +80,17 @@ Nothing is closed from an estimate.
    income only once paid, never when granted.
 5. **Update the homage list.** Agent: only as each payer chose; the quarter's
    and the year's lists when those close.
-6. **Recompute the views.** Agent: every view from the lines; the four views
+6. **Reconcile with the bank.** Agent: from the month's bank statement,
+   the closing balance replaces the one the company declared; money in, less
+   the outflows loaded, less the estimate of each book not yet loaded,
+   should leave that balance. A difference nobody can explain stays on the
+   open books as a difference, with what could move it (`STD-036` LED-011).
+7. **Recompute the views.** Agent: every view from the lines; the four views
    must agree on every shared figure. Mark the open month's figures
    provisional wherever they are shown.
-7. **Open the close.** Agent: one pull request with the month's lines and a
+8. **Open the close.** Agent: one pull request with the month's lines and a
    table of totals by concept, billed and consumed.
-8. **Review and merge.** Oracle. The month's figures stop being provisional;
+9. **Review and merge.** Oracle. The month's figures stop being provisional;
    the next month opens as provisional.
 
 ### The quarter
@@ -114,8 +119,9 @@ Nothing is closed from an estimate.
 |---|---|
 | 2–4 | Every document of the month has one line; the lines' totals match the documents' totals; no document is committed |
 | 3 | One people line, monthly with three or more people and quarterly with fewer, with headcount and no per-person figure |
-| 6 | The views' recomputation reports no disagreement; open-month figures show as provisional |
-| 7–8 | The merged pull request of the month |
+| 6 | The bank's closing balance on the open books; the reconciliation's difference shown, explained or listed as unexplained |
+| 7 | The views' recomputation reports no disagreement; open-month figures show as provisional |
+| 8–9 | The merged pull request of the month |
 | Quarter | The estimated taxes on the open books; the gestoría's confirmation that the book matches, or the correcting lines; each filed return's result in place of its estimate |
 
 ---
