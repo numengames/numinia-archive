@@ -1,0 +1,104 @@
+document;date;period_from;period_to;category;supplier;concept;account;base;vat;billing;headcount
+253789;2025-01-02;2025-01-01;2025-01-31;cloud;AWS;Cloud infrastructure;629;43.29;21;month;
+100263;2025-01-03;2025-01-03;2025-01-03;events;Hotel, Azores;Travel;627;240.00;FOREIGN;once;
+375531;2025-01-05;2025-01-01;2025-01-31;software;Microsoft;Microsoft 365, mail and office;629;70.20;21;month;
+347231;2025-01-13;2025-01-13;2026-01-12;software;Docusign;Electronic signature, a year;629;276.00;ISP;year;
+E30001;2025-01-13;2025-01-01;2025-01-31;ai;Cursor;Code editor with AI;629;40.54;ISP;month;
+7D0010;2025-01-18;2025-01-01;2025-01-31;ai;OpenAI;AI models;629;109.83;ISP;month;
+E30002;2025-01-20;2025-01-01;2025-01-31;ai;Cursor;Code editor with AI;629;40.31;ISP;month;
+28191;2025-01-24;2025-01-24;2025-01-24;hardware;PC Componentes;Computer hardware;217;1941.32;21;once;
+3;2025-01-31;2025-01-01;2025-01-31;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+COUNSEL-2025-01;2025-01-31;2025-01-01;2025-01-31;counsel;Legal counsel, together;Lawyers, all together;623;6510.00;21;month;2
+PEOPLE-2025-01;2025-01-31;2025-01-01;2025-01-31;people;People, together;Freelancers and contractors, all together;623;5360.21;21;month;3
+18956;2025-02-02;2025-02-01;2025-02-28;cloud;AWS;Cloud infrastructure;629;110.05;21;month;
+244460;2025-02-05;2025-02-01;2025-02-28;software;Microsoft;Microsoft 365, mail and office;629;70.20;21;month;
+E30003;2025-02-10;2025-02-01;2025-02-28;ai;Cursor;Code editor with AI;629;3.92;ISP;month;
+E30004;2025-02-13;2025-02-01;2025-02-28;ai;Cursor;Code editor with AI;629;120.43;ISP;month;
+7D0011;2025-02-18;2025-02-01;2025-02-28;ai;OpenAI;AI models;629;71.81;ISP;month;
+COUNSEL-2025-02;2025-02-28;2025-02-01;2025-02-28;counsel;Legal counsel, together;Lawyers, all together;623;3950.00;21;month;2
+PEOPLE-2025-02;2025-02-28;2025-02-01;2025-02-28;people;People, together;Freelancers and contractors, all together;623;4677.56;21;month;3
+28739;2025-03-03;2025-03-01;2025-03-31;cloud;AWS;Cloud infrastructure;629;77.00;21;month;
+839881;2025-03-05;2025-03-01;2025-03-31;software;Microsoft;Microsoft 365, mail and office;629;70.20;21;month;
+7D0012;2025-03-13;2025-03-01;2025-03-31;ai;OpenAI;AI models;629;13.84;ISP;month;
+E30005;2025-03-13;2025-03-01;2025-03-31;ai;Cursor;Code editor with AI;629;114.25;ISP;month;
+7;2025-03-14;2025-03-01;2025-03-31;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+7D0013;2025-03-18;2025-03-01;2025-03-31;ai;OpenAI;AI models;629;138.32;ISP;month;
+235620;2025-03-25;2025-03-25;2026-03-24;software;LastPass;Password manager;629;156.00;ISP;year;
+AF0001;2025-03-25;2025-03-01;2025-03-31;software;Roll20;Virtual tabletop;629;96.02;ISP;month;
+3258;2025-03-31;2025-01-01;2025-03-31;finance;ENISA;Participative loan, interest;662;1249.49;EX;quarter;
+COUNSEL-2025-03;2025-03-31;2025-03-01;2025-03-31;counsel;Legal counsel, together;Lawyers, all together;623;1030.00;21;month;2
+PEOPLE-2025-03;2025-03-31;2025-03-01;2025-03-31;people;People, together;Freelancers and contractors, all together;623;4085.66;21;month;2
+11;2025-04-01;2025-04-01;2025-04-30;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+EUINES25-31587;2025-04-01;2025-04-01;2025-04-30;cloud;AWS;Cloud infrastructure;629;29.98;21;month;
+EUINES25-34987;2025-04-02;2025-04-01;2025-04-30;cloud;AWS;Cloud infrastructure;629;262.61;21;month;
+G085513836;2025-04-05;2025-04-01;2025-04-30;software;Microsoft;Microsoft 365, mail and office;629;86.50;21;month;
+0EEA1DE3-0006;2025-04-13;2025-04-01;2025-04-30;ai;Cursor;Code editor with AI;629;110.98;ISP;month;
+938BC77D-0014;2025-04-18;2025-04-01;2025-04-30;ai;OpenAI;AI models;629;132.61;ISP;month;
+G088434087;2025-04-22;2025-04-01;2025-04-30;software;Microsoft;Microsoft 365, mail and office;629;86.03;21;month;
+COUNSEL-2025-04;2025-04-30;2025-04-01;2025-04-30;counsel;Legal counsel, together;Lawyers, all together;623;330.00;21;month;1
+PEOPLE-2025-04;2025-04-30;2025-04-01;2025-04-30;people;People, together;Freelancers and contractors, all together;623;3987.23;21;month;2
+2025/05;2025-05-01;2025-05-01;2025-05-31;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+EUINES25-45537;2025-05-02;2025-05-01;2025-05-31;cloud;AWS;Cloud infrastructure;629;329.21;21;month;
+G089730333;2025-05-04;2025-05-01;2025-05-31;software;Microsoft;Microsoft 365, mail and office;629;44.40;21;month;
+0EEA1DE3-0007;2025-05-13;2025-05-01;2025-05-31;ai;Cursor;Code editor with AI;629;112.27;ISP;month;
+G093265004;2025-05-22;2025-05-01;2025-05-31;software;Microsoft;Microsoft 365, mail and office;629;86.03;21;month;
+COUNSEL-2025-05;2025-05-31;2025-05-01;2025-05-31;counsel;Legal counsel, together;Lawyers, all together;623;250.00;21;month;1
+PEOPLE-2025-05;2025-05-31;2025-05-01;2025-05-31;people;People, together;Freelancers and contractors, all together;623;5436.48;21;month;4
+EUINES25-55136;2025-06-01;2025-06-01;2025-06-30;cloud;AWS;Cloud infrastructure;629;462.76;21;month;
+0EEA1DE3-0008;2025-06-13;2025-06-01;2025-06-30;ai;Cursor;Code editor with AI;629;108.20;ISP;month;
+938BC77D-0016;2025-06-18;2025-06-01;2025-06-30;ai;OpenAI;AI models;629;131.00;ISP;month;
+G098258751;2025-06-22;2025-06-01;2025-06-30;software;Microsoft;Microsoft 365, mail and office;629;86.03;21;month;
+3258;2025-06-30;2025-04-01;2025-06-30;finance;ENISA;Participative loan, interest;662;1263.37;EX;quarter;
+COUNSEL-2025-06;2025-06-30;2025-06-01;2025-06-30;counsel;Legal counsel, together;Lawyers, all together;623;250.00;21;month;1
+PEOPLE-2025-06;2025-06-30;2025-06-01;2025-06-30;people;People, together;Freelancers and contractors, all together;623;5858.12;21;month;3
+2025-32;2025-07-01;2025-07-01;2025-07-31;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+EUINES25-61245;2025-07-01;2025-07-01;2025-07-31;cloud;AWS;Cloud infrastructure;629;513.51;21;month;
+938BC77D-0017;2025-07-18;2025-07-01;2025-07-31;ai;OpenAI;AI models;629;126.29;ISP;month;
+G103288547;2025-07-22;2025-07-01;2025-07-31;software;Microsoft;Microsoft 365, mail and office;629;86.03;21;month;
+COUNSEL-2025-07;2025-07-31;2025-07-01;2025-07-31;counsel;Legal counsel, together;Lawyers, all together;623;650.00;21;month;1
+PEOPLE-2025-07;2025-07-31;2025-07-01;2025-07-31;people;People, together;Freelancers and contractors, all together;623;7569.88;21;month;4
+2025-40;2025-08-01;2025-08-01;2025-08-31;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+EUINES25-74785;2025-08-01;2025-08-01;2025-08-31;cloud;AWS;Cloud infrastructure;629;554.37;21;month;
+F250090;2025-08-12;2025-08-12;2025-08-12;events;Merge Digital;MERGE event;627;5500.00;21;once;
+938BC77D-0018;2025-08-18;2025-08-01;2025-08-31;ai;OpenAI;AI models;629;125.32;ISP;month;
+G108778709;2025-08-22;2025-08-01;2025-08-31;software;Microsoft;Microsoft 365, mail and office;629;86.03;21;month;
+COUNSEL-2025-08;2025-08-31;2025-08-01;2025-08-31;counsel;Legal counsel, together;Lawyers, all together;623;4330.00;21;month;1
+PEOPLE-2025-08;2025-08-31;2025-08-01;2025-08-31;people;People, together;Freelancers and contractors, all together;623;4942.74;21;month;3
+2025-44;2025-09-01;2025-09-01;2025-09-30;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+EUINES25-85316;2025-09-01;2025-09-01;2025-09-30;cloud;AWS;Cloud infrastructure;629;587.51;21;month;
+000043;2025-09-13;2025-09-01;2025-09-30;studios;Sleepy Studio;External development studio;607;2754.56;ISP;month;
+938BC77D-0019;2025-09-18;2025-09-01;2025-09-30;ai;OpenAI;AI models;629;123.60;ISP;month;
+G114652731;2025-09-22;2025-09-01;2025-09-30;software;Microsoft;Microsoft 365, mail and office;629;86.03;21;month;
+COUNSEL-2025-09;2025-09-30;2025-09-01;2025-09-30;counsel;Legal counsel, together;Lawyers, all together;623;2495.00;21;month;1
+PEOPLE-2025-09;2025-09-30;2025-09-01;2025-09-30;people;People, together;Freelancers and contractors, all together;623;5428.76;21;month;4
+SEPTIEMBRE;2025-09-30;2025-07-01;2025-09-30;finance;ENISA;Participative loan, interest;662;1576.85;EX;quarter;
+000042;2025-10-01;2025-10-01;2025-10-31;studios;Sleepy Studio;External development studio;607;2761.35;ISP;month;
+2025-60;2025-10-01;2025-10-01;2025-10-31;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+77/25;2025-10-01;2025-10-01;2026-09-30;advisory;AEVI;Association membership, a year;623;150.00;EX;year;
+938BC77D-0015;2025-10-01;2025-10-01;2025-10-31;ai;OpenAI;AI models;629;135.05;ISP;month;
+EUINES25-96257;2025-10-01;2025-10-01;2025-10-31;cloud;AWS;Cloud infrastructure;629;630.42;21;month;
+EUREES25-182426;2025-10-01;2025-10-01;2025-10-31;cloud;AWS;Cloud infrastructure;629;132.47;21;month;
+0EEA1DE3-0012;2025-10-13;2025-10-01;2025-10-31;ai;Cursor;Code editor with AI;629;107.50;ISP;month;
+938BC77D-0020;2025-10-18;2025-10-01;2025-10-31;ai;OpenAI;AI models;629;129.04;ISP;month;
+G120114115;2025-10-22;2025-10-01;2025-10-31;software;Microsoft;Microsoft 365, mail and office;629;86.03;21;month;
+I9NCVUQL-0001;2025-10-27;2025-10-01;2025-10-31;cloud;LiveKit;Real-time voice and video;629;5.97;ISP;month;
+INLASAPCCPAR723111920;2025-10-27;2025-10-27;2026-10-26;software;LastPass;Password manager;629;32.41;ISP;year;
+COUNSEL-2025-10;2025-10-31;2025-10-01;2025-10-31;counsel;Legal counsel, together;Lawyers, all together;623;1030.00;21;month;2
+PEOPLE-2025-10;2025-10-31;2025-10-01;2025-10-31;people;People, together;Freelancers and contractors, all together;623;7594.06;21;month;4
+2025-70;2025-11-01;2025-11-01;2025-11-30;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+EUINES25-100745;2025-11-01;2025-11-01;2025-11-30;cloud;AWS;Cloud infrastructure;629;704.19;21;month;
+I9NCVUQL-0002;2025-11-02;2025-11-01;2025-11-30;cloud;LiveKit;Real-time voice and video;629;44.93;ISP;month;
+G121807169;2025-11-05;2025-11-01;2025-11-30;software;Microsoft;Microsoft 365, mail and office;629;12.29;21;month;
+938BC77D-0021;2025-11-18;2025-11-01;2025-11-30;ai;OpenAI;AI models;629;97.34;ISP;month;
+G125490206;2025-11-22;2025-11-01;2025-11-30;software;Microsoft;Microsoft 365, mail and office;629;98.32;21;month;
+COUNSEL-2025-11;2025-11-30;2025-11-01;2025-11-30;counsel;Legal counsel, together;Lawyers, all together;623;330.00;21;month;1
+PEOPLE-2025-11;2025-11-30;2025-11-01;2025-11-30;people;People, together;Freelancers and contractors, all together;623;4954.91;21;month;3
+2025-76;2025-12-01;2025-12-01;2025-12-31;advisory;Ony;Gestoría, monthly fee;623;50.00;21;month;
+EUINES25-116821;2025-12-01;2025-12-01;2025-12-31;cloud;AWS;Cloud infrastructure;629;625.44;21;month;
+2025/294269;2025-12-02;2025-12-02;2025-12-02;advisory;Mercantile Registry of Madrid;Registry fees;623;57.47;21;once;
+I9NCVUQL-0003;2025-12-02;2025-12-01;2025-12-31;cloud;LiveKit;Real-time voice and video;629;44.67;ISP;month;
+938BC77D-0022;2025-12-18;2025-12-01;2025-12-31;ai;OpenAI;AI models;629;64.22;ISP;month;
+G130926771;2025-12-22;2025-12-01;2025-12-31;software;Microsoft;Microsoft 365, mail and office;629;98.32;21;month;
+COUNSEL-2025-12;2025-12-31;2025-12-01;2025-12-31;counsel;Legal counsel, together;Lawyers, all together;623;2384.54;21;month;2
+DICIEMBRE;2025-12-31;2025-10-01;2025-12-31;finance;ENISA;Participative loan, interest;662;1576.85;EX;quarter;
+PEOPLE-2025-12;2025-12-31;2025-12-01;2025-12-31;people;People, together;Freelancers and contractors, all together;623;9006.17;21;month;3

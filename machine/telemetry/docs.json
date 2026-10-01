@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20582,
+  "chars": 20861,
   "apparatus": false,
   "archived": false,
-  "tokens": 5677
+  "tokens": 5767
  },
  {
   "path": "CLAUDE.md",
@@ -1908,10 +1908,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5147,
+  "chars": 5461,
   "apparatus": false,
   "archived": false,
-  "tokens": 1498
+  "tokens": 1618
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2766,10 +2766,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 5257,
+  "chars": 5282,
   "apparatus": false,
   "archived": false,
-  "tokens": 1478
+  "tokens": 1485
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
@@ -2931,10 +2931,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6733,
+  "chars": 6784,
   "apparatus": false,
   "archived": false,
-  "tokens": 1724
+  "tokens": 1744
  },
  {
   "path": "system/SYS-009-the-design-system.md",

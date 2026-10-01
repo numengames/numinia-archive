@@ -4,9 +4,9 @@ uid: ""
 title: "The ENISA loan"
 type: documentation
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-30T20:00:00+02:00"
-updated: "2026-09-30T20:00:00+02:00"
+updated: "2026-10-01T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -23,9 +23,9 @@ SPDX-License-Identifier: CC-BY-4.0
 
 # OPS-017 — The ENISA loan
 
-> **Summary:** Numen Games S.L. holds a participative loan from ENISA, the
-> Spanish state's lender for innovative companies, signed on 22 October
-> 2024. In 2025 it cost 5,666.56 € in interest. This record says what is
+> **Summary:** Numen Games S.L. holds a participative loan of 100,000 €
+> from ENISA, the Spanish state's lender for innovative companies, signed
+> on 22 October 2024. In 2025 it cost 5,666.56 € in interest. This record says what is
 > known, what is not yet, and how the loan is shown in public.
 > **Epistemic:** What does the company owe the state, on what terms, and
 > what has it paid so far?
@@ -56,7 +56,7 @@ equity: ENISA takes no shares ([ENISA](https://www.enisa.es);
 | Instrument | Participative loan |
 | Signed | 2024-10-22 (the Oracle) |
 | Line | a line before 2025 — to confirm which (Jóvenes Emprendedores, Emprendedores or Crecimiento) |
-| Principal | to fill from the contract |
+| Principal | **100,000 €**, as ENISA publishes it (§4) |
 | Term, grace period, repayment | to fill from the contract |
 | Fixed and variable interest | to fill from the contract |
 | Where it goes in the books | principal: long-term debt; interest: financial expense (account 662), below operating costs |
@@ -87,19 +87,29 @@ operation date.
 
 ## 4. What the public registers say
 
-Checked on 2026-09-30:
+**ENISA publishes the loan.** Its public loan search (enisa.es → *Sobre
+Enisa* → *Consulta datos públicos* → *Buscador de préstamos*) is an
+embedded report of every loan it has granted. Filtered by company name on
+2026-09-30, it shows:
+
+| Razón social | Marca | Importe | Fecha | Provincia |
+|---|---|---|---|---|
+| NUMEN GAMES, S.L. | Numen Games | 100.000,00 € | 22/10/2024 | Madrid |
+
+The search is a report, not a page: a plain fetch returns no rows, so it is
+read by opening it in a browser and typing the name in its *Razón social*
+filter.
+
+**The national grants register (BDNS) lists nothing**, which is expected:
+a loan is a financial operation, not a grant.
 
 ```
 $ curl "https://www.infosubvenciones.es/bdnstrans/api/{concesiones,ayudasestado,minimis}/busqueda?vpd=GE&nifCif=B70735949"
 totalElements: 0 · 0 · 0
 ```
 
-The national register of grants and public aid (BDNS) lists nothing for the
-company's tax ID under grants, state aid or de minimis aid. The same query
-for another beneficiary returns its 46 grants, so the filter works. ENISA's
-loans are financial operations and may be recorded elsewhere, or under the
-lender's own notices; nothing public has been found that names the loan.
-Until it is, this record is the public account of it.
+The same query for another beneficiary returns its 46 grants, so the filter
+works.
 
 ## 5. How it is shown
 
@@ -119,8 +129,7 @@ particular wording or placement is to be read in it.
 
 ## 6. To complete
 
-- Principal, line, term, grace period, fixed and variable rates: from the
-  contract.
+- Line, term, grace period, fixed and variable rates: from the contract.
 - The repayment schedule, to put the principal's instalments in the
   forecast of the open books (today it models an invented loan).
 - The publicity clause of the contract, if any.

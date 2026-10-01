@@ -53,6 +53,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.111.0",
+    date: "2026-10-01",
+    entries: [
+      {
+        type: "CHG",
+        text: "Open books are now the books of Numen Games S.L., from the day it was born (16 February 2024), with the real FY2025 figures instead of simulated ones. A company card opens the page; five figures follow; six rooms keep the rest in reach: spending, company and owners, funding, clients and tenders, cash and runway, and every line.",
+      },
+      {
+        type: "ADD",
+        text: "Spending by day, week, month, quarter or year, as stacked bars, shares, lines or a map. Hovering or tapping a bar shows what it is made of: each category with its amount and share, and the suppliers that weigh most.",
+      },
+      {
+        type: "ADD",
+        text: "Company and owners: how the share capital grew to 5,512.40 € in four steps, every act the Mercantile Registry has published, and who governs the company. Funding: the ENISA loan of 100,000 €, as ENISA publishes it. Cash and runway: three ways to run the company (keep running, lean, asleep), time to tomb and what closing would cost, with the cash in the bank as a slider until it is loaded.",
+      },
+      {
+        type: "DEL",
+        text: "The simulated ledger, the forecast built on it and the supporters' homage list leave this page; the page now shows only real books and says which scenarios are simulations.",
+      },
+    ],
+  },
+  {
     version: "v0.110.0",
     date: "2026-09-30",
     entries: [
