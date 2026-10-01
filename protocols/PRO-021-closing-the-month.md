@@ -4,9 +4,9 @@ uid: ""
 title: "Closing the month"
 type: protocol
 status: draft
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-10-01T17:00:00+02:00"
+updated: "2026-10-01T18:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -67,10 +67,12 @@ Nothing is closed from an estimate.
    naming its document by supplier, number and date. Never commit the
    invoice, payroll or report itself: the repository holds lines, not
    documents.
-3. **Write the staff line.** Agent: one line for the month for all staff
-   together — gross pay, employer's social security, headcount. The
-   per-person figures stay with the company and the gestoría: the ledger is
-   public.
+3. **Write the people line.** Agent: one line for all staff together, at
+   employer cost, with social security, income tax withheld and headcount;
+   never net pay. With three people or more, one line a month; with fewer,
+   payroll, freelancers and the director's invoices go into one people line
+   a quarter, written when the quarter closes. The per-person figures stay
+   with the company and the gestoría: the ledger is public.
 4. **Write the income lines.** Agent: from the processor's report — gross,
    VAT, fees, net, number of payers. A public contract invoiced, and a
    grant or public loan paid in the month, is one line each, naming its
@@ -90,7 +92,13 @@ Nothing is closed from an estimate.
 
 1. **Export the received-invoices book.** Agent: the quarter's lines, one per
    invoice, as a spreadsheet file for the gestoría.
-2. **Reconcile.** Gestoría: the book matches its own.
+2. **Estimate the quarter's taxes.** Agent: from the lines, the VAT result —
+   to pay, to offset, or, in the fourth quarter, to refund — and the income
+   tax withheld, each labelled an estimate on the open books, with the
+   filing date.
+3. **Reconcile.** Gestoría: the book matches its own.
+4. **Load the filed returns.** Agent: each return's result replaces its
+   estimate; a difference enters as a new dated line that says why.
 
 ### Correcting a closed month
 
@@ -105,10 +113,10 @@ Nothing is closed from an estimate.
 | Step | Evidence it completed |
 |---|---|
 | 2–4 | Every document of the month has one line; the lines' totals match the documents' totals; no document is committed |
-| 3 | One staff line for the month, with headcount and no per-person figure |
+| 3 | One people line, monthly with three or more people and quarterly with fewer, with headcount and no per-person figure |
 | 6 | The views' recomputation reports no disagreement; open-month figures show as provisional |
 | 7–8 | The merged pull request of the month |
-| Quarter | The gestoría's confirmation that the book matches, or the correcting lines |
+| Quarter | The estimated taxes on the open books; the gestoría's confirmation that the book matches, or the correcting lines; each filed return's result in place of its estimate |
 
 ---
 

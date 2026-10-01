@@ -50,6 +50,8 @@ SPDX-License-Identifier = "CC0-1.0"
 path = [
   "web/src/data/ledger-2025.csv",
   "web/src/data/payroll.csv",
+  "web/src/data/ledger-2026.csv",
+  "web/src/data/sales.csv",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"

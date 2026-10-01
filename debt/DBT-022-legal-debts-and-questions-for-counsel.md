@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-09-30T18:00:00+02:00"
+updated: "2026-10-01T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -132,7 +132,7 @@ initials.
 | 35 | Consent from every natural person who invoiced Numen Games in 2025, before their name appears: one of them (Christian Märtens) has already agreed. Collect a short signed consent: name, role and amounts invoiced, published on numinia.org. | company |
 | 36 | A transparency clause in every new contract with a freelancer, supplier or collaborator: the amounts invoiced are published with the name and the role; whoever objects appears by role only. Draft the clause. | counsel |
 | 37 | Legal basis for publishing what a natural person invoiced: consent (art. 6.1.a) or legitimate interest (art. 6.1.f); whether role-only is enough while consent is missing; what happens to published history when consent is withdrawn. | counsel |
-| 38 | Payroll and social security are not in the input VAT book and are missing from the ledger. In a team this small an aggregate reveals individual salaries: decide the level at which staff costs are published. | counsel · company |
+| 38 | Payroll and social security are not in the input VAT book and are missing from the ledger. In a team this small an aggregate reveals individual salaries: decide the level at which staff costs are published. Interim, from 2026-10-01: one people block a quarter (payroll, freelancers, director), employer cost only, on the verbal agreement of the people in it (`STD-036` LED-006); written consent to replace it. | counsel · company |
 | 39 | Signed contracts may make a price confidential (negotiated fees, studio agreements). Check every contract before its amounts are published. | company |
 
 ## 2. Evidence

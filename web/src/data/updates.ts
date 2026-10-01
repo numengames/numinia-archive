@@ -53,6 +53,24 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.116.0",
+    date: "2026-10-01",
+    entries: [
+      {
+        type: "ADD",
+        text: "Open books gain a Taxes room, written for someone who has never filed a return: the five kinds of tax that touch the company, who really pays each, the three ways a VAT quarter can end (to pay, to offset, to refund), VAT quarter by quarter from 2024, what can be asked back each year, the losses kept for future profits, and a live counter to the next filing with its estimate.",
+      },
+      {
+        type: "CHG",
+        text: "Real payroll and the July–September 2026 invoices enter the books. People are counted all together and, while they are fewer than three, one block a quarter, so nobody's pay can be read. The monthly cost and the time to tomb now run on the last closed quarter, about 5,250 € a month, and the Spending chart has a year switch for 2024, 2025 and 2026.",
+      },
+      {
+        type: "CHG",
+        text: "Income from the issued-invoices book: six monthly invoices to a public body in the United States in 2025, in dollars at the European Central Bank's rate of each date, and two training invoices in 2024.",
+      },
+    ],
+  },
+  {
     version: "v0.115.0",
     date: "2026-10-01",
     entries: [

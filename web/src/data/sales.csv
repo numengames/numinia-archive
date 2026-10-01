@@ -1,0 +1,9 @@
+date;invoice;sector;concept;base;vat;original;fx;kind
+2024-07-31;2024-1;Training;Training services;200.00;21;;;declared
+2024-11-30;2024-2;Training;Training services;1600.00;21;;;declared
+2025-01-31;US-2025-01;Public sector · United States;Virtual world for a city government, a month;3361.25;OUT;3493.33 USD;0.96219;declared
+2025-02-28;US-2025-02;Public sector · United States;Virtual world for a city government, a month;3355.41;OUT;3493.33 USD;0.96052;declared
+2025-03-31;US-2025-03;Public sector · United States;Virtual world for a city government, a month;3230.07;OUT;3493.33 USD;0.92464;declared
+2025-04-30;US-2025-04;Public sector · United States;Virtual world for a city government, a month;3071.62;OUT;3493.33 USD;0.87928;declared
+2025-05-31;US-2025-05;Public sector · United States;Virtual world for a city government, a month;3080.80;OUT;3493.33 USD;0.88191;declared
+2025-06-30;US-2025-06;Public sector · United States;Virtual world for a city government, a month;2980.65;OUT;3493.33 USD;0.85324;declared

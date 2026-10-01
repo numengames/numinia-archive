@@ -13,10 +13,10 @@
 //               registered its nominal, so the page can show nominal and
 //               money paid side by side.
 //   CLIENTS     income by sector, never by name, until the client agrees.
-//   PAYROLL     web/src/data/payroll.csv: one line a month for all staff
-//               together (STD-036 LED-006), headcount, gross and employer
-//               social security; every line says it is simulated until the
-//               payslips are loaded. 2025 two people, 2026 one.
+//   PAYROLL     web/src/data/payroll.csv: one line a QUARTER for all staff
+//               together (a month with one person would be that person's
+//               pay): employer cost, social security, income tax withheld.
+//               Net pay never; no role that points at a person.
 //   PAGE        seven rooms, the seventh the business plan; a live time-to-
 //               tomb counter; the four labels in the legend.
 //
@@ -44,24 +44,24 @@ test('money: every figure says its kind; rounds and clients are declared, not re
   assert.doesNotMatch(t, /Mesa/i, 'a client named before it agreed');
 });
 
-test('payroll: one line a month for all staff, simulated until the payslips come', () => {
+test('payroll: one line a quarter for all staff, never a person, never net pay', () => {
   assert.ok(existsSync(PAYROLL), 'web/src/data/payroll.csv is missing');
   const [head, ...body] = read(PAYROLL).trim().split('\n');
-  assert.equal(head, 'month;headcount;gross;employer_ss;kind');
+  assert.equal(head, 'quarter;headcount;employer_cost;social_security;income_tax;kind');
   const rows = body.map((l) => l.split(';'));
-  const months = rows.map((r) => r[0]);
-  assert.equal(new Set(months).size, months.length, 'more than one line in a month');
+  const qs = rows.map((r) => r[0]);
+  assert.equal(new Set(qs).size, qs.length, 'more than one line in a quarter');
   for (const r of rows) {
-    assert.match(r[0], /^202[56]-\d\d$/);
-    assert.equal(r[4], 'simulated', `${r[0]}: a payroll figure not marked simulated`);
+    assert.match(r[0], /^202[4-6]-Q[1-4]$/);
+    assert.ok(Number(r[1]) >= 1, `${r[0]}: no headcount`);
+    assert.match(r[5], /^(real|partly estimated)$/);
   }
-  assert.ok(rows.filter((r) => r[0].startsWith('2025')).every((r) => r[1] === '2'), '2025: two on payroll');
-  assert.ok(rows.filter((r) => r[0].startsWith('2026')).every((r) => r[1] === '1'), '2026: one on payroll');
+  assert.doesNotMatch(read(PAYROLL), /net|liquid|CTO|OPS/i, 'net pay or a role that names a person');
 });
 
-test('page: seven rooms with the business plan, a time-to-tomb counter, four labels', () => {
+test('page: the rooms with the business plan, a time-to-tomb counter, four labels', () => {
   const p = read(PAGE);
-  for (const r of ['spend', 'company', 'funding', 'clients', 'cash', 'plan', 'lines']) assert.match(p, new RegExp(`data-room="${r}"`), `room ${r}`);
+  for (const r of ['spend', 'company', 'funding', 'clients', 'cash', 'tax', 'plan', 'lines']) assert.match(p, new RegExp(`data-room="${r}"`), `room ${r}`);
   assert.match(p, /id="ob-countdown"/);
   for (const k of ['ob-real', 'ob-decl', 'ob-plan', 'ob-sim']) assert.match(p, new RegExp(`ob-badge ${k}`), `label ${k}`);
 });

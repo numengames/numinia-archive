@@ -10,11 +10,19 @@
 // invoice. machine/scripts/test/open-books.test.mjs holds both rules and
 // the total to the book's.
 //
-// Years before 2025 (the company was born on 16 Feb 2024) and 2026 are not
-// loaded yet; the page draws them as empty, never as zero.
+// FY2024 (the company was born on 16 Feb 2024) is not loaded yet, and of
+// FY2026 only the third quarter is (src/data/ledger-2026.csv, where people
+// enter as one block a quarter); the page draws the rest as empty, never as
+// zero. Payroll is its own file (src/data/payroll.csv), one line a quarter
+// for all staff, at employer cost; payrollLines() turns it into ledger lines
+// so every view counts it. The issued invoices are src/data/sales.csv.
 import raw from "@/data/ledger-2025.csv?raw";
+import raw2026 from "@/data/ledger-2026.csv?raw";
+import payrollRaw from "@/data/payroll.csv?raw";
+import salesRaw from "@/data/sales.csv?raw";
 
 export const BOOKS_CSV = raw;
+export const BOOKS_2026_CSV = raw2026;
 
 export interface BookLine {
   document: string;
@@ -31,14 +39,65 @@ export interface BookLine {
   headcount: string;
 }
 
-export function bookLines(): BookLine[] {
-  const [head, ...body] = raw.trim().split("\n");
+function parse<T>(text: string): T[] {
+  const [head, ...body] = text.trim().split("\n");
   const cols = head.split(";");
-  return body.map((l) => Object.fromEntries(l.split(";").map((v, i) => [cols[i], v])) as unknown as BookLine);
+  return body.map((l) => Object.fromEntries(l.split(";").map((v, i) => [cols[i], v])) as unknown as T);
+}
+
+/** The FY2025 received-invoices book. */
+export function bookLines(): BookLine[] {
+  return parse<BookLine>(raw);
+}
+
+/** The FY2026 received-invoices book: the third quarter so far. */
+export function bookLines2026(): (BookLine & { withholding: string; kind: string })[] {
+  return parse(raw2026);
+}
+
+export interface PayrollQuarter {
+  quarter: string;
+  headcount: string;
+  employer_cost: string;
+  social_security: string;
+  income_tax: string;
+  kind: string;
+}
+
+export function payrollQuarters(): PayrollQuarter[] {
+  return parse<PayrollQuarter>(payrollRaw);
+}
+
+const QSTART = ["01-01", "04-01", "07-01", "10-01"], QEND = ["03-31", "06-30", "09-30", "12-31"];
+
+/** Payroll as ledger lines: one a quarter, all staff, at employer cost. */
+export function payrollLines(): BookLine[] {
+  return payrollQuarters().map((p) => {
+    const [y, q] = p.quarter.split("-Q"), i = Number(q) - 1;
+    return { document: `PAYROLL-${p.quarter}`, date: `${y}-${QEND[i]}`, period_from: `${y}-${QSTART[i]}`, period_to: `${y}-${QEND[i]}`, category: "payroll", supplier: "Payroll, all staff", concept: "Salaries and social security, at employer cost", account: "640", base: p.employer_cost, vat: "", billing: "quarter", headcount: p.headcount };
+  });
+}
+
+export interface SaleLine {
+  date: string;
+  invoice: string;
+  sector: string;
+  concept: string;
+  base: string;
+  vat: string;
+  original: string;
+  fx: string;
+  kind: string;
+}
+
+/** The issued-invoices book, by sector until each client agrees to be named. */
+export function saleLines(): SaleLine[] {
+  return parse<SaleLine>(salesRaw);
 }
 
 /** Categories in the order the page stacks them, with their data colour. */
 export const BOOK_CATEGORIES: Record<string, { label: string; color: string }> = {
+  payroll: { label: "Payroll", color: "#3f63d9" },
   people: { label: "People", color: "#6c8cff" },
   counsel: { label: "Legal counsel", color: "#e0746c" },
   studios: { label: "External studios", color: "#a77be0" },
@@ -55,13 +114,16 @@ export const BOOK_CATEGORIES: Record<string, { label: string; color: string }> =
 export const BOOK_YEARS = [
   { year: "2024", from: "2024-02-16", loaded: false },
   { year: "2025", from: "2025-01-01", loaded: true },
-  { year: "2026", from: "2026-01-01", loaded: false },
+  { year: "2026", from: "2026-01-01", loaded: true },
 ] as const;
 
 export const BOOKS_SOURCES = [
   "system/SYS-008-the-account.md",
   "system/SYS-012-suppliers.md",
   "operations/OPS-017-the-enisa-loan.md",
+  "web/src/data/ledger-2026.csv",
+  "web/src/data/sales.csv",
+  "web/src/data/tax.ts",
   "web/src/data/money.ts",
   "web/src/data/payroll.csv",
   "standards/STD-036-one-account.md",

@@ -41,7 +41,8 @@ import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
-import { bookLines, BOOK_CATEGORIES, BOOKS_SOURCES } from "@/lib/books";
+import { bookLines, bookLines2026, payrollLines, saleLines, BOOK_CATEGORIES, BOOKS_SOURCES } from "@/lib/books";
+import { TAX_KINDS, VAT_RESULTS, CALENDAR } from "@/data/tax";
 import { ROUNDS, CLIENTS, PLAN, MONEY_IN_TOTAL } from "@/data/money";
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
@@ -653,7 +654,8 @@ export function designPage(): ComposedPage {
  * (@/data/enisa) the page draws, so the two views agree (STD-036 LED-002).
  */
 export function accountPage(): ComposedPage {
-  const lines = bookLines();
+  const lines = [...bookLines(), ...payrollLines().filter((l) => l.date.startsWith("2025"))];
+  const lines26 = [...bookLines2026(), ...payrollLines().filter((l) => l.date >= "2026-07-01" && l.date <= "2026-09-30")];
   const eur = (n: number, d = 0) => "€" + n.toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d });
   const total = lines.reduce((s, l) => s + Number(l.base), 0);
   const byCat = new Map<string, number>();
@@ -665,7 +667,7 @@ export function accountPage(): ComposedPage {
   const body = [
     "# The books of Numen Games S.L.",
     "",
-    `Since ${COMPANY.incorporated}, the day the company was incorporated (Numinia was conceived on ${COMPANY.conceived}). Real figures: the FY2025 received-invoices book, the Mercantile Registry and ENISA's public loan search. FY2024 (from 16 February) and FY2026 are not loaded yet.`,
+    `Since ${COMPANY.incorporated}, the day the company was incorporated (Numinia was conceived on ${COMPANY.conceived}). Real figures: the FY2025 received-invoices book, the Q3 2026 invoices, payroll at employer cost, the Mercantile Registry and ENISA's public loan search. The 2024 invoice book and January–June 2026 invoices are not loaded yet.`,
     "",
     "## The company",
     "",
@@ -684,13 +686,35 @@ export function accountPage(): ComposedPage {
     "",
     "## What it spent in FY2025",
     "",
-    `Net of VAT: **${eur(total)}**, ${lines.length} lines. Companies one line per invoice; people and counsel one line a month each group, with a headcount, so nobody's pay can be read.`,
+    `Net of VAT, payroll included at employer cost: **${eur(total)}**. Companies one line per invoice; people who invoice one line a month as a group, payroll one line a quarter for all staff, so nobody's pay can be read.`,
     "",
     table(["What", "FY2025", "Share"], [...cats.map(([c, v]) => [BOOK_CATEGORIES[c]?.label ?? c, eur(v), `${((v / total) * 100).toFixed(1)}%`]), ["**Total**", `**${eur(total)}**`, ""]]),
     "",
     table(["Quarter", "Net"], [...byQ.entries()].map(([q, v]) => [`${q} 2025`, eur(v)])),
     "",
     "The ledger itself: [/system/open-books.csv](/system/open-books.csv).",
+    "",
+    "## July–September 2026",
+    "",
+    `Net of VAT, payroll included: **${eur(lines26.reduce((s, l) => s + Number(l.base), 0))}**, about ${eur(lines26.reduce((s, l) => s + Number(l.base), 0) / 3)} a month. People who invoice and payroll each one line a quarter, since there are fewer than three.`,
+    "",
+    "## Income",
+    "",
+    table(["Date", "Invoice", "Sector", "Base", "Original"], saleLines().map((x) => [x.date, x.invoice, x.sector, eur(Number(x.base), 2), x.original || "—"])),
+    "",
+    "Each client by sector until it agrees to be named. Dollars converted at the European Central Bank's rate of each invoice's date.",
+    "",
+    "## Taxes",
+    "",
+    "Every tax figure is an estimate computed from the lines until the gestoría's filed returns are loaded. Not tax advice.",
+    "",
+    ...TAX_KINDS.flatMap((t) => [`- **${t.name}** (${t.spanish}; ${t.form}). ${t.plain} *For us:* ${t.ours}`]),
+    "",
+    "A VAT quarter ends in one of three ways:",
+    "",
+    ...Object.values(VAT_RESULTS).map((v) => `- **${v.label}.** ${v.plain}`),
+    "",
+    table(["By", "What", "Form", "Estimate"], CALENDAR.map((c) => [c.due, c.what, c.form, c.estimate])),
     "",
     "## How the capital grew",
     "",

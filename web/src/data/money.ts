@@ -45,7 +45,8 @@ export interface ClientIncome {
 
 /** Income from clients, by sector until each client agrees to be named. */
 export const CLIENTS: readonly ClientIncome[] = [
-  { sector: "Public sector · United States", amount: 20000, kind: "declared", what: "A city government: a virtual world for its residents", invoices: "several invoices, to load" },
+  { sector: "Public sector · United States", amount: 19079.8, kind: "declared", what: "A city government: a virtual world for its residents", invoices: "six monthly invoices, January to June 2025, in US dollars" },
+  { sector: "Training", amount: 1800, kind: "declared", what: "Training services", invoices: "two invoices, July and November 2024" },
 ];
 
 /** Cash in the bank today: not loaded. The company says it is very little. */
