@@ -24,11 +24,12 @@
 // it and the partners have not yet agreed to. It enters from the deeds.
 import Layout from "@/layouts/Layout.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
-import { bookLines, bookLines2026, payrollLines, payrollQuarters, saleLines, BOOK_CATEGORIES } from "@/lib/books";
-import { TAX_KINDS, VAT_RESULTS, CALENDAR, VAT_2024_ESTIMATE, CORPORATE, type VatResult } from "@/data/tax";
+import { bookLines, bookLines2026, payrollLines, payrollQuarters, saleLines, cashBooks, BOOK_CATEGORIES } from "@/lib/books";
+import { reconcile, futures, runRate } from "@/lib/cash";
+import { TAX_KINDS, VAT_RESULTS, CALENDAR, VAT_2024_ESTIMATE, CORPORATE, GESTORIA_QUESTIONS, type VatResult } from "@/data/tax";
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
-import { ROUNDS, CLIENTS, CASH, PLAN, GLOSSARY, MONEY_IN_TOTAL } from "@/data/money";
+import { ROUNDS, CLIENTS, CASH, FUTURES, PLAN, GLOSSARY, MONEY_IN_TOTAL } from "@/data/money";
 import { repoFileUrl } from "@/lib/build-info";
 
 type AnyLine = ReturnType<typeof bookLines>[number] & { kind?: string; withholding?: string };
@@ -91,7 +92,16 @@ let capRun = 0;
 const capSteps = CAPITAL_STEPS.map((s) => ({ ...s, after: (capRun += s.increase) }));
 const partners = 3000 + ROUNDS.reduce((s, r) => s + r.amount, 0);
 const clientsIn = CLIENTS.reduce((s, c) => s + c.amount, 0);
-const DATA = { moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
+// The cash: the bank balance, walked back to the lines (STD-036 LED-011),
+// and the next quarter in three futures (LED-012), all from @/lib/cash.
+const BOOKS = cashBooks();
+const RECON = reconcile(BOOKS, { capital: 3000, rounds: ROUNDS.map((r) => ({ what: r.what, amount: r.amount, kind: r.kind })), loan: ENISA.principal }, { amount: CASH.amount, kind: CASH.kind, asOf: CASH.asOf });
+const RATE = runRate(BOOKS);
+const FUT: Record<string, ReturnType<typeof futures>> = {};
+for (const pe of FUTURES.payrollEnds) for (const inc of FUTURES.income) FUT[`${pe}|${inc}`] = futures(BOOKS, { cash: CASH.amount, asOf: CASH.asOf, payrollEnds: pe, oneOff: FUTURES.oneOff, income: inc, incomeFrom: FUTURES.incomeFrom });
+const KIND_PILL: Record<string, [string, string]> = { real: ["ob-pill--real", "real"], declared: ["ob-pill--decl", "declared"], plan: ["ob-pill--plan", "plan"], simulated: ["ob-pill--sim", "estimate"] };
+const ym = (s: string) => new Date(s + "-01T00:00:00Z").toLocaleDateString("en-GB", { month: "long", timeZone: "UTC" });
+const DATA = { fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
 ---
 
 <Layout
@@ -109,10 +119,10 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, c
       <p class="ob-lead">From {date(COMPANY.incorporated)}, the day the company was incorporated. What it costs to run, who governs it, where the money came from and how long it lasts. Every figure says whether it is real or a simulation you can move.</p>
       <div class="ob-badges">
        <span class="ob-badge ob-real">real — the FY2025 invoice book, Q3 2026 invoices, payroll, the Mercantile Registry, ENISA's loan register</span>
-       <span class="ob-badge ob-decl">declared — said by the company, its document still to load: the rounds, the client income</span>
+       <span class="ob-badge ob-decl">declared — said by the company, its document still to load: the rounds, the client income, the bank balance</span>
        <span class="ob-badge ob-plan">plan — the business plan: what the company intends</span>
-       <span class="ob-badge ob-sim">simulated — cash in the bank, payroll, income, to try scenarios</span>
-       <span class="ob-badge">not loaded yet — the 2024 invoice book, January–June 2026 invoices, the bank balance, the filed tax returns</span>
+       <span class="ob-badge ob-sim">simulated — estimates of the books not loaded, part of payroll, the futures you choose</span>
+       <span class="ob-badge">not loaded yet — the 2024 invoice book, January–June 2026 invoices, the bank statement, the filed tax returns</span>
       </div>
       <div class="ob-toolbar"><DocToolbar mdUrl="/system/open-books.md" filename="numen-games-open-books.md" repoUrl={repoFileUrl("web/src/data/ledger-2025.csv")} lang="en" /></div>
      </div>
@@ -304,26 +314,51 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, c
     <section class="ob-panel" id="ob-p-cash" role="tabpanel">
      <div class="ob-sec">
       <h3>Time to tomb</h3>
-      <p class="ob-sub">The company says very little cash is left. Until the bank balance is loaded, the counter runs on the cash you set below, from {date(CASH.asOf)}, at today's monthly cost.</p>
+      <p class="ob-sub">The bank held about {eur(CASH.amount)} on {date(CASH.asOf)}, in the company's words, until the statement is loaded. From then the counter spends it second by second at today's monthly cost, in the future chosen below.</p>
       <div class="ob-box ob-count" id="ob-countdown" aria-live="off">
-       <div><span class="ob-k">Cash left, now <span class="ob-pill ob-pill--sim">simulated</span></span><div class="ob-cnum" id="ob-cnow">—</div></div>
+       <div><span class="ob-k">Cash left, now <span class="ob-pill ob-pill--decl">declared</span></span><div class="ob-cnum" id="ob-cnow">—</div><div class="ob-dim">{eur(CASH.amount)} on {date(CASH.asOf)}, less the cost since</div></div>
        <div><span class="ob-k">The money runs out in</span><div class="ob-clock" id="ob-clock">—</div><div class="ob-dim" id="ob-cdate"></div></div>
       </div>
      </div>
      <div class="ob-sec">
-      <h3>How long the money lasts</h3>
-      <p class="ob-sub">Three ways to run the company from here, each with its monthly cost from the last closed quarter (July–September 2026) and how long the cash would last. The bank balance is not loaded yet: move it, and the income, to see how the answer changes.</p>
-      <div class="ob-box ob-sliders">
-       <label>Cash in the bank <input type="range" id="ob-cash" min="0" max="150000" step="500" value="8000" /> <b id="ob-cashv"></b></label>
-       <label>Income a month <input type="range" id="ob-inc" min="0" max="20000" step="250" value="0" /> <b id="ob-incv"></b></label>
-       <span class="ob-pill ob-pill--sim">simulated — both</span>
+      <h3>Where the cash comes from</h3>
+      <p class="ob-sub">Everything that came in, less everything that went out, should be what the bank holds. Two books are not loaded yet, so they enter as estimates; what is left after them is a difference nobody has explained yet.</p>
+      <div class="ob-box">
+       <p class="ob-alert" id="ob-recon-alert" role="status" hidden={!RECON.alert}><b>The figures do not add up yet.</b> After the estimates, {eur(Math.abs(RECON.gap))} {RECON.gap > 0 ? "should be in the bank and is not" : "is in the bank and the books do not explain it"}. It closes when the 2024 book, the January–June 2026 invoices and the bank statement are loaded.</p>
+       <div class="ob-xs"><table class="ob-t ob-recon" id="ob-recon">
+        <thead><tr><th>Step</th><th class="ob-n">Amount</th><th>Kind</th></tr></thead>
+        <tbody>
+         <tr class="ob-rh"><td colspan="3">Money in, since 16 February 2024</td></tr>
+         {RECON.rows.filter((r) => r.group === "in").map((r) => <tr><td>{r.label} <span class="ob-dim">· {r.note}</span></td><td class="ob-n">{eur(r.amount)}</td><td><span class={`ob-pill ${KIND_PILL[r.kind][0]}`}>{KIND_PILL[r.kind][1]}</span></td></tr>)}
+         <tr class="ob-rs"><td>Money in</td><td class="ob-n">{eur(RECON.moneyIn)}</td><td></td></tr>
+         <tr class="ob-rh"><td colspan="3">Less what went out, loaded in the books</td></tr>
+         {RECON.rows.filter((r) => r.group === "out").map((r) => <tr><td>{r.label} <span class="ob-dim">· {r.note}</span></td><td class="ob-n">−{eur(r.amount)}</td><td><span class={`ob-pill ${KIND_PILL[r.kind][0]}`}>{KIND_PILL[r.kind][1]}</span></td></tr>)}
+         <tr class="ob-rh"><td colspan="3">Less what went out, books not loaded yet</td></tr>
+         {RECON.rows.filter((r) => r.group === "missing").map((r) => <tr><td>{r.label} <span class="ob-dim">· {r.note}</span></td><td class="ob-n">−{eur(r.amount)}</td><td><span class={`ob-pill ${KIND_PILL[r.kind][0]}`}>{KIND_PILL[r.kind][1]}</span></td></tr>)}
+         <tr class="ob-rs"><td>Cash the books expect</td><td class="ob-n">{eur(RECON.expected)}</td><td><span class="ob-pill ob-pill--sim">estimate</span></td></tr>
+         <tr><td>Cash in the bank, {date(CASH.asOf)} <span class="ob-dim">· the company's word, until the statement is loaded</span></td><td class="ob-n">{eur(CASH.amount)}</td><td><span class="ob-pill ob-pill--decl">declared</span></td></tr>
+        </tbody>
+        <tfoot><tr class={RECON.alert ? "ob-gap" : ""}><td>Difference not explained</td><td class="ob-n">{RECON.gap > 0 ? "−" : "+"}{eur(Math.abs(RECON.gap))}</td><td></td></tr></tfoot>
+       </table></div>
+       <p class="ob-note">Money in and out includes VAT where it was charged, since that is what the bank saw; the books elsewhere on this page are net of VAT. What can still move the difference: lawyers and freelancers paid in 2024, VAT refunds Hacienda has paid, any ENISA principal already repaid, whether the 2026 round came in whole, and bank fees.</p>
       </div>
-      <div class="ob-scen" id="ob-scen"></div>
+     </div>
+     <div class="ob-sec">
+      <h3>The next quarter, three ways</h3>
+      <p class="ob-sub">Three futures from today's monthly cost of {eur(RATE.total)}, looked at for three months and no further: beyond a quarter a forecast is a guess. Each says the day the cash runs out if its third month went on for ever.</p>
+      <div class="ob-box ob-sliders" id="ob-fctl">
+       <span class="ob-k">Payroll ends at the end of</span>
+       <div class="ob-seg" id="ob-pend">{FUTURES.payrollEnds.map((m, i) => <button type="button" data-v={m} aria-pressed={String(i === 0)}>{ym(m)}</button>)}</div>
+       <span class="ob-k">Income a month, from {ym(FUTURES.incomeFrom)}</span>
+       <div class="ob-seg" id="ob-finc">{FUTURES.income.map((v, i) => <button type="button" data-v={String(v)} aria-pressed={String(i === 1)}>{eur(v)}</button>)}</div>
+       <span class="ob-pill ob-pill--sim">simulated — the futures</span>
+      </div>
+      <div class="ob-scen" id="ob-futures"></div>
      </div>
      <div class="ob-sec ob-grid2">
       <div>
        <h3>Cash, month by month</h3>
-       <p class="ob-sub">Cash at the end of each month for the next two years if the company keeps running as in July–September 2026. Where the line crosses zero, it stops.</p>
+       <p class="ob-sub">Cash at the end of each of the next three months in each future, from the bank balance of 1 October 2026. Where a line crosses zero, the cash is gone.</p>
        <div class="ob-box"><div class="ob-chart" id="ob-tomb"></div></div>
       </div>
       <div>
@@ -344,6 +379,12 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, c
         <div><span class="ob-k">To pay at that filing <span class="ob-pill ob-pill--sim">estimate</span></span><div class="ob-tpay" id="ob-tpay">—</div></div>
         <div><span class="ob-k">VAT Hacienda owes us now <span class="ob-pill ob-pill--sim">estimate</span></span><div class="ob-cnum ob-pos">{eur(creditNow)}</div></div>
        </div>
+      </div>
+     </div>
+     <div class="ob-sec">
+      <div class="ob-box ob-gq" id="ob-gq">
+       <div><span class="ob-k">Open questions for the gestoría</span><div class="ob-cnum">{GESTORIA_QUESTIONS.length}</div></div>
+       <ul>{GESTORIA_QUESTIONS.map((q) => <li>{q.topic} <span class="ob-dim">· moves {q.moves}</span></li>)}</ul>
       </div>
      </div>
      <div class="ob-sec">
@@ -412,7 +453,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, c
         <tr><td>Money in since 2024</td><td class="ob-n">≈ {eur(MONEY_IN_TOTAL)}</td></tr>
         <tr><td>Clients so far</td><td class="ob-n">1 · ≈ {eur(clientsIn)}</td></tr>
         <tr><td>Still owed to ENISA</td><td class="ob-n">{eur(ENISA.principal)}</td></tr>
-        <tr><td>Cash left</td><td class="ob-n"><span class="ob-pill ob-pill--sim">very little · not loaded</span></td></tr>
+        <tr><td>Cash in the bank, {date(CASH.asOf)}</td><td class="ob-n">{eur(CASH.amount)} <span class="ob-pill ob-pill--decl">declared</span></td></tr>
        </tbody></table></div>
       </div>
      </div>
@@ -442,7 +483,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, c
      </div>
      <div class="ob-sec">
       <h3>Cash, month by month</h3>
-      <p class="ob-sub">The plan's cash for the next 36 months, starting from the cash set in Cash &amp; runway. Where the line falls below zero, the company needs money before then.</p>
+      <p class="ob-sub">The plan's cash for the next 36 months, starting from the cash in the bank on 1 October 2026. Where the line falls below zero, the company needs money before then.</p>
       <div class="ob-box"><div class="ob-chart" id="ob-plan-cash"></div></div>
      </div>
      <div class="ob-sec ob-grid2">
@@ -510,7 +551,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, c
 .ob-kpi .v{display:block;font:500 clamp(1.05rem,2.2vw,1.45rem)/1.2 var(--font-mono);margin:6px 0 2px;color:rgb(var(--text));font-variant-numeric:tabular-nums;white-space:nowrap}
 .ob-kpi .s{font-size:.75rem;color:rgb(var(--text-dim))}
 .ob-kpi .dot{position:absolute;top:12px;right:12px;width:7px;height:7px;border-radius:50%}
-.ob-kpi .dot.real{background:rgb(var(--green))}.ob-kpi .dot.sim{background:rgb(var(--yellow))}
+.ob-kpi .dot.real{background:rgb(var(--green))}.ob-kpi .dot.sim{background:rgb(var(--yellow))}.ob-kpi .dot.decl{background:rgb(var(--blue))}
 .ob-kpi.alert .v{color:rgb(var(--yellow))}
 .ob-rooms{display:flex;gap:2px;border-bottom:1px solid rgb(var(--border));margin-bottom:26px;overflow-x:auto;scrollbar-width:none;position:sticky;top:var(--nav-h,64px);background:rgb(var(--bg)/.92);backdrop-filter:blur(12px);z-index:10}
 .ob-room{background:none;border:0;color:rgb(var(--text-muted));font:inherit;font-size:.9rem;padding:12px 14px 11px;min-height:44px;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;display:flex;gap:8px;align-items:center}
@@ -652,6 +693,19 @@ table.ob-t{border-collapse:collapse;width:100%;font-size:.84rem;color:rgb(var(--
 .ob-zero{stroke:rgb(var(--red));stroke-dasharray:4 3}
 .ob-line{fill:none;stroke:rgb(var(--accent));stroke-width:2}
 .ob-mark{stroke:rgb(var(--yellow))}
+.ob-alert{border:1px solid rgb(var(--yellow)/.55);background:rgb(var(--yellow)/.08);border-radius:6px;padding:10px 12px;margin:0 0 14px;font-size:.86rem;line-height:1.5;color:rgb(var(--text))}
+.ob-alert b{color:rgb(var(--yellow))}
+.ob-recon .ob-rh td{font:500 .6rem var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:rgb(var(--text-dim));padding-top:14px}
+.ob-recon .ob-rs td{font-weight:600;border-bottom:1px solid rgb(var(--border))}
+.ob-recon .ob-gap td{color:rgb(var(--yellow))}
+@media(max-width:640px){.ob-recon .ob-dim{display:block;font-size:.75rem}.ob-recon td,.ob-recon th{padding-left:4px;padding-right:4px}}
+.ob-gq{display:grid;grid-template-columns:auto 1fr;gap:8px 28px;align-items:start}
+.ob-gq ul{margin:0;padding-left:18px;font-size:.86rem;line-height:1.6}
+@media(max-width:640px){.ob-gq{grid-template-columns:1fr}}
+.ob-sc .ob-tomb{font:500 .95rem var(--font-mono)}
+.ob-sc table{width:100%;font-size:.78rem;border-collapse:collapse}
+.ob-sc td{padding:3px 0;border-bottom:1px solid rgb(var(--border)/.5);font-variant-numeric:tabular-nums}
+.ob-sc td:not(:first-child){text-align:right;font-family:var(--font-mono)}
 </style>
 
 <script is:inline>
@@ -779,44 +833,52 @@ const byCat = {}; for (const l of L) if (l.d.startsWith('2025')) byCat[l.c] = (b
 const q3 = {}; for (const l of L) if (l.d >= '2026-07-01' && l.d <= '2026-09-30') q3[l.c] = (q3[l.c] || 0) + l.n / 3;
 const payNow = D.payNow; // payroll, all staff together, a month of the last quarter
 const burn = D.monthNow;
-const lean = burn - ['payroll', 'people', 'counsel', 'studios', 'events', 'hardware'].reduce((s, c) => s + (q3[c] || 0), 0);
-const ASLEEP = [['Gestoría, minimum fee', 50], ['Loan interest', D.enisaQuarter / 3], ['Registry and annual accounts filing', 10], ['Bank, domain and mail', 25], ['Password vault and signature', 15]];
-const dorm = ASLEEP.reduce((s, x) => s + x[1], 0);
 const CLOSE = [['Notary and registry: dissolution, liquidation, cancellation', 1500], ['Gestoría: final accounts and returns', 1800], ['Legal counsel', 1500], ['ENISA: principal still owed', D.principal]];
 const closeTotal = CLOSE.reduce((s, x) => s + x[1], 0);
-const lasts = (m) => (m === Infinity ? 'indefinitely' : m > 120 ? 'ten years or more' : m.toFixed(1) + ' months');
+const fstate = { pe: D.futures.payrollEnds[0], inc: String(D.futures.income[1]) };
+const fut = () => D.fut[fstate.pe + '|' + fstate.inc];
+const longDate = (s) => (s === 'never' ? 'it does not run out' : new Date(s + 'T12:00:00Z').toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }));
+const mName = (m) => new Date(m + '-01T12:00:00Z').toLocaleDateString('en-GB', { month: 'short' });
+const FMETA = {
+  same: ['Nothing changes', 'every cost as in July–September 2026', () => ['Payroll, people who invoice, services and the loan, as today', 'No income']],
+  cuts: ['Cuts, in phases', 'the costs that can stop, stop', () => ['From November: events, studios, counsel and advisory stop', 'Payroll ends at the end of ' + new Date(fstate.pe + '-01T12:00:00Z').toLocaleDateString('en-GB', { month: 'long' }) + ', with a one-off cost of ' + eur(D.futures.oneOff[0]) + '–' + eur(D.futures.oneOff[1]), 'Services, people who invoice and the loan stay']],
+  income: ['Income arrives', 'every cost as today, and sales', () => [eur(+fstate.inc) + ' a month from ' + new Date(D.futures.incomeFrom + '-01T12:00:00Z').toLocaleDateString('en-GB', { month: 'long' }) + ', VAT aside', 'No cut']],
+};
+const COLORS = { same: 'rgb(var(--red))', cuts: 'rgb(var(--yellow))', income: 'rgb(var(--green))' };
 function runway() {
-  const cash = +$('#ob-cash').value, inc = +$('#ob-inc').value;
-  $('#ob-cashv').textContent = eur(cash); $('#ob-incv').textContent = eur(inc);
-  const sc = [['Keep running', burn, 'as in July–September 2026', ['Payroll at employer cost: ' + eur(payNow), 'People who invoice: ' + eur(q3.people || 0), 'Services, advisory and events: ' + eur(burn - payNow - (q3.people || 0))]],
-    ['Lean', lean, 'services and the loan only', ['Payroll, contractors, counsel and studios paused', 'Cloud, AI and software stay', 'The loan keeps costing']],
-    ['Asleep', dorm, 'a dormant company that still exists', ASLEEP.map(([k, v]) => `${k}: ${eur(v)}`)]];
-  $('#ob-scen').innerHTML = sc.map(([h, c, sub, li], i) => { const net = c - inc, m = net <= 0 ? Infinity : cash / net; return `<div class="ob-sc ${i === 0 ? 'hi' : ''}"><span class="ob-k">${h}</span><div class="v">${eur(c)} <small>/ month</small></div><div style="font-size:.82rem;color:rgb(var(--text-muted))">${sub}</div><div>Lasts <b style="font-family:var(--font-mono)">${lasts(m)}</b></div><ul>${li.map((x) => `<li>${x}</li>`).join('')}</ul></div>`; }).join('');
-  const W = 600, H = 210, pl = 50, N = 24, pts = []; let c = cash; for (let i = 0; i <= N; i++) { pts.push(c); c += inc - burn; }
-  const lo = Math.min(0, ...pts), hi = Math.max(1, ...pts), y = (v) => 10 + (H - 40) * (1 - (v - lo) / (hi - lo || 1)), x = (i) => pl + ((W - pl - 8) * i) / N;
-  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cash over the next 24 months"><line class="ob-zero" x1="${pl}" x2="${W - 8}" y1="${y(0)}" y2="${y(0)}"/><text class="ob-ax" x="${pl - 6}" y="${y(0) + 4}" text-anchor="end">0 €</text><polyline class="ob-line" points="${pts.map((v, i) => x(i) + ',' + y(v)).join(' ')}"/>`;
-  const z = pts.findIndex((v) => v < 0); if (z > 0) s += `<line class="ob-mark" x1="${x(z)}" x2="${x(z)}" y1="10" y2="${H - 30}"/><text class="ob-ax" x="${x(z) + 6}" y="22" style="fill:rgb(var(--yellow))">runs out in month ${z}</text>`;
-  for (let i = 0; i <= N; i += 6) s += `<text class="ob-ax" x="${x(i)}" y="${H - 10}" text-anchor="middle">+${i} m</text>`;
+  const F = fut();
+  $('#ob-futures').innerHTML = F.map((f) => {
+    const [h, sub, li] = FMETA[f.id];
+    const range = f.tombEarly !== f.tomb ? `<div class="ob-dim" style="font-size:.78rem">${longDate(f.tombEarly)} if the one-off cost is at its high end</div>` : '';
+    return `<div class="ob-sc ${f.id === 'same' ? 'hi' : ''}"><span class="ob-k"><i class="ob-sw" style="background:${COLORS[f.id]}"></i>${h}</span><div style="font-size:.82rem;color:rgb(var(--text-muted))">${sub}</div><table><tbody>${f.months.map((m) => `<tr><td>${mName(m.month)}</td><td>−${eur(m.out)}${m.outHigh !== m.out ? '<br><small>to −' + eur(m.outHigh) + '</small>' : ''}</td><td>${m.in ? '+' + eur(m.in) : ''}</td><td>${eur(m.cash)}</td></tr>`).join('')}</tbody></table><div>Runs out <b class="ob-tomb">${longDate(f.tomb)}</b></div>${range}<ul>${li().map((x) => `<li>${x}</li>`).join('')}</ul></div>`;
+  }).join('');
+  const W = 600, H = 210, pl = 50, N = 3, all = F.flatMap((f) => [D.cash.amount, ...f.months.map((m) => m.cashLow)]);
+  const lo = Math.min(0, ...all), hi = Math.max(1, ...all), y = (v) => 10 + (H - 40) * (1 - (v - lo) / (hi - lo || 1)), x = (i) => pl + ((W - pl - 8) * i) / N;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Cash at the end of each of the next three months, in three futures"><line class="ob-zero" x1="${pl}" x2="${W - 8}" y1="${y(0)}" y2="${y(0)}"/><text class="ob-ax" x="${pl - 6}" y="${y(0) + 4}" text-anchor="end">0 €</text><text class="ob-ax" x="${pl - 6}" y="${y(hi) + 4}" text-anchor="end">${(hi / 1000).toFixed(0)}k</text>`;
+  for (const f of F) s += `<polyline fill="none" stroke="${COLORS[f.id]}" stroke-width="2" points="${[D.cash.amount, ...f.months.map((m) => m.cash)].map((v, i) => x(i) + ',' + y(v)).join(' ')}"/>`;
+  ['1 Oct', ...F[0].months.map((m) => 'end ' + mName(m.month))].forEach((l, i) => (s += `<text class="ob-ax" x="${x(i)}" y="${H - 10}" text-anchor="${i === 0 ? 'start' : i === N ? 'end' : 'middle'}">${l}</text>`));
   $('#ob-tomb').innerHTML = s + '</svg>';
-  $('#ob-close').innerHTML = '<thead><tr><th>Item</th><th class="ob-n">Estimate</th></tr></thead><tbody>' + CLOSE.map(([k, v]) => `<tr><td>${k}</td><td class="ob-n">${eur(v)}</td></tr>`).join('') + `</tbody><tfoot><tr><td>To close cleanly</td><td class="ob-n">${eur(closeTotal)}</td></tr><tr><td style="font-weight:400;color:rgb(var(--text-muted))">Cash left after closing</td><td class="ob-n" style="color:rgb(var(${cash - closeTotal < 0 ? '--red' : '--green'}))">${eur(cash - closeTotal)}</td></tr></tfoot>`;
-  const m = cash / Math.max(1, burn - inc);
-  $('#ob-kpis').innerHTML = [['Spent in 2025', eur(D.total), 'net of VAT · payroll included', 'real'], ['A month, today', eur(burn), 'July–September 2026 · two lines projected', 'real'], ['Owed to ENISA', eur(D.principal), 'participative loan, 2024', 'real'], ['Money in', '≈ ' + eur(D.moneyIn), 'partners, ENISA and clients since 2024', 'decl'], ['Time to tomb', burn - inc <= 0 ? '—' : m.toFixed(1) + ' months', "at today's cost · simulated cash", 'sim', m < 6]]
+  const cash = D.cash.amount;
+  $('#ob-close').innerHTML = '<thead><tr><th>Item</th><th class="ob-n">Estimate</th></tr></thead><tbody>' + CLOSE.map(([k, v]) => `<tr><td>${k}</td><td class="ob-n">${eur(v)}</td></tr>`).join('') + `</tbody><tfoot><tr><td>To close cleanly</td><td class="ob-n">${eur(closeTotal)}</td></tr><tr><td style="font-weight:400;color:rgb(var(--text-muted))">Cash in the bank after closing</td><td class="ob-n" style="color:rgb(var(${cash - closeTotal < 0 ? '--red' : '--green'}))">${eur(cash - closeTotal)}</td></tr></tfoot>`;
+  const m = cash / Math.max(1, burn);
+  $('#ob-kpis').innerHTML = [['Cash in the bank', eur(cash), '1 Oct 2026 · statement to load', 'decl'], ['A month, today', eur(burn), 'July–September 2026 · payroll included', 'real'], ['Owed to ENISA', eur(D.principal), 'participative loan, 2024', 'real'], ['Money in', '≈ ' + eur(D.moneyIn), 'partners, ENISA and clients since 2024', 'decl'], ['Time to tomb', m.toFixed(1) + ' months', "at today's cost, nothing changing", 'decl', m < 6]]
     .map(([k, v, sub, t, a]) => `<div class="ob-kpi ${a ? 'alert' : ''}"><span class="dot ${t}" title="${t === 'real' ? 'real figure' : t === 'decl' ? 'declared, document to load' : 'simulated'}"></span><span class="ob-k">${k}</span><span class="v">${v}</span><span class="s">${sub}</span></div>`).join('');
 }
-$('#ob-cash').addEventListener('input', () => { runway(); tick(); planDraw(); });
+for (const [id, key] of [['ob-pend', 'pe'], ['ob-finc', 'inc']]) $$(`#${id} button`).forEach((b) => (b.onclick = () => { $$(`#${id} button`).forEach((x) => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); fstate[key] = b.dataset.v; runway(); tick(); }));
 
-// The time-to-tomb counter: the cash set above, spent second by second since
-// the day the company said how little was left, at today's monthly cost.
+// The time-to-tomb counter: the bank balance the company gave, spent second
+// by second since that day, at today's monthly cost, nothing changing; the
+// date under it follows the three futures.
 const SEC_MONTH = 30.4375 * 86400, ASOF = Date.parse(D.cash.asOf + 'T00:00:00Z');
 function tick() {
-  const cash = +$('#ob-cash').value, inc = +$('#ob-inc').value, net = burn - inc;
+  const cash = D.cash.amount, net = burn;
   const now = Date.now(), left = cash - Math.max(0, (now - ASOF) / 1000) * (net / SEC_MONTH);
   $('#ob-cnow').textContent = eur(Math.max(0, left), 2);
-  if (net <= 0) { $('#ob-clock').textContent = 'it does not run out'; $('#ob-cdate').textContent = 'income covers the cost'; return; }
   const secs = Math.max(0, (left / net) * SEC_MONTH), dd = Math.floor(secs / 86400), hh = Math.floor(secs % 86400 / 3600), mm = Math.floor(secs % 3600 / 60), ss = Math.floor(secs % 60);
   const p = (n) => String(n).padStart(2, '0');
   $('#ob-clock').innerHTML = secs <= 0 ? 'out of cash' : `${dd}<small>days</small>${p(hh)}<small>h</small>${p(mm)}<small>m</small>${p(ss)}<small>s</small>`;
-  $('#ob-cdate').textContent = secs <= 0 ? 'at this cost, the cash set above is already spent' : 'on ' + new Date(now + secs * 1000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ', at ' + eur(net) + ' a month';
+  const F = fut();
+  $('#ob-cdate').innerHTML = `if nothing changes, on ${longDate(F[0].tomb)}, at ${eur(net)} a month<br>with the cuts, ${longDate(F[1].tomb)} · with income, ${longDate(F[2].tomb)}`;
 }
 setInterval(tick, 1000);
 
@@ -854,17 +916,16 @@ function planDraw() {
     `<tr><td>Cost of running</td>${rows.map((r) => `<td class="ob-n">−${eur(r.cost)}</td>`).join('')}</tr></tbody>` +
     `<tfoot><tr><td>Result</td>${rows.map((r) => `<td class="ob-n">${c(r.res)}</td>`).join('')}</tr><tr><td style="font-weight:400">Accumulated</td>${rows.map((r) => `<td class="ob-n">${c(r.cum)}</td>`).join('')}</tr></tfoot>`;
   const be = A.projectSize > 0 ? (A.monthlyCost * 12) / A.projectSize : Infinity;
-  const cash0 = +$('#ob-cash').value; let cash = cash0, low = cash0, lowAt = 0; const pts = [cash0]; let w = 1;
+  const cash0 = D.cash.amount; let cash = cash0, low = cash0, lowAt = 0; const pts = [cash0]; let w = 1;
   for (let m = 1; m <= 36; m++) { const g = Math.pow(1 + A.growth, Math.floor((m - 1) / 12)), pm = (A.projectsPerYear * g) / 12; w += pm; cash += pm * A.projectSize + w * A.hostingPerWorld - A.monthlyCost * Math.pow(1 + A.growth / 2, Math.floor((m - 1) / 12)); pts.push(cash); if (cash < low) { low = cash; lowAt = m; } }
   const need = Math.max(0, -low);
   $('#ob-be').innerHTML = `<span class="ob-k">Projects a year to break even</span><div class="ob-be-big">${be === Infinity ? '—' : be.toFixed(1)}</div><p class="ob-note">at ${eur(A.projectSize)} a project and ${eur(A.monthlyCost)} a month, before hosting. Today: one client since 2024.</p>` +
-    `<span class="ob-k" style="margin-top:14px">Money the plan needs</span><div class="ob-be-big ${need ? 'ob-neg' : 'ob-pos'}">${need ? eur(need) : 'none'}</div><p class="ob-note">${need ? `the lowest point of cash, in month ${lowAt}: a round, a loan or a client must arrive before then` : 'the cash never falls below zero in 36 months'}. Starting from ${eur(cash0)} of cash, simulated.</p>`;
+    `<span class="ob-k" style="margin-top:14px">Money the plan needs</span><div class="ob-be-big ${need ? 'ob-neg' : 'ob-pos'}">${need ? eur(need) : 'none'}</div><p class="ob-note">${need ? `the lowest point of cash, in month ${lowAt}: a round, a loan or a client must arrive before then` : 'the cash never falls below zero in 36 months'}. Starting from the ${eur(cash0)} in the bank on 1 October 2026, declared.</p>`;
   const W = 1100, H = 240, pl = 56, N = 36, lo = Math.min(0, ...pts), hi = Math.max(1, ...pts), y = (v) => 10 + (H - 40) * (1 - (v - lo) / (hi - lo || 1)), x = (i) => pl + ((W - pl - 8) * i) / N;
   let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Planned cash over the next 36 months"><line class="ob-zero" x1="${pl}" x2="${W - 8}" y1="${y(0)}" y2="${y(0)}"/><text class="ob-ax" x="${pl - 6}" y="${y(0) + 4}" text-anchor="end">0 €</text><text class="ob-ax" x="${pl - 6}" y="${y(hi) + 4}" text-anchor="end">${(hi / 1000).toFixed(0)}k</text><polyline points="${pts.map((v, i) => x(i) + ',' + y(v)).join(' ')}" fill="none" stroke="rgb(167 123 224)" stroke-width="2"/>`;
   for (let i = 0; i <= N; i += 6) s += `<text class="ob-ax" x="${x(i)}" y="${H - 10}" text-anchor="middle">+${i} m</text>`;
   $('#ob-plan-cash').innerHTML = s + '</svg>';
 }
- $('#ob-inc').addEventListener('input', () => { runway(); tick(); });
 
 // Every line.
 let lc = '';

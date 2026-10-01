@@ -20,8 +20,14 @@ import raw from "@/data/ledger-2025.csv?raw";
 import raw2026 from "@/data/ledger-2026.csv?raw";
 import payrollRaw from "@/data/payroll.csv?raw";
 import salesRaw from "@/data/sales.csv?raw";
+import { readBooks, type Books } from "@/lib/cash";
 
 export const BOOKS_CSV = raw;
+
+/** The four books together, for the cash reconciliation and the futures (@/lib/cash). */
+export function cashBooks(): Books {
+  return readBooks(raw, raw2026, payrollRaw, salesRaw);
+}
 export const BOOKS_2026_CSV = raw2026;
 
 export interface BookLine {

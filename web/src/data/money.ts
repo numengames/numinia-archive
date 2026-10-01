@@ -49,14 +49,26 @@ export const CLIENTS: readonly ClientIncome[] = [
   { sector: "Training", amount: 1800, kind: "declared", what: "Training services", invoices: "two invoices, July and November 2024" },
 ];
 
-/** Cash in the bank today: not loaded. The company says it is very little. */
+/** Cash in the bank: the balance the company gave. Declared until the bank
+ *  statement is loaded; then it turns real (STD-036 LED-011). */
 export const CASH = {
-  kind: "simulated" as FigureKind,
-  /** The slider's starting point: a guess, until the bank balance is brought. */
-  guess: 8000,
-  /** What the company has said about it, in its words. */
-  said: "Very little cash is left.",
+  kind: "declared" as FigureKind,
+  amount: 19500,
   asOf: "2026-10-01",
+  said: "About 19,500 € in the bank on 1 October 2026, in the company's words.",
+};
+
+/** The three futures of the next quarter (STD-036 LED-012): what the reader
+ *  can choose. A cut is named by the cost it removes, never by a person. */
+export const FUTURES = {
+  kind: "simulated" as FigureKind,
+  /** The month at whose end payroll stops, in the cuts future. */
+  payrollEnds: ["2026-10", "2026-11"] as const,
+  /** The one-off cost of payroll stopping, as a range. */
+  oneOff: [2700, 4400] as [number, number],
+  /** Income a month from November, in the income future. */
+  income: [1500, 3000, 5000] as const,
+  incomeFrom: "2026-11",
 };
 
 /** The business plan's starting assumptions: the reader moves them. */
