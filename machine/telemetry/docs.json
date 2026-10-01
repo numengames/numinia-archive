@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20861,
+  "chars": 21155,
   "apparatus": false,
   "archived": false,
-  "tokens": 5767
+  "tokens": 5850
  },
  {
   "path": "CLAUDE.md",
@@ -1402,10 +1402,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1506,
+  "chars": 1853,
   "apparatus": true,
   "archived": false,
-  "tokens": 396
+  "tokens": 486
  },
  {
   "path": "machine/packages/sales-kit/fixtures/OPP-2026-001.md",
@@ -1450,6 +1450,17 @@
   "apparatus": true,
   "archived": false,
   "tokens": 256
+ },
+ {
+  "path": "machine/packages/sales-kit/fixtures/OPP-2026-005.md",
+  "dir": "machine",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 1500,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 429
  },
  {
   "path": "machine/packages/sales-kit/fixtures/PRP-2026-001.md",
@@ -1556,10 +1567,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 3633,
+  "chars": 3902,
   "apparatus": true,
   "archived": false,
-  "tokens": 977
+  "tokens": 1035
  },
  {
   "path": "machine/templates/OPS-TEMPLATE.md",
@@ -2007,10 +2018,10 @@
   "series": "opportunities",
   "type": "meta",
   "status": "active",
-  "chars": 1979,
+  "chars": 2404,
   "apparatus": true,
   "archived": false,
-  "tokens": 561
+  "tokens": 659
  },
  {
   "path": "protocols/PRO-001-agent-session.md",
@@ -2238,10 +2249,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 4537,
+  "chars": 5600,
   "apparatus": false,
   "archived": false,
-  "tokens": 1190
+  "tokens": 1443
  },
  {
   "path": "protocols/PRO-029-making-a-proposal.md",
@@ -2260,10 +2271,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5154,
+  "chars": 5618,
   "apparatus": false,
   "archived": false,
-  "tokens": 1344
+  "tokens": 1460
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2458,10 +2469,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 16154,
+  "chars": 16175,
   "apparatus": false,
   "archived": false,
-  "tokens": 4572
+  "tokens": 4578
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2788,10 +2799,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4085,
+  "chars": 6817,
   "apparatus": false,
   "archived": false,
-  "tokens": 1045
+  "tokens": 1787
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
@@ -2799,10 +2810,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7951,
+  "chars": 9216,
   "apparatus": false,
   "archived": false,
-  "tokens": 2065
+  "tokens": 2368
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -2953,10 +2964,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 5804,
+  "chars": 6260,
   "apparatus": false,
   "archived": false,
-  "tokens": 1529
+  "tokens": 1641
  },
  {
   "path": "system/SYS-011-semantic-census.md",
