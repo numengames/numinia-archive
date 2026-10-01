@@ -58,7 +58,11 @@ export const UPDATES: readonly UpdateVersion[] = [
     entries: [
       {
         type: "ADD",
-        text: "Open books lets you download anything for the period you choose — a month, a quarter, a year or two dates: the accounts as Excel (a sheet per view) or CSV, the received and issued invoice books in the gestoría's layout, the taxes, and the business plan with your own assumptions as Excel or a one-page PDF.",
+        text: "Open books lets you download anything for the period you choose — a month, a quarter, a year or two dates — in three packs: for the gestoría, the VAT record books in the Tax Agency's own layout plus withholding and a 347 draft; for a CFO, the profit and loss month by month, spend by supplier, the cash against the bank and the next quarter; for an auditor, every line as a double entry with its source and a trial balance.",
+      },
+      {
+        type: "ADD",
+        text: "Single files too: accounts, invoice books and taxes as CSV, and the business plan with your own assumptions as Excel or a one-page PDF.",
       },
       {
         type: "ADD",

@@ -106,8 +106,8 @@ and may be written in a record.
 | A citizen | the public view: what Numinia costs, what came in, who carries the difference, the homage list | that it is whole and plain |
 | Technology (CTO) | cost per service per day, month and year; trend | what each service costs and whether it grows |
 | Finance and a lender | profit and loss by year in the accounting plan's headings; cash reconciled to the bank; the next quarter in three futures, each with its date of running out | whether the company can repay |
-| The gestoría | the received- and issued-invoices books for any month, quarter, year or dates, downloaded from `/system/open-books` as CSV or a workbook | that it matches the books |
-| An auditor or the tax authority | the same figures, walked from total to line to document | that every figure has its paper |
+| The gestoría | the VAT record books in the Tax Agency's normalised design (EXPEDIDAS, RECIBIDAS) from 1 January to any date, withholding for the 111 and 190 and a 347 draft, downloaded from `/system/open-books` | that it matches the books |
+| An auditor or the tax authority | the same figures, walked from total to line to document: a double-entry journal naming each line's file and row, a trial balance, each source file's SHA-256 and the commit | that every figure has its paper |
 
 All five read the same lines (`STD-036` LED-002). Billed and consumed are
 both computed: billed on the invoice date, consumed spread over the days a

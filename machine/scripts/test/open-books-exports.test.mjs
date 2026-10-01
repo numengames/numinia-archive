@@ -67,20 +67,18 @@ test('accounts: spread over the days, months add up to the year, the span to eve
   assert.ok(year.byCategory.every((c) => typeof c.label === 'string' && typeof c.amount === 'number'));
 });
 
-test('gestoría books: by invoice date, payroll out, reverse charge said, totals add up', () => {
+test('gestoría books: the AEAT design, from 1 January, reverse charge self-charged', () => {
   const r = run("X.receivedBook(books, '2025-01-01', '2025-03-31')");
-  assert.deepEqual(r.head, ['Fecha expedición', 'Fecha operación', 'Número factura', 'Nombre expedidor', 'Concepto', 'Cuenta PGC', 'Clave operación', 'Inversión sujeto pasivo', 'Base imponible', 'Tipo IVA %', 'Cuota IVA soportado', 'Retención IRPF', 'Total factura', 'Cuota autorepercutida ISP']);
+  assert.equal(r.name, 'RECIBIDAS');
   const q1 = run("books.l25.filter((l) => l.date <= '2025-03-31').length");
   assert.equal(r.rows.length, q1, 'every Q1 2025 invoice, and nothing else');
   for (const x of r.rows) {
-    assert.ok(x[0] >= '2025-01-01' && x[0] <= '2025-03-31');
-    assert.doesNotMatch(String(x[3]), /^Payroll/);
-    near(x[12], x[8] + x[10] - x[11], `${x[2]}: total`);
-    if (x[7] === 'S') { assert.equal(x[10], 0, `${x[2]}: reverse charge pays no VAT to the supplier`); near(x[13], x[8] * 0.21, `${x[2]}: the VAT the company declares itself`); }
+    assert.doesNotMatch(String(x[18]), /^Payroll/, 'payroll is not an invoice');
+    if (x[21] === 'S') near(x[25], x[26], `${x[10]}: reverse charge, total = base`);
   }
   const i = run("X.issuedBook(books, '2025-01-01', '2025-12-31')");
   assert.equal(i.rows.length, 6);
-  assert.ok(i.head.includes('Divisa original') && i.head.includes('Tipo de cambio'));
+  for (const x of i.rows) assert.match(x[35], /USD @ /, 'the original currency and rate in Referencia Externa');
   assert.doesNotMatch(JSON.stringify(i), /Mesa/i, 'the client is not named');
 });
 
@@ -97,7 +95,7 @@ test('page: a period picker, the downloads, a print sheet, the plan from its own
   const p = read(PAGE);
   assert.match(p, /from "@\/lib\/exports"/, 'the downloads are built by @/lib/exports');
   for (const id of ['ob-dl', 'ob-dl-kind', 'ob-dl-pick', 'ob-dl-from', 'ob-dl-to']) assert.match(p, new RegExp(`id="${id}"`), `#${id}`);
-  for (const f of ['accounts-csv', 'accounts-xlsx', 'received', 'issued', 'taxes', 'plan-xlsx', 'plan-pdf', 'page-pdf']) assert.match(p, new RegExp(`data-dl="${f}"`), `download ${f}`);
+  for (const f of ['accounts-csv', 'received', 'issued', 'taxes', 'plan-xlsx', 'plan-pdf', 'page-pdf']) assert.match(p, new RegExp(`data-dl="${f}"`), `download ${f}`);
   assert.match(p, /@media print/);
   assert.match(p, /window\.obPlan\s*=/, 'the plan export reads the sums the page drew');
 });

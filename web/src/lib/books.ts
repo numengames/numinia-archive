@@ -29,6 +29,8 @@ export function cashBooks(): Books {
   return readBooks(raw, raw2026, payrollRaw, salesRaw);
 }
 export const BOOKS_2026_CSV = raw2026;
+export const PAYROLL_CSV = payrollRaw;
+export const SALES_CSV = salesRaw;
 
 export interface BookLine {
   document: string;

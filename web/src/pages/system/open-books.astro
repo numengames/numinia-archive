@@ -30,7 +30,9 @@ import { TAX_KINDS, VAT_RESULTS, CALENDAR, VAT_2024_ESTIMATE, CORPORATE, GESTORI
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
 import { ROUNDS, CLIENTS, CASH, FUTURES, PLAN, GLOSSARY, MONEY_IN_TOTAL } from "@/data/money";
-import { repoFileUrl } from "@/lib/build-info";
+import { repoFileUrl, COMMIT_SHA, VERSION } from "@/lib/build-info";
+import { BOOKS_CSV, BOOKS_2026_CSV, PAYROLL_CSV, SALES_CSV } from "@/lib/books";
+import { createHash } from "node:crypto";
 
 type AnyLine = ReturnType<typeof bookLines>[number] & { kind?: string; withholding?: string };
 const lines = ([...bookLines(), ...bookLines2026(), ...payrollLines()] as AnyLine[]).map((l) => ({ d: l.date, a: l.period_from, b: l.period_to, c: l.category, w: l.supplier, n: Number(l.base), h: Number(l.headcount || 0), bl: l.billing, k: l.kind || "real" }));
@@ -101,7 +103,11 @@ const FUT: Record<string, ReturnType<typeof futures>> = {};
 for (const pe of FUTURES.payrollEnds) for (const inc of FUTURES.income) FUT[`${pe}|${inc}`] = futures(BOOKS, { cash: CASH.amount, asOf: CASH.asOf, payrollEnds: pe, oneOff: FUTURES.oneOff, income: inc, incomeFrom: FUTURES.incomeFrom });
 const KIND_PILL: Record<string, [string, string]> = { real: ["ob-pill--real", "real"], declared: ["ob-pill--decl", "declared"], plan: ["ob-pill--plan", "plan"], simulated: ["ob-pill--sim", "estimate"] };
 const ym = (s: string) => new Date(s + "-01T00:00:00Z").toLocaleDateString("en-GB", { month: "long", timeZone: "UTC" });
-const DATA = { vatQ: VAT_Q.map((v) => ({ q: v.q, out: v.out, inp: v.inp, rc: v.rc, before: v.before, result: v.result, amount: v.amount, kind: v.kind, wh: v.wh, ss: v.ss })), fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
+// The audit pack names each source file with its SHA-256, so a figure can be
+// walked back to the exact bytes it came from (STD-036 LED-005).
+const sha = (s: string) => createHash("sha256").update(s).digest("hex");
+const SOURCES = [["web/src/data/ledger-2025.csv", BOOKS_CSV], ["web/src/data/ledger-2026.csv", BOOKS_2026_CSV], ["web/src/data/payroll.csv", PAYROLL_CSV], ["web/src/data/sales.csv", SALES_CSV]].map(([f, s]) => ({ file: f, sha256: sha(s), lines: s.trim().split("\n").length - 1 }));
+const DATA = { company: { taxId: COMPANY.taxId, name: COMPANY.name }, build: { commit: COMMIT_SHA, version: VERSION }, sources: SOURCES, recon: { rows: RECON.rows, moneyIn: RECON.moneyIn, out: RECON.out, missing: RECON.missing, expected: RECON.expected, gap: RECON.gap }, vatQ: VAT_Q.map((v) => ({ q: v.q, out: v.out, inp: v.inp, rc: v.rc, before: v.before, result: v.result, amount: v.amount, kind: v.kind, wh: v.wh, ss: v.ss })), fut: FUT, futures: FUTURES, rate: RATE, moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
 ---
 
 <Layout
@@ -154,17 +160,22 @@ const DATA = { vatQ: VAT_Q.map((v) => ({ q: v.q, out: v.out, inp: v.inp, rc: v.r
       <span class="ob-dl-dates" hidden><input type="date" id="ob-dl-from" aria-label="From" min="2024-02-16" /> – <input type="date" id="ob-dl-to" aria-label="To" min="2024-02-16" /></span>
      </div>
      <p class="ob-dl-sum" id="ob-dl-sum" aria-live="polite"></p>
+     <div class="ob-packs">
+      <button type="button" class="ob-pack" data-dl="gestoria"><b>For the gestoría</b><span>The VAT record books in the Tax Agency's own layout (EXPEDIDAS, RECIBIDAS), from 1 January, ready to import into the 303 helper; withholding for the 111 and 190; a 347 draft.</span></button>
+      <button type="button" class="ob-pack" data-dl="cfo"><b>For a CFO</b><span>Profit and loss month by month, spending by category and by supplier, cash reconciled to the bank, the next quarter in three futures, taxes.</span></button>
+      <button type="button" class="ob-pack" data-dl="audit"><b>For an auditor</b><span>Every line as a double entry in the accounting plan, each naming its file and row; a trial balance; the sources with their SHA-256 and the commit they were built from.</span></button>
+     </div>
      <div class="ob-dl-btns">
-      <button type="button" data-dl="accounts-xlsx">Accounts · Excel</button>
+      <span class="ob-k">Single files</span>
       <button type="button" data-dl="accounts-csv">Accounts · CSV</button>
-      <button type="button" data-dl="received">Received invoices · gestoría</button>
-      <button type="button" data-dl="issued">Issued invoices · gestoría</button>
+      <button type="button" data-dl="received">Received invoices · CSV</button>
+      <button type="button" data-dl="issued">Issued invoices · CSV</button>
       <button type="button" data-dl="taxes">Taxes · CSV</button>
       <button type="button" data-dl="plan-xlsx">Business plan · Excel</button>
       <button type="button" data-dl="plan-pdf">Business plan · PDF</button>
       <button type="button" data-dl="page-pdf">This page · PDF</button>
      </div>
-     <p class="ob-note">Built in your browser from the same lines this page draws. Costs are spread over the days they cover and net of VAT; the invoice books go by invoice date, as the gestoría keeps them. The business plan takes the assumptions you set in its room. PDFs open your browser's print dialog: choose “Save as PDF”.</p>
+     <p class="ob-note">Built in your browser from the same lines this page draws. The accounts spread each cost over the days it covers, net of VAT; the invoice books go by invoice date and run from 1 January of the period's year, as the Tax Agency asks for them. Every workbook opens with a sheet saying what is real, declared or estimated. PDFs open your browser's print dialog: choose “Save as PDF”.</p>
     </section>
 
     <nav class="ob-rooms" role="tablist" aria-label="Rooms">
@@ -722,7 +733,14 @@ table.ob-t{border-collapse:collapse;width:100%;font-size:.84rem;color:rgb(var(--
 .ob-dl-dates{display:inline-flex;gap:8px;align-items:center;flex-wrap:wrap}
 .ob-dl-sum{margin:0;font-size:.86rem;color:rgb(var(--text-muted));font-variant-numeric:tabular-nums}
 .ob-dl-sum b{color:rgb(var(--text));font-family:var(--font-mono);font-weight:500}
-.ob-dl-btns{display:flex;flex-wrap:wrap;gap:8px}
+.ob-dl-btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ob-packs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.ob-packs{grid-template-columns:1fr}}
+.ob-pack{display:flex;flex-direction:column;gap:4px;text-align:left;background:rgb(var(--accent)/.06);border:1px solid rgb(var(--accent)/.4);border-radius:8px;color:rgb(var(--text));font:inherit;padding:12px 14px;cursor:pointer}
+.ob-pack b{font-weight:600;font-size:.92rem}
+.ob-pack span{font-size:.78rem;line-height:1.45;color:rgb(var(--text-muted))}
+.ob-pack:hover{background:rgb(var(--accent)/.12)}
+.ob-pack:focus-visible{outline:2px solid rgb(var(--accent));outline-offset:2px}
 .ob-dl-btns button{background:none;border:1px solid rgb(var(--border));border-radius:6px;color:rgb(var(--text));font:inherit;font-size:.82rem;padding:0 12px;min-height:36px;cursor:pointer}
 .ob-dl-btns button:hover{border-color:rgb(var(--accent)/.6);background:rgb(var(--accent)/.08)}
 .ob-dl-btns button:focus-visible,.ob-dl select:focus-visible,.ob-dl input:focus-visible{outline:2px solid rgb(var(--accent));outline-offset:2px}
@@ -1006,7 +1024,7 @@ draw(); runway(); ledger(); tick(); planDraw();
   // Downloads (STD-036 LED-002): the same lines the page draws, cut to the
   // period the reader picks, by @/lib/exports.
   import { cashBooks, BOOK_CATEGORIES } from "@/lib/books";
-  import { period, accounts, accountsSheet, categorySheet, receivedBook, issuedBook, toCsv, toXlsx, type Sheet, type Period } from "@/lib/exports";
+  import { period, accounts, accountsSheet, categorySheet, receivedBook, issuedBook, aeatBooks, withholdingSheet, form347, pnlByMonth, bySupplier, journal, trialBalance, toCsv, toXlsx, type Sheet, type Period } from "@/lib/exports";
 
   const D = JSON.parse(document.getElementById("ob-data")!.textContent!);
   const books = cashBooks();
@@ -1089,17 +1107,44 @@ draw(); runway(); ledger(); tick(); planDraw();
 
   document.querySelectorAll<HTMLButtonElement>("[data-dl]").forEach((b) => b.addEventListener("click", () => {
     const p = current(), a = accounts(books, p.from, p.to, BOOK_CATEGORIES), s = slug(p);
+    const K = { real: "real", declared: "declared", simulated: "estimate" } as Record<string, string>;
+    const about = (what: string, extra: (string | number)[][] = []): Sheet => ({
+      name: "About",
+      head: ["Numen Games S.L. · " + D.company.taxId, ""],
+      rows: [
+        ["What", what], ["Period", `${p.label} · ${p.from} to ${p.to}`], ["Built", new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC, in the reader's browser"],
+        ["From", `numinia.org/system/open-books · site ${D.build.version} · commit ${D.build.commit}`],
+        ["Kinds", "real = booked or public · declared = the company's word, document to load · estimate = computed or simulated until the document arrives"],
+        ["Not loaded yet", "the 2024 received-invoices book, January–June 2026 invoices, the bank statement, the filed returns"],
+        ["People", "payroll, freelancers and the director enter as one block a quarter, at employer cost, never per person (STD-036 LED-006)"],
+        ...extra,
+      ],
+    });
+    const yearOf = p.to.slice(0, 4);
     switch (b.dataset.dl) {
-      case "accounts-xlsx":
-        return save(`numen-games-accounts-${s}.xlsx`, toXlsx([accountsSheet(a, p), categorySheet(a), issuedBook(books, p.from, p.to), receivedBook(books, p.from, p.to), taxSheet(p)]), XLSX);
+      case "gestoria": {
+        const A = aeatBooks(books, D.company, p.from, p.to);
+        save(A.file, toXlsx(A.sheets), XLSX);
+        return setTimeout(() => save(`numen-games-withholding-and-347-${s}.xlsx`, toXlsx([about("Withholding for forms 111 and 190, and a draft of form 347. Drafts for the gestoría, not filed returns."), withholdingSheet(books, p.from, p.to), form347(books, yearOf), taxSheet(p)]), XLSX), 400);
+      }
+      case "cfo": {
+        const R = D.recon, F = D.fut[`${D.futures.payrollEnds[0]}|${D.futures.income[1]}`];
+        const recon: Sheet = { name: "Cash reconciliation", head: ["Step", "Amount (EUR)", "Kind"], rows: [...R.rows.map((r: any) => [r.label, (r.group === "in" ? 1 : -1) * Math.round(r.amount * 100) / 100, K[r.kind] ?? r.kind]), ["Cash the books expect", Math.round(R.expected), "estimate"], [`Cash in the bank, ${D.cash.asOf}`, D.cash.amount, "declared"], ["Difference not explained", Math.round(R.gap), ""]] };
+        const fut: Sheet = { name: "Next quarter", head: ["Future", ...F[0].months.flatMap((m: any) => [`${m.month} out`, `${m.month} in`, `${m.month} cash`]), "Runs out", "Runs out, one-off at its high end"], rows: F.map((f: any) => [({ same: "Nothing changes", cuts: "Cuts in phases", income: "Income arrives" } as Record<string, string>)[f.id], ...f.months.flatMap((m: any) => [-Math.round(m.out), Math.round(m.in), Math.round(m.cash)]), f.tomb, f.tombEarly]) };
+        return save(`numen-games-cfo-${s}.xlsx`, toXlsx([about("A CFO's pack: the profit and loss by month, where the money goes, the cash against the bank and the next quarter."), pnlByMonth(books, p.from, p.to, BOOK_CATEGORIES), accountsSheet(a, p), categorySheet(a), bySupplier(books, p.from, p.to, BOOK_CATEGORIES), recon, fut, taxSheet(p)]), XLSX);
+      }
+      case "audit": {
+        const J = journal(books, p.from, p.to);
+        return save(`numen-games-audit-${s}.xlsx`, toXlsx([about("An auditor's pack: every published line as a balanced double entry in the Spanish accounting plan (PGC PYMES), each naming the file and row it comes from, and the trial balance from them. Only the published lines: no bank, equity or opening balance until the gestoría's books are loaded.", D.sources.map((x: any) => [x.file, `sha256 ${x.sha256} · ${x.lines} lines`])), J, trialBalance(J), receivedBook(books, p.from, p.to), issuedBook(books, p.from, p.to)]), XLSX);
+      }
       case "accounts-csv": {
         const parts = [accountsSheet(a, p), categorySheet(a), issuedBook(books, p.from, p.to), taxSheet(p)];
         const width = Math.max(...parts.map((x) => x.head.length));
         const rows = parts.flatMap((x) => [[`## ${x.name}`], x.head, ...x.rows, []]).map((r) => [...r, ...Array(width - r.length).fill("")]);
         return save(`numen-games-accounts-${s}.csv`, toCsv({ head: [`Numen Games S.L. · ${p.label} · ${p.from} to ${p.to}`, ...Array(width - 1).fill("")], rows }), CSV);
       }
-      case "received": return save(`numen-games-received-invoices-${s}.csv`, toCsv(receivedBook(books, p.from, p.to)), CSV);
-      case "issued": return save(`numen-games-issued-invoices-${s}.csv`, toCsv(issuedBook(books, p.from, p.to)), CSV);
+      case "received": return save(`numen-games-received-invoices-${yearOf}-to-${p.to}.csv`, toCsv(receivedBook(books, p.from, p.to), true), CSV);
+      case "issued": return save(`numen-games-issued-invoices-${yearOf}-to-${p.to}.csv`, toCsv(issuedBook(books, p.from, p.to), true), CSV);
       case "taxes": return save(`numen-games-taxes-${s}.csv`, toCsv(taxSheet(p)), CSV);
       case "plan-xlsx": return save("numen-games-business-plan.xlsx", toXlsx(planSheets()), XLSX);
       case "plan-pdf": return printOnly(true);
