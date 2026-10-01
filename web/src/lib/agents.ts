@@ -150,6 +150,13 @@ const PRESENTATION: Record<
     specialties: ["Qualifying", "Discovery", "Proposals", "Pipeline", "Follow-up"],
     bio: "Metis carries a sale from the first signal to a clear end. She reads the client before she speaks, keeps every opportunity's record true, and promises only what the house can deliver.",
   },
+  kairos: {
+    color: "var(--ink-turquesa)", mark: "⧗", className: "Seizer of moments",
+    quote: "Doubt in favour of the house.",
+    stats: [["Vigilance", "S+"], ["Reach", "S"], ["Haste", "C"]],
+    specialties: ["Tenders", "Grants", "Calls", "Triage", "Reading terms", "Filters"],
+    bio: "Kairos keeps watch on every place where the house's opportunities are published. He reads the terms, not the title, weighs what could be won, and brings the Oracle everything that could fall — with what it would take.",
+  },
 };
 
 const NEUTRAL: Omit<DigitalAgent, "id" | "name" | "role" | "route" | "since" | "href"> = {

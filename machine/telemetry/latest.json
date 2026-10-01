@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "f6cf768",
-  "corpus_hash": "a7dc9c5716fe79e9a0ecccab096a28afe5e5444294b6a39e5519751e1bedb8c8",
+  "head": "4851e11",
+  "corpus_hash": "51d4830a25126426a01a98be0671257f236293461aa9dc14c298f635055b0ad2",
   "root_dirty": 0,
-  "measured_at": "2026-10-01T18:14:06Z",
+  "measured_at": "2026-10-01T18:38:46Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 749,
+      "value": 755,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -32,7 +32,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 15,
-        ".md": 322,
+        ".md": 326,
         ".mjs": 110,
         ".png": 36,
         ".svg": 75,
@@ -42,19 +42,19 @@
         ".txt": 12,
         ".webp": 1,
         ".woff2": 7,
-        ".yaml": 34,
+        ".yaml": 36,
         ".yml": 4
       },
       "unit": "files",
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 322,
+      "value": 326,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 321,
+      "value": 325,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -62,7 +62,7 @@
       "value": {
         "(root)": 7,
         ".github": 3,
-        "agents": 41,
+        "agents": 45,
         "blueprints": 12,
         "canon": 11,
         "debt": 3,
@@ -86,10 +86,10 @@
       "value": {
         "(none)": 61,
         "adr": 10,
-        "agent": 38,
+        "agent": 41,
         "blueprint": 13,
         "documentation": 71,
-        "entity": 24,
+        "entity": 25,
         "legal": 5,
         "meta": 6,
         "mission": 8,
@@ -223,7 +223,7 @@
       "definition": "sum of `registration[*].total`"
     },
     "series.agents_folder_named": {
-      "value": 12,
+      "value": 13,
       "unit": "directories",
       "definition": "directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0)"
     },
@@ -329,7 +329,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 919213,
+      "value": 922598,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -339,15 +339,15 @@
         "standards": 83267,
         "system": 51924,
         "reports": 36705,
+        "agents": 35690,
         "protocols": 33051,
-        "agents": 32382,
         "operations": 27906,
         "blueprints": 27778,
         "machine": 26237,
         "opportunities": 21408,
         "canon": 19794,
         "missions": 17668,
-        "": 14187,
+        "": 14264,
         "legal": 13081,
         "decisions": 9669,
         "debt": 9643,
@@ -359,9 +359,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 513296,
-        "draft": 218584,
-        "active": 168172,
+        "(none)": 513373,
+        "draft": 221823,
+        "active": 168241,
         "todo": 13532,
         "in-progress": 4513,
         "done": 1116
@@ -401,7 +401,7 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 273,
+      "value": 277,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -412,28 +412,28 @@
     },
     "headers.field_usage": {
       "value": {
-        "license": 272,
-        "title": 272,
-        "created": 260,
-        "status": 260,
-        "type": 260,
-        "updated": 260,
-        "version": 260,
-        "author": 258,
-        "owner": 257,
-        "tags": 235,
-        "id": 234,
+        "license": 276,
+        "title": 276,
+        "created": 264,
+        "status": 264,
+        "type": 264,
+        "updated": 264,
+        "version": 264,
+        "author": 262,
+        "owner": 261,
+        "tags": 239,
+        "id": 235,
         "uid": 192,
         "territory": 162,
         "related": 131,
-        "guild": 115,
+        "guild": 116,
         "subtype": 72,
         "created_source": 65,
         "derived_from": 65,
         "created_confidence": 64,
-        "registration": 48,
-        "registration_reason": 44,
-        "agent": 38,
+        "registration": 52,
+        "registration_reason": 48,
+        "agent": 41,
         "currency": 38,
         "contact_channel": 31,
         "contact_role": 31,
@@ -452,17 +452,17 @@
         "extraction_note": 16,
         "offer": 16,
         "evidence_head": 14,
+        "automation_level": 13,
         "former_id": 13,
-        "automation_level": 12,
         "former_id_note": 12,
+        "provenance": 12,
         "related_missions": 12,
+        "role": 12,
         "evidence_script": 11,
         "period": 11,
-        "provenance": 11,
-        "role": 11,
+        "type_execution": 11,
         "mandatory": 10,
         "supersedes_version": 10,
-        "type_execution": 10,
         "assigned_to": 8,
         "completed": 8,
         "confidence": 8,
@@ -491,14 +491,14 @@
         "requires_oracle_approval": 5,
         "scope": 5,
         "detected": 4,
+        "entity": 4,
+        "forms": 4,
         "review_flags": 4,
         "severity": 4,
         "severity_reason": 4,
         "visibility_reason": 4,
         "consulted": 3,
         "decision": 3,
-        "entity": 3,
-        "forms": 3,
         "language": 3,
         "name": 3,
         "opened_by": 3,
@@ -574,7 +574,7 @@
     },
     "provenance.authorship": {
       "value": {
-        "ai-persona": 208,
+        "ai-persona": 212,
         "no-frontmatter": 48,
         "other": 37,
         "no-author": 15,
@@ -585,18 +585,38 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 241,
+      "value": 245,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 8,
+      "value": 12,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
     },
     "provenance.created_ahead_list": {
       "value": [
+        [
+          "agents/kairos/AGENT.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
+        [
+          "agents/kairos/OPERATOR.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
+        [
+          "agents/kairos/SOUL.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
+        [
+          "agents/kairos/SOURCES.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
         [
           "agents/nimrod/OPERATOR.md",
           "2026-09-04",
@@ -669,7 +689,7 @@
     "contradictions.status_vocabulary_used": {
       "value": {
         "active": 113,
-        "draft": 139,
+        "draft": 143,
         "done": 1,
         "todo": 6,
         "in-progress": 1
@@ -717,19 +737,19 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 952
+          "3": 954
         },
         "PRO": {
-          "3": 386
+          "3": 390
         },
         "OPS": {
-          "3": 143
+          "3": 147
         },
         "CAN": {
           "3": 350
         },
         "ADR": {
-          "3": 229
+          "3": 233
         },
         "OPP": {
           "3": 25,

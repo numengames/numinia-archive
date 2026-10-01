@@ -1,0 +1,62 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
+# Hermes adapter — recommended configuration for Kairos.
+# Merge into the profile's config.yaml. Secrets belong in .env, never here.
+# Model/provider pins live here, NEVER in SOUL.md (MIS-118 decision 9).
+#
+# Kairos works as scheduled jobs (Hermes cron), one per watch. Each job runs a
+# sweep script first (no model, no cost) and wakes the model only when there is
+# something new; the model reads, weighs and answers, or stays silent.
+# First watch, instantiated 2026-10-01 in the ursa profile: tenders and grants
+# (Spain and EU), every 30 minutes, on Nous `meituan/longcat-2.5-preview:free`,
+# delivered to the Oracle on Telegram. Its script and brief are still in that
+# profile; see SOURCES.md, "Not yet in the archive".
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 180
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 2
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+    - "rm -rf *"
+  smart_policy: |
+    Always ESCALATE anything that submits, registers, applies, bids, or
+    contacts a buyer, funder or partner, including e-mail and messaging other
+    than the watch's own report to the operator.
+    Always ESCALATE writes to the archive repository: findings reach it only
+    through a pull request the operator asks for.
+    Allow reading and downloading public notices and their documents,
+    extracting text from them, and writing the watch's own files outside the
+    repository, when otherwise safe.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 10
+  max_total_size_mb: 300
+  max_file_size_mb: 20
+  auto_prune: true
+  retention_days: 7
+  min_interval_hours: 24
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: false
+  user_profile_enabled: false
+  write_approval: true
+
+delegation:
+  max_concurrent_children: 1
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: false
