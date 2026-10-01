@@ -5,9 +5,9 @@ title: "One account"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.5"
+version: "0.2.0"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-01T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Funding"
@@ -61,8 +61,20 @@ payment company's report. An open month or an estimate is labelled as such.
 every line to its document, so an auditor or the tax authority can walk
 from one to the other.
 
-**People counted, not named.** Staff MUST enter as the company's cost per
-month. No published view lets anyone infer a person's pay.
+**People counted, not named.** Staff MUST enter as the company's cost, all
+together: payroll at employer cost, never net pay. With fewer than three
+people, payroll, freelancers and the director's invoices MUST enter as one
+block a quarter, since a month with one person is that person's pay. No
+published view lets anyone infer a person's pay.
+
+**Taxes from the lines.** Every tax figure published before its return is
+filed MUST be computed from the ledger lines and labelled an estimate. Once
+the return is filed, its figure wins, and any difference enters as a new
+dated line.
+
+**Foreign currency at a stated rate.** A line invoiced in another currency
+MUST carry the original amount and the rate used: the central bank's rate of
+the invoice date until the bank statement gives the rate paid.
 
 **Documents stay out.** Invoices, payslips and payment reports MUST NOT be
 committed to the archive. The archive holds the lines; the documents stay
@@ -83,7 +95,9 @@ Each rule, its code, its source and its check.
 | LED-003 | Billed and consumed | [FinOps FOCUS 1.2](https://focus.finops.org/docs/specification/v1-2/) BilledCost, EffectiveCost, ChargePeriodStart/End; accrual principle, PGC part one | by hand at each month's close |
 | LED-004 | Closed from documents | law: [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) arts. 25 and 29 | by hand at each month's close |
 | LED-005 | Traceable to the paper | law: [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) art. 25; [Ley General Tributaria 58/2003](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) art. 29 | by hand at each month's close |
-| LED-006 | People counted, not named | — | by hand, in every ledger pull request |
+| LED-006 | People counted, not named | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 4.1, personal data includes what can be inferred | `machine/scripts/test/open-books-money.test.mjs` (payroll one line a quarter, no net pay); by hand, in every ledger pull request |
+| LED-009 | Taxes from the lines | law: [Ley 37/1992 del IVA](https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740) arts. 99 and 115 (offset, refund) | `machine/scripts/test/open-books-fiscal.test.mjs`; the filed return, at each quarter's close |
+| LED-010 | Foreign currency at a stated rate | law: [Ley 37/1992 del IVA](https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740) art. 79.Once (rate of the tax's accrual) | `machine/scripts/test/open-books-fiscal.test.mjs` (original amount and rate on every foreign line) |
 | LED-007 | Documents stay out | — | by hand, in every ledger pull request |
 | LED-008 | Kept for as long as the law can ask | law: [Código de Comercio](https://www.boe.es/buscar/act.php?id=BOE-A-1885-6627) art. 30 (six years); [Ley General Tributaria](https://www.boe.es/buscar/act.php?id=BOE-A-2003-23186) arts. 66–70 (four years; up to ten for tax credits) | the gestoría's retention, outside this repository |
 

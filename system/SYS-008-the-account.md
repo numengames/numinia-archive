@@ -5,9 +5,9 @@ title: "The account: how money moves and is recorded, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-24T18:00:00+02:00"
-updated: "2026-09-30T13:00:00+02:00"
+updated: "2026-10-01T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, economy, payments, ledger, accounting]
@@ -90,10 +90,14 @@ and may be written in a record.
    supplier, concept, accounting account, base, VAT, total, period covered,
    project (`STD-036` LED-001). A yearly licence covers twelve months; a
    monthly service covers its month.
-3. Staff enter as one line per month for all staff together — gross pay,
-   the employer's social security and the headcount — from the gestoría's
-   payroll total. The ledger is public, so per-person figures never enter
-   it; they stay with the company and the gestoría (`STD-036` LED-006).
+3. People enter all together, at employer cost and never net pay: one line
+   a month with three or more people, one block a quarter with fewer —
+   payroll, freelancers and the director's invoices together — from the
+   gestoría's payroll total. The ledger is public, so per-person figures
+   never enter it; they stay with the company and the gestoría (`STD-036`
+   LED-006).
+4. Each quarter's taxes are estimated from the lines and shown as estimates
+   until the gestoría files the returns (`STD-036` LED-009).
 
 ### What each reader sees
 

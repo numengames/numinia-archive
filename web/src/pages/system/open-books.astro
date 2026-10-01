@@ -24,28 +24,74 @@
 // it and the partners have not yet agreed to. It enters from the deeds.
 import Layout from "@/layouts/Layout.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
-import { bookLines, BOOK_CATEGORIES, BOOK_YEARS } from "@/lib/books";
+import { bookLines, bookLines2026, payrollLines, payrollQuarters, saleLines, BOOK_CATEGORIES } from "@/lib/books";
+import { TAX_KINDS, VAT_RESULTS, CALENDAR, VAT_2024_ESTIMATE, CORPORATE, type VatResult } from "@/data/tax";
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
 import { ROUNDS, CLIENTS, CASH, PLAN, GLOSSARY, MONEY_IN_TOTAL } from "@/data/money";
-import payrollRaw from "@/data/payroll.csv?raw";
 import { repoFileUrl } from "@/lib/build-info";
 
-const lines = bookLines().map((l) => ({ d: l.date, a: l.period_from, b: l.period_to, c: l.category, w: l.supplier, n: Number(l.base), h: Number(l.headcount || 0) }));
-const TOTAL = lines.reduce((s, l) => s + l.n, 0);
+type AnyLine = ReturnType<typeof bookLines>[number] & { kind?: string; withholding?: string };
+const lines = ([...bookLines(), ...bookLines2026(), ...payrollLines()] as AnyLine[]).map((l) => ({ d: l.date, a: l.period_from, b: l.period_to, c: l.category, w: l.supplier, n: Number(l.base), h: Number(l.headcount || 0), bl: l.billing, k: l.kind || "real" }));
+const lines25 = lines.filter((l) => l.d.startsWith("2025"));
+const TOTAL = lines25.reduce((s, l) => s + l.n, 0);
+const q3 = lines.filter((l) => l.d >= "2026-07-01" && l.d <= "2026-09-30");
+const MONTH_NOW = q3.reduce((s, l) => s + l.n, 0) / 3;
+const payQ = payrollQuarters();
+const payNow = Number(payQ[payQ.length - 1].employer_cost) / 3;
+const YEARS = [
+  { year: "2024", from: "2024-02-16", to: "2024-12-31", label: "2024, from 16 Feb", note: "payroll only: the 2024 invoice book is not loaded yet" },
+  { year: "2025", from: "2025-01-01", to: "2025-12-31", label: "2025", note: "the whole invoice book and payroll" },
+  { year: "2026", from: "2026-01-01", to: "2026-09-30", label: "2026, to 30 Sep", note: "payroll all year; invoices from July only" },
+];
+
+// Taxes, computed from the lines (STD-036 LED-009): VAT quarter by quarter,
+// withholding and social security from payroll, the company's losses.
+const sales = saleLines();
+const qOf = (d: string) => `${d.slice(0, 4)}-Q${Math.floor((Number(d.slice(5, 7)) - 1) / 3) + 1}`;
+const QS = ["2024", "2025", "2026"].flatMap((y) => [1, 2, 3, 4].map((q) => `${y}-Q${q}`));
+const add = (o: Record<string, number>, k: string, v: number) => (o[k] = (o[k] ?? 0) + v);
+const vIn: Record<string, number> = {}, vOut: Record<string, number> = {}, vRc: Record<string, number> = {}, wh: Record<string, number> = {}, ss: Record<string, number> = {};
+for (const l of [...bookLines(), ...bookLines2026()] as AnyLine[]) {
+  const q = qOf(l.date);
+  if (l.vat === "21") add(vIn, q, Number(l.base) * 0.21);
+  if (l.vat === "ISP") add(vRc, q, Number(l.base) * 0.21);
+  if (Number(l.withholding || 0)) add(wh, q, Number(l.withholding));
+}
+for (const x of sales) if (x.vat === "21") add(vOut, qOf(x.date), Number(x.base) * 0.21);
+for (const p of payQ) { add(wh, p.quarter, Number(p.income_tax)); add(ss, p.quarter, Number(p.social_security)); }
+const share24: Record<string, number> = { "2024-Q1": 1.5, "2024-Q2": 3, "2024-Q3": 3, "2024-Q4": 3 };
+for (const q in share24) vIn[q] = (VAT_2024_ESTIMATE.inputVat * share24[q]) / 10.5;
+for (const q of ["2026-Q1", "2026-Q2", "2026-Q4"]) vIn[q] = vIn["2026-Q3"];
+const kindOf = (q: string) => (q.startsWith("2024") || q === "2026-Q1" || q === "2026-Q2" ? "simulated" : q === "2026-Q4" ? "projected" : "estimate");
+let credit = 0;
+const VAT_Q = QS.map((q) => {
+  const out = vOut[q] ?? 0, inp = vIn[q] ?? 0, before = credit, net = out - inp - before;
+  let result: VatResult, amount: number;
+  if (net > 0) { result = "to pay"; amount = net; credit = 0; }
+  else if (q.endsWith("Q4")) { result = "to refund"; amount = -net; credit = 0; }
+  else { result = "to offset"; amount = -net; credit = -net; }
+  return { q, out, inp, rc: vRc[q] ?? 0, before, result, amount, kind: kindOf(q), wh: wh[q] ?? 0, ss: ss[q] ?? 0 };
+});
+const VAT_YEARS = ["2024", "2025", "2026"].map((y) => {
+  const r = VAT_Q.filter((x) => x.q.startsWith(y));
+  return { y, out: r.reduce((s, x) => s + x.out, 0), inp: r.reduce((s, x) => s + x.inp, 0), paid: r.filter((x) => x.result === "to pay").reduce((s, x) => s + x.amount, 0), refund: r.find((x) => x.result === "to refund")?.amount ?? 0, wh: r.reduce((s, x) => s + x.wh, 0), ss: r.reduce((s, x) => s + x.ss, 0), kind: y === "2025" ? "estimate" : "simulated" };
+});
+const creditNow = VAT_Q.find((x) => x.q === "2026-Q3")!.amount;
+const sales25 = sales.filter((x) => x.date.startsWith("2025")).reduce((s, x) => s + Number(x.base), 0);
+const loss25 = TOTAL - sales25;
+const loss24floor = lines.filter((l) => l.d.startsWith("2024")).reduce((s, l) => s + l.n, 0) - sales.filter((x) => x.date.startsWith("2024")).reduce((s, x) => s + Number(x.base), 0);
+const TAX = { calendar: CALENDAR, creditNow, refund25: VAT_YEARS[1].refund };
 const byCat: Record<string, number> = {};
-for (const l of lines) byCat[l.c] = (byCat[l.c] ?? 0) + l.n;
+for (const l of lines25) byCat[l.c] = (byCat[l.c] ?? 0) + l.n;
 const cats = Object.keys(BOOK_CATEGORIES).filter((c) => byCat[c]).sort((a, b) => byCat[b] - byCat[a]);
 const eur = (n: number, d = 0) => n.toLocaleString("en-GB", { minimumFractionDigits: d, maximumFractionDigits: d }) + " €";
 const date = (s: string) => new Date(s + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
 let capRun = 0;
 const capSteps = CAPITAL_STEPS.map((s) => ({ ...s, after: (capRun += s.increase) }));
-const payroll = payrollRaw.trim().split("\n").slice(1).map((l) => { const [m, h, g, ss] = l.split(";"); return { m, h: Number(h), g: Number(g), ss: Number(ss) }; });
-const pay25 = payroll.filter((p) => p.m.startsWith("2025")).reduce((s, p) => s + p.g + p.ss, 0);
-const payNow = payroll[payroll.length - 1];
 const partners = 3000 + ROUNDS.reduce((s, r) => s + r.amount, 0);
 const clientsIn = CLIENTS.reduce((s, c) => s + c.amount, 0);
-const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: BOOK_YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
+const DATA = { moneyIn: MONEY_IN_TOTAL, payNow, monthNow: MONTH_NOW, tax: TAX, cash: CASH, plan: PLAN, clientsIn, lines, cats: BOOK_CATEGORIES, years: YEARS, total: TOTAL, capital: COMPANY.capital, enisaQuarter: ENISA.interest[ENISA.interest.length - 1].amount, principal: ENISA.principal };
 ---
 
 <Layout
@@ -62,11 +108,11 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
       <h1>The books of Numen Games S.L., since the day it was born.</h1>
       <p class="ob-lead">From {date(COMPANY.incorporated)}, the day the company was incorporated. What it costs to run, who governs it, where the money came from and how long it lasts. Every figure says whether it is real or a simulation you can move.</p>
       <div class="ob-badges">
-       <span class="ob-badge ob-real">real — the FY2025 invoice book, the Mercantile Registry, ENISA's loan register</span>
+       <span class="ob-badge ob-real">real — the FY2025 invoice book, Q3 2026 invoices, payroll, the Mercantile Registry, ENISA's loan register</span>
        <span class="ob-badge ob-decl">declared — said by the company, its document still to load: the rounds, the client income</span>
        <span class="ob-badge ob-plan">plan — the business plan: what the company intends</span>
        <span class="ob-badge ob-sim">simulated — cash in the bank, payroll, income, to try scenarios</span>
-       <span class="ob-badge">not loaded yet — FY2024 (from 16 Feb), FY2026 invoices, the bank balance</span>
+       <span class="ob-badge">not loaded yet — the 2024 invoice book, January–June 2026 invoices, the bank balance, the filed tax returns</span>
       </div>
       <div class="ob-toolbar"><DocToolbar mdUrl="/system/open-books.md" filename="numen-games-open-books.md" repoUrl={repoFileUrl("web/src/data/ledger-2025.csv")} lang="en" /></div>
      </div>
@@ -96,6 +142,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
      <button type="button" class="ob-room" role="tab" data-room="funding" aria-selected="false">Funding <small>loans · capital · grants</small></button>
      <button type="button" class="ob-room" role="tab" data-room="clients" aria-selected="false">Clients &amp; tenders</button>
      <button type="button" class="ob-room" role="tab" data-room="cash" aria-selected="false">Cash &amp; runway</button>
+     <button type="button" class="ob-room" role="tab" data-room="tax" aria-selected="false">Taxes</button>
      <button type="button" class="ob-room" role="tab" data-room="plan" aria-selected="false">Business plan</button>
      <button type="button" class="ob-room" role="tab" data-room="lines" aria-selected="false">Every line</button>
     </nav>
@@ -106,6 +153,8 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
       <p class="ob-sub">Each cost is spread over the time it pays for: a monthly service over its month, the loan's interest over its quarter, a yearly licence over its year, a one-off purchase on its day. Hover or tap a bar to see what it is made of.</p>
       <div class="ob-box">
        <div class="ob-ctrl">
+        <span class="ob-k">Year</span>
+        <div class="ob-seg" id="ob-year"><button type="button" data-v="2024">2024</button><button type="button" data-v="2025" aria-pressed="true">2025</button><button type="button" data-v="2026">2026</button></div>
         <span class="ob-k">Period</span>
         <div class="ob-seg" id="ob-gran"><button type="button" data-v="day">Day</button><button type="button" data-v="week">Week</button><button type="button" data-v="month" aria-pressed="true">Month</button><button type="button" data-v="quarter">Quarter</button><button type="button" data-v="year">Year</button></div>
         <span class="ob-k">Chart</span>
@@ -121,7 +170,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
      <div class="ob-sec ob-grid2">
       <div>
        <h3>Where it goes</h3>
-       <p class="ob-sub">FY2025, net of VAT, by what it pays for.</p>
+       <p class="ob-sub">FY2025, net of VAT, by what it pays for, payroll included at employer cost.</p>
        <div class="ob-box"><table class="ob-t">
         <thead><tr><th>What</th><th class="ob-n">FY2025</th><th class="ob-n">Share</th></tr></thead>
         <tbody>{cats.map((c) => <tr><td><i class="ob-sw" style={`background:${BOOK_CATEGORIES[c].color}`}></i>{BOOK_CATEGORIES[c].label}</td><td class="ob-n">{eur(byCat[c])}</td><td class="ob-n">{(byCat[c] / TOTAL * 100).toFixed(1)}%</td></tr>)}</tbody>
@@ -130,7 +179,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
       </div>
       <div>
        <h3>What we pay for now</h3>
-       <p class="ob-sub">Services billed every month, at their last month's rate. Each supplier's card: <a href="/system/sys-012-suppliers">SYS-012</a>.</p>
+       <p class="ob-sub">Services still billed every month, at their last month's rate; LiveKit, Cursor and the old gestoría were cancelled in 2026, and Microsoft is to be retired around April 2027. Each supplier's card: <a href="/system/sys-012-suppliers">SYS-012</a>.</p>
        <div class="ob-box"><table class="ob-t" id="ob-now"></table></div>
       </div>
      </div>
@@ -238,7 +287,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
         <tbody>{CLIENTS.map((c) => <tr><td>{c.sector}</td><td>{c.what} <span class="ob-dim">· {c.invoices}</span></td><td class="ob-n">≈ {eur(c.amount)} <span class="ob-pill ob-pill--decl">declared</span></td></tr>)}</tbody>
         <tfoot><tr><td colspan="2">Since 2024</td><td class="ob-n">≈ {eur(clientsIn)}</td></tr></tfoot>
        </table>
-       <p class="ob-note">One client so far. Against a monthly cost of about {eur(DATA.total / 12 + pay25 / 12)} that is roughly six weeks of running. Each client appears by sector until it agrees to be named; the invoices enter from the issued-invoices book.</p></div>
+       <p class="ob-note">Everything invoiced since 2024. In 2025 the company cost about {eur(TOTAL / 12)} a month, payroll included: all its income would have paid for about {(DATA.clientsIn / (TOTAL / 12)).toFixed(1)} months. Each client appears by sector until it agrees to be named. The US invoices were in dollars, converted at the European Central Bank's rate of each invoice's date; the bank statement will give the rate actually received.</p></div>
       </div>
       <div>
        <h3>Tenders</h3>
@@ -263,7 +312,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
      </div>
      <div class="ob-sec">
       <h3>How long the money lasts</h3>
-      <p class="ob-sub">Three ways to run the company from here, each with its monthly cost from the FY2025 book and how long the cash would last. The bank balance is not loaded yet: move it, and the income, to see how the answer changes. Payroll is simulated too, until the payslips are loaded.</p>
+      <p class="ob-sub">Three ways to run the company from here, each with its monthly cost from the last closed quarter (July–September 2026) and how long the cash would last. The bank balance is not loaded yet: move it, and the income, to see how the answer changes.</p>
       <div class="ob-box ob-sliders">
        <label>Cash in the bank <input type="range" id="ob-cash" min="0" max="150000" step="500" value="8000" /> <b id="ob-cashv"></b></label>
        <label>Income a month <input type="range" id="ob-inc" min="0" max="20000" step="250" value="0" /> <b id="ob-incv"></b></label>
@@ -274,7 +323,7 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
      <div class="ob-sec ob-grid2">
       <div>
        <h3>Cash, month by month</h3>
-       <p class="ob-sub">Cash at the end of each month for the next two years if the company keeps running as in 2025. Where the line crosses zero, it stops.</p>
+       <p class="ob-sub">Cash at the end of each month for the next two years if the company keeps running as in July–September 2026. Where the line crosses zero, it stops.</p>
        <div class="ob-box"><div class="ob-chart" id="ob-tomb"></div></div>
       </div>
       <div>
@@ -282,6 +331,70 @@ const DATA = { moneyIn: MONEY_IN_TOTAL, payroll, payNow: payNow.g + payNow.ss, c
        <p class="ob-sub">Winding up a Spanish S.L. is not free, and the loan does not disappear with it.</p>
        <div class="ob-box"><table class="ob-t" id="ob-close"></table><p class="ob-note">Estimates for a company this size, not quotes. A participative loan ranks after ordinary creditors, but it is still owed; the figure assumes no principal repaid yet. The gestoría and the contract give the exact numbers.</p></div>
       </div>
+     </div>
+    </section>
+
+    <section class="ob-panel" id="ob-p-tax" role="tabpanel">
+     <div class="ob-sec">
+      <h3>Taxes, explained from zero</h3>
+      <p class="ob-sub">A company does not pay one tax: it pays some, collects others for Hacienda, and is owed some back. Every figure in this room is computed from the lines of the books and is an <b>estimate</b> until the gestoría's filed returns are loaded. This is not tax advice; the gestoría files and decides.</p>
+      <div class="ob-box ob-count ob-taxcount" id="ob-taxcount" aria-live="off">
+       <div><span class="ob-k">Next filing</span><div class="ob-nm" id="ob-tnext">—</div><div class="ob-clock ob-clock--tax" id="ob-tclock">—</div><div class="ob-dim" id="ob-tdue"></div></div>
+       <div class="ob-tgrid">
+        <div><span class="ob-k">To pay at that filing <span class="ob-pill ob-pill--sim">estimate</span></span><div class="ob-tpay" id="ob-tpay">—</div></div>
+        <div><span class="ob-k">VAT Hacienda owes us now <span class="ob-pill ob-pill--sim">estimate</span></span><div class="ob-cnum ob-pos">{eur(creditNow)}</div></div>
+       </div>
+      </div>
+     </div>
+     <div class="ob-sec">
+      <h3>The five kinds of tax that touch the company</h3>
+      <p class="ob-sub">What each one is, who really pays it, how often, and what it means for us.</p>
+      <div class="ob-taxkinds">{TAX_KINDS.map((t) => <div class="ob-box ob-tk"><span class="ob-k">{t.spanish} · every {t.every}</span><h4>{t.name}</h4><p>{t.plain}</p><p><b>Who really pays it.</b> {t.whoPays}</p><p><b>For us.</b> {t.ours}</p><p class="ob-dim">Form: {t.form}</p></div>)}</div>
+     </div>
+     <div class="ob-sec">
+      <h3>VAT: the three ways a quarter can end</h3>
+      <p class="ob-sub">Every quarter the company adds up the VAT it charged its clients and the VAT its suppliers charged it, and files the difference on form 303. The difference ends in one of three ways, with the words of Hacienda's own form.</p>
+      <div class="ob-grid3">{(Object.keys(VAT_RESULTS) as VatResult[]).map((k) => <div class="ob-box"><span class={`ob-pill ob-res ob-res--${k.replace(" ", "-")}`}>{VAT_RESULTS[k].label}</span><p class="ob-tkp">{VAT_RESULTS[k].plain}</p></div>)}</div>
+      <p class="ob-why">Why Hacienda owes us money: our one large client is a city in the United States, and a service sold outside the European Union carries no Spanish VAT. So almost no VAT came in, while every Spanish supplier charged us 21%. Foreign suppliers that do not charge VAT (reverse charge) change nothing: the company declares their VAT and deducts it in the same return, so it nets to zero.</p>
+     </div>
+     <div class="ob-sec">
+      <h3>VAT quarter by quarter</h3>
+      <p class="ob-sub">VAT charged to clients, VAT paid to suppliers, the credit carried from earlier quarters, and the result. In the fourth quarter a credit can be asked back in cash instead of carried on.</p>
+      <div class="ob-box"><div class="ob-xs"><table class="ob-t">
+       <thead><tr><th>Quarter</th><th class="ob-n">Charged</th><th class="ob-n">Paid to suppliers</th><th class="ob-n">Carried in</th><th>Result</th><th class="ob-n">Amount</th><th>Kind</th></tr></thead>
+       <tbody>{VAT_Q.map((x) => <tr><td class="ob-mono">{x.q}</td><td class="ob-n">{eur(x.out)}</td><td class="ob-n">{eur(x.inp)}</td><td class="ob-n">{x.before ? eur(x.before) : "—"}</td><td><span class={`ob-pill ob-res ob-res--${x.result.replace(" ", "-")}`}>{VAT_RESULTS[x.result].label}</span></td><td class="ob-n">{eur(x.amount)}</td><td><span class={`ob-pill ${x.kind === "estimate" ? "ob-pill--real" : "ob-pill--sim"}`}>{x.kind === "estimate" ? "from the book" : x.kind}</span></td></tr>)}</tbody>
+      </table></div>
+      <p class="ob-note"><span class="ob-pill ob-pill--real">from the book</span> computed from real invoice lines, not yet checked against the filed return. <span class="ob-pill ob-pill--sim">simulated</span> 2024 and January–June 2026, whose invoice books are not loaded: {VAT_2024_ESTIMATE.why} January–June 2026 repeats July–September. <span class="ob-pill ob-pill--sim">projected</span> the quarter still running.</p></div>
+     </div>
+     <div class="ob-sec ob-grid2">
+      <div>
+       <h3>Year by year</h3>
+       <p class="ob-sub">What the company handed over and what it can ask back, by year.</p>
+       <div class="ob-box"><div class="ob-xs"><table class="ob-t">
+        <thead><tr><th>Year</th><th class="ob-n">VAT paid</th><th class="ob-n">VAT to ask back</th><th class="ob-n">Income tax withheld</th><th class="ob-n">Social security</th></tr></thead>
+        <tbody>{VAT_YEARS.map((y) => <tr><td>{y.y} <span class={`ob-pill ${y.kind === "estimate" ? "ob-pill--real" : "ob-pill--sim"}`}>{y.kind === "estimate" ? "from the book" : "simulated"}</span></td><td class="ob-n">{eur(y.paid)}</td><td class="ob-n ob-pos">{eur(y.refund)}</td><td class="ob-n">{eur(y.wh)}</td><td class="ob-n">{eur(y.ss)}</td></tr>)}</tbody>
+       </table></div>
+       <p class="ob-note">The refund is asked for in the fourth quarter's return, filed in January, and Hacienda has six months to pay it. Whether the 2024 and 2025 refunds were asked for and paid is in those returns, not loaded yet. Income tax withheld is from payroll and, from July 2026, from professionals' invoices; the 2025 freelancers' withholding is in the gestoría's books.</p></div>
+      </div>
+      <div>
+       <h3>Corporate tax and the losses kept</h3>
+       <p class="ob-sub">The company's own income tax is paid on profit. So far there has been none.</p>
+       <div class="ob-box"><table class="ob-t"><tbody>
+        <tr><td>Loss, 2025 <span class="ob-pill ob-pill--real">from the book</span></td><td class="ob-n ob-neg">−{eur(loss25)}</td></tr>
+        <tr><td>Loss, 2024 <span class="ob-pill ob-pill--sim">at least</span></td><td class="ob-n ob-neg">−{eur(loss24floor)}</td></tr>
+        <tr><td>Corporate tax paid</td><td class="ob-n">0 €</td></tr>
+        <tr><td>Tax those losses will save, at {CORPORATE.rate * 100}%</td><td class="ob-n ob-pos">{eur((loss25 + loss24floor) * CORPORATE.rate)}</td></tr>
+       </tbody></table>
+       <p class="ob-note">Losses are not lost: they are kept and subtracted from future profits, so the first profitable years pay less or nothing. {CORPORATE.note} The 2024 loss counts only payroll until the 2024 book is loaded. The loan's interest is a deductible financial expense, already inside the loss.</p></div>
+      </div>
+     </div>
+     <div class="ob-sec">
+      <h3>The calendar</h3>
+      <p class="ob-sub">Every filing of the next twelve months. A deadline that falls on a weekend moves to the next working day.</p>
+      <div class="ob-box"><div class="ob-xs"><table class="ob-t" id="ob-tcal">
+       <thead><tr><th>By</th><th>What</th><th>Form</th><th class="ob-n">Estimate</th></tr></thead>
+       <tbody>{CALENDAR.map((c) => <tr data-due={c.due}><td class="ob-mono">{c.due}</td><td>{c.what}</td><td class="ob-mono">{c.form}</td><td class="ob-n">{c.estimate}</td></tr>)}</tbody>
+      </table></div></div>
      </div>
     </section>
 
@@ -468,6 +581,20 @@ table.ob-t{border-collapse:collapse;width:100%;font-size:.84rem;color:rgb(var(--
 .ob-clock{font:500 clamp(1.4rem,4.4vw,2.6rem)/1.1 var(--font-mono);color:rgb(var(--red));font-variant-numeric:tabular-nums;margin:6px 0 4px}
 .ob-clock small{font-size:.45em;color:rgb(var(--text-dim));margin:0 .5em 0 .15em}
 .ob-xs{overflow-x:auto}
+.ob-taxcount{grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);border-color:rgb(var(--accent)/.45)}
+@media(max-width:720px){.ob-taxcount{grid-template-columns:1fr}}
+.ob-clock--tax{color:rgb(var(--accent))}
+.ob-tgrid{display:grid;gap:14px}
+.ob-tpay{margin-top:8px;display:grid;gap:6px}.ob-tpay div{display:flex;justify-content:space-between;gap:12px;font-size:.9rem;color:rgb(var(--text-muted));border-bottom:1px dashed rgb(var(--border));padding-bottom:4px}.ob-tpay b{font:500 1.05rem var(--font-mono);color:rgb(var(--text))}
+.ob-taxkinds{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.ob-tk h4{margin:4px 0 6px;font-family:var(--font-display);font-size:1.1rem;color:rgb(var(--text))}
+.ob-tk p,.ob-tkp{margin:0 0 8px;font-size:.84rem;line-height:1.55;color:rgb(var(--text-muted))}
+.ob-tk p b{color:rgb(var(--text));font-weight:500}
+.ob-res--to-pay{border-color:rgb(var(--red)/.5);color:rgb(var(--red))}
+.ob-res--to-offset{border-color:rgb(var(--blue)/.5);color:rgb(var(--blue))}
+.ob-res--to-refund{border-color:rgb(var(--green)/.5);color:rgb(var(--green))}
+#ob-tcal tr.ob-next td{background:rgb(var(--accent)/.1)}
+#ob-tcal tr.ob-past td{opacity:.45}
 .ob-vision{margin:0;font-size:1rem;line-height:1.65;color:rgb(var(--text))}
 .ob-gl{display:grid;grid-template-columns:150px minmax(0,1fr);gap:8px 14px;margin:0;font-size:.84rem}
 @media(max-width:640px){.ob-gl{grid-template-columns:1fr}}
@@ -534,16 +661,16 @@ const L = D.lines, CATS = D.cats, ORDER = Object.keys(CATS);
 const $ = (s) => document.querySelector(s), $$ = (s) => [...document.querySelectorAll(s)];
 const eur = (v, d = 0) => v.toLocaleString('en-GB', { minimumFractionDigits: d, maximumFractionDigits: d }) + ' €';
 const DAY = 864e5, T = (s) => Date.parse(s + 'T00:00:00Z'), iso = (ms) => new Date(ms).toISOString().slice(0, 10);
-const Y0 = T('2025-01-01'), Y1 = T('2025-12-31');
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const off = new Set();
-const state = { g: 'month', kind: 'bars', mode: 'use' };
+const state = { g: 'month', kind: 'bars', mode: 'use', y: '2025' };
+const YR = (y) => D.years.find((x) => x.year === y);
 
-// One row per day of FY2025: consumed (spread over period_from..period_to) or billed (on its date).
-const days = []; for (let t = Y0; t <= Y1; t += DAY) days.push(t);
+// One row per day of the year: consumed (spread over period_from..period_to) or billed (on its date).
 const cache = {};
-function daily(mode) {
-  if (cache[mode]) return cache[mode];
+function daily(mode, y) {
+  const key = mode + y; if (cache[key]) return cache[key];
+  const Y0 = T(YR(y).from), Y1 = T(YR(y).to), days = []; for (let t = Y0; t <= Y1; t += DAY) days.push(t);
   const M = days.map((t) => ({ t, c: {}, w: {} }));
   for (const l of L) {
     let a = mode === 'bill' ? T(l.d) : T(l.a), b = mode === 'bill' ? T(l.d) : T(l.b);
@@ -551,25 +678,26 @@ function daily(mode) {
     a = Math.max(a, Y0); b = Math.min(b, Y1);
     for (let t = a; t <= b; t += DAY) { const r = M[Math.round((t - Y0) / DAY)]; r.c[l.c] = (r.c[l.c] || 0) + per; r.w[l.w] = (r.w[l.w] || 0) + per; }
   }
-  return (cache[mode] = M);
+  return (cache[key] = M);
 }
 function bucket(g, t) {
-  const d = new Date(t), m = d.getUTCMonth();
-  if (g === 'day') return [iso(t), `${d.getUTCDate()} ${MON[m]} 2025`, `${d.getUTCDate()} ${MON[m]}`];
+  const d = new Date(t), m = d.getUTCMonth(), yy = d.getUTCFullYear();
+  if (g === 'day') return [iso(t), `${d.getUTCDate()} ${MON[m]} ${yy}`, `${d.getUTCDate()} ${MON[m]}`];
   if (g === 'week') { const s = t - ((d.getUTCDay() + 6) % 7) * DAY, sd = new Date(s); return [iso(s), `week of ${sd.getUTCDate()} ${MON[sd.getUTCMonth()]}`, `${sd.getUTCDate()} ${MON[sd.getUTCMonth()]}`]; }
-  if (g === 'month') return [iso(t).slice(0, 7), `${MON[m]} 2025`, MON[m]];
-  if (g === 'quarter') { const q = Math.floor(m / 3) + 1; return ['Q' + q, `Q${q} 2025`, 'Q' + q]; }
-  return ['2025', 'FY2025', '2025'];
+  if (g === 'month') return [iso(t).slice(0, 7), `${MON[m]} ${yy}`, MON[m]];
+  if (g === 'quarter') { const q = Math.floor(m / 3) + 1; return ['Q' + q, `Q${q} ${yy}`, 'Q' + q]; }
+  return [String(yy), 'FY' + yy, String(yy)];
 }
 function series() {
   const out = new Map();
-  for (const r of daily(state.mode)) {
+  const src = state.g === 'year' ? D.years.flatMap((Y) => daily(state.mode, Y.year)) : daily(state.mode, state.y);
+  for (const r of src) {
     const [k, lab, ax] = bucket(state.g, r.t);
     let b = out.get(k); if (!b) out.set(k, (b = { k, lab, ax, c: {}, w: {}, n: 0 }));
     b.n++; for (const c in r.c) b.c[c] = (b.c[c] || 0) + r.c[c]; for (const w in r.w) b.w[w] = (b.w[w] || 0) + r.w[w];
   }
   let arr = [...out.values()];
-  if (state.g === 'year') arr = D.years.map((y) => (y.loaded ? arr[0] : { k: y.year, lab: y.year === '2024' ? '2024, from 16 Feb' : y.year, ax: y.year, c: {}, w: {}, n: 0, empty: true }));
+  if (state.g === 'year') arr.forEach((b) => { const Y = YR(b.k); b.lab = Y.label + ' · ' + Y.note; });
   for (const b of arr) b.t = ORDER.filter((c) => !off.has(c)).reduce((s, c) => s + (b.c[c] || 0), 0);
   return arr;
 }
@@ -602,12 +730,12 @@ function draw() {
   const act = ORDER.filter((c) => !off.has(c)), real = S.filter((b) => !b.empty);
   const total = real.reduce((s, b) => s + b.t, 0), peak = real.reduce((m, b) => (b.t > m.t ? b : m), real[0]);
   const unit = state.g;
-  $('#ob-readout').innerHTML = `FY2025, ${state.mode === 'use' ? 'consumed' : 'billed'}: <b>${eur(total)}</b>` + (real.length > 1 ? ` · average <b>${eur(total / real.length, unit === 'day' ? 2 : 0)}</b> a ${unit} · highest <b>${peak.lab}</b>, ${eur(peak.t)}` : '');
+  $('#ob-readout').innerHTML = (state.g === 'year' ? 'Every year' : `${YR(state.y).label} (${YR(state.y).note})`) + `, ${state.mode === 'use' ? 'consumed' : 'billed'}: <b>${eur(total)}</b>` + (real.length > 1 ? ` · average <b>${eur(total / real.length, unit === 'day' ? 2 : 0)}</b> a ${unit} · highest <b>${peak.lab}</b>, ${eur(peak.t)}` : '');
   if (state.kind === 'tree') { el.innerHTML = tree(S, W, H); legend(); return; }
   const n = S.length, cw = (W - pl - pr) / n, bw = Math.max(1, cw * (n > 60 ? 0.9 : 0.66));
   const max = state.kind === 'share' ? 1 : Math.max(...S.map((b) => (state.kind === 'lines' ? Math.max(0, ...act.map((c) => b.c[c] || 0)) : b.t))) * 1.08 || 1;
   const y = (v) => pt + (H - pt - pb) * (1 - v / max);
-  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Spending in FY2025, by ${unit}">`;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Spending in ${state.y}, by ${unit}">`;
   for (let i = 0; i <= 4; i++) { const v = (max * i) / 4; s += `<line class="ob-grid" x1="${pl}" x2="${W - pr}" y1="${y(v)}" y2="${y(v)}" stroke-width="${i ? 0.5 : 1}"/><text class="ob-ax" x="${pl - 8}" y="${y(v) + 4}" text-anchor="end">${state.kind === 'share' ? Math.round(v * 100) + '%' : v >= 1000 ? (v / 1000).toFixed(v >= 10000 ? 0 : 1) + 'k' : Math.round(v)}</text>`; }
   if (state.kind === 'lines') for (const c of act) s += `<polyline points="${S.map((b, i) => `${pl + i * cw + cw / 2},${y(b.c[c] || 0)}`).join(' ')}" fill="none" stroke="${CATS[c].color}" stroke-width="1.8" stroke-linejoin="round"/>`;
   const every = n > 40 ? Math.ceil(n / 12) : 1;
@@ -626,10 +754,10 @@ function tree(S, W, H) {
   const tot = {}; for (const b of S) for (const c in b.c) if (!off.has(c)) tot[c] = (tot[c] || 0) + b.c[c];
   const items = Object.entries(tot).filter((x) => x[1] > 0).sort((a, b) => b[1] - a[1]), sum = items.reduce((s, x) => s + x[1], 0) || 1;
   const rows = [items.slice(0, 3), items.slice(3)].filter((r) => r.length), rs = rows.map((r) => r.reduce((a, b) => a + b[1], 0));
-  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Spending in FY2025, as a map of categories">`, y = 0;
+  let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Spending in ${state.y}, as a map of categories">`, y = 0;
   rows.forEach((r, ri) => { const h = (H * rs[ri]) / sum; let x = 0; r.forEach(([c, v]) => { const w = (W * v) / rs[ri];
     s += `<g class="ob-tm" data-c="${c}" style="cursor:crosshair"><rect x="${x + 1}" y="${y + 1}" width="${Math.max(0, w - 2)}" height="${Math.max(0, h - 2)}" rx="6" fill="${CATS[c].color}" opacity=".88"/>` + (w > 110 && h > 44 ? `<text x="${x + 12}" y="${y + 24}" font-size="13" fill="#141110" font-weight="600">${CATS[c].label}</text><text x="${x + 12}" y="${y + 42}" font-size="12" fill="#141110">${eur(v)} · ${((v / sum) * 100).toFixed(0)}%</text>` : '') + '</g>'; x += w; }); y += h; });
-  setTimeout(() => $$('.ob-tm').forEach((g) => { const c = g.dataset.c, w = {}; for (const l of L) if (l.c === c) w[l.w] = (w[l.w] || 0) + l.n; bindTip(g, { lab: CATS[c].label + ' · FY2025', t: tot[c], n: 365, c: { [c]: tot[c] }, w }); }));
+  setTimeout(() => $$('.ob-tm').forEach((g) => { const c = g.dataset.c, w = {}; for (const l of L) if (l.c === c && l.d.startsWith(state.y)) w[l.w] = (w[l.w] || 0) + l.n; bindTip(g, { lab: CATS[c].label + ' · ' + state.y, t: tot[c], n: S.reduce((s, b) => s + b.n, 0), c: { [c]: tot[c] }, w }); }));
   return s + '</svg>';
 }
 function legend() {
@@ -637,20 +765,21 @@ function legend() {
   $$('#ob-legend button').forEach((b) => (b.onclick = () => { const c = b.dataset.c; off.has(c) ? off.delete(c) : off.add(c); hide(); draw(); }));
 }
 function seg(id, key, fn) { $$(`#${id} button`).forEach((b) => (b.onclick = () => { $$(`#${id} button`).forEach((x) => x.setAttribute('aria-pressed', 'false')); b.setAttribute('aria-pressed', 'true'); state[key] = b.dataset.v; hide(); fn(); })); }
-seg('ob-gran', 'g', draw); seg('ob-kind', 'kind', draw); seg('ob-mode', 'mode', draw);
+seg('ob-year', 'y', draw); seg('ob-gran', 'g', draw); seg('ob-kind', 'kind', draw); seg('ob-mode', 'mode', draw);
 
-// What we pay for now: monthly services still billed in Oct–Dec, at their last month.
+// What we pay for now: monthly services still billed in August or September 2026, at their last month.
 const rec = {};
-for (const l of L) if (l.a.slice(0, 7) === l.b.slice(0, 7) && l.a.endsWith('-01') && !['people', 'counsel'].includes(l.c)) { const m = l.a.slice(0, 7); (rec[l.w] = rec[l.w] || {})[m] = (rec[l.w][m] || 0) + l.n; }
-const now = Object.entries(rec).map(([w, ms]) => { const last = Object.keys(ms).sort().pop(); return [w, ms[last], last]; }).filter((r) => r[2] >= '2025-10').sort((a, b) => b[1] - a[1]);
+for (const l of L) if (l.bl === 'month' && !['people', 'counsel', 'payroll'].includes(l.c)) { const m = l.a.slice(0, 7); (rec[l.w] = rec[l.w] || {})[m] = (rec[l.w][m] || 0) + l.n; }
+const now = Object.entries(rec).map(([w, ms]) => { const last = Object.keys(ms).sort().pop(); return [w, ms[last], last]; }).filter((r) => r[2] >= '2026-08').sort((a, b) => b[1] - a[1]);
 const nowSum = now.reduce((s, r) => s + r[1], 0);
 $('#ob-now').innerHTML = '<thead><tr><th>Service</th><th class="ob-n">A month</th><th class="ob-n">A year</th></tr></thead><tbody>' + now.map(([w, v]) => `<tr><td>${w}</td><td class="ob-n">${eur(v)}</td><td class="ob-n">${eur(v * 12)}</td></tr>`).join('') + `</tbody><tfoot><tr><td>Together</td><td class="ob-n">${eur(nowSum)}</td><td class="ob-n">${eur(nowSum * 12)}</td></tr></tfoot>`;
 
 // Cash and runway.
-const byCat = {}; for (const l of L) byCat[l.c] = (byCat[l.c] || 0) + l.n;
-const payNow = D.payNow; // simulated: today's payroll, all staff together
-const burn = D.total / 12 + payNow;
-const lean = burn - payNow - ['people', 'counsel', 'studios', 'events', 'hardware'].reduce((s, c) => s + (byCat[c] || 0), 0) / 12;
+const byCat = {}; for (const l of L) if (l.d.startsWith('2025')) byCat[l.c] = (byCat[l.c] || 0) + l.n;
+const q3 = {}; for (const l of L) if (l.d >= '2026-07-01' && l.d <= '2026-09-30') q3[l.c] = (q3[l.c] || 0) + l.n / 3;
+const payNow = D.payNow; // payroll, all staff together, a month of the last quarter
+const burn = D.monthNow;
+const lean = burn - ['payroll', 'people', 'counsel', 'studios', 'events', 'hardware'].reduce((s, c) => s + (q3[c] || 0), 0);
 const ASLEEP = [['Gestoría, minimum fee', 50], ['Loan interest', D.enisaQuarter / 3], ['Registry and annual accounts filing', 10], ['Bank, domain and mail', 25], ['Password vault and signature', 15]];
 const dorm = ASLEEP.reduce((s, x) => s + x[1], 0);
 const CLOSE = [['Notary and registry: dissolution, liquidation, cancellation', 1500], ['Gestoría: final accounts and returns', 1800], ['Legal counsel', 1500], ['ENISA: principal still owed', D.principal]];
@@ -659,7 +788,7 @@ const lasts = (m) => (m === Infinity ? 'indefinitely' : m > 120 ? 'ten years or 
 function runway() {
   const cash = +$('#ob-cash').value, inc = +$('#ob-inc').value;
   $('#ob-cashv').textContent = eur(cash); $('#ob-incv').textContent = eur(inc);
-  const sc = [['Keep running', burn, 'as in 2025, plus today\'s payroll (simulated)', ['Payroll: one person, ' + eur(payNow) + ' with social security', 'Contractors and counsel stay', 'Every service stays']],
+  const sc = [['Keep running', burn, 'as in July–September 2026', ['Payroll at employer cost: ' + eur(payNow), 'People who invoice: ' + eur(q3.people || 0), 'Services, advisory and events: ' + eur(burn - payNow - (q3.people || 0))]],
     ['Lean', lean, 'services and the loan only', ['Payroll, contractors, counsel and studios paused', 'Cloud, AI and software stay', 'The loan keeps costing']],
     ['Asleep', dorm, 'a dormant company that still exists', ASLEEP.map(([k, v]) => `${k}: ${eur(v)}`)]];
   $('#ob-scen').innerHTML = sc.map(([h, c, sub, li], i) => { const net = c - inc, m = net <= 0 ? Infinity : cash / net; return `<div class="ob-sc ${i === 0 ? 'hi' : ''}"><span class="ob-k">${h}</span><div class="v">${eur(c)} <small>/ month</small></div><div style="font-size:.82rem;color:rgb(var(--text-muted))">${sub}</div><div>Lasts <b style="font-family:var(--font-mono)">${lasts(m)}</b></div><ul>${li.map((x) => `<li>${x}</li>`).join('')}</ul></div>`; }).join('');
@@ -671,7 +800,7 @@ function runway() {
   $('#ob-tomb').innerHTML = s + '</svg>';
   $('#ob-close').innerHTML = '<thead><tr><th>Item</th><th class="ob-n">Estimate</th></tr></thead><tbody>' + CLOSE.map(([k, v]) => `<tr><td>${k}</td><td class="ob-n">${eur(v)}</td></tr>`).join('') + `</tbody><tfoot><tr><td>To close cleanly</td><td class="ob-n">${eur(closeTotal)}</td></tr><tr><td style="font-weight:400;color:rgb(var(--text-muted))">Cash left after closing</td><td class="ob-n" style="color:rgb(var(${cash - closeTotal < 0 ? '--red' : '--green'}))">${eur(cash - closeTotal)}</td></tr></tfoot>`;
   const m = cash / Math.max(1, burn - inc);
-  $('#ob-kpis').innerHTML = [['Spent in 2025', eur(D.total), `net of VAT · ${L.length} lines`, 'real'], ['A month, today', eur(burn), '2025 book plus payroll · payroll simulated', 'sim'], ['Owed to ENISA', eur(D.principal), 'participative loan, 2024', 'real'], ['Money in', '≈ ' + eur(D.moneyIn), 'partners, ENISA and clients since 2024', 'decl'], ['Time to tomb', burn - inc <= 0 ? '—' : m.toFixed(1) + ' months', "at today's cost · simulated cash", 'sim', m < 6]]
+  $('#ob-kpis').innerHTML = [['Spent in 2025', eur(D.total), 'net of VAT · payroll included', 'real'], ['A month, today', eur(burn), 'July–September 2026 · two lines projected', 'real'], ['Owed to ENISA', eur(D.principal), 'participative loan, 2024', 'real'], ['Money in', '≈ ' + eur(D.moneyIn), 'partners, ENISA and clients since 2024', 'decl'], ['Time to tomb', burn - inc <= 0 ? '—' : m.toFixed(1) + ' months', "at today's cost · simulated cash", 'sim', m < 6]]
     .map(([k, v, sub, t, a]) => `<div class="ob-kpi ${a ? 'alert' : ''}"><span class="dot ${t}" title="${t === 'real' ? 'real figure' : t === 'decl' ? 'declared, document to load' : 'simulated'}"></span><span class="ob-k">${k}</span><span class="v">${v}</span><span class="s">${sub}</span></div>`).join('');
 }
 $('#ob-cash').addEventListener('input', () => { runway(); tick(); planDraw(); });
@@ -690,6 +819,21 @@ function tick() {
   $('#ob-cdate').textContent = secs <= 0 ? 'at this cost, the cash set above is already spent' : 'on ' + new Date(now + secs * 1000).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ', at ' + eur(net) + ' a month';
 }
 setInterval(tick, 1000);
+
+// The tax counter: the next filing, its estimate, and the time left to file it.
+const CAL = D.tax.calendar;
+function taxTick() {
+  const now = Date.now(), end = (c) => Date.parse(c.due + 'T23:59:59+02:00');
+  const next = CAL.find((c) => end(c) >= now); if (!next) return;
+  const same = CAL.filter((c) => c.due === next.due);
+  $('#ob-tnext').textContent = same.map((c) => c.what + ' (' + c.form + ')').join(' · ');
+  const secs = Math.max(0, (end(next) - now) / 1000), p = (n) => String(n).padStart(2, '0');
+  $('#ob-tclock').innerHTML = `${Math.floor(secs / 86400)}<small>days</small>${p(Math.floor(secs % 86400 / 3600))}<small>h</small>${p(Math.floor(secs % 3600 / 60))}<small>m</small>${p(Math.floor(secs % 60))}<small>s</small>`;
+  $('#ob-tdue').textContent = 'by ' + new Date(next.due + 'T12:00:00Z').toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  $('#ob-tpay').innerHTML = same.map((c) => `<div><span>${c.what.split(',')[0]}</span><b>${c.estimate}</b></div>`).join('');
+  $$('#ob-tcal tbody tr').forEach((tr) => { tr.classList.toggle('ob-past', end({ due: tr.dataset.due }) < now); tr.classList.toggle('ob-next', tr.dataset.due === next.due); });
+}
+taxTick(); setInterval(taxTick, 1000);
 
 // The business plan: five assumptions, three years, break-even, cash.
 const A = { ...D.plan.assumptions };

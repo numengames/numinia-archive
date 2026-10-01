@@ -1,0 +1,18 @@
+document;date;period_from;period_to;category;supplier;concept;account;base;vat;billing;headcount;withholding;kind
+EUINES26-70623;2026-07-01;2026-06-01;2026-06-30;cloud;AWS;Cloud infrastructure;629;430.35;21;month;;;real
+Y9NCVUQL-0010;2026-07-02;2026-07-01;2026-08-01;cloud;LiveKit;Real-time voice and video, Ship plan;629;43.86;ISP;month;;;real
+938BC77D-0030;2026-07-18;2026-07-18;2026-08-17;ai;OpenAI;ChatGPT Business, 2 seats;629;43.73;21;month;;;real
+G172834179;2026-07-22;2026-07-01;2026-07-31;software;Microsoft;Microsoft 365, mail and office;629;79.38;21;month;;;real
+F261416;2026-07-24;2026-07-01;2026-07-31;counsel;A Punto Abogados;Tax and labour advice;623;315.00;21;month;;;real
+2026/62581;2026-07-28;2026-07-28;2026-07-28;advisory;Registradores de España;Registry certificate;623;28.25;21;once;;4.24;real
+EUINES26-818554;2026-08-01;2026-07-01;2026-07-31;cloud;AWS;Cloud infrastructure;629;331.81;21;month;;;real
+TRG2026;2026-08-14;2026-08-14;2026-08-14;events;Atarugo (TRG 2026);TRG 2026, patron ticket;627;500.00;21;once;;;real
+8261154413;2026-08-17;2026-08-17;2026-08-17;advisory;FNMT-RCM;Legal-representative digital certificate;629;14.00;21;once;;;real
+938BC77D-0031;2026-08-18;2026-08-18;2026-09-17;ai;OpenAI;ChatGPT Business, 2 seats;629;43.19;21;month;;;real
+G1794322019;2026-08-22;2026-08-01;2026-08-31;software;Microsoft;Microsoft 365, mail and office;629;79.38;21;month;;;real
+F261483;2026-08-28;2026-08-28;2026-08-28;advisory;A Punto Abogados;Legalisation of the company books;623;38.17;21;once;;;real
+EUINES26-90924;2026-09-01;2026-08-01;2026-08-31;cloud;AWS;Cloud infrastructure;629;2.66;21;month;;;real
+2026/254293;2026-09-12;2026-09-12;2026-09-12;advisory;Mercantile Registry of Madrid;Registry fees, sundry;623;57.47;21;once;;;real
+F261537;2026-09-14;2026-09-14;2026-09-14;advisory;A Punto Abogados;Annual accounts filing;623;57.47;21;once;;;real
+PROJECTED-MS-2026-09;2026-09-22;2026-09-01;2026-09-30;software;Microsoft;Microsoft 365, mail and office;629;79.38;21;month;;;projected
+PEOPLE-2026-Q3;2026-09-30;2026-07-01;2026-09-30;people;People, together;Freelancers and contractors, all together, a quarter;623;7320.00;21;quarter;2;954.00;partly projected
