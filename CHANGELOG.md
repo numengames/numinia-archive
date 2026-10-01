@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-01
 
+- **Added** `PRO-033` Screening a tender: the procedure lives in the axis and the `tender-screening` skill only points to it; `STD-038` 0.7.0 *Weighing a tender*; `PRO-031` starts from screening; `PRO-021` books contracts and paid grants (site v0.115.0)
 - **Added** Tender screening from the terms: `STD-039` OPP-014/015 (where it was read, what it really buys, one file one record), the card's ceiling and out-of-domain list, the `tender-screening` skill, the marble school case as `OPP-2026-019` (site v0.114.0)
 - **Added** Tenders and grants read against the house's card: `OPS-018`/`OPS-019` the cards, `PRO-031`/`PRO-032` what to do, `STD-045`/`STD-046` and `funding/` with six Spanish calls; 14 tenders get criteria and a chance; Tenders and Grants on /system/pipeline (site v0.114.0)
 - **Added** /system/open-books: money in (two rounds ≈100,000 € and ≈120,000 €, ENISA, one client ≈20,000 €, all declared until their documents load), simulated payroll, a time-to-tomb counter and a seventh room, the business plan, with movable assumptions, P&L, break-even and a glossary (site v0.113.0)
