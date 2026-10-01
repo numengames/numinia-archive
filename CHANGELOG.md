@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-01
 
+- **Added** Tenders and grants read against the house's card: `OPS-018`/`OPS-019` the cards, `PRO-031`/`PRO-032` what to do, `STD-045`/`STD-046` and `funding/` with six Spanish calls; 14 tenders get criteria and a chance; Tenders and Grants on /system/pipeline (site v0.114.0)
 - **Added** /system/open-books: money in (two rounds ≈100,000 € and ≈120,000 €, ENISA, one client ≈20,000 €, all declared until their documents load), simulated payroll, a time-to-tomb counter and a seventh room, the business plan, with movable assumptions, P&L, break-even and a glossary (site v0.113.0)
 - **Added** Fourteen public tenders on the radar as `OPP-2026-005`…`018`, every one at `lead` for the Oracle to decide, found in the procurement sweep of 1 October (closing 5 Oct–3 Nov); the tool reads a CPV code as a classification, not a phone
 - **Changed** /system/open-books is the books of Numen Games S.L. from 16 Feb 2024: real FY2025 ledger, company card, six rooms, tooltips that break each bar down; ENISA 100,000 € as ENISA publishes it (`OPS-017` 0.2.0); simulated ledger removed (site v0.112.0)
