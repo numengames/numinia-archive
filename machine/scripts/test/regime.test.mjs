@@ -222,6 +222,38 @@ check('tree: opportunities have one home — opportunities/, registered in STD-0
   return true;
 });
 
+check('tree: grants have one home — funding/, registered in STD-001 and STD-027, read by the funding tool', () => {
+  // The Oracle (2026-10-01): tenders in the pipeline, and grants beside them
+  // in their own section. A grant is not a sale — no client, no proposal —
+  // so it has its own series, its own stages (STD-045) and its own record
+  // (STD-046), and the funding tool judges it in CI like the sales tool.
+  const rules = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/lib/rules.json'), 'utf-8'));
+  if (!rules.series.funding) return 'rules.json registers no funding series';
+  if (rules.types.series.grant !== 'funding') return 'type grant is not filed in funding/';
+  if (!rules.governed.dirs.includes('funding')) return 'funding/ is not header-governed';
+  if (!existsSync(path.join(ROOT, 'machine/templates/GRA-TEMPLATE.md'))) return 'machine/templates/GRA-TEMPLATE.md is missing';
+  const s001 = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf-8');
+  if (!/^\| `funding\/` \|/m.test(s001)) return 'STD-001 has no row for funding/';
+  const s027 = readFileSync(path.join(ROOT, 'standards/STD-027-the-classification-scheme.md'), 'utf-8');
+  if (!/`funding\/`/.test(s027)) return 'STD-027 does not place funding/ in the scheme';
+  const ci = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf-8');
+  if (!/funding\.mjs funding/.test(ci)) return 'CI does not run funding.mjs on funding/';
+  return true;
+});
+
+check('tree: the house has one card per door to public money, and a protocol walks each', () => {
+  // A tender and a grant are each read against what the house holds; the
+  // two cards are where that lives, and each record standard cites its card.
+  for (const f of ['operations/OPS-018-the-house-card-for-tenders.md', 'operations/OPS-019-the-house-card-for-grants.md',
+    'protocols/PRO-031-bidding-for-a-tender.md', 'protocols/PRO-032-applying-for-a-grant.md'])
+    if (!existsSync(path.join(ROOT, f))) return `${f} is missing`;
+  const s039 = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf-8');
+  if (!/`OPS-018`/.test(s039)) return 'STD-039 does not cite the card for tenders';
+  const s046 = readFileSync(path.join(ROOT, 'standards/STD-046-a-grant-has-a-record.md'), 'utf-8');
+  if (!/`OPS-019`/.test(s046)) return 'STD-046 does not cite the card for grants';
+  return true;
+});
+
 check('tree: no living text types a range of identifiers — a count is read from the tree, never written', () => {
   // "STD-001…STD-028" was true once and false eleven standards later. The
   // rule index in AGENTS.md is generated; a hand-typed range beside it is a
