@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Changed** Open books downloads as workbooks in the house colours (`web/src/lib/workbook.ts`): band, front page with headline figures and the four kinds, native charts; Accounts and Taxes are Excel, not CSV; the AEAT books stay plain (site v0.123.0)
 - **Added** Kairos, the opportunity watcher (Procurators): `agents/kairos/` card, soul, operator, sources and Hermes adapter; INDEX 3.4.0; his card on /agent. First watch: tenders and grants, Spain and EU; its procedure and script still to be carried in (site v0.122.0)
 - **Added** A sales bell in the bar: from noon it counts the open opportunities' due next steps, from the pipeline tool, each linking its record; eleven records from the 1 October sales plan, OPP-2026-025…035 (site v0.121.0)
 - **Changed** /system/pipeline opens on the funnel with each step's conversion from the tool; pill switches with counts, Timeline by default; Asked / we have shows the eight rows `OPS-018` 0.4.0 now marks as deciding most calls; a link to the template (site v0.120.0)
