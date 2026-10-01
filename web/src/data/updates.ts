@@ -53,6 +53,15 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.120.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "CHG", text: "/system/pipeline opens on the funnel: five large steps — detected, contacted, positive answer, won, repeats or refers — each with its count and the share it carried from the step before, following the kind you pick." },
+      { type: "CHG", text: "Big switches: each kind shows how many records it holds, and the views are Timeline (now the default, with full names, value and how it pays), What's due, and Asked / we have. Reasons lost and days per stage sit under the timeline." },
+      { type: "CHG", text: "Asked / we have shows the eight requirements that decide most calls, as the house's card marks them, and links the full card. A dashed link at the bottom opens the template for a new opportunity." },
+    ],
+  },
+  {
     version: "v0.119.0",
     date: "2026-10-01",
     entries: [

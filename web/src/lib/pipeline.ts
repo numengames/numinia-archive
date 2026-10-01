@@ -38,6 +38,11 @@ export const PIPELINE_SOURCES = [
 ];
 
 export const CARD_URL = "/operations/ops-018-the-house-card";
+/** Where the site shows the opportunity mould (machine/templates/OPP-TEMPLATE.md): its section on /templates. */
+export const TEMPLATE_URL = "/templates#opp";
+
+/** The card's rows that decide most calls, in the card's own order (OPS-018 § What decides most calls). */
+export const decidingRows = (card: CardRow[]) => card.filter((c) => c.decides !== null).sort((a, b) => (a.decides ?? 0) - (b.decides ?? 0));
 
 export type Kind = "sale" | "tender" | "grant" | "collaboration" | "partner";
 export interface PEvent { date: string; event: string; stage: string | null; reason: string | null; text: string }
@@ -53,14 +58,15 @@ export interface PRecord {
   /** made at build time: the record's page on this site */
   url: string;
 }
-export interface CardRow { requirement: string; asks: string; house: string; state: string; unlocks: string; yes: number; check: number }
+export interface CardRow { requirement: string; asks: string; house: string; state: string; unlocks: string; decides: number | null; yes: number; check: number }
 export interface Figures {
   today: string;
   kinds: { kind: Kind; is: string; stale: number | null; stages: string[] }[];
   steps: { step: string; means: string }[];
   records: PRecord[];
   due: { id: string; kind: Kind; date: string; action: string; overdue: boolean }[];
-  funnel: Record<string, number[]>;
+  /** per kind and `all`: records at each step, and each step's % of the step before (null for the first, or after an empty step) */
+  funnel: Record<string, { counts: number[]; conversion: (number | null)[] }>;
   byKind: Record<string, { records: number; open: number; won: number; lost: number; openValue: number }>;
   reasons: Record<string, number>;
   daysPerStage: Record<string, Record<string, number | null>>;

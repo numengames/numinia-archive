@@ -48,7 +48,7 @@ import { ROUNDS, CLIENTS, CASH, FUTURES, PLAN, MONEY_IN_TOTAL } from "@/data/mon
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
-import { pipeline as salesPipeline, PIPELINE_SOURCES, CARD_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, recordUrl } from "@/lib/pipeline";
+import { pipeline as salesPipeline, decidingRows, PIPELINE_SOURCES, CARD_URL, TEMPLATE_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, recordUrl } from "@/lib/pipeline";
 import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
 import { settings as configSettings, MOULDS as CONFIG_MOULDS, CONFIG_INTRO } from "@/lib/configuration";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
@@ -808,10 +808,33 @@ export function pipelinePage(): ComposedPage {
   const adv = open.filter((r) => r.pays === "advance");
   const due = F.due.slice().sort((a, b) => Number(b.overdue) - Number(a.overdue) || a.date.localeCompare(b.date));
   const kinds = F.kinds.map((k) => k.kind);
+  const step = (counts: number[], conversion: (number | null)[], i: number) => (conversion[i] === null ? String(counts[i] ?? 0) : `${counts[i]} (${conversion[i]} %)`);
+  const posAt = F.steps.findIndex((s) => s.step === "positive");
+  const noPositive = F.funnel.all && F.funnel.all.counts[0] > 0 && posAt >= 0 && F.funnel.all.counts[posAt] === 0;
+  const STATE: Record<string, string> = { yes: "✓ yes", no: "✗ no", check: "? check" };
+  const deciding = decidingRows(F.card);
   const body = [
     "# The pipeline",
     "",
     `Sales, tenders, grants, collaborations and partners, as of ${F.today}: ${F.records.length} record${F.records.length === 1 ? "" : "s"}, ${open.length} open. Nobody's name in any record; the organisation a sector until it agrees.`,
+    "",
+    "## Funnel",
+    "",
+    "How many records reached each step, ever, read from their timelines; in brackets, the share of the step before that reached it.",
+    "",
+    table(["Kind", ...F.steps.map((s) => STEP_LABEL[s.step] ?? s.step)], ["all", ...kinds].map((k) => {
+      const f = F.funnel[k] ?? { counts: [], conversion: [] };
+      return [k === "all" ? "All" : KIND_PLURAL[k as keyof typeof KIND_PLURAL], ...F.steps.map((_, i) => step(f.counts, f.conversion, i))];
+    })),
+    ...(noPositive ? ["", "No positive answer is on record yet: from now on every reply goes into its record's timeline."] : []),
+    "",
+    "## Asked / we have",
+    "",
+    `The requirements that decide most calls, as the card marks them: what calls usually ask, what the house holds today, and what would unlock each gap. The full card — every requirement, with sources — is [The house's card](${CARD_URL}).`,
+    "",
+    table(["Requirement", "Calls usually ask", "We hold", "State", "What unlocks it", "Open records at check"], deciding.map((c) => [
+      c.requirement, cell(c.asks), cell(c.house), STATE[c.state] ?? c.state, cell(c.unlocks), String(c.check),
+    ])),
     "",
     "## Key figures",
     "",
@@ -844,14 +867,6 @@ export function pipelinePage(): ComposedPage {
       r.value ? eur(r.value) : "no money", cell(pays(r)), r.next ? `${r.next.date}: ${cell(r.next.action)}` : "",
     ])),
     "",
-    "## Funnel",
-    "",
-    "How many records reached each step, ever, read from their timelines.",
-    "",
-    table(["Kind", ...F.steps.map((s) => STEP_LABEL[s.step] ?? s.step)], ["all", ...kinds].map((k) => [
-      k === "all" ? "All" : KIND_PLURAL[k as keyof typeof KIND_PLURAL], ...(F.funnel[k] ?? []).map(String),
-    ])),
-    "",
     "## Reasons lost",
     "",
     Object.keys(F.reasons).length ? table(["Reason", "Records"], Object.entries(F.reasons).map(([r, n]) => [r, String(n)])) : "Nothing lost yet.",
@@ -860,13 +875,7 @@ export function pipelinePage(): ComposedPage {
     "",
     table(["Kind", "Stage", "Average days"], kinds.flatMap((k) => Object.entries(F.daysPerStage[k] ?? {}).map(([s, d]) => [KIND_LABEL[k], s, d === null ? "" : String(d)]))),
     "",
-    "## Asked / we have",
-    "",
-    `What calls usually ask, what the house holds today, and what would unlock each gap — every tender and grant is read against it. The card: [The house's card](${CARD_URL}).`,
-    "",
-    table(["Requirement", "What calls usually ask", "What we hold", "State", "What unlocks it", "Open records at check"], F.card.map((c) => [
-      c.requirement, cell(c.asks), cell(c.house), c.state, cell(c.unlocks), String(c.check),
-    ])),
+    `A new opportunity starts from [the template](${TEMPLATE_URL}): one file per opportunity, one line per thing that happens.`,
     "",
     "The records themselves: [/opportunities/](/opportunities/). The tool that computes this: `machine/packages/sales-kit/pipeline.mjs`, run in CI on every change.",
     "",
