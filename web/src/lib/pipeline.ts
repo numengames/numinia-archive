@@ -4,9 +4,14 @@
 // The pipeline behind /system/pipeline (STD-039 OPP-009): every figure comes
 // from the records in opportunities/, read at build time THROUGH THE TOOL
 // ITSELF — machine/packages/sales-kit/pipeline.mjs — so the page and the CI
-// step can never disagree on a number. This module adds only what a page
-// needs and a CLI report does not: the records themselves (header + the
-// transitions), so the browser can cut them by week, month, quarter and year.
+// step can never disagree on a number. Sales, tenders, grants,
+// collaborations and partners are one kind of record, judged by one tool and
+// read against one card (OPS-018).
+//
+// This module adds only what a page needs and the tool does not: the address
+// of each record, made HERE at build time. The link guard reads hrefs out of
+// the built HTML, and a template literal inside a script is not an address it
+// can follow.
 //
 // Nobody's name is in a record (OPP-006) and the organisation is a sector
 // until it agrees (OPP-011), so everything here is public as it stands.
@@ -17,79 +22,73 @@ const ROOT = path.resolve(process.cwd(), "..");
 const KIT = path.join(ROOT, "machine", "packages", "sales-kit", "pipeline.mjs");
 // Imported by URL so Vite does not try to bundle a file outside the project.
 const tool = await import(/* @vite-ignore */ pathToFileURL(KIT).href);
-// Grants have their own tool (STD-046), read the same way: the page states
-// nothing the funding tool did not compute.
-const FKIT = path.join(ROOT, "machine", "packages", "funding-kit", "funding.mjs");
-const ftool = await import(/* @vite-ignore */ pathToFileURL(FKIT).href);
 
 export const PIPELINE_SOURCES = [
-  "standards/STD-038-the-stages-of-a-sale.md",
+  "standards/STD-038-the-stages-of-an-opportunity.md",
   "standards/STD-039-an-opportunity-has-a-record.md",
+  "operations/OPS-018-the-house-card.md",
   "protocols/PRO-028-qualifying-an-opportunity.md",
   "protocols/PRO-029-making-a-proposal.md",
   "protocols/PRO-030-closing-a-sale.md",
-  "system/SYS-010-selling-as-wired-today.md",
-  "machine/packages/sales-kit/pipeline.mjs",
-  "standards/STD-045-the-stages-of-a-grant.md",
-  "standards/STD-046-a-grant-has-a-record.md",
-  "operations/OPS-018-the-house-card-for-tenders.md",
-  "operations/OPS-019-the-house-card-for-grants.md",
-  "protocols/PRO-033-screening-a-tender.md",
   "protocols/PRO-031-bidding-for-a-tender.md",
   "protocols/PRO-032-applying-for-a-grant.md",
-  "machine/packages/funding-kit/funding.mjs",
+  "protocols/PRO-033-screening-a-tender.md",
+  "system/SYS-010-selling-as-wired-today.md",
+  "machine/packages/sales-kit/pipeline.mjs",
 ];
 
-export interface Transition { date: string; from: string; to: string; by: string; evidence: string }
-export interface Record_ {
-  id: string; organisation: string; sector: string; offer: string; source: string; state: string;
-  value: number; currency: string; next_action: string; next_date: string; opened: string; closed: string;
-  reason: string; proposal: string; procedure: string; notice: string; chance: string; slug: string; url: string; proposalUrl: string; transitions: Transition[];
-}
-export interface Register { order: string[]; closed: string[]; staleDays: Record<string, number | null>; reasons: string[]; procedures: string[]; chances: string[] }
+export const CARD_URL = "/operations/ops-018-the-house-card";
 
-/** The register, the records and the tool's own figures, as of `today`. */
-export function pipeline(today = new Date().toISOString().slice(0, 10)) {
-  const register: Register = tool.loadRegister();
-  const folder = path.join(ROOT, "opportunities");
-  const raw = tool.readFolder(folder) as { file: string; fm: Record<string, string> | null; transitions: Transition[] }[];
-  const breaches = raw.flatMap((r) => tool.validate(r, register)) as { plate: string; what: string; file: string }[];
+export type Kind = "sale" | "tender" | "grant" | "collaboration" | "partner";
+export interface PEvent { date: string; event: string; stage: string | null; reason: string | null; text: string }
+export interface PRecord {
+  id: string; kind: Kind; title: string | null; organisation: string | null; sector: string | null; source: string | null;
+  offer: string | null; value: number; currency: string | null; pays: string | null; advance: number | null;
+  stage: string; open: boolean; opened: string | null; closed: string | null; reason: string | null;
+  next: { date: string; action: string } | null; overdue: boolean; stale: { days: number; limit: number } | null;
+  events: PEvent[]; steps: Record<string, boolean>; chance: "high" | "medium" | null;
+  criteria: { requirement: string; asks: string; house: string; meets: string }[];
+  call: string | null; closes: string | null; opens: string | null; estimated: string | null; procedure: string | null;
+  instrument: string | null; file_ref: string | null; gives_back: string | null; follows: string | null;
+  /** made at build time: the record's page on this site */
+  url: string;
+}
+export interface CardRow { requirement: string; asks: string; house: string; state: string; unlocks: string; yes: number; check: number }
+export interface Figures {
+  today: string;
+  kinds: { kind: Kind; is: string; stale: number | null; stages: string[] }[];
+  steps: { step: string; means: string }[];
+  records: PRecord[];
+  due: { id: string; kind: Kind; date: string; action: string; overdue: boolean }[];
+  funnel: Record<string, number[]>;
+  byKind: Record<string, { records: number; open: number; won: number; lost: number; openValue: number }>;
+  reasons: Record<string, number>;
+  daysPerStage: Record<string, Record<string, number | null>>;
+  card: CardRow[];
+  ceiling: number | null;
+  overdue: string[];
+  stale: { id: string; days: number; limit: number }[];
+}
+
+/** Labels for the page and the markdown twin — presentation only. */
+export const KIND_LABEL: Record<Kind, string> = { sale: "Sale", tender: "Tender", grant: "Grant", collaboration: "Collaboration", partner: "Partner" };
+export const KIND_PLURAL: Record<Kind, string> = { sale: "Sales", tender: "Tenders", grant: "Grants", collaboration: "Collaborations", partner: "Partners" };
+export const STEP_LABEL: Record<string, string> = { detected: "Detected", contacted: "Contacted", positive: "Positive answer", won: "Won", again: "Repeats or refers" };
+
+export const recordUrl = (id: string) => `/opportunities/${id.toLowerCase()}`;
+
+/** The tool's figures as of `today`, each record carrying its address. */
+export function pipeline(today = new Date().toISOString().slice(0, 10)): Figures {
+  const register = tool.loadRegister();
+  const card = tool.loadCard();
+  const raw = tool.readFolder(path.join(ROOT, "opportunities"));
+  const breaches = [...raw.flatMap((r: unknown) => tool.validate(r, register, card)), ...tool.duplicates(raw)] as { plate: string; what: string; file: string }[];
   if (breaches.length) {
     // The CI step already fails on this; here it fails the build too, so a
     // page never publishes a figure the tool would refuse.
     throw new Error(`opportunities/: ${breaches.length} breach(es) — ${breaches.map((b) => `${b.plate} ${path.basename(b.file)}: ${b.what}`).join("; ")}`);
   }
-  const records: Record_[] = raw.filter((r) => r.fm).map((r) => {
-    const fm = r.fm as Record<string, string>;
-    return {
-      id: fm.id, organisation: fm.organisation, sector: fm.sector, offer: fm.offer, source: fm.source,
-      state: fm.state, value: Number(fm.value) || 0, currency: fm.currency || "EUR",
-      next_action: fm.next_action, next_date: fm.next_date, opened: fm.opened, closed: fm.closed ?? "",
-      reason: fm.reason ?? "", proposal: fm.proposal ?? "", procedure: fm.procedure ?? "", notice: fm.notice ?? "", chance: fm.chance ?? "", slug: fm.id.toLowerCase(),
-      // The addresses are made HERE, at build time, not in the browser: the
-      // link guard reads hrefs out of the built HTML, and a template literal
-      // inside a script is not an address it can follow.
-      url: `/opportunities/${fm.id.toLowerCase()}`,
-      proposalUrl: fm.proposal ? `/opportunities/${fm.proposal.replace(/\.md$/, "").toLowerCase()}` : "",
-      transitions: r.transitions,
-    };
-  });
-  const figures = tool.figures(raw, register, today);
-  // each tender of the tool's list carries its record's address, made here
-  for (const t of figures.tenders.list) t.url = `/opportunities/${String(t.id).toLowerCase()}`;
-  return { today, register, records, figures, funding: funding(today) };
-}
-
-/** The grants (STD-046): the funding tool's figures, addresses made at build. */
-export function funding(today = new Date().toISOString().slice(0, 10)) {
-  const register = ftool.loadRegister();
-  const raw = ftool.readFolder(path.join(ROOT, "funding"));
-  const breaches = raw.flatMap((r: unknown) => ftool.validate(r, register)) as { plate: string; what: string; file: string }[];
-  if (breaches.length) {
-    throw new Error(`funding/: ${breaches.length} breach(es) — ${breaches.map((b) => `${b.plate} ${path.basename(b.file)}: ${b.what}`).join("; ")}`);
-  }
-  const figures = ftool.figures(raw, register, today);
-  for (const g of figures.list) { g.url = `/funding/${String(g.id).toLowerCase()}`; delete g.transitions; }
-  for (const c of figures.calendar) c.url = `/funding/${String(c.id).toLowerCase()}`;
-  return { register, figures };
+  const figures = tool.figures(raw, register, card, today) as Figures;
+  for (const r of figures.records) r.url = recordUrl(r.id);
+  return figures;
 }

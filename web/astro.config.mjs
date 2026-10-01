@@ -204,6 +204,30 @@ export default defineConfig({
 		"/operations/security-policy": "/operations/ops-009-secrets-handling",
 		"/operations/strategy/o-007-sales": "/operations/ops-007-sales",
 		"/operations/strategy/ops-007-sales": "/operations/ops-007-sales",
+		// → one pipeline (2026-10-02): grants left funding/ for opportunities/
+		// as kind grant; the stages of a sale and of a grant became the stages
+		// of an opportunity; the two cards became one. Records of calls the
+		// house cannot win (GRA-2026-005/006, OPP-2026-005…019) were deleted,
+		// not redirected: their question was withdrawn (URL-005).
+		"/funding": "/opportunities/",
+		"/funding/gra-2026-001": "/opportunities/opp-2026-021",
+		"/funding/gra-2026-001.md": "/opportunities/opp-2026-021.md",
+		"/funding/gra-2026-002": "/opportunities/opp-2026-022",
+		"/funding/gra-2026-002.md": "/opportunities/opp-2026-022.md",
+		"/funding/gra-2026-003": "/opportunities/opp-2026-023",
+		"/funding/gra-2026-003.md": "/opportunities/opp-2026-023.md",
+		"/funding/gra-2026-004": "/opportunities/opp-2026-024",
+		"/funding/gra-2026-004.md": "/opportunities/opp-2026-024.md",
+		"/standards/std-038-the-stages-of-a-sale": "/standards/std-038-the-stages-of-an-opportunity",
+		"/standards/std-038-the-stages-of-a-sale.md": "/standards/std-038-the-stages-of-an-opportunity.md",
+		"/standards/std-045-the-stages-of-a-grant": "/standards/std-038-the-stages-of-an-opportunity",
+		"/standards/std-045-the-stages-of-a-grant.md": "/standards/std-038-the-stages-of-an-opportunity.md",
+		"/standards/std-046-a-grant-has-a-record": "/standards/std-039-an-opportunity-has-a-record",
+		"/standards/std-046-a-grant-has-a-record.md": "/standards/std-039-an-opportunity-has-a-record.md",
+		"/operations/ops-018-the-house-card-for-tenders": "/operations/ops-018-the-house-card",
+		"/operations/ops-018-the-house-card-for-tenders.md": "/operations/ops-018-the-house-card.md",
+		"/operations/ops-019-the-house-card-for-grants": "/operations/ops-018-the-house-card",
+		"/operations/ops-019-the-house-card-for-grants.md": "/operations/ops-018-the-house-card.md",
 		// → decisions
 		"/blueprints/mission-system": "/decisions/adr-041",
 		"/blueprints/mission-system-v2": "/decisions/adr-041",

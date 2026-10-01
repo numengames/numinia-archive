@@ -17,6 +17,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-02
+
+- **Changed** One pipeline: sales, tenders, grants, collaborations and partners are one record in `opportunities/`, one register `STD-038`, one card `OPS-018`, one tool; /system/pipeline switches by kind and view; grants left `funding/`; calls the house cannot win are not kept (site v0.117.0)
+
 ### 2026-10-01
 
 - **Added** /system/open-books Taxes room for beginners (VAT to pay/offset/refund by quarter, withholding, losses, live filing counter); real payroll and Q3 2026 invoices, people one block a quarter; income book; `STD-036` 0.2.0, `PRO-021` 0.5.0 (site v0.116.0)
