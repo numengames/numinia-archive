@@ -5,9 +5,9 @@ title: "The account: how money moves and is recorded, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.3"
+version: "0.3.0"
 created: "2026-09-24T18:00:00+02:00"
-updated: "2026-10-01T16:00:00+02:00"
+updated: "2026-10-01T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, economy, payments, ledger, accounting]
@@ -58,7 +58,7 @@ the company's statutory books, which the gestoría keeps; the legal texts
 
 | Component | Holds | Who holds the keys | State |
 |---|---|---|---|
-| **Numen Games' bank account** | the money | the company's administrators | wired |
+| **Numen Games' bank account** | the money | the company's administrators | wired; its balance enters the open books as the company declared it (19,500 EUR on 2026-10-01) until the statement is loaded, and the books are reconciled to it (`STD-036` LED-011) |
 | **Payment processor account** (Stripe) | products, prices, payment links, subscriptions, the customer portal, monthly reports | an Oracle only (`STD-033` PAY-004) | account live; one test-mode payment link (Backer, 5 EUR), nothing charged |
 | **The gestoría** | the statutory books, VAT and corporate tax returns, payroll, the received-invoices book | the gestoría and the company | wired |
 | **Supplier invoices and payrolls** | the documents behind every cost | the company, kept outside this repository (`STD-036` LED-007) | wired, not yet gathered in one place |
@@ -105,7 +105,7 @@ and may be written in a record.
 |---|---|---|
 | A citizen | the public view: what Numinia costs, what came in, who carries the difference, the homage list | that it is whole and plain |
 | Technology (CTO) | cost per service per day, month and year; trend | what each service costs and whether it grows |
-| Finance and a lender | profit and loss by year in the accounting plan's headings; cash and months of runway | whether the company can repay |
+| Finance and a lender | profit and loss by year in the accounting plan's headings; cash reconciled to the bank; the next quarter in three futures, each with its date of running out | whether the company can repay |
 | The gestoría | the received-invoices book per quarter, exportable to a spreadsheet | that it matches the books |
 | An auditor or the tax authority | the same figures, walked from total to line to document | that every figure has its paper |
 

@@ -53,6 +53,28 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.117.0",
+    date: "2026-10-01",
+    entries: [
+      {
+        type: "CHG",
+        text: "Open books runs on the cash really in the bank: about 19,500 € on 1 October 2026, as the company gave it, marked declared until the bank statement is loaded. The slider that guessed it is gone; the counter, the top figures and the business plan start from it.",
+      },
+      {
+        type: "ADD",
+        text: "Cash & runway shows where the cash comes from: money in, less what went out, less an estimate of the two books not loaded yet, against the bank. Every step says if it is real, declared or an estimate, and an amber notice says when the figures do not add up.",
+      },
+      {
+        type: "ADD",
+        text: "The next quarter, three ways: nothing changes, costs cut in phases, or income arrives — three months ahead and no further, each with the day the cash runs out. You choose the month payroll ends and the income a month.",
+      },
+      {
+        type: "ADD",
+        text: "Taxes counts the questions still open with the gestoría, by topic.",
+      },
+    ],
+  },
+  {
     version: "v0.116.0",
     date: "2026-10-01",
     entries: [

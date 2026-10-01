@@ -41,9 +41,10 @@ import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
-import { bookLines, bookLines2026, payrollLines, saleLines, BOOK_CATEGORIES, BOOKS_SOURCES } from "@/lib/books";
+import { bookLines, bookLines2026, payrollLines, saleLines, cashBooks, BOOK_CATEGORIES, BOOKS_SOURCES } from "@/lib/books";
+import { reconcile, futures } from "@/lib/cash";
 import { TAX_KINDS, VAT_RESULTS, CALENDAR } from "@/data/tax";
-import { ROUNDS, CLIENTS, PLAN, MONEY_IN_TOTAL } from "@/data/money";
+import { ROUNDS, CLIENTS, CASH, FUTURES, PLAN, MONEY_IN_TOTAL } from "@/data/money";
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
@@ -664,6 +665,11 @@ export function accountPage(): ComposedPage {
   const byQ = new Map<string, number>();
   for (const l of lines) { const q = `Q${Math.floor((Number(l.date.slice(5, 7)) - 1) / 3) + 1}`; byQ.set(q, (byQ.get(q) ?? 0) + Number(l.base)); }
   let run = 0;
+  const books = cashBooks();
+  const recon = reconcile(books, { capital: 3000, rounds: ROUNDS.map((r) => ({ what: r.what, amount: r.amount, kind: r.kind })), loan: ENISA.principal }, { amount: CASH.amount, kind: CASH.kind, asOf: CASH.asOf });
+  const fut = futures(books, { cash: CASH.amount, asOf: CASH.asOf, payrollEnds: FUTURES.payrollEnds[0], oneOff: FUTURES.oneOff, income: FUTURES.income[1], incomeFrom: FUTURES.incomeFrom });
+  const label = (k: string) => (k === "simulated" ? "estimate" : k);
+  const FNAME: Record<string, string> = { same: "Nothing changes", cuts: `Cuts in phases: events, studios, counsel and advisory stop from November; payroll ends at the end of October, one-off cost ${eur(FUTURES.oneOff[0])}–${eur(FUTURES.oneOff[1])}`, income: `Income arrives: ${eur(FUTURES.income[1])} a month from November` };
   const body = [
     "# The books of Numen Games S.L.",
     "",
@@ -744,7 +750,25 @@ export function accountPage(): ComposedPage {
       ["", "**Together**", `**≈ ${eur(MONEY_IN_TOTAL)}**`, ""],
     ]),
     "",
-    "Cash left: very little, in the company's words; the bank balance is not loaded yet. Payroll (two people in 2025, one in 2026) is simulated until the payslips are loaded.",
+    "## Where the cash comes from",
+    "",
+    `Cash in the bank on ${CASH.asOf}: **${eur(CASH.amount)}**, declared — the company's word until the bank statement is loaded. Money in, less what went out, less an estimate of the books not loaded yet, should leave that balance (STD-036 LED-011). Amounts include VAT where it was charged.`,
+    "",
+    table(["Step", "Amount", "Kind"], [
+      ...recon.rows.map((r) => [r.label, (r.group === "in" ? "" : "−") + eur(r.amount), label(r.kind)]),
+      ["**Cash the books expect**", `**${eur(recon.expected)}**`, "estimate"],
+      [`Cash in the bank, ${CASH.asOf}`, eur(CASH.amount), "declared"],
+      ["**Difference not explained**", `**${eur(recon.gap)}**`, ""],
+    ]),
+    "",
+    recon.alert ? `**The figures do not add up yet:** ${eur(Math.abs(recon.gap))} is unexplained. It closes when the 2024 book, the January–June 2026 invoices and the bank statement are loaded.` : "The figures add up.",
+    "",
+    "## The next quarter, three ways",
+    "",
+    "Three futures from today's monthly cost, three months ahead and no further (STD-036 LED-012). All simulated; the page lets you choose the month payroll ends and the income.",
+    "",
+    table(["Future", ...fut[0].months.map((m) => `Cash, end ${m.month}`), "Runs out"], fut.map((f) => [FNAME[f.id], ...f.months.map((m) => eur(m.cash)), f.tomb])),
+    "",
     "",
     "## Business plan",
     "",

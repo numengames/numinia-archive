@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 22759,
+  "chars": 23012,
   "apparatus": false,
   "archived": false,
-  "tokens": 6344
+  "tokens": 6439
  },
  {
   "path": "CLAUDE.md",
@@ -841,10 +841,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 24724,
+  "chars": 24852,
   "apparatus": false,
   "archived": false,
-  "tokens": 6629
+  "tokens": 6657
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -2491,10 +2491,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5171,
+  "chars": 5670,
   "apparatus": false,
   "archived": false,
-  "tokens": 1336
+  "tokens": 1451
  },
  {
   "path": "protocols/PRO-022-building-the-living-pieces.md",
@@ -3129,10 +3129,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 6669,
+  "chars": 8059,
   "apparatus": false,
   "archived": false,
-  "tokens": 1864
+  "tokens": 2240
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
@@ -3316,10 +3316,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 7006,
+  "chars": 7253,
   "apparatus": false,
   "archived": false,
-  "tokens": 1798
+  "tokens": 1863
  },
  {
   "path": "system/SYS-009-the-design-system.md",

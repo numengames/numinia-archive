@@ -109,12 +109,13 @@ test('futures name a cost, never a person, and never announce what has not happe
 test('page: the reconciliation, its alert, three futures, and the gestoría questions counted', () => {
   const p = read(PAGE);
   for (const id of ['ob-recon', 'ob-recon-alert', 'ob-futures', 'ob-pend']) assert.match(p, new RegExp(`id="${id}"`), `#${id}`);
-  assert.match(p, /data-v="2026-10"/); assert.match(p, /data-v="2026-11"/);
+  assert.match(read(MONEY), /payrollEnds: \["2026-10", "2026-11"\]/, 'payroll ends at the end of October or November');
+  assert.match(p, /FUTURES\.payrollEnds\.map/, 'the page reads the choices from money.ts');
   assert.match(p, /id="ob-gq"/, 'the count of open questions in Taxes');
   const t = read(TAX);
   const qs = t.match(/export const GESTORIA_QUESTIONS[\s\S]*?\n\];/);
   assert.ok(qs, 'tax.ts: GESTORIA_QUESTIONS');
-  assert.equal((qs[0].match(/\{ topic:/g) || []).length, 6, 'six open questions');
+  assert.equal((qs[0].match(/\{ topic: "/g) || []).length, 6, 'six open questions');
   assert.doesNotMatch(qs[0], /Christian|Märtens|F26-4|A Punto/, 'the public count gives topics, not the private detail');
 });
 
