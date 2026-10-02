@@ -297,7 +297,7 @@ const n = (v: number) => v.toLocaleString("en-US");
   .tp-sub { font-size: 0.8rem; color: rgb(var(--text-muted)); margin: 0 0 0.75rem; }
   .tp-act { margin: 0.8rem 0 0; padding-top: 0.65rem; border-top: 1px dashed rgb(var(--border)); font-size: 0.8rem; color: rgb(var(--text-muted)); }
   .tp-act :global(b) { color: rgb(var(--text)); font-weight: 500; }
-  .tp :global(.tp-flag) { display: inline-block; font: 0.65rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; padding: 0.1rem 0.4rem; border-radius: 4px; margin-right: 0.45rem; }
+  .tp :global(.tp-flag) { display: inline-block; font: 0.65rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; padding: 0.1rem 0.4rem; border-radius: 6px; margin-right: 0.45rem; }
   .tp :global(.tp-f-ok) { background: rgb(var(--green) / 0.14); color: rgb(var(--green)); }
   .tp :global(.tp-f-watch) { background: rgb(var(--ambar) / 0.16); color: rgb(var(--ambar)); }
   .tp :global(.tp-f-act) { background: rgb(var(--red) / 0.14); color: rgb(var(--red)); }
@@ -307,9 +307,9 @@ const n = (v: number) => v.toLocaleString("en-US");
   .tp :global(svg text) { font: 11px var(--font-mono); fill: rgb(var(--text-dim)); }
   .tp :global(.tp-grid-line) { stroke: rgb(var(--border) / 0.5); }
   .tp :global(.tp-legend) { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; font-size: 0.75rem; color: rgb(var(--text-muted)); margin-top: 0.5rem; }
-  .tp :global(.tp-legend i) { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.3rem; vertical-align: -1px; }
+  .tp :global(.tp-legend i) { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 0.3rem; vertical-align: -1px; }
   .tp :global(.tp-hb) { display: grid; grid-template-columns: 8.5rem 1fr 7rem; gap: 0.5rem; align-items: center; font-size: 0.8rem; margin: 0.4rem 0; color: rgb(var(--text)); }
-  .tp :global(.tp-track) { height: 14px; background: rgb(var(--bg-card-hover)); border-radius: 3px; overflow: hidden; display: flex; }
+  .tp :global(.tp-track) { height: 14px; background: rgb(var(--bg-card-hover)); border-radius: 6px; overflow: hidden; display: flex; }
   .tp :global(.tp-track span) { display: block; height: 100%; }
   .tp :global(.tp-n) { text-align: right; font: 0.75rem var(--font-mono); color: rgb(var(--text-muted)); }
   .tp :global(.tp-table) { width: 100%; border-collapse: collapse; font-size: 0.8rem; }

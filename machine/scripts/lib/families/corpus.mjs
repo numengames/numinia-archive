@@ -8,7 +8,7 @@
 import { readFileSync, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT } from '../frontmatter.mjs';
-import { trackedFiles, tally } from '../corpus.mjs';
+import { trackedFiles, tally, SEAL_EXEMPT_RE } from '../corpus.mjs';
 
 const CODE_EXT = { '.py': 'python', '.mjs': 'node', '.js': 'node', '.sh': 'shell', '.ts': 'typescript' };
 
@@ -20,7 +20,7 @@ export function measure({ docs, rules }) {
   return {
     files_total: { value: files.length, unit: 'files', definition: '`git ls-files` at HEAD, every path' },
     files_by_ext: { value: tally(files, ext), unit: 'files', definition: 'tracked files by lowercase extension; `(none)` when no extension' },
-    files_by_kind: { value: byKind(files, ext), unit: 'files · bytes', definition: 'tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`' },
+    files_by_kind: { value: byKind(files, ext), unit: 'files · bytes', definition: 'tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted' },
     md_total: { value: files.filter((f) => f.endsWith('.md')).length, unit: 'files', definition: 'tracked `.md` anywhere, including `web/`' },
     docs_total: { value: md.length, unit: 'documents', definition: 'tracked `.md` outside `web/` — the corpus every other family measures' },
     docs_by_dir: { value: tally(md, (d) => d.dir || '(root)'), unit: 'documents', definition: 'corpus documents by top-level directory; root files under `(root)`' },
@@ -47,10 +47,13 @@ export const KIND = {
 };
 
 /** Files and bytes per kind. `machine/telemetry/` is outside trackedFiles(),
- * so the dataset never weighs itself. */
+ * so the dataset never weighs itself; the paths the corpus seal ignores
+ * (manifests, lockfiles, CI workflows) are left out too, or a dependency
+ * bump would move this figure under an unchanged seal and read ALTERED. */
 export function byKind(files, ext) {
   const out = {};
   for (const f of files) {
+    if (SEAL_EXEMPT_RE.test(f)) continue;
     const k = KIND[ext(f)] ?? 'Other';
     let bytes = 0;
     try { bytes = statSync(path.join(ROOT, f)).size; } catch { /* deleted in the work tree */ }
