@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Added** The pipeline page reads the tender radar's feed (`numinia-archive-feed`), shown as Unreviewed and apart from the funnel; the archive checks it again for names and closed calls, and an unreachable feed never breaks the build (site v0.127.0)
 - **Added** The wand on every sale's page: the sale's stages, where it stands, and each stage's collateral, the first-contact deck and e-mail rendered from the record by the sales kit, to see, download or copy. The sales playbook is a book at `/playbook` (site v0.126.0)
 - **Added** The sales collateral (`STD-047`): what each stage of a sale hands over and what it is made from. The sales kit renders the first-contact deck and e-mail from a record's Pitch and the offer's Packages, outside the archive; OPP-2026-025 is the first case (site v0.125.0)
 - **Changed** The archive's structure is in force, headers only: `STD-001` the series 5.11.0, `STD-024` a series is a function 3.1.0 (SER-004/007 fail the build), `STD-027` classification 0.7.0 (CLS-001/004); 0 findings before; Oracle shown first (PRO-023)

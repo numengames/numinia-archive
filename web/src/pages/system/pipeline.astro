@@ -21,6 +21,7 @@ import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { pipeline, decidingRows, CARD_URL, TEMPLATE_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, type PRecord } from "@/lib/pipeline";
 import { repoFileUrl } from "@/lib/build-info";
+import { radarFeed, FEED_REPO } from "@/lib/feed";
 
 const F = pipeline();
 const TODAY = F.today;
@@ -111,6 +112,10 @@ const STATE: Record<string, { mark: string; text: string; cls: string }> = {
   check: { mark: "?", text: "check", cls: "pq-check" },
 };
 const VIEWS = [["timeline", "Timeline"], ["due", "What's due"], ["card", "Asked / we have"]] as const;
+// The automation's feed (AUT-069): what the tender radar found, unreviewed,
+// read from its own repository and checked again here. Never in the funnel.
+const FEED = await radarFeed();
+const CHANCE_WORD: Record<string, string> = { alta: "high", media: "medium", baja: "low" };
 ---
 <Layout
   title="The pipeline — Numinia"
@@ -259,6 +264,37 @@ const VIEWS = [["timeline", "Timeline"], ["due", "What's due"], ["card", "Asked 
       <p class="pq-funnote">The {COUNT_WORD[DECIDING.length] ?? DECIDING.length} that decide most calls. The full card — every requirement, with sources — is <a href={CARD_URL}>The house's card</a>.</p>
     </div>
 
+    <section class="pq-feed" data-feed data-feed-state={FEED.state} aria-labelledby="pq-feed-h">
+      <h2 id="pq-feed-h" class="pq-et">Unreviewed — what the radar found</h2>
+      <p class="pq-funnote">
+        The tender radar reads public calls every half hour and writes what passes its filter to
+        <a href={FEED_REPO}>its own repository</a>, without review. Shown here as it is, in the radar's Spanish,
+        apart from the records and never counted in the funnel. A call becomes a record only through a reviewed pull request.
+        {FEED.state === "read" && FEED.published && <> Last written {FEED.published.replace("T", " ")}.</>}
+        {FEED.held > 0 && <> {FEED.held} held back here: they read as a person's name.</>}
+      </p>
+      {FEED.state === "unreachable" ? (
+        <p class="pq-funnote">The feed could not be read when this page was built.</p>
+      ) : FEED.items.length === 0 ? (
+        <p class="pq-funnote">Nothing open passes the filter today.</p>
+      ) : (
+        <ul class="pq-feed-list">
+          {FEED.items.map((i) => (
+            <li class="pq-feed-item" data-feed-item={i.id} data-in-archive={i.in_archive}>
+              <div class="pq-feed-top">
+                <a href={i.url} rel="noopener" class="pq-feed-title">{i.title}</a>
+                <span class="pq-feed-meta">{CHANCE_WORD[i.chance ?? ""] ?? i.chance} chance{i.closes && <> · closes {i.closes}</>}</span>
+              </div>
+              <p class="pq-feed-line">{[i.buyer, i.amount].filter(Boolean).join(" · ")}</p>
+              {i.blocker && <p class="pq-feed-line"><b>Blocker:</b> {i.blocker}</p>}
+              {i.next && <p class="pq-feed-line"><b>Next:</b> {i.next}</p>}
+              {i.in_archive && <p class="pq-feed-line">Already a record: <a href={`/opportunities/${i.in_archive.toLowerCase()}`}>{i.in_archive}</a></p>}
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
+
     <div class="pq-newrow">
       <a id="pq-new" class="pq-new" href={TEMPLATE_URL}>+ Open a new opportunity — the template</a>
       <span class="pq-newnote">One file per opportunity, one line per thing that happens.</span>
@@ -273,6 +309,7 @@ const VIEWS = [["timeline", "Timeline"], ["due", "What's due"], ["card", "Asked 
         <li>A call that fails a requirement is not recorded: what it taught goes into the card.</li>
         <li>The records are public and carry nobody's name; the organisation is a sector and a size until it agrees to be named. A public funder or contracting authority is named, as it publishes its own call.</li>
         <li>A record breaking a rule fails the build of this page, as it fails the CI step: what is shown here has passed.</li>
+        <li>The <em>Unreviewed</em> list is the tender radar's, read from its own repository when the page is built (AUT-069 in <a href="/standards/std-017-who-may-change-what">Who may change what</a>). The archive checks it again for names and closed calls; nothing in it is counted above.</li>
       </ul>
     </div>
   </div></section>
@@ -281,6 +318,13 @@ const VIEWS = [["timeline", "Timeline"], ["due", "What's due"], ["card", "Asked 
 <script is:inline id="pq-data" type="application/json" set:html={JSON.stringify(F)} />
 
 <style is:global>
+.pq-feed{margin-top:48px}
+.pq-feed-list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.pq-feed-item{border:1px dashed var(--border, currentColor);border-radius:8px;padding:12px 14px}
+.pq-feed-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 14px;align-items:baseline}
+.pq-feed-title{font-weight:500}
+.pq-feed-meta{font-family:var(--font-mono, monospace);font-size:.7rem;text-transform:uppercase;letter-spacing:.12em;opacity:.75}
+.pq-feed-line{font-size:.85rem;margin:4px 0 0;opacity:.85}
 .cq-sec{margin-top:48px}
 .cq-sec h2{font-family:var(--font-display);font-size:1.5rem;line-height:1.25;margin:0 0 6px;color:rgb(var(--text))}
 .cq-note{font-size:.875rem;color:rgb(var(--text-muted));margin:0;line-height:1.55}
