@@ -103,6 +103,20 @@ told as above.
 | **Tax** | Shown separately in every proposal |
 | **Invoicing** | As the agreement says; the proposal states when |
 
+### Packages
+
+The floors the Oracle set on 1 October 2026, both under the minor-contract
+threshold for services (15,000 EUR before tax), so a public buyer may award
+them directly. The first-contact deck reads this table (`STD-047`).
+
+| Package | What it holds | Price before tax | En castellano |
+|---|---|---|---|
+| Pilot scene | one scene of up to 3 rooms, one class of learners, 6 months of access, each learner's record | 8500 | Escena piloto: una escena de hasta 3 salas, una promoción de alumnos, 6 meses de acceso y registro por alumno |
+| Full scene | one scene of up to 6 rooms, unlimited access for 12 months, each learner's record and a results report | 14500 | Escena completa: una escena de hasta 6 salas, accesos ilimitados durante 12 meses, registro por alumno e informe de resultados |
+| Upkeep, optional | hosting in the EU, minor changes, a new class | 150–300 a month | Mantenimiento opcional: alojamiento en la UE, cambios menores y nuevas promociones |
+
+The last column is the client's rendering; the English is the original.
+
 ### How it is sold
 
 Qualified, proposed and closed by the three sales protocols; every proposal
