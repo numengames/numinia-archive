@@ -5,7 +5,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Hoja de Personaje
 
-<!-- Transcripción estructurada de Hoja_de_PJ_v0_6_0.jpg (MIS-085 §6-A),
+<!-- Transcripción estructurada de hoja-de-personaje-v0.6.0.jpg (MIS-085 §6-A),
      campo por campo y en el orden del original. La hoja impresa es la
      dirección visual del plano libro: pergamino Arena, tinta Noche,
      estructura Ámbar, marcos de grabado en las esquinas, engranajes como

@@ -19,11 +19,11 @@ completed: null
 # REGISTRO — not consumed by the build, but every document in this archive
 # carries them (`STD-024`).
 type: mission
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-09-02T09:40:00Z"
 created_source: "git:68bd5f1"
 created_confidence: exact
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-02T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [ursa, bootstrap, context, hermes, onboarding, continuity, cold-start]
@@ -157,7 +157,7 @@ house the responsibility without mixing concepts or generating duplication
 **Where it stops:**
 
 - **Only `numinia-nwos` and Ursa's Hermes runtime instance.** Not other
-  agents, not other repositories, not `numinia-lore`.
+  agents, not other repositories.
 - **No canonical content is changed in this draft.** The mission may PROPOSE
   changes to `AGENTS.md`, `agents/ursa/*`, protocols or adapters; applying
   governance-sensitive changes requires the Oracle's review (AGENTS.md,

@@ -4,9 +4,9 @@ uid: ""
 title: "A series needs a reader"
 type: adr
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-09T14:30:00+02:00"
-updated: "2026-09-10T09:00:00+02:00"
+updated: "2026-10-02T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
@@ -78,7 +78,7 @@ folder.
 | Alternative | Why not |
 |---|---|
 | Repair the charters to match `CAN-004` | Repairs a second copy of `CAN-004`; the second copy is what drifted. |
-| Move `guilds/` to `numinia-lore` | No lore in them: a mission line, two branch names, a roster. |
+| Move `guilds/` to `lore/` | No lore in them: a mission line, two branch names, a roster. |
 | Keep `infra/` for Terraform | Fifteen days, zero files. An applier arrives with its own decision. |
 | Record `guild` in `SOUL.md` prose | `AGENT.yaml` is the card tooling reads (`ADR-026`). |
 
