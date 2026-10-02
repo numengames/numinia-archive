@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.3.2"
+version: "0.3.3"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-01T20:00:00+02:00"
+updated: "2026-10-02T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -51,7 +51,7 @@ decision from Numen Games S.L.
 | ~~1~~ | ~~The Mercantile Registry entry (registry, volume, folio, sheet, entry) is missing from the legal notice. LSSI art. 10 requires it. The Oracle has it and will provide it.~~ — closed by the legal-notice update (LEG-004 0.2.0): volume 46518, folio 130, sheet M-816810, entry 1 | company |
 | ~~2~~ | ~~The legal notice gives the address as "Calle Chile 10, Las Rozas, Madrid". Confirm it is the registered address and add the postal code.~~ — closed by LEG-004 0.2.0: Calle Chile 10, 28290 Las Rozas de Madrid | company |
 | 3 | There is no signed assignment of rights from the manual's authors (Christian Märtens 80 %, Pablo Fernández-Maquieira 20 %) to Numen Games S.L., yet the company declares itself rights holder and released the lore under CC0. Draft and sign the assignment; file it with the signed contracts. | company · counsel |
-| 3b | The retired `numinia-lore` repository is still public and its README says the lore is "all rights reserved", while the archive and the Codex publish the same lore as CC0. Archive or delete the old repository, or add a line pointing at the current licence. | company |
+| ~~3b~~ | ~~The retired `numinia-lore` repository is still public and its README says the lore is "all rights reserved", while the archive and the Codex publish the same lore as CC0. Archive or delete the old repository, or add a line pointing at the current licence.~~ — closed 2026-10-02: nothing reads it any more (checked across the fifteen repositories of the organisation); the Oracle deletes it, and the pull request that removes every reference to it closes this row. A full copy with its history is kept off-repository. | company |
 
 ### 1.2 International transfers (the "nothing leaves the EEA" rule)
 

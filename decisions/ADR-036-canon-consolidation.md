@@ -4,9 +4,9 @@ uid: ""
 title: "The canon is CAN-"
 type: adr
 status: active
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-09-01T00:00:00+02:00"
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-10-02T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -54,7 +54,7 @@ carry alone. Citations to `C-006`/`C-007` in closed records are photographs
 (`CIT-053`) and resolve only through §6.
 
 **Two documents left.** *Session Zero* is game design, not governance: it
-moved to `numinia-lore:seminal/About_Session_Zero.md`, reserved regime.
+moved to the lore, `lore/adventures/virtual-worlds/session-zero.md`.
 *Rank Specifications* was twenty lines on a subject `CAN-003` already held;
 merged verbatim, attribution kept.
 
@@ -77,8 +77,8 @@ Records before 2026-08-25 cite `S-`; between 2026-08-25 and 2026-09-01,
 | `S-004` | `C-003` | `CAN-003` Attributes and Ranks |
 | `S-005` | `C-004` | `CAN-004` Role Structure |
 | `S-006` | — | `STD-003` Platform ranks (left canon 2026-08-25) |
-| `S-007` | `C-006` | `numinia-lore:seminal/About_Session_Zero.md` |
-| `S-008` | — | `numinia-lore` RPG manual; pointer only, never copied |
+| `S-007` | `C-006` | `lore/adventures/virtual-worlds/session-zero.md` |
+| `S-008` | — | the RPG manual, `lore/game/manual/` |
 | `S-009` | `C-007` | merged into `CAN-003` |
 | `S-010` | — | retired (was `canon/README.md`) |
 | — | `C-005` | `CAN-005` Licensing |

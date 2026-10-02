@@ -63,9 +63,9 @@ const IGNORED_PREFIX = /^(CON|FLAG|SEC|ARC|G|MISSION|BP)-/;
 // that rule and cite them bare. They are not missing: they are elsewhere.
 const WEB_ADR_RANGE = (n) => n >= 6 && n <= 22;
 const isExample = (id) => id === 'MIS-999';
-// A path qualified by a sibling repository (or numinia-lore's seminal/ shelf)
-// lives elsewhere, not gone — like the web ADR range above.
-const ELSEWHERE = /^(numinia-web|numinia-lore|numengames-web|nwos-deploy|numinia-assets|seminal)\//;
+// A path qualified by a sibling repository lives elsewhere, not gone —
+// like the web ADR range above.
+const ELSEWHERE = /^(numinia-web|numengames-web|nwos-deploy|numinia-assets)\//;
 // CHANGELOG.md is a photograph entry by entry: each is closed the day it is
 // written and names what the tree had that day (CIT-053, a closed record's
 // broken link may stand). Rewriting history to satisfy a resolver would

@@ -5,7 +5,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Character Sheet
 
-<!-- Structured transcription of Hoja_de_PJ_v0_6_0.jpg (MIS-085 §6-A),
+<!-- Structured transcription of hoja-de-personaje-v0.6.0.jpg (MIS-085 §6-A),
      field by field and in the order of the original. The printed sheet is the
      visual direction of the book layout: Sand parchment, Night ink,
      Amber structure, engraved frames in the corners, gears as

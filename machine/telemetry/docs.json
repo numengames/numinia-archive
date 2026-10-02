@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 27485,
+  "chars": 27649,
   "apparatus": false,
   "archived": false,
-  "tokens": 7691
+  "tokens": 7737
  },
  {
   "path": "CLAUDE.md",
@@ -500,10 +500,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1574,
+  "chars": 1507,
   "apparatus": false,
   "archived": false,
-  "tokens": 446
+  "tokens": 426
  },
  {
   "path": "agents/skills/numinia-nwos-pr/SKILL.md",
@@ -885,10 +885,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 24852,
+  "chars": 25119,
   "apparatus": false,
   "archived": false,
-  "tokens": 6657
+  "tokens": 6716
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -907,10 +907,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 3884,
+  "chars": 3867,
   "apparatus": false,
   "archived": false,
-  "tokens": 1258
+  "tokens": 1252
  },
  {
   "path": "decisions/ADR-041-git-is-the-archive.md",
@@ -962,10 +962,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 3858,
+  "chars": 3851,
   "apparatus": false,
   "archived": false,
-  "tokens": 1169
+  "tokens": 1167
  },
  {
   "path": "decisions/ADR-046-classified-by-function.md",
@@ -1039,10 +1039,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2362,
+  "chars": 2275,
   "apparatus": true,
   "archived": false,
-  "tokens": 656
+  "tokens": 632
  },
  {
   "path": "lore/adventures/README.md",
@@ -1149,7 +1149,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2027,
+  "chars": 2034,
   "apparatus": false,
   "archived": false,
   "tokens": 824
@@ -1160,10 +1160,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 37604,
+  "chars": 37575,
   "apparatus": false,
   "archived": false,
-  "tokens": 8641
+  "tokens": 8626
  },
  {
   "path": "lore/codex/glosario.md",
@@ -1171,10 +1171,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38176,
+  "chars": 38147,
   "apparatus": false,
   "archived": false,
-  "tokens": 11315
+  "tokens": 11300
  },
  {
   "path": "lore/codex/hoja-de-personaje.md",
@@ -1182,7 +1182,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2078,
+  "chars": 2085,
   "apparatus": false,
   "archived": false,
   "tokens": 952
@@ -1897,10 +1897,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 19001,
+  "chars": 18981,
   "apparatus": false,
   "archived": false,
-  "tokens": 4416
+  "tokens": 4409
  },
  {
   "path": "missions/MIS-0150-dependabot-advisories-triage.md",
