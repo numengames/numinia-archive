@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.123.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "CHG", text: "The downloads on Open books now open as workbooks in the house's colours: a dark band with the title on every sheet, a front page with the four headline figures and the four kinds of figure, totals set apart, losses in red, and native charts — where the money goes, three years of the plan, 36 months of cash. Accounts and Taxes are Excel now, not CSV. The gestoría's VAT books keep the Tax Agency's own plain layout, so they still import." },
+    ],
+  },
+  {
     version: "v0.122.0",
     date: "2026-10-02",
     entries: [

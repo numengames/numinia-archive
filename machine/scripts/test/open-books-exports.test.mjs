@@ -91,6 +91,24 @@ test('files: CSV a spreadsheet reads; XLSX a real workbook, one sheet per view',
   assert.ok(z.includes('name="Profit and loss"') && z.includes('name="Received invoices"'));
 });
 
+test('workbooks: in the house colours, the AEAT books plain, the plan and accounts with a front page', () => {
+  const z = run("X.toXlsx([{ name: 'Cover', title: 'The accounts', cover: { kpis: [{ label: 'Revenue', value: 100 }] }, head: ['', ''], rows: [['What', 'x']] }, { name: 'Spend', head: ['What', 'Amount (EUR)', 'Share'], rows: [['a', -5.5, 0.4]], chart: { type: 'bar', title: 'Where', cat: 0, series: [1] } }, { name: 'RECIBIDAS', head: ['Base Imponible'], rows: [[1]], plain: true }])");
+  assert.match(z, /FF14110F/, 'the band in Noche');
+  assert.match(z, /FF018EA1/, 'the stripe in Turquesa');
+  assert.match(z, /FFD33440/, 'negatives in Grana');
+  assert.match(z, /showGridLines="0"/, 'no gridlines on the styled sheets');
+  assert.ok(z.includes('xl/charts/chart2.xml'), 'a native chart where the sheet asks for one');
+  assert.match(z, /NUMEN GAMES .{2,6}OPEN BOOKS/, "the eyebrow on every band");
+  const plain = z.slice(z.indexOf('xl/worksheets/sheet3.xml'));
+  assert.match(plain, /<c r="A1" t="inlineStr" s="\d+"><is><t xml:space="preserve">Base Imponible<\/t>/, "the Tax Agency's layout keeps its heading in A1");
+  const amp = run("X.toXlsx([{ name: 'P&L by month', head: ['What', 'Amount (EUR)'], rows: [['a', 1]], chart: { type: 'col', title: 'x', cat: 0, series: [1] } }])");
+  assert.doesNotMatch(amp, /'P&L/, 'a sheet name with & is escaped in every formula, or the workbook does not open');
+  assert.match(amp, /'P&amp;L by month'!/);
+  const W2 = W('src', 'lib', 'open-books-workbooks.ts');
+  const src = read(W2);
+  for (const f of ['planBook', 'accountsWorkbook', 'taxBook']) assert.match(src, new RegExp(`export function ${f}\\b`), f);
+});
+
 test('page: a period picker, the downloads, a print sheet, the plan from its own sums', () => {
   const p = read(PAGE);
   assert.match(p, /from "@\/lib\/exports"/, 'the downloads are built by @/lib/exports');

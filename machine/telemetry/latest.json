@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "4851e11",
-  "corpus_hash": "51d4830a25126426a01a98be0671257f236293461aa9dc14c298f635055b0ad2",
+  "head": "2c9ce7c",
+  "corpus_hash": "1b64cddb17acdc62a5e08aa6cc57376739934d1aa4d9a47c0e7965ae9f1731dd",
   "root_dirty": 0,
-  "measured_at": "2026-10-01T18:38:46Z",
+  "measured_at": "2026-10-01T21:21:15Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 755,
+      "value": 757,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -37,7 +37,7 @@
         ".png": 36,
         ".svg": 75,
         ".toml": 2,
-        ".ts": 50,
+        ".ts": 52,
         ".tsx": 2,
         ".txt": 12,
         ".webp": 1,
@@ -329,7 +329,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 922598,
+      "value": 922660,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -347,7 +347,7 @@
         "opportunities": 21408,
         "canon": 19794,
         "missions": 17668,
-        "": 14264,
+        "": 14326,
         "legal": 13081,
         "decisions": 9669,
         "debt": 9643,
@@ -359,7 +359,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 513373,
+        "(none)": 513435,
         "draft": 221823,
         "active": 168241,
         "todo": 13532,
@@ -370,7 +370,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 1.92,
+      "value": 1.91,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
