@@ -66,6 +66,16 @@ check('tree: STD-004 and STD-012 are active — HDR-000, DEF-008 and DEF-009 bin
   return true;
 });
 
+check('tree: the archive\'s structure is in force — SER (STD-024) and CLS (STD-027) bind, STD-001 is active (2026-10-01)', () => {
+  for (const [plate, holder] of [['SER-004', 'STD-024'], ['SER-007', 'STD-024'], ['CLS-001', 'STD-027'], ['CLS-004', 'STD-027']]) {
+    const b = bindsFor(plate);
+    if (b.holder !== holder) return `${plate} holder ${b.holder}, want ${holder}`;
+    if (!b.binds) return `${plate} does not bind: ${holder} is ${b.status}`;
+  }
+  const s = loadHolders().status.get('STD-001');
+  return s === 'active' || `STD-001 is ${s}`;
+});
+
 /* ---- against a fixture ---- */
 
 const fixture = {

@@ -4,10 +4,10 @@ uid: ""
 title: "A series is a function"
 type: documentation
 subtype: standard
-status: draft
-version: "3.0.2"
+status: active
+version: "3.1.0"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-02T16:28:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"

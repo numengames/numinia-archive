@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18116,
+  "chars": 18131,
   "apparatus": false,
   "archived": false,
-  "tokens": 4491
+  "tokens": 4504
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 26107,
+  "chars": 26083,
   "apparatus": false,
   "archived": false,
-  "tokens": 7291
+  "tokens": 7305
  },
  {
   "path": "CLAUDE.md",
@@ -709,10 +709,10 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 10733,
+  "chars": 10626,
   "apparatus": false,
   "archived": false,
-  "tokens": 2844
+  "tokens": 2816
  },
  {
   "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
@@ -1606,39 +1606,6 @@
   "tokens": 491
  },
  {
-  "path": "machine/packages/sales-kit/fixtures/collateral/OPP-2099-008.md",
-  "dir": "machine",
-  "series": null,
-  "type": "opportunity",
-  "status": "active",
-  "chars": 1916,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 576
- },
- {
-  "path": "machine/packages/sales-kit/fixtures/collateral/offer.md",
-  "dir": "machine",
-  "series": null,
-  "type": "meta",
-  "status": "active",
-  "chars": 537,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 189
- },
- {
-  "path": "machine/packages/sales-kit/fixtures/collateral/register.md",
-  "dir": "machine",
-  "series": null,
-  "type": "meta",
-  "status": "active",
-  "chars": 864,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 273
- },
- {
   "path": "machine/packages/sales-kit/fixtures/register.md",
   "dir": "machine",
   "series": null,
@@ -2040,10 +2007,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 6488,
+  "chars": 5440,
   "apparatus": false,
   "archived": false,
-  "tokens": 1599
+  "tokens": 1324
  },
  {
   "path": "operations/OPS-013-live-gamification-the-offer.md",
@@ -2205,10 +2172,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 7263,
+  "chars": 2337,
   "apparatus": false,
   "archived": false,
-  "tokens": 1870
+  "tokens": 620
  },
  {
   "path": "opportunities/OPP-2026-026.md",
@@ -2623,10 +2590,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5517,
+  "chars": 5548,
   "apparatus": false,
   "archived": false,
-  "tokens": 1476
+  "tokens": 1482
  },
  {
   "path": "protocols/PRO-029-making-a-proposal.md",
@@ -2864,8 +2831,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 6106,
+  "status": "active",
+  "chars": 6107,
   "apparatus": false,
   "archived": false,
   "tokens": 1828
@@ -3073,8 +3040,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 5005,
+  "status": "active",
+  "chars": 5006,
   "apparatus": false,
   "archived": false,
   "tokens": 1289
@@ -3106,8 +3073,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 7478,
+  "status": "active",
+  "chars": 7479,
   "apparatus": false,
   "archived": false,
   "tokens": 1853
@@ -3287,17 +3254,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1311
- },
- {
-  "path": "standards/STD-047-the-sales-collateral.md",
-  "dir": "standards",
-  "series": "standards",
-  "type": "documentation",
-  "status": "draft",
-  "chars": 5219,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1395
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
