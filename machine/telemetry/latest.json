@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "c3652e4",
-  "corpus_hash": "c3e6bb64b156526404ee68634782526b01df01e79d4f1d545ae88bc54b8be497",
+  "head": "1a0d80f",
+  "corpus_hash": "163ff0c32bf49f34a47266c6113d642cf541585adf28ad0cb1bbb690a72975fc",
   "root_dirty": 0,
-  "measured_at": "2026-10-02T18:03:14Z",
+  "measured_at": "2026-10-02T18:02:49Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 784,
+      "value": 780,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -27,41 +27,40 @@
         ".css": 3,
         ".csv": 4,
         ".docx": 1,
-        ".editorconfig": 1,
         ".gitignore": 2,
         ".html": 2,
         ".jpg": 2,
         ".js": 2,
         ".json": 15,
-        ".md": 335,
+        ".md": 334,
         ".mjs": 116,
         ".png": 36,
         ".svg": 75,
-        ".toml": 3,
+        ".toml": 2,
         ".ts": 55,
         ".tsx": 2,
         ".txt": 14,
         ".webp": 1,
         ".woff2": 7,
         ".yaml": 36,
-        ".yml": 5
+        ".yml": 4
       },
       "unit": "files",
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
     },
     "corpus.md_total": {
-      "value": 335,
+      "value": 334,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 334,
+      "value": 333,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
     "corpus.docs_by_dir": {
       "value": {
-        "(root)": 8,
+        "(root)": 7,
         ".github": 3,
         "agents": 45,
         "blueprints": 12,
@@ -85,7 +84,7 @@
     },
     "corpus.docs_by_type": {
       "value": {
-        "(none)": 62,
+        "(none)": 61,
         "adr": 10,
         "agent": 41,
         "blueprint": 13,
@@ -104,7 +103,7 @@
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
     },
     "corpus.docs_without_frontmatter": {
-      "value": 49,
+      "value": 48,
       "unit": "documents",
       "definition": "corpus documents with no `---` block at the top"
     },
@@ -330,28 +329,28 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 934829,
+      "value": 934611,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
-        "lore": 491736,
-        "standards": 85421,
+        "lore": 491682,
+        "standards": 85466,
         "system": 51924,
         "reports": 36705,
         "protocols": 36370,
-        "agents": 35901,
+        "agents": 35881,
         "operations": 28320,
         "blueprints": 27806,
         "machine": 27302,
         "opportunities": 25198,
         "canon": 19794,
-        "missions": 17668,
-        "": 15562,
+        "missions": 17661,
+        "": 15329,
         "legal": 13033,
-        "decisions": 9669,
-        "debt": 9643,
+        "debt": 9702,
+        "decisions": 9661,
         "objects": 1865,
         ".github": 912
       },
@@ -360,10 +359,10 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 514671,
-        "draft": 209606,
-        "active": 191391,
-        "todo": 13532,
+        "(none)": 514384,
+        "draft": 209651,
+        "active": 191422,
+        "todo": 13525,
         "in-progress": 4513,
         "done": 1116
       },
@@ -407,7 +406,7 @@
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
     "headers.docs_without_frontmatter": {
-      "value": 49,
+      "value": 48,
       "unit": "documents",
       "definition": "corpus docs minus docs_with_frontmatter"
     },
@@ -577,7 +576,7 @@
     "provenance.authorship": {
       "value": {
         "ai-persona": 217,
-        "no-frontmatter": 49,
+        "no-frontmatter": 48,
         "other": 38,
         "no-author": 17,
         "ai-model": 8,
@@ -744,7 +743,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1006
+          "3": 1003
         },
         "PRO": {
           "3": 439
@@ -758,6 +757,9 @@
         "ADR": {
           "3": 233
         },
+        "DBT": {
+          "3": 68
+        },
         "OPP": {
           "3": 26,
           "4": 94
@@ -767,9 +769,6 @@
         },
         "SYS": {
           "3": 99
-        },
-        "DBT": {
-          "3": 67
         },
         "BLU": {
           "3": 155
@@ -860,7 +859,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 301,
+      "value": 299,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -876,11 +875,11 @@
         "operations/OPS-007-sales.md": 10,
         "blueprints/BLU-017-legal-obligations-to-confirm.md": 9,
         "blueprints/BLU-009-web-pieces.md": 8,
-        "CHANGELOG.md": 7,
         "blueprints/BLU-018-our-own-gateway.md": 7,
         "missions/MIS-0135-normalisation-residue-register.md": 7,
         "operations/OPS-001-continuity.md": 7,
-        "reports/RPT-028-2026-w36.md": 7
+        "reports/RPT-028-2026-w36.md": 7,
+        "CHANGELOG.md": 6
       },
       "unit": "lines",
       "definition": "the fifteen docs with most such lines"

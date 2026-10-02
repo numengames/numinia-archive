@@ -8,7 +8,7 @@ SPDX-License-Identifier: CC0-1.0
 <!--
 Generated for MIS-085 Phase A (Codex edition of the roleplaying manual).
 All definitions come exclusively from the text of the manual
-"Numinia. El juego de rol" v0.6.0 (seminal/Numinia_Manual_del_juego_de_rol_v0_6_0.md).
+"Numinia. El juego de rol" v0.6.0 (lore/game/manual/es/).
 Each entry indicates its location in the source (chapter and section).
 No lore has been invented: close paraphrase or direct quotations («...») from the manual.
 -->

@@ -8,9 +8,7 @@ SPDX-License-Identifier: CC0-1.0
 The world of Numinia and the game played in it. **Public domain (CC0-1.0)** —
 each file says so in its own SPDX comment. Copy it, adapt it, play it, publish
 your own adventures: no permission, no attribution needed. Only the names
-**Numinia**, **Numen Games** and **Khepri** are kept (`TRADEMARKS.md`). Home in this repository since 2026-09-17 —
-before that, the `numinia-lore` repository, now archived; before that,
-`numinia-web`.
+**Numinia**, **Numen Games** and **Khepri** are kept (`TRADEMARKS.md`). Home in this repository since 2026-09-17.
 
 | Folder | What | Read by |
 |---|---|---|

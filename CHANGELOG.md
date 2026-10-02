@@ -20,6 +20,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ### 2026-10-02
 
 - **Security** Full-history secret scan in CI (`secrets.yml`, gitleaks, checksum-verified; 904 commits, 0 leaks); `CODE_OF_CONDUCT.md`, `.editorconfig`; `STD-015` 6.1.0 pays SEC-004, OSS-001/002, DEV-003, TRC-005 and corrects TRC-004 (30 debts → 24); `STD-022` 1.2.6
+- **Removed** Every reference to the old `numinia-lore` repository: nothing reads it, the Oracle deletes it; links now point at `lore/` here (`DBT-022` #3b closed)
 - **Changed** The design values and both vocabularies are in force, headers only: `STD-023` design values 1.9.0, `STD-026` operative vocabulary 0.2.0, `STD-030` the world's vocabulary 0.3.0; `STD-015` waits on its 30 debt rows; Oracle shown first (PRO-023)
 - **Changed** ROLECE applied for and in process: `OPS-018` 0.5.1 moves the bidders' register from no to check; `OPP-2026-037` meets it
 - **Added** `PRO-035` Watching for opportunities, the watch's verdicts in `STD-038`, the feed rule and Kairos pointing at it; the sales playbook opens before the record and walks every kind (site v0.128.0)
