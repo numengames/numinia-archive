@@ -3,9 +3,9 @@ agent: kairos
 title: "SOURCES — Kairos"
 type: agent
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-02T12:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [agents, kairos, opportunities, sources]
@@ -39,6 +39,14 @@ here, never from a private list.
 
 `operations/OPS-011-positioning-and-market.md` — who the house sells to.
 
+## How a watch runs
+
+`protocols/PRO-035-watching-for-opportunities.md` — the whole watch, from the
+sweep to the Oracle's decision: what is kept in doubt, what goes to the feed,
+how a filter is retuned. Its verdicts are the table *A watch's verdict* in
+`standards/STD-038-the-stages-of-an-opportunity.md`; where it writes is the
+rule *Automation writes to its feed* in `standards/STD-017-who-may-change-what.md`.
+
 ## How a found opportunity is weighed
 
 `protocols/PRO-033-screening-a-tender.md` — screening one tender from its
@@ -61,14 +69,19 @@ each (`standards/STD-039-an-opportunity-has-a-record.md`), moulded on
 `machine/packages/sales-kit/pipeline.mjs`. A watch skips what is already
 here. The published view is `/system/pipeline` on numinia.org.
 
+## Where the watch writes
+
+`numengames/numinia-archive-feed` — the feed: `radar/board.json`, what the
+tender and grant watch found, unreviewed. The archive reads it on
+`/system/pipeline`, through `web/src/lib/feed.ts`.
+
 ## Not yet in the archive
 
-The watching procedure itself — which places each watch sweeps, how often,
-the doubt rule, what is brought to the Oracle, how filters are retuned — and
-the sweep script of the first watch (tenders and grants) still live in the
-instantiating platform's profile. They are to be carried here as a protocol, a
-watch template and a package under `machine/packages/`, so that any machine
-can rebuild every watch from this repository alone.
+The sweep script of the first watch (the places' addresses, its word and code
+filters) still runs from the instantiating platform's profile. It is to be
+carried here as a package under `machine/packages/`, with a watch template,
+so that any machine can rebuild every watch from this repository alone. The
+procedure it follows is already here: `PRO-035`.
 
 ---
 

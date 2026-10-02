@@ -4,9 +4,9 @@ uid: ""
 title: "Applying for a grant"
 type: protocol
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -47,7 +47,8 @@ paid. This protocol writes each call down the day it is foreseen, reads it
 against the house's card, and decides with the way it pays in view.
 
 It starts when a call is foreseen (last year's call, a funder's plan of
-subsidies) or published. **Whoever researches** opens the record;
+subsidies) or published, and a watch (`PRO-035`) or a person brings it.
+**Whoever researches** opens the record;
 **whoever applies** reads and prepares it; **the Oracle** decides and signs.
 
 ---
