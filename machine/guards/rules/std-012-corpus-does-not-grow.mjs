@@ -51,7 +51,7 @@ for (const [p, dir] of Object.entries(PREFIX_DIR)) if (RULES.series[dir]?.naming
 // lore/** is the game (the RPG manual, the codex matter): prose the archive
 // HOLDS, not documents it governs — no series, no header ring. Opaque to the
 // rules, like reports/evidence/. Each file declares its own licence.
-const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\/|^lore\//;
+const OUTWARD = /^(AGENTS|CLAUDE|CODE_OF_CONDUCT|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\/|^lore\//;
 
 /* ---------- DEF-009: the resolver ---------- */
 

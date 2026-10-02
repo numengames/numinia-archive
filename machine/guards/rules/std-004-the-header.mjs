@@ -40,7 +40,7 @@ const GOVERNED = new Set(RULES.governed.dirs);
 // lore/** is the game (the RPG manual, the codex matter): prose the archive
 // HOLDS, not documents it governs — no series, no header ring. Opaque to the
 // rules, like reports/evidence/. Each file declares its own licence.
-const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\/|^lore\//;
+const OUTWARD = /^(AGENTS|CLAUDE|CODE_OF_CONDUCT|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\/|^lore\//;
 
 /* Closed vocabularies. They live in rules.json so every guard reads one copy:
    a vocabulary duplicated per guard drifts silently, one guard at a time. */

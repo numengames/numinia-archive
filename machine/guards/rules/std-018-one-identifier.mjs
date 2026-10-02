@@ -37,7 +37,7 @@ export const meta = { family: 'IDN', plates: ['IDN-011', 'IDN-012', 'IDN-013', '
 
 /* STD-009 scope: files addressing a reader outside the corpus follow the
    conventions of the platform they serve, not the numbered series. */
-const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\//;
+const OUTWARD = /^(AGENTS|CLAUDE|CODE_OF_CONDUCT|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\//;
 
 /* ---------- IDN-011: the name carries the series' identifier ---------- */
 

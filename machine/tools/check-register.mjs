@@ -204,19 +204,27 @@ function checkPipelineInvokes(problems) {
     if (!ci.includes(needle)) problems.push(`pipeline: .github/workflows/ci.yml never invokes ${what} (looked for \`${needle}\`)`);
 }
 
-/* Four rows name this script as their machine, so this script has to actually
+/* Several rows name this script as their machine, so this script has to actually
    perform them. A presence check that nobody wrote is the same lie in a newer
    font. Each entry: the plate, what must exist, and why the absence matters. */
 const PRESENCE = [
   ['SEC-010', ['.github/CODEOWNERS'], 'no file says who must review a change'],
   ['TRC-002', ['.github/PULL_REQUEST_TEMPLATE.md', '.github/ISSUE_TEMPLATE/task.md'], 'work arrives with no stated definition of done'],
   ['AGT-001', ['AGENTS.md'], 'an agent has no standing instruction to audit before assuming'],
+  ['OSS-001', ['CONTRIBUTING.md'], 'a stranger has no way in'],
+  ['OSS-002', ['CODE_OF_CONDUCT.md'], 'nobody can read the conduct rules beforehand'],
+  ['DEV-003', ['.editorconfig'], 'every editor writes its own whitespace'],
 ];
 
 function checkPresence(problems) {
   for (const [plate, files, why] of PRESENCE)
     for (const f of files)
       if (!tracked.has(f)) problems.push(`${plate}: ${f} is missing — ${why}`);
+
+  /* TRC-005: the roadmap is the blueprints — each one a map of what is still
+     to do. A folder with none left says nothing about the year ahead. */
+  if (![...tracked].some((f) => /^blueprints\/BLU-\d{3}-.+\.md$/.test(f)))
+    problems.push('TRC-005: blueprints/ holds no blueprint — the repository says nothing of what it intends to do');
 
   /* AGT-001 is not satisfied by the file existing: the row says the FIRST
      instruction is to audit the branch. An AGENTS.md that opens with anything

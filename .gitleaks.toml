@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
+#
+# The secret scanner's configuration (STD-015 SEC-004, STD-022 KEY-054).
+# The default rule set stays on. Each allowance below names what it lets
+# through and why that is not a secret; an allowance without a reason is how
+# a real leak gets waved through, and check-register.test.mjs refuses one.
+#
+# No allowance names a path: a path allowance makes the scanner skip the
+# whole file, so a real token written next to a hash would pass unseen.
+# Each one matches only the value, and only for the generic rule that
+# guessed wrong; the specific rules (GitHub, cloud keys, private keys...)
+# still read every file.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "SHA-256 content digests (64 lowercase hex), such as the design kit manifest publishes so a copy can be verified: public by design"
+targetRules = ["generic-api-key"]
+regexTarget = "secret"
+regexes = ['''^[0-9a-f]{64}$''']
+
+[[allowlists]]
+description = "File names of archive documents (an id then a slug, ending .md), as the archive index page lists them: never a key"
+targetRules = ["generic-api-key"]
+regexTarget = "secret"
+regexes = ['''^[A-Z]{3}-\d{3}-[a-z0-9-]+\.md$''']
