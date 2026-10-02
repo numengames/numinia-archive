@@ -6,9 +6,9 @@ uid: ""
 title: "Cookie Policy — Numen Games"
 type: legal
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-09-18T17:00:00+02:00"
-updated: "2026-09-29T21:00:00+02:00"
+updated: "2026-10-02T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [legal, cookies, privacy, gdpr, lssi, website, numen-games, enforceable]
@@ -88,7 +88,6 @@ of that kind.
 |---|---|---|---|---|---|
 | `numinia_consent` | first-party cookie | Records your choice on the cookie notice — accepted or rejected, which categories, and which version of this policy. When the policy changes, the notice asks again. | You press *Accept all*, *Reject all* or *Save* on the notice | 6 months | Yes — it is how the site remembers your choice, whichever it was |
 | `numinia_session` | first-party cookie, `httpOnly` | Keeps you signed in after you enter the player area with your wallet. Contains a signed session token, not your browsing. | You sign in | 1 hour | Yes — only if you sign in; no sign-in, no cookie |
-| `siwe_nonce` | first-party cookie, `httpOnly` | A one-time challenge used during wallet sign-in, so a signature cannot be replayed. | During sign-in | Minutes | Yes — only during sign-in |
 | `numinia-lang` | local storage | Your chosen language, so the site opens in it. | You pick a language | Until you clear it | Preference — set only when you choose |
 | `numinia-modo` | local storage | Your chosen display mode (day / night). | You pick a mode | Until you clear it | Preference — set only when you choose |
 | `numinia-lap-nav` | local storage | Whether you folded the player-area navigation. | You fold or unfold it | Until you clear it | Preference — set only when you act |
