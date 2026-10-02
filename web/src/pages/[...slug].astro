@@ -6,6 +6,8 @@
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
+import SalesWand from "@/components/SalesWand.astro";
+import { wandFor } from "@/lib/collateral";
 import { getCollection, render } from "astro:content";
 import { getPublicCorpus } from "@/lib/corpus";
 import { repoFileUrl } from "@/lib/build-info";
@@ -63,6 +65,9 @@ const fmtDate = (v: unknown) => {
   return Number.isNaN(d.getTime()) ? String(v) : d.toISOString().slice(0, 10);
 };
 const updated = fmtDate(f.updated) ?? fmtDate(f.created);
+// The wand (STD-047): a sale's record carries its process and its collateral,
+// rendered from the record by the sales kit. Other kinds and documents: none.
+const wand = dir === "opportunities" && f.id?.startsWith("OPP-") ? wandFor(f.id) : null;
 ---
 
 <Layout
@@ -97,6 +102,7 @@ const updated = fmtDate(f.updated) ?? fmtDate(f.created);
       )}
 
       <DocToolbar mdUrl={mdUrl} filename={mdFilename} lang={docLang} repoUrl={repoUrl} />
+      {wand && <SalesWand wand={wand} />}
       <article class="mission-md rounded-[8px] border border-border bg-card p-6 sm:p-8">
         <Content />
       </article>

@@ -112,6 +112,7 @@ export const SEGMENTS: Segment[] = [
     E("Open books", "The books of Numen Games S.L.", "/system/open-books"),
     E("Opportunities", "Whom we are trying to sell to, in public", "/opportunities/", "opportunities"),
     E("The pipeline", "Sales, tenders, grants, collaborations and partners: what is due, the timeline, the funnel", "/system/pipeline"),
+    E("The sales playbook", "Each stage of a sale, the protocol that moves it, what it hands over", "/playbook"),
     E("Templates", "The mould of every document type, headers side by side", "/templates"),
     E("The repository", "README, contributing, changelog, security", null),
   ] },
@@ -172,6 +173,7 @@ export interface Book {
 }
 export const BOOKS: Book[] = [
   { label: "The core", line: "Each canon, the standards that make it concrete, the protocols that carry it out", href: "/core", from: "canon · standards · protocols" },
+  { label: "The sales playbook", line: "From an opportunity found to a sale won or lost: each stage, its protocol, what it hands over", href: "/playbook", from: "standards · protocols · operations" },
   { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · protocols · system" },
   { label: "The role-playing manual", line: "The tabletop game of Numinia, in Spanish and English", href: null, from: "lore", pending: "Not on the site yet: four images the manual embeds were never committed" },
   { label: "The legal playbook", line: "The rules the law asks of us, gathered in one place", href: null, from: "standards · legal", pending: "Being written: the standards the law requires are still to be gathered" },
