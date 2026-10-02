@@ -44,7 +44,7 @@ const stageCount = book.kinds.reduce((n, k) => n + k.stages.length, 0);
       <p class="text-sm leading-relaxed text-muted-foreground mb-6">
         {book.kinds.length} kinds, {stageCount} stages, {book.protocols.length} protocols, {book.pieces.length} pieces of collateral
         ({book.pieces.filter((p) => p.renderable).length} made by the kit, the rest by hand until a sale shows they help).
-        Read from <a href={book.sources.register} class={enlace}>the stages of an opportunity</a>,
+        Read from <a href={book.sources.register} class={enlace}>the stages of an opportunity</a>{", "}
         <a href={book.sources.collateral} class={enlace}>the sales collateral</a> and the protocols themselves.
         The opportunities they move are in <a href="/system/pipeline" class={enlace}>the pipeline</a>.
       </p>
