@@ -34,6 +34,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
 const MODULE = path.resolve(ROOT, 'web', 'src', 'lib', 'telemetry-panel.ts');
 const PAGE = path.resolve(ROOT, 'web', 'src', 'pages', 'telemetry.astro');
+const PANEL = path.resolve(ROOT, 'web', 'src', 'components', 'TelemetryPanel.astro');
 const read = (p) => readFileSync(p, 'utf8');
 const latest = () => JSON.parse(read(path.join(ROOT, 'machine', 'telemetry', 'latest.json')));
 
@@ -102,7 +103,8 @@ test('every folder the instrument measures falls in a function of the scheme, or
 // ── 3 · the page ────────────────────────────────────────────────────────────
 
 test('/telemetry is a panel: period, lens, an action line per panel', () => {
-  const page = read(PAGE);
+  const page = read(PAGE) + read(PANEL);
+  assert.match(read(PAGE), /<TelemetryPanel \/>/, '/telemetry does not carry the panel');
   for (const w of ['Week', 'Month', 'Quarter', 'All']) assert.match(page, new RegExp(`>${w}<`), `no "${w}" period`);
   assert.match(page, /type="date"/, 'no date range');
   assert.match(page, />Product</);

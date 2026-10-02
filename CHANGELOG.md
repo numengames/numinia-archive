@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Added** /telemetry is a panel: period, Product/CTO lens, growth and weight by function, maturity, what has no page, largest documents, files by kind (`corpus.files_by_kind`); one action line per panel (#624) (site v0.130.0)
 - **Changed** A `draft` is on trial, not "binds nobody": followed, warns, never blocks; its owner decides a change. `STD-004` 4.11.0, `STD-009` 1.2.0, `PRO-023` 1.1.0 and every page that defines draft; a test holds the wording (site v0.129.0)
 - **Security** Full-history secret scan in CI (`secrets.yml`, gitleaks, checksum-verified; 904 commits, 0 leaks); `CODE_OF_CONDUCT.md`, `.editorconfig`; `STD-015` 6.1.0 pays SEC-004, OSS-001/002, DEV-003, TRC-005 and corrects TRC-004 (30 debts → 24); `STD-022` 1.2.6
 - **Removed** Every reference to the old `numinia-lore` repository: nothing reads it, the Oracle deletes it; links now point at `lore/` here (`DBT-022` #3b closed)

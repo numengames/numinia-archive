@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-02T19:07:18Z"
+updated: "2026-10-02T19:37:42Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,21 +20,22 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `3cdf0e1`  · corpus_hash: `9e95957f8187b0b4…`  · measured_at: 2026-10-02T19:07:18Z  · root_dirty: 0
+- head: `8c51685`  · corpus_hash: `dcff0deb49708236…`  · measured_at: 2026-10-02T19:37:42Z  · root_dirty: 2
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 785 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 786 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
+| `corpus.files_by_kind` | (table below) | files · bytes | tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other` |
 | `corpus.md_total` | 335 | files | tracked `.md` anywhere, including `web/` |
 | `corpus.docs_total` | 334 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
 | `corpus.docs_by_dir` | (table below) | documents | corpus documents by top-level directory; root files under `(root)` |
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
 | `corpus.docs_without_frontmatter` | 49 | documents | corpus documents with no `---` block at the top |
 | `corpus.apparatus` | 52 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
-| `corpus.scripts_total` | 79 | files | files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts) |
+| `corpus.scripts_total` | 80 | files | files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
 | `corpus.scripts_in_ci` | 20 | files | guards the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032) |
 
@@ -54,7 +55,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .js | 2 |
 | .json | 15 |
 | .md | 335 |
-| .mjs | 117 |
+| .mjs | 118 |
 | .png | 36 |
 | .svg | 75 |
 | .toml | 3 |
@@ -65,6 +66,18 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .woff2 | 7 |
 | .yaml | 36 |
 | .yml | 5 |
+
+### `corpus.files_by_kind`
+
+| | files | bytes |
+|---|---|---|
+| Text | 335 | 3712239 |
+| Code | 246 | 2235616 |
+| Image | 114 | 3409160 |
+| Data | 77 | 595226 |
+| Font | 7 | 684444 |
+| Other | 6 | 4893 |
+| Office | 1 | 43026 |
 
 ### `corpus.docs_by_dir`
 
@@ -112,7 +125,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files |
 |---|---|
-| node | 79 |
+| node | 80 |
 
 ## series
 

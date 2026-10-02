@@ -1,0 +1,329 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The telemetry panel: four figures, two shared panels, two per lens.
+//
+// Built for two readers. A product manager asks where the archive grows, how
+// much of it is in force and what weighs without a page; a CTO asks what it
+// costs to read and what the repository is made of. Both pick a period. Each
+// panel ends in one action line: a flag (ok · watch · act), the figure, the
+// threshold, and what to do — a panel that cannot lead to a decision is
+// decoration.
+//
+// Every number is read by @/lib/telemetry-panel from machine/telemetry/; this
+// component regroups it for the period chosen and computes no measurement.
+// Without JavaScript the figures are server-rendered for the whole history.
+import { panelRows, panelSeries, filesByKind, measured, AREAS, THRESHOLDS } from "@/lib/telemetry-panel";
+import { surface } from "@/lib/machine-surface";
+import { repoPath } from "@/lib/machine-index";
+
+const published = new Set((await surface()).documents.map((d) => repoPath(d.filePath)));
+const rows = panelRows(published);
+const series = panelSeries();
+const kinds = filesByKind();
+const last = series[series.length - 1];
+const paged = rows.filter((r) => r.why === "page");
+const data = { rows, series, kinds, areas: AREAS, thresholds: THRESHOLDS, measured };
+const json = JSON.stringify(data).replace(/</g, "\\u003c");
+const n = (v: number) => v.toLocaleString("en-US");
+---
+
+<section class="tp" aria-labelledby="tp-title" data-telemetry-panel>
+  <h2 id="tp-title" class="sr-only">The archive, measured</h2>
+
+  <div class="tp-bar" role="group" aria-label="What to show">
+    <span class="tp-k">Period</span>
+    <div class="tp-seg" data-seg="per">
+      <button type="button" data-v="7" aria-pressed="false">Week</button>
+      <button type="button" data-v="30" aria-pressed="true">Month</button>
+      <button type="button" data-v="90" aria-pressed="false">Quarter</button>
+      <button type="button" data-v="all" aria-pressed="false">All</button>
+    </div>
+    <label class="tp-date"><span class="sr-only">From</span><input type="date" data-date="from" /></label>
+    <span class="tp-k">to</span>
+    <label class="tp-date"><span class="sr-only">To</span><input type="date" data-date="to" /></label>
+    <span class="tp-k tp-gap">Read as</span>
+    <div class="tp-seg" data-seg="lens">
+      <button type="button" data-v="pm" aria-pressed="true">Product</button>
+      <button type="button" data-v="cto" aria-pressed="false">CTO</button>
+    </div>
+    <span class="tp-meta">measured {measured.at.slice(0, 10)} · {measured.head} · {measured.tokenizer.split(" ")[0]}</span>
+  </div>
+
+  <div class="tp-kpis" data-kpis>
+    <div class="tp-kpi"><div class="tp-k">Documents with a page</div><div class="tp-v">{n(paged.length)}</div><div class="tp-q">of {n(rows.length)} text files in the repository</div></div>
+    <div class="tp-kpi"><div class="tp-k">Tokens, whole archive</div><div class="tp-v">{last ? n(last.tokens) : "—"}</div></div>
+    <div class="tp-kpi"><div class="tp-k">Growth in the period</div><div class="tp-v">—</div></div>
+    <div class="tp-kpi"><div class="tp-k">Rules in force</div><div class="tp-v">{n(paged.filter((r) => r.state === "active").length)}</div></div>
+  </div>
+
+  <div class="tp-grid">
+    <article class="tp-panel">
+      <div class="tp-k">Growth</div>
+      <h3>Where does the archive grow?</h3>
+      <p class="tp-sub">Tokens per function over the period. A token is the unit a reading agent pays for.</p>
+      <svg data-area viewBox="0 0 700 260" width="100%" role="img" aria-label="Tokens per function over the period"></svg>
+      <div class="tp-legend" data-legend></div>
+      <p class="tp-act" data-panel-action="growth"></p>
+    </article>
+    <article class="tp-panel">
+      <div class="tp-k">Weight</div>
+      <h3>Which function weighs most?</h3>
+      <p class="tp-sub">Share of tokens at the end of the period, and its change.</p>
+      <div data-weight></div>
+      <p class="tp-act" data-panel-action="weight"></p>
+    </article>
+  </div>
+
+  <div class="tp-grid2">
+    <article class="tp-panel tp-pm">
+      <div class="tp-k">Maturity</div>
+      <h3>How much is in force, and how much on trial?</h3>
+      <p class="tp-sub">Documents with a page, by state, per function. Today's state.</p>
+      <div data-state></div>
+      <p class="tp-act" data-panel-action="state"></p>
+    </article>
+    <article class="tp-panel tp-pm">
+      <div class="tp-k">Visibility</div>
+      <h3>What weighs and has no page?</h3>
+      <p class="tp-sub">Every text file is counted. These are the ones a visitor cannot open here, and why.</p>
+      <div data-hidden></div>
+      <p class="tp-act" data-panel-action="hidden"></p>
+    </article>
+    <article class="tp-panel tp-cto">
+      <div class="tp-k">Size</div>
+      <h3>Which documents cost most to read?</h3>
+      <p class="tp-sub">The ten largest documents with a page.</p>
+      <div data-largest></div>
+      <p class="tp-act" data-panel-action="size"></p>
+    </article>
+    <article class="tp-panel tp-cto">
+      <div class="tp-k">Repository</div>
+      <h3>What is the repository made of?</h3>
+      <p class="tp-sub">Every tracked file by kind. Tokens only mean something for text and code; the rest is weighed.</p>
+      <div data-kinds></div>
+      <p class="tp-act" data-panel-action="kinds"></p>
+    </article>
+  </div>
+
+  <p class="tp-note">
+    Thresholds are proposals, kept in one place (<code>THRESHOLDS</code> in <code>web/src/lib/telemetry-panel.ts</code>).
+    The period selector works on daily measurements; a figure with no measurement in the previous period shows no change rather than a guess.
+  </p>
+
+  <script type="application/json" data-telemetry-data set:html={json}></script>
+</section>
+
+<script>
+  type Row = { path: string; series: string; fn: string; state: string; tokens: number; why: string };
+  type Point = { day: string; head: string; tokens: number; docs: number; byFn: Record<string, number> };
+  type Kind = { kind: string; files: number; bytes: number };
+  type Data = {
+    rows: Row[]; series: Point[]; kinds: Kind[]; areas: string[];
+    thresholds: { growthShare: number; weightShare: number; hiddenShare: number; docTokens: number; dataShare: number };
+    measured: { at: string; head: string; tokenizer: string };
+  };
+
+  const root = document.querySelector<HTMLElement>("[data-telemetry-panel]");
+  const raw = root?.querySelector("[data-telemetry-data]")?.textContent;
+  if (root && raw) {
+    const D = JSON.parse(raw) as Data;
+    const S = D.series;
+    const T = D.thresholds;
+    const q = <E extends Element>(s: string) => root.querySelector<E>(s)!;
+    const COL: Record<string, string> = {};
+    const PALETTE = ["--teal", "--blue", "--ambar", "--green", "--red", "--text-dim", "--border"];
+    D.areas.forEach((a, i) => (COL[a] = `rgb(var(${PALETTE[i % PALETTE.length]}))`));
+
+    const fmt = (v: number | null | undefined) =>
+      v == null ? "—" : Math.abs(v) >= 1e6 ? (v / 1e6).toFixed(2) + " M" : Math.abs(v) >= 1e4 ? Math.round(v / 1e3) + " k" : v.toLocaleString("en-US");
+    const pct = (a: number, b: number) => (b ? ((a - b) / b) * 100 : null);
+    const day = (s: string) => Date.parse(s + "T00:00:00Z");
+    const iso = (t: number) => new Date(t).toISOString().slice(0, 10);
+    const first = S[0]?.day ?? "", lastDay = S[S.length - 1]?.day ?? "";
+    const at = (d: string) => { let r = S[0]; for (const x of S) if (x.day <= d) r = x; return r; };
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]!);
+    const flag = (kind: "ok" | "watch" | "act") => `<span class="tp-flag tp-f-${kind}">${kind}</span>`;
+    const delta = (now: number, prev: number) => {
+      const p = pct(now, prev);
+      if (p == null) return `<span class="tp-flat">no earlier measurement</span>`;
+      const c = Math.abs(p) < 0.5 ? "tp-flat" : p > 0 ? "tp-up" : "tp-down";
+      return `<span class="${c}">${p > 0 ? "+" : ""}${p.toFixed(1)} %</span> <span class="tp-flat">vs previous period</span>`;
+    };
+
+    const fromEl = q<HTMLInputElement>('[data-date="from"]'), toEl = q<HTMLInputElement>('[data-date="to"]');
+    fromEl.min = toEl.min = first; fromEl.max = toEl.max = lastDay;
+    const st: { per: string; from: string | null; to: string | null } = { per: "30", from: null, to: null };
+    const range = (): [string, string] =>
+      st.from && st.to ? [st.from, st.to] : st.per === "all" ? [first, lastDay] : [iso(day(lastDay) - Number(st.per) * 864e5), lastDay];
+
+    const rows = D.rows, paged = rows.filter((r) => r.why === "page");
+
+    function render() {
+      if (!S.length) return;
+      const [a, b] = range(); fromEl.value = a; toEl.value = b;
+      const span = day(b) - day(a);
+      const now = at(b), start = at(a), prevStart = at(iso(day(a) - span));
+      const grow = now.tokens - start.tokens, growPrev = start.tokens - prevStart.tokens;
+      const active = paged.filter((r) => r.state === "active").length, draft = paged.filter((r) => r.state === "draft").length;
+
+      const k = [
+        { l: "Documents with a page", v: fmt(paged.length), d: "", q: `of ${rows.length} text files in the repository` },
+        { l: "Tokens, whole archive", v: fmt(now.tokens), d: delta(now.tokens, start.tokens), q: `${fmt(grow)} tokens added in the period` },
+        { l: "Growth in the period", v: fmt(grow), d: start.day > prevStart.day && growPrev ? delta(grow, growPrev) : `<span class="tp-flat">no earlier period measured</span>`, q: "tokens added, against the period before" },
+        { l: "Rules in force", v: fmt(active), d: `<span class="tp-flat">${draft} on trial</span>`, q: `${Math.round((active / Math.max(1, active + draft)) * 100)} % of documents in force or on trial` },
+      ];
+      q("[data-kpis]").innerHTML = k.map((x) => `<div class="tp-kpi"><div class="tp-k">${x.l}</div><div class="tp-v">${x.v}</div><div class="tp-d">${x.d}</div><div class="tp-q">${x.q}</div></div>`).join("");
+
+      // Growth — stacked areas per function.
+      const pts = S.filter((p) => p.day >= a && p.day <= b);
+      const W = 700, H = 260, L = 52, B = 24, TOP = 10;
+      const max = Math.max(1, ...pts.map((p) => p.tokens)) * 1.05;
+      const x = (i: number) => L + (pts.length < 2 ? 0 : (i * (W - L - 12)) / (pts.length - 1));
+      const y = (v: number) => H - B - (v / max) * (H - B - TOP);
+      let svg = "";
+      for (let g = 0; g <= 4; g++) { const v = (max * g) / 4; svg += `<line x1="${L}" x2="${W - 12}" y1="${y(v)}" y2="${y(v)}" class="tp-grid-line"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${fmt(Math.round(v))}</text>`; }
+      let base = pts.map(() => 0);
+      for (const f of D.areas) {
+        const top = pts.map((p, i) => base[i] + (p.byFn[f] ?? 0));
+        const up = top.map((v, i) => `${i ? "L" : "M"}${x(i)},${y(v)}`).join("");
+        const down = base.map((_, j) => { const i = pts.length - 1 - j; return `L${x(i)},${y(base[i])}`; }).join("");
+        svg += `<path d="${up}${down}Z" fill="${COL[f]}" fill-opacity=".78"><title>${esc(f)}</title></path>`;
+        base = top;
+      }
+      const ends = (i: number) => (i === 0 ? "start" : i === pts.length - 1 ? "end" : "middle");
+      for (const i of new Set([0, Math.floor((pts.length - 1) / 2), pts.length - 1])) if (pts[i]) svg += `<text x="${x(i)}" y="${H - 6}" text-anchor="${ends(i)}">${pts[i].day.slice(5)}</text>`;
+      q("[data-area]").innerHTML = svg;
+      q("[data-legend]").innerHTML = D.areas.map((f) => `<span><i style="background:${COL[f]}"></i>${esc(f)}</span>`).join("");
+      const gf = D.areas.map((f) => [f, (now.byFn[f] ?? 0) - (start.byFn[f] ?? 0)] as [string, number]).sort((p, r) => r[1] - p[1]);
+      const added = gf.filter((g) => g[1] > 0).reduce((s, g) => s + g[1], 0);
+      const top1 = gf[0], share = added ? top1[1] / added : 0;
+      q('[data-panel-action="growth"]').innerHTML = added
+        ? `${flag(share > T.growthShare ? "watch" : "ok")}<b>${esc(top1[0])}</b> made ${Math.round(share * 100)} % of what was added. Threshold: one function over ${T.growthShare * 100} % of the period's growth → ask whether that is the plan.`
+        : `${flag("ok")}Nothing was added in the period.`;
+
+      // Weight — share per function at the end of the period.
+      const tot = D.areas.reduce((s, f) => s + (now.byFn[f] ?? 0), 0) || 1;
+      q("[data-weight]").innerHTML = D.areas.filter((f) => now.byFn[f]).sort((p, r) => (now.byFn[r] ?? 0) - (now.byFn[p] ?? 0)).map((f) => {
+        const v = now.byFn[f] ?? 0, p = pct(v, start.byFn[f] ?? 0);
+        const ch = p == null ? "" : ` <span class="${p > 0.5 ? "tp-up" : p < -0.5 ? "tp-down" : "tp-flat"}">${p > 0 ? "+" : ""}${p.toFixed(0)} %</span>`;
+        return `<div class="tp-hb"><span>${esc(f)}</span><span class="tp-track"><span style="width:${(v / tot) * 100}%;background:${COL[f]}"></span></span><span class="tp-n">${Math.round((v / tot) * 100)} %${ch}</span></div>`;
+      }).join("");
+      const heavy = D.areas.map((f) => [f, (now.byFn[f] ?? 0) / tot] as [string, number]).sort((p, r) => r[1] - p[1])[0];
+      q('[data-panel-action="weight"]').innerHTML = `${flag(heavy[1] > T.weightShare ? "watch" : "ok")}<b>${esc(heavy[0])}</b> is ${Math.round(heavy[1] * 100)} % of what an agent reads. Threshold: one function over ${T.weightShare * 100} % → decide whether agents should load it by default.`;
+    }
+
+    function renderStatic() {
+      // Today's state: does not move with the period.
+      const sf: Record<string, Record<string, number>> = {};
+      for (const r of paged) {
+        const s = r.state === "active" ? "active" : r.state === "draft" ? "draft" : r.state === "none" ? "none" : "other";
+        (sf[r.fn] ??= { active: 0, draft: 0, other: 0, none: 0 })[s]++;
+      }
+      const SC: Record<string, string> = { active: "rgb(var(--green))", draft: "rgb(var(--ambar))", other: "rgb(var(--blue))", none: "rgb(var(--border))" };
+      const LB: Record<string, string> = { active: "in force", draft: "on trial", other: "mission states", none: "no state" };
+      q("[data-state]").innerHTML = Object.entries(sf).sort((p, r) => r[1].active + r[1].draft - (p[1].active + p[1].draft)).map(([f, c]) => {
+        const n = c.active + c.draft + c.other + c.none;
+        return `<div class="tp-hb"><span>${esc(f)}</span><span class="tp-track">${["active", "draft", "other", "none"].map((s) => `<span title="${LB[s]}: ${c[s]}" style="width:${(c[s] / n) * 100}%;background:${SC[s]}"></span>`).join("")}</span><span class="tp-n">${c.active}/${n} in force</span></div>`;
+      }).join("") + `<div class="tp-legend">${Object.keys(SC).map((s) => `<span><i style="background:${SC[s]}"></i>${LB[s]}</span>`).join("")}</div>`;
+      const gov = sf["Governance"] ?? { active: 0, draft: 0 };
+      q('[data-panel-action="state"]').innerHTML = `${flag("watch")}Governance: <b>${gov.active} of ${gov.active + gov.draft}</b> rules in force. In alpha that is expected; the figure to watch is how many leave trial each month.`;
+
+      const LBL: Record<string, string> = { unpublished: "Not published yet", restricted: "Restricted (internal)", apparatus: "Apparatus (templates, READMEs, fixtures)", repository: "Repository files (README, changelog, machine)" };
+      const hw: Record<string, { n: number; t: number }> = {};
+      for (const r of rows.filter((r) => r.why !== "page")) { const h = (hw[r.why] ??= { n: 0, t: 0 }); h.n++; h.t += r.tokens; }
+      const all = rows.reduce((s, r) => s + r.tokens, 0) || 1;
+      const hidden = Object.values(hw).reduce((s, h) => s + h.t, 0);
+      q("[data-hidden]").innerHTML = `<table class="tp-table"><thead><tr><th>Why it has no page</th><th class="r">Files</th><th class="r">Tokens</th></tr></thead><tbody>` +
+        Object.entries(hw).sort((p, r) => r[1].t - p[1].t).map(([w, c]) => `<tr><td>${LBL[w] ?? esc(w)}</td><td class="r">${c.n}</td><td class="r">${fmt(c.t)}</td></tr>`).join("") + `</tbody></table>`;
+      const hs = hidden / all;
+      q('[data-panel-action="hidden"]').innerHTML = `${flag(hs > T.hiddenShare ? "act" : "ok")}<b>${Math.round(hs * 100)} %</b> of the archive's tokens have no page. Threshold: over ${T.hiddenShare * 100} % → decide, row by row, publish or say why not.`;
+
+      const lg = paged.slice().sort((p, r) => r.tokens - p.tokens).slice(0, 10);
+      q("[data-largest]").innerHTML = `<table class="tp-table"><thead><tr><th>Document</th><th>Function</th><th class="r">Tokens</th></tr></thead><tbody>` +
+        lg.map((r) => `<tr><td class="tp-path">${esc(r.path)}</td><td><span class="tp-pill">${esc(r.fn)}</span></td><td class="r${r.tokens > T.docTokens ? " tp-down" : ""}">${fmt(r.tokens)}</td></tr>`).join("") + `</tbody></table>`;
+      const over = paged.filter((r) => r.tokens > T.docTokens).length;
+      q('[data-panel-action="size"]').innerHTML = `${flag(over ? "watch" : "ok")}<b>${over}</b> documents over ${T.docTokens.toLocaleString("en-US")} tokens. Action: split them, or mark them as books an agent loads only on purpose.`;
+
+      const kb = D.kinds.reduce((s, k) => s + k.bytes, 0) || 1;
+      q("[data-kinds]").innerHTML = D.kinds.length
+        ? `<table class="tp-table"><thead><tr><th>Kind</th><th class="r">Files</th><th class="r">Weight</th><th class="r">Share</th></tr></thead><tbody>` +
+          D.kinds.map((k) => `<tr><td>${esc(k.kind)}</td><td class="r">${k.files}</td><td class="r">${(k.bytes / 1048576).toFixed(1)} MB</td><td class="r">${Math.round((k.bytes / kb) * 100)} %</td></tr>`).join("") + `</tbody></table>`
+        : `<p class="tp-sub">Not measured yet.</p>`;
+      const data = (D.kinds.find((k) => k.kind === "Data")?.bytes ?? 0) / kb;
+      q('[data-panel-action="kinds"]').innerHTML = `${flag(data > T.dataShare ? "watch" : "ok")}Data files are <b>${Math.round(data * 100)} %</b> of the repository's weight. Threshold: ${T.dataShare * 100} % → look for what can be compacted.`;
+    }
+
+    for (const seg of root.querySelectorAll<HTMLElement>("[data-seg]")) {
+      seg.addEventListener("click", (e) => {
+        const btn = (e.target as HTMLElement).closest("button"); if (!btn) return;
+        for (const x of seg.querySelectorAll("button")) x.setAttribute("aria-pressed", String(x === btn));
+        if (seg.dataset.seg === "lens") { root.dataset.lens = btn.dataset.v; return; }
+        st.per = btn.dataset.v!; st.from = st.to = null; render();
+      });
+    }
+    for (const el of [fromEl, toEl]) el.addEventListener("change", () => {
+      if (!fromEl.value || !toEl.value || fromEl.value > toEl.value) return;
+      st.from = fromEl.value; st.to = toEl.value;
+      for (const x of root.querySelectorAll('[data-seg="per"] button')) x.setAttribute("aria-pressed", "false");
+      render();
+    });
+    root.dataset.lens = "pm";
+    renderStatic();
+    render();
+  }
+</script>
+
+<style>
+  .tp { margin-bottom: 4rem; }
+  .tp :global(.tp-k) { font: 500 0.65rem/1 var(--font-mono); letter-spacing: 0.15em; text-transform: uppercase; color: rgb(var(--text-dim)); }
+  .tp-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.1rem; padding: 0.9rem 1rem; border: 1px solid rgb(var(--border)); border-radius: 8px; background: rgb(var(--bg-card)); position: sticky; top: 0.5rem; z-index: 5; }
+  .tp-gap { margin-left: 0.4rem; }
+  .tp-seg { display: inline-flex; border: 1px solid rgb(var(--border)); border-radius: 999px; overflow: hidden; }
+  .tp-seg button { border: 0; background: transparent; padding: 0.35rem 0.85rem; font-size: 0.8rem; color: rgb(var(--text-muted)); cursor: pointer; min-height: 32px; }
+  .tp-seg button[aria-pressed="true"] { background: rgb(var(--accent)); color: rgb(var(--bg)); }
+  .tp-seg button:focus-visible, .tp-date input:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 1px; }
+  .tp-date input { font-size: 0.8rem; border: 1px solid rgb(var(--border)); border-radius: 6px; background: rgb(var(--bg)); color: rgb(var(--text)); padding: 0.25rem 0.4rem; color-scheme: light dark; }
+  .tp-meta { margin-left: auto; font: 0.7rem var(--font-mono); color: rgb(var(--text-dim)); }
+  .tp :global(.tp-kpis) { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+  .tp :global(.tp-kpi), .tp-panel { background: rgb(var(--bg-card)); border: 1px solid rgb(var(--border)); border-radius: 8px; padding: 1rem 1.1rem; }
+  .tp :global(.tp-v) { font: 500 2rem/1.1 var(--font-mono); margin: 0.6rem 0 0.25rem; font-variant-numeric: tabular-nums; color: rgb(var(--text)); }
+  .tp :global(.tp-d) { font: 0.75rem var(--font-mono); }
+  .tp :global(.tp-q) { font-size: 0.75rem; color: rgb(var(--text-dim)); margin-top: 0.5rem; }
+  .tp-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 0.75rem; }
+  .tp-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem; }
+  .tp-panel h3 { font-size: 1.05rem; font-weight: 500; margin: 0.4rem 0 0.15rem; color: rgb(var(--text)); }
+  .tp-sub { font-size: 0.8rem; color: rgb(var(--text-muted)); margin: 0 0 0.75rem; }
+  .tp-act { margin: 0.8rem 0 0; padding-top: 0.65rem; border-top: 1px dashed rgb(var(--border)); font-size: 0.8rem; color: rgb(var(--text-muted)); }
+  .tp-act :global(b) { color: rgb(var(--text)); font-weight: 500; }
+  .tp :global(.tp-flag) { display: inline-block; font: 0.65rem var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; padding: 0.1rem 0.4rem; border-radius: 4px; margin-right: 0.45rem; }
+  .tp :global(.tp-f-ok) { background: rgb(var(--green) / 0.14); color: rgb(var(--green)); }
+  .tp :global(.tp-f-watch) { background: rgb(var(--ambar) / 0.16); color: rgb(var(--ambar)); }
+  .tp :global(.tp-f-act) { background: rgb(var(--red) / 0.14); color: rgb(var(--red)); }
+  .tp :global(.tp-up) { color: rgb(var(--green)); }
+  .tp :global(.tp-down) { color: rgb(var(--red)); }
+  .tp :global(.tp-flat) { color: rgb(var(--text-dim)); }
+  .tp :global(svg text) { font: 11px var(--font-mono); fill: rgb(var(--text-dim)); }
+  .tp :global(.tp-grid-line) { stroke: rgb(var(--border) / 0.5); }
+  .tp :global(.tp-legend) { display: flex; flex-wrap: wrap; gap: 0.35rem 0.9rem; font-size: 0.75rem; color: rgb(var(--text-muted)); margin-top: 0.5rem; }
+  .tp :global(.tp-legend i) { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 0.3rem; vertical-align: -1px; }
+  .tp :global(.tp-hb) { display: grid; grid-template-columns: 8.5rem 1fr 7rem; gap: 0.5rem; align-items: center; font-size: 0.8rem; margin: 0.4rem 0; color: rgb(var(--text)); }
+  .tp :global(.tp-track) { height: 14px; background: rgb(var(--bg-card-hover)); border-radius: 3px; overflow: hidden; display: flex; }
+  .tp :global(.tp-track span) { display: block; height: 100%; }
+  .tp :global(.tp-n) { text-align: right; font: 0.75rem var(--font-mono); color: rgb(var(--text-muted)); }
+  .tp :global(.tp-table) { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+  .tp :global(.tp-table th) { text-align: left; font: 500 0.65rem var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; color: rgb(var(--text-dim)); border-bottom: 1px solid rgb(var(--border)); padding: 0.35rem 0.25rem; }
+  .tp :global(.tp-table td) { border-bottom: 1px solid rgb(var(--border) / 0.4); padding: 0.35rem 0.25rem; color: rgb(var(--text)); }
+  .tp :global(.r) { text-align: right; font-variant-numeric: tabular-nums; }
+  .tp :global(.tp-path) { font: 0.72rem var(--font-mono); word-break: break-all; }
+  .tp :global(.tp-pill) { font: 0.65rem var(--font-mono); padding: 0.05rem 0.4rem; border-radius: 999px; border: 1px solid rgb(var(--border)); color: rgb(var(--text-muted)); white-space: nowrap; }
+  .tp-note { font-size: 0.75rem; color: rgb(var(--text-dim)); margin-top: 1rem; max-width: 70ch; }
+  .tp[data-lens="pm"] .tp-cto, .tp[data-lens="cto"] .tp-pm { display: none; }
+  @media (max-width: 900px) {
+    .tp :global(.tp-kpis) { grid-template-columns: 1fr 1fr; }
+    .tp-grid, .tp-grid2 { grid-template-columns: 1fr; }
+    .tp-meta { margin-left: 0; }
+    .tp-bar { position: static; }
+  }
+</style>
