@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 24660,
+  "chars": 24949,
   "apparatus": false,
   "archived": false,
-  "tokens": 6899
+  "tokens": 6981
  },
  {
   "path": "CLAUDE.md",
@@ -2062,10 +2062,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 14856,
+  "chars": 15066,
   "apparatus": false,
   "archived": false,
-  "tokens": 3823
+  "tokens": 3864
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2286,6 +2286,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 586
+ },
+ {
+  "path": "opportunities/OPP-2026-036.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 4896,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1255
+ },
+ {
+  "path": "opportunities/OPP-2026-037.md",
+  "dir": "opportunities",
+  "series": "opportunities",
+  "type": "opportunity",
+  "status": "active",
+  "chars": 4590,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1260
  },
  {
   "path": "opportunities/PRP-2026-001.md",
