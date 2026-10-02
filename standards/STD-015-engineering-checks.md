@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "5.0.4"
+version: "6.0.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-02T12:20:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 54 practices every repository of ours keeps, grouped by
+> **Summary:** The 55 practices every repository of ours keeps, grouped by
 > what they protect, each with its level and its check. A practice checked by
 > hand is debt. A row marked as owed was once called automatic, and nothing
 > runs it.
@@ -46,6 +46,7 @@ SPDX-License-Identifier: CC0-1.0
 | Security | SEC-012 | Commits to `main` verified | SHOULD | `[AUTO: github repos/numengames/numinia-archive/commits]` |
 | Security | SEC-013 | Every repository keeps a security score: the OpenSSF Scorecard grades it every week and on each push to the main line, a named person reads the grade, and a public repository aims at seven out of ten or better | MUST | `[GATE: .github/workflows/scorecard.yml → a named person reads the grade each week]` |
 | Security | SEC-014 | Migrate in order: a repository that already exists adopts the security score first, then the check that required files are present, then the full pipeline — measure first, then tighten | SHOULD | `[DEBT: no check reads the order a repository adopted its checks in — oracle, 2026-09-26]` |
+| Security | SEC-015 | A route that fetches an address taken from the request accepts only the hosts it names, and never re-serves an executable content type (HTML, SVG, JavaScript) under our domain (OWASP Top 10 A10, server-side request forgery) | MUST | `[DEBT: no check reads the routes of a site; found by hand through PRO-034 — oracle, 2026-10-02]` |
 | Architecture | ARC-001 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[AUTO: .github/workflows/ci.yml]` |
 | Architecture | ARC-002 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: scorecard Branch-Protection]` |
 | Architecture | ARC-004 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[DEBT: no smoke script, no CI or coverage badge in README.md — oracle, 2026-09-11]` |

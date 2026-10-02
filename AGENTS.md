@@ -193,6 +193,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-031` | Bidding for a tender | draft | whoever reads, decides on or files a tender in Numen Games' name |
 | `PRO-032` | Applying for a grant | draft | whoever finds, reads, decides on, applies for or justifies a grant, a public loan… |
 | `PRO-033` | Screening a tender | draft | whoever judges, in Numen Games' name, whether a tender is worth bidding for — person or agent… |
+| `PRO-034` | Auditing a site's code | draft | any agent auditing the code of a Numen Games or Numinia site, and the report it files |
 | `STD-001` | The series | draft | every tracked document of the archive |
 | `STD-003` | Platform ranks | draft | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | in force | every document's header, and every date the archive writes |
@@ -233,7 +234,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-043` | A report speaks to the board | draft | every roll-up report of a week, a quarter or a year |
 | `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
 
-76 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 7 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+77 rule documents, of which 10 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 7 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

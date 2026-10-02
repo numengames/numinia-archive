@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.124.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "ADD", text: "A new protocol on the protocols shelf, Auditing a site's code: every route a site answers is listed and probed live, with what it fetches, what it lets a browser run, the headers and cookies as served, what its workflows may write and what it depends on. It stops before changing anything." },
+      { type: "CHG", text: "Changing what a site stores now checks the built site twice — with an empty browser and with one carrying what the previous version stored — and says what to do with a stored item the change replaces." },
+    ],
+  },
+  {
     version: "v0.123.0",
     date: "2026-10-02",
     entries: [
