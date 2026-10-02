@@ -43,9 +43,12 @@ before the branch. And the standards whose header says `active`:
 `STD-019` versions ·
 `STD-020` git is the archive ·
 `STD-021` evidence and citation ·
+`STD-023` the design values ·
 `STD-024` a series is a function ·
+`STD-026` the operative vocabulary ·
 `STD-027` the archive is classified by function ·
-`STD-028` one document, one address.
+`STD-028` one document, one address ·
+`STD-030` the world's vocabulary.
 
 Nothing else in `canon/`, `standards/` or `protocols/` binds you. A test
 (`machine/scripts/test/door-resolves.test.mjs`) fails if this list and the
@@ -216,14 +219,14 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-020` | Git is the archive | in force | every commit to this repository |
 | `STD-021` | Evidence and citation | in force | every document that cites, claims something about the code, or quotes a person |
 | `STD-022` | Secrets | draft | every file in this repository, and every report about it |
-| `STD-023` | Design values | draft | register — scope belongs to the standard that cites it |
+| `STD-023` | Design values | in force | register — scope belongs to the standard that cites it |
 | `STD-024` | A series is a function | in force | every folder of the archive and every document in one |
 | `STD-025` | A mission is a card | draft | every mission, and whoever sets a field on one |
-| `STD-026` | Operative vocabulary | draft | register — scope belongs to the standard that cites it |
+| `STD-026` | Operative vocabulary | in force | register — scope belongs to the standard that cites it |
 | `STD-027` | The archive is classified by function | in force | every folder of the repository |
 | `STD-028` | One document, one address | in force | every web address the public site gives a document of the archive |
 | `STD-029` | How we treat each other in the commons | draft | everyone in a Numinia community space: citizens, moderators, Oracles and digital agents alike |
-| `STD-030` | The world's vocabulary | draft | register — scope belongs to the standard that cites it |
+| `STD-030` | The world's vocabulary | in force | register — scope belongs to the standard that cites it |
 | `STD-031` | A canon states | draft | every document in the canon |
 | `STD-033` | Every charge delivers something | draft | every site of ours that takes a payment, and every record of something on sale |
 | `STD-034` | Accessibility | draft | every public page of every Numen Games and Numinia site |
@@ -239,7 +242,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
 | `STD-047` | The sales collateral | draft | register — scope belongs to the standard that cites it |
 
-79 rule documents, of which 13 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+79 rule documents, of which 16 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

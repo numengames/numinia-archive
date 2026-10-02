@@ -4,10 +4,10 @@ uid: ""
 title: "The world's vocabulary"
 type: documentation
 subtype: register
-status: draft
-version: "0.2.0"
+status: active
+version: "0.3.0"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-09-29T20:00:00+02:00"
+updated: "2026-10-02T18:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
