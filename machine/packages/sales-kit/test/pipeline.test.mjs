@@ -380,6 +380,30 @@ check('OPP-006: an e-mail address anywhere in a record is refused — the record
   assert.match(run(dir).err, /OPP-006.*e-mail address/);
 });
 
+check('OPP-006: a person\'s name in the body is refused, whatever office they hold', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up to Carmen Ortega Ruiz, the head of training, no answer.'));
+  assert.match(run(dir).err, /OPP-006.*"Carmen Ortega Ruiz" reads as a person's name/);
+});
+
+check('OPP-006: a courtesy title before a surname is a name too', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up 2099-09-16; Sra. Ortega did not answer.'));
+  assert.match(run(dir).err, /OPP-006.*"Sra\. Ortega" reads as a person's name/);
+});
+
+check('OPP-006: a name the card lets be named passes; places and bodies that carry a first name do not trip', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up 2099-09-16 by Ada Lovelace, from the office in San José de Costa Rica, no answer.'));
+  assert.equal(run(dir).code, 0, run(dir).err);
+});
+
+test('OPP-006: the card says who may be named, read from its own table', () => {
+  assert.deepEqual(loadCard(CARD).named, ['Ada Lovelace']);
+});
+
+test('OPP-006: no person\'s name in the archive\'s real records and proposals', { skip: !existsSync(path.join(ROOT, 'opportunities')) }, () => {
+  const r = spawnSync('node', [TOOL, path.join(ROOT, 'opportunities'), '--proposals'], { encoding: 'utf8' });
+  assert.doesNotMatch(r.stderr, /reads as a person's name/);
+});
+
 check('OPP-006: CPV codes, gazette ids, dates and addresses are not phones; a phone is', (dir) => {
   assert.equal(run(dir).code, 0, 'OPP-2099-003 carries CPV codes, OPP-2099-004 a BOE id');
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('(CPV 72212911-3, 80500000-9)', '(call 912 345 678)'));
