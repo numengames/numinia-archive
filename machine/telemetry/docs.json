@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 17879,
+  "chars": 18014,
   "apparatus": false,
   "archived": false,
-  "tokens": 4429
+  "tokens": 4467
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 25226,
+  "chars": 25826,
   "apparatus": false,
   "archived": false,
-  "tokens": 7044
+  "tokens": 7218
  },
  {
   "path": "CLAUDE.md",
@@ -1017,10 +1017,10 @@
   "series": "legal",
   "type": "legal",
   "status": "draft",
-  "chars": 11903,
+  "chars": 11712,
   "apparatus": false,
   "archived": false,
-  "tokens": 3033
+  "tokens": 2985
  },
  {
   "path": "legal/LEG-004-legal-notice-numengames.md",
@@ -2579,10 +2579,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 3803,
+  "chars": 4739,
   "apparatus": false,
   "archived": false,
-  "tokens": 987
+  "tokens": 1209
  },
  {
   "path": "protocols/PRO-028-qualifying-an-opportunity.md",
@@ -2649,6 +2649,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1465
+ },
+ {
+  "path": "protocols/PRO-034-auditing-a-sites-code.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 5789,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1556
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2942,10 +2953,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 12825,
+  "chars": 13181,
   "apparatus": false,
   "archived": false,
-  "tokens": 3369
+  "tokens": 3464
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
