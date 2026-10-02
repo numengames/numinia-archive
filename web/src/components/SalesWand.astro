@@ -1,0 +1,166 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The wand (the Oracle, 2 October 2026): on a sale's page, one button that
+// opens the sale's process — its stages, where this record stands, and the
+// collateral each stage hands over (STD-047). A piece the kit can render is
+// shown as it would leave the house and can be downloaded; a piece with no
+// template yet says so; what a piece lacks is named.
+//
+// Everything is rendered here at build time from src/lib/collateral.ts,
+// which runs the kit's own renderer on this record. The script only opens
+// and closes, shows a preview and builds the download from what the page
+// already carries. The preview is a template filled with this record's
+// Pitch: the organisation's name and the person written to are left as
+// marks, because a public page never carries them.
+import Icon from "@/components/Icon.astro";
+import type { Wand } from "@/lib/collateral";
+import { STAGE_PROTOCOL } from "@/lib/collateral";
+
+interface Props { wand: Wand }
+const { wand } = Astro.props;
+const etiqueta = "font-mono text-[0.65rem] uppercase tracking-[0.15em]";
+const byTemplate = Object.fromEntries(wand.rendered.map((r) => [r.template, r]));
+const currentIndex = wand.stages.indexOf(wand.current);
+const stateLabel: Record<string, string> = { trial: "on trial", works: "works", retired: "retired" };
+const forNow = wand.pieces.filter((p) => p.stages.includes(wand.current)).length;
+---
+
+<div class="sales-wand mb-6" data-sales-wand>
+  <button
+    type="button"
+    data-wand-button
+    class="flex w-full items-center justify-between gap-3 rounded-[8px] border border-accent/40 bg-accent/5 px-4 py-3 text-left transition-colors hover:bg-accent/10"
+    aria-expanded="false"
+    aria-controls={`wand-${wand.record.id}`}
+  >
+    <span class="flex items-center gap-3">
+      <span class="text-accent"><Icon name="sparkle" size={20} /></span>
+      <span>
+        <span class="block text-sm font-medium text-foreground">The wand: what this sale hands over next</span>
+        <span class:list={[etiqueta, "text-muted-foreground"]}>Stage · {wand.current} · {forNow} {forNow === 1 ? "piece" : "pieces"} for it</span>
+      </span>
+    </span>
+    <span class="wand-caret text-muted-foreground"><Icon name="caret-down" size={16} /></span>
+  </button>
+
+  <div id={`wand-${wand.record.id}`} data-wand-panel class="mt-3 hidden rounded-[8px] border border-border bg-card p-5">
+    <p class="text-sm leading-relaxed text-muted-foreground">
+      The stages of a sale, where this one stands, and what each stage hands to the other side. Each piece is
+      made from this record's Pitch and its offer by the sales kit — the same renderer the command line runs.
+      The organisation's name and the person you write to stay as marks: a public page never carries them.
+      Render the piece you will send with <code>node machine/packages/sales-kit/collateral.mjs</code>, outside the archive.
+    </p>
+
+    <ol class="wand-stages mt-4 flex flex-wrap gap-2" aria-label="The stages of a sale">
+      {wand.stages.map((s, i) => (
+        <li
+          data-stage={s}
+          data-current={s === wand.current ? "" : undefined}
+          class:list={[
+            etiqueta,
+            "rounded-full border px-2.5 py-1",
+            s === wand.current ? "border-accent text-accent" : i < currentIndex ? "border-border text-foreground" : "border-border text-dim",
+          ]}
+        >{s}</li>
+      ))}
+    </ol>
+
+    <ul class="mt-5 space-y-3">
+      {wand.pieces.map((p) => {
+        const r = byTemplate[p.template];
+        const here = p.stages.includes(wand.current);
+        return (
+          <li data-wand-piece class:list={["rounded-[8px] border p-4", here ? "border-accent/40" : "border-border"]}>
+            <div class="flex flex-wrap items-baseline justify-between gap-2">
+              <span class="text-sm font-medium text-foreground">{p.piece}</span>
+              <span class:list={[etiqueta, "text-muted-foreground"]}>{p.stage.replace(/`/g, "")} · {stateLabel[p.state] ?? p.state}</span>
+            </div>
+            <p class="mt-1 text-sm text-muted-foreground">{p.does}</p>
+            <p class="mt-1 text-xs text-dim">Made from: {p.from}</p>
+            {r ? (
+              <div class="mt-3" data-wand-render data-ext={r.ext} data-filename={r.filename} data-text={r.text}>
+                {r.missing.length > 0 && (
+                  <p class="mb-2 text-xs text-red">Missing: {r.missing.join(" · ")}</p>
+                )}
+                <div class="flex flex-wrap gap-2">
+                  <button type="button" data-wand-show class:list={[etiqueta, "rounded-[6px] border border-border px-3 py-1.5 text-foreground hover:bg-background"]}>Show</button>
+                  <button type="button" data-wand-download class:list={[etiqueta, "rounded-[6px] border border-border px-3 py-1.5 text-foreground hover:bg-background"]}>Download</button>
+                  {r.ext === "txt" && (
+                    <button type="button" data-wand-copy class:list={[etiqueta, "rounded-[6px] border border-border px-3 py-1.5 text-foreground hover:bg-background"]}>Copy</button>
+                  )}
+                </div>
+                <div data-wand-preview class="mt-3 hidden">
+                  {r.ext === "html"
+                    ? <iframe title={`${p.piece}, preview`} class="wand-frame w-full rounded-[6px] border border-border" loading="lazy"></iframe>
+                    : <pre class="wand-text whitespace-pre-wrap rounded-[6px] border border-border bg-background p-4 text-xs leading-relaxed text-muted-foreground">{r.text}</pre>}
+                </div>
+              </div>
+            ) : (
+              <p class="mt-3 text-xs text-dim">
+                No template yet: made by hand{p.missingWhen && p.missingWhen !== "—" ? ` — it cannot be made when ${p.missingWhen}` : ""}.
+              </p>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+
+    <p class="mt-5 text-xs text-dim">
+      The register of pieces: <a href="/standards/std-047-the-sales-collateral" class="text-accent underline underline-offset-2">the sales collateral</a>.
+      What moves this sale on: <a href={STAGE_PROTOCOL[wand.current]?.href ?? "/playbook"} class="text-accent underline underline-offset-2">{STAGE_PROTOCOL[wand.current]?.title ?? "the sales playbook"}</a>.
+      The whole process: <a href="/playbook" class="text-accent underline underline-offset-2">the sales playbook</a>.
+    </p>
+  </div>
+</div>
+
+<style>
+  .sales-wand [data-wand-button][aria-expanded="true"] .wand-caret { transform: rotate(180deg); }
+  .wand-frame { height: 70vh; background: #fff; }
+</style>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>("[data-sales-wand]")) {
+    const btn = root.querySelector<HTMLButtonElement>("[data-wand-button]")!;
+    const panel = root.querySelector<HTMLElement>("[data-wand-panel]")!;
+    btn.addEventListener("click", () => {
+      const open = panel.classList.toggle("hidden") === false;
+      btn.setAttribute("aria-expanded", String(open));
+    });
+    for (const box of root.querySelectorAll<HTMLElement>("[data-wand-render]")) {
+      const text = box.dataset.text ?? "";
+      const ext = box.dataset.ext ?? "txt";
+      const preview = box.querySelector<HTMLElement>("[data-wand-preview]")!;
+      box.querySelector("[data-wand-show]")?.addEventListener("click", () => {
+        const frame = preview.querySelector<HTMLIFrameElement>("iframe");
+        if (frame && !frame.srcdoc) {
+          // An A4 page is wider than the panel: scale the whole document to
+          // the frame's width once it has loaded, so nothing is cut.
+          frame.addEventListener("load", () => {
+            const doc = frame.contentDocument;
+            if (!doc) return;
+            const scale = Math.min(1, frame.clientWidth / (doc.documentElement.scrollWidth || 1));
+            doc.documentElement.style.zoom = String(scale);
+          }, { once: true });
+          frame.srcdoc = text;
+        }
+        preview.classList.toggle("hidden");
+      });
+      box.querySelector("[data-wand-download]")?.addEventListener("click", () => {
+        const blob = new Blob([text], { type: ext === "html" ? "text/html;charset=utf-8" : "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = Object.assign(document.createElement("a"), { href: url, download: box.dataset.filename ?? `piece.${ext}` });
+        document.body.append(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      });
+      const copy = box.querySelector<HTMLButtonElement>("[data-wand-copy]");
+      copy?.addEventListener("click", async () => {
+        try { await navigator.clipboard.writeText(text); copy.textContent = "Copied"; } catch { copy.textContent = "Select and copy"; }
+        setTimeout(() => { copy.textContent = "Copy"; }, 2000);
+      });
+    }
+  }
+</script>

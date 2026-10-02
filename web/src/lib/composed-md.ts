@@ -51,6 +51,7 @@ import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { pipeline as salesPipeline, decidingRows, PIPELINE_SOURCES, CARD_URL, TEMPLATE_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, recordUrl } from "@/lib/pipeline";
 import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
 import { settings as configSettings, MOULDS as CONFIG_MOULDS, CONFIG_INTRO } from "@/lib/configuration";
+import { playbookMarkdown, PLAYBOOK_SOURCES } from "@/lib/playbook";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -981,8 +982,13 @@ export function configurePage(): ComposedPage {
   return { route: "/configure", filename: "numinia-configure.md", sources, body };
 }
 
+/** /playbook — the sales playbook: a sale's stages, the protocols, the collateral (STD-038, STD-047). */
+export function playbookPage(): ComposedPage {
+  return { route: "/playbook", filename: "sales-playbook.md", sources: [...PLAYBOOK_SOURCES], body: preamble([...PLAYBOOK_SOURCES]) + playbookMarkdown() };
+}
+
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), templatesPage(), corePage()];
+  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), playbookPage(), templatesPage(), corePage()];
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));

@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.126.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "ADD", text: "The wand on every sale's page: it shows the stages of the sale and where this one stands, and the pieces each stage hands over. The first-contact deck and e-mail are made from the record itself and can be seen, downloaded or copied; what a piece lacks is named, and the organisation's name and the person written to stay as marks." },
+      { type: "ADD", text: "A new book, The sales playbook (/playbook): each stage of a sale, the protocol that moves it on and the collateral it hands over, read from the register of stages, the register of collateral and the protocols themselves. It is in the Books list and on the map, beside the pipeline." },
+    ],
+  },
+  {
     version: "v0.125.0",
     date: "2026-10-02",
     entries: [

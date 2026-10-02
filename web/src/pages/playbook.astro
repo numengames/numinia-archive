@@ -1,0 +1,80 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /playbook — the sales playbook, a book (the Oracle, 2 October 2026): from an
+// opportunity found to a sale won or lost, one stage at a time — what the
+// stage means, the protocol that moves it on, and the collateral it hands to
+// the other side.
+//
+// NOTHING HERE IS TYPED. The stages and their meaning are STD-038's table,
+// the pieces are STD-047's register (through the sales kit), the protocols
+// are their own files' titles and questions. A page that wrote its own copy
+// of the process would be the copy that drifts.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { playbook } from "@/lib/playbook";
+
+const book = playbook();
+const etiqueta = "font-mono text-[0.65rem] uppercase tracking-[0.15em]";
+const stateLabel: Record<string, string> = { trial: "on trial", works: "works", retired: "retired" };
+---
+
+<Layout
+  title="The sales playbook — NWOS"
+  description="From an opportunity found to a sale won or lost: each stage, the protocol that moves it on, and what it hands to the other side."
+  canonicalPath="/playbook"
+>
+  <PageHero
+    label="The sales playbook"
+    title="Found, qualified, proposed, won"
+    description="Each stage of a sale, the protocol that moves it on, and the collateral it hands to the other side. Open a sale's record to use the wand: it makes the stage's pieces from that record."
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="mb-8">
+        <DocToolbar mdUrl="/playbook.md" filename="sales-playbook.md" lang="en" />
+      </div>
+
+      <p class="text-sm leading-relaxed text-muted-foreground mb-10">
+        {book.stages.length} stages, {book.protocols.length} protocols, {book.pieces.length} pieces of collateral
+        ({book.pieces.filter((p) => p.renderable).length} made by the kit, the rest by hand until a sale shows they help).
+        Read from <a href={book.sources.register} class="text-accent underline underline-offset-2">the stages of an opportunity</a>,
+        <a href={book.sources.collateral} class="text-accent underline underline-offset-2">the sales collateral</a> and the protocols themselves.
+        The opportunities they move are in <a href="/system/pipeline" class="text-accent underline underline-offset-2">the pipeline</a>.
+      </p>
+
+      <ol class="space-y-6">
+        {book.stages.map((s, i) => (
+          <li data-stage={s.stage} class="rounded-[8px] border border-border bg-card p-5 sm:p-6">
+            <div class:list={[etiqueta, "text-dim mb-1"]}>Stage {i + 1} · <code>{s.stage}</code></div>
+            <h2 class="text-lg text-foreground">{s.means}</h2>
+            <p class="mt-1 text-sm text-muted-foreground">Evidence that puts a sale here: {s.evidence}</p>
+            {s.protocol && (
+              <p class="mt-3 text-sm text-muted-foreground">
+                Moved on by <a href={s.protocol.href} class="text-accent underline underline-offset-2">{s.protocol.title}</a>
+                {s.protocol.question && <span> — {s.protocol.question}</span>}
+              </p>
+            )}
+            {s.pieces.length > 0 && (
+              <ul class="mt-4 space-y-2">
+                {s.pieces.map((p) => (
+                  <li class="rounded-[6px] border border-border/70 bg-background px-4 py-3">
+                    <div class="flex flex-wrap items-baseline justify-between gap-2">
+                      <span class="text-sm font-medium text-foreground">{p.piece}</span>
+                      <span class:list={[etiqueta, "text-muted-foreground"]}>{p.renderable ? "made by the kit" : "by hand"} · {stateLabel[p.state] ?? p.state}</span>
+                    </div>
+                    <p class="mt-1 text-sm text-muted-foreground">{p.does}</p>
+                    <p class="mt-1 text-xs text-dim">Made from: {p.from}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Layout>
