@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.127.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "ADD", text: "The pipeline page shows what the tender radar found, marked Unreviewed and apart from the funnel: each call with its chance, close date, blocker and next step, linked to its record when the archive already holds it. It is read from the radar's own public repository when the page is built; the archive checks it again for names and closed calls." },
+    ],
+  },
+  {
     version: "v0.126.0",
     date: "2026-10-02",
     entries: [
