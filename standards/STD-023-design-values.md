@@ -4,10 +4,10 @@ uid: ""
 title: "Design values"
 type: documentation
 subtype: register
-status: draft
-version: "1.8.0"
+status: active
+version: "1.9.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-30T14:00:00+02:00"
+updated: "2026-10-02T18:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"

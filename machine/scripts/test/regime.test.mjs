@@ -76,6 +76,12 @@ check('tree: the archive\'s structure is in force — SER (STD-024) and CLS (STD
   return s === 'active' || `STD-001 is ${s}`;
 });
 
+check('tree: the design values and both vocabularies are in force — STD-023, STD-026, STD-030 active (2026-10-02)', () => {
+  const status = loadHolders().status;
+  const off = ['STD-023', 'STD-026', 'STD-030'].filter((id) => status.get(id) !== 'active');
+  return off.length === 0 || `not active: ${off.map((id) => `${id} (${status.get(id)})`).join(', ')}`;
+});
+
 /* ---- against a fixture ---- */
 
 const fixture = {

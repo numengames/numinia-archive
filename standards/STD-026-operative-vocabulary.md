@@ -4,10 +4,10 @@ uid: ""
 title: "Operative vocabulary"
 type: documentation
 subtype: register
-status: draft
-version: "0.1.8"
+status: active
+version: "0.2.0"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-02T18:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"

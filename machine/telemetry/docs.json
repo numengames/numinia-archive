@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18367,
+  "chars": 18478,
   "apparatus": false,
   "archived": false,
-  "tokens": 4560
+  "tokens": 4594
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 27228,
+  "chars": 27485,
   "apparatus": false,
   "archived": false,
-  "tokens": 7607
+  "tokens": 7691
  },
  {
   "path": "CLAUDE.md",
@@ -3073,8 +3073,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 30006,
+  "status": "active",
+  "chars": 30007,
   "apparatus": false,
   "archived": false,
   "tokens": 9058
@@ -3106,8 +3106,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 11296,
+  "status": "active",
+  "chars": 11297,
   "apparatus": false,
   "archived": false,
   "tokens": 2628
@@ -3150,8 +3150,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "documentation",
-  "status": "draft",
-  "chars": 7446,
+  "status": "active",
+  "chars": 7447,
   "apparatus": false,
   "archived": false,
   "tokens": 1639
