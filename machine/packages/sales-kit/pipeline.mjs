@@ -147,6 +147,44 @@ export const PHONE_RE = /(?:\+\d{1,3}[\s-]?)?(?:\(?\d{2,4}\)?[\s-]?)\d{3}[\s-]?\
    gazette's identifier (BOE-B-2026-10741), a date, an address. Read out
    before the phone scan. */
 export const NOT_A_PHONE = /\b\d{8}-\d\b|\b(?:BOE|BOCM|BORME|DOUE|BOP)-[A-Z]-\d{4}-\d+(?:-\d+)?\b|\b\d{4}-\d{2}-\d{2}\b|https?:\/\/\S+/g;
+/* OPP-006: what reads as a person's name — a common first name followed by a
+   capitalised word, or a courtesy title before one. Deliberately eager: a
+   false alarm costs a look, a name let through cannot be taken back. Only
+   the card's "Who may be named" (the house's own, and clients whose signed
+   agreement allows it) passes. A first name after a word that makes it a
+   place or a body (San José, Calle Isabel) is not a person. */
+export const FIRST_NAMES = new Set(('Adrián Agustín Alba Alberto Alejandra Alejandro Alfonso Alicia Álvaro Ana Andrea Andrés Ángel Ángela Antonia Antonio Beatriz Begoña Blanca Borja Carla Carlos Carmen Carolina Cristina Cristian Daniel Daniela David Diego Eduardo Elena Emilio Enrique Esther Eva Federico Felipe Fernando Francisco Gabriel Gonzalo Guillermo Héctor Hugo Ignacio Inés Inmaculada Inma Irene Isabel Iván Jaime Javier Jesús Joaquín Jorge José Josefa Juan Juana Julia Julián Julio Laura Leticia Lorena Lorenzo Lucía Luis Luisa Manuel Manuela Marcos Margarita María Mariano Marina Marta Martín Mateo Miguel Mónica Nerea Nicolás Noelia Nuria Óscar Pablo Paula Pedro Pilar Rafael Ramón Raquel Raúl Ricardo Roberto Rocío Rodrigo Rubén Salvador Samuel Santiago Sara Sergio Silvia Sofía Sonia Susana Teresa Tomás Valentina Vanesa Verónica Vicente Víctor Virginia Yolanda ' +
+  'Adam Alan Albert Alexander Alice Amanda Amy Andrew Anna Anne Anthony Barbara Benjamin Brian Catherine Charles Charlotte Christopher Claire Daniel Deborah Edward Elizabeth Emily Emma Eric Frank Gary George Hannah Harry Helen Henry Jack Jacob James Jane Jason Jennifer Jessica John Joseph Joshua Julie Karen Kate Kevin Laura Linda Lisa Margaret Mary Matthew Michael Michelle Nancy Nicholas Oliver Patricia Paul Peter Rachel Rebecca Richard Robert Ryan Sarah Simon Sophie Stephen Steven Susan Thomas Timothy William').split(/\s+/));
+const NAME_WORD = "[A-ZÁÉÍÓÚÑÜ][a-záéíóúñüçàèòï'’-]+";
+const TITLE_RE = new RegExp(`\\b(?:Sr|Sra|Srta|Dña|Dª|Dr|Dra|Mr|Mrs|Ms|Mx|Prof)\\.?\\s+${NAME_WORD}(?:\\s+${NAME_WORD})*`, 'g');
+/* A run of capitalised words, the Spanish particles allowed between them. */
+const RUN_RE = new RegExp(`${NAME_WORD}(?:\\s+(?:(?:de|del|la|los|y)\\s+)*${NAME_WORD})*`, 'gu');
+const PLACE_WORDS = new Set(['San', 'Santa', 'Santo', 'Calle', 'Plaza', 'Avenida', 'Paseo', 'Hospital', 'Colegio', 'Instituto', 'Fundación', 'Universidad', 'Parque', 'Puerta', 'Isla', 'Saint', 'St', 'Street', 'Avenue', 'Square', 'Teatro', 'Museo', 'Centro', 'Escuela', 'Premio', 'Cátedra']);
+
+/** Every stretch of `text` that reads as a person's name, minus those the card names. */
+export function personNames(text, allowed = []) {
+  const ok = allowed.map((n) => String(n).trim().toLowerCase()).filter(Boolean);
+  const plain = String(text)
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/https?:\/\/\S+/g, ' ')
+    .replace(/`[^`\n]*`/g, ' ');
+  const found = new Set();
+  const keep = (m) => {
+    const name = m.trim().replace(/[.,;:]+$/, '');
+    const low = name.toLowerCase();
+    if (ok.some((a) => low === a || low.startsWith(a + ' ') || a.startsWith(low))) return;
+    found.add(name);
+  };
+  for (const m of plain.matchAll(TITLE_RE)) keep(m[0]);
+  for (const m of plain.matchAll(RUN_RE)) {
+    const words = m[0].split(/\s+/);
+    const caps = words.map((w, i) => ({ w, i })).filter(({ w }) => /^[A-ZÁÉÍÓÚÑÜ]/.test(w));
+    const at = caps.findIndex(({ w }, k) => FIRST_NAMES.has(w) && k + 1 < caps.length && !(k > 0 && PLACE_WORDS.has(caps[k - 1].w)));
+    if (at >= 0) keep(words.slice(caps[at].i).join(' '));
+  }
+  return [...found];
+}
+
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const ID_RE = /^OPP-\d{4}-\d{3,}$/;
 const NUMBER = /^\d+(\.\d+)?$/;
@@ -261,7 +299,7 @@ export function loadRegister(file = DEFAULT_REGISTER) {
  * file reads as an empty card; a deciding name with no row throws (exit 2).
  */
 export function loadCard(file = DEFAULT_CARD) {
-  if (!existsSync(file)) return { requirements: [], turnoverCeiling: null, outOfDomain: [] };
+  if (!existsSync(file)) return { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [] };
   const text = readFileSync(file, 'utf8');
   const fig = Object.fromEntries(tableUnder(text, 'The figures the tool reads').map(([k, v]) => [String(k).toLowerCase(), Number(String(v).replace(/[^\d.]/g, ''))]));
   const key = (s) => String(s ?? '').trim().toLowerCase();
@@ -281,6 +319,9 @@ export function loadCard(file = DEFAULT_CARD) {
     requirements,
     turnoverCeiling: Number.isFinite(fig['turnover ceiling']) && fig['turnover ceiling'] > 0 ? fig['turnover ceiling'] : null,
     outOfDomain: tableUnder(text, 'What the house makes, and what it does not').map(([pattern, why]) => ({ pattern, why })),
+    /* OPP-006: the only people a public record may name — the house's own and
+       clients whose signed agreement allows it */
+    named: firsts(tableUnder(text, 'Who may be named')).filter(Boolean),
   };
 }
 
@@ -390,7 +431,7 @@ export function walk(events, stages, reg) {
 /* ---------- validation ---------- */
 
 /** Validate one record against STD-039. Returns the list of breaches (plate + what). */
-export function validate(rec, reg, card = { requirements: [], turnoverCeiling: null, outOfDomain: [] }) {
+export function validate(rec, reg, card = { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [] }) {
   const { fm, file, text } = rec;
   const bad = [];
   const F = (plate, what) => bad.push({ plate, what, file });
@@ -491,6 +532,7 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
   const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   if (EMAIL_RE.test(text)) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
   if (PHONE_RE.test(body.replace(NOT_A_PHONE, ' '))) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
+  for (const n of personNames(text, card.named)) F('OPP-006', `"${n}" reads as a person's name — write the role; only the card's "Who may be named" passes`);
 
   /* OPP-011: the organisation, named when it knows — a public funder or a
      buyer that published its own call may always be named */
@@ -532,7 +574,7 @@ export function duplicates(records) {
 
 const PRP_SECTIONS = ['Objectives', 'Why us', 'How it teaches, and how it measures', 'Price, terms and conditions', 'Before you agree', 'The three questions', 'In the open'];
 
-export function validateProposal(file, text) {
+export function validateProposal(file, text, named = []) {
   const bad = [];
   const F = (plate, what) => bad.push({ plate, what, file });
   const fm = parseFM(text);
@@ -545,6 +587,9 @@ export function validateProposal(file, text) {
   if (!NUMBER.test(fm.tax_rate ?? '')) F('PRP-004', 'no tax rate in the header');
   if (!NUMBER.test(fm.price ?? '')) F('PRP-004', 'no price in the header');
   if (/…/.test(body.slice(body.indexOf('## The three questions')))) F('PRP-006', 'the three questions still hold the mould\'s ellipsis');
+  /* OPP-006 holds for a proposal too: it is public like its record */
+  if (EMAIL_RE.test(text)) F('OPP-006', 'an e-mail address is in the proposal — a person is identified');
+  for (const n of personNames(text, named)) F('OPP-006', `"${n}" reads as a person's name — write the role; only the card's "Who may be named" passes`);
   return bad;
 }
 
@@ -716,7 +761,7 @@ function main(argv) {
     if (!r.fm?.proposal) continue;
     const p = path.resolve(path.dirname(r.file), r.fm.proposal);
     if (!existsSync(p)) { bad.push({ plate: 'PRP-009', what: `proposal "${r.fm.proposal}" not found`, file: r.file }); continue; }
-    bad.push(...validateProposal(p, readFileSync(p, 'utf8')));
+    bad.push(...validateProposal(p, readFileSync(p, 'utf8'), card.named));
   }
   if (bad.length) {
     console.error(`${bad.length} breach(es):`);

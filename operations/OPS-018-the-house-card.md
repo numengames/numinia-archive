@@ -4,9 +4,9 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.4.1"
+version: "0.5.0"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-02T20:00:00+02:00"
+updated: "2026-10-02T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -103,6 +103,16 @@ links the whole card. The tool refuses a name here that has no row above.
 | Insurance |
 | Past works |
 | Tax and Social Security |
+
+## Who may be named
+
+The only people a public record or proposal may name: the house's own, and
+a client's people whose signed agreement has a clause allowing it. Nobody
+else, not even a public officer — the office is the role. A row is added
+by a reviewed change; the tool refuses any other name.
+
+| Name | Why |
+|---|---|
 
 ## The figures the tool reads
 

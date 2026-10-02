@@ -40,6 +40,12 @@ The requirements that sink most calls, in the order a reader checks them.
 | Turnover |
 | Tax and Social Security |
 
+## Who may be named
+
+| Name | Why |
+|---|---|
+| Ada Lovelace | the house's own |
+
 ## 3. The figures the tool reads
 
 | Figure | Value | State |

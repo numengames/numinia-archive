@@ -96,7 +96,7 @@ test('the card is read by heading, numbered or not: requirements, the turnover c
   assert.deepEqual(card.requirements.map((q) => q.state).slice(0, 3), ['check', 'no', 'no']);
   assert.equal(outOfDomain('Contrato de hinchables para fiestas', card).why, 'inflatables and attractions');
   assert.equal(outOfDomain('Un mundo virtual', card), null);
-  assert.deepEqual(loadCard(path.join(FIX, 'no-such-card.md')), { requirements: [], turnoverCeiling: null, outOfDomain: [] }, 'a missing default card reads as empty');
+  assert.deepEqual(loadCard(path.join(FIX, 'no-such-card.md')), { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [] }, 'a missing default card reads as empty');
 });
 
 test('the card marks what decides most calls: each row carries its place in that list, or null', () => {
@@ -378,6 +378,30 @@ check('OPP-006: a name in the header is refused', (dir) => {
 check('OPP-006: an e-mail address anywhere in a record is refused — the record is public', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up to head.training@example.org, no answer.'));
   assert.match(run(dir).err, /OPP-006.*e-mail address/);
+});
+
+check('OPP-006: a person\'s name in the body is refused, whatever office they hold', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up to Carmen Ortega Ruiz, the head of training, no answer.'));
+  assert.match(run(dir).err, /OPP-006.*"Carmen Ortega Ruiz" reads as a person's name/);
+});
+
+check('OPP-006: a courtesy title before a surname is a name too', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up 2099-09-16; Sra. Ortega did not answer.'));
+  assert.match(run(dir).err, /OPP-006.*"Sra\. Ortega" reads as a person's name/);
+});
+
+check('OPP-006: a name the card lets be named passes; places and bodies that carry a first name do not trip', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up 2099-09-16 by Ada Lovelace, from the office in San José de Costa Rica, no answer.'));
+  assert.equal(run(dir).code, 0, run(dir).err);
+});
+
+test('OPP-006: the card says who may be named, read from its own table', () => {
+  assert.deepEqual(loadCard(CARD).named, ['Ada Lovelace']);
+});
+
+test('OPP-006: no person\'s name in the archive\'s real records and proposals', { skip: !existsSync(path.join(ROOT, 'opportunities')) }, () => {
+  const r = spawnSync('node', [TOOL, path.join(ROOT, 'opportunities'), '--proposals'], { encoding: 'utf8' });
+  assert.doesNotMatch(r.stderr, /reads as a person's name/);
 });
 
 check('OPP-006: CPV codes, gazette ids, dates and addresses are not phones; a phone is', (dir) => {

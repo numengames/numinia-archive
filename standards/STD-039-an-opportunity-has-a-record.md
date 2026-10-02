@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.9.0"
+version: "0.10.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -91,10 +91,14 @@ lines.
 
 ### What it says about people and organisations
 
-**Nobody's name.** A record MUST carry roles and channels, never a person's
-name, address, number or anything that identifies one — in the header or
-in the body. Who said what is kept where the conversation happened, outside
-the archive. The record is public; a person did not choose to be.
+**Nobody's name.** A record and its proposal MUST carry roles and
+channels, never a person's name, address, number or anything that
+identifies one — in the header or in the body, and not even a public
+officer's, whose office is the role. Who said what is kept where the
+conversation happened, outside the archive. The record is public; a person
+did not choose to be. The only names that MAY appear are those the house's
+card lists as named: its own people, and a client's people whose signed
+agreement allows it.
 
 **The organisation, named when it knows.** A record MUST name the
 organisation by sector and size until the client has been told, in the
@@ -168,7 +172,7 @@ Each rule, its code, its source and its check.
 | OPP-003 | The kind and the stage come from the register | `STD-038` | `machine/packages/sales-kit/pipeline.mjs`: kind, stages, reasons, sources, pays, instrument, procedure, read from and object read from the register's tables; stages forward only; the decider's role from `agreed` |
 | OPP-004 | Every open record knows its next step | — | `machine/packages/sales-kit/pipeline.mjs`: exactly one `next` line, the last, on an open record and none on a closed one; overdue and stale listed |
 | OPP-005 | Every move leaves a line | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), metadata of the transaction (clause unverified) | `machine/packages/sales-kit/pipeline.mjs`: a `## Timeline` in the register's grammar; one `found`, first; dates ascending; events from the register |
-| OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001 | `machine/packages/sales-kit/pipeline.mjs`: header fields against a closed list, and the body scanned for an e-mail address or a phone number; by hand for a name |
+| OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001; the Oracle's ruling of 2026-10-02: not even a public officer, so no mistake can enter | `machine/packages/sales-kit/pipeline.mjs`: header fields against a closed list; the record and its proposal scanned for an e-mail, a phone, and anything that reads as a person's name — a common first name before a capitalised word, or a courtesy title — unless the card's *Who may be named* lists it; deliberately eager, a false alarm costs a look |
 | OPP-007 | Minimal, with its basis | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6(1)(f), recital 47 | by hand, at the review of every record |
 | OPP-008 | In the public archive | `CAN-009`; the Oracle's ruling | the tree: `opportunities/` is the one series for every kind; `machine/packages/sales-kit/pipeline.mjs opportunities` runs in CI |
 | OPP-009 | The pipeline is computed | `CAN-009` | `machine/packages/sales-kit/pipeline.mjs` is the only source of pipeline figures; the page reads it |

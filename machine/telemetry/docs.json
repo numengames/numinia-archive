@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 24949,
+  "chars": 25226,
   "apparatus": false,
   "archived": false,
-  "tokens": 6981
+  "tokens": 7044
  },
  {
   "path": "CLAUDE.md",
@@ -1600,10 +1600,10 @@
   "series": null,
   "type": "meta",
   "status": "active",
-  "chars": 1637,
+  "chars": 1719,
   "apparatus": true,
   "archived": false,
-  "tokens": 464
+  "tokens": 491
  },
  {
   "path": "machine/packages/sales-kit/fixtures/register.md",
@@ -2062,10 +2062,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 15066,
+  "chars": 15391,
   "apparatus": false,
   "archived": false,
-  "tokens": 3864
+  "tokens": 3944
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2953,10 +2953,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 7494,
+  "chars": 8779,
   "apparatus": false,
   "archived": false,
-  "tokens": 1884
+  "tokens": 2218
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -3184,10 +3184,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 13858,
+  "chars": 14355,
   "apparatus": false,
   "archived": false,
-  "tokens": 3604
+  "tokens": 3726
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",

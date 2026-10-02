@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Added** Automation writes to its own feed repository, never straight into the archive; a finding enters by a reviewed promotion (`STD-017` AUT-069). Nobody's name, not even a public officer's: the tool now refuses names in records and proposals unless `OPS-018` lists them
 - **Added** The opportunity watch's first findings: Creative Europe MEDIA video games 2027 (`OPP-2026-036`, ≤200,000 €, 70 % advance) and a school science fair tender (`OPP-2026-037`, partner needed); `OPS-018` 0.4.1 reads the house's past graphic adventures as a published game to unlock
 - **Changed** Open books downloads as workbooks in the house colours (`web/src/lib/workbook.ts`): band, front page with headline figures and the four kinds, native charts; Accounts and Taxes are Excel, not CSV; the AEAT books stay plain (site v0.123.0)
 - **Added** Kairos, the opportunity watcher (Procurators): `agents/kairos/` card, soul, operator, sources and Hermes adapter; INDEX 3.4.0; his card on /agent. First watch: tenders and grants, Spain and EU; its procedure and script still to be carried in (site v0.122.0)
