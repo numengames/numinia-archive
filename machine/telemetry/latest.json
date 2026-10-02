@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "c3ed7d3",
-  "corpus_hash": "61e398bf8591a7772b2f2cb6fbacde43c9fdece08713d054636ba6db7dbfdf6b",
+  "head": "37eece0",
+  "corpus_hash": "5c16cbe354e372c6fb0d9f6964970d105de9002a87e356fa198d53450f162fdc",
   "root_dirty": 0,
-  "measured_at": "2026-10-02T11:03:42Z",
+  "measured_at": "2026-10-02T14:29:51Z",
   "families": [
     "corpus",
     "series",
@@ -329,7 +329,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 927961,
+      "value": 928085,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -347,7 +347,7 @@
         "opportunities": 23923,
         "canon": 19794,
         "missions": 17668,
-        "": 14683,
+        "": 14807,
         "legal": 13033,
         "decisions": 9669,
         "debt": 9643,
@@ -359,9 +359,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 513792,
-        "draft": 224225,
-        "active": 170783,
+        "(none)": 513916,
+        "draft": 219255,
+        "active": 175753,
         "todo": 13532,
         "in-progress": 4513,
         "done": 1116
@@ -689,8 +689,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 115,
-        "draft": 144,
+        "active": 118,
+        "draft": 141,
         "done": 1,
         "todo": 6,
         "in-progress": 1
@@ -738,10 +738,10 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 961
+          "3": 967
         },
         "PRO": {
-          "3": 411
+          "3": 412
         },
         "OPS": {
           "3": 154
@@ -854,7 +854,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 298,
+      "value": 299,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -874,7 +874,7 @@
         "missions/MIS-0135-normalisation-residue-register.md": 7,
         "operations/OPS-001-continuity.md": 7,
         "reports/RPT-028-2026-w36.md": 7,
-        "blueprints/BLU-011-book-and-veil.md": 6
+        "CHANGELOG.md": 6
       },
       "unit": "lines",
       "definition": "the fifteen docs with most such lines"

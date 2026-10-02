@@ -4,10 +4,10 @@ id: "STD-001"
 uid: ""
 type: documentation
 subtype: register
-status: draft
-version: "5.10.0"
+status: active
+version: "5.11.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T16:28:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
