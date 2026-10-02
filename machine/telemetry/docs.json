@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18233,
+  "chars": 18367,
   "apparatus": false,
   "archived": false,
-  "tokens": 4528
+  "tokens": 4560
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 26887,
+  "chars": 27093,
   "apparatus": false,
   "archived": false,
-  "tokens": 7507
+  "tokens": 7561
  },
  {
   "path": "CLAUDE.md",
@@ -302,10 +302,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1527,
+  "chars": 1710,
   "apparatus": false,
   "archived": false,
-  "tokens": 396
+  "tokens": 446
  },
  {
   "path": "agents/kairos/SOUL.md",
@@ -324,10 +324,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2878,
+  "chars": 3431,
   "apparatus": false,
   "archived": false,
-  "tokens": 754
+  "tokens": 915
  },
  {
   "path": "agents/lexa/OPERATOR.md",
@@ -2667,10 +2667,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5442,
+  "chars": 5489,
   "apparatus": false,
   "archived": false,
-  "tokens": 1488
+  "tokens": 1502
  },
  {
   "path": "protocols/PRO-033-screening-a-tender.md",
@@ -2678,10 +2678,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "draft",
-  "chars": 5629,
+  "chars": 5679,
   "apparatus": false,
   "archived": false,
-  "tokens": 1465
+  "tokens": 1484
  },
  {
   "path": "protocols/PRO-034-auditing-a-sites-code.md",
@@ -2693,6 +2693,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1556
+ },
+ {
+  "path": "protocols/PRO-035-watching-for-opportunities.md",
+  "dir": "protocols",
+  "series": "protocols",
+  "type": "protocol",
+  "status": "draft",
+  "chars": 5612,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1514
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -2997,10 +3008,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8779,
+  "chars": 8901,
   "apparatus": false,
   "archived": false,
-  "tokens": 2218
+  "tokens": 2251
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -3217,10 +3228,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 15316,
+  "chars": 16179,
   "apparatus": false,
   "archived": false,
-  "tokens": 4093
+  "tokens": 4313
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
