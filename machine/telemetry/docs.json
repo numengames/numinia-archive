@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 27093,
+  "chars": 27228,
   "apparatus": false,
   "archived": false,
-  "tokens": 7561
+  "tokens": 7607
  },
  {
   "path": "CLAUDE.md",
@@ -2095,10 +2095,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 15391,
+  "chars": 15447,
   "apparatus": false,
   "archived": false,
-  "tokens": 3944
+  "tokens": 3962
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2337,10 +2337,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 4590,
+  "chars": 4672,
   "apparatus": false,
   "archived": false,
-  "tokens": 1260
+  "tokens": 1285
  },
  {
   "path": "opportunities/PRP-2026-001.md",
