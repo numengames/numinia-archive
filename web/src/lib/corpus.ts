@@ -615,6 +615,8 @@ const READING_ORDER: Record<string, string[]> = {
     // 2026-09-24 (ADR-065): money, last — something goes on sale, then the
     // month closes on what it brought in.
     "/protocols/pro-020-putting-something-on-sale",
+    // 2026-10-02: before any record — a watch finds, the Oracle decides.
+    "/protocols/pro-035-watching-for-opportunities",
     // 2026-09-28: a sale to an organisation, in its three moments — a sign
     // of interest is qualified, a proposal is made, the sale is closed and
     // handed over — before the month closes on what it brought in.

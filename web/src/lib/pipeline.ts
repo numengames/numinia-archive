@@ -33,6 +33,7 @@ export const PIPELINE_SOURCES = [
   "protocols/PRO-031-bidding-for-a-tender.md",
   "protocols/PRO-032-applying-for-a-grant.md",
   "protocols/PRO-033-screening-a-tender.md",
+  "protocols/PRO-035-watching-for-opportunities.md",
   "system/SYS-010-selling-as-wired-today.md",
   "machine/packages/sales-kit/pipeline.mjs",
 ];
