@@ -480,6 +480,8 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-038-the-stages-of-an-opportunity",
       "/standards/std-039-an-opportunity-has-a-record",
       "/standards/std-040-a-proposal-says-four-things",
+      // 2026-10-02: what each stage of a sale hands over.
+      "/standards/std-047-the-sales-collateral",
       "/standards/std-036-one-account",
     ],
   },

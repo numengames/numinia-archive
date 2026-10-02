@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.125.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "ADD", text: "A new register on the standards shelf, The sales collateral: what each stage of a sale hands to the other side — a first-contact deck and e-mail, a one-page sheet, a video, a proposal — what each is made from, what stops it from being made and whether it has earned its place." },
+    ],
+  },
+  {
     version: "v0.124.0",
     date: "2026-10-02",
     entries: [

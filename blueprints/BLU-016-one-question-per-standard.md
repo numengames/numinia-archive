@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.12.0"
+version: "0.12.1"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -38,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 2 October 2026 the shelf holds 39 standards.
+As of 2 October 2026 the shelf holds 40 standards.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
@@ -123,6 +123,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-042` | Which permission is granted alone at each level of automation? | register |
 | `STD-043` | What does a period report say, and to whom? | — |
 | `STD-044` | What does a buyer see the moment after paying? | — |
+| `STD-047` | Which collateral does each stage of a sale hand over, and what is it made from? | register |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.

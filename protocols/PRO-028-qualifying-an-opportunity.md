@@ -4,9 +4,9 @@ uid: ""
 title: "Qualifying an opportunity"
 type: protocol
 status: draft
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -41,10 +41,9 @@ Numen Games' or Numinia's name, and whoever decides whether to pursue it.
 
 ## 1. Purpose and trigger
 
-Most of the house's lost sales were never sales: a conversation that went
-nowhere because nobody wrote it down, or effort spent on something we could
-not make. This protocol puts every sign of interest into a record on the
-day it arrives, and decides within two weeks whether it is worth pursuing.
+Most lost sales were never sales: a conversation nobody wrote down, or
+effort on something we could not make. This protocol records every sign
+of interest the day it arrives, and decides within two weeks.
 
 It starts when an organisation shows a need — a form, an e-mail, a
 conversation at an event, a referral — or proposes working together, or
@@ -57,12 +56,12 @@ and decides. A public tender is screened by `PRO-033`, a grant by
 
 ## 2. Preconditions
 
-- The opportunities series, where every record lives in public, and the
-  one mould of the record, with the other moulds of the archive.
+- The opportunities series, public, and the record's mould.
 - The record of the offer this would sell, published; without one, a sale
   has nothing to qualify against.
 - The register of the stages of an opportunity at hand: the kinds, their
-  stages, the events a timeline is written in, the reasons (`STD-038`).
+  stages, the events a timeline is written in, the reasons (`STD-038`);
+  and the register of what each stage hands over (`STD-047`).
 
 ---
 
@@ -87,9 +86,10 @@ and decides. A public tender is screened by `PRO-033`, a grant by
    line, `no-decider` or `no-budget`.
 4. **Decide to pursue.** Whoever sells weighs the fit, what is known of who
    signs, and the house's capacity to deliver in the time asked, and
-   decides. Pursue: a line marked `qualified`, and the `next` line is the
-   needs analysis (`PRO-029`). Decline: a `lost` line, `we-declined`, with
-   the reason in a sentence.
+   decides. Pursue: a line marked `qualified`, the record's Pitch written,
+   and the `next` line asks for the needs analysis (`PRO-029`) with the
+   stage's collateral (`STD-047`). Decline: a `lost` line, `we-declined`,
+   with the reason in a sentence.
 5. **A collaboration or a partner.** Write what each side gives. Their
    yes: a `pos` line marked `talking`; the split agreed — who signs, who
    does what, the house's share as the value — a line marked `agreed`; a

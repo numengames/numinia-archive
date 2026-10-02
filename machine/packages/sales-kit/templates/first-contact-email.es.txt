@@ -1,0 +1,28 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+First-contact e-mail (STD-047), Spanish rendering. collateral.mjs removes
+this block when it renders the piece.
+-->
+Asunto: {{subject}}
+
+{{greeting}}
+
+Le escribo desde Numen Games, un estudio madrileño que construye lugares en 3D donde se ensaya un procedimiento antes de hacerlo de verdad.
+
+{{hook}} {{promise}}
+
+La idea es sencilla:
+- Se entra con un enlace desde el ordenador, el móvil o unas gafas, sin instalar nada.
+- Se recorre una escena construida con vuestro protocolo, en su orden.
+- El instructor ve qué hizo cada alumno y dónde falló, y compara su primer recorrido con el último.
+
+Le adjunto una presentación de cuatro páginas. {{price_line}}
+
+{{ask}} Si no es usted quien debe verlo, le agradecería que me indicara con quién hablar.
+
+Un saludo,
+
+{{signature}}
+
+Adjunto: {{attachment}}
