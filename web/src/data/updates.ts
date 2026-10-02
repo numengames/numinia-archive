@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.129.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "CHG", text: "Draft no longer reads as 'binds nobody'. The system is in alpha, and a draft is a rule on trial: it is followed, its check warns and never blocks, and any change to it is analysed, then its owner decides. An active rule is followed too, and breaking it blocks. The same words now stand on the home, What binds today, the scheme, every draft's band, llms.txt, index.json and robots.txt; a draft's Binds line reads 'On trial, for:'." },
+    ],
+  },
+  {
     version: "v0.128.0",
     date: "2026-10-02",
     entries: [

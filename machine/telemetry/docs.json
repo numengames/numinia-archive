@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18478,
+  "chars": 18557,
   "apparatus": false,
   "archived": false,
-  "tokens": 4594
+  "tokens": 4613
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 27916,
+  "chars": 28159,
   "apparatus": false,
   "archived": false,
-  "tokens": 7835
+  "tokens": 7922
  },
  {
   "path": "CLAUDE.md",
@@ -93,10 +93,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4171,
+  "chars": 4186,
   "apparatus": true,
   "archived": false,
-  "tokens": 1106
+  "tokens": 1111
  },
  {
   "path": "SECURITY.md",
@@ -2579,10 +2579,10 @@
   "series": "protocols",
   "type": "protocol",
   "status": "active",
-  "chars": 4676,
+  "chars": 4742,
   "apparatus": false,
   "archived": false,
-  "tokens": 1256
+  "tokens": 1276
  },
  {
   "path": "protocols/PRO-024-leaving.md",
@@ -2909,10 +2909,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 16472,
+  "chars": 16596,
   "apparatus": false,
   "archived": false,
-  "tokens": 4665
+  "tokens": 4690
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -2964,10 +2964,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4278,
+  "chars": 4361,
   "apparatus": false,
   "archived": false,
-  "tokens": 1082
+  "tokens": 1107
  },
  {
   "path": "standards/STD-010-licensing.md",

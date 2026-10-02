@@ -4,9 +4,9 @@ uid: ""
 title: "Bringing a rule into force"
 type: protocol
 status: active
-version: "1.0.1"
+version: "1.1.0"
 created: "2026-09-27T14:30:00+02:00"
-updated: "2026-09-27T15:30:00+02:00"
+updated: "2026-10-02T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Archive"
@@ -37,10 +37,10 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 1. Purpose and trigger
 
-A draft describes a practice and binds nobody. The day it becomes `active`,
-two things change at once: every finding its guard reports stops being a
-warning and fails the build, and every person and agent is held to what it
-says. This protocol makes that moment deliberate.
+A draft is on trial: it is followed, its guard warns and never blocks,
+and what does not fit is noted. The day it becomes `active`, two things
+change at once: every finding its guard reports stops being a warning and
+fails the build, and every person and agent is held to what it says. This protocol makes that moment deliberate.
 
 It starts when the Oracle names a document to bring into force, or when an
 agent proposes one. The **agent** prepares the change and shows it; the
@@ -71,7 +71,7 @@ agent proposes one. The **agent** prepares the change and shows it; the
 5. **Run the guards again.** The candidate's guard must say *all hold*.
 6. **Read every requirement for a yes or no.** For each MUST, ask whether
    someone holding the thing made could answer *met* or *not met*. Note any
-   that cannot be answered; they bind nobody in practice.
+   that cannot be answered; no one can be held to them in practice.
 7. **List the checks made by hand.** The rows of the candidate's Check table
    verified *by hand* become a reviewer's duty the day it binds. Name them.
 8. **Show the Oracle the activation.** In plain words, before the branch:

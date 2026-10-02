@@ -9,7 +9,7 @@
 // The band under the title said "draft", /binding said "draft", and the line
 // itself kept saying "binds". A reader believed the line.
 //
-// On a draft, this relabels it "Would bind, once in force:". The scope that
+// On a draft, this relabels it "On trial, for:". The scope that
 // follows is the document's own words, untouched; only the verb's tense moves
 // to match the header. An active document, and every other bold label, is
 // left exactly as written. The source file is not edited: the day the rule is
@@ -17,7 +17,7 @@
 
 import { visit } from "unist-util-visit";
 
-export const DRAFT_LABEL = "Would bind, once in force:";
+export const DRAFT_LABEL = "On trial, for:";
 
 const isBindsLabel = (node) =>
   node?.type === "element" &&

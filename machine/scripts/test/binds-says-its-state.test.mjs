@@ -16,7 +16,7 @@
 //
 // So the state travels with the claim, in both places a reader meets it:
 //   1. the rule index in AGENTS.md has a State column, read from the header;
-//   2. on the site, a draft's `Binds:` label reads "Would bind, once in force:".
+//   2. on the site, a draft's `Binds:` label reads "On trial, for:".
 //
 // Run: npm test
 import test from 'node:test';
@@ -55,9 +55,9 @@ test('the footnote says how many of the rules are in force', () => {
   assert.match(block, new RegExp(`${active} (is|are) in force`), 'the footnote does not count the rules in force');
 });
 
-test('on a draft, the Binds label says it binds only once in force', () => {
+test('on a draft, the Binds label says it is on trial', () => {
   assert.equal(label(run('draft', el('root', [bindsPara()]))), DRAFT_LABEL);
-  assert.match(DRAFT_LABEL, /once in force/i);
+  assert.match(DRAFT_LABEL, /on trial/i);
 });
 
 test('on an active rule, and on anything that is not a Binds line, nothing changes', () => {

@@ -191,7 +191,7 @@ test('llms.txt never claims a licence for a folder', () => {
 test('llms.txt says what draft means, because most of the corpus says draft', () => {
   const txt = ask(`m.llmsTxt({ documents: [${JSON.stringify(doc())}], views: [], version: 'v0.18.0' })`);
   assert.match(txt, /draft/);
-  assert.match(txt, /binds nobody|not yet in force/i);
+  assert.match(txt, /on trial/i);
 });
 
 test('llms.txt is generated, and says so rather than posing as a record', () => {

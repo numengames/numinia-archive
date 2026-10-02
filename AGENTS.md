@@ -26,8 +26,9 @@ the Claude Code adapter and points here; it does not restate these rules.
 ## What binds today — read this before any other rule
 
 Oracle instruction, 2026-09-18. The system is being cut down from the MVP
-to the alpha, so almost every rule document here is `status: draft`. While a
-document is draft it DESCRIBES a practice; it does not BIND.
+to the alpha, so almost every rule document here is `status: draft`. A
+draft is on trial: follow it, and note what does not fit. Its guard warns and
+never blocks; any change to it is analysed, then its owner decides.
 Every protocol in this archive is `status: draft`, save those named in force
 below.
 
@@ -242,7 +243,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
 | `STD-047` | The sales collateral | draft | register — scope belongs to the standard that cites it |
 
-79 rule documents, of which 16 are in force; a `draft` binds nobody until promoted, whatever its Binds line says; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+79 rule documents, of which 16 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
