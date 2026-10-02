@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-02T18:02:49Z"
+updated: "2026-10-02T18:23:14Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,19 +20,19 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `1a0d80f`  · corpus_hash: `163ff0c32bf49f34…`  · measured_at: 2026-10-02T18:02:49Z  · root_dirty: 0
+- head: `2a55da0`  · corpus_hash: `1f5f6a168cc1084b…`  · measured_at: 2026-10-02T18:23:14Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 780 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 784 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
-| `corpus.md_total` | 334 | files | tracked `.md` anywhere, including `web/` |
-| `corpus.docs_total` | 333 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
+| `corpus.md_total` | 335 | files | tracked `.md` anywhere, including `web/` |
+| `corpus.docs_total` | 334 | documents | tracked `.md` outside `web/` — the corpus every other family measures |
 | `corpus.docs_by_dir` | (table below) | documents | corpus documents by top-level directory; root files under `(root)` |
 | `corpus.docs_by_type` | (table below) | documents | corpus documents by frontmatter `type`; `(none)` when absent |
-| `corpus.docs_without_frontmatter` | 48 | documents | corpus documents with no `---` block at the top |
+| `corpus.docs_without_frontmatter` | 49 | documents | corpus documents with no `---` block at the top |
 | `corpus.apparatus` | 52 | documents | corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path) |
 | `corpus.scripts_total` | 78 | files | files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts) |
 | `corpus.scripts_by_language` | (table below) | files | those scripts by language, from the extension |
@@ -47,29 +47,30 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .css | 3 |
 | .csv | 4 |
 | .docx | 1 |
+| .editorconfig | 1 |
 | .gitignore | 2 |
 | .html | 2 |
 | .jpg | 2 |
 | .js | 2 |
 | .json | 15 |
-| .md | 334 |
+| .md | 335 |
 | .mjs | 116 |
 | .png | 36 |
 | .svg | 75 |
-| .toml | 2 |
+| .toml | 3 |
 | .ts | 55 |
 | .tsx | 2 |
 | .txt | 14 |
 | .webp | 1 |
 | .woff2 | 7 |
 | .yaml | 36 |
-| .yml | 4 |
+| .yml | 5 |
 
 ### `corpus.docs_by_dir`
 
 | | documents |
 |---|---|
-| (root) | 7 |
+| (root) | 8 |
 | .github | 3 |
 | agents | 45 |
 | blueprints | 12 |
@@ -92,7 +93,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | documents |
 |---|---|
-| (none) | 61 |
+| (none) | 62 |
 | adr | 10 |
 | agent | 41 |
 | blueprint | 13 |
@@ -208,7 +209,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 934611 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 934845 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 1.89 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -219,7 +220,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 491682 |
-| standards | 85466 |
+| standards | 85421 |
 | system | 51924 |
 | reports | 36705 |
 | protocols | 36370 |
@@ -230,7 +231,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | opportunities | 25198 |
 | canon | 19794 |
 | missions | 17661 |
-|  | 15329 |
+|  | 15608 |
 | legal | 13033 |
 | debt | 9702 |
 | decisions | 9661 |
@@ -241,8 +242,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 514384 |
-| draft | 209651 |
+| (none) | 514663 |
+| draft | 209606 |
 | active | 191422 |
 | todo | 13525 |
 | in-progress | 4513 |
@@ -257,7 +258,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `headers.docs_with_frontmatter` | 285 | documents | docs whose text opens with a --- block the shared reader parses |
-| `headers.docs_without_frontmatter` | 48 | documents | corpus docs minus docs_with_frontmatter |
+| `headers.docs_without_frontmatter` | 49 | documents | corpus docs minus docs_with_frontmatter |
 | `headers.field_usage` | (table below) | documents | per frontmatter key, the number of docs carrying it, most used first |
 | `headers.uid_present` | 0 | documents | docs with a non-empty uid |
 | `headers.uid_collisions` | 0 | collisions | Σ(n−1) over uid values held by n>1 docs; values as typed (a shared placeholder counts) |
@@ -428,7 +429,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | documents |
 |---|---|
 | ai-persona | 217 |
-| no-frontmatter | 48 |
+| no-frontmatter | 49 |
 | other | 38 |
 | no-author | 17 |
 | ai-model | 8 |
@@ -490,7 +491,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| STD | 1003 |
+| STD | 1006 |
 | PRO | 439 |
 | OPS | 164 |
 | CAN | 354 |
@@ -517,7 +518,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `figures.live` | 299 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
+| `figures.live` | 301 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
 | `figures.live_by_doc` | (table below) | lines | the fifteen docs with most such lines |
 | `figures.cited` | 0 | citations | citations in the §10.5 form `key = value @ head` across the corpus |
 | `figures.stale_citations` | (table below) | citations | cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true |
@@ -536,11 +537,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | operations/OPS-007-sales.md | 10 |
 | blueprints/BLU-017-legal-obligations-to-confirm.md | 9 |
 | blueprints/BLU-009-web-pieces.md | 8 |
+| CHANGELOG.md | 7 |
 | blueprints/BLU-018-our-own-gateway.md | 7 |
 | missions/MIS-0135-normalisation-residue-register.md | 7 |
 | operations/OPS-001-continuity.md | 7 |
 | reports/RPT-028-2026-w36.md | 7 |
-| CHANGELOG.md | 6 |
 
 ### `figures.stale_citations`
 

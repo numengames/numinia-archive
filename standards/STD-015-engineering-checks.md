@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: documentation
 subtype: register
 status: draft
-version: "6.0.0"
+version: "6.1.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-02T12:20:00+02:00"
+updated: "2026-10-02T20:02:00+02:00"
 author: "pablofm"
 owner: "oracle"
 territory: "Platform"
@@ -35,7 +35,7 @@ SPDX-License-Identifier: CC0-1.0
 | Security | SEC-001 | Two-factor authentication required of every member, set at organisation level | MUST | `[AUTO: github orgs/numengames]` |
 | Security | SEC-002 | Secret scanning and push protection on every repository | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
 | Security | SEC-003 | Dependabot alerts and security updates on; merge only on green CI | MUST | `[AUTO: github repos/numengames/numinia-archive/dependabot/alerts]` |
-| Security | SEC-004 | The secrets rule applied (KEY-054): no secret in the tree or in any commit of its history, found by a full-history secret scan (gitleaks); secrets live in GitHub Environments scoped `pre`/`prod` | MUST | `[DEBT: no gitleaks in the tree; push protection unverified — oracle, 2026-09-11]` |
+| Security | SEC-004 | The secrets rule applied (KEY-054): no secret in the tree or in any commit of its history, found by a full-history secret scan (gitleaks); secrets live in GitHub Environments scoped `pre`/`prod` | MUST | `[AUTO: .github/workflows/secrets.yml]` |
 | Security | SEC-005 | Cloud deploy auth via OIDC, no long-lived tokens | MUST | `[DEBT: no Terraform in the tree, no OIDC policy to read — oracle, 2026-09-11]` |
 | Security | SEC-006 | Personal access tokens fine-grained, minimum scope, expiring, one per purpose | MUST | `[AUTO: github orgs/numengames]` |
 | Security | SEC-007 | Third-party Actions pinned by commit SHA | MUST | `[AUTO: scorecard Pinned-Dependencies]` |
@@ -58,13 +58,13 @@ SPDX-License-Identifier: CC0-1.0
 | Traceability | TRC-001 | Repository "About" complete: description, website, topics | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
 | Traceability | TRC-002 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[DEBT: no label-sync workflow — oracle, 2026-09-11]` |
-| Traceability | TRC-004 | `CHANGELOG.md` written for people in the Keep a Changelog 1.1 form: newest first, an Unreleased section, every entry under one of six kinds (added, changed, deprecated, removed, fixed, security); a site with no releases heads each group with its date; a released package adds semver tags and GitHub Releases with notes | MUST | `[DEBT: no changelog-shape check; numinia-web and nwos-deploy keep no changelog — oracle, 2026-09-25]` |
-| Traceability | TRC-005 | A roadmap as a file in the repository saying what the project intends to do, and not do, for at least the next year (OpenSSF Best Practices Badge, documentation_roadmap; `STD-006`) | MUST | `[DEBT: no roadmap or TODO file in the tree — oracle, 2026-09-11]` |
+| Traceability | TRC-004 | `CHANGELOG.md` written for people in the Keep a Changelog 1.1 form: newest first, an Unreleased section, every entry under one of six kinds (added, changed, deprecated, removed, fixed, security); a site with no releases heads each group with its date; a released package adds semver tags and GitHub Releases with notes | MUST | `[GATE: machine/scripts/test/changelog-shape.test.mjs → a reviewer reads each entry for people; numinia-web and nwos-deploy keep no changelog yet]` |
+| Traceability | TRC-005 | A roadmap in the repository — here, the `blueprints/` folder — saying what the project intends to do, and not do, for at least the next year (OpenSSF Best Practices Badge, documentation_roadmap; `STD-006`) | MUST | `[GATE: machine/tools/check-register.mjs → the Oracle keeps the blueprints current]` |
 | Traceability | TRC-006 | A guard is verified by its step in the job, never by the run's colour: a green run and a workflow missing the guard are indistinguishable from the conclusion | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-007 | Every guard declares what it does not look at, on success as on failure (`machine/scripts/blind-spots.json`); a guard that validates what is present cannot detect what is missing | MUST | `[AUTO: machine/scripts/test/blindness.test.mjs]` |
 | Ergonomics | DEV-001 | `.env.example` exhaustive and in sync with the env schema | MUST | `[DEBT: no .env.example and no env schema to compare it to — oracle, 2026-09-11]` |
 | Ergonomics | DEV-002 | `dev`, `build`, `test`, `lint` mean the same in every repository | MUST | `[AUTO: npm test]` |
-| Ergonomics | DEV-003 | `.editorconfig` and shared editor settings committed | SHOULD | `[DEBT: no .editorconfig — oracle, 2026-09-11]` |
+| Ergonomics | DEV-003 | `.editorconfig` and shared editor settings committed | SHOULD | `[AUTO: machine/tools/check-register.mjs]` |
 | Ergonomics | DEV-004 | Pre-commit hooks under five seconds; CI stays the authority | MUST | `[DEBT: no pre-commit hooks — oracle, 2026-09-11]` |
 | Ergonomics | DEV-005 | Comments in English explaining *why*; TSDoc on every exported API | MUST | `[AUTO: machine/scripts/test/prose-in-code.test.mjs]` |
 | Ergonomics | DEV-006 | Small pull requests with what, why and how to verify | SHOULD | `[GATE: .github/PULL_REQUEST_TEMPLATE.md → a reviewer approves the pull request]` |
@@ -75,8 +75,8 @@ SPDX-License-Identifier: CC0-1.0
 | Operations | SRE-004 | Runbook per service: deploy, rollback, common failures | MUST | `[DEBT: no runbook for the deployed service — oracle, 2026-09-11]` |
 | Operations | SRE-005 | Deploy reproducible from a clean clone | MUST | `[DEBT: CI builds but never deploys from a clean clone — oracle, 2026-09-11]` |
 | Operations | SRE-007 | Incidents produce rules, not culprits: which events call for a written review is decided before any happens, and each review says what happened, what it cost and what changes, never who is at fault; an incident brings in a new practice only through a written decision (Google SRE book, ch. 15) | MUST | `[DEBT: the triggers are not written down, and no template in .github/ asks for a postmortem — oracle, 2026-09-26]` |
-| Community | OSS-001 | `CONTRIBUTING.md` a stranger can follow | MUST (public) | `[DEBT: no check reads CONTRIBUTING.md — Scorecard has no such check; presence and whether a stranger can follow it are by hand — oracle, 2026-09-25]` |
-| Community | OSS-002 | Code of conduct at the root: the Contributor Covenant 2.1, as the community conduct standard applies it | MUST (public) | `[DEBT: no code of conduct at the repository root — oracle, 2026-09-11]` |
+| Community | OSS-001 | `CONTRIBUTING.md` a stranger can follow | MUST (public) | `[GATE: machine/tools/check-register.mjs → a reviewer reads it as a stranger would]` |
+| Community | OSS-002 | Code of conduct at the root: the Contributor Covenant, as the community conduct standard applies it | MUST (public) | `[AUTO: machine/tools/check-register.mjs]` |
 | Community | OSS-004 | Issue triage cadence declared, and most issues opened in the last two to twelve months answered (OpenSSF Best Practices Badge, report_responses) | SHOULD | `[DEBT: triage cadence is declared nowhere a machine can read — oracle, 2026-09-11]` |
 | Community | OSS-005 | Social preview image set | SHOULD | `[DEBT: social preview image unset and unread — oracle, 2026-09-11]` |
 | Agents | AGT-001 | `AGENTS.md` at the root; first instruction: audit the branch before assuming anything | MUST | `[AUTO: machine/tools/check-register.mjs]` |

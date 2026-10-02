@@ -35,7 +35,7 @@ export const meta = { family: 'VER', plates: ['VER-021', 'VER-024'] };
 
 /* STD-009 scope: files addressing a reader outside the corpus follow the
    conventions of the platform they serve, not the numbered series. */
-const OUTWARD = /^(AGENTS|CLAUDE|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\//;
+const OUTWARD = /^(AGENTS|CLAUDE|CODE_OF_CONDUCT|CONTRIBUTING|CHANGELOG|SECURITY|TRADEMARKS|README)\.md$|^\.github\/|^web\//;
 
 const SEMVER_RE = /^\d+\.\d+\.\d+$/;
 const LOG_HEADING_RE = /^##\s+(?:\d+\.\s*)?(?:version history|changelog)\s*$/im;

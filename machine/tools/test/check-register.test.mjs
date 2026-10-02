@@ -13,7 +13,7 @@
 
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdtempSync, cpSync, rmSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync, cpSync, rmSync, mkdirSync, existsSync } from 'node:fs';
 import { execFileSync, execSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -25,8 +25,8 @@ const REGISTER = 'standards/STD-015-engineering-checks.md';
    prove a check bites would leave the repository wrong if a test threw. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'register-'));
-  for (const p of ['standards', 'machine/scripts', 'machine/guards', 'machine/tools', '.github', 'AGENTS.md', 'CLAUDE.md', 'package.json'])
-    cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
+  for (const p of ['standards', 'blueprints', 'machine/scripts', 'machine/guards', 'machine/tools', '.github', 'AGENTS.md', 'CLAUDE.md', 'package.json', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', '.editorconfig'])
+    if (existsSync(path.join(ROOT, p))) cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
   execSync('git init -q && git add -A && git -c user.email=t@t -c user.name=t commit -qm scratch', { cwd: dir });
   return dir;
 }
@@ -231,4 +231,67 @@ test('AGT-006 puts the AI stance in AGENTS.md', () => {
 test('CLAUDE.md remains an adapter that points at AGENTS.md', () => {
   const claude = readFileSync(path.join(ROOT, 'CLAUDE.md'), 'utf8');
   assert.match(claude, /AGENTS\.md/, 'CLAUDE.md must point at AGENTS.md');
+});
+
+/* Debt paid on 2026-10-02. Each row below said "nothing checks this"; each
+   now names the machine that does, and the machine is proved to bite. A row
+   that goes back to DEBT while its machine still exists is a register that
+   under-reports, which is the same lie as over-reporting, one way round. */
+const rowOf = (plate) => readFileSync(path.join(ROOT, REGISTER), 'utf8')
+  .split('\n').find((l) => new RegExp(`^\\| [A-Za-z]+ \\| ${plate} \\|`).test(l));
+
+test('SEC-004: the full-history secret scan runs in CI and the row says so', () => {
+  const row = rowOf('SEC-004');
+  assert.ok(row, 'STD-015 has no SEC-004 row');
+  assert.match(row, /`\[AUTO: \.github\/workflows\/secrets\.yml\]`/, 'SEC-004 names the secret-scan workflow as its machine');
+  const wf = readFileSync(path.join(ROOT, '.github/workflows/secrets.yml'), 'utf8');
+  assert.match(wf, /fetch-depth: 0/, 'the scan reads the whole history, not a shallow clone');
+  assert.match(wf, /gitleaks/, 'the workflow runs gitleaks');
+  assert.match(wf, /sha256sum -c/, 'the scanner binary is verified against its published checksum');
+  assert.doesNotMatch(wf, /uses: [^@\s]+@v\d/, 'third-party actions are pinned by commit, never by tag (SEC-007)');
+});
+
+test('SEC-004: the scan config allows only what is not a secret, each with its reason', () => {
+  const cfg = readFileSync(path.join(ROOT, '.gitleaks.toml'), 'utf8');
+  assert.match(cfg, /useDefault = true/, 'the default rule set stays on');
+  // Every allowance carries a description: an unexplained exemption is how a
+  // real leak gets waved through.
+  const blocks = cfg.split(/\n(?=\[\[allowlists\]\])/).filter((b) => b.startsWith('[[allowlists]]'));
+  assert.ok(blocks.length > 0, 'no allowlist blocks');
+  for (const b of blocks) assert.match(b, /description = "[^"]{20,}"/, `an allowlist without a reason:\n${b}`);
+});
+
+for (const [plate, file, why] of [
+  ['OSS-001', 'CONTRIBUTING.md', 'a stranger has no way in'],
+  ['OSS-002', 'CODE_OF_CONDUCT.md', 'nobody can read the conduct rules beforehand'],
+  ['DEV-003', '.editorconfig', 'every editor writes its own whitespace'],
+]) {
+  test(`${plate}: ${file} is held by the presence check`, () => {
+    const row = rowOf(plate);
+    assert.ok(row, `STD-015 has no ${plate} row`);
+    assert.match(row, /`\[(AUTO|GATE): machine\/tools\/check-register\.mjs/, `${plate} names check-register as its machine`);
+    const dir = scratch();
+    try {
+      assert.doesNotMatch(run(dir).out, new RegExp(`${plate}: `), `${plate} reported while ${file} is present`);
+      execSync(`git rm -q ${file}`, { cwd: dir });
+      assert.match(run(dir).out, new RegExp(`${plate}: ${file.replace('.', '\\.')} is missing — ${why}`));
+    } finally { rmSync(dir, { recursive: true, force: true }); }
+  });
+}
+
+test('TRC-004: the changelog shape is checked, and the row owes only the two sites without one', () => {
+  const row = rowOf('TRC-004');
+  assert.ok(row, 'STD-015 has no TRC-004 row');
+  assert.match(row, /machine\/scripts\/test\/changelog-shape\.test\.mjs/, 'TRC-004 names the test that already checks the shape');
+  assert.doesNotMatch(row, /no changelog-shape check/, 'TRC-004 no longer claims nothing checks the shape');
+});
+
+test('TRC-005: the roadmap is the blueprints folder, and it is not empty', () => {
+  const row = rowOf('TRC-005');
+  assert.ok(row, 'STD-015 has no TRC-005 row');
+  assert.match(row, /`blueprints\/`/, 'TRC-005 points at the blueprints as the roadmap');
+  const dir = scratch();
+  try {
+    assert.doesNotMatch(run(dir).out, /TRC-005: /, 'TRC-005 reported while blueprints exist');
+  } finally { rmSync(dir, { recursive: true, force: true }); }
 });

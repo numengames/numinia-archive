@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 27649,
+  "chars": 27916,
   "apparatus": false,
   "archived": false,
-  "tokens": 7737
+  "tokens": 7835
  },
  {
   "path": "CLAUDE.md",
@@ -64,6 +64,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 868
+ },
+ {
+  "path": "CODE_OF_CONDUCT.md",
+  "dir": "",
+  "series": null,
+  "type": null,
+  "status": null,
+  "chars": 770,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 181
  },
  {
   "path": "CONTRIBUTING.md",
@@ -2997,10 +3008,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 13181,
+  "chars": 13121,
   "apparatus": false,
   "archived": false,
-  "tokens": 3464
+  "tokens": 3409
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -3063,10 +3074,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 4561,
+  "chars": 4603,
   "apparatus": false,
   "archived": false,
-  "tokens": 1101
+  "tokens": 1111
  },
  {
   "path": "standards/STD-023-design-values.md",
