@@ -33,6 +33,7 @@
     "tailwind-merge": "^2.6.1",
     "tailwindcss": "^4.3.3",
     "three": "^0.186.1",
+    "unist-util-visit": "^5.1.0",
     "vanilla-cookieconsent": "3.1.0"
   },
   "devDependencies": {

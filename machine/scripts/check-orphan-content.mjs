@@ -95,7 +95,16 @@ const ASSET_RE = /\.(woff2?|ttf|otf|eot|png|jpe?g|gif|svg|ico|webp|avif|mp4|webm
 const DECLARATION_RE = /(^|\/)(REUSE\.toml|LICENSE(-[^/]*)?(\.[a-z0-9]+)?)$/i;
 const SIDECAR_RE = /\.license$/i;
 
+// Host configuration is the same case one level out: Cloudflare Workers
+// static assets read `_headers` and `_redirects` at the root of the assets
+// directory and never serve them (developers.cloudflare.com/workers/
+// static-assets/headers). They carry no prose a visitor can reach; they
+// declare how the rest is served. Root only: a `_headers` deeper in the tree
+// is not read by the host, so it would be served — and stays an orphan.
+const HOST_CONFIG_RE = /^_(headers|redirects)$/;
+
 function classifyDeclaration(rel, publicDir) {
+  if (HOST_CONFIG_RE.test(rel)) return { kind: "host-config", ok: true };
   if (SIDECAR_RE.test(rel)) {
     const target = rel.slice(0, -".license".length);
     return existsSync(join(publicDir, target))

@@ -21,7 +21,7 @@ export const POLICY_REVISION = 2;
 export const CONSENT_COOKIE = "numen_consent";
 
 /** Every key this site writes, as LEG-003 §3.2 names it. */
-export const STORED_KEYS = ["numen_consent", "numinia-modo", "sp:rate", "sp:"] as const;
+export const STORED_KEYS = ["numen_consent", "numinia-modo", "numinia-narrative", "sp:rate", "sp:"] as const;
 
 const SITE = {
   policyHref: "/legal/cookies",

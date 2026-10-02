@@ -600,6 +600,9 @@ const READING_ORDER: Record<string, string[]> = {
     "/protocols/pro-008-decision",
     "/protocols/pro-005-escalation",
     "/protocols/pro-011-security-audit",
+    // 2026-10-02: the second audit reads the site's own code — routes,
+    // headers, cookies, workflows, dependencies.
+    "/protocols/pro-034-auditing-a-sites-code",
     "/protocols/pro-013-handing-a-guard-to-ci",
     "/protocols/pro-018-publishing-a-repository",
     // 2026-09-27: a draft becomes binding — after publishing, before the

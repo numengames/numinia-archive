@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
+#
+# Response headers for every static asset of numinia.org. Cloudflare Workers
+# static assets read this file from the assets directory (dist/, copied from
+# public/ by the build) and do not serve it. Audit of 2 October 2026 (PRO-034):
+# numinia.org sent none of these; numinia.com already did.
+#
+# The policy is what the built site needs, measured on the build:
+#   'unsafe-inline' (script, style) — Astro inlines its small page scripts
+#     and the theme bootstrap; components carry style="" attributes.
+#   'wasm-unsafe-eval' — Pagefind's search index runs as WebAssembly.
+#     It is not 'unsafe-eval': no string is evaluated as code.
+#   img-src data: blob: — an SVG in the stylesheet; Open books builds its
+#     downloads in the browser.
+#   connect-src / worker-src 'self' — Pagefind fetches its index and starts
+#     its worker from /pagefind/; the copy button fetches the page's .md.
+# Nothing loads from another host. Add a source here only with the change
+# that needs it, and say which.
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; media-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'

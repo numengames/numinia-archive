@@ -19,6 +19,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Security** numinia.org sends security headers (`web/public/_headers`: HSTS, frame refusal, a same-origin CSP without `unsafe-eval`; search drops `new Function`) and `security.txt`; CI tests fail on red; auto-merge writes only in its job; `LEG-003` 2.1.1 drops `siwe_nonce` (site v0.124.0)
+- **Added** `PRO-034` Auditing a site's code: routes listed and probed live, fetch-by-address routes, leftovers, markup sinks, CSP and headers as served, cookies, workflow permissions, production dependencies, Scorecard; `STD-015` 6.0.0 `SEC-015`; `PRO-027` 0.2.0 checks a returning visitor (site v0.124.0)
 - **Added** Automation writes to its own feed repository, never straight into the archive; a finding enters by a reviewed promotion (`STD-017` AUT-069). Nobody's name, not even a public officer's: the tool now refuses names in records and proposals unless `OPS-018` lists them
 - **Added** The opportunity watch's first findings: Creative Europe MEDIA video games 2027 (`OPP-2026-036`, ≤200,000 €, 70 % advance) and a school science fair tender (`OPP-2026-037`, partner needed); `OPS-018` 0.4.1 reads the house's past graphic adventures as a published game to unlock
 - **Changed** Open books downloads as workbooks in the house colours (`web/src/lib/workbook.ts`): band, front page with headline figures and the four kinds, native charts; Accounts and Taxes are Excel, not CSV; the AEAT books stay plain (site v0.123.0)

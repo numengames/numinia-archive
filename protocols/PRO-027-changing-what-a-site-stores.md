@@ -4,9 +4,9 @@ uid: ""
 title: "Changing what a site stores or loads"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-09-27T19:50:00+02:00"
+updated: "2026-10-02T12:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, personal-data, cookies, sites]
@@ -72,16 +72,26 @@ change; the **Oracle** approves the policy text, which is reserved.
 3. **Write its line for the policy.** Name, kind (cookie, storage, outside
    service), purpose in plain words, what sets it, how long it lasts, and
    whether it needs consent.
-4. **Ask the Oracle to approve the policy change.** The policy is a
+4. **Keep or retire what it replaces.** When the new thing takes the place
+   of something the site stored before, keep the old name and format, or
+   give it a new name and remove or expire the old one in the same release.
+   Never reuse a name with a different format, scope or meaning: a returning
+   visitor still holds the old value, and the site will misread it.
+5. **Ask the Oracle to approve the policy change.** The policy is a
    reserved legal text; the agent drafts, the Oracle approves.
-5. **Raise the consent version** if the new thing needs consent, so the
+6. **Raise the consent version** if the new thing needs consent, so the
    notice asks every visitor again. Refusing stays as easy as accepting.
-6. **Change the site and the policy in the same release.** The pull
+7. **Change the site and the policy in the same release.** The pull
    request carries both, and the site's `/updates` entry says what now
    stores or loads.
-7. **Check the built site.** Open it with an empty browser, refuse
-   consent, and confirm nothing beyond the necessary is stored or loaded;
-   then accept and confirm the new thing appears.
+8. **Check the built site as a new visitor.** Open it with an empty
+   browser, refuse consent, and confirm nothing beyond the necessary is
+   stored or loaded; then accept and confirm the new thing appears.
+9. **Check it again as a returning visitor.** Open the current production
+   site, choose as a visitor would (refuse, then in a second browser
+   accept), and keep that browser. Open the built site in it. Confirm the
+   choice is still read, the notice does not come back, and nothing the old
+   version stored is left behind unnamed in the policy.
 
 ---
 
@@ -90,9 +100,11 @@ change; the **Oracle** approves the policy text, which is reserved.
 | Step | Evidence it completed |
 |---|---|
 | 1 | The search and its result, in the pull request |
-| 4 | The Oracle's approval of the policy text |
-| 6 | One pull request changing both the site and `LEG-003` |
-| 7 | What the browser held after refusing and after accepting |
+| 4 | For each replaced item: its name kept with its format, or the old one removed or expired |
+| 5 | The Oracle's approval of the policy text |
+| 7 | One pull request changing both the site and `LEG-003` |
+| 8 | What an empty browser held after refusing and after accepting |
+| 9 | What a browser carrying the previous version's choice held, on two pages of the built site |
 
 ---
 
@@ -101,4 +113,4 @@ change; the **Oracle** approves the policy text, which is reserved.
 An outside service that sends visitor data to another company outside the
 European Union, or that processes personal data for us, needs the Oracle's
 decision and a written contract with that company (`STD-035`, anyone
-handling data for us signs first) before step 6.
+handling data for us signs first) before step 7.
