@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Changed** A `draft` is on trial, not "binds nobody": followed, warns, never blocks; any change is analysed, then its owner decides. `STD-004` 4.11.0 defines draft and active so, `STD-009` 1.2.0 renames PRE-006, `PRO-023` 1.1.0, AGENTS.md, README and every page that defines draft follow; a test holds the wording (site v0.129.0)
 - **Security** Full-history secret scan in CI (`secrets.yml`, gitleaks, checksum-verified; 904 commits, 0 leaks); `CODE_OF_CONDUCT.md`, `.editorconfig`; `STD-015` 6.1.0 pays SEC-004, OSS-001/002, DEV-003, TRC-005 and corrects TRC-004 (30 debts → 24); `STD-022` 1.2.6
 - **Removed** Every reference to the old `numinia-lore` repository: nothing reads it, the Oracle deletes it; links now point at `lore/` here (`DBT-022` #3b closed)
 - **Changed** The design values and both vocabularies are in force, headers only: `STD-023` design values 1.9.0, `STD-026` operative vocabulary 0.2.0, `STD-030` the world's vocabulary 0.3.0; `STD-015` waits on its 30 debt rows; Oracle shown first (PRO-023)

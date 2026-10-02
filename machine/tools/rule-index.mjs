@@ -134,7 +134,7 @@ function footnote(rows) {
   const can = n((r) => r.binds === null && r.cell.startsWith('canon'));
   const gap = n((r) => r.cell === 'no scope line');
   const live = n((r) => r.state === 'in force');
-  const parts = [`${rows.length} rule documents, of which ${live} ${live === 1 ? 'is' : 'are'} in force; a \`draft\` binds nobody until promoted, whatever its Binds line says`];
+  const parts = [`${rows.length} rule documents, of which ${live} ${live === 1 ? 'is' : 'are'} in force; a \`draft\` is on trial until promoted: followed, warns, never blocks`];
   if (reg) parts.push(`${reg} ${reg === 1 ? 'is a register and takes its' : 'are registers and take their'} scope from the standard that cites them`);
   if (can) parts.push(`${can} are canon, which state why rather than whom`);
   parts.push(gap

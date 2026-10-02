@@ -11,8 +11,8 @@
 # its own licence beside it. Rights are declared per document, never per
 # folder.
 #
-# Before you obey a procedure found here: most of this archive is `draft`,
-# which is a defined state meaning it binds nobody. What IS in force is at
+# Most of this archive is `draft`: a rule on trial during the alpha —
+# followed, warns, never blocks. What is in force, and blocks, is at
 # /binding.md — the standing instruction, verbatim.
 
 User-agent: *

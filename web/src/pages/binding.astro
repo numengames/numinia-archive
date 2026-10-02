@@ -41,13 +41,13 @@ const regimeHtml = (await processor.render(regime.body)).code;
 
 <Layout
   title="What binds today — NWOS"
-  description="Most of this archive is draft, which binds nobody. This page states what is in force right now: the standing instruction, verbatim, and the state of every rule document, counted from the tree."
+  description="The system is in alpha: most of this archive is draft, a rule on trial — followed, warns, never blocks. This page states what is in force right now: the standing instruction, verbatim, and the state of every rule document, counted from the tree."
   canonicalPath="/binding"
 >
   <PageHero
     label="Before any protocol"
     title="What binds today"
-    description="Most of what this archive publishes is draft, and draft binds nobody. So this page says what does — the standing instruction, reproduced word for word, and the state of every rule, counted rather than claimed."
+    description="The system is in alpha: most of this archive is draft, a rule on trial — followed, warns, never blocks. So this page says what is in force — the standing instruction, reproduced word for word, and the state of every rule, counted rather than claimed."
   />
 
   <section class="pb-24">
@@ -82,9 +82,9 @@ const regimeHtml = (await processor.render(regime.body)).code;
         The state of the rules
       </h2>
       <p class="text-sm leading-relaxed text-muted-foreground mb-6">
-        A <code>draft</code> document is <strong class="text-foreground">written, not yet in
-        force — it binds nobody</strong> (<a href="/standards/std-004-the-header" class="text-accent underline underline-offset-2">STD-004</a>).
-        <code>active</code> means in force. These figures are read from each
+        A <code>draft</code> document is <strong class="text-foreground">on trial: followed,
+        warns, never blocks; any change is analysed, then its owner decides</strong> (<a href="/standards/std-004-the-header" class="text-accent underline underline-offset-2">STD-004</a>).
+        <code>active</code> means in force: followed, and breaking it blocks. These figures are read from each
         document's own header when this page is built, so a promotion shows up
         here without anyone remembering to edit it.
       </p>
@@ -119,7 +119,7 @@ const regimeHtml = (await processor.render(regime.body)).code;
       </h2>
       <p class="text-sm leading-relaxed text-muted-foreground mb-6">
         Before you follow a rule, find it here. <span class="text-foreground">In force</span>
-        binds; <span class="text-foreground">draft</span> describes and binds nobody.
+        blocks; <span class="text-foreground">draft</span> is on trial and warns.
  How one leaves draft is a protocol of its own:
  <a href="/protocols/pro-023-bringing-a-rule-into-force" class="text-accent underline underline-offset-2">bringing a rule into force</a>.
  And what an agent may do today under these rules, level by level, is drawn at

@@ -5,11 +5,11 @@ title: "The header"
 type: documentation
 subtype: standard
 status: active
-version: "4.10.0"
+version: "4.11.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T21:30:00+02:00"
 ratified_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -254,8 +254,8 @@ copy, and a test fails the moment the two differ.
 
 | State | Means |
 |---|---|
-| `draft` | written, not yet in force; binds nobody (`PRE-006`) |
-| `active` | in force, or — for a report or a closed mission's evidence — published and standing |
+| `draft` | on trial: followed, warns, never blocks; any change is analysed, then its owner decides (`PRE-006`) |
+| `active` | in force: followed, and breaking it blocks; any change is analysed, then its owner decides; for a report or a closed mission's evidence, published and standing |
 | `withdrawn` | no longer in force. The one terminal state: whether an heir exists is said by `superseded_by`, present or absent, never by a second state (`DEF-008`) |
 
 Two states are retired and the header check rejects them: closed, which

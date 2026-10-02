@@ -18,9 +18,9 @@ files on every push to `main`, so nothing on numinia.org lives anywhere else.
 ## Start here
 
 1. **What binds today:** [numinia.org/binding](https://numinia.org/binding).
-   Most documents here are `draft`: they describe a practice and bind nobody.
-   That page lists the few that are in force and the Oracle's rules for the
-   transition between the two.
+   Most documents here are `draft`: on trial during the alpha, followed but
+   never blocking. That page lists the few in force and the Oracle's rules
+   for the transition between the two.
 2. **Changing something, person or agent:** [`AGENTS.md`](AGENTS.md). It
    covers what still holds, the commands to run and a map of the folders. Then
    [`CONTRIBUTING.md`](CONTRIBUTING.md) explains how a change is proposed.
@@ -52,7 +52,7 @@ Each folder answers one question.
 | [`operations/`](operations/) · [`legal/`](legal/) · [`opportunities/`](opportunities/) | What **sustains** the business |
 | [`objects/`](objects/) | Cards for registered things that are not documents; the bytes live in `numinia-assets` |
 | [`system/`](system/) | How the machine is **wired** |
-| [`machine/`](machine/) | The **instruments**: guards, tools, scripts, moulds, telemetry. It binds nobody |
+| [`machine/`](machine/) | The **instruments**: guards, tools, scripts, moulds, telemetry. They are tools, not rules |
 | [`web/`](web/) | The site that serves **numinia.org** |
 
 ---
