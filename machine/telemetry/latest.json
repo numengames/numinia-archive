@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "1c20218",
-  "corpus_hash": "d116a2d8014a4ed54d9f453d90344380ec36a6294933efb57e7fcfde862ce85c",
+  "head": "21dd3c7",
+  "corpus_hash": "7094f4692288abf8b5a056156428724d66c57cb5eb36cff779c75f941366815c",
   "root_dirty": 0,
-  "measured_at": "2026-10-02T07:16:19Z",
+  "measured_at": "2026-10-02T10:44:00Z",
   "families": [
     "corpus",
     "series",
@@ -329,25 +329,25 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 925298,
+      "value": 925924,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 491736,
-        "standards": 83267,
+        "standards": 83723,
         "system": 51924,
         "reports": 36705,
         "agents": 35690,
         "protocols": 33051,
-        "operations": 27947,
+        "operations": 28027,
         "blueprints": 27778,
-        "machine": 26237,
+        "machine": 26264,
         "opportunities": 23923,
         "canon": 19794,
         "missions": 17668,
-        "": 14408,
+        "": 14471,
         "legal": 13081,
         "decisions": 9669,
         "debt": 9643,
@@ -359,9 +359,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 513517,
-        "draft": 221864,
-        "active": 170756,
+        "(none)": 513580,
+        "draft": 222400,
+        "active": 170783,
         "todo": 13532,
         "in-progress": 4513,
         "done": 1116
@@ -738,13 +738,13 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 954
+          "3": 955
         },
         "PRO": {
           "3": 392
         },
         "OPS": {
-          "3": 153
+          "3": 154
         },
         "CAN": {
           "3": 350
