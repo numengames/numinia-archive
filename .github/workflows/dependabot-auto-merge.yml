@@ -13,14 +13,17 @@
 name: Dependabot auto-merge
 on: pull_request
 
-permissions:
-  contents: write
-  pull-requests: write
+# Read-only by default; only the job that approves and merges may write,
+# and only to the two scopes it needs (2026-10-02 audit, PRO-034).
+permissions: read-all
 
 jobs:
   auto-merge:
     if: github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Dependabot metadata
         id: metadata

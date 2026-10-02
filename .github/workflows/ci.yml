@@ -6,7 +6,8 @@
 # how to fix it when it turns red.
 #
 # Order is not cosmetic. Everything before `install` is bare node over the
-# working tree: no npm, no web/. The build guards read web/dist, so they can
+# working tree: no npm, no web/. The tests come after it, because they load
+# the site's rehype plugins and those import from web/node_modules. The build guards read web/dist, so they can
 # only run after `build` — the runner exits 2 if that directory is missing, so
 # a misplaced step fails loudly instead of passing blind.
 #
@@ -65,6 +66,11 @@ jobs:
       - name: opportunities — the records conform
         run: node machine/packages/sales-kit/pipeline.mjs opportunities --proposals > /dev/null
 
+      # Dependencies of the Astro site, from the lockfile. Not a check.
+      - name: install
+        run: npm ci
+        working-directory: web
+
       # The guards' own tests, and the telemetry instrument's self-tests on
       # throwaway clones. Red means: a guard or the instrument is broken, not
       # the tree.
@@ -76,7 +82,15 @@ jobs:
       # (12 of 37 on 2026-09-19). No threshold: while STD-015 is draft the
       # figure is seen, not enforced (ENG-067). A failing test still fails
       # this step.
+      #
+      # `shell: bash` is not decoration: GitHub runs an explicit bash shell as
+      # `bash -eo pipefail`, the implicit one without pipefail — and without it
+      # this pipe reports `tee`'s status, so a failing test left the step green
+      # (2026-10-02 audit: binds-says-its-state failed on main, CI passed).
+      # Runs after `install`: tests import web/src/lib/rehype-*.mjs, whose
+      # dependencies live in web/node_modules.
       - name: tests
+        shell: bash
         run: npm test 2>&1 | tee /tmp/test-output.txt
 
       # Reads the output the step above saved. Runs even when a test failed
@@ -112,11 +126,6 @@ jobs:
       # The footer prints that version and links to /updates.
       - name: version bump
         run: node machine/scripts/check-version-bump.mjs --base origin/${{ github.base_ref || 'main' }}
-
-      # Dependencies of the Astro site, from the lockfile. Not a check.
-      - name: install
-        run: npm ci
-        working-directory: web
 
       # `astro check`: the type checker over web/src. A component handed a
       # prop it does not declare, a dictionary key that does not exist, a
