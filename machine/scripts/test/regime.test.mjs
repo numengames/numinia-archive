@@ -460,3 +460,21 @@ check('tree: protocols keep the designed system — the transition regime lives 
   }
   return true;
 });
+
+check('tree: a site\'s code has its own audit, and a stored item is checked with a returning visitor\'s browser', () => {
+  // The audit of numinia.com (2026-10-02) found an open media proxy, a test
+  // login in production, write-scoped workflows and stuck dependency updates
+  // that the identity audit (PRO-011) never reads; and a replaced cookie
+  // banner that reused a cookie name with another format, which an empty
+  // browser can never show.
+  const dir = path.join(ROOT, 'protocols');
+  const code = readdirSync(dir).find((f) => /^PRO-\d{3}-auditing-a-sites-code\.md$/.test(f));
+  if (!code) return 'no protocol for auditing a site\'s code';
+  const c = readFileSync(path.join(dir, code), 'utf-8');
+  for (const w of ['server route', 'Probe every route live', 'content security policy', 'permissions', 'npm audit', 'Scorecard', 'PRO-008'])
+    if (!c.includes(w)) return `${code} does not cover ${w}`;
+  const p027 = readFileSync(path.join(dir, readdirSync(dir).find((f) => f.startsWith('PRO-027-'))), 'utf-8');
+  if (!/returning visitor/.test(p027)) return 'PRO-027 checks the built site only with an empty browser';
+  if (!/keep the old name and format/.test(p027)) return 'PRO-027 says nothing about an item the change replaces';
+  return true;
+});
