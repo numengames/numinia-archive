@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "165b256",
+  "head": "3cdf0e1",
   "corpus_hash": "9e95957f8187b0b49187c92909b3df0c194a0b889a1ccf267d0bd5c0ea69725b",
   "root_dirty": 0,
-  "measured_at": "2026-10-02T19:02:22Z",
+  "measured_at": "2026-10-02T19:07:18Z",
   "families": [
     "corpus",
     "series",
@@ -325,34 +325,81 @@
       "definition": "`started` written in `Z`"
     },
     "tokens.tokenizer": {
-      "value": null,
+      "value": "cl100k_base sha256:223921b76ee9",
       "unit": "identity",
-      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": null,
+      "value": 935026,
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
-      "value": null,
+      "value": {
+        "lore": 491682,
+        "standards": 85471,
+        "system": 51924,
+        "reports": 36705,
+        "protocols": 36390,
+        "agents": 35881,
+        "operations": 28320,
+        "blueprints": 27806,
+        "machine": 27302,
+        "opportunities": 25198,
+        "canon": 19794,
+        "missions": 17661,
+        "": 15719,
+        "legal": 13033,
+        "debt": 9702,
+        "decisions": 9661,
+        "objects": 1865,
+        ".github": 912
+      },
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "tokens per top-level dir, largest first"
     },
     "tokens.by_status": {
-      "value": null,
+      "value": {
+        "(none)": 514774,
+        "draft": 209631,
+        "active": 191467,
+        "todo": 13525,
+        "in-progress": 4513,
+        "done": 1116
+      },
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": null,
-      "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "value": 1.89,
+      "unit": "percent",
+      "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
     "tokens.largest": {
-      "value": null,
+      "value": [
+        [
+          "lore/game/manual/es/06-inventario-y-bestiario.md",
+          51702
+        ],
+        [
+          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
+          38607
+        ],
+        [
+          "lore/game/manual/es/07-construyendo-la-aventura.md",
+          37267
+        ],
+        [
+          "lore/game/manual/en/06-inventory-and-bestiary.md",
+          36491
+        ],
+        [
+          "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
+          36362
+        ]
+      ],
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
       "value": 285,
