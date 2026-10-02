@@ -4,9 +4,9 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.4.0"
+version: "0.4.1"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-02T18:00:00+02:00"
+updated: "2026-10-02T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -81,7 +81,7 @@ named), **no** (not held), **check** (not yet known or not yet loaded).
 | Own contribution | a share of the project paid by the applicant, often 20 %, some calls refusing contributions in kind | not set aside | check | cash set aside per call, decided before applying |
 | De minimis | under 300,000 € of state aid over three years (Regulation (EU) 2023/2831) | the ENISA participative loan, 100,000 €, 2024; its grant equivalent to confirm (`OPS-017`) | check | the grant equivalent, from ENISA |
 | Own work | an original project whose rights the applicant holds | the Numinia world and game, unpublished | yes | — |
-| Published game | a commercial game already published, with sales | none | no | a playable prototype of Numinia first; a published game later |
+| Published game | a commercial game already published by the applicant, with sales or revenue in a recent window | graphic adventures published online before, taken down; republishable under the company | check | republish one finished adventure under Numen Games S.L. with a price or ads, and keep its sales report; a playable Numinia prototype later |
 | Capital and equity | a share capital or equity that sizes a loan or a grant | share capital 5,512.40 € (BORME-A-2026-23-28); equity not loaded | check | the filed accounts |
 | Youth | a legal representative aged 35 or under, and the capital held by people of 35 or under | not known | check | the partners' ages |
 | Women | a woman leading the company or holding a relevant share | not known | check | who leads and who holds the capital |
