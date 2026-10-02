@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+# RFC 9116. How to report a vulnerability in numinia.org; SECURITY.md is the policy.
+Contact: mailto:legal@numengames.com
+Expires: 2027-10-02T00:00:00.000Z
+Preferred-Languages: es, en
+Canonical: https://numinia.org/.well-known/security.txt
+Policy: https://github.com/numengames/numinia-archive/blob/main/SECURITY.md

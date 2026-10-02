@@ -54,6 +54,12 @@ const t = useT();
   </div>
 </div>
 
+<!-- The Pagefind loader, outside Vite (see ensurePagefind below). The bundle
+     only exists after `astro build`, so its path is resolved at run time. -->
+<script is:inline>
+  window.__numiniaLoadPagefind = () => import("/pagefind/pagefind.js");
+</script>
+
 <script>
   // Pagefind's JS API. The bundle only exists after `astro build` (the
   // integration indexes dist/), so dev mode degrades to a notice.
@@ -69,16 +75,15 @@ const t = useT();
   async function ensurePagefind() {
     if (pagefind) return true;
     try {
-      // Path built at runtime — the bundle only exists after `astro build`,
-      // so the specifier is kept opaque to Rollup's static analysis.
-      const bundle = "/pagefind/pagefind.js";
-      // Not a bare import(): Vite wraps even an ignored dynamic import in
-      // its preload helper and, in this inlined script, leaves the
+      // Not an import() here: Vite wraps every dynamic import in this
+      // bundled script with its preload helper and, inlined, leaves the
       // `__VITE_PRELOAD__` placeholder behind — a ReferenceError that the
       // catch below reported as "index not built" on the live site while
-      // /pagefind/ was there all along. A native loader skips the rewrite.
-      const load = new Function("u", "return import(u)") as (u: string) => Promise<unknown>;
-      pagefind = await load(bundle);
+      // /pagefind/ was there all along. The loader lives in the is:inline
+      // script below, which Vite does not touch. Not `new Function` either:
+      // that needs 'unsafe-eval', and the site's CSP refuses it (2026-10-02).
+      const load = (window as unknown as { __numiniaLoadPagefind: () => Promise<unknown> }).__numiniaLoadPagefind;
+      pagefind = (await load()) as typeof pagefind;
       return true;
     } catch {
       emptyMsg.textContent = "Search index not built yet (production only).";
