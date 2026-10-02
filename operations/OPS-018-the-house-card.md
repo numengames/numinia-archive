@@ -4,9 +4,9 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.5.0"
+version: "0.5.1"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-02T20:30:00+02:00"
+updated: "2026-10-02T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -65,7 +65,7 @@ named), **no** (not held), **check** (not yet known or not yet loaded).
 | Turnover | the best of the last three years, up to one and a half times the estimated value (LCSP art. 87.1.a); some funders size a loan by it | under 50,000 € a year, declared; the filed accounts for FY2024 and FY2025 still to load | check | the filed accounts; above about 33,000 € of value, a partner whose solvency is added (LCSP art. 75) or a joint venture (UTE, LCSP art. 69) |
 | Team | a minimum team with named qualifications, often a degree and years of experience per profile | no employees on the payroll; the partners and outside collaborators | no | a partner who brings the team, or staff hired for the contract and named in the offer |
 | Payment | how and when the money comes: often all at the end, after acceptance; a grant after justification | little cash: the house cannot pre-finance large work | no | calls paid in advance or in stages; a bridge loan against an awarded contract or a granted call |
-| Bidders' register | inscription in ROLECE, in the simplified procedures (LCSP art. 159) | not inscribed | no | the application, filed before the offers close — it is enough until inscription |
+| Bidders' register | inscription in ROLECE, in the simplified procedures (LCSP art. 159) | applied for, in process (October 2026); not yet inscribed | check | the filed application is enough until inscription; keep its receipt for each offer |
 | Insurance | professional liability insurance, between 60,000 € and 600,000 €; some terms accept it instead of turnover (LCSP art. 87.1.b) | not known | check | a policy sized to the calls the house bids for |
 | Certification | the National Security Scheme (ENS), ISO 9001, ISO 27001 or ISO 20121, in large contracts | none | no | a partner who holds it; the house's own, only if a line of work needs it |
 | Past works | similar works, above the harmonised threshold or from a buyer that is not a contracting authority; below it, none may be asked of a company under five years (LCSP art. 90.4) | one: a virtual world for a city government, about 20,000 €, declared | check | the invoices and a certificate from the client, with amount and date |
@@ -205,8 +205,8 @@ technical terms say otherwise. The pipeline tool reads this table.
 
 ## To get, in order
 
-1. **ROLECE** — file the application now: it opens every simplified
-   procedure, and the filed application is enough until it is granted.
+1. **ROLECE** — applied for, in process (October 2026). The filed
+   application is enough until it is granted: keep its receipt for each offer.
 2. **Tax and Social Security certificates** — every tender and every call
    asks; renew every six months.
 3. **The representative's electronic certificate** — to sign offers and
