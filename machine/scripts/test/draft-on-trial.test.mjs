@@ -40,7 +40,6 @@ const visible = (p) => {
   if (!/\.(ts|mjs|astro)$/.test(p)) return src;
   return src
     .replace(/\/\*[\s\S]*?\*\//g, '')
-    .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/^\s*\/\/.*$/gm, '');
 };
 
