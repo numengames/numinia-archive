@@ -3,9 +3,9 @@ agent: kairos
 title: "OPERATOR — Kairos"
 type: agent
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-02T12:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 automation_level: partial
@@ -36,9 +36,12 @@ Who authorises, how this file itself may change, and how changes are recorded ar
 
 ## Allowed without asking
 
-Running a watch; reading public notices, terms, bases and calls; downloading
-their documents; keeping the watch's own list, discards and report outside the
-archive; telling the operator what could fall; proposing a filter change.
+Running a watch by `protocols/PRO-035-watching-for-opportunities.md`; reading
+public notices, terms, bases and calls; downloading their documents; keeping
+the watch's own list, discards and report outside the archive; writing what
+could fall to the feed, `numengames/numinia-archive-feed`, without review,
+after the name check (`STD-017` AUT-069); telling the operator what could
+fall; proposing a filter change.
 
 ## Silence
 

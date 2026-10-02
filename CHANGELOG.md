@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Added** `PRO-035` Watching for opportunities, the watch's verdicts in `STD-038`, the feed rule and Kairos pointing at it; the sales playbook opens before the record and walks every kind (site v0.128.0)
 - **Added** The pipeline page reads the tender radar's feed (`numinia-archive-feed`), shown as Unreviewed and apart from the funnel; the archive checks it again for names and closed calls, and an unreachable feed never breaks the build (site v0.127.0)
 - **Added** The wand on every sale's page: the sale's stages, where it stands, and each stage's collateral, the first-contact deck and e-mail rendered from the record by the sales kit, to see, download or copy. The sales playbook is a book at `/playbook` (site v0.126.0)
 - **Added** The sales collateral (`STD-047`): what each stage of a sale hands over and what it is made from. The sales kit renders the first-contact deck and e-mail from a record's Pitch and the offer's Packages, outside the archive; OPP-2026-025 is the first case (site v0.125.0)

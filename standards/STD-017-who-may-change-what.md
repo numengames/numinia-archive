@@ -5,9 +5,9 @@ title: "Who may change what"
 type: documentation
 subtype: standard
 status: draft
-version: "2.2.0"
+version: "2.2.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-02T20:30:00+02:00"
+updated: "2026-10-02T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Platform"
@@ -117,7 +117,7 @@ controls an auditor already looks for.
 | AUT-063 | A rule lands where it governs | — | by hand — recognising an obligation needs a reader |
 | AUT-008 | Finished work keeps its claims | [ISO 15489-1:2016, integrity, clause 5.2.2](https://www.iso.org/standard/62542.html) (clause unverified) · [Nygard, documenting architecture decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions): supersede, do not edit | by hand |
 | AUT-065 | Rank sets the reach | [ISO 30301:2019, roles, responsibilities and authorities, clause 5.3](https://www.iso.org/standard/74292.html) (clause unverified); the ranks are ours; holds retired ENG-034 (three layers) and VER-064 (who moves which version number) | by hand — an author's rank is read, not parsed |
-| AUT-069 | Automation writes to its feed, not to the archive | [ISO 15489-1:2016, integrity, clause 5.2.2](https://www.iso.org/standard/62542.html) (clause unverified) · [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) · the raw, validated and curated layers of data practice ([Databricks, medallion architecture](https://www.databricks.com/glossary/medallion-architecture)) · [Willison, git scraping](https://simonwillison.net/2020/Oct/9/git-scraping/) | by hand — the archive's branch protection refuses a direct write; the feed's own repository is not read here |
+| AUT-069 | Automation writes to its feed, not to the archive | [ISO 15489-1:2016, integrity, clause 5.2.2](https://www.iso.org/standard/62542.html) (clause unverified) · [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) · the raw, validated and curated layers of data practice ([Databricks, medallion architecture](https://www.databricks.com/glossary/medallion-architecture)) · [Willison, git scraping](https://simonwillison.net/2020/Oct/9/git-scraping/) | by hand — the archive's branch protection refuses a direct write; reading a feed, `web/src/lib/feed.ts` drops what reads as a person's name or has closed and shows the rest marked unreviewed; the watch that writes one is `PRO-035` |
 | AUT-067 | No agent edits its own identity | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified): conflicting duties shall be segregated | by hand — a code-owners file could decide it; not wired |
 | AUT-010 | In doubt, stop | — | by hand — an act not taken leaves no trace |
 

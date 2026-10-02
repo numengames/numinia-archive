@@ -2,12 +2,13 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// /playbook — the sales playbook, a book (the Oracle, 2 October 2026): from an
-// opportunity found to a sale won or lost, one stage at a time — what the
-// stage means, the protocol that moves it on, and the collateral it hands to
-// the other side.
+// /playbook — the sales playbook, a book (the Oracle, 2 October 2026): the
+// whole road of an opportunity. It opens before the record — the watch, its
+// feed and the Oracle's decision — then gives each kind of opportunity its
+// chapter: the stages, the protocol that moves each on and, for a sale, the
+// collateral each stage hands to the other side.
 //
-// NOTHING HERE IS TYPED. The stages and their meaning are STD-038's table,
+// NOTHING HERE IS TYPED. The kinds, stages and verdicts are STD-038's tables,
 // the pieces are STD-047's register (through the sales kit), the protocols
 // are their own files' titles and questions. A page that wrote its own copy
 // of the process would be the copy that drifts.
@@ -18,18 +19,20 @@ import { playbook } from "@/lib/playbook";
 
 const book = playbook();
 const etiqueta = "font-mono text-[0.65rem] uppercase tracking-[0.15em]";
+const enlace = "text-accent underline underline-offset-2";
 const stateLabel: Record<string, string> = { trial: "on trial", works: "works", retired: "retired" };
+const stageCount = book.kinds.reduce((n, k) => n + k.stages.length, 0);
 ---
 
 <Layout
   title="The sales playbook — NWOS"
-  description="From an opportunity found to a sale won or lost: each stage, the protocol that moves it on, and what it hands to the other side."
+  description="The whole road of an opportunity: how it is found, how the Oracle decides on it, and the stages each kind passes through until it is won or lost."
   canonicalPath="/playbook"
 >
   <PageHero
     label="The sales playbook"
-    title="Found, qualified, proposed, won"
-    description="Each stage of a sale, the protocol that moves it on, and the collateral it hands to the other side. Open a sale's record to use the wand: it makes the stage's pieces from that record."
+    title="Found, decided, worked, won"
+    description="How an opportunity is found and decided on, then the stages a sale, a tender, a grant, a collaboration and a partner pass through — each with the protocol that moves it on. Open a sale's record to use the wand: it makes the stage's pieces from that record."
   />
 
   <section class="pb-24">
@@ -38,43 +41,82 @@ const stateLabel: Record<string, string> = { trial: "on trial", works: "works", 
         <DocToolbar mdUrl="/playbook.md" filename="sales-playbook.md" lang="en" />
       </div>
 
-      <p class="text-sm leading-relaxed text-muted-foreground mb-10">
-        {book.stages.length} stages, {book.protocols.length} protocols, {book.pieces.length} pieces of collateral
+      <p class="text-sm leading-relaxed text-muted-foreground mb-6">
+        {book.kinds.length} kinds, {stageCount} stages, {book.protocols.length} protocols, {book.pieces.length} pieces of collateral
         ({book.pieces.filter((p) => p.renderable).length} made by the kit, the rest by hand until a sale shows they help).
-        Read from <a href={book.sources.register} class="text-accent underline underline-offset-2">the stages of an opportunity</a>,
-        <a href={book.sources.collateral} class="text-accent underline underline-offset-2">the sales collateral</a> and the protocols themselves.
-        The opportunities they move are in <a href="/system/pipeline" class="text-accent underline underline-offset-2">the pipeline</a>.
+        Read from <a href={book.sources.register} class={enlace}>the stages of an opportunity</a>{", "}
+        <a href={book.sources.collateral} class={enlace}>the sales collateral</a> and the protocols themselves.
+        The opportunities they move are in <a href="/system/pipeline" class={enlace}>the pipeline</a>.
       </p>
 
-      <ol class="space-y-6">
-        {book.stages.map((s, i) => (
-          <li data-stage={s.stage} class="rounded-[8px] border border-border bg-card p-5 sm:p-6">
-            <div class:list={[etiqueta, "text-dim mb-1"]}>Stage {i + 1} · <code>{s.stage}</code></div>
-            <h2 class="text-lg text-foreground">{s.means}</h2>
-            <p class="mt-1 text-sm text-muted-foreground">Evidence that puts a sale here: {s.evidence}</p>
-            {s.protocol && (
-              <p class="mt-3 text-sm text-muted-foreground">
-                Moved on by <a href={s.protocol.href} class="text-accent underline underline-offset-2">{s.protocol.title}</a>
-                {s.protocol.question && <span> — {s.protocol.question}</span>}
-              </p>
-            )}
-            {s.pieces.length > 0 && (
-              <ul class="mt-4 space-y-2">
-                {s.pieces.map((p) => (
-                  <li class="rounded-[6px] border border-border/70 bg-background px-4 py-3">
-                    <div class="flex flex-wrap items-baseline justify-between gap-2">
-                      <span class="text-sm font-medium text-foreground">{p.piece}</span>
-                      <span class:list={[etiqueta, "text-muted-foreground"]}>{p.renderable ? "made by the kit" : "by hand"} · {stateLabel[p.state] ?? p.state}</span>
-                    </div>
-                    <p class="mt-1 text-sm text-muted-foreground">{p.does}</p>
-                    <p class="mt-1 text-xs text-dim">Made from: {p.from}</p>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ol>
+      <nav aria-label="Chapters" class="mb-10 flex flex-wrap gap-2">
+        <a href="#before-the-record" class:list={[etiqueta, "rounded-full border border-accent px-2.5 py-1 text-accent"]}>Before the record</a>
+        {book.kinds.map((k) => <a href={`#kind-${k.kind}`} class:list={[etiqueta, "rounded-full border border-border px-2.5 py-1 text-foreground"]}>{k.title}</a>)}
+      </nav>
+
+      <section id="before-the-record" data-before-record class="mb-14 rounded-[8px] border border-dashed border-accent/60 p-5 sm:p-6">
+        <div class:list={[etiqueta, "text-dim mb-1"]}>Chapter 0 · before the record</div>
+        <h2 class="text-xl text-foreground">How an opportunity is found, and who lets it in</h2>
+        <ol class="mt-4 space-y-2 text-sm text-muted-foreground list-decimal pl-5">
+          <li><b class="text-foreground">A watch sweeps</b> the places where calls are published, and weighs what could fall against the house's card.</li>
+          <li><b class="text-foreground">It writes to its feed</b>, a public repository of its own, without review — never to the archive.</li>
+          <li><b class="text-foreground">The pipeline page shows it</b> apart, marked unreviewed, never in the funnel.</li>
+          <li><b class="text-foreground">The Oracle decides.</b> No: nothing is written. Yes: a record is opened by a pull request he reviews, and the kind's chapter below begins.</li>
+        </ol>
+        <p class="mt-4 text-sm text-muted-foreground">
+          The whole procedure: <a href={book.watch.href} class={enlace}>{book.watch.title}</a> — {book.watch.question}
+        </p>
+        <div class="mt-4 overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead><tr class:list={[etiqueta, "text-dim text-left"]}><th class="py-1 pr-3">Verdict</th><th class="py-1 pr-3">Means</th><th class="py-1">Goes to the feed</th></tr></thead>
+            <tbody>
+              {book.watch.verdicts.map((v) => (
+                <tr class="border-t border-border align-top"><td class="py-2 pr-3"><code>{v.verdict}</code></td><td class="py-2 pr-3 text-muted-foreground">{v.means}</td><td class="py-2 text-muted-foreground">{v.feed}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {book.kinds.map((k, ki) => (
+        <section id={`kind-${k.kind}`} data-kind={k.kind} class="mb-14">
+          <div class:list={[etiqueta, "text-dim mb-1"]}>Chapter {ki + 1} · {k.kind}</div>
+          <h2 class="text-xl text-foreground">{k.title}</h2>
+          <p class="mt-1 mb-5 text-sm text-muted-foreground">{k.is[0]?.toUpperCase()}{k.is.slice(1)}.</p>
+          {!k.stages.some((s) => s.protocol) && (
+            <p class="mb-4 text-xs text-dim">No protocol moves this kind yet: its record and its stages are the guide.</p>
+          )}
+          <ol class="space-y-4">
+            {k.stages.map((s, i) => (
+              <li data-stage={s.stage} class="rounded-[8px] border border-border bg-card p-5">
+                <div class:list={[etiqueta, "text-dim mb-1"]}>Stage {i + 1} · <code>{s.stage}</code></div>
+                <h3 class="text-base text-foreground">{s.means}</h3>
+                <p class="mt-1 text-sm text-muted-foreground">Evidence: {s.evidence}</p>
+                {s.protocol && (
+                  <p class="mt-3 text-sm text-muted-foreground">
+                    Moved on by <a href={s.protocol.href} class={enlace}>{s.protocol.title}</a>
+                    {s.protocol.question && <span> — {s.protocol.question}</span>}
+                  </p>
+                )}
+                {s.pieces.length > 0 && (
+                  <ul class="mt-4 space-y-2">
+                    {s.pieces.map((p) => (
+                      <li class="rounded-[6px] border border-border/70 bg-background px-4 py-3">
+                        <div class="flex flex-wrap items-baseline justify-between gap-2">
+                          <span class="text-sm font-medium text-foreground">{p.piece}</span>
+                          <span class:list={[etiqueta, "text-muted-foreground"]}>{p.renderable ? "made by the kit" : "by hand"} · {stateLabel[p.state] ?? p.state}</span>
+                        </div>
+                        <p class="mt-1 text-sm text-muted-foreground">{p.does}</p>
+                        <p class="mt-1 text-xs text-dim">Made from: {p.from}</p>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
     </div>
   </section>
 </Layout>

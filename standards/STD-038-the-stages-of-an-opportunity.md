@@ -5,16 +5,16 @@ title: "The stages of an opportunity"
 type: documentation
 subtype: register
 status: draft
-version: "0.8.0"
+version: "0.9.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-02T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
 tags: [standards, register, sales, pipeline, opportunity, stages, timeline, funnel, tenders, grants, public-procurement, chance]
 license: "CC0-1.0"
-related: ["STD-039", "STD-040", "OPS-018", "CAN-009", "CAN-011"]
+related: ["STD-039", "STD-040", "OPS-018", "PRO-035", "CAN-009", "CAN-011"]
 derived_from: "CAN-009"
 ---
 
@@ -228,6 +228,21 @@ has no chance and no record.
 |---|---|
 | `high` | every requirement is met: each row of the criteria says yes |
 | `medium` | one or more requirements are still to check, none failed |
+
+## A watch's verdict
+
+What a watch says of a call before anyone has decided on it, read from its
+terms against the house's card (`PRO-035`). It is written in the watch's
+feed, never in a record: a record's chance is the tool's, computed from its
+criteria. The last column is the feed's filter: in doubt the watch keeps a
+call, and what could fall is the Oracle's to drop.
+
+| Verdict | Means | Goes to the feed |
+|---|---|---|
+| `high` | read from the terms, every requirement met | yes |
+| `medium` | some requirement still to check, none failed | yes |
+| `low` | a requirement fails today, and one named thing — a partner, a registration, a published game — would unlock it before the close | yes, with the unlock |
+| `none` | outside what the house makes, or a requirement no one can meet before the close | no: it stays in the watch's own memory |
 
 ## Weighing a tender
 

@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.128.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "ADD", text: "A new protocol, Watching for opportunities: from the places where calls are published to the Oracle's yes or no. A watch sweeps and weighs, writes what could fall to its own feed without review, the pipeline page shows it apart, the Oracle decides, and only a reviewed pull request opens the record." },
+      { type: "CHANGE", text: "The sales playbook covers the whole road: it opens with Before the record (the watch, its feed and the Oracle's decision, with the table of a watch's verdicts) and gives a chapter to each kind — a sale, a tender, a grant, a collaboration, a partner — with its stages and the protocol that moves each on." },
+    ],
+  },
+  {
     version: "v0.127.0",
     date: "2026-10-02",
     entries: [
