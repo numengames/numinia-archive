@@ -96,7 +96,7 @@ test('the card is read by heading, numbered or not: requirements, the turnover c
   assert.deepEqual(card.requirements.map((q) => q.state).slice(0, 3), ['check', 'no', 'no']);
   assert.equal(outOfDomain('Contrato de hinchables para fiestas', card).why, 'inflatables and attractions');
   assert.equal(outOfDomain('Un mundo virtual', card), null);
-  assert.deepEqual(loadCard(path.join(FIX, 'no-such-card.md')), { requirements: [], turnoverCeiling: null, outOfDomain: [] }, 'a missing default card reads as empty');
+  assert.deepEqual(loadCard(path.join(FIX, 'no-such-card.md')), { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [] }, 'a missing default card reads as empty');
 });
 
 test('the card marks what decides most calls: each row carries its place in that list, or null', () => {
