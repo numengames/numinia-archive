@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-02
 
+- **Added** The sales collateral (`STD-047`): what each stage of a sale hands over and what it is made from. The sales kit renders the first-contact deck and e-mail from a record's Pitch and the offer's Packages, outside the archive; OPP-2026-025 is the first case (site v0.125.0)
 - **Security** numinia.org sends security headers (`web/public/_headers`: HSTS, frame refusal, a same-origin CSP without `unsafe-eval`; search drops `new Function`) and `security.txt`; CI tests fail on red; auto-merge writes only in its job; `LEG-003` 2.1.1 drops `siwe_nonce` (site v0.124.0)
 - **Added** `PRO-034` Auditing a site's code: routes listed and probed live, fetch-by-address routes, leftovers, markup sinks, CSP and headers as served, cookies, workflow permissions, production dependencies, Scorecard; `STD-015` 6.0.0 `SEC-015`; `PRO-027` 0.2.0 checks a returning visitor (site v0.124.0)
 - **Added** Automation writes to its own feed repository, never straight into the archive; a finding enters by a reviewed promotion (`STD-017` AUT-069). Nobody's name, not even a public officer's: the tool now refuses names in records and proposals unless `OPS-018` lists them
