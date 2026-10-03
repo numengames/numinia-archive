@@ -5,9 +5,9 @@ title: "Design values"
 type: standard
 subtype: register
 status: active
-version: "1.10.3"
+version: "1.10.4"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -37,7 +37,7 @@ SPDX-License-Identifier: CC0-1.0
 | Hex | Name | Thread | Role |
 |---|---|---|---|
 | `#A6DAD5` | **Verdemar** | Solar | Confirmation, calm, surface tints |
-| `#018EA1` | **Turquesa** | Cyber | Interaction: links, focus, accents (the action fill is its shadow `#017C8D`, the button recipe in `BLU-009`) |
+| `#018EA1` | **Turquesa** | Cyber | Interaction: links, focus, accents (the action fill is its shadow `#017C8D`, the button recipe in `DES-009`) |
 | `#EFA517` | **Ámbar** | Solar | Emphasis, value, achievement; the scarab's sun |
 | `#F9EBDC` | **Arena** | Solar | Main neutral |
 | `#F35059` | **Coral** | Cyber | Warning, real time; flash, never ambience |
@@ -173,7 +173,7 @@ All normalized to `fill="currentColor"`, in `/assets/`.
 | `pixel/khepri-sprite-24.png` | Canonical scarab sprite | 24×24 px | Pixel register; the brand's only pixel translation |
 | `pixel/moneda-12.png` | Ámbar coin (corrected to the Solar ramp) | 12×12 px | The register's example object; tokens, rewards |
 | `pixel/moneda-giro-12x4.png` | The coin's turn sheet | 48×12 px · 4 frames | Canonical reference cycle: 200 ms · steps(4) · stable volume |
-| `pixel/cartografo-24.png` | The Cartographer | 24×24 px | Reference character of the `BLU-010` production pipeline; status [EXTENSION — validate] |
+| `pixel/cartografo-24.png` | The Cartographer | 24×24 px | Reference character of the `DES-010` production pipeline; status [EXTENSION — validate] |
 | `pixel/guia/` | Didactic how-yes / how-no pairs | 16×16 px ×1 and ×8 | Production-guide material; not game assets |
 | `fonts/PixelifySans-Variable.woff2` | Pixel typeface | variable 400–700 | Dialogue and display of the pixel register |
 | `marca/glifo-space.svg` | *Space* glyph (the wordmark's n) | 31×29 | Brand play (`PRI-008`, the glyphs): the space, the territory |
@@ -202,9 +202,9 @@ viewBox 75.44×75.53, `fill="currentColor"`; every copy is taken from it.
 | 08 | Block cursor | `1 s` · steps(2) | Accompanying the typing or an active field | Loose, decorative |
 | 09 | Orchestrated moment | Headline typing + reveals staggered at `80 ms` | The piece's entrance — one per piece | Repeated; on every section |
 | **10** | **Surfacing** — knowledge comes out of the fog [5.0.0] | `560 ms` · ciclo; opacity 0→1 + `blur(8px)→0` + 8 px rise; on entering the viewport, once | Veil register: archive, Summa, sheets upon opening, revelations | Functional interface; long lists (reveal 02 suffices); Diurno; corporate Umbral |
-| **11** | **Crystallization** — the glass materializes [5.0.0] | `320 ms` · ciclo; `backdrop-blur 0→12px` + border 0→50 % + opacity | Veil panels and modals (`BLU-009`) | Outside the Veil; over backgrounds without atmosphere |
+| **11** | **Crystallization** — the glass materializes [5.0.0] | `320 ms` · ciclo; `backdrop-blur 0→12px` + border 0→50 % + opacity | Veil panels and modals (`DES-009`) | Outside the Veil; over backgrounds without atmosphere |
 | **12** | **Page turn** — **RETIRED in 5.1.0 (H5)** | 5.0.0 registered it "to be verified against the LAP"; verification came back empty: the codex does not animate the page turn — the only living thing in that view is the Trazo (13). The number is not reused (append-only catalogue); if someday the paper turns pages with animation, it will enter as a new piece with its own specs | — | — |
-| **13** | **Trazo** — the corners draw themselves [5.0.0 · in production] | `1.6 s` · ease · `stroke-dashoffset: 340 → 0`; four engraving frames staggered at `120 ms` | Book cover and chapter opening (`BLU-011`, the living paper) — it **is** that view's orchestrated moment | Interface; re-firing on scroll; alongside another orchestrated moment |
+| **13** | **Trazo** — the corners draw themselves [5.0.0 · in production] | `1.6 s` · ease · `stroke-dashoffset: 340 → 0`; four engraving frames staggered at `120 ms` | Book cover and chapter opening (`DES-011`, the living paper) — it **is** that view's orchestrated moment | Interface; re-firing on scroll; alongside another orchestrated moment |
 | **14** | **Sky** — the Veil's background breathes [5.0.0 · in production] | Drift of `±0.06 px`/frame with reappearance on the opposite side + alpha oscillating between `.05` and `.85` at its own rhythm (`.002–.006`) | Background of the Veil register (the sky, below) — **a sanctioned exception** to the ambient-loop veto; at night on numinia.org, numinia.com and nwos.numen.games | Over long reading; **numen.games** (the Oracle, 2026-09-29) |
 | **15** | **Reading light** — a light follows the voice [1.4.0 · in production] | A diffuse Arena halo (14 px, a small ink core, never pure white) just above the spoken word, a trail of 12 fading copies; critically damped spring (k 90); gliding along the word at the voice's pace, resting where it rests; 45 % on pause | Following a voice or any playback through a text (the reading player, `PRO-022`) — **the second sanctioned loop**: it lives only while the voice plays and moves only because the voice moves | Ambient; decoration; without a voice or playback behind it; with `prefers-reduced-motion` (it jumps: no trail, no spring, no bob) |
 | **16** | **Entrance** — a page's first lines arrive [1.7.0 · in production, numinia.org] | `600 ms` · ciclo; opacity 0→1 + **24 px** rise; the hero's lines staggered at `100 ms` (label, headline, line) | The top of a page: its label, headline and one line, once on load | Content further down (reveal 02 does that); controls; re-firing on scroll |
@@ -245,8 +245,8 @@ How the sky moves, and where it may not appear, is `PRO-022`.
 | Resource | Authorship | License | Link · distribution | Use in the system |
 |---|---|---|---|---|
 | **Geist · Geist Mono** | Vercel | SIL OFL 1.1 | [vercel.com/font](https://vercel.com/font) · npm `geist` · self-hosted in `/assets/fonts/` | Sole typography (type scale) |
-| **Pixelify Sans** | Stefie Justprince | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Pixelify+Sans) · self-hosted in `/assets/fonts/` | Pixel-register typography (`BLU-010`) |
-| **Alegreya · Alegreya SC** | Juan Pablo del Peral · Huerta Tipográfica | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Alegreya) · variable roman + italic and small caps 400/500, self-hosted (v5 rebuild) | Third voice — book and codex (`BLU-011`) |
+| **Pixelify Sans** | Stefie Justprince | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Pixelify+Sans) · self-hosted in `/assets/fonts/` | Pixel-register typography (`DES-010`) |
+| **Alegreya · Alegreya SC** | Juan Pablo del Peral · Huerta Tipográfica | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Alegreya) · variable roman + italic and small caps 400/500, self-hosted (v5 rebuild) | Third voice — book and codex (`DES-011`) |
 | **Octalysis** | Yu-kai Chou | Behavioral framework | [yukaichou.com](https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/) | Behavioral design of proposals |
 | **8 Bit & '8 Bitish' Graphics — Outside the Box** | Mark Ferrari · GDC 2016 | Professional reference | [gdcvault.com/play/1023586](https://www.gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics) | Clusters, limited palette and palette cycling; production reference, not visual principles |
 | **ScummVM · Understanding the graphics settings** | ScummVM project | GPL / documentation | [docs.scummvm.org](https://docs.scummvm.org/en/latest/advanced_topics/understand_graphics.html) | Adventure graphics scaling, nearest-neighbor and pixel preservation |
@@ -276,11 +276,11 @@ came here from the visual identity principle, which now holds none.
 |---|---|---|---|
 | `velo.rejilla` | `rgba(166,218,213,.025)` · **40 px** cell | Verdemar at 2.5 % | The Akasha's grid, barely visible; the cell matches the Platform row (40 px) — archive and tool share the same beat `[DERIVED — verified in production, pablofm-web]` |
 | `velo.niebla` | `rgba(1,142,161,.06)` · radial from bottom-left | Turquesa at 6 % | The corridors' fog: the diffuse signal of the background `[DERIVED — verified in production]` |
-| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (the image veil and the modal, `BLU-009`) — unchanged; Jardín may lighten it (`BLU-009`) |
+| `velo.imagen` | `rgba(20,17,15,.72)` | Noche at 72 % | The foundational veil (the image veil and the modal, `DES-009`) — unchanged; Jardín may lighten it (`DES-009`) |
 | `velo.cristal` | `rgba(30,26,23,.65)` + `backdrop-filter: blur(12px)` | Basalto at 65 % | Glass surface: read through `[EXTENSION — validate]` |
 | `velo.cristal-borde` | `rgba(58,51,45,.5)` | Strong line at 50 % | The glass's edge `[EXTENSION — validate]` |
 | `velo.cielo` | 175 stars · weights `60/25/10/4/1` | the rarity scale above | The Veil's sky — verified in production, numinia.org |
-| `velo.lectura` | `blur(2.2px)` + mask `0→90 %` | — | What lies beyond the Umbral is seen and not read (`BLU-011`) |
+| `velo.lectura` | `blur(2.2px)` + mask `0→90 %` | — | What lies beyond the Umbral is seen and not read (`DES-011`) |
 
 **Ceilings:** grid ≤ 3 % alpha, fog ≤ 8 % — more is scenery. How each layer
 is placed is `PRO-022`.
@@ -292,7 +292,7 @@ is placed is `PRO-022`.
 
 **Low-poly budget** `[EXTENSION — validate against the store's real assets]`:
 character 2,000–10,000 tris; prop 200–2,000; modular environment by pieces.
-House lighting is a warm Ámbar key with a cold Turquesa fill (`BLU-015`).
+House lighting is a warm Ámbar key with a cold Turquesa fill (`DES-015`).
 Formats GLB/glTF.
 
 **Pixel outline.** In sprites of 12 px or less the outline MAY close

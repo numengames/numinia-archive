@@ -1,16 +1,18 @@
 ---
-id: "BLU-015"
+id: "DES-015"
 uid: ""
 title: "Event, 3D and email"
-type: blueprint
+type: design
+former_id: "BLU-015"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.0.4"
+version: "1.0.5"
 created: "2026-09-09T12:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
-tags: [blueprint, design, recipes]
+tags: [design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
 related: ["STD-008", "STD-023", "PRI-008"]
@@ -22,7 +24,7 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# BLU-015 — Event, 3D and email
+# DES-015 — Event, 3D and email
 
 > **Summary:** The three media whose recipe is a paragraph: the physical event, the 3D scene and the email.
 > **Epistemic:** A recipe. The rules it applies are `STD-008`; the values it names are `STD-023`; the order of decisions is `PRO-014`.

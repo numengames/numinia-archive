@@ -5,15 +5,15 @@ title: "Personal data"
 type: standard
 subtype: standard
 status: draft
-version: "0.3.9"
+version: "0.3.10"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
 license: "CC0-1.0"
 tags: [standards, privacy, GDPR, LOPDGDD, personal-data]
-related: ["LEG-001", "LEG-003", "STD-033", "BLU-017"]
+related: ["LEG-001", "LEG-003", "STD-033", "DES-017"]
 derived_from: "PRI-012"
 ---
 
@@ -111,7 +111,7 @@ the breach notice let us prove it when asked.
 | `LEG-001` | Privacy Policy — Numen Games | the privacy notice these rules are kept in |
 | `STD-033` | Every charge delivers something | what a payer may choose to show |
 | `LEG-003` | Cookie Policy — Numen Games | the inventory every site is held to |
-| `BLU-017` | Legal obligations to confirm | what remains to put in place |
+| `DES-017` | Legal obligations to confirm | what remains to put in place |
 | `PRO-025` | Handling a personal data breach | how a breach is reported |
 | `PRO-026` | Answering a person's request about their data | how a person's rights are answered |
 | `PRO-027` | Changing what a site stores or loads | how the cookie policy stays true |

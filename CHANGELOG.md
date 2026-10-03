@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-03
+- **Changed** `blueprints/` is `designs/` (`ADR-067`, cut 4): `type: design`, `BLU-NNN` → `DES-NNN` with `former_id`, 12 documents; old addresses redirect; `STD-001` 5.15.0, `STD-004` 4.16.0, `STD-026` 0.7.0, `STD-027` 0.10.0; *blueprint* reads *design*; *Blueprints* stays the Numinia stop's word (site v0.141.0)
 - **Changed** `canon/` is `principles/` (`ADR-067`, cut 3): `type: principle`, `CAN-NNN` → `PRI-NNN` with `former_id`, 14 documents; old addresses redirect; `STD-001` 5.14.0, `STD-004` 4.15.0, `STD-026` 0.6.0, `STD-027` 0.9.0; *canon* reads *principle*; *Canon* stays the Numinia stop's word (site v0.140.0)
 - **Changed** `protocols/` is `procedures/` (`ADR-067`, cut 2): `type: procedure`, the prefix `PRO-` kept, 28 documents; the 28 old addresses redirect; `STD-001` 5.13.0, `STD-004` 4.14.0, `STD-026` 0.5.0, `STD-027` 0.8.0; *protocol* reads *procedure* in every normative document (ISO 9000) (site v0.139.0)
 - **Changed** The archive takes the industry's words (`ADR-067`, cut 1): `provenance` → `digital_source_type` (IPTC), `type_execution: digital · biological · hybrid` → `executor: agent · human · hybrid` (ISO/IEC 22989), `ratified_by` → `approved_by`, `frozen` → `on-hold`; `semaforo` deprecated; `STD-004` 4.13.0

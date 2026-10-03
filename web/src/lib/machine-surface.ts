@@ -9,7 +9,7 @@
 // address once, so /llms.txt, /index.json and any later machine endpoint
 // describe the same site rather than three slightly different ones.
 //
-// Missions, reports, decisions and blueprints are read from their typed
+// Missions, reports, decisions and designs are read from their typed
 // collections, and the rest of the corpus from the same filtered reader every
 // page uses (getPublicCorpus — it enforces the fail-closed `visibility` rule
 // for debt/). Reading the collections directly here would publish an address
@@ -52,22 +52,22 @@ async function documents(): Promise<DocEntry[]> {
   //
   // This is not pedantry: the first version of this file assembled
   // `/<base>/<id>` for all four and produced fifteen addresses that do not
-  // exist. Blueprints are served at their slug with the identifier stripped
-  // (`/blueprints/dual-nomenclature`, see blueprints/[id].astro), and reports
+  // exist. Designs are served at their slug with the identifier stripped
+  // (`/designs/dual-nomenclature`, see designs/[id].astro), and reports
   // at the entry id rather than the frontmatter id (reports/[id].astro). An
   // index that invents addresses is worse than no index, because a machine
   // trusts it — so the shapes below are copied from the routes, and the check
   // at the end of this function proves every row it emits was actually built.
   const typed: Array<{
-    name: "missions" | "reports" | "decisions" | "blueprints";
+    name: "missions" | "reports" | "decisions" | "designs";
     href: (entryId: string, frontmatterId: string) => string;
   }> = [
     { name: "missions", href: (_e, id) => `/missions/${id.toLowerCase()}` },
     { name: "reports", href: (e) => `/reports/${e}` },
     { name: "decisions", href: (_e, id) => `/decisions/${id.toLowerCase()}` },
     {
-      name: "blueprints",
-      href: (e) => `/blueprints/${e.replace(/^BLU-\d+-/i, "").toLowerCase()}`,
+      name: "designs",
+      href: (e) => `/designs/${e.replace(/^DES-\d+-/i, "").toLowerCase()}`,
     },
   ];
   for (const { name, href } of typed) {

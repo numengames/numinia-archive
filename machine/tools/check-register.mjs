@@ -221,10 +221,10 @@ function checkPresence(problems) {
     for (const f of files)
       if (!tracked.has(f)) problems.push(`${plate}: ${f} is missing — ${why}`);
 
-  /* TRC-005: the roadmap is the blueprints — each one a map of what is still
+  /* TRC-005: the roadmap is the designs — each one a map of what is still
      to do. A folder with none left says nothing about the year ahead. */
-  if (![...tracked].some((f) => /^blueprints\/BLU-\d{3}-.+\.md$/.test(f)))
-    problems.push('TRC-005: blueprints/ holds no blueprint — the repository says nothing of what it intends to do');
+  if (![...tracked].some((f) => /^designs\/DES-\d{3}-.+\.md$/.test(f)))
+    problems.push('TRC-005: designs/ holds no design — the repository says nothing of what it intends to do');
 
   /* AGT-001 is not satisfied by the file existing: the row says the FIRST
      instruction is to audit the branch. An AGENTS.md that opens with anything

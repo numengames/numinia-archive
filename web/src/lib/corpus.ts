@@ -75,12 +75,12 @@ export async function getPublicCorpus(): Promise<Entry[]> {
 //
 //   governed  principles/ · decisions/ · standards/ · procedures/  an ADR, or an approved PR
 //             (principle first: STD-009 PRE-003, nothing is sealed since 2026-09-09)
-//   open      blueprints/ · debt/                 a normal PR
+//   open      designs/ · debt/                 a normal PR
 //
 // Inside `governed` the tie is broken by which one can change which: an ADR
 // changes a standard, a standard defines what a procedure must satisfy, a
 // procedure says how it is carried out. Nothing under `open` binds anything —
-// blueprints propose and debt confesses.
+// designs propose and debt confesses.
 //
 // A section is a TOP-LEVEL FOLDER of the corpus that holds documents a reader
 // is meant to browse. That excludes folders that are infrastructure for other
@@ -152,7 +152,7 @@ export interface SeriesPage {
    * ordinary fact that a section may draw from a typed collection rather than
    * the corpus mirror. Its address is the same either way.
    */
-  collection: "corpus" | "decisions" | "blueprints";
+  collection: "corpus" | "decisions" | "designs";
 }
 
 export const SERIES: SeriesPage[] = [
@@ -190,7 +190,7 @@ export const SERIES: SeriesPage[] = [
     epistemic: "How the machine is wired today, as opposed to how it ought to be.",
     pragmatic: "Fix, extend or operate it without reverse-engineering what someone already wrote down.",
   },
-  { prefix: "blueprints/", slug: "blueprints", label: "Blueprints", collection: "blueprints",
+  { prefix: "designs/", slug: "designs", label: "Designs", collection: "designs",
     question: "What could be built, argued through on paper before anyone commits to it?",
     emptyMeans: "Nothing is on the drawing board right now. Everything proposed has either been decided or dropped.",
     blurb: "Designs that could be built: argued through on paper, waiting for a decision that turns them real.",
@@ -704,10 +704,10 @@ const READING_ORDER: Record<string, string[]> = {
   // system/, MIS-129 retired BLU-001 and BLU-003, and 2026-09-21 reshelved
   // BLU-008 (the system description — it described what runs) as SYS-006:
   // the vocabulary the system has to speak, then how anyone can tell it is
-  // working. The seven design recipes (BLU-009..015) follow by number.
-  blueprints: [
-    "/blueprints/dual-nomenclature",
-    "/blueprints/business-metrics",
+  // working. The seven design recipes (DES-009..015) follow by number.
+  designs: [
+    "/designs/dual-nomenclature",
+    "/designs/business-metrics",
   ],
   // The world before the game, and the game before its edition matter: who
   // Numinia is and why the fiction does real work → how a table actually plays
@@ -781,7 +781,7 @@ export const READING_NOTE: Record<string, string> = {
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
   standards: "Five shelves, from the person to the ground: living together, writing it down, showing it, what leaves the house, and what makes it last. Under each title, the one question that standard answers.",
   procedures: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
-  blueprints: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
+  designs: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
   system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the tooling that checks those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
   opportunities: "Every chance to sell something, in the order it was opened: who (by sector, until they agree), at which stage, and what happens next.",
@@ -919,11 +919,11 @@ export async function getSeriesDocs(slug: string): Promise<SeriesDoc[]> {
         updated: str(f.updated)?.slice(0, 10),
       };
     });
-  } else if (section.collection === "blueprints") {
-    docs = (await getCollection("blueprints")).map((e) => {
+  } else if (section.collection === "designs") {
+    docs = (await getCollection("designs")).map((e) => {
       const f = e.data as Record<string, unknown>;
       return {
-        href: `/blueprints/${String(e.id).replace(/^BLU-\d+-/i, "").toLowerCase()}`,
+        href: `/designs/${String(e.id).replace(/^DES-\d+-/i, "").toLowerCase()}`,
         title: str(f.title) ?? String(f.id),
         docId: str(f.id),
         status: str(f.status),
@@ -950,7 +950,7 @@ export async function getSeriesDocs(slug: string): Promise<SeriesDoc[]> {
   // across a typed collection and the corpus catch-all. Measured, not assumed:
   //
   //   decisions/   12 ADR-/DEC- in the typed collection + INDEX.md in the corpus
-  //   blueprints/  16 BP-* typed + 8 in the corpus (AUDIT-*, BLU-001,
+  //   designs/  16 BP-* typed + 8 in the corpus (AUDIT-*, BLU-001,
   //                archive-summa-*, INDEX, README)
   //
   // Listing only the typed half would have shown 12 of 13 and 16 of 24, and the

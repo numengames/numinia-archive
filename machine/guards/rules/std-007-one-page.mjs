@@ -43,7 +43,7 @@ export const meta = {
 const BUDGET = {
   standards: 500, procedures: 500, decisions: 500, missions: 500,
   debt: 300, guilds: 300,
-  reports: 1000, blueprints: 1000,
+  reports: 1000, designs: 1000,
   principles: 1500,
 };
 const CAP = { title: 5, card: 40, scope: 15, why: 80, refs: 5 };
@@ -154,7 +154,7 @@ function shape(rel, text, fm) {
 /* Every series prefix that can appear as a citation. Kept literal rather than
    derived from rules.json: this asks "does this look like an ID to a reader",
    which is a question about the text, not about what resolves. */
-const ID = /\b(STD|PRO|ADR|CAN|DBT|MIS|RPT|BLU|OPS|SYS|HIS|D|S|P)-\d{3,4}\b/g;
+const ID = /\b(STD|PRO|ADR|CAN|DBT|MIS|RPT|DES|OPS|SYS|HIS|D|S|P)-\d{3,4}\b/g;
 const SECTION = /§\s*\d+(\.\d+)?/g;
 
 /* A fenced code block is not prose — an example of a bad citation is how you

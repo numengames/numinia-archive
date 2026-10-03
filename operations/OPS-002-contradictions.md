@@ -4,11 +4,11 @@ uid: ""
 title: "Pending contradictions — register"
 type: documentation
 status: active
-version: "1.3.3"
+version: "1.3.4"
 created: "2026-08-17T20:00:17Z"
 created_source: "git:8b72b9b"
 created_confidence: inferred
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -117,18 +117,18 @@ entry moves to the "Resolved" section with the decision and its date.
 
 ## Resolved
 
-### CON-001 — CAO roster: page vs blueprint
+### CON-001 — CAO roster: page vs design
 
 - **Detected:** 2026-08-17 (MIS-071 phase 2)
 - **Source A:** `web/src/pages/cao.astro` — lists Alquimista-01 and
   Exegeta-01 as designed agents; Adonaz on `claude-sonnet-4.6`;
   Procurador-01 "designed" with no target year.
-- **Source B:** `blueprints/BP-cao.md` (v0.2.0) — lists Ursa and Senet;
+- **Source B:** `designs/BP-cao.md` (v0.2.0) — lists Ursa and Senet;
   Adonaz on `claude-haiku-3-5`.
 - **Resolved:** 2026-08-31 by **ADR-030 (formerly ADR-032)**.
-- **Decision:** the losing side removed. `blueprints/BP-cao-overview.md`
+- **Decision:** the losing side removed. `designs/BP-cao-overview.md`
   — the 2026-04-07 dashboard snapshot that held the third, stalest
-  version of the roster — extinguished as part of `blueprints/` joining
+  version of the roster — extinguished as part of `designs/` joining
   the operational series. `BP-cao.md` (v0.2.0) and the live `/cao` page
   remain; their own divergence, if any, is a separate question this
   entry never covered.

@@ -1,16 +1,18 @@
 ---
-id: "BLU-018"
+id: "DES-018"
 uid: ""
 title: "Our own payment gateway: Redsys and Bizum through our bank"
-type: blueprint
+type: design
+former_id: "BLU-018"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-29T14:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
-tags: [blueprint, payments, redsys, bizum, stripe, fees]
+tags: [design, payments, redsys, bizum, stripe, fees]
 license: "CC0-1.0"
 related_missions: []
 related: ["STD-033", "SYS-008", "OPS-014", "PRO-020", "STD-022"]
@@ -21,7 +23,7 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# BLU-018 — Our own payment gateway: Redsys and Bizum through our bank
+# DES-018 — Our own payment gateway: Redsys and Bizum through our bank
 
 > **Summary:** The payment processor is expensive on small payments. A
 > virtual card terminal from our own bank, through Redsys, charges a
@@ -34,7 +36,7 @@ SPDX-License-Identifier: CC0-1.0
 > reviewed; start the work only when the trigger in section 3 is met.
 > **Audience:** Agents · Oracles
 
-> **A blueprint is a design not yet executed.** It is not a decision, not a
+> **A design describes what is not yet built.** It is not a decision, not a
 > mission, and not a description of what exists. If it has been built, its
 > description belongs in `system/`; if it must be built, the work belongs in a
 > mission that cites this design.

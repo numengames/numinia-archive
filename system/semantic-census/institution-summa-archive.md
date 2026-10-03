@@ -3,9 +3,9 @@ id: "SYS-011:institution-summa-archive"
 title: "Summa Archive"
 type: entity
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -79,7 +79,7 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 ## Relations
 
 - **Concordia Council** — parent body (cited: manual ch. 5 — «Dependencia: Consejo de Concordia»).
-- **Oracles** — endorse it; in the house they «govern from the Summa Archive» (cited: `blueprints/BLU-007-dual-nomenclature.md`).
+- **Oracles** — endorse it; in the house they «govern from the Summa Archive» (cited: `designs/DES-007-dual-nomenclature.md`).
 - **PRI-009** — house principle behind the memory facet (cited: `principles/PRI-009-the-archive-is-the-organisation.md` — «The archive is the organisation»).
 
 ## Current manifestations
@@ -87,7 +87,7 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 | Where | How it shows up | Source |
 |---|---|---|
 | Game | Institution, agents, reports, Aleph | manual ch. 5, 7; `lore/adventures/tabletop/el-espejo-roto.md` |
-| House | Layer L3; knowledge base; canon shelf III | `system/SYS-002-agent-cycle.md`, `operations/OPS-001-continuity.md`, `blueprints/BLU-007-dual-nomenclature.md` |
+| House | Layer L3; knowledge base; canon shelf III | `system/SYS-002-agent-cycle.md`, `operations/OPS-001-continuity.md`, `designs/DES-007-dual-nomenclature.md` |
 | Web | .org home «Numinia — the Summa»; .com portal and card experiment | `web/src/pages/index.astro`, `numinia-web:packages/domain/src/constants/portals.ts` |
 | Processes | Agents pull and push the archive | `system/SYS-002-agent-cycle.md` |
 
@@ -96,7 +96,7 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 | Source | Equivalence | Evaluation | Why |
 |---|---|---|---|
 | `STD-030` | none found | pending | No Summa entry (inferred: grep of `standards/STD-030-the-worlds-vocabulary.md`) |
-| `BLU-007` | Knowledge Base = Summa Archive | reductive | Keeps memory; drops research, secrecy, ambiguity |
+| `DES-007` | Knowledge Base = Summa Archive | reductive | Keeps memory; drops research, secrecy, ambiguity |
 | `SYS-002` | L3 permanent memory | partial | Memory and transversality only |
 | `OPS-001` | Summa Archive → `/archive` | reductive | One URL |
 | `web/src/lib/corpus.ts` | the Summa = manual's Archivo Summa = whole archive | partial | Only explicit bridge; omits containment |
@@ -116,6 +116,6 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 
 - `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` ("manual ch. 5"), `lore/game/manual/es/02-…`, `06-…`, `07-…` ("manual ch. 7")
 - `lore/adventures/tabletop/el-espejo-roto.md`; `lore/codex/glosario.md`; `lore/game/manual/glossary-es-en.md`
-- `blueprints/BLU-007-dual-nomenclature.md`, `system/SYS-002-agent-cycle.md`, `operations/OPS-001-continuity.md`, `principles/PRI-009-the-archive-is-the-organisation.md`
+- `designs/DES-007-dual-nomenclature.md`, `system/SYS-002-agent-cycle.md`, `operations/OPS-001-continuity.md`, `principles/PRI-009-the-archive-is-the-organisation.md`
 - `web/src/lib/summa.ts`, `web/src/lib/corpus.ts`, `web/src/pages/index.astro`, `web/src/components/Wayfinder.astro`
 - `numinia-web:packages/domain/src/constants/portals.ts`, `numinia-web:apps/store/src/lib/summa.ts`

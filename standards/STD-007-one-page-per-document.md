@@ -5,9 +5,9 @@ title: "One page per document"
 type: standard
 subtype: standard
 status: active
-version: "2.2.5"
+version: "2.2.6"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -80,7 +80,7 @@ a reason. A may is a free choice.
 **The body fits its budget.** From the scope line to the references, a
 document SHOULD fit its shelf's budget: 500 words for standards, procedures,
 decisions and missions; 300 for debt and guilds; 1,000 for reports and
-blueprints; 1,500 for principles. A document over budget says why in one
+designs; 1,500 for principles. A document over budget says why in one
 sentence.
 
 ### Pointing at other documents
@@ -118,7 +118,7 @@ Each rule, its code, its source and its check.
 |---|---|---|---|
 | DOC-001 | The title states the rule | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD: counted, reported, never handed to the regime |
 | DOC-002 | The card is three short paragraphs | — | `machine/guards/rules/std-007-one-page.mjs` — a missing part binds by this standard's state (`ENG-067`); length is a SHOULD |
-| DOC-012 | One document, one question | [DITA 1.3, the topic as the basic unit of information](https://docs.oasis-open.org/dita/dita/v1.3/os/part2-tech-content/archSpec/base/topicdefined.html): short enough to answer a single question — ours adds: the question is the epistemic line; merge or split | by hand, at the pull request; the map in `BLU-016` records each standard's question |
+| DOC-012 | One document, one question | [DITA 1.3, the topic as the basic unit of information](https://docs.oasis-open.org/dita/dita/v1.3/os/part2-tech-content/archSpec/base/topicdefined.html): short enough to answer a single question — ours adds: the question is the epistemic line; merge or split | by hand, at the pull request; the map in `DES-016` records each standard's question |
 | DOC-003 | Scope is one line | [ISO/IEC Directives, Part 2 (2021), clause 14, Scope](https://www.iso.org/sites/directives/current/part2/index.xhtml) — ours adds: 15 words | `machine/guards/rules/std-007-one-page.mjs`; `machine/guards/test/std-007-one-page.test.mjs` |
 | DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the rule ID `AAA-NNN` | `machine/guards/rules/std-007-one-page.mjs` — a rule ID in a rule title or the Check table's first column (`platesIn`) |
 | DOC-013 | Obligation words mean one thing | [BCP 14](https://www.rfc-editor.org/info/bcp14) = [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) + [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) (capitals only); holds deprecated HDR-046 | by hand, at review |

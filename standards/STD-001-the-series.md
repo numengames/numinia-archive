@@ -5,9 +5,9 @@ uid: ""
 type: standard
 subtype: register
 status: active
-version: "5.14.0"
+version: "5.15.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -46,7 +46,7 @@ SPDX-License-Identifier: CC0-1.0
 | `decisions/` | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
 | `missions/` | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
 | `reports/` | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, deprecated) | `closed` | 1000 | `RPT-TEMPLATE.md` |
-| `blueprints/` | what could be; not a report of what happened | `BLU-NNN` | `open` | 1000 | `BLU-TEMPLATE.md` |
+| `designs/` | what could be; not a report of what happened (`blueprints/` and `BLU-NNN` until 2026-10-03, `ADR-067`; the old identifier stays in `former_id`) | `DES-NNN` | `open` | 1000 | `DES-TEMPLATE.md` |
 | `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
 | `operations/` | what sustains the business: strategy, sales, continuity | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
 | `opportunities/` | each opportunity of any kind — a sale, a tender, a grant, a collaboration, a partner — one record each with its timeline, its proposals beside it; every document's header, then the fields the pipeline tool reads | `OPP-YYYY-NNN` · `PRP-YYYY-NNN` | `open` | — | `OPP-TEMPLATE.md` · `PRP-TEMPLATE.md` |
@@ -88,7 +88,7 @@ system, and it belongs to everyone.
 | `procedure` | `procedures/` | yes |
 | `mission` | `missions/` | yes |
 | `adr` | `decisions/` | yes |
-| `blueprint` | `blueprints/` | yes |
+| `design` (`blueprint` until 2026-10-03) | `designs/` | yes |
 | `report` | `reports/` | yes |
 | `legal` | `legal/` | yes |
 | `agent` | `agents/` | yes |

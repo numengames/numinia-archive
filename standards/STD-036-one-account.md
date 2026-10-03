@@ -5,15 +5,15 @@ title: "One account"
 type: standard
 subtype: standard
 status: draft
-version: "0.3.4"
+version: "0.3.5"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
 license: "CC0-1.0"
 tags: [standards, economy, ledger, accounting, transparency, audit]
-related: ["PRI-011", "PRI-010", "STD-033", "STD-035", "SYS-008", "PRO-021", "BLU-017"]
+related: ["PRI-011", "PRI-010", "STD-033", "STD-035", "SYS-008", "PRO-021", "DES-017"]
 derived_from: "PRI-011"
 ---
 

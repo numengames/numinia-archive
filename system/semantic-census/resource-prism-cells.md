@@ -3,9 +3,9 @@ id: "SYS-011:resource-prism-cells"
 title: "Prism Cells"
 type: entity
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -72,7 +72,7 @@ A Cell records affinity, not knowledge: «Una Célula no certifica que el person
 | Recovery / modifier | After a State or a Roll, at the player's choice | cited: `06-inventario-y-bestiario.md` — «Gastar la afinidad» |
 | Currency | Street of Mysteries, Old Quarter | cited: `05-geografia-y-cultura-de-numinia.md` — «Anexo: El Mercado Negro de Numinia» |
 | Contribution recognition (house) | Work ledger | cited: `STD-030` — «Units of activity» |
-| Full economy (gamification) | Dial level 10 | cited: `blueprints/BLU-007-dual-nomenclature.md` — «Full Economy» |
+| Full economy (gamification) | Dial level 10 | cited: `designs/DES-007-dual-nomenclature.md` — «Full Economy» |
 
 ## Relations
 
@@ -95,8 +95,8 @@ A Cell records affinity, not knowledge: «Una Célula no certifica que el person
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
 | `STD-030` | Contribution recognition, «practical contribution through execution» | contradictory | Manual says Cells record affinity/way of looking, not deeds; drops spendability, currency, faction lock |
-| `BLU-007` / `web/src/pages/system/language.astro` | Membership Token ↔ Access Token ↔ Prism Cell | contradictory | Membership is individual, persistent, gating; Cells are fungible, consumed, faction-bound. Keeps only «access» facet |
-| `BLU-007` | Level 10 «Tokens, Prism Cells, real weight» | partial | Captures economy facet; silent on affinity |
+| `DES-007` / `web/src/pages/system/language.astro` | Membership Token ↔ Access Token ↔ Prism Cell | contradictory | Membership is individual, persistent, gating; Cells are fungible, consumed, faction-bound. Keeps only «access» facet |
+| `DES-007` | Level 10 «Tokens, Prism Cells, real weight» | partial | Captures economy facet; silent on affinity |
 | `seal.ts` | Per-faction integer balance | partial | Fits fungible/accumulable; no consumption or faction-use rule modelled |
 | `lore/codex/glosario.md` | «token de un solo uso» with three uses | complete | Faithful summary of chapters 2 and 6 |
 
@@ -113,6 +113,6 @@ A Cell records affinity, not knowledge: «Una Célula no certifica que el person
 - Manual ES chapters 02, 04, 05, 06 (`lore/game/manual/es/`) — nature, uses, costs, currency, cosmology
 - `lore/game/manual/glossary-es-en.md`, `lore/codex/glosario.md` — names, summary
 - `lore/adventures/tabletop/el-espejo-roto.md`, `lore/adventures/virtual-worlds/session-zero.md` — use in play
-- `standards/STD-030-the-worlds-vocabulary.md`, `blueprints/BLU-007-dual-nomenclature.md`, `web/src/pages/system/language.astro` — equivalences
+- `standards/STD-030-the-worlds-vocabulary.md`, `designs/DES-007-dual-nomenclature.md`, `web/src/pages/system/language.astro` — equivalences
 - `principles/PRI-008-visual-identity.md`, `principles/PRI-011-value-makes-a-bond.md`, `standards/STD-033-every-charge-delivers-something.md` — relations
 - `numinia-web:packages/domain/src/types/seal.ts`, `character-sheet.ts` — code model

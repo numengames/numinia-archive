@@ -1,17 +1,19 @@
 ---
-id: "BLU-007"
+id: "DES-007"
 uid: ""
 title: "Sistema de Nomenclatura Dual — Narrative & Gamification Dials"
-type: blueprint
+type: design
+former_id: "BLU-007"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.0.4"
+version: "1.0.5"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
-tags: [blueprint, nomenclature, narrative-dial, gamification-dial, i18n]
+tags: [design, nomenclature, narrative-dial, gamification-dial, i18n]
 section: "Products and services"
 license: "CC0-1.0"
 extraction_note: "Extracted verbatim from web/src/pages/idioma.astro (MIS-071 phase 2 — File over App). Related mission: MIS-055."
@@ -138,7 +140,7 @@ Gamification has qualitative jumps, not a smooth curve. Five named thresholds. I
 | Department / Team | Department | Team | Guild | Gremio | Gremio |
 | Division / Area | Division | Area | Faction | Facción | Facción |
 | Operations Center | Operations Center | Ops Center | CAO | CAO | CAO |
-| System Blueprint | System Blueprint | System Map | Blueprint | Plano | Plano |
+| Design document | Design document | Design document | Blueprint | Plano | Plano |
 | Knowledge Base | Knowledge Base | Knowledge Base | Archive | Archivo | Summa Archive |
 | Decision Record | Decision Record | Decision Record | Decision Stone | Decisión | Piedra del Camino |
 | Report | Report | Report | Dispatch | Reporte | Reporte |

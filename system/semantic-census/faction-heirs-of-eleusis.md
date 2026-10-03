@@ -3,9 +3,9 @@ id: "SYS-011:faction-heirs-of-eleusis"
 title: "Heirs of Eleusis"
 type: entity
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -101,14 +101,14 @@ development, not a kind of knowledge (cited: `principles/PRI-004-role-structure.
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
 | `STD-030` | Gamification / Experience — «They design game-based experiences that activate participation» | partial | Keeps challenge design. Gamification is truly inside the faction's field, but the field is narrative projection; the label names a part for the whole. Dropping the mystic facet is right for the working frame (Christian's review, 2026-09-29) |
-| `BLU-007` | Only generic Faction ↔ «Division / Area» | pending | Nothing on this faction; its gamification dial (badges, ranks, tokens) is a mechanics scale, not the faction |
+| `DES-007` | Only generic Faction ↔ «Division / Area» | pending | Nothing on this faction; its gamification dial (badges, ranks, tokens) is a mechanics scale, not the faction |
 | `PRI-004` / `lore/world/role-structure.md` | Play | partial | Keeps play as knowledge and the prototype; drops narrative and mystic facets |
 | `numinia-web` domain | `field: 'gamification'` | reductive | Fixes STD-030's label in code, overriding the manual's «Proyección narrativa» |
 
 ## Observations
 
 - **Field (resolved):** narrative projection, which holds gamification; play is one of its principles (Christian's review, 2026-09-29). The sources that disagreed: the manual says «Campo de desarrollo: Proyección narrativa» (ch. 3; «Foco» in ch. 5); PRI-004 says "Play"; STD-030, STD-026, `lore/world/welcome-to-numinia.md` («Gamification: Fantasy and fictional narrative») and `numinia-web:packages/domain/src/constants/factions.ts` say "gamification"; the store landing (`numinia-web:apps/store/src/i18n/city-landing.ts`) says «Narrativa». In the manual, gamification is only a sphere of influence.
-- The "gamification faction" label is a house attribution; nothing in the manual links the faction to BLU-007's gamification dial. Linking them would add a meaning (points, tokens) the manual does not give (proposed).
+- The "gamification faction" label is a house attribution; nothing in the manual links the faction to DES-007's gamification dial. Linking them would add a meaning (points, tokens) the manual does not give (proposed).
 - **Mystic facet (resolved):** it defines the faction's character in the world and adds no value in the real working frame, so no house equivalence should carry it; it lives fully only in play and fictional narrative (Christian's review, 2026-09-29). Earlier note: it appears in no house equivalence (inferred: absent from `STD-030`, `PRI-004`, `numinia-web:packages/domain/src/constants/factions.ts`).
 - STD-026 itself warns gamification can be «manipulation with confetti» (cited: `standards/STD-026-operative-vocabulary.md`).
 
@@ -119,5 +119,5 @@ development, not a kind of knowledge (cited: `principles/PRI-004-role-structure.
 - `lore/codex/glosario.md` — «Facción», «Distrito» entries
 - `lore/world/role-structure.md`, `principles/PRI-004-role-structure.md` — prototype, Play
 - `lore/adventures/virtual-worlds/session-zero.md`, `lore/adventures/tabletop/el-espejo-roto.md` — contexts
-- `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-026-operative-vocabulary.md`, `blueprints/BLU-007-dual-nomenclature.md` — equivalences
+- `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-026-operative-vocabulary.md`, `designs/DES-007-dual-nomenclature.md` — equivalences
 - `web/src/lib/summa.ts`, `numinia-web:packages/domain/src/constants/` (factions, archetypes), `numinia-web:apps/store/src/i18n/city-landing.ts` — web usage

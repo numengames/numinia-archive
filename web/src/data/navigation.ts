@@ -15,10 +15,10 @@
 // added to the standard appears in the menu on the next build, or the build
 // fails in @/lib/classification because nobody said where the site serves it.
 //
-// BLU-009 §12 recipe says "≤5 entries". This bar has six, by the Oracle's
+// DES-009 §12 recipe says "≤5 entries". This bar has six, by the Oracle's
 // word (2026-09-21): here the menu IS the scheme, and a scheme with six
 // functions gets six doors. The recipe's number is a recommendation for
-// corporate sites; the amendment is owed in BLU-009 and is named in the PR.
+// corporate sites; the amendment is owed in DES-009 and is named in the PR.
 import { functions, type Fn, type Series } from "@/lib/classification";
 
 export interface NavEntry {

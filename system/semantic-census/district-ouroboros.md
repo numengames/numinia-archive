@@ -3,9 +3,9 @@ id: "SYS-011:district-ouroboros"
 title: "Ouroboros District"
 type: entity
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -87,14 +87,14 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 | Game (manual, adventures) | Chapters 03–07; *El Espejo Roto* | `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`; `lore/adventures/tabletop/el-espejo-roto.md` |
 | House (canon, standards, agents, guilds of the archive) | One canon mention (a fan's story setting); flagged undefined | `principles/PRI-005-licensing.md` — «a story set in the Ouroboros»; `reports/RPT-022-the-newcomer-test.md` — «Names used and never defined in canon» |
 | Web (numinia.org, numinia.com) | .org: "Play" district. .com: district record, seal, four spaces | `web/src/lib/summa.ts`; `numinia-web:packages/domain/src/constants/districts.ts` |
-| Processes | None found in `agents/`, `AGENTS.md`, STD-026, BLU-007, BLU-011 | inferred: grep of those paths |
+| Processes | None found in `agents/`, `AGENTS.md`, STD-026, DES-007, DES-011 | inferred: grep of those paths |
 
 ## Existing equivalences
 
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
 | `STD-030` | Only via its faction: Heirs of Eleusis = «Gamification / Experience» | reductive | The district is the faction's territory, so the faction's label reaches it; «gamification» keeps a tool of play and drops narration, ritual and dream |
-| `BLU-007` | None | pending | District not named |
+| `DES-007` | None | pending | District not named |
 | `web/src/lib/summa.ts` | "Play" = «the role-playing game, the adventures and experiences for events» | partial | Right label: it names the prevailing meaning, and the other facets sit inside play (Christian's review, 2026-09-29). What the map lists under it is the product line only |
 | `numinia-web:packages/domain/src/constants/districts.ts` | «The labyrinth of play: the theatre of uncertainty» | partial | Faithful to one heading; ignores «Ritual y el Sueño» |
 

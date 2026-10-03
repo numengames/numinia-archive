@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-009"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "1.0.7"
+version: "1.0.8"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -75,7 +75,7 @@ claim of precedence is not, and is void.
 
 Three kinds of document oblige: a principle says why, a standard says what an
 artefact must satisfy, a procedure says how an actor carries something out.
-Everything else — a decision, a report, a mission, a debt, a blueprint —
+Everything else — a decision, a report, a mission, a debt, a design —
 records what happened, what was decided or what exists, and a record cannot
 put anyone in breach. So an obligation written anywhere else is a plan until
 a standard sustains it, and a reader can tell whether a sentence binds them

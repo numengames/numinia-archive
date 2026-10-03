@@ -5,11 +5,11 @@ title: "The header"
 type: standard
 subtype: standard
 status: active
-version: "4.15.0"
+version: "4.16.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 approved_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -175,7 +175,7 @@ standards; those rule IDs are deprecated there.
 | `absorbs` | a later record carries the earlier reasoning; the old identifier keeps resolving |
 | `approved_by` | an authority promoted or confirmed the record (document control's *approval*, ISO 9001 7.5.2) |
 | `parent_mission` | a bounded child of a larger mission |
-| `former_id` | the identifier before a governed move — a reshelving, or a series taking a new prefix (`CAN-NNN` → `PRI-NNN`, 2026-10-03); the old identifier keeps resolving |
+| `former_id` | the identifier before a governed move — a reshelving, or a series taking a new prefix (`CAN-NNN` → `PRI-NNN`, `BLU-NNN` → `DES-NNN`, 2026-10-03); the old identifier keeps resolving |
 
 ### Outside meaning
 
@@ -215,7 +215,7 @@ where the industry's name is the better one.
 | `principles/` | `absorbs` |
 | `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) · `entity` `executor` `forms` (the entity card `AGENT.md`) · `automation_level` (the operator file `OPERATOR.md`: assisted · partial · conditional · high · full) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
-| `blueprints/` `operations/` `legal/` | `extraction_note` `restoration_note` |
+| `designs/` `operations/` `legal/` | `extraction_note` `restoration_note` · `designs/` (`blueprints/` until 2026-10-03): `former_id` `former_id_note` |
 | `operations/` | `goods` — an offer's cards on sale, which the site reads its prices from (`STD-033` PAY-003) |
 | `procedures/` | `applies_to` `mandatory` |
 | `system/` | `category` `stage` `confidence` (a card of the semantic census, an entry of `SYS-011`) · `category` (a supplier card, an entry of `SYS-012`) |
@@ -234,7 +234,7 @@ key never used) and the other field names from the Spanish era (`ADR-067`).
 
 | Field | Values | Rule ID |
 |---|---|---|
-| `type` | the closed list in `STD-001`, plus `agent` for `agents/`; a document of `standards/` is `type: standard`, one of `principles/` is `type: principle` (`seminal` until 2026-10-03) | HDR-003 |
+| `type` | the closed list in `STD-001`, plus `agent` for `agents/`; a document of `standards/` is `type: standard`, one of `principles/` is `type: principle` (`seminal` until 2026-10-03), one of `designs/` is `type: design` (`blueprint` until 2026-10-03) | HDR-003 |
 | `type` → series | strict for registered genres, `standard` among them; warn-only for the two general ones | HDR-017 |
 | `subtype` | reports: `audit` `analysis` `proposal` `rollup` (`daily` deprecated, `STD-012`) · standard: `standard` `register` · documentation: `register` `guide` `reference` | HDR-018 |
 | `guild` | `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` | HDR-033 |

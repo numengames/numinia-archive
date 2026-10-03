@@ -25,7 +25,7 @@ path = [
   "machine/telemetry/latest.json",
   "machine/telemetry/latest.md",
   "machine/templates/ADR-TEMPLATE.md",
-  "machine/templates/BLU-TEMPLATE.md",
+  "machine/templates/DES-TEMPLATE.md",
   "machine/templates/PRI-TEMPLATE.md",
   "machine/templates/DBT-TEMPLATE.md",
   "machine/templates/MIS-TEMPLATE-EXAMPLE.md",

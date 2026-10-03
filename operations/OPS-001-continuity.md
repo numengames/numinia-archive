@@ -4,11 +4,11 @@ uid: ""
 title: "Continuity and adaptability of the system"
 type: documentation
 status: active
-version: "1.0.4"
+version: "1.0.5"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Technology"
@@ -80,7 +80,7 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 
 ### ⚡ EXECUTE — "What should I do?"
 
-- **What it does:** Reads missions/active/, blueprints/, decisions/. It knows what is pending, what was decided and why.
+- **What it does:** Reads missions/active/, designs/, decisions/. It knows what is pending, what was decided and why.
 - **❌ Without the repo:** Asks the human everything from scratch. No context.
 - **✅ With the repo:** Continues where the previous Nimrod left off. No unnecessary questions.
 
@@ -100,7 +100,7 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 | 📜 `principles/` | The foundational documents of Numinia. The Constitution. | ✅ |
 | ⚡ `missions/` | Every mission with history, criteria, epistemic value and Real Execution. | ✅ |
 | 🪨 `decisions/` | Every decision with its context, rejected alternatives and why. | ✅ |
-| 📐 `blueprints/` | Current and target state of each subsystem. Gaps and dependencies. | — |
+| 📐 `designs/` | Current and target state of each subsystem. Gaps and dependencies. | — |
 | 📋 `reports/` | Daily operations history. What happened, what it cost, what was learned. | — |
 | 📌 `procedures/` | Operating procedures. How to boot, close, escalate, coordinate. | — |
 | ⚙️ `operations/` | Governance, security, credential map. | — |

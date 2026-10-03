@@ -97,8 +97,8 @@ const DEFERRAL_OWNER = {};
    moving them breaks live references. Registered with the reason, not
    parked in a baseline. */
 const SETTLED_ELSEWHERE = new Set([
-  'blueprints/AUDIT-2026-04-07-web-vs-repo.md',
-  'blueprints/AUDIT-numengames-2026-04-08.md',
+  'designs/AUDIT-2026-04-07-web-vs-repo.md',
+  'designs/AUDIT-numengames-2026-04-08.md',
   'operations/OPS-009-secrets-handling.md',
 ]);
 

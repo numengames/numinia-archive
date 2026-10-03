@@ -56,7 +56,7 @@ const OUTWARD = /^(AGENTS|CLAUDE|CODE_OF_CONDUCT|CONTRIBUTING|CHANGELOG|SECURITY
 /* ---------- DEF-009: the resolver ---------- */
 
 // Registers that live in prose, not as documents (CON, FLAG, SEC, ARC, G,
-// MISSION) and the OLD blueprints slug scheme (BP-; BLU-NNN resolves).
+// MISSION) and the OLD designs slug scheme (BP-; DES-NNN resolves).
 const IGNORED_PREFIX = /^(CON|FLAG|SEC|ARC|G|MISSION|BP)-/;
 // One range of decision records lives in the web repository, not this one.
 // The rule is to cite them qualified (web:<id>); about twenty briefs predate

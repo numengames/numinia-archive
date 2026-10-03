@@ -3,9 +3,9 @@ id: "SYS-011:rank-oracle"
 title: "Oracle"
 type: entity
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -94,8 +94,8 @@ The Oracle is the highest rank. Each rank contains every rank below it (cited: `
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
 | `STD-030` | none for Oracle; it defers the ranks to «a document of their own» | pending | No business term has been proposed yet |
-| `BLU-007` | Executive / Founder / Council Lead / Arconte / Oráculo | reductive | «Founder» captures the founding facet. «Executive» contradicts the manual's «no gobiernan». Using «Arconte» at stop 7 merges two ranks |
-| `BLU-007` Numinia stop | «The Oráculos govern from the Summa Archive» | contradictory | Manual: «no gobiernan»; the Archive was founded by the Council, with the Oracles' endorsement |
+| `DES-007` | Executive / Founder / Council Lead / Arconte / Oráculo | reductive | «Founder» captures the founding facet. «Executive» contradicts the manual's «no gobiernan». Using «Arconte» at stop 7 merges two ranks |
+| `DES-007` Numinia stop | «The Oráculos govern from the Summa Archive» | contradictory | Manual: «no gobiernan»; the Archive was founded by the Council, with the Oracles' endorsement |
 | `STD-003` | admin / top RBAC role | partial | Covers permissions and the facet of being unbannable. Drops the founding and ethical facets |
 | `PRI-004` | co-founder | partial | Accurate, but says nothing of the approver or operator facets |
 
@@ -113,5 +113,5 @@ The Oracle is the highest rank. Each rank contains every rank below it (cited: `
 - `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`, `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md`, `lore/codex/glosario.md` — world facets
 - `lore/game/attributes-and-ranks.md`, `principles/PRI-004-role-structure.md`, `lore/game/manual/glossary-es-en.md` — rank and names
 - `standards/STD-003-platform-ranks.md`, `standards/STD-017-who-may-change-what.md`, `agents/INDEX.md`, `AGENTS.md`, `web/src/lib/agents.ts` — house facets
-- `blueprints/BLU-007-dual-nomenclature.md`, `standards/STD-030-the-worlds-vocabulary.md` — equivalences
+- `designs/DES-007-dual-nomenclature.md`, `standards/STD-030-the-worlds-vocabulary.md` — equivalences
 - `numinia-web:packages/domain/src/constants/ranks.ts`, `permissions.ts` — platform

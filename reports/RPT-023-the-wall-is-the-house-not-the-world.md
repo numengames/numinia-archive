@@ -5,9 +5,9 @@ title: "The wall a newcomer hits is the house's own words, not the world's"
 type: report
 subtype: analysis
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-09-29T08:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -19,7 +19,7 @@ scope: "The files a newcomer reads first — README.md, CONTRIBUTING.md, AGENTS.
 evidence_head: "854b774"
 model: "claude-opus-5-5"
 agent: "ursa"
-related: ["BLU-007", "STD-026", "STD-030", "RPT-022", "PRI-007", "SYS-011"]
+related: ["DES-007", "STD-026", "STD-030", "RPT-022", "PRI-007", "SYS-011"]
 ---
 
 <!--
@@ -47,7 +47,7 @@ SPDX-License-Identifier: CC-BY-4.0
 **The instrument.** The front matter of each file below is stripped and
 every occurrence of a term is counted as a whole word, singular or plural,
 case-insensitive except for the game's proper names. The same term is then
-searched in the three existing vocabularies: `BLU-007` (the two dials),
+searched in the three existing vocabularies: `DES-007` (the two dials),
 `STD-026` (operative vocabulary) and `STD-030` (the world's vocabulary).
 
 **The corpus.** 18 files, about 21 979 words: `README.md`,
@@ -77,7 +77,7 @@ Prism Cell, Seal, Dark Council, Session Zero, Akasha, Ostramires: zero.
 | canon | 45 | 13 | no |
 | binds | 36 | 18 | no |
 | draft | 36 | 11 | no |
-| Oracle | 23 | 8 | yes, in `BLU-007` and `STD-030` |
+| Oracle | 23 | 8 | yes, in `DES-007` and `STD-030` |
 | register | 23 | 6 | no |
 | Pragmatic | 16 | 13 | no |
 | in force | 15 | 7 | no |
@@ -105,7 +105,7 @@ delivered is written in `operations/OPS-011-positioning-and-market.md`,
 outside the corpus a newcomer reads, addressed to Oracles.
 
 **The vocabularies disagree on the guilds.** The Sentinels are *Head of
-Operations* in `BLU-007` and *People / Community / Support* in `STD-030`;
+Operations* in `DES-007` and *People / Community / Support* in `STD-030`;
 the Exegetes carry three different business equivalents across the
 sources. The disagreement is not settled by picking one source: it is the
 first evidence that one entity holds several facets (see below).
@@ -174,7 +174,7 @@ defines them as manifestation, depth and refraction.
 - **An entity is not translated by one word** (Christian's review,
   2026-09-29). Many entities embody a concept with several facets; one
   business equivalent keeps one facet and reduces or falsifies the rest.
-  The existing equivalents in `STD-030` and `BLU-007` are therefore
+  The existing equivalents in `STD-030` and `DES-007` are therefore
   hypotheses. The dial rests on *entity → concept → facet → context →
   formulation*, and the first four layers are described once, in a census,
   before any formulation is written.
@@ -217,7 +217,7 @@ press reports.
 
 | Identifier | Title | Why it is cited |
 |---|---|---|
-| `BLU-007` | Two Dials. One System. | the dial design and its vocabulary map |
+| `DES-007` | Two Dials. One System. | the dial design and its vocabulary map |
 | `STD-026` | Operative vocabulary | the business-term vocabulary searched |
 | `STD-030` | The world's vocabulary | the game vocabulary searched; its equivalents are hypotheses |
 | `RPT-022` | The newcomer test | the canon-only baseline this report widens |

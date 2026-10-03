@@ -1,16 +1,18 @@
 ---
-id: "BLU-009"
+id: "DES-009"
 uid: ""
 title: "Web pieces"
-type: blueprint
+type: design
+former_id: "BLU-009"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.2.2"
+version: "1.2.3"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
-tags: [blueprint, design, recipes]
+tags: [design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
 related: ["STD-008", "STD-023", "PRI-008"]
@@ -22,14 +24,14 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# BLU-009 — Web pieces
+# DES-009 — Web pieces
 
 > **Summary:** How a corporate web piece is built with the system: colour semantics, the sans/mono contrast, composition, the binary and the relief, icon use, the mode switch, brand placement, every component from button to modal, the motion vetoes, the typing implementation and the accessibility floor.
 > **Epistemic:** The recipes the old standard carried for the Umbral register; every value they name is in `STD-023`.
 > **Pragmatic:** Building or reviewing a web page, product screen, document or deck.
 > **Audience:** Agents · Oracles
 
-> **A blueprint is a design not yet executed.** This one is: every recipe here is in production. It stays a blueprint because a recipe is how, not whether — the rules are `STD-008`, the values `STD-023`.
+> **A design describes what is not yet built.** This one is built: every recipe here is in production. It stays a design because a recipe is how, not whether — the rules are `STD-008`, the values `STD-023`.
 
 ## 1. Colour semantics and categorical palettes
 
@@ -110,7 +112,7 @@ Rules: one patina per piece; the patina does not change the palette — it inter
 A custom icon only if Phosphor does not cover the concept; it is drawn on its grid and proposed here as an extension. **The scarab and the Moon are not icons: they are marks** — the sequence marker's phases are built as a proper geometric glyph, not with Phosphor's `moon`.
 
 ### The mode switch
-Every public web carries it (`STD-037` SIT-003). The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: the icon shows the mode a tap leads to, not the mode you are in** — the moon with stars invites the Nocturno, the sun invites the Diurno. Only one visible at a time, in `regular` 20 px, among the bar's utilities (`BLU-009` §12). Behavior canonized from production: while nobody chooses, the page **follows the operating system** and changes with it at nightfall; an explicit choice ends the following and is remembered; the preference is applied **before painting** so the page does not flash. The state is written on the document as `data-modo`, and its **absence means Nocturno** — light mode is always declared explicitly.
+Every public web carries it (`STD-037` SIT-003). The `moon-stars` / `sun` pair is one piece, not two loose icons. **Hard rule: the icon shows the mode a tap leads to, not the mode you are in** — the moon with stars invites the Nocturno, the sun invites the Diurno. Only one visible at a time, in `regular` 20 px, among the bar's utilities (`DES-009` §12). Behavior canonized from production: while nobody chooses, the page **follows the operating system** and changes with it at nightfall; an explicit choice ends the following and is remembered; the preference is applied **before painting** so the page does not flash. The state is written on the document as `data-modo`, and its **absence means Nocturno** — light mode is always declared explicitly.
 
 ## 6. Brand: how yes, how no
 
@@ -129,7 +131,7 @@ All demonstrated live in `index.html`.
 
 | Type | Style | When |
 |---|---|---|
-| **Primary** | Action fill `#017C8D`, white text | The main action. **One per view**. On Platform, the primary is ink (`BLU-014`) |
+| **Primary** | Action fill `#017C8D`, white text | The main action. **One per view**. On Platform, the primary is ink (`DES-014`) |
 | **Ghost** | Transparent, `linea.fuerte` border; hover border+text Verdemar | Secondary action |
 | **Quiet** | Verdemar text only, underline on hover | Tertiary action |
 | **Destructive** | Grana fill, white text | Irreversible. **Confirmation mandatory. Never next to the primary** |
@@ -215,7 +217,7 @@ Nocturno, 12 col, content ≤1100 px (`STD-023` §23), hero = the thesis with re
   <h1 data-tecleo>La tesis en una frase, con <span style="color:var(--ambar)">una palabra</span> en Ámbar.</h1>
   <p class="sub"><!-- cuerpo.l, texto-2, máx 56ch, nivel II --></p>
   <a class="btn btn-primario" href="#"><!-- verbo exacto; ÚNICO primario de la vista --></a>
-  <div class="binaria" aria-hidden="true">0100110001100101…xxxx</div><!-- la frase del principles en 8 bits: `BLU-009` §3 · binaria() del kit -->
+  <div class="binaria" aria-hidden="true">0100110001100101…xxxx</div><!-- la frase del principles en 8 bits: `DES-009` §3 · binaria() del kit -->
 </section>
 ```
 

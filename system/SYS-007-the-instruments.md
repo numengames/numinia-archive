@@ -5,9 +5,9 @@ title: "The tooling: what checks, measures and templates the archive"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.4"
+version: "0.1.5"
 created: "2026-09-21T18:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, tooling, checks, tools, scripts, telemetry, templates]
@@ -33,7 +33,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 > **A system document is a reference manual, not a plan.** It describes what
-> exists. What could exist belongs in `blueprints/`; what must be built
+> exists. What could exist belongs in `designs/`; what must be built
 > belongs in a mission.
 
 ---

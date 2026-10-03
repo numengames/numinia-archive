@@ -36,7 +36,7 @@ export const STOPS = [
 export const SITE_NAME = {
   plain: { text: "numinia.org, the archive of Numen Games", source: "standards/STD-037-what-every-site-carries.md" },
   bridge: { text: "the archive of Numinia", source: "lore/game/manual/en/06-inventory-and-bestiary.md" },
-  numinia: { text: "the Summa Archive", source: "blueprints/BLU-007-dual-nomenclature.md" },
+  numinia: { text: "the Summa Archive", source: "designs/DES-007-dual-nomenclature.md" },
 };
 
 /** A page's title at a level: its own name, then the site's. The home is the site alone. */
@@ -81,7 +81,7 @@ export const WORDS = [
   {
     bridge: "The world",
     plain: { text: "Product and brand", source: "web/src/lib/summa.ts" },
-    numinia: { text: "The City", source: "blueprints/BLU-007-dual-nomenclature.md" },
+    numinia: { text: "The City", source: "designs/DES-007-dual-nomenclature.md" },
   },
   { bridge: "The offer", plain: { text: "Offer and relations", source: "web/src/lib/summa.ts" } },
 
@@ -103,28 +103,33 @@ export const WORDS = [
   { bridge: "Standards", plain: { text: "Policies", source: "web/src/lib/summa.ts" } },
   { bridge: "Missions", plain: { text: "Project", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Adventures", plain: { text: "Experience", source: "standards/STD-030-the-worlds-vocabulary.md" } },
-  { bridge: "Blueprints", plain: { text: "System Blueprint", source: "blueprints/BLU-007-dual-nomenclature.md" } },
+  // Designs: the business word IS design document (the RFC-style proposals:
+  // PEP, Rust RFC, Kubernetes KEP; a vendor's *blueprint* is a deployable
+  // template, which this is not), so no plain word replaces it (ADR-067,
+  // cut 4). Blueprints, the series' word until 2026-10-03, stays as the word
+  // of the Numinia stop (DES-007's table).
+  { bridge: "Designs", numinia: { text: "Blueprints", source: "designs/DES-007-dual-nomenclature.md" } },
   // Procedures: the business word IS procedure (ISO 9000:2015 3.4.5 — a process is
   // the set of activities, a procedure the specified way to carry one out), so no
   // plain or Numinia word replaces it (ADR-067, cut 2).
   {
     bridge: "Decisions",
-    plain: { text: "Decision Record", source: "blueprints/BLU-007-dual-nomenclature.md" },
-    numinia: { text: "Decision Stone", source: "blueprints/BLU-007-dual-nomenclature.md" },
+    plain: { text: "Decision Record", source: "designs/DES-007-dual-nomenclature.md" },
+    numinia: { text: "Decision Stone", source: "designs/DES-007-dual-nomenclature.md" },
   },
-  { bridge: "Reports", numinia: { text: "Dispatch", source: "blueprints/BLU-007-dual-nomenclature.md" } },
-  { bridge: "Agents", plain: { text: "Team", source: "blueprints/BLU-007-dual-nomenclature.md" } },
+  { bridge: "Reports", numinia: { text: "Dispatch", source: "designs/DES-007-dual-nomenclature.md" } },
+  { bridge: "Agents", plain: { text: "Team", source: "designs/DES-007-dual-nomenclature.md" } },
 
   // ── the archive itself, by both of the names the site gives it
   {
     bridge: "The Summa",
-    plain: { text: "Knowledge Base", source: "blueprints/BLU-007-dual-nomenclature.md" },
-    numinia: { text: "Summa Archive", source: "blueprints/BLU-007-dual-nomenclature.md" },
+    plain: { text: "Knowledge Base", source: "designs/DES-007-dual-nomenclature.md" },
+    numinia: { text: "Summa Archive", source: "designs/DES-007-dual-nomenclature.md" },
   },
   {
     bridge: "The archive",
-    plain: { text: "Knowledge Base", source: "blueprints/BLU-007-dual-nomenclature.md" },
-    numinia: { text: "Summa Archive", source: "blueprints/BLU-007-dual-nomenclature.md" },
+    plain: { text: "Knowledge Base", source: "designs/DES-007-dual-nomenclature.md" },
+    numinia: { text: "Summa Archive", source: "designs/DES-007-dual-nomenclature.md" },
   },
 ];
 

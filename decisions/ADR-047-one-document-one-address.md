@@ -4,9 +4,9 @@ uid: ""
 title: "One document, one address: /corpus/ is removed and dead redirects are deleted"
 type: adr
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-20T20:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -54,7 +54,7 @@ Measured on the build of `4fe4fc6`:
 
 *The prefix is half-applied.* `principles/`, `standards/`, `protocols/`, `system/`,
 `operations/`, `agents/`, `objects/` and `debt/` resolve under `/corpus/`;
-`decisions/`, `blueprints/`, `missions/` and `reports/` do not.
+`decisions/`, `designs/`, `missions/` and `reports/` do not.
 `web/src/lib/corpus.ts` documented the split rather than resolving it:
 *four sections resolve under /corpus/, two do NOT … predating this model*.
 Neither a reader nor an agent can derive an address from the series.

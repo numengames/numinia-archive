@@ -3,7 +3,7 @@ Diseño es la experiencia entera — lo que se ve, se lee, se oye, se mueve y se
 Fuerza antes que medio (CAN-008): 1 Umbral (la base: web, deck, documento, factura,
 interfaz, evento, email) · 2 Velo (la profundidad: archivo, Summa, visores) · 3 Prisma
 (el cuerpo del mundo, en dos manifestaciones: low-poly 3D y píxel 2D). Las fuerzas no se
-apilan: se enmarcan, con frontera visible. Recetas por medio: BLU-009…BLU-015 — cópialas,
+apilan: se enmarcan, con frontera visible. Recetas por medio: DES-009…DES-015 — cópialas,
 no las reescribas. Las referencias § de abajo son de la guía v5 retirada: ante duda,
 mandan STD-008 (reglas) y STD-023 (valores).
 Dirección: Solarpunk 40 / Steampunk 40 / Cyberpunk 20. La luz domina, la máquina

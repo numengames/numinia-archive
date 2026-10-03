@@ -136,7 +136,7 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 - `objects/` — entity cards: one Markdown per registered thing that is not a
   document (an avatar, a model). The bytes live in the depot.
 - `system/` — reference manuals of how the system works today.
-- `blueprints/` — architecture documents · `web/` — the Astro viewer ·
+- `designs/` — architecture documents · `web/` — the Astro viewer ·
   `machine/` — guards, scripts, tools and telemetry.
 
 The folders above are all there is. Do not infer a directory's purpose from

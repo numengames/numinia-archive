@@ -2,12 +2,12 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// /blueprints/meta — the mapping protocol: how a blueprint is made, kept and
+// /designs/meta — the mapping protocol: how a design is made, kept and
 // versioned.
 //
 // ON THE LANGUAGE. This page was written in Spanish while the rest of the
 // site moved to English, so a reader following "The mapping protocol →" from
-// the blueprints index changed language mid-click. The words are translated
+// the designs index changed language mid-click. The words are translated
 // here, nothing else: the same sections, the same claims, the same signature.
 //
 // ON THE CONTENT. Every sentence below lives in this template rather than in
@@ -20,29 +20,29 @@ import Icon from "@/components/Icon.astro";
 
 <Layout
   title="The CAO mapping protocol — Numen Games"
-  description="How the blueprints of Numen Games are created, kept and versioned."
-  canonicalPath="/blueprints/meta"
+  description="How the designs of Numen Games are created, kept and versioned."
+  canonicalPath="/designs/meta"
 >
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
 
-      <a href="/blueprints" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+      <a href="/designs" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
         <Icon name="caret-left" size={12} />
-        Blueprints
+        Designs
       </a>
 
       <div class="mb-8">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Meta-blueprint</span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">Meta-design</span>
         <h1 class="font-display text-3xl sm:text-4xl text-foreground mt-2 mb-3">The CAO mapping protocol</h1>
-        <p class="font-mono text-sm text-dim italic">"Before building Numinia, the Oracles drew its blueprints. A world without a map is a world walked blind."</p>
+        <p class="font-mono text-sm text-dim italic">"Before building Numinia, the Oracles drew its designs. A world without a map is a world walked blind."</p>
       </div>
 
       <div class="space-y-6">
 
         <div class="rounded-[8px] border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">What is a blueprint?</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">What is a design?</p>
           <p class="text-sm text-muted-foreground leading-relaxed mb-4">
-            A blueprint is a living document that answers the <strong class="text-foreground">five W's of journalism</strong>, applied to architecture:
+            A design is a living document that answers the <strong class="text-foreground">five W's of journalism</strong>, applied to architecture:
           </p>
           <div class="grid gap-3 sm:grid-cols-2">
             {[
@@ -61,10 +61,10 @@ import Icon from "@/components/Icon.astro";
         </div>
 
         <div class="rounded-[8px] border border-border bg-card p-6">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Blueprint, mission, report — the difference</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-4">Design, mission, report — the difference</p>
           <div class="space-y-3">
             {[
-              { tipo: "Blueprint", desc: "Architecture — how the system works. Permanent; it lives as long as the system does.", color: "text-accent" },
+              { tipo: "Design", desc: "Architecture — how the system works. Permanent; it lives as long as the system does.", color: "text-accent" },
               { tipo: "Mission", desc: "Action — what has to be done. Temporary; it has a beginning and an end.", color: "text-blue" },
               { tipo: "Report", desc: "Memory — what happened and what we learnt. Historical; not edited once published.", color: "text-purple" },
             ].map((item) => (

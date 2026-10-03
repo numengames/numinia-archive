@@ -8,7 +8,7 @@
  * THE RULE THIS IMPLEMENTS
  * ------------------------
  * P-010 §5 used to answer "may I delete this?" with the document's GENRE:
- * debt and blueprints could die, everything else could not, and adding a
+ * debt and designs could die, everything else could not, and adding a
  * third series took its own ADR. That is a permission system indexed on
  * folders, and it cost an ADR per folder while never checking the thing
  * that actually breaks — the consumers.

@@ -57,7 +57,7 @@ const ALLOWED = new Map([
   // deleted — /design is drawn from the documents instead (SYS-009).
   // RESOLVED 2026-08-25, and removed from this list rather than left to rot:
   //   archive/archive-summa-{arquitectura,fundacional,prompt}-v0.1.0.md
-  // The three were divergent second copies of blueprints/archive-summa-*.
+  // The three were divergent second copies of designs/archive-summa-*.
   // BLU-005-archive-fondos.md's download links were repointed at the corpus copies
   // and the public/ files retired. An allow-list entry that outlives its case
   // is the rot this list is meant to avoid.
@@ -66,7 +66,7 @@ const ALLOWED = new Map([
 // A public/ file whose basename also exists in the corpus is worse than an
 // orphan: it is a SECOND COPY on a divergent path. Report it as such.
 const CORPUS_DIRS = ["principles", "missions", "decisions", "procedures", "operations",
-                     "reports", "blueprints", "agents", "guilds", "standards", "debt"];
+                     "reports", "designs", "agents", "guilds", "standards", "debt"];
 
 // Assets are not orphan *content*: they carry no prose and make no claims.
 const ASSET_RE = /\.(woff2?|ttf|otf|eot|png|jpe?g|gif|svg|ico|webp|avif|mp4|webm|css|js|mjs|map|txt|xml|json|pdf|zip)$/i;

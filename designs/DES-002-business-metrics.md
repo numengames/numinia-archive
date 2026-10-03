@@ -1,12 +1,14 @@
 ---
-id: "BLU-002"
+id: "DES-002"
 uid: ""
 title: "Business Metrics Framework — NWOS CAO"
-type: blueprint
+type: design
+former_id: "BLU-002"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-04-07T18:53:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [metrics, business, kpi, roi, cao, framework]

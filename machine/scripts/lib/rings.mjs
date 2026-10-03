@@ -39,7 +39,7 @@ export const RING3 = {
     'phase', 'updated_note', 'blocks', 'mission_mode',
     // MIS-132/133/134 (2026-09-02): a letter-suffixed sub-mission or an
     // unregistered proposal that entered the series keeps its old identifier
-    // resolving (ADR-004 rule 4), same as reports/ and blueprints/.
+    // resolving (ADR-004 rule 4), same as reports/ and designs/.
     'former_id', 'former_id_note'],
   'reports': ['severity', 'period', 'subtype', 'model', 'agent', 'week', 'scope',
     // ADR-035: a document reshelved into reports/ from another series carries
@@ -89,8 +89,11 @@ export const RING3 = {
     // so consolidating debt does not break every citation of it (ADR-030).
     'absorbs',
     'resolved_by', 'question_status', 'visibility_was', 'scope', 'supersedes_pending'],
-  // semaforo deprecated 2026-10-03: a Spanish-era key no blueprint ever carried.
-  'blueprints': ['extraction_note', 'restoration_note',
+  // semaforo deprecated 2026-10-03: a Spanish-era key no design ever carried.
+  // former_id/former_id_note registered 2026-10-03 (ADR-067 cut 4): the series
+  // took the prefix DES- for BLU-, and ADR-004 rule 4 never frees an old
+  // identifier, so each document says what it used to be called.
+  'designs': ['extraction_note', 'restoration_note', 'former_id', 'former_id_note',
     'score', 'score_prev', 'scope', 'mission', 'input',
     'related_missions', 'contributors'],
   // goods: an offer record's cards on sale, read by the site (STD-033

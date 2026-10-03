@@ -124,7 +124,7 @@ const SERVED_AT: Record<string, { href: string | null; label?: string; unpublish
   "standards/": { href: "/standards/" },
   "procedures/": { href: "/procedures/" },
   "decisions/": { href: "/decisions/" },
-  "blueprints/": { href: "/blueprints/" },
+  "designs/": { href: "/designs/" },
   "missions/": { href: "/missions" },
   "reports/": { href: "/reports" },
   "debt/": { href: "/debt/" },

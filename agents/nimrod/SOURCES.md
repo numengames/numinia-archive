@@ -3,9 +3,9 @@ agent: nimrod
 title: "SOURCES — Nimrod"
 type: agent
 status: draft
-version: "0.1.4"
+version: "0.1.5"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
@@ -85,7 +85,7 @@ Consult the relevant top-level area according to the question:
 - `procedures/` — what procedure an actor follows;
 - `missions/` — what work is being or was performed;
 - `decisions/` — why an adopted decision was made;
-- `blueprints/` — proposed or designed structures not necessarily implemented;
+- `designs/` — proposed or designed structures not necessarily implemented;
 - `operations/` — business and operational records;
 - `reports/` — observed evidence and audits;
 - `debt/` — known unresolved problems;
