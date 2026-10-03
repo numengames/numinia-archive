@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "0ab274a",
-  "corpus_hash": "366dcdab2f8421e992b43546c9dde1afe788fc86321cf139d7342d130e253bdf",
+  "head": "3e7e820",
+  "corpus_hash": "223dad8865ee9616e6f1bb119dfc21d93402c00176a6007d7fe1fa6cbc0a19ce",
   "root_dirty": 0,
-  "measured_at": "2026-10-02T19:42:59Z",
+  "measured_at": "2026-10-03T08:11:33Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 788,
+      "value": 789,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,7 +34,7 @@
         ".js": 2,
         ".json": 15,
         ".md": 335,
-        ".mjs": 118,
+        ".mjs": 119,
         ".png": 36,
         ".svg": 75,
         ".toml": 3,
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 335,
-          "bytes": 3712467
+          "bytes": 3712690
         },
         "Code": {
-          "files": 248,
-          "bytes": 2267993
+          "files": 249,
+          "bytes": 2276954
         },
         "Image": {
           "files": 114,
@@ -148,13 +148,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 80,
+      "value": 81,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 80
+        "node": 81
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -364,7 +364,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 935089,
+      "value": 935156,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -382,7 +382,7 @@
         "opportunities": 25198,
         "canon": 19794,
         "missions": 17661,
-        "": 15782,
+        "": 15849,
         "legal": 13033,
         "debt": 9702,
         "decisions": 9661,
@@ -394,7 +394,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 514837,
+        "(none)": 514904,
         "draft": 209631,
         "active": 191467,
         "todo": 13525,

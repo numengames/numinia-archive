@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.131.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "CHG", text: "The site has one name, said at your narrative level. Every tab reads the page, then the site: at L1 'numinia.org, the archive of Numen Games', at L2 'the archive of Numinia', at L3 'the Summa Archive'. The seven names a tab could show before (the Summa, numinia-archive, Numen Games CAO, NWOS, Numinia, Numen Games, Pablo FM) are gone. Search engines, link cards and agents read L1." },
+      { type: "CHG", text: "The moon in the bar is the narrative level: its dial names its three stops L1, L2 and L3, and its title says Narrative level." },
+    ],
+  },
+  {
     version: "v0.130.0",
     date: "2026-10-02",
     entries: [

@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation.astro";
 import Footer from "@/components/Footer.astro";
 import Wayfinder from "@/components/Wayfinder.astro";
 import CookieNotice from "@/components/CookieNotice.astro";
+import { siteTitle, pageTitleOf } from "@/lib/narrative-words.mjs";
 
 interface Props {
   title?: string;
@@ -22,13 +23,18 @@ interface Props {
 // read. Two sites never present alike; nwos.numen.games is the service,
 // this is the archive.
 const {
-  title = "NWOS — the archive of Numen Games",
+  title = "",
   description = "The archive of Numen Games, built in public: canon, decisions, missions, how the work is done.",
   canonicalPath = "",
   ogImage,
   activeNav,
 } = Astro.props;
 
+// One name for the site, per narrative level (narrative-words SITE_NAME). The
+// page's own name is kept apart so the dial can re-title the tab at L2 and L3;
+// the served title is L1, the level search engines and link cards read.
+const pageName = pageTitleOf(title);
+const fullTitle = siteTitle(pageName);
 const siteUrl = "https://numinia.org";
 const canonical = `${siteUrl}${canonicalPath}`;
 const resolvedOgImage = ogImage ?? `${siteUrl}/og-card.png`;
@@ -88,20 +94,20 @@ const ogLocale = "en_US";
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="NWOS — Numen Games" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={resolvedOgImage} />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={resolvedOgImage} />
 
     <!-- Fonts: Geist (loaded via @fontsource-variable in Layout frontmatter) -->
 
-    <title>{title}</title>
+    <title data-nw-page={pageName}>{fullTitle}</title>
 
     <slot name="head" />
   </head>

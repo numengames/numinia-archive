@@ -22,10 +22,46 @@
  * moon and the full moon enrich them. The site opens there.
  */
 export const STOPS = [
-  { id: "plain", moon: "new", say: "Plain words, like any company's documentation. The archive is written in these." },
-  { id: "bridge", moon: "half", say: "Half and half: plain words with Numinia's beside them." },
-  { id: "numinia", moon: "full", say: "Numinia's own words, where the archive has them." },
+  { id: "plain", level: "L1", moon: "new", say: "L1 · Plain words, like any company's documentation. The archive is written in these." },
+  { id: "bridge", level: "L2", moon: "half", say: "L2 · Half and half: plain words with Numinia's beside them." },
+  { id: "numinia", level: "L3", moon: "full", say: "L3 · Numinia's own words, where the archive has them." },
 ];
+
+/**
+ * The site's own name at each level (the Oracle, 2026-10-02). Every page's
+ * title ends with it, so the tab says one name, never seven. L1 is the page
+ * as served: what search engines, link cards and agents read. Each name is
+ * copied from the file in `source`, as every word here is.
+ */
+export const SITE_NAME = {
+  plain: { text: "numinia.org, the archive of Numen Games", source: "standards/STD-037-what-every-site-carries.md" },
+  bridge: { text: "the archive of Numinia", source: "lore/game/manual/en/06-inventory-and-bestiary.md" },
+  numinia: { text: "the Summa Archive", source: "blueprints/BLU-007-dual-nomenclature.md" },
+};
+
+/** A page's title at a level: its own name, then the site's. The home is the site alone. */
+export function siteTitle(page, stop = "plain") {
+  const site = SITE_NAME[stop]?.text ?? SITE_NAME.plain.text;
+  return page ? `${page} — ${site}` : site;
+}
+
+/**
+ * The page's own name inside a title a page wrote by hand. Pages used to end
+ * their titles with whatever the site was called where they were written —
+ * "Numen Games CAO", "numinia-archive", "NWOS", "Pablo FM", "the Summa" — so
+ * the suffix is dropped here and the site's one name is added by siteTitle.
+ */
+const RETIRED_SUFFIX = /\s+(—|·)\s+(numinia\.org, the archive of Numen Games|the archive of Numinia|the Summa Archive|NWOS(, the archive of Numen Games)?|numinia-archive|Numen Games CAO|Numen Games S\.L\.|Numen Games|Numinia|Pablo FM|the Summa|the core, as a flow|how the archive is classified · Numen Games|every series of Numen Games)\s*$/;
+const RETIRED_PREFIX = /^(NWOS|Numinia)\s+—\s+/;
+const SITE_ALONE = /^(NWOS — the archive of Numen Games|Numinia — the Summa|numinia\.org(, the archive of Numen Games)?)$/;
+
+export function pageTitleOf(raw) {
+  let t = String(raw ?? "").trim();
+  if (SITE_ALONE.test(t)) return "";
+  for (let i = 0; i < 3; i++) t = t.replace(RETIRED_SUFFIX, "");
+  t = t.replace(RETIRED_PREFIX, "");
+  return SITE_ALONE.test(t) ? "" : t;
+}
 
 /** The stop a visitor arrives at. */
 export const DEFAULT_STOP = "plain";
