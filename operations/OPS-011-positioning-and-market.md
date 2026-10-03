@@ -5,16 +5,16 @@ title: "Positioning and market"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 territory: "Sales"
 tags: [operations, positioning, market, messaging, product]
 license: "CC-BY-4.0"
-related: ["CAN-002", "OPS-006", "OPS-007"]
+related: ["CAN-002", "CAN-013", "OPS-006", "OPS-007", "OPS-020"]
 ---
 
 <!--
@@ -84,6 +84,8 @@ relationships and growth.
 educational resources · decentralised technologies · legal by design ·
 interactive learning · play · fun · immersive · engaging.
 
+**Verbs.** Fosters · provokes · teaches.
+
 **What we are, for whom.** Games, education and an organisational incentive
 system, for people in organisations and on the metaverse: technology pioneers,
 gamers, metaverse lovers.
@@ -92,8 +94,7 @@ gamers, metaverse lovers.
 
 | | |
 |---|---|
-| **MVP** | An escape-room experience on the metaverse, chargeable at 1 USD per adventurer, that is fun. |
-| **MLP** | A full free CC0 version an organisation can adopt, that makes it better for the humans who interact with it. |
+| **MVP → MLP** | The milestones, and the next one, are in the strategy record. |
 | **Revenue models** | Hosting · building experiences · subscription · microtransactions on art and digital goods · season passes |
 | **Support** | Digital agents for 24/7 first response · Discord for community support · forms for tracked requests |
 | **Strengths** | Purpose · the human team · epistemic consistency · the size of the video-game market |

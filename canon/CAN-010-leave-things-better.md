@@ -4,9 +4,9 @@ uid: ""
 title: "Leave things better than you found them"
 type: seminal
 status: draft
-version: "0.1.2"
+version: "0.2.0"
 created: "2026-09-24T17:00:00+02:00"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -24,8 +24,8 @@ SPDX-License-Identifier: CC0-1.0
 
 # Leave things better than you found them
 
-> **Summary:** One sentence closes every canon of this house, and it is the
-> whole of its ethics: leave things better than you found them. Applied to
+> **Summary:** One sentence holds the whole ethics of this house: leave
+> things better than you found them. Applied to
 > people, to their data, to what is published and to what a digital agent
 > may do, it yields four commitments that are already in force elsewhere and
 > stated here as what they are — a belief, not a policy.
@@ -44,7 +44,8 @@ SPDX-License-Identifier: CC0-1.0
 
 ## The sentence
 
-Every canon of this house ends the same way, and the ending is the ethics.
+One sentence is the ethics of this house, and it lives here, once: no
+other canon repeats it, they point to it.
 *Leave things better than you found them.* It is short enough to run on any
 act, and it is not a slogan: it names a direction, it names a before and an
 after, and it puts the burden on the one acting. The values of the house —
