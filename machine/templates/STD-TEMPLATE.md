@@ -4,7 +4,7 @@
 id: "STD-NNN"
 uid: ""
 title: "The rule, in five words"
-type: documentation
+type: standard
 # subtype: standard — a norm, read whole · register — a table, consulted
 subtype: standard
 # status: opens at draft — the lifecycle is declared once, in STD-004
@@ -19,13 +19,13 @@ tags: [area, subject]
 license: "CC0-1.0"
 
 # OPTIONAL — use when they apply, omit without guilt.
-# ratified_by: "ADR-NNN"            # the decision that moved this from draft to active
+# approved_by: "ADR-NNN"            # the decision that moved this from draft to active
 # supersedes_version: "1.2.0"
 ---
 
 <!--
 The reading — title, card, scope, every rule — is plain English a screen
-reader can say aloud: no plates, no document identifiers, no file names or
+reader can say aloud: no rule IDs, no document identifiers, no file names or
 paths, no web addresses, no acronym a listener would not know. MUST, SHOULD,
 MAY and MUST NOT stay in capitals, as the outside norm that defines them says.
 Codes, sources and checks wait in the Check table at the foot.
@@ -46,7 +46,7 @@ Codes, sources and checks wait in the Check table at the foot.
 ## Rules
 
 <!-- Rules first, reasons later, grouped under ### headings by purpose. Each
-     rule opens with a bold title in words — no plate — and holds one
+     rule opens with a bold title in words — no rule ID — and holds one
      obligation, one capitalised obligation word, ideally at most 35 words. -->
 
 ### What the first group of rules is for
@@ -60,14 +60,14 @@ reader can obey without opening another document.
 
 Each rule, its code, its source and its check.
 
-<!-- One row per rule. Plate: three letters, three digits, unique across the
+<!-- One row per rule. Rule ID: three letters, three digits, unique across the
      corpus, never renumbered, dropped or reused. Source: a link to the
-     outside standard the rule follows, or —. Verified by: a guard or script,
+     outside standard the rule follows, or —. Verified by: a check or script,
      a CI step, a platform setting — or "by hand", said plainly. -->
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| XXX-001 | The rule, as a title | — | a guard under `machine/guards/rules/` |
+| XXX-001 | The rule, as a title | — | a check under `machine/guards/rules/` |
 | XXX-002 | The next rule | [An outside standard](https://example.org/) | by hand, at the pull request |
 
 ## Why

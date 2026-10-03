@@ -4,11 +4,12 @@ uid: ""
 title: "Joining Numinia"
 type: protocol
 status: draft
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-09-27T19:40:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "People and culture"
 tags: [protocol, onboarding, people, lifecycle]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]

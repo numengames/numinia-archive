@@ -170,9 +170,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `CAN-006` | The model needs a story | draft | whoever reasons about how Numen Games, its model and Numinia relate |
 | `CAN-007` | Renaming is not transforming | draft | whoever designs, renames or reorganises anything in this system |
 | `CAN-008` | One identity, three forces | draft | every piece that carries the Numen Games or Numinia mark |
-| `CAN-009` | The archive is the organisation | draft | every document of this archive, every change to it, and whoever — biological or digital… |
-| `CAN-010` | Leave things better than you found them | draft | whoever acts in Numinia's name, biological or digital |
-| `CAN-011` | What has value also makes a bond | draft | whoever sets a price, takes a payment or keeps the account in Numinia's name… |
+| `CAN-009` | The archive is the organisation | draft | every document of this archive, every change to it, and whoever — human or digital… |
+| `CAN-010` | Leave things better than you found them | draft | whoever acts in Numinia's name, human or digital |
+| `CAN-011` | What has value also makes a bond | draft | whoever sets a price, takes a payment or keeps the account in Numinia's name, human or digital |
 | `CAN-012` | What is yours stays with you | draft | whoever builds, runs or changes anything that holds something of a person's in Numinia's name… |
 | `CAN-013` | A magician who keeps hope, with humans in… | draft | every piece of work that speaks, looks or behaves in Numinia's name |
 | `CAN-014` | Friends who play, build and learn | draft | every piece that tells where Numinia comes from |
@@ -182,7 +182,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-005` | Escalating to the Oracle | draft | any agent facing a decision it may not, or cannot, take alone |
 | `PRO-008` | Requesting approval, issuing rulings | draft | any agent requesting approval; any Oracle issuing a ruling; any agent executing one |
 | `PRO-011` | Auditing identity, authorization and secrets | draft | any agent running a security audit over a Numinia scope, and the report it files |
-| `PRO-013` | Handing a guard to CI | draft | any agent that writes a guard script, and the Oracle who wires it |
+| `PRO-013` | Handing a check to CI | draft | any agent that writes a check script, and the Oracle who wires it |
 | `PRO-014` | Producing a design piece | draft | any agent producing a design piece in any medium |
 | `PRO-015` | Joining Numinia | draft | whoever brings a person into Numinia to work, paid or not |
 | `PRO-016` | Applying the engineering standard | draft | any agent executing a task in a repository that carries `STD-005` |

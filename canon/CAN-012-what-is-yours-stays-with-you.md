@@ -4,13 +4,13 @@ uid: ""
 title: "What is yours stays with you"
 type: seminal
 status: draft
-version: "0.1.1"
+version: "0.1.3"
 created: "2026-09-26T16:40:00+02:00"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Legal and compliance"
 tags: [canon, seminal, ownership, sovereignty, identity, data]
 license: "CC0-1.0"
 related: ["CAN-005", "CAN-010", "CAN-011", "CAN-004", "STD-026"]
@@ -34,7 +34,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Everyone
 
 **Binds:** whoever builds, runs or changes anything that holds something of
-a person's in Numinia's name, biological or digital.
+a person's in Numinia's name, human or digital.
 
 > This canon is a first statement, written in draft to be argued with. It
 > says why a person's things are held the way they are; how each one is

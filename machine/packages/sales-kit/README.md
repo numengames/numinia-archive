@@ -10,7 +10,7 @@ stages, events, steps, reasons, how it pays and the other closed lists),
 `STD-039` (the record) and `STD-040` (the proposal); what the house holds
 is its card, `operations/OPS-018`. This folder is one implementation of
 them: one script that reads a folder of records and prints the pipeline.
-The moulds live with every other mould, `machine/templates/OPP-TEMPLATE.md`
+The templates live with every other template, `machine/templates/OPP-TEMPLATE.md`
 (one for every kind) and `PRP-TEMPLATE.md`. The records live in
 `opportunities/`, public, with nobody's name in them.
 

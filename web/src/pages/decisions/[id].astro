@@ -55,7 +55,7 @@ const STATUS_COLOR: Record<string, string> = {
         <span class="font-mono text-[0.65rem] text-accent">{decId}</span>
         <span class="font-mono text-[0.6rem] text-dim">{String(f.created).slice(0, 10)}</span>
         <span class={"font-mono text-[0.6rem] uppercase tracking-widest " + (STATUS_COLOR[f.status] || "text-dim")}>{f.status}</span>
-        {(f.territory ?? f.area) && <span class="font-mono text-[0.6rem] text-dim">{f.territory ?? f.area}</span>}
+        {f.section && <span class="font-mono text-[0.6rem] text-dim">{f.section}</span>}
       </div>
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{f.title}</h1>

@@ -2,15 +2,15 @@
 id: "STD-010"
 uid: ""
 title: "Licensing"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "2.4.1"
+version: "2.4.3"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Funding"
+section: "Legal and compliance"
 license: "CC0-1.0"
 tags: [licensing, legal, REUSE, SPDX]
 derived_from: "CAN-005"
@@ -122,7 +122,7 @@ Each rule, its code, its source and its check. Then every kind of piece with
 the exact name of its licence, the licences we may build on, where each kind
 of file carries its terms, and where each licence's text is read.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | LIC-001 | Only what is ours is published | [Developer Certificate of Origin 1.1, clauses (a) to (c)](https://developercertificate.org/); [ISO/IEC 5230 OpenChain, clause 3.3 review and approval](https://github.com/OpenChain-Project/License-Compliance-Specification) | by hand, at the pull request |
 | LIC-002 | The terms follow the kind of piece | [SPDX licence list](https://spdx.org/licenses/) | by hand, at the pull request |

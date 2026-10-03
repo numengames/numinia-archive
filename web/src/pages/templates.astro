@@ -2,24 +2,24 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// /templates — every mould the archive has, and their headers side by side.
+// /templates — every template the archive has, and their headers side by side.
 //
-// A mould is the file a new document is copied from (machine/templates/).
+// A template is the file a new document is copied from (machine/templates/).
 // This page is where they are gathered to be worked on: for each, what it
 // makes, where the copy goes, the header it teaches and the sections of its
-// body; and above them all, ONE table with every header field of every mould,
-// so a field written twice under two names, or taught by one mould and
+// body; and above them all, ONE table with every header field of every template,
+// so a field written twice under two names, or taught by one template and
 // forgotten by its neighbour, is seen at a glance.
 //
-// Nothing is typed here: @/lib/templates reads the moulds and the field
+// Nothing is typed here: @/lib/templates reads the templates and the field
 // registry the guards enforce, at build time.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl, REPO_URL } from "@/lib/build-info";
-import { moulds, matrix, figures, makes, ELSEWHERE, repoPath } from "@/lib/templates";
+import { templates, matrix, figures, makes, ELSEWHERE, repoPath } from "@/lib/templates";
 
-const ms = moulds();
+const ms = templates();
 const rows = matrix(ms);
 const F = figures(ms);
 const blob = (p: string) => `${REPO_URL}/blob/main/${p}`;
@@ -27,12 +27,12 @@ const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
 ---
 <Layout
   title="Templates — Numinia"
-  description={`The ${F.moulds} moulds every document of the archive is copied from, with their headers side by side: which fields each one teaches, and which are shared.`}
+  description={`The ${F.templates} templates every document of the archive is copied from, with their headers side by side: which fields each one teaches, and which are shared.`}
   canonicalPath="/templates"
 >
   <PageHero
     label="Administration — Templates"
-    title="The moulds, side by side"
+    title="The templates, side by side"
     description="Every new document starts as a copy of one of these files. Here they are together, so their headers can be compared and cleaned: the same field should have the same name everywhere."
   />
   <div class="mx-auto max-w-[1100px] px-6 pb-8">
@@ -41,14 +41,14 @@ const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
 
   <section class="pb-20"><div class="mx-auto max-w-[1100px] px-6">
     <div class="tp-kpis">
-      <div class="tp-kpi"><span class="tp-k">Moulds</span><span class="tp-v">{F.moulds}</span><span class="tp-s">one per kind of document</span></div>
+      <div class="tp-kpi"><span class="tp-k">Templates</span><span class="tp-v">{F.templates}</span><span class="tp-s">one per kind of document</span></div>
       <div class="tp-kpi"><span class="tp-k">Header fields</span><span class="tp-v">{F.fields}</span><span class="tp-s">different names, across all of them</span></div>
-      <div class="tp-kpi"><span class="tp-k">In every mould</span><span class="tp-v">{F.inAll}</span><span class="tp-s">the common header</span></div>
-      <div class="tp-kpi"><span class="tp-k">In one mould only</span><span class="tp-v">{F.inOne}</span><span class="tp-s">a series' own fields</span></div>
+      <div class="tp-kpi"><span class="tp-k">In every template</span><span class="tp-v">{F.inAll}</span><span class="tp-s">the common header</span></div>
+      <div class="tp-kpi"><span class="tp-k">In one template only</span><span class="tp-v">{F.inOne}</span><span class="tp-s">a series' own fields</span></div>
     </div>
 
     <div class="tp-sec">
-      <h2>The moulds</h2>
+      <h2>The templates</h2>
       <p class="tp-sub">What each one makes and where the copy goes. Open one to see the fields it asks for and the sections its body has.</p>
       <div class="tp-grid">
         {ms.map((m) => (
@@ -62,11 +62,11 @@ const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
     </div>
 
     <div class="tp-sec">
-      <h2>Every header field, every mould</h2>
+      <h2>Every header field, every template</h2>
       <p class="tp-sub">
-        One row per field, one column per mould. <span class="tp-dot tp-on" aria-hidden="true">●</span> the mould writes it, to be filled;
-        <span class="tp-dot tp-off" aria-hidden="true">○</span> the mould offers it commented, to add when it applies; empty, it does not know it.
-        The common header comes first, in the order a mould writes it; the shaded rows are mandatory for every document. The last column says where the field is registered — for every document, or only for some series.
+        One row per field, one column per template. <span class="tp-dot tp-on" aria-hidden="true">●</span> the template writes it, to be filled;
+        <span class="tp-dot tp-off" aria-hidden="true">○</span> the template offers it commented, to add when it applies; empty, it does not know it.
+        The common header comes first, in the order a template writes it; the shaded rows are mandatory for every document. The last column says where the field is registered — for every document, or only for some series.
       </p>
       <div class="tp-tablewrap">
         <table class="tp-t">
@@ -89,10 +89,10 @@ const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
     </div>
 
     {ms.map((m) => (
-      <div class="tp-sec tp-mould" id={m.prefix.toLowerCase()}>
+      <div class="tp-sec tp-template" id={m.prefix.toLowerCase()}>
         <h2><span class="tp-pfx">{m.prefix}</span> {makes(m.prefix)}</h2>
         <p class="tp-sub">Copy to <code>{m.destination}</code> · type <code>{m.type}</code> · licence <code>{m.licence}</code> · <a href={blob(repoPath(m.file))}>{m.file}</a></p>
-        <p class="tp-hint">Title, as the mould teaches it: <em>{m.titleHint}</em></p>
+        <p class="tp-hint">Title, as the template teaches it: <em>{m.titleHint}</em></p>
         <div class="tp-two">
           <div>
             <h3>Header</h3>
@@ -105,10 +105,10 @@ const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
               ))}
             </ul>
             {m.outOfOrder && (
-              <p class="tp-gap">Writes the common header in another order than the other moulds: {m.outOfOrder.join(" · ")}.</p>
+              <p class="tp-gap">Writes the common header in another order than the other templates: {m.outOfOrder.join(" · ")}.</p>
             )}
             {m.unoffered.length > 0 && (
-              <p class="tp-gap">Registered for this series and not in the mould: {m.unoffered.map((k, i) => <><code>{k}</code>{i < m.unoffered.length - 1 ? ", " : ""}</>)}.</p>
+              <p class="tp-gap">Registered for this series and not in the template: {m.unoffered.map((k, i) => <><code>{k}</code>{i < m.unoffered.length - 1 ? ", " : ""}</>)}.</p>
             )}
           </div>
           <div>
@@ -116,7 +116,7 @@ const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
             {m.sections.length ? (
               <ol class="tp-secs">{m.sections.map((s) => <li>{s}</li>)}</ol>
             ) : (
-              <p class="tp-note">No sections of its own: the body is prose, guided by the notes in the mould.</p>
+              <p class="tp-note">No sections of its own: the body is prose, guided by the notes in the template.</p>
             )}
             {m.companions.map((c) => (
               <p class="tp-note">Beside it: <a href={blob(repoPath(c.file))}>{c.file}</a> — {c.what}.</p>
@@ -127,8 +127,8 @@ const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
     ))}
 
     <div class="tp-sec">
-      <h2>Moulds that live elsewhere</h2>
-      <p class="tp-sub">These are moulds too, but the tool that reads them needs them where they are.</p>
+      <h2>Templates that live elsewhere</h2>
+      <p class="tp-sub">These are templates too, but the tool that reads them needs them where they are.</p>
       <ul class="tp-list">
         {ELSEWHERE.map((e) => <li><a href={blob(e.path)}><code>{e.path}</code></a> — {e.makes}. {e.why}.</li>)}
       </ul>
@@ -137,8 +137,8 @@ const tree = (p: string) => `${REPO_URL}/tree/main/${p}`;
     <div class="tp-sec">
       <h2>How this page is made</h2>
       <ul class="tp-list">
-        <li>Everything on it is read at build time from the moulds themselves, in <a href={tree("machine/templates")}>machine/templates/</a>, and from the registry of header fields the guards enforce. Add a field to a mould and it appears here.</li>
-        <li>How to use a mould, and what the guard checks on each, is in the folder's <a href={blob("machine/templates/README.md")}>README</a>. The rules for the header are <a href="/standards/std-004-the-header">The header</a>.</li>
+        <li>Everything on it is read at build time from the templates themselves, in <a href={tree("machine/templates")}>machine/templates/</a>, and from the registry of header fields the checks enforce. Add a field to a template and it appears here.</li>
+        <li>How to use a template, and what the check verifies on each, is in the folder's <a href={blob("machine/templates/README.md")}>README</a>. The rules for the header are <a href="/standards/std-004-the-header">The header</a>.</li>
       </ul>
     </div>
   </div></section>

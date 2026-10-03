@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// /archive/<function> — one function of the fond: its activities, the series
+// /archive/<function> — one function of the fonds: its activities, the series
 // each produces, and where this site serves them.
 //
 // This route REPLACES /archive/<fondo>. The seven fondo addresses
@@ -133,7 +133,7 @@ const seriesCount = fn.activities.reduce((n, act) => n + act.series.length, 0);
                     <div class="flex items-center justify-between pt-2 border-t border-border/50">
                       {s.threshold
                         ? <span class="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-dim">{s.threshold}</span>
-                        : <span class="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-dim">instrument</span>}
+                        : <span class="font-mono text-[0.55rem] uppercase tracking-[0.1em] text-dim">tooling</span>}
                       {s.href
                         ? <a href={s.href} class={`font-mono text-[0.6rem] ${a.text} hover:opacity-70 transition-opacity`}>{s.instrument ? "The manual →" : "Read it →"}</a>
                         : <span class="font-mono text-[0.55rem] text-dim opacity-50">not published here</span>}

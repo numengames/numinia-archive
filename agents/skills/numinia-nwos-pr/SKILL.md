@@ -4,11 +4,12 @@ description: "Use when opening a pull request in numengames/numinia-archive. One
 title: "SKILL — numinia-nwos-pr"
 type: agent
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-10T08:00:00+02:00"
-updated: "2026-09-10T08:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "People and culture"
 tags: [agents, skill, pull-request]
 license: "CC0-1.0"
 registration: exempt

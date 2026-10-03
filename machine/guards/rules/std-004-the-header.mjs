@@ -4,8 +4,8 @@
 //
 // std-004-the-header — the guard of STD-004.
 //
-// The header in three rings. Every rule in the standard carries a plate;
-// every finding here cites one. What cannot be expressed here the standard
+// The header's core and extension fields (the three rings of rings.mjs). Every
+// rule in the standard carries a rule ID; every finding here cites one. What cannot be expressed here the standard
 // marks [MANUAL] — there is no third kind. Read STD-004 (the header and its fields)
 // side by side with the checks below: the mapping is 1:1 by construction.
 //
@@ -18,8 +18,8 @@
 // each plate keeps the reach its standard gave it.
 //
 // Not here: HDR-041 (YAML parses) is TXT-002's job in std-006; HDR-010/011/
-// 015/016/042 are manual. check-templates reads the moulds against five
-// standards at once and stays its own guard.
+// 015/016/042 are manual. check-templates reads the templates against five
+// standards at once and stays its own check.
 //
 // Run from anywhere: node machine/guards/rules/std-004-the-header.mjs
 
@@ -52,15 +52,21 @@ const SUBTYPES = RULES.subtypes;
 const PREFIX = Object.fromEntries(Object.entries(RULES.series)
   .filter(([k]) => !k.startsWith('_')).map(([k, v]) => [k, v.prefix]));
 
-/* HDR-031: retired fields, each the object of a registered migration. */
+/* HDR-031: deprecated fields, each the object of a registered migration. */
 const RETIRED = {
-  area: 'renamed to territory',
+  area: 'renamed to territory, then to section',
+  territory: 'renamed to section: the world owns the word, a district is a faction\'s territory',
   blocked_reason: 'orphaned when status blocked was removed',
   documento: 'Spanish-era key', ambito: 'Spanish-era key',
   estado: 'Spanish-era key', fecha: 'Spanish-era key',
   licencia: 'Spanish-era key', revision: 'Spanish-era key',
-  series_change: 'retired: the changelog and git already say what a version changed',
-  threshold: 'retired outside decisions/: the series register (STD-001) states it once per series',
+  series_change: 'deprecated: the changelog and git already say what a version changed',
+  threshold: 'deprecated outside decisions/: the series register (STD-001) states it once per series',
+  semaforo: 'Spanish-era key, never used',
+  provenance: 'renamed to digital_source_type: provenance is custody history in Dublin Core, and this field says how the piece was made',
+  type_execution: 'renamed to executor, with values agent · human · hybrid: biological agent is a hazard in safety law',
+  ratified_by: 'renamed to approved_by: document control says approval; treaties are ratified',
+  freeze_reason: 'renamed to hold_reason with the state on-hold: the board word for a paused card',
 };
 
 /* HDR-033..038: the closed vocabularies of the header, held by STD-001. Each
@@ -68,14 +74,14 @@ const RETIRED = {
    lowercase variant, a template comment glued to the value. */
 const VOCAB = {
   guild: ['Sentinels', 'Alchemists', 'Exegetes', 'Procurators'],
-  type_execution: ['digital', 'biological', 'hybrid'],
+  executor: ['agent', 'human', 'hybrid'],
   visibility: ['public', 'restricted-oracle'],
-  territory: ['CAO', 'Product', 'Platform', 'Infrastructure', 'Content', 'Sales', 'Funding', 'Archive'],
+  section: ['Strategy and governance', 'Products and services', 'Brand and marketing', 'Sales and partners', 'Operations', 'People and culture', 'Finance', 'Legal and compliance', 'Technology', 'Knowledge and quality'],
   priority: ['critical', 'high', 'medium', 'low'],
   effort: ['XS', 'S', 'M', 'L', 'XL'],
 };
-const VOCAB_PLATE = { guild: 'HDR-033', type_execution: 'HDR-034', visibility: 'HDR-035',
-  territory: 'HDR-036', priority: 'HDR-037', effort: 'HDR-038' };
+const VOCAB_PLATE = { guild: 'HDR-033', executor: 'HDR-034', visibility: 'HDR-035',
+  section: 'HDR-036', priority: 'HDR-037', effort: 'HDR-038' };
 
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;
@@ -107,7 +113,7 @@ function rings(corpus, out) {
     const top = rel.split('/')[0];
     if (!GOVERNED.has(top)) continue;
     const fm = corpus.fm(rel);
-    if (fm === null) { F('HDR-000', rel, 'no frontmatter — invisible to every instrument'); continue; }
+    if (fm === null) { F('HDR-000', rel, 'no frontmatter — invisible to every check'); continue; }
 
     for (const [k, v] of Object.entries(fm))
       if (v === DEFERRED && !DEFERRAL_OWNER[k])
@@ -122,7 +128,7 @@ function rings(corpus, out) {
     for (const [field, allowed] of Object.entries(VOCAB)) {
       const v = fm[field];
       if (v === undefined || v === '' || v === DEFERRED) continue;
-      // A TEMPLATE.md documents its options inline (`digital  # digital|hybrid`):
+      // A TEMPLATE.md documents its options inline (`agent  # agent|hybrid`):
       // strip the comment before judging so the documentation survives.
       const bare = String(v).replace(/\s+#.*$/, '').trim();
       if (allowed.includes(bare)) continue;
@@ -169,8 +175,8 @@ function rings(corpus, out) {
         F('HDR-007', rel, `updated ${fm.updated} < created ${fm.created}`);
     }
 
-    if (fm.provenance && !['human', 'ai-assisted', 'ai-generated'].includes(fm.provenance))
-      F('HDR-012', rel, `provenance "${fm.provenance}" invalid`);
+    if (fm.digital_source_type && !['human', 'ai-assisted', 'ai-generated'].includes(fm.digital_source_type))
+      F('HDR-012', rel, `digital_source_type "${fm.digital_source_type}" invalid`);
     if (fm.created_source && !/^(git:[0-9a-f]{7,40}|declared)$/.test(fm.created_source))
       F('HDR-013', rel, `created_source "${fm.created_source}" is neither git:<sha> nor declared`);
     if (fm.created_confidence && !['exact', 'inferred'].includes(fm.created_confidence))
@@ -187,13 +193,13 @@ function rings(corpus, out) {
       F('HDR-020', rel, 'uid carries a hand-authored value — the field is reserved for a system that does not exist yet: keep it declared and empty');
 
     for (const k of Object.keys(fm))
-      if (RETIRED[k] && !(RING3[top] || []).includes(k)) F('HDR-031', rel, `retired field "${k}" (${RETIRED[k]})`);
+      if (RETIRED[k] && !(RING3[top] || []).includes(k)) F('HDR-031', rel, `deprecated field "${k}" (${RETIRED[k]})`);
 
-    // HDR-030: the anti-entropy rule — a field in no ring is invalid.
+    // HDR-030: the anti-entropy rule — a field in no list is invalid.
     const allowed = new Set([...RING1, ...RING2, ...RING3_ALL, ...(RING3[top] || []), 'subtype']);
     for (const k of Object.keys(fm))
       if (!allowed.has(k) && !RETIRED[k])
-        F('HDR-030', rel, `field "${k}" is in no ring and not registered for ${top}/ (STD-004, Ring 3)`);
+        F('HDR-030', rel, `field "${k}" is neither a core field nor an extension field registered for ${top}/ (STD-004)`);
   }
 }
 

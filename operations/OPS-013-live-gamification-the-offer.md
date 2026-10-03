@@ -4,13 +4,13 @@ uid: ""
 title: "Live gamification — the offer"
 type: documentation
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-29T10:00:00+02:00"
-updated: "2026-09-29T14:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "metis"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Products and services"
 tags: [operations, offer, events, live-gamification, roles, territories]
 license: "CC-BY-4.0"
 related: ["OPS-012", "STD-040", "PRO-029", "OPP-2026-002", "OPP-2026-003", "OPP-2026-004"]

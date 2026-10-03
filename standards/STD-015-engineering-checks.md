@@ -2,15 +2,15 @@
 id: "STD-015"
 uid: ""
 title: "Engineering checks"
-type: documentation
+type: standard
 subtype: register
 status: draft
-version: "6.1.0"
+version: "6.1.2"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-02T20:02:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
-territory: "Platform"
+section: "Technology"
 tags: [standards, engineering, ci, register, practices]
 derived_from: "CAN-010"
 license: "CC0-1.0"
@@ -30,7 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Epistemic:** Which practices does each repository keep, and what checks
 > each?
 
-| Profile | Plate | Practice | Level | Check |
+| Profile | Rule ID | Practice | Level | Check |
 |---|---|---|---|---|
 | Security | SEC-001 | Two-factor authentication required of every member, set at organisation level | MUST | `[AUTO: github orgs/numengames]` |
 | Security | SEC-002 | Secret scanning and push protection on every repository | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
@@ -60,8 +60,8 @@ SPDX-License-Identifier: CC0-1.0
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[DEBT: no label-sync workflow — oracle, 2026-09-11]` |
 | Traceability | TRC-004 | `CHANGELOG.md` written for people in the Keep a Changelog 1.1 form: newest first, an Unreleased section, every entry under one of six kinds (added, changed, deprecated, removed, fixed, security); a site with no releases heads each group with its date; a released package adds semver tags and GitHub Releases with notes | MUST | `[GATE: machine/scripts/test/changelog-shape.test.mjs → a reviewer reads each entry for people; numinia-web and nwos-deploy keep no changelog yet]` |
 | Traceability | TRC-005 | A roadmap in the repository — here, the `blueprints/` folder — saying what the project intends to do, and not do, for at least the next year (OpenSSF Best Practices Badge, documentation_roadmap; `STD-006`) | MUST | `[GATE: machine/tools/check-register.mjs → the Oracle keeps the blueprints current]` |
-| Traceability | TRC-006 | A guard is verified by its step in the job, never by the run's colour: a green run and a workflow missing the guard are indistinguishable from the conclusion | MUST | `[AUTO: machine/tools/check-register.mjs]` |
-| Traceability | TRC-007 | Every guard declares what it does not look at, on success as on failure (`machine/scripts/blind-spots.json`); a guard that validates what is present cannot detect what is missing | MUST | `[AUTO: machine/scripts/test/blindness.test.mjs]` |
+| Traceability | TRC-006 | A check is verified by its step in the job, never by the run's colour: a green run and a workflow missing the check are indistinguishable from the conclusion | MUST | `[AUTO: machine/tools/check-register.mjs]` |
+| Traceability | TRC-007 | Every check declares what it does not look at, on success as on failure (`machine/scripts/blind-spots.json`); a check that validates what is present cannot detect what is missing | MUST | `[AUTO: machine/scripts/test/blindness.test.mjs]` |
 | Ergonomics | DEV-001 | `.env.example` exhaustive and in sync with the env schema | MUST | `[DEBT: no .env.example and no env schema to compare it to — oracle, 2026-09-11]` |
 | Ergonomics | DEV-002 | `dev`, `build`, `test`, `lint` mean the same in every repository | MUST | `[AUTO: npm test]` |
 | Ergonomics | DEV-003 | `.editorconfig` and shared editor settings committed | SHOULD | `[AUTO: machine/tools/check-register.mjs]` |
@@ -89,7 +89,7 @@ SPDX-License-Identifier: CC0-1.0
 | Legal | LEG-001 | Making a repository public is a gated Oracle act under the publishing gates (PUB-002, PUB-003) | MUST | `[GATE: machine/guards/rules/std-010-licensing.mjs → the Oracle makes the repository public]` |
 
 **A row that says again what a rule elsewhere holds is removed.** Its code
-is never reused; the ledger of retired plates says where it leads.
+is never reused; the ledger of deprecated rule IDs says where it leads.
 
 **One outside certificate answers a dozen rows.** The best practices badge
 of the Open Source Security Foundation is a self-certification any project

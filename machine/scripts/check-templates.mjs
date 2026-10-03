@@ -8,7 +8,7 @@
 // ---------------
 // Until now nothing checked the templates. Every other document in the archive
 // is read by std-004-the-header, machine/guards/lib/naming.mjs, std-012-corpus-does-not-grow and the rest; the
-// moulds those documents are copied FROM were exempt from all of them, because
+// templates those documents are copied FROM were exempt from all of them, because
 // `^machine/templates/` is apparatus and apparatus is skipped. The result was measured
 // on 2026-09-04, before this guard existed:
 //
@@ -22,7 +22,7 @@
 //     path they live in — invisible, because the licence guard (std-010-licensing) reads
 //     the file's OWN path, and machine/templates/** is CC0-1.0 whatever the target is.
 //
-// A template is not a document of its series. It is the mould, and its
+// A template is not a document of its series. It is the template, and its
 // frontmatter is a WORKED EXAMPLE of that series' contract: it must be right
 // for the DESTINATION, not for machine/templates/. That is the one thing the general
 // guards structurally cannot check, and it is exactly what this one does.
@@ -35,7 +35,7 @@
 //   T-03  no inline `# comment` after a scalar value — the D-009 shape
 //   T-04  `license:` names a licence this repository ships a text for
 //         (LICENSES/). A folder has no licence (Oracle, 2026-09-24), so
-//         the mould cannot be held to one: the author of each document
+//         the template cannot be held to one: the author of each document
 //         picks its licence and declares it in the file.
 //   T-05  `type` matches what STD-004 §5 maps to the destination series
 //   T-06  `status` is in the destination series' lifecycle
@@ -63,13 +63,13 @@ const RULES = loadRules();
    template (a filled example, a design record) and not templates themselves. */
 const DEST = {};
 for (const dir of seriesDirs(RULES)) {
-  // Every prefix a series admits has its mould: opportunities/ holds two
+  // Every prefix a series admits has its template: opportunities/ holds two
   // kinds of document, the record (OPP) and its proposal (PRP).
   for (const pfx of RULES.series[dir].prefix) DEST[`${pfx}-TEMPLATE.md`] = dir;
 }
 const COMPANIONS = {
   'MIS-TEMPLATE-EXAMPLE.md': 'missions',
-  // The three roll-up moulds (STD-043): a report's shape at each level.
+  // The three roll-up templates (STD-043): a report's shape at each level.
   'RPT-TEMPLATE-WEEK.md': 'reports',
   'RPT-TEMPLATE-QUARTER.md': 'reports',
   'RPT-TEMPLATE-YEAR.md': 'reports',
@@ -84,7 +84,7 @@ const SEMVER = /^\d+\.\d+\.\d+$/;
 
 // --- the licences this repository can grant --------------------------------
 
-/* Every licence with a text in LICENSES/. A mould that names anything else
+/* Every licence with a text in LICENSES/. A template that names anything else
    teaches a declaration `reuse lint` rejects. */
 const SHIPPED = new Set(readdirSync(path.join(ROOT, 'LICENSES'))
   .filter((f) => f.endsWith('.txt')).map((f) => f.slice(0, -4)));
@@ -96,7 +96,7 @@ const SHIPPED = new Set(readdirSync(path.join(ROOT, 'LICENSES'))
    is a well-formed header (TXT-002, STD-006); T-04 the licence regime
    (LIC-008, STD-010); T-05/T-06 the closed vocabularies (HDR-003/HDR-004,
    STD-004); T-08 the opening version (VER-021, STD-019); T-09/T-10/T-11 the
-   shape of a document and its mould (DOC-009/DOC-010, STD-007). */
+   shape of a document and its template (DOC-009/DOC-010, STD-007). */
 const PLATE = {
   'T-01': 'HDR-000', 'T-02': 'TXT-001', 'T-03': 'TXT-002', 'T-04': 'LIC-008',
   'T-05': 'HDR-003', 'T-06': 'HDR-004', 'T-07': 'HDR-030', 'T-08': 'VER-021',
@@ -129,7 +129,7 @@ for (const rel of files) {
 
   const text = readFileSync(path.join(ROOT, rel), 'utf8');
   const fm = parseFM(text);
-  if (!fm) { F('T-01', rel, 'no frontmatter — the mould teaches a document with no header'); continue; }
+  if (!fm) { F('T-01', rel, 'no frontmatter — the template teaches a document with no header'); continue; }
 
   // T-03: the D-009 shape. An inline `#` after a value lands INSIDE the value
   // in the readers this corpus actually uses.
@@ -138,13 +138,13 @@ for (const rel of files) {
     if (m) F('T-03', rel, `inline comment after "${m[1]}" — put it on its own line (this is how D-009's corrupt value was made)`);
   }
 
-  // The companions are records, not moulds: their frontmatter documents a real
+  // The companions are records, not templates: their frontmatter documents a real
   // mission, so the destination checks below do not apply to them.
   if (COMPANIONS[base]) continue;
 
   // T-04: a licence the repository can actually grant.
   if (!SHIPPED.has(fm.license))
-    F('T-04', rel, `license "${fm.license}" has no text in LICENSES/ — a document copied from this mould declares a licence the repository does not ship`);
+    F('T-04', rel, `license "${fm.license}" has no text in LICENSES/ — a document copied from this template declares a licence the repository does not ship`);
 
   // T-05: type ↔ series, STD-004 §5.
   const allowedTypes = Object.entries(RULES.types.series)
@@ -158,25 +158,25 @@ for (const rel of files) {
     F('T-06', rel, `status "${fm.status}" is not in ${dir}/'s lifecycle [${life.join(' ')}]`);
 
   // T-07: no field the destination does not register (STD-004 §7, HDR-030's rule
-  // applied one step earlier — at the mould instead of at its copies).
+  // applied one step earlier — at the template instead of at its copies).
   const ring3 = RING3[dir] ?? [];
   for (const k of Object.keys(fm)) {
     if (RING1.includes(k) || RING2.includes(k) || RING3_ALL.includes(k)) continue;
     if (ring3.includes(k)) continue;
     if (k === 'subtype') continue;                 // std-004-the-header allows it corpus-wide
-    F('T-07', rel, `field "${k}" is registered for no ring of ${dir}/ — a document copied from this mould fails HDR-030`);
+    F('T-07', rel, `field "${k}" is registered for no ring of ${dir}/ — a document copied from this template fails HDR-030`);
   }
 
-  // T-01 ring 1 presence: a mould that omits a mandatory field teaches its absence.
+  // T-01 ring 1 presence: a template that omits a mandatory field teaches its absence.
   for (const k of RING1)
     if (!(k in fm) || fm[k] === '')
-      F('T-01', rel, `missing mandatory field "${k}" — the mould must carry the whole ring 1`);
+      F('T-01', rel, `missing mandatory field "${k}" — the template must carry the whole ring 1`);
 
   // T-08: SemVer, opening at 0.1.0 (STD-019 VER-021: every artifact starts there).
   if (fm.version && !SEMVER.test(fm.version))
     F('T-08', rel, `version "${fm.version}" is not bare SemVer`);
   else if (fm.version && fm.version !== '0.1.0' && dir !== 'reports')
-    F('T-08', rel, `version "${fm.version}" — a new artifact opens at 0.1.0 (VER-021), and the mould is what teaches that`);
+    F('T-08', rel, `version "${fm.version}" — a new artifact opens at 0.1.0 (VER-021), and the template is what teaches that`);
 
   // T-09: the context card, STD-004 §8.1.
   const body = stripFM(text);
@@ -185,12 +185,12 @@ for (const rel of files) {
       F('T-09', rel, `context card has no **${part}:** line`);
 }
 
-// T-10: coverage. A registered series with no mould is the gap this library exists to close.
+// T-10: coverage. A registered series with no template is the gap this library exists to close.
 for (const dir of seriesDirs(RULES)) {
   const pfx = RULES.series[dir].prefix[0];
   if (!pfx) continue;                       // agents/ is folder-named: its scaffold is agents/_template/
   if (!files.includes(`machine/templates/${pfx}-TEMPLATE.md`))
-    F('T-10', `machine/templates/${pfx}-TEMPLATE.md`, `absent — ${dir}/ is a registered series with no mould to copy from`);
+    F('T-10', `machine/templates/${pfx}-TEMPLATE.md`, `absent — ${dir}/ is a registered series with no template to copy from`);
 }
 
 /* T-11: the standards took the shape of their template. Two shapes are
@@ -254,7 +254,7 @@ for (const rel of standards) {
 }
 
 if (failures) {
-  console.error(`template guard: ${failures} finding(s) across ${checked} template(s) — a template is a worked example of its DESTINATION series' contract. Fix the mould, not the documents copied from it.\n`);
+  console.error(`template guard: ${failures} finding(s) across ${checked} template(s) — a template is a worked example of its DESTINATION series' contract. Fix the template, not the documents copied from it.\n`);
   out.finish();
 }
 console.log(`template guard: ${checked} template(s) · every registered series covered · destination contracts hold`);

@@ -6,17 +6,18 @@ uid: ""
 title: "Terms and Conditions — Numen Games"
 type: legal
 status: active
-version: "1.0.1"
+version: "1.0.3"
 created: "2026-08-17T14:34:34Z"
 created_source: "git:54f7b0b"
 created_confidence: inferred
-updated: "2026-09-29T18:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "oracle"
 owner: "oracle"
+section: "Legal and compliance"
 tags: [legal, terms, website, numen-games, enforceable]
 license: "LicenseRef-Numen-AllRightsReserved"
 source_title: "2025_01_12-NUMEN - Terms and Conditions"
-provenance: "human"
+digital_source_type: "human"
 restoration_note: "Ingested 2026-08-17 from the original document. A find-and-replace corruption in the source (the string 'app' had been replaced by 'Website', producing non-words like 'Websitelicable', 'Websitely', 'Websiteroval', 'Websiteropriate', 'Websiterove') was reversed to restore the intended words (applicable, apply, approval, appropriate, approve); 'Webite' typo corrected; §14 'In any provision' corrected to 'If any provision'. No legal substance was altered. Verify against the original before external use."
 review_flags: |
   FLAG-1: v1.0.1 (2026-09-29) changes only the card above the text: it

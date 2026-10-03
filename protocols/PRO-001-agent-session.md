@@ -4,13 +4,14 @@ uid: ""
 title: "Opening and closing a session"
 type: protocol
 status: draft
-version: "2.1.0"
+version: "2.1.2"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
+section: "People and culture"
 tags: [protocol, briefing, startup, session, close, context, mandatory]
 applies_to: [all-agents]
 mandatory: true
@@ -117,7 +118,7 @@ Secrets are handled as `OPS-009` and `STD-022` say, in every session.
 | Closed | the closing commit is on a pushed branch with an open pull request |
 | Declared | the close declaration: agent, timestamp, active missions, next step |
 
-Sync, source and close are executed by hand: they leave no artefact a guard
+Sync, source and close are executed by hand: they leave no artefact a check
 can read.
 
 ## 5. Escalation

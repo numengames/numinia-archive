@@ -218,7 +218,7 @@ check('tree: opportunities have one home — opportunities/, registered in STD-0
   // cómo funciona el sistema"): the folder IS header-governed like every
   // other — every document's header and card, then the sale's own fields,
   // registered in STD-004's ring 3 — and pipeline.mjs still judges the
-  // sale's values in CI. Its moulds sit with the others in machine/templates/.
+  // sale's values in CI. Its templates sit with the others in machine/templates/.
   // 2026-09-29, the Oracle: the house works in the open and says so in every
   // proposal; the organisation is named once told, never once lost.
   const rules = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/lib/rules.json'), 'utf-8'));
@@ -238,7 +238,7 @@ check('tree: opportunities have one home — opportunities/, registered in STD-0
   return true;
 });
 
-check('tree: grants are records in opportunities/ — funding/ is gone, one series, one mould, one tool', () => {
+check('tree: grants are records in opportunities/ — funding/ is gone, one series, one template, one tool', () => {
   // The Oracle (2026-10-02): one record format for sales, tenders, grants,
   // collaborations and partners, in one folder, judged by one tool. The
   // grant series (funding/, GRA-), its standards, its card and its tool were
@@ -248,7 +248,7 @@ check('tree: grants are records in opportunities/ — funding/ is gone, one seri
   if (rules.series.funding) return 'rules.json still registers a funding series';
   if (rules.types?.series?.grant) return 'rules.json still files type grant in its own series';
   if ((rules.governed?.dirs ?? []).includes('funding')) return 'funding/ is still header-governed';
-  if (existsSync(path.join(ROOT, 'machine/templates/GRA-TEMPLATE.md'))) return 'machine/templates/GRA-TEMPLATE.md still exists — one mould, OPP-TEMPLATE.md';
+  if (existsSync(path.join(ROOT, 'machine/templates/GRA-TEMPLATE.md'))) return 'machine/templates/GRA-TEMPLATE.md still exists — one template, OPP-TEMPLATE.md';
   if (existsSync(path.join(ROOT, 'machine/packages/funding-kit'))) return 'machine/packages/funding-kit still exists — one tool, pipeline.mjs';
   const s001 = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf-8');
   if (/`funding\/`/.test(s001)) return 'STD-001 still has a row for funding/';
@@ -277,7 +277,7 @@ check('tree: the house has one card for every call, and a protocol walks each do
 
 check('tree: screening a tender is a protocol, and the skill only points to it — one procedure, one home', () => {
   // The Oracle (2026-10-01): "no solo la skill". The screening procedure is
-  // a protocol of the axis; the portable skill is an adapter that sends any
+  // a protocol, a normative document; the portable skill is an adapter that sends any
   // agent to it, so the steps are never kept twice.
   const pro = path.join(ROOT, 'protocols/PRO-033-screening-a-tender.md');
   if (!existsSync(pro)) return 'protocols/PRO-033-screening-a-tender.md is missing';
@@ -354,7 +354,7 @@ check('tree: a protocol is steps — no Rules section, no plate, and its Epistem
   return bad.length === 0 || bad.join('; ');
 });
 
-check('tree: every protocol has the five parts of the mould, in order', () => {
+check('tree: every protocol has the five parts of the template, in order', () => {
   // machine/templates/PRO-TEMPLATE.md: purpose and trigger, preconditions,
   // procedure, verification, escalation. The Oracle asked that every
   // protocol read alike (2026-09-27). Running a mission (PRO-003) is left
@@ -383,7 +383,7 @@ check('tree: a protocol numbers its steps — the procedure is a numbered list, 
 });
 
 check('tree: a protocol fits in 900 words — a longer one is two protocols, or carries values a register holds', () => {
-  // The mould: more than a dozen steps is probably two protocols with a
+  // The template: more than a dozen steps is probably two protocols with a
   // handover between them. Joining and leaving was one protocol of 1,548
   // words; the living pieces restated the design values register.
   const dir = path.join(ROOT, 'protocols');
@@ -401,7 +401,9 @@ check('tree: a protocol fits in 900 words — a longer one is two protocols, or 
 check('tree: every stage of every kind is moved by a protocol — the register names the stages, the protocols carry each move', () => {
   // STD-038 is the register of stages, by kind; a stage no protocol moves a
   // record into is a state the pipeline can show and nobody can reach.
-  // The protocols that move opportunities are filed under the Sales territory.
+  // The protocols that move opportunities are read under two sections: a sale,
+  // a tender, a partner or a collaboration under Sales and partners; a grant
+  // under Finance, where STD-030 keeps grants and loans.
   const dir = path.join(ROOT, 'protocols');
   const reg = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
   const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## The events'));
@@ -409,8 +411,8 @@ check('tree: every stage of every kind is moved by a protocol — the register n
   if (rows.length < 5) return `the register names only ${rows.length} stages`;
   const sales = readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))
     .map((n) => readFileSync(path.join(dir, n), 'utf-8'))
-    .filter((t) => /^territory: "Sales"/m.test(t));
-  if (sales.length < 3) return `only ${sales.length} protocol(s) in the Sales territory`;
+    .filter((t) => /^section: "(Sales and partners|Finance)"/m.test(t));
+  if (sales.length < 3) return `only ${sales.length} protocol(s) in the Sales and partners or Finance sections`;
   const text = sales.join('\n');
   const unmoved = rows.filter((r) => !new RegExp('`' + r.split(':')[1] + '`').test(text));
   return unmoved.length === 0 || `no sales protocol moves an opportunity to: ${unmoved.join(', ')}`;

@@ -4,13 +4,14 @@ uid: ""
 title: "Escalating to the Oracle"
 type: protocol
 status: draft
-version: "3.1.0"
+version: "3.1.1"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
+section: "Strategy and governance"
 tags: [protocol, escalation, security]
 applies_to: [all-agents]
 mandatory: true

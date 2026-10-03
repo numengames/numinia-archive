@@ -2,15 +2,15 @@
 id: "STD-018"
 uid: ""
 title: "One document, one identifier"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "1.2.1"
+version: "1.2.3"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Platform"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standards, identifiers, naming, Dublin-Core, Cool-URIs, CURIE]
 derived_from: "CAN-009"
@@ -82,7 +82,7 @@ practice it follows.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | IDN-011 | The identifier is permanent | [`dcterms:identifier`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/identifier/); [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — ours adds: the grammar `<PREFIX>-<NNN>` per series | `machine/guards/rules/std-018-one-identifier.mjs`: the identifier a file name carries, against its series' scheme |
 | IDN-014 | Numbers are never reused | [DOI Handbook, numbering](https://www.doi.org/the-identifier/resources/handbook/2_numbering) — a DOI is never reassigned | `machine/guards/rules/std-018-one-identifier.mjs`: one identifier held by two documents |
@@ -97,7 +97,7 @@ Each rule, its code, its source and its check.
 An identifier is an address. Citations, redirects and a file's history all
 depend on it staying put. A file name that carried state or version would
 change whenever the document did, and every address into it would break. A
-gap left by a retired rule costs less than a renumbering that silently
+gap left by a deprecated rule costs less than a renumbering that silently
 points every citation at the wrong rule.
 
 ## References

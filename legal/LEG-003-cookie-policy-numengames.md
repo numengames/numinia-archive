@@ -6,14 +6,15 @@ uid: ""
 title: "Cookie Policy — Numen Games"
 type: legal
 status: draft
-version: "2.1.1"
+version: "2.1.3"
 created: "2026-09-18T17:00:00+02:00"
-updated: "2026-10-02T14:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Legal and compliance"
 tags: [legal, cookies, privacy, gdpr, lssi, website, numen-games, enforceable]
 license: "LicenseRef-Numen-AllRightsReserved"
-provenance: "ai-generated"
+digital_source_type: "ai-generated"
 language: "en"
 related: ["LEG-001", "LEG-002", "LEG-004", "STD-008", "DBT-022"]
 review_flags: |

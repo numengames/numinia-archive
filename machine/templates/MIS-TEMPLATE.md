@@ -9,7 +9,7 @@ id: "MIS-NNN"
 uid: ""
 title: "One line, in the imperative: what this mission does"
 type: mission
-# status: todo | in-progress | in-review | done | frozen
+# status: todo | in-progress | in-review | done | on-hold
 status: todo
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
@@ -18,8 +18,8 @@ author: "agent-id"
 owner: "oracle"
 # guild: Sentinels | Alchemists | Exegetes | Procurators
 guild: "Alchemists"
-# territory: CAO | Product | Platform | Infrastructure | Content | Sales | Funding | Archive
-territory: "Archive"
+# section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
+section: "Knowledge and quality"
 tags: [area, guild]
 license: "CC0-1.0"
 
@@ -29,8 +29,8 @@ license: "CC0-1.0"
 priority: medium
 # effort: XS | S | M | L | XL
 effort: S
-# type_execution: digital = an agent can do it; biological = needs a human; hybrid
-type_execution: digital
+# executor: agent = an agent can do it; human = needs a person; hybrid
+executor: agent
 # agent-id, or null while unassigned
 assigned_to: null
 # YYYY-MM-DD, filled when status becomes done
@@ -43,7 +43,7 @@ completed: null
 # requires_oracle_approval: false   # true when the mission leaves the system
 # context: "YYYY-MM-DD"             # when the premise was last checked
 # paths: []                         # repo paths to start from — a hint, not a fence
-# freeze_reason: "why this is frozen"
+# hold_reason: "why this is on hold"
 # started: "YYYY-MM-DDTHH:MM:SSZ"   # when status became in-progress
 # in_review_at: "YYYY-MM-DDTHH:MM:SSZ"
 ---
@@ -117,7 +117,7 @@ What someone would reasonably expect to be included and is not, and why. -->
 NOTES ON USING THIS TEMPLATE — delete this block.
 
 KEEP EVERY COMMENT ON ITS OWN LINE. An inline `#` after a value ends up INSIDE
-the value in some parsers: `status: todo  # todo|done` is read by one guard as
+the value in some parsers: `status: todo  # todo|done` is read by one check as
 the status `todo` and by another as the whole string. That is how the corpus
 came to hold a status value reading "todo  # todo|done" — from a version of
 this template that put its vocabularies inline. The vocabularies above are on

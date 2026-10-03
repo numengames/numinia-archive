@@ -4,14 +4,14 @@ uid: ""
 title: "One page per document"
 type: adr
 status: active
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-10T03:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [standards, form, readability, plates, budget, deletion]
 amends: []
 related: ["STD-007", "ADR-041", "STD-001"]

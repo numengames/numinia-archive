@@ -12,13 +12,13 @@ updated: "2026-09-28"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [web, archive, example]
 license: "CC0-1.0"
 
 priority: medium
 effort: S
-type_execution: digital
+executor: agent
 assigned_to: "ursa"
 completed: "2026-08-25"
 
@@ -39,7 +39,7 @@ paths: [web/dist/print/, web/package.json, web/astro.config.mjs]
 > **This document is an example, not a mission.** It is filled with a real,
 > measured case so the template is read one way instead of five. It carries
 > `id: MIS-EXAMPLE` rather than a number, so it consumes no identifier, and it
-> lives beside the mould, not in `missions/`, so the board never counts it.
+> lives beside the template, not in `missions/`, so the board never counts it.
 >
 > It is shown **closed**, because the parts that go wrong are the ones written
 > at closing time.

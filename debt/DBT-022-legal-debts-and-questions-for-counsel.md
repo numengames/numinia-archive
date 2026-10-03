@@ -4,13 +4,13 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.3.3"
+version: "0.3.4"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-02T20:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Legal and compliance"
 tags: [debt, legal, gdpr, lssi, consumer-law, cookies, intellectual-property, open-books]
 license: "CC-BY-4.0"
 severity: high

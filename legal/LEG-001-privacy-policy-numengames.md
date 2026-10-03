@@ -6,16 +6,17 @@ uid: ""
 title: "Privacy Policy — Numen Games"
 type: legal
 status: active
-version: "2.1.0"
+version: "2.1.2"
 created: "2026-08-17T14:37:43Z"
 created_source: "git:5d7bd39"
 created_confidence: inferred
-updated: "2026-09-29T18:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "oracle"
 owner: "oracle"
+section: "Legal and compliance"
 tags: [legal, privacy, gdpr, lopdgdd, website, numen-games, enforceable]
 license: "LicenseRef-Numen-AllRightsReserved"
-provenance: "human"
+digital_source_type: "human"
 language: "en"
 restoration_note: "Ingested 2026-08-17 verbatim — unlike the T&C, no transport corruption was detected, so nothing was restored. Substantive anomalies were found and deliberately NOT fixed (legal substance is the lawyer's, not the archivist's); they are flagged in the review-flags block below and must be resolved before external use."
 language_note: "v2.0.0 (2026-08-27, MIS-116): translated to English and English declared the MASTER by Oracle decision, resolving FLAG-5 — the archive is the master (per the FLAG-1 record) and the archive's language is English (ADR-023 (formerly ADR-024)). The Spanish v1.1.0 text remains in git history (tag: this file before 2026-08-27) as the translation source. Translation is language-only: every substantive anomaly (FLAG-2, FLAG-3, FLAG-4, FLAG-6) is preserved as-is, still awaiting a lawyer. C-005 §5 requires enforceable artifacts in English; this document now complies."

@@ -3,11 +3,12 @@ agent: "{agent-id}"
 title: "SOURCES — {Agent Name}"
 type: agent
 status: active
-version: "0.1.0"
+version: "0.1.1"
 created: "{YYYY-MM-DD}T00:00:00Z"
-updated: "{YYYY-MM-DD}T00:00:00Z"
+updated: "2026-10-03T19:40:00+02:00"
 author: "{author-id}"
 owner: "oracle"
+section: "People and culture"
 tags: [agents, template]
 license: "CC0-1.0"
 registration: exempt

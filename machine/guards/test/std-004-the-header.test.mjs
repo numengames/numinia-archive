@@ -77,7 +77,7 @@ test('HDR-009: an empty value is written; uid is the exception', () => {
 });
 
 test('HDR-012..014: ring-2 vocabularies', () => {
-  assert.deepEqual(one({ ...GOOD, provenance: 'oracle' }), ['HDR-012']);
+  assert.deepEqual(one({ ...GOOD, digital_source_type: 'oracle' }), ['HDR-012']);
   assert.deepEqual(one({ ...GOOD, created_source: 'svn:1' }), ['HDR-013']);
   assert.deepEqual(one({ ...GOOD, created_confidence: 'sure' }), ['HDR-014']);
 });
@@ -100,14 +100,14 @@ test('HDR-030 / HDR-031: a field in no ring; a retired field', () => {
 });
 
 test('HDR-032: TBA with no owning mission', () => {
-  assert.deepEqual(one({ ...GOOD, territory: 'TBA' }), ['HDR-032']);
+  assert.deepEqual(one({ ...GOOD, section: 'TBA' }), ['HDR-032']);
 });
 
 test('HDR-033..038: closed vocabularies, template comment stripped', () => {
   assert.deepEqual(one({ ...GOOD, guild: 'Procuradores' }), ['HDR-033']);
-  assert.deepEqual(one({ ...GOOD, id: 'MIS-0900', type: 'mission', status: 'todo', type_execution: 'híbrido' }, 'missions/MIS-0900-a.md'), ['HDR-034']);
+  assert.deepEqual(one({ ...GOOD, id: 'MIS-0900', type: 'mission', status: 'todo', executor: 'híbrido' }, 'missions/MIS-0900-a.md'), ['HDR-034']);
   assert.deepEqual(one({ ...GOOD, visibility: 'secret' }), ['HDR-035']);
-  assert.deepEqual(one({ ...GOOD, territory: 'Mars' }), ['HDR-036']);
+  assert.deepEqual(one({ ...GOOD, section: 'Mars' }), ['HDR-036']);
   assert.deepEqual(one({ ...GOOD, id: 'MIS-0900', type: 'mission', status: 'todo', priority: 'urgent' }, 'missions/MIS-0900-a.md'), ['HDR-037']);
   assert.deepEqual(one({ ...GOOD, id: 'MIS-0900', type: 'mission', status: 'todo', effort: 'XXL' }, 'missions/MIS-0900-a.md'), ['HDR-038']);
   assert.deepEqual(one({ ...GOOD, guild: 'Sentinels  # Sentinels|Alchemists' }), []);
@@ -130,7 +130,7 @@ test('meta.plates is exactly what run() can emit', () => {
   const emitted = new Set();
   for (const src of [
     { 'debt/DBT-900-a.md': '# T\n' },
-    { 'debt/DBT-900-a.md': doc({ ...GOOD, id: 'x', type: 'poem', status: 'Flying', version: 'v1', created: '2026', updated: '2025', guild: '', uid: 'a', area: 'x', colour: 'r', territory: 'TBA', provenance: 'p', created_source: 's', created_confidence: 'c', title: 'TBD' }) },
+    { 'debt/DBT-900-a.md': doc({ ...GOOD, id: 'x', type: 'poem', status: 'Flying', version: 'v1', created: '2026', updated: '2025', guild: '', uid: 'a', area: 'x', colour: 'r', section: 'TBA', digital_source_type: 'p', created_source: 's', created_confidence: 'c', title: 'TBD' }) },
   ]) for (const f of run(corpus(src))) emitted.add(f.plate);
   for (const p of emitted) assert.ok(meta.plates.includes(p), `${p} emitted but not declared`);
 });

@@ -4,12 +4,12 @@ uid: ""
 title: "The pixel register"
 type: blueprint
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Product"
+section: "Brand and marketing"
 tags: [blueprint, design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]

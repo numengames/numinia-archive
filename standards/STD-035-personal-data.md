@@ -2,15 +2,15 @@
 id: "STD-035"
 uid: ""
 title: "Personal data"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.3.6"
+version: "0.3.8"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-27T19:50:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Funding"
+section: "Legal and compliance"
 license: "CC0-1.0"
 tags: [standards, privacy, GDPR, LOPDGDD, personal-data]
 related: ["LEG-001", "LEG-003", "STD-033", "BLU-017"]
@@ -86,16 +86,16 @@ the people affected are told too.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | PRV-001 | A basis and a purpose said first | law: [GDPR, Regulation (EU) 2016/679](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(b), 6, 13 | by hand; the privacy texts are `LEG-001`, a reserved legal text with open questions awaiting a lawyer |
 | PRV-002 | Blocked, then erased | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 5(1)(e); [LOPDGDD, Ley Orgánica 3/2018](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) art. 32 | by hand; a lawyer confirms the blocking periods |
 | PRV-003 | The person is in charge of it | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 12, 15–18, 20, 21 | by hand, following Answering a person's request about their data (`PRO-026`); the contact lives in `LEG-001` |
 | PRV-004 | Under fourteen, a parent decides | law: [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) art. 7; [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 8 | nothing yet: no age check exists |
 | PRV-005 | A record of what we do with data | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 30 | nothing yet: no record is kept |
-| PRV-008 | A site says what it stores | law: [ePrivacy Directive](https://eur-lex.europa.eu/eli/dir/2002/58/oj) art. 5(3); [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 22.2; [AEPD cookie guide, July 2023](https://www.aepd.es/guias/guia-cookies.pdf); holds retired DSN-015 | nothing yet: `check-storage` is described, and runs in none of the four sites (`RPT-021`); the inventory is `LEG-003`, changed through `PRO-027` |
+| PRV-008 | A site says what it stores | law: [ePrivacy Directive](https://eur-lex.europa.eu/eli/dir/2002/58/oj) art. 5(3); [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 22.2; [AEPD cookie guide, July 2023](https://www.aepd.es/guias/guia-cookies.pdf); holds deprecated DSN-015 | nothing yet: `check-storage` is described, and runs in none of the four sites (`RPT-021`); the inventory is `LEG-003`, changed through `PRO-027` |
 | PRV-006 | Anyone handling data for us signs first | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 28 | by hand; the suppliers' data processing terms, outside this repository |
-| PRV-007 | A breach is reported within three days | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 33–34 | by hand, following Handling a personal data breach (`PRO-025`); no guard can see a breach |
+| PRV-007 | A breach is reported within three days | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 33–34 | by hand, following Handling a personal data breach (`PRO-025`); no check can see a breach |
 
 ## Why
 

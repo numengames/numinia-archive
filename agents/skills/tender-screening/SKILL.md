@@ -4,11 +4,12 @@ description: "Use when a public tender reaches you — a link, an aggregator's c
 title: "SKILL — tender-screening"
 type: agent
 status: active
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-10-01T16:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "People and culture"
 tags: [agents, skill, tenders, public-procurement, screening]
 license: "CC0-1.0"
 registration: exempt

@@ -4,13 +4,14 @@ uid: ""
 title: "System simulations"
 type: documentation
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-08-27T22:31:29Z"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
+section: "Products and services"
 tags: [operations, simulations, failure-modes]
 license: "CC-BY-4.0"
 extraction_note: "Extracted verbatim from web/src/pages/simulaciones.astro (MIS-071 phase 2 — File over App). Translated to English under MIS-116 (ADR-023 (formerly ADR-024)) — language only."

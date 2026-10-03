@@ -6,7 +6,7 @@
 //
 // WHY THIS EXISTS
 // The site kept growing pages nobody could find: the narrative dial sat at the
-// foot of /system behind one link, the agent moulds and a mission annex were
+// foot of /system behind one link, the agent templates and a mission annex were
 // built and linked from nowhere. A page answering 200 is not a page a reader
 // can find. The Oracle's rule (2026-09-29): everything is navigable from the
 // two doors — the Map (/) and the Archive (/about).

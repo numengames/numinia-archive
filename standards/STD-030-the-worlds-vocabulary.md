@@ -2,20 +2,20 @@
 id: "STD-030"
 uid: ""
 title: "The world's vocabulary"
-type: documentation
+type: standard
 subtype: register
 status: active
-version: "0.3.0"
+version: "0.4.2"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-10-02T18:43:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [standards, register, vocabulary, guilds, factions, translation]
 license: "CC0-1.0"
-ratified_by: "ADR-053"
-related: ["CAN-004", "STD-003", "STD-026", "PRO-019"]
+approved_by: "ADR-053"
+related: ["CAN-004", "CAN-009", "STD-003", "STD-017", "STD-026", "STD-027", "STD-042", "PRO-005", "PRO-019"]
 derived_from: "CAN-004"
 ---
 
@@ -42,6 +42,14 @@ SPDX-License-Identifier: CC0-1.0
 > model for linking vocabularies lays out. Each description names the kind of
 > thing first, then what sets it apart. Any tool that reads that model can
 > translate in both directions.
+>
+> The last part is the translator between the two readings of the archive.
+> Read as a company, the city is a matrix: a guild is what you know, so each
+> house stands for a discipline; a faction is where you apply it, so each one
+> stands for a business line. The sections of the site's front door group the
+> disciplines the way a company reads itself. A discipline no house carries is
+> listed as a gap, and every match says whether a source states it or it is
+> proposed.
 > **Epistemic:** What do the world's words mean?
 
 ## Guilds — Alchemists
@@ -110,3 +118,94 @@ SPDX-License-Identifier: CC0-1.0
 | **Adventure** | Experience / Event | An experience designed for interaction, fostering cohesion and learning. |
 | **Seed of Knowledge** | Learning recognition | It marks acquired knowledge and cultural alignment. |
 | **Prism Cell** | Contribution recognition | It reflects practical contribution through execution. |
+
+## Sections of the front door
+
+How a company reads itself, in the order the site shows it. The sections
+follow the cross-industry categories of the [APQC Process Classification
+Framework](https://www.apqc.org/process-frameworks), version 7.4 (2024),
+merged where a small company does not split them; category 4.0, the supply
+chain for physical products, goes to Operations, and 10.0, assets, to
+Finance. A section groups records for a reader; it does not file them. The
+archive's functions, in the classification scheme, still file them. Who we
+are — the narrative, the brand and the culture — is read whole in the brand
+and culture book, above the sections.
+
+| Section | Line | APQC category |
+|---|---|---|
+| Strategy and governance | Why we exist, who decides, and what we have decided. | 1.0 Develop vision and strategy |
+| Products and services | What we make and sell: the game, events, training and NWOS. | 2.0 Develop and manage products and services |
+| Brand and marketing | How we look and sound, and how people come to hear of us. | 3.0 Market and sell products and services |
+| Sales and partners | Whom we sell to and work with, each deal's stage, and customer help. | 3.0 Market and sell · 6.0 Manage customer service · 12.0 Manage external relationships |
+| Operations | How the work is planned, supplied and delivered, day to day. | 5.0 Deliver services · 4.0 Manage the supply chain |
+| People and culture | Who works here, human or AI, and how we treat and reward each other. | 7.0 Develop and manage human capital |
+| Finance | Where the money comes from and where it goes, grants and loans included. | 9.0 Manage financial resources · 10.0 Manage assets |
+| Legal and compliance | The laws we follow, the policies we publish and the risks we watch. | 11.0 Manage enterprise risk, compliance, remediation and resiliency |
+| Technology | The systems and sites we run, and how we keep them secure. | 8.0 Manage information technology |
+| Knowledge and quality | How we record, check and keep what we know and decide. | 13.0 Develop and manage business capabilities |
+
+## Disciplines
+
+Each house of the guilds above, by the disciplines it stands for. The words
+come from the house's operational equivalent and from what the game manual
+says the house does. *Stated* means a source says it; *proposed* means it is
+a reading still to be confirmed by the lore reviewer. A dash means no house
+carries the discipline yet: a gap in the city, not in the company.
+
+| Discipline | Section | Guild | Branch | House | Basis | Note |
+|---|---|---|---|---|---|---|
+| Design at every scale, from product to concept | Products and services | Alchemists | Handcrafters | Draftsmen | stated | |
+| Art of every kind and art direction | Brand and marketing | Alchemists | Handcrafters | Aesthetes | stated | the visual form of the brand; its meaning is the Exegetes' |
+| Systems and product architecture | Technology | Alchemists | Engineers | Architects | stated | |
+| Virtual worlds, artificial intelligence and software | Technology | Alchemists | Engineers | Automatons | stated | the house of digital agents |
+| Memory and history: records, documentation, copywriting | Knowledge and quality | Exegetes | Chroniclers | Logographers | stated | |
+| News, chronicle and communication of the present | Brand and marketing | Exegetes | Chroniclers | Bards | stated | social media is one of its channels |
+| Expert knowledge by field, and passing it on | Knowledge and quality | Exegetes | Scholars | Hierophants | stated | training is also sold, under products and services |
+| Culture, new ideas and strategy | Strategy and governance | Exegetes | Scholars | Thaumaturges | stated | |
+| Law and compliance | Legal and compliance | Procurators | Legates | Legal Rabbits | stated | |
+| Institutional relations and alliances | Sales and partners | Procurators | Legates | Heralds | stated | |
+| The economy: finance | Finance | Procurators | Trustees | Mercurials | stated | |
+| The economy: sales and revenue | Sales and partners | Procurators | Trustees | Mercurials | proposed | one house holds two disciplines a company keeps apart |
+| Pay and rewards | People and culture | Procurators | Trustees | Mercurials | proposed | the city's treasurers keep its economic interests |
+| Operations and project management | Operations | Procurators | Trustees | Stewards | stated | |
+| Purchasing and suppliers | Operations | Procurators | Trustees | Stewards | proposed | the Stewards run the city's internal organisation |
+| Supervising and managing the structure | Strategy and governance | Sentinels | Seraphs | Captains | stated | in the house the Oracles have the last word; in the city direction is collegiate |
+| Rules kept and conflicts handled | People and culture | Sentinels | Seraphs | Guardians | stated | |
+| Quality control and audit | Knowledge and quality | Sentinels | Seraphs | Guardians | proposed | they ensure the rules are kept |
+| Security and access | Technology | Sentinels | Seraphs | Guardians | proposed | the whole guild is the city's protection |
+| Well-being and care of people | People and culture | Sentinels | Archangels | Healers | stated | |
+| Welcome, guidance and community | People and culture | Sentinels | Archangels | Explorers | stated | |
+| Customer help | Sales and partners | Sentinels | Archangels | Explorers | proposed | the Archangels offer help; whoever enters is guided |
+| Marketing campaigns and acquisition | Brand and marketing | — | — | — | — | no house carries it |
+| Data and analytics | Technology | — | — | — | — | no house carries it |
+
+## Business lines
+
+Each faction, by the business line it stands for — the operative
+vocabulary calls it an area — with its district on the map and what that
+line sells today.
+
+| Business line | Faction | District | What it sells today |
+|---|---|---|---|
+| Play and events | Heirs of Eleusis | Ouroboros | the role-playing game, adventures, experiences for events |
+| Education and research | Hermeticists | Vitruvian | training, the codex |
+| Organisation and governance | Stellar Circle | Solomon | NWOS, set up for an organisation |
+| Art and objects | Neo-Atlantists | Sycamore | objects, the shop; supporting Numinia |
+
+## Who decides
+
+A company answers this with its hierarchy. Numen Games, the house, answers
+with ranks and written decisions; Numinia, the city, with elected and
+rotating bodies. The two are not the same answer.
+
+| A company asks | The house answers | The city answers |
+|---|---|---|
+| Who is in charge? | The Oracles, at most four, then the Archons they name (`STD-003`) | No single head: elected, rotating, collective bodies; the Oracles inspire, they do not govern |
+| Who approves a change to the rules? | The Oracle, or a written decision (`STD-017`) | The Legislative Senate drafts, the Civic Assembly approves |
+| Who advises and judges? | — | The Council of Sages; between districts, the Concordia Council |
+| Who carries decisions out? | Whoever holds the work, by written procedure | The Proconsulate |
+| What binds? | Only what is written in the archive (`CAN-009`) | — |
+| What does someone do when in doubt? | Stop and ask (`PRO-005`) | — |
+| What may each one do without asking? | A permission table by level of autonomy (`STD-042`) | — |
+| What is the career path? | Six ranks, read from what was done; the top two are named (`STD-003`) | — |
+| What are the rituals? | The rituals of Numinia (`PRO-019`) | — |

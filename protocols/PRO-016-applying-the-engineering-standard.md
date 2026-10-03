@@ -4,16 +4,16 @@ uid: ""
 title: "Applying the engineering standard"
 type: protocol
 status: draft
-version: "3.1.0"
+version: "3.1.2"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, engineering, agents]
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
-territory: "Platform"
+section: "Technology"
 related: ["STD-005", "STD-015", "PRO-005", "PRO-013"]
 derived_from: "CAN-010"
 ---
@@ -62,7 +62,7 @@ agent on `PRO-001` session. The Oracle enters only at the irreversible tier.
 4. **Write the test first.** Write the test that describes the change, run
    it, see it fail, and commit it as `test(...)` before the `fix`/`feat`
    commit (`STD-015` DEV-008).
-5. **Do the work, naming practices by plate.** Commits and pull requests
+5. **Do the work, naming practices by rule ID.** Commits and pull requests
    cite the practices they touch by their `STD-015` identifier
    (`fix: read-only workflow tokens (SEC-008)`).
 6. **Never weaken a check to pass.** Lowering a threshold, skipping a
@@ -72,7 +72,7 @@ agent on `PRO-001` session. The Oracle enters only at the irreversible tier.
    that the task did not touch go to the closing report and the
    repository's TODO (`TRC-005`), not into the task.
 8. **Run the checks locally.** CI remains the authority (`ENG-001`).
-9. **Report.** If the task is a guard, continue in `PRO-013`.
+9. **Report.** If the task is a check, continue in `PRO-013`.
 
 **Autonomous tier.** Formatting, lint fixes, typos, added tests; mechanical
 `[AUTO]` fixes — pin an action by SHA, add `SECURITY.md` from the template,
@@ -88,7 +88,7 @@ deleting branches or tags on `main`.
 
 | Check | Evidence |
 |---|---|
-| Practices named | plates in the commit messages and the PR body |
+| Practices named | rule IDs in the commit messages and the PR body |
 | Test first | the `test(...)` commit precedes the `fix`/`feat` commit in the PR |
 | Checks ran | local run recorded in the closing report; CI green on the PR |
 | Nothing weakened | the diff touches no threshold, ignore, pin or workflow — or a decision record carries the change |
@@ -104,6 +104,6 @@ Oracle through `PRO-005`, with the decision record drafted.
 | Document | Title | Why it obliges here |
 |---|---|---|
 | `STD-005` | When a rule bites | the principles this protocol applies |
-| `STD-015` | Engineering checks | the practice register the plates come from, test-first included |
+| `STD-015` | Engineering checks | the practice register the rule IDs come from, test-first included |
 | `PRO-005` | Escalation | how the Oracle tier is reached |
-| `PRO-013` | Handing a guard to CI | continues this when the task is a guard |
+| `PRO-013` | Handing a check to CI | continues this when the task is a check |

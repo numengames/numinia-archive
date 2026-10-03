@@ -20,7 +20,7 @@
  * -----------------------------
  * A hand-written index of 46 documents is D-031 again: it goes stale the first
  * time someone edits a `Binds:` line, and nothing notices, because nothing
- * reads it back. `[section].astro` already refuses to hand-write its indexes
+ * reads it back. `[series].astro` already refuses to hand-write its indexes
  * for exactly this reason.
  *
  * The shape is `ruleset-export.mjs`'s, which solves the same problem for branch

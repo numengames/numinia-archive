@@ -5,15 +5,15 @@ title: "The Agent Cycle — experience and operation"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.1"
+version: "1.1.3"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, agents, cycle, experience]
-territory: "CAO"
+section: "Products and services"
 license: "CC0-1.0"
 extraction_note: "Extracted from web/src/pages/agente.astro (MIS-071 phase 2 — File over App). That source file was deleted in 61353f6 (MIS-120a); its successor is web/src/views/AgentView.astro, still in Spanish while this document is English (MIS-116, ADR-023 (formerly ADR-024)). Zero prose strings are now shared between the two — measured in MIS-129."
 former_id: "BLU-006"
@@ -42,7 +42,7 @@ Representation of the original page's visual stack (top to bottom):
 | Layer | Label | Name | Detail in the diagram |
 |-------|-------|------|-----------------------|
 | L6 | L6 · Emergent | 🏛️ ORGANIZATION | Not instantiated — it emerges from the system's continuous operation |
-| L5 | L5 · Authority | 👤 BIOLOGICAL AGENT | IQ · Position · Role · Intuition · Approval — flow: «instrucción ↓» / «aprobación ↑» (⇅) |
+| L5 | L5 · Authority | 👤 HUMAN | IQ · Position · Role · Intuition · Approval — flow: «instrucción ↓» / «aprobación ↑» (⇅) |
 | L3 | L3 · Transversal — State Bus | 📚 ARCHIVE SUMMA | «↓ BOOT (git pull)» · «↑ COMMIT (git push)» — labels: SOUL.md · OPERATOR.md · Missions · Decisions · Blueprints · Reports · Protocols · Memory |
 | L1 | L1 · Runtime | 🤖 DIGITAL AGENT | AI model · Orchestrator · Context · Vector DB |
 | L2 | L2 · Substrate | 🖥️ INFRASTRUCTURE | Server · GPU · Tools · Auth · Observability |
@@ -61,7 +61,7 @@ Representation of the original page's visual stack (top to bottom):
 **Components:** AI model (LLM) · Active context (session RAM) · Semantic memory (Vector DB) · Orchestrator (OpenClaw)
 
 - **🧠 Epistemic value:** The agent has no intelligence of its own — it has access to a language model and to the instructions defining who it is. Intelligence emerges from the combination of model + instructions + context.
-- **⚡ Pragmatic value:** It can execute tasks without continuous supervision: write code, send emails, create documents, analyze data. The limit is what the Biological authorizes.
+- **⚡ Pragmatic value:** It can execute tasks without continuous supervision: write code, send emails, create documents, analyze data. The limit is what the Human authorizes.
 - **📍 Real case — Nimrod:** Nimrod (Centinela-01) boots at 8am, loads SOUL.md and OPERATOR.md, and executes the daily report. There is no human in the loop until the report reaches Telegram.
 
 ### L2 — 🖥️ Infrastructure
@@ -94,24 +94,24 @@ Representation of the original page's visual stack (top to bottom):
 - **⚡ Pragmatic value:** Assets are served via CDN — globally available, no latency. Separate from the Archive because they have different lifecycles: an .md is versioned with git, an .mp4 is not.
 - **📍 Real case — Nimrod:** The game «El Velo» at pablofm.com/openclaw-test uses Three.js with procedural geometries. When there are real .vrm avatars, they will be served from R2 and the digital agent will be able to 'embody' them in Numinia sessions.
 
-### L5 — 👤 Biological Agent
+### L5 — 👤 Human
 
 *The authority. The one that decides, intuits and authorizes.* (color `#ffa657`)
 
 **Components:** IQ + experience + intuition · Position (Oracle, Citizen, etc.) · Role in the guild · Approval authority · Tacit knowledge (undocumented)
 
-- **🧠 Epistemic value:** The Biological has something the Digital will never have: tacit knowledge — intuition built by years of experience that cannot be fully documented. That is irreplaceable. The risk: that knowledge dies with the person if it is not partially externalized into the Archive.
-- **⚡ Pragmatic value:** The Biological is the only one who can authorize high-risk actions (Law 1). They are also the one who detects when the system is producing correct-but-wrong outputs — the agent can do exactly what you ask and still be wrong.
-- **📍 Real case — Nimrod:** Pablo approves every PR before merging. Nimrod can propose 10 technically correct changes — but Pablo knows when 'this is not the moment' for reasons that are in no document. That is the Biological.
+- **🧠 Epistemic value:** The Human has something the Digital will never have: tacit knowledge — intuition built by years of experience that cannot be fully documented. That is irreplaceable. The risk: that knowledge dies with the person if it is not partially externalized into the Archive.
+- **⚡ Pragmatic value:** The Human is the only one who can authorize high-risk actions (Law 1). They are also the one who detects when the system is producing correct-but-wrong outputs — the agent can do exactly what you ask and still be wrong.
+- **📍 Real case — Nimrod:** Pablo approves every PR before merging. Nimrod can propose 10 technically correct changes — but Pablo knows when 'this is not the moment' for reasons that are in no document. That is the Human.
 
 ### L6 — 🏛️ Organization
 
 *The emergent. The sum that exceeds its parts.* (color `#2dd4bf`)
 
-**Components:** Not instantiated — it emerges · It is the sum of L1+L2+L3+L4+L5 in continuous operation · Culture = the system's repeated behaviors · Institutional memory = a living Summa Archive · Collective intelligence = Digital + Biological in a loop
+**Components:** Not instantiated — it emerges · It is the sum of L1+L2+L3+L4+L5 in continuous operation · Culture = the system's repeated behaviors · Institutional memory = a living Summa Archive · Collective intelligence = Digital + Human in a loop
 
 - **🧠 Epistemic value:** The organization is not an object you can create directly. It is a pattern that emerges when all the components operate together over time. That is why 'deploying NWOS' is not enough — the system has to be lived.
-- **⚡ Pragmatic value:** When the cycle works (Biological activates → Digital executes → Archive receives → Biological reviews), the organization learns. Every completed mission makes the system slightly more intelligent. That is the promise of the NWOS.
+- **⚡ Pragmatic value:** When the cycle works (Human activates → Digital executes → Archive receives → Human reviews), the organization learns. Every completed mission makes the system slightly more intelligent. That is the promise of the NWOS.
 - **📍 Real case — Nimrod (measured 2026-04-12):** Numen Games had been operating with this system for 5 days: 54 documented missions, 32 PRs, 5 reports, 5 decisions. That is not a 5-day-old company — it is an organization with years of memory if the system is maintained. The figures are a dated snapshot, not a current count; `node machine/scripts/telemetry.mjs` measures the corpus today.
 
 ---
@@ -130,8 +130,8 @@ Visual sequence on the page: **⬇️ BOOT → ⚡ EXECUTE → ⬆️ COMMIT**
 
 ### ⚡ EXECUTE (color `#3fb950`)
 
-- **What:** The agent receives an instruction from the Biological and executes using tools.
-- **How:** Biological → Orchestrator → Agent → Tools (web, shell, APIs, email, git) → Output → Biological.
+- **What:** The agent receives an instruction from the Human and executes using tools.
+- **How:** Human → Orchestrator → Agent → Tools (web, shell, APIs, email, git) → Output → Human.
 - **🧠 Epistemic value:** Execution is where the knowledge loaded at BOOT turns into real action. It is also where new knowledge is generated — every conversation, every error, every decision taken is new knowledge not yet persisted.
 - **⚡ Pragmatic value:** The agent can operate multiple tools in parallel. The limit is not thinking speed but API latency and the model's context window.
 - **📍 Real case:** This session: Pablo says 'do the Wardley Map'. Nimrod reads the state of all the pages, summons the team (Alquimista-01, Exégeta-01), synthesizes their analyses, writes the page, creates the PR, and merges it. All in 15 minutes.
@@ -179,7 +179,7 @@ Every Monday, the agent generates the previous week's report. Every day it close
 | Mission State Machine | The IDLE → BOOTING → ACTIVE → CLOSING → ARCHIVED cycle needs explicit representation. | pending |
 | Relational Knowledge Graph | The .md files are flat. Numinia's real knowledge is a graph of related entities. | future |
 | Observability Stack | Structured logs, decision traces, per-agent metrics. Without this the agent is a black box. | future |
-| The Biological's tacit knowledge | The undocumented intuition and experience that enters the system without passing through the agent. | philosophical |
+| The Human's tacit knowledge | The undocumented intuition and experience that enters the system without passing through the agent. | philosophical |
 
 ---
 

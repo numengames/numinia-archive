@@ -2,15 +2,15 @@
 id: "STD-044"
 uid: ""
 title: "Every purchase ends in thanks"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.1.2"
 created: "2026-09-30T12:30:00+02:00"
-updated: "2026-09-30T12:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Funding"
+section: "Finance"
 tags: [standards, payments, purchase, thanks, checkout, confirmation]
 license: "CC0-1.0"
 related: ["STD-033", "CAN-011", "STD-034", "STD-035", "PRO-020", "OPS-014"]
@@ -82,7 +82,7 @@ whoever asks the device for reduced motion.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | CEL-001 | Back home | [Stripe, payment link confirmation page](https://docs.stripe.com/payment-links/post-payment) | by hand, in the processor, at PRO-020 step 5 |
 | CEL-002 | One page per good | — | by hand, at the pull request |

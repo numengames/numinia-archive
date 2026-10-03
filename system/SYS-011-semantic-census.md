@@ -5,14 +5,14 @@ title: "The semantic census"
 type: documentation
 subtype: reference
 status: draft
-version: "0.3.0"
+version: "0.3.2"
 created: "2026-09-29T12:15:00+02:00"
-updated: "2026-09-29T16:39:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-provenance: ai-assisted
+digital_source_type: ai-assisted
 guild: "Exegetes"
-territory: "Archive"
+section: "Products and services"
 tags: [system, reference, vocabulary, census, narrative-dial]
 license: "CC0-1.0"
 related: ["RPT-023", "STD-030", "STD-026", "BLU-007", "CAN-007"]
@@ -85,7 +85,7 @@ its own: its identifier is `SYS-011:<file name>`, its type is `entity`.
 | `stage` | where the card stands in its validation, below |
 | `confidence` | `high` · `medium` · `low` — how well the sources support the whole card |
 
-The body follows one mould: entity, concept, constitutive traits, facets,
+The body follows one template: entity, concept, constitutive traits, facets,
 contexts, relations, current manifestations (game, house, web, processes),
 existing equivalences with their evaluation, observations, sources. An
 equivalence is judged *complete*, *partial*, *reductive*, *ambiguous*,
@@ -126,7 +126,7 @@ Veil on the web.
 
 ## What comes next
 
-Christian validates the eight pilot cards and says whether the mould
+Christian validates the eight pilot cards and says whether the template
 captures the concept, which fields are missing or spare, and what a card
 costs to read. Then the census runs category by category, in the order
 above, each category reviewed before the next. A shorter card for the

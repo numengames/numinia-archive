@@ -131,7 +131,7 @@ const FAMILY_BLURB: Record<string, string> = {
           {freshness.state === "current" ? (
             <>The dataset was measured at the commit this build came from. The figures below describe the tree you are looking at.</>
           ) : (
-            <>The dataset names a different commit than this build, or this build has no commit label. That is normal and usually harmless — the instrument runs, then its output is committed, so <span class="font-mono text-foreground">head</span> can trail the build by one. The page compares labels; it does not re-measure, so it reports what it can see rather than guessing.</>
+            <>The dataset names a different commit than this build, or this build has no commit label. That is normal and usually harmless — the tooling runs, then its output is committed, so <span class="font-mono text-foreground">head</span> can trail the build by one. The page compares labels; it does not re-measure, so it reports what it can see rather than guessing.</>
           )}
         </p>
       </div>
@@ -199,7 +199,7 @@ const FAMILY_BLURB: Record<string, string> = {
       <SectionHeader
         label="Between measurements"
         title="What moved"
-        description="The difference between the last two runs of the instrument. A figure absent from the older run is not listed: appearing for the first time is a change in the instrument, not in the corpus."
+        description="The difference between the last two runs of the tooling. A figure absent from the older run is not listed: appearing for the first time is a change in the tooling, not in the corpus."
       />
 
       {from && to ? (
@@ -314,7 +314,7 @@ const FAMILY_BLURB: Record<string, string> = {
       <div class="rounded-[8px] border border-border bg-card p-5 sm:p-6">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">Not shown</p>
         <p class="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">
-          The instrument measures <span class="font-mono text-foreground">{totalMeasured}</span> figures; this page publishes <span class="font-mono text-foreground">{dataset.figures.length}</span>.{excludedCount > 0 && (<> The {excludedCount} omitted belong to families kept out of the view: {Object.entries(EXCLUDED_FAMILIES).map(([f, why]) => `${f} — ${why}`).join(" · ")}</>)}
+          The tooling measures <span class="font-mono text-foreground">{totalMeasured}</span> figures; this page publishes <span class="font-mono text-foreground">{dataset.figures.length}</span>.{excludedCount > 0 && (<> The {excludedCount} omitted belong to families kept out of the view: {Object.entries(EXCLUDED_FAMILIES).map(([f, why]) => `${f} — ${why}`).join(" · ")}</>)}
         </p>
         <p class="mt-4 border-t border-border pt-4 font-mono text-xs text-muted-foreground">
           Produced by <a href={`${REPO_URL}/blob/main/scripts/telemetry.mjs`} class="underline decoration-border underline-offset-4 hover:text-accent" target="_blank" rel="noopener noreferrer">scripts/telemetry.mjs</a> · dataset at <a href={`${REPO_URL}/tree/main/telemetry`} class="underline decoration-border underline-offset-4 hover:text-accent" target="_blank" rel="noopener noreferrer">telemetry/</a> · CC0

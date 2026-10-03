@@ -6,15 +6,15 @@ status: todo
 priority: high
 effort: L
 guild: "Alchemists"
-territory: "Product"
-type_execution: hybrid
+section: "Brand and marketing"
+executor: hybrid
 assigned_to: null
 completed: null
 
 type: mission
-version: "0.1.0"
+version: "0.1.2"
 created: "2026-09-24T17:00:00+02:00"
-updated: "2026-09-24T17:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [design-system, audit, web, day-night, four-sites]

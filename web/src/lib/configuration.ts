@@ -65,8 +65,8 @@ export const SETTINGS: Setting[] = [
   {
     label: "The team",
     question: "Who does the work?",
-    line: "The biological and digital agents, each with a role, a character and its files. A new agent starts from the moulds.",
-    scale: "roster · moulds",
+    line: "The humans and the digital agents, each with a role, a character and its files. A new agent starts from the templates.",
+    scale: "roster · templates",
     href: "/agent",
     page: "agent.astro",
     icon: "robot",
@@ -76,8 +76,8 @@ export const SETTINGS: Setting[] = [
 export const CONFIG_INTRO =
   "NWOS is one system that each organisation tunes. Four settings decide how it feels to work in it: how much story it speaks, how much play it carries, how much its agents do alone, and who those agents are. Each one has its own page; this is where they meet.";
 
-/** The moulds a new agent is copied from, and the skill agents read. */
-export const MOULDS: { label: string; line: string; href: string; file: string }[] = [
+/** The templates a new agent is copied from, and the skill agents read. */
+export const TEMPLATES: { label: string; line: string; href: string; file: string }[] = [
   { label: "Operator", line: "Who governs the agent and when it must escalate", href: "/agents/_template/operator", file: "agents/_template/OPERATOR.md" },
   { label: "Soul", line: "Who the agent is: character, voice, limits", href: "/agents/_template/soul", file: "agents/_template/SOUL.md" },
   { label: "Sources", line: "Where the agent's knowledge comes from", href: "/agents/_template/sources", file: "agents/_template/SOURCES.md" },
@@ -85,13 +85,13 @@ export const MOULDS: { label: string; line: string; href: string; file: string }
   { label: "Skill: screening a tender", line: "Bid, possible or decline, from the terms and never from a summary", href: "/agents/skills/tender-screening/skill", file: "agents/skills/tender-screening/SKILL.md" },
 ];
 
-/** Throws at build when a setting or a mould names something not in the tree. */
+/** Throws at build when a setting or a template names something not in the tree. */
 export function settings(): Setting[] {
   for (const s of SETTINGS) {
     const f = path.join(ROOT, "web", "src", "pages", s.page);
     if (!fs.existsSync(f)) throw new Error(`/configure lists ${s.href}, and web/src/pages/${s.page} is not in the tree`);
   }
-  for (const m of MOULDS) {
+  for (const m of TEMPLATES) {
     if (!fs.existsSync(path.join(ROOT, m.file))) throw new Error(`/configure lists ${m.file}, which is not in the tree`);
   }
   return SETTINGS;

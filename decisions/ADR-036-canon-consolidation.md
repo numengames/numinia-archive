@@ -4,13 +4,13 @@ uid: ""
 title: "The canon is CAN-"
 type: adr
 status: active
-version: "2.0.2"
+version: "2.0.3"
 created: "2026-09-01T00:00:00+02:00"
-updated: "2026-10-02T20:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [canon, taxonomy, series, prefixes, licensing, CC0, deletion]
 license: "CC-BY-4.0"
 related: ["CAN-005", "STD-018", "SYS-003"]

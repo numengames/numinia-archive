@@ -4,19 +4,19 @@ uid: ""
 title: "Renaming is not transforming"
 type: seminal
 status: draft
-version: "2.1.3"
+version: "2.1.5"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Strategy and governance"
 tags: [canon, seminal, function, structure, interpreter, architect]
 license: "CC0-1.0"
 registration: registered
-ratified_by: "ADR-058"
+approved_by: "ADR-058"
 supersedes_version: "2.0.0"
 related: ["CAN-001", "CAN-004", "CAN-006"]
 former_id: "canon-pragmatic-numen-system-v020"

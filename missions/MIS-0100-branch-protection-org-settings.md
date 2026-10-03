@@ -6,18 +6,18 @@ status: todo
 priority: "critical"
 effort: "S"
 guild: "Sentinels"
-territory: "Infrastructure"
-type_execution: "biological"
+section: "Technology"
+executor: "human"
 assigned_to: null
 started: null
 completed: null
 
 type: mission
-version: "1.2.1"
+version: "1.2.3"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -45,7 +45,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Oracle · Sentinels
 
 **Guild:** Sentinels
-**Type:** biological (GitHub settings — no agent can do this)
+**Executor:** human (GitHub settings — no agent can do this)
 **Priority:** critical
 **Effort:** S
 

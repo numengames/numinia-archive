@@ -4,13 +4,13 @@ uid: ""
 title: "We recognise the act; we never buy the game"
 type: seminal
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-03T19:00:00+02:00"
-updated: "2026-10-03T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "People and culture"
 tags: [canon, seminal, culture, incentives, recognition, motivation, ranks]
 license: "CC0-1.0"
 related: ["CAN-002", "CAN-004", "CAN-007", "CAN-011", "CAN-012", "CAN-013", "STD-003", "PRO-019"]

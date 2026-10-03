@@ -2,15 +2,15 @@
 id: "STD-034"
 uid: ""
 title: "Accessibility"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.2.6"
+version: "0.2.8"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Product"
+section: "Technology"
 license: "CC0-1.0"
 related: ["STD-008", "STD-015", "STD-023", "SYS-009"]
 derived_from: "CAN-008"
@@ -77,7 +77,7 @@ guidelines' authors publish.
 Each rule, its code, its source and its check. Then the criteria the first
 rule already implies and nothing checks yet.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | ACC-001 | Every page meets the common guidelines | [WCAG 2.2, level AA](https://www.w3.org/TR/WCAG22/); a superset of [EN 301 549 V3.2.1](https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf) clause 9 (= WCAG 2.1 AA). **Exempts us:** [European Accessibility Act](https://eur-lex.europa.eu/eli/dir/2019/882/oj), in Spain [Ley 11/2023](https://www.boe.es/buscar/act.php?id=BOE-A-2023-11022), from 28 June 2025, covers e-commerce such as numinia.com; art. 4(5) exempts microenterprises providing services (< 10 persons and turnover or balance ≤ €2 M) — Numen Games S.L. is one, confirmed by the Oracle on 2026-09-25; to review if the company grows | `numinia-web` only: `apps/store/e2e/a11y.spec.ts`, axe with Playwright over 31 routes, both themes; `numinia.org`, `numen.games` and `nwos.numen.games` have no accessibility test yet |
 | ACC-002 | Both themes count | WCAG 2.2 SC 1.4.1 Use of Color (A), 1.4.3 Contrast (Minimum) (AA) 4.5:1 and 3:1 large, 1.4.11 Non-text Contrast (AA) 3:1, 2.4.7 Focus Visible (AA), 2.4.11 Focus Not Obscured (Minimum) (AA); absorbs `DSN-006` and the ratios and focus clause of `DSN-005`, `DSN-003` | as `ACC-001` for contrast in both modes; colour-alone and focus by hand |

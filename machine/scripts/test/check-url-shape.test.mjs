@@ -30,7 +30,7 @@ id: "STD-001"
 ---
 # The series
 
-| Series | Holds | Prefix | Threshold | Budget | Mould |
+| Series | Holds | Prefix | Approval level | Budget | Template |
 |---|---|---|---|---|---|
 | \`canon/\` | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | — |
 | \`decisions/\` | why something was chosen | \`ADR-NNN\` | \`governed\` | 500 | — |

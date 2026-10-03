@@ -181,7 +181,7 @@ export function render(piece, recordText, offerText, opts = {}) {
     price_line: prices.length ? `Los dos formatos que proponemos (${prices.slice(0, 2).map((x) => eur(x.price)).join(' y ')} sin IVA) entran en un contrato menor de servicios.` : '[falta: Packages]',
     attachment: opts.attachment ?? `${today.replace(/-/g, '_')}-Numen_Presentacion-${fm.id ?? 'OPP'}.pdf`,
   };
-  /* A plain-text mould carries its licence in a leading comment block; it
+  /* A plain-text template carries its licence in a leading comment block; it
      never reaches the reader. */
   const raw = readFileSync(path.join(HERE, 'templates', spec.file), 'utf8');
   const tpl = spec.ext === 'txt' ? raw.replace(/^<!--[\s\S]*?-->\n/, '') : raw;

@@ -4,13 +4,13 @@ uid: ""
 title: "Bringing a rule into force"
 type: protocol
 status: active
-version: "1.1.0"
+version: "1.1.2"
 created: "2026-09-27T14:30:00+02:00"
-updated: "2026-10-02T21:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Archive"
-tags: [protocol, lifecycle, draft, active, promotion, guards]
+section: "Knowledge and quality"
+tags: [protocol, lifecycle, draft, active, promotion, checks]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-004", "STD-005", "STD-009", "STD-017", "STD-019", "STD-024"]
@@ -37,9 +37,9 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 1. Purpose and trigger
 
-A draft is on trial: it is followed, its guard warns and never blocks,
+A draft is on trial: it is followed, its check warns and never blocks,
 and what does not fit is noted. The day it becomes `active`, two things
-change at once: every finding its guard reports stops being a warning and
+change at once: every finding its check reports stops being a warning and
 fails the build, and every person and agent is held to what it says. This protocol makes that moment deliberate.
 
 It starts when the Oracle names a document to bring into force, or when an
@@ -52,23 +52,23 @@ agent proposes one. The **agent** prepares the change and shows it; the
 
 - A clone of `main`, with `npm ci` run at the root and in `web/`.
 - The candidate is `status: draft` in `canon/`, `standards/` or `protocols/`.
-- The guards and tests pass on `main` as it stands.
+- The checks and tests pass on `main` as it stands.
 
 ---
 
 ## 3. Procedure
 
-1. **Run the guards.** `npm run guards -- --rules`, and keep the output.
-2. **Find the candidate's guard.** Each guard names the standard it belongs
-   to (`std-004-the-header` belongs to `STD-004`). A document with no guard
+1. **Run the checks.** `npm run guards -- --rules`, and keep the output.
+2. **Find the candidate's check.** Each check names the standard it belongs
+   to (`std-004-the-header` belongs to `STD-004`). A document with no check
    is checked only by people; say so in step 7.
-3. **List what would fail.** Every finding under the candidate's guard fails
+3. **List what would fail.** Every finding under the candidate's check fails
    the build once it is `active`. Write the list down: file, rule, what is
    wrong.
 4. **Fix each finding in the file that carries it.** Fix the document that
    breaks the rule, not the rule. If the rule itself is wrong, stop and go
    to Escalation.
-5. **Run the guards again.** The candidate's guard must say *all hold*.
+5. **Run the checks again.** The candidate's check must say *all hold*.
 6. **Read every requirement for a yes or no.** For each MUST, ask whether
    someone holding the thing made could answer *met* or *not met*. Note any
    that cannot be answered; no one can be held to them in practice.
@@ -97,7 +97,7 @@ agent proposes one. The **agent** prepares the change and shows it; the
 
 | Step | Evidence it completed |
 |---|---|
-| 1–5 | The guard's line for the candidate reads *all hold* in the pull request's CI log |
+| 1–5 | The check's line for the candidate reads *all hold* in the pull request's CI log |
 | 6–8 | The Oracle's answer in the conversation, quoted in the pull request |
 | 9 | The header diff: `status`, `version`, `updated` and nothing else |
 | 10 | For a protocol: the `AGENTS.md` diff and the passing test |

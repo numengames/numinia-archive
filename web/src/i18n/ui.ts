@@ -94,7 +94,7 @@ const en = {
   "board.col.inReview": "In review",
   "board.col.backlog": "Backlog",
   "board.col.done": "Done",
-  "board.col.frozen": "Frozen",
+  "board.col.frozen": "On hold",
   "board.completed": "Completed",
 
   // — corpus index (pilot page) —

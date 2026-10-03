@@ -4,13 +4,13 @@ uid: ""
 title: "Training — the offer"
 type: documentation
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-09-28T17:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Products and services"
 tags: [operations, offer, training, learning, rehearsal, virtual-space]
 license: "CC-BY-4.0"
 related: ["STD-040", "STD-039", "PRO-029", "CAN-004", "LEG-002", "OPS-011"]

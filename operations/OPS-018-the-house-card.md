@@ -4,13 +4,13 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.5.1"
+version: "0.5.2"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-02T22:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Sales and partners"
 tags: [operations, tenders, grants, public-procurement, public-money, compliance, solvency, card]
 license: "CC-BY-4.0"
 related: ["STD-038", "STD-039", "PRO-031", "PRO-032", "PRO-033", "OPS-017"]

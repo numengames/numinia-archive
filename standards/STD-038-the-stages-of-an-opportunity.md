@@ -2,16 +2,16 @@
 id: "STD-038"
 uid: ""
 title: "The stages of an opportunity"
-type: documentation
+type: standard
 subtype: register
 status: draft
-version: "0.9.0"
+version: "0.9.2"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-02T21:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Sales and partners"
 tags: [standards, register, sales, pipeline, opportunity, stages, timeline, funnel, tenders, grants, public-procurement, chance]
 license: "CC0-1.0"
 related: ["STD-039", "STD-040", "OPS-018", "PRO-035", "CAN-009", "CAN-011"]

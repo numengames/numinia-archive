@@ -68,7 +68,7 @@ id: "STD-001"
 ---
 # The series
 
-| Series | Holds | Prefix | Threshold | Budget | Mould |
+| Series | Holds | Prefix | Approval level | Budget | Template |
 |---|---|---|---|---|---|
 | \`canon/\` | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | \`CAN-TEMPLATE.md\` |
 | \`missions/\` | the work | \`MIS-NNNN\` | \`closed\` | 500 | \`MIS-TEMPLATE.md\` |
@@ -147,7 +147,7 @@ test('a series carries the label the menu prints and the activity that produced 
 });
 
 test('a dash in the register is "none", not a value', () => {
-  // STD-001 writes `—` where a series has no prefix, budget or mould. A page
+  // STD-001 writes `—` where a series has no prefix, budget or template. A page
   // that printed the dash as the prefix would be restating a typographic
   // convention as data.
   const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
@@ -268,13 +268,13 @@ test('an instrument is classified, and the reason it is not a series prints besi
   });
   const r = ask(dir, 'm.allSeries().find((s) => s.folder === "machine/templates/")');
   assert.equal(r.code, 0, r.out);
-  const moulds = JSON.parse(r.out);
-  assert.equal(moulds.instrument, true);
-  assert.equal(moulds.label, 'Templates');
-  // 2026-09-28: the moulds have a page of their own, /templates, that shows
+  const templates = JSON.parse(r.out);
+  assert.equal(templates.instrument, true);
+  assert.equal(templates.label, 'Templates');
+  // 2026-09-28: the templates have a page of their own, /templates, that shows
   // them side by side; the reason they are not a series still prints beside it.
-  assert.equal(moulds.href, '/templates');
-  assert.match(moulds.note, /short-lived record that never binds/);
+  assert.equal(templates.href, '/templates');
+  assert.match(templates.note, /short-lived record that never binds/);
   rmSync(dir, { recursive: true, force: true });
 });
 

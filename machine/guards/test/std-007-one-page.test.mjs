@@ -48,13 +48,13 @@ test('every standard and protocol that is not a register declares whom it binds'
   assert.deepEqual(missing, [], `DOC-003: these declare no scope, and no exemption covers them:\n  ${missing.join('\n  ')}`);
 });
 
-test('no document, and no mould, says what it does not bind', () => {
+test('no document, and no template, says what it does not bind', () => {
   // The Oracle's word: a "does not bind" line adds nothing, and it plants in
   // an agent's mind the very thing it names. Scope is said once, positively.
-  const moulds = execFileSync('git', ['-C', ROOT, 'ls-files', 'machine/templates/*.md'], { encoding: 'utf8' })
+  const templates = execFileSync('git', ['-C', ROOT, 'ls-files', 'machine/templates/*.md'], { encoding: 'utf8' })
     .split('\n').filter(Boolean)
     .map((file) => ({ file, text: readFileSync(path.join(ROOT, file), 'utf8'), fm: {} }));
-  const carry = [...docs, ...moulds]
+  const carry = [...docs, ...templates]
     .filter((d) => /\*\*Does not bind:\*\*/.test(d.text))
     .map((d) => `${d.fm.id ?? d.file}`);
   assert.deepEqual(carry, [], `these still carry a "Does not bind" line:\n  ${carry.join('\n  ')}`);

@@ -1,7 +1,7 @@
 {
-  "_comment": "MIS-138 D1.1 — the classifiers the guards and the telemetry instrument share. Data, not code: any language reads this file. Each block names the ruling it transcribes; change the ruling, change the block, every consumer follows. Before 2026-09-02 three private copies of `series` and three of `apparatus` lived in count-evidence.py, lint-naming.mjs and lint-frontmatter.mjs and drifted (CHANGELOG 2026-09-02, naming-baseline 2 → 0).",
+  "_comment": "MIS-138 D1.1 — the classifiers the checks and the telemetry tooling share. Data, not code: any language reads this file. Each block names the ruling it transcribes; change the ruling, change the block, every consumer follows. Before 2026-09-02 three private copies of `series` and three of `apparatus` lived in count-evidence.py, lint-naming.mjs and lint-frontmatter.mjs and drifted (CHANGELOG 2026-09-02, naming-baseline 2 → 0).",
   "series": {
-    "_comment": "MIRROR of the STD-001 Series table for prefix, digits and threshold (rules.test.mjs compares thresholds). ADR-005 v1.2.0 register, by top-level directory. `prefix` may list alternatives. `dailyDate`: RPT-YYYY-MM-DD is legal for `subtype: daily` only (ADR-004 rule 3). history/ and agents/ deliberately absent (ADR-035 §2; ADR-005 v1.1.0 reversal). `naming`: false = no filename scheme is enforced (agents/ is folder-named but its frontmatter id is still checked: none legal).",
+    "_comment": "MIRROR of the STD-001 Series table for prefix, digits and approval level (the `threshold` key; rules.test.mjs compares the column). ADR-005 v1.2.0 register, by top-level directory. `prefix` may list alternatives. `dailyDate`: RPT-YYYY-MM-DD is legal for `subtype: daily` only (ADR-004 rule 3). history/ and agents/ deliberately absent (ADR-035 §2; ADR-005 v1.1.0 reversal). `naming`: false = no filename scheme is enforced (agents/ is folder-named but its frontmatter id is still checked: none legal).",
     "missions":   { "prefix": ["MIS"],        "digits": 4, "threshold": "closed" },
     "decisions":  { "prefix": ["ADR", "DEC"], "digits": 3, "threshold": "governed" },
     "protocols":  { "prefix": ["PRO"],        "digits": 3, "threshold": "governed" },
@@ -34,21 +34,22 @@
     "system/suppliers/": "SYS-012"
   },
   "types": {
-    "_comment": "STD-004 §5 HDR-003 closed type vocabulary; HDR-017 type ↔ series, strict except `lax`.",
-    "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "documentation", "meta", "agent", "entity", "opportunity", "proposal"],
-    "series": { "mission": "missions", "adr": "decisions", "protocol": "protocols", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "legal": "legal", "agent": "agents", "opportunity": "opportunities", "proposal": "opportunities" },
+    "_comment": "STD-004 HDR-003 closed type vocabulary; HDR-017 type ↔ series, strict except `lax`. `standard` (2026-10-03) is the type of every document in standards/ — a norm is a normative document, not documentation; `documentation` stays for the guides and references that explain a series.",
+    "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "standard", "documentation", "meta", "agent", "entity", "opportunity", "proposal"],
+    "series": { "mission": "missions", "adr": "decisions", "protocol": "protocols", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "standard": "standards", "legal": "legal", "agent": "agents", "opportunity": "opportunities", "proposal": "opportunities" },
     "lax": ["documentation", "meta", "entity"]
   },
   "status": {
-    "_comment": "MIRROR of STD-004 'Status lifecycles' — the table there is the declaration; rules.test.mjs fails when this block and that table differ. Two lifecycles: a mission's, and everyone else's. One terminal state (`withdrawn`); an heir is the field `superseded_by`, never a second state (relation model — ISO stage codes, RFC 2026 `Obsoletes:`, NIST CSRC). `closed` and `superseded` retired 2026-09-09. `_terminal` is the set every guard reads for 'closed record, a photograph' (CIT-053).",
-    "mission": ["todo", "in-progress", "in-review", "done", "frozen"],
+    "_comment": "MIRROR of STD-004 'Status lifecycles' — the table there is the declaration; rules.test.mjs fails when this block and that table differ. Two lifecycles: a mission's, and everyone else's. One terminal state (`withdrawn`); an heir is the field `superseded_by`, never a second state (relation model — ISO stage codes, RFC 2026 `Obsoletes:`, NIST CSRC). `closed` and `superseded` deprecated 2026-09-09; `frozen` became `on-hold` 2026-10-03 (the board word, Kanban). `_terminal` is the set every guard reads for 'closed record, a photograph' (CIT-053).",
+    "mission": ["todo", "in-progress", "in-review", "done", "on-hold"],
     "_default": ["draft", "active", "withdrawn"],
-    "_terminal": ["withdrawn", "done", "frozen"]
+    "_terminal": ["withdrawn", "done", "on-hold"]
   },
   "subtypes": {
-    "_comment": "STD-004 §5 HDR-018; `report` closed since ADR-005 v1.2.0.",
+    "_comment": "STD-004 HDR-018; `report` closed since ADR-005 v1.2.0; `standard` carries the norm/register split since 2026-10-03.",
     "report": ["audit", "analysis", "proposal", "rollup"],
-    "documentation": ["standard", "register", "guide", "reference"]
+    "standard": ["standard", "register"],
+    "documentation": ["register", "guide", "reference"]
   },
   "governed": {
     "_comment": "STD-004 §10: the top-level directories whose tracked .md files std-004-the-header governs. Everything else (web/, machine/scripts/, root, .github/) is out of its scope.",

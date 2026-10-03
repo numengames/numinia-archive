@@ -14,8 +14,8 @@ author: "agent-id"
 owner: "oracle"
 # guild: Sentinels | Alchemists | Exegetes | Procurators
 guild: "Alchemists"
-# territory: CAO | Product | Platform | Infrastructure | Content | Sales | Funding | Archive
-territory: "Archive"
+# section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
+section: "Knowledge and quality"
 tags: [decisions, adr]
 license: "CC-BY-4.0"
 
@@ -101,7 +101,7 @@ Correcting a decision means writing the next one and pointing `superseded_by`
 at it, not editing what this one claimed. The withdrawn record is deleted
 when nothing living cites it; git keeps what was believed, and when.
 
-`absorbs` is load-bearing, not a note: the reference guard reads it to keep
+`absorbs` is load-bearing, not a note: the reference check reads it to keep
 a merged decision's original identifiers resolving. Consolidating records
 without it breaks every citation of them.
 

@@ -4,13 +4,13 @@ uid:
 title: "The four tests before deletion"
 type: adr
 status: active
-version: "4.0.0"
+version: "4.0.1"
 created: "2026-08-30T16:00:00+02:00"
-updated: "2026-09-10T03:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [lifecycle, deletion, debt, urls, governance]
 absorbs: ["ADR-032", "ADR-033"]
 amends: []

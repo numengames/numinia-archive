@@ -2,16 +2,16 @@
 id: "STD-039"
 uid: ""
 title: "An opportunity has a record"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.10.0"
+version: "0.10.2"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-02T20:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Sales and partners"
 tags: [standards, sales, opportunity, record, pipeline, timeline, personal-data, tenders, grants]
 license: "CC0-1.0"
 related: ["STD-038", "STD-040", "STD-035", "STD-036", "OPS-018", "CAN-009", "CAN-012"]
@@ -165,7 +165,7 @@ month's close.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | OPP-001 | One file per opportunity | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), a record is evidence of a transaction (clause unverified) | `machine/packages/sales-kit/pipeline.mjs`: one header per `OPP-*.md` file, named by its id |
 | OPP-002 | The header carries the fields the pipeline needs | [ISO 9001:2015](https://www.iso.org/standard/62085.html) 8.2.2, requirements determined before commitment (clause unverified) | `machine/packages/sales-kit/pipeline.mjs`: required fields per kind present; `advance` when pays is advance or milestones; the computed fields refused in the header |

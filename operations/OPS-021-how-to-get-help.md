@@ -5,13 +5,13 @@ title: "How to get help from us"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-03T20:00:00+02:00"
-updated: "2026-10-03T20:00:00+02:00"
+updated: "2026-10-03T20:05:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
-territory: "Archive"
+section: "Sales and partners"
 tags: [operations, help, contact, community, discord, email]
 license: "CC-BY-4.0"
 related: ["STD-029", "STD-035", "STD-037", "OPS-011", "OPS-014", "PRO-026"]

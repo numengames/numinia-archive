@@ -4,15 +4,15 @@ uid: ""
 title: "Sistema de Nomenclatura Dual — Narrative & Gamification Dials"
 type: blueprint
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-09-27T13:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, nomenclature, narrative-dial, gamification-dial, i18n]
-territory: "CAO"
+section: "Products and services"
 license: "CC0-1.0"
 extraction_note: "Extracted verbatim from web/src/pages/idioma.astro (MIS-071 phase 2 — File over App). Related mission: MIS-055."
 ---

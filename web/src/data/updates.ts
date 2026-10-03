@@ -53,6 +53,21 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.138.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "CHG", text: "The archive calls its own things by the words their trades use. A mission now says who carries it out — an agent, a person or both — instead of calling a person a biological agent; a paused mission is on hold, not frozen; a document's header says how it was made under the name the press uses for it; every standard is filed as a standard, not as documentation. The Lexicon says, for each word, which convention it follows and where that convention is written." },
+    ],
+  },
+  {
+    version: "v0.137.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "CHG", text: "Every record now says which section of the company it belongs to — Strategy and governance, Products and services, Brand and marketing, Sales and partners, Operations, People and culture, Finance, Legal and compliance, Technology, Knowledge and quality — the ten sections a company recognises, in place of the old territory label. Blueprints, decisions and missions show it." },
+      { type: "ADD", text: "The world's vocabulary gains the translator: the company's sections beside the city's guilds and houses, the business lines beside the factions, and who decides what — one table, read by the site." },
+    ],
+  },
+  {
     version: "v0.136.0",
     date: "2026-10-03",
     entries: [

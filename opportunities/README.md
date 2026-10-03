@@ -3,13 +3,14 @@ id: "opportunities-index"
 title: "Opportunities — index"
 type: meta
 status: active
-version: "0.5.0"
+version: "0.5.2"
 created: "2026-09-28T14:05:55+02:00"
 created_source: "git:d620635"
 created_confidence: exact
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Sales and partners"
 tags: [opportunities, index]
 license: "CC0-1.0"
 registration: exempt
@@ -27,7 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > grant, a collaboration, a partner — each with its timeline, and the
 > proposals beside them. Public, with nobody's name in it.
 > **Epistemic:** Where are the opportunity records, and how is one written?
-> **Pragmatic:** Open a record or a proposal from its mould; write a line
+> **Pragmatic:** Open a record or a proposal from its template; write a line
 > each time something happens; read the pipeline from the tool.
 > **Audience:** Sales · Oracles · anyone
 
@@ -41,7 +42,7 @@ named); what calls ask against what the house holds is
 `PRO-031` for a tender, `PRO-032` for a grant.
 
 **To open a record,** copy `machine/templates/OPP-TEMPLATE.md` to the next
-free number, set `kind`, and fill the header the mould marks as required
+free number, set `kind`, and fill the header the template marks as required
 for that kind. A tender or a grant first passes the house's card: its
 `## Criteria` rows are yes or check, and one that fails a requirement is
 not recorded at all — what it taught goes to the card. The header carries

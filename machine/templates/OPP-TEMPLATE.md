@@ -1,5 +1,5 @@
 ---
-# Copy this file to opportunities/OPP-YYYY-NNN.md and fill it in. One mould
+# Copy this file to opportunities/OPP-YYYY-NNN.md and fill it in. One template
 # for every kind of opportunity: a sale, a tender, a grant, a collaboration,
 # a partner. The record is PUBLIC: its rules are STD-039 (the record) and
 # STD-038 (kinds, stages, events, reasons, how it pays, when the organisation
@@ -21,7 +21,7 @@ updated: "2026-10-02T12:00:00+02:00"
 author: "agent-id"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Knowledge and quality"
 tags: [opportunities]
 license: "CC0-1.0"
 

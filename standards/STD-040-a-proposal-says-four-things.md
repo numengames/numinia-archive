@@ -2,16 +2,16 @@
 id: "STD-040"
 uid: ""
 title: "A proposal says four things"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.4.1"
+version: "0.4.3"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Sales and partners"
 tags: [standards, sales, proposal, learning-services, training, evaluation]
 license: "CC0-1.0"
 related: ["STD-039", "STD-038", "STD-033", "CAN-011", "LEG-002"]
@@ -31,7 +31,7 @@ SPDX-License-Identifier: CC0-1.0
 > the three questions any charge must answer, it is read by whoever sends
 > it, and one record renders both the document and the page.
 > **Epistemic:** What must a proposal contain before it is sent?
-> **Pragmatic:** Write a proposal from the mould and check it against nine
+> **Pragmatic:** Write a proposal from the template and check it against nine
 > rules before it is sent. This is not legal advice.
 > **Audience:** Agents · Oracles
 
@@ -100,9 +100,9 @@ withdrawn when a revision replaces it or it lapses unanswered.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| PRP-001 | Objectives, in the client's words | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 a), 7 needs analysis (clause 7 unverified) | `machine/packages/sales-kit/pipeline.mjs` `--proposals`: the section exists and is not the mould's text; by hand for the words |
+| PRP-001 | Objectives, in the client's words | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 a), 7 needs analysis (clause 7 unverified) | `machine/packages/sales-kit/pipeline.mjs` `--proposals`: the section exists and is not the template's text; by hand for the words |
 | PRP-002 | Capacity, shown | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 b) | `pipeline.mjs --proposals`: the section exists; by hand |
 | PRP-003 | How it teaches, and how it measures | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 c); [Kirkpatrick, the four levels](https://www.kirkpatrickpartners.com/the-kirkpatrick-model/) | `pipeline.mjs --proposals`: the section exists and names a level from the four; by hand for the map |
 | PRP-004 | Price, terms and conditions | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 d), 14 invoicing (clause 14 unverified); `STD-033` PAY-001 | `pipeline.mjs --proposals`: the section exists and states a tax rate; by hand |

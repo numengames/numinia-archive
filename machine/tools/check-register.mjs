@@ -108,7 +108,7 @@ export function parseRegister(text) {
     const cells = line.split('|').map((c) => c.trim());
     if (cells.length < 7) continue;
     const [, profile, plate, practice, level, check] = cells;
-    if (plate === 'Plate' || /^-+$/.test(plate)) continue;
+    if (plate === 'Rule ID' || plate === 'Plate' || /^-+$/.test(plate)) continue;
     rows.push({ profile, plate, practice, level, check });
   }
   return rows;

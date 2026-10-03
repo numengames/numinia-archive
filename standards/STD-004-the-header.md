@@ -2,19 +2,19 @@
 id: "STD-004"
 uid: ""
 title: "The header"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "4.11.0"
+version: "4.13.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-02T21:30:00+02:00"
-ratified_by: "ADR-043"
+updated: "2026-10-03T20:30:00+02:00"
+approved_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
 owner: "oracle"
-territory: "Archive"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata, RFC-3339, YAML, Dublin-Core, PROV, register]
 derived_from: "CAN-009"
@@ -27,8 +27,9 @@ SPDX-License-Identifier: CC0-1.0
 # The header
 
 > **Summary:** Every document opens with labelled fields saying what it is,
-> who wrote it and when. Every field is listed below, ring by ring; any other
-> is an error. An unknown value is left out, never guessed.
+> who wrote it and when. Every field is listed below, the core fields and then
+> the extension fields of each series; any other is an error. An unknown value
+> is left out, never guessed.
 > **Epistemic:** What is a correct header?
 > **Pragmatic:** Write a header, add a field, or read a finding by its code.
 > **Audience:** Agents · Oracles
@@ -47,12 +48,12 @@ folder MUST open, at its very first character, with a block of YAML fields
 fenced by three dashes on their own lines, so any tool finds the header
 without guessing.
 
-**A field in no ring is an error.** A field that no ring registers MUST be
-reported, as a closed schema refuses any property it does not list. A
-misspelt field is caught the day it is written.
+**A field in no list is an error.** A field that neither the core nor a
+series' extension registers MUST be reported, as a closed schema refuses any
+property it does not list. A misspelt field is caught the day it is written.
 
 **Adding a field costs a row and a decision.** A new field MUST arrive in
-the same change as its line in the rings below and the decision that
+the same change as its line in the tables below and the decision that
 justifies it.
 
 ### What a header may say
@@ -68,9 +69,9 @@ the date as declared, so a reader can tell evidence from claim.
 a field that a mission owns, and the check names that mission. Whether the
 mission still lives is judged by hand.
 
-**Retired fields leave in waves.** A retired field MUST be reported wherever
-it still appears until its migration lands. The rule that names it leaves
-with its last occurrence.
+**Deprecated fields leave in waves.** A deprecated field MUST be reported
+wherever it still appears until its migration lands. The rule that names it
+leaves with its last occurrence.
 
 **The universal identifier stays empty.** The field reserved for a
 universal identifier MUST stay empty until the system that assigns it
@@ -93,7 +94,7 @@ names the heir and cannot drift from it, as the superseded status many
 decision records use can.
 
 **Relations live in the header and resolve.** Every relation (replaces,
-replaced by, absorbs, derived from, ratified by, related, part of) MUST
+replaced by, absorbs, derived from, approved by, related, part of) MUST
 name a document that exists. Each means what Dublin Core and the web's
 provenance vocabulary say it means, so catalogue tools read our links as
 their own.
@@ -113,37 +114,37 @@ standard it follows.
 
 ## Check
 
-Each rule with its code, source and check; then every field, ring by ring,
-with its value, code, series and outside meaning.
+Each rule with its code, source and check; then every field, the core and
+then the extensions, with its value, code, series and outside meaning.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | HDR-000 | Every governed document has a header | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) — ours adds: fenced by `---` at byte 0 | `machine/guards/rules/std-004-the-header.mjs`, with HDR-040 (the fence) and HDR-043 (the licence) |
 | HDR-040 | the fence at byte 0, part of HDR-000 | [YAML 1.2.2](https://yaml.org/spec/1.2.2/), document markers | `machine/guards/rules/std-004-the-header.mjs` — the file starts with `---\n` |
-| HDR-030 | A field in no ring is an error | [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core), `additionalProperties: false`, as the model | `machine/guards/rules/std-004-the-header.mjs` |
+| HDR-030 | A field in no list is an error | [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core), `additionalProperties: false`, as the model | `machine/guards/rules/std-004-the-header.mjs` |
 | HDR-042 | Adding a field costs a row and a decision | — | by hand, at review: the register row and the decision |
 | HDR-009 | Empty is absent | — | `machine/guards/rules/std-004-the-header.mjs` |
 | HDR-044 | Absent is never guessed | — ([EDTF](https://www.loc.gov/standards/datetime/) is the candidate for uncertain dates) | `machine/guards/rules/std-004-the-header.mjs`, placeholder values |
 | HDR-032 | A deferred value has an owner | — | `machine/guards/rules/std-004-the-header.mjs`; whether the mission lives, by hand |
-| HDR-031 | Retired fields leave in waves | — | `machine/guards/rules/std-004-the-header.mjs` |
+| HDR-031 | Deprecated fields leave in waves | — | `machine/guards/rules/std-004-the-header.mjs` |
 | HDR-020 | The universal identifier stays empty | — | `machine/guards/rules/std-004-the-header.mjs` |
 | HDR-043 | The licence is a name from the shared list — declared | [REUSE 3.3](https://reuse.software/spec-3.3/); [SPDX 2.3 Annex E](https://spdx.github.io/spdx-spec/v2.3/using-SPDX-short-identifiers-in-source-files/) | `machine/guards/rules/std-004-the-header.mjs` — `license` present |
 | HDR-008 | The licence is a name from the shared list — spelt right | [SPDX License List](https://spdx.org/licenses/) | `machine/guards/rules/std-004-the-header.mjs` — value against the manifest |
 | HDR-005 | A version counts what changed | [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html); bump rules in `STD-019` | `machine/guards/rules/std-004-the-header.mjs` — shape; the bump, by hand |
 | HDR-004 | Replaced is a relation, not a state | differs on purpose from [MADR](https://adr.github.io/madr/) and [Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) `superseded`; the heir is [`dcterms:isReplacedBy`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/) | `machine/guards/rules/std-004-the-header.mjs` — status in its lifecycle |
-| HDR-016 | Relations live in the header and resolve | [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/): `replaces`, `isReplacedBy`, `relation`, `isPartOf`; [PROV-O](https://www.w3.org/TR/prov-o/) `wasDerivedFrom`; the field map is the outside meaning below | by hand, presence only: no guard resolves header relations; `machine/guards/rules/std-020-git-is-the-archive.mjs` reads the body |
+| HDR-016 | Relations live in the header and resolve | [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/): `replaces`, `isReplacedBy`, `relation`, `isPartOf`; [PROV-O](https://www.w3.org/TR/prov-o/) `wasDerivedFrom`; the field map is the outside meaning below | by hand, presence only: no check resolves header relations; `machine/guards/rules/std-020-git-is-the-archive.mjs` reads the body |
 | HDR-002 | Titles are English | [BCP 47](https://www.rfc-editor.org/info/bcp47) — the tag `en` | `machine/guards/rules/std-004-the-header.mjs`, presence; language by hand |
 | HDR-045 | Dates are written the internet's way | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), a free, exact profile of [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) — ours adds: time required, `updated` ≥ `created` | `machine/guards/rules/std-004-the-header.mjs` for `created` and `updated` (HDR-006, HDR-007); other dates by hand |
-| HDR-001, 003, 006, 007, 012..014, 017..019, 033..038 | each field's own rule, in the rings below | — | `machine/guards/rules/std-004-the-header.mjs`, one plate per finding |
+| HDR-001, 003, 006, 007, 012..014, 017..019, 033..038 | each field's own rule, in the tables below | — | `machine/guards/rules/std-004-the-header.mjs`, one rule ID per finding |
 | HDR-010, 011, 015 | author, owner, commissioned by | — | by hand, presence only |
 
 A governed folder is one `machine/scripts/lib/rules.json` lists under
 `governed.dirs`. HDR-045 was EXT-006 and HDR-046 was EXT-001 in the external
-standards; those plates are retired there.
+standards; those rule IDs are deprecated there.
 
-### Ring 1 — identity, every document
+### Core fields 1 — identity, every document
 
-| Field | Rule | Plate |
+| Field | Rule | Rule ID |
 |---|---|---|
 | `id` | present; matches its series prefix, or `registration: exempt` with a reason | HDR-001 |
 | `title` | present, non-empty, English — BCP 47 `en` (language `[MANUAL]`) | HDR-002 |
@@ -154,17 +155,17 @@ standards; those plates are retired there.
 | `updated` | present; RFC 3339 date-time, time required; not earlier than `created` | HDR-007 |
 | `license` | present; SPDX License List identifier; agrees with the licence manifest (`HDR-043` when absent) | HDR-008 |
 
-### Ring 2 — provenance, every document that makes a claim
+### Core fields 2 — origin, every document that makes a claim
 
-| Field | Rule | Plate |
+| Field | Rule | Rule ID |
 |---|---|---|
 | `author` | who wrote it, person or agent | HDR-010 |
 | `owner` | who answers for it now | HDR-011 |
-| `provenance` | `human` · `ai-assisted` · `ai-generated` | HDR-012 |
+| `digital_source_type` | `human` · `ai-assisted` · `ai-generated` — how the piece was made; the name is IPTC's, the values are ours (see the outside meaning) | HDR-012 |
 | `created_source` | `git:<sha>` or `declared` — where the date came from | HDR-013 |
 | `created_confidence` | `exact` · `inferred` — never invented | HDR-014 |
 | `requested_by` | optional; who commissioned it | HDR-015 |
-| `supersedes` · `superseded_by` · `derived_from` · `absorbs` · `ratified_by` · `related` · `parent_mission` · `former_id` | resolvable identifiers | HDR-016 |
+| `supersedes` · `superseded_by` · `derived_from` · `absorbs` · `approved_by` · `related` · `parent_mission` · `former_id` | resolvable identifiers | HDR-016 |
 
 | Relation | Means |
 |---|---|
@@ -172,15 +173,16 @@ standards; those plates are retired there.
 | `derived_from` | on a standard or protocol: the one canon it makes concrete or carries out; `/core` is built from it |
 | `supersedes` / `superseded_by` | a later record replaces an earlier one |
 | `absorbs` | a later record carries the earlier reasoning; the old identifier keeps resolving |
-| `ratified_by` | an authority promoted or confirmed the record |
+| `approved_by` | an authority promoted or confirmed the record (document control's *approval*, ISO 9001 7.5.2) |
 | `parent_mission` | a bounded child of a larger mission |
 | `former_id` | the identifier before a governed move |
 
 ### Outside meaning
 
-Where Dublin Core or the web's provenance vocabulary already defines a
-field, it means exactly that, so an auditor's catalogue reads our headers
-unaided. The field names stay our own.
+Where Dublin Core, the web's provenance vocabulary or the press's source
+vocabulary already defines a field, it means exactly that, so an auditor's
+catalogue reads our headers unaided. The field names stay our own except
+where the industry's name is the better one.
 
 | Field | Means | Note |
 |---|---|---|
@@ -198,48 +200,50 @@ unaided. The field names stay our own.
 | `tags` | `dcterms:subject` | |
 | `visibility` | `dcterms:accessRights` | |
 | `requested_by` | `prov:actedOnBehalfOf` | |
-| `provenance` | — | NOT `dcterms:provenance`, which records custody; ours says how the piece was made. The name clash is a pending decision |
+| `digital_source_type` | [IPTC Digital Source Type](https://cv.iptc.org/newscodes/digitalsourcetype/), the name | the field says how the piece was made, which IPTC's vocabulary (adopted by C2PA) names and Dublin Core's `provenance` does not — that term is custody history. The values stay ours: IPTC defines its terms for images (`digitalCreation` ≈ `human`, `trainedAlgorithmicMedia` ≈ `ai-generated`) and has no term for text drafted by a model and finished by a person, which is `ai-assisted` |
 
-`dcterms:` is [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/); `prov:` is [PROV-O](https://www.w3.org/TR/prov-o/).
+`dcterms:` is [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/); `prov:` is [PROV-O](https://www.w3.org/TR/prov-o/). Until 2026-10-03 the source field was called `provenance` and the approval field `ratified_by`.
 
-### Ring 3 — extension by series (`HDR-030`)
+### Extension fields — by series (`HDR-030`)
 
 | Series | Registered fields |
 |---|---|
-| `missions/` | `priority` (HDR-037) `effort` (HDR-038) `assigned_to` `started` `completed` `type_execution` `freeze_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
+| `missions/` | `priority` (HDR-037) `effort` (HDR-038) `assigned_to` `started` `completed` `executor` (HDR-034) `hold_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` `absorbs` |
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `standards/` | `absorbs` |
 | `canon/` | `absorbs` |
-| `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) · `entity` `type_execution` `forms` (the entity card `AGENT.md`) · `automation_level` (the operator file `OPERATOR.md`: assisted · partial · conditional · high · full) |
+| `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) · `entity` `executor` `forms` (the entity card `AGENT.md`) · `automation_level` (the operator file `OPERATOR.md`: assisted · partial · conditional · high · full) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` `legal/` | `extraction_note` `restoration_note` |
 | `operations/` | `goods` — an offer's cards on sale, which the site reads its prices from (`STD-033` PAY-003) |
-| `blueprints/` | `semaforo` |
 | `protocols/` | `applies_to` `mandatory` |
 | `system/` | `category` `stage` `confidence` (a card of the semantic census, an entry of `SYS-011`) · `category` (a supplier card, an entry of `SYS-012`) |
-| `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
+| `standards/` `canon/` `protocols/` | `supersedes_version` `approved_by` |
 | `opportunities/` | the record: `kind` `organisation` `sector` `source` `value` `currency` `pays` `contact_role` `contact_channel` `opened` · written when due: `offer` `advance` `proposal` `agreement` `decider_role` `disclosure` `follows` `gives_back` · a tender or a grant: `call` `closes` `read_from` · a tender: `procedure` `file_ref` `object` `turnover_asked` `works_asked` `starts` · a grant: `instrument` `opens` `estimated` · the proposal: `opportunity` `date` `valid_until` `level` `price` `tax_rate` — their values are judged by the pipeline tool (`STD-039`, `STD-040`); the stage, the next step and the chance are computed from the record's timeline, never written in the header |
-| all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
+| all | `tags` `visibility` `guild` `section` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
 
-Retired fields are reported wherever they remain: `area` (now `territory`),
-`blocked_reason`, `threshold` (the series register states it once per
-series), and the field names from the Spanish era.
+Deprecated fields are reported wherever they remain: `area` and `territory`
+(now `section`, `ADR-066`), `blocked_reason`, `threshold` (the series
+register states the approval level once per series), `provenance` (now
+`digital_source_type`), `type_execution` (now `executor`), `ratified_by` (now
+`approved_by`), `freeze_reason` (now `hold_reason`), `semaforo` (a Spanish-era
+key never used) and the other field names from the Spanish era (`ADR-067`).
 
 ### Vocabularies
 
-| Field | Values | Plate |
+| Field | Values | Rule ID |
 |---|---|---|
-| `type` | the closed list in `STD-001`, plus `agent` for `agents/` | HDR-003 |
-| `type` → series | strict for registered genres; warn-only for the two general ones | HDR-017 |
-| `subtype` | reports: `audit` `analysis` `proposal` `rollup` (`daily` retired, `STD-012`) · documentation: `standard` `register` `guide` | HDR-018 |
+| `type` | the closed list in `STD-001`, plus `agent` for `agents/`; a document of `standards/` is `type: standard` | HDR-003 |
+| `type` → series | strict for registered genres, `standard` among them; warn-only for the two general ones | HDR-017 |
+| `subtype` | reports: `audit` `analysis` `proposal` `rollup` (`daily` deprecated, `STD-012`) · standard: `standard` `register` · documentation: `register` `guide` `reference` | HDR-018 |
 | `guild` | `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` | HDR-033 |
-| `type_execution` | `digital` · `biological` · `hybrid` | HDR-034 |
+| `executor` | `agent` · `human` · `hybrid` — who carries the work out (ISO/IEC 22989's *human* and *AI agent*; until 2026-10-03 `type_execution: digital · biological · hybrid`) | HDR-034 |
 | `visibility` | `public` · `restricted-oracle` | HDR-035 |
-| `territory` | the eight registered words | HDR-036 |
+| `section` | the ten sections of the front door, as written in `STD-030` (`ADR-066`) | HDR-036 |
 
 A value marked as to be announced is allowed in a field with a closed list,
-and is reported only once. On a mould, the comment at the end of a line is
+and is reported only once. On a template, the comment at the end of a line is
 set aside before the value is judged.
 
 ### Status lifecycles
@@ -247,9 +251,9 @@ set aside before the value is judged.
 Only this table says which states a document may hold. The machine keeps a
 copy, and a test fails the moment the two differ.
 
-| Type | Lifecycle | Plate |
+| Type | Lifecycle | Rule ID |
 |---|---|---|
-| mission | `todo → in-progress → in-review → done`, plus `frozen` (paused; returns to any state) | HDR-004 |
+| mission | `todo → in-progress → in-review → done`, plus `on-hold` (paused, with its reason in the hold field; returns to any state) | HDR-004 |
 | everything else | `draft → active → withdrawn` | HDR-004 |
 
 | State | Means |
@@ -258,14 +262,16 @@ copy, and a test fails the moment the two differ.
 | `active` | in force: followed, and breaking it blocks; any change is analysed, then its owner decides; for a report or a closed mission's evidence, published and standing |
 | `withdrawn` | no longer in force. The one terminal state: whether an heir exists is said by `superseded_by`, present or absent, never by a second state (`DEF-008`) |
 
-Two states are retired and the header check rejects them: closed, which
+Two states are deprecated and the header check rejects them: closed, which
 meant one thing for a report and another for a standard, and superseded,
-because an heir is a relation. Whether a document's body may still change
-is its series' **threshold**, set in the register of series, not its status.
+because an heir is a relation. The paused mission was `frozen` until
+2026-10-03; the board's word is *on hold*. Whether a document's body may
+still change is its series' **approval level**, set in the register of
+series, not its status.
 
 ## Why
 
-A person reads the body; guards, indexes and the site read only the
+A person reads the body; the checks, the indexes and the site read only the
 header. One guessed value there corrupts every view at once, and one
 unregistered field starts a count that never stops.
 

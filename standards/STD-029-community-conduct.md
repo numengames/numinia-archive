@@ -2,19 +2,19 @@
 id: "STD-029"
 uid: ""
 title: "How we treat each other in the commons"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.2.5"
+version: "0.2.7"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
-territory: "Archive"
+section: "People and culture"
 tags: [standards, community, conduct, moderation, DSA]
 license: "CC0-1.0"
-ratified_by: "ADR-052"
+approved_by: "ADR-052"
 related: ["CAN-002", "CAN-004", "PRO-005", "BLU-017"]
 derived_from: "CAN-010"
 ---
@@ -86,7 +86,7 @@ revisits it if we grow.
 Each rule, its code, its source and its check. A lawyer should confirm every
 row marked law.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | CMS-001 | We follow the Contributor Covenant | [Contributor Covenant 3.0: pledge, encouraged and restricted behaviours](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand: conduct is judged by people, and the Sentinels are the guild that does it |
 | CMS-005 | Moderation climbs a ladder | [Contributor Covenant 3.0, enforcement ladder](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand, by the Sentinels |

@@ -15,7 +15,7 @@ updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [report, rollup, quarter]
 license: "CC-BY-4.0"
 visibility: "public"

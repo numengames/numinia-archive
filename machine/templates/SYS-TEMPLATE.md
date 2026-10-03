@@ -13,7 +13,7 @@ created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [system, reference]
 license: "CC0-1.0"
 
@@ -64,7 +64,7 @@ document, not merely recognise it afterwards.
 
 ## 3. How to verify it
 
-The commands that prove the description is still true — the build, the guard,
+The commands that prove the description is still true — the build, the check,
 the health check, the query.
 
 ```

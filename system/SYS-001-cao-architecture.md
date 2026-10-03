@@ -5,13 +5,13 @@ title: "CAO Architecture — Complete System Reference"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.3"
+version: "0.2.5"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-09-30T13:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, cao, architecture, agents, protocols, tools]
-territory: "CAO"
+section: "Operations"
 license: "CC0-1.0"
 mission: "MIS-045"
 former_id: "BLU-004"
@@ -34,7 +34,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## What is the CAO?
 
-The **CAO (Centralized Autonomous Organization)** is the operational nervous system of Numen Games. It is the layer where digital agents execute work, maintain memory, follow protocols, and coordinate with biological agents (Oracles).
+The **CAO (Centralized Autonomous Organization)** is the operational nervous system of Numen Games. It is the layer where digital agents execute work, maintain memory, follow protocols, and coordinate with humans (the Oracles).
 
 The CAO operates on a simple principle:
 > **The repo is the source of truth. The chat is the interface. The agent is the executor.**
@@ -45,7 +45,7 @@ The CAO operates on a simple principle:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    ORACLES (biological)                  │
+│                    ORACLES (human)                       │
 │              Pablo FM · Christian Märtens               │
 │              + 3 more Oracles (max 4 active)            │
 └─────────────┬───────────────────────┬───────────────────┘
@@ -147,7 +147,7 @@ numinia-digital-agents/
 | **PRO-005** | Escalation | When blocked, uncertain, or decision exceeds authority |
 | **PRO-008** | Decision | Recording a decision and requesting approval |
 | **PRO-011** | Security Audit | Auditing the repository for exposed material |
-| **PRO-013** | Handing a Guard to CI | Turning a verified rule into an enforced check |
+| **PRO-013** | Handing a Check to CI | Turning a verified rule into an enforced check |
 | **PRO-018** | Publishing a Repository | Taking a repository public or a work to a permanent store, under `STD-014` |
 
 ### Protocol dependency chain

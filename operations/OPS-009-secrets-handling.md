@@ -4,14 +4,14 @@ uid: ""
 title: "Secrets handling — what never enters the repository, and where it lives instead"
 type: protocol
 status: active
-version: "2.0.0"
+version: "2.0.1"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-01T22:05:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
-territory: "Archive"
+section: "Technology"
 tags: [operations, security, credentials]
 license: "CC-BY-4.0"
 ---

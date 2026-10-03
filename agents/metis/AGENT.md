@@ -3,19 +3,20 @@ id: "metis"
 title: "Metis"
 type: entity
 status: draft
-version: "0.1.1"
+version: "0.1.3"
 created: "2026-09-28T18:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 license: "CC0-1.0"
 author: "ursa"
 owner: "oracle"
-provenance: ai-assisted
+digital_source_type: ai-assisted
 tags: [agents, metis, sales]
 guild: "Procurators"
+section: "People and culture"
 registration: exempt
 registration_reason: "agent parts are identified by their folder and filename, not by a series number (ADR-005)"
 entity: agent
-type_execution: digital
+executor: agent
 forms:
   - role: soul
     format: markdown

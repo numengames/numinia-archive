@@ -2,16 +2,16 @@
 id: "STD-043"
 uid: ""
 title: "A report speaks to the board"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.1.2"
 created: "2026-09-29T19:30:00+02:00"
-updated: "2026-09-29T19:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Strategy and governance"
 tags: [standards, reports, rollup, weekly, quarterly, annual, board, management-commentary]
 license: "CC0-1.0"
 related: ["STD-012", "PRO-017", "STD-036", "STD-021", "STD-007", "CAN-009"]
@@ -66,7 +66,7 @@ an Oracle and extended each year, never rewritten.
 
 ### How the figures behave
 
-**Every figure is measured.** A figure MUST come from an instrument or a
+**Every figure is measured.** A figure MUST come from a check or a
 record, named with the commit it was read at. None is typed from memory.
 
 **Every figure has its comparison.** A figure MUST stand beside the same
@@ -80,11 +80,11 @@ and an annual three, apart from the annual's history.
 
 ## Check
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | RPR-001 | The reader is the board | [IFRS Practice Statement 1, management commentary](https://www.ifrs.org/issued-standards/management-commentary-practice-statement/): written for the primary users of the financial reports | by hand, at the pull request |
 | RPR-002 | The conclusion comes first | Minto, *The Pyramid Principle* (1987) — the answer before its support | by hand |
-| RPR-003 | The whole organisation, nine headings | [Spanish Companies Act, art. 262](https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544#a262), the management report: the business's development, position, risks and outlook; the nine headings are ours | by hand, against the report mould |
+| RPR-003 | The whole organisation, nine headings | [Spanish Companies Act, art. 262](https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544#a262), the management report: the business's development, position, risks and outlook; the nine headings are ours | by hand, against the report template |
 | RPR-004 | Money is never left out | the ledger of the one-account standard | by hand |
 | RPR-005 | The annual report tells the story | — | by hand |
 | RPR-006 | Every figure is measured | the evidence standard: `evidence_script`, `evidence_head` | `machine/guards/rules/std-021-evidence-and-citation.mjs` where the fields are declared |

@@ -2,18 +2,18 @@
 id: "STD-033"
 uid: ""
 title: "Every charge delivers something"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.5.1"
+version: "0.5.3"
 created: "2026-09-24T17:40:00+02:00"
-updated: "2026-09-30T12:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Funding"
+section: "Finance"
 license: "CC0-1.0"
 tags: [standards, economy, payments, consumer-law]
-ratified_by: "ADR-064"
+approved_by: "ADR-064"
 related: ["CAN-011", "STD-036", "STD-022", "STD-003", "STD-035", "BLU-017", "STD-044"]
 derived_from: "CAN-011"
 ---
@@ -83,7 +83,7 @@ Every charge becomes a line in the one account, which has its own standard.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | PAY-001 | Something in return | — | by hand, in every pull request that touches a charge |
 | PAY-002 | The whole price | law: [TRLGDCU, RDL 1/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-20555) arts. 20 and 60.2.c; [Consumer Rights Directive 2011/83/EU](https://eur-lex.europa.eu/eli/dir/2011/83/oj) art. 6(1)(e); [VAT one-stop shop](https://vat-one-stop-shop.ec.europa.eu/) above €10,000 a year of EU cross-border consumer sales | by hand, in every pull request that touches a charge; the one-stop-shop threshold by the gestoría |

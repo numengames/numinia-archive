@@ -27,6 +27,8 @@ export interface Term {
   levels: [string, string, string] | null;
   also: string;
   game: string;
+  /** The industry convention the word follows, with its source (STD-026 after ADR-067); "" when the entry is older than the rule. */
+  convention: string;
 }
 export interface Letter { letter: string; slug: string; terms: Term[] }
 
@@ -34,16 +36,17 @@ const cells = (l: string) => l.replace(/^\||\|$/g, "").split(/(?<!\\)\|/).map((c
 export const slugOf = (s: string) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
 function parseExtra(cell: string) {
-  let levels: Term["levels"] = null, also = "", game = "";
+  let levels: Term["levels"] = null, also = "", game = "", convention = "";
   for (const part of cell.split("<br>").map((p) => p.trim()).filter(Boolean)) {
     if (part.startsWith("Also: ")) also = part.slice(6);
     else if (part.startsWith("In the game: ")) game = part.slice(13);
+    else if (part.startsWith("Convention: ")) convention = part.slice(12);
     else {
       const l = part.split(" · ").map((x) => x.trim());
       if (l.length === 3) levels = [l[0], l[1], l[2]];
     }
   }
-  return { levels, also, game };
+  return { levels, also, game, convention };
 }
 
 let cached: Letter[] | null = null;

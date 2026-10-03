@@ -6,7 +6,8 @@
 // endless scroll (the Oracle, 3 October 2026). Each word as a dictionary
 // entry: the word and its kind, the definition, what it clears up, what it
 // enables, its names at the three narrative levels — the one at the reader's
-// level marked — its other names and, where the game uses it, a pointer.
+// level marked — its other names, where the game uses it, a pointer, and the
+// industry convention the word follows (ADR-067).
 // Every word comes from STD-026 (web/src/lib/lexicon.ts).
 import Layout from "@/layouts/Layout.astro";
 import LexiconBar from "@/components/LexiconBar.astro";
@@ -23,7 +24,7 @@ const { l, prev, next } = Astro.props;
 const etiqueta = "font-mono text-[0.65rem] uppercase tracking-[0.15em]";
 const LEVELS = ["L1", "L2", "L3"];
 const STOP = ["plain", "bridge", "numinia"];
-// "See Digital agent and Biological agent." → links to each.
+// "See Digital agent and Human." → links to each.
 const seeLinks = (is: string) =>
   inline(is).replace(/<em>([^<]+)<\/em>/g, (m, w) => { const h = hrefOf(w); return h ? `<a href="${h}" class="text-accent underline underline-offset-2">${w}</a>` : m; });
 ---
@@ -64,6 +65,7 @@ const seeLinks = (is: string) =>
                 )}
                 {t.also && <p class="text-sm text-muted-foreground"><span class:list={[etiqueta, "mr-2 text-dim"]}>Also</span>{t.also}</p>}
                 {t.game && <p class="text-sm text-muted-foreground"><span class:list={[etiqueta, "mr-2 text-dim"]}>In the game</span>{t.game}</p>}
+                {t.convention && <p class="text-sm text-muted-foreground"><span class:list={[etiqueta, "mr-2 text-dim"]}>Convention</span><span set:html={inline(t.convention)} /></p>}
               </dd>
             )}
           </div>

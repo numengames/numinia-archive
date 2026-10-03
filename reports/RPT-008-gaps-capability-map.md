@@ -7,12 +7,13 @@ title: "GAPS.md — Numen Games' map of blind spots"
 type: report
 subtype: analysis
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
-updated: "2026-09-27T13:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
+section: "Strategy and governance"
 tags: [gaps, strategy, capability-map]
 license: "CC-BY-4.0"
 related: ["ADR-026 (formerly ADR-031)", "MIS-044"]

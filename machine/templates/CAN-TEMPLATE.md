@@ -15,11 +15,11 @@ updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [canon, seminal]
 license: "CC0-1.0"
 # OPTIONAL — use when they apply, omit without guilt.
-# ratified_by: "ADR-NNN"            # the decision that ratified this text
+# approved_by: "ADR-NNN"            # the decision that approved this text
 # supersedes_version: "1.2.0"
 # lore: true                        # narrative canon rather than structural
 # former_id: "CAN-NNN"              # if renumbered — the old identifier never frees

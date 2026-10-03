@@ -7,7 +7,7 @@
  * MIS-145 v2 (2026-09-04). Until now this registry lived inside
  * the header guard (now machine/guards/rules/std-004-the-header.mjs), which was correct while that guard was its only
  * consumer. check-templates.mjs is the second: it applies HDR-030's rule one step
- * earlier — at the mould instead of at the documents copied from it — and a
+ * earlier — at the template instead of at the documents copied from it — and a
  * second private copy of the registry is exactly the drift MIS-138 D1.1 moved
  * the vocabularies into rules.json to stop.
  *
@@ -20,7 +20,7 @@
 /* ---------------- STD-004 HDR-030: the three rings ---------------- */
 
 export const RING1 = ['id', 'title', 'type', 'status', 'version', 'created', 'updated', 'license'];
-export const RING2 = ['author', 'owner', 'provenance', 'created_source', 'created_confidence',
+export const RING2 = ['author', 'owner', 'digital_source_type', 'created_source', 'created_confidence',
   'requested_by', 'supersedes', 'superseded_by', 'derived_from'];
 
 /** STD-004 Ring 3: the per-series extension registry. A field in no ring is HDR-030. */
@@ -28,13 +28,15 @@ export const RING3 = {
   'missions': ['priority', 'effort', 'assigned_to', 'started',
     // mission_id retired 2026-09-02 (missions/ normalisation): it duplicated
     // `id` in 58/58 files and now appears in none.
-    'completed', 'type_execution', 'freeze_reason', 'in_review_at',
+    // type_execution → executor and freeze_reason → hold_reason (2026-10-03):
+    // the industry's words — ISO/IEC 22989 says human, Kanban says on hold.
+    'completed', 'executor', 'hold_reason', 'in_review_at',
     'depends_on', 'parent_mission', 'sub_missions', 'blocked_by',
     'requires_oracle_approval', 'human_approval_score', 'paths', 'context',
     'divergence_log',
-    // registered 2026-08-30 (final sweep): provenance notes and series
+    // registered 2026-08-30 (final sweep): notes on origin and series
     // metadata that were always written, never registered (STD-004 Ring 3)
-    'phase', 'updated_note', 'executor', 'blocks', 'mission_mode',
+    'phase', 'updated_note', 'blocks', 'mission_mode',
     // MIS-132/133/134 (2026-09-02): a letter-suffixed sub-mission or an
     // unregistered proposal that entered the series keeps its old identifier
     // resolving (ADR-004 rule 4), same as reports/ and blueprints/.
@@ -73,7 +75,7 @@ export const RING3 = {
     'name', 'description',
     // agents/<agent>/AGENT.md, the entity card (agents/INDEX.md): what the
     // agent is and the files it is made of — the same shape as objects/.
-    'entity', 'type_execution', 'forms',
+    'entity', 'executor', 'forms',
     // agents/<agent>/OPERATOR.md (STD-017 AUT-065, rank sets the reach):
     // the level of automation the agent is operated at — one of the five
     // names of web/src/lib/automation-levels.ts (assisted · partial ·
@@ -87,7 +89,8 @@ export const RING3 = {
     // so consolidating debt does not break every citation of it (ADR-030).
     'absorbs',
     'resolved_by', 'question_status', 'visibility_was', 'scope', 'supersedes_pending'],
-  'blueprints': ['extraction_note', 'restoration_note', 'semaforo',
+  // semaforo deprecated 2026-10-03: a Spanish-era key no blueprint ever carried.
+  'blueprints': ['extraction_note', 'restoration_note',
     'score', 'score_prev', 'scope', 'mission', 'input',
     'related_missions', 'contributors'],
   // goods: an offer record's cards on sale, read by the site (STD-033
@@ -101,7 +104,8 @@ export const RING3 = {
     'former_id', 'former_id_note'],
   // threshold retired 2026-09-27: the series register (STD-001) states it
   // once per series; a header copy is the second source that drifts.
-  'standards': ['supersedes_version', 'ratified_by', 'subtype',
+  // ratified_by → approved_by (2026-10-03): document control says approval.
+  'standards': ['supersedes_version', 'approved_by', 'subtype',
     // series_change retired 2026-09-26: what a version changed is in the
     // changelog and in git, and the header kept a third copy of it.
     // registered 2026-09-05 (MIS-147). Same load-bearing role it already has
@@ -111,7 +115,7 @@ export const RING3 = {
     // been needed where a record merged into a peer, and this is the first
     // time a system manual merged into the standard that governs it.
     'absorbs'],
-  'canon': ['supersedes_version', 'ratified_by',
+  'canon': ['supersedes_version', 'approved_by',
     'changelog', 'lore', 'extraction_note',
     // registered 2026-09-01 (ADR-036). `former_id`/`former_id_note` carry the
     // renumbering to the CAN- series exactly as they do in reports/ and
@@ -131,7 +135,7 @@ export const RING3 = {
     // absorbed CAN-003, so a canon can now be the absorbing document —
     // DEF-011's route out of a series, applied to canon for the first time.
     'absorbs'],
-  'protocols': ['supersedes_version', 'ratified_by', 'applies_to', 'mandatory',
+  'protocols': ['supersedes_version', 'approved_by', 'applies_to', 'mandatory',
     'human_approval_score', 'mission', 'review_next'],
   // ADR-035: the two shelves MIS-129 opened. `former_id`/`former_id_note`
   // record a renumbering under ADR-004 rule 4 — the old identifier is never
@@ -184,7 +188,7 @@ export const RING3 = {
     'opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'],
 };
 
-export const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',
+export const RING3_ALL = ['tags', 'visibility', 'guild', 'section', 'registration',
   'registration_reason', 'registration_exemption', 'evidence_script',
   'evidence_head', 'related', 'uid'];
 
@@ -208,8 +212,8 @@ export function isTerminalStatus(status, rules) {
 }
 
 /** CIT-053: a photograph is a record whose claims are not rewritten — either
- *  because its status is terminal (STD-004) or because its series' threshold
- *  is `closed` from publication (STD-001: reports/). A mission's threshold is
+ *  because its status is terminal (STD-004) or because its series' approval level
+ *  is `closed` from publication (STD-001: reports/). A mission's approval level is
  *  `closed` only when `done`, which its status already says. */
 export function isPhotograph(rel, status, rules) {
   if (isTerminalStatus(status, rules)) return true;

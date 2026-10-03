@@ -3,11 +3,12 @@ id: "SYS-011:resource-prism-cells"
 title: "Prism Cells"
 type: entity
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-09-29T12:10:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Products and services"
 license: "CC0-1.0"
 category: "resource"
 stage: draft

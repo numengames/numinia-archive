@@ -5,13 +5,13 @@ title: "The strategy: a city that plays its work"
 type: documentation
 subtype: register
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-03T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Strategy and governance"
 tags: [operations, strategy, mlp, metaverse, industry]
 license: "CC-BY-4.0"
 related: ["CAN-001", "CAN-002", "CAN-004", "CAN-007", "CAN-009", "OPS-011"]

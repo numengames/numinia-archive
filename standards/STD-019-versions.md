@@ -2,15 +2,15 @@
 id: "STD-019"
 uid: ""
 title: "Versions"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "3.1.1"
+version: "3.1.3"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Platform"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standards, versioning, semver]
 derived_from: "CAN-009"
@@ -65,9 +65,9 @@ wording that asks nothing new raises only the last.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| VER-021 | Versions follow Semantic Versioning | [Semantic Versioning 2.0.0, items 1 and 2](https://semver.org/spec/v2.0.0.html) | `machine/guards/rules/std-019-versions.mjs`, the shape of the number only; `machine/scripts/check-templates.mjs` T-08 for the opening value on the moulds |
+| VER-021 | Versions follow Semantic Versioning | [Semantic Versioning 2.0.0, items 1 and 2](https://semver.org/spec/v2.0.0.html) | `machine/guards/rules/std-019-versions.mjs`, the shape of the number only; `machine/scripts/check-templates.mjs` T-08 for the opening value on the templates |
 | VER-024 | The header and the log agree | — | `machine/guards/rules/std-019-versions.mjs` |
 | VER-023 | Breaking conformance is a major | [Semantic Versioning 2.0.0, item 8](https://semver.org/spec/v2.0.0.html) | by hand: deciding that a change breaks conformance is the judgement itself |
 | VER-022 | Offering more without breaking is a minor; rewording is a patch | [Semantic Versioning 2.0.0, items 6 and 7](https://semver.org/spec/v2.0.0.html) | by hand, as above |
@@ -76,7 +76,7 @@ Each rule, its code, its source and its check.
 
 A version is a promise about compatibility. For a document, compatibility
 means that work which obeyed it yesterday still obeys it today. Semantic
-Versioning's first number guards exactly that, so a new requirement is a
+Versioning's first number checks exactly that, so a new requirement is a
 major, not the minor our old rule called it.
 
 ## References

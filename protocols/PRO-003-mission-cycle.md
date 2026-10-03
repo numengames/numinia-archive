@@ -4,13 +4,14 @@ uid: ""
 title: "Running a mission"
 type: protocol
 status: draft
-version: "5.0.3"
+version: "5.0.5"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
+section: "Operations"
 tags: [protocol, missions, cycle, briefing, coordination]
 applies_to: [all-agents]
 mandatory: true
@@ -41,7 +42,7 @@ and closes it.
 ## 1. Trigger
 
 A mission is assigned, self-identified, arrives by chat or instruction, or
-a frozen one is reactivated. Executor: the agent; the Oracle at open,
+one on hold is reactivated. Executor: the agent; the Oracle at open,
 review and close.
 
 ## 2. Rules
@@ -56,7 +57,7 @@ action — a tool call or a file write, never "research". Unclear: ask.
 
 **MCY-003 — Blockers are flagged before starting.** A dependency, a key, an
 access or a decision the mission needs MUST be raised before the first
-action, not after. Blocked: `frozen` with its reason (`MSN-039`), Oracle
+action, not after. Blocked: `on-hold` with its reason (`MSN-039`), Oracle
 notified.
 
 **MCY-004 — Contradiction with the canon stops the mission.** The agent

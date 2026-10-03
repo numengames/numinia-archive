@@ -12,14 +12,13 @@ created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [blueprint]
 license: "CC0-1.0"
 # the missions that would execute this design, or that already partly did
 related_missions: []
 
 # OPTIONAL — use when they apply, omit without guilt.
-# semaforo: "green"                 # read by the archive pages
 # guild: "Alchemists"
 # mission: "MIS-NNNN"               # the mission that produced this design
 # scope: "what the design covers"

@@ -3,11 +3,12 @@ id: "SYS-011:artefact-lap"
 title: "LAP (Lore Akashic Processor)"
 type: entity
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-09-29T13:50:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Products and services"
 license: "CC0-1.0"
 category: "artefact"
 stage: draft

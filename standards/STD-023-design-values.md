@@ -2,15 +2,15 @@
 id: "STD-023"
 uid: ""
 title: "Design values"
-type: documentation
+type: standard
 subtype: register
 status: active
-version: "1.10.0"
+version: "1.10.2"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T20:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Product"
+section: "Brand and marketing"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
 related: ["STD-008", "STD-034", "CAN-008", "ADR-044", "PRO-022"]
@@ -151,7 +151,7 @@ Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50p
 - **Reading and documents:** `book-open` · `books` · `scroll` · `file-text` · `clipboard-text` · `note-pencil` · `copy` · `download-simple` · `upload-simple` · `push-pin` · `ruler` · `play-fill` · `pause-fill` · `arrow-down-bold` · `music-notes`
 - **The archive's six functions:** `bank` (governance) · `crane-tower` (production) · `shield-check` (assurance) · `robot` (agency) · `sparkle` (creation) · `gear` (administration)
 - **State of a piece of work:** `check` · `circle` · `hourglass` · `lightning` · `eye` · `snowflake` · `prohibit` · `warning` · `lock-key` · `arrows-clockwise` · `bell`
-- **Kinds of work and people:** `dna` (biological) · `git-branch` (hybrid) · `brain` · `flask` · `target` · `user` · `users` · `sign-out` · `buildings` · `map-pin` · `calendar-blank` · `desktop`
+- **Kinds of work and people:** `dna` (human) · `git-branch` (hybrid) · `brain` · `flask` · `target` · `user` · `users` · `sign-out` · `buildings` · `map-pin` · `calendar-blank` · `desktop`
 - **Play and the world:** `game-controller` · `mask-happy` · `confetti` · `sword` · `sword-light` · `flame` · `flame-light` · `package` · `coins` · `palette` · `coffee` (backing Numinia: the footer's button and its pages) · `skull` (the epitaph at the end of every footer)
 - **Data and outward links:** `chart-bar` · `chart-line` · `github-logo` · `x-logo`
 

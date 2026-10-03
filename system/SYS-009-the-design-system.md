@@ -5,13 +5,13 @@ title: "The Numinia Design System"
 type: documentation
 subtype: reference
 status: active
-version: "1.0.0"
+version: "1.0.2"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-09-26T16:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Brand and marketing"
 tags: [system, reference, design, design-system, sound, writing, play]
 license: "CC0-1.0"
 former_id: "STD-032"
@@ -75,7 +75,7 @@ accessibility standard, which every row here serves.
 | Languages | Sound | — | Not written yet: how Numinia sounds — music, effects, voice and silence. Today only the reading-aloud player is specified, in the design values |
 | Languages | Motion | `standards/STD-023-design-values.md` | The animation catalogue, the sky and the motion budgets; still inside Image |
 | Languages | Play | `lore/game/manual/en/07-building-the-adventure.md` | Read alongside: how the manual builds an adventure |
-| Languages | Play | `lore/adventures/tabletop/TEMPLATE.md` | Read alongside: the mould of an adventure module |
+| Languages | Play | `lore/adventures/tabletop/TEMPLATE.md` | Read alongside: the template of an adventure module |
 | Languages | Play | `lore/codex/hoja-de-personaje.md` | Read alongside: the character sheet |
 | Languages | Play | — | Not written yet: how a mission, a character or a place is designed as ours |
 | Recipes | Any piece | `protocols/PRO-014-producing-a-design-piece.md` | The order in which a piece's decisions are taken |

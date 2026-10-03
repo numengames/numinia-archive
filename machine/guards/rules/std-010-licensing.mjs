@@ -13,9 +13,9 @@
 // licence strings inside fenced code examples are content, not
 // declarations, and are ignored.
 //
-// machine/templates/ is skipped here and checked harder elsewhere: a mould's
+// machine/templates/ is skipped here and checked harder elsewhere: a template's
 // `license:` is a worked example for the document that will be copied from
-// it, not a statement about the mould. check-templates (T-04) holds it to a
+// it, not a statement about the template. check-templates (T-04) holds it to a
 // licence the repository ships a text for.
 //
 // Run from anywhere: node machine/guards/rules/std-010-licensing.mjs

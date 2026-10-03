@@ -4,13 +4,13 @@ uid: ""
 title: "Requesting approval, issuing rulings"
 type: protocol
 status: draft
-version: "5.2.0"
+version: "5.2.1"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-09-29T12:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Strategy and governance"
 tags: [approval, human-in-the-loop, security, protocol, rulings, falsifiability]
 license: "CC0-1.0"
 applies_to: [all-agents]

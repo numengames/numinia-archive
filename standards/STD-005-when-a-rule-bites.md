@@ -2,18 +2,18 @@
 title: "When a rule bites"
 id: "STD-005"
 uid: ""
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "4.0.5"
+version: "4.0.7"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
-territory: "Platform"
-tags: [standards, engineering, ci, guards]
+section: "Technology"
+tags: [standards, engineering, ci, checks]
 derived_from: "CAN-010"
 license: "CC0-1.0"
 absorbs: ["STD-011"]
@@ -26,11 +26,11 @@ SPDX-License-Identifier: CC0-1.0
 
 # When a rule bites
 
-> **Summary:** A rule is worth the machine that checks it. A guard fails the
-> build only while its rule's standard is signed; a guard over the thing built
+> **Summary:** A rule is worth the machine that checks it. A check fails the
+> build only while its rule's standard is signed; a check over the thing built
 > always fails. Five repositories share one pipeline.
-> **Epistemic:** When does a rule bite, and how do the guards come to run?
-> **Pragmatic:** Write, wire or read a guard, and tell a broken rule from a
+> **Epistemic:** When does a rule bite, and how do the checks come to run?
+> **Pragmatic:** Write, wire or read a check, and tell a broken rule from a
 > broken artefact.
 > **Audience:** Agents · Oracles
 
@@ -45,39 +45,39 @@ birth and owns them from then on.
 
 **A rule that does not fail a build is prose.** The checks that run on every
 change are the authority; the documentation explains them. For an agent, a
-rule no guard runs does not exist.
+rule no check runs does not exist.
 
 **Every practice names its check.** Each practice in the register of
 engineering checks MUST say which machine checks it, or plainly that a
 person does. Checking by hand is debt, and what a machine can check MUST NOT
 be audited by hand.
 
-**A guard that fails on unstated behaviour is the defect.** When a guard
-fails on something no rule asks for, fix the guard or write the rule, never
+**A check that fails on unstated behaviour is the defect.** When a check
+fails on something no rule asks for, fix the check or write the rule, never
 bend the work to fit it.
 
-**A guard bites by the state of its rule.** A finding fails the build only
+**A check bites by the state of its rule.** A finding fails the build only
 while the standard holding the rule it cites is active. While it is a draft,
-the guard reports and lets the build pass.
+the check reports and lets the build pass.
 
-**Signing a standard switches its guards on.** The guard reads the standard's
+**Signing a standard switches its checks on.** The check reads the standard's
 state from its header on every run, never from its own settings. A finding
 that cites no rule has no state to read and MUST NOT fail a build.
 
-**A guard over the artefact bites always.** A guard that checks the thing
+**A check over the artefact bites always.** A check that reads the thing
 built, not a rule, fails regardless: the build, fresh measurements, links
 inside the site, stray pages, cited addresses that still answer. It says so
 where it lists what it cannot see.
 
-### How guards come to run
+### How checks come to run
 
-**A guard runs from the change that merges it.** A guard is a script in the
+**A check runs from the change that merges it.** A check is a script in the
 guards folder, where the runner finds and runs it. No document or workflow
-line makes it exist. A script that must not run as a guard lives elsewhere.
+line makes it exist. A script that must not run as a check lives elsewhere.
 
-**The list of guards is read, never remembered.** What runs is what the
+**The list of checks is read, never remembered.** What runs is what the
 runner finds in the guards folder. The workflow calls the runner and names no
-guard, because a hand-written list is stale the day it is written.
+check, because a hand-written list is stale the day it is written.
 
 The practices a repository keeps (its security score, changelog and incident
 reviews) are rows of the register of engineering checks, each with its check.
@@ -87,10 +87,10 @@ read whole to be copied.
 
 ### The family pipeline
 
-Five repositories run the same guards. Four serve a site: this archive, the
+Five repositories run the same checks. Four serve a site: this archive, the
 Numinia site, the Numen Games site and the workspace deployer. The fifth, the
-store of shared resources, serves none. A guard is a step or script that
-says whether the change under review is wrong. Guards come in two kinds:
+store of shared resources, serves none. A check is a step or script that
+says whether the change under review is wrong. Checks come in two kinds:
 
 | Kind | Steps, in this order | Fails the build? |
 |---|---|---|
@@ -104,7 +104,7 @@ says whether the change under review is wrong. Guards come in two kinds:
   that only reports. Renaming it leaves the required check pending for ever
   and blocks every merge; requiring no check lets a red run merge.
 - **The store of resources has no site.** It builds nothing; its artefact
-  guards check that every file declares its licence, with tests proving a
+  checks check that every file declares its licence, with tests proving a
   missing declaration is refused; build passes only when all of them do.
 - **Some files are kept identical across the five, by hand until a shared
   package carries them.** They are listed below. A diff of two copies shows
@@ -129,20 +129,20 @@ says whether the change under review is wrong. Guards come in two kinds:
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | ENG-001 | A rule that does not fail a build is prose | — | by reading; the register check (`machine/tools/check-register.mjs --list`) counts its automatic, gated and owed rows |
 | ENG-002 | Every practice names its check | — | the register check verifies each row's named check exists; it reports, it does not fail the build while the register is a draft |
-| ENG-066 | A guard that fails on unstated behaviour is the defect | — | by hand, at review |
-| ENG-067 | A guard bites by the state of its rule; signing a standard switches its guards on; a guard over the artefact bites always | — | `machine/scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `blindness.test.mjs` checks every guard is a build guard or answers to the regime |
-| ENG-031 | A guard runs from the change that merges it | — | `machine/scripts/run-guards.mjs` runs every registered guard; `blindness.test.mjs` and the register check refuse a guard script with no registry entry |
-| ENG-032 | The list of guards is read, never remembered | — | the workflow calls `npm run guards` and names no guard; the register check verifies that step is present |
+| ENG-066 | A check that fails on unstated behaviour is the defect | — | by hand, at review |
+| ENG-067 | A check bites by the state of its rule; signing a standard switches its checks on; a check over the artefact bites always | — | `machine/scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `blindness.test.mjs` checks every check is a build check or answers to the regime |
+| ENG-031 | A check runs from the change that merges it | — | `machine/scripts/run-guards.mjs` runs every registered check; `blindness.test.mjs` and the register check refuse a check script with no registry entry |
+| ENG-032 | The list of checks is read, never remembered | — | the workflow calls `npm run guards` and names no check; the register check verifies that step is present |
 
 ## Why
 
 A practice with no check is a wish with a heading; writing the check beside
-it shows what is enforced and what is only promised. Guards are code, and
-code rots. A guard that bites before its rule is signed turns a draft into a
+it shows what is enforced and what is only promised. Checks are code, and
+code rots. A check that bites before its rule is signed turns a draft into a
 law nobody agreed to. With one pipeline in five repositories, a red build
 means the same thing everywhere.
 

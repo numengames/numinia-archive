@@ -4,19 +4,19 @@ uid: ""
 title: "The archive is classified by function, and instruments are not records"
 type: adr
 status: draft
-version: "0.1.0"
+version: "0.1.2"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-09-20T12:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [decisions, adr, classification, archive, functions]
 license: "CC-BY-4.0"
 deciders: ["oracle"]
 consulted: ["ursa"]
 outcome: proposed
-decision: "One fond, six functions, sixteen activities; what verifies, measures, moulds or packages the archive moves under machine/ and is not a record; lore/ is recognised as a second fond."
+decision: "One fonds, six functions, sixteen activities; what verifies, measures, moulds or packages the archive moves under machine/ and is not a record; lore/ is recognised as a second fonds."
 amends: ["STD-001", "SYS-003"]
 related: ["STD-027", "STD-024", "STD-012", "ADR-030"]
 ---
@@ -27,8 +27,8 @@ SPDX-License-Identifier: CC-BY-4.0
 -->
 # ADR-046 — The archive is classified by function
 
-> **Summary:** The repository is arranged as one fond of six functions; the
-> non-documentary folders gather under `machine/`; `lore/` is a second fond.
+> **Summary:** The repository is arranged as one fonds of six functions; the
+> non-documentary folders gather under `machine/`; `lore/` is a second fonds.
 > **Epistemic:** The corpus already behaved like a functional classification —
 > it was described in a vocabulary no archivist would recognise, and in one
 > place described wrongly.
@@ -44,11 +44,11 @@ Twenty top-level folders sit at the same level. Eleven hold records; six are
 instruments — guards, tools, scripts, templates, telemetry, packages — and
 `web/` is a renderer. A reader cannot tell which is which from the tree.
 
-`SYS-003` calls seven of them "fondos". In archival terms a fond is the whole
-output of one producer: there is one fond here, and those seven are series of
+`SYS-003` calls seven of them "fondos". In archival terms a fonds is the whole
+output of one producer: there is one fonds here, and those seven are series of
 it. The error is not internal — it is published at numinia.org/archive.
 
-Between the fond and the series there is no level, so the eleven series answer
+Between the fonds and the series there is no level, so the eleven series answer
 eleven unrelated questions with nothing grouping them.
 
 What the corpus already has, unnamed: a classification scheme (`STD-001`), an
@@ -68,7 +68,7 @@ documents breaks.
 
 ## 2. Decision
 
-**The repository is arranged as one fond, classified by function.** Six
+**The repository is arranged as one fonds, classified by function.** Six
 functions — Governance, Production, Assurance, Agency, Creation,
 Administration — each holding the activities that generate records and the
 series each activity produces. Functions are nouns, activities verbs
@@ -80,7 +80,7 @@ identifier, are not appraised, and are never cited as evidence. They are
 classified — under Verifying, Measuring and Templating — but they are filed
 apart from the series.
 
-**`lore/` is a second fond.** The creative corpus has a different producer
+**`lore/` is a second fonds.** The creative corpus has a different producer
 relationship and a different licence regime from the administrative one.
 Recognised here; executed in a follow-up mission, since it moves published
 URLs.
@@ -101,7 +101,7 @@ series table and gains Function and Activity columns.
 |---|---|
 | Describe the scheme, move nothing | The root still shows twenty peers and an archivist still cannot tell an instrument from a series. Half the gain for a third of the work, but the naming debt is paid twice |
 | Physical two-level tree (`governance/canon/`…) | Breaks every plain-text citation in the corpus, every `/corpus/` URL and `STD-024` SER-005. The identifier is the path |
-| Keep ISAD(G) vocabulary (fond → series → file → item) | Superseded by RiC-CM 1.0 in November 2023; a strict hierarchy is the model RiC exists to replace |
+| Keep ISAD(G) vocabulary (fonds → series → file → item) | Superseded by RiC-CM 1.0 in November 2023; a strict hierarchy is the model RiC exists to replace |
 | Classify by subject or by guild | Subject classification is what functional classification replaced; guilds are organisational units, which the NAA rule forbids naming a function after |
 | `apparatus/` as the instruments folder | Oracle preference for `machine/`: plainer, and `apparatus` in `STD-001` already means something narrower (the moulds) |
 | Wait until the corpus is larger | 150 documents now, none of which move. The lexical debt is published and compounds |

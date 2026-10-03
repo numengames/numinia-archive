@@ -2,19 +2,19 @@
 id: "STD-031"
 uid: ""
 title: "A canon states"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.1.8"
+version: "0.1.10"
 created: "2026-09-24T22:00:00+02:00"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
-tags: [standards, canon, writing, form, mould]
+section: "Knowledge and quality"
+tags: [standards, canon, writing, form, template]
 license: "CC0-1.0"
-ratified_by: "ADR-062"
+approved_by: "ADR-062"
 related: ["STD-007", "STD-001", "STD-024"]
 derived_from: "CAN-009"
 ---
@@ -64,7 +64,7 @@ not its subject: *Opening is an act*, not *Licensing*.
 ### What a canon leaves out
 
 **No tool.** A canon MUST NOT name a vendor, product or application as the
-way something is done. It states the capability. The instrument belongs in
+way something is done. It states the capability. The tool belongs in
 the system notes or a protocol.
 
 **No clock.** A canon MUST NOT carry a date, hour, cadence or calendar in
@@ -95,7 +95,7 @@ for one preferred name per thing, so a search finds it under one word.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | STA-001 | It says what is so | [ISO 24495-1:2023, plain language](https://www.iso.org/standard/78907.html) — readability only | by hand — whether a text states is read, not parsed |
 | STA-002 | It says why | — | by hand |
@@ -132,4 +132,4 @@ standard judges only whether a text can be read.
 |---|---|---|
 | `STD-007` | One page per document | the card, the length, the reference table |
 | `STD-024` | A series is a function | why a rule in a decision binds nobody until it is here |
-| `STD-001` | The series | the canon's row: threshold, length, mould |
+| `STD-001` | The series | the canon's row: threshold, length, template |

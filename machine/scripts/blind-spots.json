@@ -108,15 +108,15 @@
     },
     "check-templates": {
       "script": "machine/scripts/check-templates.mjs",
-      "sees": "machine/templates/ against the contract of the series each mould scaffolds — name, destination licence, type, lifecycle, ring registry, SemVer, context card, and whether every registered series has a mould at all",
+      "sees": "machine/templates/ against the contract of the series each template scaffolds — name, destination licence, type, lifecycle, ring registry, SemVer, context card, and whether every registered series has a template at all",
       "blind_to": [
         {
-          "spot": "whether the mould's PROSE teaches the right thing — it checks the frontmatter contract and the presence of the context card, not whether the guidance under it is sound or current",
+          "spot": "whether the template's PROSE teaches the right thing — it checks the frontmatter contract and the presence of the context card, not whether the guidance under it is sound or current",
           "covered_by": null,
           "debt": null
         },
         {
-          "spot": "whether documents already in the corpus were created from these moulds — a template can be perfect and universally ignored, and this guard cannot tell",
+          "spot": "whether documents already in the corpus were created from these templates — a template can be perfect and universally ignored, and this guard cannot tell",
           "covered_by": "std-004-the-header and std-010-licensing, which read the documents themselves",
           "debt": null
         },
@@ -369,8 +369,8 @@
           "fixture": "no-license-field"
         },
         {
-          "spot": "machine/templates/ — a mould declares the licence of the series it scaffolds, not of its own path, so this guard skips it",
-          "covered_by": "machine/scripts/check-templates.mjs T-04, which resolves each mould's destination directory and checks the regime there",
+          "spot": "machine/templates/ — a template declares the licence of the series it scaffolds, not of its own path, so this guard skips it",
+          "covered_by": "machine/scripts/check-templates.mjs T-04, which resolves each template's destination directory and checks the regime there",
           "debt": null
         }
       ]

@@ -10,7 +10,7 @@ import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import Icon from "@/components/Icon.astro";
 import { repoFileUrl } from "@/lib/build-info";
-import { settings, CONFIG_INTRO, MOULDS } from "@/lib/configuration";
+import { settings, CONFIG_INTRO, TEMPLATES } from "@/lib/configuration";
 
 const S = settings();
 ---
@@ -49,11 +49,11 @@ const S = settings();
       <article class="rounded-[8px] border border-border bg-card/60 p-6">
         <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.15em] text-accent mb-2">Building a new agent</h2>
         <p class="text-sm leading-relaxed text-muted-foreground mb-4">
-          Every agent of the team is a folder of files. A new one starts as a copy of these moulds: who it answers to,
+          Every agent of the team is a folder of files. A new one starts as a copy of these templates: who it answers to,
           who it is, and where its knowledge comes from. The skill below is what an agent reads to open a pull request here.
         </p>
         <div class="flex flex-wrap gap-2">
-          {MOULDS.map((m) => <a href={m.href} class="pill" title={m.line}>{m.label} →</a>)}
+          {TEMPLATES.map((m) => <a href={m.href} class="pill" title={m.line}>{m.label} →</a>)}
         </div>
       </article>
     </div>

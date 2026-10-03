@@ -2,15 +2,15 @@
 id: "STD-020"
 uid: ""
 title: "Git is the archive"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "2.2.1"
+version: "2.2.3"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Platform"
+section: "Technology"
 license: "CC0-1.0"
 tags: [standards, git, archiving]
 derived_from: "CAN-009"
@@ -75,14 +75,14 @@ resolved by choosing one side.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| GIT-025 | Small batches, by pull request, on one trunk | [Trunk-Based Development](https://trunkbaseddevelopment.com/); [OpenSSF Scorecard, Branch-Protection tier 2 and Code-Review](https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection); holds retired ENG-003 | `.github/rulesets/protect-main.json`: pull request required on the main line, one approval, the `build` check required; `.github/workflows/scorecard.yml` grades it; batch size and branch age by hand |
-| GIT-026 | One-line subject | [Conventional Commits 1.0.0, the header](https://www.conventionalcommits.org/en/v1.0.0/#specification) | the guard of this standard (`machine/guards/rules/std-020-git-is-the-archive.mjs`), last 400 commit subjects, one line only; the kind and the why are not checked (no commitlint, `DBT-020`) |
-| GIT-050 | Leave it better | holds retired ENG-005 | by hand, at review: the pull request says what it left behind |
+| GIT-025 | Small batches, by pull request, on one trunk | [Trunk-Based Development](https://trunkbaseddevelopment.com/); [OpenSSF Scorecard, Branch-Protection tier 2 and Code-Review](https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection); holds deprecated ENG-003 | `.github/rulesets/protect-main.json`: pull request required on the main line, one approval, the `build` check required; `.github/workflows/scorecard.yml` grades it; batch size and branch age by hand |
+| GIT-026 | One-line subject | [Conventional Commits 1.0.0, the header](https://www.conventionalcommits.org/en/v1.0.0/#specification) | the check of this standard (`machine/guards/rules/std-020-git-is-the-archive.mjs`), last 400 commit subjects, one line only; the kind and the why are not checked (no commitlint, `DBT-020`) |
+| GIT-050 | Leave it better | holds deprecated ENG-005 | by hand, at review: the pull request says what it left behind |
 | GIT-030 | Shared history is never rewritten | [OpenSSF Scorecard, Branch-Protection tier 1](https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection); [SLSA 1.1, Source track level 2](https://slsa.dev/spec/) | `.github/rulesets/protect-main.json`: no force push, no deletion, linear history |
-| GIT-027 | Generated means generated again | — | `machine/scripts/telemetry.mjs --check` in the build guards; `machine/tools/generate-design-kit.mjs --check`, run by hand |
-| GIT-028 | Measurements follow the commit | — | `machine/scripts/telemetry.mjs --check` in the build guards |
+| GIT-027 | Generated means generated again | — | `machine/scripts/telemetry.mjs --check` in the build checks; `machine/tools/generate-design-kit.mjs --check`, run by hand |
+| GIT-028 | Measurements follow the commit | — | `machine/scripts/telemetry.mjs --check` in the build checks |
 | GIT-029 | Conflicts in generated files are generated again | — | by hand: a resolved conflict looks like any other change |
 
 | Kind of commit | Written |
@@ -94,13 +94,13 @@ Each rule, its code, its source and its check.
 | a refactoring | `refactor` |
 | a test | `test` |
 | a change to the automatic checks | `ci` |
-| retired, valid in old history only | `session`, `qa`, `standards`, `canon`, `debt`, `audit` |
+| deprecated, valid in old history only | `session`, `qa`, `standards`, `canon`, `debt`, `audit` |
 | the area touched | in brackets, lower case, usually the folder: `feat(web): …` |
 
 ## Why
 
 The archive's strongest guarantee is inherited: who committed what, and
-when, cannot be changed at any price worth paying. Every rule here guards
+when, cannot be changed at any price worth paying. Every rule here checks
 that inheritance against a rewritten branch or a hand edit to a file a
 program owns.
 

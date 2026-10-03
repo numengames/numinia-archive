@@ -3,13 +3,14 @@ agent: ursa
 title: "OPERATOR — Ursa"
 type: agent
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-04-07T15:14:58Z"
 created_source: "git:78dbd77"
 created_confidence: exact
-updated: "2026-09-29T11:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "People and culture"
 automation_level: partial
 tags: [agents, ursa]
 license: "CC0-1.0"

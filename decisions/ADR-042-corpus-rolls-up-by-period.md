@@ -4,14 +4,14 @@ uid: ""
 title: "The corpus rolls up weekly"
 type: adr
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-10T03:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [decisions, adr, deflation, rollup, lifecycle, lesson]
 deciders: ["oracle"]
 consulted: ["ursa"]
