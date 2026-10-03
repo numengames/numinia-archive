@@ -4,13 +4,13 @@ uid: ""
 title: "Screening a tender"
 type: protocol
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-10-01T17:00:00+02:00"
-updated: "2026-10-02T21:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Sales and partners"
 tags: [protocol, sales, tenders, public-procurement, screening, card]
 license: "CC0-1.0"
 applies_to: [all-agents]

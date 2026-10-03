@@ -5,13 +5,13 @@ title: "How we treat each other in the commons"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.5"
+version: "0.2.6"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
-territory: "Archive"
+section: "People and culture"
 tags: [standards, community, conduct, moderation, DSA]
 license: "CC0-1.0"
 ratified_by: "ADR-052"

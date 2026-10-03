@@ -67,7 +67,7 @@ const planos = (await getCollection("blueprints")).sort((a, b) =>
               <div class="flex flex-wrap items-center gap-3 mb-2">
                 <span class="font-mono text-[0.65rem] text-accent">{p.data.id}</span>
                 <span class="font-mono text-[0.6rem] text-dim">{String(p.data.created).slice(0, 10)}</span>
-                {(p.data.territory ?? p.data.area) && <span class="font-mono text-[0.6rem] text-dim">{p.data.territory ?? p.data.area}</span>}
+                {p.data.section && <span class="font-mono text-[0.6rem] text-dim">{p.data.section}</span>}
                 {sem && (
                   <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] text-dim">
                     <span class={"h-2 w-2 rounded-full " + sem.dot}></span>

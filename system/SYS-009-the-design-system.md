@@ -5,13 +5,13 @@ title: "The Numinia Design System"
 type: documentation
 subtype: reference
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-09-26T16:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Brand and marketing"
 tags: [system, reference, design, design-system, sound, writing, play]
 license: "CC0-1.0"
 former_id: "STD-032"

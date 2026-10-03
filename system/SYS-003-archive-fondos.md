@@ -5,15 +5,15 @@ title: "The Archive's Fonds"
 type: documentation
 subtype: reference
 status: active
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-08-17T19:10:09Z"
 created_source: "git:715cc53"
 created_confidence: exact
-updated: "2026-09-20T19:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [system, archive, fonds, taxonomy, classification]
-territory: "CAO"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 extraction_note: "Extracted from the /archive pages under MIS-065 phase C (File over App), then inverted: until 2026-09-20 this frontmatter carried a `fondos:` array of seven entries and a `graph:` block that the viewer rendered directly, so the reference manual doubled as the page's database. ADR-046 retired that model — one fond, six functions — and both blocks were deleted with it. The /archive pages now read the scheme from STD-027 and STD-001 (web/src/lib/classification.ts): this document is prose again, and the standards are the source. Translated to English under MIS-116 (ADR-023)."
 former_id: "BLU-005"

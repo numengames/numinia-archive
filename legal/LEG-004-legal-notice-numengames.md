@@ -4,11 +4,12 @@ uid: ""
 title: "Legal Notice — Numen Games"
 type: legal
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-09-29T20:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Legal and compliance"
 tags: [legal, legal-notice, lssi, website, numen-games, enforceable]
 license: "LicenseRef-Numen-AllRightsReserved"
 provenance: "ai-generated"

@@ -92,7 +92,7 @@ const completed = f.completed ? String(f.completed).slice(0, 10) : null;
 
       <!-- Meta row -->
       <div class="flex flex-wrap gap-4 font-mono text-[0.7rem] text-dim mb-8">
-        {(f.territory ?? f.area) && <span>Territory <span class="text-muted-foreground">{f.territory ?? f.area}</span></span>}
+        {f.section && <span>Section <span class="text-muted-foreground">{f.section}</span></span>}
         {f.guild && <span>Guild <span class="text-muted-foreground">{f.guild}</span></span>}
         <span>Status <span class={"inline-flex items-center gap-1 " + (STATUS_CLASS[status] || "text-dim")}><Icon name={STATUS_ICON[status] || "clipboard-text"} size={11} /> {STATUS_LABEL[status] || status}</span></span>
         {f.assigned_to && f.assigned_to !== "null" && <span>Agent <span class="inline-flex items-center gap-1 text-muted-foreground"><Icon name="sword" size={11} /> {f.assigned_to}</span></span>}

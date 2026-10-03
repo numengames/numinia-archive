@@ -54,7 +54,8 @@ const PREFIX = Object.fromEntries(Object.entries(RULES.series)
 
 /* HDR-031: retired fields, each the object of a registered migration. */
 const RETIRED = {
-  area: 'renamed to territory',
+  area: 'renamed to territory, then to section',
+  territory: 'renamed to section: the world owns the word, a district is a faction\'s territory',
   blocked_reason: 'orphaned when status blocked was removed',
   documento: 'Spanish-era key', ambito: 'Spanish-era key',
   estado: 'Spanish-era key', fecha: 'Spanish-era key',
@@ -70,12 +71,12 @@ const VOCAB = {
   guild: ['Sentinels', 'Alchemists', 'Exegetes', 'Procurators'],
   type_execution: ['digital', 'biological', 'hybrid'],
   visibility: ['public', 'restricted-oracle'],
-  territory: ['CAO', 'Product', 'Platform', 'Infrastructure', 'Content', 'Sales', 'Funding', 'Archive'],
+  section: ['Strategy and governance', 'Products and services', 'Brand and marketing', 'Sales and partners', 'Operations', 'People and culture', 'Finance', 'Legal and compliance', 'Technology', 'Knowledge and quality'],
   priority: ['critical', 'high', 'medium', 'low'],
   effort: ['XS', 'S', 'M', 'L', 'XL'],
 };
 const VOCAB_PLATE = { guild: 'HDR-033', type_execution: 'HDR-034', visibility: 'HDR-035',
-  territory: 'HDR-036', priority: 'HDR-037', effort: 'HDR-038' };
+  section: 'HDR-036', priority: 'HDR-037', effort: 'HDR-038' };
 
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
 const SEMVER = /^\d+\.\d+\.\d+$/;

@@ -59,9 +59,9 @@ test('the map of questions and the standards say the same words', () => {
 
 test('the index lists each standard with its question', () => {
   const corpus = read('web/src/lib/corpus.ts');
-  assert.match(corpus, /question\?: string;/, 'SectionDoc carries no question');
-  assert.match(corpus, /question: questionOf\(/, 'getSectionDocs does not read the question');
-  const page = read('web/src/pages/[section].astro');
+  assert.match(corpus, /question\?: string;/, 'SeriesDoc carries no question');
+  assert.match(corpus, /question: questionOf\(/, 'getSeriesDocs does not read the question');
+  const page = read('web/src/pages/[series].astro');
   assert.match(page, /\{item\.question\}/, 'the index does not render the question');
 });
 

@@ -3,15 +3,16 @@ id: "kairos"
 title: "Kairos"
 type: entity
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-02T12:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 license: "CC0-1.0"
 author: "ursa"
 owner: "oracle"
 provenance: ai-assisted
 tags: [agents, kairos, opportunities, tenders, grants, watch]
 guild: "Procurators"
+section: "People and culture"
 registration: exempt
 registration_reason: "agent parts are identified by their folder and filename, not by a series number (ADR-005)"
 entity: agent

@@ -5,14 +5,15 @@ title: "The Alpha story: what missions/ ships while it is the alpha board"
 type: report
 subtype: analysis
 status: active
-version: "0.3.2"
+version: "0.3.3"
 created: "2026-09-08T20:30:00Z"
 created_source: "git:4a60735"
 created_confidence: exact
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
+section: "Operations"
 tags: [alpha, narrative, missions, compression]
 license: "CC-BY-4.0"
 visibility: "public"

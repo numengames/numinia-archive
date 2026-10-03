@@ -4,13 +4,13 @@ uid: ""
 title: "The ENISA loan"
 type: documentation
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-30T20:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Funding"
+section: "Finance"
 tags: [operations, funding, loan, enisa, open-books, public-funding]
 license: "CC-BY-4.0"
 related: ["SYS-008", "SYS-012", "STD-036", "PRO-021", "DBT-022", "OPS-018"]

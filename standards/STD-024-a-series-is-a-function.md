@@ -5,13 +5,13 @@ title: "A series is a function"
 type: documentation
 subtype: standard
 status: active
-version: "3.1.0"
+version: "3.1.1"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-10-02T16:28:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standards, series, thresholds, registration, records-management]
 related: ["STD-001", "STD-017", "STD-018", "STD-020", "CAN-004"]

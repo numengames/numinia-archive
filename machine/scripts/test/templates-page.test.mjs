@@ -36,7 +36,7 @@ test('the mission mould and its example carry the same fields in the same order'
   const blank = Object.keys(fm('MIS-TEMPLATE.md'));
   const filled = Object.keys(fm('MIS-TEMPLATE-EXAMPLE.md')).filter((k) => blank.includes(k));
   assert.deepEqual(filled, blank.filter((k) => filled.includes(k)), 'the example orders its fields like the mould');
-  for (const k of ['id', 'uid', 'title', 'type', 'status', 'priority', 'effort', 'guild', 'territory', 'type_execution', 'assigned_to', 'completed'])
+  for (const k of ['id', 'uid', 'title', 'type', 'status', 'priority', 'effort', 'guild', 'section', 'type_execution', 'assigned_to', 'completed'])
     assert.ok(k in fm('MIS-TEMPLATE-EXAMPLE.md'), `the example fills ${k}`);
 });
 

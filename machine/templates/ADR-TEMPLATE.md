@@ -14,8 +14,8 @@ author: "agent-id"
 owner: "oracle"
 # guild: Sentinels | Alchemists | Exegetes | Procurators
 guild: "Alchemists"
-# territory: CAO | Product | Platform | Infrastructure | Content | Sales | Funding | Archive
-territory: "Archive"
+# section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
+section: "Knowledge and quality"
 tags: [decisions, adr]
 license: "CC-BY-4.0"
 

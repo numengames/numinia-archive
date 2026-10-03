@@ -4,15 +4,15 @@ uid: ""
 title: "Opening is an act"
 type: seminal
 status: draft
-version: "5.0.2"
+version: "5.0.3"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Archive"
+section: "Legal and compliance"
 tags: [canon, seminal, licensing, legal, openness]
 license: "CC0-1.0"
 registration: registered

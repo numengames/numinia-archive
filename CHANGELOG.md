@@ -18,6 +18,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-03
+- **Changed** `territory` leaves the header; `section` takes its place with the ten sections of `STD-030` as its only values (`ADR-066`: *territory* is a faction's district); `STD-004` 4.12.0, the guard, the moulds, 255 records; the code calls a folder a series (site v0.137.0)
+- **Added** `STD-030` 0.4.1: the translator — sections of the front door, disciplines by guild, branch and house, business lines by faction, who decides; `web/src/lib/translator.mjs` reads it and nine tests hold it
 
 - **Added** The brand and culture book at /brand: seven chapters read from `CAN-014`, `CAN-002`, `CAN-013`, `CAN-008`, `CAN-010`, `STD-029`, `PRO-019`, `CAN-015`, `OPS-020`, `OPS-011`; `lore/world/brand-and-culture.md` (the old deck) is removed and its address leads to the book (site v0.136.0)
 - **Added** `OPS-021` how to get help from us (Discord, email, data address open; an agent coming); `STD-037` SIT-004 the epitaph behind a skull at the foot of every site; the footer button is now *Back Numinia* and leads to numinia.com/back; Discord joins the social column (site v0.135.0)

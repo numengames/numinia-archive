@@ -5,15 +5,15 @@ title: "The Agent Cycle — experience and operation"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-09-27T14:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, agents, cycle, experience]
-territory: "CAO"
+section: "Products and services"
 license: "CC0-1.0"
 extraction_note: "Extracted from web/src/pages/agente.astro (MIS-071 phase 2 — File over App). That source file was deleted in 61353f6 (MIS-120a); its successor is web/src/views/AgentView.astro, still in Spanish while this document is English (MIS-116, ADR-023 (formerly ADR-024)). Zero prose strings are now shared between the two — measured in MIS-129."
 former_id: "BLU-006"

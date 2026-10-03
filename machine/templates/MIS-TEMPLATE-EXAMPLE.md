@@ -12,7 +12,7 @@ updated: "2026-09-28"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [web, archive, example]
 license: "CC0-1.0"
 

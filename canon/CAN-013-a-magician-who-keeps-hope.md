@@ -4,13 +4,13 @@ uid: ""
 title: "A magician who keeps hope, with humans in charge"
 type: seminal
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-03T16:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Brand and marketing"
 tags: [canon, seminal, brand, personality, emotion, cause, archetype, sovereignty]
 license: "CC0-1.0"
 related: ["CAN-002", "CAN-008", "CAN-010", "CAN-012", "BLU-007", "STD-026", "STD-030"]

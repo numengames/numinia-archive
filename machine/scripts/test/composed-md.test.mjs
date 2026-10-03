@@ -140,7 +140,7 @@ test('the generator exports one function per composed page kind', async () => {
     'homePage',
     'schemePage',
     'functionPage',
-    'sectionPage',
+    'seriesPage',
     'collectionIndexPage',
     'agentPage',
     'allComposedPages',
@@ -167,6 +167,6 @@ test('an unknown function or section fails loudly rather than rendering empty', 
   // a heading and no rows, which reads as "this folder is empty" — the most
   // expensive possible lie for an archive.
   assert.match(src, /functionPage\("\$\{slug\}"\): no such function/);
-  assert.match(src, /sectionPage\("\$\{slug\}"\): no such section/);
+  assert.match(src, /seriesPage\("\$\{slug\}"\): no such series/);
   assert.match(src, /agentPage\("\$\{id\}"\): no such agent/);
 });

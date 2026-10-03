@@ -5,14 +5,14 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "4.0.5"
+version: "4.0.6"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "pablofm"
 owner: "oracle"
-territory: "Platform"
+section: "Technology"
 tags: [standards, engineering, ci, guards]
 derived_from: "CAN-010"
 license: "CC0-1.0"

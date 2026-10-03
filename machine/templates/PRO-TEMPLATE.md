@@ -23,7 +23,7 @@ applies_to: [all-agents]
 # supersedes_version: "1.2.0"       # the version of THIS protocol replaced
 # review_next: "YYYY-MM-DD"         # when this procedure is due for re-reading
 # guild: "Sentinels"
-# territory: "Archive"
+# section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
 # related: ["STD-NNN"]
 ---
 

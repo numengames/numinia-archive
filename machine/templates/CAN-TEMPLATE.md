@@ -15,7 +15,7 @@ updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [canon, seminal]
 license: "CC0-1.0"
 # OPTIONAL — use when they apply, omit without guilt.

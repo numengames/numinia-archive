@@ -4,13 +4,14 @@ uid: ""
 title: "Opening and closing a session"
 type: protocol
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
+section: "People and culture"
 tags: [protocol, briefing, startup, session, close, context, mandatory]
 applies_to: [all-agents]
 mandatory: true

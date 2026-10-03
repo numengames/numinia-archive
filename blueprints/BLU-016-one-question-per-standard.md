@@ -4,13 +4,13 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.12.1"
+version: "0.12.2"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-02T21:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
-territory: "Archive"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 related_missions: []
 related: ["STD-007", "STD-017", "STD-012", "STD-005", "STD-008", "STD-023", "SYS-009", "BLU-017"]

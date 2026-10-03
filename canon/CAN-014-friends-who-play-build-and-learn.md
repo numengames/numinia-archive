@@ -4,13 +4,13 @@ uid: ""
 title: "Friends who play, build and learn"
 type: seminal
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-03T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Strategy and governance"
 tags: [canon, seminal, origin, history, oracles]
 license: "CC0-1.0"
 related: ["CAN-001", "CAN-002", "CAN-008", "CAN-013"]

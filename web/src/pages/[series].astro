@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// MIS-111 — a real index per corpus section.
+// MIS-111 — a real index per corpus series.
 //
 // Before this, /canon/ existed with a <title> reading "Canon — Index"
 // and ZERO links to its 12 documents: an artefact of the catch-all detail
@@ -16,7 +16,7 @@
 // WHAT THIS PAGE GAINED ON 2026-09-21
 // Two things the registry at /decisions already had and these six did not:
 //
-//   1. THE ROW CARRIES ITS METADATA. `getSectionDocs` has always returned
+//   1. THE ROW CARRIES ITS METADATA. `getSeriesDocs` has always returned
 //      `docId`, `status` and `updated`; the template rendered only the title
 //      and threw the rest away. So a reader could see that STD-014 exists but
 //      not whether it is active, draft or withdrawn — the single most useful
@@ -30,23 +30,23 @@ import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
-import { SECTIONS, getSectionDocs, countWithheld, READING_NOTE, READING_GROUPS, SECTION_VIEWS } from "@/lib/corpus";
+import { SERIES, getSeriesDocs, countWithheld, READING_NOTE, READING_GROUPS, SERIES_VIEWS } from "@/lib/corpus";
 import { placeOf, functions } from "@/lib/classification";
 
-// The site's own pages under a section, checked against the folder that
-// holds them — see SECTION_VIEWS in @/lib/corpus. `import.meta.glob` is
+// The site's own pages under a series, checked against the folder that
+// holds them — see SERIES_VIEWS in @/lib/corpus. `import.meta.glob` is
 // resolved at build time: the keys are the files that exist.
 const builtViews = new Set(
   Object.keys(import.meta.glob("/src/pages/*/*.astro")).map((f) => f.replace(/^\/src\/pages/, "").replace(/\.astro$/, "")),
 );
-for (const [slug, views] of Object.entries(SECTION_VIEWS)) {
+for (const [slug, views] of Object.entries(SERIES_VIEWS)) {
   const listed = new Set(views.map((v) => v.href));
   const onDisk = [...builtViews].filter((f) => f.startsWith(`/${slug}/`) && !/\/\[/.test(f) && !f.endsWith("/index"));
   const missing = onDisk.filter((f) => !listed.has(f));
   const dead = [...listed].filter((f) => !builtViews.has(f));
   if (missing.length || dead.length) {
     throw new Error(
-      `SECTION_VIEWS["${slug}"] disagrees with web/src/pages/${slug}/: ` +
+      `SERIES_VIEWS["${slug}"] disagrees with web/src/pages/${slug}/: ` +
         (missing.length ? `pages with no row (unreachable again): ${missing.join(", ")}. ` : "") +
         (dead.length ? `rows with no page: ${dead.join(", ")}. ` : "") +
         `Update the table in web/src/lib/corpus.ts.`,
@@ -56,12 +56,12 @@ for (const [slug, views] of Object.entries(SECTION_VIEWS)) {
 
 export async function getStaticPaths() {
   return Promise.all(
-    SECTIONS.map(async (section) => ({
-      params: { section: section.slug },
+    SERIES.map(async (series) => ({
+      params: { series: series.slug },
       props: {
-        section,
-        docs: await getSectionDocs(section.slug),
-        withheld: await countWithheld(section.slug),
+        series,
+        docs: await getSeriesDocs(series.slug),
+        withheld: await countWithheld(series.slug),
       },
     })),
   );
@@ -77,8 +77,8 @@ function place(prefix: string): { label: string; fnSlug: string; fnHref: string 
   const p = placeOf(prefix);
   if (!p) {
     throw new Error(
-      `[section].astro: the section "${prefix}" is not a series of STD-027 and the index cannot say ` +
-        `where it sits. Add it to the scheme or take it out of SECTIONS (web/src/lib/corpus.ts).`,
+      `[series].astro: the folder "${prefix}" is not a series of STD-027 and the index cannot say ` +
+        `where it sits. Add it to the scheme or take it out of SERIES (web/src/lib/corpus.ts).`,
     );
   }
   return { label: `${p.fn.name} · ${p.activity.name}`, fnSlug: p.fn.slug, fnHref: p.fn.href };
@@ -101,8 +101,8 @@ const STATUS_COLOR: Record<string, string> = {
   retired: "text-dim",
 };
 
-const { section, docs, withheld } = Astro.props;
-const note = READING_NOTE[section.slug];
+const { series, docs, withheld } = Astro.props;
+const note = READING_NOTE[series.slug];
 
 // READING GROUPS (2026-09-24). A section that declares groups renders its
 // rows under a numeral, a label and one line — the shelf a stranger needs
@@ -110,7 +110,7 @@ const note = READING_NOTE[section.slug];
 // order for that section (see READING_GROUPS in @/lib/corpus), so every doc
 // the order knows lands in exactly one group; anything the story does not
 // mention yet falls to a last, unlabelled run, visible rather than absorbed.
-const groups = READING_GROUPS[section.slug];
+const groups = READING_GROUPS[series.slug];
 const byHref = new Map(docs.map((d) => [d.href.replace(/\/$/, ""), d]));
 const shelves = groups
   ? [
@@ -122,27 +122,27 @@ const shelves = groups
       })(),
     ]
   : [{ numeral: "", label: "", line: "", hrefs: [], docs }];
-const here = place(section.prefix);
-const views = SECTION_VIEWS[section.slug] ?? [];
-// The strip at the foot groups every section by function, in the scheme's
+const here = place(series.prefix);
+const views = SERIES_VIEWS[series.slug] ?? [];
+// The strip at the foot groups every series by function, in the scheme's
 // order — the same six drawers the bar shows, so a reader who came in
 // through one door sees the others from any index.
 const strip = functions().map((fn) => ({
   fn,
-  sections: fn.activities.flatMap((a) => a.series).map((s) => SECTIONS.find((sec) => sec.prefix === s.folder)).filter(Boolean),
-})).filter((g) => g.sections.length > 0);
+  series: fn.activities.flatMap((a) => a.series).map((s) => SERIES.find((sec) => sec.prefix === s.folder)).filter(Boolean),
+})).filter((g) => g.series.length > 0);
 ---
 
 <Layout
-  title={`${section.label} — NWOS, the archive of Numen Games`}
-  description={section.blurb}
-  canonicalPath={`/${section.slug}/`}
-  activeNav={section.prefix}
+  title={`${series.label} — NWOS, the archive of Numen Games`}
+  description={series.blurb}
+  canonicalPath={`/${series.slug}/`}
+  activeNav={series.prefix}
 >
   <PageHero
     label={here.label}
-    title={section.label}
-    description={section.blurb}
+    title={series.label}
+    description={series.blurb}
   />
 
   <section class="pb-24">
@@ -155,8 +155,8 @@ const strip = functions().map((fn) => ({
         the content, not at the template that draws it (STD-001, the series).
       */}
       <DocToolbar
-        mdUrl={`/${section.slug}.md`}
-        filename={`${section.slug}.md`}
+        mdUrl={`/${series.slug}.md`}
+        filename={`${series.slug}.md`}
         repoUrl={repoFileUrl("standards/STD-001-the-series.md")}
         lang="en"
       />
@@ -170,7 +170,7 @@ const strip = functions().map((fn) => ({
         <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-accent mb-1.5">
           The question this answers
         </p>
-        <p class="text-base leading-snug text-foreground">{section.question}</p>
+        <p class="text-base leading-snug text-foreground">{series.question}</p>
       </div>
 
       {/*
@@ -184,13 +184,13 @@ const strip = functions().map((fn) => ({
           <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground mb-1.5">
             Epistemic
           </p>
-          <p class="text-sm leading-relaxed text-muted-foreground">{section.epistemic}</p>
+          <p class="text-sm leading-relaxed text-muted-foreground">{series.epistemic}</p>
         </div>
         <div>
           <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground mb-1.5">
             Pragmatic
           </p>
-          <p class="text-sm leading-relaxed text-muted-foreground">{section.pragmatic}</p>
+          <p class="text-sm leading-relaxed text-muted-foreground">{series.pragmatic}</p>
         </div>
       </div>
 
@@ -206,7 +206,7 @@ const strip = functions().map((fn) => ({
         on a page, not a paraphrase — if the rule changes, this changes with
         it.
       */}
-      {section.axis && (
+      {series.axis && (
         <div class="rounded-[8px] border border-border bg-card px-5 py-4 space-y-2">
           <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-muted-foreground">
             These three bind; the rest record
@@ -231,12 +231,12 @@ const strip = functions().map((fn) => ({
         a reader may DO with what follows and is worthless after they have read
         it. Amber, not green: this is a limit, not a permission.
       */}
-      {section.rights && (
+      {series.rights && (
         <div class="rounded-[8px] border border-yellow/30 bg-yellow/5 px-5 py-4">
           <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-yellow mb-1.5">
             Rights
           </p>
-          <p class="text-sm leading-relaxed text-muted-foreground">{section.rights}</p>
+          <p class="text-sm leading-relaxed text-muted-foreground">{series.rights}</p>
         </div>
       )}
 
@@ -317,7 +317,7 @@ const strip = functions().map((fn) => ({
       {/*
         The site's own pages about this drawer — views it draws, not documents
         of the series. Listed after the documents and said to be what they are,
-        so a reader does not take a dashboard for a record. See SECTION_VIEWS.
+        so a reader does not take a dashboard for a record. See SERIES_VIEWS.
       */}
       {views.length > 0 && (
         <div class="space-y-3 border-t border-border/50 pt-8">
@@ -349,7 +349,7 @@ const strip = functions().map((fn) => ({
 
       {docs.length === 0 && withheld > 0 && (
         <p class="font-mono text-[0.7rem] text-dim leading-relaxed">
-          This section holds {withheld} document{withheld === 1 ? "" : "s"} that this
+          This series holds {withheld} document{withheld === 1 ? "" : "s"} that this
           site does not publish: they exist in the repository and do not declare
           <code>visibility: public</code>, so the build does not serve them (MIS-114).
           Nothing here is missing — it is withheld, and this line is the record of that.
@@ -362,8 +362,8 @@ const strip = functions().map((fn) => ({
             Empty, and that is the answer
           </p>
           <p class="text-sm leading-relaxed text-muted-foreground">
-            {section.emptyMeans ??
-              "This section publishes nothing yet. The folder exists and the page is built from it, so the day a document lands here it appears on its own."}
+            {series.emptyMeans ??
+              "This series publishes nothing yet. The folder exists and the page is built from it, so the day a document lands here it appears on its own."}
           </p>
         </div>
       )}
@@ -383,12 +383,12 @@ const strip = functions().map((fn) => ({
             >
               {g.fn.name}
             </a>
-            {g.sections.map((s) => (
+            {g.series.map((s) => (
               <a
                 href={`/${s!.slug}/`}
                 class={
                   "inline-flex min-h-[44px] items-center rounded-[6px] border px-3 font-mono text-[0.7rem] transition-colors " +
-                  (s!.slug === section.slug
+                  (s!.slug === series.slug
                     ? "border-accent/40 bg-accent/10 text-accent"
                     : "border-border bg-card text-dim hover:bg-card-hover")
                 }

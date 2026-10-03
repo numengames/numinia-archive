@@ -4,13 +4,14 @@ uid: ""
 title: "Pending contradictions — register"
 type: documentation
 status: active
-version: "1.3.0"
+version: "1.3.1"
 created: "2026-08-17T20:00:17Z"
 created_source: "git:8b72b9b"
 created_confidence: inferred
-updated: "2026-08-31T00:20:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
+section: "Knowledge and quality"
 tags: [operations, contradictions, backlog, truth]
 license: "CC-BY-4.0"
 ---

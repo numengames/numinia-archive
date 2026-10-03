@@ -5,13 +5,13 @@ title: "Selling, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.7.0"
+version: "0.7.1"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, sales, pipeline, records, tenders, grants]
-territory: "Sales"
+section: "Sales and partners"
 license: "CC0-1.0"
 related: ["STD-038", "STD-039", "STD-040", "PRO-028", "PRO-029", "PRO-030", "PRO-031", "PRO-032", "PRO-033", "OPS-012", "OPS-018", "SYS-008"]
 ---

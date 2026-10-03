@@ -58,7 +58,7 @@ const decisions = (await getCollection("decisions")).sort((a, b) =>
             <span class="font-mono text-[0.65rem] text-accent">{d.data.id}</span>
             <span class="font-mono text-[0.6rem] text-dim">{String(d.data.created).slice(0, 10)}</span>
             <span class={"font-mono text-[0.6rem] uppercase tracking-widest " + (STATUS_COLOR[d.data.status] || "text-dim")}>{d.data.status}</span>
-            {(d.data.territory ?? d.data.area) && <span class="font-mono text-[0.6rem] text-dim">{d.data.territory ?? d.data.area}</span>}
+            {d.data.section && <span class="font-mono text-[0.6rem] text-dim">{d.data.section}</span>}
           </div>
           <p class="text-base font-medium text-foreground leading-snug">{d.data.title}</p>
         </a>

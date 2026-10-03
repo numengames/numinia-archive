@@ -3,11 +3,12 @@ agent: metis
 title: "OPERATOR — Metis"
 type: agent
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-28T18:00:00+02:00"
-updated: "2026-09-29T11:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "People and culture"
 automation_level: assisted
 tags: [agents, metis, sales]
 license: "CC0-1.0"

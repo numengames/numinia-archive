@@ -3,11 +3,12 @@ agent: "{agent-id}"
 title: "OPERATOR — {Agent Name}"
 type: agent
 status: active
-version: "0.1.1"
+version: "0.1.2"
 created: "{YYYY-MM-DD}T00:00:00Z"
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "{author-id}"
 owner: "oracle"
+section: "People and culture"
 automation_level: "{assisted · partial · conditional · high · full}"
 tags: [agents, template]
 license: "CC0-1.0"

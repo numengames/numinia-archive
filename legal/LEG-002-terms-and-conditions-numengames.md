@@ -6,13 +6,14 @@ uid: ""
 title: "Terms and Conditions — Numen Games"
 type: legal
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-08-17T14:34:34Z"
 created_source: "git:54f7b0b"
 created_confidence: inferred
-updated: "2026-09-29T18:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "oracle"
 owner: "oracle"
+section: "Legal and compliance"
 tags: [legal, terms, website, numen-games, enforceable]
 license: "LicenseRef-Numen-AllRightsReserved"
 source_title: "2025_01_12-NUMEN - Terms and Conditions"

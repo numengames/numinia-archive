@@ -6,18 +6,18 @@ status: todo
 priority: "high"
 effort: "M"
 guild: "Alchemists"
-territory: "Archive"
+section: "Technology"
 type_execution: "digital"
 assigned_to: null
 started: null
 completed: null
 
 type: mission
-version: "1.2.2"
+version: "1.2.3"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"

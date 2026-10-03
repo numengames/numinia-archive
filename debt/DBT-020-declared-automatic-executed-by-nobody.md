@@ -4,13 +4,13 @@ uid: ""
 title: "Four automations are declared in the standards and none of them exists in the tree"
 type: documentation
 status: active
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-07T15:20:00+02:00"
-updated: "2026-09-10T16:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Platform"
+section: "Knowledge and quality"
 tags: [debt, ci, guards, provenance, standards]
 license: "CC-BY-4.0"
 severity: high

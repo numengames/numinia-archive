@@ -5,13 +5,13 @@ title: "The sales collateral"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-02T21:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Sales and partners"
 tags: [standards, register, sales, collateral, playbook, opportunity, templates]
 license: "CC0-1.0"
 related: ["STD-038", "STD-039", "STD-040", "OPS-012", "OPS-018", "PRO-028", "PRO-029", "PRO-030"]

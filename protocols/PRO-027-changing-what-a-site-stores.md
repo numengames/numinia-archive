@@ -4,11 +4,12 @@ uid: ""
 title: "Changing what a site stores or loads"
 type: protocol
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-10-02T12:20:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Legal and compliance"
 tags: [protocol, personal-data, cookies, sites]
 license: "CC0-1.0"
 applies_to: [all-agents]

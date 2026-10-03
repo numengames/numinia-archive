@@ -4,13 +4,13 @@ uid: ""
 title: "One identity, three forces"
 type: seminal
 status: draft
-version: "3.0.2"
+version: "3.0.3"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Brand and marketing"
 tags: [canon, seminal, brand, design, direction, forces, registers]
 license: "CC0-1.0"
 ratified_by: "ADR-061"

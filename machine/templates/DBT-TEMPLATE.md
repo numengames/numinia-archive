@@ -13,7 +13,7 @@ updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [debt]
 license: "CC-BY-4.0"
 # severity: critical | high | medium | low — and the reason, in one line

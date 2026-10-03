@@ -5,13 +5,13 @@ title: "The levels of automation"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-29T12:30:00+02:00"
-updated: "2026-09-29T12:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Platform"
+section: "People and culture"
 tags: [standards, register, agents, automation, autonomy, oversight]
 license: "CC0-1.0"
 related: ["STD-042", "STD-017", "STD-003", "PRO-008", "CAN-004"]

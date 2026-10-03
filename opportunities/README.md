@@ -3,13 +3,14 @@ id: "opportunities-index"
 title: "Opportunities — index"
 type: meta
 status: active
-version: "0.5.0"
+version: "0.5.1"
 created: "2026-09-28T14:05:55+02:00"
 created_source: "git:d620635"
 created_confidence: exact
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Sales and partners"
 tags: [opportunities, index]
 license: "CC0-1.0"
 registration: exempt

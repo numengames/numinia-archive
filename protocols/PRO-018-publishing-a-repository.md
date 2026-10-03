@@ -4,11 +4,12 @@ uid: ""
 title: "Publishing a repository"
 type: protocol
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Legal and compliance"
 tags: [protocol, publishing, licensing, reuse, spdx, visibility]
 applies_to: [all-agents]
 mandatory: true

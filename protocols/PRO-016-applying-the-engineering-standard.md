@@ -4,16 +4,16 @@ uid: ""
 title: "Applying the engineering standard"
 type: protocol
 status: draft
-version: "3.1.0"
+version: "3.1.1"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, engineering, agents]
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
-territory: "Platform"
+section: "Technology"
 related: ["STD-005", "STD-015", "PRO-005", "PRO-013"]
 derived_from: "CAN-010"
 ---

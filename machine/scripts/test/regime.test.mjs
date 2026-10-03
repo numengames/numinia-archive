@@ -401,7 +401,9 @@ check('tree: a protocol fits in 900 words — a longer one is two protocols, or 
 check('tree: every stage of every kind is moved by a protocol — the register names the stages, the protocols carry each move', () => {
   // STD-038 is the register of stages, by kind; a stage no protocol moves a
   // record into is a state the pipeline can show and nobody can reach.
-  // The protocols that move opportunities are filed under the Sales territory.
+  // The protocols that move opportunities are read under two sections: a sale,
+  // a tender, a partner or a collaboration under Sales and partners; a grant
+  // under Finance, where STD-030 keeps grants and loans.
   const dir = path.join(ROOT, 'protocols');
   const reg = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
   const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## The events'));
@@ -409,8 +411,8 @@ check('tree: every stage of every kind is moved by a protocol — the register n
   if (rows.length < 5) return `the register names only ${rows.length} stages`;
   const sales = readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))
     .map((n) => readFileSync(path.join(dir, n), 'utf-8'))
-    .filter((t) => /^territory: "Sales"/m.test(t));
-  if (sales.length < 3) return `only ${sales.length} protocol(s) in the Sales territory`;
+    .filter((t) => /^section: "(Sales and partners|Finance)"/m.test(t));
+  if (sales.length < 3) return `only ${sales.length} protocol(s) in the Sales and partners or Finance sections`;
   const text = sales.join('\n');
   const unmoved = rows.filter((r) => !new RegExp('`' + r.split(':')[1] + '`').test(text));
   return unmoved.length === 0 || `no sales protocol moves an opportunity to: ${unmoved.join(', ')}`;

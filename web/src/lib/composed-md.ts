@@ -37,7 +37,7 @@
 import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
 import { getCollection } from "astro:content";
 import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
-import { SECTIONS, getSectionDocs, countWithheld } from "@/lib/corpus";
+import { SERIES, getSeriesDocs, countWithheld } from "@/lib/corpus";
 import { digitalAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
@@ -487,16 +487,16 @@ export function functionPage(slug: string): ComposedPage {
 }
 
 /** `/<section>` — a section index: what the folder answers, and its documents. */
-export async function sectionPage(slug: string): Promise<ComposedPage> {
-  const section = SECTIONS.find((s) => s.slug === slug);
+export async function seriesPage(slug: string): Promise<ComposedPage> {
+  const section = SERIES.find((s) => s.slug === slug);
   if (!section) {
     throw new Error(
-      `sectionPage("${slug}"): no such section in corpus.ts. ` +
-        `A route exists for a folder SECTIONS does not list.`,
+      `seriesPage("${slug}"): no such series in corpus.ts. ` +
+        `A route exists for a folder SERIES does not list.`,
     );
   }
 
-  const docs = await getSectionDocs(slug);
+  const docs = await getSeriesDocs(slug);
   const withheld = await countWithheld(slug);
   const place = allSeries().find((s) => s.folder === section.prefix);
 
@@ -537,7 +537,7 @@ export async function sectionPage(slug: string): Promise<ComposedPage> {
 
 /**
  * `/missions` and `/reports` — the two indexes whose documents live in a
- * typed collection of their own rather than in `SECTIONS`.
+ * typed collection of their own rather than in `SERIES`.
  *
  * They are not an exception to the rule, they are the same rule reading a
  * different shelf: the folder is a series of the scheme like any other, and
@@ -1019,7 +1019,7 @@ export async function allComposedPages(): Promise<ComposedPage[]> {
   for (const l of lexicon()) pages.push(lexiconLetterPage(l.slug));
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
-  for (const s of SECTIONS) pages.push(await sectionPage(s.slug));
+  for (const s of SERIES) pages.push(await seriesPage(s.slug));
   pages.push(await collectionIndexPage("missions"));
   pages.push(await collectionIndexPage("reports"));
   for (const a of digitalAgents()) pages.push(agentPage(a.id));

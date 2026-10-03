@@ -5,13 +5,13 @@ title: "One document, one address"
 type: documentation
 subtype: standard
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-20T20:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [standards, urls, addresses, citation, publishing, Cool-URIs, RFC-6596, RFC-9110]
 license: "CC0-1.0"
 ratified_by: "ADR-047"

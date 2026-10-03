@@ -4,12 +4,12 @@ uid: ""
 title: "Putting something on sale"
 type: protocol
 status: draft
-version: "0.4.0"
+version: "0.4.1"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-09-30T12:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Funding"
+section: "Finance"
 tags: [protocol, economy, payments, sale, records]
 license: "CC0-1.0"
 applies_to: [all-agents]

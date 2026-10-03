@@ -4,13 +4,13 @@ uid: ""
 title: "Holding a ritual"
 type: protocol
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
-territory: "Archive"
+section: "People and culture"
 tags: [protocol, rituals, cadence, community]
 license: "CC0-1.0"
 applies_to: [all-agents]

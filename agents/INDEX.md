@@ -3,13 +3,14 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.4.0"
+version: "3.4.1"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "People and culture"
 tags: [agents, index]
 license: "CC0-1.0"
 registration: exempt

@@ -4,13 +4,13 @@ uid: ""
 title: "Legal obligations to confirm"
 type: blueprint
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-25T15:00:00+02:00"
-updated: "2026-09-27T12:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, legal, consumer-law, tax, DSA, GDPR]
-territory: "Funding"
+section: "Legal and compliance"
 license: "CC0-1.0"
 related_missions: []
 related: ["STD-033", "STD-035", "STD-029", "STD-034", "LEG-001"]

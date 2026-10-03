@@ -17,13 +17,18 @@
 //                proposed; gaps have a dash all along;
 //   COVERAGE     every section has at least one discipline or gap;
 //   LINES        every faction carries one business line and one district;
-//   DECIDES      every document cited in "Who decides" exists.
+//   DECIDES      every document cited in "Who decides" exists;
+//   HEADER       (ADR-066) every record that carries a header carries exactly
+//                one `section`, it is one of the ten, and the header guard's
+//                list is STD-030's list, word for word.
 //
 // Run: npm test
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { ROOT } from '../lib/frontmatter.mjs';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { ROOT, parseFM } from '../lib/frontmatter.mjs';
 import { table, sections, disciplines, businessLines, whoDecides, guilds, servedBy, GUILD_TABLES } from '../../../web/src/lib/translator.mjs';
 
 const words = (s) => s.split(/\s+/).filter(Boolean).length;
@@ -94,4 +99,30 @@ test('who decides: every document it cites exists', () => {
   assert.ok(cited.length > 0);
   const missing = [...new Set(cited)].filter((id) => !new RegExp(`/${id}-`).test(tracked));
   assert.deepEqual(missing, []);
+});
+
+test('header: every record carries exactly one section, and it is one of the ten', () => {
+  // The series folders carry a header ring; lore/, web/ and machine/ do not
+  // (the header guard's OUTWARD), and the moulds show a placeholder value.
+  const names = new Set(sections().map((r) => r.Section));
+  const files = execFileSync('git', ['ls-files', '*.md'], { cwd: ROOT, encoding: 'utf8' }).split('\n')
+    .filter((f) => /\//.test(f) && !/^(web|machine|lore|home|\.github|LICENSES)\//.test(f) && !/\/(README|_template\/.*)\.md$/.test(f));
+  assert.ok(files.length > 200, `only ${files.length} record(s) found`);
+  const wrong = [];
+  for (const f of files) {
+    const text = readFileSync(path.join(ROOT, f), 'utf8');
+    if (!text.startsWith('---')) continue;
+    const found = [...text.split('---')[1].matchAll(/^section:\s*"(.*)"\s*$/gm)].map((m) => m[1]);
+    if (found.length !== 1 || !names.has(found[0])) wrong.push(`${f}: ${found.join(' | ') || '(none)'}`);
+    if (/^territory:/m.test(text.split('---')[1])) wrong.push(`${f}: still carries territory`);
+  }
+  assert.deepEqual(wrong, []);
+});
+
+test('header: the guard lists the ten sections of STD-030, word for word', () => {
+  const guard = readFileSync(path.join(ROOT, 'machine/guards/rules/std-004-the-header.mjs'), 'utf8');
+  const m = guard.match(/^\s*section: \[(.*)\],\s*$/m);
+  assert.ok(m, 'the header guard has no `section` vocabulary');
+  const listed = [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]);
+  assert.deepEqual(listed, sections().map((r) => r.Section));
 });

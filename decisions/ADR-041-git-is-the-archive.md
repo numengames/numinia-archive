@@ -4,14 +4,14 @@ uid: ""
 title: "Git is the archive"
 type: adr
 status: active
-version: "1.1.0"
+version: "1.1.1"
 created: "2026-09-08T17:30:00Z"
-updated: "2026-09-10T03:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [lifecycle, deletion, retention, entropy, alpha-reset, history]
 amends: []
 related: ["ADR-030", "STD-020", "STD-021", "STD-012"]

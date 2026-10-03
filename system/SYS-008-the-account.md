@@ -5,13 +5,13 @@ title: "The account: how money moves and is recorded, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.3.1"
+version: "0.3.2"
 created: "2026-09-24T18:00:00+02:00"
-updated: "2026-10-01T22:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, economy, payments, ledger, accounting]
-territory: "Funding"
+section: "Finance"
 license: "CC0-1.0"
 related: ["STD-036", "STD-033", "CAN-011", "STD-022", "SYS-001"]
 ---

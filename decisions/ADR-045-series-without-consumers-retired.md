@@ -4,14 +4,14 @@ uid: ""
 title: "A series needs a reader"
 type: adr
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-09T14:30:00+02:00"
-updated: "2026-10-02T20:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [decisions, adr, series, guilds, infra, entropy]
 license: "CC-BY-4.0"
 related: ["ADR-005", "ADR-030", "ADR-036", "ADR-043", "CAN-004", "STD-001", "MIS-0135"]

@@ -5,13 +5,13 @@ title: "The instruments: what checks, measures and moulds the archive"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-21T18:00:00+02:00"
-updated: "2026-09-28T17:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, instruments, guards, tools, scripts, telemetry, templates]
-territory: "Archive"
+section: "Technology"
 license: "CC0-1.0"
 related: ["STD-027", "STD-001", "STD-015", "SYS-003"]
 ---

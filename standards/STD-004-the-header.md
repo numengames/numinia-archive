@@ -5,16 +5,16 @@ title: "The header"
 type: documentation
 subtype: standard
 status: active
-version: "4.11.0"
+version: "4.12.1"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-02T21:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 ratified_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
 owner: "oracle"
-territory: "Archive"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [frontmatter, standard, lint, metadata, RFC-3339, YAML, Dublin-Core, PROV, register]
 derived_from: "CAN-009"
@@ -220,10 +220,10 @@ unaided. The field names stay our own.
 | `system/` | `category` `stage` `confidence` (a card of the semantic census, an entry of `SYS-011`) · `category` (a supplier card, an entry of `SYS-012`) |
 | `standards/` `canon/` `protocols/` | `supersedes_version` `ratified_by` |
 | `opportunities/` | the record: `kind` `organisation` `sector` `source` `value` `currency` `pays` `contact_role` `contact_channel` `opened` · written when due: `offer` `advance` `proposal` `agreement` `decider_role` `disclosure` `follows` `gives_back` · a tender or a grant: `call` `closes` `read_from` · a tender: `procedure` `file_ref` `object` `turnover_asked` `works_asked` `starts` · a grant: `instrument` `opens` `estimated` · the proposal: `opportunity` `date` `valid_until` `level` `price` `tax_rate` — their values are judged by the pipeline tool (`STD-039`, `STD-040`); the stage, the next step and the chance are computed from the record's timeline, never written in the header |
-| all | `tags` `visibility` `guild` `territory` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
+| all | `tags` `visibility` `guild` `section` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
 
-Retired fields are reported wherever they remain: `area` (now `territory`),
-`blocked_reason`, `threshold` (the series register states it once per
+Retired fields are reported wherever they remain: `area` and `territory`
+(now `section`, `ADR-066`), `blocked_reason`, `threshold` (the series register states it once per
 series), and the field names from the Spanish era.
 
 ### Vocabularies
@@ -236,7 +236,7 @@ series), and the field names from the Spanish era.
 | `guild` | `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` | HDR-033 |
 | `type_execution` | `digital` · `biological` · `hybrid` | HDR-034 |
 | `visibility` | `public` · `restricted-oracle` | HDR-035 |
-| `territory` | the eight registered words | HDR-036 |
+| `section` | the ten sections of the front door, as written in `STD-030` (`ADR-066`) | HDR-036 |
 
 A value marked as to be announced is allowed in a field with a closed list,
 and is reported only once. On a mould, the comment at the end of a line is

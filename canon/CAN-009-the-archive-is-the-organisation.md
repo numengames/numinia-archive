@@ -4,13 +4,13 @@ uid: ""
 title: "The archive is the organisation"
 type: seminal
 status: draft
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Strategy and governance"
 tags: [canon, seminal, archive, work, agents, memory, git]
 license: "CC0-1.0"
 ratified_by: "ADR-059"

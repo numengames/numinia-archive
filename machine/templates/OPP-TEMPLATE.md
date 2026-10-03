@@ -21,7 +21,7 @@ updated: "2026-10-02T12:00:00+02:00"
 author: "agent-id"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Knowledge and quality"
 tags: [opportunities]
 license: "CC0-1.0"
 

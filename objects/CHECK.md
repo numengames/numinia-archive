@@ -3,11 +3,12 @@ id: "objects-check"
 title: "Copy check — 2026-09-20"
 type: meta
 status: active
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-20T15:33:39.598Z"
-updated: "2026-09-20T15:33:39.598Z"
+updated: "2026-10-03T19:40:00+02:00"
 license: "CC0-1.0"
 author: "machine/scripts/entities.mjs"
+section: "Knowledge and quality"
 provenance: ai-generated
 ---
 

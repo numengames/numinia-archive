@@ -3,17 +3,18 @@ id: "ursa"
 title: "Ursa"
 type: entity
 status: draft
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 license: "CC0-1.0"
 author: "ursa"
 owner: "oracle"
 provenance: ai-assisted
 tags: [agents, ursa]
 guild: "Alchemists"
+section: "People and culture"
 registration: exempt
 registration_reason: "agent parts are identified by their folder and filename, not by a series number (ADR-005)"
 entity: agent

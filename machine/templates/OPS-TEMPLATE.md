@@ -20,7 +20,7 @@ license: "CC-BY-4.0"
 
 # OPTIONAL — use when they apply, omit without guilt.
 # guild: "Procurators"
-# territory: "Sales"
+# section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
 # extraction_note: "extracted from <source> on YYYY-MM-DD, unedited"
 # restoration_note: "restored from <source>, what was recovered and what was not"
 # source_title: "the original document's own title"

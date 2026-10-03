@@ -5,13 +5,13 @@ uid: ""
 type: documentation
 subtype: register
 status: active
-version: "5.11.0"
+version: "5.11.1"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-02T16:28:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [standards, series, register, archive]
 license: "CC0-1.0"
 ratified_by: "ADR-043"

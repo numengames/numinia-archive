@@ -5,12 +5,12 @@ title: "One account"
 type: documentation
 subtype: standard
 status: draft
-version: "0.3.1"
+version: "0.3.2"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-01T22:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Funding"
+section: "Finance"
 license: "CC0-1.0"
 tags: [standards, economy, ledger, accounting, transparency, audit]
 related: ["CAN-011", "CAN-010", "STD-033", "STD-035", "SYS-008", "PRO-021", "BLU-017"]

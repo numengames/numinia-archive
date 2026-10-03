@@ -5,12 +5,12 @@ title: "Who may change what"
 type: documentation
 subtype: standard
 status: draft
-version: "2.2.1"
+version: "2.2.2"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-02T21:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Platform"
+section: "Strategy and governance"
 license: "CC0-1.0"
 tags: [standards, governance, authority, ranks]
 derived_from: "CAN-004"

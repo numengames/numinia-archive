@@ -5,13 +5,13 @@ title: "CAO Architecture — Complete System Reference"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-09-30T13:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, cao, architecture, agents, protocols, tools]
-territory: "CAO"
+section: "Operations"
 license: "CC0-1.0"
 mission: "MIS-045"
 former_id: "BLU-004"

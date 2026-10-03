@@ -5,13 +5,13 @@ title: "Operative vocabulary"
 type: documentation
 subtype: register
 status: active
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-10-03T13:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standard, register, vocabulary, glossary, onboarding]
 related: ["CAN-002", "CAN-005", "CAN-006"]

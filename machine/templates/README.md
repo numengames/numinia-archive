@@ -41,7 +41,7 @@ Same nine headings at every level, for a board that does not know the work
 
 **Every mould opens with the same header, in the same order** — `id`, `uid`,
 `title`, `type`, `status`, `version`, `created`, `updated`, `author`, `owner`,
-then `guild`, `territory`, `tags`, `license` where the series uses them —
+then `guild`, `section`, `tags`, `license` where the series uses them —
 and only then the series' own fields. Side by side, with every field of every
 mould in one table: [numinia.org/templates](https://numinia.org/templates).
 

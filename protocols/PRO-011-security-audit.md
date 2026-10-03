@@ -4,13 +4,14 @@ uid: ""
 title: "Auditing identity, authorization and secrets"
 type: protocol
 status: draft
-version: "2.1.0"
+version: "2.1.1"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
+section: "Technology"
 tags: [protocols, security, audit, credentials, secrets, identity, authorization]
 license: "CC0-1.0"
 applies_to: [all-agents]

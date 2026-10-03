@@ -4,15 +4,15 @@ uid: ""
 title: "Renaming is not transforming"
 type: seminal
 status: draft
-version: "2.1.3"
+version: "2.1.4"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Strategy and governance"
 tags: [canon, seminal, function, structure, interpreter, architect]
 license: "CC0-1.0"
 registration: registered

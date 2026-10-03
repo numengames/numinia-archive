@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.137.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "CHG", text: "Every record now says which section of the company it belongs to — Strategy and governance, Products and services, Brand and marketing, Sales and partners, Operations, People and culture, Finance, Legal and compliance, Technology, Knowledge and quality — the ten sections a company recognises, in place of the old territory label. Blueprints, decisions and missions show it." },
+      { type: "ADD", text: "The world's vocabulary gains the translator: the company's sections beside the city's guilds and houses, the business lines beside the factions, and who decides what — one table, read by the site." },
+    ],
+  },
+  {
     version: "v0.136.0",
     date: "2026-10-03",
     entries: [

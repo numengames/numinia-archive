@@ -5,12 +5,12 @@ title: "Versions"
 type: documentation
 subtype: standard
 status: active
-version: "3.1.1"
+version: "3.1.2"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Platform"
+section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standards, versioning, semver]
 derived_from: "CAN-009"

@@ -5,15 +5,15 @@ uid: ""
 type: documentation
 subtype: standard
 status: draft
-version: "3.2.6"
+version: "3.2.7"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Products and services"
 tags: [standards, ranks, permissions, digital-goods, RBAC]
 derived_from: "CAN-004"
 license: "CC0-1.0"

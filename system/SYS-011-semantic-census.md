@@ -5,14 +5,14 @@ title: "The semantic census"
 type: documentation
 subtype: reference
 status: draft
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-29T12:15:00+02:00"
-updated: "2026-09-29T16:39:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 provenance: ai-assisted
 guild: "Exegetes"
-territory: "Archive"
+section: "Products and services"
 tags: [system, reference, vocabulary, census, narrative-dial]
 license: "CC0-1.0"
 related: ["RPT-023", "STD-030", "STD-026", "BLU-007", "CAN-007"]

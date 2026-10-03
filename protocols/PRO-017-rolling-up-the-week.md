@@ -4,11 +4,12 @@ uid: ""
 title: "Rolling up the week"
 type: protocol
 status: draft
-version: "3.3.1"
+version: "3.3.2"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-09-30T15:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Knowledge and quality"
 tags: [protocol, rollup, deflation, weekly, reports]
 license: "CC0-1.0"
 applies_to: [all-agents]

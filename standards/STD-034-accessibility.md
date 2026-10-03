@@ -5,12 +5,12 @@ title: "Accessibility"
 type: documentation
 subtype: standard
 status: draft
-version: "0.2.6"
+version: "0.2.7"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Product"
+section: "Technology"
 license: "CC0-1.0"
 related: ["STD-008", "STD-015", "STD-023", "SYS-009"]
 derived_from: "CAN-008"

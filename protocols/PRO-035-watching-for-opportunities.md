@@ -4,13 +4,13 @@ uid: ""
 title: "Watching for opportunities"
 type: protocol
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-02T21:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Sales and partners"
 tags: [protocol, sales, watch, tenders, grants, feed, automation]
 license: "CC0-1.0"
 applies_to: [all-agents]

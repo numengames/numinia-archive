@@ -5,13 +5,13 @@ title: "A report speaks to the board"
 type: documentation
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-09-29T19:30:00+02:00"
-updated: "2026-09-29T19:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Archive"
+section: "Strategy and governance"
 tags: [standards, reports, rollup, weekly, quarterly, annual, board, management-commentary]
 license: "CC0-1.0"
 related: ["STD-012", "PRO-017", "STD-036", "STD-021", "STD-007", "CAN-009"]

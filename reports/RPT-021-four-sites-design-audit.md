@@ -5,13 +5,13 @@ title: "Only numinia.com serves day and night; three sites paint outside the pal
 type: report
 subtype: audit
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-24T19:00:00+02:00"
-updated: "2026-09-24T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
-territory: "Product"
+section: "Brand and marketing"
 tags: [report, audit, design-system, four-sites, day-night]
 license: "CC-BY-4.0"
 visibility: "public"

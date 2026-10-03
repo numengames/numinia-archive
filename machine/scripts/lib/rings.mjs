@@ -184,7 +184,7 @@ export const RING3 = {
     'opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'],
 };
 
-export const RING3_ALL = ['tags', 'visibility', 'guild', 'territory', 'registration',
+export const RING3_ALL = ['tags', 'visibility', 'guild', 'section', 'registration',
   'registration_reason', 'registration_exemption', 'evidence_script',
   'evidence_head', 'related', 'uid'];
 

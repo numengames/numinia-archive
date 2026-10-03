@@ -4,13 +4,14 @@ uid: ""
 title: "Session state — where to pick up"
 type: documentation
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-08-18T15:09:29Z"
 created_source: "git:7e0e0a9"
 created_confidence: inferred
-updated: "2026-08-27T19:59:10Z"
+updated: "2026-10-03T19:40:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
+section: "Operations"
 tags: [operations, handoff, session, state]
 license: "CC-BY-4.0"
 ---

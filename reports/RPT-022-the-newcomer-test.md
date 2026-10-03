@@ -5,13 +5,13 @@ title: "The canon answers every question it asks itself but one, and half of wha
 type: report
 subtype: audit
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-28T20:30:00+02:00"
-updated: "2026-09-28T20:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Knowledge and quality"
 tags: [report, audit, canon, newcomer, uncertainty, baseline]
 license: "CC-BY-4.0"
 visibility: "public"

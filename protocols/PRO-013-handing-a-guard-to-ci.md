@@ -4,17 +4,17 @@ uid: ""
 title: "Handing a guard to CI"
 type: protocol
 status: draft
-version: "5.1.0"
+version: "5.1.1"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-09-27T15:45:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [protocol, ci, guards, engineering]
 license: "CC0-1.0"
 guild: "Alchemists"
-territory: "Archive"
+section: "Technology"
 visibility: "public"
 applies_to: [all-agents]
 mandatory: true

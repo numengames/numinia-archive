@@ -5,12 +5,12 @@ title: "Publishing gates"
 type: documentation
 subtype: standard
 status: draft
-version: "1.1.6"
+version: "1.1.7"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-09-27T14:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
-territory: "Funding"
+section: "Legal and compliance"
 license: "CC0-1.0"
 tags: [licensing, legal, publication, arweave, visibility]
 derived_from: "CAN-005"

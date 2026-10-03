@@ -5,13 +5,14 @@ title: "Draft — how the next mission is chosen"
 status: draft
 
 type: meta
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-08-25T20:05:59Z"
 created_source: "git:5abd27f"
 created_confidence: exact
-updated: "2026-09-27T13:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
+section: "Operations"
 tags: [missions, policy, draft, board]
 license: "CC0-1.0"
 

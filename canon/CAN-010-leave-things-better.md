@@ -4,13 +4,13 @@ uid: ""
 title: "Leave things better than you found them"
 type: seminal
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-24T17:00:00+02:00"
-updated: "2026-10-03T16:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
-territory: "Archive"
+section: "Strategy and governance"
 tags: [canon, seminal, ethics, conduct, dignity, agents]
 license: "CC0-1.0"
 ratified_by: "ADR-060"

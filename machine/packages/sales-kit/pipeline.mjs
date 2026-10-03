@@ -108,7 +108,7 @@ const ONLY_PLATE = { gives_back: 'OPP-002', call: 'OPP-012', closes: 'OPP-012', 
 export const COMMON = ['title', 'type', 'status', 'version', 'created', 'updated',
   'author', 'owner', 'provenance', 'created_source', 'created_confidence', 'requested_by',
   'supersedes', 'superseded_by', 'derived_from',
-  'tags', 'visibility', 'guild', 'territory', 'registration', 'registration_reason',
+  'tags', 'visibility', 'guild', 'section', 'registration', 'registration_reason',
   'registration_exemption', 'evidence_script', 'evidence_head', 'related', 'uid'];
 /* Roles and channels, never names (OPP-006): the header may carry only these. */
 export const ALLOWED = new Set([...REQUIRED, ...WHEN_DUE, ...COMMON]);

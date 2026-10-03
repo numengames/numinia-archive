@@ -166,7 +166,7 @@ export const MANDATORY: string[] = RINGS.RING1;
  * top rows.
  */
 export const COMMON_ORDER = ["id", "uid", "title", "type", "subtype", "status", "version", "created", "updated",
-  "author", "owner", "guild", "territory", "tags", "license"];
+  "author", "owner", "guild", "section", "tags", "license"];
 
 /**
  * The comparison: one row per field, one column per mould, in the order a

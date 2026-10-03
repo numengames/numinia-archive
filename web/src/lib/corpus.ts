@@ -63,7 +63,7 @@ export async function getPublicCorpus(): Promise<Entry[]> {
 }
 
 // ---------------------------------------------------------------------------
-// SECTIONS
+// SERIES
 // ---------------------------------------------------------------------------
 
 // The answer to "what counts as a section, and what counts as a document in
@@ -85,7 +85,7 @@ export async function getPublicCorpus(): Promise<Entry[]> {
 // A section is a TOP-LEVEL FOLDER of the corpus that holds documents a reader
 // is meant to browse. That excludes folders that are infrastructure for other
 // documents, and it excludes anything already published by a typed collection.
-export interface Section {
+export interface SeriesPage {
   /** path prefix inside the corpus collection */
   prefix: string;
   /** route segment: the address is /<slug>, STD-028 URL-001 */
@@ -155,7 +155,7 @@ export interface Section {
   collection: "corpus" | "decisions" | "blueprints";
 }
 
-export const SECTIONS: Section[] = [
+export const SERIES: SeriesPage[] = [
   { prefix: "canon/",      slug: "canon",      label: "Canon",      collection: "corpus",
     question: "What is Numinia, before anyone argues about how to build it?",
     blurb: "The ground the rest stands on: what Numinia is, before anyone argues about how to build it.",
@@ -295,14 +295,14 @@ export const SECTIONS: Section[] = [
  * count, the page says which of the two silences it is looking at.
  */
 export async function countWithheld(slug: string): Promise<number> {
-  const section = SECTIONS.find((s) => s.slug === slug);
+  const section = SERIES.find((s) => s.slug === slug);
   if (!section) return 0;
   const all = await getCollection("corpus");
   return all.filter((e) => e.id.startsWith(section.prefix) && !isPublishable(e)).length;
 }
 
-export function sectionOf(entry: Entry): Section | undefined {
-  return SECTIONS.find((s) => entry.id.startsWith(s.prefix));
+export function seriesOf(entry: Entry): SeriesPage | undefined {
+  return SERIES.find((s) => entry.id.startsWith(s.prefix));
 }
 
 // ---------------------------------------------------------------------------
@@ -328,7 +328,7 @@ export function sectionOf(entry: Entry): Section | undefined {
  * CAN-006, and the word the section blurb already uses; a reader who reaches
  * the last group finds the label was a clue.
  *
- * CHECKED AT BUILD: `getSectionDocs` throws when a group names a slug that
+ * CHECKED AT BUILD: `getSeriesDocs` throws when a group names a slug that
  * no longer exists, exactly as it does for READING_ORDER — of which, for
  * canon, this table is the source.
  */
@@ -743,12 +743,12 @@ const READING_ORDER: Record<string, string[]> = {
  * of the series. Four are in Spanish and untouched since August; the index
  * says so rather than hide it.
  *
- * CHECKED AT BUILD, like READING_ORDER: [section].astro globs the folder and
+ * CHECKED AT BUILD, like READING_ORDER: [series].astro globs the folder and
  * fails when a page exists with no row here or a row names no page. A view
  * that falls off this list goes back to being unreachable, which is the
  * defect this table exists to end.
  */
-export interface SectionView {
+export interface SeriesView {
   /** the route, under the section: /system/wardley */
   href: string;
   title: string;
@@ -758,7 +758,7 @@ export interface SectionView {
   lang?: "es";
 }
 
-export const SECTION_VIEWS: Record<string, SectionView[]> = {
+export const SERIES_VIEWS: Record<string, SeriesView[]> = {
   system: [
     { href: "/system/open-books", title: "Open books", what: "The books of Numen Games S.L. since it was born on 16 February 2024: what it spends, who governs it, where the money came from and how long it lasts. Real FY2025 figures." },
     { href: "/system/pipeline", title: "The pipeline", what: "Every sale, tender, grant, collaboration and partner in one place: what is due next, each record's timeline, the funnel from detected to won, and what calls ask against what the house holds. Computed from the public records." },
@@ -792,7 +792,7 @@ export const READING_NOTE: Record<string, string> = {
 };
 
 /** One row of a section index. */
-export interface SectionDoc {
+export interface SeriesDoc {
   href: string;
   title: string;
   docId?: string;
@@ -840,7 +840,7 @@ function questionOf(body: string | undefined): string | undefined {
  * No amount of cleverness fixes that: the information is not in the file. The
  * real repair is a `title` in the document, but these are reserved texts and
  * editing them is the Oracle's call, not a build's. So the viewer declares
- * what it displays, out loud, keyed by address — and `getSectionDocs` throws
+ * what it displays, out loud, keyed by address — and `getSeriesDocs` throws
  * if a key here stops matching a document, exactly as it does for a stale
  * reading order. A silent override is a lie; a checked one is a caption.
  */
@@ -902,11 +902,11 @@ function titleOf(entry: Entry): string {
  * reader looking for C-005 wants it where C-005 belongs. The board at /missions
  * is the surface where recency matters, and MIS-115 governs that.
  */
-export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
-  const section = SECTIONS.find((s) => s.slug === slug);
+export async function getSeriesDocs(slug: string): Promise<SeriesDoc[]> {
+  const section = SERIES.find((s) => s.slug === slug);
   if (!section) return [];
 
-  let docs: SectionDoc[];
+  let docs: SeriesDoc[];
 
   if (section.collection === "decisions") {
     docs = (await getCollection("decisions")).map((e) => {
@@ -1015,7 +1015,7 @@ export async function getSectionDocs(slug: string): Promise<SectionDoc[]> {
     }
   }
 
-  const rank = (d: SectionDoc) => {
+  const rank = (d: SeriesDoc) => {
     const i = order.indexOf(d.href.replace(/\/$/, ""));
     return i === -1 ? Number.MAX_SAFE_INTEGER : i;
   };

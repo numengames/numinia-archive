@@ -5,13 +5,13 @@ title: "An opportunity has a record"
 type: documentation
 subtype: standard
 status: draft
-version: "0.10.0"
+version: "0.10.1"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-02T20:30:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
-territory: "Sales"
+section: "Sales and partners"
 tags: [standards, sales, opportunity, record, pipeline, timeline, personal-data, tenders, grants]
 license: "CC0-1.0"
 related: ["STD-038", "STD-040", "STD-035", "STD-036", "OPS-018", "CAN-009", "CAN-012"]

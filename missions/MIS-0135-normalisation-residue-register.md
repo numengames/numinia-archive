@@ -7,17 +7,17 @@ started: "2026-09-02T10:30:00+02:00"
 priority: high
 effort: M
 guild: "Sentinels"
-territory: "Archive"
+section: "Knowledge and quality"
 type_execution: hybrid
 assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.1.3"
+version: "1.1.4"
 created: "2026-09-02T02:10:00+02:00"
 created_source: declared
 created_confidence: exact
-updated: "2026-09-28T19:00:00+02:00"
+updated: "2026-10-03T19:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 requested_by: "oracle"
