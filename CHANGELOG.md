@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-03
 
+- **Added** Brand and culture, first merge from the old deck: `CAN-013` the brand in three words (the Magician, hope, humans in charge — made with agents, for humans) at three levels, `CAN-014` where we come from, `OPS-020` the strategy and the MLP as next milestone; `CAN-002` 4.1.0 gets the manifesto back and closes it on the epitaph; `CAN-010` 0.2.0 says the sentence lives in one place; `OPS-011` 0.2.0 adds the verbs (site v0.133.0)
 - **Added** The Lexicon at /lexicon: the operative vocabulary as a book, A to Z, one page per letter, with a back-to-top button (#627) (site v0.132.0)
 - **Changed** The operative vocabulary grows from 25 to 158 terms, A to Z: one definition per word, written once, the source the Lexicon book will read (#626)
 

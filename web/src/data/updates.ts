@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.133.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "ADD", text: "Two canons among The citizens, both in draft. 'Friends who play, build and learn' tells where the house comes from: origin, present and future, and who the Oracles are to each other. 'A magician who keeps hope, with humans in charge' says what the brand is in three words — the Magician, hope, humans in charge, made with agents for humans — at each narrative level." },
+      { type: "CHG", text: "The brand canon's 'What we believe' is the manifesto again, to be read in one breath, and it closes on the epitaph." },
+    ],
+  },
+  {
     version: "v0.132.0",
     date: "2026-10-03",
     entries: [

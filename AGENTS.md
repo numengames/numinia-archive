@@ -174,6 +174,8 @@ adding a dependency, changing a LICENSE or making anything public.
 | `CAN-010` | Leave things better than you found them | draft | whoever acts in Numinia's name, biological or digital |
 | `CAN-011` | What has value also makes a bond | draft | whoever sets a price, takes a payment or keeps the account in Numinia's name… |
 | `CAN-012` | What is yours stays with you | draft | whoever builds, runs or changes anything that holds something of a person's in Numinia's name… |
+| `CAN-013` | A magician who keeps hope, with humans in… | draft | every piece of work that speaks, looks or behaves in Numinia's name |
+| `CAN-014` | Friends who play, build and learn | draft | every piece that tells where Numinia comes from |
 | `PRO-001` | Opening and closing a session | draft | every agent, in every session, whatever the mission |
 | `PRO-003` | Running a mission | draft | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
 | `PRO-005` | Escalating to the Oracle | draft | any agent facing a decision it may not, or cannot, take alone |
@@ -243,7 +245,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
 | `STD-047` | The sales collateral | draft | register — scope belongs to the standard that cites it |
 
-79 rule documents, of which 16 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+81 rule documents, of which 16 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
