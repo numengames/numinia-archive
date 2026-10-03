@@ -4,11 +4,11 @@ uid: ""
 title: "We build a game to work better"
 type: seminal
 status: draft
-version: "4.0.2"
+version: "4.1.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T16:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -17,7 +17,7 @@ tags: [canon, seminal, brand, culture, purpose, values, play]
 license: "CC0-1.0"
 ratified_by: "ADR-061"
 supersedes_version: "3.0.0"
-related: ["CAN-001", "CAN-005", "CAN-008", "CAN-010", "PRO-019", "STD-023"]
+related: ["CAN-001", "CAN-005", "CAN-008", "CAN-010", "CAN-013", "CAN-014", "PRO-019", "STD-023"]
 
 ---
 
@@ -59,12 +59,6 @@ So the mission is narrow and concrete: **build gamified frameworks to make
 work better.** Not metaphorically. Actual games, with rules, stakes and
 progression, in which real work is done.
 
-We honour what was learnt in the past and we believe it can be done
-differently, with the focus on the human being and on the construction of
-fairer, stronger relations. Capitalism with heart has a place in the future;
-prosperity is the outcome of a happier, more balanced and fairer society, not
-its price.
-
 ## Why a game
 
 **Play is our first narrative, our first lesson and our first creative
@@ -105,20 +99,35 @@ decision, and the canon of licensing says what that obliges.
 
 ## What we believe
 
+*This is the manifesto. It is meant to be read in one breath.*
+
 Numinia believes in the ability of humans to learn through play, in the power
 of games to enrich the quality of human relationships, and in the inherent
 human necessity to be organised in groups.
 
 Numinia focuses on the capacity of every individual to make a change through
-curiosity and creativity, leveling up relations within organisations.
+curiosity and creativity, leveling up relations within organisations. We are
+building a game to work better.
+
+For change to take place, organisations have to change. The inheritance of
+the Second Industrial Revolution has come to an end, and a new path has to
+open for organisations in which humans thrive. We honour what was learnt in
+the past, and we believe things can be done differently, with the focus on
+the human being and on the construction of fairer, stronger relations.
 
 We are convinced that our generation has the duty to propose new models for
 organisations — more balanced, closer to the human being. We want a better
 world for those who come after us, and we would not forgive ourselves for not
-trying.
+trying. Capitalism with heart has a place in the future; prosperity is the
+outcome of a happier, more balanced and fairer society, not its price.
 
-**Leave things better than we found them.** What that sentence obliges of an
-act is its own canon.
+Numinia supports remix culture. Numinia understands art as a driver. Numinia
+believes that humans play to learn.
+
+And in our epitaph you could read: *they dreamed and experimented life, they
+imagined and took action. They were part of the fight to change the model,
+they did not let us alone, they built a game with which to create a better
+world.*
 
 ## How we sound
 
@@ -150,5 +159,7 @@ and divulge. That order matters.
 |---|---|---|
 | `CAN-008` | The house looks one way | the imagery, the mix and the registers |
 | `CAN-005` | Opening is an act | what *remix* obliges |
-| `CAN-010` | Leave things better than you found them | what the closing sentence obliges |
+| `CAN-010` | Leave things better than you found them | the one sentence that is the house's ethics |
+| `CAN-013` | A magician who keeps hope, with humans in charge | the brand's personality, emotion and cause |
+| `CAN-014` | Friends who play, build and learn | where the house comes from |
 | `CAN-001` | You are already in the game | why the work is narrated at all |

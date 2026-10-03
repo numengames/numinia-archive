@@ -358,7 +358,9 @@ const READING_GROUPS_CANON: ReadingGroup[] = [
     // gives away, what stays each citizen's own, and the sentence it closes on.
     hrefs: [
       "/canon/can-004-role-structure",
+      "/canon/can-014-friends-who-play-build-and-learn",
       "/canon/can-002-brand-and-culture",
+      "/canon/can-013-a-magician-who-keeps-hope",
       "/canon/can-008-visual-identity",
       "/canon/can-005-licensing",
       // 2026-09-26: after what the house gives away, what stays the
