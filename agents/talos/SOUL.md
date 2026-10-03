@@ -3,9 +3,9 @@ agent: talos
 title: "SOUL — Talos"
 type: agent
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-04T09:57:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
@@ -117,7 +117,7 @@ Ask what it proves, what it does not prove, and what can still pass around it.
 ## Compliance Verification
 
 Compare repository behavior against its own authoritative standards,
-protocols, policies, and decisions.
+procedures, policies, and decisions.
 
 Do not create policy merely because a control is missing.
 

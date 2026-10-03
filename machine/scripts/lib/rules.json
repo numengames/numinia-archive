@@ -4,7 +4,7 @@
     "_comment": "MIRROR of the STD-001 Series table for prefix, digits and approval level (the `threshold` key; rules.test.mjs compares the column). ADR-005 v1.2.0 register, by top-level directory. `prefix` may list alternatives. `dailyDate`: RPT-YYYY-MM-DD is legal for `subtype: daily` only (ADR-004 rule 3). history/ and agents/ deliberately absent (ADR-035 §2; ADR-005 v1.1.0 reversal). `naming`: false = no filename scheme is enforced (agents/ is folder-named but its frontmatter id is still checked: none legal).",
     "missions":   { "prefix": ["MIS"],        "digits": 4, "threshold": "closed" },
     "decisions":  { "prefix": ["ADR", "DEC"], "digits": 3, "threshold": "governed" },
-    "protocols":  { "prefix": ["PRO"],        "digits": 3, "threshold": "governed" },
+    "procedures":  { "prefix": ["PRO"],        "digits": 3, "threshold": "governed" },
     "debt":       { "prefix": ["DBT"],        "digits": 3, "threshold": "open" },
     "standards":  { "prefix": ["STD"],        "digits": 3, "threshold": "governed" },
     "canon":      { "prefix": ["CAN"],        "digits": 3, "threshold": "governed" },
@@ -17,10 +17,10 @@
     "agents":     { "prefix": [],             "digits": 0, "threshold": "live", "naming": false }
   },
   "retiredPrefixes": {
-    "_comment": "Prefixes that no longer name a series but still appear in prose and must resolve for reference checking (std-012-corpus-does-not-grow ID_RE). D- closed 2026-08-31 (RPT-001 §12). S- (standards, pre-MIS-109) and P- (protocols, pre-MIS-125) added 2026-09-03 — same shape as D-, found during the standards/ refactor: 168 and 287 live citations respectively, invisible to this guard until now.",
+    "_comment": "Prefixes that no longer name a series but still appear in prose and must resolve for reference checking (std-012-corpus-does-not-grow ID_RE). D- closed 2026-08-31 (RPT-001 §12). S- (standards, pre-MIS-109) and P- (procedures, pre-MIS-125) added 2026-09-03 — same shape as D-, found during the standards/ refactor: 168 and 287 live citations respectively, invisible to this guard until now.",
     "D": "debt",
     "S": "standards",
-    "P": "protocols"
+    "P": "procedures"
   },
   "apparatus": {
     "_comment": "D-014: scaffolding around a series, not a member of it. A document is apparatus if `type: meta`, or its basename is listed here, or its path matches a pattern. lint-naming, lint-frontmatter (IS_TEMPLATE) and count-evidence each held a partial copy of this list.",
@@ -35,8 +35,8 @@
   },
   "types": {
     "_comment": "STD-004 HDR-003 closed type vocabulary; HDR-017 type ↔ series, strict except `lax`. `standard` (2026-10-03) is the type of every document in standards/ — a norm is a normative document, not documentation; `documentation` stays for the guides and references that explain a series.",
-    "all": ["mission", "adr", "protocol", "blueprint", "report", "seminal", "legal", "standard", "documentation", "meta", "agent", "entity", "opportunity", "proposal"],
-    "series": { "mission": "missions", "adr": "decisions", "protocol": "protocols", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "standard": "standards", "legal": "legal", "agent": "agents", "opportunity": "opportunities", "proposal": "opportunities" },
+    "all": ["mission", "adr", "procedure", "blueprint", "report", "seminal", "legal", "standard", "documentation", "meta", "agent", "entity", "opportunity", "proposal"],
+    "series": { "mission": "missions", "adr": "decisions", "procedure": "procedures", "blueprint": "blueprints", "report": "reports", "seminal": "canon", "standard": "standards", "legal": "legal", "agent": "agents", "opportunity": "opportunities", "proposal": "opportunities" },
     "lax": ["documentation", "meta", "entity"]
   },
   "status": {
@@ -53,6 +53,6 @@
   },
   "governed": {
     "_comment": "STD-004 §10: the top-level directories whose tracked .md files std-004-the-header governs. Everything else (web/, machine/scripts/, root, .github/) is out of its scope.",
-    "dirs": ["missions", "decisions", "protocols", "debt", "standards", "canon", "reports", "agents", "blueprints", "operations", "system", "legal", "opportunities"]
+    "dirs": ["missions", "decisions", "procedures", "debt", "standards", "canon", "reports", "agents", "blueprints", "operations", "system", "legal", "opportunities"]
   }
 }

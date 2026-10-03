@@ -2,16 +2,16 @@
 id: "PRO-013"
 uid: ""
 title: "Handing a check to CI"
-type: protocol
+type: procedure
 status: draft
-version: "5.1.2"
+version: "5.1.3"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
-tags: [protocol, ci, checks, engineering]
+tags: [procedure, ci, checks, engineering]
 license: "CC0-1.0"
 guild: "Alchemists"
 section: "Technology"

@@ -2,13 +2,13 @@
 id: "OPS-009"
 uid: ""
 title: "Secrets handling — what never enters the repository, and where it lives instead"
-type: protocol
+type: procedure
 status: active
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Technology"

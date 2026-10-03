@@ -14,7 +14,7 @@
 // DOC-001  title ≤ 5 words                              SHOULD
 // DOC-002  card: Summary / Epistemic / Pragmatic         present (MUST), ≤ 40 words each (SHOULD)
 // DOC-003  scope: one Binds line                        present (MUST), ≤ 15 words (SHOULD)
-// DOC-004  ≥ 1 plated rule in standards (protocols are steps)     MUST — a plate in a rule
+// DOC-004  ≥ 1 plated rule in standards (procedures are steps)     MUST — a plate in a rule
 //          title, or in the first column of the `## Check` table (platesIn)
 // DOC-005  Why ≤ 80 words                               SHOULD
 // DOC-006  body ≤ the series' budget                    SHOULD
@@ -41,14 +41,14 @@ export const meta = {
 
 // The word budget per series. Moves to the Series register when that exists.
 const BUDGET = {
-  standards: 500, protocols: 500, decisions: 500, missions: 500,
+  standards: 500, procedures: 500, decisions: 500, missions: 500,
   debt: 300, guilds: 300,
   reports: 1000, blueprints: 1000,
   canon: 1500,
 };
 const CAP = { title: 5, card: 40, scope: 15, why: 80, refs: 5 };
-const NEEDS_BINDS = new Set(['standards', 'protocols']);
-// A protocol is carried out, not complied with (STD-024): numbered steps, no
+const NEEDS_BINDS = new Set(['standards', 'procedures']);
+// A procedure is carried out, not complied with (STD-024): numbered steps, no
 // plated rules. Only a standard needs a plate.
 const NEEDS_PLATES = new Set(['standards']);
 

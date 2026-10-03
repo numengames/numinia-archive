@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-03
+- **Changed** `protocols/` is `procedures/` (`ADR-067`, cut 2): `type: procedure`, the prefix `PRO-` kept, 28 documents; the 28 old addresses redirect; `STD-001` 5.13.0, `STD-004` 4.14.0, `STD-026` 0.5.0, `STD-027` 0.8.0; *protocol* reads *procedure* in every normative document (ISO 9000) (site v0.139.0)
 - **Changed** The archive takes the industry's words (`ADR-067`, cut 1): `provenance` → `digital_source_type` (IPTC), `type_execution: digital · biological · hybrid` → `executor: agent · human · hybrid` (ISO/IEC 22989), `ratified_by` → `approved_by`, `frozen` → `on-hold`; `semaforo` deprecated; `STD-004` 4.13.0
 - **Changed** Every document of `standards/` is `type: standard`, strict to its folder; `documentation` stays for guides and references; `STD-001` 5.12.0 names the approval level and the template per series; *fond* is spelt *fonds*; *biological agent* reads *human* in every document
 - **Changed** Prose follows the industries: *instrument* → tooling, check and artifact (`STD-027` CLS-002); *mould* → template; *axis* → the normative documents; *plate* → rule ID; *guard* → check in prose (the folder and `npm run guards` wait for cut 5)

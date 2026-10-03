@@ -2,15 +2,15 @@
 id: "PRO-017"
 uid: ""
 title: "Rolling up the week"
-type: protocol
+type: procedure
 status: draft
-version: "3.3.3"
+version: "3.3.4"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
-tags: [protocol, rollup, deflation, weekly, reports]
+tags: [procedure, rollup, deflation, weekly, reports]
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true

@@ -9,8 +9,8 @@
 // An agent asks the operator for permission many times a session, and each
 // request arrives as a line of shell. The operator is not the one who wrote
 // the shell; he is the one who answers for it. The archive held the answer in
-// six places (who may change what, the approval protocol, the engineering
-// protocol, each agent's OPERATOR.md, the transition regime, the Hermes
+// six places (who may change what, the approval procedure, the engineering
+// procedure, each agent's OPERATOR.md, the transition regime, the Hermes
 // config) and in none of them for the person who approves.
 //
 // WHAT IS UNDER TEST

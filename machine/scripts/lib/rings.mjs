@@ -135,7 +135,7 @@ export const RING3 = {
     // absorbed CAN-003, so a canon can now be the absorbing document —
     // DEF-011's route out of a series, applied to canon for the first time.
     'absorbs'],
-  'protocols': ['supersedes_version', 'approved_by', 'applies_to', 'mandatory',
+  'procedures': ['supersedes_version', 'approved_by', 'applies_to', 'mandatory',
     'human_approval_score', 'mission', 'review_next'],
   // ADR-035: the two shelves MIS-129 opened. `former_id`/`former_id_note`
   // record a renumbering under ADR-004 rule 4 — the old identifier is never

@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: standard
 subtype: standard
 status: active
-version: "0.7.2"
+version: "0.8.0"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -93,7 +93,7 @@ read this table; its shape is their contract.
 |---|---|---|
 | **Governance** | Founding | `canon/` |
 | | Standardising | `standards/` |
-| | Prescribing | `protocols/` |
+| | Prescribing | `procedures/` |
 | | Deciding | `decisions/` |
 | **Production** | Planning | `blueprints/` |
 | | Executing | `missions/` |

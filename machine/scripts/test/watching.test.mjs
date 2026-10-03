@@ -7,12 +7,12 @@
 // implement").
 //
 // The tender radar ran, wrote to the feed and showed on the pipeline page
-// before any protocol said so: the flow lived in one platform's skill. This
-// holds the flow in the archive: a protocol from the sweep to the Oracle's
+// before any procedure said so: the flow lived in one platform's skill. This
+// holds the flow in the archive: a procedure from the sweep to the Oracle's
 // decision; the watch's verdicts as a register the feed's filter reads; the
-// rule on the feed pointing at the protocol and saying what checks it; the
-// watcher's card sending to the protocol instead of saying "not yet in the
-// archive"; the two screening protocols starting from it; and the playbook
+// rule on the feed pointing at the procedure and saying what checks it; the
+// watcher's card sending to the procedure instead of saying "not yet in the
+// archive"; the two screening procedures starting from it; and the playbook
 // opening with it and walking every kind, not only a sale.
 //
 // Run: npm test  (the built-page checks need web/dist: `cd web && npm run build`)
@@ -23,14 +23,14 @@ import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
 
 const read = (p) => readFileSync(path.join(ROOT, p), 'utf8');
-const proFile = readdirSync(path.join(ROOT, 'protocols')).find((f) => /^PRO-\d{3}-watching-for-opportunities\.md$/.test(f));
+const proFile = readdirSync(path.join(ROOT, 'procedures')).find((f) => /^PRO-\d{3}-watching-for-opportunities\.md$/.test(f));
 const DIST = path.join(ROOT, 'web', 'dist');
 const notBuilt = !existsSync(path.join(DIST, 'index.html')) && 'web/dist not built';
 const body = (t) => t.replace(/^---[\s\S]*?\n---\n/, '');
 
-test('a protocol holds the watch, from the sweep to the Oracle\'s decision', () => {
-  assert.ok(proFile, 'protocols/PRO-NNN-watching-for-opportunities.md exists');
-  const t = read(`protocols/${proFile}`);
+test('a procedure holds the watch, from the sweep to the Oracle\'s decision', () => {
+  assert.ok(proFile, 'procedures/PRO-NNN-watching-for-opportunities.md exists');
+  const t = read(`procedures/${proFile}`);
   const b = body(t);
   assert.match(t, /^derived_from: "CAN-\d{3}"/m);
   assert.match(b, /\*\*Epistemic:\*\*[^\n]*\?/);
@@ -41,11 +41,11 @@ test('a protocol holds the watch, from the sweep to the Oracle\'s decision', () 
     ['the pipeline page that shows it', /\/system\/pipeline/],
     ['the register of verdicts', /STD-038/],
     ['the two screenings it hands to', /PRO-033[\s\S]*PRO-032|PRO-032[\s\S]*PRO-033/],
-    ['the qualifying protocol for a sale', /PRO-028/],
+    ['the qualifying procedure for a sale', /PRO-028/],
     ['a reviewed pull request as the only way in', /pull request/],
     ['the doubt rule', /doubt/i],
     ['the retuning of a filter', /retun|filter/i],
-  ]) assert.match(b, re, `the protocol names ${what}`);
+  ]) assert.match(b, re, `the procedure names ${what}`);
   assert.ok(b.split(/\s+/).filter(Boolean).length <= 900, 'under the 900-word cap');
 });
 
@@ -59,14 +59,14 @@ test('the watch\'s verdicts are a register, and the feed\'s filter is in it', ()
   assert.deepEqual(feed.map((f) => /^yes/.test(f)), [true, true, true, false], 'high, medium and low-with-an-unlock go to the feed; none does not');
 });
 
-test('the rule on the feed points at the protocol and says what checks it', () => {
+test('the rule on the feed points at the procedure and says what checks it', () => {
   const row = read('standards/STD-017-who-may-change-what.md').split('\n').find((l) => l.startsWith('| AUT-069 |'));
   assert.doesNotMatch(row, /not read here/, 'the archive reads the feed now');
   assert.match(row, /web\/src\/lib\/feed\.ts/);
   assert.match(row, new RegExp(proFile.slice(0, 7)));
 });
 
-test('the watcher\'s card sends to the protocol; nothing of the flow is "not yet in the archive"', () => {
+test('the watcher\'s card sends to the procedure; nothing of the flow is "not yet in the archive"', () => {
   const src = read('agents/kairos/SOURCES.md');
   assert.match(src, new RegExp(proFile.slice(0, 7)));
   assert.doesNotMatch(src, /The watching procedure itself[^\n]*\n[^\n]*still live/, 'the old "not yet in the archive" paragraph is gone');
@@ -76,7 +76,7 @@ test('the watcher\'s card sends to the protocol; nothing of the flow is "not yet
 
 test('the screenings start from the watch', () => {
   const id = proFile.slice(0, 7);
-  for (const f of ['protocols/PRO-033-screening-a-tender.md', 'protocols/PRO-032-applying-for-a-grant.md']) {
+  for (const f of ['procedures/PRO-033-screening-a-tender.md', 'procedures/PRO-032-applying-for-a-grant.md']) {
     const b = body(read(f));
     assert.match(b, new RegExp(id), `${f} names the watch`);
     assert.ok(b.split(/\s+/).filter(Boolean).length <= 900, `${f} under the cap`);
@@ -88,9 +88,9 @@ test('the playbook opens with the watch and walks every kind', { skip: notBuilt 
   const watch = html.indexOf('data-before-record');
   assert.ok(watch > 0, 'a chapter before the record');
   assert.ok(watch < html.indexOf('data-kind="sale"'), 'and it comes first');
-  assert.match(html.slice(watch, html.indexOf('data-kind="sale"')), new RegExp(`/protocols/${proFile.replace(/\.md$/, '').toLowerCase()}`));
+  assert.match(html.slice(watch, html.indexOf('data-kind="sale"')), new RegExp(`/procedures/${proFile.replace(/\.md$/, '').toLowerCase()}`));
   for (const k of ['sale', 'tender', 'grant', 'collaboration', 'partner']) assert.match(html, new RegExp(`data-kind="${k}"`), `a chapter for ${k}`);
-  for (const p of ['pro-033-screening-a-tender', 'pro-031-bidding-for-a-tender', 'pro-032-applying-for-a-grant']) assert.match(html, new RegExp(`/protocols/${p}`));
+  for (const p of ['pro-033-screening-a-tender', 'pro-031-bidding-for-a-tender', 'pro-032-applying-for-a-grant']) assert.match(html, new RegExp(`/procedures/${p}`));
   const md = readFileSync(path.join(DIST, 'playbook.md'), 'utf8');
   assert.match(md, /Before the record/);
 });

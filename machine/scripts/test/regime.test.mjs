@@ -171,7 +171,7 @@ check('tree: one question per standard — the last rows: guards apart from safe
 });
 
 check('tree: a series threshold is stated once, in STD-001 — no document header repeats it', () => {
-  for (const d of ['standards', 'canon', 'protocols', 'machine/templates']) {
+  for (const d of ['standards', 'canon', 'procedures', 'machine/templates']) {
     for (const f of readdirSync(path.join(ROOT, d)).filter((n) => n.endsWith('.md'))) {
       const text = readFileSync(path.join(ROOT, d, f), 'utf-8');
       const head = text.startsWith('---') ? text.slice(0, text.indexOf('\n---', 3)) : '';
@@ -263,11 +263,11 @@ check('tree: grants are records in opportunities/ — funding/ is gone, one seri
   return true;
 });
 
-check('tree: the house has one card for every call, and a protocol walks each door to public money', () => {
+check('tree: the house has one card for every call, and a procedure walks each door to public money', () => {
   // A tender and a grant are each read against what the house holds; the
   // one card is where that lives, and the record standard cites it.
   for (const f of ['operations/OPS-018-the-house-card.md',
-    'protocols/PRO-031-bidding-for-a-tender.md', 'protocols/PRO-032-applying-for-a-grant.md'])
+    'procedures/PRO-031-bidding-for-a-tender.md', 'procedures/PRO-032-applying-for-a-grant.md'])
     if (!existsSync(path.join(ROOT, f))) return `${f} is missing`;
   if (existsSync(path.join(ROOT, 'operations/OPS-019-the-house-card-for-grants.md'))) return 'a second card for grants still exists — one card, OPS-018';
   const s039 = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf-8');
@@ -275,31 +275,31 @@ check('tree: the house has one card for every call, and a protocol walks each do
   return true;
 });
 
-check('tree: screening a tender is a protocol, and the skill only points to it — one procedure, one home', () => {
+check('tree: screening a tender is a procedure, and the skill only points to it — one procedure, one home', () => {
   // The Oracle (2026-10-01): "no solo la skill". The screening procedure is
-  // a protocol, a normative document; the portable skill is an adapter that sends any
+  // a procedure, a normative document; the portable skill is an adapter that sends any
   // agent to it, so the steps are never kept twice.
-  const pro = path.join(ROOT, 'protocols/PRO-033-screening-a-tender.md');
-  if (!existsSync(pro)) return 'protocols/PRO-033-screening-a-tender.md is missing';
+  const pro = path.join(ROOT, 'procedures/PRO-033-screening-a-tender.md');
+  if (!existsSync(pro)) return 'procedures/PRO-033-screening-a-tender.md is missing';
   const skill = readFileSync(path.join(ROOT, 'agents/skills/tender-screening/SKILL.md'), 'utf-8');
   if (!/PRO-033/.test(skill)) return 'the tender-screening skill does not send the agent to PRO-033';
   if (/^## Step \d/m.test(skill) || /^## The five questions/m.test(skill)) return 'the skill keeps its own copy of the steps — they live in PRO-033';
   const s038 = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
-  if (!/^## Weighing a tender$/m.test(s038)) return 'STD-038 holds no Weighing a tender table: the protocol would carry values a register holds';
-  const p031 = readFileSync(path.join(ROOT, 'protocols/PRO-031-bidding-for-a-tender.md'), 'utf-8');
-  if (!/PRO-033/.test(p031)) return 'PRO-031 does not start from the screening protocol';
+  if (!/^## Weighing a tender$/m.test(s038)) return 'STD-038 holds no Weighing a tender table: the procedure would carry values a register holds';
+  const p031 = readFileSync(path.join(ROOT, 'procedures/PRO-031-bidding-for-a-tender.md'), 'utf-8');
+  if (!/PRO-033/.test(p031)) return 'PRO-031 does not start from the screening procedure';
   return true;
 });
 
-check('tree: every stage of a grant is moved by a protocol, and the month takes in public money', () => {
+check('tree: every stage of a grant is moved by a procedure, and the month takes in public money', () => {
   const reg = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
   const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## The events'));
   const stages = [...table.matchAll(/^\| `grant` \| `([a-z]+)` \|/gm)].map((m) => m[1]);
   if (stages.length < 3) return `the register names only ${stages.length} stage(s) of a grant`;
-  const p032 = readFileSync(path.join(ROOT, 'protocols/PRO-032-applying-for-a-grant.md'), 'utf-8');
+  const p032 = readFileSync(path.join(ROOT, 'procedures/PRO-032-applying-for-a-grant.md'), 'utf-8');
   const unmoved = stages.filter((s) => !new RegExp('`' + s + '`').test(p032));
   if (unmoved.length) return `no step of PRO-032 moves a grant to: ${unmoved.join(', ')}`;
-  const p021 = readFileSync(path.join(ROOT, 'protocols/PRO-021-closing-the-month.md'), 'utf-8');
+  const p021 = readFileSync(path.join(ROOT, 'procedures/PRO-021-closing-the-month.md'), 'utf-8');
   if (!/grant/i.test(p021) || !/tender|contract/i.test(p021)) return 'the month close takes in no grant and no public contract — PRO-032 and PRO-031 hand their money to it';
   return true;
 });
@@ -310,7 +310,7 @@ check('tree: no living text types a range of identifiers — a count is read fro
   // second copy that nobody regenerates.
   const RANGE = /\b([A-Z]{3})-\d{3,4} ?(?:…|\.\.\.?|–) ?\1-\d{3,4}\b/;
   const files = execFileSync('git', ['-C', ROOT, 'ls-files', 'AGENTS.md', 'CLAUDE.md', 'README.md', 'CONTRIBUTING.md',
-    'agents', 'canon', 'standards', 'protocols', 'system'], { encoding: 'utf-8' }).split('\n').filter((f) => f.endsWith('.md'));
+    'agents', 'canon', 'standards', 'procedures', 'system'], { encoding: 'utf-8' }).split('\n').filter((f) => f.endsWith('.md'));
   const hits = [];
   for (const f of files) {
     readFileSync(path.join(ROOT, f), 'utf-8').split('\n').forEach((l, i) => { if (RANGE.test(l)) hits.push(`${f}:${i + 1}`); });
@@ -333,13 +333,13 @@ check('tree: the apparatus is thin — no series_change, no retired row; retired
   return true;
 });
 
-check('tree: a protocol is steps — no Rules section, no plate, and its Epistemic line is its question', () => {
-  // A protocol is carried out, a standard is complied with (STD-024). The
-  // rules a protocol used to carry either moved to the standard that holds
+check('tree: a procedure is steps — no Rules section, no plate, and its Epistemic line is its question', () => {
+  // A procedure is carried out, a standard is complied with (STD-024). The
+  // rules a procedure used to carry either moved to the standard that holds
   // the thing, or became steps; their plates went to the ledger.
   // Running a mission (PRO-003) is left as it is, in draft, by the Oracle's
   // word (2026-09-27): missions are suspended by the transition regime.
-  const dir = path.join(ROOT, 'protocols');
+  const dir = path.join(ROOT, 'procedures');
   const bad = [];
   for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !n.startsWith('PRO-003-'))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
@@ -354,13 +354,13 @@ check('tree: a protocol is steps — no Rules section, no plate, and its Epistem
   return bad.length === 0 || bad.join('; ');
 });
 
-check('tree: every protocol has the five parts of the template, in order', () => {
+check('tree: every procedure has the five parts of the template, in order', () => {
   // machine/templates/PRO-TEMPLATE.md: purpose and trigger, preconditions,
   // procedure, verification, escalation. The Oracle asked that every
-  // protocol read alike (2026-09-27). Running a mission (PRO-003) is left
+  // procedure read alike (2026-09-27). Running a mission (PRO-003) is left
   // out by his word: it stays as it is while missions are suspended.
   const PARTS = ['Purpose and trigger', 'Preconditions', 'Procedure', 'Verification', 'Escalation'];
-  const dir = path.join(ROOT, 'protocols');
+  const dir = path.join(ROOT, 'procedures');
   const bad = [];
   for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !n.startsWith('PRO-003-'))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
@@ -371,8 +371,8 @@ check('tree: every protocol has the five parts of the template, in order', () =>
   return bad.length === 0 || bad.join('; ');
 });
 
-check('tree: a protocol numbers its steps — the procedure is a numbered list, not a table', () => {
-  const dir = path.join(ROOT, 'protocols');
+check('tree: a procedure numbers its steps — the procedure is a numbered list, not a table', () => {
+  const dir = path.join(ROOT, 'procedures');
   const bad = [];
   for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !n.startsWith('PRO-003-'))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
@@ -382,11 +382,11 @@ check('tree: a protocol numbers its steps — the procedure is a numbered list, 
   return bad.length === 0 || `no numbered steps in: ${bad.join(', ')}`;
 });
 
-check('tree: a protocol fits in 900 words — a longer one is two protocols, or carries values a register holds', () => {
-  // The template: more than a dozen steps is probably two protocols with a
-  // handover between them. Joining and leaving was one protocol of 1,548
+check('tree: a procedure fits in 900 words — a longer one is two procedures, or carries values a register holds', () => {
+  // The template: more than a dozen steps is probably two procedures with a
+  // handover between them. Joining and leaving was one procedure of 1,548
   // words; the living pieces restated the design values register.
-  const dir = path.join(ROOT, 'protocols');
+  const dir = path.join(ROOT, 'procedures');
   const bad = [];
   for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
@@ -398,13 +398,13 @@ check('tree: a protocol fits in 900 words — a longer one is two protocols, or 
   return bad.length === 0 || bad.join('; ');
 });
 
-check('tree: every stage of every kind is moved by a protocol — the register names the stages, the protocols carry each move', () => {
-  // STD-038 is the register of stages, by kind; a stage no protocol moves a
+check('tree: every stage of every kind is moved by a procedure — the register names the stages, the procedures carry each move', () => {
+  // STD-038 is the register of stages, by kind; a stage no procedure moves a
   // record into is a state the pipeline can show and nobody can reach.
-  // The protocols that move opportunities are read under two sections: a sale,
+  // The procedures that move opportunities are read under two sections: a sale,
   // a tender, a partner or a collaboration under Sales and partners; a grant
   // under Finance, where STD-030 keeps grants and loans.
-  const dir = path.join(ROOT, 'protocols');
+  const dir = path.join(ROOT, 'procedures');
   const reg = readFileSync(path.join(ROOT, 'standards/STD-038-the-stages-of-an-opportunity.md'), 'utf-8');
   const table = reg.slice(reg.indexOf('## The stages'), reg.indexOf('## The events'));
   const rows = [...table.matchAll(/^\| `([a-z]+)` \| `([a-z]+)` \|/gm)].map((m) => `${m[1]}:${m[2]}`);
@@ -412,30 +412,30 @@ check('tree: every stage of every kind is moved by a protocol — the register n
   const sales = readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))
     .map((n) => readFileSync(path.join(dir, n), 'utf-8'))
     .filter((t) => /^section: "(Sales and partners|Finance)"/m.test(t));
-  if (sales.length < 3) return `only ${sales.length} protocol(s) in the Sales and partners or Finance sections`;
+  if (sales.length < 3) return `only ${sales.length} procedure(s) in the Sales and partners or Finance sections`;
   const text = sales.join('\n');
   const unmoved = rows.filter((r) => !new RegExp('`' + r.split(':')[1] + '`').test(text));
-  return unmoved.length === 0 || `no sales protocol moves an opportunity to: ${unmoved.join(', ')}`;
+  return unmoved.length === 0 || `no sales procedure moves an opportunity to: ${unmoved.join(', ')}`;
 });
 
-check('tree: What is yours stays with you is carried out — a breach, a rights request and a new stored thing each have a protocol', () => {
+check('tree: What is yours stays with you is carried out — a breach, a rights request and a new stored thing each have a procedure', () => {
   // The personal data standard (STD-035) asks for three acts nobody had
   // written: report a breach within 72 hours, answer a person within a
   // month, and ask consent again when what a site stores changes.
-  const dir = path.join(ROOT, 'protocols');
+  const dir = path.join(ROOT, 'procedures');
   const want = { 'a breach': /breach/i, 'a rights request': /rights|request/i, 'a stored thing': /stor|cookie/i };
   const mine = readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))
     .map((n) => readFileSync(path.join(dir, n), 'utf-8'))
     .filter((t) => /^derived_from: "CAN-012"/m.test(t))
     .map((t) => /^title: "(.*)"/m.exec(t)?.[1] ?? '');
   const miss = Object.entries(want).filter(([, re]) => !mine.some((title) => re.test(title))).map(([k]) => k);
-  if (miss.length) return `no protocol under CAN-012 for: ${miss.join(', ')}`;
+  if (miss.length) return `no procedure under CAN-012 for: ${miss.join(', ')}`;
   const std = readFileSync(path.join(ROOT, 'standards/STD-035-personal-data.md'), 'utf-8');
   if (/no breach procedure is written/.test(std)) return 'STD-035 still says no breach procedure is written';
   return true;
 });
 
-check('tree: the protocol plates are retired in the ledger, and no living text cites one', () => {
+check('tree: the procedure plates are retired in the ledger, and no living text cites one', () => {
   const RETIRED = ['SES', 'ESC', 'APV', 'GRD', 'DSP', 'TSK', 'RUP', 'RLS', 'RIT', 'SAL', 'MON'];
   const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/retired-plates.json'), 'utf-8')).plates;
   for (const p of RETIRED) {
@@ -444,25 +444,25 @@ check('tree: the protocol plates are retired in the ledger, and no living text c
   }
   const RE = new RegExp(`\\b(?:${RETIRED.join('|')})-\\d{3}\\b`);
   const files = execFileSync('git', ['-C', ROOT, 'ls-files', 'AGENTS.md', 'CLAUDE.md', 'CONTRIBUTING.md',
-    'agents', 'canon', 'standards', 'protocols', 'system', 'web/src', 'machine/templates'], { encoding: 'utf-8' })
+    'agents', 'canon', 'standards', 'procedures', 'system', 'web/src', 'machine/templates'], { encoding: 'utf-8' })
     .split('\n').filter((f) => /\.(md|ts|astro|mjs)$/.test(f));
   const hits = [];
   for (const f of files) readFileSync(path.join(ROOT, f), 'utf-8').split('\n').forEach((l, i) => { if (RE.test(l)) hits.push(`${f}:${i + 1}`); });
-  return hits.length === 0 || `retired protocol plates cited: ${hits.join(', ')}`;
+  return hits.length === 0 || `retired procedure plates cited: ${hits.join(', ')}`;
 });
 
 check('tree: the security audit keeps no rules of its own — the secrets standard and the checks register hold them', () => {
-  const pro = readdirSync(path.join(ROOT, 'protocols')).find((f) => f.startsWith('PRO-011-'));
-  const text = readFileSync(path.join(ROOT, 'protocols', pro), 'utf-8');
+  const pro = readdirSync(path.join(ROOT, 'procedures')).find((f) => f.startsWith('PRO-011-'));
+  const text = readFileSync(path.join(ROOT, 'procedures', pro), 'utf-8');
   if (/^\*\*SEC-\d{3}/m.test(text)) return `${pro} still titles a rule with an SEC plate, the code of an Engineering checks row`;
   return true;
 });
 
-check('tree: protocols keep the designed system — the transition regime lives only in AGENTS.md', () => {
+check('tree: procedures keep the designed system — the transition regime lives only in AGENTS.md', () => {
   // A form pass changes shape, not substance (the Oracle, 2026-09-27). The
-  // regime suspends ceremony while protocols are draft; promotion restores
-  // it as written, so a protocol never describes the suspension.
-  const dir = path.join(ROOT, 'protocols');
+  // regime suspends ceremony while procedures are draft; promotion restores
+  // it as written, so a procedure never describes the suspension.
+  const dir = path.join(ROOT, 'procedures');
   const read = (p) => readFileSync(path.join(dir, readdirSync(dir).find((f) => f.startsWith(`${p}-`))), 'utf-8');
   for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-/.test(n) && !n.startsWith('PRO-023-'))) {
     if (/transition regime|chat instruction is the briefing/i.test(readFileSync(path.join(dir, f), 'utf-8'))) return `${f} describes the transition regime`;
@@ -485,9 +485,9 @@ check('tree: a site\'s code has its own audit, and a stored item is checked with
   // that the identity audit (PRO-011) never reads; and a replaced cookie
   // banner that reused a cookie name with another format, which an empty
   // browser can never show.
-  const dir = path.join(ROOT, 'protocols');
+  const dir = path.join(ROOT, 'procedures');
   const code = readdirSync(dir).find((f) => /^PRO-\d{3}-auditing-a-sites-code\.md$/.test(f));
-  if (!code) return 'no protocol for auditing a site\'s code';
+  if (!code) return 'no procedure for auditing a site\'s code';
   const c = readFileSync(path.join(dir, code), 'utf-8');
   for (const w of ['server route', 'Probe every route live', 'content security policy', 'permissions', 'npm audit', 'Scorecard', 'PRO-008'])
     if (!c.includes(w)) return `${code} does not cover ${w}`;

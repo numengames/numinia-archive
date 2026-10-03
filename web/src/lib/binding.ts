@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------
 // This site publishes two halves of a sentence and not the third.
 //
-//   1. Eleven protocols, twenty-seven standards and the canons, rendered
+//   1. Eleven procedures, twenty-seven standards and the canons, rendered
 //      in full, each with its steps and its obligations.
 //   2. The definition of `draft` — "written, not yet in force: it binds
 //      nobody" (STD-004) — printed on the home, in /llms.txt and in
@@ -17,7 +17,7 @@
 // the site answered it nowhere: IF NONE OF THIS BINDS, WHAT DOES?
 //
 // The answer exists and has existed since 2026-09-18. The Oracle wrote it as
-// the transition regime in AGENTS.md — which protocol ceremony is suspended
+// the transition regime in AGENTS.md — which procedure ceremony is suspended
 // while the system is cut down from the MVP to the alpha, and which rules
 // still hold because each one protects something visible. But AGENTS.md is a
 // repository file the viewer does not serve (ADR-047: the repository's own
@@ -25,7 +25,7 @@
 // it were the ones already inside the repository.
 //
 // The cost is asymmetric and falls on the visitor. A person browsing
-// /protocols reads a procedure that was derogated months ago and assumes it
+// /procedures reads a procedure that was derogated months ago and assumes it
 // is how this place works. An agent arriving through /llms.txt — the door
 // this site advertises to machines — does worse: it obeys it.
 //
@@ -39,7 +39,7 @@
 //   lifecycle()         how many documents of each rule-bearing folder are in
 //                       each state, counted from the frontmatter in the tree.
 //
-// So the page moves by itself. The day the Oracle promotes a protocol out of
+// So the page moves by itself. The day the Oracle promotes a procedure out of
 // draft, the count changes with no edit to the site; the day he rewrites the
 // regime, the page rewrites with it. That is the same contract classification.ts
 // holds for the scheme, and it exists for the same reason: a page that
@@ -75,7 +75,7 @@ const END = "transition-regime:end";
 const RULE_FOLDERS: ReadonlyArray<{ folder: string; label: string; holds: string }> = [
   { folder: "canon/", label: "Canon", holds: "what the system is" },
   { folder: "standards/", label: "Standards", holds: "what an artifact must comply with" },
-  { folder: "protocols/", label: "Protocols", holds: "what an actor executes, step by step" },
+  { folder: "procedures/", label: "Procedures", holds: "what an actor executes, step by step" },
 ];
 
 export interface Regime {
@@ -90,12 +90,12 @@ export interface RuleDoc {
   id: string;
   title: string;
   status: string;
-  /** The page that renders it: `/protocols/pro-001-…`. */
+  /** The page that renders it: `/procedures/pro-001-…`. */
   href: string;
 }
 
 export interface LifecycleRow {
-  /** Folder as the archive names it: `protocols/`. */
+  /** Folder as the archive names it: `procedures/`. */
   folder: string;
   label: string;
   holds: string;
@@ -142,7 +142,7 @@ export function transitionRegime(): Regime {
     throw new Error(
       `binding.ts: ${AGENTS_DOC} carries no <!-- ${BEGIN} --> … <!-- ${END} --> block. ` +
         `The markers are how /binding finds the rule that governs while the ` +
-        `protocols are draft; without them the page would publish an empty ` +
+        `procedures are draft; without them the page would publish an empty ` +
         `answer to "what binds today", which reads as "nothing does".`,
     );
   }
@@ -187,7 +187,7 @@ function statusOf(head: string): string | undefined {
  * The states of the rule-bearing folders, counted from the tree.
  *
  * Counted, never typed: this is the figure the page's whole argument rests on
- * ("eleven protocols, all draft"), and a typed figure goes stale the first
+ * ("eleven procedures, all draft"), and a typed figure goes stale the first
  * time one is promoted — which is precisely the event a reader came here to
  * learn about. Folders that do not exist are skipped rather than reported as
  * empty: a missing folder is a different fact from an empty one and this

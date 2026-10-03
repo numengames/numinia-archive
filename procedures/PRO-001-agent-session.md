@@ -2,17 +2,17 @@
 id: "PRO-001"
 uid: ""
 title: "Opening and closing a session"
-type: protocol
+type: procedure
 status: draft
-version: "2.1.2"
+version: "2.1.3"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "People and culture"
-tags: [protocol, briefing, startup, session, close, context, mandatory]
+tags: [procedure, briefing, startup, session, close, context, mandatory]
 applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
@@ -51,7 +51,7 @@ its mission to another agent. Executor: the agent.
 ## 3. Procedure
 
 **Open** — before any read or write. Urgency skips none of it: urgency is
-the protocol's enemy.
+the procedure's enemy.
 
 1. **Pull the trunk.** If it brought new commits, read `CHANGELOG.md`.
 2. **Read your identity.** Read your own `SOUL.md` and `OPERATOR.md`
@@ -66,7 +66,7 @@ the protocol's enemy.
 7. **Audit the branch before trusting it.** Read what is actually checked
    out; never assume it matches `AGENTS.md`, a README or the mission card.
 8. **Work from the checked-out tree.** Never from a copy pasted elsewhere.
-9. **Read what the mission names, only that.** The protocol the mission
+9. **Read what the mission names, only that.** The procedure the mission
    cites; the standard that governs the artefact it touches; `canon/` only
    for an explicit philosophical question. A question no document answers
    is a gap: escalate it (`PRO-005`), do not fill it.
@@ -137,4 +137,4 @@ state in `OPS-008` why. A mission assigned that has no briefing: `PRO-005`.
 | `STD-020` | Git is the archive | the trunk is reached by pull request |
 | `STD-022` | Secrets | how secrets are handled in every session |
 | `STD-025` | A mission is a card | the card is read whole, never by title |
-| `SYS-001` | CAO architecture | the protocol chain a session runs through |
+| `SYS-001` | CAO architecture | the procedure chain a session runs through |

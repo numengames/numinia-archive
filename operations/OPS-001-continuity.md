@@ -4,11 +4,11 @@ uid: ""
 title: "Continuity and adaptability of the system"
 type: documentation
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Technology"
@@ -60,7 +60,7 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 
 - **State:** ⏳ In progress
 - **Problem:** The memory/YYYY-MM-DD.md files with each session's detail lived in OpenClaw but no git push happened at the end of the day.
-- **Solution:** Session-close protocol updated: the last act of every session is git add + commit + push of the day's memory.
+- **Solution:** Session-close procedure updated: the last act of every session is git add + commit + push of the day's memory.
 
 ### G4 — The other agents had no files in the repo
 
@@ -102,7 +102,7 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 | 🪨 `decisions/` | Every decision with its context, rejected alternatives and why. | ✅ |
 | 📐 `blueprints/` | Current and target state of each subsystem. Gaps and dependencies. | — |
 | 📋 `reports/` | Daily operations history. What happened, what it cost, what was learned. | — |
-| 📌 `protocols/` | Operating procedures. How to boot, close, escalate, coordinate. | — |
+| 📌 `procedures/` | Operating procedures. How to boot, close, escalate, coordinate. | — |
 | ⚙️ `operations/` | Governance, security, credential map. | — |
 
 ---

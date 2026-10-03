@@ -19,11 +19,11 @@ completed: null
 # REGISTRO — not consumed by the build, but every document in this archive
 # carries them (`STD-024`).
 type: mission
-version: "2.0.4"
+version: "2.0.5"
 created: "2026-09-02T09:40:00Z"
 created_source: "git:68bd5f1"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [ursa, bootstrap, context, hermes, onboarding, continuity, cold-start]
@@ -35,8 +35,8 @@ requires_oracle_approval: true
 paths:
   - AGENTS.md
   - README.md
-  - protocols/PRO-001-agent-session.md
-  - protocols/PRO-003-mission-cycle.md
+  - procedures/PRO-001-agent-session.md
+  - procedures/PRO-003-mission-cycle.md
   - agents/ursa/
   - agents/INDEX.md
   - missions/MIS-0041-agent-onboarding-protocol.md
@@ -144,8 +144,8 @@ responsibility of each layer:
 | `agents/ursa/OPERATOR.md` | what needs no authorisation, what escalates, when to stop, investigate/read/plan vs execute, explicit no-execute-without-authorisation rule |
 | `agents/ursa/SOURCES.md` | where reality is reconstructed from: repos, GitHub, HERMES_HOME where relevant, protocols, mission board, source hierarchy/priority, what to obtain alone before asking the operator |
 | `agents/ursa/AGENT.yaml` | declarative identity, role, capabilities, structured references, routing/discovery where appropriate |
-| `protocols/PRO-001-agent-session.md` | session-opening procedure: what to do after retrieving sources, how to reconstruct state, how to verify persisted state is still valid |
-| `protocols/PRO-003-mission-cycle.md` | mission cycle: selection, planning, states, isolation, execution/authorisation |
+| `procedures/PRO-001-agent-session.md` | session-opening procedure: what to do after retrieving sources, how to reconstruct state, how to verify persisted state is still valid |
+| `procedures/PRO-003-mission-cycle.md` | mission cycle: selection, planning, states, isolation, execution/authorisation |
 | `agents/ursa/adapters/hermes/*` | ONLY what is specific to materialising/executing Ursa inside Hermes; access/integration with Hermes capabilities; no duplication of canonical identity or procedure beyond the minimum reference |
 
 Before proposing any new file, the mission must attempt to solve the problem
@@ -275,8 +275,8 @@ each file during execution; the examples are guidance, not decisions):
 | Investigate/read/plan without authorisation; where autonomy stops; no-execute-without-authorisation | `agents/ursa/OPERATOR.md` | authority limits |
 | Where to recover missions, protocols, state; source hierarchy; what to obtain alone before asking | `agents/ursa/SOURCES.md` | sources |
 | Declarative identity, role, capabilities, routing/discovery | `agents/ursa/AGENT.yaml` | machine-readable card |
-| Generic session-opening and reconstruction sequence; validating persisted state | `protocols/PRO-001` | session protocol |
-| Mission selection, planning, states, isolation, execution/authorisation | `protocols/PRO-003` | mission protocol |
+| Generic session-opening and reconstruction sequence; validating persisted state | `procedures/PRO-001` | session protocol |
+| Mission selection, planning, states, isolation, execution/authorisation | `procedures/PRO-003` | mission protocol |
 | Materialising/executing Ursa inside Hermes; discovery of the canonical definition | `agents/ursa/adapters/hermes/*` | platform adapter |
 
 Each row must be verified: read the current file, confirm the responsibility

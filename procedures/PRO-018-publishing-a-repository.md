@@ -2,15 +2,15 @@
 id: "PRO-018"
 uid: ""
 title: "Publishing a repository"
-type: protocol
+type: procedure
 status: draft
-version: "2.1.1"
+version: "2.1.2"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
-tags: [protocol, publishing, licensing, reuse, spdx, visibility]
+tags: [procedure, publishing, licensing, reuse, spdx, visibility]
 applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
@@ -104,7 +104,7 @@ repository: `PRO-005` before step 7.
 
 | Document | Title | Why it obliges here |
 |---|---|---|
-| `STD-014` | Publishing gates | `PUB-001..005`: the gates this protocol runs |
+| `STD-014` | Publishing gates | `PUB-001..005`: the gates this procedure runs |
 | `STD-010` | Licensing | `LIC-001/005/006/007/011`: what the listings check; the allowlist steps 1 and 2 read |
 | `STD-022` | Secrets | `KEY-056`: a live finding reported out of band |
 | `PRO-008` | Requesting approval, issuing rulings | the signing request |

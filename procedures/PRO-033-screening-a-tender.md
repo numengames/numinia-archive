@@ -2,16 +2,16 @@
 id: "PRO-033"
 uid: ""
 title: "Screening a tender"
-type: protocol
+type: procedure
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-10-01T17:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
-tags: [protocol, sales, tenders, public-procurement, screening, card]
+tags: [procedure, sales, tenders, public-procurement, screening, card]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-038", "STD-039", "OPS-018", "PRO-031", "PRO-028", "PRO-035"]
@@ -42,7 +42,7 @@ bidding for — person or agent, on any model.
 
 A summary once turned a forklift and crane simulator, bought whole with its
 joysticks, into "a multimedia platform with 3D models". Only the
-authority's documents say what it buys; this protocol makes every verdict
+authority's documents say what it buys; this procedure makes every verdict
 rest on them and keeps out of the pipeline every tender the house cannot
 win.
 

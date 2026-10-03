@@ -33,7 +33,7 @@ before acting (`git fetch && git log -1 origin/main`, `gh pr list --state open`)
   `gh pr view N --json state` in the background, and on `MERGED` take a fresh
   `main` and open the next one. **Never self-merge**: merging is the Oracle's
   signature (`AUT-006`).
-- **Unattended covers the normative axis only** — standards, protocols,
+- **Unattended covers the normative axis only** — standards, procedures,
   decisions. **Canon is out**: it is `governed`, it has other authors, and each
   canon cut is discussed in conversation *before* a branch exists. A proposal
   written inside the PR body does not count as discussion.

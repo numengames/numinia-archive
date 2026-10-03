@@ -123,7 +123,7 @@ test('corpus: the bank reconciliation and the futures are rules before they are 
   const std = read(path.join(ROOT, 'standards', 'STD-036-one-account.md'));
   assert.match(std, /\| LED-011 \|/); assert.match(std, /\| LED-012 \|/);
   assert.doesNotMatch(std, /^version: "0\.2\.\d+"$/m, 'STD-036 bumps its minor version');
-  const pro = read(path.join(ROOT, 'protocols', 'PRO-021-closing-the-month.md'));
+  const pro = read(path.join(ROOT, 'procedures', 'PRO-021-closing-the-month.md'));
   assert.match(pro, /bank statement/i);
   assert.doesNotMatch(pro, /^version: "0\.5\.\d+"$/m, 'PRO-021 bumps its minor version');
 });

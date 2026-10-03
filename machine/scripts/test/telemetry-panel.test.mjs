@@ -97,7 +97,7 @@ test('one point per measured day, never a zero for a measurement with no tokens'
 
 test('every folder the instrument measures falls in a function of the scheme, or the repository root', () => {
   const fns = ask(`m.functionOfDir`);
-  for (const dir of ['canon', 'standards', 'protocols', 'decisions', 'blueprints', 'missions', 'reports', 'debt', 'machine', 'agents', 'lore', 'objects', 'operations', 'opportunities', 'legal', 'system'])
+  for (const dir of ['canon', 'standards', 'procedures', 'decisions', 'blueprints', 'missions', 'reports', 'debt', 'machine', 'agents', 'lore', 'objects', 'operations', 'opportunities', 'legal', 'system'])
     assert.ok(fns[dir], `${dir}/ has no function`);
 });
 

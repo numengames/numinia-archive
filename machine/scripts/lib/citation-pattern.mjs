@@ -24,7 +24,7 @@
 //
 // SECTION matches a citation of a numbered heading. It is separate because a
 // § number is the most perishable thing a document has: the holder survives a
-// renumbering, the section does not. `P` is the retired protocol prefix,
+// renumbering, the section does not. `P` is the retired prefix of the procedures (then protocols),
 // still present in older prose.
 export const DOCUMENT = String.raw`MIS-[0-9]+|ADR-[0-9]+|DBT-[0-9]+|RPT-[0-9]+|\b[CD]-[0-9]{3}\b|PR #[0-9]+|(?<![-/\w])[0-9]{4}-[0-9]{2}-[0-9]{2}(?![-\w])`;
 export const SECTION = String.raw`\b(?:STD|PRO|CAN|OPS|P)-[0-9]{3}[^\n]{0,14}?§\s?[0-9.]+`;

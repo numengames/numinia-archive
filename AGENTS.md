@@ -29,7 +29,7 @@ Oracle instruction, 2026-09-18. The system is being cut down from the MVP
 to the alpha, so almost every rule document here is `status: draft`. A
 draft is on trial: follow it, and note what does not fit. Its guard warns and
 never blocks; any change to it is analysed, then its owner decides.
-Every protocol in this archive is `status: draft`, save those named in force
+Every procedure in this archive is `status: draft`, save those named in force
 below.
 
 In force: `PRO-023` (bringing a rule into force, since 2026-09-27): no
@@ -51,7 +51,7 @@ before the branch. And the standards whose header says `active`:
 `STD-028` one document, one address ·
 `STD-030` the world's vocabulary.
 
-Nothing else in `canon/`, `standards/` or `protocols/` binds you. A test
+Nothing else in `canon/`, `standards/` or `procedures/` binds you. A test
 (`machine/scripts/test/door-resolves.test.mjs`) fails if this list and the
 headers disagree, so a promotion out of draft shows up here or CI goes red.
 
@@ -80,7 +80,7 @@ What still holds, because each rule protects something that can be seen:
   in chat before the branch exists — his answer there is the consensus, no
   further ceremony.
 
-What the draft protocols describe and you do NOT do while they are draft:
+What the draft procedures describe and you do NOT do while they are draft:
 open a mission card for a task the operator asked for in chat (the chat is
 the briefing, the pull request is the record); write a decision record to
 set or reverse what the operator stated in chat (the reversal goes in the
@@ -121,7 +121,7 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 - `canon/` — the world and the governing canons; the rule index below lists them.
 - `lore/` — the game: RPG manual, adventures, world texts, codex. Each file declares its own licence.
 - `standards/` — this archive's operative standards; the rule index below lists them.
-- `protocols/` — procedures: session close, briefing, archiving.
+- `procedures/` — how a recurring task is carried out: session close, briefing, archiving.
 - `missions/` — the unit of work; `machine/templates/MIS-TEMPLATE.md` is the contract.
 - `decisions/` — ADRs · `debt/` — what is known to be wrong · `reports/` — audits.
 - `operations/` — business records, one flat `OPS-` series (`OPS-007` is
@@ -144,7 +144,7 @@ its name when its function is not documented.
 
 ## The rules that govern work here
 
-`standards/`, `protocols/` and `canon/` hold the rule documents. Each opens
+`standards/`, `procedures/` and `canon/` hold the rule documents. Each opens
 with a `**Binds:**` line saying whom it governs. Read that line before
 opening the document.
 

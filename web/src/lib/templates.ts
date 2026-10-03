@@ -61,7 +61,7 @@ export interface Template {
 
 /** What a series is for, in a line — the template library's own table words. */
 const MAKES: Record<string, string> = {
-  MIS: "a mission", STD: "a standard", PRO: "a protocol", ADR: "a decision",
+  MIS: "a mission", STD: "a standard", PRO: "a procedure", ADR: "a decision",
   DBT: "a debt entry", RPT: "a report", OPS: "an operations record", LEG: "a legal text",
   CAN: "a canon text", BLU: "a blueprint", SYS: "a system reference",
   OPP: "a sales opportunity", PRP: "a proposal to a client", GRA: "a call for public money",

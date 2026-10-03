@@ -8,7 +8,7 @@ description: >-
   a documented process, trace the provenance or history of a fact or change,
   or identify which specialist should handle a question. Nimrod searches
   structurally rather than relying only on keywords: he distinguishes canon,
-  standards, protocols, missions, decisions, blueprints, reports, operations,
+  standards, procedures, missions, decisions, blueprints, reports, operations,
   debt, and presentation layers, and explains why a source matters rather than
   merely returning file matches. He is also suited to repository archaeology,
   cross-reference analysis, authority mapping, stale-index detection,

@@ -5,9 +5,9 @@ title: "One page per document"
 type: standard
 subtype: standard
 status: active
-version: "2.2.3"
+version: "2.2.4"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -54,7 +54,7 @@ question are merged; one that answers two is split. The topic-based writing
 standards ask the same of every topic. A reader, person or agent, opens one
 file, finds the whole answer, and no other file contradicts it.
 
-**Scope is one line.** A standard or protocol MUST say whom it binds, up
+**Scope is one line.** A standard or procedure MUST say whom it binds, up
 front, in at most 15 words, as the international drafting rules ask of a
 scope clause. A reader then knows in one line whether to read on.
 
@@ -63,7 +63,7 @@ scope clause. A reader then knows in one line whether to read on.
 **Rules come first, and each has its code.** Every rule of a standard MUST
 be one obligation, with one capitalised obligation word and a code of three
 letters and three digits. The code is unique, never reused, and sits in the
-rule's title or the check table. A protocol holds no rules: it is numbered
+rule's title or the check table. A procedure holds no rules: it is numbered
 steps, and the rules its steps apply live in the standards it cites. Requirements engineering asks exactly
 this, so each rule can be cited, tested and traced alone. A deprecated code
 moves from the check table to the ledger of deprecated codes, which says where
@@ -78,7 +78,7 @@ a reason. A may is a free choice.
 80 words. Longer reasoning belongs in a decision record.
 
 **The body fits its budget.** From the scope line to the references, a
-document SHOULD fit its shelf's budget: 500 words for standards, protocols,
+document SHOULD fit its shelf's budget: 500 words for standards, procedures,
 decisions and missions; 300 for debt and guilds; 1,000 for reports and
 blueprints; 1,500 for canon. A document over budget says why in one
 sentence.

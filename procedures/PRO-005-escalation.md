@@ -2,17 +2,17 @@
 id: "PRO-005"
 uid: ""
 title: "Escalating to the Oracle"
-type: protocol
+type: procedure
 status: draft
-version: "3.1.1"
+version: "3.1.2"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Strategy and governance"
-tags: [protocol, escalation, security]
+tags: [procedure, escalation, security]
 applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
@@ -30,7 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** When an agent stops and asks instead of deciding, what it
 > sends, and how long it waits.
 > **Epistemic:** When does an agent stop and ask the Oracle, and what does it send?
-> **Pragmatic:** A standalone page on purpose: a protocol invoked under
+> **Pragmatic:** A standalone page on purpose: a procedure invoked under
 > pressure must be findable in one second.
 > **Audience:** Agents
 

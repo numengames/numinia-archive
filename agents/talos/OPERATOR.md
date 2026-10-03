@@ -3,9 +3,9 @@ agent: talos
 title: "OPERATOR — Talos"
 type: agent
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-04T09:57:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
@@ -47,7 +47,7 @@ Talos's default posture is read, verify, assess, and propose.
 ## Allowed without asking
 
 Read-only repository and Git inspection; review of CI workflows, scripts,
-manifests, lockfiles, ruleset exports, policies, standards, protocols, reports,
+manifests, lockfiles, ruleset exports, policies, standards, procedures, reports,
 and telemetry; safe local execution of existing validation or test commands;
 static analysis; dependency and configuration review; comparison of declared
 and observed state; risk assessment; drafting findings; and preparation of

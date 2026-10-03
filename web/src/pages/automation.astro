@@ -13,8 +13,8 @@
 // at which level of automation it is granted alone.
 //
 // THIS PAGE STATES NOTHING OF ITS OWN. It arranges what the archive already
-// says — who may change what, the approval protocol, the engineering
-// protocol, each agent's OPERATOR.md, the transition regime — into the five
+// says — who may change what, the approval procedure, the engineering
+// procedure, each agent's OPERATOR.md, the transition regime — into the five
 // levels of the ISO/IEC 22989 automation scale, and grades every permission
 // at each. The levels are read from STD-041 and the permissions from STD-042
 // (web/src/lib/automation-levels.ts parses both at build time); each agent's
@@ -60,7 +60,7 @@ const grade = (g: Grade) => `pill ${g}`;
       <div class="ctx" aria-live="polite">
         <div class="et">Beside <a href="/binding">what binds today</a></div>
         <h1>What an agent may do without asking</h1>
-        <p>Every permission an agent asks for arrives as a line of shell. This view puts it in the approver's words: which permissions exist, what each implies, and which are granted alone at each level of automation. It states nothing of its own: the levels are one register, the permissions another, each agent's level is in its operator file, and the approval protocol says how a permission is asked for; this page reads them all at build time.</p>
+        <p>Every permission an agent asks for arrives as a line of shell. This view puts it in the approver's words: which permissions exist, what each implies, and which are granted alone at each level of automation. It states nothing of its own: the levels are one register, the permissions another, each agent's level is in its operator file, and the approval procedure says how a permission is asked for; this page reads them all at build time.</p>
         <div class="qa">
           <div class="depth" role="tablist" aria-label="Level">
             {LEVELS.map((l) => <button type="button" role="tab" data-l={l.id} aria-selected={l.today ? "true" : "false"}><span></span><i>{l.name}</i></button>)}
@@ -140,7 +140,7 @@ const grade = (g: Grade) => `pill ${g}`;
     </div>
 
     <h2 class="sec">How a request reads</h2>
-    <p class="lede">The approval protocol says this; here it is only shown. The same request, written twice. Whatever the level, the question is asked the same way: what I am about to do, what could go wrong, whether it can be undone. The shell goes underneath, for whoever wants to read it.</p>
+    <p class="lede">The approval procedure says this; here it is only shown. The same request, written twice. Whatever the level, the question is asked the same way: what I am about to do, what could go wrong, whether it can be undone. The shell goes underneath, for whoever wants to read it.</p>
     <div class="dialogs">
       <div class="dlg">
         <div class="et">Today</div>

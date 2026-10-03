@@ -4,7 +4,7 @@
 //
 // /core/<canon> — one canon's whole chain on one page, to be read or heard
 // end to end: the canon, then each standard that names it in `derived_from`,
-// then each protocol. The Check tables and References are left out (they are
+// then each procedure. The Check tables and References are left out (they are
 // on each document's own page); what remains is what a listener needs —
 // every rule with its obligation, and every step. See web/src/lib/core.ts.
 import Layout from "@/layouts/Layout.astro";
@@ -27,13 +27,13 @@ const state = (s: string) => (s === "active" ? "in force" : "draft");
 const render = async (d: CoreDoc) => ({ ...d, html: await html(d.reading) });
 const canonHtml = await html(canon.reading);
 const standards = await Promise.all(canon.standards.map(render));
-const protocols = await Promise.all(canon.protocols.map(render));
+const procedures = await Promise.all(canon.procedures.map(render));
 const repo = canon.path;
 ---
 
 <Layout
   title={`${canon.title} — the core, as a flow`}
-  description={`${canon.question} The canon, its standards and its protocols, end to end.`}
+  description={`${canon.question} The canon, its standards and its procedures, end to end.`}
   canonicalPath={`/core/${canon.slug}`}
 >
   <section class="pb-24 pt-16">
@@ -42,7 +42,7 @@ const repo = canon.path;
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mt-4 mb-2">{canon.title}</h1>
       <p class="text-base italic text-muted-foreground mb-2">{canon.question}</p>
       <p class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-8">
-        One canon · {standards.length} standards · {protocols.length} protocols · each marked in force or draft
+        One canon · {standards.length} standards · {procedures.length} procedures · each marked in force or draft
       </p>
 
       <DocToolbar mdUrl={`/core/${canon.slug}.md`} filename={`core-${canon.slug}.md`} lang="en" />
@@ -60,8 +60,8 @@ const repo = canon.path;
           </section>
         ))}
 
-        {protocols.length > 0 && <h2 class="core-part">The protocols</h2>}
-        {protocols.map((d) => (
+        {procedures.length > 0 && <h2 class="core-part">The procedures</h2>}
+        {procedures.map((d) => (
           <section class="core-doc">
             <h2 class="core-title">{d.title}</h2>
             <p class="core-state"><strong>{state(d.status)}</strong> · {d.question} <a href={d.docHref} aria-label={`${d.title}, full document`}>full document</a></p>

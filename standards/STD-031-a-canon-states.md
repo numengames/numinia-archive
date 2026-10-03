@@ -5,9 +5,9 @@ title: "A canon states"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.10"
+version: "0.1.11"
 created: "2026-09-24T22:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -65,10 +65,10 @@ not its subject: *Opening is an act*, not *Licensing*.
 
 **No tool.** A canon MUST NOT name a vendor, product or application as the
 way something is done. It states the capability. The tool belongs in
-the system notes or a protocol.
+the system notes or a procedure.
 
 **No clock.** A canon MUST NOT carry a date, hour, cadence or calendar in
-its body. The schedule belongs in a protocol, the hours in the calendar.
+its body. The schedule belongs in a procedure, the hours in the calendar.
 
 **No restatement.** Where another canon or a standard develops a thing, a
 canon MUST name it and stop. A summary of a neighbour is a second place to

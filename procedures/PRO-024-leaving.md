@@ -2,15 +2,15 @@
 id: "PRO-024"
 uid: ""
 title: "Leaving Numinia"
-type: protocol
+type: procedure
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-27T19:40:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
-tags: [protocol, offboarding, people, lifecycle]
+tags: [procedure, offboarding, people, lifecycle]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
 related: ["PRO-015", "PRO-019", "STD-035", "STD-022", "STD-010"]
@@ -40,7 +40,7 @@ whoever takes over their work.
 
 When a person leaves, three things can go wrong: their work stops with
 them, an access nobody remembers stays open, or they leave badly. This
-protocol closes all three, in the order that protects the work first.
+procedure closes all three, in the order that protects the work first.
 
 It starts when a departure is agreed or announced: a resignation, the end
 of a freelance service, or an ending the Oracle decides. The **Oracle**

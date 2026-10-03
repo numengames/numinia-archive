@@ -7,7 +7,7 @@
 // One plate, CIT-050: cite the document, not the place. A section number is
 // the most fragile part of a citation — it changes whenever the cited
 // document is reorganised, and the reader of the citing document never
-// finds out. One edit once cut a protocol from 3652 to 1406 words and left
+// finds out. One edit once cut a procedure from 3652 to 1406 words and left
 // nine citations pointing at sections that no longer existed; nothing failed.
 //
 // Two readings of the rule, each kept with the reach its source gave it:

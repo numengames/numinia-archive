@@ -2,13 +2,13 @@
 // SPDX-License-Identifier: MIT
 //
 // The core as a flow: each canon, the standards that make it concrete, the
-// protocols that carry it out.
+// procedures that carry it out.
 //
 // WHY THIS EXISTS
 // The Oracle reviews the core by listening to it end to end (2026-09-27).
-// Shelf by shelf, the canon, the standards and the protocols are three lists;
+// Shelf by shelf, the canon, the standards and the procedures are three lists;
 // the question a reviewer brings is causal — this belief, these rules, these
-// steps. So every standard and protocol names the one canon it comes from in
+// steps. So every standard and procedure names the one canon it comes from in
 // its header (`derived_from`, a relation STD-004 registers), and this module
 // builds the flow from that field and nothing else. No order, grouping or
 // summary is typed here: change a header and the page follows.
@@ -19,7 +19,7 @@
 // site's own player, is the episode: the canon whole, then each rule, then
 // each step.
 //
-// A standard or protocol with no canon THROWS. Dropping it silently would
+// A standard or procedure with no canon THROWS. Dropping it silently would
 // publish a flow that looks complete and is not.
 import fs from "node:fs";
 import path from "node:path";
@@ -45,7 +45,7 @@ export interface CoreCanon extends CoreDoc {
   href: string;
   slug: string;
   standards: CoreDoc[];
-  protocols: CoreDoc[];
+  procedures: CoreDoc[];
 }
 
 function field(head: string, name: string): string | undefined {
@@ -117,14 +117,14 @@ function load(folder: string, prefix: string) {
   });
 }
 
-/** Every canon in order, each with its standards and protocols. */
+/** Every canon in order, each with its standards and procedures. */
 export function coreFlow(): CoreCanon[] {
   const canons: CoreCanon[] = load("canon", "CAN-").map(({ doc, slug }) => ({
-    ...doc, slug, href: `/core/${slug}`, standards: [], protocols: [],
+    ...doc, slug, href: `/core/${slug}`, standards: [], procedures: [],
   }));
   const byId = new Map(canons.map((c) => [c.id, c]));
   const orphans: string[] = [];
-  for (const [folder, prefix, key] of [["standards", "STD-", "standards"], ["protocols", "PRO-", "protocols"]] as const) {
+  for (const [folder, prefix, key] of [["standards", "STD-", "standards"], ["procedures", "PRO-", "procedures"]] as const) {
     for (const { doc, anchor } of load(folder, prefix)) {
       const canon = anchor ? byId.get(anchor) : undefined;
       if (!canon) { orphans.push(`${doc.id} (derived_from: ${anchor ?? "none"})`); continue; }

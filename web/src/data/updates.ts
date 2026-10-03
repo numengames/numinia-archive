@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.139.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "CHG", text: "The series Protocols is now Procedures: the word the quality standards use for a specified way of carrying out an activity, where a protocol in software means rules for exchanging messages. Every document kept its identifier (PRO-NNN); the old addresses under /protocols lead to the new ones under /procedures." },
+    ],
+  },
+  {
     version: "v0.138.0",
     date: "2026-10-03",
     entries: [

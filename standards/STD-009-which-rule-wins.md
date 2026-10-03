@@ -5,9 +5,9 @@ title: "Which rule wins"
 type: standard
 subtype: standard
 status: draft
-version: "1.2.2"
+version: "1.2.3"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
@@ -57,7 +57,7 @@ the code, and a document that describes follows it.
 **The costlier document wins.** Between two documents, the one that needs
 more agreement to change MUST prevail. First come those only an Oracle may
 change, then those closed once finished, then those open to anyone. Among
-the first, the canon comes before standards and protocols, and they come
+the first, the canon comes before standards and procedures, and they come
 before the rest.
 
 **The later ruling wins.** At equal cost the later ruling MUST prevail, and

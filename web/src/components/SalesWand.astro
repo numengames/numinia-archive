@@ -16,7 +16,7 @@
 // marks, because a public page never carries them.
 import Icon from "@/components/Icon.astro";
 import type { Wand } from "@/lib/collateral";
-import { STAGE_PROTOCOL } from "@/lib/collateral";
+import { STAGE_PROCEDURE } from "@/lib/collateral";
 
 interface Props { wand: Wand }
 const { wand } = Astro.props;
@@ -109,7 +109,7 @@ const forNow = wand.pieces.filter((p) => p.stages.includes(wand.current)).length
 
     <p class="mt-5 text-xs text-dim">
       The register of pieces: <a href="/standards/std-047-the-sales-collateral" class="text-accent underline underline-offset-2">the sales collateral</a>.
-      What moves this sale on: <a href={STAGE_PROTOCOL[wand.current]?.href ?? "/playbook"} class="text-accent underline underline-offset-2">{STAGE_PROTOCOL[wand.current]?.title ?? "the sales playbook"}</a>.
+      What moves this sale on: <a href={STAGE_PROCEDURE[wand.current]?.href ?? "/playbook"} class="text-accent underline underline-offset-2">{STAGE_PROCEDURE[wand.current]?.title ?? "the sales playbook"}</a>.
       The whole process: <a href="/playbook" class="text-accent underline underline-offset-2">the sales playbook</a>.
     </p>
   </div>

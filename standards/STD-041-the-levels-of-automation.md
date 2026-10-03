@@ -5,9 +5,9 @@ title: "The levels of automation"
 type: standard
 subtype: register
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-29T12:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -43,7 +43,7 @@ SPDX-License-Identifier: CC0-1.0
 | `Partial` | the agent runs the steps of an approved task, and every flagged step waits | approve each step | at each flagged command | read, its own desk, local commits | almost everything the scanner flags |
 | `Conditional` | the bridge: the agent proposes a plan and, once approved, runs it whole; the person stays in command | approve plans and deliveries | once per pull request, before the push | local tools, the network, the token to read | before pushing; at any irreversible doubt |
 | `High` | the agent carries parts of its mission alone; the person reviews what was done, not what is about to be | review results | on the open pull request, at merge | push branches, open pull requests, run on a schedule | only the floor, speaking outwards, and what it cannot decide |
-| `Full` | the autonomous organisation: it runs on its own and the agents review one another. The goals remain the Oracles' and the floor does not move | set goals and keep the floor | on the goals and on the books | merge with another agent's review, speak outwards under protocol | only the floor |
+| `Full` | the autonomous organisation: it runs on its own and the agents review one another. The goals remain the Oracles' and the floor does not move | set goals and keep the floor | on the goals and on the books | merge with another agent's review, speak outwards under procedure | only the floor |
 
 At every level the goals are set from outside the agent: by the person, by
 the Oracles, by the organisation. That is what the outside scale calls

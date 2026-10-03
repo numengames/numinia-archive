@@ -3,11 +3,11 @@ agent: byblos
 title: "SOURCES — Byblos"
 type: agent
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -38,7 +38,7 @@ standards/STD-005-when-a-rule-bites.md — the operative standard of this reposi
 
 ## Procedures
 
-protocols/ — session close, briefing, archive procedures
+procedures/ — session close, briefing, archive procedures
 
 ## What is known to be wrong
 

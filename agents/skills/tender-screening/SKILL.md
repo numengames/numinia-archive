@@ -1,6 +1,6 @@
 ---
 name: tender-screening
-description: "Use when a public tender reaches you — a link, an aggregator's card, an alert. Run the screening protocol: bid, possible or decline, from the authority's own terms."
+description: "Use when a public tender reaches you — a link, an aggregator's card, an alert. Run the screening procedure: bid, possible or decline, from the authority's own terms."
 title: "SKILL — tender-screening"
 type: agent
 status: active
@@ -24,13 +24,13 @@ SPDX-License-Identifier: CC0-1.0
 # Screening a tender for Numen Games
 
 An adapter: it holds no steps of its own. The procedure is the archive's
-protocol **PRO-033 Screening a tender** (`protocols/PRO-033-screening-a-tender.md`);
+procedure **PRO-033 Screening a tender** (`procedures/PRO-033-screening-a-tender.md`);
 follow it step by step. Any agent on any model can be given this file with
 the tender's link or card.
 
 ## Read before you start
 
-1. `protocols/PRO-033-screening-a-tender.md` — the steps, from the file
+1. `procedures/PRO-033-screening-a-tender.md` — the steps, from the file
    number to the verdict, the record and the answer to the Oracle.
 2. `operations/OPS-018-the-house-card.md` — what calls usually ask, what
    the house holds, its turnover ceiling, what it does not make.
@@ -66,6 +66,6 @@ models". If the terms cannot be found, say so and stop.
 
 If the verdict is bid or possible, the record is written and the tool is
 green; if decline, nothing is recorded and the card holds the lesson. The
-Oracle has the answer in Spanish, in the form the protocol's last step
-gives. After bid or possible, the next protocol is
-`protocols/PRO-031-bidding-for-a-tender.md`.
+Oracle has the answer in Spanish, in the form the procedure's last step
+gives. After bid or possible, the next procedure is
+`procedures/PRO-031-bidding-for-a-tender.md`.

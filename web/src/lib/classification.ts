@@ -122,7 +122,7 @@ export interface Fn {
 const SERVED_AT: Record<string, { href: string | null; label?: string; unpublished?: string }> = {
   "canon/": { href: "/canon/" },
   "standards/": { href: "/standards/" },
-  "protocols/": { href: "/protocols/" },
+  "procedures/": { href: "/procedures/" },
   "decisions/": { href: "/decisions/" },
   "blueprints/": { href: "/blueprints/" },
   "missions/": { href: "/missions" },

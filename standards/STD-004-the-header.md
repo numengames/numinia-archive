@@ -5,11 +5,11 @@ title: "The header"
 type: standard
 subtype: standard
 status: active
-version: "4.13.0"
+version: "4.14.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 approved_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -170,7 +170,7 @@ standards; those rule IDs are deprecated there.
 | Relation | Means |
 |---|---|
 | `related` | relevant; no stronger direction known |
-| `derived_from` | on a standard or protocol: the one canon it makes concrete or carries out; `/core` is built from it |
+| `derived_from` | on a standard or procedure: the one canon it makes concrete or carries out; `/core` is built from it |
 | `supersedes` / `superseded_by` | a later record replaces an earlier one |
 | `absorbs` | a later record carries the earlier reasoning; the old identifier keeps resolving |
 | `approved_by` | an authority promoted or confirmed the record (document control's *approval*, ISO 9001 7.5.2) |
@@ -217,9 +217,9 @@ where the industry's name is the better one.
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `blueprints/` `operations/` `legal/` | `extraction_note` `restoration_note` |
 | `operations/` | `goods` — an offer's cards on sale, which the site reads its prices from (`STD-033` PAY-003) |
-| `protocols/` | `applies_to` `mandatory` |
+| `procedures/` | `applies_to` `mandatory` |
 | `system/` | `category` `stage` `confidence` (a card of the semantic census, an entry of `SYS-011`) · `category` (a supplier card, an entry of `SYS-012`) |
-| `standards/` `canon/` `protocols/` | `supersedes_version` `approved_by` |
+| `standards/` `canon/` `procedures/` | `supersedes_version` `approved_by` |
 | `opportunities/` | the record: `kind` `organisation` `sector` `source` `value` `currency` `pays` `contact_role` `contact_channel` `opened` · written when due: `offer` `advance` `proposal` `agreement` `decider_role` `disclosure` `follows` `gives_back` · a tender or a grant: `call` `closes` `read_from` · a tender: `procedure` `file_ref` `object` `turnover_asked` `works_asked` `starts` · a grant: `instrument` `opens` `estimated` · the proposal: `opportunity` `date` `valid_until` `level` `price` `tax_rate` — their values are judged by the pipeline tool (`STD-039`, `STD-040`); the stage, the next step and the chance are computed from the record's timeline, never written in the header |
 | all | `tags` `visibility` `guild` `section` · `registration` `registration_reason` `registration_exemption` · `evidence_script` `evidence_head` · `related` · `uid` (reserved empty, HDR-020) |
 

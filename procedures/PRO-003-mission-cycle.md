@@ -2,17 +2,17 @@
 id: "PRO-003"
 uid: ""
 title: "Running a mission"
-type: protocol
+type: procedure
 status: draft
-version: "5.0.5"
+version: "5.0.6"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Operations"
-tags: [protocol, missions, cycle, briefing, coordination]
+tags: [procedure, missions, cycle, briefing, coordination]
 applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
@@ -107,7 +107,7 @@ second renumbers and fixes its own references.
 
 | Document | Title | Why it obliges here |
 |---|---|---|
-| `STD-025` | A mission is a card | the artefact this protocol executes |
+| `STD-025` | A mission is a card | the artefact this procedure executes |
 | `STD-018` | Identity | `IDN-015`: first commit keeps the number |
 | `PRO-005` | Escalating to the Oracle | blockers, contradictions, conflicts |
 | `PRO-008` | Requesting approval, issuing rulings | the review request is scored |

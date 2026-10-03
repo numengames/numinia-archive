@@ -2,15 +2,15 @@
 id: "PRO-015"
 uid: ""
 title: "Joining Numinia"
-type: protocol
+type: procedure
 status: draft
-version: "2.0.1"
+version: "2.0.2"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
-tags: [protocol, onboarding, people, lifecycle]
+tags: [procedure, onboarding, people, lifecycle]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
 related: ["PRO-024", "PRO-019", "CAN-004", "STD-035", "STD-022"]
@@ -39,7 +39,7 @@ SPDX-License-Identifier: CC0-1.0
 
 A person who comes in without a signed agreement, or with access nobody
 wrote down, is a risk the day they leave. A person who comes in with access
-and no welcome is a worker, not a citizen. This protocol does both halves
+and no welcome is a worker, not a citizen. This procedure does both halves
 once, in order.
 
 It starts when the Oracle agrees with a person that they will work with

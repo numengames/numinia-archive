@@ -2,16 +2,16 @@
 id: "PRO-029"
 uid: ""
 title: "Making a proposal"
-type: protocol
+type: procedure
 status: draft
-version: "0.4.2"
+version: "0.4.3"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
-tags: [protocol, sales, proposal, needs-analysis, learning-services]
+tags: [procedure, sales, proposal, needs-analysis, learning-services]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-040", "STD-039", "STD-038", "PRO-028", "PRO-030", "CAN-011"]
@@ -44,7 +44,7 @@ A proposal written from a first conversation promises what nobody heard,
 and one that says how the client will feel instead of what they will be
 able to check is a brochure. The international standard for learning
 services asks the provider to understand the request before writing, and
-lists what a proposal contains; this protocol walks those steps in order.
+lists what a proposal contains; this procedure walks those steps in order.
 
 It starts when a sale reaches `qualified`. **Whoever sells** hears
 the need and owns the proposal; **the specialist** the offer calls for —

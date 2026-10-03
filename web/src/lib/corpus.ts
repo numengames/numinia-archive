@@ -73,13 +73,13 @@ export async function getPublicCorpus(): Promise<Entry[]> {
 // last. The order is not invented here — it is the change-threshold table in
 // S-001 §2.1, which is the only place the archive ranks its own series:
 //
-//   governed  canon/ · decisions/ · standards/ · protocols/  an ADR, or an approved PR
+//   governed  canon/ · decisions/ · standards/ · procedures/  an ADR, or an approved PR
 //             (canon first: STD-009 PRE-003, nothing is sealed since 2026-09-09)
 //   open      blueprints/ · debt/                 a normal PR
 //
 // Inside `governed` the tie is broken by which one can change which: an ADR
-// changes a standard, a standard defines what a protocol must satisfy, a
-// protocol says how it is carried out. Nothing under `open` binds anything —
+// changes a standard, a standard defines what a procedure must satisfy, a
+// procedure says how it is carried out. Nothing under `open` binds anything —
 // blueprints propose and debt confesses.
 //
 // A section is a TOP-LEVEL FOLDER of the corpus that holds documents a reader
@@ -113,7 +113,7 @@ export interface SeriesPage {
   epistemic: string;
   pragmatic: string;
   /**
-   * True for the three series that OBLIGE — canon, standards, protocols.
+   * True for the three series that OBLIGE — canon, standards, procedures.
    *
    * The line between them (`STD-024` SER-001 and SER-002) decides whether a
    * sentence in this archive can put a reader in breach, and it cannot be
@@ -177,7 +177,7 @@ export const SERIES: SeriesPage[] = [
     pragmatic: "Check any artifact against a numbered rule, and know whether it passes without asking a person.",
     axis: true,
   },
-  { prefix: "protocols/",  slug: "protocols",  label: "Protocols",  collection: "corpus",
+  { prefix: "procedures/",  slug: "procedures",  label: "Procedures",  collection: "corpus",
     question: "What steps do I follow, in order, so this job comes out the same way twice?",
     blurb: "The steps an actor follows, in order, so the same job comes out the same way twice.",
     epistemic: "Which situations recur often enough to be worth writing down, and what each one costs when improvised.",
@@ -600,38 +600,38 @@ const READING_ORDER: Record<string, string[]> = {
   // One working day, in order: you sit down → you take a mission → you need a
   // ruling → it is stuck, you escalate → you file the result → you audit what
   // you built → you hand the check to CI so nobody has to remember it.
-  protocols: [
-    "/protocols/pro-001-agent-session",
-    "/protocols/pro-003-mission-cycle",
-    "/protocols/pro-008-decision",
-    "/protocols/pro-005-escalation",
-    "/protocols/pro-011-security-audit",
+  procedures: [
+    "/procedures/pro-001-agent-session",
+    "/procedures/pro-003-mission-cycle",
+    "/procedures/pro-008-decision",
+    "/procedures/pro-005-escalation",
+    "/procedures/pro-011-security-audit",
     // 2026-10-02: the second audit reads the site's own code — routes,
     // headers, cookies, workflows, dependencies.
-    "/protocols/pro-034-auditing-a-sites-code",
-    "/protocols/pro-013-handing-a-guard-to-ci",
-    "/protocols/pro-018-publishing-a-repository",
+    "/procedures/pro-034-auditing-a-sites-code",
+    "/procedures/pro-013-handing-a-guard-to-ci",
+    "/procedures/pro-018-publishing-a-repository",
     // 2026-09-27: a draft becomes binding — after publishing, before the
     // pieces that are built under the rules.
-    "/protocols/pro-023-bringing-a-rule-into-force",
+    "/procedures/pro-023-bringing-a-rule-into-force",
     // 2026-09-26: how the sky, the Veil and the reading player are built.
-    "/protocols/pro-022-building-the-living-pieces",
+    "/procedures/pro-022-building-the-living-pieces",
     // 2026-09-24 (ADR-065): money, last — something goes on sale, then the
     // month closes on what it brought in.
-    "/protocols/pro-020-putting-something-on-sale",
+    "/procedures/pro-020-putting-something-on-sale",
     // 2026-10-02: before any record — a watch finds, the Oracle decides.
-    "/protocols/pro-035-watching-for-opportunities",
+    "/procedures/pro-035-watching-for-opportunities",
     // 2026-09-28: a sale to an organisation, in its three moments — a sign
     // of interest is qualified, a proposal is made, the sale is closed and
     // handed over — before the month closes on what it brought in.
-    "/protocols/pro-028-qualifying-an-opportunity",
-    "/protocols/pro-029-making-a-proposal",
-    "/protocols/pro-030-closing-a-sale",
+    "/procedures/pro-028-qualifying-an-opportunity",
+    "/procedures/pro-029-making-a-proposal",
+    "/procedures/pro-030-closing-a-sale",
     // 2026-10-01: the two doors to public money — a tender, then a grant.
-    "/protocols/pro-033-screening-a-tender",
-    "/protocols/pro-031-bidding-for-a-tender",
-    "/protocols/pro-032-applying-for-a-grant",
-    "/protocols/pro-021-closing-the-month",
+    "/procedures/pro-033-screening-a-tender",
+    "/procedures/pro-031-bidding-for-a-tender",
+    "/procedures/pro-032-applying-for-a-grant",
+    "/procedures/pro-021-closing-the-month",
   ],
 
   // Five manuals, read outside in: what the system is, for someone who has
@@ -780,7 +780,7 @@ export const READING_NOTE: Record<string, string> = {
   canon: "Four shelves, in the order a stranger needs them: where you are, who is here, how anything gets done, and — last, once you have walked the city — why it works.",
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
   standards: "Five shelves, from the person to the ground: living together, writing it down, showing it, what leaves the house, and what makes it last. Under each title, the one question that standard answers.",
-  protocols: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
+  procedures: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
   blueprints: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
   system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the tooling that checks those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",

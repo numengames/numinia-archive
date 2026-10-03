@@ -2,16 +2,16 @@
 id: "PRO-030"
 uid: ""
 title: "Closing a sale"
-type: protocol
+type: procedure
 status: draft
-version: "0.4.1"
+version: "0.4.2"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
-tags: [protocol, sales, follow-up, agreement, handover, win-loss, timeline]
+tags: [procedure, sales, follow-up, agreement, handover, win-loss, timeline]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-038", "STD-039", "STD-036", "LEG-002", "PRO-029", "PRO-031", "PRO-021"]
@@ -43,7 +43,7 @@ Numen Games' or Numinia's name.
 
 A proposal sent and then forgotten is the commonest way the house loses. A
 signature on a scope nobody fixed is the second. And a sale closed without a
-sentence on why teaches the next one nothing. This protocol closes all
+sentence on why teaches the next one nothing. This procedure closes all
 three.
 
 It starts when a sale reaches `proposed`. **Whoever sells** follows up and
@@ -91,7 +91,7 @@ at step 3 (`PRO-031`).
    agreement's path and the value confirmed; its `next` line goes. For a
    tender, the agreement is the contract the authority formalises.
 6. **Hand over.** To whoever builds: the record's Need, the map, the scope
-   and the calendar — the protocol for building starts there. To whoever
+   and the calendar — the procedure for building starts there. To whoever
    keeps the ledger: the value, the invoicing dates and the agreement, so
    the month closes on it (`PRO-021`).
 7. **Learn.** Won or lost, in the record's body: what the client asked that

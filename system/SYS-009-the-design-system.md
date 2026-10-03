@@ -5,9 +5,9 @@ title: "The Numinia Design System"
 type: documentation
 subtype: reference
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -78,7 +78,7 @@ accessibility standard, which every row here serves.
 | Languages | Play | `lore/adventures/tabletop/TEMPLATE.md` | Read alongside: the template of an adventure module |
 | Languages | Play | `lore/codex/hoja-de-personaje.md` | Read alongside: the character sheet |
 | Languages | Play | — | Not written yet: how a mission, a character or a place is designed as ours |
-| Recipes | Any piece | `protocols/PRO-014-producing-a-design-piece.md` | The order in which a piece's decisions are taken |
+| Recipes | Any piece | `procedures/PRO-014-producing-a-design-piece.md` | The order in which a piece's decisions are taken |
 | Recipes | Web | `blueprints/BLU-009-web-pieces.md` | A web page, a product screen, every component |
 | Recipes | Pixel | `blueprints/BLU-010-pixel-register.md` | A sprite, a scene, a HUD |
 | Recipes | Book and Veil | `blueprints/BLU-011-book-and-veil.md` | The codex, the archive, the atmosphere |

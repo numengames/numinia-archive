@@ -4,7 +4,7 @@
 //
 // std-007-one-page.test.mjs — DOC-003: the documents that must declare scope.
 //
-// STD-007 asks every standard and protocol to open with a `**Binds:**` line,
+// STD-007 asks every standard and procedure to open with a `**Binds:**` line,
 // and exempts two kinds:
 //
 //   subtype: register — a lookup table (the header fields, the licence
@@ -14,7 +14,7 @@
 //     are, and a reason binds everyone who leans on it.
 //
 // What the guard does NOT do is fail: DOC-003 is a SHOULD, reported under
-// "measured, not judged". So a plain protocol could lose its scope line and
+// "measured, not judged". So a plain procedure could lose its scope line and
 // only a human reading the guard's output would notice.
 //
 // This test is the judgement the guard withholds. It asserts the exemptions
@@ -29,7 +29,7 @@ import path from 'node:path';
 import { ROOT, parseFM } from '../../scripts/lib/frontmatter.mjs';
 import { run } from '../rules/std-007-one-page.mjs';
 
-const docs = execFileSync('git', ['-C', ROOT, 'ls-files', 'standards/*.md', 'protocols/*.md'], { encoding: 'utf8' })
+const docs = execFileSync('git', ['-C', ROOT, 'ls-files', 'standards/*.md', 'procedures/*.md'], { encoding: 'utf8' })
   .split('\n').filter(Boolean)
   .map((file) => {
     const text = readFileSync(path.join(ROOT, file), 'utf8');
@@ -37,11 +37,11 @@ const docs = execFileSync('git', ['-C', ROOT, 'ls-files', 'standards/*.md', 'pro
   });
 
 test('the fixture is what this test thinks it is', () => {
-  assert.ok(docs.length >= 30, `only ${docs.length} standards and protocols found`);
+  assert.ok(docs.length >= 30, `only ${docs.length} standards and procedures found`);
   assert.ok(docs.some((d) => d.fm.subtype === 'register'), 'no register in the corpus: the exemption is untested');
 });
 
-test('every standard and protocol that is not a register declares whom it binds', () => {
+test('every standard and procedure that is not a register declares whom it binds', () => {
   const missing = docs
     .filter((d) => d.fm.subtype !== 'register' && !d.text.includes('**Binds:**'))
     .map((d) => `${d.fm.id ?? d.file} (${d.file})`);
@@ -115,15 +115,15 @@ test('DOC-004: no plate in either place is still a finding', () => {
   assert.equal(findings(text, 'DOC-004').length, 1);
 });
 
-test('DOC-004: a protocol is numbered steps and needs no plate', () => {
+test('DOC-004: a procedure is numbered steps and needs no plate', () => {
   const pro = [
-    '---', 'id: "PRO-900"', 'type: protocol', 'status: draft', '---', '',
+    '---', 'id: "PRO-900"', 'type: procedure', 'status: draft', '---', '',
     '# Doing a thing', '',
     '> **Summary:** s.', '> **Epistemic:** What must be true first?', '> **Pragmatic:** p.', '',
     '**Binds:** whoever does the thing.', '',
     '## 1. Procedure', '', '1. **Do it.** The command.', '',
   ].join('\n');
-  const f = run(scratch({ 'protocols/PRO-900-doing-a-thing.md': pro })).filter((x) => x.plate === 'DOC-004');
+  const f = run(scratch({ 'procedures/PRO-900-doing-a-thing.md': pro })).filter((x) => x.plate === 'DOC-004');
   assert.deepEqual(f, []);
 });
 

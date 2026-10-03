@@ -5,9 +5,9 @@ uid: ""
 type: standard
 subtype: register
 status: active
-version: "5.12.0"
+version: "5.13.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -42,7 +42,7 @@ SPDX-License-Identifier: CC0-1.0
 |---|---|---|---|---|---|
 | `canon/` | what the system **is**: foundational, not operating policy | `CAN-NNN` | `governed` | 1500 | `CAN-TEMPLATE.md` |
 | `standards/` | what an **artifact** must comply with, each requirement answered yes or no; a register fixes the values or terms a norm cites | `STD-NNN` | `governed` | 500 (norm) · none (register) | `STD-TEMPLATE.md` |
-| `protocols/` | what an **actor** executes in a repeated situation | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
+| `procedures/` | what an **actor** executes in a repeated situation (`protocols/` until 2026-10-03, `ADR-067`) | `PRO-NNN` | `governed` | 500 | `PRO-TEMPLATE.md` |
 | `decisions/` | why something was chosen; withdrawn by the next | `ADR-NNN` · `DEC-NNN` | `governed` | 500 | `ADR-TEMPLATE.md` |
 | `missions/` | the work; state lives in `status:`, never in the path | `MIS-NNNN` | `closed` when `done` | 500 | `MIS-TEMPLATE.md` |
 | `reports/` | what was observed on a date; `reports/evidence/` is never edited | `RPT-NNN` · `RPT-YYYY-MM-DD` (`daily`, deprecated) | `closed` | 1000 | `RPT-TEMPLATE.md` |
@@ -61,7 +61,7 @@ SPDX-License-Identifier: CC0-1.0
 | `machine/telemetry/` | the figures the repository states about itself, measured, never typed | — | — | — | — |
 | `machine/templates/` | the templates, one per series | — | — | — | — |
 
-The canon, the standards and the protocols are the **normative documents**
+The canon, the standards and the procedures are the **normative documents**
 (the *axis* until 2026-10-03): the documents that bind. The rest are
 **registers**. A budget is the number of words a body may hold, counted as
 the one-page standard counts them. The approval level — what a change to a
@@ -85,7 +85,7 @@ system, and it belongs to everyone.
 | `seminal` | `canon/` | yes |
 | `standard` (`subtype: standard` · `register`) | `standards/` | yes |
 | `documentation` (`subtype: guide` · `reference` · `register`) | the series it explains | no |
-| `protocol` | `protocols/` | yes |
+| `procedure` | `procedures/` | yes |
 | `mission` | `missions/` | yes |
 | `adr` | `decisions/` | yes |
 | `blueprint` | `blueprints/` | yes |

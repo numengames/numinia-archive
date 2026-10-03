@@ -70,7 +70,7 @@ export const REPO_URL = "https://github.com/numengames/numinia-archive";
 // the list loses its link silently — opportunities/, legal/, lore/ and
 // objects/ published for weeks with no way back to GitHub.
 const REPO_DIRS =
-  "agents|blueprints|canon|debt|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|protocols|reports|standards|system|web";
+  "agents|blueprints|canon|debt|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|procedures|reports|standards|system|web";
 
 export function repoFileUrl(filePath: string, branch = "main"): string | null {
   const rel = String(filePath).replace(/\\/g, "/");

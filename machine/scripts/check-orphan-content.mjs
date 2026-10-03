@@ -65,7 +65,7 @@ const ALLOWED = new Map([
 
 // A public/ file whose basename also exists in the corpus is worse than an
 // orphan: it is a SECOND COPY on a divergent path. Report it as such.
-const CORPUS_DIRS = ["canon", "missions", "decisions", "protocols", "operations",
+const CORPUS_DIRS = ["canon", "missions", "decisions", "procedures", "operations",
                      "reports", "blueprints", "agents", "guilds", "standards", "debt"];
 
 // Assets are not orphan *content*: they carry no prose and make no claims.

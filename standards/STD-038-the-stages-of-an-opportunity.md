@@ -5,9 +5,9 @@ title: "The stages of an opportunity"
 type: standard
 subtype: register
 status: draft
-version: "0.9.2"
+version: "0.9.3"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -247,7 +247,7 @@ call, and what could fall is the Oracle's to drop.
 ## Weighing a tender
 
 What makes a tender that survives the criteria worth the dossier, read from
-its terms. The screening protocol scores each row; a tender mostly in the
+its terms. The screening procedure scores each row; a tender mostly in the
 last column is declined unless the Oracle says otherwise.
 
 | What | Good | Fair | Poor |
