@@ -632,7 +632,7 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 9026,
+  "chars": 9030,
   "apparatus": false,
   "archived": false,
   "tokens": 2289
@@ -3184,7 +3184,7 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 69195,
+  "chars": 69197,
   "apparatus": false,
   "archived": false,
   "tokens": 16870
