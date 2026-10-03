@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18557,
+  "chars": 18802,
   "apparatus": false,
   "archived": false,
-  "tokens": 4613
+  "tokens": 4678
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 28933,
+  "chars": 29134,
   "apparatus": false,
   "archived": false,
-  "tokens": 8146
+  "tokens": 8208
  },
  {
   "path": "CLAUDE.md",
@@ -764,10 +764,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 6305,
+  "chars": 7081,
   "apparatus": false,
   "archived": false,
-  "tokens": 1538
+  "tokens": 1719
  },
  {
   "path": "canon/CAN-004-role-structure.md",
@@ -841,10 +841,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 4817,
+  "chars": 4823,
   "apparatus": false,
   "archived": false,
-  "tokens": 1222
+  "tokens": 1225
  },
  {
   "path": "canon/CAN-011-value-makes-a-bond.md",
@@ -867,6 +867,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1366
+ },
+ {
+  "path": "canon/CAN-013-a-magician-who-keeps-hope.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "draft",
+  "chars": 4784,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1234
+ },
+ {
+  "path": "canon/CAN-014-friends-who-play-build-and-learn.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "draft",
+  "chars": 2709,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 723
  },
  {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
@@ -2040,10 +2062,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5608,
+  "chars": 5524,
   "apparatus": false,
   "archived": false,
-  "tokens": 1293
+  "tokens": 1281
  },
  {
   "path": "operations/OPS-012-training-the-offer.md",
@@ -2110,6 +2132,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3962
+ },
+ {
+  "path": "operations/OPS-020-the-strategy.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 3869,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 964
  },
  {
   "path": "opportunities/OPP-2026-001.md",
