@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-03
 
+- **Added** The Lexicon at /lexicon: the operative vocabulary as a book, A to Z, one page per letter, with a back-to-top button (#627) (site v0.132.0)
 - **Changed** The operative vocabulary grows from 25 to 158 terms, A to Z: one definition per word, written once, the source the Lexicon book will read (#626)
 
 ### 2026-10-02

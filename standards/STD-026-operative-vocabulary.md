@@ -71,8 +71,8 @@ vocabulary. Sources are left out on purpose until the archive settles.
 | **Board** *(body)* | The group that governs the organisation and to which its reports are addressed. | A report is written for whoever governs, not for whoever did the work. | Writing a weekly, quarterly or annual report anyone could govern from. | Weekly strategy · Council · Dark Council<br>Also: council. |
 | **Bond** *(relation)* | The tie that paying makes between a person and the city, remembered as the person chooses. | Paying buys something named, and leaves a memory the payer controls. | Being remembered by name, by no name, with what you gave or without it. |  |
 | **Book** *(view)* | A long reading made by gathering many small documents of the archive, which writes nothing of its own. | The book is a way to read the archive whole, not a second copy of it. | Understanding a whole field in one sitting; change a document and the book changes. |  |
-| **Brand** *(asset)* | The name of the house and its marks: the one thing nobody else may be. | Everything else may be opened; the name is never opened. | Using the catalogue freely without passing yourself off as Numen Games. |  |
 | **Branch** *(line of work)* | A separate line of changes in a repository, kept apart from the main line until merged. | Work in progress does not touch what is published. | Several people and agents working at once without stepping on each other. |  |
+| **Brand** *(asset)* | The name of the house and its marks: the one thing nobody else may be. | Everything else may be opened; the name is never opened. | Using the catalogue freely without passing yourself off as Numen Games. |  |
 | **Build** *(act)* | The automatic step that turns the archive's files into the sites and packages people use. | A site is made from the text, not edited by hand. | A failing build stops a broken change before anyone sees it. |  |
 
 ## C
@@ -185,8 +185,8 @@ vocabulary. Sources are left out on purpose until the archive settles.
 
 | Term | What it is | What it clears up | What it enables here | At the three levels · also |
 |---|---|---|---|---|
-| **NFT** *(token)* | An entry on a blockchain that says one particular digital object belongs to one wallet. | What is scarce is not the file, which copies, but the title over it. | The intended way for loot and season rewards to be real possessions. |  |
 | **Narrative dial** *(setting)* | How much of the world's vocabulary an organisation takes on, from plain business to full Numinia. | The vocabulary changes; the system underneath stays the same. | Offering the same system to a bank and to a game studio. |  |
+| **NFT** *(token)* | An entry on a blockchain that says one particular digital object belongs to one wallet. | What is scarce is not the file, which copies, but the title over it. | The intended way for loot and season rewards to be real possessions. |  |
 | **Numen Games** *(company)* | The company, Numen Games S.L., that makes Numinia and runs on it. | Numen Games is who signs and invoices; Numinia is how it works. | Knowing which name goes on a contract and which on a story. |  |
 | **Numinia** *(world)* | The way Numen Games works, told as a city that anyone can walk into. | You do not learn it by being briefed; you learn it by walking in. | Using the city's words when they help, and the plain ones when they do not. | The organisation · The city · Numinia |
 | **NWOS** *(product)* | The Narrative Work Operating System: the archive, its agents and its narrative layer, offered to other organisations. | A work system first; the story is an optional layer on top. | An organisation adopts files, versions, agents and people, and adds narrative if it wants. | Work operating system · Narrative Work OS · Narrative Work OS |

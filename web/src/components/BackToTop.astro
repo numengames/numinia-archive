@@ -1,0 +1,32 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// Back to the top, for the books (the Oracle, 3 October 2026): once the
+// reader has scrolled two screens down, a button takes them back to the
+// head of the page, so a long book never becomes an endless scroll. It sits
+// above the compass (Wayfinder.astro, bottom right). Hidden until then;
+// keyboard-reachable; no motion when the reader asks for none.
+---
+
+<button
+  type="button"
+  data-back-to-top
+  hidden
+  aria-label="Back to the top"
+  class="fixed bottom-28 right-4 z-40 rounded-full border border-border bg-card px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-foreground shadow-md hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent"
+>↑ Top</button>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>("[data-back-to-top]");
+  if (btn) {
+    const update = () => { btn.hidden = window.scrollY < window.innerHeight * 2; };
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    btn.addEventListener("click", () => {
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      document.querySelector<HTMLElement>("h1")?.focus({ preventScroll: true });
+    });
+  }
+</script>

@@ -1,0 +1,30 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The A–Z bar of the Lexicon: every letter of the alphabet, a link where the
+// register has words under it, a dim letter where it has none. The current
+// letter is marked for the eye and for screen readers.
+import { lexicon, LEXICON_ALPHABET } from "@/lib/lexicon";
+interface Props { current?: string }
+const { current } = Astro.props;
+const have = new Set(lexicon().map((l) => l.letter));
+---
+
+<nav aria-label="Letters" class="mb-8 border-b border-border py-2">
+  <ol class="flex flex-wrap gap-1 font-mono text-sm">
+    {LEXICON_ALPHABET.map((L) => (
+      <li>
+        {have.has(L) ? (
+          <a
+            href={`/lexicon/${L.toLowerCase()}`}
+            aria-current={current === L ? "page" : undefined}
+            class:list={["inline-block w-7 rounded-[6px] py-1 text-center", current === L ? "bg-accent text-background" : "text-foreground hover:text-accent"]}
+          >{L}</a>
+        ) : (
+          <span class="inline-block w-7 py-1 text-center text-dim" aria-hidden="true">{L}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

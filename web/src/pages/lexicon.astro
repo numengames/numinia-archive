@@ -1,0 +1,56 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /lexicon — the cover of the Lexicon, the business glossary as a book (the
+// Oracle, 3 October 2026): what it is, the A–Z bar, and every word as an
+// index, each linking to its letter's page. The words are read from STD-026
+// (web/src/lib/lexicon.ts); nothing here is typed but the frame.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import LexiconBar from "@/components/LexiconBar.astro";
+import BackToTop from "@/components/BackToTop.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { lexicon, LEXICON_HREF } from "@/lib/lexicon";
+
+const letters = lexicon();
+const count = letters.reduce((n, l) => n + l.terms.length, 0);
+const enlace = "text-accent underline underline-offset-2";
+---
+
+<Layout
+  title="The Lexicon — the words Numen Games works with"
+  description={`The ${count} words Numen Games works with, A to Z: what each one is, what it clears up and what it lets you do.`}
+  canonicalPath="/lexicon"
+>
+  <PageHero
+    label="The Lexicon"
+    title="The words we work with"
+    description={`${count} words, A to Z. Each says what it is, what it clears up and what it lets you do here, and how it is said at each narrative level.`}
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="mb-6"><DocToolbar mdUrl="/lexicon.md" filename="lexicon.md" lang="en" /></div>
+      <LexiconBar />
+      <p class="mb-10 text-sm leading-relaxed text-muted-foreground">
+        Every definition is written once, in <a href={LEXICON_HREF} class={enlace}>the operative vocabulary</a>; this book reads it.
+        Other documents use the word and do not define it again. The game's own words live in the game's glossary.
+      </p>
+
+      <div class="columns-2 gap-8 sm:columns-3">
+        {letters.map((l) => (
+          <section data-letter={l.letter} class="mb-6 break-inside-avoid">
+            <h2 class="mb-1 font-mono text-sm text-accent"><a href={`/lexicon/${l.slug}`}>{l.letter}</a></h2>
+            <ul class="space-y-0.5 text-sm">
+              {l.terms.map((t) => (
+                <li><a href={`/lexicon/${l.slug}#${t.slug}`} class="text-foreground hover:text-accent">{t.term}</a></li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+    </div>
+  </section>
+  <BackToTop />
+</Layout>

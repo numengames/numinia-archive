@@ -81,6 +81,7 @@ const STANDALONE = new Set([
   '/telemetry',   // the measured figures
   '/agent',       // the roster's detail view
   '/binding',     // what is in force while the rules are draft — the regime, from AGENTS.md
+  '/lexicon',     // the Lexicon, a book: the operative vocabulary A to Z, one page per letter (STD-026)
   '/playbook',    // the sales playbook, a book: a sale's stages, protocols and collateral (STD-038, STD-047)
   '/automation',  // what an agent may do without asking, level by level — a view over STD-017, PRO-008, PRO-016 and the OPERATOR files
   // 2026-09-21: /wardley /gaps /cao /continuity /language /sales /simulations
