@@ -4,11 +4,11 @@ uid: ""
 title: "The model needs a story"
 type: seminal
 status: draft
-version: "2.0.3"
+version: "2.1.0"
 created: "2026-04-15T16:25:05Z"
 created_source: "git:89404d7"
 created_confidence: exact
-updated: "2026-09-27T11:00:00+02:00"
+updated: "2026-10-03T19:00:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -62,7 +62,7 @@ In any case, it must be understood that, although they are three distinguishable
 
 Thus, the Operating System of Numen Games consists of the co-implication between a Germinal Motive as an abstract conceptual core, its Narrative Projection as a physical manifestation, and a Regulatory Structure that can be interpreted both as a prior condition (a priori form) and as emerging (a posteriori form), without it being necessary for this ambivalence to be definitively resolved in order for it to operate as a condition of possibility and constitute the structural reference of the project from the very moment of its emergence.
 
-Numen Games seeks to build this Operating System on well-founded epistemological and ontological bases. To this end, principles of Systems Thinking and Active Inference are studied, as well as disciplines related to thought and logos, such as Semantics, Semiotics, Hermeneutics, Linguistics, Psychology, or Philosophy, for their application in the construction of the complex structure that is the model.
+Numen Games seeks to build this Operating System on well-founded epistemological and ontological bases. To this end, principles of Systems Thinking and of Active Inference and the Free Energy Principle behind it are studied, as well as disciplines related to thought and logos, such as Semantics, Semiotics, Hermeneutics, Linguistics, Psychology, Anthropology, or Philosophy, for their application in the construction of the complex structure that is the model.
 
 To consolidate this idea, we will turn to the analogous behavior of symbolic registers in a semiotic analysis, which helps us understand the relationship between the three elements. Charles Peirce’s semiotic model is ideal for this, since its tendency to structure semiotic analysis into trichotomies aligns with the Borromean knot of three elements that constitutes the principle of relationship between Numen Games and Numinia.
 
@@ -82,6 +82,6 @@ And now we can establish the analogy with the scheme that synthesizes the relati
 
 And this explains the order followed by the scheme, from an origin idea, the Germinal Motive (vision of an internal representation, in pragmatic terms), to a terminal idea, the Narrative Projection (expression of an external representation), passing through a referent, the Regulatory Model, which provides a dimension of meaning to the scheme.
 
-We can now specify that Numinia is the paradigmatic and prototypical example of this Narrative Projection, with a literary foundation that combines elements from the early 20th century (1900–1920) and the early 21st century (2000–2020), drawing an analogy between the social, scientific, and technological phenomena of one era and another. From this perspective, the literary creation of Numinia incorporates elements of science fiction and fantasy, as well as influences from cultures such as steampunk and cyberpunk. The intention is that this literary and dimensioned framework, as a Narrative Projection, covers the needs of the Regulatory and organizational Model, in the same way that the latter covers the needs of the Germinal Motive. Therefore, the literary framework must be meticulously aligned with all the elements of the complex system it encompasses.
+We can now specify that Numinia is the paradigmatic and prototypical example of this Narrative Projection, with a literary foundation that combines elements from the early 20th century (1900–1920) and the early 21st century (2000–2020), drawing an analogy between the social, scientific, and technological phenomena of one era and another. From this perspective, the literary creation of Numinia incorporates elements of science fiction and fantasy, as well as influences from cultures such as steampunk and cyberpunk, all of it held within the philosophy and mythology of the Mediterranean — Greek, Egyptian and Latin — where the city's symbols come from. The intention is that this literary and dimensioned framework, as a Narrative Projection, covers the needs of the Regulatory and organizational Model, in the same way that the latter covers the needs of the Germinal Motive. Therefore, the literary framework must be meticulously aligned with all the elements of the complex system it encompasses.
 
 And the purpose of this Narrative Projection of the Regulatory Model is for the Germinal Motive to become much more accessible and expansive through narrative and gameplay experience. Numen Games understands that if play is the basic principle of learning, and fiction (myth) constitutes the path to becoming aware of archetypal ideas, any executable task acquires dimension through the gameplay experience. Education, efficiency, and multiplicity sustain this Narrative Projection. Therefore, the function is not directly (or primarily) playful, but formative, educational, and operational; the fact that the gameplay experience is projected, by its nature, into a narrative experience more clearly constitutes its raison d’être and the teleological and axiological principles of its essentiality. Consciousness turns toward play, toward narrative, to learn, develop, expand, recognize itself, and realize itself.

@@ -5,9 +5,9 @@ title: "Positioning and market"
 type: documentation
 subtype: register
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-10-03T16:00:00+02:00"
+updated: "2026-10-03T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -60,6 +60,9 @@ adventure they embark on rather than a place they go.
 |---|---|---|
 | 18–45, worldwide, metaverse-adjacent | Art, games, humanism, technology, governance, public domain, human relationships | Joy, play, learning, curiosity, life balance, artistic expression, personal improvement |
 
+**The ideal customer** is a gamer with an organisation: someone who loves
+the metaverse and digital goods, and is tired of the old incentive systems.
+
 The ranked buyer profiles, their pain, their buying signals and the sales
 messages for each decision-maker are in the sales record; the adoption and
 business-model risks are in the solutions record.
@@ -85,6 +88,10 @@ educational resources · decentralised technologies · legal by design ·
 interactive learning · play · fun · immersive · engaging.
 
 **Verbs.** Fosters · provokes · teaches.
+
+**Concepts we want to be associated with.** Metaverse · role-playing games ·
+digital goods · data sovereignty · active inference · AI · mixed reality ·
+incentive system · levelling up · art · public domain.
 
 **What we are, for whom.** Games, education and an organisational incentive
 system, for people in organisations and on the metaverse: technology pioneers,

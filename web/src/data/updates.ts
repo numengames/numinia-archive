@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.134.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "ADD", text: "A canon among The citizens, in draft: 'We recognise the act; we never buy the game'. Why and how Numinia rewards anyone, in six tests: relations first, autonomy and competence and bonds, recognition after the act and never a prize to play, what you earn is yours, cathedrals not prefab homes, and the culture people live when nobody obliges them." },
+      { type: "CHG", text: "Lines rescued from the old brand deck: the current era is the Repopulating of Numinia; the house admires the builders of role-playing games; the references are held within Mediterranean philosophy and mythology; the ideal customer, the concepts we want to be known by, and why the metaverse is early, like email and the web once were." },
+    ],
+  },
+  {
     version: "v0.133.0",
     date: "2026-10-03",
     entries: [

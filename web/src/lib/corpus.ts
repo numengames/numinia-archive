@@ -366,6 +366,8 @@ const READING_GROUPS_CANON: ReadingGroup[] = [
       // 2026-09-26: after what the house gives away, what stays the
       // citizen's own — and why leaving is easy. Before the closing sentence.
       "/canon/can-012-what-is-yours-stays-with-you",
+      // 2026-10-03: what a citizen earns, and how it is recognised.
+      "/canon/can-015-we-recognise-the-act",
       "/canon/can-010-leave-things-better",
     ],
   },

@@ -4,9 +4,9 @@ uid: ""
 title: "Friends who play, build and learn"
 type: seminal
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-03T16:00:00+02:00"
+updated: "2026-10-03T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -43,8 +43,9 @@ the city was called back: a quest to level up organisations through play,
 born at a role-playing table, with the wish to leave a better world to the
 ones who come after.
 
-**Present.** We build experiences that keep changing, and we research in the
-open with whoever wants to join. That keeps us nimble, and keeps us
+**Present.** The Repopulating of Numinia: the city has to be raised again,
+guild by guild. We build experiences that keep changing, and we research in
+the open with whoever wants to join. That keeps us nimble, and keeps us
 learning.
 
 **Future.** A city where people, digital agents and the things they make
@@ -58,7 +59,9 @@ than fifteen years of adventures and learning shared. That bond comes first.
 
 **Adventurers.** They share a passion for making this world better for those
 who come next, and a tradition of learning through play — role-playing above
-all — which is in the house's DNA and in everything it makes.
+all — which is in the house's DNA and in everything it makes. They admire
+the builders of role-playing games, who changed popular culture for the
+better.
 
 **Learners.** Each has spent a working life founding things, often at the
 edge of technology and innovation, and as often telling stories and
