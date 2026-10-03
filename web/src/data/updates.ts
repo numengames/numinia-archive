@@ -53,6 +53,15 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.130.0",
+    date: "2026-10-02",
+    entries: [
+      { type: "ADD", text: "Telemetry is a panel to decide from. Pick a period (week, month, quarter, all, or dates) and read it as Product or as CTO. Four figures up top: documents with a page, tokens in the whole archive, growth in the period, rules in force. Then where the archive grows, by function, and which function weighs most; for Product, how much is in force and what weighs with no page; for the CTO, the documents that cost most to read and what the repository is made of. Each panel ends in one action line with its threshold. The census of every figure stays below it." },
+      { type: "ADD", text: "The instrument now weighs every tracked file by kind — text, code, image, data, font, office — files and bytes." },
+      { type: "FIX", text: "The telemetry page's tab no longer reads 'Pablo FM', and it no longer says there is no chart." },
+    ],
+  },
+  {
     version: "v0.129.0",
     date: "2026-10-02",
     entries: [

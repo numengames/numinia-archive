@@ -22,6 +22,7 @@
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import SectionHeader from "@/components/SectionHeader.astro";
+import TelemetryPanel from "@/components/TelemetryPanel.astro";
 import {
   dataset,
   byFamily,
@@ -69,18 +70,22 @@ const FAMILY_BLURB: Record<string, string> = {
 ---
 
 <Layout
-  title="NWOS — Telemetry — Pablo FM"
-  description="The Narrative Work OS measured: figures produced by scripts/telemetry.mjs, each with the predicate it is true of and the commit it was measured at."
+  title="Telemetry — numinia.org, the archive of Numen Games"
+  description="The archive, measured: where it grows, how much is in force, what it costs to read and what has no page — by period, for product and for engineering."
   canonicalPath="/telemetry"
   activeNav="machine/telemetry/"
 >
   <PageHero
-    label="NWOS — Telemetry"
-    title="The corpus, measured"
-    description="Every figure here was produced by one instrument, at one commit, with the predicate it is true of printed beside it. This page computes nothing."
+    label="Assurance · Measuring"
+    title="The archive, measured"
+    description="How big the archive is, where it grows, how much of it is in force, and what to look at this week. Every figure is counted by the machine from the repository, never typed."
   />
 
   <div class="mx-auto max-w-[1100px] px-6 pb-24">
+
+    <TelemetryPanel />
+
+    <h2 class="mb-6 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent">Every figure, with its predicate</h2>
 
     <!-- ── 1 · Identity ─────────────────────────────────────────────────
          The block that justifies the page existing. telemetry/latest.md
@@ -310,9 +315,6 @@ const FAMILY_BLURB: Record<string, string> = {
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-muted-foreground">Not shown</p>
         <p class="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">
           The instrument measures <span class="font-mono text-foreground">{totalMeasured}</span> figures; this page publishes <span class="font-mono text-foreground">{dataset.figures.length}</span>.{excludedCount > 0 && (<> The {excludedCount} omitted belong to families kept out of the view: {Object.entries(EXCLUDED_FAMILIES).map(([f, why]) => `${f} — ${why}`).join(" · ")}</>)}
-        </p>
-        <p class="mt-3 max-w-[70ch] text-sm leading-relaxed text-muted-foreground">
-          There is no chart. The ledger holds <span class="font-mono text-foreground">{history.length}</span> measurements taken over a period too short to carry a trend, and a line drawn through them would assert a slope the data does not support. It appears when the ledger earns it.
         </p>
         <p class="mt-4 border-t border-border pt-4 font-mono text-xs text-muted-foreground">
           Produced by <a href={`${REPO_URL}/blob/main/scripts/telemetry.mjs`} class="underline decoration-border underline-offset-4 hover:text-accent" target="_blank" rel="noopener noreferrer">scripts/telemetry.mjs</a> · dataset at <a href={`${REPO_URL}/tree/main/telemetry`} class="underline decoration-border underline-offset-4 hover:text-accent" target="_blank" rel="noopener noreferrer">telemetry/</a> · CC0
