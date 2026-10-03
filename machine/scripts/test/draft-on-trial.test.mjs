@@ -55,7 +55,7 @@ const DEFINERS = [
   'web/src/lib/machine-index.ts',
   'web/src/pages/binding.astro',
   'web/src/pages/index.astro',
-  'web/src/pages/about.astro',
+  'web/src/pages/map.astro',
   'web/src/pages/scheme.astro',
   'web/src/pages/[...slug].astro',
   'machine/tools/rule-index.mjs',

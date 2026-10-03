@@ -18,8 +18,28 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../../..");
 export const SOURCE = "standards/STD-030-the-worlds-vocabulary.md";
+
+/**
+ * The repository root: the nearest directory above this file — or above the
+ * working directory, when the site's build has bundled this module under
+ * web/dist — that holds the standard. Found, not assumed, so a test from the
+ * root and a build from web/ read the same file.
+ */
+function findRoot() {
+  const starts = [path.dirname(fileURLToPath(import.meta.url)), process.cwd()];
+  for (const start of starts) {
+    let dir = start;
+    for (let i = 0; i < 8; i++) {
+      if (fs.existsSync(path.join(dir, SOURCE))) return dir;
+      const up = path.dirname(dir);
+      if (up === dir) break;
+      dir = up;
+    }
+  }
+  throw new Error(`translator: ${SOURCE} not found above ${starts.join(" or ")}`);
+}
+const ROOT = findRoot();
 
 /** The standard's text; `text` may be passed by a test. */
 const read = () => fs.readFileSync(path.join(ROOT, SOURCE), "utf8");

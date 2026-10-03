@@ -9,8 +9,8 @@
 // It works there because a document IS a file — `/[...slug].md.ts` serves
 // the .md straight off disk and the toolbar points at it.
 //
-// The home, /scheme, the six function pages and the section indexes have no
-// such file. They are COMPOSED at build time from the classification and the
+// The home (the archive by section), the map, /scheme, the six function
+// pages and the section indexes have no such file. They are COMPOSED at build time from the classification and the
 // corpus. So until today they offered none of it: 8 of 26 pages had the
 // toolbar and 18 did not, and the ones without were exactly the ones a
 // reader arrives at first.
@@ -46,7 +46,9 @@ import { reconcile, futures } from "@/lib/cash";
 import { TAX_KINDS, VAT_RESULTS, CALENDAR } from "@/data/tax";
 import { ROUNDS, CLIENTS, CASH, FUTURES, PLAN, MONEY_IN_TOTAL } from "@/data/money";
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
-import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
+import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE, BOOKS } from "@/lib/summa";
+import { frontDoor } from "@/lib/front-door";
+import { SOURCE as SECTIONS_DOC } from "@/lib/translator.mjs";
 import { coreFlow, type CoreDoc, type CorePrinciple } from "@/lib/core";
 import { pipeline as salesPipeline, decidingRows, PIPELINE_SOURCES, CARD_URL, TEMPLATE_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, recordUrl } from "@/lib/pipeline";
 import { templates as templateList, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
@@ -315,85 +317,72 @@ export function automationPage(): ComposedPage {
   return { route: "/automation", filename: "automation.md", sources, body };
 }
 
-/** `/` — the threshold. */
-export function homePage(): ComposedPage {
-  const n = counts();
-
+/**
+ * `/` — the front door: the archive by the ten business sections of STD-030.
+ * The same query the page answers (@/lib/front-door): each section, its line,
+ * its count, its records by series, and the houses that serve it at the
+ * full moon (translator.servedBy).
+ */
+export async function homePage(): Promise<ComposedPage> {
+  const { sections, unplaced, unplacedCount, total } = await frontDoor();
+  const sources = [SECTIONS_DOC, SCHEME_DOC, SERIES_DOC];
+  const record = (r: { title: string; href: string; docId?: string }) => `- [${r.title}](${r.href})${r.docId ? ` — \`${r.docId}\`` : ""}`;
   const body = [
-    preamble([SCHEME_DOC, SERIES_DOC]),
-    "# The archive",
+    preamble(sources),
+    "# The archive, by section",
     "",
-    "This is where Numinia's source of truth lives. Everything decided, built and",
-    "agreed, written down and open to read.",
+    "The archive of Numen Games: everything we decide, build and offer, written",
+    "down and open. Numinia is the story we tell it in — a city where work is a game.",
     "",
-    "Working in an organisation hurts: the documents live scattered, there are",
-    "interests in some of them not being found, and the organisation ends up not",
-    "knowing itself. Not here. What is decided, what is built and what is agreed",
-    "is written down, as files, in the open.",
+    "The system is in alpha: most documents are drafts, rules on trial — followed,",
+    "they warn and never block. `/binding` lists the few in force; what is broken",
+    "is in `/debt/`, what changed in `/updates/`, what can be counted in `/telemetry`.",
+    "Who we are — the brand and culture — is read whole in `/brand`. The Summa",
+    "drawn as a map is at `/map`.",
     "",
-    "## Four questions, before you open any door",
+    `${total} records in ${sections.length} sections, in the order the standard gives them.`,
+    "A section groups records for a reader; it does not file them — the",
+    "classification scheme (`/scheme`) does.",
     "",
-    "**Who writes this?** Numen Games S.L., a studio in Spain building a narrative",
-    "operating system for the way organisations work. We are the first organisation",
-    "running on it, which makes this archive our documentation and our evidence at",
-    "once: if it does not work for us, it does not work.",
+    table(["Section", "Line", "Records", "Served by"], sections.map((s) => [
+      `[${s.name}](#${s.id})`, s.line, String(s.count), s.served.houses.join(" · ") || "no house yet",
+    ])),
     "",
-    "**What is Numinia, and what is NWOS?** Two names for one thing, seen from two",
-    "sides. NWOS is the machine: files in a git repository, one classification,",
-    "checks that refuse a change breaking the rules. Numinia is the story that",
-    "machine is told through — a city where tasks are missions, roles are",
-    "characters, and the people doing the work are its citizens. The machine keeps",
-    "the work honest; the story keeps it worth doing.",
-    "",
-    "**What state is this in?** Early, and openly so. Most of what you will read",
-    "says `draft`, including the principles: on trial — followed, warns, never blocks",
-    "(`STD-004`). A document is published the day it is written, not the day it is",
-    "ratified, because the alternative is an archive that only shows its finished",
-    "parts. So which rules are in force today, and block? `/binding` — the standing",
-    "instruction word for word, and the state of every rule, counted. What is broken",
-    "is in `/debt/`; what changed is in `/updates/`; what can",
-    "be counted is in `/telemetry`, measured by the tooling and never typed.",
-    "",
-    "**What can you do with it?** Read all of it — every page is a rendering of a",
-    "real file, and every page hands you that file to copy, download or open where",
-    "it lives. Take it, too: each file states its own licence, so the scheme, the",
-    "standards or the whole method can be lifted into your own organisation.",
-    "And if you would rather talk to us first, write to",
-    "hola@numengames.com — a person answers.",
-    "",
-    "## Every series, in four blocks",
-    "",
-    "From the centre out: the rules, the work, the world, the offer — the same",
-    "four blocks as the map. Every entry is a link.",
-    "",
-    ...RING_ORDER.flatMap((ring) => [
-      `### ${RINGS[ring].name}`,
+    ...sections.flatMap((s) => [
+      `## ${s.name}`,
       "",
-      RINGS[ring].line,
+      s.line,
       "",
-      table(["Entry", "What it is", "Address"], SEGMENTS.filter((sg) => sg.ring === ring).flatMap((sg) =>
-        sg.entries.map((e) => [e.label, e.line, e.href ?? "to create"]))),
+      `${s.count} records. APQC: ${s.apqc}.`,
+      `Served by: ${s.served.houses.join(" · ") || "no house yet"}.${s.served.gaps.length ? ` No house carries: ${s.served.gaps.join("; ")}.` : ""}`,
       "",
+      ...(s.count === 0 ? ["Nothing written yet.", ""] : []),
+      ...s.groups.flatMap((g) => [`### ${g.label}`, "", ...g.records.map(record), ""]),
     ]),
-    `${n.published} of ${n.series} series have an address on this site.`,
-    "The classification in full is at \`/scheme\`.",
+    ...(unplacedCount
+      ? [
+          "## Without a section",
+          "",
+          `${unplacedCount} records declare no section of the standard yet. A gap, shown rather than hidden.`,
+          "",
+          ...unplaced.flatMap((g) => [`### ${g.label}`, "", ...g.records.map(record), ""]),
+        ]
+      : []),
+    "## Books",
     "",
-    "## What is not here",
+    ...BOOKS.map((b) => (b.href ? `- [${b.label}](${b.href}) — ${b.line}.` : `- ${b.label} — ${b.line}. *Soon: ${b.pending}.*`)),
     "",
-    "Not everything is. There is protected matter that cannot live in the open —",
-    "what is under someone else's licence, what would expose a person, what is not",
-    "ours to publish. What does live here is everything that can be transparent,",
-    "which is nearly all of it. Where a document is withheld, the archive says so",
-    "instead of leaving a gap.",
+    "## Our other sites",
+    "",
+    ...LENSES.map((l) => `- ${l.site} — ${l.who}. ${l.line}`),
     "",
   ].join("\n");
-
-  return { route: "/about", filename: "about.md", sources: [SCHEME_DOC, SERIES_DOC, STATUS_DOC], body };
+  return { route: "", filename: "home.md", sources, body };
 }
 
 /**
- * `/` — the map: the Summa as four rings, as text. The same model the
- * astrolabe, the archive page and the wayfinder read (@/lib/summa).
+ * `/map` — the map: the Summa as four rings, as text. The same model the
+ * astrolabe and the wayfinder read (@/lib/summa). The home until 2026-10-03.
  */
 export function mapPage(): ComposedPage {
   const line = (e: { label: string; line: string; href: string | null; external?: string; count?: number }) =>
@@ -435,10 +424,10 @@ export function mapPage(): ComposedPage {
     "",
     `*To create:* ${TO_CREATE}`,
     "",
-    "Every series as one list: `/about`.",
+    "The archive by section, every record a link: `/`.",
     "",
   ].join("\n");
-  return { route: "", filename: "home.md", sources: [SCHEME_DOC, SERIES_DOC], body };
+  return { route: "/map", filename: "map.md", sources: [SCHEME_DOC, SERIES_DOC], body };
 }
 
 /** `/archive/<function>` — one function of the fonds. */
@@ -1015,7 +1004,7 @@ export function lexiconLetterPage(slug: string): ComposedPage {
 }
 
 export async function allComposedPages(): Promise<ComposedPage[]> {
-  const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), playbookPage(), templatesPage(), corePage()];
+  const pages: ComposedPage[] = [await homePage(), mapPage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), playbookPage(), templatesPage(), corePage()];
   pages.push(lexiconPage(), brandPage());
   for (const l of lexicon()) pages.push(lexiconLetterPage(l.slug));
   for (const c of coreFlow()) pages.push(corePrinciplePage(c.slug));

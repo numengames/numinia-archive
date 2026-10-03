@@ -6,9 +6,10 @@
 //
 // 2026-09-28 (second pass): no drop-down. The Archive mega menu opened on
 // hover every time the pointer crossed the bar and covered the page; the
-// Oracle found it in the way. "Map" is the home (the astrolabe, to explore);
-// "Archive" is a plain link to /about, which lays out the same four blocks,
-// the books and the sister sites as a page — every name there a link.
+// Oracle found it in the way. Two plain links.
+// 2026-10-03: the front door turned. "Archive" is the home (/): the archive
+// by the ten business sections of STD-030, every record a link. "Map" is
+// /map, the astrolabe, to explore. /about retired and redirects to /.
 import Icon from "@/components/Icon.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
 import { BOOKS, locate } from "@/lib/summa";
@@ -21,7 +22,7 @@ interface Props {
 const { activeNav } = Astro.props;
 const path = Astro.url.pathname;
 const isHome = path === "/";
-const isIndex = path.replace(/\/$/, "") === "/about";
+const isMap = path.replace(/\/$/, "") === "/map";
 const here = locate(path);
 void activeNav;
 const t = useT("en");
@@ -51,8 +52,8 @@ import wordmark from "@/brand/Numinia_Word.svg?raw";
     -->
     <div class="flex items-center gap-1">
     <div class="hidden items-center gap-1 lg:flex">
-      <a href="/" data-nav="map" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, isHome ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
-      <a href="/about" data-nav="archive" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, (here || isIndex || inBook) ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="archive" size={14} /> Archive</a>
+      <a href="/" data-nav="archive" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, (isHome || here || inBook) ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="archive" size={14} /> Archive</a>
+      <a href="/map" data-nav="map" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, isMap ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
       <SiteSearch />
     </div>
 
@@ -106,8 +107,8 @@ import wordmark from "@/brand/Numinia_Word.svg?raw";
   >
     <div class="mx-auto flex max-w-[1100px] flex-col gap-1 px-6 py-4">
       <div class="mb-2"><SiteSearch /></div>
-      <a href="/" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, isHome ? "text-foreground" : "text-muted-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
-      <a href="/about" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, (here || isIndex || inBook) ? "text-foreground" : "text-muted-foreground"]}><Icon name="archive" size={14} /> Archive</a>
+      <a href="/" data-nav="archive" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, (isHome || here || inBook) ? "text-foreground" : "text-muted-foreground"]}><Icon name="archive" size={14} /> Archive</a>
+      <a href="/map" data-nav="map" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, isMap ? "text-foreground" : "text-muted-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
       <NarrativeDial variant="menu" />
     </div>
   </div>

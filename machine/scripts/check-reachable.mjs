@@ -2,17 +2,17 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// Reachability guard — every page can be reached from the Map or the Archive.
+// Reachability guard — every page can be reached from the Archive or the Map.
 //
 // WHY THIS EXISTS
 // The site kept growing pages nobody could find: the narrative dial sat at the
 // foot of /system behind one link, the agent templates and a mission annex were
 // built and linked from nowhere. A page answering 200 is not a page a reader
 // can find. The Oracle's rule (2026-09-29): everything is navigable from the
-// two doors — the Map (/) and the Archive (/about).
+// two doors — the Archive (/, by section since 2026-10-03) and the Map (/map).
 //
 // WHAT IT MEASURES
-// Start at / and /about and follow links found in each page's BODY — the bar
+// Start at / and /map and follow links found in each page's BODY — the bar
 // and the footer are left out, because they sit on every page and would make
 // anything they name "reachable" without telling where it lives. Every built
 // page that is not a redirect must be reached. A page with no route in from
@@ -33,7 +33,7 @@ const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const DIST = join(__dirname, "..", "..", "web", "dist");
 
 /** The two doors. */
-export const DOORS = ["/", "/about"];
+export const DOORS = ["/", "/map"];
 
 /**
  * Pages that need no door of their own, each with its reason. THIS LIST IS AN
@@ -56,9 +56,12 @@ export function keyOf(href) {
   return p.replace(/\/+$/, "") || "/";
 }
 
-/** The links in a page's body: the bar (<nav>) and the footer are cut out first. */
+/** The links in a page's body: comments, then the bar (<nav>) and the footer are cut out first. */
 export function bodyLinks(html) {
   const body = html
+    // A comment first: one that mentions "<nav>" in prose would otherwise open
+    // a bar that closes at the footer's </nav>, swallowing the whole body.
+    .replace(/<!--[\s\S]*?-->/g, " ")
     .replace(/<(script|style|template)\b[\s\S]*?<\/\1>/gi, " ")
     .replace(/<nav\b[\s\S]*?<\/nav>/gi, " ")
     .replace(/<footer\b[\s\S]*?<\/footer>/gi, " ");
@@ -120,15 +123,15 @@ if (isMain) {
     process.exit(lost.length ? 1 : 0);
   }
   if (lost.length) {
-    console.log(`check-reachable: ${lost.length} page(s) cannot be reached from the Map or the Archive.\n`);
+    console.log(`check-reachable: ${lost.length} page(s) cannot be reached from the Archive or the Map.\n`);
     for (const k of lost) console.log(`  ✗ REACH-001  ${k}`);
     console.log(
-      "\nEvery page is reached by following links from / or /about (bar and footer\n" +
+      "\nEvery page is reached by following links from / or /map (bar and footer\n" +
         "not counted). Give each page above a door: an entry in web/src/lib/summa.ts,\n" +
         "a row on the index of the drawer it belongs to, or a link from its parent page.",
     );
     process.exit(1);
   }
-  console.log(`check-reachable: all ${pages.size} page(s) reached from the Map or the Archive.`);
+  console.log(`check-reachable: all ${pages.size} page(s) reached from the Archive or the Map.`);
   process.exit(0);
 }

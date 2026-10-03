@@ -870,7 +870,7 @@ const TITLE_OVERRIDE: Record<string, string> = {
  * Read from the document, never from a list kept here: a hand-written table of
  * titles is one more thing to forget when a file is renamed.
  */
-function titleOf(entry: Entry): string {
+export function titleOf(entry: Entry): string {
   const override = TITLE_OVERRIDE[`/${entry.id}`];
   if (override) return override;
   const fm = str((entry.data as Record<string, unknown>).title);
