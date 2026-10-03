@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-03
 
+- **Added** `OPS-021` how to get help from us (Discord, email, data address open; an agent coming); `STD-037` SIT-004 the epitaph behind a skull at the foot of every site; the footer button is now *Back Numinia* and leads to numinia.com/back; Discord joins the social column (site v0.135.0)
 - **Added** Culture from the old deck: `CAN-015` how Numinia rewards, six tests; rescued lines in `CAN-002`, `CAN-006`, `CAN-014`, `OPS-011`, `OPS-020` (site v0.134.0)
 - **Added** Brand and culture from the old deck: `CAN-013` the brand in three words, `CAN-014` where we come from, `OPS-020` the strategy; `CAN-002` gets the manifesto and epitaph back (site v0.133.0)
 - **Added** The Lexicon at /lexicon: the operative vocabulary as a book, A to Z, one page per letter, with a back-to-top button (#627) (site v0.132.0)

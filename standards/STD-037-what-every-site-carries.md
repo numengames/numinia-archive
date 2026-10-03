@@ -5,9 +5,9 @@ title: "What every site carries"
 type: documentation
 subtype: standard
 status: draft
-version: "0.4.1"
+version: "0.5.0"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-09-30T15:30:00+02:00"
+updated: "2026-10-03T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 territory: "Product"
@@ -41,9 +41,10 @@ numinia.com, numen.games and nwos.numen.games.
 the house footer the design values lay out. It holds the site's written
 name and its line, its navigation, a column naming the four sites with this
 one marked, the legal texts published for the site, and its social
-accounts. Under the site's line, a button invites support in plain sight
-and leads to the page that sells it. The closing line comes last: the scarab, our signature, and the
-licence, telemetry, version and commit. There is no copyright notice. The
+accounts. Under the site's line, a button invites people to back Numinia in
+plain sight and leads to the page that sells it. The closing line comes
+last: the scarab, our signature, and the licence, telemetry, version and
+commit. There is no copyright notice. The
 version opens the updates page, and its minor number moves with every
 release; this is a house rule, not semantic versioning. The legal texts
 include a notice giving every visitor the company's name, address, registry
@@ -63,6 +64,13 @@ and applies it before painting. The switch behaves as a button in the
 accessible rich internet applications practices. A pixel scene or a veiled
 surface keeps its night inside a day page, framed.
 
+**The epitaph at the foot.** Every public site MUST end its closing line
+with a small skull that holds the epitaph closing the manifesto. Hovering,
+focusing or tapping it shows the words; Escape hides them; it opens no
+page. The epitaph is said in English on every site, like the signature, and
+word for word. A house that writes its own epitaph says it knows it ends,
+and what it wants to have been.
+
 ## Check
 
 Each rule, its code, its source and its check. Then the footer and the card
@@ -73,6 +81,7 @@ laid out, and the exact values. **Law** marks what a statute requires.
 | SIT-001 | One house, one footer | [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 10 — **law**: the provider's identity reachable from every site; the version rule is ours and is not SemVer | `check-version-bump` in each site's CI, all four; the legal notice by hand |
 | SIT-002 | A link presents itself | [Open Graph protocol](https://ogp.me/): `og:title`, `og:type`, `og:image`, `og:url` required; WCAG 2.2 SC 2.4.2 Page Titled (A); [HTML `rel=icon`](https://html.spec.whatwg.org/multipage/links.html#rel-icon); scarab and 1200 × 630 card ours | `share-card --check` in each site's CI, all four: card size, icon, title, description and image; `og:type` and `og:url` not checked |
 | SIT-003 | Day and night on every site | [Media Queries 5, `prefers-color-scheme`](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme); [WAI-ARIA APG button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/) | Playwright on numinia.com only (`preferences.spec.ts`): the switch exists, a tap swaps mode and icon, a reload keeps the choice |
+| SIT-004 | The epitaph at the foot | The words: the manifesto in `CAN-002`; [WAI-ARIA APG tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and WCAG 2.2 SC 1.4.13 Content on Hover or Focus (AA) | by hand on the four sites: hover, focus, tap and Escape |
 
 ### The house footer
 
@@ -83,11 +92,11 @@ a day.
 ```
 <site name, written>                      Navigation        Numen Games       Legal        Social
 <one line: what this site is>             …                 Numen Games       Terms        GitHub
-[cup] Support Numinia                      (two columns      Numinia           Privacy      X
+[cup] Back Numinia                         (two columns      Numinia           Privacy      X
                                            when > 4)        NWOS ← you are here            Discord
                                                             NWOS for your organisation
 ──────────────────────────────────────────────────────────────────────────────────────────────
-[scarab]  by Numen Games — we build for a better future.
+[scarab]  by Numen Games — we build for a better future.                    [skull]
           Open by licence · Telemetry · v0.1.1 · 28e0656
 ```
 
@@ -95,13 +104,14 @@ a day.
 |---|---|
 | Site name | Written, never the logo alone; the wordmark is the bar's (`STD-023`), not the footer's |
 | One line | The site's line from the share card table below |
-| Support button | The Phosphor coffee cup and *Support Numinia* in the site's language, outlined in the accent, under the line; leads to numinia.com/support, the only page that sells support (`OPS-014`). Opens in a new tab from the other three sites |
+| Back button | The Phosphor coffee cup and *Back Numinia* in the site's language (*Apoya Numinia* in Spanish), outlined in the accent, under the line; leads to numinia.com/back, the only page that sells backing (`OPS-014`). Opens in a new tab from the other three sites. numinia.com/support is the help page (`OPS-021`), not this |
 | Navigation | The site's primary routes; two columns from five entries, reading down the first column then the second |
 | Numen Games column | The four sites, in the order of the share-card table, this one marked «you are here» and not linked |
 | Legal | Only texts published for this site's scope; none invented |
 | Social | Company accounts only; a missing account is a missing entry, never a personal one |
 | Signature | `by Numen Games — we build for a better future.` in English on every site; `Numen Games` opens numen.games in a new tab |
 | Build line | `licence · telemetry · vX.Y.Z · sha` — licence opens the repository's `REUSE.toml`; version opens `/updates`; sha opens the commit |
+| Skull | The Phosphor skull, muted ink, at the end of the closing line; a button labelled *Epitaph*. Its words, never translated: *They dreamed and experimented life, they imagined and took action. They were part of the fight to change the model, they did not let us alone, they built a game with which to create a better world.* |
 | Never | A copyright line; `all rights reserved`; a year |
 
 Column headings translate with the site; the signature does not.

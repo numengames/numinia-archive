@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: MIT
 //
 // The house's social accounts, the same list on the four sites (a copy
-// per repository, no shared package yet). GitHub is the organisation's; X
-// and Discord are added when the Oracle hands over the company URLs.
+// per repository, no shared package yet). GitHub and Discord are the
+// organisation's; X is added when the Oracle hands over its URL.
 // Never personal accounts.
 export interface SocialLink {
   readonly label: string;
@@ -12,4 +12,5 @@ export interface SocialLink {
 
 export const socialLinks: readonly SocialLink[] = [
   { label: "GitHub", href: "https://github.com/numengames" },
+  { label: "Discord", href: "https://discord.gg/ASwwdd24pp" },
 ];

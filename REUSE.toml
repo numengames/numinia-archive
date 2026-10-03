@@ -209,6 +209,7 @@ path = [
   "web/src/icons/shield-check.svg",
   "web/src/icons/sign-out.svg",
   "web/src/icons/snowflake.svg",
+  "web/src/icons/skull.svg",
   "web/src/icons/sparkle.svg",
   "web/src/icons/sun.svg",
   "web/src/icons/sword-light.svg",

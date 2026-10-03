@@ -53,6 +53,15 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.135.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "ADD", text: "A small skull at the end of the footer. Hover it, focus it or tap it and it shows the epitaph that closes the manifesto: they dreamed and experimented life, they imagined and took action." },
+      { type: "ADD", text: "How to get help from us: one record with every door — Discord, email, the address for your personal data — and whether it is open today." },
+      { type: "CHG", text: "The footer button says Back Numinia and leads to numinia.com/back; numinia.com/support is now the help page. Discord joins the social column." },
+    ],
+  },
+  {
     version: "v0.134.0",
     date: "2026-10-03",
     entries: [

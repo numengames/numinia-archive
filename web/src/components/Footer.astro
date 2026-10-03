@@ -60,14 +60,15 @@ const heading = "mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-d
         <p class="mt-2 max-w-xs text-sm text-muted-foreground sm:mx-0 mx-auto">
           The archive of Numen Games, built in public: canon, decisions, missions, how the work is done.
         </p>
-        <!-- STD-037 SIT-001: every house footer invites support, in plain sight.
-             The archive sells nothing: the button leads to numinia.com. -->
+        <!-- STD-037 SIT-001: every house footer invites people to back
+             Numinia, in plain sight. The archive sells nothing: the button
+             leads to numinia.com/back (/support there is the help page). -->
         <a
-          href="https://numinia.com/support/"
+          href="https://numinia.com/back/"
           target="_blank"
           rel="noopener noreferrer"
           class="mt-3 inline-flex min-h-[44px] items-center gap-2 rounded-[6px] border border-accent px-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/10 sm:min-h-[40px]"
-        ><Icon name="coffee" size={18} /> Support Numinia</a>
+        ><Icon name="coffee" size={18} /> Back Numinia</a>
       </div>
 
       <!-- Navigation -->
@@ -144,11 +145,71 @@ const heading = "mb-1 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-d
           )}
         </p>
       </div>
+      <!-- STD-037 SIT-004: the epitaph that closes the manifesto (CAN-002),
+           behind a small skull. Hover or focus shows it, a tap toggles it,
+           Escape closes it. English on every site, like the signature;
+           "did not let us alone" is literal on purpose. -->
+      <div class="epitafio relative sm:ml-auto">
+        <button
+          type="button"
+          class="calavera inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-[6px] text-dim transition-colors hover:text-foreground focus-visible:text-foreground sm:min-h-[32px] sm:min-w-[32px]"
+          aria-label="Epitaph"
+          aria-expanded="false"
+          aria-controls="epitaph-text"
+          data-epitaph
+        ><Icon name="skull" size={20} /></button>
+        <p
+          id="epitaph-text"
+          role="tooltip"
+          class="epitaph-text absolute bottom-full left-1/2 z-10 -translate-x-1/2 sm:left-auto sm:right-0 sm:translate-x-0 mb-2 w-[min(32ch,80vw)] rounded-[8px] border border-border bg-card p-3 text-left text-sm italic text-muted-foreground shadow-lg"
+        >
+          They dreamed and experimented life, they imagined and took action. They were part of the fight to change the model, they did not let us alone, they built a game with which to create a better world.
+        </p>
+      </div>
     </div>
   </div>
 </footer>
 
+<script>
+  // The skull: a tap or click toggles the epitaph; hover and focus show it
+  // through CSS; Escape closes it and returns focus to the skull.
+  for (const button of document.querySelectorAll<HTMLButtonElement>("[data-epitaph]")) {
+    const holder = button.parentElement!;
+    const set = (open: boolean) => {
+      button.setAttribute("aria-expanded", String(open));
+      holder.classList.toggle("abierto", open);
+    };
+    button.addEventListener("click", () => set(button.getAttribute("aria-expanded") !== "true"));
+    holder.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        set(false);
+        button.focus();
+      }
+    });
+    document.addEventListener("click", (e) => {
+      if (!holder.contains(e.target as Node)) set(false);
+    });
+  }
+</script>
+
 <style>
+  /* The epitaph stays hidden until the skull is hovered, focused or tapped. */
+  .epitaph-text {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 150ms ease;
+  }
+  .epitafio:hover .epitaph-text,
+  .epitafio:focus-within .epitaph-text,
+  .epitafio.abierto .epitaph-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .epitaph-text {
+      transition: none;
+    }
+  }
   /* The mark in muted ink, 28px, never in colour. */
   .escarabajo :global(svg) {
     width: 28px;
