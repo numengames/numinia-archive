@@ -33,7 +33,9 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
 const read = (p) => readFileSync(path.join(ROOT, p), 'utf8');
 
-const RETIRED = /numinia-archive|Numen Games CAO|\bNWOS\b(?! for your organisation)|Pablo FM|the Summa\b(?! Archive)/;
+// A retired name used as the site's name: at the end of a title, after a dash
+// or a dot. NWOS inside a page's own name ("Configure NWOS") is the product.
+const RETIRED = /(—|·)\s*(numinia-archive|Numen Games CAO|NWOS|Pablo FM|the Summa|Numen Games|Numinia)\s*$/;
 
 test('one site name per level, each copied from the archive file it cites', () => {
   assert.deepEqual(Object.keys(SITE_NAME), ['plain', 'bridge', 'numinia']);
@@ -41,7 +43,8 @@ test('one site name per level, each copied from the archive file it cites', () =
   assert.equal(SITE_NAME.bridge.text, 'the archive of Numinia');
   assert.equal(SITE_NAME.numinia.text, 'the Summa Archive');
   for (const [lvl, n] of Object.entries(SITE_NAME)) {
-    const quoted = n.text.replace(/^numinia\.org, /, '');
+    // The site's own domain is not a word; a leading article may differ in the source.
+    const quoted = n.text.replace(/^numinia\.org, /, '').replace(/^the /, '');
     assert.ok(read(n.source).toLowerCase().includes(quoted.toLowerCase()), `${lvl}: "${quoted}" is not in ${n.source}`);
   }
 });
@@ -68,6 +71,7 @@ test('every suffix a page wrote by hand gives way to the site name', () => {
     'Ursa · Technical Architect & Orchestrator · Numinia': 'Ursa · Technical Architect & Orchestrator',
     'Open books — Numen Games S.L.': 'Open books',
     'NWOS — the archive of Numen Games': '',
+    'Telemetry — numinia.org, the archive of Numen Games': 'Telemetry',
   };
   for (const [raw, page] of Object.entries(cases)) assert.equal(pageTitleOf(raw), page, raw);
 });
