@@ -100,7 +100,9 @@ export const WORDS = [
   { bridge: "Missions", plain: { text: "Project", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Adventures", plain: { text: "Experience", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Blueprints", plain: { text: "System Blueprint", source: "blueprints/BLU-007-dual-nomenclature.md" } },
-  { bridge: "Procedures", plain: { text: "Process", source: "blueprints/BLU-007-dual-nomenclature.md" } },
+  // Procedures: the business word IS procedure (ISO 9000:2015 3.4.5 — a process is
+  // the set of activities, a procedure the specified way to carry one out), so no
+  // plain or Numinia word replaces it (ADR-067, cut 2).
   {
     bridge: "Decisions",
     plain: { text: "Decision Record", source: "blueprints/BLU-007-dual-nomenclature.md" },
