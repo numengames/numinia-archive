@@ -2,15 +2,15 @@
 id: "PRO-020"
 uid: ""
 title: "Putting something on sale"
-type: protocol
+type: procedure
 status: draft
-version: "0.4.2"
+version: "0.4.3"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
-tags: [protocol, economy, payments, sale, records]
+tags: [procedure, economy, payments, sale, records]
 license: "CC0-1.0"
 applies_to: [all-agents]
 approved_by: "ADR-065"

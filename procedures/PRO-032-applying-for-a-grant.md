@@ -2,16 +2,16 @@
 id: "PRO-032"
 uid: ""
 title: "Applying for a grant"
-type: protocol
+type: procedure
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Finance"
-tags: [protocol, grants, public-money, subsidies, application, timeline]
+tags: [procedure, grants, public-money, subsidies, application, timeline]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-038", "STD-039", "OPS-018", "PRO-021"]
@@ -43,7 +43,7 @@ grant, a public loan, a prize or a programme in Numen Games' name.
 
 A call for funding opens for fifteen working days once a year, and its
 money can cost more than it brings if the house must spend it before it is
-paid. This protocol writes each call down the day it is foreseen, reads it
+paid. This procedure writes each call down the day it is foreseen, reads it
 against the house's card, and decides with the way it pays in view.
 
 It starts when a call is foreseen (last year's call, a funder's plan of

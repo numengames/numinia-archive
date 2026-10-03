@@ -78,7 +78,7 @@ const CHAPTERS: ChapterSpec[] = [
     parts: [
       { path: "canon/CAN-010-leave-things-better.md", sections: ["The sentence", "Four things it applies to"] },
       { path: "standards/STD-029-community-conduct.md", summaryOnly: true },
-      { path: "protocols/PRO-019-holding-a-ritual.md", sections: ["1. Purpose and trigger"] },
+      { path: "procedures/PRO-019-holding-a-ritual.md", sections: ["1. Purpose and trigger"] },
       { path: "canon/CAN-015-we-recognise-the-act.md" },
     ],
   },

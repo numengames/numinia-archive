@@ -4,9 +4,9 @@ uid: ""
 title: "Training — the offer"
 type: documentation
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -45,7 +45,7 @@ the rule are already there, where getting it wrong costs a minute, and
 where whoever walks it leaves a trace of what they did.
 
 This record exists because the house has sold this by conversation, and a
-conversation is not a thing to send. It is the offer the sales protocols
+conversation is not a thing to send. It is the offer the sales procedures
 qualify against, propose from and learn into. The old site described
 Training in promises — expert, empowering, collaborative — and no deliverable;
 this record says what is delivered instead.
@@ -119,7 +119,7 @@ The last column is the client's rendering; the English is the original.
 
 ### How it is sold
 
-Qualified, proposed and closed by the three sales protocols; every proposal
+Qualified, proposed and closed by the three sales procedures; every proposal
 carries the four things the proposal standard requires. The record of each
 opportunity points at this offer.
 
@@ -128,7 +128,7 @@ opportunity points at this offer.
 ## 3. Validity
 
 **As of:** 2026-09-28. **Re-checked when:** a proposal is won or lost — the
-closing step of the sales protocol writes here what the client asked that
+closing step of the sales procedure writes here what the client asked that
 this record did not answer, and what they wanted that the house did not
 offer.
 
@@ -138,7 +138,7 @@ offer.
 
 The proposal standard says what every proposal for this offer must contain;
 the opportunity record standard, how each chance to sell it is written; the
-protocol for making a proposal, the steps. The canon of roles holds why
+procedure for making a proposal, the steps. The canon of roles holds why
 what is taught here is learnt by playing; the house's terms define
 Training in law; the positioning register holds the words the company uses
 about itself.

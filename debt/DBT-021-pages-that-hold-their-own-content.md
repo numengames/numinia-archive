@@ -4,9 +4,9 @@ uid: ""
 title: "Eight pages under /system/ hold their content in the template instead of the corpus"
 type: documentation
 status: active
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-22T12:20:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -32,7 +32,7 @@ SPDX-License-Identifier: CC-BY-4.0
 > **Summary:** Five pages under `/system/` — the CAO dashboard, the narrative
 > dial, the sales guide, the hundred simulations and the solutions map — carry
 > their data as arrays inside their `.astro` template. `/blueprints/meta` is a
-> hand-written protocol with no counterpart in `protocols/`. They render
+> hand-written protocol with no counterpart in `procedures/`. They render
 > correctly and are cited by nothing, because there is nothing to cite.
 > **Epistemic:** The site is not only a viewer. In six places it is also a
 > store, and the only copy lives in a rendering component.
@@ -56,7 +56,7 @@ document governs what this page states*. Six could not answer.
 | `/system/sales` | `sales.astro`, ICP ranking | `operations/OPS-007-sales.md` exists, unread by the page |
 | `/system/simulations` | `simulations.astro`, 100 runs | `operations/OPS-005-simulations.md` exists, unread |
 | `/system/solutions` | `solutions.astro`, clusters | `operations/OPS-006-solutions.md` exists, unread |
-| `/blueprints/meta` | `meta.astro`, in Spanish | nothing; it describes a protocol that belongs in `protocols/` |
+| `/blueprints/meta` | `meta.astro`, in Spanish | nothing; it describes a protocol that belongs in `procedures/` |
 
 `/system/continuity` and `/system/wardley` are a different case and are listed
 with them only in the guard: `wardley` already reads `BLU-001` and links it;
@@ -104,7 +104,7 @@ Per page, in this order:
 3. **`/system/cao`**: decide whether agent metrics are a series at all. If they
    are, they are measured by the instrument, not typed. If they are not, the
    page goes.
-4. **`/blueprints/meta`**: the cartography protocol belongs in `protocols/`,
+4. **`/blueprints/meta`**: the cartography protocol belongs in `procedures/`,
    in English, with an identifier.
 
 Each repair removes one line from `EXEMPT` in

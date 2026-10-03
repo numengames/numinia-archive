@@ -5,9 +5,9 @@ title: "What an agent may do without asking"
 type: standard
 subtype: register
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-29T12:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -30,7 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > whether it can be undone, who grants it today — and graded at each of the
 > five levels of automation: granted alone, asked for, or never. The floor:
 > the permissions no level grants alone. The site draws this table; the
-> approval protocol says how a permission is asked for. A register records:
+> approval procedure says how a permission is asked for. A register records:
 > nothing in it binds by itself.
 > **Epistemic:** Which permission is granted alone at each level of automation?
 
@@ -78,7 +78,7 @@ table says so.
 | 10 | change secrets, branch protection, visibility, licences | data exposure, loss of history | only the Oracle | OWASP agentic: identity and privilege abuse |
 | 11 | change where and how the sites are served | the four sites down | only the Oracle | — |
 | 12 | send e-mails, message third parties, post on networks | reputation | nobody today | AI Act art. 50: transparency |
-| 13 | use paid APIs, buy | money | nobody today | approval protocol: score 10, foundational |
+| 13 | use paid APIs, buy | money | nobody today | approval procedure: score 10, foundational |
 | 14 | write memory and skills about the Oracle and the house | remembering something false or private | Hermes asks for approval | OWASP agentic: memory poisoning |
 | 15 | run on a schedule, overnight | a failure repeating with nobody watching | Hermes: denied by default with nobody present | AI Act art. 14: oversight proportionate to the level of autonomy |
 | 16 | edit its soul, its operator file, its configuration | an agent granting itself power | forbidden, always | out of the map by design |
@@ -95,7 +95,7 @@ under a rule of their own.
 | 13 | Spend money | at `Full` the organisation would hold an assigned budget; spending it stays with whoever assigns it |
 | 16 | Change who it is | no agent edits its own identity: it is what separates `Full` from a system that sets its own goals |
 | 9 | Merge to main | up to `High` the merge is where the site changes and it is the Oracle's; at `Full` the agent merges with another agent's review — the ruleset still requires green checks and one review, only who signs it changes |
-| 12 | Speak outwards | without a protocol for outside communication, never; with one, at `High` it asks and at `Full` it acts under that protocol |
+| 12 | Speak outwards | without a procedure for outside communication, never; with one, at `High` it asks and at `Full` it acts under that procedure |
 
 ## Check
 

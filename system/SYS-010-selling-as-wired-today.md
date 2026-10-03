@@ -5,9 +5,9 @@ title: "Selling, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.7.2"
+version: "0.7.3"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, sales, pipeline, records, tenders, grants]
@@ -57,7 +57,7 @@ Building what was sold is outside this document.
 | Component | Holds | Where | State |
 |---|---|---|---|
 | **The rules** | the kinds and their stages, the record, the proposal | `standards/STD-038`, `STD-039`, `STD-040` | wired, in draft |
-| **The steps** | qualifying, proposing, closing a sale; screening and bidding for a tender; applying for a grant | `protocols/PRO-028`, `PRO-029`, `PRO-030`, `PRO-033`, `PRO-031`, `PRO-032` | wired, in draft |
+| **The steps** | qualifying, proposing, closing a sale; screening and bidding for a tender; applying for a grant | `procedures/PRO-028`, `PRO-029`, `PRO-030`, `PRO-033`, `PRO-031`, `PRO-032` | wired, in draft |
 | **The offer record** | what Training is, delivers, costs | `operations/OPS-012` | wired, in draft; one record per offer as others are written |
 | **The house's card** | what calls usually ask, what the house holds, what would unlock each gap; the turnover ceiling and what the house does not make, read by the tool | `operations/OPS-018` | wired, in draft |
 | **The templates** | one record for every kind, a proposal — every document's header and card, then the opportunity's fields | `machine/templates/OPP-TEMPLATE.md`, `PRP-TEMPLATE.md` | wired; checked with every other template |
@@ -109,8 +109,8 @@ $ node machine/packages/sales-kit/pipeline.mjs opportunities
 
 - **Rules and templates agree:** `npm test` runs the kit's tests, which read
   the register from the standard and the fields from the template.
-- **Every stage is moved by a protocol:** a check in the regime tests
-  reads the register and the protocols of the Sales territory.
+- **Every stage is moved by a procedure:** a check in the regime tests
+  reads the register and the procedures of the Sales territory.
 - **Real records:** CI runs the tool on `opportunities/` on every change.
 
 ---

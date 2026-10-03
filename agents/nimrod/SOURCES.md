@@ -3,9 +3,9 @@ agent: nimrod
 title: "SOURCES — Nimrod"
 type: agent
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
@@ -50,7 +50,7 @@ or documentary requirement.
 
 ## Processes
 
-`protocols/` — documented procedures for recurring repository operations.
+`procedures/` — documented procedures for recurring repository operations.
 
 `machine/templates/MIS-TEMPLATE` and `missions/` — the mission contract and active or
 historical units of work.
@@ -82,7 +82,7 @@ Consult the relevant top-level area according to the question:
 
 - `canon/` — what the system is;
 - `standards/` — what an artefact must conform to;
-- `protocols/` — what procedure an actor follows;
+- `procedures/` — what procedure an actor follows;
 - `missions/` — what work is being or was performed;
 - `decisions/` — why an adopted decision was made;
 - `blueprints/` — proposed or designed structures not necessarily implemented;

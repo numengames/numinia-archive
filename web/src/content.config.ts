@@ -135,7 +135,7 @@ const corpus = defineCollection({
       "operations/**/*.md",
       "opportunities/**/*.md",
       "legal/**/*.md",
-      "protocols/**/*.md",
+      "procedures/**/*.md",
       "standards/**/*.md",
       "reports/**/*.md",
       "!reports/RPT-*.md",

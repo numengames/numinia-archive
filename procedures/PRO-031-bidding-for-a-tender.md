@@ -2,16 +2,16 @@
 id: "PRO-031"
 uid: ""
 title: "Bidding for a tender"
-type: protocol
+type: procedure
 status: draft
-version: "0.3.1"
+version: "0.3.2"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
-tags: [protocol, sales, tenders, public-procurement, bid, timeline]
+tags: [procedure, sales, tenders, public-procurement, bid, timeline]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-038", "STD-039", "OPS-018", "PRO-033", "PRO-028", "PRO-030"]
@@ -45,7 +45,7 @@ A tender is a sale whose client writes the rules in advance and closes the
 door on a fixed day. Most are lost on a solvency figure or a missing
 register before anyone reads the offer. The screening reads each tender
 against the house's card and records only the ones that pass; this
-protocol takes those to the offer, so the decision to bid takes a day and
+procedure takes those to the offer, so the decision to bid takes a day and
 the dossier the rest of the time.
 
 It starts when the screening (`PRO-033`) has opened a tender's record.
@@ -93,7 +93,7 @@ It starts when the screening (`PRO-033`) has opened a tender's record.
 6. **Read the award.** Proposed as awardee: a `pos` line marked `awarded`;
    lodge the definitive guarantee and bring the documents the authority
    asks within its days. Contract formalised: a `won` line, the house's
-   price as the value, and the closing protocol takes it from its step 3
+   price as the value, and the closing procedure takes it from its step 3
    (`PRO-030`). Another bid scored higher: a `lost` line, `outbid`, with
    the scores; excluded or withdrawn: a `lost` line, `excluded`, with the
    reason.

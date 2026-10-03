@@ -23,7 +23,7 @@ import { buildIndex, BEGIN, END } from '../rule-index.mjs';
    leaves the real tree edited. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'rule-index-'));
-  for (const p of ['standards', 'protocols', 'canon', 'machine', 'AGENTS.md', 'package.json'])
+  for (const p of ['standards', 'procedures', 'canon', 'machine', 'AGENTS.md', 'package.json'])
     cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
   execSync('git init -q && git add -A && git -c user.email=t@t -c user.name=t commit -qm scratch', { cwd: dir });
   return dir;
@@ -41,7 +41,7 @@ test('every rule document appears exactly once', () => {
   const rows = buildIndex(ROOT).rows;
   const ids = rows.map((r) => r.id);
   assert.equal(new Set(ids).size, ids.length, 'an identifier is listed twice');
-  const tracked = execFileSync('git', ['-C', ROOT, 'ls-files', 'standards/*.md', 'protocols/*.md', 'canon/*.md'], { encoding: 'utf8' })
+  const tracked = execFileSync('git', ['-C', ROOT, 'ls-files', 'standards/*.md', 'procedures/*.md', 'canon/*.md'], { encoding: 'utf8' })
     .split('\n').filter(Boolean);
   assert.equal(rows.length, tracked.length, `${rows.length} rows for ${tracked.length} rule documents`);
 });
@@ -69,7 +69,7 @@ test('a document with no Binds line is declared, not guessed', () => {
 
 test('a gap explains itself: an exemption is named, an omission is not dressed up', () => {
   // 14 of the 46 carry no scope line and every one is STD-007 working as
-  // written — the guard asks for `Binds:` in standards/ and protocols/ only,
+  // written — the guard asks for `Binds:` in standards/ and procedures/ only,
   // and skips `subtype: register` inside them. Printing `no scope line`
   // fourteen times accuses the corpus of defects it does not have, and sends
   // a reader nowhere. Naming the exemption sends them to the standard that

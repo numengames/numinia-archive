@@ -2,16 +2,16 @@
 id: "PRO-008"
 uid: ""
 title: "Requesting approval, issuing rulings"
-type: protocol
+type: procedure
 status: draft
-version: "5.2.1"
+version: "5.2.2"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
 section: "Strategy and governance"
-tags: [approval, human-in-the-loop, security, protocol, rulings, falsifiability]
+tags: [approval, human-in-the-loop, security, procedure, rulings, falsifiability]
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true

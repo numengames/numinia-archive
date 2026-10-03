@@ -3,9 +3,9 @@ agent: metis
 title: "SOURCES — Metis"
 type: agent
 status: draft
-version: "0.3.2"
+version: "0.3.3"
 created: "2026-09-28T18:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -38,7 +38,7 @@ current blockers.
 
 ## How a sale is run
 
-`protocols/PRO-033-screening-a-tender.md` — how a public tender is screened:
+`procedures/PRO-033-screening-a-tender.md` — how a public tender is screened:
 from the terms, never a summary; bid, possible or decline with the clause.
 Then `PRO-031` to bid, and `PRO-032` for a grant. The portable adapter for
 any agent is `agents/skills/tender-screening/SKILL.md`.
@@ -55,9 +55,9 @@ opportunity of any kind, its header and timeline, and what never enters it.
 `standards/STD-040-a-proposal-says-four-things.md` — what a proposal must say
 before it leaves the house.
 
-`protocols/PRO-028-qualifying-an-opportunity.md`,
-`protocols/PRO-029-making-a-proposal.md`,
-`protocols/PRO-030-closing-a-sale.md` — the steps.
+`procedures/PRO-028-qualifying-an-opportunity.md`,
+`procedures/PRO-029-making-a-proposal.md`,
+`procedures/PRO-030-closing-a-sale.md` — the steps.
 
 `system/SYS-010-selling-as-wired-today.md` — which parts of the sales system
 are wired today and which are not.

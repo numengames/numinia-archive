@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.12.3"
+version: "0.12.4"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -50,7 +50,7 @@ joined Licensing, whose table it was; the header's note on the latest
 change went too, since the changelog and git hold it; and the footer, the share card and the scarab are each written once.
 The fourth made the header and its fields one standard, the fields still
 read ring by ring. The fifth left the design values holding values, with the
-recipes in a protocol. The sixth closed the last rows: the engineering
+recipes in a procedure. The sixth closed the last rows: the engineering
 baseline, renamed *When a rule bites*, now holds the checks and the shared
 pipeline, and the practices it also carried became rows of the engineering
 checks, or rules of Secrets and of Git is the archive; the design system's
@@ -102,7 +102,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-020` | How does a change reach the main line? | — |
 | `STD-021` | What makes a claim checkable? | — |
 | `STD-022` | How does a secret stay out? | — (settings in the environment arrived from `STD-005`) |
-| `STD-023` | Which are the design values? | — (how the sky, the Veil and the reading player are built is `PRO-022`, a protocol; recipes are protocols, never blueprints) |
+| `STD-023` | Which are the design values? | — (how the sky, the Veil and the reading player are built is `PRO-022`, a procedure; recipes are procedures, never blueprints) |
 | `STD-024` | Which series is a document in, and does it bind? | — |
 | `STD-025` | What is a mission? | — |
 | `STD-026` | What do our operative words mean? | register |

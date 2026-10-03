@@ -100,7 +100,7 @@ export const WORDS = [
   { bridge: "Missions", plain: { text: "Project", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Adventures", plain: { text: "Experience", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Blueprints", plain: { text: "System Blueprint", source: "blueprints/BLU-007-dual-nomenclature.md" } },
-  { bridge: "Protocols", plain: { text: "Process", source: "blueprints/BLU-007-dual-nomenclature.md" } },
+  { bridge: "Procedures", plain: { text: "Process", source: "blueprints/BLU-007-dual-nomenclature.md" } },
   {
     bridge: "Decisions",
     plain: { text: "Decision Record", source: "blueprints/BLU-007-dual-nomenclature.md" },

@@ -13,12 +13,12 @@
 //
 // The answer was never secret, only unpublished: the Oracle's transition
 // regime in AGENTS.md, which every agent runtime loads and no visitor to this
-// site can see. A person browsing /protocols was reading derogated ceremony
+// site can see. A person browsing /procedures was reading derogated ceremony
 // as if it were live; an agent arriving through /llms.txt was obeying it.
 //
 // THIS PAGE STATES NOTHING OF ITS OWN. The regime is reproduced verbatim from
 // AGENTS.md and the counts are read from each document's `status:` header at
-// build time (web/src/lib/binding.ts). Promote a protocol and this page says
+// build time (web/src/lib/binding.ts). Promote a procedure and this page says
 // so without being edited; delete the markers in AGENTS.md and the build
 // fails rather than publishing an empty answer.
 import Layout from "@/layouts/Layout.astro";
@@ -45,7 +45,7 @@ const regimeHtml = (await processor.render(regime.body)).code;
   canonicalPath="/binding"
 >
   <PageHero
-    label="Before any protocol"
+    label="Before any procedure"
     title="What binds today"
     description="The system is in alpha: most of this archive is draft, a rule on trial — followed, warns, never blocks. So this page says what is in force — the standing instruction, reproduced word for word, and the state of every rule, counted rather than claimed."
   />
@@ -120,8 +120,8 @@ const regimeHtml = (await processor.render(regime.body)).code;
       <p class="text-sm leading-relaxed text-muted-foreground mb-6">
         Before you follow a rule, find it here. <span class="text-foreground">In force</span>
         blocks; <span class="text-foreground">draft</span> is on trial and warns.
- How one leaves draft is a protocol of its own:
- <a href="/protocols/pro-023-bringing-a-rule-into-force" class="text-accent underline underline-offset-2">bringing a rule into force</a>.
+ How one leaves draft is a procedure of its own:
+ <a href="/procedures/pro-023-bringing-a-rule-into-force" class="text-accent underline underline-offset-2">bringing a rule into force</a>.
  And what an agent may do today under these rules, level by level, is drawn at
  <a href="/automation" class="text-accent underline underline-offset-2">what an agent may do without asking</a>.
  </p>
@@ -162,7 +162,7 @@ const regimeHtml = (await processor.render(regime.body)).code;
         If you are an agent
       </h2>
       <p class="text-sm leading-relaxed text-muted-foreground">
-        Read this before any protocol. A protocol of this archive describes a
+        Read this before any procedure. A procedure of this archive describes a
         practice; while it is draft it does not impose one. What the instruction
         above says still holds is what you are held to. The markdown of this
         page is at <a href="/binding.md" class="text-accent underline underline-offset-2">/binding.md</a>,

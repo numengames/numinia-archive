@@ -5,9 +5,9 @@ title: "Who may change what"
 type: standard
 subtype: standard
 status: draft
-version: "2.2.3"
+version: "2.2.4"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
@@ -24,7 +24,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Who may change what
 
-> **Summary:** The canon, standards and protocols change by a written
+> **Summary:** The canon, standards and procedures change by a written
 > decision or a change the Oracle approves. Everything else changes by an
 > ordinary change. Each series sets an approval level, rank sets each actor's
 > reach, and an agent in doubt stops.
@@ -44,7 +44,7 @@ can show who let it in. The canon MUST change by a written decision or by a
 change the Oracle approves. That approval, kept with the change, is the
 signature.
 
-**Standards, protocols and decisions need a record or an approval.** The
+**Standards, procedures and decisions need a record or an approval.** The
 same clause of the quality standard covers them. They MUST change by a
 written decision or by a change the Oracle approves, and the approval is
 kept as the record.
@@ -111,7 +111,7 @@ controls an auditor already looks for.
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | AUT-006 | The canon needs the Oracle's approval | [ISO 9001:2015, review and approval, clause 7.5.2 c](https://www.iso.org/standard/62085.html) (clause unverified); the approver being the Oracle is ours | by hand — the pull request approval is the record; whether it suffices is not parsed |
-| AUT-007 | Standards, protocols and decisions need a record or an approval | [ISO 9001:2015, review and approval, clause 7.5.2 c](https://www.iso.org/standard/62085.html) (clause unverified) | by hand, as above |
+| AUT-007 | Standards, procedures and decisions need a record or an approval | [ISO 9001:2015, review and approval, clause 7.5.2 c](https://www.iso.org/standard/62085.html) (clause unverified) | by hand, as above |
 | AUT-068 | The approval level says what a change takes | [ISO 9001:2015, control of changes, clause 7.5.3.2 c](https://www.iso.org/standard/62085.html) (clause unverified); the five levels are ours (the *threshold* until 2026-10-03); holds deprecated SER-003 | by hand — what a signature is is read, not parsed; each series' approval level is a column of `STD-001` |
 | AUT-009 | Everything else needs an ordinary change | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) | branch protection, in the repository settings |
 | AUT-063 | A rule lands where it governs | — | by hand — recognising an obligation needs a reader |

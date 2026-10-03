@@ -2,16 +2,16 @@
 id: "PRO-014"
 uid: ""
 title: "Producing a design piece"
-type: protocol
+type: procedure
 status: draft
-version: "3.1.1"
+version: "3.1.2"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Brand and marketing"
-tags: [protocol, design, agents, checklist, tokens]
+tags: [procedure, design, agents, checklist, tokens]
 license: "CC0-1.0"
 visibility: "public"
 applies_to: "any agent producing a design piece"
@@ -55,7 +55,7 @@ must decide how it looks. Runs before the first pixel.
 ## 3. Procedure
 
 1. **Settle precedence.** The person's instruction → accessibility and hard
-   rules → brand and culture → this protocol → previous material → own
+   rules → brand and culture → this procedure → previous material → own
    judgement. If the instruction contradicts accessibility, flag it and
    propose the accessible alternative before executing.
 2. **Paste the fragment.** Paste the agent instruction `sistema.prompt.txt`

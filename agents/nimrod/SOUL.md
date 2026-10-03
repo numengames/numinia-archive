@@ -3,9 +3,9 @@ agent: nimrod
 title: "SOUL — Nimrod"
 type: agent
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
@@ -130,7 +130,7 @@ Distinguish, when the repository does so, among:
 
 - canonical definitions;
 - standards and requirements;
-- procedures and protocols;
+- procedures;
 - active missions or work;
 - decisions and rationale;
 - blueprints or proposals;

@@ -13,11 +13,11 @@ assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.1.5"
+version: "1.1.6"
 created: "2026-09-02T02:10:00+02:00"
 created_source: declared
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 requested_by: "oracle"
@@ -26,7 +26,7 @@ license: "CC0-1.0"
 
 depends_on: ["MIS-127"]
 parent_mission: "MIS-127"
-paths: [protocols/, standards/, machine/scripts/, web/src/, CLAUDE.md, debt/]
+paths: [procedures/, standards/, machine/scripts/, web/src/, CLAUDE.md, debt/]
 context: "2026-09-02"
 ---
 
@@ -53,9 +53,9 @@ Severity: **A** — a norm and a guard, or two norms, contradict each other; **B
 
 | # | Sev | Where | What | Evidence | Disposition (2026-09-02) |
 |---|---|---|---|---|---|
-| 1 | A | `protocols/PRO-003-mission-cycle.md` §2 | The state diagram and the "who sets it" table still carry `draft`, `backlog` and `cancelled` — three values `STD-001` §7 withdrew on 2026-08-30 (`todo · in-progress · in-review · done · frozen`). `lint-frontmatter` enforces STD-001; the protocol every agent reads prescribes the retired set. | `sed -n 128,153p protocols/PRO-003-mission-cycle.md` vs `STD-001` §7 table; `MissionsView.astro` L76 maps `backlog/draft → todo` at render time to hide it | **execute** — done, #200: PRO-003 v4.2.0. |
+| 1 | A | `procedures/PRO-003-mission-cycle.md` §2 | The state diagram and the "who sets it" table still carry `draft`, `backlog` and `cancelled` — three values `STD-001` §7 withdrew on 2026-08-30 (`todo · in-progress · in-review · done · frozen`). `lint-frontmatter` enforces STD-001; the protocol every agent reads prescribes the retired set. | `sed -n 128,153p procedures/PRO-003-mission-cycle.md` vs `STD-001` §7 table; `MissionsView.astro` L76 maps `backlog/draft → todo` at render time to hide it | **execute** — done, #200: PRO-003 v4.2.0. |
 | 2 | A | `web/src/views/MissionsView.astro` L146–147 | The board still computes a `cancelled` column (`missions.filter(m => m.status === "cancelled")`) for a status that no longer exists in the corpus (0 files). Dead code that documents a retired state as live. | `grep -n cancelled web/src/views/MissionsView.astro`; `grep -rl '^status: cancelled' missions/` → 0 | **execute** — done, #200: column, sort and toggle removed. |
-| 3 | A | `protocols/PRO-010-how-to-archive.md` | `status: draft`, v0.8.2, since 2026-08-24 — the protocol that governs how every series is named, renamed and closed, cited by ADR-005, STD-001, MIS-089, MIS-125, MIS-127 and this normalisation as authority, has never been signed. `MIS-089` F0 ("P-010 signed") was the gate the whole IA plan waited on; the plan executed, the gate did not. | `grep -m1 '^status' protocols/PRO-010-how-to-archive.md` | **defer** — the Oracle signs; no text change. Ruling requested in the PR body. |
+| 3 | A | `procedures/PRO-010-how-to-archive.md` | `status: draft`, v0.8.2, since 2026-08-24 — the protocol that governs how every series is named, renamed and closed, cited by ADR-005, STD-001, MIS-089, MIS-125, MIS-127 and this normalisation as authority, has never been signed. `MIS-089` F0 ("P-010 signed") was the gate the whole IA plan waited on; the plan executed, the gate did not. | `grep -m1 '^status' procedures/PRO-010-how-to-archive.md` | **defer** — the Oracle signs; no text change. Ruling requested in the PR body. |
 | 4 | B | `CLAUDE.md` L21 | *"No tests or lint yet (MIS-070)."* The repo runs two test suites (`rename-series.test.mjs` 26 cases, `lint-naming.test.mjs` 9) and a 10-step CI of guards. The entry-point document for every cold agent states the opposite of the tree. | `.github/workflows/ci.yml` (10 `run:` steps); `ls machine/scripts/*.test.mjs` | **execute** — done, #200: sentence rewritten; MIS-101 criterion 4 ticked. |
 | 5 | B | `STD-004` (then `standards/STD-004-header-standard`) §7 ring table | `assigned_to` is defined as *"agent-id, or null"*; the corpus carried a repository name (`numinia-nwos` ×3, `nwos-workspace-template`, `numengames-web + nwos-deploy`, `numinia-web`) and a model name (`claude-fable-5` ×2) as assignees. Fixed on the live missions in PR #198 (→ null); the `done` ones keep theirs as record. No guard checks the value. | `grep -h '^assigned_to' missions/MIS-*.md \| sort \| uniq -c` | **defer** → new guard rule (HDR-039 `assigned_to` ∈ roster) needs STD-004 §7.2 text + roster source; one small mission, Sentinels. Interim: #198 nulled the 8 retired assignees; live values today: null ×30, ursa ×2. |
 | 6 | B | `standards/STD-001-glossary.md` §4.1 row `reports/` | Says 10/25 · 40 %. `count-evidence.py` reports 24/24 · 100 % since #194. Stale by one day; the table is the one `MIS-125` said "is not copied from an earlier version". | `python3 machine/scripts/count-evidence.py` | **reject** — already true: the §4.1 table was re-measured at `7f51235` (#196, v5.1.1) and at the #198 merge (v5.1.2); every row reads 100 % from `count-evidence.py`. |

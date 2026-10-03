@@ -37,7 +37,7 @@ proposals beside it as `PRP-YYYY-NNN.md`. The rules are
 `standards/STD-039` (the record), `STD-040` (the proposal) and `STD-038`
 (the kinds, their stages, the events, the reasons, when the organisation is
 named); what calls ask against what the house holds is
-`operations/OPS-018`. The steps are `protocols/PRO-028`, `PRO-029`,
+`operations/OPS-018`. The steps are `procedures/PRO-028`, `PRO-029`,
 `PRO-030` for a sale, a collaboration or a partner, `PRO-033` and
 `PRO-031` for a tender, `PRO-032` for a grant.
 

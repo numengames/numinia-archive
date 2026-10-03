@@ -2,15 +2,15 @@
 id: "PRO-034"
 uid: ""
 title: "Auditing a site's code"
-type: protocol
+type: procedure
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-10-02T12:20:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
-tags: [protocols, security, audit, sites, web, dependencies, workflows]
+tags: [procedures, security, audit, sites, web, dependencies, workflows]
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
@@ -42,7 +42,7 @@ the report it files.
 ## 1. Purpose and trigger
 
 The identity audit (`PRO-011`) reads who holds which key, not what a site's
-code answers a stranger. This protocol reads the code.
+code answers a stranger. This procedure reads the code.
 
 Yearly per site (`review_next`; a skipped date is the next run's first
 finding). Without waiting: before a site's first release; when a release

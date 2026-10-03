@@ -5,7 +5,7 @@
 // binding.test.mjs — the archive publishes what binds today, not only what is written.
 //
 // THE PROBLEM THIS COVERS
-// Every protocol in this archive is `status: draft`, and `draft` is defined
+// Every procedure in this archive is `status: draft`, and `draft` is defined
 // on the site as "written, not yet in force — it binds nobody". Both halves
 // are published; the sentence they leave hanging is not. A reader — a person
 // or an agent arriving through /llms.txt, which is the door this site
@@ -26,7 +26,7 @@
 //
 // WHAT THESE TESTS REFUSE TO DO
 // Assert today's regime, today's counts, or today's prose. A test that pins
-// "eleven protocols, all draft" goes red the day a protocol is promoted —
+// "eleven procedures, all draft" goes red the day a procedure is promoted —
 // which is the change this whole page exists to make visible. So the reading
 // is verified against a SCRATCH archive with states of its own, exactly as
 // composed-md.test.mjs and classification.test.mjs do.
@@ -55,7 +55,7 @@ const END = 'transition-regime:end';
 // The source: AGENTS.md
 // ---------------------------------------------------------------------------
 
-test('AGENTS.md marks the regime that governs while the protocols are draft', () => {
+test('AGENTS.md marks the regime that governs while the procedures are draft', () => {
   // Markers, not a heading match: the heading is prose the Oracle may reword,
   // and a parser that breaks on a reworded title would take the page down
   // silently. The markers are a contract; the text between them is his.
@@ -81,7 +81,7 @@ Preamble that must not reach the page.
 ## Transition regime
 
 Oracle instruction. While a document is draft it DESCRIBES a practice; it
-does not BIND. Until a protocol is promoted, an agent does NOT open a
+does not BIND. Until a procedure is promoted, an agent does NOT open a
 mission card for a task asked for in chat.
 
 What still holds: one pull request per repository per cut; CI green.
@@ -98,11 +98,11 @@ const doc = (id, status) => `---\nid: "${id}"\ntitle: "${id}"\nstatus: ${status}
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'binding-'));
   mkdirSync(path.join(dir, 'web'), { recursive: true });
-  for (const d of ['canon', 'standards', 'protocols']) mkdirSync(path.join(dir, d), { recursive: true });
+  for (const d of ['canon', 'standards', 'procedures']) mkdirSync(path.join(dir, d), { recursive: true });
   writeFileSync(path.join(dir, 'AGENTS.md'), AGENTS_FIXTURE);
-  writeFileSync(path.join(dir, 'protocols', 'PRO-001-a.md'), doc('PRO-001', 'draft'));
-  writeFileSync(path.join(dir, 'protocols', 'PRO-002-b.md'), doc('PRO-002', 'draft'));
-  writeFileSync(path.join(dir, 'protocols', 'PRO-003-c.md'), doc('PRO-003', 'active'));
+  writeFileSync(path.join(dir, 'procedures', 'PRO-001-a.md'), doc('PRO-001', 'draft'));
+  writeFileSync(path.join(dir, 'procedures', 'PRO-002-b.md'), doc('PRO-002', 'draft'));
+  writeFileSync(path.join(dir, 'procedures', 'PRO-003-c.md'), doc('PRO-003', 'active'));
   writeFileSync(path.join(dir, 'standards', 'STD-001-a.md'), doc('STD-001', 'draft'));
   writeFileSync(path.join(dir, 'canon', 'CAN-001-a.md'), doc('CAN-001', 'active'));
   return dir;
@@ -165,8 +165,8 @@ test('the states are counted from the tree, never typed', () => {
     assert.equal(code, 0, out);
     const rows = JSON.parse(out);
     const byFolder = Object.fromEntries(rows.map((r) => [r.folder, r]));
-    assert.deepEqual(byFolder['protocols/'].states, { draft: 2, active: 1 });
-    assert.equal(byFolder['protocols/'].total, 3);
+    assert.deepEqual(byFolder['procedures/'].states, { draft: 2, active: 1 });
+    assert.equal(byFolder['procedures/'].total, 3);
     assert.deepEqual(byFolder['standards/'].states, { draft: 1 });
     assert.deepEqual(byFolder['canon/'].states, { active: 1 });
   } finally {
@@ -176,14 +176,14 @@ test('the states are counted from the tree, never typed', () => {
 
 test('promoting a document out of draft changes the page with no edit to it', () => {
   // The whole point of reading rather than writing: the day the Oracle
-  // promotes a protocol, the page says so by itself.
+  // promotes a procedure, the page says so by itself.
   const dir = scratch();
   try {
-    writeFileSync(path.join(dir, 'protocols', 'PRO-001-a.md'), doc('PRO-001', 'active'));
+    writeFileSync(path.join(dir, 'procedures', 'PRO-001-a.md'), doc('PRO-001', 'active'));
     const { code, out } = ask(dir, 'b.lifecycle()');
     assert.equal(code, 0, out);
-    const protocols = JSON.parse(out).find((r) => r.folder === 'protocols/');
-    assert.deepEqual(protocols.states, { draft: 1, active: 2 });
+    const procedures = JSON.parse(out).find((r) => r.folder === 'procedures/');
+    assert.deepEqual(procedures.states, { draft: 1, active: 2 });
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -197,16 +197,16 @@ test('each row names its documents, so a reader sees WHICH are draft, not only h
   try {
     const { code, out } = ask(dir, 'b.lifecycle()');
     assert.equal(code, 0, out);
-    const protocols = JSON.parse(out).find((r) => r.folder === 'protocols/');
+    const procedures = JSON.parse(out).find((r) => r.folder === 'procedures/');
     assert.deepEqual(
-      protocols.documents.map((d) => [d.id, d.status, d.href]),
+      procedures.documents.map((d) => [d.id, d.status, d.href]),
       [
-        ['PRO-001', 'draft', '/protocols/pro-001-a'],
-        ['PRO-002', 'draft', '/protocols/pro-002-b'],
-        ['PRO-003', 'active', '/protocols/pro-003-c'],
+        ['PRO-001', 'draft', '/procedures/pro-001-a'],
+        ['PRO-002', 'draft', '/procedures/pro-002-b'],
+        ['PRO-003', 'active', '/procedures/pro-003-c'],
       ],
     );
-    assert.equal(protocols.documents[0].title, 'PRO-001');
+    assert.equal(procedures.documents[0].title, 'PRO-001');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -220,13 +220,13 @@ test('the page lists the documents by state, in both its HTML and its markdown',
   assert.match(generator.slice(0, 5000), /\.documents/, 'binding.md does not list the documents of each series');
 });
 
-test('the page says how a document leaves draft, pointing at the protocol that does it', () => {
+test('the page says how a document leaves draft, pointing at the procedure that does it', () => {
   // A page that lists what is draft raises the next question at once: how
-  // does one stop being draft? The answer is a protocol; both the page and
+  // does one stop being draft? The answer is a procedure; both the page and
   // its markdown send the reader there.
-  const route = '/protocols/pro-023-bringing-a-rule-into-force';
+  const route = '/procedures/pro-023-bringing-a-rule-into-force';
   const page = readFileSync(path.resolve(ROOT, 'web', 'src', 'pages', 'binding.astro'), 'utf8');
-  assert.ok(page.includes(route), 'binding.astro does not link the protocol for bringing a rule into force');
+  assert.ok(page.includes(route), 'binding.astro does not link the procedure for bringing a rule into force');
   const src = readFileSync(COMPOSED, 'utf8');
   const generator = src.slice(src.indexOf('export function bindingPage'));
   assert.ok(generator.slice(0, 6000).includes(route), 'binding.md does not link it either');
@@ -246,7 +246,7 @@ test('the page is a composed view with its own markdown', () => {
 });
 
 test('a draft document says what binds instead of it', () => {
-  // The corpus mirror renders canon, standards and protocols. Until now it
+  // The corpus mirror renders canon, standards and procedures. Until now it
   // printed the bare word `draft` as a chip and left the reader to guess.
   const page = readFileSync(SLUG_PAGE, 'utf8');
   assert.match(page, /\/binding/, '[...slug].astro never points a draft document at /binding');

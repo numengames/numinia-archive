@@ -86,7 +86,7 @@ const isPlaceholder = (cited) => PLACEHOLDER_RE.test(cited) || /[<>{}]/.test(cit
  *  git log. Exported for the test. */
 export function retiredIds(root) {
   const retired = new Map();
-  // One letter is a prefix too: the old debt, protocol and standard series
+  // One letter is a prefix too: the old debt, procedure and standard series
   // used one (D-, P-, S-), and their files are in the log.
   for (const line of deletedMd(root)) {
     const base = path.basename(line, '.md');

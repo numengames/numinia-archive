@@ -10,7 +10,7 @@
 // over (STD-047), shows it rendered and lets it be downloaded, and says what
 // is missing. Every word of a piece comes from the record's Pitch and the
 // offer through the sales kit's own renderer (collateral.mjs); the page types
-// none. The sales playbook is a book: the stages, the protocols that move
+// none. The sales playbook is a book: the stages, the procedures that move
 // them and the collateral, read from their files.
 //
 // Run: npm test  (the built-page checks need web/dist: `cd web && npm run build`)

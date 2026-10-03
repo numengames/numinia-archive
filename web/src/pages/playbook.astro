@@ -5,11 +5,11 @@
 // /playbook — the sales playbook, a book (the Oracle, 2 October 2026): the
 // whole road of an opportunity. It opens before the record — the watch, its
 // feed and the Oracle's decision — then gives each kind of opportunity its
-// chapter: the stages, the protocol that moves each on and, for a sale, the
+// chapter: the stages, the procedure that moves each on and, for a sale, the
 // collateral each stage hands to the other side.
 //
 // NOTHING HERE IS TYPED. The kinds, stages and verdicts are STD-038's tables,
-// the pieces are STD-047's register (through the sales kit), the protocols
+// the pieces are STD-047's register (through the sales kit), the procedures
 // are their own files' titles and questions. A page that wrote its own copy
 // of the process would be the copy that drifts.
 import Layout from "@/layouts/Layout.astro";
@@ -32,7 +32,7 @@ const stageCount = book.kinds.reduce((n, k) => n + k.stages.length, 0);
   <PageHero
     label="The sales playbook"
     title="Found, decided, worked, won"
-    description="How an opportunity is found and decided on, then the stages a sale, a tender, a grant, a collaboration and a partner pass through — each with the protocol that moves it on. Open a sale's record to use the wand: it makes the stage's pieces from that record."
+    description="How an opportunity is found and decided on, then the stages a sale, a tender, a grant, a collaboration and a partner pass through — each with the procedure that moves it on. Open a sale's record to use the wand: it makes the stage's pieces from that record."
   />
 
   <section class="pb-24">
@@ -42,10 +42,10 @@ const stageCount = book.kinds.reduce((n, k) => n + k.stages.length, 0);
       </div>
 
       <p class="text-sm leading-relaxed text-muted-foreground mb-6">
-        {book.kinds.length} kinds, {stageCount} stages, {book.protocols.length} protocols, {book.pieces.length} pieces of collateral
+        {book.kinds.length} kinds, {stageCount} stages, {book.procedures.length} procedures, {book.pieces.length} pieces of collateral
         ({book.pieces.filter((p) => p.renderable).length} made by the kit, the rest by hand until a sale shows they help).
         Read from <a href={book.sources.register} class={enlace}>the stages of an opportunity</a>{", "}
-        <a href={book.sources.collateral} class={enlace}>the sales collateral</a> and the protocols themselves.
+        <a href={book.sources.collateral} class={enlace}>the sales collateral</a> and the procedures themselves.
         The opportunities they move are in <a href="/system/pipeline" class={enlace}>the pipeline</a>.
       </p>
 
@@ -83,8 +83,8 @@ const stageCount = book.kinds.reduce((n, k) => n + k.stages.length, 0);
           <div class:list={[etiqueta, "text-dim mb-1"]}>Chapter {ki + 1} · {k.kind}</div>
           <h2 class="text-xl text-foreground">{k.title}</h2>
           <p class="mt-1 mb-5 text-sm text-muted-foreground">{k.is[0]?.toUpperCase()}{k.is.slice(1)}.</p>
-          {!k.stages.some((s) => s.protocol) && (
-            <p class="mb-4 text-xs text-dim">No protocol moves this kind yet: its record and its stages are the guide.</p>
+          {!k.stages.some((s) => s.procedure) && (
+            <p class="mb-4 text-xs text-dim">No procedure moves this kind yet: its record and its stages are the guide.</p>
           )}
           <ol class="space-y-4">
             {k.stages.map((s, i) => (
@@ -92,10 +92,10 @@ const stageCount = book.kinds.reduce((n, k) => n + k.stages.length, 0);
                 <div class:list={[etiqueta, "text-dim mb-1"]}>Stage {i + 1} · <code>{s.stage}</code></div>
                 <h3 class="text-base text-foreground">{s.means}</h3>
                 <p class="mt-1 text-sm text-muted-foreground">Evidence: {s.evidence}</p>
-                {s.protocol && (
+                {s.procedure && (
                   <p class="mt-3 text-sm text-muted-foreground">
-                    Moved on by <a href={s.protocol.href} class={enlace}>{s.protocol.title}</a>
-                    {s.protocol.question && <span> — {s.protocol.question}</span>}
+                    Moved on by <a href={s.procedure.href} class={enlace}>{s.procedure.title}</a>
+                    {s.procedure.question && <span> — {s.procedure.question}</span>}
                   </p>
                 )}
                 {s.pieces.length > 0 && (

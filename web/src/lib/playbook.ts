@@ -4,11 +4,11 @@
 // The sales playbook (/playbook and /playbook.md): the whole road of an
 // opportunity. It opens BEFORE THE RECORD — the watch that finds a call,
 // its feed and the Oracle's decision (PRO-035) — then walks every kind of
-// opportunity: its stages from STD-038's table, the protocol that moves each
+// opportunity: its stages from STD-038's table, the procedure that moves each
 // on (its own title and question), and, for a sale, the collateral each
 // stage hands over (STD-047, through the kit).
-// Read at build time; nothing here is typed but which protocol follows which
-// stage, and every protocol named is checked against its own file.
+// Read at build time; nothing here is typed but which procedure follows which
+// stage, and every procedure named is checked against its own file.
 import fs from "node:fs";
 import path from "node:path";
 import { pieces, COLLATERAL_SOURCES, type Piece } from "@/lib/collateral";
@@ -27,8 +27,8 @@ export const KIND_TITLE: Record<Kind, string> = {
   partner: "A partner",
 };
 
-/** The protocol that moves a record out of each stage, per kind. Checked against the files. */
-const STAGE_PROTOCOL: Record<Kind, Record<string, string>> = {
+/** The procedure that moves a record out of each stage, per kind. Checked against the files. */
+const STAGE_PROCEDURE: Record<Kind, Record<string, string>> = {
   sale: { lead: "PRO-028", qualified: "PRO-029", analysed: "PRO-029", proposed: "PRO-030", agreed: "PRO-030", won: "PRO-030", lost: "PRO-030" },
   tender: { found: "PRO-033", read: "PRO-031", bidding: "PRO-031", filed: "PRO-031", awarded: "PRO-031", won: "PRO-031", lost: "PRO-031" },
   grant: { foreseen: "PRO-032", open: "PRO-032", applied: "PRO-032", granted: "PRO-032", justified: "PRO-032", won: "PRO-032", lost: "PRO-032" },
@@ -37,21 +37,21 @@ const STAGE_PROTOCOL: Record<Kind, Record<string, string>> = {
 };
 const WATCH = "PRO-035";
 
-export interface Protocol { id: string; title: string; question: string; href: string }
+export interface Procedure { id: string; title: string; question: string; href: string }
 export interface PlaybookStage {
   stage: string;
   means: string;
   evidence: string;
-  protocol: Protocol | null;
+  procedure: Procedure | null;
   pieces: Piece[];
 }
 export interface PlaybookKind { kind: Kind; title: string; is: string; stages: PlaybookStage[] }
 export interface Playbook {
-  watch: Protocol & { verdicts: { verdict: string; means: string; feed: string }[] };
+  watch: Procedure & { verdicts: { verdict: string; means: string; feed: string }[] };
   kinds: PlaybookKind[];
   /** the sale's stages */
   stages: PlaybookStage[];
-  protocols: Protocol[];
+  procedures: Procedure[];
   pieces: Piece[];
   sources: { register: string; collateral: string };
 }
@@ -77,17 +77,17 @@ function register() {
   return { stages, kinds, verdicts };
 }
 
-const protocols = new Map<string, Protocol>();
-function protocolOf(id: string): Protocol {
-  if (protocols.has(id)) return protocols.get(id)!;
-  const dir = path.join(ROOT, "protocols");
+const procedures = new Map<string, Procedure>();
+function procedureOf(id: string): Procedure {
+  if (procedures.has(id)) return procedures.get(id)!;
+  const dir = path.join(ROOT, "procedures");
   const f = fs.readdirSync(dir).find((n) => n.startsWith(`${id}-`));
-  if (!f) throw new Error(`the playbook names ${id}, which has no file in protocols/`);
+  if (!f) throw new Error(`the playbook names ${id}, which has no file in procedures/`);
   const text = fs.readFileSync(path.join(dir, f), "utf8");
   const title = /^title:\s*"?(.*?)"?\s*$/m.exec(text)?.[1] ?? id;
   const question = /^> \*\*Epistemic:\*\*\s*(.*)$/m.exec(text)?.[1] ?? "";
-  const p = { id, title, question, href: `/protocols/${f.replace(/\.md$/, "").toLowerCase()}` };
-  protocols.set(id, p);
+  const p = { id, title, question, href: `/procedures/${f.replace(/\.md$/, "").toLowerCase()}` };
+  procedures.set(id, p);
   return p;
 }
 
@@ -97,16 +97,16 @@ export function playbook(): Playbook {
   if (cached) return cached;
   const reg = register();
   const all = pieces();
-  const watch = { ...protocolOf(WATCH), verdicts: reg.verdicts };
+  const watch = { ...procedureOf(WATCH), verdicts: reg.verdicts };
   const kinds = KINDS.map((kind) => ({
     kind,
     title: KIND_TITLE[kind],
     is: reg.kinds.find((k) => k.kind === kind)?.is ?? "",
     stages: reg.stages.filter((s) => s.kind === kind).map((s) => {
-      const pid = STAGE_PROTOCOL[kind][s.stage];
+      const pid = STAGE_PROCEDURE[kind][s.stage];
       return {
         stage: s.stage, means: s.means, evidence: s.evidence,
-        protocol: pid ? protocolOf(pid) : null,
+        procedure: pid ? procedureOf(pid) : null,
         pieces: kind === "sale" ? all.filter((x) => x.stages.includes(s.stage)) : [],
       };
     }),
@@ -115,7 +115,7 @@ export function playbook(): Playbook {
     watch,
     kinds,
     stages: kinds.find((k) => k.kind === "sale")!.stages,
-    protocols: [...protocols.values()],
+    procedures: [...procedures.values()],
     pieces: all,
     sources: { register: "/standards/std-038-the-stages-of-an-opportunity", collateral: "/standards/std-047-the-sales-collateral" },
   };
@@ -124,10 +124,10 @@ export function playbook(): Playbook {
 
 export const PLAYBOOK_SOURCES = [...new Set([
   REGISTER, ...COLLATERAL_SOURCES,
-  "protocols/PRO-035-watching-for-opportunities.md",
-  "protocols/PRO-031-bidding-for-a-tender.md",
-  "protocols/PRO-032-applying-for-a-grant.md",
-  "protocols/PRO-033-screening-a-tender.md",
+  "procedures/PRO-035-watching-for-opportunities.md",
+  "procedures/PRO-031-bidding-for-a-tender.md",
+  "procedures/PRO-032-applying-for-a-grant.md",
+  "procedures/PRO-033-screening-a-tender.md",
 ])];
 
 /** The playbook as markdown, for /playbook.md. */
@@ -136,7 +136,7 @@ export function playbookMarkdown(): string {
   const out = [
     "# The sales playbook",
     "",
-    "The whole road of an opportunity: how it is found, how the Oracle decides on it, and the stages each kind passes through until it is won or lost — with the protocol that moves each stage on and, for a sale, what it hands to the other side.",
+    "The whole road of an opportunity: how it is found, how the Oracle decides on it, and the stages each kind passes through until it is won or lost — with the procedure that moves each stage on and, for a sale, what it hands to the other side.",
     "",
     "## Before the record",
     "",
@@ -151,14 +151,14 @@ export function playbookMarkdown(): string {
     out.push(`## ${k.title}`, "", `${k.is}.`, "");
     k.stages.forEach((s, i) => {
       out.push(`### ${i + 1} · \`${s.stage}\``, "", `**${s.means}.** Evidence: ${s.evidence}.`, "");
-      if (s.protocol) out.push(`Moved on by [${s.protocol.title}](${s.protocol.href}) — ${s.protocol.question}`, "");
+      if (s.procedure) out.push(`Moved on by [${s.procedure.title}](${s.procedure.href}) — ${s.procedure.question}`, "");
       if (s.pieces.length) {
         out.push("| Piece | What it does | Made from | Made by | State |", "|---|---|---|---|---|");
         for (const p of s.pieces) out.push(`| ${p.piece} | ${p.does} | ${p.from} | ${p.renderable ? "the kit" : "hand"} | ${p.state} |`);
         out.push("");
       }
     });
-    if (!k.stages.some((s) => s.protocol)) out.push("No protocol moves this kind yet: its record and its stages are the guide.", "");
+    if (!k.stages.some((s) => s.procedure)) out.push("No procedure moves this kind yet: its record and its stages are the guide.", "");
   }
   return out.join("\n");
 }

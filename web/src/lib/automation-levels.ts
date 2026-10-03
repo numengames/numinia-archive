@@ -7,7 +7,7 @@
 // An agent asks the operator for permission many times a session, and each
 // request arrives as a line of shell the operator did not write and is asked
 // to answer for. The archive holds the answer in six places — who may change
-// what (STD-017), the approval protocol (PRO-008), the engineering protocol
+// what (STD-017), the approval procedure (PRO-008), the engineering procedure
 // (PRO-016), each agent's OPERATOR.md, the transition regime in AGENTS.md and
 // the Hermes adapter config — and in none of them for the person approving.
 //
@@ -247,7 +247,7 @@ export const AUTOMATION_SOURCES = [
   LEVELS_DOC,
   PERMS_DOC,
   "standards/STD-017-who-may-change-what.md",
-  "protocols/PRO-008-decision.md",
+  "procedures/PRO-008-decision.md",
   "agents/ursa/OPERATOR.md",
   "AGENTS.md",
 ] as const;

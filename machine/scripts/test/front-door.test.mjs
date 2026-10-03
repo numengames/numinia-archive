@@ -7,7 +7,7 @@
 // A person lands on GitHub and reads README.md; an agent clones and reads it
 // too, or arrives at numinia.org and reads the home page. On 2026-09-28 the
 // README still called the repository by its old name, sent agents first to
-// a protocol the transition regime had put in draft, and cited sibling
+// a procedure the transition regime had put in draft, and cited sibling
 // repositories that do not exist; the home page never mentioned /llms.txt,
 // the .md twin of every page, or /binding. Everything the reader needed was
 // published — just not at the door.

@@ -3,9 +3,9 @@ agent: kairos
 title: "SOURCES — Kairos"
 type: agent
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-10-02T12:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -42,7 +42,7 @@ here, never from a private list.
 
 ## How a watch runs
 
-`protocols/PRO-035-watching-for-opportunities.md` — the whole watch, from the
+`procedures/PRO-035-watching-for-opportunities.md` — the whole watch, from the
 sweep to the Oracle's decision: what is kept in doubt, what goes to the feed,
 how a filter is retuned. Its verdicts are the table *A watch's verdict* in
 `standards/STD-038-the-stages-of-an-opportunity.md`; where it writes is the
@@ -50,13 +50,13 @@ rule *Automation writes to its feed* in `standards/STD-017-who-may-change-what.m
 
 ## How a found opportunity is weighed
 
-`protocols/PRO-033-screening-a-tender.md` — screening one tender from its
+`procedures/PRO-033-screening-a-tender.md` — screening one tender from its
 terms; the portable adapter is `agents/skills/tender-screening/SKILL.md`.
 
-`protocols/PRO-032-applying-for-a-grant.md`, `protocols/PRO-031-bidding-for-a-tender.md`
+`procedures/PRO-032-applying-for-a-grant.md`, `procedures/PRO-031-bidding-for-a-tender.md`
 — what happens after the Oracle says yes.
 
-`protocols/PRO-028-qualifying-an-opportunity.md` — where a found lead goes
+`procedures/PRO-028-qualifying-an-opportunity.md` — where a found lead goes
 next, in the sales agent's hands.
 
 `standards/STD-038-the-stages-of-an-opportunity.md` — the kinds of

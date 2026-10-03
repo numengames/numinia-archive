@@ -31,21 +31,21 @@ export const COLLATERAL_SOURCES = [
   "standards/STD-047-the-sales-collateral.md",
   "standards/STD-038-the-stages-of-an-opportunity.md",
   "operations/OPS-012-training-the-offer.md",
-  "protocols/PRO-028-qualifying-an-opportunity.md",
-  "protocols/PRO-029-making-a-proposal.md",
-  "protocols/PRO-030-closing-a-sale.md",
+  "procedures/PRO-028-qualifying-an-opportunity.md",
+  "procedures/PRO-029-making-a-proposal.md",
+  "procedures/PRO-030-closing-a-sale.md",
   "machine/packages/sales-kit/collateral.mjs",
 ];
 
-/** The protocol that moves a sale out of each stage (STD-038, the three sales protocols). */
-export const STAGE_PROTOCOL: Record<string, { id: string; title: string; href: string }> = {
-  lead: { id: "PRO-028", title: "Qualifying an opportunity", href: "/protocols/pro-028-qualifying-an-opportunity" },
-  qualified: { id: "PRO-029", title: "Making a proposal", href: "/protocols/pro-029-making-a-proposal" },
-  analysed: { id: "PRO-029", title: "Making a proposal", href: "/protocols/pro-029-making-a-proposal" },
-  proposed: { id: "PRO-030", title: "Closing a sale", href: "/protocols/pro-030-closing-a-sale" },
-  agreed: { id: "PRO-030", title: "Closing a sale", href: "/protocols/pro-030-closing-a-sale" },
-  won: { id: "PRO-030", title: "Closing a sale", href: "/protocols/pro-030-closing-a-sale" },
-  lost: { id: "PRO-030", title: "Closing a sale", href: "/protocols/pro-030-closing-a-sale" },
+/** The procedure that moves a sale out of each stage (STD-038, the three sales procedures). */
+export const STAGE_PROCEDURE: Record<string, { id: string; title: string; href: string }> = {
+  lead: { id: "PRO-028", title: "Qualifying an opportunity", href: "/procedures/pro-028-qualifying-an-opportunity" },
+  qualified: { id: "PRO-029", title: "Making a proposal", href: "/procedures/pro-029-making-a-proposal" },
+  analysed: { id: "PRO-029", title: "Making a proposal", href: "/procedures/pro-029-making-a-proposal" },
+  proposed: { id: "PRO-030", title: "Closing a sale", href: "/procedures/pro-030-closing-a-sale" },
+  agreed: { id: "PRO-030", title: "Closing a sale", href: "/procedures/pro-030-closing-a-sale" },
+  won: { id: "PRO-030", title: "Closing a sale", href: "/procedures/pro-030-closing-a-sale" },
+  lost: { id: "PRO-030", title: "Closing a sale", href: "/procedures/pro-030-closing-a-sale" },
 };
 
 export interface Piece {

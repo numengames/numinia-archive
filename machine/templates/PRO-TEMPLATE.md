@@ -1,10 +1,10 @@
 ---
-# Copy this file to protocols/PRO-NNN-<kebab-slug>.md and fill it in.
+# Copy this file to procedures/PRO-NNN-<kebab-slug>.md and fill it in.
 # The filename shape is enforced: PRO-NNN-slug.md, three digits, kebab-case.
 id: "PRO-NNN"
 uid: ""
 title: "The procedure, named by what it makes repeatable"
-type: protocol
+type: procedure
 # status: opens at draft — the lifecycle is declared once, in STD-004
 status: draft
 version: "0.1.0"
@@ -12,7 +12,7 @@ created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
-tags: [protocol]
+tags: [procedure]
 license: "CC0-1.0"
 # who must execute this: all-agents, a guild, a role, or named agents
 applies_to: [all-agents]
@@ -20,7 +20,7 @@ applies_to: [all-agents]
 # OPTIONAL — use when they apply, omit without guilt.
 # mandatory: true                   # execution is not discretionary
 # approved_by: "ADR-NNN"            # the decision that made this binding
-# supersedes_version: "1.2.0"       # the version of THIS protocol replaced
+# supersedes_version: "1.2.0"       # the version of THIS procedure replaced
 # review_next: "YYYY-MM-DD"         # when this procedure is due for re-reading
 # guild: "Sentinels"
 # section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
@@ -29,7 +29,7 @@ applies_to: [all-agents]
 
 # PRO-NNN — The procedure
 
-> **Summary:** One sentence. WHAT situation this protocol removes the ambiguity from.
+> **Summary:** One sentence. WHAT situation this procedure removes the ambiguity from.
 > **Epistemic:** What the actor must know before executing.
 > **Pragmatic:** The ordered steps, and how to verify they ran.
 > **Audience:** Agents
@@ -41,8 +41,8 @@ applies_to: [all-agents]
 
 ## 1. Purpose and trigger
 
-What this protocol exists to make repeatable, and the exact event that starts
-it. A protocol with no trigger is a description of good intentions.
+What this procedure exists to make repeatable, and the exact event that starts
+it. A procedure with no trigger is a description of good intentions.
 
 State who executes it (`applies_to` in the frontmatter is the machine-readable
 half; name the actor here in prose).
@@ -67,10 +67,10 @@ steps.
 2. **Do the next thing.** What its output should look like.
 3. **Do the last thing.**
 
-> **Protocols are never edited in place.** A change of substance is a new
+> **Procedures are never edited in place.** A change of substance is a new
 > version, with `supersedes_version` naming the one it replaces. Editing a
 > procedure under the actors who follow it is how two agents come to execute
-> two different protocols with the same identifier.
+> two different procedures with the same identifier.
 
 ---
 
@@ -82,7 +82,7 @@ How the executor proves the procedure ran — not that they believe it ran.
 |---|---|
 | 1 | The command's exit code, the file's existence, the check that passes |
 
-A protocol whose completion cannot be shown is an instruction, not a protocol.
+A procedure whose completion cannot be shown is an instruction, not a procedure.
 
 ---
 
@@ -97,11 +97,11 @@ escalate to the owner.
 <!--
 NOTES ON USING THIS TEMPLATE — delete this block.
 
-Sections 1-5 are required. A protocol without §4 Verification is the failure
+Sections 1-5 are required. A procedure without §4 Verification is the failure
 this template exists to prevent: it produces confident actors and no evidence.
 
 Length: if the procedure needs more than a dozen steps, the real object is
-probably two protocols with a handover between them.
+probably two procedures with a handover between them.
 
 Write self-contained steps. A step that says "as described in PRO-0XX §3"
 breaks the day that document is rewritten. State what you depend on.

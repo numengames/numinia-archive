@@ -47,7 +47,7 @@ const visible = (p) => {
 const DEFINERS = [
   'standards/STD-004-the-header.md',
   'standards/STD-009-which-rule-wins.md',
-  'protocols/PRO-023-bringing-a-rule-into-force.md',
+  'procedures/PRO-023-bringing-a-rule-into-force.md',
   'AGENTS.md',
   'README.md',
   'web/public/robots.txt',

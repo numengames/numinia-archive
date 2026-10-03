@@ -18,7 +18,7 @@ member of any series, never published, never counted in the corpus figures.
 |---|---|---|
 | `MIS-TEMPLATE.md` | a mission | `missions/MIS-NNNN-slug.md` |
 | `STD-TEMPLATE.md` | a standard | `standards/STD-NNN-slug.md` |
-| `PRO-TEMPLATE.md` | a protocol | `protocols/PRO-NNN-slug.md` |
+| `PRO-TEMPLATE.md` | a procedure | `procedures/PRO-NNN-slug.md` |
 | `ADR-TEMPLATE.md` | a decision | `decisions/ADR-NNN-slug.md` |
 | `DBT-TEMPLATE.md` | a debt entry | `debt/DBT-NNN-slug.md` |
 | `RPT-TEMPLATE.md` | a report | `reports/RPT-NNN-slug.md` |

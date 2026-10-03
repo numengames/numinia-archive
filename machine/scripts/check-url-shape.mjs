@@ -83,14 +83,14 @@ const STANDALONE = new Set([
   '/binding',     // what is in force while the rules are draft — the regime, from AGENTS.md
   '/brand',       // the brand and culture book: seven chapters read from canon and records (CAN-002, CAN-013, CAN-014, CAN-015)
   '/lexicon',     // the Lexicon, a book: the operative vocabulary A to Z, one page per letter (STD-026)
-  '/playbook',    // the sales playbook, a book: a sale's stages, protocols and collateral (STD-038, STD-047)
+  '/playbook',    // the sales playbook, a book: a sale's stages, procedures and collateral (STD-038, STD-047)
   '/automation',  // what an agent may do without asking, level by level — a view over STD-017, PRO-008, PRO-016 and the OPERATOR files
   // 2026-09-21: /wardley /gaps /cao /continuity /language /sales /simulations
   // /solutions moved under /system/ — a series segment, so URL-001 admits
   // them without a line here. Their old roots are redirects now.
   // 2026-09-27: /legal left this list — legal/ is a series now, so URL-001
   // admits /legal/terms, /legal/privacy and /legal/cookies as series addresses.
-  '/core',        // the core as a flow: each canon, its standards, its protocols (web/src/lib/core.ts)
+  '/core',        // the core as a flow: each canon, its standards, its procedures (web/src/lib/core.ts)
   '/design',      // the design system whole (SYS-009), its download and the kit's served files
   '/templates',   // every template (machine/templates/), their headers side by side — an instrument has no series
   '/configure',   // the settings of NWOS gathered: narrative, gamification, automation, the team (2026-09-29)

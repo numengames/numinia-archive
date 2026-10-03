@@ -41,7 +41,7 @@ Each folder answers one question.
 |---|---|
 | [`canon/`](canon/) | What the system **is** |
 | [`standards/`](standards/) | What an artifact must **comply with** |
-| [`protocols/`](protocols/) | What an actor **executes**, step by step |
+| [`procedures/`](procedures/) | What an actor **executes**, step by step |
 | [`decisions/`](decisions/) | **Why** something was chosen |
 | [`blueprints/`](blueprints/) | What **could** be: designs not yet executed |
 | [`missions/`](missions/) | The **work**, promised and done (suspended during the transition; see `AGENTS.md`) |

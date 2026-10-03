@@ -266,7 +266,7 @@ export function llmsTxt(args: Surface & { version?: string }): string {
     "parts.",
     "",
     "Which raises the question this archive owes you an answer to, and it has one:",
-    "**if the protocols do not bind, what does?** Read it before you obey anything",
+    "**if the procedures do not bind, what does?** Read it before you obey anything",
     `here — ${SITE}/binding.md. It carries the standing instruction verbatim (which`,
     "ceremony is suspended while the system moves from MVP to alpha, and which",
     "rules still hold) and the state of every rule document, counted from the tree",

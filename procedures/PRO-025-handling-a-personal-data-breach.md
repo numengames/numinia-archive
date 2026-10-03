@@ -2,15 +2,15 @@
 id: "PRO-025"
 uid: ""
 title: "Handling a personal data breach"
-type: protocol
+type: procedure
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
-tags: [protocol, personal-data, breach, gdpr]
+tags: [procedure, personal-data, breach, gdpr]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
 related: ["STD-035", "STD-022", "LEG-001", "PRO-005", "PRO-024"]
@@ -42,7 +42,7 @@ and the Oracle who decides the notice.
 The law gives 72 hours from the moment we know of a breach to tell the
 Spanish data protection authority (`STD-035`, a breach is reported within
 three days). The clock starts when anyone of the house knows, not when the
-Oracle reads the message. This protocol makes those hours count.
+Oracle reads the message. This procedure makes those hours count.
 
 It starts when anyone — person, agent or an outside report — has reason to
 believe that personal data we hold was exposed, lost, altered or reached by

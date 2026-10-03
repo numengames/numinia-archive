@@ -5,11 +5,11 @@ title: "NWOS — System Description, Layers and Principles"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [system, reference, nwos, architecture, layers, principles]
@@ -135,14 +135,14 @@ Daily and weekly markdown reports committed to the repository. Reports are appen
 - **vs. alternatives:** Slack summaries disappear. Email reports aren't searchable. Git reports are permanent and diffable.
 - **Fields:** id · date · agent · model · completed work · epistemic value · pragmatic value · pending items requiring human input
 
-### Protocols
+### Procedures
 
-- **id:** `protocols` · **Status:** Active · **Default:** on
+- **id:** `procedures` · **Status:** Active · **Default:** on
 
-Operational procedures written as markdown files. Protocols define how recurring tasks are executed — from briefing an agent to onboarding a new member.
+Operational procedures written as markdown files. Procedures define how recurring tasks are executed — from briefing an agent to onboarding a new member.
 
-- **Why it matters:** Recurring tasks without protocols become dependent on specific people. Protocols make processes portable.
-- **vs. alternatives:** SOPs in Confluence rot and go unread. Markdown protocols are lightweight, versioned, and executable by agents.
+- **Why it matters:** Recurring tasks without procedures become dependent on specific people. Procedures make processes portable.
+- **vs. alternatives:** SOPs in Confluence rot and go unread. Markdown procedures are lightweight, versioned, and executable by agents.
 - **Fields:** id · title · trigger · steps · owner · version
 
 ---

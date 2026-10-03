@@ -91,7 +91,7 @@ export const SEGMENTS: Segment[] = [
   { id: "rules", ring: "core", word: "The Summa", title: "The rules", a: [0, 360], entries: [
     E("Canon", "Why we exist", "/canon/", "canon"),
     E("Standards", "What each thing must look like", "/standards/", "standards"),
-    E("Protocols", "How each thing is done, step by step", "/protocols/", "protocols"),
+    E("Procedures", "How each thing is done, step by step", "/procedures/", "procedures"),
     E("Decisions", "What was decided, and why", "/decisions/", "decisions"),
     E("The core, as a book", "Each canon, its rules and its steps, end to end", "/core"),
     E("The design system, as a book", "Everything a piece of ours is made of", "/design"),
@@ -112,7 +112,7 @@ export const SEGMENTS: Segment[] = [
     E("Open books", "The books of Numen Games S.L.", "/system/open-books"),
     E("Opportunities", "Whom we are trying to sell to, in public", "/opportunities/", "opportunities"),
     E("The pipeline", "Sales, tenders, grants, collaborations and partners: what is due, the timeline, the funnel", "/system/pipeline"),
-    E("The sales playbook", "Each stage of a sale, the protocol that moves it, what it hands over", "/playbook"),
+    E("The sales playbook", "Each stage of a sale, the procedure that moves it, what it hands over", "/playbook"),
     E("The Lexicon", "The words we work with, A to Z, one page per letter", "/lexicon"),
     E("Brand and culture", "Who we are, what we believe, how we look, sound and live", "/brand"),
     E("Templates", "The template of every document type, headers side by side", "/templates"),
@@ -174,11 +174,11 @@ export interface Book {
   pending?: string;
 }
 export const BOOKS: Book[] = [
-  { label: "The core", line: "Each canon, the standards that make it concrete, the protocols that carry it out", href: "/core", from: "canon · standards · protocols" },
-  { label: "The sales playbook", line: "From an opportunity found to a sale won or lost: each stage, its protocol, what it hands over", href: "/playbook", from: "standards · protocols · operations" },
+  { label: "The core", line: "Each canon, the standards that make it concrete, the procedures that carry it out", href: "/core", from: "canon · standards · procedures" },
+  { label: "The sales playbook", line: "From an opportunity found to a sale won or lost: each stage, its procedure, what it hands over", href: "/playbook", from: "standards · procedures · operations" },
   { label: "The Lexicon", line: "The words we work with, A to Z: what each one is, what it clears up, what it lets you do", href: "/lexicon", from: "standards" },
-  { label: "Brand and culture", line: "Where we come from, what we believe, the brand in three words, how we sound, look and live, where we are going", href: "/brand", from: "canon · standards · protocols · operations" },
-  { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · protocols · system" },
+  { label: "Brand and culture", line: "Where we come from, what we believe, the brand in three words, how we sound, look and live, where we are going", href: "/brand", from: "canon · standards · procedures · operations" },
+  { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · procedures · system" },
   { label: "The role-playing manual", line: "The tabletop game of Numinia, in Spanish and English", href: null, from: "lore", pending: "Not on the site yet: four images the manual embeds were never committed" },
   { label: "The legal playbook", line: "The rules the law asks of us, gathered in one place", href: null, from: "standards · legal", pending: "Being written: the standards the law requires are still to be gathered" },
 ];

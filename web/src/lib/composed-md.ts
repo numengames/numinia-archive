@@ -220,8 +220,8 @@ export function bindingPage(): ComposedPage {
     "## Each document, and its state",
     "",
     "Before you follow a rule, find it here. `active` blocks; `draft` is on trial",
-    "and warns. How one leaves draft is a protocol of its own:",
-    "[bringing a rule into force](/protocols/pro-023-bringing-a-rule-into-force.md).",
+    "and warns. How one leaves draft is a procedure of its own:",
+    "[bringing a rule into force](/procedures/pro-023-bringing-a-rule-into-force.md).",
     "",
     ...rows.flatMap((r) => [
       `### ${r.label}`,
@@ -239,7 +239,7 @@ export function bindingPage(): ComposedPage {
     "",
     "## If you are an agent",
     "",
-    "Read this page before any protocol. A protocol of this archive describes a",
+    "Read this page before any procedure. A procedure of this archive describes a",
     "practice; while it is draft it does not impose one. What the section above",
     "says still holds is what you are held to.",
     "",
@@ -271,7 +271,7 @@ export function automationPage(): ComposedPage {
     "the permissions and the floor the register",
     "[what an agent may do without asking](/standards/std-042-what-an-agent-may-do-without-asking.md),",
     "each agent's level its operator file, and how a permission is asked for",
-    "[requesting approval](/protocols/pro-008-decision.md); all under",
+    "[requesting approval](/procedures/pro-008-decision.md); all under",
     "[who may change what](/standards/std-017-who-may-change-what.md) and",
     "[what binds today](/binding.md).",
     "",
@@ -891,7 +891,7 @@ export function pipelinePage(): ComposedPage {
 /** `/core` and each `/core/<canon>` — the core as a flow (web/src/lib/core.ts). */
 const stateWord = (s: string) => (s === "active" ? "in force" : s);
 function coreSources(c: CoreCanon): string[] {
-  return [c, ...c.standards, ...c.protocols].map((d) => d.path);
+  return [c, ...c.standards, ...c.procedures].map((d) => d.path);
 }
 function coreDocMd(d: CoreDoc, level: string): string {
   return [`${level} ${d.title}`, "", `*${stateWord(d.status)}* · ${d.question}`, "", d.reading, ""].join("\n");
@@ -899,13 +899,13 @@ function coreDocMd(d: CoreDoc, level: string): string {
 export function corePage(): ComposedPage {
   const flow = coreFlow();
   const lines = ["# The core, as a flow", "",
-    "Each canon, the standards that make it concrete, the protocols that carry it out. Every standard and protocol names its canon in its header (`derived_from`).", ""];
+    "Each canon, the standards that make it concrete, the procedures that carry it out. Every standard and procedure names its canon in its header (`derived_from`).", ""];
   for (const c of flow) {
     lines.push(`## ${c.title}`, "", `*${stateWord(c.status)}* · ${c.question}`, "", c.summary, "");
     if (c.standards.length) lines.push("Standards: " + c.standards.map((d) => `${d.title} (${stateWord(d.status)})`).join(" · "), "");
-    if (c.protocols.length) lines.push("Protocols: " + c.protocols.map((d) => `${d.title} (${stateWord(d.status)})`).join(" · "), "");
+    if (c.procedures.length) lines.push("Procedures: " + c.procedures.map((d) => `${d.title} (${stateWord(d.status)})`).join(" · "), "");
   }
-  return { route: "/core", filename: "core.md", sources: ["canon/", "standards/", "protocols/"], body: preamble(["canon/", "standards/", "protocols/"]) + lines.join("\n") };
+  return { route: "/core", filename: "core.md", sources: ["canon/", "standards/", "procedures/"], body: preamble(["canon/", "standards/", "procedures/"]) + lines.join("\n") };
 }
 export function coreCanonPage(slug: string): ComposedPage {
   const c = coreFlow().find((x) => x.slug === slug);
@@ -913,7 +913,7 @@ export function coreCanonPage(slug: string): ComposedPage {
   const sources = coreSources(c);
   const parts = [`# ${c.title}`, "", `*${stateWord(c.status)}* · ${c.question}`, "", c.reading, ""];
   if (c.standards.length) { parts.push("## The standards", ""); for (const d of c.standards) parts.push(coreDocMd(d, "###")); }
-  if (c.protocols.length) { parts.push("## The protocols", ""); for (const d of c.protocols) parts.push(coreDocMd(d, "###")); }
+  if (c.procedures.length) { parts.push("## The procedures", ""); for (const d of c.procedures) parts.push(coreDocMd(d, "###")); }
   return { route: `/core/${slug}`, filename: `core-${slug}.md`, sources, body: preamble(sources) + parts.join("\n") };
 }
 
@@ -985,7 +985,7 @@ export function configurePage(): ComposedPage {
   return { route: "/configure", filename: "numinia-configure.md", sources, body };
 }
 
-/** /playbook — the sales playbook: a sale's stages, the protocols, the collateral (STD-038, STD-047). */
+/** /playbook — the sales playbook: a sale's stages, the procedures, the collateral (STD-038, STD-047). */
 export function playbookPage(): ComposedPage {
   return { route: "/playbook", filename: "sales-playbook.md", sources: [...PLAYBOOK_SOURCES], body: preamble([...PLAYBOOK_SOURCES]) + playbookMarkdown() };
 }

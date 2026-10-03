@@ -3,19 +3,19 @@
 // SPDX-License-Identifier: MIT
 //
 // core-flow.test.mjs — the core reads as a flow: each canon, the standards
-// that make it concrete, the protocols that carry it out.
+// that make it concrete, the procedures that carry it out.
 //
 // THE PROBLEM THIS COVERS
 // The Oracle reviews the core by listening to it end to end (2026-09-27).
-// Read shelf by shelf, the canon, the standards and the protocols are three
+// Read shelf by shelf, the canon, the standards and the procedures are three
 // lists; the question he brings is causal — this belief, these rules, these
 // steps. Cross-citations cannot answer it: a standard cites several canons,
-// and fifteen standards cited none. So each standard and each protocol names
+// and fifteen standards cited none. So each standard and each procedure names
 // the one canon it comes from in its header (`derived_from`, a relation
 // STD-004 already registers), and /core is built from that field alone.
 //
 // WHAT IS UNDER TEST
-//   1. every standard and protocol in the tree names exactly one canon that
+//   1. every standard and procedure in the tree names exactly one canon that
 //      exists (the fact lives in one place, and a missing anchor fails here);
 //   2. web/src/lib/core.ts groups a scratch archive by that field, reads the
 //      body without the Check and References apparatus, and throws on a
@@ -35,9 +35,9 @@ const CORE = path.join(ROOT, 'web', 'src', 'lib', 'core.ts');
 const ls = (glob) => execFileSync('git', ['-C', ROOT, 'ls-files', glob], { encoding: 'utf8' })
   .split('\n').filter(Boolean);
 
-test('every standard and protocol names the one canon it comes from', () => {
+test('every standard and procedure names the one canon it comes from', () => {
   const canons = new Set(ls('canon/CAN-*.md').map((f) => f.match(/CAN-\d{3}/)[0]));
-  const docs = [...ls('standards/STD-*.md'), ...ls('protocols/PRO-*.md')];
+  const docs = [...ls('standards/STD-*.md'), ...ls('procedures/PRO-*.md')];
   assert.ok(docs.length >= 40, `only ${docs.length} rule documents found`);
   const bad = [];
   for (const f of docs) {
@@ -54,13 +54,13 @@ const doc = (id, title, extra = '', body = '') =>
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'core-'));
   mkdirSync(path.join(dir, 'web'), { recursive: true });
-  for (const d of ['canon', 'standards', 'protocols']) mkdirSync(path.join(dir, d));
+  for (const d of ['canon', 'standards', 'procedures']) mkdirSync(path.join(dir, d));
   writeFileSync(path.join(dir, 'canon', 'CAN-001-a.md'), doc('CAN-001', 'Belief A'));
   writeFileSync(path.join(dir, 'canon', 'CAN-002-b.md'), doc('CAN-002', 'Belief B'));
   writeFileSync(path.join(dir, 'standards', 'STD-001-x.md'),
     doc('STD-001', 'Rule X', 'derived_from: "CAN-001"\n',
       '## Rules\n\n**Keep it.** It MUST be kept.\n\n## Check\n\n| Plate | Rule |\n|---|---|\n| X-001 | Keep it |\n\n## Why\n\nBecause.\n\n## References\n\n| ID | Title |\n|---|---|\n'));
-  writeFileSync(path.join(dir, 'protocols', 'PRO-001-y.md'),
+  writeFileSync(path.join(dir, 'procedures', 'PRO-001-y.md'),
     doc('PRO-001', 'Steps Y', 'derived_from: "CAN-001"\n', '## 1. Trigger\n\nWhen asked.\n'));
   return dir;
 }
@@ -76,7 +76,7 @@ function ask(dir, expression) {
   }
 }
 
-test('the flow groups each canon with its standards and protocols, from the header alone', () => {
+test('the flow groups each canon with its standards and procedures, from the header alone', () => {
   const dir = scratch();
   try {
     const { code, out } = ask(dir, 'c.coreFlow()');
@@ -84,7 +84,7 @@ test('the flow groups each canon with its standards and protocols, from the head
     const flow = JSON.parse(out);
     assert.deepEqual(flow.map((c) => c.id), ['CAN-001', 'CAN-002']);
     assert.deepEqual(flow[0].standards.map((d) => d.id), ['STD-001']);
-    assert.deepEqual(flow[0].protocols.map((d) => d.id), ['PRO-001']);
+    assert.deepEqual(flow[0].procedures.map((d) => d.id), ['PRO-001']);
     assert.deepEqual(flow[1].standards, []);
     assert.equal(flow[0].question, 'Q of CAN-001?');
     assert.equal(flow[0].href, '/core/can-001-a');

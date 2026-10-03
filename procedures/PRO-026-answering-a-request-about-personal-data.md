@@ -2,15 +2,15 @@
 id: "PRO-026"
 uid: ""
 title: "Answering a person's request about their data"
-type: protocol
+type: procedure
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
-tags: [protocol, personal-data, rights, gdpr]
+tags: [procedure, personal-data, rights, gdpr]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
 related: ["STD-035", "LEG-001", "PRO-024"]
@@ -41,7 +41,7 @@ data we hold on them.
 What we hold about a person is theirs, lent to us (`STD-035`, the person is
 in charge of it). The privacy policy (`LEG-001`) promises they can see it,
 correct it, have it erased, limit its use, take it away and object to it,
-and get an answer within one month. This protocol keeps that promise.
+and get an answer within one month. This procedure keeps that promise.
 
 It starts when a request reaches us by any way — usually an email to
 `legal@numengames.com` — in which a person asks for any of those rights,

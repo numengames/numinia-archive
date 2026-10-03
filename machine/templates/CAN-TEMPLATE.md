@@ -57,7 +57,7 @@ THE THREE ADMISSION QUESTIONS. Answer before writing:
   2. Could a decision make it false tomorrow?
      Yes → it is a decision (`decisions/`), not canon.
   3. Does somebody EXECUTE it, step by step?
-     Yes → protocol (`protocols/`). A canon states; an actor never "runs" one.
+     Yes → procedure (`procedures/`). A canon states; an actor never "runs" one.
 
   Three noes and you are holding canon. One yes and you are holding another
   series with canon's confidence.

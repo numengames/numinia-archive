@@ -4,9 +4,9 @@ uid: ""
 title: "The archive is the organisation"
 type: seminal
 status: draft
-version: "1.0.5"
+version: "1.0.6"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -72,7 +72,7 @@ claim of precedence is not, and is void.
 ## Only the normative documents oblige
 
 Three kinds of document oblige: canon says why, a standard says what an
-artefact must satisfy, a protocol says how an actor carries something out.
+artefact must satisfy, a procedure says how an actor carries something out.
 Everything else — a decision, a report, a mission, a debt, a blueprint —
 records what happened, what was decided or what exists, and a record cannot
 put anyone in breach. So an obligation written anywhere else is a plan until

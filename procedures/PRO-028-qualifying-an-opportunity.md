@@ -2,16 +2,16 @@
 id: "PRO-028"
 uid: ""
 title: "Qualifying an opportunity"
-type: protocol
+type: procedure
 status: draft
-version: "0.6.2"
+version: "0.6.3"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
-tags: [protocol, sales, opportunity, qualification, pipeline, timeline, collaboration, partner]
+tags: [procedure, sales, opportunity, qualification, pipeline, timeline, collaboration, partner]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-038", "STD-039", "PRO-029", "PRO-030", "PRO-033", "PRO-032", "CAN-002"]
@@ -42,7 +42,7 @@ Numen Games' or Numinia's name, and whoever decides whether to pursue it.
 ## 1. Purpose and trigger
 
 Most lost sales were never sales: a conversation nobody wrote down, or
-effort on something we could not make. This protocol records every sign
+effort on something we could not make. This procedure records every sign
 of interest the day it arrives, and decides within two weeks.
 
 It starts when an organisation shows a need — a form, an e-mail, a

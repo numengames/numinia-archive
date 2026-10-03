@@ -2,15 +2,15 @@
 id: "PRO-022"
 uid: ""
 title: "Building the living pieces"
-type: protocol
+type: procedure
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-26T18:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
-tags: [protocol, design, motion, velo, sky, reading-aloud]
+tags: [procedure, design, motion, velo, sky, reading-aloud]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-023", "STD-008", "STD-034", "PRO-014", "BLU-011"]
@@ -40,7 +40,7 @@ reading-aloud player on a site of the house.
 ## 1. Purpose and trigger
 
 Three pieces are already in production and each was reached by fixing
-something a reader hit. This protocol keeps how they are built in one place,
+something a reader hit. This procedure keeps how they are built in one place,
 so the next change starts from what was learned. It starts when a piece of
 the three is built on a new site, or changed on one that has it. An **agent**
 builds; the **Oracle** approves anything that changes what a reader sees.

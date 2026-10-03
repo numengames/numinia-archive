@@ -4,11 +4,11 @@ uid: ""
 title: "Sistema de Nomenclatura Dual — Narrative & Gamification Dials"
 type: blueprint
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [blueprint, nomenclature, narrative-dial, gamification-dial, i18n]
@@ -142,7 +142,7 @@ Gamification has qualitative jumps, not a smooth curve. Five named thresholds. I
 | Knowledge Base | Knowledge Base | Knowledge Base | Archive | Archivo | Summa Archive |
 | Decision Record | Decision Record | Decision Record | Decision Stone | Decisión | Piedra del Camino |
 | Report | Report | Report | Dispatch | Reporte | Reporte |
-| Process / SOP | Process / SOP | Protocol | Protocol | Protocolo | Protocolo |
+| Process / SOP | Process / SOP | Procedure | Procedure | Procedimiento | Procedimiento |
 
 ### Actions & Rituals
 

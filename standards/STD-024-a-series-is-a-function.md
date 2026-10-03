@@ -5,9 +5,9 @@ title: "A series is a function"
 type: standard
 subtype: standard
 status: active
-version: "3.1.2"
+version: "3.2.0"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -42,12 +42,12 @@ SPDX-License-Identifier: CC0-1.0
 
 **Only three series oblige.** The international quality standard separates
 documents you maintain, which say what must be done, from records you keep,
-which say what was done. Here the canon, the standards and the protocols
+which say what was done. Here the canon, the standards and the procedures
 oblige. Every other series MUST be read as a record, and a record cannot put
 a reader in breach.
 
 **Complied with, or carried out.** A thing made complies with a standard.
-Someone acting carries out a protocol. The line MUST be drawn by how the
+Someone acting carries out a procedure. The line MUST be drawn by how the
 text works, not by its topic.
 
 **A requirement answers yes or no.** The international definition of a
@@ -89,7 +89,7 @@ who knows these standards check us without a glossary.
 
 | In the reading | Exact form |
 |---|---|
-| the canon, the standards, the protocols | `canon/`, `standards/`, `protocols/` |
+| the canon, the standards, the procedures | `canon/`, `standards/`, `procedures/` |
 | the declared kind | `type:` |
 | left out of registration, and why | `registration: exempt` with `registration_reason:`; the reason is apparatus of a registered document, or a rename whose readers cannot all be updated |
 

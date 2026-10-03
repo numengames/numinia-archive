@@ -24,7 +24,7 @@ const PROSE = hdr('ADR-900') + '# A\n\n## Context\n\n## Decision\n';
 
 test('resolve: a cited section that exists passes; one that does not is CIT-050 at its line', () => {
   const files = {
-    'protocols/PRO-900-p.md': NUMBERED,
+    'procedures/PRO-900-p.md': NUMBERED,
     'missions/MIS-0900-m.md': hdr('MIS-0900') + 'See PRO-900 §2.1 for the rule.\nAnd PRO-900 §4 for nothing.\n',
   };
   assert.deepEqual(wheres(files), ['missions/MIS-0900-m.md:9']);
@@ -38,7 +38,7 @@ test('resolve: a prose-headed document is not comparable — §2 there is ordina
 
 test('resolve: the § binds to the nearest id — "`PRO-013`, `STD-001` §10.4" cites STD-001', () => {
   const files = {
-    'protocols/PRO-900-p.md': NUMBERED,
+    'procedures/PRO-900-p.md': NUMBERED,
     'standards/STD-900-s.md': hdr('STD-900') + '# S\n\n## 10. Ten\n\n### 10.4 Four\n',
     'missions/MIS-0900-m.md': hdr('MIS-0900') + '`PRO-900`, `STD-900` §10.4\n',
   };
@@ -51,7 +51,7 @@ test('resolve: an unknown or cross-repo id is not ours', () => {
 
 test('resolve: machine/templates/ and history/ are neither cited nor citers', () => {
   const files = {
-    'protocols/PRO-900-p.md': NUMBERED,
+    'procedures/PRO-900-p.md': NUMBERED,
     'machine/templates/X-TEMPLATE.md': 'PRO-900 §99\n',
     'history/old.md': 'PRO-900 §99\n',
   };
@@ -60,7 +60,7 @@ test('resolve: machine/templates/ and history/ are neither cited nor citers', ()
 
 test('norm: a standard citing any section by number is CIT-050, even if the section resolves', () => {
   const files = {
-    'protocols/PRO-900-p.md': NUMBERED,
+    'procedures/PRO-900-p.md': NUMBERED,
     'standards/STD-900-s.md': hdr('STD-900') + '# S\n\nAs PRO-900 §2 says.\n',
   };
   const got = run(corpus(files));
@@ -78,6 +78,6 @@ test('norm: apparatus in standards/ is not held (STANDARDS.md)', () => {
 });
 
 test('norm stops at standards/: a mission may cite a section that exists', () => {
-  const files = { 'protocols/PRO-900-p.md': NUMBERED, 'missions/MIS-0900-m.md': hdr('MIS-0900') + 'PRO-900 §2\n' };
+  const files = { 'procedures/PRO-900-p.md': NUMBERED, 'missions/MIS-0900-m.md': hdr('MIS-0900') + 'PRO-900 §2\n' };
   assert.deepEqual(wheres(files), []);
 });

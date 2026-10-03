@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: MIT
 //
 // /core — the core of the archive as a flow: each canon, the standards that
-// make it concrete, the protocols that carry it out.
+// make it concrete, the procedures that carry it out.
 //
 // WHY THIS PAGE EXISTS
 // The Oracle reviews the core by listening to it (2026-09-27). The shelves
@@ -22,20 +22,20 @@ import { coreFlow } from "@/lib/core";
 
 const flow = coreFlow();
 const count = (s: string) =>
-  flow.reduce((n, c) => n + [c, ...c.standards, ...c.protocols].filter((d) => d.status === s).length, 0);
-const total = flow.reduce((n, c) => n + 1 + c.standards.length + c.protocols.length, 0);
+  flow.reduce((n, c) => n + [c, ...c.standards, ...c.procedures].filter((d) => d.status === s).length, 0);
+const total = flow.reduce((n, c) => n + 1 + c.standards.length + c.procedures.length, 0);
 const state = (s: string) => (s === "active" ? "in force" : s);
 ---
 
 <Layout
   title="The core, as a flow — NWOS"
-  description="Each canon of Numinia, the standards that make it concrete and the protocols that carry it out, one chain per canon, to read or to hear end to end."
+  description="Each canon of Numinia, the standards that make it concrete and the procedures that carry it out, one chain per canon, to read or to hear end to end."
   canonicalPath="/core"
 >
   <PageHero
     label="The core"
     title="Belief, rule, step"
-    description="Each canon, the standards that make it concrete, and the protocols that carry it out. Open a canon to read or hear its whole chain, end to end."
+    description="Each canon, the standards that make it concrete, and the procedures that carry it out. Open a canon to read or hear its whole chain, end to end."
   />
 
   <section class="pb-24">
@@ -46,7 +46,7 @@ const state = (s: string) => (s === "active" ? "in force" : s);
 
       <p class="text-sm leading-relaxed text-muted-foreground mb-10">
         {flow.length} canons, {total} documents: <span class="text-foreground">{count("active")} in force</span>,
-        {count("draft")} draft. Every standard and protocol names the canon it comes from in its own
+        {count("draft")} draft. Every standard and procedure names the canon it comes from in its own
         header, and this page is built from that field alone. What binds right now is at
         <a href="/binding" class="text-accent underline underline-offset-2">what binds today</a>.
       </p>
@@ -56,15 +56,15 @@ const state = (s: string) => (s === "active" ? "in force" : s);
           <li class="rounded-[8px] border border-border bg-card p-5 sm:p-6">
             <a href={c.href} class="group block">
               <div class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-1">
-                Canon · {state(c.status)} · {c.standards.length} standards · {c.protocols.length} protocols
+                Canon · {state(c.status)} · {c.standards.length} standards · {c.procedures.length} procedures
               </div>
               <h2 class="font-display text-2xl text-foreground group-hover:text-accent">{c.title}</h2>
               <p class="mt-1 text-sm italic text-muted-foreground">{c.question}</p>
               <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{c.summary}</p>
             </a>
-            {(c.standards.length > 0 || c.protocols.length > 0) && (
+            {(c.standards.length > 0 || c.procedures.length > 0) && (
               <div class="mt-4 grid gap-4 sm:grid-cols-2">
-                {[["Standards", c.standards], ["Protocols", c.protocols]].map(([label, docs]) => (
+                {[["Standards", c.standards], ["Procedures", c.procedures]].map(([label, docs]) => (
                   (docs as typeof c.standards).length > 0 && (
                     <div>
                       <div class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-accent mb-2">{label as string}</div>

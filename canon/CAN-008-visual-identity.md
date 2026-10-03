@@ -4,9 +4,9 @@ uid: ""
 title: "One identity, three forces"
 type: seminal
 status: draft
-version: "3.0.4"
+version: "3.0.5"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -197,7 +197,7 @@ the dish.
 
 Not one value: no hex, no size, no curve, no budget, no class name. Those are
 the design values register and the kit, where a check verifies them and a
-change is traceable. How a piece is produced is a protocol; each surface has
+change is traceable. How a piece is produced is a procedure; each surface has
 its own blueprint; the licence is the licensing standard's.
 
 Where this canon and the canon of brand and culture disagree, that one holds:

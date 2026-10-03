@@ -5,12 +5,12 @@ title: "CAO Architecture — Complete System Reference"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.5"
+version: "0.2.6"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
-tags: [system, cao, architecture, agents, protocols, tools]
+tags: [system, cao, architecture, agents, procedures, tools]
 section: "Operations"
 license: "CC0-1.0"
 mission: "MIS-045"
@@ -25,7 +25,7 @@ SPDX-License-Identifier: CC0-1.0
 -->
 # BP — CAO Architecture
 
-> **Summary:** Complete architectural reference of the Numen Games CAO — agents, repos, protocols, tools, and data flows.
+> **Summary:** Complete architectural reference of the Numen Games CAO — agents, repos, procedures, tools, and data flows.
 > **Epistemic:** How the CAO works as a system: what each component does, how they connect, and where the boundaries are.
 > **Pragmatic:** Use this document to onboard new agents, audit the system, or plan architecture changes.
 > **Audience:** Agents · Oracles · External collaborators
@@ -34,7 +34,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## What is the CAO?
 
-The **CAO (Centralized Autonomous Organization)** is the operational nervous system of Numen Games. It is the layer where digital agents execute work, maintain memory, follow protocols, and coordinate with humans (the Oracles).
+The **CAO (Centralized Autonomous Organization)** is the operational nervous system of Numen Games. It is the layer where digital agents execute work, maintain memory, follow procedures, and coordinate with humans (the Oracles).
 
 The CAO operates on a simple principle:
 > **The repo is the source of truth. The chat is the interface. The agent is the executor.**
@@ -55,7 +55,7 @@ The CAO operates on a simple principle:
 │   OpenClaw Gateway  │   │  numinia-digital-agents repo │
 │   (main session)    │   │  (GitHub — canon source)     │
 │                     │   │                             │
-│  Nimrod (primary)   │◄──┤  agents/    protocols/      │
+│  Nimrod (primary)   │◄──┤  agents/    procedures/      │
 │  claude-sonnet-4-6  │   │  missions/  blueprints/     │
 │                     │   │  decisions/ canon/          │
 └─────────┬───────────┘   └─────────────────────────────┘
@@ -101,7 +101,7 @@ Each agent lives in `agents/{name}/` with:
 ```
 agents/nimrod/
 ├── SOUL.md       ← Identity, values, voice, operational style
-├── OPERATOR.md   ← Laws, protocols, escalation rules
+├── OPERATOR.md   ← Laws, procedures, escalation rules
 ├── STATUS.md     ← Current state, metrics, recent activity
 └── MEMORY.md     ← Long-term curated memory
 ```
@@ -112,7 +112,7 @@ agents/nimrod/
 
 | Repo | Owner | Purpose | Tech |
 |------|-------|---------|------|
-| `numinia-digital-agents` | numengames org | Canon archive — agents, missions, protocols | Markdown + JSON |
+| `numinia-digital-agents` | numengames org | Canon archive — agents, missions, procedures | Markdown + JSON |
 | `pablofm-web` | PabloFMM | Pablo's public web + CAO dashboard | Astro 5 + React + Vercel |
 | `numinia-digital-goods` | PabloFMM | Asset store + Numinia LAP | Next.js 16 + Vercel |
 | `numinia-digital-goods-data` | PabloFMM | Asset data (JSON + binaries) | JSON + GitHub raw |
@@ -126,7 +126,7 @@ numinia-digital-agents/
 ├── missions/
 │   └── MIS-NNN-*.md     ← flat; status: frontmatter is the only state
 │                          surface (MIS-066), board built from the folder
-├── protocols/           ← P-001 through P-009+
+├── procedures/           ← P-001 through P-009+
 ├── blueprints/          ← System design documents
 ├── decisions/           ← ADRs and strategic decisions
 ├── canon/               ← Immutable seminal documents (10 docs)
@@ -138,7 +138,7 @@ numinia-digital-agents/
 
 ---
 
-## Protocols
+## Procedures
 
 | ID | Name | When to use |
 |----|------|------------|
@@ -150,7 +150,7 @@ numinia-digital-agents/
 | **PRO-013** | Handing a Check to CI | Turning a verified rule into an enforced check |
 | **PRO-018** | Publishing a Repository | Taking a repository public or a work to a permanent store, under `STD-014` |
 
-### Protocol dependency chain
+### Procedure dependency chain
 
 ```
 PRO-001 (opening)

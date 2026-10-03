@@ -2,15 +2,15 @@
 id: "PRO-027"
 uid: ""
 title: "Changing what a site stores or loads"
-type: protocol
+type: procedure
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
-tags: [protocol, personal-data, cookies, sites]
+tags: [procedure, personal-data, cookies, sites]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-035", "STD-037", "LEG-003", "LEG-001"]

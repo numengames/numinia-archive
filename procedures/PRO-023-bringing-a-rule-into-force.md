@@ -2,15 +2,15 @@
 id: "PRO-023"
 uid: ""
 title: "Bringing a rule into force"
-type: protocol
+type: procedure
 status: active
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-27T14:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
-tags: [protocol, lifecycle, draft, active, promotion, checks]
+tags: [procedure, lifecycle, draft, active, promotion, checks]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-004", "STD-005", "STD-009", "STD-017", "STD-019", "STD-024"]
@@ -24,7 +24,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # PRO-023 — Bringing a rule into force
 
-> **Summary:** How a canon, standard or protocol leaves `draft` and starts
+> **Summary:** How a canon, standard or procedure leaves `draft` and starts
 > to bind, without breaking the build and without surprising anyone.
 > **Epistemic:** What has to be true before a rule may bind?
 > **Pragmatic:** The steps from a candidate to `status: active`, and what to
@@ -40,7 +40,7 @@ SPDX-License-Identifier: CC0-1.0
 A draft is on trial: it is followed, its check warns and never blocks,
 and what does not fit is noted. The day it becomes `active`, two things
 change at once: every finding its check reports stops being a warning and
-fails the build, and every person and agent is held to what it says. This protocol makes that moment deliberate.
+fails the build, and every person and agent is held to what it says. This procedure makes that moment deliberate.
 
 It starts when the Oracle names a document to bring into force, or when an
 agent proposes one. The **agent** prepares the change and shows it; the
@@ -51,7 +51,7 @@ agent proposes one. The **agent** prepares the change and shows it; the
 ## 2. Preconditions
 
 - A clone of `main`, with `npm ci` run at the root and in `web/`.
-- The candidate is `status: draft` in `canon/`, `standards/` or `protocols/`.
+- The candidate is `status: draft` in `canon/`, `standards/` or `procedures/`.
 - The checks and tests pass on `main` as it stands.
 
 ---
@@ -82,10 +82,10 @@ agent proposes one. The **agent** prepares the change and shows it; the
    `1.0.0` if the document is still below it, since reaching one is the
    version's own way of saying it now promises — and `updated` set to now.
    The text does not change in the same step.
-10. **For a protocol, restore its ceremony in `AGENTS.md`.** The transition
-    regime suspends protocol ceremony while protocols are draft; say in the
-    regime which protocol now binds, and update the test that checks every
-    protocol is draft.
+10. **For a procedure, restore its ceremony in `AGENTS.md`.** The transition
+    regime suspends procedure ceremony while procedures are draft; say in the
+    regime which procedure now binds, and update the test that checks every
+    procedure is draft.
 11. **Record it.** A `CHANGELOG.md` entry naming what now binds and why this
     one, then a pull request against `main`, never against another branch.
 12. **Check it landed.** After the merge, `git show origin/main:<file>` shows
@@ -100,7 +100,7 @@ agent proposes one. The **agent** prepares the change and shows it; the
 | 1–5 | The check's line for the candidate reads *all hold* in the pull request's CI log |
 | 6–8 | The Oracle's answer in the conversation, quoted in the pull request |
 | 9 | The header diff: `status`, `version`, `updated` and nothing else |
-| 10 | For a protocol: the `AGENTS.md` diff and the passing test |
+| 10 | For a procedure: the `AGENTS.md` diff and the passing test |
 | 11 | The merged pull request and its `CHANGELOG.md` entry |
 | 12 | `/binding` shows the document as in force |
 

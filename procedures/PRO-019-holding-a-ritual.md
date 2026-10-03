@@ -2,16 +2,16 @@
 id: "PRO-019"
 uid: ""
 title: "Holding a ritual"
-type: protocol
+type: procedure
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
 section: "People and culture"
-tags: [protocol, rituals, cadence, community]
+tags: [procedure, rituals, cadence, community]
 license: "CC0-1.0"
 applies_to: [all-agents]
 approved_by: "ADR-048"
@@ -45,7 +45,7 @@ set the pulse of the work, and the festive ones that sustain the culture.
 A ritual is held when its cadence in the roster falls due. The **convoker** is
 the agent or Oracle named for it below; when none is named, the Oracle. A
 gathering that is not in the roster is a meeting, and meetings need no
-protocol.
+procedure.
 
 | Ritual | Kind | Cadence | Purpose | Convoker |
 |---|---|---|---|---|

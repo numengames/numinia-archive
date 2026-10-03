@@ -2,16 +2,16 @@
 id: "PRO-035"
 uid: ""
 title: "Watching for opportunities"
-type: protocol
+type: procedure
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
-tags: [protocol, sales, watch, tenders, grants, feed, automation]
+tags: [procedure, sales, watch, tenders, grants, feed, automation]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-017", "STD-038", "STD-039", "OPS-018", "PRO-033", "PRO-032", "PRO-028"]
@@ -44,7 +44,7 @@ program, on any machine.
 Calls close in fifteen days and are published in a dozen places; a watch
 that only told the Oracle in a chat left no trace, and one that wrote
 straight into the archive would let a program decide what the house holds.
-This protocol keeps the two apart: the watch finds and weighs, the Oracle
+This procedure keeps the two apart: the watch finds and weighs, the Oracle
 decides, a reviewed change records (the bot-proposes, person-accepts pattern
 of dependency updates; [Willison, git scraping](https://simonwillison.net/2020/Oct/9/git-scraping/)).
 

@@ -6,7 +6,7 @@
 //
 // AGT-001 makes AGENTS.md the file every runtime reads, and until now nothing
 // read it back. It drifted exactly where a hand-written description always
-// drifts: it claimed a protocol count the folder contradicted, omitted two top-level
+// drifts: it claimed a procedure count the folder contradicted, omitted two top-level
 // directories, named three reserved `operations/` files where REUSE.toml pins
 // four, and carried a copy of the roster that `agents/INDEX.md` owns — seven
 // agents where the tree has ten. Each is a count a machine can take.
@@ -37,21 +37,21 @@ test('AGT-001: AGENTS.md opens with the audit instruction', () => {
   assert.match(first, /audit/i);
 });
 
-test('every protocol is draft except those AGENTS.md names in force, and no count is typed', () => {
-  // "Every protocol in this archive is `status: draft`" was the sentence the
+test('every procedure is draft except those AGENTS.md names in force, and no count is typed', () => {
+  // "Every procedure in this archive is `status: draft`" was the sentence the
   // whole transition regime rested on. It used to carry "(N of N)", and the
   // number drifted twice (12 over 11, then 11 over 12). The Oracle's word
   // (2026-09-24): do not state how many there are. Since 2026-09-27 a
-  // protocol can leave draft by PRO-023, and step 10 of that protocol says
-  // the regime names it. So the check is: the protocols AGENTS.md names in
+  // procedure can leave draft by PRO-023, and step 10 of that procedure says
+  // the regime names it. So the check is: the procedures AGENTS.md names in
   // its "In force:" line are exactly the active ones; every other is draft.
-  assert.match(AGENTS, /Every protocol in this archive is\s+`status: draft`/, 'the regime sentence is gone');
+  assert.match(AGENTS, /Every procedure in this archive is\s+`status: draft`/, 'the regime sentence is gone');
   assert.ok(!/\(\s*\d+\s+of\s+\d+\s*\)/.test(AGENTS), 'AGENTS.md types a "(N of N)" count again');
   const line = /^In force:([^\n]*(?:\n(?!\n)[^\n]*)*)/m.exec(AGENTS);
-  assert.ok(line, 'AGENTS.md has no "In force:" line naming the protocols that bind');
+  assert.ok(line, 'AGENTS.md has no "In force:" line naming the procedures that bind');
   const named = new Set([...line[1].matchAll(/`(PRO-\d{3})`/g)].map((m) => m[1]));
-  const files = tracked.filter((f) => /^protocols\/PRO-/.test(f));
-  assert.ok(files.length > 0, 'no protocols found');
+  const files = tracked.filter((f) => /^procedures\/PRO-/.test(f));
+  assert.ok(files.length > 0, 'no procedures found');
   const active = new Set();
   for (const f of files) {
     const head = readFileSync(path.join(ROOT, f), 'utf8').slice(0, 2000);
@@ -59,11 +59,11 @@ test('every protocol is draft except those AGENTS.md names in force, and no coun
     if (/^status:\s*active/m.test(head)) active.add(id);
     else assert.match(head, /status:\s*draft/, `${f} is neither draft nor active`);
   }
-  assert.deepEqual([...active].sort(), [...named].sort(), 'the protocols in force and the ones AGENTS.md names differ');
+  assert.deepEqual([...active].sort(), [...named].sort(), 'the procedures in force and the ones AGENTS.md names differ');
 });
 
 test('what the Oracle brought into force on 2026-09-27 is active: PRO-023 and STD-007', () => {
-  for (const [dir, p] of [['protocols', 'PRO-023-'], ['standards', 'STD-007-']]) {
+  for (const [dir, p] of [['procedures', 'PRO-023-'], ['standards', 'STD-007-']]) {
     const f = tracked.find((t) => t.startsWith(`${dir}/${p}`));
     assert.match(readFileSync(path.join(ROOT, f), 'utf8').slice(0, 2000), /^status:\s*active/m, `${f} is not active`);
   }
@@ -146,7 +146,7 @@ test('CLAUDE.md is an adapter, not a second copy of the licensing standard', () 
 // ---------------------------------------------------------------------------
 // CONTRIBUTING.md — the first door an outsider opens
 // ---------------------------------------------------------------------------
-// It named a protocol that was renamed long ago, a template path without its
+// It named a procedure that was renamed long ago, a template path without its
 // extension and a STATUS.md no agent keeps, and it told readers the canon is
 // never modified while AGENTS.md says canon changes go through the operator
 // in chat. A newcomer reads this file first; it may not contradict the tree
