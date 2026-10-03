@@ -21,7 +21,7 @@
 // 015/016/042 are manual. check-templates reads the templates against five
 // standards at once and stays its own check.
 //
-// Run from anywhere: node machine/guards/rules/std-004-the-header.mjs
+// Run from anywhere: node machine/checks/rules/std-004-the-header.mjs
 
 import { execute, isMain } from '../lib/guard.mjs';
 import { loadRules, isTemplate, isApparatus } from '../../scripts/lib/frontmatter.mjs';

@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: standard
 subtype: register
 status: draft
-version: "6.1.4"
+version: "6.1.5"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -80,13 +80,13 @@ SPDX-License-Identifier: CC0-1.0
 | Community | OSS-004 | Issue triage cadence declared, and most issues opened in the last two to twelve months answered (OpenSSF Best Practices Badge, report_responses) | SHOULD | `[DEBT: triage cadence is declared nowhere a machine can read — oracle, 2026-09-11]` |
 | Community | OSS-005 | Social preview image set | SHOULD | `[DEBT: social preview image unset and unread — oracle, 2026-09-11]` |
 | Agents | AGT-001 | `AGENTS.md` at the root; first instruction: audit the branch before assuming anything | MUST | `[AUTO: machine/tools/check-register.mjs]` |
-| Agents | AGT-002 | Deterministic naming and paths, so an agent never invents structure | MUST | `[AUTO: machine/guards/lib/naming.mjs]` |
+| Agents | AGT-002 | Deterministic naming and paths, so an agent never invents structure | MUST | `[AUTO: machine/checks/lib/naming.mjs]` |
 | Agents | AGT-003 | Everything normative also machine-readable: SPDX, DTCG, JSON Schema | MUST | `[DEBT: no check that normative documents ship machine-readable form — oracle, 2026-09-11]` |
 | Agents | AGT-004 | CI is the agent's feedback loop (Principle 1) | MUST | `[DEBT: Principle 1 is stated, nothing verifies CI is the agent's loop — oracle, 2026-09-11]` |
 | Agents | AGT-005 | Mission briefs in the standard format; a mission that produces software carries Gherkin acceptance criteria | MUST | `[DEBT: no guard reads missions/ for the standard format or Gherkin — oracle, 2026-09-11]` |
 | Agents | AGT-006 | AI stance per repository in `AGENTS.md`: autonomous versus Oracle sign-off | MUST | `[DEBT: AGENTS.md states the stance, no check reads it — oracle, 2026-09-11]` |
 | Agents | AGT-007 | The platform is a product for developers, human and digital: if the obvious way to do something is unclear to an agent, it is unclear | SHOULD | `[DEBT: nothing measures whether an agent finds the obvious way — oracle, 2026-09-26]` |
-| Legal | LEG-001 | Making a repository public is a gated Oracle act under the publishing gates (PUB-002, PUB-003) | MUST | `[GATE: machine/guards/rules/std-010-licensing.mjs → the Oracle makes the repository public]` |
+| Legal | LEG-001 | Making a repository public is a gated Oracle act under the publishing gates (PUB-002, PUB-003) | MUST | `[GATE: machine/checks/rules/std-010-licensing.mjs → the Oracle makes the repository public]` |
 
 **A row that says again what a rule elsewhere holds is removed.** Its code
 is never reused; the ledger of deprecated rule IDs says where it leads.

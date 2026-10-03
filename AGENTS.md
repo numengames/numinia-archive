@@ -27,7 +27,7 @@ the Claude Code adapter and points here; it does not restate these rules.
 
 Oracle instruction, 2026-09-18. The system is being cut down from the MVP
 to the alpha, so almost every rule document here is `status: draft`. A
-draft is on trial: follow it, and note what does not fit. Its guard warns and
+draft is on trial: follow it, and note what does not fit. Its check warns and
 never blocks; any change to it is analysed, then its owner decides.
 Every procedure in this archive is `status: draft`, save those named in force
 below.
@@ -60,7 +60,7 @@ What still holds, because each rule protects something that can be seen:
 - one pull request per repository per cut; never self-merge, force-push,
   delete a branch, rewrite a pushed commit, or change licences,
   visibility or secrets;
-- CI green: guards, tests, the web build, and telemetry regenerated in
+- CI green: checks, tests, the web build, and telemetry regenerated in
   the last commit (`node machine/scripts/telemetry.mjs`) — the check is
   mechanical, not ceremony;
 - every pull request that changes a site adds its `/updates` entry and
@@ -99,8 +99,8 @@ restores them by default.
 
 Run from the repository root; Node ≥ 22.12.
 
-- `npm run guards -- --rules` — every registered guard over the corpus
-- `npm test` — the guard, script and tool test suites, with coverage
+- `npm run checks -- --rules` — every registered check over the corpus
+- `npm test` — the check, script and tool test suites, with coverage
 - `node machine/scripts/telemetry.mjs` — regenerate `machine/telemetry/`
   in the last commit of a cut. It needs the tokenizer rank file: without
   it every token figure is silently written as `null`. Fetch it first with
@@ -112,7 +112,7 @@ Inside `web/` (the Astro viewer serving numinia.org):
 
 - `npm run dev` · `npm run build` · `npm run type-check` · `npm run check:responsive`
 
-CI runs the guards, the tests, the web build, then the build-time ratchets.
+CI runs the checks, the tests, the web build, then the build-time ratchets.
 
 ## Repository map
 
@@ -137,7 +137,7 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
   document (an avatar, a model). The bytes live in the depot.
 - `system/` — reference manuals of how the system works today.
 - `designs/` — architecture documents · `web/` — the Astro viewer ·
-  `machine/` — guards, scripts, tools and telemetry.
+  `machine/` — checks, scripts, tools and telemetry.
 
 The folders above are all there is. Do not infer a directory's purpose from
 its name when its function is not documented.

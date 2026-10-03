@@ -120,7 +120,7 @@ test('header: every record carries exactly one section, and it is one of the ten
 });
 
 test('header: the guard lists the ten sections of STD-030, word for word', () => {
-  const guard = readFileSync(path.join(ROOT, 'machine/guards/rules/std-004-the-header.mjs'), 'utf8');
+  const guard = readFileSync(path.join(ROOT, 'machine/checks/rules/std-004-the-header.mjs'), 'utf8');
   const m = guard.match(/^\s*section: \[(.*)\],\s*$/m);
   assert.ok(m, 'the header guard has no `section` vocabulary');
   const listed = [...m[1].matchAll(/'([^']+)'/g)].map((x) => x[1]);

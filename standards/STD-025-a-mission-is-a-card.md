@@ -5,9 +5,9 @@ title: "A mission is a card"
 type: standard
 subtype: standard
 status: draft
-version: "1.0.11"
+version: "1.0.12"
 created: "2026-09-09T23:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -92,7 +92,7 @@ Each rule, its code, its source and its check.
 | MSN-036 | Written down before it is done | — | by hand — the card's date against the work's first commit |
 | MSN-037 | Done is stated before work starts | — (Gherkin is a syntax for writing criteria and does not require them before work) | by hand — the section is checkable; whether it states a test is not |
 | MSN-041 | Read whole, never by title | — | by hand — no trace tells a read from a skim; left a MUST, unauditable |
-| MSN-001 | Five states, no others | — | `machine/guards/rules/std-004-the-header.mjs` (`HDR-004`) — the mission lifecycle |
+| MSN-001 | Five states, no others | — | `machine/checks/rules/std-004-the-header.mjs` (`HDR-004`) — the mission lifecycle |
 | MSN-002 | Each state has its hand and its mark | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) · [W3C PROV-O, startedAtTime and endedAtTime](https://www.w3.org/TR/prov-o/#startedAtTime) | by hand — no check reads the stamp for the state yet |
 | MSN-039 | Paused says why | — | by hand — no check reads `hold_reason` yet |
 | MSN-003 | One doer | the responsibility assignment matrix (RACI), a convention, not a standard: exactly one Responsible | by hand — one name is a field; who edits is judgement |

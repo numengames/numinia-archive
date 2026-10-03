@@ -28,7 +28,7 @@
 //          exists ONLY in code. One finding per file, sized — a ratchet needs
 //          a number that cannot go up by accident, not precision.
 //
-// Run from anywhere: node machine/guards/rules/std-006-plain-text.mjs
+// Run from anywhere: node machine/checks/rules/std-006-plain-text.mjs
 
 import { readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// guard.mjs — the contract every guard under machine/guards/ fulfils, and the one
+// guard.mjs — the contract every guard under machine/checks/ fulfils, and the one
 // place that turns a guard's findings into a process.
 //
 // A guard is a module that exports two things:

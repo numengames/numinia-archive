@@ -7,10 +7,10 @@
 //
 // Measured on 2026-09-19 before this test: 94.7 % of the lines the tests
 // load, and 12 of 37 source files never loaded by any test — check-templates,
-// check-orphan-content, check-url-lifecycle, check-deletable, run-guards among
+// check-orphan-content, check-url-lifecycle, check-deletable, run-checks among
 // them — invisible to the figure, because node's coverage only reports files
 // that ran. This test pins that `npm test` measures coverage over machine/scripts/,
-// machine/guards/ and machine/tools/, and that CI publishes BOTH numbers: node's table and
+// machine/checks/ and machine/tools/, and that CI publishes BOTH numbers: node's table and
 // the count of source files no test loads. No threshold: while STD-015 is
 // draft the guard sees and does not bite (ENG-067).
 //
@@ -24,10 +24,10 @@ import { ROOT } from '../lib/frontmatter.mjs';
 const pkg = JSON.parse(readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
 const ci = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf8');
 
-test('npm test measures coverage over machine/scripts/, machine/guards/ and machine/tools/', () => {
+test('npm test measures coverage over machine/scripts/, machine/checks/ and machine/tools/', () => {
   const s = pkg.scripts.test;
   assert.match(s, /--experimental-test-coverage/, 'npm test does not measure coverage');
-  for (const dir of ['machine/scripts', 'machine/guards', 'machine/tools'])
+  for (const dir of ['machine/scripts', 'machine/checks', 'machine/tools'])
     assert.match(s, new RegExp(`--test-coverage-include=['"]?${dir}/`), `coverage does not include ${dir}/`);
   assert.match(s, /--test-coverage-exclude=['"]?\*\*\/test\//, 'the tests themselves must be excluded from the figure');
 });

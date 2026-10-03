@@ -25,7 +25,7 @@ const REGISTER = 'standards/STD-015-engineering-checks.md';
    prove a check bites would leave the repository wrong if a test threw. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'register-'));
-  for (const p of ['standards', 'designs', 'machine/scripts', 'machine/guards', 'machine/tools', '.github', 'AGENTS.md', 'CLAUDE.md', 'package.json', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', '.editorconfig'])
+  for (const p of ['standards', 'designs', 'machine/scripts', 'machine/checks', 'machine/tools', '.github', 'AGENTS.md', 'CLAUDE.md', 'package.json', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', '.editorconfig'])
     if (existsSync(path.join(ROOT, p))) cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
   execSync('git init -q && git add -A && git -c user.email=t@t -c user.name=t commit -qm scratch', { cwd: dir });
   return dir;
@@ -90,7 +90,7 @@ test('a debt must name who owes it and when it was booked', () => {
 test('a gate states the human act and still proves its machine half', () => {
   const dir = scratch();
   try {
-    edit(dir, REGISTER, (t) => t.replace(/`\[GATE: machine\/guards\/rules\/std-010-licensing\.mjs → [^\]]*\]`/, '`[GATE: machine/guards/rules/std-010-licensing.mjs]`'));
+    edit(dir, REGISTER, (t) => t.replace(/`\[GATE: machine\/checks\/rules\/std-010-licensing\.mjs → [^\]]*\]`/, '`[GATE: machine/checks/rules/std-010-licensing.mjs]`'));
     assert.match(run(dir).out, /a GATE must read/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 
@@ -108,7 +108,7 @@ test('a guard no registry entry names is reported, committed or not', () => {
   // run is green for not looking. Silence and success look identical.
   const dir = scratch();
   try {
-    cpSync(path.join(dir, 'machine/guards/rules/std-019-versions.mjs'), path.join(dir, 'machine/guards/rules/std-099-probe.mjs'));
+    cpSync(path.join(dir, 'machine/checks/rules/std-019-versions.mjs'), path.join(dir, 'machine/checks/rules/std-099-probe.mjs'));
     const uncommitted = run(dir);
     assert.equal(uncommitted.code, 1);
     assert.match(uncommitted.out, /std-099-probe\.mjs .*\(not committed yet\)/);
@@ -125,7 +125,7 @@ test('a registry entry pointing at nothing is reported', () => {
   try {
     edit(dir, 'machine/scripts/blind-spots.json', (t) => {
       const j = JSON.parse(t);
-      j.guards['probe-ghost'] = { script: 'machine/guards/rules/does-not-exist.mjs', blind_spots: [] };
+      j.checks['probe-ghost'] = { script: 'machine/checks/rules/does-not-exist.mjs', blind_spots: [] };
       return JSON.stringify(j, null, 2) + '\n';
     });
     assert.match(run(dir).out, /does-not-exist\.mjs, which does not exist/);
@@ -137,8 +137,8 @@ test('a pipeline that stops running the guards is reported', () => {
   // 23 rows become decorative at once and nothing else notices.
   const dir = scratch();
   try {
-    edit(dir, '.github/workflows/ci.yml', (t) => t.replace('run: npm run guards -- --rules', 'run: echo skipped'));
-    assert.match(run(dir).out, /never invokes the rule guards/);
+    edit(dir, '.github/workflows/ci.yml', (t) => t.replace('run: npm run checks -- --rules', 'run: echo skipped'));
+    assert.match(run(dir).out, /never invokes the rule checks/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 

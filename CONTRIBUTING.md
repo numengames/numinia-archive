@@ -30,7 +30,7 @@ This file does not repeat either. If they disagree with it, they win.
 
 1. Branch from `main`.
 2. Make the change. Commit messages are in English.
-3. Run `npm test` and `npm run guards -- --rules`; if you touched `web/`,
+3. Run `npm test` and `npm run checks -- --rules`; if you touched `web/`,
    run its build too.
 4. Open a pull request that says what changed and why.
 5. The Oracle reviews and merges. Nobody merges their own pull request.

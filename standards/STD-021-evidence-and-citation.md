@@ -5,9 +5,9 @@ title: "Evidence and citation"
 type: standard
 subtype: standard
 status: active
-version: "1.4.4"
+version: "1.4.5"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -82,12 +82,12 @@ rules under one rule ID.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| CIT-050 | the section-citation check, part of `STD-007` DOC-008 (cite rules, not places) | — (stricter than [ISO 690:2021](https://www.iso.org/standard/72642.html), which allows location references) | `machine/guards/rules/std-021-evidence-and-citation.mjs` — a standard cites no section by number; elsewhere a cited section must exist |
+| CIT-050 | the section-citation check, part of `STD-007` DOC-008 (cite rules, not places) | — (stricter than [ISO 690:2021](https://www.iso.org/standard/72642.html), which allows location references) | `machine/checks/rules/std-021-evidence-and-citation.mjs` — a standard cites no section by number; elsewhere a cited section must exist |
 | CIT-051 | Structural references are gathered | [ISO 690:2021](https://www.iso.org/standard/72642.html), the reference list — ours adds: only what the text depends on | by hand |
-| CIT-054 | Bare is a citation; enclosed is data | — | `machine/guards/rules/std-012-corpus-does-not-grow.mjs` — what it resolves and what it skips |
+| CIT-054 | Bare is a citation; enclosed is data | — | `machine/checks/rules/std-012-corpus-does-not-grow.mjs` — what it resolves and what it skips |
 | CIT-052 | Name the file | — | by hand — the proof is prose |
 | EVI-057 | Say how many out of how many | [ISO 19011:2018](https://www.iso.org/standard/70017.html), annex A.6, audit sampling | by hand — the denominator is prose |
-| CIT-053 | A closed record is a photograph | — | `machine/guards/rules/std-012-corpus-does-not-grow.mjs` exempts closed documents |
+| CIT-053 | A closed record is a photograph | — | `machine/checks/rules/std-012-corpus-does-not-grow.mjs` exempts closed documents |
 | CIT-055 | A quote carries its author · No borrowed voice | [ISO 690:2021](https://www.iso.org/standard/72642.html), quotations — ours adds: the name as the person signs it; naming the author of a quotation is also required by law ([Berne Convention, art. 10(3)](https://www.wipo.int/wipolex/en/text/283698)) | by hand — no tool can tell whose sentence a sentence was |
 
 ## Why

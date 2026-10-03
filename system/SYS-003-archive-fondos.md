@@ -5,11 +5,11 @@ title: "The Archive's Fonds"
 type: documentation
 subtype: reference
 status: active
-version: "3.0.5"
+version: "3.0.6"
 created: "2026-08-17T19:10:09Z"
 created_source: "git:715cc53"
 created_confidence: exact
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [system, archive, fonds, taxonomy, classification]
@@ -52,7 +52,7 @@ Games S.L. The scheme that groups them is `STD-027`; this is its manual.
 | | Executing | `missions/` | Only the executor edits their active mission. |
 | **Assurance** | Observing | `reports/` | Closed: substance is not reopened. |
 | | Admitting | `debt/` | Open: a pull request. |
-| | Verifying | `machine/guards/` · `machine/tools/` · `machine/scripts/` | Tooling, not documents. |
+| | Verifying | `machine/checks/` · `machine/tools/` · `machine/scripts/` | Tooling, not documents. |
 | | Measuring | `machine/telemetry/` | Regenerated, never hand-edited. |
 | **Agency** | Constituting | `agents/` | SOUL/OPERATOR: Oracle. STATUS: the agent. |
 | **Creation** | Worldbuilding | `lore/` | A second fonds (`ADR-046`). CC0. |

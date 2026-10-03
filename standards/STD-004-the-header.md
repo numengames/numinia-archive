@@ -5,11 +5,11 @@ title: "The header"
 type: standard
 subtype: standard
 status: active
-version: "4.16.0"
+version: "4.16.1"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 approved_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -119,23 +119,23 @@ then the extensions, with its value, code, series and outside meaning.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| HDR-000 | Every governed document has a header | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) — ours adds: fenced by `---` at byte 0 | `machine/guards/rules/std-004-the-header.mjs`, with HDR-040 (the fence) and HDR-043 (the licence) |
-| HDR-040 | the fence at byte 0, part of HDR-000 | [YAML 1.2.2](https://yaml.org/spec/1.2.2/), document markers | `machine/guards/rules/std-004-the-header.mjs` — the file starts with `---\n` |
-| HDR-030 | A field in no list is an error | [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core), `additionalProperties: false`, as the model | `machine/guards/rules/std-004-the-header.mjs` |
+| HDR-000 | Every governed document has a header | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) — ours adds: fenced by `---` at byte 0 | `machine/checks/rules/std-004-the-header.mjs`, with HDR-040 (the fence) and HDR-043 (the licence) |
+| HDR-040 | the fence at byte 0, part of HDR-000 | [YAML 1.2.2](https://yaml.org/spec/1.2.2/), document markers | `machine/checks/rules/std-004-the-header.mjs` — the file starts with `---\n` |
+| HDR-030 | A field in no list is an error | [JSON Schema 2020-12](https://json-schema.org/draft/2020-12/json-schema-core), `additionalProperties: false`, as the model | `machine/checks/rules/std-004-the-header.mjs` |
 | HDR-042 | Adding a field costs a row and a decision | — | by hand, at review: the register row and the decision |
-| HDR-009 | Empty is absent | — | `machine/guards/rules/std-004-the-header.mjs` |
-| HDR-044 | Absent is never guessed | — ([EDTF](https://www.loc.gov/standards/datetime/) is the candidate for uncertain dates) | `machine/guards/rules/std-004-the-header.mjs`, placeholder values |
-| HDR-032 | A deferred value has an owner | — | `machine/guards/rules/std-004-the-header.mjs`; whether the mission lives, by hand |
-| HDR-031 | Deprecated fields leave in waves | — | `machine/guards/rules/std-004-the-header.mjs` |
-| HDR-020 | The universal identifier stays empty | — | `machine/guards/rules/std-004-the-header.mjs` |
-| HDR-043 | The licence is a name from the shared list — declared | [REUSE 3.3](https://reuse.software/spec-3.3/); [SPDX 2.3 Annex E](https://spdx.github.io/spdx-spec/v2.3/using-SPDX-short-identifiers-in-source-files/) | `machine/guards/rules/std-004-the-header.mjs` — `license` present |
-| HDR-008 | The licence is a name from the shared list — spelt right | [SPDX License List](https://spdx.org/licenses/) | `machine/guards/rules/std-004-the-header.mjs` — value against the manifest |
-| HDR-005 | A version counts what changed | [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html); bump rules in `STD-019` | `machine/guards/rules/std-004-the-header.mjs` — shape; the bump, by hand |
-| HDR-004 | Replaced is a relation, not a state | differs on purpose from [MADR](https://adr.github.io/madr/) and [Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) `superseded`; the heir is [`dcterms:isReplacedBy`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/) | `machine/guards/rules/std-004-the-header.mjs` — status in its lifecycle |
-| HDR-016 | Relations live in the header and resolve | [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/): `replaces`, `isReplacedBy`, `relation`, `isPartOf`; [PROV-O](https://www.w3.org/TR/prov-o/) `wasDerivedFrom`; the field map is the outside meaning below | by hand, presence only: no check resolves header relations; `machine/guards/rules/std-020-git-is-the-archive.mjs` reads the body |
-| HDR-002 | Titles are English | [BCP 47](https://www.rfc-editor.org/info/bcp47) — the tag `en` | `machine/guards/rules/std-004-the-header.mjs`, presence; language by hand |
-| HDR-045 | Dates are written the internet's way | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), a free, exact profile of [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) — ours adds: time required, `updated` ≥ `created` | `machine/guards/rules/std-004-the-header.mjs` for `created` and `updated` (HDR-006, HDR-007); other dates by hand |
-| HDR-001, 003, 006, 007, 012..014, 017..019, 033..038 | each field's own rule, in the tables below | — | `machine/guards/rules/std-004-the-header.mjs`, one rule ID per finding |
+| HDR-009 | Empty is absent | — | `machine/checks/rules/std-004-the-header.mjs` |
+| HDR-044 | Absent is never guessed | — ([EDTF](https://www.loc.gov/standards/datetime/) is the candidate for uncertain dates) | `machine/checks/rules/std-004-the-header.mjs`, placeholder values |
+| HDR-032 | A deferred value has an owner | — | `machine/checks/rules/std-004-the-header.mjs`; whether the mission lives, by hand |
+| HDR-031 | Deprecated fields leave in waves | — | `machine/checks/rules/std-004-the-header.mjs` |
+| HDR-020 | The universal identifier stays empty | — | `machine/checks/rules/std-004-the-header.mjs` |
+| HDR-043 | The licence is a name from the shared list — declared | [REUSE 3.3](https://reuse.software/spec-3.3/); [SPDX 2.3 Annex E](https://spdx.github.io/spdx-spec/v2.3/using-SPDX-short-identifiers-in-source-files/) | `machine/checks/rules/std-004-the-header.mjs` — `license` present |
+| HDR-008 | The licence is a name from the shared list — spelt right | [SPDX License List](https://spdx.org/licenses/) | `machine/checks/rules/std-004-the-header.mjs` — value against the manifest |
+| HDR-005 | A version counts what changed | [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html); bump rules in `STD-019` | `machine/checks/rules/std-004-the-header.mjs` — shape; the bump, by hand |
+| HDR-004 | Replaced is a relation, not a state | differs on purpose from [MADR](https://adr.github.io/madr/) and [Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) `superseded`; the heir is [`dcterms:isReplacedBy`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/) | `machine/checks/rules/std-004-the-header.mjs` — status in its lifecycle |
+| HDR-016 | Relations live in the header and resolve | [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/): `replaces`, `isReplacedBy`, `relation`, `isPartOf`; [PROV-O](https://www.w3.org/TR/prov-o/) `wasDerivedFrom`; the field map is the outside meaning below | by hand, presence only: no check resolves header relations; `machine/checks/rules/std-020-git-is-the-archive.mjs` reads the body |
+| HDR-002 | Titles are English | [BCP 47](https://www.rfc-editor.org/info/bcp47) — the tag `en` | `machine/checks/rules/std-004-the-header.mjs`, presence; language by hand |
+| HDR-045 | Dates are written the internet's way | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), a free, exact profile of [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) — ours adds: time required, `updated` ≥ `created` | `machine/checks/rules/std-004-the-header.mjs` for `created` and `updated` (HDR-006, HDR-007); other dates by hand |
+| HDR-001, 003, 006, 007, 012..014, 017..019, 033..038 | each field's own rule, in the tables below | — | `machine/checks/rules/std-004-the-header.mjs`, one rule ID per finding |
 | HDR-010, 011, 015 | author, owner, commissioned by | — | by hand, presence only |
 
 A governed folder is one `machine/scripts/lib/rules.json` lists under

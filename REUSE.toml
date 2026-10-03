@@ -5,7 +5,7 @@ version = 1
 # Every file in this repository declares its own licence. A text file does it
 # in its own first lines (an SPDX comment: `<!-- … -->` in Markdown, `//` in
 # code, `#` in YAML/TOML); a Markdown document with a header also says it in
-# `license:`, and machine/guards/rules/std-010-licensing.mjs checks the two agree.
+# `license:`, and machine/checks/rules/std-010-licensing.mjs checks the two agree.
 #
 # This file lists only the files that CANNOT say it themselves — images,
 # fonts, JSON, generated or pinned copies, templates — one exact path each.

@@ -59,7 +59,7 @@ export interface Activity {
 
 /** One folder of the archive. */
 export interface Series {
-  /** folder, as written in the archive — "standards/", "machine/guards/" */
+  /** folder, as written in the archive — "standards/", "machine/checks/" */
   readonly folder: string;
   /** what the menu prints — "Standards", "Guards" */
   readonly label: string;
@@ -135,7 +135,7 @@ const SERVED_AT: Record<string, { href: string | null; label?: string; unpublish
   "legal/": { href: "/legal/" },
   "system/": { href: "/system/" },
   "lore/": { href: "/lore/" },
-  "machine/guards/": {
+  "machine/checks/": {
     href: "/system/sys-007-the-instruments#machineguards--verifying",
     label: "Checks",
     unpublished: "A short-lived record that never binds — the rules that run on every change; read in the repository, explained in the manual.",

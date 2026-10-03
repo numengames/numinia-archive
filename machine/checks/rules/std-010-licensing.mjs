@@ -18,7 +18,7 @@
 // it, not a statement about the template. check-templates (T-04) holds it to a
 // licence the repository ships a text for.
 //
-// Run from anywhere: node machine/guards/rules/std-010-licensing.mjs
+// Run from anywhere: node machine/checks/rules/std-010-licensing.mjs
 
 import { execute, isMain } from '../lib/guard.mjs';
 import { licenceOfFile } from '../../scripts/lib/reuse.mjs';

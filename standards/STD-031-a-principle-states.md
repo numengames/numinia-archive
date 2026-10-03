@@ -5,9 +5,9 @@ title: "A principle states"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.12"
+version: "0.1.13"
 created: "2026-09-24T22:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -107,9 +107,9 @@ Each rule, its code, its source and its check.
 | STA-008 | No restatement | — | by hand |
 | STA-009 | A border only when real | — | by hand |
 | STA-010 | No date, no byline in the body | — | by hand |
-| STA-011 | Document names at the foot | — | `machine/guards/rules/std-021-evidence-and-citation.mjs` (`CIT-050`) reports a section cited by number; a bare name mid-prose is read |
+| STA-011 | Document names at the foot | — | `machine/checks/rules/std-021-evidence-and-citation.mjs` (`CIT-050`) reports a section cited by number; a bare name mid-prose is read |
 | STA-012 | The manual names the world | [ISO 25964-1:2011, thesauri](https://www.iso.org/standard/53657.html) — one preferred term per concept | by hand, against `lore/game/manual/glossary-es-en.md` |
-| — | the body length, 1,500 words, a SHOULD | — | `machine/guards/rules/std-007-one-page.mjs` (`DOC-006`) — counted and reported, never enforced |
+| — | the body length, 1,500 words, a SHOULD | — | `machine/checks/rules/std-007-one-page.mjs` (`DOC-006`) — counted and reported, never enforced |
 
 | In the reading | Exact form |
 |---|---|

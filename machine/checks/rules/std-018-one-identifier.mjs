@@ -11,7 +11,7 @@
 //          identifier it carries is the series' shape; reports/ admit
 //          RPT-YYYY-MM-DD.md for subtype: daily only — one report per day,
 //          so the day IS the identifier.
-//          Which files are held, and to which scheme, is machine/guards/lib/naming.mjs
+//          Which files are held, and to which scheme, is machine/checks/lib/naming.mjs
 //          — the reading STD-006 (TXT-001, the shape) shares.
 // IDN-012  a filename encodes no state (-draft, -final, -frozen…). A negation
 //          is not a state claim: `-not-frozen.md` describes a defect about
@@ -27,7 +27,7 @@
 // …, which follow the platform they serve, STD-009). IDN-011 is narrower:
 // the files classify() puts under a series scheme.
 //
-// Run from anywhere: node machine/guards/rules/std-018-one-identifier.mjs
+// Run from anywhere: node machine/checks/rules/std-018-one-identifier.mjs
 
 import { execute, isMain } from '../lib/guard.mjs';
 import { classify } from '../lib/naming.mjs';

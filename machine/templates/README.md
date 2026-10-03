@@ -71,11 +71,11 @@ template in one table: [numinia.org/templates](https://numinia.org/templates).
 5. Run the checks before committing:
 
 ```
-node machine/guards/rules/std-004-the-header.mjs
-node machine/guards/rules/std-018-one-identifier.mjs
-node machine/guards/rules/std-006-plain-text.mjs
-node machine/guards/rules/std-010-licensing.mjs
-node machine/guards/rules/std-012-corpus-does-not-grow.mjs
+node machine/checks/rules/std-004-the-header.mjs
+node machine/checks/rules/std-018-one-identifier.mjs
+node machine/checks/rules/std-006-plain-text.mjs
+node machine/checks/rules/std-010-licensing.mjs
+node machine/checks/rules/std-012-corpus-does-not-grow.mjs
 ```
 
 A document created from an unedited template should pass all four. If it does

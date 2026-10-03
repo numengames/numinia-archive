@@ -28,7 +28,7 @@
 // Not here: `--report` (list everything, exit 0) — the contract prints every
 // finding under its plate and judges by the holder's state.
 //
-// Run from anywhere: node machine/guards/rules/std-021-evidence-and-citation.mjs
+// Run from anywhere: node machine/checks/rules/std-021-evidence-and-citation.mjs
 
 import path from 'node:path';
 import { execute, isMain } from '../lib/guard.mjs';

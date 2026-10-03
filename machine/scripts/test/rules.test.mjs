@@ -95,7 +95,7 @@ check('rules.json: every series dir with a naming scheme exists in the tree', ()
   const missing = seriesDirs(rules).filter((d) => !tracked.has(d));
   return missing.length === 0 || `missing: ${missing.join(', ')}`;
 });
-const SHARED = ['machine/guards/rules/std-004-the-header.mjs', 'machine/guards/rules/std-012-corpus-does-not-grow.mjs'];
+const SHARED = ['machine/checks/rules/std-004-the-header.mjs', 'machine/checks/rules/std-012-corpus-does-not-grow.mjs'];
 for (const g of SHARED)
   check(`${g} imports machine/scripts/lib/frontmatter.mjs`, () => /from '(\.\.\/\.\.\/scripts|\.)\/lib\/frontmatter\.mjs'/.test(readFileSync(path.join(ROOT, g), 'utf8')));
 check('no guard keeps a private SERIES/PREFIX map', () =>

@@ -115,7 +115,7 @@ export function seriesSegments(text) {
     if (!line.startsWith('| ')) continue;
     const first = line.split('|')[1]?.trim().replace(/`/g, '') ?? '';
     if (!first.endsWith('/')) continue;
-    // machine/guards/ and the like are instruments: never published, so never
+    // machine/checks/ and the like are instruments: never published, so never
     // a published address. Only the first segment of a top-level series is an
     // address segment.
     if (first.includes('/', first.indexOf('/') + 1)) continue;

@@ -52,7 +52,7 @@ interface DocRow {
 /** The repository root's own files (README, changelog…) and .github/. */
 export const ROOT_AREA = "Repository";
 
-/** Top-level folder → function, from STD-027. `machine/guards/` → `machine`. */
+/** Top-level folder → function, from STD-027. `machine/checks/` → `machine`. */
 export const functionOfDir: Record<string, string> = (() => {
   const out: Record<string, string> = {};
   for (const fn of functions())

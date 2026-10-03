@@ -4,9 +4,9 @@ description: "Use when opening a pull request in numengames/numinia-archive. One
 title: "SKILL — numinia-nwos-pr"
 type: agent
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-09-10T08:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -50,7 +50,7 @@ before acting (`git fetch && git log -1 origin/main`, `gh pr list --state open`)
    is actually in the file; keep the SPDX comment equal to `license:`.
 3. `git checkout -b <series>/<id>-shape`.
 4. `npm test` at the root — every suite.
-5. Guards, all of them: `npm run guards` at the root; then `cd web && npm run
+5. Checks, all of them: `npm run checks` at the root; then `cd web && npm run
    build` and `node machine/scripts/check-url-lifecycle.mjs`. A guard prints every
    finding on the tree and exits 1 only when its rule's holder is `active`
    (ENG-067); there is no baseline to refresh.

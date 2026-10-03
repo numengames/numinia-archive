@@ -4,9 +4,9 @@ uid: ""
 title: "Bringing a rule into force"
 type: procedure
 status: active
-version: "1.1.4"
+version: "1.1.5"
 created: "2026-09-27T14:30:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -58,7 +58,7 @@ agent proposes one. The **agent** prepares the change and shows it; the
 
 ## 3. Procedure
 
-1. **Run the checks.** `npm run guards -- --rules`, and keep the output.
+1. **Run the checks.** `npm run checks -- --rules`, and keep the output.
 2. **Find the candidate's check.** Each check names the standard it belongs
    to (`std-004-the-header` belongs to `STD-004`). A document with no check
    is checked only by people; say so in step 7.

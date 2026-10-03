@@ -7,12 +7,12 @@
 #
 # Order is not cosmetic. Everything before `install` is bare node over the
 # working tree: no npm, no web/. The tests come after it, because they load
-# the site's rehype plugins and those import from web/node_modules. The build guards read web/dist, so they can
+# the site's rehype plugins and those import from web/node_modules. The build checks read web/dist, so they can
 # only run after `build` — the runner exits 2 if that directory is missing, so
 # a misplaced step fails loudly instead of passing blind.
 #
-# The workflow names no guard. What runs is what machine/scripts/run-guards.mjs finds
-# in the registry (ENG-032); a guard enters CI by being merged.
+# The workflow names no check. What runs is what machine/scripts/run-checks.mjs finds
+# in the registry (ENG-032); a check enters CI by being merged.
 #
 # Actions are pinned by commit SHA, not by tag: a tag can be moved by its
 # owner, a SHA cannot. The token is read-only.
@@ -32,7 +32,7 @@ jobs:
       # Checkout of the PR head, pinned by SHA.
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
-          # Full history, not a shallow clone: the telemetry guard reads git
+          # Full history, not a shallow clone: the telemetry check reads git
           # history (first-add dates, renames). A depth-1 checkout measures a
           # different repository and the comparison below fails as ALTERED.
           fetch-depth: 0
@@ -50,14 +50,14 @@ jobs:
       - name: telemetry — tokenizer rank file
         run: node machine/scripts/telemetry.mjs --fetch-tokenizer
 
-      # Every rule guard named by machine/scripts/blind-spots.json (ENG-032), wherever
+      # Every rule check named by machine/scripts/blind-spots.json (ENG-032), wherever
       # its script sits. Each reports every finding it sees; whether one fails
       # the build is decided by the state of the standard that holds the rule
       # (ENG-067). Red means: a rule whose standard is active is broken — the
       # line names the file. This step is itself a claim 23 rows of STD-015
       # rest on, so check-register verifies the step is still here.
-      - name: rule guards
-        run: npm run guards -- --rules
+      - name: rule checks
+        run: npm run checks -- --rules
 
       # Every opportunity — a sale, a tender, a grant, a collaboration, a
       # partner — is a public record read by one tool (STD-039). Red means:
@@ -71,11 +71,11 @@ jobs:
         run: npm ci
         working-directory: web
 
-      # The guards' own tests, and the telemetry instrument's self-tests on
-      # throwaway clones. Red means: a guard or the instrument is broken, not
+      # The checks' own tests, and the telemetry instrument's self-tests on
+      # throwaway clones. Red means: a check or the instrument is broken, not
       # the tree.
       #
-      # Coverage over machine/scripts/, machine/guards/ and machine/tools/ is measured on every run
+      # Coverage over machine/scripts/, machine/checks/ and machine/tools/ is measured on every run
       # (node --experimental-test-coverage) and two numbers go to the job
       # summary: node's figure, and how many source files no test loads —
       # node only reports files that ran, so the figure alone overstates
@@ -104,15 +104,15 @@ jobs:
           # machine/tools/test/<name>.test.mjs exists) — node cannot see inside a
           # child, so the figure omits it although it is tested. Untested:
           # neither. Only the last group is a gap.
-          find machine/scripts machine/guards machine/tools -name '*.mjs' -not -path '*/test/*' -printf '%f\n' | sort -u > /tmp/all.txt
+          find machine/scripts machine/checks machine/tools -name '*.mjs' -not -path '*/test/*' -printf '%f\n' | sort -u > /tmp/all.txt
           echo "$out" | grep -oE '[A-Za-z0-9_-]+\.mjs +\|' | grep -oE '[A-Za-z0-9_-]+\.mjs' | sort -u > /tmp/loaded.txt
-          find machine/scripts/test machine/guards/test machine/tools/test -name '*.test.mjs' -printf '%f\n' | sed 's/\.test\.mjs$/.mjs/' | sort -u > /tmp/tested.txt
+          find machine/scripts/test machine/checks/test machine/tools/test -name '*.test.mjs' -printf '%f\n' | sed 's/\.test\.mjs$/.mjs/' | sort -u > /tmp/tested.txt
           total=$(wc -l < /tmp/all.txt)
           loaded=$(comm -12 /tmp/all.txt /tmp/loaded.txt | wc -l)
           process=$(comm -23 /tmp/all.txt /tmp/loaded.txt | comm -12 - /tmp/tested.txt | wc -l)
           untested=$(comm -23 /tmp/all.txt /tmp/loaded.txt | comm -23 - /tmp/tested.txt | tr '\n' ' ')
           {
-            echo "### Coverage of machine/scripts/, machine/guards/, machine/tools/ — seen, not enforced (STD-015 draft, ENG-067)"
+            echo "### Coverage of machine/scripts/, machine/checks/, machine/tools/ — seen, not enforced (STD-015 draft, ENG-067)"
             echo
             echo '```'
             echo "$out" | grep -E '^ℹ all files' | sed 's/^ℹ //' || echo "(no coverage line in the output)"
@@ -139,7 +139,7 @@ jobs:
       # findings go to the job summary as warnings and the step exits 0.
       # It starts biting once those are fixed — delete the block after the
       # `status` line and let `npm run type-check` decide. The archive's rule
-      # guards (std-004, std-020, …) are untouched by this step.
+      # checks (std-004, std-020, …) are untouched by this step.
       - name: type-check (reports until the 12 pre-existing errors are fixed)
         working-directory: web
         run: |
@@ -166,7 +166,7 @@ jobs:
       # header or through REUSE.toml, and LICENSES/ holds the text of every
       # licence the map names. The footer of the four sites says "Open by
       # licence, per file" and links REUSE.toml: this step is what makes
-      # that sentence true. The archive's own std-010-licensing guard
+      # that sentence true. The archive's own std-010-licensing check
       # compares each document's `license:` header with the map; it does
       # not look at files that are not documents (the web, scripts,
       # images) nor at LICENSES/ — this does. Pinned version, the one the
@@ -195,7 +195,7 @@ jobs:
           exit 0
 
       # Builds web/dist. A page that fails to render fails here. Not a check,
-      # but the build guards below read its output.
+      # but the build checks below read its output.
       - name: build
         run: npm run build
         working-directory: web
@@ -207,10 +207,10 @@ jobs:
         run: node scripts/share-card.mjs --check
         working-directory: web
 
-      # Every build guard: the built site and the committed telemetry are what
+      # Every build check: the built site and the committed telemetry are what
       # HEAD produces. These bite regardless of any standard's state. Red
       # means: a page, a link, a redirect or the dataset is broken. Fix a
       # telemetry red by running `node machine/scripts/telemetry.mjs` on the branch
       # and committing machine/telemetry/ — never by hand-editing latest.json.
-      - name: build guards
-        run: npm run guards -- --build
+      - name: build checks
+        run: npm run checks -- --build

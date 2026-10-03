@@ -502,7 +502,7 @@ if (refused.length) {
 
 console.log('\nVerifying with std-012-corpus-does-not-grow (DEF-009)...');
 try {
-  execFileSync('node', [path.join(ROOT, 'machine', 'guards', 'rules', 'std-012-corpus-does-not-grow.mjs')], { stdio: 'inherit' });
+  execFileSync('node', [path.join(ROOT, 'machine', 'checks', 'rules', 'std-012-corpus-does-not-grow.mjs')], { stdio: 'inherit' });
   console.log('\nstd-012-corpus-does-not-grow: clean.');
 } catch (e) {
   console.error('\nstd-012-corpus-does-not-grow: FAILED — review before committing. Nothing was auto-committed.');

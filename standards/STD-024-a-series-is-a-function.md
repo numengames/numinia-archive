@@ -5,9 +5,9 @@ title: "A series is a function"
 type: standard
 subtype: standard
 status: active
-version: "3.2.1"
+version: "3.2.2"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -84,8 +84,8 @@ who knows these standards check us without a glossary.
 | SER-001 | Only three series oblige | [ISO 9001:2015, documented information, clause 7.5](https://www.iso.org/standard/62085.html) (clause unverified): maintain against retain | by hand — what binds is read, not parsed |
 | SER-002 | Complied with, or carried out | — | by hand |
 | SER-008 | A requirement answers yes or no | [ISO/IEC Guide 2:2004, standard](https://www.iso.org/standard/39976.html) (clause unverified): rules, guidelines or characteristics for common and repeated use · [ISO/IEC Directives, Part 2](https://www.iso.org/sites/directives/current/part2/index.xhtml) (clause unverified): a requirement is objectively verifiable | by hand — whether a MUST can be answered yes or no is read, not parsed |
-| SER-004 | Folder and kind agree | [ISO 15489-1:2016, classification](https://www.iso.org/standard/62542.html), clause 9.4 (clause unverified) | `machine/guards/rules/std-004-the-header.mjs` (`HDR-017`) |
-| SER-007 | Exemptions say why | — | `machine/guards/rules/std-004-the-header.mjs` (`HDR-001`) |
+| SER-004 | Folder and kind agree | [ISO 15489-1:2016, classification](https://www.iso.org/standard/62542.html), clause 9.4 (clause unverified) | `machine/checks/rules/std-004-the-header.mjs` (`HDR-017`) |
+| SER-007 | Exemptions say why | — | `machine/checks/rules/std-004-the-header.mjs` (`HDR-001`) |
 
 | In the reading | Exact form |
 |---|---|

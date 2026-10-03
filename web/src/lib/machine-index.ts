@@ -25,7 +25,7 @@
 // the kind of false a machine repeats downstream where nobody can correct it.
 // `licenceOf` therefore reads the document's own header first and falls back
 // to what REUSE.toml assigns to THAT PATH — the same resolution the licensing
-// guard uses (machine/guards/rules/std-010-licensing.mjs), never a prefix.
+// guard uses (machine/checks/rules/std-010-licensing.mjs), never a prefix.
 //
 // WHY THIS MODULE IMPORTS NO COLLECTION
 // The routes query `astro:content`; the judgement lives here. Keeping the two

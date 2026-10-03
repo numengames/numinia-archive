@@ -75,7 +75,7 @@ here.
 ## What a machine checks
 
 On every push, [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs the
-checks in [`machine/guards/`](machine/guards/) (headers, identifiers,
+checks in [`machine/checks/`](machine/checks/) (headers, identifiers,
 versions, licences, citations), the test suites and the site build, so a
 change that breaks numinia.org fails before it merges. Everything else is
 checked by a person reading the pull request.

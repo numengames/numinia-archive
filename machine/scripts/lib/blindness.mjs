@@ -46,7 +46,7 @@ export function loadRegistry() {
 /** Render one guard's blind spots as printable lines. Pure — the test calls
  *  this directly rather than scraping stdout. */
 export function formatBlindSpots(guardId, registry = loadRegistry()) {
-  const entry = registry.guards[guardId];
+  const entry = registry.checks[guardId];
   if (!entry) {
     throw new Error(
       `blindness: no registry entry for "${guardId}". Add one to machine/scripts/blind-spots.json — ` +

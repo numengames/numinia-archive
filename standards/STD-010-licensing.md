@@ -5,9 +5,9 @@ title: "Licensing"
 type: standard
 subtype: standard
 status: active
-version: "2.4.4"
+version: "2.4.5"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -131,8 +131,8 @@ of file carries its terms, and where each licence's text is read.
 | LIC-010 | Work made for a client belongs to the client | — | by hand, at the pull request |
 | LIC-005 | We only build on what is allowed | [ISO/IEC 5230 OpenChain](https://github.com/OpenChain-Project/License-Compliance-Specification) and [ISO/IEC 18974 OpenChain Security Assurance](https://github.com/OpenChain-Project/Security-Assurance-Specification); accepted terms in the allowlist below | the dependency review action with `allow-licenses` in CI — not yet in this repository |
 | LIC-006 | Having is not shipping | — | nothing yet: the shipped-artifact inspector is described, not built (`DBT-020`) |
-| LIC-007 | Each repository says its terms in the common format | [REUSE 3.3](https://reuse.software/spec-3.3/) | `reuse lint` in CI, all four repositories; `machine/guards/rules/std-010-licensing.mjs`; absorbs register row ARC-003 |
-| LIC-008 | Each file says its own terms | [REUSE 3.3, comment headers](https://reuse.software/spec-3.3/); [SPDX](https://spdx.dev/) | `machine/guards/rules/std-010-licensing.mjs` (also `HDR-008`, `HDR-043`); stricter than REUSE: no folder globs in `REUSE.toml` |
+| LIC-007 | Each repository says its terms in the common format | [REUSE 3.3](https://reuse.software/spec-3.3/) | `reuse lint` in CI, all four repositories; `machine/checks/rules/std-010-licensing.mjs`; absorbs register row ARC-003 |
+| LIC-008 | Each file says its own terms | [REUSE 3.3, comment headers](https://reuse.software/spec-3.3/); [SPDX](https://spdx.dev/) | `machine/checks/rules/std-010-licensing.mjs` (also `HDR-008`, `HDR-043`); stricter than REUSE: no folder globs in `REUSE.toml` |
 | LIC-009 | Media carries its terms inside | the fields table below | by hand, at the pull request |
 | LIC-011 | We say how a piece was made | — ; candidate: [IPTC Digital Source Type](https://cv.iptc.org/newscodes/digitalsourcetype/) | by hand, at the pull request |
 | LIC-012 | Giving away is only giving away our part | [CC0 1.0, clause 4(b)](https://creativecommons.org/publicdomain/zero/1.0/legalcode.en): publicity and privacy rights are not waived | by hand, at the pull request |

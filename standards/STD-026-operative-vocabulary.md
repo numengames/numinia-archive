@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.7.0"
+version: "0.8.0"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -92,7 +92,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Canon** | See *Principle*: the series' word until 2026-10-03, and the word of the Numinia stop of the dial. | | | |
 | **Card** *(record)* | A record read on one screen: a mission card, an entity card, the house card, a supplier card. | A card is the whole record, not a summary of one kept elsewhere. | Reading what a thing is and where it stands without opening a second file. | Convention: card — Kanban, and the one-screen record of common interface practice. |
 | **CC0** *(licence)* | The legal declaration that gives a work to the world by waiving every right that can be waived. | "may I use this?" answered with an unconditional yes. | The whole public catalogue is CC0: download it, remix it, sell it. | Also: open licence; public domain dedication. |
-| **Check** *(program)* | A small program that reads the archive and says where it breaks one of its own rules. | Nothing is judged by whether it looks right to whoever opened it last. | A rule that bites: once its standard is signed, its check can fail the build. | Also: guard (until 2026-10-03; the folder `machine/guards/` keeps the name until cut 5 of `ADR-067`).<br>Convention: check — the GitHub Checks API and the CI *checks*; lint rule, validator. |
+| **Check** *(program)* | A small program that reads the archive and says where it breaks one of its own rules. | Nothing is judged by whether it looks right to whoever opened it last. | A rule that bites: once its standard is signed, its check can fail the build. | Also: guard (until 2026-10-03).<br>Convention: check — the GitHub Checks API and the CI *checks*; lint rule, validator. |
 | **Citation** *(reference)* | The named source a claim rests on: a file, a document or a quotation's author. | A claim without a source is an opinion. | Anyone can check what a document says against what it points to. | Convention: citation — scholarly practice; `STD-021`. |
 | **Citizen** *(rank)* | The rank of a person who has chosen a guild and a faction. | Arriving is not belonging; a citizen has said what they know and where they apply it. | Taking part in the city with a place of one's own. | Team member · Citizen · Ciudadano |
 | **Claim** *(statement)* | What a document says, whether belief, method or decision; it is not true by being written. | When a document and its history disagree, the history wins. | Settling what holds when two sources contradict each other. |  |

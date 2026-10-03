@@ -5,9 +5,9 @@ title: "One document, one identifier"
 type: standard
 subtype: standard
 status: active
-version: "1.2.4"
+version: "1.2.5"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -84,10 +84,10 @@ Each rule, its code, its source and its check.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| IDN-011 | The identifier is permanent | [`dcterms:identifier`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/identifier/); [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — ours adds: the grammar `<PREFIX>-<NNN>` per series | `machine/guards/rules/std-018-one-identifier.mjs`: the identifier a file name carries, against its series' scheme |
-| IDN-014 | Numbers are never reused | [DOI Handbook, numbering](https://www.doi.org/the-identifier/resources/handbook/2_numbering) — a DOI is never reassigned | `machine/guards/rules/std-018-one-identifier.mjs`: one identifier held by two documents |
-| IDN-012 | No state in the file name | [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — leave status out | `machine/guards/rules/std-018-one-identifier.mjs` |
-| IDN-013 | No version in the file name | [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — ours applies it to file names as well as addresses | `machine/guards/rules/std-018-one-identifier.mjs` |
+| IDN-011 | The identifier is permanent | [`dcterms:identifier`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/identifier/); [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — ours adds: the grammar `<PREFIX>-<NNN>` per series | `machine/checks/rules/std-018-one-identifier.mjs`: the identifier a file name carries, against its series' scheme |
+| IDN-014 | Numbers are never reused | [DOI Handbook, numbering](https://www.doi.org/the-identifier/resources/handbook/2_numbering) — a DOI is never reassigned | `machine/checks/rules/std-018-one-identifier.mjs`: one identifier held by two documents |
+| IDN-012 | No state in the file name | [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — leave status out | `machine/checks/rules/std-018-one-identifier.mjs` |
+| IDN-013 | No version in the file name | [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — ours applies it to file names as well as addresses | `machine/checks/rules/std-018-one-identifier.mjs` |
 | IDN-015 | The first commit keeps the number | — | by hand, by commit order at the moment of the clash |
 | IDN-016 | The next number is read from the trunk | — | by hand: counted after `git pull`, never over the working tree |
 | IDN-017 | Across repositories, name the repository | [W3C CURIE Syntax 1.0](https://www.w3.org/TR/curie/) — ours adds: the prefix is the repository's short name | by hand: written `nwos:ADR-006`, `web:ADR-006` |

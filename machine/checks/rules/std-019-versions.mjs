@@ -26,7 +26,7 @@
 // the platform they serve, STD-009). check-templates T-08 holds the OPENING
 // value (0.1.0) on templates; that stays there.
 //
-// Run from anywhere: node machine/guards/rules/std-019-versions.mjs
+// Run from anywhere: node machine/checks/rules/std-019-versions.mjs
 
 import { execute, isMain } from '../lib/guard.mjs';
 import { isApparatus } from '../../scripts/lib/frontmatter.mjs';

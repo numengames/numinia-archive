@@ -2,13 +2,13 @@
   "name": "numinia-archive",
   "private": true,
   "type": "module",
-  "description": "The tree and its guards. The web app lives in web/ with its own package.json.",
+  "description": "The tree and its checks. The web app lives in web/ with its own package.json.",
   "license": "MIT",
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test --experimental-test-coverage --test-coverage-include='machine/scripts/**/*.mjs' --test-coverage-include='machine/guards/**/*.mjs' --test-coverage-include='machine/tools/**/*.mjs' --test-coverage-include='machine/packages/*/*.mjs' --test-coverage-exclude='**/test/**' \"machine/scripts/test/*.test.mjs\" \"machine/guards/test/*.test.mjs\" \"machine/tools/test/*.test.mjs\" \"machine/packages/*/test/*.test.mjs\"",
-    "guards": "node machine/scripts/run-guards.mjs"
+    "test": "node --test --experimental-test-coverage --test-coverage-include='machine/scripts/**/*.mjs' --test-coverage-include='machine/checks/**/*.mjs' --test-coverage-include='machine/tools/**/*.mjs' --test-coverage-include='machine/packages/*/*.mjs' --test-coverage-exclude='**/test/**' \"machine/scripts/test/*.test.mjs\" \"machine/checks/test/*.test.mjs\" \"machine/tools/test/*.test.mjs\" \"machine/packages/*/test/*.test.mjs\"",
+    "checks": "node machine/scripts/run-checks.mjs"
   }
 }
