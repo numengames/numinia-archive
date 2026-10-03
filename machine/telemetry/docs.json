@@ -38,7 +38,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19049,
+  "chars": 19046,
   "apparatus": false,
   "archived": false,
   "tokens": 4739
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 32304,
+  "chars": 32618,
   "apparatus": false,
   "archived": false,
-  "tokens": 9241
+  "tokens": 9375
  },
  {
   "path": "CLAUDE.md",
@@ -93,7 +93,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4197,
+  "chars": 4191,
   "apparatus": true,
   "archived": false,
   "tokens": 1114
@@ -192,10 +192,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1325,
+  "chars": 1319,
   "apparatus": false,
   "archived": false,
-  "tokens": 361
+  "tokens": 360
  },
  {
   "path": "agents/byblos/OPERATOR.md",
@@ -434,10 +434,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 9537,
+  "chars": 9534,
   "apparatus": false,
   "archived": false,
-  "tokens": 1868
+  "tokens": 1867
  },
  {
   "path": "agents/nimrod/SOURCES.md",
@@ -445,7 +445,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3508,
+  "chars": 3505,
   "apparatus": false,
   "archived": false,
   "tokens": 813
@@ -616,138 +616,6 @@
   "tokens": 436
  },
  {
-  "path": "blueprints/BLU-002-business-metrics.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "draft",
-  "chars": 5661,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1476
- },
- {
-  "path": "blueprints/BLU-007-dual-nomenclature.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 9030,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2289
- },
- {
-  "path": "blueprints/BLU-009-web-pieces.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 21563,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 5977
- },
- {
-  "path": "blueprints/BLU-010-pixel-register.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 15446,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3634
- },
- {
-  "path": "blueprints/BLU-011-book-and-veil.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 14877,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 4055
- },
- {
-  "path": "blueprints/BLU-012-presentation-deck.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 3374,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1039
- },
- {
-  "path": "blueprints/BLU-013-document-and-invoice.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 2746,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 828
- },
- {
-  "path": "blueprints/BLU-014-platform.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 4200,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1227
- },
- {
-  "path": "blueprints/BLU-015-event-3d-and-email.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "active",
-  "chars": 2172,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 639
- },
- {
-  "path": "blueprints/BLU-016-one-question-per-standard.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "draft",
-  "chars": 10754,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2846
- },
- {
-  "path": "blueprints/BLU-017-legal-obligations-to-confirm.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "draft",
-  "chars": 7842,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2081
- },
- {
-  "path": "blueprints/BLU-018-our-own-gateway.md",
-  "dir": "blueprints",
-  "series": "blueprints",
-  "type": "blueprint",
-  "status": "draft",
-  "chars": 6091,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1727
- },
- {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
   "dir": "debt",
   "series": "debt",
@@ -764,7 +632,7 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 5441,
+  "chars": 5432,
   "apparatus": false,
   "archived": false,
   "tokens": 1420
@@ -778,7 +646,7 @@
   "chars": 25132,
   "apparatus": false,
   "archived": false,
-  "tokens": 6717
+  "tokens": 6714
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -819,7 +687,7 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 2269,
+  "chars": 2266,
   "apparatus": false,
   "archived": false,
   "tokens": 670
@@ -841,7 +709,7 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 3267,
+  "chars": 3264,
   "apparatus": false,
   "archived": false,
   "tokens": 903
@@ -874,7 +742,7 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 7124,
+  "chars": 7121,
   "apparatus": false,
   "archived": false,
   "tokens": 1827
@@ -896,10 +764,142 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 6733,
+  "chars": 6950,
   "apparatus": false,
   "archived": false,
-  "tokens": 1823
+  "tokens": 1885
+ },
+ {
+  "path": "designs/DES-002-business-metrics.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "draft",
+  "chars": 5828,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1530
+ },
+ {
+  "path": "designs/DES-007-dual-nomenclature.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "active",
+  "chars": 9197,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2342
+ },
+ {
+  "path": "designs/DES-009-web-pieces.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "active",
+  "chars": 21722,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 6025
+ },
+ {
+  "path": "designs/DES-010-pixel-register.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "active",
+  "chars": 15602,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3682
+ },
+ {
+  "path": "designs/DES-011-book-and-veil.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "active",
+  "chars": 15027,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 4095
+ },
+ {
+  "path": "designs/DES-012-presentation-deck.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "active",
+  "chars": 3524,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1086
+ },
+ {
+  "path": "designs/DES-013-document-and-invoice.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "active",
+  "chars": 2902,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 876
+ },
+ {
+  "path": "designs/DES-014-platform.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "active",
+  "chars": 4350,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1272
+ },
+ {
+  "path": "designs/DES-015-event-3d-and-email.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "active",
+  "chars": 2328,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 689
+ },
+ {
+  "path": "designs/DES-016-one-question-per-standard.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "draft",
+  "chars": 10912,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2896
+ },
+ {
+  "path": "designs/DES-017-legal-obligations-to-confirm.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "draft",
+  "chars": 8006,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2134
+ },
+ {
+  "path": "designs/DES-018-our-own-gateway.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "draft",
+  "chars": 6255,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1779
  },
  {
   "path": "legal/LEG-001-privacy-policy-numengames.md",
@@ -1562,17 +1562,6 @@
   "tokens": 951
  },
  {
-  "path": "machine/templates/BLU-TEMPLATE.md",
-  "dir": "machine",
-  "series": null,
-  "type": "blueprint",
-  "status": "draft",
-  "chars": 3060,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 777
- },
- {
   "path": "machine/templates/DBT-TEMPLATE.md",
   "dir": "machine",
   "series": null,
@@ -1582,6 +1571,17 @@
   "apparatus": true,
   "archived": false,
   "tokens": 946
+ },
+ {
+  "path": "machine/templates/DES-TEMPLATE.md",
+  "dir": "machine",
+  "series": null,
+  "type": "design",
+  "status": "draft",
+  "chars": 3047,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 771
  },
  {
   "path": "machine/templates/LEG-TEMPLATE.md",
@@ -1677,10 +1677,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 5529,
+  "chars": 5523,
   "apparatus": true,
   "archived": false,
-  "tokens": 1507
+  "tokens": 1505
  },
  {
   "path": "machine/templates/RPT-TEMPLATE-QUARTER.md",
@@ -1743,10 +1743,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 3270,
+  "chars": 3267,
   "apparatus": true,
   "archived": false,
-  "tokens": 818
+  "tokens": 817
  },
  {
   "path": "missions/ANNEX-mission-selection-draft.md",
@@ -1787,10 +1787,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 15131,
+  "chars": 15125,
   "apparatus": false,
   "archived": false,
-  "tokens": 4517
+  "tokens": 4516
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -1820,10 +1820,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 6001,
+  "chars": 5998,
   "apparatus": false,
   "archived": false,
-  "tokens": 1751
+  "tokens": 1748
  },
  {
   "path": "objects/CHECK.md",
@@ -1853,10 +1853,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 6618,
+  "chars": 6612,
   "apparatus": false,
   "archived": false,
-  "tokens": 1703
+  "tokens": 1702
  },
  {
   "path": "operations/OPS-002-contradictions.md",
@@ -1864,7 +1864,7 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 8013,
+  "chars": 8001,
   "apparatus": false,
   "archived": false,
   "tokens": 2256
@@ -1908,7 +1908,7 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 4535,
+  "chars": 4532,
   "apparatus": false,
   "archived": false,
   "tokens": 1324
@@ -1966,7 +1966,7 @@
   "chars": 6148,
   "apparatus": false,
   "archived": false,
-  "tokens": 1730
+  "tokens": 1729
  },
  {
   "path": "operations/OPS-016-season-pass-the-offer.md",
@@ -2392,10 +2392,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 10115,
+  "chars": 10112,
   "apparatus": false,
   "archived": false,
-  "tokens": 2458
+  "tokens": 2456
  },
  {
   "path": "principles/PRI-009-the-archive-is-the-organisation.md",
@@ -2403,7 +2403,7 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 6188,
+  "chars": 6185,
   "apparatus": false,
   "archived": false,
   "tokens": 1539
@@ -2450,7 +2450,7 @@
   "chars": 5219,
   "apparatus": false,
   "archived": false,
-  "tokens": 1345
+  "tokens": 1343
  },
  {
   "path": "principles/PRI-014-friends-who-play-build-and-learn.md",
@@ -2546,10 +2546,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4647,
+  "chars": 4641,
   "apparatus": false,
   "archived": false,
-  "tokens": 1281
+  "tokens": 1274
  },
  {
   "path": "procedures/PRO-015-joining.md",
@@ -2637,7 +2637,7 @@
   "chars": 5635,
   "apparatus": false,
   "archived": false,
-  "tokens": 1525
+  "tokens": 1524
  },
  {
   "path": "procedures/PRO-023-bringing-a-rule-into-force.md",
@@ -2846,7 +2846,7 @@
   "chars": 9653,
   "apparatus": false,
   "archived": false,
-  "tokens": 3036
+  "tokens": 3035
  },
  {
   "path": "reports/RPT-022-the-newcomer-test.md",
@@ -2868,7 +2868,7 @@
   "chars": 11459,
   "apparatus": false,
   "archived": false,
-  "tokens": 3120
+  "tokens": 3114
  },
  {
   "path": "reports/RPT-024-2026-w39.md",
@@ -2953,10 +2953,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 6694,
+  "chars": 6815,
   "apparatus": false,
   "archived": false,
-  "tokens": 2006
+  "tokens": 2052
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2975,10 +2975,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 18261,
+  "chars": 18425,
   "apparatus": false,
   "archived": false,
-  "tokens": 5157
+  "tokens": 5226
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -3008,10 +3008,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7867,
+  "chars": 7864,
   "apparatus": false,
   "archived": false,
-  "tokens": 2074
+  "tokens": 2073
  },
  {
   "path": "standards/STD-008-design-tokens.md",
@@ -3052,7 +3052,7 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7420,
+  "chars": 7417,
   "apparatus": false,
   "archived": false,
   "tokens": 1908
@@ -3074,10 +3074,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 13123,
+  "chars": 13117,
   "apparatus": false,
   "archived": false,
-  "tokens": 3410
+  "tokens": 3409
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -3154,7 +3154,7 @@
   "chars": 30067,
   "apparatus": false,
   "archived": false,
-  "tokens": 9074
+  "tokens": 9064
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
@@ -3184,10 +3184,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 69853,
+  "chars": 70325,
   "apparatus": false,
   "archived": false,
-  "tokens": 17044
+  "tokens": 17181
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -3195,10 +3195,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7629,
+  "chars": 7669,
   "apparatus": false,
   "archived": false,
-  "tokens": 1907
+  "tokens": 1917
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -3220,7 +3220,7 @@
   "chars": 5498,
   "apparatus": false,
   "archived": false,
-  "tokens": 1440
+  "tokens": 1438
  },
  {
   "path": "standards/STD-030-the-worlds-vocabulary.md",
@@ -3253,7 +3253,7 @@
   "chars": 5613,
   "apparatus": false,
   "archived": false,
-  "tokens": 1533
+  "tokens": 1531
  },
  {
   "path": "standards/STD-034-accessibility.md",
@@ -3272,10 +3272,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 6171,
+  "chars": 6172,
   "apparatus": false,
   "archived": false,
-  "tokens": 1766
+  "tokens": 1764
  },
  {
   "path": "standards/STD-036-one-account.md",
@@ -3286,7 +3286,7 @@
   "chars": 8261,
   "apparatus": false,
   "archived": false,
-  "tokens": 2289
+  "tokens": 2288
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
@@ -3297,7 +3297,7 @@
   "chars": 9793,
   "apparatus": false,
   "archived": false,
-  "tokens": 2540
+  "tokens": 2537
  },
  {
   "path": "standards/STD-038-the-stages-of-an-opportunity.md",
@@ -3393,10 +3393,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10548,
+  "chars": 10539,
   "apparatus": false,
   "archived": false,
-  "tokens": 2855
+  "tokens": 2850
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
@@ -3404,10 +3404,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 13521,
+  "chars": 13515,
   "apparatus": false,
   "archived": false,
-  "tokens": 3461
+  "tokens": 3459
  },
  {
   "path": "system/SYS-003-archive-fondos.md",
@@ -3415,7 +3415,7 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 3919,
+  "chars": 3916,
   "apparatus": false,
   "archived": false,
   "tokens": 1071
@@ -3437,10 +3437,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 9754,
+  "chars": 9742,
   "apparatus": false,
   "archived": false,
-  "tokens": 2273
+  "tokens": 2270
  },
  {
   "path": "system/SYS-007-the-instruments.md",
@@ -3448,7 +3448,7 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6755,
+  "chars": 6752,
   "apparatus": false,
   "archived": false,
   "tokens": 1792
@@ -3470,10 +3470,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6975,
+  "chars": 6951,
   "apparatus": false,
   "archived": false,
-  "tokens": 1839
+  "tokens": 1831
  },
  {
   "path": "system/SYS-010-selling-as-wired-today.md",
@@ -3495,7 +3495,7 @@
   "chars": 6124,
   "apparatus": false,
   "archived": false,
-  "tokens": 1621
+  "tokens": 1616
  },
  {
   "path": "system/SYS-012-suppliers.md",
@@ -3514,10 +3514,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 7797,
+  "chars": 7791,
   "apparatus": false,
   "archived": false,
-  "tokens": 2280
+  "tokens": 2272
  },
  {
   "path": "system/semantic-census/district-ouroboros.md",
@@ -3528,7 +3528,7 @@
   "chars": 9486,
   "apparatus": false,
   "archived": false,
-  "tokens": 2789
+  "tokens": 2786
  },
  {
   "path": "system/semantic-census/faction-heirs-of-eleusis.md",
@@ -3536,10 +3536,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 10435,
+  "chars": 10432,
   "apparatus": false,
   "archived": false,
-  "tokens": 2937
+  "tokens": 2934
  },
  {
   "path": "system/semantic-census/force-threshold.md",
@@ -3547,10 +3547,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8745,
+  "chars": 8736,
   "apparatus": false,
   "archived": false,
-  "tokens": 2535
+  "tokens": 2528
  },
  {
   "path": "system/semantic-census/guild-exegetes.md",
@@ -3558,10 +3558,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 10414,
+  "chars": 10408,
   "apparatus": false,
   "archived": false,
-  "tokens": 3019
+  "tokens": 3016
  },
  {
   "path": "system/semantic-census/institution-summa-archive.md",
@@ -3569,10 +3569,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8824,
+  "chars": 8815,
   "apparatus": false,
   "archived": false,
-  "tokens": 2549
+  "tokens": 2545
  },
  {
   "path": "system/semantic-census/rank-oracle.md",
@@ -3580,10 +3580,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9844,
+  "chars": 9841,
   "apparatus": false,
   "archived": false,
-  "tokens": 2848
+  "tokens": 2845
  },
  {
   "path": "system/semantic-census/resource-prism-cells.md",
@@ -3591,10 +3591,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8201,
+  "chars": 8195,
   "apparatus": false,
   "archived": false,
-  "tokens": 2372
+  "tokens": 2368
  },
  {
   "path": "system/suppliers/advisory-ony.md",
