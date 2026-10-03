@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18802,
+  "chars": 18967,
   "apparatus": false,
   "archived": false,
-  "tokens": 4678
+  "tokens": 4722
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 29134,
+  "chars": 29302,
   "apparatus": false,
   "archived": false,
-  "tokens": 8208
+  "tokens": 8269
  },
  {
   "path": "CLAUDE.md",
@@ -764,10 +764,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 7081,
+  "chars": 7188,
   "apparatus": false,
   "archived": false,
-  "tokens": 1719
+  "tokens": 1743
  },
  {
   "path": "canon/CAN-004-role-structure.md",
@@ -797,10 +797,10 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 14846,
+  "chars": 15041,
   "apparatus": false,
   "archived": false,
-  "tokens": 3079
+  "tokens": 3117
  },
  {
   "path": "canon/CAN-007-pragmatic-numen-system.md",
@@ -885,10 +885,21 @@
   "series": "canon",
   "type": "seminal",
   "status": "draft",
-  "chars": 2709,
+  "chars": 2879,
   "apparatus": false,
   "archived": false,
-  "tokens": 723
+  "tokens": 763
+ },
+ {
+  "path": "canon/CAN-015-we-recognise-the-act.md",
+  "dir": "canon",
+  "series": "canon",
+  "type": "seminal",
+  "status": "draft",
+  "chars": 5223,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1323
  },
  {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
@@ -2062,10 +2073,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5524,
+  "chars": 5883,
   "apparatus": false,
   "archived": false,
-  "tokens": 1281
+  "tokens": 1361
  },
  {
   "path": "operations/OPS-012-training-the-offer.md",
@@ -2139,10 +2150,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 3869,
+  "chars": 4050,
   "apparatus": false,
   "archived": false,
-  "tokens": 964
+  "tokens": 1008
  },
  {
   "path": "opportunities/OPP-2026-001.md",
