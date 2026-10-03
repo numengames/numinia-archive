@@ -52,6 +52,7 @@ import { pipeline as salesPipeline, decidingRows, PIPELINE_SOURCES, CARD_URL, TE
 import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
 import { settings as configSettings, MOULDS as CONFIG_MOULDS, CONFIG_INTRO } from "@/lib/configuration";
 import { playbookMarkdown, PLAYBOOK_SOURCES } from "@/lib/playbook";
+import { lexicon, LEXICON_SOURCE } from "@/lib/lexicon";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -988,8 +989,29 @@ export function playbookPage(): ComposedPage {
   return { route: "/playbook", filename: "sales-playbook.md", sources: [...PLAYBOOK_SOURCES], body: preamble([...PLAYBOOK_SOURCES]) + playbookMarkdown() };
 }
 
+/** /lexicon and /lexicon/<letter> — the operative vocabulary as a book (STD-026). */
+function lexiconEntry(t: ReturnType<typeof lexicon>[number]["terms"][number]): string {
+  if (!t.clears && !t.enables) return `### ${t.term}\n\n${t.is}\n`;
+  const lines = [`### ${t.term}`, "", `*${t.kind}* — ${t.is}`, "", `- **Clears up:** ${t.clears}`, `- **Enables here:** ${t.enables}`];
+  if (t.levels) lines.push(`- **At each level:** L1 ${t.levels[0]} · L2 ${t.levels[1]} · L3 ${t.levels[2]}`);
+  if (t.also) lines.push(`- **Also:** ${t.also}`);
+  if (t.game) lines.push(`- **In the game:** ${t.game}`);
+  return lines.join("\n") + "\n";
+}
+export function lexiconPage(): ComposedPage {
+  const body = ["# The Lexicon", "", "The words Numen Games works with, A to Z.", "", ...lexicon().flatMap((l) => [`## ${l.letter}`, "", ...l.terms.map(lexiconEntry)])].join("\n");
+  return { route: "/lexicon", filename: "lexicon.md", sources: [LEXICON_SOURCE], body: preamble([LEXICON_SOURCE]) + body };
+}
+export function lexiconLetterPage(slug: string): ComposedPage {
+  const l = lexicon().find((x) => x.slug === slug)!;
+  const body = [`# The Lexicon — ${l.letter}`, "", ...l.terms.map(lexiconEntry)].join("\n");
+  return { route: `/lexicon/${slug}`, filename: `lexicon-${slug}.md`, sources: [LEXICON_SOURCE], body: preamble([LEXICON_SOURCE]) + body };
+}
+
 export async function allComposedPages(): Promise<ComposedPage[]> {
   const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), playbookPage(), templatesPage(), corePage()];
+  pages.push(lexiconPage());
+  for (const l of lexicon()) pages.push(lexiconLetterPage(l.slug));
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SECTIONS) pages.push(await sectionPage(s.slug));

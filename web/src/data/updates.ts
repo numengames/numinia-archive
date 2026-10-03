@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.132.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "ADD", text: "The Lexicon, a book at /lexicon: the 158 words Numen Games works with, A to Z, one page per letter, a letter bar at the head of each and the next and previous letter at its foot. Each word says what it is, what it clears up, what it lets you do and how it is said at each narrative level, the one at your level marked. Every word is read from the operative vocabulary; the page types none." },
+      { type: "ADD", text: "Books get a button back to the top once you have scrolled two screens down. The Lexicon has it first." },
+    ],
+  },
+  {
     version: "v0.131.0",
     date: "2026-10-02",
     entries: [

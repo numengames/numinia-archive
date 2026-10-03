@@ -1,0 +1,90 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /lexicon/<letter> — one page of the Lexicon per letter, so no page is an
+// endless scroll (the Oracle, 3 October 2026). Each word as a dictionary
+// entry: the word and its kind, the definition, what it clears up, what it
+// enables, its names at the three narrative levels — the one at the reader's
+// level marked — its other names and, where the game uses it, a pointer.
+// Every word comes from STD-026 (web/src/lib/lexicon.ts).
+import Layout from "@/layouts/Layout.astro";
+import LexiconBar from "@/components/LexiconBar.astro";
+import BackToTop from "@/components/BackToTop.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { lexicon, hrefOf, inline } from "@/lib/lexicon";
+
+export function getStaticPaths() {
+  const letters = lexicon();
+  return letters.map((l, i) => ({ params: { letter: l.slug }, props: { l, prev: letters[i - 1] ?? null, next: letters[i + 1] ?? null } }));
+}
+
+const { l, prev, next } = Astro.props;
+const etiqueta = "font-mono text-[0.65rem] uppercase tracking-[0.15em]";
+const LEVELS = ["L1", "L2", "L3"];
+const STOP = ["plain", "bridge", "numinia"];
+// "See Digital agent and Biological agent." → links to each.
+const seeLinks = (is: string) =>
+  inline(is).replace(/<em>([^<]+)<\/em>/g, (m, w) => { const h = hrefOf(w); return h ? `<a href="${h}" class="text-accent underline underline-offset-2">${w}</a>` : m; });
+---
+
+<Layout
+  title={`${l.letter} — the Lexicon`}
+  description={`Words under ${l.letter} in the Lexicon: ${l.terms.map((t) => t.term).join(", ")}.`}
+  canonicalPath={`/lexicon/${l.slug}`}
+>
+  <section class="pb-24 pt-12 sm:pt-16">
+    <div class="mx-auto max-w-[800px] px-6">
+      <p class:list={[etiqueta, "mb-2 text-accent"]}><a href="/lexicon">The Lexicon</a></p>
+      <h1 id="top" tabindex="-1" class="mb-6 font-display text-5xl text-foreground">{l.letter}</h1>
+      <div class="mb-6"><DocToolbar mdUrl={`/lexicon/${l.slug}.md`} filename={`lexicon-${l.slug}.md`} lang="en" /></div>
+      <LexiconBar current={l.letter} />
+
+      <dl class="space-y-10">
+        {l.terms.map((t) => (
+          <div id={t.slug} data-term={t.slug} class="scroll-mt-28 border-b border-border pb-8">
+            <dt class="flex flex-wrap items-baseline gap-x-3">
+              <span class="text-2xl text-foreground">{t.term}</span>
+              {t.kind && <span class="text-sm italic text-muted-foreground">{t.kind}</span>}
+            </dt>
+            {!t.clears && !t.enables ? (
+              <dd class="mt-2 text-base text-muted-foreground" set:html={seeLinks(t.is)} />
+            ) : (
+              <dd class="mt-2 space-y-3">
+                <p class="text-base leading-relaxed text-foreground" set:html={inline(t.is)} />
+                <p class="text-sm leading-relaxed text-muted-foreground"><span class:list={[etiqueta, "mr-2 text-dim"]}>Clears up</span><span set:html={inline(t.clears)} /></p>
+                <p class="text-sm leading-relaxed text-muted-foreground"><span class:list={[etiqueta, "mr-2 text-dim"]}>Enables here</span><span set:html={inline(t.enables)} /></p>
+                {t.levels && (
+                  <p class="text-sm text-muted-foreground">
+                    <span class:list={[etiqueta, "mr-2 text-dim"]}>At each level</span>
+                    {t.levels.map((name, i) => (
+                      <span data-stop={STOP[i]} class="lex-level mr-3"><span class="font-mono text-[0.65rem] text-dim">{LEVELS[i]}</span> {name}</span>
+                    ))}
+                  </p>
+                )}
+                {t.also && <p class="text-sm text-muted-foreground"><span class:list={[etiqueta, "mr-2 text-dim"]}>Also</span>{t.also}</p>}
+                {t.game && <p class="text-sm text-muted-foreground"><span class:list={[etiqueta, "mr-2 text-dim"]}>In the game</span>{t.game}</p>}
+              </dd>
+            )}
+          </div>
+        ))}
+      </dl>
+
+      <nav aria-label="Next and previous letter" class="mt-10 flex justify-between font-mono text-sm">
+        {prev ? <a href={`/lexicon/${prev.slug}`} class="text-accent">← {prev.letter}</a> : <span />}
+        {next ? <a href={`/lexicon/${next.slug}`} class="text-accent">{next.letter} →</a> : <span />}
+      </nav>
+    </div>
+  </section>
+  <BackToTop />
+</Layout>
+
+<style is:global>
+  /* The name at the reader's narrative level (the moon in the bar) stands out. */
+  :root[data-narrative="plain"] .lex-level[data-stop="plain"],
+  :root[data-narrative="bridge"] .lex-level[data-stop="bridge"],
+  :root[data-narrative="numinia"] .lex-level[data-stop="numinia"] {
+    color: var(--foreground);
+    font-weight: 500;
+  }
+</style>
