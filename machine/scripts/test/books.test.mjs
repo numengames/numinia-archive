@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// books.test.mjs — the compilations are one list, shown on the archive page.
+// books.test.mjs — the compilations are one list, shown on the front door.
 //
 // The Oracle (2026-09-27): the design system, the core read as a flow, the
 // role-playing manual and the legal playbook are not series and belong to no
@@ -45,10 +45,11 @@ test('each served book is also reachable from the map rings', () => {
   assert.deepEqual(missing, [], 'these books are in the Books menu but in no ring');
 });
 
-test('the archive page prints the books from BOOKS', () => {
+test('the front door prints the books from BOOKS', () => {
   // 2026-09-28: the bar keeps Map and Archive only, with no drop-down; the
-  // books are listed on /about, the page the Archive button opens.
-  const page = readFileSync(path.join(ROOT, 'web', 'src', 'pages', 'about.astro'), 'utf8');
+  // books were listed on /about. 2026-10-03: /about retired and the front
+  // door (/, the archive by section) lists them.
+  const page = readFileSync(path.join(ROOT, 'web', 'src', 'pages', 'index.astro'), 'utf8');
   assert.match(page, /import \{[^}]*\bBOOKS\b[^}]*\} from "@\/lib\/summa"/);
-  assert.match(page, /BOOKS\.map/, 'BOOKS must render on the archive page');
+  assert.match(page, /BOOKS\.map/, 'BOOKS must render on the front door');
 });

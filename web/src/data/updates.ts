@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.143.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "CHG", text: "The site opens on the archive, arranged by the ten business sections of the world's vocabulary (STD-030): strategy and governance, products and services, brand and marketing, sales and partners, operations, people and culture, finance, legal and compliance, technology, knowledge and quality. Each section shows its one line, how many records it holds and every record by series, each a link; what no section claims yet is listed apart, not hidden. At the full moon a line under each section names the houses that serve it." },
+      { type: "CHG", text: "The map of the Summa is at /map; the bar reads Archive · Map. The old About address leads home, and its books, sister sites and alpha notice moved to the front door." },
+    ],
+  },
+  {
     version: "v0.142.0",
     date: "2026-10-03",
     entries: [

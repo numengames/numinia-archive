@@ -59,6 +59,10 @@ export default defineConfig({
 		// "how is this organised?"; the root now answers it. Its children keep
 		// their addresses (/archive/<function>).
 		"/archive": "/",
+		// → / — /about retired (2026-10-03): the front door IS the archive, by
+		// section, every record a link; the map it pointed at lives at /map.
+		"/about": "/",
+		"/about.md": "/home.md",
 		// → /system/… — eight site pages filed in the System drawer (2026-09-21).
 		// They stood at the root with no link from anywhere; same page, new
 		// address, and a door from /system/.

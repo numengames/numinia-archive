@@ -73,8 +73,8 @@ const REPORT = process.argv.includes('--report');
 // address. Adding a page to this list is a deliberate act — it is the one
 // place a new top-level address is admitted.
 const STANDALONE = new Set([
-  '/',            // the home — the map of the Summa: four rings, four districts, the intents
-  '/about',       // every series as one list — the home before the map (2026-09-24)
+  '/',            // the home — the archive by the ten business sections of STD-030 (2026-10-03)
+  '/map',         // the map of the Summa: four rings, four districts, the intents — the home until 2026-10-03
   '/scheme',      // the classification in full: vocabulary, every series, the second fonds
   '/archive',     // the function pages (/archive/<function>, see URL-002); the bare address redirects to /
   '/updates',     // the site's own version timeline

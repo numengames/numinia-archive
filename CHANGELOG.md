@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-03
+- **Changed** numinia.org opens on the archive by the ten sections of `STD-030`: `/` lists every record under its section, by series; the map is `/map`; `/about` redirects to `/`; the bar reads Archive · Map; `check-reachable` walks from `/` and `/map` (site v0.143.0)
 - **Changed** `machine/guards/` is `machine/checks/` (`ADR-067`, cut 5): `run-guards.mjs` → `run-checks.mjs`, `npm run guards` → `npm run checks`, the CI steps, the registry key and every path that named them; `STD-001` 5.16.0, `STD-026` 0.8.0, `STD-027` 0.11.0; no public address changes (site v0.142.0)
 - **Changed** `blueprints/` is `designs/` (`ADR-067`, cut 4): `type: design`, `BLU-NNN` → `DES-NNN` with `former_id`, 12 documents; old addresses redirect; `STD-001` 5.15.0, `STD-004` 4.16.0, `STD-026` 0.7.0, `STD-027` 0.10.0; *blueprint* reads *design*; *Blueprints* stays the Numinia stop's word (site v0.141.0)
 - **Changed** `canon/` is `principles/` (`ADR-067`, cut 3): `type: principle`, `CAN-NNN` → `PRI-NNN` with `former_id`, 14 documents; old addresses redirect; `STD-001` 5.14.0, `STD-004` 4.15.0, `STD-026` 0.6.0, `STD-027` 0.9.0; *canon* reads *principle*; *Canon* stays the Numinia stop's word (site v0.140.0)

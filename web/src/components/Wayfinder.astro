@@ -3,14 +3,15 @@
 // SPDX-License-Identifier: MIT
 //
 // Where am I in the Summa.
-// A strip under the bar on every page but the map: the path from the centre
-// to here, the depth, and which sister sites paint this part. And the compass,
-// bottom right: four rings, the current one lit, each a link to the map with
-// that ring's first piece selected.
+// A strip under the bar on every page but the front door and the map: the
+// path from the centre to here, the depth, and which sister sites paint this
+// part. And the compass, bottom right: four rings, the current one lit, each
+// a link to the map (/map, since 2026-10-03) with that ring's first piece
+// selected.
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, locate } from "@/lib/summa";
 
 const path = Astro.url.pathname;
-const isHome = path === "/";
+const isHome = path === "/" || path.replace(/\/$/, "") === "/map";
 const here = locate(path);
 const seg = here?.seg;
 const lenses = seg ? LENSES.filter((l) => l.paints.includes(seg.id)) : [];
@@ -22,11 +23,11 @@ import { wordAttrs } from "@/lib/narrative-words.mjs";
   <div class="wf">
     <div class="wf-in">
       <nav class="crumbs" aria-label="Where you are in the Summa">
-        <a href="/" {...wordAttrs("The Summa")}>The Summa</a>
-        {seg && <><span>/</span><a href={`/#s-${seg.id}`} {...wordAttrs(RINGS[seg.ring].name)}>{RINGS[seg.ring].name}</a></>}
-        {seg?.district && <><span>/</span><a href={`/#d-${seg.district}`} {...wordAttrs(DISTRICTS[seg.district].name)}>{DISTRICTS[seg.district].name}</a></>}
+        <a href="/map" {...wordAttrs("The Summa")}>The Summa</a>
+        {seg && <><span>/</span><a href={`/map#s-${seg.id}`} {...wordAttrs(RINGS[seg.ring].name)}>{RINGS[seg.ring].name}</a></>}
+        {seg?.district && <><span>/</span><a href={`/map#d-${seg.district}`} {...wordAttrs(DISTRICTS[seg.district].name)}>{DISTRICTS[seg.district].name}</a></>}
         {here?.entry && <><span>/</span>{here.entry.href ? <a href={here.entry.href} {...wordAttrs(here.entry.label)}>{here.entry.label}</a> : <span {...wordAttrs(here.entry.label)}>{here.entry.label}</span>}</>}
-        {!seg && <><span>/</span><a href="/about" {...wordAttrs("The archive")}>The archive</a></>}
+        {!seg && <><span>/</span><a href="/" {...wordAttrs("The archive")}>The archive</a></>}
       </nav>
       {seg && (
         <div class="wf-depth" aria-hidden="true">
@@ -34,14 +35,14 @@ import { wordAttrs } from "@/lib/narrative-words.mjs";
         </div>
       )}
       {lenses.length > 0 && (
-        <div class="wf-lens">Also on {lenses.map((l) => <a href={`/#l-${l.site}`}>{l.site}</a>)}</div>
+        <div class="wf-lens">Also on {lenses.map((l) => <a href={`/map#l-${l.site}`}>{l.site}</a>)}</div>
       )}
     </div>
   </div>
 )}
 
 {!isHome && (
-  <a class="compass" href={seg ? `/#s-${seg.id}` : "/"} aria-label={seg ? `Back to the map, at ${RINGS[seg.ring].name}` : "Back to the map"} title={seg ? `You are in ${RINGS[seg.ring].name} — open the map` : "Open the map"}>
+  <a class="compass" href={seg ? `/map#s-${seg.id}` : "/map"} aria-label={seg ? `Back to the map, at ${RINGS[seg.ring].name}` : "Back to the map"} title={seg ? `You are in ${RINGS[seg.ring].name} — open the map` : "Open the map"}>
     <svg width="64" height="64" viewBox="0 0 84 84" aria-hidden="true">
       {["offer", "world", "work", "core"].map((k) => <circle cx="42" cy="42" r={rad[k]} class:list={[seg?.ring === k && "on"]} />)}
     </svg>

@@ -1,0 +1,339 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /map — the Summa as an instrument.
+// Left: the context panel, one pre-rendered panel per state, so every state
+// is real HTML a reader without the map can reach. Right: the astrolabe.
+// One gesture per action: a click selects (the panel changes), the panel's
+// "Open" button goes in. Selections replace the URL hash instead of pushing
+// it, so Back leaves the page instead of walking the map.
+// This page was the home until 2026-10-03; the Oracle's word moved the front
+// door to the archive by section (/) and the map here. Its anchors are
+// /map#s-…, /map#d-…, /map#l-… (Wayfinder.astro and the compass use them).
+import Layout from "@/layouts/Layout.astro";
+import Icon from "@/components/Icon.astro";
+import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
+import type { Entry } from "@/lib/summa";
+import SummaRow from "@/components/SummaRow.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { repoFileUrl } from "@/lib/build-info";
+import { wordAttrs, textAttrs, wordAt, attrsAt } from "@/lib/narrative-words.mjs";
+
+const CX = 360, CY = 360;
+const P = (r: number, a: number) => { const t = ((a - 90) * Math.PI) / 180; return [CX + r * Math.cos(t), CY + r * Math.sin(t)]; };
+function arc(r0: number, r1: number, a0: number, a1: number) {
+  if (a1 - a0 >= 359.9) return `M${CX - r1},${CY}a${r1},${r1} 0 1,0 ${2 * r1},0a${r1},${r1} 0 1,0 ${-2 * r1},0Z`;
+  a0 += 0.8; a1 -= 0.8; const L = a1 - a0 > 180 ? 1 : 0;
+  const [a, b] = P(r1, a0), [c, d] = P(r1, a1), [e, f] = P(r0, a1), [h, i] = P(r0, a0);
+  return `M${a},${b}A${r1},${r1} 0 ${L},1 ${c},${d}L${e},${f}A${r0},${r0} 0 ${L},0 ${h},${i}Z`;
+}
+function textArc(id: string, ring: keyof typeof RINGS, a: [number, number]) {
+  const R = RINGS[ring].r, rm = (R[0] + R[1]) / 2, mid = (a[0] + a[1]) / 2, flip = mid > 90 && mid < 270;
+  const a0 = flip ? a[1] : a[0], a1 = flip ? a[0] : a[1];
+  const [x0, y0] = P(rm, a0), [x1, y1] = P(rm, a1);
+  return `M${x0},${y0}A${rm},${rm} 0 0,${flip ? 0 : 1} ${x1},${y1}`;
+}
+const ticks = Array.from({ length: 72 }, (_, i) => i * 5).map((a) => {
+  const L = a % 45 === 0; const [x0, y0] = P(288, a), [x1, y1] = P(L ? 302 : a % 15 === 0 ? 296 : 292, a);
+  return { x0, y0, x1, y1, L };
+});
+const distBoxes = Object.entries(DISTRICTS).map(([k, d]) => { const [x, y] = P(378, d.a); return { k, d, x, y }; });
+const total = SEGMENTS.flatMap((s) => s.entries).reduce((n, e) => n + (e.count ?? 0), 0);
+const lensSegs = (site: string) => LENSES.find((l) => l.site === site)!.paints;
+const first = (es: Entry[]) => es.find((e) => e.href && !e.external);
+// The narrative dial (the moon in the bar) swaps every label below that the
+// register holds: text through wordAttrs, tooltips and aria-labels through
+// attrsAt. A segment's title is its district's name plus a tail ("Play · its
+// world"), so only the name is swapped and the tail stays.
+type Stop = "plain" | "bridge" | "numinia";
+const titleAt = (s: (typeof SEGMENTS)[number], stop: Stop) =>
+  s.district ? wordAt(DISTRICTS[s.district].name, stop) + s.title.slice(DISTRICTS[s.district].name.length) : wordAt(s.title, stop);
+const segAttrs = (s: (typeof SEGMENTS)[number]) => attrsAt({
+  "aria-label": (st: Stop) => titleAt(s, st),
+  "data-tip": (st: Stop) => `${titleAt(s, st)}|${s.entries.map((e) => wordAt(e.label, st)).join(" · ")}`,
+});
+// Under a district's name, its place; at the full moon the name already IS
+// the place, so the line under it names the faction (codex glossary).
+const placeAttrs = (d: { place: string; faction: string }) => ({ "data-nw": "", "data-nw-bridge": d.place, "data-nw-numinia": d.faction });
+// A ring word that repeats its district's name ("Play" on the offer ring)
+// names the offer, not the place: it keeps its word at every stop.
+const segWordAttrs = (s: (typeof SEGMENTS)[number]) =>
+  s.district && s.word === DISTRICTS[s.district].name ? { "data-nw-hold": "" } : wordAttrs(s.word);
+const RINGS_LINE = "From the centre out: the rules, the work, the world, the offer.";
+---
+
+<Layout title="Map" description="The archive of Numen Games, drawn as a map: the rules, the work, the world and the offer." canonicalPath="/map">
+  <section class="summa mx-auto max-w-[1280px] px-6 pb-24 pt-10">
+    <div class="stage">
+      <!-- ── context: one panel per state ── -->
+      <div class="ctx" aria-live="polite">
+        <a class="home-btn" href="/map" data-go="" hidden><Icon name="crosshair" size={14} /> <span {...wordAttrs("The Summa")}>The Summa</span> · overview</a>
+
+        <div class="panel" data-state="">
+          <div class="et">numinia.org</div>
+          <h1 {...wordAttrs("The Summa")}>The Summa</h1>
+          <h2>What is this?</h2>
+          <p>The archive of Numen Games: everything we decide, build and offer, written down and open. Numinia is the story we tell it in — a city where work is a game. {total} documents, and every one of them has its page here.</p>
+          <div class="qa">
+            <h2>What binds today?</h2>
+            <p>The system is in alpha: most documents are drafts, rules on trial — followed, they warn and never block. <a href="/binding">What binds today</a> lists the few in force. Reading as an agent? Start at <a href="/llms.txt">llms.txt</a>; any address plus <code>.md</code> gives the file behind the page.</p>
+          </div>
+          <div class="qa">
+            <h2>What brings you here?</h2>
+            <ul class="jump">
+              {INTENTS.map((i) => <li><button type="button" data-go={i.target}><span>{i.label}</span><small><span {...wordAttrs(i.hint)}>{i.hint}</span> →</small></button></li>)}
+            </ul>
+          </div>
+          <div class="qa">
+            <h2>How to read the map</h2>
+            <p><span {...textAttrs("home.rings", RINGS_LINE)}>{RINGS_LINE}</span> The four corners are districts. Click any piece; the panel explains it, and <em>Open</em> takes you in. Or <a href="/">read the archive by section</a>, or press <kbd>/</kbd> to search.</p>
+          </div>
+          <div class="qa"><DocToolbar mdUrl="/map.md" filename="map.md" repoUrl={repoFileUrl("standards/STD-027-the-classification-scheme.md")} lang="en" /></div>
+        </div>
+
+        {SEGMENTS.map((s) => {
+          const r = RINGS[s.ring]; const d = s.district && DISTRICTS[s.district];
+          return (
+            <div class="panel" data-state={`s-${s.id}`} hidden>
+              <div class="depth">{RING_ORDER.map((k) => <div class:list={[k === s.ring && "on"]}><span></span><i {...wordAttrs(RINGS[k].name)}>{RINGS[k].name}</i></div>)}</div>
+              <div class="et"><span {...wordAttrs(r.name)}>{r.name}</span>{d && ` · ${d.place}`}</div>
+              <h1 class="h1s">{d ? <><span {...wordAttrs(d.name)}>{d.name}</span>{s.title.slice(d.name.length)}</> : <span {...wordAttrs(s.title)}>{s.title}</span>}</h1>
+              <p class="classic">{r.classic}</p>
+              <p>{s.ring === "world" ? "Its part of the world. " : s.ring === "offer" ? "What it offers. " : ""}{r.line}</p>
+              <ul class="jump">
+                {s.entries.map((e) => <SummaRow e={e} />)}
+              </ul>
+              {first(s.entries) && <p class="mt"><a class="enter" href={first(s.entries)!.href!}>Open <span {...wordAttrs(first(s.entries)!.label)}>{first(s.entries)!.label}</span> →</a></p>}
+              {s.entries.some((e) => !e.href) && <p class="todo-note"><span class="chip">to create</span> {TO_CREATE}</p>}
+              {d && <p class="mt-s"><button type="button" class="lnk" data-go={`d-${s.district}`}>All of <span {...wordAttrs(d.name)}>{d.name}</span> →</button></p>}
+            </div>);
+        })}
+
+        {Object.entries(DISTRICTS).map(([k, d]) => (
+          <div class="panel" data-state={`d-${k}`} hidden>
+            <div class="et">District · {d.place} · {d.faction}</div>
+            <h1 class="h1s" {...wordAttrs(d.name)}>{d.name}</h1>
+            <p>{d.line}</p>
+            {["world", "offer"].map((ring) => { const s = SEGMENTS.find((x) => x.ring === ring && x.district === k)!; return (
+              <div class="qa"><div class="et">{ring === "world" ? "Its world" : "What it offers"}</div>
+                <ul class="jump">{s.entries.map((e) => <SummaRow e={e} />)}</ul></div>); })}
+          </div>
+        ))}
+
+        {LENSES.map((l) => (
+          <div class="panel" data-state={`l-${l.site}`} hidden>
+            <div class="et">{l.who}</div>
+            <h1 class="h1s">{l.site}</h1>
+            <p>{l.line}</p>
+            <div class="qa"><div class="et">What it shows from the Summa</div>
+              <ul class="jump">{l.paints.map((id) => { const s = SEGMENTS.find((x) => x.id === id)!; return <li><button type="button" data-go={`s-${id}`}><span>{s.district ? <><span {...wordAttrs(DISTRICTS[s.district].name)}>{DISTRICTS[s.district].name}</span>{s.title.slice(DISTRICTS[s.district].name.length)}</> : <span {...wordAttrs(s.title)}>{s.title}</span>}</span><small {...wordAttrs(RINGS[s.ring].name)}>{RINGS[s.ring].name}</small></button></li>; })}</ul></div>
+            <p class="mt"><a class="enter" href={l.href} rel="noopener">Visit {l.site} ↗</a></p>
+            <p class="et mt-s">It holds no text of its own: if you read it there, it is here.</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- ── the instrument ── -->
+      <div class="mapcol">
+        <div class="lenses" role="group" aria-label="Sites that paint the Summa">
+          <span class="et">Our other sites</span>
+          {LENSES.map((l) => <button type="button" class="ctl" data-go={`l-${l.site}`} data-lens={l.site} data-paints={lensSegs(l.site).join(" ")} data-tip={`${l.site}|${l.who}`}>{l.site}</button>)}
+        </div>
+        <svg class="astro" viewBox="-20 -20 760 760" role="group" aria-label="Map of the Summa">
+          <defs>{SEGMENTS.filter((s) => s.ring !== "core").map((s) => <path id={`t-${s.id}`} d={textArc(s.id, s.ring, s.a)} />)}</defs>
+          <circle class="rim" cx={CX} cy={CY} r="288" />
+          {ticks.map((t) => <line class:list={["tick", t.L && "l"]} x1={t.x0} y1={t.y0} x2={t.x1} y2={t.y1} />)}
+          {SEGMENTS.map((s) => {
+            const R = RINGS[s.ring].r;
+            return (
+              <g class:list={["seg", `r-${s.ring}`]} data-go={`s-${s.id}`} data-seg={s.id} data-district={s.district ?? ""} tabindex="0" role="button" aria-label={s.title}
+                 data-tip={`${s.title}|${s.entries.map((e) => e.label).join(" · ")}`} {...segAttrs(s)}>
+                <path class="f" d={arc(R[0], R[1], s.a[0], s.a[1])} />
+                {s.ring === "core"
+                  ? <><text class="c1" x={CX} y={CY + 2} text-anchor="middle" {...wordAttrs("The rules")}>The rules</text><text class="w" x={CX} y={CY + 24} text-anchor="middle">the core</text></>
+                  : <text class="w" dy="4" text-anchor="middle"><textPath href={`#t-${s.id}`} startOffset="50%" {...segWordAttrs(s)}>{s.word}</textPath></text>}
+              </g>);
+          })}
+          {distBoxes.map(({ k, d, x, y }) => (
+            <g class="dist" data-go={`d-${k}`} data-d={k} tabindex="0" role="button" aria-label={`${d.name} — ${d.place}`} {...attrsAt({ "aria-label": (st: Stop) => `${wordAt(d.name, st)} — ${st === "numinia" ? d.faction : d.place}` })} data-tip={`${d.place} · ${d.faction}|${d.line}`}>
+              <rect class="hit" x={x - 80} y={y - 40} width="160" height="80" rx="10" />
+              <rect class="box" x={x - 70} y={y - 27} width="140" height="54" rx="8" />
+              <text class="d1" x={x} y={y + 3} text-anchor="middle" {...wordAttrs(d.name)}>{d.name}</text>
+              <text class="d2" x={x} y={y + 19} text-anchor="middle" {...placeAttrs(d)}>{d.place}</text>
+            </g>
+          ))}
+        </svg>
+        <div class="dgrid" role="group" aria-label="Districts">
+          {distBoxes.map(({ k, d }) => <button type="button" class="dbtn" data-go={`d-${k}`} data-d={k}><b {...wordAttrs(d.name)}>{d.name}</b><span {...placeAttrs(d)}>{d.place}</span></button>)}
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="tip" id="tip" role="tooltip"></div>
+</Layout>
+
+<style is:global>
+  .summa { --t1: rgb(var(--text)); --t2: rgb(var(--text-muted)); --t3: rgb(var(--text-dim)); --lf: rgb(var(--border)); --int: rgb(var(--teal)); --amb: rgb(var(--ambar)); --sup: rgb(var(--bg-card)); }
+  .stage { display: grid; grid-template-columns: minmax(340px, 440px) 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 1000px) { .stage { grid-template-columns: 1fr; gap: 20px; } .mapcol { order: -1; display: flex; flex-direction: column; } .mapcol svg.astro { order: 0; } .mapcol .dgrid { order: 1; } }
+  .dgrid { display: none; }
+  @media (max-width: 1000px) {
+    .dist { display: none; }
+    svg.astro { margin: 0 auto; max-width: 560px; }
+    .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+    .dbtn { min-height: 56px; border: 1px solid var(--lf); border-radius: 8px; background: rgb(var(--bg-card) / .6); color: var(--t1); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; }
+    .dbtn b { font: 600 1rem var(--font-sans); }
+    .dbtn span { font: 500 .625rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--t2); }
+    .dbtn.sel { border-color: var(--int); background: rgb(var(--teal) / .14); }
+  }
+  .et { font: 500 .75rem/1.3 var(--font-mono); letter-spacing: .10em; text-transform: uppercase; color: var(--t2); }
+  .ctx { position: sticky; top: 76px; background: rgb(var(--bg-card) / .55); border: 1px solid rgb(var(--border) / .6); backdrop-filter: blur(14px); border-radius: 8px; padding: 24px; }
+  @media (max-width: 1000px) { .ctx { position: static; } }
+  .ctx h1 { font: 500 2.986rem/1.08 var(--font-sans); letter-spacing: -.02em; margin: 6px 0 14px; color: var(--t1); }
+  .ctx h1.h1s { font-size: 2.488rem; }
+  .ctx h2 { font: 600 1.2rem/1.3 var(--font-sans); margin: 0 0 6px; color: var(--t1); }
+  .ctx p { color: var(--t2); margin: 0 0 14px; }
+  .ctx .m0 { margin: 0; }
+  .ctx a:not(.enter):not(.home-btn) { color: rgb(var(--accent)); }
+  .classic { font: 400 .875rem var(--font-mono); color: var(--t2) !important; }
+  kbd { font: 500 .75rem var(--font-mono); border: 1px solid var(--lf); border-radius: 6px; padding: 0 5px; }
+  .qa { border-top: 1px solid rgb(var(--border) / .6); padding-top: 14px; margin-top: 14px; }
+  .jump { list-style: none; margin: 6px 0 0; padding: 0; }
+  .jump li { border-bottom: 1px solid rgb(var(--border) / .5); }
+  .jump li:last-child { border-bottom: 0; }
+  .jump a, .jump button, .jump .todo { display: grid; grid-template-columns: 1fr auto; gap: 12px; width: 100%; min-height: 44px; align-items: center; padding: 8px 0; text-align: left; color: var(--t1) !important; background: none; border: 0; font: inherit; cursor: pointer; }
+  .jump .todo { cursor: default; color: var(--t2) !important; }
+  .jump a:hover, .jump button:hover { color: rgb(var(--accent)) !important; }
+  .jump small { color: var(--t2); font-size: .875rem; text-align: right; }
+  .n { font: 500 .75rem var(--font-mono); color: var(--t2); margin-left: 8px; }
+  .chip { display: inline-block; white-space: nowrap; margin-left: 8px; font: 500 .6875rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; border: 1px dashed var(--lf); color: var(--t2); border-radius: 9999px; padding: 1px 8px; vertical-align: middle; }
+  .chip.ext { border-style: solid; text-transform: none; letter-spacing: .02em; }
+  .todo-note { font-size: .8125rem; margin-top: 14px !important; }
+  .todo-note .chip { margin-left: 0; margin-right: 4px; }
+  .depth { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin: 0 0 16px; }
+  .depth div { text-align: center; }
+  .depth span { display: block; height: 3px; border-radius: 999px; background: var(--lf); margin-bottom: 5px; }
+  .depth div.on span { background: var(--int); }
+  .depth i { font: 500 .625rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--t2); font-style: normal; }
+  .depth div.on i { color: var(--t1); }
+  .enter { display: inline-flex; align-items: center; min-height: 44px; gap: 8px; background: #016E7D; color: #F9EBDC; border-radius: 6px; padding: 0 16px; font: 500 .75rem var(--font-mono); letter-spacing: .10em; text-transform: uppercase; }
+  .enter:hover { filter: brightness(1.12); }
+  .mt { margin-top: 18px !important; } .mt-s { margin-top: 10px !important; }
+  .lnk { background: none; border: 0; padding: 0; color: rgb(var(--accent)); font: inherit; cursor: pointer; min-height: 44px; }
+  .home-btn { display: flex; justify-content: center; align-items: center; gap: 8px; min-height: 44px; margin: 0 0 18px; border: 1px solid var(--t3); border-radius: 6px; font: 500 .75rem var(--font-mono); letter-spacing: .10em; text-transform: uppercase; color: var(--t1); }
+  .home-btn:hover { border-color: var(--int); }
+  .home-btn[hidden], .panel[hidden] { display: none; }
+  .lenses { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: flex-end; }
+  .ctl { min-height: 44px; font: 500 .75rem var(--font-mono); letter-spacing: .08em; color: var(--t2); background: transparent; border: 1px dashed var(--lf); border-radius: 6px; padding: 0 12px; cursor: pointer; }
+  .ctl:hover { border-color: var(--int); color: var(--t1); }
+  .ctl.on { border-style: solid; border-color: var(--int); color: var(--t1); background: rgb(var(--teal) / .12); }
+  svg.astro { width: 100%; max-width: 720px; height: auto; display: block; margin-left: auto; }
+  .rim { fill: none; stroke: var(--lf); }
+  .tick { stroke: var(--lf); } .tick.l { stroke: var(--t3); }
+  .seg { cursor: pointer; outline: none; }
+  .seg path.f { fill: rgb(var(--text) / .035); stroke: var(--lf); stroke-width: 1; transition: fill .2s, stroke .2s, opacity .32s; }
+  .seg.r-core path.f { fill: rgb(var(--text) / .07); }
+  .seg:hover path.f { stroke: var(--int); stroke-width: 1.5; fill: rgb(var(--text) / .08); }
+  .seg:focus-visible path.f { stroke: var(--int); stroke-width: 2.5; }
+  .seg.sel path.f { fill: rgb(var(--teal) / .16); stroke: var(--int); stroke-width: 2; }
+  .seg.dim path.f { opacity: .3; }
+  .seg.dim .w { opacity: .6; }
+  .seg text { pointer-events: none; }
+  .seg .w { fill: var(--t2); font: 500 12px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+  .seg.sel .w { fill: var(--t1); }
+  .seg .c1 { fill: var(--t1); font: 500 22px var(--font-sans); }
+  .dist { cursor: pointer; outline: none; }
+  .dist .hit { fill: transparent; }
+  .dist .box { fill: rgb(var(--bg-card) / .6); stroke: var(--lf); transition: stroke .2s; }
+  .dist:hover .box { stroke: var(--int); }
+  .dist:focus-visible .box { stroke: var(--int); stroke-width: 2.5; }
+  .dist.sel .box { stroke: var(--int); stroke-width: 2; fill: rgb(var(--teal) / .14); }
+  .dist .d1 { font: 600 17px var(--font-sans); fill: var(--t1); }
+  .dist .d2 { font: 500 10px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; fill: var(--t2); }
+  @media (max-width: 600px) {
+    .seg .w { font-size: 21px; letter-spacing: .04em; }
+    .seg .c1 { font-size: 27px; } .seg.r-core text.w { font-size: 14px; }
+    .jump a, .jump button, .jump .todo { grid-template-columns: 1fr; gap: 2px; }
+    .jump small { text-align: left; }
+    .lenses { order: 2; margin-top: 12px; }
+    .dist .d1 { font-size: 26px; } .dist .d2 { display: none; }
+    .lenses { justify-content: flex-start; } .lenses .et { width: 100%; }
+    .ctx h1 { font-size: 2.074rem; } .ctx h1.h1s { font-size: 2.074rem; }
+  }
+  .tip { position: fixed; pointer-events: none; z-index: 70; max-width: 280px; background: rgb(var(--text)); color: rgb(var(--bg)); font: 400 .8125rem/1.4 var(--font-sans); padding: 8px 10px; border-radius: 6px; opacity: 0; transition: opacity .2s; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
+  .tip b { display: block; font: 500 .625rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; opacity: .7; margin-bottom: 2px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<script>
+  // on narrow screens the districts are buttons under the map: crop the rim margin
+  const astro = document.querySelector("svg.astro")!;
+  const fit = () => astro.setAttribute("viewBox", innerWidth <= 1000 ? "64 64 592 592" : "-20 -20 760 760");
+  fit(); addEventListener("resize", fit);
+  const tip = document.getElementById("tip")!;
+  const showTip = (el: Element, x?: number, y?: number) => {
+    const [label, text] = (el.getAttribute("data-tip") ?? "").split("|");
+    tip.innerHTML = `<b>${label}</b>${text ?? ""}`;
+    if (x === undefined) { const r = el.getBoundingClientRect(); x = r.left + r.width / 2; y = r.bottom; }
+    tip.style.left = Math.min(x + 14, innerWidth - 300) + "px";
+    tip.style.top = Math.min((y ?? 0) + 16, innerHeight - 90) + "px";
+    tip.style.opacity = "1";
+  };
+  const hideTip = () => (tip.style.opacity = "0");
+  const hover = matchMedia("(hover: hover)").matches;
+  document.querySelectorAll("[data-tip]").forEach((el) => {
+    if (hover) el.addEventListener("mousemove", (e) => showTip(el, (e as MouseEvent).clientX, (e as MouseEvent).clientY));
+    el.addEventListener("mouseleave", hideTip);
+    el.addEventListener("focus", () => showTip(el));
+    el.addEventListener("blur", hideTip);
+  });
+
+  const panels = [...document.querySelectorAll<HTMLElement>(".panel")];
+  const homeBtn = document.querySelector<HTMLElement>(".home-btn")!;
+  const segs = [...document.querySelectorAll<SVGGElement>(".seg")];
+  const dists = [...document.querySelectorAll<SVGGElement>(".dist")];
+  const lenses = [...document.querySelectorAll<HTMLElement>("[data-lens]")];
+  const ctx = document.querySelector<HTMLElement>(".ctx")!;
+
+  function apply(state: string, scroll = false) {
+    if (!panels.some((p) => p.dataset.state === state)) state = "";
+    panels.forEach((p) => (p.hidden = p.dataset.state !== state));
+    homeBtn.hidden = state === "";
+    segs.forEach((s) => s.classList.remove("sel", "dim"));
+    dists.forEach((d) => d.classList.remove("sel"));
+    document.querySelectorAll(".dbtn").forEach((b) => b.classList.toggle("sel", state === (b as HTMLElement).dataset.go));
+    lenses.forEach((l) => l.classList.remove("on"));
+    const [kind, ...rest] = state.split("-"); const id = rest.join("-");
+    if (kind === "s") segs.find((s) => s.dataset.seg === id)?.classList.add("sel");
+    if (kind === "d") {
+      dists.find((d) => d.dataset.d === id)?.classList.add("sel");
+      segs.forEach((s) => s.classList.add(s.dataset.district === id ? "sel" : "dim"));
+    }
+    if (kind === "l") {
+      const lens = lenses.find((l) => l.dataset.lens === id)!; lens.classList.add("on");
+      const paints = (lens.dataset.paints ?? "").split(" ");
+      segs.forEach((s) => s.classList.toggle("dim", !paints.includes(s.dataset.seg!)));
+    }
+    segs.forEach((s) => s.setAttribute("aria-pressed", String(s.classList.contains("sel"))));
+    history.replaceState(null, "", state ? "#" + state : location.pathname);
+    document.dispatchEvent(new CustomEvent("summa:state", { detail: state }));
+    if (scroll && innerWidth <= 1000 && state) ctx.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  document.addEventListener("click", (e) => {
+    const t = (e.target as Element).closest("[data-go]");
+    if (!t) return;
+    e.preventDefault(); hideTip();
+    const go = t.getAttribute("data-go")!;
+    // clicking what is already selected (a lens, a district) lets it go
+    const current = location.hash.slice(1);
+    apply(go === current && !t.closest(".ctx") ? "" : go, !!t.closest("svg, .lenses, .dgrid"));
+  });
+  [...segs, ...dists].forEach((el) => el.addEventListener("keydown", (e) => {
+    const k = (e as KeyboardEvent).key;
+    if (k === "Enter" || k === " ") { e.preventDefault(); (el as unknown as HTMLElement).dispatchEvent(new MouseEvent("click", { bubbles: true })); }
+  }));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && location.hash) apply(""); });
+  apply(decodeURIComponent(location.hash.slice(1)));
+</script>

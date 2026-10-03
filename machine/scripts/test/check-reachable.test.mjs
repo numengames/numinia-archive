@@ -11,8 +11,8 @@ const page = (links, chrome = []) =>
   `<main>${links.map((h) => `<a href="${h}">x</a>`).join('')}</main>` +
   `<footer>${chrome.map((h) => `<a href="${h}">x</a>`).join('')}</footer>`;
 
-test('the doors are the Map and the Archive', () => {
-  assert.deepEqual(DOORS, ['/', '/about']);
+test('the doors are the Archive and the Map', () => {
+  assert.deepEqual(DOORS, ['/', '/map']);
 });
 
 test('keyOf drops query, hash and trailing slash, and ignores other hosts', () => {
@@ -30,7 +30,7 @@ test('links in the bar and the footer do not count', () => {
 test('a page reached through another page passes; a page linked only from the chrome fails', () => {
   const pages = new Map([
     ['/', page(['/configure'], ['/hidden'])],
-    ['/about', page([])],
+    ['/map', page([])],
     ['/configure', page(['/system/language'])],
     ['/system/language', page([])],
     ['/hidden', page([])],

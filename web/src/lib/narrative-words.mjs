@@ -134,21 +134,30 @@ export const WORDS = [
 ];
 
 /**
- * Texts written by hand at each stop (method 2 of the design): only the
- * archive page's heading and lead, and the map's line on its rings. They use
+ * Texts written by hand at each stop (method 2 of the design): the front
+ * door's heading, sentence and empty-section line, and the map's line on its
+ * rings. They use
  * no word the register lacks: `uses` lists the labels each one names, and the
  * test checks that each stop names them by the register's word.
  */
 export const TEXTS = {
-  "about.thesis": {
+  // The front door (2026-10-03): the archive by section. Its heading, its
+  // one sentence and the line an empty section prints name the archive, so
+  // each stop says it by the register's word.
+  "home.thesis": {
     uses: ["The archive"],
-    plain: "Our knowledge base, in four blocks.",
-    numinia: "The Summa Archive, in four blocks.",
+    plain: "Our knowledge base, by section.",
+    numinia: "The Summa Archive, by section.",
   },
-  "about.lead": {
+  "home.what": {
     uses: ["The archive"],
-    plain: "One of two ways to move through our knowledge base. The map shows how it fits together; this page takes you straight to a section.",
-    numinia: "One of two ways to walk the Summa Archive. The map lets you explore it; this page takes you straight to a series.",
+    plain: "The knowledge base of Numen Games: everything we decide, build and offer, written down and open. Numinia is the story we tell it in — a city where work is a game.",
+    numinia: "The Summa Archive of Numen Games: everything we decide, build and offer, written down and open. Numinia is the story we tell it in — a city where work is a game.",
+  },
+  "home.empty": {
+    uses: ["The archive"],
+    plain: "Nothing in the knowledge base yet.",
+    numinia: "Nothing in the Summa Archive yet.",
   },
   // The map's first line on how to read it names the four rings, so it says
   // them in the register's words at each stop (narrative-home.test.mjs).
@@ -162,7 +171,17 @@ export const TEXTS = {
 /** Stops the archive has no word for yet, per label: the conversation owed. */
 export const GAPS = [
   "The rules and The offer at the Numinia stop: no good candidate yet",
+  // The front door (2026-10-03). The ten section names keep their business
+  // name at every stop by the Oracle's decision; at the full moon the houses
+  // that serve each one are named beneath it instead (translator.servedBy).
+  "Procedures, Operations, Opportunities, Legal, System, Debt, Objects and Lore (series labels) at the plain and Numinia stops: the archive has no other word for them yet",
+  "served by, records, Who we are, Books, Our other sites, Without a section (the front door's own labels): no plain or Numinia word in any file yet; the site keeps today's word",
 ];
+
+/** Attributes for the site's own name, so a page that prints it changes it with the moon. */
+export function siteNameAttrs() {
+  return { "data-nw": "", "data-nw-bridge": SITE_NAME.bridge.text, "data-nw-plain": SITE_NAME.plain.text, "data-nw-numinia": SITE_NAME.numinia.text };
+}
 
 /** Attributes for an element whose text is `label`, or {} when the register has no entry. */
 export function wordAttrs(label) {

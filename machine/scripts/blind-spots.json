@@ -82,7 +82,7 @@
       "script": "machine/scripts/check-reachable.mjs",
       "build_check": "verifies the built site, not a rule in prose — a page no link leads to is hidden from every reader, whatever the standards say (ENG-067 exception)",
       "needs": "web/dist",
-      "sees": "every built page that is not a redirect: that it is reached by following links in page bodies from the Map (/) or the Archive (/about). The bar and the footer are left out, since they sit on every page",
+      "sees": "every built page that is not a redirect: that it is reached by following links in page bodies from the Archive (/) or the Map (/map). The bar and the footer are left out, since they sit on every page",
       "blind_to": [
         {
           "spot": "EXEMPT is hand-kept in the guard. A page added there is admitted without argument; the guard only checks that each entry still names a built page",
