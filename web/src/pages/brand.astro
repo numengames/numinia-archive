@@ -1,0 +1,104 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /brand — the brand and culture book (the Oracle, 2026-10-03): seven
+// chapters read from the canons and records the old brand deck was merged
+// into, on one page, to read or hear end to end. Nothing here is typed but
+// the frame; the chapters are web/src/lib/brand-book.ts.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import BackToTop from "@/components/BackToTop.astro";
+import { brandBook, BRAND_GAPS } from "@/lib/brand-book";
+import { createMarkdownProcessor } from "@astrojs/markdown-remark";
+
+const processor = await createMarkdownProcessor({});
+const chapters = await Promise.all(
+  brandBook().map(async (c) => ({
+    ...c,
+    parts: await Promise.all(c.parts.map(async (p) => ({ ...p, html: (await processor.render(p.markdown)).code }))),
+  })),
+);
+const etiqueta = "font-mono text-[0.6rem] uppercase tracking-[0.15em]";
+const enlace = "text-accent underline underline-offset-2";
+---
+
+<Layout
+  title="Brand and culture — the book of Numinia"
+  description="Who Numinia is, what it believes, how it looks and sounds, how it lives and where it is going: seven chapters read from the archive."
+  canonicalPath="/brand"
+>
+  <PageHero
+    label="Brand and culture"
+    title="Who we are, and how we live"
+    description="Seven chapters: where we come from, why we exist, what we will not trade, the brand in three words, how we sound and look, how we live together, where we are going. Every word is read from the archive."
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="mb-8"><DocToolbar mdUrl="/brand.md" filename="brand-and-culture.md" lang="en" /></div>
+
+      <nav aria-label="Chapters" class="mb-12 rounded-[8px] border border-border bg-card p-5">
+        <div class:list={[etiqueta, "text-dim mb-3"]}>Chapters</div>
+        <ol class="space-y-1 text-sm">
+          {chapters.map((c) => (
+            <li><a href={`#${c.id}`} class="text-foreground hover:text-accent"><span class="font-mono text-dim mr-2">{c.numeral}</span>{c.title}</a></li>
+          ))}
+          <li><a href="#not-written-yet" class="text-foreground hover:text-accent"><span class="font-mono text-dim mr-2">·</span>Not written yet</a></li>
+        </ol>
+      </nav>
+
+      {chapters.map((c) => (
+        <section id={c.id} data-chapter={c.id} class="mb-16 scroll-mt-24">
+          <div class:list={[etiqueta, "text-accent mb-1"]}>Chapter {c.numeral}</div>
+          <h2 class="font-display text-3xl text-foreground">{c.title}</h2>
+          <p class="mt-1 mb-6 text-sm italic text-muted-foreground">{c.line}</p>
+          {c.parts.map((p) => (
+            <article class="mission-md book-part mb-6 rounded-[8px] border border-border bg-card p-6 sm:p-8">
+              <p class:list={[etiqueta, "text-dim mb-4"]}>From <a href={p.href} class={enlace}>{p.title}</a></p>
+              <Fragment set:html={p.html} />
+            </article>
+          ))}
+        </section>
+      ))}
+
+      <section id="not-written-yet" class="mb-10 scroll-mt-24">
+        <h2 class="font-display text-2xl text-foreground">Not written yet</h2>
+        <p class="mt-1 mb-4 text-sm text-muted-foreground">What this book does not hold yet, said instead of filled.</p>
+        <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+          {BRAND_GAPS.map((g) => <li>{g}</li>)}
+        </ul>
+      </section>
+    </div>
+  </section>
+  <BackToTop />
+</Layout>
+
+<style is:global>
+  /* The same prose the document pages use (web/src/pages/[...slug].astro). */
+  .book-part p { font-size: 0.9rem; line-height: 1.75; color: rgb(var(--text-muted)); margin: 0.6rem 0; }
+  .book-part ul, .book-part ol { margin: 0.5rem 0 0.75rem; padding-left: 1.25rem; }
+  .book-part li { font-size: 0.9rem; line-height: 1.7; color: rgb(var(--text-muted)); margin: 0.35rem 0; }
+  .book-part ul { list-style: disc; }
+  .book-part ol { list-style: decimal; }
+  .book-part hr { border: 0; border-top: 1px solid rgb(var(--border)); margin: 1.5rem 0; }
+  .book-part blockquote { border-left: 2px solid rgb(var(--accent) / 0.35); padding-left: 1rem; margin: 0.75rem 0; font-style: italic; }
+  .book-part table { display: block; overflow-x: auto; font-size: 0.8rem; margin: 0.75rem 0; border-collapse: collapse; }
+  .book-part th, .book-part td { border: 1px solid rgb(var(--border)); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; color: rgb(var(--text-muted)); }
+  .book-part th { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: rgb(var(--text)); }
+  .book-part strong { color: rgb(var(--text)); }
+  .book-part code { font-family: var(--font-mono); font-size: 0.8em; background: rgb(var(--border) / 0.5); padding: 0.1em 0.35em; border-radius: 6px; }
+  .book-part h4 { font-size: 0.95rem; color: rgb(var(--text)); margin: 1.25rem 0 0.5rem; }
+  .book-part h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    text-transform: none;
+    letter-spacing: 0;
+    color: rgb(var(--text));
+    margin: 1.75rem 0 0.5rem;
+  }
+  .book-part h3:first-of-type {
+    margin-top: 0;
+  }
+</style>

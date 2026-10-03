@@ -95,7 +95,7 @@ export const WORDS = [
   // Decisions, Reports and Agents: accepted for now by Christian and the
   // Oracle (2026-09-29) — finding a word is finding a meaning, and these
   // will change as the census understands them better.
-  { bridge: "Canon", plain: { text: "Purpose", source: "lore/world/brand-and-culture.md" } },
+  { bridge: "Canon", plain: { text: "Purpose", source: "canon/CAN-002-brand-and-culture.md" } },
   { bridge: "Standards", plain: { text: "Policies", source: "web/src/lib/summa.ts" } },
   { bridge: "Missions", plain: { text: "Project", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Adventures", plain: { text: "Experience", source: "standards/STD-030-the-worlds-vocabulary.md" } },

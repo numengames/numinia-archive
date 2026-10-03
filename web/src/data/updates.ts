@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.136.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "ADD", text: "Brand and culture, a book at /brand: where we come from, why we exist, what we will not trade away, the brand in three words, how we sound and look, how we live together and where we are going. Seven chapters, every word read from the canons and records; what is not written yet is said, not filled." },
+      { type: "DEL", text: "The old brand and culture deck leaves the lore: everything worth keeping now lives in canon and records, and its address opens the book." },
+    ],
+  },
+  {
     version: "v0.135.0",
     date: "2026-10-03",
     entries: [

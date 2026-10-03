@@ -81,6 +81,7 @@ const STANDALONE = new Set([
   '/telemetry',   // the measured figures
   '/agent',       // the roster's detail view
   '/binding',     // what is in force while the rules are draft — the regime, from AGENTS.md
+  '/brand',       // the brand and culture book: seven chapters read from canon and records (CAN-002, CAN-013, CAN-014, CAN-015)
   '/lexicon',     // the Lexicon, a book: the operative vocabulary A to Z, one page per letter (STD-026)
   '/playbook',    // the sales playbook, a book: a sale's stages, protocols and collateral (STD-038, STD-047)
   '/automation',  // what an agent may do without asking, level by level — a view over STD-017, PRO-008, PRO-016 and the OPERATOR files

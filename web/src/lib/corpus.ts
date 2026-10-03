@@ -511,7 +511,7 @@ const READING_GROUPS_LORE: ReadingGroup[] = [
   {
     numeral: "I", id: "world", label: "The world",
     line: "Who Numinia is: the city, the culture, the roles people play in it.",
-    hrefs: ["/lore/world/welcome-to-numinia", "/lore/world/brand-and-culture", "/lore/world/role-structure"],
+    hrefs: ["/lore/world/welcome-to-numinia", "/lore/world/role-structure"],
   },
   {
     numeral: "II", id: "adventures", label: "Adventures",
@@ -717,7 +717,6 @@ const READING_ORDER: Record<string, string[]> = {
   // images that were never committed. See content.config.ts.
   lore: [
     "/lore/world/welcome-to-numinia",
-    "/lore/world/brand-and-culture",
     "/lore/world/role-structure",
     "/lore/adventures/virtual-worlds/session-zero",
     "/lore/adventures/tabletop/el-espejo-roto",
@@ -830,12 +829,13 @@ function questionOf(body: string | undefined): string | undefined {
  * and here is why it earns the exception.
  *
  * `titleOf` reads the document first: frontmatter, then a heading-like opening
- * line. That gets nine of the eleven lore documents right. Two it cannot:
+ * line. That gets the lore documents right but one:
  *
  *   welcome-to-numinia   opens with "Introduction to the Gamified System",
  *                        which is its first SECTION, not its title.
- *   brand-and-culture    opens with "V.0.1.2" — a version stamp from the
- *                        PDF's cover page.
+ *
+ * (brand-and-culture, which opened with a PDF's version stamp, left the lore
+ * on 2026-10-03: its content lives in canon and the /brand book reads it.)
  *
  * No amount of cleverness fixes that: the information is not in the file. The
  * real repair is a `title` in the document, but these are reserved texts and
@@ -846,7 +846,6 @@ function questionOf(body: string | undefined): string | undefined {
  */
 const TITLE_OVERRIDE: Record<string, string> = {
   "/lore/world/welcome-to-numinia": "Welcome to Numinia",
-  "/lore/world/brand-and-culture": "Brand and Culture",
 };
 
 /**
