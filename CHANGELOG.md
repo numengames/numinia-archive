@@ -17,6 +17,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-03
+
+- **Changed** The operative vocabulary grows from 25 to 158 terms, A to Z: one definition per word, written once, the source the Lexicon book will read (#626)
+
 ### 2026-10-02
 
 - **Changed** One site name per narrative level in every tab — L1 numinia.org, the archive of Numen Games; L2 the archive of Numinia; L3 the Summa Archive — and the dial names its levels L1 L2 L3 (#625) (site v0.131.0)

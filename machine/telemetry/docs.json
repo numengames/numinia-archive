@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 28606,
+  "chars": 28782,
   "apparatus": false,
   "archived": false,
-  "tokens": 8052
+  "tokens": 8100
  },
  {
   "path": "CLAUDE.md",
@@ -3118,10 +3118,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 11297,
+  "chars": 46362,
   "apparatus": false,
   "archived": false,
-  "tokens": 2628
+  "tokens": 11117
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
