@@ -48,7 +48,7 @@ id: "STD-001"
 
 | Series | Holds | Prefix | Threshold | Budget | Template |
 |---|---|---|---|---|---|
-| \`canon/\` | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | \`CAN-TEMPLATE.md\` |
+| \`principles/\` | what the system **is** | \`PRI-NNN\` | \`governed\` | 1500 | \`PRI-TEMPLATE.md\` |
 | \`missions/\` | the work | \`MIS-NNNN\` | \`closed\` | 500 | \`MIS-TEMPLATE.md\` |
 `;
 
@@ -61,7 +61,7 @@ id: "STD-027"
 
 | Function | Activity | Series |
 |---|---|---|
-| Governance | Founding | \`canon/\` |
+| Governance | Founding | \`principles/\` |
 | Production | Executing | \`missions/\` |
 `;
 

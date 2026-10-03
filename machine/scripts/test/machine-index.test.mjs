@@ -11,7 +11,7 @@
 // LICENCE GOVERNS THIS DOCUMENT.
 //
 // THE RULE THE ORACLE RESTATED (2026-09-23): the licence is PER DOCUMENT, not
-// per folder. `lore/` is not a reserved block and `canon/` is not an open one;
+// per folder. `lore/` is not a reserved block and `principles/` is not an open one;
 // each file carries its own `license:` and REUSE.toml is the declaration of
 // record for the ones that do not. A summary that says "everything under X is
 // Y" is the error this suite exists to prevent, so it is asserted twice: the
@@ -62,11 +62,11 @@ function ask(expression) {
 // A document as the routes hand it over: address, file, and whatever the
 // frontmatter declared.
 const doc = (over = {}) => ({
-  url: '/canon/can-001-welcome-to-numinia',
-  filePath: '../canon/CAN-001-welcome-to-numinia.md',
+  url: '/principles/pri-001-welcome-to-numinia',
+  filePath: '../principles/PRI-001-welcome-to-numinia.md',
   title: 'Welcome to Numinia',
-  id: 'CAN-001',
-  series: 'canon',
+  id: 'PRI-001',
+  series: 'principles',
   status: 'draft',
   updated: '2026-09-01',
   license: 'CC0-1.0',
@@ -113,8 +113,8 @@ test('two documents in one folder may resolve to two different licences', () => 
   // The property the per-document rule IS. If this ever collapses to one
   // answer per folder the resolver has started generalising.
   const entries = [
-    doc({ url: '/a/one', filePath: '../canon/CAN-001-welcome-to-numinia.md', license: 'CC0-1.0' }),
-    doc({ url: '/a/two', filePath: '../canon/CAN-001-welcome-to-numinia.md', license: 'LicenseRef-Numen-AllRightsReserved' }),
+    doc({ url: '/a/one', filePath: '../principles/PRI-001-welcome-to-numinia.md', license: 'CC0-1.0' }),
+    doc({ url: '/a/two', filePath: '../principles/PRI-001-welcome-to-numinia.md', license: 'LicenseRef-Numen-AllRightsReserved' }),
   ];
   const got = ask(`${JSON.stringify(entries)}.map(m.licenceOf)`);
   assert.deepEqual(got, ['CC0-1.0', 'LicenseRef-Numen-AllRightsReserved']);
@@ -127,10 +127,10 @@ test('two documents in one folder may resolve to two different licences', () => 
 test('every document row carries its address, its markdown address and its licence', () => {
   const got = ask(`m.indexJson({ documents: [${JSON.stringify(doc())}], views: [] })`);
   const row = got.documents[0];
-  assert.equal(row.url, '/canon/can-001-welcome-to-numinia');
-  assert.equal(row.md, '/canon/can-001-welcome-to-numinia.md');
+  assert.equal(row.url, '/principles/pri-001-welcome-to-numinia');
+  assert.equal(row.md, '/principles/pri-001-welcome-to-numinia.md');
   assert.equal(row.license, 'CC0-1.0');
-  assert.equal(row.id, 'CAN-001');
+  assert.equal(row.id, 'PRI-001');
   assert.equal(row.status, 'draft');
 });
 
@@ -182,7 +182,7 @@ test('llms.txt never claims a licence for a folder', () => {
   const txt = ask(`m.llmsTxt({ documents: ${JSON.stringify(docs)}, views: [], version: 'v0.18.0' })`);
   const offenders = txt
     .split('\n')
-    .filter((l) => /(lore|canon|agents|standards|missions)\/\S*\s/.test(l))
+    .filter((l) => /(lore|principles|agents|standards|missions)\/\S*\s/.test(l))
     .filter((l) => /\b(is|are|carry|carries|under)\b[^.]*\b(CC0|CC-BY|reserved|licen[cs]ed?)\b/i.test(l));
   assert.deepEqual(offenders, [], `a folder-level licence claim was generated:\n${offenders.join('\n')}`);
   assert.match(txt, /per document|each document|document by document/i);

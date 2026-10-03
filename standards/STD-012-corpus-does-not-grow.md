@@ -5,17 +5,17 @@ title: "The corpus does not grow"
 type: standard
 subtype: standard
 status: active
-version: "2.1.3"
+version: "2.1.4"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [deflation, lifecycle, reports, missions, debt, compression, records-management, retirement, Dublin-Core]
 approved_by: "ADR-042"
-related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "CAN-001", "STD-028"]
-derived_from: "CAN-009"
+related: ["ADR-030", "STD-025", "ADR-042", "PRO-017", "STD-001", "PRI-001", "STD-028"]
+derived_from: "PRI-009"
 ---
 
 <!--

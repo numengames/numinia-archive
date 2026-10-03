@@ -3,9 +3,9 @@ id: "SYS-011:institution-summa-archive"
 title: "Summa Archive"
 type: entity
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -42,7 +42,7 @@ plausible reading nobody has confirmed yet.
 
 ## Concept
 
-An autonomous research body founded by the Concordia Council with the Oracles' endorsement to study the Peripheral Zones (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Organismo autónomo de investigación interterritorial»). It seeks to know what lies beyond and to contain what may threaten or reveal (cited: same — «contener y comprender lo que pueda representar una amenaza o una revelación»). The house borrows the name for its written memory and says so (cited: `web/src/lib/corpus.ts` — «"The Summa" is the Archivo Summa of the manual»). Shared core: knowledge kept as record, with a boundary around what may be read (inferred: uses in `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`, `canon/CAN-009-the-archive-is-the-organisation.md`).
+An autonomous research body founded by the Concordia Council with the Oracles' endorsement to study the Peripheral Zones (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Organismo autónomo de investigación interterritorial»). It seeks to know what lies beyond and to contain what may threaten or reveal (cited: same — «contener y comprender lo que pueda representar una amenaza o una revelación»). The house borrows the name for its written memory and says so (cited: `web/src/lib/corpus.ts` — «"The Summa" is the Archivo Summa of the manual»). Shared core: knowledge kept as record, with a boundary around what may be read (inferred: uses in `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`, `principles/PRI-009-the-archive-is-the-organisation.md`).
 
 ## Constitutive traits
 
@@ -73,14 +73,14 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 | Record-keeper | Investigative premises | cited: `lore/adventures/tabletop/el-espejo-roto.md` — «Dependencias del Archivo Summa» |
 | House memory | Agent boot/commit cycle | cited: `system/SYS-002-agent-cycle.md` — «↓ BOOT (git pull)» |
 | Map | Wayfinding on numinia.org | cited: `web/src/components/Wayfinder.astro` — «Where am I in the Summa.» |
-| Canon shelf | Shelf III of /canon/ | cited: `web/src/lib/corpus.ts` — «label: "The Summa"» |
+| Canon shelf | Shelf III of /principles/ | cited: `web/src/lib/corpus.ts` — «label: "The Summa"» |
 | Civic registry | Solomon district of numinia.com | cited: `numinia-web:packages/domain/src/constants/portals.ts` — «districtId: 'solomon'» |
 
 ## Relations
 
 - **Concordia Council** — parent body (cited: manual ch. 5 — «Dependencia: Consejo de Concordia»).
 - **Oracles** — endorse it; in the house they «govern from the Summa Archive» (cited: `blueprints/BLU-007-dual-nomenclature.md`).
-- **CAN-009** — house principle behind the memory facet (cited: `canon/CAN-009-the-archive-is-the-organisation.md` — «The archive is the organisation»).
+- **PRI-009** — house principle behind the memory facet (cited: `principles/PRI-009-the-archive-is-the-organisation.md` — «The archive is the organisation»).
 
 ## Current manifestations
 
@@ -116,6 +116,6 @@ An autonomous research body founded by the Concordia Council with the Oracles' e
 
 - `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` ("manual ch. 5"), `lore/game/manual/es/02-…`, `06-…`, `07-…` ("manual ch. 7")
 - `lore/adventures/tabletop/el-espejo-roto.md`; `lore/codex/glosario.md`; `lore/game/manual/glossary-es-en.md`
-- `blueprints/BLU-007-dual-nomenclature.md`, `system/SYS-002-agent-cycle.md`, `operations/OPS-001-continuity.md`, `canon/CAN-009-the-archive-is-the-organisation.md`
+- `blueprints/BLU-007-dual-nomenclature.md`, `system/SYS-002-agent-cycle.md`, `operations/OPS-001-continuity.md`, `principles/PRI-009-the-archive-is-the-organisation.md`
 - `web/src/lib/summa.ts`, `web/src/lib/corpus.ts`, `web/src/pages/index.astro`, `web/src/components/Wayfinder.astro`
 - `numinia-web:packages/domain/src/constants/portals.ts`, `numinia-web:apps/store/src/lib/summa.ts`

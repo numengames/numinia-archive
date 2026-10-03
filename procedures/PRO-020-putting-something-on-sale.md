@@ -4,9 +4,9 @@ uid: ""
 title: "Putting something on sale"
 type: procedure
 status: draft
-version: "0.4.3"
+version: "0.4.4"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
@@ -14,8 +14,8 @@ tags: [procedure, economy, payments, sale, records]
 license: "CC0-1.0"
 applies_to: [all-agents]
 approved_by: "ADR-065"
-related: ["STD-033", "CAN-011", "SYS-008", "STD-022", "PRO-021", "STD-044"]
-derived_from: "CAN-011"
+related: ["STD-033", "PRI-011", "SYS-008", "STD-022", "PRO-021", "STD-044"]
+derived_from: "PRI-011"
 ---
 
 <!--

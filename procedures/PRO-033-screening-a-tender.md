@@ -4,9 +4,9 @@ uid: ""
 title: "Screening a tender"
 type: procedure
 status: draft
-version: "0.2.4"
+version: "0.2.5"
 created: "2026-10-01T17:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -15,7 +15,7 @@ tags: [procedure, sales, tenders, public-procurement, screening, card]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-038", "STD-039", "OPS-018", "PRO-031", "PRO-028", "PRO-035"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--

@@ -89,11 +89,11 @@ export const TO_CREATE = "Written in the plan, not yet in the Summa: the record 
 
 export const SEGMENTS: Segment[] = [
   { id: "rules", ring: "core", word: "The Summa", title: "The rules", a: [0, 360], entries: [
-    E("Canon", "Why we exist", "/canon/", "canon"),
+    E("Principles", "Why we exist", "/principles/", "principles"),
     E("Standards", "What each thing must look like", "/standards/", "standards"),
     E("Procedures", "How each thing is done, step by step", "/procedures/", "procedures"),
     E("Decisions", "What was decided, and why", "/decisions/", "decisions"),
-    E("The core, as a book", "Each canon, its rules and its steps, end to end", "/core"),
+    E("The core, as a book", "Each principle, its rules and its steps, end to end", "/core"),
     E("The design system, as a book", "Everything a piece of ours is made of", "/design"),
   ] },
   { id: "production", ring: "work", word: "Production", title: "Production", a: [0, 120], entries: [
@@ -174,10 +174,10 @@ export interface Book {
   pending?: string;
 }
 export const BOOKS: Book[] = [
-  { label: "The core", line: "Each canon, the standards that make it concrete, the procedures that carry it out", href: "/core", from: "canon · standards · procedures" },
+  { label: "The core", line: "Each principle, the standards that make it concrete, the procedures that carry it out", href: "/core", from: "principles · standards · procedures" },
   { label: "The sales playbook", line: "From an opportunity found to a sale won or lost: each stage, its procedure, what it hands over", href: "/playbook", from: "standards · procedures · operations" },
   { label: "The Lexicon", line: "The words we work with, A to Z: what each one is, what it clears up, what it lets you do", href: "/lexicon", from: "standards" },
-  { label: "Brand and culture", line: "Where we come from, what we believe, the brand in three words, how we sound, look and live, where we are going", href: "/brand", from: "canon · standards · procedures · operations" },
+  { label: "Brand and culture", line: "Where we come from, what we believe, the brand in three words, how we sound, look and live, where we are going", href: "/brand", from: "principles · standards · procedures · operations" },
   { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · procedures · system" },
   { label: "The role-playing manual", line: "The tabletop game of Numinia, in Spanish and English", href: null, from: "lore", pending: "Not on the site yet: four images the manual embeds were never committed" },
   { label: "The legal playbook", line: "The rules the law asks of us, gathered in one place", href: null, from: "standards · legal", pending: "Being written: the standards the law requires are still to be gathered" },

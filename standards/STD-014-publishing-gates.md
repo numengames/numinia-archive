@@ -5,15 +5,15 @@ title: "Publishing gates"
 type: standard
 subtype: standard
 status: draft
-version: "1.1.8"
+version: "1.1.9"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
 license: "CC0-1.0"
 tags: [licensing, legal, publication, arweave, visibility]
-derived_from: "CAN-005"
+derived_from: "PRI-005"
 
 ---
 
@@ -100,4 +100,4 @@ the latest version still sits one step back in the log.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-010` | Licensing | the regime these gates protect |
-| `CAN-005` | Opening is an act | why the acts are irreversible |
+| `PRI-005` | Opening is an act | why the acts are irreversible |

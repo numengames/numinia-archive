@@ -4,16 +4,16 @@ uid: ""
 title: "Training — the offer"
 type: documentation
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Products and services"
 tags: [operations, offer, training, learning, rehearsal, virtual-space]
 license: "CC-BY-4.0"
-related: ["STD-040", "STD-039", "PRO-029", "CAN-004", "LEG-002", "OPS-011"]
+related: ["STD-040", "STD-039", "PRO-029", "PRI-004", "LEG-002", "OPS-011"]
 ---
 
 <!--
@@ -138,7 +138,7 @@ offer.
 
 The proposal standard says what every proposal for this offer must contain;
 the opportunity record standard, how each chance to sell it is written; the
-procedure for making a proposal, the steps. The canon of roles holds why
+procedure for making a proposal, the steps. The principle of roles holds why
 what is taught here is learnt by playing; the house's terms define
 Training in law; the positioning register holds the words the company uses
 about itself.

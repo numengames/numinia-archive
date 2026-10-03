@@ -40,7 +40,7 @@ addresses; `standards/STD-022-secrets.md` says how to handle them.
 
 ## What needs the Oracle first
 
-- **The canon** (`canon/`) changes, but only after the Oracle has agreed in
+- **The principles** (`principles/`) change, but only after the Oracle has agreed in
   conversation, before the branch exists.
 - **The legal texts** (`legal/`), sales records and the brand mark are
   reserved: propose, do not edit.

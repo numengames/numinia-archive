@@ -47,7 +47,7 @@ import { TAX_KINDS, VAT_RESULTS, CALENDAR } from "@/data/tax";
 import { ROUNDS, CLIENTS, CASH, FUTURES, PLAN, MONEY_IN_TOTAL } from "@/data/money";
 import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
-import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
+import { coreFlow, type CoreDoc, type CorePrinciple } from "@/lib/core";
 import { pipeline as salesPipeline, decidingRows, PIPELINE_SOURCES, CARD_URL, TEMPLATE_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, recordUrl } from "@/lib/pipeline";
 import { templates as templateList, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
 import { settings as configSettings, TEMPLATES as CONFIG_TEMPLATES, CONFIG_INTRO } from "@/lib/configuration";
@@ -58,7 +58,7 @@ import { compiled as designSystemMd, entries as designEntries, documents as desi
 
 /** A composed page's markdown, and where the facts in it come from. */
 export interface ComposedPage {
-  /** Route this belongs to, no trailing slash: "", "/scheme", "/canon". */
+  /** Route this belongs to, no trailing slash: "", "/scheme", "/principles". */
   route: string;
   /** Filename offered on download. */
   filename: string;
@@ -82,7 +82,7 @@ const AGENTS_DOC = "agents/INDEX.md";
  * A reader who downloads this file must be able to tell it from a document of
  * the corpus at a glance — it has no identifier, no frontmatter and no place
  * in the scheme, because it is a VIEW, not a record. Saying so is cheaper
- * than letting someone cite it as if it were canon.
+ * than letting someone cite it as if it were a principle.
  */
 function preamble(sources: string[]): string {
   const list = sources.map((s) => `\`${s}\``).join(", ");
@@ -154,7 +154,7 @@ export function schemePage(): ComposedPage {
     "",
     "## On `draft`",
     "",
-    "Most of this archive says `draft`, including the canon. That is not a warning",
+    "Most of this archive says `draft`, including the principles. That is not a warning",
     "label, it is a state with a definition: **written, not yet in force — it binds",
     "nobody** (`STD-004`). `active` means in force; `withdrawn` means it no longer",
     "is, and it is the only terminal state.",
@@ -346,7 +346,7 @@ export function homePage(): ComposedPage {
     "the work honest; the story keeps it worth doing.",
     "",
     "**What state is this in?** Early, and openly so. Most of what you will read",
-    "says `draft`, including the canon: on trial — followed, warns, never blocks",
+    "says `draft`, including the principles: on trial — followed, warns, never blocks",
     "(`STD-004`). A document is published the day it is written, not the day it is",
     "ratified, because the alternative is an archive that only shows its finished",
     "parts. So which rules are in force today, and block? `/binding` — the standing",
@@ -888,9 +888,9 @@ export function pipelinePage(): ComposedPage {
 }
 
 
-/** `/core` and each `/core/<canon>` — the core as a flow (web/src/lib/core.ts). */
+/** `/core` and each `/core/<principle>` — the core as a flow (web/src/lib/core.ts). */
 const stateWord = (s: string) => (s === "active" ? "in force" : s);
-function coreSources(c: CoreCanon): string[] {
+function coreSources(c: CorePrinciple): string[] {
   return [c, ...c.standards, ...c.procedures].map((d) => d.path);
 }
 function coreDocMd(d: CoreDoc, level: string): string {
@@ -899,17 +899,17 @@ function coreDocMd(d: CoreDoc, level: string): string {
 export function corePage(): ComposedPage {
   const flow = coreFlow();
   const lines = ["# The core, as a flow", "",
-    "Each canon, the standards that make it concrete, the procedures that carry it out. Every standard and procedure names its canon in its header (`derived_from`).", ""];
+    "Each principle, the standards that make it concrete, the procedures that carry it out. Every standard and procedure names its principle in its header (`derived_from`).", ""];
   for (const c of flow) {
     lines.push(`## ${c.title}`, "", `*${stateWord(c.status)}* · ${c.question}`, "", c.summary, "");
     if (c.standards.length) lines.push("Standards: " + c.standards.map((d) => `${d.title} (${stateWord(d.status)})`).join(" · "), "");
     if (c.procedures.length) lines.push("Procedures: " + c.procedures.map((d) => `${d.title} (${stateWord(d.status)})`).join(" · "), "");
   }
-  return { route: "/core", filename: "core.md", sources: ["canon/", "standards/", "procedures/"], body: preamble(["canon/", "standards/", "procedures/"]) + lines.join("\n") };
+  return { route: "/core", filename: "core.md", sources: ["principles/", "standards/", "procedures/"], body: preamble(["principles/", "standards/", "procedures/"]) + lines.join("\n") };
 }
-export function coreCanonPage(slug: string): ComposedPage {
+export function corePrinciplePage(slug: string): ComposedPage {
   const c = coreFlow().find((x) => x.slug === slug);
-  if (!c) throw new Error(`composed-md: no canon at /core/${slug}`);
+  if (!c) throw new Error(`composed-md: no principle at /core/${slug}`);
   const sources = coreSources(c);
   const parts = [`# ${c.title}`, "", `*${stateWord(c.status)}* · ${c.question}`, "", c.reading, ""];
   if (c.standards.length) { parts.push("## The standards", ""); for (const d of c.standards) parts.push(coreDocMd(d, "###")); }
@@ -1000,7 +1000,7 @@ function lexiconEntry(t: ReturnType<typeof lexicon>[number]["terms"][number]): s
   if (t.convention) lines.push(`- **Convention:** ${t.convention}`);
   return lines.join("\n") + "\n";
 }
-/** /brand — the brand and culture book, read from its canons and records. */
+/** /brand — the brand and culture book, read from its principles and records. */
 export function brandPage(): ComposedPage {
   return { route: "/brand", filename: "brand-and-culture.md", sources: BRAND_SOURCES, body: preamble(BRAND_SOURCES) + brandMarkdown() };
 }
@@ -1018,7 +1018,7 @@ export async function allComposedPages(): Promise<ComposedPage[]> {
   const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), playbookPage(), templatesPage(), corePage()];
   pages.push(lexiconPage(), brandPage());
   for (const l of lexicon()) pages.push(lexiconLetterPage(l.slug));
-  for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
+  for (const c of coreFlow()) pages.push(corePrinciplePage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
   for (const s of SERIES) pages.push(await seriesPage(s.slug));
   pages.push(await collectionIndexPage("missions"));

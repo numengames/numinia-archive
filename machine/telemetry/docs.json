@@ -748,9 +748,9 @@
   "tokens": 1727
  },
  {
-  "path": "canon/CAN-001-welcome-to-numinia.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-001-welcome-to-numinia.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 4325,
@@ -759,9 +759,9 @@
   "tokens": 1132
  },
  {
-  "path": "canon/CAN-002-brand-and-culture.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-002-brand-and-culture.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 7202,
@@ -770,9 +770,9 @@
   "tokens": 1743
  },
  {
-  "path": "canon/CAN-004-role-structure.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-004-role-structure.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 9640,
@@ -781,9 +781,9 @@
   "tokens": 2371
  },
  {
-  "path": "canon/CAN-005-licensing.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-005-licensing.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 6787,
@@ -792,9 +792,9 @@
   "tokens": 1667
  },
  {
-  "path": "canon/CAN-006-epistemic-relations.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-006-epistemic-relations.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 15055,
@@ -803,9 +803,9 @@
   "tokens": 3117
  },
  {
-  "path": "canon/CAN-007-pragmatic-numen-system.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-007-pragmatic-numen-system.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 10395,
@@ -814,9 +814,9 @@
   "tokens": 2254
  },
  {
-  "path": "canon/CAN-008-visual-identity.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-008-visual-identity.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 9926,
@@ -825,9 +825,9 @@
   "tokens": 2408
  },
  {
-  "path": "canon/CAN-009-the-archive-is-the-organisation.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-009-the-archive-is-the-organisation.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 6013,
@@ -836,9 +836,9 @@
   "tokens": 1488
  },
  {
-  "path": "canon/CAN-010-leave-things-better.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-010-leave-things-better.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 4832,
@@ -847,9 +847,9 @@
   "tokens": 1225
  },
  {
-  "path": "canon/CAN-011-value-makes-a-bond.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-011-value-makes-a-bond.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 4914,
@@ -858,9 +858,9 @@
   "tokens": 1265
  },
  {
-  "path": "canon/CAN-012-what-is-yours-stays-with-you.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-012-what-is-yours-stays-with-you.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 5357,
@@ -869,9 +869,9 @@
   "tokens": 1367
  },
  {
-  "path": "canon/CAN-013-a-magician-who-keeps-hope.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-013-a-magician-who-keeps-hope.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 5054,
@@ -880,9 +880,9 @@
   "tokens": 1295
  },
  {
-  "path": "canon/CAN-014-friends-who-play-build-and-learn.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-014-friends-who-play-build-and-learn.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 2893,
@@ -891,9 +891,9 @@
   "tokens": 764
  },
  {
-  "path": "canon/CAN-015-we-recognise-the-act.md",
-  "dir": "canon",
-  "series": "canon",
+  "path": "principles/CAN-015-we-recognise-the-act.md",
+  "dir": "principles",
+  "series": "principles",
   "type": "seminal",
   "status": "draft",
   "chars": 5232,

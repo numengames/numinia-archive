@@ -1,20 +1,22 @@
 ---
-id: "CAN-011"
+id: "PRI-011"
 uid: ""
 title: "What has value also makes a bond"
-type: seminal
+type: principle
+former_id: "CAN-011"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Finance"
-tags: [canon, seminal, economy, money, tokens, transparency]
+tags: [principle, economy, money, tokens, transparency]
 license: "CC0-1.0"
 approved_by: "ADR-063"
-related: ["CAN-009", "CAN-010", "CAN-005", "CAN-004"]
+related: ["PRI-009", "PRI-010", "PRI-005", "PRI-004"]
 ---
 
 <!--
@@ -36,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** whoever sets a price, takes a payment or keeps the account in
 Numinia's name, human or digital.
 
-> This canon is a first statement, written in draft to be argued with. It
+> This principle is a first statement, written in draft to be argued with. It
 > says why money works here the way it does; the rules a charge must meet
 > and the steps to set one up belong to the documents that follow it.
 
@@ -59,7 +61,7 @@ something, with its whole price in view, taxes included — because a price
 that grows at the last step has taken advantage of a decision already made.
 
 What is sold is never the key to something the commons already holds. The
-canon of licensing says why what is opened stays open; a charge that closed
+principle of licensing says why what is opened stays open; a charge that closed
 it again would be taking back a promise.
 
 ## Worth and bond
@@ -93,7 +95,7 @@ figures, each read the way they need to read them. A figure is closed from
 documents, never from estimates, and what is still an estimate says so. The
 time of the people who build the city is part of what it costs, but no
 person's pay is published: what is open is the organisation's account, not
-anyone's life. The canon of ethics says why.
+anyone's life. The principle of ethics says why.
 
 If a charge is not written in the archive, it does not exist, and anyone
 may refuse to make it.
@@ -112,7 +114,7 @@ Before any charge exists, put three questions to it:
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-009` | The archive is the organisation | why what is not written does not exist, and anyone may refuse it |
-| `CAN-010` | Leave things better than you found them | why a person's data — their pay among it — is theirs |
-| `CAN-005` | Opening is an act | why what is opened stays open, and nothing sold may close it |
-| `CAN-004` | You are what you are doing | who holds the city up, and what a citizen is |
+| `PRI-009` | The archive is the organisation | why what is not written does not exist, and anyone may refuse it |
+| `PRI-010` | Leave things better than you found them | why a person's data — their pay among it — is theirs |
+| `PRI-005` | Opening is an act | why what is opened stays open, and nothing sold may close it |
+| `PRI-004` | You are what you are doing | who holds the city up, and what a citizen is |

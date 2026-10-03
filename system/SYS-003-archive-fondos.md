@@ -5,11 +5,11 @@ title: "The Archive's Fonds"
 type: documentation
 subtype: reference
 status: active
-version: "3.0.3"
+version: "3.0.4"
 created: "2026-08-17T19:10:09Z"
 created_source: "git:715cc53"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [system, archive, fonds, taxonomy, classification]
@@ -44,7 +44,7 @@ Games S.L. The scheme that groups them is `STD-027`; this is its manual.
 
 | Function | Activity | Series | Governance |
 |---|---|---|---|
-| **Governance** | Founding | `canon/` | Oracle only. Blocking CODEOWNERS. |
+| **Governance** | Founding | `principles/` | Oracle only. Blocking CODEOWNERS. |
 | | Standardising | `standards/` | An ADR, or a PR the Oracle approves. |
 | | Prescribing | `procedures/` | New version = new file. |
 | | Deciding | `decisions/` | Append-only. Superseded, never deleted. |

@@ -15,8 +15,8 @@
 //   markdown — and it says so in its own preamble, so nobody cites a view as
 //   if it were a record.
 //
-// One route because they share an address space: /canon/can-001.md is a
-// document, /canon.md is the index of the folder that holds it. Two catch-all
+// One route because they share an address space: /principles/pri-001.md is a
+// document, /principles.md is the index of the folder that holds it. Two catch-all
 // routes over one pattern would be resolved by luck.
 import fs from "node:fs";
 import type { APIRoute } from "astro";

@@ -4,9 +4,9 @@ uid: ""
 title: "Changing what a site stores or loads"
 type: procedure
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -14,7 +14,7 @@ tags: [procedure, personal-data, cookies, sites]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-035", "STD-037", "LEG-003", "LEG-001"]
-derived_from: "CAN-012"
+derived_from: "PRI-012"
 ---
 
 <!--

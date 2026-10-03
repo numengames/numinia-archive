@@ -9,7 +9,7 @@ name: {{Agent Name}}
 version: "0.1.0"
 status: designed        # designed | active | retired
 activated: null
-guild: null             # Sentinels | Alchemists | Exegetes | Procurators (CAN-004)
+guild: null             # Sentinels | Alchemists | Exegetes | Procurators (PRI-004)
 
 # previous_names:       # only after a rename; never delete entries (STD-001 §5.2)
 #   - name: {{old-id}}

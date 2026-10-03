@@ -8,7 +8,7 @@
 // Until 2026-09-20 the /archive pages carried their own copy of the
 // classification: a hardcoded Spanish array in archive/index.astro naming
 // `agents/guilds/`, `missions/active/done/backlog/` and
-// `canon/platform-role-system.md` — none of which had existed for months —
+// `principles/platform-role-system.md` — none of which had existed for months —
 // and a `fondos:` array in SYS-003's frontmatter saying "seven fondos", the
 // model ADR-046 abandoned. numinia.org published a classification the archive
 // itself no longer held.
@@ -120,7 +120,7 @@ export interface Fn {
 // `operations/` at one document, and `lore/` said "not served here" the day
 // after /lore/ went live. The index pages existed; this map had not heard.
 const SERVED_AT: Record<string, { href: string | null; label?: string; unpublished?: string }> = {
-  "canon/": { href: "/canon/" },
+  "principles/": { href: "/principles/" },
   "standards/": { href: "/standards/" },
   "procedures/": { href: "/procedures/" },
   "decisions/": { href: "/decisions/" },

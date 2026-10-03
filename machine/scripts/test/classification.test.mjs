@@ -70,7 +70,7 @@ id: "STD-001"
 
 | Series | Holds | Prefix | Approval level | Budget | Template |
 |---|---|---|---|---|---|
-| \`canon/\` | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | \`CAN-TEMPLATE.md\` |
+| \`principles/\` | what the system **is** | \`PRI-NNN\` | \`governed\` | 1500 | \`PRI-TEMPLATE.md\` |
 | \`missions/\` | the work | \`MIS-NNNN\` | \`closed\` | 500 | \`MIS-TEMPLATE.md\` |
 | \`lore/\` | the fiction and the game | — | \`open\` | — | — |
 `;
@@ -82,7 +82,7 @@ id: "STD-027"
 
 | Function | Activity | Series |
 |---|---|---|
-| **Governance** | Founding | \`canon/\` |
+| **Governance** | Founding | \`principles/\` |
 | **Production** | Executing | \`missions/\` |
 | **Creation** | Worldbuilding | \`lore/\` |
 
@@ -114,13 +114,13 @@ test('the functions come from STD-027, in its order', () => {
 
 test('a series row carries what STD-001 says it holds', () => {
   const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
-  const r = ask(dir, 'm.allSeries().find((s) => s.folder === "canon/")');
+  const r = ask(dir, 'm.allSeries().find((s) => s.folder === "principles/")');
   assert.equal(r.code, 0, r.out);
   const canon = JSON.parse(r.out);
   assert.equal(canon.holds, 'what the system is');
-  assert.equal(canon.prefix, 'CAN-NNN');
+  assert.equal(canon.prefix, 'PRI-NNN');
   assert.equal(canon.threshold, 'governed');
-  assert.equal(canon.href, '/canon/');
+  assert.equal(canon.href, '/principles/');
   rmSync(dir, { recursive: true, force: true });
 });
 
@@ -132,7 +132,7 @@ test('a series links to its index, never to one document inside it', () => {
   const r = ask(dir, 'm.allSeries().map((s) => [s.folder, s.href, s.note])');
   assert.equal(r.code, 0, r.out);
   const rows = JSON.parse(r.out);
-  assert.deepEqual(rows, [['canon/', '/canon/', null], ['missions/', '/missions', null], ['lore/', '/lore/', null]]);
+  assert.deepEqual(rows, [['principles/', '/principles/', null], ['missions/', '/missions', null], ['lore/', '/lore/', null]]);
   rmSync(dir, { recursive: true, force: true });
 });
 
@@ -142,7 +142,7 @@ test('a series carries the label the menu prints and the activity that produced 
   const dir = scratch({ scheme: SCHEME, series: SERIES_REGISTER });
   const r = ask(dir, 'm.allSeries().map((s) => [s.label, s.activity, s.instrument])');
   assert.equal(r.code, 0, r.out);
-  assert.deepEqual(JSON.parse(r.out), [['Canon', 'Founding', false], ['Missions', 'Executing', false], ['Lore', 'Worldbuilding', false]]);
+  assert.deepEqual(JSON.parse(r.out), [['Principles', 'Founding', false], ['Missions', 'Executing', false], ['Lore', 'Worldbuilding', false]]);
   rmSync(dir, { recursive: true, force: true });
 });
 

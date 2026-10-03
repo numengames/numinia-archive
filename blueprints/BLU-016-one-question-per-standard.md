@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.12.4"
+version: "0.12.5"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -110,7 +110,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-028` | What is a document's web address? | — |
 | `STD-029` | How do we treat each other? | — |
 | `STD-030` | What do the world's words mean? | register |
-| `STD-031` | What does a canon say? | — |
+| `STD-031` | What does a principle say? | — |
 | `STD-033` | What may we charge for, and how? | — |
 | `STD-034` | What must every page let anyone do? | — |
 | `STD-035` | What may we keep about a person? | — |

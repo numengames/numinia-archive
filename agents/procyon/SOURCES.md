@@ -3,11 +3,11 @@ agent: procyon
 title: "SOURCES — Procyon"
 type: agent
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -29,7 +29,7 @@ the repository is the source of truth and this file only says where to look.
 
 ## The front door
 
-README.md and canon/CAN-001-welcome-to-numinia.md — what a newcomer sees first
+README.md and principles/PRI-001-welcome-to-numinia.md — what a newcomer sees first
 
 ## The public site
 

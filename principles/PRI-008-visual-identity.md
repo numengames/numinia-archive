@@ -1,21 +1,23 @@
 ---
-id: "CAN-008"
+id: "PRI-008"
 uid: ""
 title: "One identity, three forces"
-type: seminal
+type: principle
+former_id: "CAN-008"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "3.0.5"
+version: "3.0.6"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Brand and marketing"
-tags: [canon, seminal, brand, design, direction, forces, registers]
+tags: [principle, brand, design, direction, forces, registers]
 license: "CC0-1.0"
 approved_by: "ADR-061"
 supersedes_version: "2.0.0"
-related: ["CAN-002", "STD-008", "STD-023", "PRO-014", "BLU-009", "BLU-010"]
+related: ["PRI-002", "STD-008", "STD-023", "PRO-014", "BLU-009", "BLU-010"]
 ---
 
 <!--
@@ -41,7 +43,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## What the values oblige of a piece
 
-The identity is the house's purpose made visible, and the canon of brand and
+The identity is the house's purpose made visible, and the principle of brand and
 culture says what that purpose and those values are. Here is only what each
 one obliges of a piece. **Cosmic harmony**: nothing exists as decoration — a
 resource that does not encode something true about the content is removed.
@@ -179,7 +181,7 @@ with reduced motion everything simply appears. The typing is the flagship,
 and it carries a double heritage — the 1920 typewriter and the 2020 terminal
 at once, which is what makes it the most Numinian movement in the catalogue.
 
-The voice and its three levels are the canon of brand and culture's. What a
+The voice and its three levels are the principle of brand and culture's. What a
 piece does with them: the colloquial for community, product and interface;
 the literary, which is the lore's, for home, covers, events and campaigns;
 the technical for documentation, proposals and contracts. A contract with
@@ -193,21 +195,21 @@ and correspondence for 1920, signal and invocation and terminal for 2020,
 garden and harvest and morning light for 2120 — used as spices and not as
 the dish.
 
-## What this canon does not define
+## What this principle does not define
 
 Not one value: no hex, no size, no curve, no budget, no class name. Those are
 the design values register and the kit, where a check verifies them and a
 change is traceable. How a piece is produced is a procedure; each surface has
 its own blueprint; the licence is the licensing standard's.
 
-Where this canon and the canon of brand and culture disagree, that one holds:
+Where this principle and the principle of brand and culture disagree, that one holds:
 this is how the house looks, not what the house is.
 
 ## References
 
 | ID | Name | Why cited |
 |---|---|---|
-| `STD-023` | Design values | every value this canon refuses to quote |
+| `STD-023` | Design values | every value this principle refuses to quote |
 | `STD-008` | Design tokens | the rules a builder applies |
 | `PRO-014` | Producing a design piece | how a piece is made and reviewed |
-| `CAN-002` | We build a game to work better | the purpose, the values and the voice this identity makes visible |
+| `PRI-002` | We build a game to work better | the purpose, the values and the voice this identity makes visible |

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 # Hermes adapter — routing description for this agent.
-# This file is the platform's view of the agent, not its canon (ADR-026).
+# This file is the platform's view of the agent, not its principle (ADR-026).
 description: >-
   {{Two to six sentences: who this agent is, what work should be routed to
   it, and what it should NOT be used for. Written for Hermes' router.}}

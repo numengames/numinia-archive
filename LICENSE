@@ -6,7 +6,7 @@ comment in its first lines, and a document with a header also names it in
 its `license:` field. Files that cannot carry a comment — images, fonts,
 JSON, generated or pinned copies — are named one by one, by exact path, in
 REUSE.toml. Full texts of every licence used are in LICENSES/
-(Numinia canon CAN-005):
+(Numinia principle PRI-005, formerly CAN-005):
 
   - CC0-1.0                             public domain dedication
   - CC-BY-4.0                           attribution

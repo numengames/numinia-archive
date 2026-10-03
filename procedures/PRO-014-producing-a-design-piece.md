@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: procedure
 status: draft
-version: "3.1.2"
+version: "3.1.3"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -17,8 +17,8 @@ visibility: "public"
 applies_to: "any agent producing a design piece"
 mandatory: true
 supersedes_version: "1.1.0"
-related: ["STD-008", "STD-023", "CAN-008", "ADR-044"]
-derived_from: "CAN-008"
+related: ["STD-008", "STD-023", "PRI-008", "ADR-044"]
+derived_from: "PRI-008"
 ---
 
 <!--
@@ -101,7 +101,7 @@ must decide how it looks. Runs before the first pixel.
 ## 5. Escalation
 
 A piece that needs a value the register lacks stops; the value is proposed
-to `STD-023` by PR and the piece waits. A new register is a `CAN-008`
+to `STD-023` by PR and the piece waits. A new register is a `PRI-008`
 decision — the Oracle's.
 
 ## References

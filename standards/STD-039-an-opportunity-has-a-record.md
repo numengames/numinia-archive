@@ -5,17 +5,17 @@ title: "An opportunity has a record"
 type: standard
 subtype: standard
 status: draft
-version: "0.10.2"
+version: "0.10.3"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
 tags: [standards, sales, opportunity, record, pipeline, timeline, personal-data, tenders, grants]
 license: "CC0-1.0"
-related: ["STD-038", "STD-040", "STD-035", "STD-036", "OPS-018", "CAN-009", "CAN-012"]
-derived_from: "CAN-009"
+related: ["STD-038", "STD-040", "STD-035", "STD-036", "OPS-018", "PRI-009", "PRI-012"]
+derived_from: "PRI-009"
 ---
 
 <!--
@@ -174,8 +174,8 @@ Each rule, its code, its source and its check.
 | OPP-005 | Every move leaves a line | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), metadata of the transaction (clause unverified) | `machine/packages/sales-kit/pipeline.mjs`: a `## Timeline` in the register's grammar; one `found`, first; dates ascending; events from the register |
 | OPP-006 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001; the Oracle's ruling of 2026-10-02: not even a public officer, so no mistake can enter | `machine/packages/sales-kit/pipeline.mjs`: header fields against a closed list; the record and its proposal scanned for an e-mail, a phone, and anything that reads as a person's name — a common first name before a capitalised word, or a courtesy title — unless the card's *Who may be named* lists it; deliberately eager, a false alarm costs a look |
 | OPP-007 | Minimal, with its basis | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6(1)(f), recital 47 | by hand, at the review of every record |
-| OPP-008 | In the public archive | `CAN-009`; the Oracle's ruling | the tree: `opportunities/` is the one series for every kind; `machine/packages/sales-kit/pipeline.mjs opportunities` runs in CI |
-| OPP-009 | The pipeline is computed | `CAN-009` | `machine/packages/sales-kit/pipeline.mjs` is the only source of pipeline figures; the page reads it |
+| OPP-008 | In the public archive | `PRI-009`; the Oracle's ruling | the tree: `opportunities/` is the one series for every kind; `machine/packages/sales-kit/pipeline.mjs opportunities` runs in CI |
+| OPP-009 | The pipeline is computed | `PRI-009` | `machine/packages/sales-kit/pipeline.mjs` is the only source of pipeline figures; the page reads it |
 | OPP-010 | A won record hands on | `STD-036` LED-001 | by hand, at the ledger's month close |
 | OPP-011 | The organisation, named when it knows | the client's interest; customer-reference practice — a client's name used with its consent, withdrawable; `LCSP` art. 133 (a bidder's own offer is not the authority's to disclose) | `machine/packages/sales-kit/pipeline.mjs`: a name without `disclosure: open`, or any name in a lost record, is reported, a tender or a grant exempt; by hand for the client's wish |
 | OPP-012 | A call links its notice | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 63 (the contracting profile), 133 (a bid is confidential until award), 159 (what each procedure asks); [Law 38/2003](https://www.boe.es/buscar/act.php?id=BOE-A-2003-20977) art. 17 (the bases of a call); `STD-038` | `machine/packages/sales-kit/pipeline.mjs`: a tender requires `procedure` and `call` unless the procedure is `minor`; a grant requires `instrument` and `call`; both require `closes` |
@@ -207,4 +207,4 @@ here.
 | `STD-035` | Personal data | what may be kept about the people named in a record |
 | `STD-036` | One account | where a won record's value goes |
 | `OPS-018` | The house's card | what the house holds, against which a call's criteria are read |
-| `CAN-009` | The archive is the organisation | why an opportunity is a record and the pipeline is computed from records |
+| `PRI-009` | The archive is the organisation | why an opportunity is a record and the pipeline is computed from records |

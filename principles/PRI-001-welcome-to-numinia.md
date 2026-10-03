@@ -1,23 +1,25 @@
 ---
-id: "CAN-001"
+id: "PRI-001"
 uid: ""
 title: "You are already in the game"
-type: seminal
+type: principle
+former_id: "CAN-001"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "4.0.5"
+version: "4.0.6"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Strategy and governance"
-tags: [canon, seminal, gamification, narrative, operating-system]
+tags: [principle, gamification, narrative, operating-system]
 license: "CC0-1.0"
 approved_by: "ADR-049"
 supersedes_version: "3.0.0"
-related: ["CAN-002", "CAN-004", "CAN-006", "CAN-008", "PRO-015", "PRO-019", "PRO-024", "STD-012"]
+related: ["PRI-002", "PRI-004", "PRI-006", "PRI-008", "PRO-015", "PRO-019", "PRO-024", "STD-012"]
 ---
 
 <!--

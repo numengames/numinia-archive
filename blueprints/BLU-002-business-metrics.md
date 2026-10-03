@@ -4,9 +4,9 @@ uid: ""
 title: "Business Metrics Framework — NWOS CAO"
 type: blueprint
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-04-07T18:53:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [metrics, business, kpi, roi, cao, framework]
@@ -81,7 +81,7 @@ The goal is not to justify the system — it already works. The goal is to **opt
 | Continuity score | System coherence across sessions | Manual audit (9.1/10 as of 2026-04-07) |
 | Rework rate | PRs that needed fixes | ~10% estimated |
 | Procedure compliance | Sessions following PRO-001 (opening and closing) | 100% (verifiable via commits) |
-| Canon coherence | Decisions consistent with seminal docs | Manual QA |
+| Principles coherence | Decisions consistent with seminal docs | Manual QA |
 
 ### Category 5 — ROI metrics
 

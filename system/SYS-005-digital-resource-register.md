@@ -5,9 +5,9 @@ title: "Digital resources: the first CC0 intake"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-18T15:00:32Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 created_source: declared
 created_confidence: exact
 author: "ursa"
@@ -17,7 +17,7 @@ guild: "Alchemists"
 section: "Legal and compliance"
 license: "CC0-1.0"
 tags: [resources, catalogue, provenance, licensing, migration]
-related: ["CAN-005", "STD-010"]
+related: ["PRI-005", "STD-010"]
 ---
 
 <!--

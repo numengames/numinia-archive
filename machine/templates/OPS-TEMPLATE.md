@@ -26,7 +26,7 @@ license: "CC-BY-4.0"
 # source_title: "the original document's own title"
 # language: "es"                    # when the record is not in English
 # language_note: "why it stays in its original language"
-# related: ["CAN-NNN"]
+# related: ["PRI-NNN"]
 ---
 
 # OPS-NNN — The operational fact

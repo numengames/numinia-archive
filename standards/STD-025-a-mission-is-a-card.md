@@ -5,9 +5,9 @@ title: "A mission is a card"
 type: standard
 subtype: standard
 status: draft
-version: "1.0.10"
+version: "1.0.11"
 created: "2026-09-09T23:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,7 +15,7 @@ section: "Operations"
 license: "CC0-1.0"
 tags: [standard, missions, board, lifecycle]
 related: ["STD-001", "STD-018", "PRO-003", "ADR-030"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--

@@ -2,19 +2,19 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// /core — the core of the archive as a flow: each canon, the standards that
+// /core — the core of the archive as a flow: each principle, the standards that
 // make it concrete, the procedures that carry it out.
 //
 // WHY THIS PAGE EXISTS
 // The Oracle reviews the core by listening to it (2026-09-27). The shelves
 // give three lists; this page gives the chain a reviewer follows — this
-// belief, these rules, these steps — and each canon opens its own page to be
+// belief, these rules, these steps — and each principle opens its own page to be
 // heard end to end with the site's reading player, like /design does for the
 // design system.
 //
 // NOTHING HERE IS TYPED. The grouping is each document's `derived_from`
 // header; titles, questions, summaries and states are read from the files at
-// build time (web/src/lib/core.ts). A standard with no canon fails the build.
+// build time (web/src/lib/core.ts). A standard with no principle fails the build.
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
@@ -29,13 +29,13 @@ const state = (s: string) => (s === "active" ? "in force" : s);
 
 <Layout
   title="The core, as a flow — NWOS"
-  description="Each canon of Numinia, the standards that make it concrete and the procedures that carry it out, one chain per canon, to read or to hear end to end."
+  description="Each principle of Numinia, the standards that make it concrete and the procedures that carry it out, one chain per principle, to read or to hear end to end."
   canonicalPath="/core"
 >
   <PageHero
     label="The core"
     title="Belief, rule, step"
-    description="Each canon, the standards that make it concrete, and the procedures that carry it out. Open a canon to read or hear its whole chain, end to end."
+    description="Each principle, the standards that make it concrete, and the procedures that carry it out. Open a principle to read or hear its whole chain, end to end."
   />
 
   <section class="pb-24">
@@ -45,8 +45,8 @@ const state = (s: string) => (s === "active" ? "in force" : s);
       </div>
 
       <p class="text-sm leading-relaxed text-muted-foreground mb-10">
-        {flow.length} canons, {total} documents: <span class="text-foreground">{count("active")} in force</span>,
-        {count("draft")} draft. Every standard and procedure names the canon it comes from in its own
+        {flow.length} principles, {total} documents: <span class="text-foreground">{count("active")} in force</span>,
+        {count("draft")} draft. Every standard and procedure names the principle it comes from in its own
         header, and this page is built from that field alone. What binds right now is at
         <a href="/binding" class="text-accent underline underline-offset-2">what binds today</a>.
       </p>
@@ -56,7 +56,7 @@ const state = (s: string) => (s === "active" ? "in force" : s);
           <li class="rounded-[8px] border border-border bg-card p-5 sm:p-6">
             <a href={c.href} class="group block">
               <div class="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-dim mb-1">
-                Canon · {state(c.status)} · {c.standards.length} standards · {c.procedures.length} procedures
+                Principle · {state(c.status)} · {c.standards.length} standards · {c.procedures.length} procedures
               </div>
               <h2 class="font-display text-2xl text-foreground group-hover:text-accent">{c.title}</h2>
               <p class="mt-1 text-sm italic text-muted-foreground">{c.question}</p>

@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.4.2"
+version: "0.4.3"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -15,8 +15,8 @@ section: "Knowledge and quality"
 tags: [standards, register, vocabulary, guilds, factions, translation]
 license: "CC0-1.0"
 approved_by: "ADR-053"
-related: ["CAN-004", "CAN-009", "STD-003", "STD-017", "STD-026", "STD-027", "STD-042", "PRO-005", "PRO-019"]
-derived_from: "CAN-004"
+related: ["PRI-004", "PRI-009", "STD-003", "STD-017", "STD-026", "STD-027", "STD-042", "PRO-005", "PRO-019"]
+derived_from: "PRI-004"
 ---
 
 <!--
@@ -204,7 +204,7 @@ rotating bodies. The two are not the same answer.
 | Who approves a change to the rules? | The Oracle, or a written decision (`STD-017`) | The Legislative Senate drafts, the Civic Assembly approves |
 | Who advises and judges? | — | The Council of Sages; between districts, the Concordia Council |
 | Who carries decisions out? | Whoever holds the work, by written procedure | The Proconsulate |
-| What binds? | Only what is written in the archive (`CAN-009`) | — |
+| What binds? | Only what is written in the archive (`PRI-009`) | — |
 | What does someone do when in doubt? | Stop and ask (`PRO-005`) | — |
 | What may each one do without asking? | A permission table by level of autonomy (`STD-042`) | — |
 | What is the career path? | Six ranks, read from what was done; the top two are named (`STD-003`) | — |

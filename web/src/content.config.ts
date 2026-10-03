@@ -115,7 +115,7 @@ const legal = defineCollection({
     .passthrough(),
 });
 
-// The full-canon mirror (MIS-087): every repo .md outside the detail
+// The full-principles mirror (MIS-087): every repo .md outside the detail
 // collections above gets a generic corpus entry. Negated patterns keep
 // single ownership of a file between corpus and the typed collections.
 // Schema is lax on purpose — frontmatter varies per
@@ -131,7 +131,7 @@ const corpus = defineCollection({
       // archive publishes documents of a series; a repository's furniture
       // is not one.
       "agents/**/*.md",
-      "canon/**/*.md",
+      "principles/**/*.md",
       "operations/**/*.md",
       "opportunities/**/*.md",
       "legal/**/*.md",

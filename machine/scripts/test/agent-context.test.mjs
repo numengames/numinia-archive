@@ -147,8 +147,8 @@ test('CLAUDE.md is an adapter, not a second copy of the licensing standard', () 
 // CONTRIBUTING.md — the first door an outsider opens
 // ---------------------------------------------------------------------------
 // It named a procedure that was renamed long ago, a template path without its
-// extension and a STATUS.md no agent keeps, and it told readers the canon is
-// never modified while AGENTS.md says canon changes go through the operator
+// extension and a STATUS.md no agent keeps, and it told readers the principles are
+// never modified while AGENTS.md says changes to the principles go through the operator
 // in chat. A newcomer reads this file first; it may not contradict the tree
 // or the rule an agent is actually held to.
 const CONTRIBUTING = readFileSync(path.join(ROOT, 'CONTRIBUTING.md'), 'utf8');
@@ -162,5 +162,5 @@ test('CONTRIBUTING.md names only paths that exist', () => {
 test('CONTRIBUTING.md sends readers to AGENTS.md and /binding instead of restating the rules', () => {
   assert.match(CONTRIBUTING, /AGENTS\.md/);
   assert.match(CONTRIBUTING, /\/binding/);
-  assert.doesNotMatch(CONTRIBUTING, /immutable by policy/i, 'says canon is never modified; AGENTS.md says it changes through the operator');
+  assert.doesNotMatch(CONTRIBUTING, /immutable by policy/i, 'says the principles are never modified; AGENTS.md says it changes through the operator');
 });

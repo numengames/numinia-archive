@@ -7,7 +7,7 @@
 // WHY THIS EXISTS
 // The old brand-and-culture deck (a 167-slide PDF kept as one lore file) was
 // merged into the archive block by block (the Oracle, 2026-10-03): every
-// answer now lives in its own canon, standard or record. This book is the
+// answer now lives in its own principles, standards or record. This book is the
 // view that reads them in one breath, and replaces the old file.
 //
 // NOTHING HERE IS TYPED but the chapter titles, their one line, and which
@@ -42,33 +42,33 @@ const CHAPTERS: ChapterSpec[] = [
     id: "where-we-come-from",
     title: "Where we come from",
     line: "The origin, the present era and who we are to each other.",
-    parts: [{ path: "canon/CAN-014-friends-who-play-build-and-learn.md" }],
+    parts: [{ path: "principles/PRI-014-friends-who-play-build-and-learn.md" }],
   },
   {
     id: "why-we-exist",
     title: "Why we exist",
     line: "The purpose, why it is a game, and the manifesto that closes on the epitaph.",
-    parts: [{ path: "canon/CAN-002-brand-and-culture.md", sections: ["Why we exist", "Why a game", "What we believe"] }],
+    parts: [{ path: "principles/PRI-002-brand-and-culture.md", sections: ["Why we exist", "Why a game", "What we believe"] }],
   },
   {
     id: "what-we-will-not-trade",
     title: "What we will not trade away",
     line: "Four values and three pillars: the terms on which we work.",
-    parts: [{ path: "canon/CAN-002-brand-and-culture.md", sections: ["What we will not trade away"] }],
+    parts: [{ path: "principles/PRI-002-brand-and-culture.md", sections: ["What we will not trade away"] }],
   },
   {
     id: "the-brand",
     title: "The brand in three words",
     line: "A personality, an emotion and a cause, at each narrative level.",
-    parts: [{ path: "canon/CAN-013-a-magician-who-keeps-hope.md" }],
+    parts: [{ path: "principles/PRI-013-a-magician-who-keeps-hope.md" }],
   },
   {
     id: "voice-and-look",
     title: "How we sound and how we look",
     line: "The voice and its three registers, the name and its symbols, the three forces of the identity.",
     parts: [
-      { path: "canon/CAN-002-brand-and-culture.md", sections: ["How we sound", "The name"] },
-      { path: "canon/CAN-008-visual-identity.md", sections: ["The mix: forty, forty, twenty"] },
+      { path: "principles/PRI-002-brand-and-culture.md", sections: ["How we sound", "The name"] },
+      { path: "principles/PRI-008-visual-identity.md", sections: ["The mix: forty, forty, twenty"] },
     ],
   },
   {
@@ -76,10 +76,10 @@ const CHAPTERS: ChapterSpec[] = [
     title: "How we live together",
     line: "The one sentence of our ethics, how we treat each other, our rituals and how we recognise.",
     parts: [
-      { path: "canon/CAN-010-leave-things-better.md", sections: ["The sentence", "Four things it applies to"] },
+      { path: "principles/PRI-010-leave-things-better.md", sections: ["The sentence", "Four things it applies to"] },
       { path: "standards/STD-029-community-conduct.md", summaryOnly: true },
       { path: "procedures/PRO-019-holding-a-ritual.md", sections: ["1. Purpose and trigger"] },
-      { path: "canon/CAN-015-we-recognise-the-act.md" },
+      { path: "principles/PRI-015-we-recognise-the-act.md" },
     ],
   },
   {

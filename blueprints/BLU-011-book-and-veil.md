@@ -4,16 +4,16 @@ uid: ""
 title: "The book and the Veil"
 type: blueprint
 status: active
-version: "1.1.4"
+version: "1.1.5"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 tags: [blueprint, design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
-related: ["STD-008", "STD-023", "CAN-008"]
+related: ["STD-008", "STD-023", "PRI-008"]
 extraction_note: "Extracted verbatim from STD-008 v6.1.0 (old §3.6, 5.4–5.5, 6.5, 8.9, 10) under ADR-043 and ADR-044: recipes leave the standard; the standard keeps the rules, the register keeps the values. Section 6 came from PRO-014 v1.1.0 (then its sections 6.12) on 2026-09-09."
 ---
 
@@ -25,7 +25,7 @@ SPDX-License-Identifier: CC0-1.0
 # BLU-011 — The book and the Veil
 
 > **Summary:** How the two discovered registers are built: the serif that narrates, the atmosphere and the paper's grain, the book's icons and components, the sky's behaviour and the reading veil.
-> **Epistemic:** The recipes the old standard carried for the codex and the Veil; their values are `STD-023`, their direction `CAN-008`.
+> **Epistemic:** The recipes the old standard carried for the codex and the Veil; their values are `STD-023`, their direction `PRI-008`.
 > **Pragmatic:** Building or reviewing a codex page, a Veil surface or the archive.
 > **Audience:** Agents · Oracles
 
@@ -90,7 +90,7 @@ The codex's editorial carpentry. They live **inside the paper register** (`BLU-0
 ## 5. The Veil: sky behaviour and the reading veil
 
 
-The register is decided in `CAN-008` §3.6. These are its numbers.
+The register is decided in `PRI-008` §3.6. These are its numbers.
 
 ### The sky · rarity made cosmos
 
@@ -131,7 +131,7 @@ PORTADA                                CAPÍTULO
 - **Frame and page are distinct registers.** The page (the paper) is Umbral-Diurno with the third voice; the **reading frame** (the LAP's bar, bookmark, A·A·A controls, switch) MAY live in Veil when the mode is Nocturno. The boundary is visible.
 - **The moon is the bookmark** (`STD-023` §14-06, waxing phases): reading progress is told in moon, from new to full — finishing is a full moon. The reading position is persisted.
 - **A · A · A:** the reading size belongs to the reader, not the designer — three steps over the type scale (`STD-023` §8), without breaking the grid.
-- **The access state is named in the world:** chapters `abierto` / `tras el Umbral` — the session boundary uses the canonical lexicon (`CAN-008` §3.10), never "login required".
+- **The access state is named in the world:** chapters `abierto` / `tras el Umbral` — the session boundary uses the canonical lexicon (`PRI-008` §3.10), never "login required".
 - **"The book travels free" is a principle, not a feature:** the downloads (.md first — File Over App made interface —, Diurno pdf for printing, epub) are always one step away.
 - **The literary opening** in italics is the only level II inside a II/III body and does not blend with it.
 - **The colophon always signs:** typographic voice + System + "La fuente de verdad vive en Git" + scarab. The invoice's footer and the book's colophon are the same idea on two papers.

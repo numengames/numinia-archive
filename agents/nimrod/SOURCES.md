@@ -3,9 +3,9 @@ agent: nimrod
 title: "SOURCES — Nimrod"
 type: agent
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
@@ -80,7 +80,7 @@ specific specialist.
 
 Consult the relevant top-level area according to the question:
 
-- `canon/` — what the system is;
+- `principles/` — what the system is;
 - `standards/` — what an artefact must conform to;
 - `procedures/` — what procedure an actor follows;
 - `missions/` — what work is being or was performed;

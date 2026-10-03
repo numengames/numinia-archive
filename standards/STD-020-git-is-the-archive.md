@@ -5,15 +5,15 @@ title: "Git is the archive"
 type: standard
 subtype: standard
 status: active
-version: "2.2.3"
+version: "2.2.4"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
 license: "CC0-1.0"
 tags: [standards, git, archiving]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 
 ---
 
@@ -94,7 +94,7 @@ Each rule, its code, its source and its check.
 | a refactoring | `refactor` |
 | a test | `test` |
 | a change to the automatic checks | `ci` |
-| deprecated, valid in old history only | `session`, `qa`, `standards`, `canon`, `debt`, `audit` |
+| deprecated, valid in old history only | `session`, `qa`, `standards`, `principles`, `debt`, `audit` |
 | the area touched | in brackets, lower case, usually the folder: `feat(web): …` |
 
 ## Why

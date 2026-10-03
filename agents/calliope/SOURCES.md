@@ -3,9 +3,9 @@ agent: calliope
 title: "SOURCES — Calliope"
 type: agent
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
@@ -27,12 +27,12 @@ the repository is the source of truth and this file only says where to look.
 
 ## Brand and culture
 
-`canon/CAN-002-brand-and-culture.md` — authoritative project identity, culture,
+`principles/PRI-002-brand-and-culture.md` — authoritative project identity, culture,
 brand principles, and verbal context when writing in the project's voice.
 
 ## Project definition
 
-`canon/CAN-001-welcome-to-numinia.md` — what the project is and how it should be
+`principles/PRI-001-welcome-to-numinia.md` — what the project is and how it should be
 understood when a text depends on project identity or scope.
 
 ## Terminology

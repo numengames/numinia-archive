@@ -4,9 +4,9 @@ uid: ""
 title: "Qualifying an opportunity"
 type: procedure
 status: draft
-version: "0.6.3"
+version: "0.6.4"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -14,8 +14,8 @@ section: "Sales and partners"
 tags: [procedure, sales, opportunity, qualification, pipeline, timeline, collaboration, partner]
 license: "CC0-1.0"
 applies_to: [all-agents]
-related: ["STD-038", "STD-039", "PRO-029", "PRO-030", "PRO-033", "PRO-032", "CAN-002"]
-derived_from: "CAN-009"
+related: ["STD-038", "STD-039", "PRO-029", "PRO-030", "PRO-033", "PRO-032", "PRI-002"]
+derived_from: "PRI-009"
 ---
 
 <!--

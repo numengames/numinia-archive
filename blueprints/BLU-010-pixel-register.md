@@ -4,16 +4,16 @@ uid: ""
 title: "The pixel register"
 type: blueprint
 status: active
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 tags: [blueprint, design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
-related: ["STD-008", "STD-023", "CAN-008"]
+related: ["STD-008", "STD-023", "PRI-008"]
 extraction_note: "Extracted verbatim from STD-008 v6.1.0 (old §2.7.2–2.7.3, 3.5, 4.1, 8.6, 9.4, 11) under ADR-043 and ADR-044: recipes leave the standard; the standard keeps the rules, the register keeps the values. Sections 7–8 came from PRO-014 v1.1.0 (then its sections 6.9 and 6.10) on 2026-09-09."
 ---
 
@@ -25,7 +25,7 @@ SPDX-License-Identifier: CC0-1.0
 # BLU-010 — The pixel register
 
 > **Summary:** How a pixel piece is built: dithering and palette cycling over the Píxel-16 index, Pixelify in scene, the integer grid, the register's components, sprite animation and the working grammar from silhouette to depth.
-> **Epistemic:** The recipes the old standard carried for the pixel register; the index and the grids are `STD-023`, the register's direction is `CAN-008`.
+> **Epistemic:** The recipes the old standard carried for the pixel register; the index and the grids are `STD-023`, the register's direction is `PRI-008`.
 > **Pragmatic:** Drawing or reviewing a sprite, a scene, a HUD or a dialogue box.
 > **Audience:** Agents · Oracles
 
@@ -103,7 +103,7 @@ The palette cycling of §2.7.3 and sprite cycles cannot compete in the same foca
 ## 6. Working grammar
 
 
-The register is decided in `CAN-008` §3.3. This is how a pixel piece is built.
+The register is decided in `PRI-008` §3.3. This is how a pixel piece is built.
 
 ### Visual grammar · legibility before detail
 The 90s reference is not reproduced as a nostalgic filter: its discipline is adopted. The artist works with few pixels, few colors and visible decisions. Every pixel MUST belong to a shape, a light, a material or an action; noise that does not communicate is removed.

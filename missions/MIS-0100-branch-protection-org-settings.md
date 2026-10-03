@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.2.3"
+version: "1.2.4"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -92,7 +92,7 @@ Code-Review and Token-Permissions are among its heaviest checks.
   protection is scoped by MIS-095, not here.
 
 **Out of scope:** repository visibility (LEG-001 gate), licence regimes
-(CAN-005), and any change to what the pipelines actually run.
+(PRI-005), and any change to what the pipelines actually run.
 
 ## Acceptance criteria
 

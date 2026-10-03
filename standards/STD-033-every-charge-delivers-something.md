@@ -5,17 +5,17 @@ title: "Every charge delivers something"
 type: standard
 subtype: standard
 status: draft
-version: "0.5.3"
+version: "0.5.4"
 created: "2026-09-24T17:40:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
 license: "CC0-1.0"
 tags: [standards, economy, payments, consumer-law]
 approved_by: "ADR-064"
-related: ["CAN-011", "STD-036", "STD-022", "STD-003", "STD-035", "BLU-017", "STD-044"]
-derived_from: "CAN-011"
+related: ["PRI-011", "STD-036", "STD-022", "STD-003", "STD-035", "BLU-017", "STD-044"]
+derived_from: "PRI-011"
 ---
 
 <!--
@@ -105,7 +105,7 @@ buy, what it costs and how to stop.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-011` | What has value also makes a bond | the reason for every rule here |
+| `PRI-011` | What has value also makes a bond | the reason for every rule here |
 | `STD-036` | One account | where every charge is written down |
 | `STD-022` | Secrets | no payment key is written in the tree |
 | `STD-035` | Personal data | what we may keep about a payer |

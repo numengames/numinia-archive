@@ -344,7 +344,7 @@
           "covered_by": null
         },
         {
-          "spot": "every series except standards/ — STD-007 binds only its own shelf, so canon/, procedures/ and decisions/ may cite by ID in prose and this guard never looks",
+          "spot": "every series except standards/ — STD-007 binds only its own shelf, so principles/, procedures/ and decisions/ may cite by ID in prose and this guard never looks",
           "covered_by": null
         },
         {
@@ -485,7 +485,7 @@
           "covered_by": null
         },
         {
-          "spot": "the norm reading (a standard cites no §) stops at standards/; a canon or procedure citing `STD-004 §7` is only held to the section existing",
+          "spot": "the norm reading (a standard cites no §) stops at standards/; a principle or procedure citing `STD-004 §7` is only held to the section existing",
           "covered_by": null
         }
       ]
@@ -613,7 +613,7 @@
     "rule-index": {
       "script": "machine/tools/rule-index.mjs",
       "manual": "takes arguments (--check, --print) and is run by hand or by its test, not by run-guards.mjs (ENG-032's registry-discovery scope)",
-      "sees": "the `**Binds:**` line of every tracked document in standards/, procedures/ and canon/, and whether the block in AGENTS.md still quotes them",
+      "sees": "the `**Binds:**` line of every tracked document in standards/, procedures/ and principles/, and whether the block in AGENTS.md still quotes them",
       "blind_to": [
         {
           "spot": "what a rule actually REQUIRES — it reads the Binds line, which says whom a document governs, and never the plated rules beneath it. A document can bind you and still not matter to your task, and this cannot tell the difference",
@@ -621,7 +621,7 @@
           "debt": null
         },
         {
-          "spot": "the 14 documents with no Binds line. It names why each is exempt — `register`, whose scope belongs to the standard citing it, or `canon`, which states why rather than whom — but cannot say whether one applies to your task; an agent in doubt must open them",
+          "spot": "the 14 documents with no Binds line. It names why each is exempt — `register`, whose scope belongs to the standard citing it, or `principles`, which states why rather than whom — but cannot say whether one applies to your task; an agent in doubt must open them",
           "covered_by": null,
           "debt": null
         },

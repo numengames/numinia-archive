@@ -5,17 +5,17 @@ title: "The stages of an opportunity"
 type: standard
 subtype: register
 status: draft
-version: "0.9.3"
+version: "0.9.4"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
 tags: [standards, register, sales, pipeline, opportunity, stages, timeline, funnel, tenders, grants, public-procurement, chance]
 license: "CC0-1.0"
-related: ["STD-039", "STD-040", "OPS-018", "PRO-035", "CAN-009", "CAN-011"]
-derived_from: "CAN-009"
+related: ["STD-039", "STD-040", "OPS-018", "PRO-035", "PRI-009", "PRI-011"]
+derived_from: "PRI-009"
 ---
 
 <!--

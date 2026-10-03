@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.140.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "CHG", text: "The series Canon is now Principles: the word the quality standards use for what an organisation states about itself and why, where a canon is the word of a story. Each document took a new identifier (PRI-NNN for CAN-NNN) and remembers the old one; the old addresses under /canon lead to the new ones under /principles. On the dial, Canon is still what Numinia calls them." },
+    ],
+  },
+  {
     version: "v0.139.0",
     date: "2026-10-03",
     entries: [

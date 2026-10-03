@@ -4,16 +4,16 @@ uid: ""
 title: "Season pass — the offer"
 type: documentation
 status: draft
-version: "0.3.1"
+version: "0.3.2"
 created: "2026-09-30T13:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Products and services"
 tags: [operations, offer, season, pass, payments, nft]
 license: "CC-BY-4.0"
-related: ["CAN-011", "STD-033", "SYS-008", "PRO-020", "OPS-014"]
+related: ["PRI-011", "STD-033", "SYS-008", "PRO-020", "OPS-014"]
 # The season pass on sale, read by numinia.com/lap/seasons (STD-033
 # PAY-003: sites read the price from this record). Price with VAT, in EUR.
 # `link` is the payment link an Oracle creates (PRO-020 step 5); empty

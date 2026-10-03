@@ -171,7 +171,7 @@ check('tree: one question per standard — the last rows: guards apart from safe
 });
 
 check('tree: a series threshold is stated once, in STD-001 — no document header repeats it', () => {
-  for (const d of ['standards', 'canon', 'procedures', 'machine/templates']) {
+  for (const d of ['standards', 'principles', 'procedures', 'machine/templates']) {
     for (const f of readdirSync(path.join(ROOT, d)).filter((n) => n.endsWith('.md'))) {
       const text = readFileSync(path.join(ROOT, d, f), 'utf-8');
       const head = text.startsWith('---') ? text.slice(0, text.indexOf('\n---', 3)) : '';
@@ -191,7 +191,7 @@ check('tree: a series\' function is stated once, in STD-027 — STD-001\'s serie
 
 check('tree: legal texts have one home — legal/, registered in STD-001, STD-027 and rules.json', () => {
   // Three answers disagreed before 2026-09-27: STD-001 said operations/legal/
-  // (which did not exist), rules.json said canon/, and the files sat loose in
+  // (which did not exist), rules.json said principles/, and the files sat loose in
   // operations/. A legal text is the company's promise to third parties; it
   // changes when the law does, not when the archive does.
   const rules = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/lib/rules.json'), 'utf-8'));
@@ -310,7 +310,7 @@ check('tree: no living text types a range of identifiers — a count is read fro
   // second copy that nobody regenerates.
   const RANGE = /\b([A-Z]{3})-\d{3,4} ?(?:…|\.\.\.?|–) ?\1-\d{3,4}\b/;
   const files = execFileSync('git', ['-C', ROOT, 'ls-files', 'AGENTS.md', 'CLAUDE.md', 'README.md', 'CONTRIBUTING.md',
-    'agents', 'canon', 'standards', 'procedures', 'system'], { encoding: 'utf-8' }).split('\n').filter((f) => f.endsWith('.md'));
+    'agents', 'principles', 'standards', 'procedures', 'system'], { encoding: 'utf-8' }).split('\n').filter((f) => f.endsWith('.md'));
   const hits = [];
   for (const f of files) {
     readFileSync(path.join(ROOT, f), 'utf-8').split('\n').forEach((l, i) => { if (RANGE.test(l)) hits.push(`${f}:${i + 1}`); });
@@ -426,10 +426,10 @@ check('tree: What is yours stays with you is carried out — a breach, a rights 
   const want = { 'a breach': /breach/i, 'a rights request': /rights|request/i, 'a stored thing': /stor|cookie/i };
   const mine = readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))
     .map((n) => readFileSync(path.join(dir, n), 'utf-8'))
-    .filter((t) => /^derived_from: "CAN-012"/m.test(t))
+    .filter((t) => /^derived_from: "PRI-012"/m.test(t))
     .map((t) => /^title: "(.*)"/m.exec(t)?.[1] ?? '');
   const miss = Object.entries(want).filter(([, re]) => !mine.some((title) => re.test(title))).map(([k]) => k);
-  if (miss.length) return `no procedure under CAN-012 for: ${miss.join(', ')}`;
+  if (miss.length) return `no procedure under PRI-012 for: ${miss.join(', ')}`;
   const std = readFileSync(path.join(ROOT, 'standards/STD-035-personal-data.md'), 'utf-8');
   if (/no breach procedure is written/.test(std)) return 'STD-035 still says no breach procedure is written';
   return true;
@@ -444,7 +444,7 @@ check('tree: the procedure plates are retired in the ledger, and no living text 
   }
   const RE = new RegExp(`\\b(?:${RETIRED.join('|')})-\\d{3}\\b`);
   const files = execFileSync('git', ['-C', ROOT, 'ls-files', 'AGENTS.md', 'CLAUDE.md', 'CONTRIBUTING.md',
-    'agents', 'canon', 'standards', 'procedures', 'system', 'web/src', 'machine/templates'], { encoding: 'utf-8' })
+    'agents', 'principles', 'standards', 'procedures', 'system', 'web/src', 'machine/templates'], { encoding: 'utf-8' })
     .split('\n').filter((f) => /\.(md|ts|astro|mjs)$/.test(f));
   const hits = [];
   for (const f of files) readFileSync(path.join(ROOT, f), 'utf-8').split('\n').forEach((l, i) => { if (RE.test(l)) hits.push(`${f}:${i + 1}`); });

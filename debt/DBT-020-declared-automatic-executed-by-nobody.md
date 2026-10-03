@@ -4,9 +4,9 @@ uid: ""
 title: "Four automations are declared in the standards and none of them exists in the tree"
 type: documentation
 status: active
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-07T15:20:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -39,7 +39,7 @@ SPDX-License-Identifier: CC-BY-4.0
 > open as that home until those two are decided.
 > **Epistemic:** Verified at `f35ec1f` against the real tree — installed tools
 > and the fifteen steps of `ci.yml`, not prose.
-> **Pragmatic:** This is the same failure `CAN-005` already warns about for
+> **Pragmatic:** This is the same failure `PRI-005` already warns about for
 > unsigned CLA/AGPL: a check that reports success by never running.
 > **Audience:** Agents · Oracles
 
@@ -120,4 +120,4 @@ what it verifies and one that assumes it.
 - `STD-010` — the DCO rule
 - `STD-005` — the outside standards the declarations rest on
 - `DBT-013` — closed 2026-09-04, still cited as open
-- `CAN-005` — the original warning about checks that pass by not running
+- `PRI-005` — the original warning about checks that pass by not running

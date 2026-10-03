@@ -4,11 +4,11 @@ uid: ""
 title: "Pending contradictions — register"
 type: documentation
 status: active
-version: "1.3.2"
+version: "1.3.3"
 created: "2026-08-17T20:00:17Z"
 created_source: "git:8b72b9b"
 created_confidence: inferred
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -106,7 +106,7 @@ entry moves to the "Resolved" section with the decision and its date.
   proposed writing a practice upstream «so it applies to all the
   webs». Corrected there. It pairs with **CON-003** (provenance: the
   document says numinia-nwos is a fork of the template when it is the
-  source) and with the doctrine that the canon is not copied (it
+  source) and with the doctrine that the principles are not copied (it
   is pinned) — which had already resolved this pattern for the Design
   System and had not been applied to the standards themselves.
 - **What is missing:** version the original NWOS and define the
@@ -140,7 +140,7 @@ entry moves to the "Resolved" section with the decision and its date.
   §7.1 — claims that `numengames/numinia-nwos` "is a fork of the template"
   (`numen-games-nwos-orgs/nwos-workspace-template`) and receives the
   document through the fork relationship.
-- **Source B:** the ecosystem's operational canon — numinia-nwos IS
+- **Source B:** the ecosystem's operational principles — numinia-nwos IS
   the source of truth; the `numen-games-nwos-orgs` repos do not drink
   from it, and numinia-nwos is not a fork of nwos-workspace-template.
 - **Note:** the correction, if warranted, goes upstream via ADR + PR

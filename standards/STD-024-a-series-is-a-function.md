@@ -5,17 +5,17 @@ title: "A series is a function"
 type: standard
 subtype: standard
 status: active
-version: "3.2.0"
+version: "3.2.1"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standards, series, approval-levels, registration, records-management]
-related: ["STD-001", "STD-017", "STD-018", "STD-020", "CAN-004"]
-derived_from: "CAN-009"
+related: ["STD-001", "STD-017", "STD-018", "STD-020", "PRI-004"]
+derived_from: "PRI-009"
 ---
 
 <!--
@@ -42,7 +42,7 @@ SPDX-License-Identifier: CC0-1.0
 
 **Only three series oblige.** The international quality standard separates
 documents you maintain, which say what must be done, from records you keep,
-which say what was done. Here the canon, the standards and the procedures
+which say what was done. Here the principles, the standards and the procedures
 oblige. Every other series MUST be read as a record, and a record cannot put
 a reader in breach.
 
@@ -89,7 +89,7 @@ who knows these standards check us without a glossary.
 
 | In the reading | Exact form |
 |---|---|
-| the canon, the standards, the procedures | `canon/`, `standards/`, `procedures/` |
+| the principles, the standards, the procedures | `principles/`, `standards/`, `procedures/` |
 | the declared kind | `type:` |
 | left out of registration, and why | `registration: exempt` with `registration_reason:`; the reason is apparatus of a registered document, or a rename whose readers cannot all be updated |
 
@@ -106,4 +106,4 @@ sits. The folder rule keeps that answer honest.
 | `STD-001` | The series | which series exist |
 | `STD-017` | Who may change what | who signs a change, and the approval level of each series |
 | `STD-012` | The corpus does not grow | how a document moves or leaves |
-| `CAN-004` | You are what you are doing | the archive is the system's memory |
+| `PRI-004` | You are what you are doing | the archive is the system's memory |

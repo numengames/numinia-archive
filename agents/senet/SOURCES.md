@@ -3,11 +3,11 @@ agent: senet
 title: "SOURCES — Senet"
 type: agent
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -37,11 +37,11 @@ lore/adventures/virtual-worlds/session-zero.md — the four introductory escape 
 
 ## World identity
 
-canon/CAN-001, canon/CAN-002, canon/CAN-004 — world identity, CC0
+principles/PRI-001, principles/PRI-002, principles/PRI-004 — world identity, CC0
 
 ## Guild context
 
-canon/CAN-004 — the guild hierarchy; agents/*/AGENT.yaml `guild:` — who belongs where
+principles/PRI-004 — the guild hierarchy; agents/*/AGENT.yaml `guild:` — who belongs where
 
 ---
 

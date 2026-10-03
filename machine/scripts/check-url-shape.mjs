@@ -81,7 +81,7 @@ const STANDALONE = new Set([
   '/telemetry',   // the measured figures
   '/agent',       // the roster's detail view
   '/binding',     // what is in force while the rules are draft — the regime, from AGENTS.md
-  '/brand',       // the brand and culture book: seven chapters read from canon and records (CAN-002, CAN-013, CAN-014, CAN-015)
+  '/brand',       // the brand and culture book: seven chapters read from principles and records (PRI-002, PRI-013, PRI-014, PRI-015)
   '/lexicon',     // the Lexicon, a book: the operative vocabulary A to Z, one page per letter (STD-026)
   '/playbook',    // the sales playbook, a book: a sale's stages, procedures and collateral (STD-038, STD-047)
   '/automation',  // what an agent may do without asking, level by level — a view over STD-017, PRO-008, PRO-016 and the OPERATOR files
@@ -90,7 +90,7 @@ const STANDALONE = new Set([
   // them without a line here. Their old roots are redirects now.
   // 2026-09-27: /legal left this list — legal/ is a series now, so URL-001
   // admits /legal/terms, /legal/privacy and /legal/cookies as series addresses.
-  '/core',        // the core as a flow: each canon, its standards, its procedures (web/src/lib/core.ts)
+  '/core',        // the core as a flow: each principle, its standards, its procedures (web/src/lib/core.ts)
   '/design',      // the design system whole (SYS-009), its download and the kit's served files
   '/templates',   // every template (machine/templates/), their headers side by side — an instrument has no series
   '/configure',   // the settings of NWOS gathered: narrative, gamification, automation, the team (2026-09-29)
@@ -285,7 +285,7 @@ export function run() {
   // to another redirect.
   //
   // ONE EXCEPTION, and it is not a loophole: when the retired address named a
-  // FOLDER rather than a document (`/archive/canon` asked "what is in canon?"),
+  // FOLDER rather than a document (`/archive/principles` asked "what is in the principles?"),
   // that folder's index IS the document answering it. The test is on the
   // SOURCE — a source with no document identifier in it may land on an index;
   // a source that named a document may not, because no index mentions it.

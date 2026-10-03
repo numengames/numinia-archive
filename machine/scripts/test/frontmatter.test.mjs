@@ -41,7 +41,7 @@ test('flow sequence continued over lines', () => {
   assert.deepEqual(fm('paths: [\n  "a/b",\n  "c/d"\n]\nnext: ok'), { paths: ['a/b', 'c/d'], next: 'ok' });
 });
 test('block sequence of scalars → array; of mappings → NESTED', () => {
-  assert.deepEqual(fm('paths:\n  - a\n  - "b"\nfondos:\n  - id: canon\n    n: 1\nafter: x'), { paths: ['a', 'b'], fondos: NESTED, after: 'x' });
+  assert.deepEqual(fm('paths:\n  - a\n  - "b"\nfondos:\n  - id: principles\n    n: 1\nafter: x'), { paths: ['a', 'b'], fondos: NESTED, after: 'x' });
 });
 test('nested mapping → NESTED', () => {
   assert.deepEqual(fm('call:\n  a: 1\n  b: 2\nz: y'), { call: NESTED, z: 'y' });

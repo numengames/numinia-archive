@@ -98,13 +98,13 @@ const doc = (id, status) => `---\nid: "${id}"\ntitle: "${id}"\nstatus: ${status}
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'binding-'));
   mkdirSync(path.join(dir, 'web'), { recursive: true });
-  for (const d of ['canon', 'standards', 'procedures']) mkdirSync(path.join(dir, d), { recursive: true });
+  for (const d of ['principles', 'standards', 'procedures']) mkdirSync(path.join(dir, d), { recursive: true });
   writeFileSync(path.join(dir, 'AGENTS.md'), AGENTS_FIXTURE);
   writeFileSync(path.join(dir, 'procedures', 'PRO-001-a.md'), doc('PRO-001', 'draft'));
   writeFileSync(path.join(dir, 'procedures', 'PRO-002-b.md'), doc('PRO-002', 'draft'));
   writeFileSync(path.join(dir, 'procedures', 'PRO-003-c.md'), doc('PRO-003', 'active'));
   writeFileSync(path.join(dir, 'standards', 'STD-001-a.md'), doc('STD-001', 'draft'));
-  writeFileSync(path.join(dir, 'canon', 'CAN-001-a.md'), doc('CAN-001', 'active'));
+  writeFileSync(path.join(dir, 'principles', 'PRI-001-a.md'), doc('PRI-001', 'active'));
   return dir;
 }
 
@@ -168,7 +168,7 @@ test('the states are counted from the tree, never typed', () => {
     assert.deepEqual(byFolder['procedures/'].states, { draft: 2, active: 1 });
     assert.equal(byFolder['procedures/'].total, 3);
     assert.deepEqual(byFolder['standards/'].states, { draft: 1 });
-    assert.deepEqual(byFolder['canon/'].states, { active: 1 });
+    assert.deepEqual(byFolder['principles/'].states, { active: 1 });
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -246,7 +246,7 @@ test('the page is a composed view with its own markdown', () => {
 });
 
 test('a draft document says what binds instead of it', () => {
-  // The corpus mirror renders canon, standards and procedures. Until now it
+  // The corpus mirror renders principles, standards and procedures. Until now it
   // printed the bare word `draft` as a chip and left the reader to guess.
   const page = readFileSync(SLUG_PAGE, 'utf8');
   assert.match(page, /\/binding/, '[...slug].astro never points a draft document at /binding');

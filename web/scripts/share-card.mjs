@@ -34,7 +34,7 @@ const root = path.resolve(here, "..");
 const SITE = {
   kicker: "NUMEN GAMES · THE ARCHIVE",
   name: "NWOS",
-  line: "The archive of Numen Games, built in public: canon, decisions, missions, how the work is done.",
+  line: "The archive of Numen Games, built in public: principles, decisions, missions, how the work is done.",
   domain: "numinia.org",
 };
 

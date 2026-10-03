@@ -32,7 +32,7 @@ id: "STD-001"
 
 | Series | Holds | Prefix | Approval level | Budget | Template |
 |---|---|---|---|---|---|
-| \`canon/\` | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | — |
+| \`principles/\` | what the system **is** | \`PRI-NNN\` | \`governed\` | 1500 | — |
 | \`decisions/\` | why something was chosen | \`ADR-NNN\` | \`governed\` | 500 | — |
 | \`reports/\` | what was observed | \`RPT-NNN\` | \`closed\` | 1000 | — |
 `;
@@ -44,7 +44,7 @@ id: "STD-027"
 
 | Function | Activity | Series |
 |---|---|---|
-| **Governance** | Founding | \`canon/\` |
+| **Governance** | Founding | \`principles/\` |
 | | Deciding | \`decisions/\` |
 | **Assurance** | Observing | \`reports/\` |
 
@@ -106,7 +106,7 @@ function run(dir) {
 
 const OK = {
   '/': { canonical: '/' },
-  '/canon/can-001-welcome': {},
+  '/principles/pri-001-welcome': {},
   '/decisions/adr-046': {},
   '/reports/rpt-019': {},
 };
@@ -138,10 +138,10 @@ test('URL-001 — a declared standalone page is admitted', () => {
 });
 
 test('URL-002 — an address naming a function of the scheme fails', () => {
-  // A whole segment, not a substring: /canon/governance-notes is a document
+  // A whole segment, not a substring: /principles/governance-notes is a document
   // whose slug happens to contain the word, and filing it is not classifying
   // it. What URL-002 forbids is a segment that IS the function.
-  const dir = scratch({ ...OK, '/governance/can-001-welcome': {} });
+  const dir = scratch({ ...OK, '/governance/pri-001-welcome': {} });
   const r = run(dir);
   assert.equal(r.code, 1);
   assert.match(r.out, /URL-002/);
@@ -149,7 +149,7 @@ test('URL-002 — an address naming a function of the scheme fails', () => {
 });
 
 test('URL-002 — a slug that merely contains a function word passes', () => {
-  const dir = scratch({ ...OK, '/canon/can-002-governance-notes': {} });
+  const dir = scratch({ ...OK, '/principles/pri-002-governance-notes': {} });
   const r = run(dir);
   assert.equal(r.code, 0, r.out);
   rmSync(dir, { recursive: true, force: true });
@@ -176,7 +176,7 @@ test('URL-002 — /archive/<function> is the declared exception', () => {
 });
 
 test('URL-003 — two addresses declaring one canonical fail', () => {
-  const dir = scratch({ ...OK, '/canon/can-001-alias': { canonical: '/canon/can-001-welcome' } });
+  const dir = scratch({ ...OK, '/principles/pri-001-alias': { canonical: '/principles/pri-001-welcome' } });
   const r = run(dir);
   assert.equal(r.code, 1);
   assert.match(r.out, /URL-003/);
@@ -193,7 +193,7 @@ test('URL-004 — a retired Spanish segment fails', () => {
 });
 
 test('URL-005 — a redirect into an index fails when the address named a document', () => {
-  const dir = scratch({ ...OK, '/canon': {}, '/canon/can-099-gone': { redirect: '/canon' } });
+  const dir = scratch({ ...OK, '/principles': {}, '/principles/pri-099-gone': { redirect: '/principles' } });
   const r = run(dir);
   assert.equal(r.code, 1);
   assert.match(r.out, /URL-005/);
@@ -202,9 +202,9 @@ test('URL-005 — a redirect into an index fails when the address named a docume
 });
 
 test('URL-005 — a redirect into an index passes when the address named the folder', () => {
-  // /archive/canon asked "what is in canon?"; the canon index answers exactly
+  // /archive/principles asked "what is in the principles?"; the principles index answers exactly
   // that. The test is on the SOURCE, which carries no document identifier.
-  const dir = scratch({ ...OK, '/canon': {}, '/archive/canon': { redirect: '/canon' } });
+  const dir = scratch({ ...OK, '/principles': {}, '/archive/principles': { redirect: '/principles' } });
   const r = run(dir);
   assert.equal(r.code, 0, r.out);
   rmSync(dir, { recursive: true, force: true });
@@ -213,8 +213,8 @@ test('URL-005 — a redirect into an index passes when the address named the fol
 test('URL-005 — a redirect chain fails', () => {
   const dir = scratch({
     ...OK,
-    '/canon/old': { redirect: '/canon/older' },
-    '/canon/older': { redirect: '/canon/can-001-welcome' },
+    '/principles/old': { redirect: '/principles/older' },
+    '/principles/older': { redirect: '/principles/pri-001-welcome' },
   });
   const r = run(dir);
   assert.equal(r.code, 1);
@@ -223,7 +223,7 @@ test('URL-005 — a redirect chain fails', () => {
 });
 
 test('URL-005 — a redirect to a page the build does not publish fails', () => {
-  const dir = scratch({ ...OK, '/canon/old': { redirect: '/canon/never-built' } });
+  const dir = scratch({ ...OK, '/principles/old': { redirect: '/principles/never-built' } });
   const r = run(dir);
   assert.equal(r.code, 1);
   assert.match(r.out, /does not publish/);

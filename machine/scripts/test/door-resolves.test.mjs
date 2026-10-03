@@ -112,7 +112,7 @@ test('AGENTS.md names, in force, exactly the rule documents whose header says ac
   assert.ok(block, 'AGENTS.md has no "In force:" list');
   const named = new Set([...block[1].matchAll(/`([A-Z]{3}-\d{3})`/g)].map((m) => m[1]));
   const active = new Set();
-  for (const f of tracked.filter((t) => /^(canon|standards|procedures)\/[A-Z]{3}-\d{3}-.*\.md$/.test(t))) {
+  for (const f of tracked.filter((t) => /^(principles|standards|procedures)\/[A-Z]{3}-\d{3}-.*\.md$/.test(t))) {
     const head = read(f).slice(0, 2000);
     if (/^status:\s*active/m.test(head)) active.add(/^([A-Z]{3}-\d{3})/.exec(path.basename(f))[1]);
   }

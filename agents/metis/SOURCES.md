@@ -3,9 +3,9 @@ agent: metis
 title: "SOURCES — Metis"
 type: agent
 status: draft
-version: "0.3.3"
+version: "0.3.4"
 created: "2026-09-28T18:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -73,7 +73,7 @@ The published view is `/system/pipeline` on numinia.org.
 
 ## Brand and voice
 
-`canon/CAN-002-brand-and-culture.md` — the house's identity and voice when a
+`principles/PRI-002-brand-and-culture.md` — the house's identity and voice when a
 draft speaks for it.
 
 ---

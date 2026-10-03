@@ -5,9 +5,9 @@ title: "The sales collateral"
 type: standard
 subtype: register
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -15,7 +15,7 @@ section: "Sales and partners"
 tags: [standards, register, sales, collateral, playbook, opportunity, templates]
 license: "CC0-1.0"
 related: ["STD-038", "STD-039", "STD-040", "OPS-012", "OPS-018", "PRO-028", "PRO-029", "PRO-030"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--
@@ -83,4 +83,4 @@ each stage *sales enablement*; the stages are this house's own (`STD-038`).
 | `STD-040` | A proposal says four things | the one piece with a standard of its own |
 | `OPS-012` | Training — the offer | the Packages a deck prices |
 | `OPS-018` | The house's card | what the house holds, and who may be named |
-| `CAN-009` | The archive is the organisation | why a piece is made from the records and not from memory |
+| `PRI-009` | The archive is the organisation | why a piece is made from the records and not from memory |

@@ -32,6 +32,6 @@ There is no `build:pdf`. It was documented here and in `OPS-008` as part of the 
 
 ## Licensing
 
-`STD-010` is the rule and `CAN-005` is the reasoning; neither is restated here. Read `STD-010` before adding a dependency, changing a `LICENSE`, `LICENSES/` or `REUSE.toml`, or making anything public — it says what each directory emits, which licences may be consumed, how the strongest copyleft in the distributed tree sets the outbound floor, and which acts stop for the Oracle.
+`STD-010` is the rule and `PRI-005` is the reasoning; neither is restated here. Read `STD-010` before adding a dependency, changing a `LICENSE`, `LICENSES/` or `REUSE.toml`, or making anything public — it says what each directory emits, which licences may be consumed, how the strongest copyleft in the distributed tree sets the outbound floor, and which acts stop for the Oracle.
 
 Until 2026-09-22 this file carried a hand-copied summary of that standard. `DBT-020` records what it cost: `reuse lint` reported the same two defects twice, once per copy. One rule, one home.

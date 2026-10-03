@@ -17,7 +17,7 @@ test('the doors are the Map and the Archive', () => {
 
 test('keyOf drops query, hash and trailing slash, and ignores other hosts', () => {
   assert.equal(keyOf('/system/language#gamif-buttons'), '/system/language');
-  assert.equal(keyOf('/canon/?x=1'), '/canon');
+  assert.equal(keyOf('/principles/?x=1'), '/principles');
   assert.equal(keyOf('/'), '/');
   assert.equal(keyOf('https://numinia.com/'), null);
   assert.equal(keyOf('//cdn.example/x'), null);

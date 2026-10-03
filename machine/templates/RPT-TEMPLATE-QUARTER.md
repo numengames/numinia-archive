@@ -84,7 +84,7 @@ what each was trusted with. Changes in how agents are operated.
 
 ## 7. Governance
 
-Canon, standards, procedures and decisions that changed a rule, and which
+Principles, standards, procedures and decisions that changed a rule, and which
 came into force. Legal texts published or changed.
 
 ## 8. Risks and debts

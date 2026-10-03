@@ -4,11 +4,11 @@ uid: ""
 title: "Opening and closing a session"
 type: procedure
 status: draft
-version: "2.1.3"
+version: "2.1.4"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "People and culture"
@@ -17,7 +17,7 @@ applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
 related: ["PRO-003", "PRO-005", "PRO-016", "OPS-008", "OPS-009", "SYS-001", "STD-020", "STD-022", "STD-025"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--
@@ -67,7 +67,7 @@ the procedure's enemy.
    out; never assume it matches `AGENTS.md`, a README or the mission card.
 8. **Work from the checked-out tree.** Never from a copy pasted elsewhere.
 9. **Read what the mission names, only that.** The procedure the mission
-   cites; the standard that governs the artefact it touches; `canon/` only
+   cites; the standard that governs the artefact it touches; `principles/` only
    for an explicit philosophical question. A question no document answers
    is a gap: escalate it (`PRO-005`), do not fill it.
 

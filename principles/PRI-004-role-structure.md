@@ -1,24 +1,26 @@
 ---
-id: "CAN-004"
+id: "PRI-004"
 uid: ""
 title: "You are what you are doing"
-type: seminal
+type: principle
+former_id: "CAN-004"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "4.0.5"
+version: "4.0.6"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "People and culture"
-tags: [canon, seminal, roles, guilds, factions, positions, attributes, ranks]
+tags: [principle, roles, guilds, factions, positions, attributes, ranks]
 license: "CC0-1.0"
 approved_by: "ADR-057"
 supersedes_version: "3.0.0"
-absorbs: ["CAN-003"]
-related: ["CAN-001", "CAN-007", "STD-003", "STD-030"]
+absorbs: ["PRI-003"]
+related: ["PRI-001", "PRI-007", "STD-003", "STD-030"]
 
 ---
 
@@ -68,7 +70,7 @@ the closest circle, with attributions to match. An Oracle is one of the
 founders of the new Numinia. What each rank earns and what it may do is the
 platform standard's; what each one *is* is this.
 
-The rest of this canon is about three of the six — profile, identity, role —
+The rest of this principle is about three of the six — profile, identity, role —
 because those are the three the city is built from.
 
 ## A guild is what you know
@@ -145,7 +147,7 @@ stone somebody picked up.
 Function here is not utility. To say a hammer *drives nails* is to leave
 yourself unable to drive a nail with the microscope on your desk. Function is
 a matter of ends and of values — what something is for, and what it is worth —
-and the canon of function and structure is where that is argued.
+and the principle of function and structure is where that is argued.
 
 A **position** is a role someone has settled into: the preferred role, taken
 one grade looser — a branch on a field rather than a house on a field. It is
@@ -190,5 +192,5 @@ all five in the documents of this city and should know which lens is on.
 |---|---|---|
 | `STD-030` | The world's vocabulary | every guild, branch, house and faction by name, with its operational equivalent |
 | `STD-003` | Platform ranks | what earns each rank and what it may do |
-| `CAN-007` | Function and structure | what function is, and why renaming is not transforming |
-| `CAN-001` | You are already in the game | why a name and a function are the same thing here |
+| `PRI-007` | Function and structure | what function is, and why renaming is not transforming |
+| `PRI-001` | You are already in the game | why a name and a function are the same thing here |

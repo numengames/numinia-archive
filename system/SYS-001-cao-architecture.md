@@ -5,9 +5,9 @@ title: "CAO Architecture — Complete System Reference"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.6"
+version: "0.2.7"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, cao, architecture, agents, procedures, tools]
@@ -16,7 +16,7 @@ license: "CC0-1.0"
 mission: "MIS-045"
 former_id: "BLU-004"
 former_id_note: "Renumbered by MIS-129 under ADR-035: this is a reference manual of how the CAO is wired today, not a plan for a future state. STD-018 IDN-014 conditions recorded in ADR-035."
-accuracy_warning: "Content is from 2026-04-08 and is known stale — the canon repo is named numinia-nwos, Adonaz is now Byblos, Ursa is active. Tracked as debt, not corrected by MIS-129 (move only, no prose edits)."
+accuracy_warning: "Content is from 2026-04-08 and is known stale — the principles repo is named numinia-nwos, Adonaz is now Byblos, Ursa is active. Tracked as debt, not corrected by MIS-129 (move only, no prose edits)."
 ---
 
 <!--
@@ -53,11 +53,11 @@ The CAO operates on a simple principle:
               ▼                       ▼
 ┌─────────────────────┐   ┌─────────────────────────────┐
 │   OpenClaw Gateway  │   │  numinia-digital-agents repo │
-│   (main session)    │   │  (GitHub — canon source)     │
+│   (main session)    │   │  (GitHub — principles source)     │
 │                     │   │                             │
 │  Nimrod (primary)   │◄──┤  agents/    procedures/      │
 │  claude-sonnet-4-6  │   │  missions/  blueprints/     │
-│                     │   │  decisions/ canon/          │
+│                     │   │  decisions/ principles/          │
 └─────────┬───────────┘   └─────────────────────────────┘
           │ spawns
           ▼
@@ -112,13 +112,13 @@ agents/nimrod/
 
 | Repo | Owner | Purpose | Tech |
 |------|-------|---------|------|
-| `numinia-digital-agents` | numengames org | Canon archive — agents, missions, procedures | Markdown + JSON |
+| `numinia-digital-agents` | numengames org | Principles archive — agents, missions, procedures | Markdown + JSON |
 | `pablofm-web` | PabloFMM | Pablo's public web + CAO dashboard | Astro 5 + React + Vercel |
 | `numinia-digital-goods` | PabloFMM | Asset store + Numinia LAP | Next.js 16 + Vercel |
 | `numinia-digital-goods-data` | PabloFMM | Asset data (JSON + binaries) | JSON + GitHub raw |
 | `nwos-template` | numen-games-nwos-orgs | NWOS workspace template for clients | Markdown |
 
-### Repo structure of the canon (`numinia-digital-agents`)
+### Repo structure of the principles (`numinia-digital-agents`)
 
 ```
 numinia-digital-agents/
@@ -129,7 +129,7 @@ numinia-digital-agents/
 ├── procedures/           ← P-001 through P-009+
 ├── blueprints/          ← System design documents
 ├── decisions/           ← ADRs and strategic decisions
-├── canon/               ← Immutable seminal documents (10 docs)
+├── principles/               ← Immutable seminal documents (10 docs)
 ├── operations/          ← Security policy, credential map
 ├── GOVERNANCE.md        ← Roles and permissions
 ├── CHANGELOG.md         ← Version history of the system
@@ -229,7 +229,7 @@ CEO visits pablofm.com/velo → Fills DeployForm
 | **Law 3** | Only Oracle modifies config, logs, memory |
 | **Credentials** | Never in chat, never in repo — SSH only |
 | **Exec approvals** | All shell commands require explicit approval |
-| **Canon immutability** | `canon/` folder is write-protected by policy |
+| **Principles immutability** | `principles/` folder is write-protected by policy |
 | **Agent identity separation** | Each agent has own SOUL + OPERATOR — cannot modify own laws |
 
 ---

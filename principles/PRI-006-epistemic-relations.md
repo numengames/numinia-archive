@@ -1,24 +1,24 @@
 ---
-id: "CAN-006"
+id: "PRI-006"
 uid: ""
 title: "The model needs a story"
-type: seminal
+type: principle
 status: draft
-version: "2.1.2"
+version: "2.1.3"
 created: "2026-04-15T16:25:05Z"
 created_source: "git:89404d7"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
 section: "Strategy and governance"
-tags: [canon, seminal, peirce, semiotics, borromean-knot, archetype]
+tags: [principle, peirce, semiotics, borromean-knot, archetype]
 license: "CC0-1.0"
 registration: registered
-related: ["CAN-001", "CAN-007", "STD-026"]
-former_id: "canon-epistemic-relations-v020"
-former_id_note: "Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md"
+related: ["PRI-001", "PRI-007", "STD-026"]
+former_id: "CAN-006"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-. Before that, canon-epistemic-relations-v020: Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Epistemic_Relations_Between_Numen_Games_and_Numina-v0.2.0.md"
 approved_by: "ADR-050"
 supersedes_version: "1.0.1"
 ---

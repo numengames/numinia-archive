@@ -5,7 +5,7 @@
 //
 // Every document in this repo opens its sections with `# `, because in a
 // markdown file the document IS the page and that is correct. Rendered on the
-// site it is not: the page already prints the title as an <h1>, so CAN-001
+// site it is not: the page already prints the title as an <h1>, so PRI-001
 // arrives with ELEVEN of them. A screen reader announces eleven documents in
 // one page and a search engine has to guess which title is the title.
 //

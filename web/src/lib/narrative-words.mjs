@@ -91,11 +91,15 @@ export const WORDS = [
   { bridge: "Organise", numinia: { text: "Solomon", source: "lore/codex/en/glossary.md" } },
   { bridge: "Collect", numinia: { text: "Sycamore", source: "lore/codex/en/glossary.md" } },
 
-  // ── the series, by their operational equivalents. Canon, Standards,
-  // Decisions, Reports and Agents: accepted for now by Christian and the
-  // Oracle (2026-09-29) — finding a word is finding a meaning, and these
-  // will change as the census understands them better.
-  { bridge: "Canon", plain: { text: "Purpose", source: "canon/CAN-002-brand-and-culture.md" } },
+  // ── the series, by their operational equivalents. Standards, Decisions,
+  // Reports and Agents: accepted for now by Christian and the Oracle
+  // (2026-09-29) — finding a word is finding a meaning, and these will
+  // change as the census understands them better.
+  // Principles: the business word IS principle (the governance hierarchy
+  // policy → standard → procedure → guideline; ISO 9000:2015 3.5.8), so no
+  // plain word replaces it (ADR-067, cut 3). Canon, the series' word until
+  // 2026-10-03, stays as the word of the Numinia stop.
+  { bridge: "Principles", numinia: { text: "Canon", source: "lore/README.md" } },
   { bridge: "Standards", plain: { text: "Policies", source: "web/src/lib/summa.ts" } },
   { bridge: "Missions", plain: { text: "Project", source: "standards/STD-030-the-worlds-vocabulary.md" } },
   { bridge: "Adventures", plain: { text: "Experience", source: "standards/STD-030-the-worlds-vocabulary.md" } },

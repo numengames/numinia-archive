@@ -4,9 +4,9 @@ uid: ""
 title: "Requesting approval, issuing rulings"
 type: procedure
 status: draft
-version: "5.2.2"
+version: "5.2.3"
 created: "2026-04-07T15:00:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,7 +16,7 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
 related: ["STD-017", "STD-042", "PRO-005", "PRO-016"]
-derived_from: "CAN-004"
+derived_from: "PRI-004"
 ---
 
 <!--
@@ -79,7 +79,7 @@ for the ruling, the agent again for its execution.
 | 1–2 | routine — no approval | — |
 | 3–6 | operational, tactical — reversible | 24h |
 | 7–8 | strategic — architecture | 12h |
-| 9 | systemic — canon, operator, security | immediate |
+| 9 | systemic — principles, operator, security | immediate |
 | 10 | foundational — irreversible, reputation, money | immediate, and a meeting |
 
 **Ruling**

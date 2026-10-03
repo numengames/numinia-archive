@@ -99,7 +99,7 @@
         ".github": 3,
         "agents": 45,
         "blueprints": 12,
-        "canon": 14,
+        "principles": 14,
         "debt": 3,
         "decisions": 11,
         "legal": 4,
@@ -174,7 +174,7 @@
           "archived": 0,
           "pct": 100
         },
-        "canon": {
+        "principles": {
           "registered": 14,
           "total": 14,
           "apparatus": 0,
@@ -381,7 +381,7 @@
         "blueprints": 27818,
         "machine": 27398,
         "opportunities": 25222,
-        "canon": 23420,
+        "principles": 23420,
         "missions": 17665,
         "": 17026,
         "decisions": 13263,

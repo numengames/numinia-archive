@@ -5,16 +5,16 @@ title: "Every purchase ends in thanks"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-30T12:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
 tags: [standards, payments, purchase, thanks, checkout, confirmation]
 license: "CC0-1.0"
-related: ["STD-033", "CAN-011", "STD-034", "STD-035", "PRO-020", "OPS-014"]
-derived_from: "CAN-011"
+related: ["STD-033", "PRI-011", "STD-034", "STD-035", "PRO-020", "OPS-014"]
+derived_from: "PRI-011"
 ---
 
 <!--
@@ -109,7 +109,7 @@ shared address from giving goods away.
 | ID | Name | Why cited |
 |---|---|---|
 | `STD-033` | Every charge delivers something | the charge this page closes |
-| `CAN-011` | What has value also makes a bond | why a payment is thanked |
+| `PRI-011` | What has value also makes a bond | why a payment is thanked |
 | `STD-034` | Accessibility | the motion rule |
 | `STD-035` | Personal data | what the page may keep |
 | `PRO-020` | Putting something on sale | where the return page is set |

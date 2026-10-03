@@ -7,7 +7,7 @@
 // --------------------------------------------------------------------------
 // This site publishes two halves of a sentence and not the third.
 //
-//   1. Eleven procedures, twenty-seven standards and the canons, rendered
+//   1. Eleven procedures, twenty-seven standards and the principles, rendered
 //      in full, each with its steps and its obligations.
 //   2. The definition of `draft` — "written, not yet in force: it binds
 //      nobody" (STD-004) — printed on the home, in /llms.txt and in
@@ -73,7 +73,7 @@ const END = "transition-regime:end";
  * that was made, it does not impose an obligation to be in force.
  */
 const RULE_FOLDERS: ReadonlyArray<{ folder: string; label: string; holds: string }> = [
-  { folder: "canon/", label: "Canon", holds: "what the system is" },
+  { folder: "principles/", label: "Principles", holds: "what the system is" },
   { folder: "standards/", label: "Standards", holds: "what an artifact must comply with" },
   { folder: "procedures/", label: "Procedures", holds: "what an actor executes, step by step" },
 ];

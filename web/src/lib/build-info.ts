@@ -58,7 +58,7 @@ export const REPO_URL = "https://github.com/numengames/numinia-archive";
  * blame, or the raw source should be one click away from it, not left to
  * guess the path.
  *
- * Astro's `entry.filePath` is relative to the web/ project ("../canon/CAN-001…"),
+ * Astro's `entry.filePath` is relative to the web/ project ("../principles/PRI-001…"),
  * but that prefix is an implementation detail of where the site sits inside
  * the repo. Anchoring on the known top-level folders instead survives a move:
  * whatever comes before them is dropped.
@@ -70,7 +70,7 @@ export const REPO_URL = "https://github.com/numengames/numinia-archive";
 // the list loses its link silently — opportunities/, legal/, lore/ and
 // objects/ published for weeks with no way back to GitHub.
 const REPO_DIRS =
-  "agents|blueprints|canon|debt|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|procedures|reports|standards|system|web";
+  "agents|blueprints|principles|debt|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|procedures|reports|standards|system|web";
 
 export function repoFileUrl(filePath: string, branch = "main"): string | null {
   const rel = String(filePath).replace(/\\/g, "/");

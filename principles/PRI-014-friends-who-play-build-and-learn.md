@@ -1,19 +1,21 @@
 ---
-id: "CAN-014"
+id: "PRI-014"
 uid: ""
 title: "Friends who play, build and learn"
-type: seminal
+type: principle
+former_id: "CAN-014"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Strategy and governance"
-tags: [canon, seminal, origin, history, oracles]
+tags: [principle, origin, history, oracles]
 license: "CC0-1.0"
-related: ["CAN-001", "CAN-002", "CAN-008", "CAN-013"]
+related: ["PRI-001", "PRI-002", "PRI-008", "PRI-013"]
 ---
 
 <!--
@@ -74,7 +76,7 @@ Oracle is lives in their own card, not here.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-001` | You are already in the game | the city this origin opens onto |
-| `CAN-002` | We build a game to work better | the purpose the friends set out for |
-| `CAN-008` | One identity, three forces | the hundred-years line and the decade of invocation |
-| `CAN-013` | A magician who keeps hope, with humans in charge | what the house became, seen from outside |
+| `PRI-001` | You are already in the game | the city this origin opens onto |
+| `PRI-002` | We build a game to work better | the purpose the friends set out for |
+| `PRI-008` | One identity, three forces | the hundred-years line and the decade of invocation |
+| `PRI-013` | A magician who keeps hope, with humans in charge | what the house became, seen from outside |

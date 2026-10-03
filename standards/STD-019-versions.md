@@ -5,15 +5,15 @@ title: "Versions"
 type: standard
 subtype: standard
 status: active
-version: "3.1.3"
+version: "3.1.4"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standards, versioning, semver]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 
 ---
 

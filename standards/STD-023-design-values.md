@@ -5,16 +5,16 @@ title: "Design values"
 type: standard
 subtype: register
 status: active
-version: "1.10.2"
+version: "1.10.3"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
-related: ["STD-008", "STD-034", "CAN-008", "ADR-044", "PRO-022"]
-derived_from: "CAN-008"
+related: ["STD-008", "STD-034", "PRI-008", "ADR-044", "PRO-022"]
+derived_from: "PRI-008"
 ---
 
 <!--
@@ -176,9 +176,9 @@ All normalized to `fill="currentColor"`, in `/assets/`.
 | `pixel/cartografo-24.png` | The Cartographer | 24×24 px | Reference character of the `BLU-010` production pipeline; status [EXTENSION — validate] |
 | `pixel/guia/` | Didactic how-yes / how-no pairs | 16×16 px ×1 and ×8 | Production-guide material; not game assets |
 | `fonts/PixelifySans-Variable.woff2` | Pixel typeface | variable 400–700 | Dialogue and display of the pixel register |
-| `marca/glifo-space.svg` | *Space* glyph (the wordmark's n) | 31×29 | Brand play (`CAN-008`, the glyphs): the space, the territory |
-| `marca/glifo-people.svg` | *People* glyph (n + dot) | 31×39 | Brand play (`CAN-008`, the glyphs): the person |
-| `marca/glifo-connect.svg` | *Connect* glyph (the final ɑ) | 29×29 | Brand play (`CAN-008`, the glyphs): the connection |
+| `marca/glifo-space.svg` | *Space* glyph (the wordmark's n) | 31×29 | Brand play (`PRI-008`, the glyphs): the space, the territory |
+| `marca/glifo-people.svg` | *People* glyph (n + dot) | 31×39 | Brand play (`PRI-008`, the glyphs): the person |
+| `marca/glifo-connect.svg` | *Connect* glyph (the final ɑ) | 29×29 | Brand play (`PRI-008`, the glyphs): the connection |
 
 Selection: horizontal by default → vertical in square → NG under 120 px → brandmark for closing/avatar. `Numinia_Word` never signs corporate communication.
 
@@ -248,7 +248,7 @@ How the sky moves, and where it may not appear, is `PRO-022`.
 | **Pixelify Sans** | Stefie Justprince | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Pixelify+Sans) · self-hosted in `/assets/fonts/` | Pixel-register typography (`BLU-010`) |
 | **Alegreya · Alegreya SC** | Juan Pablo del Peral · Huerta Tipográfica | SIL OFL 1.1 | [Google Fonts](https://fonts.google.com/specimen/Alegreya) · variable roman + italic and small caps 400/500, self-hosted (v5 rebuild) | Third voice — book and codex (`BLU-011`) |
 | **Octalysis** | Yu-kai Chou | Behavioral framework | [yukaichou.com](https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/) | Behavioral design of proposals |
-| **8 Bit & '8 Bitish' Graphics — Outside the Box** | Mark Ferrari · GDC 2016 | Professional reference | [gdcvault.com/play/1023586](https://www.gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics) | Clusters, limited palette and palette cycling; production reference, not visual canon |
+| **8 Bit & '8 Bitish' Graphics — Outside the Box** | Mark Ferrari · GDC 2016 | Professional reference | [gdcvault.com/play/1023586](https://www.gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics) | Clusters, limited palette and palette cycling; production reference, not visual principles |
 | **ScummVM · Understanding the graphics settings** | ScummVM project | GPL / documentation | [docs.scummvm.org](https://docs.scummvm.org/en/latest/advanced_topics/understand_graphics.html) | Adventure graphics scaling, nearest-neighbor and pixel preservation |
 | **SDL · Integer scale** | Simple DirectMedia Layer | zlib | [wiki.libsdl.org](https://wiki.libsdl.org/SDL2/SDL_RenderSetIntegerScale) | Technical reference for integer scaling |
 | **Aseprite · Indexed color and sprite sheets** | Igara Studio | Official documentation | [aseprite.org/docs](https://www.aseprite.org/docs/color-mode/) | Indexed workflow, closed palette and sprite-sheet export |
@@ -270,7 +270,7 @@ home.
 
 Every value of the veiled style is one of our colours made partly
 transparent: the style adds transparency, never a new colour. These values
-came here from the visual identity canon, which now holds none.
+came here from the visual identity principle, which now holds none.
 
 | Token | Value | Origin | Role |
 |---|---|---|---|

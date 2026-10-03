@@ -5,9 +5,9 @@ title: "The wall a newcomer hits is the house's own words, not the world's"
 type: report
 subtype: analysis
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-29T08:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -19,7 +19,7 @@ scope: "The files a newcomer reads first — README.md, CONTRIBUTING.md, AGENTS.
 evidence_head: "854b774"
 model: "claude-opus-5-5"
 agent: "ursa"
-related: ["BLU-007", "STD-026", "STD-030", "RPT-022", "CAN-007", "SYS-011"]
+related: ["BLU-007", "STD-026", "STD-030", "RPT-022", "PRI-007", "SYS-011"]
 ---
 
 <!--
@@ -51,7 +51,7 @@ searched in the three existing vocabularies: `BLU-007` (the two dials),
 `STD-026` (operative vocabulary) and `STD-030` (the world's vocabulary).
 
 **The corpus.** 18 files, about 21 979 words: `README.md`,
-`CONTRIBUTING.md`, `AGENTS.md`, the eleven files of `canon/`, and
+`CONTRIBUTING.md`, `AGENTS.md`, the eleven files of `principles/`, and
 `web/src/pages/index.astro`, `about.astro`, `core.astro`, `binding.astro`.
 The term lists were chosen by hand: 46 game words, 35 house words and 29
 business words — 110 in all. A term outside those lists was not counted.
@@ -110,7 +110,7 @@ the Exegetes carry three different business equivalents across the
 sources. The disagreement is not settled by picking one source: it is the
 first evidence that one entity holds several facets (see below).
 
-**Nothing translates the three forces into business language.** `CAN-008`
+**Nothing translates the three forces into business language.** `PRI-008`
 defines them as manifestation, depth and refraction.
 
 ### Outside: who met this problem and what they did
@@ -179,7 +179,7 @@ defines them as manifestation, depth and refraction.
   formulation*, and the first four layers are described once, in a census,
   before any formulation is written.
 - **Swapping words is not enough.** Newsela rewrites structure, and
-  `CAN-007` says renaming is not transforming. The business stop needs
+  `PRI-007` says renaming is not transforming. The business stop needs
   three mechanisms: *swap* the word, *explain beside* it, and *rewrite by
   hand* the few blocks that open the site.
 - **The missing documents are tutorial and reference, not more
@@ -221,8 +221,8 @@ press reports.
 | `STD-026` | Operative vocabulary | the business-term vocabulary searched |
 | `STD-030` | The world's vocabulary | the game vocabulary searched; its equivalents are hypotheses |
 | `RPT-022` | The newcomer test | the canon-only baseline this report widens |
-| `CAN-007` | Renaming is not transforming | why swapping words is not enough |
-| `CAN-008` | One identity, three forces | where the three forces are defined |
+| `PRI-007` | Renaming is not transforming | why swapping words is not enough |
+| `PRI-008` | One identity, three forces | where the three forces are defined |
 | `STD-034` | Accessibility | where WCAG already binds |
 | `OPS-011` | Positioning and market | where the offer is written today |
 | `SYS-011` | The semantic census | where the entities are described, facet by facet |

@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: standard
 subtype: standard
 status: active
-version: "0.8.0"
+version: "0.9.0"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,7 +16,7 @@ tags: [standards, classification, archive, functions, series, records-management
 license: "CC0-1.0"
 approved_by: "ADR-046"
 related: ["STD-001", "STD-024", "STD-012", "ADR-030", "SYS-003"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--
@@ -91,7 +91,7 @@ read this table; its shape is their contract.
 
 | Function | Activity | Series |
 |---|---|---|
-| **Governance** | Founding | `canon/` |
+| **Governance** | Founding | `principles/` |
 | | Standardising | `standards/` |
 | | Prescribing | `procedures/` |
 | | Deciding | `decisions/` |
@@ -112,7 +112,7 @@ read this table; its shape is their contract.
 
 Outside the scheme: `web/`, a lens onto the archive, and `machine/packages/`,
 a distributable. The tooling and its artifacts live under `machine/`
-(called *instruments* until 2026-10-03).
+(called *instruments* until 2026-10-03). The Founding activity's series was `canon/` until 2026-10-03 (`ADR-067`).
 
 | What the scheme rests on | What it gives |
 |---|---|

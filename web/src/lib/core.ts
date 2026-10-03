@@ -1,14 +1,14 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The core as a flow: each canon, the standards that make it concrete, the
+// The core as a flow: each principle, the standards that make it concrete, the
 // procedures that carry it out.
 //
 // WHY THIS EXISTS
 // The Oracle reviews the core by listening to it end to end (2026-09-27).
-// Shelf by shelf, the canon, the standards and the procedures are three lists;
+// Shelf by shelf, the principles, the standards and the procedures are three lists;
 // the question a reviewer brings is causal — this belief, these rules, these
-// steps. So every standard and procedure names the one canon it comes from in
+// steps. So every standard and procedure names the one principle it comes from in
 // its header (`derived_from`, a relation STD-004 registers), and this module
 // builds the flow from that field and nothing else. No order, grouping or
 // summary is typed here: change a header and the page follows.
@@ -16,10 +16,10 @@
 // WHAT IT READS
 // The body of each document, without the apparatus a listener does not need
 // — the Check table and the References — so the page, read aloud by the
-// site's own player, is the episode: the canon whole, then each rule, then
+// site's own player, is the episode: the principle whole, then each rule, then
 // each step.
 //
-// A standard or procedure with no canon THROWS. Dropping it silently would
+// A standard or procedure with no principle THROWS. Dropping it silently would
 // publish a flow that looks complete and is not.
 import fs from "node:fs";
 import path from "node:path";
@@ -40,8 +40,8 @@ export interface CoreDoc {
   reading: string;
 }
 
-export interface CoreCanon extends CoreDoc {
-  /** This canon's page in the flow: `/core/can-009-the-archive-is-the-organisation`. */
+export interface CorePrinciple extends CoreDoc {
+  /** This principle's page in the flow: `/core/pri-009-the-archive-is-the-organisation`. */
   href: string;
   slug: string;
   standards: CoreDoc[];
@@ -117,25 +117,25 @@ function load(folder: string, prefix: string) {
   });
 }
 
-/** Every canon in order, each with its standards and procedures. */
-export function coreFlow(): CoreCanon[] {
-  const canons: CoreCanon[] = load("canon", "CAN-").map(({ doc, slug }) => ({
+/** Every principle in order, each with its standards and procedures. */
+export function coreFlow(): CorePrinciple[] {
+  const principles: CorePrinciple[] = load("principles", "PRI-").map(({ doc, slug }) => ({
     ...doc, slug, href: `/core/${slug}`, standards: [], procedures: [],
   }));
-  const byId = new Map(canons.map((c) => [c.id, c]));
+  const byId = new Map(principles.map((c) => [c.id, c]));
   const orphans: string[] = [];
   for (const [folder, prefix, key] of [["standards", "STD-", "standards"], ["procedures", "PRO-", "procedures"]] as const) {
     for (const { doc, anchor } of load(folder, prefix)) {
-      const canon = anchor ? byId.get(anchor) : undefined;
-      if (!canon) { orphans.push(`${doc.id} (derived_from: ${anchor ?? "none"})`); continue; }
-      canon[key].push(doc);
+      const principle = anchor ? byId.get(anchor) : undefined;
+      if (!principle) { orphans.push(`${doc.id} (derived_from: ${anchor ?? "none"})`); continue; }
+      principle[key].push(doc);
     }
   }
   if (orphans.length) {
     throw new Error(
-      `core.ts: these documents name no canon that exists, so /core cannot place them: ${orphans.join(", ")}. ` +
-        `Add derived_from: "CAN-NNN" to each header.`,
+      `core.ts: these documents name no principle that exists, so /core cannot place them: ${orphans.join(", ")}. ` +
+        `Add derived_from: "PRI-NNN" to each header.`,
     );
   }
-  return canons;
+  return principles;
 }

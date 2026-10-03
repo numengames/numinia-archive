@@ -4,11 +4,11 @@ uid: ""
 title: "Solutions"
 type: documentation
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Products and services"
@@ -181,7 +181,7 @@ Redesign the rituals so participation has concrete consequences on the system's 
 
 ### S2 — Authenticity vs. compliance metrics
 
-Design indicators that distinguish formal participation from real engagement: time in the system outside mandatory rituals, unsolicited initiatives, contributions to the canon nobody asked for. If the only moments of participation are the rituals, the system has an intrinsic-motivation problem.
+Design indicators that distinguish formal participation from real engagement: time in the system outside mandatory rituals, unsolicited initiatives, contributions to the principles nobody asked for. If the only moments of participation are the rituals, the system has an intrinsic-motivation problem.
 
 - **Signatures:** Product · Theory
 
@@ -281,7 +281,7 @@ Reframe the product claim: the NWOS does not solve structural burnout; it amplif
 
 ### S3 — Canon-maintenance protocol
 
-Design an explicit 'canon guardian' role with recognized authority to arbitrate divergent interpretations of the system as it scales. Without that role, narrative coherence inevitably fragments above 10-15 people.
+Design an explicit 'principles guardian' role with recognized authority to arbitrate divergent interpretations of the system as it scales. Without that role, narrative coherence inevitably fragments above 10-15 people.
 
 - **Signatures:** Product
 

@@ -4,9 +4,9 @@ uid: ""
 title: "The archive is classified by function, and instruments are not records"
 type: adr
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -100,7 +100,7 @@ series table and gains Function and Activity columns.
 | Alternative | Why not |
 |---|---|
 | Describe the scheme, move nothing | The root still shows twenty peers and an archivist still cannot tell an instrument from a series. Half the gain for a third of the work, but the naming debt is paid twice |
-| Physical two-level tree (`governance/canon/`…) | Breaks every plain-text citation in the corpus, every `/corpus/` URL and `STD-024` SER-005. The identifier is the path |
+| Physical two-level tree (`governance/principles/`…) | Breaks every plain-text citation in the corpus, every `/corpus/` URL and `STD-024` SER-005. The identifier is the path |
 | Keep ISAD(G) vocabulary (fonds → series → file → item) | Superseded by RiC-CM 1.0 in November 2023; a strict hierarchy is the model RiC exists to replace |
 | Classify by subject or by guild | Subject classification is what functional classification replaced; guilds are organisational units, which the NAA rule forbids naming a function after |
 | `apparatus/` as the instruments folder | Oracle preference for `machine/`: plainer, and `apparatus` in `STD-001` already means something narrower (the moulds) |

@@ -3,9 +3,9 @@ id: "SYS-011:guild-exegetes"
 title: "Exegetes"
 type: entity
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -45,7 +45,7 @@ plausible reading nobody has confirmed yet.
 
 The Exegetes cover many functions and cannot be grasped in a single facet; their original occupation is to govern the meaning of ideas, and of words as the expression of ideas. Brand is one strand of that work (cited: Christian's review, 2026-09-29 — «su ocupación original es la de gobernar sobre el significado de las ideas, y de las palabras como expresión de las ideas. En una vertiente de esa labor, trabajan sobre la marca»).
 
-The guild that holds meaning: it records what happened, studies what is known, and decides what words mean (inferred: uses in `lore/game/manual/es/03-creacion-del-personaje.md`, `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`). The manual calls it «Gremio del Lenguaje, la Cultura y la Interpretación Crítica» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «EXÉGETAS»). It is defined by opposition to the other three guilds: «an Exegete keeps the word» (cited: `canon/CAN-004-role-structure.md` — «A guild is what you know»).
+The guild that holds meaning: it records what happened, studies what is known, and decides what words mean (inferred: uses in `lore/game/manual/es/03-creacion-del-personaje.md`, `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`). The manual calls it «Gremio del Lenguaje, la Cultura y la Interpretación Crítica» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «EXÉGETAS»). It is defined by opposition to the other three guilds: «an Exegete keeps the word» (cited: `principles/PRI-004-role-structure.md` — «A guild is what you know»).
 
 ## Constitutive traits
 
@@ -73,7 +73,7 @@ The guild that holds meaning: it records what happened, studies what is known, a
 | Semantic governance | A term, symbol or pact is disputed or new | cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Concilia Signorum» |
 | Chronicle / memory | Documenting events; keeping ancient texts | cited: `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md` — «los textos antiguos que custodian los Exégetas» |
 | Decoding | Puzzle play, Session Zero «Threshold of Thought» | cited: `lore/adventures/virtual-worlds/session-zero.md` — «words are not read: they are unearthed» |
-| Archive filing | Assigning a document's `guild` header | inferred: uses in `canon/`, `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-004-the-header.md` |
+| Archive filing | Assigning a document's `guild` header | inferred: uses in `principles/`, `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-004-the-header.md` |
 
 ## Relations
 
@@ -85,7 +85,7 @@ The guild that holds meaning: it records what happened, studies what is known, a
 | Where | How it shows up | Source |
 |---|---|---|
 | Game | Iskar, veteran Exegete; Lyra, master of the Council of Exegetes; NPCs in El Espejo Roto | cited: `lore/game/manual/es/04-sistema-de-juego.md` — «Iskar, el veterano Exégeta»; `lore/adventures/virtual-worlds/session-zero.md` — «Lyra»; `lore/adventures/tabletop/el-espejo-roto.md` — «**Gremio:** Exégetas» |
-| House: documents | 18 headers carry `guild: "Exegetes"`: 10 canons, STD-026, STD-030, STD-031, RPT-022, 3 agents, the canon template | inferred: `git grep` over `canon/`, `standards/`, `reports/`, `agents/`, `machine/templates/CAN-TEMPLATE.md` |
+| House: documents | 18 headers carry `guild: "Exegetes"`: 10 canons, STD-026, STD-030, STD-031, RPT-022, 3 agents, the canon template | inferred: `git grep` over `principles/`, `standards/`, `reports/`, `agents/`, `machine/templates/PRI-TEMPLATE.md` |
 | House: agents | Byblos (records management), Calliope (copywriter), Senet (game master) | cited: `agents/byblos/AGENT.yaml`, `agents/calliope/AGENT.yaml`, `agents/senet/AGENT.yaml` — «guild: "Exegetes"» |
 | Web numinia.org | Exegeta-01 «Content & Lore»; Adonaz «Archivist General»; dial row «Chief of Staff / Knowledge» | cited: `web/src/pages/system/cao.astro`; `web/src/pages/system/language.astro` |
 | Web numinia.com | «Narradores de la Historia y la leyenda, teóricos, educadores»; domain model with branches/houses | cited: `numinia-web:apps/store/src/i18n/city-landing.ts`; `numinia-web:packages/domain/src/constants/guilds.ts` |
@@ -113,5 +113,5 @@ The three business readings (brand, knowledge lead, content/archive) point at th
 ## Sources
 
 - Manual ES chapters 02–05, `lore/game/manual/glossary-es-en.md`, `lore/codex/glosario.md`, `lore/world/`, `lore/adventures/`: the world.
-- `canon/CAN-004-role-structure.md`, `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-004-the-header.md`, `blueprints/BLU-007-dual-nomenclature.md`: house definitions and equivalences.
+- `principles/PRI-004-role-structure.md`, `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-004-the-header.md`, `blueprints/BLU-007-dual-nomenclature.md`: house definitions and equivalences.
 - `agents/`, `web/src/pages/system/`, `numinia-web:packages/domain/`, `numinia-web:apps/store/`: manifestations.

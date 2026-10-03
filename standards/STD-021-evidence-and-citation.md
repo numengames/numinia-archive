@@ -5,15 +5,15 @@ title: "Evidence and citation"
 type: standard
 subtype: standard
 status: active
-version: "1.4.3"
+version: "1.4.4"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standards, evidence, citation, audits, ISO-690, ISO-19011]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 
 ---
 

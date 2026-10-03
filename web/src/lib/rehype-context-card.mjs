@@ -23,7 +23,7 @@
 // DELIBERATELY CONSERVATIVE. It fires only when the blockquote is a single
 // paragraph whose first child is a <strong> ending in ":". Any other
 // blockquote — a real quotation, a warning, a nested structure — is left
-// exactly as it was. A false positive here would mangle canon text.
+// exactly as it was. A false positive here would mangle principle text.
 import { visit } from "unist-util-visit";
 
 const isStrongLabel = (node) =>

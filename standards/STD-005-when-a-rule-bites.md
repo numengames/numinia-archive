@@ -5,16 +5,16 @@ uid: ""
 type: standard
 subtype: standard
 status: draft
-version: "4.0.7"
+version: "4.0.8"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
 tags: [standards, engineering, ci, checks]
-derived_from: "CAN-010"
+derived_from: "PRI-010"
 license: "CC0-1.0"
 absorbs: ["STD-011"]
 ---

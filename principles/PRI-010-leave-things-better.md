@@ -1,20 +1,22 @@
 ---
-id: "CAN-010"
+id: "PRI-010"
 uid: ""
 title: "Leave things better than you found them"
-type: seminal
+type: principle
+former_id: "CAN-010"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-24T17:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Strategy and governance"
-tags: [canon, seminal, ethics, conduct, dignity, agents]
+tags: [principle, ethics, conduct, dignity, agents]
 license: "CC0-1.0"
 approved_by: "ADR-060"
-related: ["CAN-002", "CAN-005", "CAN-009", "STD-029", "STD-022", "STD-014"]
+related: ["PRI-002", "PRI-005", "PRI-009", "STD-029", "STD-022", "STD-014"]
 ---
 
 <!--
@@ -36,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** whoever acts in Numinia's name, human or digital.
 
-> This canon is a first statement, written in draft to be argued with. It
+> This principle is a first statement, written in draft to be argued with. It
 > infers its commitments from what the corpus already holds; where a
 > commitment is missing, that is the argument to have.
 
@@ -45,7 +47,7 @@ SPDX-License-Identifier: CC0-1.0
 ## The sentence
 
 One sentence is the ethics of this house, and it lives here, once: no
-other canon repeats it, they point to it.
+other principle repeats it, they point to it.
 *Leave things better than you found them.* It is short enough to run on any
 act, and it is not a slogan: it names a direction, it names a before and an
 after, and it puts the burden on the one acting. The values of the house —
@@ -101,8 +103,8 @@ neither, it is not yours to take alone.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-002` | We build a game to work better | the values this sentence makes bind |
+| `PRI-002` | We build a game to work better | the values this sentence makes bind |
 | `STD-029` | How we treat each other in the commons | the conduct terms, with who enforces them |
-| `CAN-005` | Opening is an act | why a licence is a promise and silence does not declare |
-| `CAN-009` | The archive is the organisation | why an agent is a citizen, and where it stops |
+| `PRI-005` | Opening is an act | why a licence is a promise and silence does not declare |
+| `PRI-009` | The archive is the organisation | why an agent is a citizen, and where it stops |
 | `STD-022` | Secrets | what is never written, and what is rotated before it is recorded |
