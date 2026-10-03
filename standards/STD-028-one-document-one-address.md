@@ -2,19 +2,19 @@
 id: "STD-028"
 uid: ""
 title: "One document, one address"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-09-20T20:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Knowledge and quality"
 tags: [standards, urls, addresses, citation, publishing, Cool-URIs, RFC-6596, RFC-9110]
 license: "CC0-1.0"
-ratified_by: "ADR-047"
+approved_by: "ADR-047"
 related: ["STD-018", "STD-021", "STD-027", "STD-001", "STD-012"]
 derived_from: "CAN-009"
 ---
@@ -85,13 +85,13 @@ outside standard does, as well as what it obliges.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | URL-001 | The address is the series and the name | [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — ours adds: the exact shape `/<series>/<id>` | `machine/scripts/check-url-shape.mjs` — every built address against the series register |
 | URL-002 | The function is never in the address | [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — leave the subject out | `machine/scripts/check-url-shape.mjs` |
 | URL-004 | English is the address | — | `machine/scripts/check-url-shape.mjs` |
 | URL-003 | One address per document | [RFC 6596, the canonical link relation](https://www.rfc-editor.org/rfc/rfc6596) — ours is stricter: no duplicate is published at all | `machine/scripts/check-url-shape.mjs` — two addresses serving one document; `rel="canonical"` emitted by the site layout |
-| URL-005 | A retired address leads to the answer, or says it is gone | [RFC 9110, section 15.4.2, 301 Moved Permanently](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.2); [RFC 9110, section 15.5.11, 410 Gone](https://www.rfc-editor.org/rfc/rfc9110#section-15.5.11); [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI); holds retired GIT-046, GIT-047 and DEF-005, which said the same three times | `machine/scripts/check-url-shape.mjs` — a redirect to an index, and a redirect chain; `machine/scripts/check-url-lifecycle.mjs` — addresses that stopped being built, reported. Not yet: the site answers a removed address with 404, not 410 — debt |
+| URL-005 | A retired address leads to the answer, or says it is gone | [RFC 9110, section 15.4.2, 301 Moved Permanently](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.2); [RFC 9110, section 15.5.11, 410 Gone](https://www.rfc-editor.org/rfc/rfc9110#section-15.5.11); [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI); holds deprecated GIT-046, GIT-047 and DEF-005, which said the same three times | `machine/scripts/check-url-shape.mjs` — a redirect to an index, and a redirect chain; `machine/scripts/check-url-lifecycle.mjs` — addresses that stopped being built, reported. Not yet: the site answers a removed address with 404, not 410 — debt |
 | URL-006 | A citation is the name | — | by hand — prose, read in review |
 
 | In the reading | Exact form |

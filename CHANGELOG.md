@@ -18,6 +18,11 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-03
+- **Changed** The archive takes the industry's words (`ADR-067`, cut 1): `provenance` → `digital_source_type` (IPTC), `type_execution: digital · biological · hybrid` → `executor: agent · human · hybrid` (ISO/IEC 22989), `ratified_by` → `approved_by`, `frozen` → `on-hold`; `semaforo` deprecated; `STD-004` 4.13.0
+- **Changed** Every document of `standards/` is `type: standard`, strict to its folder; `documentation` stays for guides and references; `STD-001` 5.12.0 names the approval level and the template per series; *fond* is spelt *fonds*; *biological agent* reads *human* in every document
+- **Changed** Prose follows the industries: *instrument* → tooling, check and artifact (`STD-027` CLS-002); *mould* → template; *axis* → the normative documents; *plate* → rule ID; *guard* → check in prose (the folder and `npm run guards` wait for cut 5)
+- **Changed** *ring* → core and extension fields (`STD-004`); *threshold* → approval level (`STD-001`, `STD-017`, `STD-024`, `STD-027`); *retired* → deprecated for fields, rule IDs and values, *withdrawn* kept for documents
+- **Changed** `STD-026` 0.4.0: every word of the vocabulary audit has an entry, a renamed word keeps its former name after *Also*, and each entry names the convention it follows with its source; the Lexicon prints it (site v0.138.0)
 - **Changed** `territory` leaves the header; `section` takes its place with the ten sections of `STD-030` as its only values (`ADR-066`: *territory* is a faction's district); `STD-004` 4.12.0, the guard, the moulds, 255 records; the code calls a folder a series (site v0.137.0)
 - **Added** `STD-030` 0.4.1: the translator — sections of the front door, disciplines by guild, branch and house, business lines by faction, who decides; `web/src/lib/translator.mjs` reads it and nine tests hold it
 

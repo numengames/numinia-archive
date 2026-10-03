@@ -2,14 +2,14 @@
 title: "Platform ranks"
 id: "STD-003"
 uid: ""
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "3.2.7"
+version: "3.2.8"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -124,7 +124,7 @@ cannot live anywhere else.
 Each rule, its code, its source and its check. Then where the platform
 reads each rank from.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | RNK-001 | Ranks add up | [NIST role-based access control, role hierarchies](https://csrc.nist.gov/projects/role-based-access-control) | by hand: the permissions live in the platform's code, outside this archive; its test suite is the check |
 | RNK-002 | Rank is read, never declared | [OWASP ASVS 5.0, V8.3.1, authorization enforced at a trusted service layer](https://owasp.org/www-project-application-security-verification-standard/) | by hand: the platform's test suite |

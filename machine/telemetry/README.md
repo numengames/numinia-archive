@@ -3,9 +3,9 @@ id: "TELEMETRY-README"
 title: "machine/telemetry/ — what is here and how to read it"
 type: meta
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-02T17:55:00+02:00"
-updated: "2026-09-02T17:55:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 license: "CC0-1.0"
 ---
@@ -21,11 +21,11 @@ The one place this repository *states* figures about itself. Everything here is 
 
 | File | What | Who writes it |
 |---|---|---|
-| `latest.json` | Every figure: `value · unit · definition`, keyed `family.key`, with the `head`, `corpus_hash`, `measured_at` and `root_dirty` it was measured under | instrument |
-| `latest.md` | `latest.json` rendered — the only document that *asserts* corpus figures | instrument |
-| `docs.json` | One row per document of the corpus (path, series, status, apparatus, frozen, tokens) | instrument |
-| `history.jsonl` | One line per distinct `corpus_hash` ever measured on a clean tree; append-only, guarded by test | instrument |
-| `claims.json` | The verified register (D4 layer 2): claims found by reading, each with a locating quote; the instrument checks every quote each run → `open` · `resolved` · `moved`. Edited by people, never by the instrument | people |
+| `latest.json` | Every figure: `value · unit · definition`, keyed `family.key`, with the `head`, `corpus_hash`, `measured_at` and `root_dirty` it was measured under | the tooling |
+| `latest.md` | `latest.json` rendered — the only document that *asserts* corpus figures | the tooling |
+| `docs.json` | One row per document of the corpus (path, series, status, apparatus, frozen, tokens) | the tooling |
+| `history.jsonl` | One line per distinct `corpus_hash` ever measured on a clean tree; append-only, held by a test | the tooling |
+| `claims.json` | The verified register (D4 layer 2): claims found by reading, each with a locating quote; the tooling checks every quote each run → `open` · `resolved` · `moved`. Edited by people, never by the tooling | people |
 
 ## Run
 

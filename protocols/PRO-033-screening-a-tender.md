@@ -4,9 +4,9 @@ uid: ""
 title: "Screening a tender"
 type: protocol
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-10-01T17:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -93,7 +93,7 @@ receives the verdict.
    third fails, and a named partner fixes it by a named day. Decline: the
    second fails, the first with no partner, or the fourth is impossible —
    name the clause.
-8. **Bid or possible: open the record.** Kind `tender`, from the mould:
+8. **Bid or possible: open the record.** Kind `tender`, from the template:
    `read_from`, `object`, `file_ref`, the procedure, the call, the closing
    day, how it pays, and the criteria table, every row yes or check with
    its clause. The timeline: `found`, a line marked `read`, and a `next`

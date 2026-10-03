@@ -152,7 +152,7 @@ function summaryOf(body: string): string | null {
 /** Where this site serves a document, or null when it serves it nowhere. */
 function siteHref(rel: string): string | null {
   // Mirrors the corpus collection's own exclusions (content.config.ts): the
-  // manual's chapters are not published yet, and moulds and folder READMEs
+  // manual's chapters are not published yet, and templates and folder READMEs
   // never are. Those open in the repository instead of on a dead address.
   if (rel.startsWith("lore/game/manual/")) return null;
   if (/(^|\/)(README|INDEX|TEMPLATE)\.md$/.test(rel)) return null;
@@ -192,7 +192,7 @@ export function entries(): Entry[] {
     const raw = read(r.path);
     const body = bodyOf(raw);
     // A header-less file (the lore, the glossary) has no title of its own
-    // that reads well out of context — a mould opens with "TÍTULO DE LA
+    // that reads well out of context — a template opens with "TÍTULO DE LA
     // AVENTURA". The register's description of it does.
     const described = r.gives.replace(ALONGSIDE, "");
     return {

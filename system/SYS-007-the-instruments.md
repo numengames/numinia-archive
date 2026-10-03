@@ -1,16 +1,16 @@
 ---
 id: "SYS-007"
 uid: ""
-title: "The instruments: what checks, measures and moulds the archive"
+title: "The tooling: what checks, measures and templates the archive"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-21T18:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-tags: [system, reference, instruments, guards, tools, scripts, telemetry, templates]
+tags: [system, reference, tooling, checks, tools, scripts, telemetry, templates]
 section: "Technology"
 license: "CC0-1.0"
 related: ["STD-027", "STD-001", "STD-015", "SYS-003"]
@@ -21,14 +21,14 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# SYS-007 — The instruments
+# SYS-007 — The tooling
 
 > **Summary:** Everything under `machine/` — the five folders the
-> classification scheme lists as instruments: what each one is, what it
+> classification scheme lists as tooling: what each one is, what it
 > verifies or produces, how it is run, and where it is read.
 > **Epistemic:** Why a folder that appears in the classification has no
 > documents and no page of its own, and what it does instead.
-> **Pragmatic:** Find the instrument that checks a rule, and the command that
+> **Pragmatic:** Find the check that verifies a rule, and the command that
 > runs it, without opening the repository blind.
 > **Audience:** Agents · Oracles
 
@@ -42,8 +42,8 @@ SPDX-License-Identifier: CC0-1.0
 
 The five folders under `machine/` that `STD-027` classifies — `guards/`,
 `tools/`, `scripts/`, `telemetry/` and `templates/` — and `packages/`, which
-it does not. An instrument is a short-lived record that never binds (`STD-027`
-CLS-002): it carries no identifier, is kept only while current, and may be
+it does not. What a run of them leaves — an artifact — is a short-lived
+record that never binds (`STD-027` CLS-002): it carries no identifier, is kept only while current, and may be
 cited as evidence of what it measured, never as a rule. It is
 classified because the archive is classified by the activity that produced
 it, and *Verifying*, *Measuring* and *Templating* are activities of the
@@ -58,12 +58,12 @@ the CI workflow (`.github/workflows/`), which follow the platform they serve.
 
 ### `machine/guards/` — Verifying
 
-The rules, one file per standard, that run on every change. A guard is a
-module that declares the plates it speaks for and returns findings against
+The rules, one file per standard, that run on every change. A check is a
+module that declares the rule IDs it speaks for and returns findings against
 them; `guards/lib/guard.mjs` is the contract and the one place a finding is
 turned into a pass or a fail according to the standard's own state (a `draft`
 standard reports, an `active` one bites — `STD-015` ENG-067). Eight rule
-guards today, `std-004-the-header` through `std-021-evidence-and-citation`,
+checks today, `std-004-the-header` through `std-021-evidence-and-citation`,
 each named after the standard it enforces.
 
 Run: `npm run guards -- --rules` from the repository root.
@@ -71,7 +71,7 @@ Read: [machine/guards/](https://github.com/numengames/numinia-archive/tree/main/
 
 ### `machine/tools/` — Verifying
 
-Instruments an operator runs by hand, or CI runs against the repository's
+Tooling an operator runs by hand, or CI runs against the repository's
 own registers: `check-register` (does every `[AUTO]` cell of `STD-015` name a
 script that exists?), `check-deletable` (may this document be deleted?),
 `check-responsive` (the design system's web numbers, measured in a browser),
@@ -84,15 +84,15 @@ Read: [machine/tools/](https://github.com/numengames/numinia-archive/tree/main/m
 
 ### `machine/scripts/` — Verifying
 
-The build and CI scripts. `run-guards` runs the guards and says what ran.
-The build guards read `web/dist` after the site is built and verify the
+The build and CI scripts. `run-guards` runs the checks and says what ran.
+The build checks read `web/dist` after the site is built and verify the
 artefact, not the prose: `check-url-shape` (every address is
 `/<series>/<id>`, `STD-028`), `check-url-lifecycle` (which addresses a cut
 removed), `check-internal-links`, `check-orphan-content`, `check-templates`
 and `check-version-bump` (a change to the site must say what it changed).
-`telemetry` is the instrument that writes the next folder; `entities` walks
+`telemetry` is the script that writes the next folder; `entities` walks
 the entity cards. `blind-spots.json` is the registry: which scripts are
-guards, and what each is blind to.
+checks, and what each is blind to.
 
 Run: `npm run guards -- --build` after `cd web && npm run build`.
 Read: [machine/scripts/](https://github.com/numengames/numinia-archive/tree/main/machine/scripts)
@@ -114,15 +114,15 @@ Read: [machine/telemetry/](https://github.com/numengames/numinia-archive/tree/ma
 
 ### `machine/templates/` — Templating
 
-The moulds, one per kind of document — every series has one, and
+The templates, one per kind of document — every series has one, and
 `opportunities/` two (the record and its proposal). A
-document is copied from its mould, filled, and the guidance deleted; the
-mould's own `README.md` says how. `check-templates` holds the moulds to the
+document is copied from its template, filled, and the guidance deleted; the
+template's own `README.md` says how. `check-templates` holds the templates to the
 same header rules as the documents cut from them.
 
-Run: copy the mould to its series with the destination's own filename.
+Run: copy the template to its series with the destination's own filename.
 Read: [machine/templates/](https://github.com/numengames/numinia-archive/tree/main/machine/templates)
-· [/templates](/templates), every mould's header side by side
+· [/templates](/templates), every template's header side by side
 
 ### `machine/packages/` — not classified
 
@@ -147,7 +147,7 @@ build  check-url-shape
 …
 ```
 
-Every folder this manual names appears in the first listing; every guard it
+Every folder this manual names appears in the first listing; every check it
 names appears in the second. `node machine/tools/check-register.mjs` fails
 when an `[AUTO]` cell of `STD-015` names a script that is not in the tree —
 which is the same check, from the register's side.
@@ -156,9 +156,9 @@ which is the same check, from the register's side.
 
 ## 4. Accuracy
 
-Written from the tree and the scripts' own headers. The count of rule guards
-(eight) and the names of the build guards are the ones in
-`machine/scripts/blind-spots.json` on the date below; a guard added later
+Written from the tree and the scripts' own headers. The count of rule checks
+(eight) and the names of the build checks are the ones in
+`machine/scripts/blind-spots.json` on the date below; a check added later
 appears in `--list` before it appears here.
 
 **Verified against:** `main` at f8da4b0, on 2026-09-21.

@@ -2,12 +2,12 @@
 id: "STD-037"
 uid: ""
 title: "What every site carries"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.5.1"
+version: "0.5.2"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -76,7 +76,7 @@ and what it wants to have been.
 Each rule, its code, its source and its check. Then the footer and the card
 laid out, and the exact values. **Law** marks what a statute requires.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | SIT-001 | One house, one footer | [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 10 — **law**: the provider's identity reachable from every site; the version rule is ours and is not SemVer | `check-version-bump` in each site's CI, all four; the legal notice by hand |
 | SIT-002 | A link presents itself | [Open Graph protocol](https://ogp.me/): `og:title`, `og:type`, `og:image`, `og:url` required; WCAG 2.2 SC 2.4.2 Page Titled (A); [HTML `rel=icon`](https://html.spec.whatwg.org/multipage/links.html#rel-icon); scarab and 1200 × 630 card ours | `share-card --check` in each site's CI, all four: card size, icon, title, description and image; `og:type` and `og:url` not checked |

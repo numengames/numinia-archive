@@ -4,16 +4,16 @@ uid: ""
 title: "One identity, three forces"
 type: seminal
 status: draft
-version: "3.0.3"
+version: "3.0.4"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Brand and marketing"
 tags: [canon, seminal, brand, design, direction, forces, registers]
 license: "CC0-1.0"
-ratified_by: "ADR-061"
+approved_by: "ADR-061"
 supersedes_version: "2.0.0"
 related: ["CAN-002", "STD-008", "STD-023", "PRO-014", "BLU-009", "BLU-010"]
 ---
@@ -196,7 +196,7 @@ the dish.
 ## What this canon does not define
 
 Not one value: no hex, no size, no curve, no budget, no class name. Those are
-the design values register and the kit, where a guard verifies them and a
+the design values register and the kit, where a check verifies them and a
 change is traceable. How a piece is produced is a protocol; each surface has
 its own blueprint; the licence is the licensing standard's.
 

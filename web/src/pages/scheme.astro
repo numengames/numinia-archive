@@ -3,14 +3,14 @@
 // SPDX-License-Identifier: MIT
 //
 // /scheme — the classification in full: the vocabulary, the table of every
-// series, and the second fond.
+// series, and the second fonds.
 //
 // WHY THIS PAGE EXISTS
 // These three blocks were the bottom two thirds of the home. They are the
 // most convincing thing the archive has for a reader who is evaluating the
 // system — eighteen series, each with an address and a sentence saying what
 // it holds — and the worst possible first paragraph for a reader who has
-// just arrived and does not yet know what a fond is. A home that opens with
+// just arrived and does not yet know what a fonds is. A home that opens with
 // its own filing vocabulary teaches the plumbing before the house.
 //
 // So the home keeps the door and the six functions; the scheme keeps the
@@ -30,7 +30,7 @@ const n = counts();
 
 <Layout
   title="The scheme — NWOS"
-  description={`The classification of the archive in full: one fond, ${n.functions} functions, ${n.activities} activities and the ${n.series} series they produce.`}
+  description={`The classification of the archive in full: one fonds, ${n.functions} functions, ${n.activities} activities and the ${n.series} series they produce.`}
   canonicalPath="/scheme"
 >
   <PageHero
@@ -60,7 +60,7 @@ const n = counts();
       <div class="grid gap-4 grid-cols-2 sm:grid-cols-4 mb-12">
         <div class="rounded-[8px] border border-border bg-card p-5 text-center">
           <p class="font-display text-4xl text-foreground">1</p>
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Fond</p>
+          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mt-1">Fonds</p>
         </div>
         <div class="rounded-[8px] border border-accent/20 bg-accent/5 p-5 text-center">
           <p class="font-display text-4xl text-accent">{n.functions}</p>
@@ -79,7 +79,7 @@ const n = counts();
       <!-- The vocabulary. Four words, one sentence each. -->
       <div class="rounded-[8px] border border-border bg-card p-6 mb-12 max-w-[780px]">
         <p class="text-sm text-muted-foreground leading-relaxed">
-          A <strong class="text-foreground">fond</strong> is everything one producer generates — here,
+          A <strong class="text-foreground">fonds</strong> is everything one producer generates — here,
           Numen Games S.L. A <strong class="text-foreground">function</strong> is something the
           organisation does, named with a noun; an <strong class="text-foreground">activity</strong> is
           the verb under it; a <strong class="text-foreground">series</strong> is the folder of documents
@@ -129,7 +129,7 @@ const n = counts();
                         ? <a href={s.href} class="font-mono text-[0.65rem] text-accent hover:underline">{s.folder}</a>
                         : <span class="font-mono text-[0.65rem] text-dim">{s.folder}</span>}
                       {s.instrument && (
-                        <span class="ml-2 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-dim">instrument</span>
+                        <span class="ml-2 font-mono text-[0.5rem] uppercase tracking-[0.12em] text-dim">tooling</span>
                       )}
                     </td>
                     <td class="px-4 py-3 align-top text-xs text-muted-foreground leading-relaxed">
@@ -166,11 +166,11 @@ const n = counts();
         </p>
       </div>
 
-      <!-- The second fond -->
+      <!-- The second fonds -->
       <div class="rounded-[8px] border border-purple/20 bg-purple/5 p-6 max-w-[780px]">
-        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-purple mb-3">The second fond</p>
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-purple mb-3">The second fonds</p>
         <p class="text-sm text-muted-foreground leading-relaxed">
-          <a href="/lore/" class="font-mono text-xs text-foreground hover:text-accent">lore/</a> is recognised as a fond of its own:
+          <a href="/lore/" class="font-mono text-xs text-foreground hover:text-accent">lore/</a> is recognised as a fonds of its own:
           a different producer relationship and a different licence regime from the administrative corpus.
           It is listed in the scheme because the two fonds are read together, not because it belongs to the
           first. It is served here for reading, all rights reserved.

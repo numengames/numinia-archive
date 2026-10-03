@@ -12,18 +12,18 @@ priority: high
 effort: L
 guild: "Sentinels"
 section: "People and culture"
-type_execution: digital
+executor: agent
 assigned_to: null
 completed: null
 
 # REGISTRO — not consumed by the build, but every document in this archive
 # carries them (`STD-024`).
 type: mission
-version: "2.0.3"
+version: "2.0.4"
 created: "2026-09-02T09:40:00Z"
 created_source: "git:68bd5f1"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [ursa, bootstrap, context, hermes, onboarding, continuity, cold-start]

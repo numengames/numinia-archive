@@ -4,11 +4,11 @@
 //
 // check-templates.test.mjs — the template guard, proven.
 //
-// check-templates.mjs reads the moulds in machine/templates/ against five standards
+// check-templates.mjs reads the templates in machine/templates/ against five standards
 // (T-01…T-11). Until today no test loaded it: it was one of the twelve files
 // the coverage summary lists as "never loaded". A guard nobody tests can be
 // wrong in either direction — miss the defect it was written for, or fire on
-// a mould that is right — and a green run looks the same both ways.
+// a template that is right — and a green run looks the same both ways.
 //
 // Each test copies the tree the guard reads into a scratch git repository,
 // breaks ONE thing, runs the real script, and reads what it REPORTS. Not its
@@ -31,7 +31,7 @@ import { ROOT } from '../lib/frontmatter.mjs';
 
 const rmTree = (p) => rmSync(p, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 });
 
-/* Everything the guard reads: the moulds, the standards (T-11), the rules and
+/* Everything the guard reads: the templates, the standards (T-11), the rules and
    readers under machine/scripts/lib, LICENSES/ (T-04). A git repo, because the guard
    discovers files with `git ls-files`. */
 function scratch() {
@@ -71,18 +71,18 @@ const check = (name, fn) => test(name, () => {
 
 // ── the tree as committed ────────────────────────────────────────────────────
 
-check('the committed moulds hold every destination contract (every template, no finding)', (dir) => {
+check('the committed templates hold every destination contract (every template, no finding)', (dir) => {
   // The count is read from the folder, never typed: a new series brings a new
-  // mould, and a hand-typed "12" turned red the day legal/ opened.
-  const moulds = execFileSync('git', ['-C', ROOT, 'ls-files', 'machine/templates/*.md'], { encoding: 'utf8' })
+  // template, and a hand-typed "12" turned red the day legal/ opened.
+  const templates = execFileSync('git', ['-C', ROOT, 'ls-files', 'machine/templates/*.md'], { encoding: 'utf8' })
     .split('\n').filter((f) => f && !f.endsWith('/README.md')).length;
   const r = run(dir);
   assert.equal(r.code, 0, r.log);
-  assert.match(r.out, new RegExp(`${moulds} template\\(s\\) · every registered series covered · destination contracts hold`));
+  assert.match(r.out, new RegExp(`${templates} template\\(s\\) · every registered series covered · destination contracts hold`));
   assert.doesNotMatch(r.log, /T-\d\d /, `findings on the committed tree:\n${r.log}`);
 });
 
-// ── one mould, one defect, one T-code ────────────────────────────────────────
+// ── one template, one defect, one T-code ────────────────────────────────────────
 
 check('T-02: a file in machine/templates/ without .md is reported — every markdown tool is blind to it', (dir) => {
   renameSync(path.join(dir, 'machine/templates/DBT-TEMPLATE.md'), path.join(dir, 'machine/templates/DBT-TEMPLATE'));
@@ -96,12 +96,12 @@ check('T-02: a template that names no registered series is reported', (dir) => {
   assert.match(run(dir).log, /T-02 does not name a registered series.*\n\s+machine\/templates\/ZZZ-TEMPLATE\.md/);
 });
 
-check('T-01: a mould with no frontmatter is reported', (dir) => {
+check('T-01: a template with no frontmatter is reported', (dir) => {
   edit(dir, 'machine/templates/DBT-TEMPLATE.md', (t) => t.replace(/^---\n[\s\S]*?\n---\n/, ''));
   assert.match(run(dir).log, /T-01 no frontmatter.*\n\s+machine\/templates\/DBT-TEMPLATE\.md/);
 });
 
-check('T-01: a mould missing a ring-1 field teaches its absence', (dir) => {
+check('T-01: a template missing a ring-1 field teaches its absence', (dir) => {
   edit(dir, 'machine/templates/DBT-TEMPLATE.md', (t) => t.replace(/^title:.*\n/m, ''));
   assert.match(run(dir).log, /T-01 missing mandatory field "title"/);
 });
@@ -112,7 +112,7 @@ check('T-03: an inline `# comment` after a value is the D-009 shape', (dir) => {
 });
 
 check('T-04: a licence the repository ships no text for is reported', (dir) => {
-  // A folder has no licence (Oracle, 2026-09-24): the mould cannot be held to
+  // A folder has no licence (Oracle, 2026-09-24): the template cannot be held to
   // its destination's. What it can still get wrong is naming a licence the
   // repository cannot grant — LICENSES/ has no text for it.
   setFM(dir, 'machine/templates/DBT-TEMPLATE.md', 'license', '"GPL-3.0-only"');
@@ -139,7 +139,7 @@ check('T-08: a version that is not bare SemVer is reported', (dir) => {
   assert.match(run(dir).log, /T-08 version "v0\.1\.0" is not bare SemVer/);
 });
 
-check('T-08: a mould that opens above 0.1.0 is reported — a new artifact starts there (VER-021)', (dir) => {
+check('T-08: a template that opens above 0.1.0 is reported — a new artifact starts there (VER-021)', (dir) => {
   setFM(dir, 'machine/templates/DBT-TEMPLATE.md', 'version', '"1.0.0"');
   assert.match(run(dir).log, /T-08 version "1\.0\.0" — a new artifact opens at 0\.1\.0/);
 });
@@ -149,7 +149,7 @@ check('T-09: a context card without its Pragmatic line is reported', (dir) => {
   assert.match(run(dir).log, /T-09 context card has no \*\*Pragmatic:\*\* line/);
 });
 
-check('the companion (MIS-TEMPLATE-EXAMPLE) is a record, not a mould: destination checks do not apply', (dir) => {
+check('the companion (MIS-TEMPLATE-EXAMPLE) is a record, not a template: destination checks do not apply', (dir) => {
   // a filled example legitimately carries a real status and a real version
   setFM(dir, 'machine/templates/MIS-TEMPLATE-EXAMPLE.md', 'version', '"3.2.1"');
   const r = run(dir);
@@ -158,9 +158,9 @@ check('the companion (MIS-TEMPLATE-EXAMPLE) is a record, not a mould: destinatio
 
 // ── coverage of the series (T-10) and the standards' shape (T-11) ────────────
 
-check('T-10: a registered series with no mould is reported by the file it lacks', (dir) => {
+check('T-10: a registered series with no template is reported by the file it lacks', (dir) => {
   execFileSync('git', ['-C', dir, 'rm', '-q', 'machine/templates/DBT-TEMPLATE.md'], { stdio: 'ignore' });
-  assert.match(run(dir).log, /T-10 absent — debt\/ is a registered series with no mould.*\n\s+machine\/templates\/DBT-TEMPLATE\.md/);
+  assert.match(run(dir).log, /T-10 absent — debt\/ is a registered series with no template.*\n\s+machine\/templates\/DBT-TEMPLATE\.md/);
 });
 
 check('T-11: a standard that carries a log of itself is reported — git is the archive (ADR-041)', (dir) => {

@@ -4,16 +4,16 @@ uid: ""
 title: "What has value also makes a bond"
 type: seminal
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Finance"
 tags: [canon, seminal, economy, money, tokens, transparency]
 license: "CC0-1.0"
-ratified_by: "ADR-063"
+approved_by: "ADR-063"
 related: ["CAN-009", "CAN-010", "CAN-005", "CAN-004"]
 ---
 
@@ -34,7 +34,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Everyone
 
 **Binds:** whoever sets a price, takes a payment or keeps the account in
-Numinia's name, biological or digital.
+Numinia's name, human or digital.
 
 > This canon is a first statement, written in draft to be argued with. It
 > says why money works here the way it does; the rules a charge must meet

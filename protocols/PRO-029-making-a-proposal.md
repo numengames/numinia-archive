@@ -4,9 +4,9 @@ uid: ""
 title: "Making a proposal"
 type: protocol
 status: draft
-version: "0.4.1"
+version: "0.4.2"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -57,7 +57,7 @@ before it leaves, and sending it is the approval.
 ## 2. Preconditions
 
 - The sale's record at `qualified`, with what is known of who signs.
-- The proposal standard and its mould, with the other moulds of the archive (`STD-040`).
+- The proposal standard and its template, with the other templates of the archive (`STD-040`).
 - At least one earlier case the house may tell with the client unnamed;
   without one, step 4 will need a demonstration, and the Oracle decides
   whether to build it.
@@ -79,7 +79,7 @@ before it leaves, and sending it is the approval.
    where each is checked. The client must recognise their own procedure in
    it before anything else is written. The full design belongs to whoever
    builds; this is its first sketch.
-3. **Write the proposal from the mould.** The four things, in order:
+3. **Write the proposal from the template.** The four things, in order:
    objectives in the client's words; why us — the earlier case, who will
    facilitate, what the technology asks of the client; how it teaches and
    how it measures — the one-page map, the level agreed and its indicator,

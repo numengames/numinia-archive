@@ -64,7 +64,7 @@ document, not merely recognise it afterwards.
 
 ## 3. How to verify it
 
-The commands that prove the description is still true — the build, the guard,
+The commands that prove the description is still true — the build, the check,
 the health check, the query.
 
 ```

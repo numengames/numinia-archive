@@ -10,18 +10,18 @@ priority: high
 effort: S
 guild: "Sentinels"
 section: "Technology"
-type_execution: digital
+executor: agent
 assigned_to: null
 completed: null
 
 # REGISTRO — not consumed by the build, but every document in this archive
 # carries them (`STD-024`).
 type: mission
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-09-02T15:10:00Z"
 created_source: "git:db37686"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [debt, security, dependencies, dependabot, triage, DBT-007]

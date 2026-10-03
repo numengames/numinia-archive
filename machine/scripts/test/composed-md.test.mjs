@@ -46,7 +46,7 @@ id: "STD-001"
 ---
 # The series
 
-| Series | Holds | Prefix | Threshold | Budget | Mould |
+| Series | Holds | Prefix | Threshold | Budget | Template |
 |---|---|---|---|---|---|
 | \`canon/\` | what the system **is** | \`CAN-NNN\` | \`governed\` | 1500 | \`CAN-TEMPLATE.md\` |
 | \`missions/\` | the work | \`MIS-NNNN\` | \`closed\` | 500 | \`MIS-TEMPLATE.md\` |

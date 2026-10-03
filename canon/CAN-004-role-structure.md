@@ -4,18 +4,18 @@ uid: ""
 title: "You are what you are doing"
 type: seminal
 status: draft
-version: "4.0.4"
+version: "4.0.5"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "People and culture"
 tags: [canon, seminal, roles, guilds, factions, positions, attributes, ranks]
 license: "CC0-1.0"
-ratified_by: "ADR-057"
+approved_by: "ADR-057"
 supersedes_version: "3.0.0"
 absorbs: ["CAN-003"]
 related: ["CAN-001", "CAN-007", "STD-003", "STD-030"]

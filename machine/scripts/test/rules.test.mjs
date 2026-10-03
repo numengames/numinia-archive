@@ -43,13 +43,14 @@ check('rules.json: lax types are in types.all', () => rules.types.lax.every((t) 
 check('rules.json: status keys are types or _default', () =>
   Object.keys(rules.status).filter((k) => !k.startsWith('_')).every((t) => rules.types.all.includes(t)));
 /* The header and its fields are one standard (STD-004, which absorbed STD-016
-   on 2026-09-26); the rings are the Oracle's way of reading the fields and
-   MUST survive whole: identity, provenance, outside meaning, extension. */
+   on 2026-09-26); the core fields and the extension fields are the Oracle's
+   way of reading them and MUST survive whole: identity, origin, outside
+   meaning, extension. (Called rings until 2026-10-03; rings.mjs keeps the name.) */
 const HEADER_DOC = 'standards/STD-004-the-header.md';
-check('STD-004: the fields are described ring by ring, all three rings and their outside meaning', () => {
+check('STD-004: the fields are described list by list, the core fields, the extensions and their outside meaning', () => {
   const std = readFileSync(path.join(ROOT, HEADER_DOC), 'utf8');
-  const want = ['### Ring 1 — identity, every document', '### Ring 2 — provenance, every document that makes a claim',
-    '### Outside meaning', '### Ring 3 — extension by series', '### Vocabularies', '### Status lifecycles'];
+  const want = ['### Core fields 1 — identity, every document', '### Core fields 2 — origin, every document that makes a claim',
+    '### Outside meaning', '### Extension fields — by series', '### Vocabularies', '### Status lifecycles'];
   const missing = want.filter((h) => !std.includes(h));
   return missing.length === 0 || `missing: ${missing.join('; ')}`;
 });
@@ -73,17 +74,17 @@ check('rules.json: status mirrors the STD-004 lifecycle table', () => {
   if (!terminal.every((s) => want.mission.includes(s) || want._default.includes(s))) return `_terminal names a state no lifecycle declares: [${terminal}]`;
   return true;
 });
-check('rules.json: series thresholds mirror the STD-001 Series table', () => {
+check('rules.json: series approval levels (the threshold key) mirror the STD-001 Series table', () => {
   const std = readFileSync(path.join(ROOT, 'standards/STD-001-the-series.md'), 'utf8');
   const sect = std.slice(std.indexOf('## Series'), std.indexOf('## Genre'));
   const want = {};
-  // Columns: Series | Holds | Prefix | Threshold | …  (the function is STD-027's)
+  // Columns: Series | Holds | Prefix | Approval level | …  (the function is STD-027's)
   for (const m of sect.matchAll(/^\| `([a-z]+)\/` \|(?:[^|]*\|){2}\s*`?([a-z]+)`?[^|]*\|/gm)) want[m[1]] = m[2];
   const diff = seriesDirs(rules).filter((d) => want[d] !== rules.series[d].threshold).map((d) => `${d}: STD-001 ${want[d]} vs rules.json ${rules.series[d].threshold}`);
   return diff.length === 0 || diff.join('; ');
 });
-check('rules.json: no lifecycle list carries a retired state', () =>
-  !['closed', 'superseded'].some((s) => Object.entries(rules.status).some(([k, v]) => Array.isArray(v) && v.includes(s))));
+check('rules.json: no lifecycle list carries a deprecated state', () =>
+  !['closed', 'superseded', 'frozen'].some((s) => Object.entries(rules.status).some(([k, v]) => Array.isArray(v) && v.includes(s))));
 check('rules.json: governed dirs exist in the tracked tree', () => {
   const tracked = new Set(execFileSync('git', ['-C', ROOT, 'ls-files'], { encoding: 'utf8' }).split('\n').map((f) => f.split('/')[0]));
   const missing = rules.governed.dirs.filter((d) => !tracked.has(d));

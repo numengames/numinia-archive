@@ -19,7 +19,7 @@ Astro 7, `output: "static"`, no adapter — fully static, deployed to Cloudflare
 ## Commands (inside `web/`)
 
 - `npm run dev` — dev server at http://localhost:4321
-- `npm run build` — production build to `web/dist/`; runs the licence guard and the share-card generator first
+- `npm run build` — production build to `web/dist/`; runs the licence check and the share-card generator first
 - `npm run type-check` — `astro check`
 - `npm run check:responsive` — the responsive ratchet
 - Deploy: `npm run build`, then `npx wrangler deploy`. CI runs the build only.
@@ -28,7 +28,7 @@ There is no `build:pdf`. It was documented here and in `OPS-008` as part of the 
 
 ## Engineering standard
 
-`STD-005` is this repository's own operative standard, not a copy of anyone else's, and `PRO-016` is how it is applied to a task. Numinia is NWOS's first client: a practice is proven here and only then offered to `nwos-workspace-template` as a proposal other organisations may adopt and then govern themselves. There is no upstream — a change to `STD-005` is a local ADR and PR in `decisions/`, never routed elsewhere, and the mould's copy diverging is adoption, not drift (`OPS-002`, the contradictions register, records the ruling).
+`STD-005` is this repository's own operative standard, not a copy of anyone else's, and `PRO-016` is how it is applied to a task. Numinia is NWOS's first client: a practice is proven here and only then offered to `nwos-workspace-template` as a proposal other organisations may adopt and then govern themselves. There is no upstream — a change to `STD-005` is a local ADR and PR in `decisions/`, never routed elsewhere, and the template's copy diverging is adoption, not drift (`OPS-002`, the contradictions register, records the ruling).
 
 ## Licensing
 

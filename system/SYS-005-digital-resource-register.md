@@ -5,14 +5,14 @@ title: "Digital resources: the first CC0 intake"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-18T15:00:32Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 created_source: declared
 created_confidence: exact
 author: "ursa"
 owner: "oracle"
-provenance: ai-assisted
+digital_source_type: ai-assisted
 guild: "Alchemists"
 section: "Legal and compliance"
 license: "CC0-1.0"

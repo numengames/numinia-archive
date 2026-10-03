@@ -2,12 +2,12 @@
 id: "STD-047"
 uid: ""
 title: "The sales collateral"
-type: documentation
+type: standard
 subtype: register
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -52,7 +52,7 @@ piece is still made by hand.
 | `qualified` | One-page sheet | the deck in one page, to hand over at an event | the offer and the card | — | — | trial |
 | `qualified` | Ninety-second video | the demonstration walked in ninety seconds, for the follow-up | the offer's earlier case and its demonstration | no demonstration address | — | trial |
 | `analysed` | First-meeting script | what to show, and the questions the needs analysis must leave answered | the record's Need and `PRO-029` step 1 | — | — | trial |
-| `proposed` | Proposal | the four things a proposal says | the record's Need, the offer, the mould | a thing of the four is missing (`STD-040`) | `PRP-TEMPLATE.md` | works |
+| `proposed` | Proposal | the four things a proposal says | the record's Need, the offer, the template | a thing of the four is missing (`STD-040`) | `PRP-TEMPLATE.md` | works |
 | `proposed` | Follow-up e-mails | one line each, on the stage's cadence | the record's timeline | — | — | trial |
 | `agreed` | Agreement and papers | the agreement from the house's terms, and the certificates a public buyer asks | the proposal and the card | the decider's role is not known | — | trial |
 | `won` · `lost` | Hand-over and lessons | the need, the map and the scope to whoever builds; what the sale taught, to the offer | the record and the proposal | — | — | trial |

@@ -144,12 +144,12 @@ test('the record\'s own fields are exactly the ones the opportunities ring regis
   assert.deepEqual([...new Set(ring)].sort(), [...new Set([...own, ...proposal])].sort());
 });
 
-test('the mould names every field of the record, each with a comment', () => {
-  const mould = readFileSync(path.join(ROOT, 'machine/templates/OPP-TEMPLATE.md'), 'utf8');
-  const fm = mould.match(/^---\n([\s\S]*?)\n---/)[1];
-  for (const k of [...REQUIRED, ...WHEN_DUE]) assert.match(fm, new RegExp(`^#? ?${k}:`, 'm'), `the mould does not show \`${k}\``);
-  assert.match(mould, /^## Timeline$/m);
-  assert.doesNotMatch(fm, /^(state|next_action|next_date|closed|reason|chance):/m, 'the mould types nothing the tool computes');
+test('the template names every field of the record, each with a comment', () => {
+  const template = readFileSync(path.join(ROOT, 'machine/templates/OPP-TEMPLATE.md'), 'utf8');
+  const fm = template.match(/^---\n([\s\S]*?)\n---/)[1];
+  for (const k of [...REQUIRED, ...WHEN_DUE]) assert.match(fm, new RegExp(`^#? ?${k}:`, 'm'), `the template does not show \`${k}\``);
+  assert.match(template, /^## Timeline$/m);
+  assert.doesNotMatch(fm, /^(state|next_action|next_date|closed|reason|chance):/m, 'the template types nothing the tool computes');
 });
 
 /* ---- the timeline grammar ---- */

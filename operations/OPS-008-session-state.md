@@ -4,11 +4,11 @@ uid: ""
 title: "Session state — where to pick up"
 type: documentation
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-08-18T15:09:29Z"
 created_source: "git:7e0e0a9"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 section: "Operations"
@@ -70,10 +70,10 @@ the board are for). First step of any session: `git pull` and audit
   open**: review flags FLAG-2..6 and the scope mismatch (the texts
   govern www.numen.games).
 - **From the numinia-web agent (backlog, unassigned):** MIS-100 to
-  MIS-107 — branch protection, the mould passing its own checklist,
+  MIS-107 — branch protection, the template passing its own checklist,
   consumers pinning kit 5.1.0, the 17-repo inventory, the ghost
   Worker, **MIS-105 (sign the standards and define the sync — touches
-  G-12/MIS-096 directly)**, the retired name in the mould, and
+  G-12/MIS-096 directly)**, the retired name in the template, and
   numen.games ignoring its locale.
 
 ## 3. Technical state verified at close

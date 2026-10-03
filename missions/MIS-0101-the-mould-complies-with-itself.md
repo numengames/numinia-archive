@@ -1,23 +1,23 @@
 ---
 id: "MIS-101"
 uid: ""
-title: "The mould complies with itself: numinia-nwos meets its own checklist"
+title: "The template complies with itself: numinia-nwos meets its own checklist"
 status: todo
 priority: "high"
 effort: "M"
 guild: "Alchemists"
 section: "Technology"
-type_execution: "digital"
+executor: "agent"
 assigned_to: null
 started: null
 completed: null
 
 type: mission
-version: "1.2.3"
+version: "1.2.4"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -35,7 +35,7 @@ depends_on: []
 SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
-# MIS-101 — The mould complies with itself
+# MIS-101 — The template complies with itself
 
 > **Summary:** The repository that publishes the engineering standards is the
 > least compliant of the three. This mission closes that gap.

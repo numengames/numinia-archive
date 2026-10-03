@@ -2,19 +2,19 @@
 id: "STD-027"
 uid: ""
 title: "The archive is classified by function"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "0.7.1"
+version: "0.7.2"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Knowledge and quality"
 tags: [standards, classification, archive, functions, series, records-management]
 license: "CC0-1.0"
-ratified_by: "ADR-046"
+approved_by: "ADR-046"
 related: ["STD-001", "STD-024", "STD-012", "ADR-030", "SYS-003"]
 derived_from: "CAN-009"
 ---
@@ -58,14 +58,14 @@ business function. Functions are nouns and activities are verbs, so the
 scheme survives a reorganisation. A document MUST be filed in exactly one
 series, and its name names the series, never the function.
 
-**Instruments are short-lived records that never bind.** The records
+**Artifacts are short-lived records that never bind.** The records
 standard counts anything kept as evidence as a record, so a measurement or
-a check's output is one. An instrument carries no document name. It is kept
+a check's output is one. An artifact carries no document name. It is kept
 only while current, and the history holds the rest. It MAY be cited as
 evidence of what it measured, never as a rule.
 
-**Classification and threshold answer different questions.** A folder's
-function says which activity produced its records. Its threshold says what
+**Classification and approval level answer different questions.** A folder's
+function says which activity produced its records. Its approval level says what
 a change to them costs. Neither follows from the other, and a clash between
 them MUST NOT be treated as a defect.
 
@@ -79,11 +79,11 @@ first commit. A folder with no row is not a series, whatever it holds.
 Each rule, its code, its source and its check. Then the scheme as the site
 reads it, and what it rests on.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | CLS-001 | A function classifies; a series files | [ISO 15489-1:2016, classification](https://www.iso.org/standard/62542.html) (clause unverified) · [National Archives of Australia, developing a business classification scheme](https://www.naa.gov.au/information-management/describing-information/classifying-information/develop-business-or-records-classification-scheme); a name on the series, not the function, is ours | `machine/guards/rules/std-004-the-header.mjs` (`HDR-017`, folder against `type:`) |
-| CLS-002 | Instruments are short-lived records that never bind | [ISO 15489-1:2016, what a record is](https://www.iso.org/standard/62542.html), clause 3 (clause unverified); retention while current and no binding force are ours. Reversed in 0.2.0: it said instruments are not records and never evidence, which contradicted the standard and citing a file as evidence (`STD-021` CIT-052) | by hand — an instrument carrying an identifier, or cited as a rule, is caught in review |
-| CLS-003 | Classification and threshold answer different questions | — | by hand |
+| CLS-002 | Artifacts are short-lived records that never bind | [ISO 15489-1:2016, what a record is](https://www.iso.org/standard/62542.html), clause 3 (clause unverified); retention while current and no binding force are ours. Reversed in 0.2.0: it said they are not records and never evidence, which contradicted the standard and citing a file as evidence (`STD-021` CIT-052) | by hand — an artifact carrying an identifier, or cited as a rule, is caught in review |
+| CLS-003 | Classification and approval level answer different questions | — | by hand |
 | CLS-004 | A new folder declares its function first | [National Archives of Australia, all records belong to a function and activity](https://www.naa.gov.au/information-management/describing-information/classifying-information/develop-business-or-records-classification-scheme); before the first commit is ours | partly: the site build fails when a section it serves is not in the scheme (`web/src/pages/[section].astro`); a new unserved folder, by hand |
 
 The scheme, one producer: **Numen Games S.L.** The site and the URL checker
@@ -111,7 +111,8 @@ read this table; its shape is their contract.
 | | Templating | `machine/templates/` |
 
 Outside the scheme: `web/`, a lens onto the archive, and `machine/packages/`,
-a distributable. Instruments live under `machine/`.
+a distributable. The tooling and its artifacts live under `machine/`
+(called *instruments* until 2026-10-03).
 
 | What the scheme rests on | What it gives |
 |---|---|
@@ -129,7 +130,7 @@ hierarchy; classification by subject; classification by organisational unit.
 
 A folder tells you where to look. A function tells you why the record
 exists. Because a name follows the folder and not the function, the scheme
-can be redrawn without breaking a single citation. An instrument is
+can be redrawn without breaking a single citation. An artifact is
 evidence of what it measured, and nothing more: a rule binds, a reading
 reports. The scheme comes from archival practice; we did not invent it.
 
@@ -138,5 +139,5 @@ reports. The scheme comes from archival practice; we did not invent it.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-001` | The series | which series exist, and the table this scheme groups |
-| `STD-024` | A series is a function | what a series obliges, and its thresholds |
+| `STD-024` | A series is a function | what a series obliges, and its approval levels |
 | `STD-012` | The corpus does not grow | how long records are kept |

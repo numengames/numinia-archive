@@ -52,7 +52,7 @@ Each folder answers one question.
 | [`operations/`](operations/) · [`legal/`](legal/) · [`opportunities/`](opportunities/) | What **sustains** the business |
 | [`objects/`](objects/) | Cards for registered things that are not documents; the bytes live in `numinia-assets` |
 | [`system/`](system/) | How the machine is **wired** |
-| [`machine/`](machine/) | The **instruments**: guards, tools, scripts, moulds, telemetry. They are tools, not rules |
+| [`machine/`](machine/) | The **tooling**: checks, tools, scripts, templates, telemetry. They are tools, not rules |
 | [`web/`](web/) | The site that serves **numinia.org** |
 
 ---
@@ -75,7 +75,7 @@ here.
 ## What a machine checks
 
 On every push, [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs the
-guards in [`machine/guards/`](machine/guards/) (headers, identifiers,
+checks in [`machine/guards/`](machine/guards/) (headers, identifiers,
 versions, licences, citations), the test suites and the site build, so a
 change that breaks numinia.org fails before it merges. Everything else is
 checked by a person reading the pull request.

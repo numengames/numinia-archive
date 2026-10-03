@@ -56,7 +56,7 @@ export interface DigitalAgent {
   bio?: string;
 }
 
-export interface BiologicalAgent {
+export interface HumanAgent {
   name: string;
   role: string;
 }
@@ -141,7 +141,7 @@ const PRESENTATION: Record<
     quote: "A control nobody verifies is a rumour with a ticket number.",
     stats: [["Vigilance", "S+"], ["Rigour", "S"], ["Trust", "C"]],
     specialties: ["CI/CD", "Safeguards", "Automation integrity", "Control verification", "Operational assurance"],
-    bio: "Talos guards the machinery. He checks that the pipelines, guards and safeguards the archive claims to run actually run — and says so plainly when they do not.",
+    bio: "Talos guards the machinery. He checks that the pipelines, checks and safeguards the archive claims to run actually run — and says so plainly when they do not.",
   },
   metis: {
     color: "var(--ink-ceniza)", mark: "◐", className: "Counsel",
@@ -242,9 +242,9 @@ export function digitalAgents(): DigitalAgent[] {
  * rule as the digital side: the archive states it, the page reads it — and
  * the build fails rather than publish a roster that names nobody.
  */
-export function biologicalAgents(): BiologicalAgent[] {
+export function humanAgents(): HumanAgent[] {
   const lines = read(INDEX).split("\n");
-  const out: BiologicalAgent[] = [];
+  const out: HumanAgent[] = [];
   let inOracles = false;
 
   for (const line of lines) {
@@ -261,7 +261,7 @@ export function biologicalAgents(): BiologicalAgent[] {
   if (out.length === 0) {
     throw new Error(
       `${INDEX}: the "Name | Role" table under "## Oracles" did not parse. ` +
-        `web/src/lib/agents.ts reads it for the biological roster.`,
+        `web/src/lib/agents.ts reads it for the human roster.`,
     );
   }
   return out;

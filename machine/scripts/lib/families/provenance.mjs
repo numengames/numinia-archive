@@ -54,7 +54,7 @@ function history() {
 const LLM_RE = /(claude|gpt|opus|sonnet|fable|gemini|llm)/i;
 const AI_PERSONAS = new Set(['ursa', 'nimrod', 'senet', 'adonaz', 'procurador-01', 'centinela-01', 'procyon', 'khepri', 'alquimista']);
 const HUMANS = new Set(['pablo-fm', 'pablofm', 'oracle', 'pablo']);
-const ORACLE_SET = new Set(['done', 'frozen', 'cancelled', 'backlog']);
+const ORACLE_SET = new Set(['done', 'on-hold', 'frozen', 'cancelled', 'backlog']);
 const PLACEHOLDER_RE = /TODO|TBD|FIXME|\{\{|<.*>|xxx/i;
 const norm = (v) => String(v ?? '').trim().toLowerCase().replace(/^["']|["']$/g, '');
 

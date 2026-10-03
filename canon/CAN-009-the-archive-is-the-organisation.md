@@ -4,16 +4,16 @@ uid: ""
 title: "The archive is the organisation"
 type: seminal
 status: draft
-version: "1.0.4"
+version: "1.0.5"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Strategy and governance"
 tags: [canon, seminal, archive, work, agents, memory, git]
 license: "CC0-1.0"
-ratified_by: "ADR-059"
+approved_by: "ADR-059"
 related: ["CAN-001", "CAN-004", "STD-006", "STD-020", "STD-024", "STD-009", "STD-012"]
 ---
 
@@ -35,7 +35,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Everyone
 
 **Binds:** every document of this archive, every change to it, and whoever —
-biological or digital — works from it.
+human or digital — works from it.
 
 ---
 
@@ -69,7 +69,7 @@ That is the whole of authority here. No document holds power over another
 by saying so. Cost of change is written down and anyone can check it; a
 claim of precedence is not, and is void.
 
-## Only what lives in the axis obliges
+## Only the normative documents oblige
 
 Three kinds of document oblige: canon says why, a standard says what an
 artefact must satisfy, a protocol says how an actor carries something out.
@@ -91,7 +91,7 @@ alternatives; a rule is a document with the check that verifies it. Anything
 that happened and left no change is a conversation, and conversations are
 not memory.
 
-Because the text is what changes, the text is also what is checked. Guards
+Because the text is what changes, the text is also what is checked. Checks
 read the repository and say where it disagrees with its own rules; nothing
 is judged by whether it looks right to whoever last opened it. And because
 every record has a written exit, the archive does not grow: it rolls up, and

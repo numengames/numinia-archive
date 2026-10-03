@@ -115,7 +115,7 @@ export const SEGMENTS: Segment[] = [
     E("The sales playbook", "Each stage of a sale, the protocol that moves it, what it hands over", "/playbook"),
     E("The Lexicon", "The words we work with, A to Z, one page per letter", "/lexicon"),
     E("Brand and culture", "Who we are, what we believe, how we look, sound and live", "/brand"),
-    E("Templates", "The mould of every document type, headers side by side", "/templates"),
+    E("Templates", "The template of every document type, headers side by side", "/templates"),
     E("The repository", "README, contributing, changelog, security", null),
   ] },
   { id: "world-play", ring: "world", district: "play", word: "Game", title: "Play · its world", a: [0, 90], entries: [
@@ -127,7 +127,7 @@ export const SEGMENTS: Segment[] = [
     E("World", "The city, its districts, its species", "/lore/#world", "lore/world"),
   ] },
   { id: "world-order", ring: "world", district: "order", word: "Agents", title: "Organise · its world", a: [180, 270], entries: [
-    E("Agents", "Biological and digital: who does the work", "/agent", "agents"),
+    E("Agents", "Humans and digital agents: who does the work", "/agent", "agents"),
     E("Agents' index", "Every agent's file: its role, its operator, its sources", "/agents"),
   ] },
   { id: "world-make", ring: "world", district: "make", word: "Objects", title: "Collect · its world", a: [270, 360], entries: [

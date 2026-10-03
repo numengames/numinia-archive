@@ -176,7 +176,7 @@ test('the switches: kinds with their counts, three views, Timeline by default', 
   // the template link, at the bottom of the panel area
   const tl = openingTags(built, /<a ([^>]*\bid="pq-new"[^>]*)>/g);
   assert.equal(tl.length, 1, 'one link to open a new opportunity');
-  assert.equal(tl[0].attrs.href, '/templates#opp', 'it points at the opportunity mould on /templates');
+  assert.equal(tl[0].attrs.href, '/templates#opp', 'it points at the opportunity template on /templates');
   if (existsSync(BUILT_TEMPLATES)) assert.match(readFileSync(BUILT_TEMPLATES, 'utf8'), /id="opp"/, '/templates has the #opp anchor');
   assert.ok(tl[0].index > panels[panels.length - 1].index, 'below the panels');
 });

@@ -75,7 +75,7 @@ An entry with no reproducible evidence is a suspicion. Suspicions are legitimate
 The single sentence that, when true, closes this entry. Written as a test,
 not as an intention.
 
-> **Closes when:** the condition, stated so a guard or a human can check it
+> **Closes when:** the condition, stated so a check or a human can check it
 > without re-reading this document.
 
 "Closes when the docs are improved" closes nothing. "Closes when
@@ -101,7 +101,7 @@ was wrong is the point.
 `visibility` fails closed: an entry with no field, or with anything other than
 `public`, does not publish on the web. Set it deliberately.
 
-`absorbs` is load-bearing: the reference guard reads it to keep a merged
+`absorbs` is load-bearing: the reference check reads it to keep a merged
 entry's original identifiers resolving. Consolidating debt without it breaks
 every citation of the entries it swallowed.
 

@@ -4,7 +4,7 @@
 // Agent roster — an editorial RPG-style directory for the Numinia organization.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
-import { digitalAgents, biologicalAgents } from "@/lib/agents";
+import { digitalAgents, humanAgents } from "@/lib/agents";
 
 // The roster is no longer written here. `agents/INDEX.md` owns it and
 // @/lib/agents reads that table at build time — see the note at the top of
@@ -12,7 +12,7 @@ import { digitalAgents, biologicalAgents } from "@/lib/agents";
 // for seventeen days). What stays here is layout; what an agent IS lives in
 // the archive.
 const agents = digitalAgents();
-const oracles = biologicalAgents();
+const oracles = humanAgents();
 
 // The filter buckets. A category is a reading of the roster, not a fact about
 // the agent, so it belongs on this page — but unlike the old array it is keyed
@@ -25,13 +25,13 @@ const CATEGORY: Record<string, string> = {
 };
 ---
 
-<Layout title="The Agents — Numinia" description="Meet the biological and digital agents that make Numinia work." canonicalPath="/agent" activeNav="agents/">
+<Layout title="The Agents — Numinia" description="Meet the humans and the digital agents that make Numinia work." canonicalPath="/agent" activeNav="agents/">
   <div class="agents-page">
     <section class="agents-hero">
       <div class="agents-hero-copy">
         <p class="eyebrow"><span class="pulse"></span> NUMINIA / ORGANIZATIONAL ROSTER / 01</p>
         <h1>The people<br /><em>behind the work.</em></h1>
-        <p class="hero-lede">Numinia is a living system of biological judgment and digital capability. These are the agents who give it memory, momentum and shape.</p>
+        <p class="hero-lede">Numinia is a living system of human judgment and digital capability. These are the agents who give it memory, momentum and shape.</p>
         <div class="hero-actions">
           <a href="#digital" class="roster-button">Explore the roster <span>↓</span></a>
           <span class="hero-note">{agents.length} digital agents · {oracles.length} Oracles · 1 shared mission</span>
@@ -39,20 +39,20 @@ const CATEGORY: Record<string, string> = {
       </div>
       <div class="hero-sigil" aria-hidden="true">
         <div class="sigil-orbit orbit-a"></div><div class="sigil-orbit orbit-b"></div><div class="sigil-core">N</div>
-        <span class="sigil-label label-top">BIOLOGICAL<br />JUDGMENT</span><span class="sigil-label label-bottom">DIGITAL<br />CAPABILITY</span>
+        <span class="sigil-label label-top">HUMAN<br />JUDGMENT</span><span class="sigil-label label-bottom">DIGITAL<br />CAPABILITY</span>
       </div>
     </section>
 
-    <section class="human-panel" id="biological">
-      <div class="section-index">00 <span></span> THE BIOLOGICAL AGENTS</div>
+    <section class="human-panel" id="humans">
+      <div class="section-index">00 <span></span> THE HUMANS</div>
       <div class="human-grid">
         <div><h2>The Oracles<br /><em>set the direction.</em></h2></div>
-        <div class="human-copy"><p>Biological agents are the people who bring authority, intuition and lived context to the system. They decide, approve, notice what the documents cannot, and give the work a reason to matter.</p><p class="mono-small">The digital roster does not replace this layer. It makes its judgment more legible, more repeatable and easier to act on.</p><a href="/canon/can-004-role-structure" class="text-link">Read the role structure <span>↗</span></a></div>
+        <div class="human-copy"><p>The humans are the people who bring authority, intuition and lived context to the system. They decide, approve, notice what the documents cannot, and give the work a reason to matter.</p><p class="mono-small">The digital roster does not replace this layer. It makes its judgment more legible, more repeatable and easier to act on.</p><a href="/canon/can-004-role-structure" class="text-link">Read the role structure <span>↗</span></a></div>
       </div>
       {/*
         THE ORACLES, BY NAME.
 
-        This section used to describe the biological layer in the abstract and
+        This section used to describe the human layer in the abstract and
         name not one person, while CAN-002 has carried the table of who they
         are all along. A roster that lists ten digital agents by name and
         leaves the humans as a concept has its emphasis backwards — so the

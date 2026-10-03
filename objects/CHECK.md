@@ -9,7 +9,7 @@ updated: "2026-10-03T19:40:00+02:00"
 license: "CC0-1.0"
 author: "machine/scripts/entities.mjs"
 section: "Knowledge and quality"
-provenance: ai-generated
+digital_source_type: ai-generated
 ---
 
 # Copy check — 2026-09-20 at 35b217f

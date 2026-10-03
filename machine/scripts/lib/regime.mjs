@@ -11,8 +11,8 @@
 //
 // HOW A PLATE FINDS ITS HOLDER
 // ----------------------------
-// Every rule in the axis is written once, in bold, as `**XXX-NNN — Title.**`
-// inside one canon, standard or protocol. This module scans the axis for
+// Every rule of the normative documents is written once, in bold, as `**XXX-NNN — Title.**`
+// inside one canon, standard or protocol. This module scans the normative documents for
 // those definitions. A plate cited by a guard resolves to the document that
 // defines it; a plate that no document defines but whose PREFIX one document
 // owns resolves to that document (a guard may check a rule the standard
@@ -63,7 +63,7 @@ export function platesIn(body) {
   return out;
 }
 
-/** Scan the axis once: plate -> holder, prefix -> holder, holder -> status. */
+/** Scan the normative documents once: plate -> holder, prefix -> holder, holder -> status. */
 export function loadHolders(root = ROOT) {
   if (_index) return _index;
   const files = execFileSync('git', ['ls-files', ...AXIS.map((d) => `${d}/*.md`)], { cwd: root, encoding: 'utf8' })
@@ -92,7 +92,7 @@ export function loadHolders(root = ROOT) {
   return _index;
 }
 
-/** The document that holds `plate`, or null when nothing in the axis does. */
+/** The document that holds `plate`, or null when no normative document does. */
 export function holderOf(plate, index = loadHolders()) {
   if (!PLATE.test(plate)) return null;
   if (index.byPlate.has(plate)) return index.byPlate.get(plate);
@@ -144,7 +144,7 @@ export class Findings {
   finish({ exit = (code) => process.exit(code), ok = 'all hold.' } = {}) {
     const { log } = this;
     for (const [key, b] of this.holders()) {
-      if (!b.holder) log.log(`  ${key} — no holder in the axis: reporting only (ENG-066)`);
+      if (!b.holder) log.log(`  ${key} — no holder among the normative documents: reporting only (ENG-066)`);
       else log.log(`  ${b.holder} (\`${b.status}\`) — ${b.binds ? 'ENFORCING' : 'reporting only'}`);
     }
     const hard = this.enforced;

@@ -3,9 +3,9 @@ agent: kairos
 title: "SOURCES — Kairos"
 type: agent
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-10-02T12:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -65,7 +65,7 @@ opportunity, their stages, and *Weighing a tender*, the chance scale.
 ## Where found opportunities are kept
 
 `opportunities/` — every opportunity the house has accepted, one record
-each (`standards/STD-039-an-opportunity-has-a-record.md`), moulded on
+each (`standards/STD-039-an-opportunity-has-a-record.md`), modelled on
 `machine/templates/OPP-TEMPLATE.md` and checked by
 `machine/packages/sales-kit/pipeline.mjs`. A watch skips what is already
 here. The published view is `/system/pipeline` on numinia.org.

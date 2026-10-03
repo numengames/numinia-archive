@@ -98,7 +98,7 @@ test('every plate a guard declares is held by one standard', async () => {
   const { holderOf } = await import('../../scripts/lib/regime.mjs');
   for (const file of guards) {
     const mod = await import(pathToFileURL(path.join(RULES, file)).href);
-    for (const p of mod.meta.plates) assert.ok(holderOf(p), `${file}: ${p} has no holder in the axis`);
+    for (const p of mod.meta.plates) assert.ok(holderOf(p), `${file}: ${p} has no holder among the normative documents`);
   }
 });
 

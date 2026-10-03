@@ -2,12 +2,12 @@
 id: "STD-042"
 uid: ""
 title: "What an agent may do without asking"
-type: documentation
+type: standard
 subtype: register
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-29T12:30:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -68,7 +68,7 @@ table says so.
 |---|---|---|---|---|
 | 1 | clone, read files, see pull requests and history | nothing: they are public | nobody: they are public | — |
 | 2 | create files and clones in its working folder | use disk | Hermes, without asking | — |
-| 3 | run npm, node, tests, builds, guards | install packages, use network and disk; a malicious script in a dependency | Hermes: today it asks often | OWASP agentic: supply chain |
+| 3 | run npm, node, tests, builds, checks | install packages, use network and disk; a malicious script in a dependency | Hermes: today it asks often | OWASP agentic: supply chain |
 | 4 | search, read pages and documentation | a page slipping it instructions | Hermes, with filters | OWASP agentic: goal hijack |
 | 5 | act as its own GitHub account | the token leaking into a log | the profile; house rule: never print it | OWASP agentic: identity and privilege abuse |
 | 6 | prepare the work with a history | nothing outside its desk | Hermes | — |

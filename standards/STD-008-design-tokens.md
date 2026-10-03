@@ -2,12 +2,12 @@
 id: "STD-008"
 uid: ""
 title: "Design tokens"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "10.0.7"
+version: "10.0.8"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -102,7 +102,7 @@ standard on what every site carries.
 Each rule, its code, its source and its check. Then the exact values the rules
 point at. **Law** marks what a statute requires.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | DSN-001 | The palette is closed | — (ours) | by hand: the value lookup in step 3 of `PRO-014` |
 | DSN-002 | Type is served by us | [CSS Fonts 4, `font-synthesis`](https://www.w3.org/TR/css-fonts-4/#font-synthesis-prop); [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 6 — **law**: a visitor's IP sent to a third-party font host needs a legal basis | by hand: the `PRO-014` checklist; no check reads `font-synthesis: none` yet |

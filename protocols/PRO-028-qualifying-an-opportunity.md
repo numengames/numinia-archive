@@ -4,9 +4,9 @@ uid: ""
 title: "Qualifying an opportunity"
 type: protocol
 status: draft
-version: "0.6.1"
+version: "0.6.2"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -56,7 +56,7 @@ and decides. A public tender is screened by `PRO-033`, a grant by
 
 ## 2. Preconditions
 
-- The opportunities series, public, and the record's mould.
+- The opportunities series, public, and the record's template.
 - The record of the offer this would sell, published; without one, a sale
   has nothing to qualify against.
 - The register of the stages of an opportunity at hand: the kinds, their
@@ -67,7 +67,7 @@ and decides. A public tender is screened by `PRO-033`, a grant by
 
 ## 3. Procedure
 
-1. **Open the record, that day.** Copy the mould; set the kind — `sale`,
+1. **Open the record, that day.** Copy the template; set the kind — `sale`,
    `collaboration` or `partner` — and fill the organisation by sector and
    size, the source, the value, how it pays, the contact's role and
    channel, and what they said in their words. The timeline opens with one

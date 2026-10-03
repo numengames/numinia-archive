@@ -2,12 +2,12 @@
 id: "STD-038"
 uid: ""
 title: "The stages of an opportunity"
-type: documentation
+type: standard
 subtype: register
 status: draft
-version: "0.9.1"
+version: "0.9.2"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

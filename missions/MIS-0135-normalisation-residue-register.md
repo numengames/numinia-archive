@@ -8,16 +8,16 @@ priority: high
 effort: M
 guild: "Sentinels"
 section: "Knowledge and quality"
-type_execution: hybrid
+executor: hybrid
 assigned_to: "ursa"
 completed: null
 
 type: mission
-version: "1.1.4"
+version: "1.1.5"
 created: "2026-09-02T02:10:00+02:00"
 created_source: declared
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 requested_by: "oracle"

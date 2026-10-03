@@ -83,7 +83,7 @@ export interface Series {
   readonly instrument: boolean;
 }
 
-/** One function (noun) of the fond. */
+/** One function (noun) of the fonds. */
 export interface Fn {
   /** "Governance" */
   readonly name: string;
@@ -137,7 +137,7 @@ const SERVED_AT: Record<string, { href: string | null; label?: string; unpublish
   "lore/": { href: "/lore/" },
   "machine/guards/": {
     href: "/system/sys-007-the-instruments#machineguards--verifying",
-    label: "Guards",
+    label: "Checks",
     unpublished: "A short-lived record that never binds — the rules that run on every change; read in the repository, explained in the manual.",
   },
   "machine/tools/": {
@@ -157,7 +157,7 @@ const SERVED_AT: Record<string, { href: string | null; label?: string; unpublish
   "machine/templates/": {
     href: "/templates",
     label: "Templates",
-    unpublished: "A short-lived record that never binds — the moulds a document is cut from; shown side by side, headers compared.",
+    unpublished: "A short-lived record that never binds — the templates a document is cut from; shown side by side, headers compared.",
   },
 };
 
@@ -189,12 +189,12 @@ function labelOf(folder: string): string {
   return seg.charAt(0).toUpperCase() + seg.slice(1);
 }
 
-/** STD-001's series register: folder -> what it holds, its prefix, its threshold. */
+/** STD-001's series register: folder -> what it holds, its prefix, its approval level (the `threshold` key). */
 function seriesRegister(): Map<string, { holds: string; prefix: string; threshold: string }> {
   const out = new Map<string, { holds: string; prefix: string; threshold: string }>();
   for (const line of read(STD_001).split("\n")) {
     const c = cells(line);
-    // | Series | Holds | Prefix | Threshold | Budget | Mould |
+    // | Series | Holds | Prefix | Approval level | Budget | Template |
     if (!c || c.length < 4) continue;
     const folder = plain(c[0]);
     if (!folder.endsWith("/")) continue;
@@ -301,7 +301,7 @@ function parseScheme(): Fn[] {
 
 let _cache: Fn[] | null = null;
 
-/** The six functions of the fond, in the order STD-027 writes them. */
+/** The six functions of the fonds, in the order STD-027 writes them. */
 export function functions(): Fn[] {
   if (!_cache) _cache = parseScheme();
   return _cache;

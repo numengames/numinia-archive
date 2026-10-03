@@ -19,7 +19,7 @@ applies_to: [all-agents]
 
 # OPTIONAL — use when they apply, omit without guilt.
 # mandatory: true                   # execution is not discretionary
-# ratified_by: "ADR-NNN"            # the decision that made this binding
+# approved_by: "ADR-NNN"            # the decision that made this binding
 # supersedes_version: "1.2.0"       # the version of THIS protocol replaced
 # review_next: "YYYY-MM-DD"         # when this procedure is due for re-reading
 # guild: "Sentinels"
@@ -80,7 +80,7 @@ How the executor proves the procedure ran — not that they believe it ran.
 
 | Step | Evidence it completed |
 |---|---|
-| 1 | The command's exit code, the file's existence, the guard that passes |
+| 1 | The command's exit code, the file's existence, the check that passes |
 
 A protocol whose completion cannot be shown is an instruction, not a protocol.
 

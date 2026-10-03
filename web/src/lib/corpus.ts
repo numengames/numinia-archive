@@ -248,7 +248,7 @@ export const SERIES: SeriesPage[] = [
     epistemic: "What the archive holds that is not a document, and where its bytes actually live.",
     pragmatic: "Find a thing, know its licence, and follow it to the depot that stores it.",
   },
-  // Lore — the second fond (ADR-046). CC0-1.0 since 2026-09-24, like the
+  // Lore — the second fonds (ADR-046). CC0-1.0 since 2026-09-24, like the
   // rest of the corpus; only the names and marks (TRADEMARKS.md) are kept.
   // Last on purpose: everything above governs how the archive works, and this
   // is the thing the archive was built to hold.
@@ -266,7 +266,7 @@ export const SERIES: SeriesPage[] = [
 //               their own typed collection and their index is the board at
 //               /missions (MIS-115 redesigns it). What remains under
 //               missions/ in the corpus is ANNEX-mission-selection-draft (the
-//               moulds moved to machine/templates/, shown at /templates). It
+//               templates moved to machine/templates/, shown at /templates). It
 //               describes how missions are
 //               written; they are not a browsable family of their own, and
 //               listing them as "Missions" beside a board of 111 would be a
@@ -429,7 +429,7 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
     line: "To act is to write. This is how you write so that someone else finds it and believes it.",
     // The life of a document, outside in: which shelves exist and why → where
     // it goes → what its header declares → the shape of its page → the two
-    // moulds with their own standard → its name and address → how it changes
+    // templates with their own standard → its name and address → how it changes
     // → how it proves what it says → which claim wins → how it leaves.
     hrefs: [
       "/standards/std-001-the-series",
@@ -782,7 +782,7 @@ export const READING_NOTE: Record<string, string> = {
   standards: "Five shelves, from the person to the ground: living together, writing it down, showing it, what leaves the house, and what makes it last. Under each title, the one question that standard answers.",
   protocols: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
   blueprints: "What does not exist yet, in the order you would have to argue it: the words the system has to speak, then how anyone could tell it is working — and then the recipes, one per medium, for how a piece of it should look.",
-  system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the instruments that check those shelves.",
+  system: "Not what we plan to build — what is running. Widest first: what the system is, then the whole machine, then the loop a single agent works inside, then the shelves everything it produces lands on, and last the tooling that checks those shelves.",
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
   opportunities: "Every chance to sell something, in the order it was opened: who (by sector, until they agree), at which stage, and what happens next.",
   operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, what it offers, and the handling of keys.",

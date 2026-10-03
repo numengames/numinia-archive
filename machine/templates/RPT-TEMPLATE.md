@@ -26,7 +26,7 @@ visibility: "public"
 # severity: high                    # for an audit that grades what it found
 # period: "2026-08"                 # the window observed, if not a single day
 # scope: "what was and was not examined"
-# evidence_script: "machine/scripts/<name>.mjs"   # the instrument that produced the figures
+# evidence_script: "machine/scripts/<name>.mjs"   # the script that produced the figures
 # evidence_head: "<sha>"                  # the commit the figures were measured at
 # model: "the model that wrote it"        # for a machine-authored report
 # agent: "agent-id"
@@ -42,7 +42,7 @@ visibility: "public"
 > **Pragmatic:** Evidence other documents may cite.
 > **Audience:** Agents · Oracles
 
-<!-- Title: state the finding, not the exercise. "Nine guards certify a corpus
+<!-- Title: state the finding, not the exercise. "Nine checks certify a corpus
      three of them cannot read" — not "CI audit". -->
 
 ---
@@ -51,7 +51,7 @@ visibility: "public"
 
 What was examined, what was deliberately not, and how it was measured.
 
-Name the instrument: the command, the script, the commit. A finding whose
+Name the tooling: the command, the script, the commit. A finding whose
 method is not stated cannot be re-run, and a report that cannot be re-run is
 an opinion with a date on it.
 

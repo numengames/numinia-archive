@@ -4,11 +4,11 @@ uid: ""
 title: "Pending contradictions — register"
 type: documentation
 status: active
-version: "1.3.1"
+version: "1.3.2"
 created: "2026-08-17T20:00:17Z"
 created_source: "git:8b72b9b"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -92,7 +92,7 @@ entry moves to the "Resolved" section with the decision and its date.
 
 - **Detected:** 2026-08-18 (the Oracle, on the MIS-095 draft)
 - **Source A:** `STD-005` (then `standards/STD-005-engineering-standards`) §7.1 and header —
-  numinia-nwos and «any workspace generated from the mould» are
+  numinia-nwos and «any workspace generated from the template» are
   **downstream forks** that «receive this document through the fork
   relationship»; the sync mechanism is left open but the authority is
   taken for granted: what is written upstream applies downstream
@@ -105,14 +105,14 @@ entry moves to the "Resolved" section with the decision and its date.
 - **Detail:** the design error slipped into the MIS-095 draft, which
   proposed writing a practice upstream «so it applies to all the
   webs». Corrected there. It pairs with **CON-003** (provenance: the
-  document says numinia-nwos is a fork of the mould when it is the
+  document says numinia-nwos is a fork of the template when it is the
   source) and with the doctrine that the canon is not copied (it
   is pinned) — which had already resolved this pattern for the Design
   System and had not been applied to the standards themselves.
 - **What is missing:** version the original NWOS and define the
   sovereign-adoption model (MIS-096). The §7.1 part was resolved in
   **ADR-001 (formerly ADR-003)** (2026-08-20): it does not go upstream because there is
-  no upstream — the correction is local and the mould is **offered**
+  no upstream — the correction is local and the template is **offered**
   it (MIS-108).
 
 ## Resolved
@@ -137,7 +137,7 @@ entry moves to the "Resolved" section with the decision and its date.
 
 - **Detected:** 2026-08-17 (adoption of the standard)
 - **Source A:** `STD-005` (then `standards/STD-005-engineering-standards`) §Downstream and
-  §7.1 — claims that `numengames/numinia-nwos` "is a fork of the mould"
+  §7.1 — claims that `numengames/numinia-nwos` "is a fork of the template"
   (`numen-games-nwos-orgs/nwos-workspace-template`) and receives the
   document through the fork relationship.
 - **Source B:** the ecosystem's operational canon — numinia-nwos IS
@@ -149,7 +149,7 @@ entry moves to the "Resolved" section with the decision and its date.
 - **Decision:** it was not a falsehood, it was a **register confusion**
   between two distinct artifacts. `STD-005` (then `STD-005-engineering-standards`)
   **originates here**: Numinia is NWOS's first client and its proving
-  ground. The mould's copy is a **starting proposal** that binds
+  ground. The template's copy is a **starting proposal** that binds
   nobody and becomes governed by whoever adopts it (sovereignty of derived repos, `STD-005` §1 and `PRO-016`). They are
   not the same document; the identical bytes were a coincidence of
   youth, not dependency. The divergence is adoption, not drift, and it

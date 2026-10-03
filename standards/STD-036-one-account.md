@@ -2,12 +2,12 @@
 id: "STD-036"
 uid: ""
 title: "One account"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "0.3.2"
+version: "0.3.3"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
@@ -101,7 +101,7 @@ years they support: four years as a rule, up to ten for tax credits.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | LED-001 | One ledger | law: [PGC PYMES, RD 1515/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-19966) likely, rather than the full [PGC, RD 1514/2007](https://www.boe.es/buscar/act.php?id=BOE-A-2007-19884) — the gestoría confirms; group 62 services, 64 staff | by hand at each month's close; `web/src/lib/books.ts` reads the lines; `/system/open-books` computes every view from them |
 | LED-002 | Same figures, four views | — | `web/src/lib/books.ts` and `/system/open-books` render every view from one set of lines; every download, for any period, is cut from the same lines by `web/src/lib/exports.ts` (`machine/scripts/test/open-books-exports.test.mjs`: twelve months add up to their year, the whole span to every line) |

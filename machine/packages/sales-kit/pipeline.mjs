@@ -106,7 +106,7 @@ const ONLY_PLATE = { gives_back: 'OPP-002', call: 'OPP-012', closes: 'OPP-012', 
    imported, so the kit runs outside this repository; a test holds it equal
    to machine/scripts/lib/rings.mjs. */
 export const COMMON = ['title', 'type', 'status', 'version', 'created', 'updated',
-  'author', 'owner', 'provenance', 'created_source', 'created_confidence', 'requested_by',
+  'author', 'owner', 'digital_source_type', 'created_source', 'created_confidence', 'requested_by',
   'supersedes', 'superseded_by', 'derived_from',
   'tags', 'visibility', 'guild', 'section', 'registration', 'registration_reason',
   'registration_exemption', 'evidence_script', 'evidence_head', 'related', 'uid'];
@@ -542,7 +542,7 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
   return bad;
 }
 
-/** Read every OPP-*.md in `folder` into records (proposals, README and moulds skipped). */
+/** Read every OPP-*.md in `folder` into records (proposals, README and templates skipped). */
 export function readFolder(folder) {
   return readdirSync(folder).filter((f) => /^OPP-.*\.md$/.test(f)).sort().map((f) => {
     const file = path.join(folder, f);
@@ -586,7 +586,7 @@ export function validateProposal(file, text, named = []) {
   if (!LEVELS.includes(fm.level)) F('PRP-003', `level "${fm.level}" is not one of ${LEVELS.join(' · ')}`);
   if (!NUMBER.test(fm.tax_rate ?? '')) F('PRP-004', 'no tax rate in the header');
   if (!NUMBER.test(fm.price ?? '')) F('PRP-004', 'no price in the header');
-  if (/…/.test(body.slice(body.indexOf('## The three questions')))) F('PRP-006', 'the three questions still hold the mould\'s ellipsis');
+  if (/…/.test(body.slice(body.indexOf('## The three questions')))) F('PRP-006', 'the three questions still hold the template\'s ellipsis');
   /* OPP-006 holds for a proposal too: it is public like its record */
   if (EMAIL_RE.test(text)) F('OPP-006', 'an e-mail address is in the proposal — a person is identified');
   for (const n of personNames(text, named)) F('OPP-006', `"${n}" reads as a person's name — write the role; only the card's "Who may be named" passes`);

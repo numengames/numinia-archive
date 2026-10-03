@@ -49,8 +49,8 @@ import { COMPANY, CAPITAL_STEPS, ACTS, ORGANS, bormeUrl } from "@/data/company";
 import { RINGS, RING_ORDER, DISTRICTS, SEGMENTS, LENSES, INTENTS, TO_CREATE } from "@/lib/summa";
 import { coreFlow, type CoreDoc, type CoreCanon } from "@/lib/core";
 import { pipeline as salesPipeline, decidingRows, PIPELINE_SOURCES, CARD_URL, TEMPLATE_URL, KIND_LABEL, KIND_PLURAL, STEP_LABEL, recordUrl } from "@/lib/pipeline";
-import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
-import { settings as configSettings, MOULDS as CONFIG_MOULDS, CONFIG_INTRO } from "@/lib/configuration";
+import { templates as templateList, matrix as templateMatrix, makes as templateMakes, ELSEWHERE as TEMPLATES_ELSEWHERE, TEMPLATES_SOURCES } from "@/lib/templates";
+import { settings as configSettings, TEMPLATES as CONFIG_TEMPLATES, CONFIG_INTRO } from "@/lib/configuration";
 import { playbookMarkdown, PLAYBOOK_SOURCES } from "@/lib/playbook";
 import { lexicon, LEXICON_SOURCE } from "@/lib/lexicon";
 import { brandMarkdown, BRAND_SOURCES } from "@/lib/brand-book";
@@ -121,7 +121,7 @@ export function schemePage(): ComposedPage {
         rows.push([
           fn.name,
           act.name,
-          `\`${s.folder}\`${s.instrument ? " *(instrument)*" : ""}`,
+          `\`${s.folder}\`${s.instrument ? " *(tooling)*" : ""}`,
           s.holds || s.note || "",
         ]);
       }
@@ -135,14 +135,14 @@ export function schemePage(): ComposedPage {
     "Every series the archive keeps, the activity that fills it and the function",
     "it answers to.",
     "",
-    `- **1** fond`,
+    `- **1** fonds`,
     `- **${n.functions}** functions`,
     `- **${n.activities}** activities`,
     `- **${n.series}** series, of which **${n.published}** have an address on this site`,
     "",
     "## The vocabulary",
     "",
-    "A **fond** is everything one producer generates. A **function** is something",
+    "A **fonds** is everything one producer generates. A **function** is something",
     "the organisation does, named with a noun; an **activity** is the verb under",
     "it; a **series** is the folder of documents that activity produces. The",
     "identifier of a document names its series and never its function, so",
@@ -163,9 +163,9 @@ export function schemePage(): ComposedPage {
     "alternative — holding work private until it is perfect — is how an organisation",
     "ends up not knowing itself, which is the thing this archive exists against.",
     "",
-    "## The second fond",
+    "## The second fonds",
     "",
-    "`lore/` is recognised as a fond of its own: a different producer relationship",
+    "`lore/` is recognised as a fonds of its own: a different producer relationship",
     "and a different licence regime from the administrative corpus. It is listed",
     "in the scheme because the two fonds are read together, not because it belongs",
     "to the first. It is served for reading, all rights reserved.",
@@ -352,7 +352,7 @@ export function homePage(): ComposedPage {
     "parts. So which rules are in force today, and block? `/binding` — the standing",
     "instruction word for word, and the state of every rule, counted. What is broken",
     "is in `/debt/`; what changed is in `/updates/`; what can",
-    "be counted is in `/telemetry`, measured by an instrument and never typed.",
+    "be counted is in `/telemetry`, measured by the tooling and never typed.",
     "",
     "**What can you do with it?** Read all of it — every page is a rendering of a",
     "real file, and every page hands you that file to copy, download or open where",
@@ -441,7 +441,7 @@ export function mapPage(): ComposedPage {
   return { route: "", filename: "home.md", sources: [SCHEME_DOC, SERIES_DOC], body };
 }
 
-/** `/archive/<function>` — one function of the fond. */
+/** `/archive/<function>` — one function of the fonds. */
 export function functionPage(slug: string): ComposedPage {
   const fn = functions().find((f) => f.slug === slug);
   if (!fn) {
@@ -454,7 +454,7 @@ export function functionPage(slug: string): ComposedPage {
   const rows = fn.activities.flatMap((act) =>
     act.series.map((s) => [
       act.name,
-      `\`${s.folder}\`${s.instrument ? " *(instrument)*" : ""}`,
+      `\`${s.folder}\`${s.instrument ? " *(tooling)*" : ""}`,
       s.holds || s.note || "",
       s.href ?? "not served here",
     ]),
@@ -468,7 +468,7 @@ export function functionPage(slug: string): ComposedPage {
     preamble([SCHEME_DOC, SERIES_DOC]),
     `# ${fn.name}`,
     "",
-    `A function of the fond: ${fn.activities.length} ` +
+    `A function of the fonds: ${fn.activities.length} ` +
       `${fn.activities.length === 1 ? "activity" : "activities"}, and the series they produce.`,
     "",
     "## Activities and series",
@@ -921,21 +921,21 @@ export function coreCanonPage(slug: string): ComposedPage {
  * Every composed page, for the routes that serve them and for the guard that
  * checks none is forgotten.
  */
-/** `/templates` — every mould, and every header field of every mould. */
+/** `/templates` — every template, and every header field of every template. */
 export function templatesPage(): ComposedPage {
-  const ms = templateMoulds();
+  const ms = templateList();
   const rows = templateMatrix(ms);
   const mark = (c: string | null) => (c === "filled" ? "●" : c === "optional" ? "○" : " ");
   const body = [
     "# Templates",
     "",
-    `The ${ms.length} moulds every document of the archive is copied from, and their headers side by side. ● the mould writes the field, to be filled; ○ it offers it commented, to add when it applies; blank, it does not know it.`,
+    `The ${ms.length} templates every document of the archive is copied from, and their headers side by side. ● the template writes the field, to be filled; ○ it offers it commented, to add when it applies; blank, it does not know it.`,
     "",
-    "## The moulds",
+    "## The templates",
     "",
-    table(["Mould", "Makes", "Copy to", "Type"], ms.map((m) => [`\`${m.file}\``, templateMakes(m.prefix), `\`${m.destination}\``, `\`${m.type}\``])),
+    table(["Template", "Makes", "Copy to", "Type"], ms.map((m) => [`\`${m.file}\``, templateMakes(m.prefix), `\`${m.destination}\``, `\`${m.type}\``])),
     "",
-    "## Every header field, every mould",
+    "## Every header field, every template",
     "",
     `| Field | ${ms.map((m) => m.prefix).join(" | ")} | Registered for |`,
     `|---|${ms.map(() => ":-:").join("|")}|---|`,
@@ -944,16 +944,16 @@ export function templatesPage(): ComposedPage {
     ...ms.flatMap((m) => [
       `## ${m.prefix} — ${templateMakes(m.prefix)}`,
       "",
-      `Copy to \`${m.destination}\`. Title, as the mould teaches it: *${m.titleHint}*`,
+      `Copy to \`${m.destination}\`. Title, as the template teaches it: *${m.titleHint}*`,
       "",
       ...m.fields.map((f) => `- \`${f.name}\`${f.kind === "optional" ? " (optional)" : ""}${f.note ? ` — ${f.note}` : ""}`),
-      ...(m.outOfOrder ? ["", `Writes the common header in another order than the other moulds: ${m.outOfOrder.join(" · ")}.`] : []),
-      ...(m.unoffered.length ? ["", `Registered for this series and not in the mould: ${m.unoffered.map((k) => `\`${k}\``).join(", ")}.`] : []),
+      ...(m.outOfOrder ? ["", `Writes the common header in another order than the other templates: ${m.outOfOrder.join(" · ")}.`] : []),
+      ...(m.unoffered.length ? ["", `Registered for this series and not in the template: ${m.unoffered.map((k) => `\`${k}\``).join(", ")}.`] : []),
       "",
-      m.sections.length ? `Body: ${m.sections.join(" · ")}.` : "Body: prose, guided by the notes in the mould.",
+      m.sections.length ? `Body: ${m.sections.join(" · ")}.` : "Body: prose, guided by the notes in the template.",
       "",
     ]),
-    "## Moulds that live elsewhere",
+    "## Templates that live elsewhere",
     "",
     ...TEMPLATES_ELSEWHERE.map((e) => `- \`${e.path}\` — ${e.makes}. ${e.why}.`),
     "",
@@ -963,7 +963,7 @@ export function templatesPage(): ComposedPage {
 
 /** `/configure` — the settings of NWOS, gathered, from @/lib/configuration. */
 export function configurePage(): ComposedPage {
-  const sources = ["web/src/lib/configuration.ts", ...CONFIG_MOULDS.map((m) => m.file)];
+  const sources = ["web/src/lib/configuration.ts", ...CONFIG_TEMPLATES.map((m) => m.file)];
   const body = [
     preamble(sources),
     "# Configure NWOS",
@@ -977,9 +977,9 @@ export function configurePage(): ComposedPage {
     ...configSettings().flatMap((s) => [`### ${s.label}`, "", s.line, ""]),
     "## Building a new agent",
     "",
-    "A new agent starts as a copy of these moulds:",
+    "A new agent starts as a copy of these templates:",
     "",
-    ...CONFIG_MOULDS.map((m) => `- [${m.label}](${m.href}) — ${m.line}. \`${m.file}\``),
+    ...CONFIG_TEMPLATES.map((m) => `- [${m.label}](${m.href}) — ${m.line}. \`${m.file}\``),
     "",
   ].join("\n");
   return { route: "/configure", filename: "numinia-configure.md", sources, body };
@@ -997,6 +997,7 @@ function lexiconEntry(t: ReturnType<typeof lexicon>[number]["terms"][number]): s
   if (t.levels) lines.push(`- **At each level:** L1 ${t.levels[0]} · L2 ${t.levels[1]} · L3 ${t.levels[2]}`);
   if (t.also) lines.push(`- **Also:** ${t.also}`);
   if (t.game) lines.push(`- **In the game:** ${t.game}`);
+  if (t.convention) lines.push(`- **Convention:** ${t.convention}`);
   return lines.join("\n") + "\n";
 }
 /** /brand — the brand and culture book, read from its canons and records. */

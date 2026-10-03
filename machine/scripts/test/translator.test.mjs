@@ -103,7 +103,7 @@ test('who decides: every document it cites exists', () => {
 
 test('header: every record carries exactly one section, and it is one of the ten', () => {
   // The series folders carry a header ring; lore/, web/ and machine/ do not
-  // (the header guard's OUTWARD), and the moulds show a placeholder value.
+  // (the header guard's OUTWARD), and the templates show a placeholder value.
   const names = new Set(sections().map((r) => r.Section));
   const files = execFileSync('git', ['ls-files', '*.md'], { cwd: ROOT, encoding: 'utf8' }).split('\n')
     .filter((f) => /\//.test(f) && !/^(web|machine|lore|home|\.github|LICENSES)\//.test(f) && !/\/(README|_template\/.*)\.md$/.test(f));

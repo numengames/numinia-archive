@@ -39,7 +39,7 @@ export const PIPELINE_SOURCES = [
 ];
 
 export const CARD_URL = "/operations/ops-018-the-house-card";
-/** Where the site shows the opportunity mould (machine/templates/OPP-TEMPLATE.md): its section on /templates. */
+/** Where the site shows the opportunity template (machine/templates/OPP-TEMPLATE.md): its section on /templates. */
 export const TEMPLATE_URL = "/templates#opp";
 
 /** The card's rows that decide most calls, in the card's own order (OPS-018 § What decides most calls). */

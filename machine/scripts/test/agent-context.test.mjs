@@ -146,7 +146,7 @@ test('CLAUDE.md is an adapter, not a second copy of the licensing standard', () 
 // ---------------------------------------------------------------------------
 // CONTRIBUTING.md — the first door an outsider opens
 // ---------------------------------------------------------------------------
-// It named a protocol that was renamed long ago, a mould path without its
+// It named a protocol that was renamed long ago, a template path without its
 // extension and a STATUS.md no agent keeps, and it told readers the canon is
 // never modified while AGENTS.md says canon changes go through the operator
 // in chat. A newcomer reads this file first; it may not contradict the tree

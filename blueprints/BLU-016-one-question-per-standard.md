@@ -4,9 +4,9 @@ uid: ""
 title: "One question per standard"
 type: blueprint
 status: draft
-version: "0.12.2"
+version: "0.12.3"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [blueprint, standards, one-question, DITA, external]
@@ -51,7 +51,7 @@ change went too, since the changelog and git hold it; and the footer, the share 
 The fourth made the header and its fields one standard, the fields still
 read ring by ring. The fifth left the design values holding values, with the
 recipes in a protocol. The sixth closed the last rows: the engineering
-baseline, renamed *When a rule bites*, now holds the guards and the shared
+baseline, renamed *When a rule bites*, now holds the checks and the shared
 pipeline, and the practices it also carried became rows of the engineering
 checks, or rules of Secrets and of Git is the archive; the design system's
 map moved to the system shelf as a manual, since nothing in it binds. No row
@@ -87,7 +87,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-001` | Which series exist, and what is each for? | — |
 | `STD-003` | What may each rank do on the platform? | — |
 | `STD-004` | What is a correct header? | — |
-| `STD-005` | When does a rule bite, and how do the guards come to run? | — |
+| `STD-005` | When does a rule bite, and how do the checks come to run? | — |
 | `STD-006` | What is the archive made of? | — |
 | `STD-007` | What shape does a document take? | — |
 | `STD-008` | What can a design piece fail an audit on? | — |
@@ -167,7 +167,7 @@ any standard whose only use would be a badge.
 
 ## Cost and risk
 
-Each split or merge moves plates and rewrites citations, which the guards
+Each split or merge moves rule IDs and rewrites citations, which the checks
 check; the cost is a careful afternoon per row. The risk of stopping is a
 shelf where the same rule is said three times and drifts apart. The
 cheaper alternative, a word budget alone, was rejected: a short document

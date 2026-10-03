@@ -3,9 +3,9 @@ agent: metis
 title: "SOURCES — Metis"
 type: agent
 status: draft
-version: "0.3.1"
+version: "0.3.2"
 created: "2026-09-28T18:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -67,7 +67,7 @@ are wired today and which are not.
 `opportunities/` — every opportunity and its proposals.
 
 `machine/templates/OPP-TEMPLATE.md` and `PRP-TEMPLATE.md` — the one record
-mould for every kind, and the proposal mould. `machine/packages/sales-kit/pipeline.mjs` — the tool that
+template for every kind, and the proposal template. `machine/packages/sales-kit/pipeline.mjs` — the tool that
 checks the records and computes the pipeline.
 The published view is `/system/pipeline` on numinia.org.
 

@@ -4,9 +4,9 @@ uid: ""
 title: "Applying for a grant"
 type: protocol
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -72,7 +72,7 @@ subsidies) or published, and a watch (`PRO-035`) or a person brings it.
    it pays, the score needed — each with what the call asks, what the card
    says, and yes or check. A row that fails: no record; the lesson goes to
    the card.
-2. **Open the record when the call is foreseen.** From the mould, kind
+2. **Open the record when the call is foreseen.** From the template, kind
    `grant`: the funder by name, the instrument, the most the house could
    receive as the value, how it pays and the share in advance, the call's
    address and where it was read, the expected days — `estimated: yes`

@@ -170,7 +170,7 @@ created: "2026-09-20T08:00:00Z"
 updated: "2026-09-20T08:00:00Z"
 license: "CC0-1.0"
 entity: agent
-type_execution: digital
+executor: agent
 forms:
   - role: soul
     format: markdown

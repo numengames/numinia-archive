@@ -2,19 +2,19 @@
 id: "STD-007"
 uid: ""
 title: "One page per document"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "2.2.2"
+version: "2.2.3"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
 license: "CC0-1.0"
-tags: [standards, writing, form, plates, budget, BCP-14, ISO-IEC-Directives, DITA]
+tags: [standards, writing, form, rule-ids, budget, BCP-14, ISO-IEC-Directives, DITA]
 derived_from: "CAN-009"
-ratified_by: "ADR-043"
+approved_by: "ADR-043"
 supersedes_version: "0.3.0"
 ---
 
@@ -30,7 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > check and the reason. The body fits its shelf's budget. Size limits are
 > SHOULD; form is MUST.
 > **Epistemic:** What shape does a document take?
-> **Pragmatic:** The mould to copy, the budgets to aim at, and what the
+> **Pragmatic:** The template to copy, the budgets to aim at, and what the
 > shape check reports on every change.
 > **Audience:** Agents · Oracles
 
@@ -65,8 +65,8 @@ be one obligation, with one capitalised obligation word and a code of three
 letters and three digits. The code is unique, never reused, and sits in the
 rule's title or the check table. A protocol holds no rules: it is numbered
 steps, and the rules its steps apply live in the standards it cites. Requirements engineering asks exactly
-this, so each rule can be cited, tested and traced alone. A retired code
-moves from the check table to the ledger of retired codes, which says where
+this, so each rule can be cited, tested and traced alone. A deprecated code
+moves from the check table to the ledger of deprecated codes, which says where
 its obligation went.
 
 **Obligation words mean one thing.** MUST, SHOULD and MAY, and their
@@ -114,14 +114,14 @@ for each of its thirteen rules.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | DOC-001 | The title states the rule | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD: counted, reported, never handed to the regime |
 | DOC-002 | The card is three short paragraphs | — | `machine/guards/rules/std-007-one-page.mjs` — a missing part binds by this standard's state (`ENG-067`); length is a SHOULD |
 | DOC-012 | One document, one question | [DITA 1.3, the topic as the basic unit of information](https://docs.oasis-open.org/dita/dita/v1.3/os/part2-tech-content/archSpec/base/topicdefined.html): short enough to answer a single question — ours adds: the question is the epistemic line; merge or split | by hand, at the pull request; the map in `BLU-016` records each standard's question |
 | DOC-003 | Scope is one line | [ISO/IEC Directives, Part 2 (2021), clause 14, Scope](https://www.iso.org/sites/directives/current/part2/index.xhtml) — ours adds: 15 words | `machine/guards/rules/std-007-one-page.mjs`; `machine/guards/test/std-007-one-page.test.mjs` |
-| DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the plate `AAA-NNN` | `machine/guards/rules/std-007-one-page.mjs` — a plate in a rule title or the Check table's first column (`platesIn`) |
-| DOC-013 | Obligation words mean one thing | [BCP 14](https://www.rfc-editor.org/info/bcp14) = [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) + [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) (capitals only); holds retired HDR-046 | by hand, at review |
+| DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the rule ID `AAA-NNN` | `machine/guards/rules/std-007-one-page.mjs` — a rule ID in a rule title or the Check table's first column (`platesIn`) |
+| DOC-013 | Obligation words mean one thing | [BCP 14](https://www.rfc-editor.org/info/bcp14) = [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) + [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) (capitals only); holds deprecated HDR-046 | by hand, at review |
 | DOC-005 | The reason is short | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
 | DOC-006 | The body fits its budget | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
 | DOC-007 | Few, necessary references | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
@@ -144,4 +144,4 @@ it. Codes wait at the foot, where no narrator stumbles on them.
 | ID | Name | Why cited |
 |---|---|---|
 | `STD-004` | The header | the card and the fields above the body |
-| `STD-021` | Evidence and citation | its section-citation plate now reads this rule |
+| `STD-021` | Evidence and citation | its section-citation rule ID now reads this rule |

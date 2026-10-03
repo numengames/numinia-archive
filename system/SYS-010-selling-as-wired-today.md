@@ -5,9 +5,9 @@ title: "Selling, as wired today"
 type: documentation
 subtype: reference
 status: active
-version: "0.7.1"
+version: "0.7.2"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, sales, pipeline, records, tenders, grants]
@@ -60,7 +60,7 @@ Building what was sold is outside this document.
 | **The steps** | qualifying, proposing, closing a sale; screening and bidding for a tender; applying for a grant | `protocols/PRO-028`, `PRO-029`, `PRO-030`, `PRO-033`, `PRO-031`, `PRO-032` | wired, in draft |
 | **The offer record** | what Training is, delivers, costs | `operations/OPS-012` | wired, in draft; one record per offer as others are written |
 | **The house's card** | what calls usually ask, what the house holds, what would unlock each gap; the turnover ceiling and what the house does not make, read by the tool | `operations/OPS-018` | wired, in draft |
-| **The moulds** | one record for every kind, a proposal — every document's header and card, then the opportunity's fields | `machine/templates/OPP-TEMPLATE.md`, `PRP-TEMPLATE.md` | wired; checked with every other mould |
+| **The templates** | one record for every kind, a proposal — every document's header and card, then the opportunity's fields | `machine/templates/OPP-TEMPLATE.md`, `PRP-TEMPLATE.md` | wired; checked with every other template |
 | **The tool** | validation; the stage, the next step and the chance computed from each record's timeline and criteria; the pipeline figures | `machine/packages/sales-kit/pipeline.mjs` | wired; runs by hand on any folder |
 | **The records** | one file per opportunity of any kind, its timeline inside, its proposals beside it | `opportunities/`, public, nobody's name in them | wired |
 | **The agreement** | the signed contract per project | with the company, outside every repository | wired, on paper |
@@ -81,7 +81,7 @@ public body publishing its own call.
    or a grant is read against the card first; one that fails is not
    recorded, and its lesson goes to the card (screening; applying for a
    grant).
-2. A record of its kind is opened from the mould in `opportunities/`, its
+2. A record of its kind is opened from the template in `opportunities/`, its
    timeline starting with a `found` line and ending with a `next` line
    (qualifying).
 3. Each thing that happens is a line in the timeline — what the house did,
@@ -107,8 +107,8 @@ public body publishing its own call.
 $ node machine/packages/sales-kit/pipeline.mjs opportunities
 ```
 
-- **Rules and moulds agree:** `npm test` runs the kit's tests, which read
-  the register from the standard and the fields from the mould.
+- **Rules and templates agree:** `npm test` runs the kit's tests, which read
+  the register from the standard and the fields from the template.
 - **Every stage is moved by a protocol:** a check in the regime tests
   reads the register and the protocols of the Sales territory.
 - **Real records:** CI runs the tool on `opportunities/` on every change.

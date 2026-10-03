@@ -2,12 +2,12 @@
 id: "STD-022"
 uid: ""
 title: "Secrets"
-type: documentation
+type: standard
 subtype: standard
 status: draft
-version: "1.2.7"
+version: "1.2.8"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -65,10 +65,10 @@ asks for both.
 
 Each rule, its code, its source and its check.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | KEY-054 | Nothing secret in the tree | [OpenSSF Best Practices Badge, no_leaked_credentials](https://www.bestpractices.dev/en/criteria/0#0.no_leaked_credentials); [OWASP Top 10 CI/CD Security Risks, CICD-SEC-6 insufficient credential hygiene](https://owasp.org/www-project-top-10-ci-cd-security-risks/CICD-SEC-06-Insufficient-Credential-Hygiene) | `.github/workflows/secrets.yml`: a full-history secret scan (gitleaks) on every pull request, every push to main and weekly, as the register's row SEC-004 asks; the code host's secret scanning and push protection are row SEC-002 |
-| KEY-057 | Settings live in the environment | [The Twelve-Factor App, III. Config](https://12factor.net/config); holds retired ENG-004 | no tracked environment file in any of the four repositories; register rows SEC-004 and DEV-001 apply it |
+| KEY-057 | Settings live in the environment | [The Twelve-Factor App, III. Config](https://12factor.net/config); holds deprecated ENG-004 | no tracked environment file in any of the four repositories; register rows SEC-004 and DEV-001 apply it |
 | KEY-055 | Change the key before you write | [OWASP Secrets Management Cheat Sheet, rotation and incident response](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) | by hand: the change happens outside this repository |
 | KEY-056 | Report a weakness privately | [OpenSSF Best Practices Badge, vulnerability_report_private and vulnerability_report_response](https://www.bestpractices.dev/en/criteria/0#0.vulnerability_report_private); [GitHub private vulnerability reporting](https://docs.github.com/en/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability) | `SECURITY.md` names the channel, register row SEC-009; whether private reporting is switched on and the answer came in time, by hand |
 

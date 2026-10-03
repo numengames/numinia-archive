@@ -2,18 +2,18 @@
 id: "STD-024"
 uid: ""
 title: "A series is a function"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "3.1.1"
+version: "3.1.2"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Knowledge and quality"
 license: "CC0-1.0"
-tags: [standards, series, thresholds, registration, records-management]
+tags: [standards, series, approval-levels, registration, records-management]
 related: ["STD-001", "STD-017", "STD-018", "STD-020", "CAN-004"]
 derived_from: "CAN-009"
 ---
@@ -79,7 +79,7 @@ another series or is absorbed.
 Each rule, its code, its source and its check. The sources let an auditor
 who knows these standards check us without a glossary.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | SER-001 | Only three series oblige | [ISO 9001:2015, documented information, clause 7.5](https://www.iso.org/standard/62085.html) (clause unverified): maintain against retain | by hand — what binds is read, not parsed |
 | SER-002 | Complied with, or carried out | — | by hand |
@@ -104,6 +104,6 @@ sits. The folder rule keeps that answer honest.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-001` | The series | which series exist |
-| `STD-017` | Who may change what | who signs a change, and the threshold of each series |
+| `STD-017` | Who may change what | who signs a change, and the approval level of each series |
 | `STD-012` | The corpus does not grow | how a document moves or leaves |
 | `CAN-004` | You are what you are doing | the archive is the system's memory |

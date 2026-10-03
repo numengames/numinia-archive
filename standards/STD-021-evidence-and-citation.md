@@ -2,12 +2,12 @@
 id: "STD-021"
 uid: ""
 title: "Evidence and citation"
-type: documentation
+type: standard
 subtype: standard
 status: active
-version: "1.4.2"
+version: "1.4.3"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -78,9 +78,9 @@ translated.
 ## Check
 
 Each rule, its code, its source and its check. The last row holds two
-rules under one plate.
+rules under one rule ID.
 
-| Plate | Rule | Source | Verified by |
+| Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | CIT-050 | the section-citation check, part of `STD-007` DOC-008 (cite rules, not places) | — (stricter than [ISO 690:2021](https://www.iso.org/standard/72642.html), which allows location references) | `machine/guards/rules/std-021-evidence-and-citation.mjs` — a standard cites no section by number; elsewhere a cited section must exist |
 | CIT-051 | Structural references are gathered | [ISO 690:2021](https://www.iso.org/standard/72642.html), the reference list — ours adds: only what the text depends on | by hand |

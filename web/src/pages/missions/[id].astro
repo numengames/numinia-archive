@@ -39,19 +39,19 @@ const PRIORITY_COLOR: Record<string, string> = {
 };
 // Priority reads as a colored dot; type/status as house Phosphor glyphs (§7.3).
 const PRIORITY_DOT: Record<string, string> = { critical: "bg-red", high: "bg-accent", medium: "bg-yellow", low: "bg-green" };
-const TYPE_ICON: Record<string, string> = { biological: "dna", digital: "robot", hybrid: "git-branch" };
-const TYPE_LABEL: Record<string, string> = { biological: "Biological", digital: "Digital", hybrid: "Hybrid" };
+const TYPE_ICON: Record<string, string> = { human: "dna", agent: "robot", hybrid: "git-branch" };
+const TYPE_LABEL: Record<string, string> = { human: "Human", agent: "Agent", hybrid: "Hybrid" };
 const STATUS_CLASS: Record<string, string> = {
   "backlog": "text-dim", "draft": "text-dim", "in-progress": "text-accent",
-  "in-review": "text-yellow", "done": "text-green", "frozen": "text-dim", "cancelled": "text-dim",
+  "in-review": "text-yellow", "done": "text-green", "on-hold": "text-dim", "cancelled": "text-dim",
 };
 const STATUS_ICON: Record<string, string> = {
   "backlog": "clipboard-text", "draft": "note-pencil", "in-progress": "lightning", "in-review": "eye",
-  "done": "check", "frozen": "snowflake", "cancelled": "prohibit",
+  "done": "check", "on-hold": "pause-fill", "cancelled": "prohibit",
 };
 const STATUS_LABEL: Record<string, string> = {
   "backlog": "Backlog", "draft": "Draft", "in-progress": "In Progress",
-  "in-review": "In Review", "done": "Done", "frozen": "Frozen", "cancelled": "Cancelled",
+  "in-review": "In Review", "done": "Done", "on-hold": "On hold", "cancelled": "Cancelled",
 };
 
 const status = (f.status as string) || "backlog";
@@ -77,9 +77,9 @@ const completed = f.completed ? String(f.completed).slice(0, 10) : null;
         <span class={"inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 font-mono text-[0.6rem] font-medium " + (PRIORITY_COLOR[f.priority] || "")}>
           <span class={"inline-block h-1.5 w-1.5 rounded-full " + (PRIORITY_DOT[f.priority] || "bg-border")}></span> {f.priority}
         </span>
-        {f.type_execution && (
+        {f.executor && (
           <span class="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground">
-            <Icon name={TYPE_ICON[f.type_execution] || "git-branch"} size={10} /> {TYPE_LABEL[f.type_execution] || f.type_execution}
+            <Icon name={TYPE_ICON[f.executor] || "git-branch"} size={10} /> {TYPE_LABEL[f.executor] || f.executor}
           </span>
         )}
         <span class="inline-flex rounded-full border border-border bg-card px-2.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground">

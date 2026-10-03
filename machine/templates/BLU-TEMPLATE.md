@@ -19,7 +19,6 @@ license: "CC0-1.0"
 related_missions: []
 
 # OPTIONAL — use when they apply, omit without guilt.
-# semaforo: "green"                 # read by the archive pages
 # guild: "Alchemists"
 # mission: "MIS-NNNN"               # the mission that produced this design
 # scope: "what the design covers"

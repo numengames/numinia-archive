@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: protocol
 status: draft
-version: "3.3.2"
+version: "3.3.3"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -14,7 +14,7 @@ tags: [protocol, rollup, deflation, weekly, reports]
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
-ratified_by: "ADR-042"
+approved_by: "ADR-042"
 related: ["STD-012", "STD-043", "ADR-030", "RPT-018"]
 derived_from: "CAN-009"
 ---
@@ -73,7 +73,7 @@ on the first Monday of a year over four quarterlies. Executor: any agent on
    week's versions out of the updates page into one line that links the
    report; git keeps the entries. The summaries live in the archive alone:
    the other sites keep their own updates pages as they are. Build and
-   commit, guards first.
+   commit, checks first.
 8. **Regenerate telemetry last.** Regenerate the dataset after the final
    content commit; `--check` passes before push. Commit.
 9. **Open the PR.** Title `rollup: <period>`: the lines, the token delta,

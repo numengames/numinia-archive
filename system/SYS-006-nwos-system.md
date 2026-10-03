@@ -5,11 +5,11 @@ title: "NWOS — System Description, Layers and Principles"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [system, reference, nwos, architecture, layers, principles]
@@ -93,7 +93,7 @@ Each unit of work is a structured document with a unique ID, acceptance criteria
 
 - **Why it matters:** Transforms tasks into documented knowledge. Closing a mission leaves a trace — what was done, why it diverged from the plan, and what was learned.
 - **vs. alternatives:** Linear and Jira track completion. The Mission System tracks knowledge.
-- **Fields:** id · title · type (biological/digital/hybrid) · priority · effort · status · story · acceptance criteria · epistemic value · pragmatic value · execution reality
+- **Fields:** id · title · executor (human/agent/hybrid) · priority · effort · status · story · acceptance criteria · epistemic value · pragmatic value · execution reality
 
 ### Blueprints (System Maps)
 

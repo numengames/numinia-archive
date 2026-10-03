@@ -28,12 +28,6 @@ const mdFilename = (entry.filePath as string).split("/").pop()!;
 const repoUrl = repoFileUrl(entry.filePath as string);
 const mdUrl = `/blueprints/${slug(entry.id as string)}.md`;
 
-const SEMAFORO: Record<string, { dot: string; label: string }> = {
-  verde: { dot: "bg-green", label: "Green" },
-  amarillo: { dot: "bg-yellow", label: "Amber" },
-  rojo: { dot: "bg-red", label: "Red" },
-};
-const sem = SEMAFORO[(f.semaforo as string) || ""];
 ---
 
 <Layout
@@ -53,12 +47,6 @@ const sem = SEMAFORO[(f.semaforo as string) || ""];
         <span class="font-mono text-[0.65rem] text-accent">{f.id}</span>
         <span class="font-mono text-[0.6rem] text-dim">{String(f.created).slice(0, 10)}</span>
         {f.section && <span class="font-mono text-[0.6rem] text-dim">{f.section}</span>}
-        {sem && (
-          <span class="inline-flex items-center gap-1.5 font-mono text-[0.6rem] text-dim">
-            <span class={"h-2 w-2 rounded-full " + sem.dot}></span>
-            {sem.label}
-          </span>
-        )}
       </div>
 
       <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{f.title}</h1>

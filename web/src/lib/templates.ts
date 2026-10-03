@@ -1,15 +1,15 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The moulds behind /templates. Every fact on that page is read here, at
-// build time, from the moulds themselves (machine/templates/*-TEMPLATE.md)
+// The templates behind /templates. Every fact on that page is read here, at
+// build time, from the templates themselves (machine/templates/*-TEMPLATE.md)
 // and from the header-field registry the guards enforce
 // (machine/scripts/lib/rings.mjs). Nothing is typed twice: add a field to a
-// mould and it appears on the page, in the comparison table and in the .md.
+// template and it appears on the page, in the comparison table and in the .md.
 //
-// WHY A HEADER TABLE. The moulds were written one at a time, by different
+// WHY A HEADER TABLE. The templates were written one at a time, by different
 // hands, over a month. A field that means the same thing under two names, or
-// a field registered for a series that its mould never teaches, is invisible
+// a field registered for a series that its template never teaches, is invisible
 // file by file and obvious side by side. The page puts them side by side.
 //
 // The frontmatter reader and the registry are the ones the guards use,
@@ -30,27 +30,27 @@ export type Reach = "every" | "series";
 
 export interface Field {
   name: string;
-  /** Written in the mould, to be filled — or offered commented, to add when it applies. */
+  /** Written in the template, to be filled — or offered commented, to add when it applies. */
   kind: "filled" | "optional";
-  /** The mould's own comment on the field: what goes in it, which values. */
+  /** The template's own comment on the field: what goes in it, which values. */
   note: string;
 }
 
-export interface Mould {
+export interface Template {
   prefix: string;
   file: string;
   /** The series folder a copy goes to. */
   series: string;
   /** The `type` a copy declares. */
   type: string;
-  /** The title the mould teaches, i.e. how to name a document of this series. */
+  /** The title the template teaches, i.e. how to name a document of this series. */
   titleHint: string;
-  /** Where a copy goes, as the mould's first comment says. */
+  /** Where a copy goes, as the template's first comment says. */
   destination: string;
   fields: Field[];
-  /** Registered for this series (ring 3) but never offered by its mould. */
+  /** Registered for this series (ring 3) but never offered by its template. */
   unoffered: string[];
-  /** The common-header fields in the order this mould writes them, when that
+  /** The common-header fields in the order this template writes them, when that
    *  order is not the house's (COMMON_ORDER); null when it is. */
   outOfOrder: string[] | null;
   /** The `##` headings of the body: the sections a document of this series has. */
@@ -59,7 +59,7 @@ export interface Mould {
   companions: { file: string; what: string }[];
 }
 
-/** What a series is for, in a line — the mould library's own table words. */
+/** What a series is for, in a line — the template library's own table words. */
 const MAKES: Record<string, string> = {
   MIS: "a mission", STD: "a standard", PRO: "a protocol", ADR: "a decision",
   DBT: "a debt entry", RPT: "a report", OPS: "an operations record", LEG: "a legal text",
@@ -67,9 +67,9 @@ const MAKES: Record<string, string> = {
   OPP: "a sales opportunity", PRP: "a proposal to a client", GRA: "a call for public money",
 };
 
-/** Records that sit beside a mould and explain it; not moulds themselves. */
+/** Records that sit beside a template and explain it; not templates themselves. */
 const COMPANIONS: Record<string, { file: string; what: string }[]> = {
-  MIS: [{ file: "MIS-TEMPLATE-EXAMPLE.md", what: "a real mission written with this mould, closed, to read beside the blank one" }],
+  MIS: [{ file: "MIS-TEMPLATE-EXAMPLE.md", what: "a real mission written with this template, closed, to read beside the blank one" }],
   RPT: [
     { file: "RPT-TEMPLATE-WEEK.md", what: "the weekly report: the nine headings on one page, for the board" },
     { file: "RPT-TEMPLATE-QUARTER.md", what: "the quarterly report: the nine headings, one row per week" },
@@ -77,7 +77,7 @@ const COMPANIONS: Record<string, { file: string; what: string }[]> = {
   ],
 };
 
-/** Moulds that live elsewhere, because the tool that reads them needs them there. */
+/** Templates that live elsewhere, because the tool that reads them needs them there. */
 export const ELSEWHERE: { path: string; makes: string; why: string }[] = [
   { path: "agents/_template/", makes: "a digital agent", why: "a folder of files, not one file: the folder's shape is what it scaffolds" },
   { path: "lore/adventures/tabletop/TEMPLATE.md", makes: "a tabletop adventure", why: "game text, in Spanish, with no header: it is played, not filed" },
@@ -93,13 +93,13 @@ const commentOf = (lines: string[], i: number): string => {
   for (let j = i - 1; j >= 0 && /^#/.test(lines[j]); j--) {
     const c = lines[j].replace(/^#\s?/, "");
     if (/^[A-Z][A-Z ]+(—|$)/.test(c)) break; // a block heading ("OPTIONAL — ...")
-    if (/^Copy this file/.test(c)) return ""; // the mould's opening instructions, not about this field
+    if (/^Copy this file/.test(c)) return ""; // the template's opening instructions, not about this field
     out.unshift(c);
   }
   return out.join(" ").replace(/^\w+:\s*/, "").trim();
 };
 
-function readMould(file: string): Mould {
+function readTemplate(file: string): Template {
   const text = fs.readFileSync(path.join(ROOT, DIR, file), "utf8");
   const fm = FM.parseFM(text);
   const raw: string[] = FM.rawFM(text).split("\n");
@@ -134,16 +134,16 @@ function readMould(file: string): Mould {
   };
 }
 
-/** Every mould, alphabetical by prefix. A mould with no header fails the build. */
-export function moulds(): Mould[] {
+/** Every template, alphabetical by prefix. A template with no header fails the build. */
+export function templates(): Template[] {
   const files = fs.readdirSync(path.join(ROOT, DIR)).filter((f) => /^[A-Z]{3}-TEMPLATE\.md$/.test(f)).sort();
-  if (files.length === 0) throw new Error(`${DIR}: no moulds found — the page would be empty`);
+  if (files.length === 0) throw new Error(`${DIR}: no templates found — the page would be empty`);
   for (const e of ELSEWHERE)
     if (!fs.existsSync(path.join(ROOT, e.path))) throw new Error(`/templates lists ${e.path}, which is not in the tree`);
   for (const [p, cs] of Object.entries(COMPANIONS))
     for (const c of cs)
       if (!fs.existsSync(path.join(ROOT, DIR, c.file))) throw new Error(`/templates lists ${DIR}/${c.file} as a companion of ${p}, and it is not in the tree`);
-  return files.map(readMould);
+  return files.map(readTemplate);
 }
 
 export const makes = (prefix: string) => MAKES[prefix] ?? prefix;
@@ -160,8 +160,8 @@ export function reach(field: string): { reach: Reach; series: string[] } {
 export const MANDATORY: string[] = RINGS.RING1;
 
 /**
- * The common header, in the order a mould writes it (STD-004's rings, read
- * top to bottom). The table lists these first, in this order, so a mould
+ * The common header, in the order a template writes it (STD-004's rings, read
+ * top to bottom). The table lists these first, in this order, so a template
  * that writes them in another order or leaves one out shows as a gap in the
  * top rows.
  */
@@ -169,11 +169,11 @@ export const COMMON_ORDER = ["id", "uid", "title", "type", "subtype", "status", 
   "author", "owner", "guild", "section", "tags", "license"];
 
 /**
- * The comparison: one row per field, one column per mould, in the order a
- * reader meets them — the fields every mould fills first, then by how many
- * moulds use them, then alphabetically.
+ * The comparison: one row per field, one column per template, in the order a
+ * reader meets them — the fields every template fills first, then by how many
+ * templates use them, then alphabetically.
  */
-export function matrix(ms = moulds()) {
+export function matrix(ms = templates()) {
   const names = new Map<string, number>();
   for (const m of ms) for (const f of m.fields) names.set(f.name, (names.get(f.name) ?? 0) + 1);
   const rows = [...names.keys()].map((name) => ({
@@ -189,10 +189,10 @@ export function matrix(ms = moulds()) {
 }
 
 /** The figures the page's summary prints. */
-export function figures(ms = moulds()) {
+export function figures(ms = templates()) {
   const rows = matrix(ms);
   return {
-    moulds: ms.length,
+    templates: ms.length,
     fields: rows.length,
     inAll: rows.filter((r) => r.used === ms.length).length,
     inOne: rows.filter((r) => r.used === 1).length,

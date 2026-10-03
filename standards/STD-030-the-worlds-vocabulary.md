@@ -2,19 +2,19 @@
 id: "STD-030"
 uid: ""
 title: "The world's vocabulary"
-type: documentation
+type: standard
 subtype: register
 status: active
-version: "0.4.1"
+version: "0.4.2"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Knowledge and quality"
 tags: [standards, register, vocabulary, guilds, factions, translation]
 license: "CC0-1.0"
-ratified_by: "ADR-053"
+approved_by: "ADR-053"
 related: ["CAN-004", "CAN-009", "STD-003", "STD-017", "STD-026", "STD-027", "STD-042", "PRO-005", "PRO-019"]
 derived_from: "CAN-004"
 ---

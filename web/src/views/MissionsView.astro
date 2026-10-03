@@ -29,7 +29,7 @@ const PRIORITY_DOT: Record<string, string> = {
   medium: "bg-accent",
   low: "bg-green",
 };
-const TYPE_ICON: Record<string, string> = { biological: "dna", digital: "robot", hybrid: "git-branch" };
+const TYPE_ICON: Record<string, string> = { human: "dna", agent: "robot", hybrid: "git-branch" };
 
 // MIS-133 (was MIS-115b) — priority as TEXT, in level 3. The left border carries the same
 // datum as colour, and never alone: WCAG AA is a project standard, and a
@@ -80,7 +80,7 @@ const missions = entries
     // `draft` rides along too; ordering is the frontend's concern (MIS-066).
     const RETIRED_TO_TODO = { draft: "todo", backlog: "todo" };
     const status = (RETIRED_TO_TODO[f.status as string] || f.status) as string;
-    const type = (f.type_execution || "hybrid") as string;
+    const type = (f.executor || "hybrid") as string;
     return {
       id: (f.id as string).toUpperCase(),
       title: f.title as string,
@@ -95,7 +95,7 @@ const missions = entries
       updated: typeof f.updated === "string" ? f.updated.slice(0, 10) : null,
       completed: typeof f.completed === "string" ? f.completed.slice(0, 10) : null,
       humanCostEur: HUMAN_COST[effort],
-      computeCostEur: type === "biological" ? null : COMPUTE_MOCK[effort],
+      computeCostEur: type === "human" ? null : COMPUTE_MOCK[effort],
     };
   });
 
@@ -148,7 +148,7 @@ const columns = [
   { key: "done", label: t("board.col.done"), accent: "text-green", counter: "bg-green/20" },
 ];
 const byStatus = (key: string) => sortForColumn(key, missions.filter((m) => m.status === key));
-const frozen = sortForColumn("frozen", missions.filter((m) => m.status === "frozen"));
+const frozen = sortForColumn("on-hold", missions.filter((m) => m.status === "on-hold"));
 
 const done = byStatus("done");
 const inProg = byStatus("in-progress");
@@ -371,11 +371,11 @@ const stats = [
         })}
       </div>
 
-      <!-- Frozen -->
+      <!-- On hold -->
       {frozen.length > 0 && (
         <div class="mt-8">
           <button id="freeze-toggle" class="flex min-h-[44px] items-center gap-3 w-full text-left mb-3 group" aria-expanded="false">
-            <span class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-dim group-hover:text-foreground transition-colors"><Icon name="snowflake" size={11} /> Frozen</span>
+            <span class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-widest text-dim group-hover:text-foreground transition-colors"><Icon name="pause-fill" size={11} /> On hold</span>
             <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-border font-mono text-[0.6rem] text-foreground">{frozen.length}</span>
             <span class="h-px flex-1 bg-border"></span>
             <span id="freeze-chevron" class="font-mono text-[0.6rem] text-dim transition-all">▼ show</span>
@@ -409,7 +409,7 @@ const stats = [
       )}
 
       <!-- No cancelled column: `cancelled` left the vocabulary on 2026-08-30 (STD-001 §7);
-           a cancelled mission is frozen with freeze_reason: cancelled and shows above. MIS-135 row 2. -->
+           a cancelled mission is on-hold with hold_reason: cancelled and shows above. MIS-135 row 2. -->
 
       <!-- Footer -->
       <div class="mt-12 grid sm:grid-cols-2 gap-4">

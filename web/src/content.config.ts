@@ -17,7 +17,7 @@ const missions = defineCollection({
       guild: z.string().optional(),
       section: z.string().optional(),
       area: z.string().optional(),   // legado: D-010, ya migrado
-      type_execution: z.string().optional(),
+      executor: z.string().optional(),
       assigned_to: z.string().nullable().optional(),
       completed: z.string().nullable().optional(),
     })
@@ -70,7 +70,6 @@ const blueprints = defineCollection({
       status: z.string().default("active"),
       section: z.string().optional(),
       area: z.string().optional(),   // legado: D-010, ya migrado
-      semaforo: z.string().optional(),
       created: z.string(),
     })
     .passthrough(),

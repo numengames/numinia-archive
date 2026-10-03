@@ -5,12 +5,12 @@ title: "Suppliers"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-30T19:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 author: "ursa"
 owner: "oracle"
-provenance: ai-assisted
+digital_source_type: ai-assisted
 section: "Operations"
 tags: [system, register, suppliers, services, costs, open-books]
 license: "CC0-1.0"

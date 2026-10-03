@@ -3,14 +3,14 @@ id: "ndg-019d4075-9ece-7d3e-aafa-41f81370eb63"
 title: "Avocado"
 type: entity
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-20T08:20:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T20:30:00+02:00"
 license: "CC0-1.0"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
-provenance: ai-assisted
+digital_source_type: ai-assisted
 tags: [objects, avatar, vrm, polygonal-mind]
 related: ["SYS-005"]
 entity: object
