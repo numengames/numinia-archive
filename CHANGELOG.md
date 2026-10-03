@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-03
 
+- **Added** Culture from the old deck: `CAN-015` how Numinia rewards, six tests; rescued lines in `CAN-002`, `CAN-006`, `CAN-014`, `OPS-011`, `OPS-020` (site v0.134.0)
 - **Added** Brand and culture from the old deck: `CAN-013` the brand in three words, `CAN-014` where we come from, `OPS-020` the strategy; `CAN-002` gets the manifesto and epitaph back (site v0.133.0)
 - **Added** The Lexicon at /lexicon: the operative vocabulary as a book, A to Z, one page per letter, with a back-to-top button (#627) (site v0.132.0)
 - **Changed** The operative vocabulary grows from 25 to 158 terms, A to Z: one definition per word, written once, the source the Lexicon book will read (#626)

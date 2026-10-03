@@ -4,11 +4,11 @@ uid: ""
 title: "We build a game to work better"
 type: seminal
 status: draft
-version: "4.1.0"
+version: "4.2.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T16:00:00+02:00"
+updated: "2026-10-03T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -134,7 +134,7 @@ world.*
 The voice merges precision with a touch of fantasy. Plain and clear, like a
 comic, so it is fully understood: we avoid technicisms where we can, and we
 craft the words until they reach the receiver rather than satisfy the sender.
-Innovation with a human touch; building bridges, not walls.
+Innovation with a human touch; building bridges, not walls. What we say we can do is what we do: we do not promise a benefit nobody has measured.
 
 Numinia speaks on three levels, and a piece chooses one deliberately. The
 **colloquial** is the community's daily register, rich in slang and widely
@@ -145,7 +145,7 @@ epistemological foundations, with more depth and less reach.
 ## The name
 
 It comes from *numen*, the Latin for divinity, divine presence or divine
-will; the term sociologists use for the magical power residing in an object.
+will; the term anthropology and the history of religions use for the power residing in an object.
 The symbols are the scarab — Khepri, creation, cycle, rebirth — and the moon
 in its phases. Where the imagery comes from, and how the house looks, is the
 canon of visual identity's.

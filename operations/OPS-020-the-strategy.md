@@ -5,9 +5,9 @@ title: "The strategy: a city that plays its work"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-03T16:00:00+02:00"
+updated: "2026-10-03T19:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -58,7 +58,9 @@ Every part of that plan already has a home in the archive:
 
 The metaverse is not scenery in this plan. It is one of the places where the
 city is played, as the organisation is another; the same rules hold in both,
-on paper, in person and on a screen.
+on paper, in person and on a screen. It is early: today the metaverse is an
+experiment for the earliest adopters. It will end up touching the whole
+digital landscape, as email did, as peer-to-peer did, as the web did.
 
 ## Where we play
 
