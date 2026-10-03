@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "ebe141f",
-  "corpus_hash": "4a0198f1a62ded38e190bae1f12b89230793cf72ef93b4c527ebeabf643845ab",
+  "head": "4f5ee24",
+  "corpus_hash": "7957f0155b501924a5c489a94400e7214d1f1ecafec87c1848d60ada7b44b7f0",
   "root_dirty": 2,
-  "measured_at": "2026-10-03T12:36:28Z",
+  "measured_at": "2026-10-03T12:38:41Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 338,
-          "bytes": 3760621
+          "bytes": 3760883
         },
         "Code": {
           "files": 255,
@@ -364,7 +364,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 946959,
+      "value": 947019,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -380,7 +380,7 @@
         "blueprints": 27806,
         "machine": 27302,
         "opportunities": 25198,
-        "canon": 21935,
+        "canon": 21995,
         "missions": 17661,
         "": 16070,
         "legal": 13033,
@@ -395,7 +395,7 @@
     "tokens.by_status": {
       "value": {
         "(none)": 515125,
-        "draft": 212724,
+        "draft": 212784,
         "active": 199956,
         "todo": 13525,
         "in-progress": 4513,
@@ -405,7 +405,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 1.87,
+      "value": 1.86,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -778,7 +778,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1011
+          "3": 1013
         },
         "PRO": {
           "3": 440
