@@ -4,11 +4,11 @@ uid: ""
 title: "Escalating to the Oracle"
 type: procedure
 status: draft
-version: "3.1.2"
+version: "3.1.3"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Strategy and governance"
@@ -17,7 +17,7 @@ applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
 related: ["STD-017", "PRO-008"]
-derived_from: "CAN-004"
+derived_from: "PRI-004"
 ---
 
 <!--
@@ -38,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 1. Purpose and trigger
 
-Any of: a mission contradicts the canon (`PRE-003`); the decision exceeds
+Any of: a mission contradicts the principles (`PRE-003`); the decision exceeds
 the agent's rank (`AUT-065`); the agent is blocked; a possible security
 issue; `requires_oracle_approval: true`; doubt about whether an act is
 appropriate (`AUT-010`). A matter of taste is not a trigger: a preference

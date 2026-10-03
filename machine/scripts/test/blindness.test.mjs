@@ -188,11 +188,11 @@ check('the declaration survives a failing run too', () => {
 check('D-047 fixture — a wrong FOLDER in a path citation really does read green', () => {
   const clone = scratchClone();
   try {
-    // agents/INDEX.md exists; canon/INDEX.md does not. The basename matches,
+    // agents/INDEX.md exists; principles/INDEX.md does not. The basename matches,
     // the folder is wrong. (The old probe named guilds/…/GLD-001-charter.md,
     // deleted since: it read green only while STD-012 was draft.)
     writeFileSync(path.join(clone, 'debt/D-000-probe.md'),
-      '---\nid: "D-000"\nlicense: "CC-BY-4.0"\n---\n\nSee `canon/INDEX.md`.\n');
+      '---\nid: "D-000"\nlicense: "CC-BY-4.0"\n---\n\nSee `principles/INDEX.md`.\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
     const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
     // The clone has no git history, so with STD-012 in force the guard may
@@ -213,7 +213,7 @@ check('D-049 fixture — an untracked .md with a BROKEN citation is not scanned,
   try {
     // Untracked, and broken: a citation to a file that does not exist anywhere.
     writeFileSync(path.join(clone, 'debt/D-000-untracked.md'),
-      '---\nid: "D-000"\n---\n\nSee `canon/C-999-does-not-exist.md`.\n');
+      '---\nid: "D-000"\n---\n\nSee `principles/C-999-does-not-exist.md`.\n');
     const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
     // Not the exit code: the history-less clone may fail on other citations
     // now that STD-012 binds. The question is whether the untracked file's

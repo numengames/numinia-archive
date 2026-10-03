@@ -5,15 +5,15 @@ title: "One page per document"
 type: standard
 subtype: standard
 status: active
-version: "2.2.4"
+version: "2.2.5"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standards, writing, form, rule-ids, budget, BCP-14, ISO-IEC-Directives, DITA]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 approved_by: "ADR-043"
 supersedes_version: "0.3.0"
 ---
@@ -80,7 +80,7 @@ a reason. A may is a free choice.
 **The body fits its budget.** From the scope line to the references, a
 document SHOULD fit its shelf's budget: 500 words for standards, procedures,
 decisions and missions; 300 for debt and guilds; 1,000 for reports and
-blueprints; 1,500 for canon. A document over budget says why in one
+blueprints; 1,500 for principles. A document over budget says why in one
 sentence.
 
 ### Pointing at other documents

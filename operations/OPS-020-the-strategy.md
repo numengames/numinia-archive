@@ -5,16 +5,16 @@ title: "The strategy: a city that plays its work"
 type: documentation
 subtype: register
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Strategy and governance"
 tags: [operations, strategy, mlp, metaverse, industry]
 license: "CC-BY-4.0"
-related: ["CAN-001", "CAN-002", "CAN-004", "CAN-007", "CAN-009", "OPS-011"]
+related: ["PRI-001", "PRI-002", "PRI-004", "PRI-007", "PRI-009", "OPS-011"]
 ---
 
 <!--
@@ -34,7 +34,7 @@ SPDX-License-Identifier: CC-BY-4.0
 > house towards its next milestone, or away from it.
 > **Audience:** Oracles · Agents
 
-**Binds:** nothing. A record states the bet; the canon states what binds.
+**Binds:** nothing. A record states the bet; the principle states what binds.
 
 ## The plan
 
@@ -84,9 +84,9 @@ choose to live inside the game.
 
 | ID | Title | Relation |
 |---|---|---|
-| `CAN-002` | We build a game to work better | the purpose this strategy serves |
-| `CAN-001` | You are already in the game | the city the plan builds |
-| `CAN-004` | You are what you are doing | guilds, factions and territories |
-| `CAN-007` | The pragmatic numen system | decentralised decision |
-| `CAN-009` | The archive is the organisation | the living, open internet |
+| `PRI-002` | We build a game to work better | the purpose this strategy serves |
+| `PRI-001` | You are already in the game | the city the plan builds |
+| `PRI-004` | You are what you are doing | guilds, factions and territories |
+| `PRI-007` | The pragmatic numen system | decentralised decision |
+| `PRI-009` | The archive is the organisation | the living, open internet |
 | `OPS-011` | Positioning and market | what we say to a buyer about it |

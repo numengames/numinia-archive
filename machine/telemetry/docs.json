@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19004,
+  "chars": 19049,
   "apparatus": false,
   "archived": false,
-  "tokens": 4734
+  "tokens": 4739
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 31996,
+  "chars": 32304,
   "apparatus": false,
   "archived": false,
-  "tokens": 9107
+  "tokens": 9241
  },
  {
   "path": "CLAUDE.md",
@@ -82,10 +82,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1885,
+  "chars": 1894,
   "apparatus": false,
   "archived": false,
-  "tokens": 466
+  "tokens": 467
  },
  {
   "path": "README.md",
@@ -93,10 +93,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4187,
+  "chars": 4197,
   "apparatus": true,
   "archived": false,
-  "tokens": 1112
+  "tokens": 1114
  },
  {
   "path": "SECURITY.md",
@@ -115,7 +115,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 789,
+  "chars": 794,
   "apparatus": false,
   "archived": false,
   "tokens": 217
@@ -126,10 +126,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 5934,
+  "chars": 5959,
   "apparatus": true,
   "archived": false,
-  "tokens": 1693
+  "tokens": 1697
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -192,10 +192,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1310,
+  "chars": 1325,
   "apparatus": false,
   "archived": false,
-  "tokens": 360
+  "tokens": 361
  },
  {
   "path": "agents/byblos/OPERATOR.md",
@@ -225,7 +225,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1512,
+  "chars": 1517,
   "apparatus": false,
   "archived": false,
   "tokens": 417
@@ -258,10 +258,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2044,
+  "chars": 2054,
   "apparatus": false,
   "archived": false,
-  "tokens": 517
+  "tokens": 519
  },
  {
   "path": "agents/doulos/OPERATOR.md",
@@ -368,10 +368,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1473,
+  "chars": 1483,
   "apparatus": false,
   "archived": false,
-  "tokens": 414
+  "tokens": 415
  },
  {
   "path": "agents/metis/AGENT.md",
@@ -412,10 +412,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2808,
+  "chars": 2813,
   "apparatus": false,
   "archived": false,
-  "tokens": 766
+  "tokens": 767
  },
  {
   "path": "agents/nimrod/OPERATOR.md",
@@ -445,10 +445,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3503,
+  "chars": 3508,
   "apparatus": false,
   "archived": false,
-  "tokens": 812
+  "tokens": 813
  },
  {
   "path": "agents/procyon/OPERATOR.md",
@@ -478,7 +478,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1316,
+  "chars": 1321,
   "apparatus": false,
   "archived": false,
   "tokens": 372
@@ -511,10 +511,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1537,
+  "chars": 1557,
   "apparatus": false,
   "archived": false,
-  "tokens": 433
+  "tokens": 435
  },
  {
   "path": "agents/skills/numinia-nwos-pr/SKILL.md",
@@ -522,10 +522,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 4417,
+  "chars": 4445,
   "apparatus": false,
   "archived": false,
-  "tokens": 1245
+  "tokens": 1248
  },
  {
   "path": "agents/skills/tender-screening/SKILL.md",
@@ -610,10 +610,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1588,
+  "chars": 1598,
   "apparatus": false,
   "archived": false,
-  "tokens": 435
+  "tokens": 436
  },
  {
   "path": "blueprints/BLU-002-business-metrics.md",
@@ -621,7 +621,7 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 5656,
+  "chars": 5661,
   "apparatus": false,
   "archived": false,
   "tokens": 1476
@@ -643,7 +643,7 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "active",
-  "chars": 21554,
+  "chars": 21563,
   "apparatus": false,
   "archived": false,
   "tokens": 5977
@@ -720,7 +720,7 @@
   "series": "blueprints",
   "type": "blueprint",
   "status": "draft",
-  "chars": 10750,
+  "chars": 10754,
   "apparatus": false,
   "archived": false,
   "tokens": 2846
@@ -748,160 +748,6 @@
   "tokens": 1727
  },
  {
-  "path": "canon/CAN-001-welcome-to-numinia.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 4325,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1132
- },
- {
-  "path": "canon/CAN-002-brand-and-culture.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 7202,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1743
- },
- {
-  "path": "canon/CAN-004-role-structure.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 9640,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2371
- },
- {
-  "path": "canon/CAN-005-licensing.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 6787,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1667
- },
- {
-  "path": "canon/CAN-006-epistemic-relations.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 15055,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3117
- },
- {
-  "path": "canon/CAN-007-pragmatic-numen-system.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 10395,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2254
- },
- {
-  "path": "canon/CAN-008-visual-identity.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 9926,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2408
- },
- {
-  "path": "canon/CAN-009-the-archive-is-the-organisation.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 6013,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1488
- },
- {
-  "path": "canon/CAN-010-leave-things-better.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 4832,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1225
- },
- {
-  "path": "canon/CAN-011-value-makes-a-bond.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 4914,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1265
- },
- {
-  "path": "canon/CAN-012-what-is-yours-stays-with-you.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 5357,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1367
- },
- {
-  "path": "canon/CAN-013-a-magician-who-keeps-hope.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 5054,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1295
- },
- {
-  "path": "canon/CAN-014-friends-who-play-build-and-learn.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 2893,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 764
- },
- {
-  "path": "canon/CAN-015-we-recognise-the-act.md",
-  "dir": "canon",
-  "series": "canon",
-  "type": "seminal",
-  "status": "draft",
-  "chars": 5232,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1324
- },
- {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",
   "dir": "debt",
   "series": "debt",
@@ -918,10 +764,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 5425,
+  "chars": 5441,
   "apparatus": false,
   "archived": false,
-  "tokens": 1419
+  "tokens": 1420
  },
  {
   "path": "debt/DBT-022-legal-debts-and-questions-for-counsel.md",
@@ -951,10 +797,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 3879,
+  "chars": 4077,
   "apparatus": false,
   "archived": false,
-  "tokens": 1253
+  "tokens": 1322
  },
  {
   "path": "decisions/ADR-041-git-is-the-archive.md",
@@ -1006,10 +852,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "active",
-  "chars": 3863,
+  "chars": 3868,
   "apparatus": false,
   "archived": false,
-  "tokens": 1168
+  "tokens": 1169
  },
  {
   "path": "decisions/ADR-046-classified-by-function.md",
@@ -1017,10 +863,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 6016,
+  "chars": 6021,
   "apparatus": false,
   "archived": false,
-  "tokens": 1555
+  "tokens": 1556
  },
  {
   "path": "decisions/ADR-047-one-document-one-address.md",
@@ -1028,10 +874,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 7119,
+  "chars": 7124,
   "apparatus": false,
   "archived": false,
-  "tokens": 1826
+  "tokens": 1827
  },
  {
   "path": "decisions/ADR-066-the-header-names-a-section-not-a-territory.md",
@@ -1727,17 +1573,6 @@
   "tokens": 777
  },
  {
-  "path": "machine/templates/CAN-TEMPLATE.md",
-  "dir": "machine",
-  "series": null,
-  "type": "seminal",
-  "status": "draft",
-  "chars": 3907,
-  "apparatus": true,
-  "archived": false,
-  "tokens": 1029
- },
- {
   "path": "machine/templates/DBT-TEMPLATE.md",
   "dir": "machine",
   "series": null,
@@ -1804,6 +1639,17 @@
   "tokens": 832
  },
  {
+  "path": "machine/templates/PRI-TEMPLATE.md",
+  "dir": "machine",
+  "series": null,
+  "type": "principle",
+  "status": "draft",
+  "chars": 3970,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 1030
+ },
+ {
   "path": "machine/templates/PRO-TEMPLATE.md",
   "dir": "machine",
   "series": null,
@@ -1831,10 +1677,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 5520,
+  "chars": 5529,
   "apparatus": true,
   "archived": false,
-  "tokens": 1506
+  "tokens": 1507
  },
  {
   "path": "machine/templates/RPT-TEMPLATE-QUARTER.md",
@@ -1842,10 +1688,10 @@
   "series": null,
   "type": "report",
   "status": "draft",
-  "chars": 3309,
+  "chars": 3314,
   "apparatus": true,
   "archived": false,
-  "tokens": 880
+  "tokens": 882
  },
  {
   "path": "machine/templates/RPT-TEMPLATE-WEEK.md",
@@ -1853,10 +1699,10 @@
   "series": null,
   "type": "report",
   "status": "draft",
-  "chars": 3337,
+  "chars": 3342,
   "apparatus": true,
   "archived": false,
-  "tokens": 891
+  "tokens": 893
  },
  {
   "path": "machine/templates/RPT-TEMPLATE-YEAR.md",
@@ -1864,10 +1710,10 @@
   "series": null,
   "type": "report",
   "status": "draft",
-  "chars": 3260,
+  "chars": 3265,
   "apparatus": true,
   "archived": false,
-  "tokens": 860
+  "tokens": 862
  },
  {
   "path": "machine/templates/RPT-TEMPLATE.md",
@@ -1941,10 +1787,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 15126,
+  "chars": 15131,
   "apparatus": false,
   "archived": false,
-  "tokens": 4516
+  "tokens": 4517
  },
  {
   "path": "missions/MIS-0149-ursa-git-cold-start-bootstrap.md",
@@ -2007,10 +1853,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 6598,
+  "chars": 6618,
   "apparatus": false,
   "archived": false,
-  "tokens": 1702
+  "tokens": 1703
  },
  {
   "path": "operations/OPS-002-contradictions.md",
@@ -2018,7 +1864,7 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 8002,
+  "chars": 8013,
   "apparatus": false,
   "archived": false,
   "tokens": 2256
@@ -2029,7 +1875,7 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 8545,
+  "chars": 8549,
   "apparatus": false,
   "archived": false,
   "tokens": 2065
@@ -2040,10 +1886,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 14379,
+  "chars": 14389,
   "apparatus": false,
   "archived": false,
-  "tokens": 3015
+  "tokens": 3016
  },
  {
   "path": "operations/OPS-007-sales.md",
@@ -2062,7 +1908,7 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 4526,
+  "chars": 4535,
   "apparatus": false,
   "archived": false,
   "tokens": 1324
@@ -2084,10 +1930,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5918,
+  "chars": 5934,
   "apparatus": false,
   "archived": false,
-  "tokens": 1371
+  "tokens": 1373
  },
  {
   "path": "operations/OPS-012-training-the-offer.md",
@@ -2095,7 +1941,7 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 6506,
+  "chars": 6510,
   "apparatus": false,
   "archived": false,
   "tokens": 1600
@@ -2161,7 +2007,7 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 4066,
+  "chars": 4070,
   "apparatus": false,
   "archived": false,
   "tokens": 1009
@@ -2475,15 +2321,169 @@
   "tokens": 861
  },
  {
+  "path": "principles/PRI-001-welcome-to-numinia.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 4490,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1182
+ },
+ {
+  "path": "principles/PRI-002-brand-and-culture.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 7375,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1793
+ },
+ {
+  "path": "principles/PRI-004-role-structure.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 9813,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2421
+ },
+ {
+  "path": "principles/PRI-005-licensing.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 6965,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1715
+ },
+ {
+  "path": "principles/PRI-006-epistemic-relations.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 15203,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3159
+ },
+ {
+  "path": "principles/PRI-007-pragmatic-numen-system.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 10547,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2296
+ },
+ {
+  "path": "principles/PRI-008-visual-identity.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 10115,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2458
+ },
+ {
+  "path": "principles/PRI-009-the-archive-is-the-organisation.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 6188,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1539
+ },
+ {
+  "path": "principles/PRI-010-leave-things-better.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 5005,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1275
+ },
+ {
+  "path": "principles/PRI-011-value-makes-a-bond.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 5091,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1315
+ },
+ {
+  "path": "principles/PRI-012-what-is-yours-stays-with-you.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 5534,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1417
+ },
+ {
+  "path": "principles/PRI-013-a-magician-who-keeps-hope.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 5219,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1345
+ },
+ {
+  "path": "principles/PRI-014-friends-who-play-build-and-learn.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 3058,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 814
+ },
+ {
+  "path": "principles/PRI-015-we-recognise-the-act.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "draft",
+  "chars": 5397,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1374
+ },
+ {
   "path": "procedures/PRO-001-agent-session.md",
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5515,
+  "chars": 5520,
   "apparatus": false,
   "archived": false,
-  "tokens": 1540
+  "tokens": 1541
  },
  {
   "path": "procedures/PRO-003-mission-cycle.md",
@@ -2491,7 +2491,7 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4465,
+  "chars": 4480,
   "apparatus": false,
   "archived": false,
   "tokens": 1199
@@ -2502,7 +2502,7 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 3447,
+  "chars": 3452,
   "apparatus": false,
   "archived": false,
   "tokens": 924
@@ -2513,7 +2513,7 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4971,
+  "chars": 4976,
   "apparatus": false,
   "archived": false,
   "tokens": 1276
@@ -2601,10 +2601,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4640,
+  "chars": 4667,
   "apparatus": false,
   "archived": false,
-  "tokens": 1233
+  "tokens": 1237
  },
  {
   "path": "procedures/PRO-020-putting-something-on-sale.md",
@@ -2645,10 +2645,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "active",
-  "chars": 4765,
+  "chars": 4774,
   "apparatus": false,
   "archived": false,
-  "tokens": 1278
+  "tokens": 1279
  },
  {
   "path": "procedures/PRO-024-leaving.md",
@@ -2711,7 +2711,7 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5577,
+  "chars": 5581,
   "apparatus": false,
   "archived": false,
   "tokens": 1407
@@ -2854,10 +2854,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 7550,
+  "chars": 7555,
   "apparatus": false,
   "archived": false,
-  "tokens": 2029
+  "tokens": 2030
  },
  {
   "path": "reports/RPT-023-the-wall-is-the-house-not-the-world.md",
@@ -2865,10 +2865,10 @@
   "series": "reports",
   "type": "report",
   "status": "active",
-  "chars": 11454,
+  "chars": 11459,
   "apparatus": false,
   "archived": false,
-  "tokens": 3119
+  "tokens": 3120
  },
  {
   "path": "reports/RPT-024-2026-w39.md",
@@ -2953,10 +2953,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 6554,
+  "chars": 6694,
   "apparatus": false,
   "archived": false,
-  "tokens": 1956
+  "tokens": 2006
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -2975,10 +2975,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 18055,
+  "chars": 18261,
   "apparatus": false,
   "archived": false,
-  "tokens": 5089
+  "tokens": 5157
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -3008,7 +3008,7 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7862,
+  "chars": 7867,
   "apparatus": false,
   "archived": false,
   "tokens": 2074
@@ -3030,7 +3030,7 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 4377,
+  "chars": 4383,
   "apparatus": false,
   "archived": false,
   "tokens": 1110
@@ -3041,7 +3041,7 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 12165,
+  "chars": 12180,
   "apparatus": false,
   "archived": false,
   "tokens": 3326
@@ -3085,7 +3085,7 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8987,
+  "chars": 9015,
   "apparatus": false,
   "archived": false,
   "tokens": 2273
@@ -3118,10 +3118,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 5086,
+  "chars": 5091,
   "apparatus": false,
   "archived": false,
-  "tokens": 1299
+  "tokens": 1300
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -3151,7 +3151,7 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 30058,
+  "chars": 30067,
   "apparatus": false,
   "archived": false,
   "tokens": 9074
@@ -3162,10 +3162,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 5029,
+  "chars": 5044,
   "apparatus": false,
   "archived": false,
-  "tokens": 1295
+  "tokens": 1296
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
@@ -3184,10 +3184,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 69197,
+  "chars": 69853,
   "apparatus": false,
   "archived": false,
-  "tokens": 16870
+  "tokens": 17044
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -3195,10 +3195,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7550,
+  "chars": 7629,
   "apparatus": false,
   "archived": false,
-  "tokens": 1880
+  "tokens": 1907
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -3234,12 +3234,12 @@
   "tokens": 3569
  },
  {
-  "path": "standards/STD-031-a-canon-states.md",
+  "path": "standards/STD-031-a-principle-states.md",
   "dir": "standards",
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 5664,
+  "chars": 5785,
   "apparatus": false,
   "archived": false,
   "tokens": 1532
@@ -3294,7 +3294,7 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 9788,
+  "chars": 9793,
   "apparatus": false,
   "archived": false,
   "tokens": 2540
@@ -3393,10 +3393,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 10508,
+  "chars": 10548,
   "apparatus": false,
   "archived": false,
-  "tokens": 2852
+  "tokens": 2855
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
@@ -3415,10 +3415,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 3914,
+  "chars": 3919,
   "apparatus": false,
   "archived": false,
-  "tokens": 1070
+  "tokens": 1071
  },
  {
   "path": "system/SYS-005-digital-resource-register.md",
@@ -3470,10 +3470,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6955,
+  "chars": 6975,
   "apparatus": false,
   "archived": false,
-  "tokens": 1835
+  "tokens": 1839
  },
  {
   "path": "system/SYS-010-selling-as-wired-today.md",
@@ -3492,10 +3492,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 6114,
+  "chars": 6124,
   "apparatus": false,
   "archived": false,
-  "tokens": 1620
+  "tokens": 1621
  },
  {
   "path": "system/SYS-012-suppliers.md",
@@ -3525,10 +3525,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9476,
+  "chars": 9486,
   "apparatus": false,
   "archived": false,
-  "tokens": 2787
+  "tokens": 2789
  },
  {
   "path": "system/semantic-census/faction-heirs-of-eleusis.md",
@@ -3536,10 +3536,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 10410,
+  "chars": 10435,
   "apparatus": false,
   "archived": false,
-  "tokens": 2932
+  "tokens": 2937
  },
  {
   "path": "system/semantic-census/force-threshold.md",
@@ -3547,10 +3547,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8730,
+  "chars": 8745,
   "apparatus": false,
   "archived": false,
-  "tokens": 2532
+  "tokens": 2535
  },
  {
   "path": "system/semantic-census/guild-exegetes.md",
@@ -3558,10 +3558,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 10394,
+  "chars": 10414,
   "apparatus": false,
   "archived": false,
-  "tokens": 3015
+  "tokens": 3019
  },
  {
   "path": "system/semantic-census/institution-summa-archive.md",
@@ -3569,10 +3569,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8804,
+  "chars": 8824,
   "apparatus": false,
   "archived": false,
-  "tokens": 2545
+  "tokens": 2549
  },
  {
   "path": "system/semantic-census/rank-oracle.md",
@@ -3580,10 +3580,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9819,
+  "chars": 9844,
   "apparatus": false,
   "archived": false,
-  "tokens": 2843
+  "tokens": 2848
  },
  {
   "path": "system/semantic-census/resource-prism-cells.md",
@@ -3591,10 +3591,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8181,
+  "chars": 8201,
   "apparatus": false,
   "archived": false,
-  "tokens": 2368
+  "tokens": 2372
  },
  {
   "path": "system/suppliers/advisory-ony.md",

@@ -4,7 +4,7 @@
 //
 // brand-book.test.mjs — the brand and culture book states nothing of its own.
 //
-// The Oracle (2026-10-03): the old brand deck was merged into canon and
+// The Oracle (2026-10-03): the old brand deck was merged into principles and
 // records, and /brand is the book that reads them. Every chapter must come
 // from a document; the old lore file is gone and its address leads here.
 //

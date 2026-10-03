@@ -4,16 +4,16 @@ uid: ""
 title: "The canon is CAN-"
 type: adr
 status: active
-version: "2.0.3"
+version: "2.0.4"
 created: "2026-09-01T00:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Knowledge and quality"
 tags: [canon, taxonomy, series, prefixes, licensing, CC0, deletion]
 license: "CC-BY-4.0"
-related: ["CAN-005", "STD-018", "SYS-003"]
+related: ["PRI-005", "STD-018", "SYS-003"]
 threshold: governed
 supersedes_record_of: ["canon/INDEX.md", "canon/README.md"]
 absorbs: ["S-001", "S-002", "S-003", "S-004", "S-005", "S-006", "S-007", "S-008", "S-009", "S-010"]
@@ -33,6 +33,9 @@ SPDX-License-Identifier: CC-BY-4.0
 > map survives. Closed records cite the old names; this table resolves them.
 > **Pragmatic:** A `C-006` or `C-007` in a record written before 2026-09-01
 > names a different document than the `CAN-` of the same number. Read here.
+> Since 2026-10-03 the series is `principles/` and the prefix `PRI-`
+> (`ADR-067`, cut 3); every `CAN-NNN` below is today's `PRI-NNN`, kept in
+> its `former_id`. The record reads as it was written.
 > **Audience:** Agents · Oracles
 
 ## 2. Decision

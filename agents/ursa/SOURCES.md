@@ -3,11 +3,11 @@ agent: ursa
 title: "SOURCES — Ursa"
 type: agent
 status: active
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -52,4 +52,4 @@ project-specific facts (AGENTS.md, Source Authority).
 
 ## Skills
 
-../skills/numinia-nwos-pr/SKILL.md — how a pull request is opened in this repository: one at a time, guards before push, telemetry last, fixed reviewers; canon is discussed before any branch
+../skills/numinia-nwos-pr/SKILL.md — how a pull request is opened in this repository: one at a time, guards before push, telemetry last, fixed reviewers; the principles are discussed before any branch

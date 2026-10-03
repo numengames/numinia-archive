@@ -5,9 +5,9 @@ title: "The Numinia Design System"
 type: documentation
 subtype: reference
 status: active
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -16,7 +16,7 @@ tags: [system, reference, design, design-system, sound, writing, play]
 license: "CC0-1.0"
 former_id: "STD-032"
 former_id_note: "Reshelved 2026-09-26: a map of which documents make up the design system is not a rule, and nothing in it can be kept or broken; it describes what exists, which is what the system shelf holds. The register table and its four parts are unchanged, and the design page, its markdown and its download still read it."
-related: ["CAN-008", "CAN-002", "STD-008", "STD-023", "STD-034", "PRO-014", "STD-021"]
+related: ["PRI-008", "PRI-002", "STD-008", "STD-023", "STD-034", "PRO-014", "STD-021"]
 ---
 
 <!--
@@ -61,10 +61,10 @@ accessibility standard, which every row here serves.
 
 | Part | Chapter | Document | Gives |
 |---|---|---|---|
-| Core | Purpose | `canon/CAN-002-brand-and-culture.md` | Why we exist, why a game, what we will not trade, how we sound |
-| Core | Identity | `canon/CAN-008-visual-identity.md` | The three forces, the forty-forty-twenty mix, the eras, the brand architecture, the signature and the play |
-| Core | Ethics | `canon/CAN-010-leave-things-better.md` | The sentence every piece closes on |
-| Core | World | `canon/CAN-001-welcome-to-numinia.md` | The city every piece belongs to |
+| Core | Purpose | `principles/PRI-002-brand-and-culture.md` | Why we exist, why a game, what we will not trade, how we sound |
+| Core | Identity | `principles/PRI-008-visual-identity.md` | The three forces, the forty-forty-twenty mix, the eras, the brand architecture, the signature and the play |
+| Core | Ethics | `principles/PRI-010-leave-things-better.md` | The sentence every piece closes on |
+| Core | World | `principles/PRI-001-welcome-to-numinia.md` | The city every piece belongs to |
 | Languages | Image | `standards/STD-008-design-tokens.md` | The rules an audit of any piece can fail on |
 | Languages | Image | `standards/STD-023-design-values.md` | Every value: colours, type, space, icons, the brand inventory, the sky |
 | Languages | Word | `standards/STD-030-the-worlds-vocabulary.md` | The names of the world, and what each is called outside the fiction |
@@ -101,7 +101,7 @@ accessibility standard, which every row here serves.
 
 | ID | Title | Relation |
 |---|---|---|
-| `CAN-008` | One identity, three forces | the direction every row serves |
+| `PRI-008` | One identity, three forces | the direction every row serves |
 | `STD-008` | Design tokens | the rules of the Image language |
 | `STD-034` | Accessibility | what every piece must let anyone do |
 | `PRO-014` | Producing a design piece | how a piece is made with what is listed here |

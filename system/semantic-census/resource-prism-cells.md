@@ -3,9 +3,9 @@ id: "SYS-011:resource-prism-cells"
 title: "Prism Cells"
 type: entity
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -77,9 +77,9 @@ A Cell records affinity, not knowledge: «Una Célula no certifica que el person
 ## Relations
 
 - **Seeds of Knowledge** — twin Token class: knowledge and permanent Prestige vs affinity, spendable (cited: `06-inventario-y-bestiario.md` — «Existen dos grandes clases de Tokens»).
-- **Prisma (force)** — source, not the same entity (cited: `02-historia-y-leyendas-de-numinia.md` — «Por eso existen Células del Prisma»; `canon/CAN-008-visual-identity.md` — «the Prisma asks for a choice»).
+- **Prisma (force)** — source, not the same entity (cited: `02-historia-y-leyendas-de-numinia.md` — «Por eso existen Células del Prisma»; `principles/PRI-008-visual-identity.md` — «the Prisma asks for a choice»).
 - **Seals** — co-modelled in Session Zero and code (cited: `seal.ts` — «thresholds, seals, and Prism Cells»).
-- **Token (house)** — (cited: `canon/CAN-011-value-makes-a-bond.md` — «A Token that forgot where it came from would be a coin»).
+- **Token (house)** — (cited: `principles/PRI-011-value-makes-a-bond.md` — «A Token that forgot where it came from would be a coin»).
 
 ## Current manifestations
 
@@ -105,7 +105,7 @@ A Cell records affinity, not knowledge: «Una Célula no certifica que el person
 - Acquisition conflict: «buenas interpretaciones» (`02-historia…`) vs «tesoros naturales […] fortuitamente» (`04-sistema…`) vs «no constituyen una recompensa abstracta» (`el-espejo-roto.md`).
 - `lore/adventures/virtual-worlds/session-zero.md`: each Cell «increases their prestige»; chapter 6 reserves Prestige for Seeds.
 - `02-historia…` table: «Bonificador a la reserva del Prisma con células» — a fourth use outside the «tres maneras».
-- Currency facet + `walletAddress` + CAN-011 «worth money» meets `STD-033` «A resaleable token waits» (MiCA): whether Cells ever go on-chain is the Oracle's call.
+- Currency facet + `walletAddress` + PRI-011 «worth money» meets `STD-033` «A resaleable token waits» (MiCA): whether Cells ever go on-chain is the Oracle's call.
 - Via `STD-030`'s Faction→department map, Cells could read as department-affinity tokens (proposed).
 
 ## Sources
@@ -114,5 +114,5 @@ A Cell records affinity, not knowledge: «Una Célula no certifica que el person
 - `lore/game/manual/glossary-es-en.md`, `lore/codex/glosario.md` — names, summary
 - `lore/adventures/tabletop/el-espejo-roto.md`, `lore/adventures/virtual-worlds/session-zero.md` — use in play
 - `standards/STD-030-the-worlds-vocabulary.md`, `blueprints/BLU-007-dual-nomenclature.md`, `web/src/pages/system/language.astro` — equivalences
-- `canon/CAN-008-visual-identity.md`, `canon/CAN-011-value-makes-a-bond.md`, `standards/STD-033-every-charge-delivers-something.md` — relations
+- `principles/PRI-008-visual-identity.md`, `principles/PRI-011-value-makes-a-bond.md`, `standards/STD-033-every-charge-delivers-something.md` — relations
 - `numinia-web:packages/domain/src/types/seal.ts`, `character-sheet.ts` — code model

@@ -4,11 +4,11 @@ uid: ""
 title: "Session state — where to pick up"
 type: documentation
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-08-18T15:09:29Z"
 created_source: "git:7e0e0a9"
 created_confidence: inferred
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 section: "Operations"
@@ -87,7 +87,7 @@ the board are for). First step of any session: `git pull` and audit
 
 ## 4. Rules learned this session (already written where they belong)
 
-- **G-11** (`GOVERNANCE.md`): the canon is not copied, it is pinned.
+- **G-11** (`GOVERNANCE.md`): the principles are not copied, they are pinned.
 - **G-12** (`GOVERNANCE.md`): a derived NWOS repo is sovereign; it is
   offered versions, not imposed law. With its error class to watch.
 - **PRO-008 v1.2.0**: everything submitted for review carries its

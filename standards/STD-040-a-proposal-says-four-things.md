@@ -5,17 +5,17 @@ title: "A proposal says four things"
 type: standard
 subtype: standard
 status: draft
-version: "0.4.3"
+version: "0.4.4"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
 tags: [standards, sales, proposal, learning-services, training, evaluation]
 license: "CC0-1.0"
-related: ["STD-039", "STD-038", "STD-033", "CAN-011", "LEG-002"]
-derived_from: "CAN-011"
+related: ["STD-039", "STD-038", "STD-033", "PRI-011", "LEG-002"]
+derived_from: "PRI-011"
 ---
 
 <!--
@@ -107,10 +107,10 @@ Each rule, its code, its source and its check.
 | PRP-003 | How it teaches, and how it measures | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 c); [Kirkpatrick, the four levels](https://www.kirkpatrickpartners.com/the-kirkpatrick-model/) | `pipeline.mjs --proposals`: the section exists and names a level from the four; by hand for the map |
 | PRP-004 | Price, terms and conditions | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 d), 14 invoicing (clause 14 unverified); `STD-033` PAY-001 | `pipeline.mjs --proposals`: the section exists and states a tax rate; by hand |
 | PRP-005 | What the client must know first | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 6 (items beyond title, objectives and prerequisites unverified) | by hand, at the review |
-| PRP-006 | The three questions answered | `CAN-011` | `pipeline.mjs --proposals`: the three answers present; by hand for their truth |
+| PRP-006 | The three questions answered | `PRI-011` | `pipeline.mjs --proposals`: the three answers present; by hand for their truth |
 | PRP-007 | Read before it is sent | [ISO 9001:2015](https://www.iso.org/standard/62085.html) 8.2.3, review before committing to supply (clause unverified) | `pipeline.mjs`: a record at `proposed` has a transition row to it with a date and a name in *By*; the reading itself, by hand |
-| PRP-010 | In the open, said first | customer-reference practice (consent to be named, withdrawable); `CAN-009` | `pipeline.mjs --proposals`: the section *In the open* exists |
-| PRP-008 | One record, two renderings | `CAN-009` | by hand until a renderer exists |
+| PRP-010 | In the open, said first | customer-reference practice (consent to be named, withdrawable); `PRI-009` | `pipeline.mjs --proposals`: the section *In the open* exists |
+| PRP-008 | One record, two renderings | `PRI-009` | by hand until a renderer exists |
 | PRP-009 | Kept with its opportunity | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html) (clause unverified) | `pipeline.mjs`: a proposed record's `proposal` path resolves |
 
 ## Why
@@ -127,7 +127,7 @@ client signs.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-011` | What has value also makes a bond | the three questions every proposal answers |
+| `PRI-011` | What has value also makes a bond | the three questions every proposal answers |
 | `STD-039` | An opportunity has a record | the record a proposal is kept beside |
 | `STD-038` | The stages of an opportunity | the stage a sent proposal puts a sale in |
 | `STD-033` | Every charge delivers something | the whole price, tax visible |

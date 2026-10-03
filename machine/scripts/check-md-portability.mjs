@@ -152,7 +152,7 @@ export function check() {
     }
 
     const mdUrl = m[1];
-    // /canon.md -> dist/canon.md ; /canon/can-001.md -> dist/canon/can-001.md
+    // /principles.md -> dist/principles.md ; /principles/pri-001.md -> dist/principles/pri-001.md
     const mdFile = join(DIST, mdUrl.replace(/^\//, "").split("/").join(sep));
     if (!existsSync(mdFile)) {
       findings.push({

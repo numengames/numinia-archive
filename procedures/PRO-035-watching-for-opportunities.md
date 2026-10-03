@@ -4,9 +4,9 @@ uid: ""
 title: "Watching for opportunities"
 type: procedure
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -15,7 +15,7 @@ tags: [procedure, sales, watch, tenders, grants, feed, automation]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-017", "STD-038", "STD-039", "OPS-018", "PRO-033", "PRO-032", "PRO-028"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--

@@ -5,16 +5,16 @@ title: "Personal data"
 type: standard
 subtype: standard
 status: draft
-version: "0.3.8"
+version: "0.3.9"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
 license: "CC0-1.0"
 tags: [standards, privacy, GDPR, LOPDGDD, personal-data]
 related: ["LEG-001", "LEG-003", "STD-033", "BLU-017"]
-derived_from: "CAN-012"
+derived_from: "PRI-012"
 ---
 
 <!--

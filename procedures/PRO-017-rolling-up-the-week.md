@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: procedure
 status: draft
-version: "3.3.4"
+version: "3.3.5"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -16,7 +16,7 @@ applies_to: [all-agents]
 mandatory: true
 approved_by: "ADR-042"
 related: ["STD-012", "STD-043", "ADR-030", "RPT-018"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--

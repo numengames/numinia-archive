@@ -1,19 +1,21 @@
 ---
-id: "CAN-012"
+id: "PRI-012"
 uid: ""
 title: "What is yours stays with you"
-type: seminal
+type: principle
+former_id: "CAN-012"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-26T16:40:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Legal and compliance"
-tags: [canon, seminal, ownership, sovereignty, identity, data]
+tags: [principle, ownership, sovereignty, identity, data]
 license: "CC0-1.0"
-related: ["CAN-005", "CAN-010", "CAN-011", "CAN-004", "STD-026"]
+related: ["PRI-005", "PRI-010", "PRI-011", "PRI-004", "STD-026"]
 ---
 
 <!--
@@ -36,7 +38,7 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** whoever builds, runs or changes anything that holds something of
 a person's in Numinia's name, human or digital.
 
-> This canon is a first statement, written in draft to be argued with. It
+> This principle is a first statement, written in draft to be argued with. It
 > says why a person's things are held the way they are; how each one is
 > stored and handed over belongs to the documents that follow it.
 
@@ -66,7 +68,7 @@ waiting. A record that only our service can open is a record we hold about
 someone, not one they own.
 
 What is yours is not what is everyone's. What the house has opened belongs
-to no one in particular, and the canon of licensing says why it stays open.
+to no one in particular, and the principle of licensing says why it stays open.
 A file can be copied without loss by anyone; what is scarce is the title
 over one particular copy, and that title is what a person owns.
 
@@ -100,7 +102,7 @@ Until a person climbs, the house holds their things for them, as a steward
 holds a house for its owner: in good order, and ready to hand over whole the
 day they ask. Closing someone's access to the city is not taking their
 things; what they held goes with them. How their data is treated while it is
-here is the canon of ethics, and it is not repeated here.
+here is the principle of ethics, and it is not repeated here.
 
 ## Three questions
 
@@ -121,8 +123,8 @@ refuse to build.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-005` | Opening is an act | why what is everyone's stays open, and is not what is yours |
-| `CAN-010` | Leave things better than you found them | how a person's data is treated while it is here |
-| `CAN-011` | What has value also makes a bond | what a person gets when they pay, and why a Token keeps its history |
-| `CAN-004` | You are what you are doing | who a citizen is, and the ranks they climb |
+| `PRI-005` | Opening is an act | why what is everyone's stays open, and is not what is yours |
+| `PRI-010` | Leave things better than you found them | how a person's data is treated while it is here |
+| `PRI-011` | What has value also makes a bond | what a person gets when they pay, and why a Token keeps its history |
+| `PRI-004` | You are what you are doing | who a citizen is, and the ranks they climb |
 | `STD-026` | Operative vocabulary | what digital sovereignty, a key of one's own and progressive identity mean |

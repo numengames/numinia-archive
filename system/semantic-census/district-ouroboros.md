@@ -3,9 +3,9 @@ id: "SYS-011:district-ouroboros"
 title: "Ouroboros District"
 type: entity
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -85,7 +85,7 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 | Where | How it shows up | Source |
 |---|---|---|
 | Game (manual, adventures) | Chapters 03–07; *El Espejo Roto* | `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`; `lore/adventures/tabletop/el-espejo-roto.md` |
-| House (canon, standards, agents, guilds of the archive) | One canon mention (a fan's story setting); flagged undefined | `canon/CAN-005-licensing.md` — «a story set in the Ouroboros»; `reports/RPT-022-the-newcomer-test.md` — «Names used and never defined in canon» |
+| House (canon, standards, agents, guilds of the archive) | One canon mention (a fan's story setting); flagged undefined | `principles/PRI-005-licensing.md` — «a story set in the Ouroboros»; `reports/RPT-022-the-newcomer-test.md` — «Names used and never defined in canon» |
 | Web (numinia.org, numinia.com) | .org: "Play" district. .com: district record, seal, four spaces | `web/src/lib/summa.ts`; `numinia-web:packages/domain/src/constants/districts.ts` |
 | Processes | None found in `agents/`, `AGENTS.md`, STD-026, BLU-007, BLU-011 | inferred: grep of those paths |
 
@@ -100,7 +100,7 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 
 ## Observations
 
-- **Canon gap confirmed:** `CAN-005` is the only canon use (cited: `reports/RPT-022-the-newcomer-test.md` — «the Ouroboros»).
+- **Canon gap confirmed:** `PRI-005` is the only canon use (cited: `reports/RPT-022-the-newcomer-test.md` — «the Ouroboros»).
 - **Two characters, one nature (resolved):** chapter 5 calls it both «El Laberinto del juego» and «El Distrito del Ritual y el Sueño». They are not two identities: play, narration, dream and ritual are one nature, play first (cited: Christian's review, 2026-09-29).
 - **Draft residue:** «Altura sugerida» / «Justificación» read like design notes left in the manual (inferred: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`).
 - **Naming drift:** manual «Casa de los Acertijos» / «Taberna Hiperbórea» vs numinia.com «Casa de los Enigmas» / «Taberna Hyperborean» (cited: `numinia-web:apps/store/src/i18n/city-landing.ts` — «spaces:»).
@@ -113,6 +113,6 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 - `lore/game/manual/es/04-sistema-de-juego.md` — alethics, black market
 - `lore/game/manual/glossary-es-en.md`, `lore/codex/glosario.md` — names
 - `lore/adventures/tabletop/el-espejo-roto.md`, `lore/adventures/virtual-worlds/session-zero.md` — settings
-- `canon/CAN-005-licensing.md`, `reports/RPT-022-the-newcomer-test.md`, `standards/STD-030-the-worlds-vocabulary.md` — house
+- `principles/PRI-005-licensing.md`, `reports/RPT-022-the-newcomer-test.md`, `standards/STD-030-the-worlds-vocabulary.md` — house
 - `web/src/lib/summa.ts`, `numinia-web:packages/domain/src/constants/districts.ts`, `numinia-web:apps/store/src/i18n/city-landing.ts` — web
 - Christian's review, 2026-09-29, written in chat to the Oracle — what a district is, and how Ouroboros' facets fit

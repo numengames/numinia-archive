@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a check to CI"
 type: procedure
 status: draft
-version: "5.1.3"
+version: "5.1.4"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [procedure, ci, checks, engineering]
@@ -19,7 +19,7 @@ visibility: "public"
 applies_to: [all-agents]
 mandatory: true
 related: ["STD-005", "STD-015", "PRO-016"]
-derived_from: "CAN-010"
+derived_from: "PRI-010"
 ---
 
 <!--

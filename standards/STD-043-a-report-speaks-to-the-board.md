@@ -5,17 +5,17 @@ title: "A report speaks to the board"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-29T19:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Strategy and governance"
 tags: [standards, reports, rollup, weekly, quarterly, annual, board, management-commentary]
 license: "CC0-1.0"
-related: ["STD-012", "PRO-017", "STD-036", "STD-021", "STD-007", "CAN-009"]
-derived_from: "CAN-009"
+related: ["STD-012", "PRO-017", "STD-036", "STD-021", "STD-007", "PRI-009"]
+derived_from: "PRI-009"
 ---
 
 <!--
@@ -107,4 +107,4 @@ whether things got better.
 | `PRO-017` | Rolling up the week | the procedure that writes these reports |
 | `STD-036` | One account | where the money heading reads from |
 | `STD-021` | Evidence and citation | how a figure names its source |
-| `CAN-009` | The archive is the organisation | why a report covers all of it |
+| `PRI-009` | The archive is the organisation | why a report covers all of it |

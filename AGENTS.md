@@ -51,7 +51,7 @@ before the branch. And the standards whose header says `active`:
 `STD-028` one document, one address ·
 `STD-030` the world's vocabulary.
 
-Nothing else in `canon/`, `standards/` or `procedures/` binds you. A test
+Nothing else in `principles/`, `standards/` or `procedures/` binds you. A test
 (`machine/scripts/test/door-resolves.test.mjs`) fails if this list and the
 headers disagree, so a promotion out of draft shows up here or CI goes red.
 
@@ -76,7 +76,7 @@ What still holds, because each rule protects something that can be seen:
   reproduces it before the fix. Read at review; it fails no build while the
   register is draft;
 - the reserved files (the legal texts in `legal/`, sales in `operations/`)
-  and the brand mark stay reserved; canon changes are said to the operator
+  and the brand mark stay reserved; changes to the principles are said to the operator
   in chat before the branch exists — his answer there is the consensus, no
   further ceremony.
 
@@ -118,7 +118,7 @@ CI runs the guards, the tests, the web build, then the build-time ratchets.
 
 - `agents/` — canonical agent definitions, one folder each. `agents/INDEX.md`
   owns the roster and the folder contract; read it there rather than here.
-- `canon/` — the world and the governing canons; the rule index below lists them.
+- `principles/` — the world and the governing principles; the rule index below lists them.
 - `lore/` — the game: RPG manual, adventures, world texts, codex. Each file declares its own licence.
 - `standards/` — this archive's operative standards; the rule index below lists them.
 - `procedures/` — how a recurring task is carried out: session close, briefing, archiving.
@@ -144,7 +144,7 @@ its name when its function is not documented.
 
 ## The rules that govern work here
 
-`standards/`, `procedures/` and `canon/` hold the rule documents. Each opens
+`standards/`, `procedures/` and `principles/` hold the rule documents. Each opens
 with a `**Binds:**` line saying whom it governs. Read that line before
 opening the document.
 
@@ -163,20 +163,20 @@ adding a dependency, changing a LICENSE or making anything public.
 
 | Rule | What it rules | State | Binds |
 |---|---|---|---|
-| `CAN-001` | You are already in the game | draft | every document, artefact and agent that speaks in Numinia's name |
-| `CAN-002` | We build a game to work better | draft | every piece of work that speaks, looks or behaves in Numinia's name |
-| `CAN-004` | You are what you are doing | draft | whoever describes, classifies or registers a person, a role or a piece of work in Numinia |
-| `CAN-005` | Opening is an act | draft | every Numen Games repository, and whoever publishes from one |
-| `CAN-006` | The model needs a story | draft | whoever reasons about how Numen Games, its model and Numinia relate |
-| `CAN-007` | Renaming is not transforming | draft | whoever designs, renames or reorganises anything in this system |
-| `CAN-008` | One identity, three forces | draft | every piece that carries the Numen Games or Numinia mark |
-| `CAN-009` | The archive is the organisation | draft | every document of this archive, every change to it, and whoever — human or digital… |
-| `CAN-010` | Leave things better than you found them | draft | whoever acts in Numinia's name, human or digital |
-| `CAN-011` | What has value also makes a bond | draft | whoever sets a price, takes a payment or keeps the account in Numinia's name, human or digital |
-| `CAN-012` | What is yours stays with you | draft | whoever builds, runs or changes anything that holds something of a person's in Numinia's name… |
-| `CAN-013` | A magician who keeps hope, with humans in… | draft | every piece of work that speaks, looks or behaves in Numinia's name |
-| `CAN-014` | Friends who play, build and learn | draft | every piece that tells where Numinia comes from |
-| `CAN-015` | We recognise the act; we never buy the game | draft | whoever designs, grants or audits a reward, a rank, a title or a recognition in Numinia's name |
+| `PRI-001` | You are already in the game | draft | every document, artefact and agent that speaks in Numinia's name |
+| `PRI-002` | We build a game to work better | draft | every piece of work that speaks, looks or behaves in Numinia's name |
+| `PRI-004` | You are what you are doing | draft | whoever describes, classifies or registers a person, a role or a piece of work in Numinia |
+| `PRI-005` | Opening is an act | draft | every Numen Games repository, and whoever publishes from one |
+| `PRI-006` | The model needs a story | draft | whoever reasons about how Numen Games, its model and Numinia relate |
+| `PRI-007` | Renaming is not transforming | draft | whoever designs, renames or reorganises anything in this system |
+| `PRI-008` | One identity, three forces | draft | every piece that carries the Numen Games or Numinia mark |
+| `PRI-009` | The archive is the organisation | draft | every document of this archive, every change to it, and whoever — human or digital… |
+| `PRI-010` | Leave things better than you found them | draft | whoever acts in Numinia's name, human or digital |
+| `PRI-011` | What has value also makes a bond | draft | whoever sets a price, takes a payment or keeps the account in Numinia's name, human or digital |
+| `PRI-012` | What is yours stays with you | draft | whoever builds, runs or changes anything that holds something of a person's in Numinia's name… |
+| `PRI-013` | A magician who keeps hope, with humans in… | draft | every piece of work that speaks, looks or behaves in Numinia's name |
+| `PRI-014` | Friends who play, build and learn | draft | every piece that tells where Numinia comes from |
+| `PRI-015` | We recognise the act; we never buy the game | draft | whoever designs, grants or audits a reward, a rank, a title or a recognition in Numinia's name |
 | `PRO-001` | Opening and closing a session | draft | every agent, in every session, whatever the mission |
 | `PRO-003` | Running a mission | draft | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
 | `PRO-005` | Escalating to the Oracle | draft | any agent facing a decision it may not, or cannot, take alone |
@@ -231,7 +231,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-028` | One document, one address | in force | every web address the public site gives a document of the archive |
 | `STD-029` | How we treat each other in the commons | draft | everyone in a Numinia community space: citizens, moderators, Oracles and digital agents alike |
 | `STD-030` | The world's vocabulary | in force | register — scope belongs to the standard that cites it |
-| `STD-031` | A canon states | draft | every document in the canon |
+| `STD-031` | A principle states | draft | every document in the principles |
 | `STD-033` | Every charge delivers something | draft | every site of ours that takes a payment, and every record of something on sale |
 | `STD-034` | Accessibility | draft | every public page of every Numen Games and Numinia site |
 | `STD-035` | Personal data | draft | everything of ours that collects or keeps data about a person |
@@ -253,7 +253,7 @@ adding a dependency, changing a LICENSE or making anything public.
 
 Agents may propose changes to agent identity, governance and authoritative
 rules; they do not assume authority to redefine themselves or their
-governance. `canon/**` requires the operator's answer in chat before the
+governance. `principles/**` requires the operator's answer in chat before the
 branch exists. Git is the archive: a retired document is deleted, not kept
 as a copy (`ADR-041`).
 

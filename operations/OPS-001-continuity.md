@@ -4,11 +4,11 @@ uid: ""
 title: "Continuity and adaptability of the system"
 type: documentation
 status: active
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Technology"
@@ -53,8 +53,8 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 ### G2 — The foundational documents were not in the repo (CRITICAL)
 
 - **State:** ✅ Resolved
-- **Problem:** The 9 seminal documents — Numinia's Constitution — lived only in /workspace/seminal-documents/. If the machine died, the canon disappeared.
-- **Solution:** Copied into the repository under canon/. They are now part of the Summa Archive and versioned with git.
+- **Problem:** The 9 seminal documents — Numinia's Constitution — lived only in /workspace/seminal-documents/. If the machine died, the principles disappeared.
+- **Solution:** Copied into the repository under principles/. They are now part of the Summa Archive and versioned with git.
 
 ### G3 — Daily memory was not persisted to git
 
@@ -97,7 +97,7 @@ This is not a theoretical question. It is the real test of whether the NWOS is a
 | Folder | Description | Critical |
 |--------|-------------|----------|
 | 🤖 `agents/` | Complete identity of every agent: SOUL, OPERATOR, STATUS, MEMORY. | ✅ |
-| 📜 `canon/` | The foundational documents of Numinia. The Constitution. | ✅ |
+| 📜 `principles/` | The foundational documents of Numinia. The Constitution. | ✅ |
 | ⚡ `missions/` | Every mission with history, criteria, epistemic value and Real Execution. | ✅ |
 | 🪨 `decisions/` | Every decision with its context, rejected alternatives and why. | ✅ |
 | 📐 `blueprints/` | Current and target state of each subsystem. Gaps and dependencies. | — |
@@ -128,7 +128,7 @@ The real continuity test is not whether the system can be rebuilt — it is whet
 **9/10** — Audit performed on 2026-04-07
 
 - ✅ Nimrod exists in the repo with complete identity
-- ✅ 9 seminal documents in the repo's canon
+- ✅ 9 seminal documents in the repo's principles
 - ✅ 54 missions with full detail
 - ✅ 5 decisions with context and alternatives
 - ✅ 6 days of historical reports

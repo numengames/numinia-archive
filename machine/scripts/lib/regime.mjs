@@ -12,7 +12,7 @@
 // HOW A PLATE FINDS ITS HOLDER
 // ----------------------------
 // Every rule of the normative documents is written once, in bold, as `**XXX-NNN — Title.**`
-// inside one canon, standard or procedure. This module scans the normative documents for
+// inside one principle, standard or procedure. This module scans the normative documents for
 // those definitions. A plate cited by a guard resolves to the document that
 // defines it; a plate that no document defines but whose PREFIX one document
 // owns resolves to that document (a guard may check a rule the standard
@@ -39,7 +39,7 @@ import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { ROOT } from './frontmatter.mjs';
 
-const AXIS = ['canon', 'standards', 'procedures'];
+const AXIS = ['principles', 'standards', 'procedures'];
 const PLATE = /^[A-Z]{2,4}-\d{3}$/;
 
 let _index = null;

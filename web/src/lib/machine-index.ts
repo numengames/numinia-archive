@@ -20,7 +20,7 @@
 // The Oracle restated the rule on 2026-09-23 and it is the reason this file
 // has tests of its own: THE LICENCE IS THE DOCUMENT'S. 121 documents are
 // CC0-1.0, 28 are CC-BY-4.0, 4 are all-rights-reserved, and they do not sort
-// by directory — `lore/` is not a reserved block, `canon/` is not an open one.
+// by directory — `lore/` is not a reserved block, `principles/` is not an open one.
 // Any sentence of the form "everything under X is Y" is false here, and it is
 // the kind of false a machine repeats downstream where nobody can correct it.
 // `licenceOf` therefore reads the document's own header first and falls back
@@ -68,9 +68,9 @@ const ANNOTATIONS = (() => {
 
 /** A published document, as the routes hand it over. */
 export interface DocEntry {
-  /** Address on the site, no trailing slash: `/canon/can-001-welcome-to-numinia`. */
+  /** Address on the site, no trailing slash: `/principles/pri-001-welcome-to-numinia`. */
   url: string;
-  /** Path as Astro reports it, relative to web/: `../canon/CAN-001-…md`. */
+  /** Path as Astro reports it, relative to web/: `../principles/PRI-001-…md`. */
   filePath: string;
   title: string;
   id?: string;

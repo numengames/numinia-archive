@@ -5,9 +5,9 @@ title: "The canon answers every question it asks itself but one, and half of wha
 type: report
 subtype: audit
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-28T20:30:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -19,7 +19,7 @@ scope: "The eleven canons at the commit below, read by two blind readers who had
 evidence_head: "4975d09"
 model: "claude-opus-5-5"
 agent: "ursa"
-related: ["STD-031", "CAN-009", "CAN-010", "CAN-004"]
+related: ["STD-031", "PRI-009", "PRI-010", "PRI-004"]
 ---
 
 <!--
@@ -43,7 +43,7 @@ SPDX-License-Identifier: CC-BY-4.0
 
 ## 1. Scope and method
 
-**The instrument.** The eleven files of `canon/` are copied into an empty
+**The instrument.** The eleven files of `principles/` are copied into an empty
 folder with the question list in section 4. Two readers — digital agents
 with no other file, no web and the instruction not to use prior knowledge —
 answer each question independently, in opposite reading orders, citing a
@@ -158,6 +158,6 @@ figures are a baseline to compare against, not a grade.
 | Identifier | Title | Why it is cited |
 |---|---|---|
 | `STD-031` | A canon states | the mould the canons were measured against |
-| `CAN-009` | The archive is the organisation | contradictions 1 and 3 |
-| `CAN-010` | Leave things better than you found them | contradiction 2 |
-| `CAN-004` | You are what you are doing | contradiction 5; questions 17 and 18 |
+| `PRI-009` | The archive is the organisation | contradictions 1 and 3 |
+| `PRI-010` | Leave things better than you found them | contradiction 2 |
+| `PRI-004` | You are what you are doing | contradiction 5; questions 17 and 18 |

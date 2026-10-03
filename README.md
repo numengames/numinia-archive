@@ -39,7 +39,7 @@ Each folder answers one question.
 
 | Folder | Answers |
 |---|---|
-| [`canon/`](canon/) | What the system **is** |
+| [`principles/`](principles/) | What the system **is** |
 | [`standards/`](standards/) | What an artifact must **comply with** |
 | [`procedures/`](procedures/) | What an actor **executes**, step by step |
 | [`decisions/`](decisions/) | **Why** something was chosen |

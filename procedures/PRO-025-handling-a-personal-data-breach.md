@@ -4,9 +4,9 @@ uid: ""
 title: "Handling a personal data breach"
 type: procedure
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -14,7 +14,7 @@ tags: [procedure, personal-data, breach, gdpr]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
 related: ["STD-035", "STD-022", "LEG-001", "PRO-005", "PRO-024"]
-derived_from: "CAN-012"
+derived_from: "PRI-012"
 ---
 
 <!--

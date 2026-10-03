@@ -4,7 +4,7 @@
 // THE LICENCE IS THE FILE'S, NEVER THE FOLDER'S (Oracle, 2026-09-24).
 //
 // Until that date REUSE.toml handed licences to whole folders — `lore/**`,
-// `canon/**`, `missions/**` — and a file inherited whatever its shelf said.
+// `principles/**`, `missions/**` — and a file inherited whatever its shelf said.
 // A new file got a licence nobody chose for it; moving a file changed its
 // licence without anyone touching it. These tests hold the replacement:
 // every text file declares its own licence in an SPDX comment, and

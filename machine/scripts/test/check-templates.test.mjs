@@ -36,7 +36,7 @@ const rmTree = (p) => rmSync(p, { recursive: true, force: true, maxRetries: 10, 
    discovers files with `git ls-files`. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'templates-'));
-  for (const p of ['machine/templates', 'machine/scripts', 'machine/guards', 'standards', 'canon', 'procedures', 'LICENSES', 'REUSE.toml'])
+  for (const p of ['machine/templates', 'machine/scripts', 'machine/guards', 'standards', 'principles', 'procedures', 'LICENSES', 'REUSE.toml'])
     cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
   execFileSync('git', ['-C', dir, 'init', '-q'], { stdio: 'ignore' });
   execFileSync('git', ['-C', dir, 'add', '-A'], { stdio: 'ignore' });

@@ -1,23 +1,25 @@
 ---
-id: "CAN-002"
+id: "PRI-002"
 uid: ""
 title: "We build a game to work better"
-type: seminal
+type: principle
+former_id: "CAN-002"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "4.2.2"
+version: "4.2.3"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Strategy and governance"
-tags: [canon, seminal, brand, culture, purpose, values, play]
+tags: [principle, brand, culture, purpose, values, play]
 license: "CC0-1.0"
 approved_by: "ADR-061"
 supersedes_version: "3.0.0"
-related: ["CAN-001", "CAN-005", "CAN-008", "CAN-010", "CAN-013", "CAN-014", "PRO-019", "STD-023"]
+related: ["PRI-001", "PRI-005", "PRI-008", "PRI-010", "PRI-013", "PRI-014", "PRO-019", "STD-023"]
 
 ---
 
@@ -95,7 +97,7 @@ the public good. Sustainability guides our steps.
 And three pillars, which are what to weigh in any decision: **craft** — art as
 a driver; **learn** — humans play to learn; **remix** — feel free to copy it
 and make it better. The third is not a slogan: the catalogue is open by
-decision, and the canon of licensing says what that obliges.
+decision, and the principle of licensing says what that obliges.
 
 ## What we believe
 
@@ -148,7 +150,7 @@ It comes from *numen*, the Latin for divinity, divine presence or divine
 will; the term anthropology and the history of religions use for the power residing in an object.
 The symbols are the scarab — Khepri, creation, cycle, rebirth — and the moon
 in its phases. Where the imagery comes from, and how the house looks, is the
-canon of visual identity's.
+principle of visual identity's.
 
 Numen Games is the Oracles' company, and it is friends who play, build, learn
 and divulge. That order matters.
@@ -157,9 +159,9 @@ and divulge. That order matters.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-008` | The house looks one way | the imagery, the mix and the registers |
-| `CAN-005` | Opening is an act | what *remix* obliges |
-| `CAN-010` | Leave things better than you found them | the one sentence that is the house's ethics |
-| `CAN-013` | A magician who keeps hope, with humans in charge | the brand's personality, emotion and cause |
-| `CAN-014` | Friends who play, build and learn | where the house comes from |
-| `CAN-001` | You are already in the game | why the work is narrated at all |
+| `PRI-008` | The house looks one way | the imagery, the mix and the registers |
+| `PRI-005` | Opening is an act | what *remix* obliges |
+| `PRI-010` | Leave things better than you found them | the one sentence that is the house's ethics |
+| `PRI-013` | A magician who keeps hope, with humans in charge | the brand's personality, emotion and cause |
+| `PRI-014` | Friends who play, build and learn | where the house comes from |
+| `PRI-001` | You are already in the game | why the work is narrated at all |

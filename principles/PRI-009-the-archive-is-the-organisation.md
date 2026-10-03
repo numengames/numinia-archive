@@ -1,20 +1,22 @@
 ---
-id: "CAN-009"
+id: "PRI-009"
 uid: ""
 title: "The archive is the organisation"
-type: seminal
+type: principle
+former_id: "CAN-009"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "1.0.6"
+version: "1.0.7"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Strategy and governance"
-tags: [canon, seminal, archive, work, agents, memory, git]
+tags: [principle, archive, work, agents, memory, git]
 license: "CC0-1.0"
 approved_by: "ADR-059"
-related: ["CAN-001", "CAN-004", "STD-006", "STD-020", "STD-024", "STD-009", "STD-012"]
+related: ["PRI-001", "PRI-004", "STD-006", "STD-020", "STD-024", "STD-009", "STD-012"]
 ---
 
 <!--
@@ -71,7 +73,7 @@ claim of precedence is not, and is void.
 
 ## Only the normative documents oblige
 
-Three kinds of document oblige: canon says why, a standard says what an
+Three kinds of document oblige: a principle says why, a standard says what an
 artefact must satisfy, a procedure says how an actor carries something out.
 Everything else — a decision, a report, a mission, a debt, a blueprint —
 records what happened, what was decided or what exists, and a record cannot
@@ -132,7 +134,7 @@ gap in the archive — not a reason to ask around.
 | ID | Name | Why cited |
 |---|---|---|
 | `STD-024` | A series is a function | which three series oblige, and why location decides |
-| `STD-009` | Which rule wins | the order of precedence this canon explains |
+| `STD-009` | Which rule wins | the order of precedence this principle explains |
 | `STD-020` | Git is the archive | how history is protected and how a document dies |
 | `STD-006` | Plain text is sovereign | what the file must be so that it outlives its readers |
-| `CAN-004` | You are what you are doing | what an agent is made of, and its rank |
+| `PRI-004` | You are what you are doing | what an agent is made of, and its rank |

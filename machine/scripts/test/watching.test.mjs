@@ -32,7 +32,7 @@ test('a procedure holds the watch, from the sweep to the Oracle\'s decision', ()
   assert.ok(proFile, 'procedures/PRO-NNN-watching-for-opportunities.md exists');
   const t = read(`procedures/${proFile}`);
   const b = body(t);
-  assert.match(t, /^derived_from: "CAN-\d{3}"/m);
+  assert.match(t, /^derived_from: "PRI-\d{3}"/m);
   assert.match(b, /\*\*Epistemic:\*\*[^\n]*\?/);
   for (const [what, re] of [
     ['the feed, by its repository', /numinia-archive-feed/],

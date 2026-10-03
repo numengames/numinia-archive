@@ -5,9 +5,9 @@ title: "The semantic census"
 type: documentation
 subtype: reference
 status: draft
-version: "0.3.2"
+version: "0.3.3"
 created: "2026-09-29T12:15:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -15,7 +15,7 @@ guild: "Exegetes"
 section: "Products and services"
 tags: [system, reference, vocabulary, census, narrative-dial]
 license: "CC0-1.0"
-related: ["RPT-023", "STD-030", "STD-026", "BLU-007", "CAN-007"]
+related: ["RPT-023", "STD-030", "STD-026", "BLU-007", "PRI-007"]
 ---
 
 <!--
@@ -119,7 +119,7 @@ things. A card moves through four stages:
 
 The role-playing manual (`lore/game/manual/es/`), which has authority over
 the world; the codex glossary (`lore/codex/glosario.md`); the manual's
-Spanish–English name table; the canon, above all the roles and the visual
+Spanish–English name table; the principles, above all the roles and the visual
 identity; `STD-030` and `BLU-007` for the equivalents under test;
 numinia.com's code (the `numinia-web` repository, cited as `numinia-web:<path>`); the adventures; `BLU-011` for the LAP and the
 Veil on the web.
@@ -130,7 +130,7 @@ Christian validates the eight pilot cards and says whether the template
 captures the concept, which fields are missing or spare, and what a card
 costs to read. Then the census runs category by category, in the order
 above, each category reviewed before the next. A shorter card for the
-house's own jargon (canon, binds, draft, register) runs in parallel. The
+house's own jargon (principles, binds, draft, register) runs in parallel. The
 research behind this census is `RPT-023`.
 
 ## References

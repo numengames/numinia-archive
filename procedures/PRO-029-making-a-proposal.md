@@ -4,9 +4,9 @@ uid: ""
 title: "Making a proposal"
 type: procedure
 status: draft
-version: "0.4.3"
+version: "0.4.4"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -14,8 +14,8 @@ section: "Sales and partners"
 tags: [procedure, sales, proposal, needs-analysis, learning-services]
 license: "CC0-1.0"
 applies_to: [all-agents]
-related: ["STD-040", "STD-039", "STD-038", "PRO-028", "PRO-030", "CAN-011"]
-derived_from: "CAN-011"
+related: ["STD-040", "STD-039", "STD-038", "PRO-028", "PRO-030", "PRI-011"]
+derived_from: "PRI-011"
 ---
 
 <!--
@@ -86,7 +86,7 @@ before it leaves, and sending it is the approval.
    the trace each learner leaves; price with tax visible, dates, what is
    delivered and under which licence, when it is invoiced, the house's
    terms. Then what the client must know before agreeing, the three
-   questions of the canon of money, and last, that the house publishes its
+   questions of the principle of money, and last, that the house publishes its
    proposals and the client may ask not to be named.
 4. **Decide the demonstration.** Only if no earlier case can be shown does
    the Oracle decide whether to build a room before signing — days of work

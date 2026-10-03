@@ -63,7 +63,7 @@ export const RING3 = {
     // records a decision that narrows a standard without superseding it.
     // `absorbs`, `amends` as above. Registered 2026-09-01 (ADR-036):
     // `threshold` marks a decision that itself sits at a sealed threshold
-    // (it amends canon/, so it needs the Oracle's signature like the canon
+    // (it amends principles/, so it needs the Oracle's signature like the principles
     // does); `supersedes_record_of` names the retired files whose ONLY copy
     // of a record this decision inherited — the field is what makes deleting
     // an INDEX.md auditable instead of merely tidy.
@@ -115,14 +115,14 @@ export const RING3 = {
     // been needed where a record merged into a peer, and this is the first
     // time a system manual merged into the standard that governs it.
     'absorbs'],
-  'canon': ['supersedes_version', 'approved_by',
+  'principles': ['supersedes_version', 'approved_by',
     'changelog', 'lore', 'extraction_note',
     // registered 2026-09-01 (ADR-036). `former_id`/`former_id_note` carry the
     // renumbering to the CAN- series exactly as they do in reports/ and
     // system/: ADR-004 rule 4 never frees an old identifier, so a renamed
-    // document must say what it used to be called. The rest are CAN-005's
+    // document must say what it used to be called. The rest are PRI-005's
     // legacy Spanish header fields, migrated to English keys rather than
-    // dropped — they encode the licensing canon's scope, authority and
+    // dropped — they encode the licensing principle's scope, authority and
     // downstream editions, and deleting them to satisfy a linter would have
     // destroyed the only record of where the distributed file and the public
     // guide live.
@@ -131,9 +131,9 @@ export const RING3 = {
     'normative_conventions', 'authority', 'revision_policy',
     // registered 2026-09-24 (ADR-057). Same load-bearing role it has in
     // decisions/, debt/, reports/ and standards/: the DEF-009 guard (std-012)
-    // reads `absorbs` to keep an absorbed identifier resolving. CAN-004
-    // absorbed CAN-003, so a canon can now be the absorbing document —
-    // DEF-011's route out of a series, applied to canon for the first time.
+    // reads `absorbs` to keep an absorbed identifier resolving. PRI-004
+    // absorbed PRI-003, so a principle can now be the absorbing document —
+    // DEF-011's route out of a series, applied to the principles for the first time.
     'absorbs'],
   'procedures': ['supersedes_version', 'approved_by', 'applies_to', 'mandatory',
     'human_approval_score', 'mission', 'review_next'],

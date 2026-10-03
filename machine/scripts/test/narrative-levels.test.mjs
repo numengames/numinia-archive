@@ -65,7 +65,7 @@ test('every suffix a page wrote by hand gives way to the site name', () => {
     'Numinia — the Summa': '',
     'The Agents — Numinia': 'The Agents',
     'Privacy Policy — Numen Games': 'Privacy Policy',
-    'Canon — NWOS, the archive of Numen Games': 'Canon',
+    'Principles — NWOS, the archive of Numen Games': 'Principles',
     'Governance — how the archive is classified · Numen Games': 'Governance',
     'The archive — every series of Numen Games': 'The archive',
     'Ursa · Technical Architect & Orchestrator · Numinia': 'Ursa · Technical Architect & Orchestrator',

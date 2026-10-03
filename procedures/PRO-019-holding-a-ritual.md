@@ -4,9 +4,9 @@ uid: ""
 title: "Holding a ritual"
 type: procedure
 status: draft
-version: "0.2.4"
+version: "0.2.5"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -15,8 +15,8 @@ tags: [procedure, rituals, cadence, community]
 license: "CC0-1.0"
 applies_to: [all-agents]
 approved_by: "ADR-048"
-related: ["CAN-001", "CAN-002", "CAN-004", "PRO-005", "PRO-017", "STD-012"]
-derived_from: "CAN-001"
+related: ["PRI-001", "PRI-002", "PRI-004", "PRO-005", "PRO-017", "STD-012"]
+derived_from: "PRI-001"
 ---
 
 <!--
@@ -55,9 +55,9 @@ procedure.
 | **Public Domain Day** | Festive | 1 January | Celebrate the works entering the public domain with an adventure | Neo-Atlantists |
 | **Anniversary** | Festive | 2 November | Numinia's own day | Neo-Atlantists |
 
-Names are canon. The Oracle renames, adds or retires a ritual, and changes
+Names are fixed by the principles. The Oracle renames, adds or retires a ritual, and changes
 the row in the same act. The roster states cadence only: the date, time and
-place of each occasion live in the calendar, never here or in canon.
+place of each occasion live in the calendar, never here or in the principles.
 
 ---
 
@@ -112,8 +112,8 @@ without functions.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-001` | Numinia is the operating system, narrated | a name without a function is removed |
-| `CAN-002` | Numinia Brand and Culture | what the rituals mean, and their names |
+| `PRI-001` | Numinia is the operating system, narrated | a name without a function is removed |
+| `PRI-002` | Numinia Brand and Culture | what the rituals mean, and their names |
 | `PRO-017` | Rolling up the week | the material an operational ritual reads |
 | `PRO-005` | Escalating to the Oracle | a cadence that no longer earns itself |
 | `STD-012` | The corpus does not grow | why minutes are not written |

@@ -5,15 +5,15 @@ title: "Accessibility"
 type: standard
 subtype: standard
 status: draft
-version: "0.2.8"
+version: "0.2.9"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
 license: "CC0-1.0"
 related: ["STD-008", "STD-015", "STD-023", "SYS-009"]
-derived_from: "CAN-008"
+derived_from: "PRI-008"
 tags: [standards, accessibility, WCAG, web]
 ---
 

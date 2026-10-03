@@ -1,25 +1,26 @@
 ---
-id: "CAN-005"
+id: "PRI-005"
 uid: ""
 title: "Opening is an act"
-type: seminal
+type: principle
 status: draft
-version: "5.0.4"
+version: "5.0.5"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Legal and compliance"
-tags: [canon, seminal, licensing, legal, openness]
+tags: [principle, licensing, legal, openness]
 license: "CC0-1.0"
 registration: registered
 approved_by: "ADR-061"
 supersedes_version: "4.1.0"
-related: ["CAN-002", "CAN-010", "STD-010", "STD-014", "PRO-018"]
-former_id: "C-005"
+related: ["PRI-002", "PRI-010", "STD-010", "STD-014", "PRO-018"]
+former_id: "CAN-005"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-. Before that, C-005."
 
 ---
 
@@ -53,7 +54,7 @@ wants to fork it. A fan who wants to write a story set in the Ouroboros
 district. Each of them has the same question, and they want it answered in
 thirty seconds, without a lawyer: *what may I take, and what may I not?*
 
-Everything in this canon exists so that the answer is always the same, always
+Everything in this principle exists so that the answer is always the same, always
 written down, and never a surprise. That is what openness means here: not a
 feeling about sharing, but a promise a stranger can rely on.
 
@@ -111,7 +112,7 @@ outright, nothing at all.
 This is why a piece meant to stay reserved is declared so **before** it is
 published, never after. A document added to an already-open folder inherits
 that folder's offer the moment it is pushed, and the offer cannot then be
-taken back. It happened to us: the archive's own canon is open because it was
+taken back. It happened to us: the archive's own principle is open because it was
 published under an open licence before any reservation existed, and no later
 decision could reach back over it. We are glad it is open. We would rather
 have chosen it.
@@ -152,6 +153,6 @@ suggest we sponsor you, present a fork as the official one — no.
 |---|---|---|
 | `STD-010` | Licensing | which licence each piece carries and how it is declared |
 | `STD-014` | Publishing gates | the checks an Oracle-signed publication passes |
-| `PRO-018` | Publishing a repository | the act this canon says must be signed |
-| `CAN-002` | We build a game to work better | remix as a pillar of the house |
-| `CAN-010` | Leave things better than you found them | why a licence is a promise |
+| `PRO-018` | Publishing a repository | the act this principle says must be signed |
+| `PRI-002` | We build a game to work better | remix as a pillar of the house |
+| `PRI-010` | Leave things better than you found them | why a licence is a promise |

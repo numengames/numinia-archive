@@ -5,16 +5,16 @@ title: "What every site carries"
 type: standard
 subtype: standard
 status: draft
-version: "0.5.2"
+version: "0.5.3"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 license: "CC0-1.0"
 tags: [standards, web, footer, share-card, modes, sites]
 related: ["STD-008", "STD-023", "STD-034", "STD-035", "BLU-009", "LEG-003"]
-derived_from: "CAN-008"
+derived_from: "PRI-008"
 ---
 
 <!--
@@ -81,7 +81,7 @@ laid out, and the exact values. **Law** marks what a statute requires.
 | SIT-001 | One house, one footer | [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 10 — **law**: the provider's identity reachable from every site; the version rule is ours and is not SemVer | `check-version-bump` in each site's CI, all four; the legal notice by hand |
 | SIT-002 | A link presents itself | [Open Graph protocol](https://ogp.me/): `og:title`, `og:type`, `og:image`, `og:url` required; WCAG 2.2 SC 2.4.2 Page Titled (A); [HTML `rel=icon`](https://html.spec.whatwg.org/multipage/links.html#rel-icon); scarab and 1200 × 630 card ours | `share-card --check` in each site's CI, all four: card size, icon, title, description and image; `og:type` and `og:url` not checked |
 | SIT-003 | Day and night on every site | [Media Queries 5, `prefers-color-scheme`](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme); [WAI-ARIA APG button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/) | Playwright on numinia.com only (`preferences.spec.ts`): the switch exists, a tap swaps mode and icon, a reload keeps the choice |
-| SIT-004 | The epitaph at the foot | The words: the manifesto in `CAN-002`; [WAI-ARIA APG tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and WCAG 2.2 SC 1.4.13 Content on Hover or Focus (AA) | by hand on the four sites: hover, focus, tap and Escape |
+| SIT-004 | The epitaph at the foot | The words: the manifesto in `PRI-002`; [WAI-ARIA APG tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and WCAG 2.2 SC 1.4.13 Content on Hover or Focus (AA) | by hand on the four sites: hover, focus, tap and Escape |
 
 ### The house footer
 
@@ -140,7 +140,7 @@ behind. Margin 90 px. Type from `/assets/fonts/`, embedded at render (`DSN-002`)
 |---|---|---|---|
 | The company | Numen Games | We design participatory experiences: narrative, game dynamics, live facilitation. | numen.games |
 | The game | Numinia | A world across three centuries. Its chronicle, its material culture — CC0 — and the game. | numinia.com |
-| The archive | NWOS | The archive of Numen Games, built in public: canon, decisions, missions, how the work is done. | numinia.org |
+| The archive | NWOS | The archive of Numen Games, built in public: principles, decisions, missions, how the work is done. | numinia.org |
 | The service | NWOS for your organisation | A file-based operating system for organisations. Markdown, git, AI agents. Adopt it. | nwos.numen.games |
 
 The same four rows are each site's `<title>`, `description`, `og:title`,

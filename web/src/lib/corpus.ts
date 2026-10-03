@@ -73,8 +73,8 @@ export async function getPublicCorpus(): Promise<Entry[]> {
 // last. The order is not invented here — it is the change-threshold table in
 // S-001 §2.1, which is the only place the archive ranks its own series:
 //
-//   governed  canon/ · decisions/ · standards/ · procedures/  an ADR, or an approved PR
-//             (canon first: STD-009 PRE-003, nothing is sealed since 2026-09-09)
+//   governed  principles/ · decisions/ · standards/ · procedures/  an ADR, or an approved PR
+//             (principle first: STD-009 PRE-003, nothing is sealed since 2026-09-09)
 //   open      blueprints/ · debt/                 a normal PR
 //
 // Inside `governed` the tie is broken by which one can change which: an ADR
@@ -113,7 +113,7 @@ export interface SeriesPage {
   epistemic: string;
   pragmatic: string;
   /**
-   * True for the three series that OBLIGE — canon, standards, procedures.
+   * True for the three series that OBLIGE — principles, standards, procedures.
    *
    * The line between them (`STD-024` SER-001 and SER-002) decides whether a
    * sentence in this archive can put a reader in breach, and it cannot be
@@ -156,7 +156,7 @@ export interface SeriesPage {
 }
 
 export const SERIES: SeriesPage[] = [
-  { prefix: "canon/",      slug: "canon",      label: "Canon",      collection: "corpus",
+  { prefix: "principles/",      slug: "principles",      label: "Principles",      collection: "corpus",
     question: "What is Numinia, before anyone argues about how to build it?",
     blurb: "The ground the rest stands on: what Numinia is, before anyone argues about how to build it.",
     epistemic: "What this place is, and why it is told as a city rather than listed as a process.",
@@ -306,7 +306,7 @@ export function seriesOf(entry: Entry): SeriesPage | undefined {
 }
 
 // ---------------------------------------------------------------------------
-// READING GROUPS — canon and standards
+// READING GROUPS — principles and standards
 // ---------------------------------------------------------------------------
 
 /**
@@ -325,12 +325,12 @@ export function seriesOf(entry: Entry): SeriesPage | undefined {
  * "The Summa" is the Archivo Summa of the manual — the city's institution
  * for knowing what lies beyond — and the name this repository has always
  * given its own changelog. "The ground" is Peirce's word for the referent in
- * CAN-006, and the word the section blurb already uses; a reader who reaches
+ * PRI-006, and the word the section blurb already uses; a reader who reaches
  * the last group finds the label was a clue.
  *
  * CHECKED AT BUILD: `getSeriesDocs` throws when a group names a slug that
  * no longer exists, exactly as it does for READING_ORDER — of which, for
- * canon, this table is the source.
+ * principles, this table is the source.
  */
 export interface ReadingGroup {
   numeral: string;
@@ -341,12 +341,12 @@ export interface ReadingGroup {
   id?: string;
 }
 
-const READING_GROUPS_CANON: ReadingGroup[] = [
+const READING_GROUPS_PRINCIPLES: ReadingGroup[] = [
   {
     numeral: "I",
     label: "The city",
     line: "Nobody joins. One day you notice you were already inside.",
-    hrefs: ["/canon/can-001-welcome-to-numinia"],
+    hrefs: ["/principles/pri-001-welcome-to-numinia"],
   },
   {
     numeral: "II",
@@ -357,30 +357,30 @@ const READING_GROUPS_CANON: ReadingGroup[] = [
     // house that keeps this archive: what it believes, how it looks, what it
     // gives away, what stays each citizen's own, and the sentence it closes on.
     hrefs: [
-      "/canon/can-004-role-structure",
-      "/canon/can-014-friends-who-play-build-and-learn",
-      "/canon/can-002-brand-and-culture",
-      "/canon/can-013-a-magician-who-keeps-hope",
-      "/canon/can-008-visual-identity",
-      "/canon/can-005-licensing",
+      "/principles/pri-004-role-structure",
+      "/principles/pri-014-friends-who-play-build-and-learn",
+      "/principles/pri-002-brand-and-culture",
+      "/principles/pri-013-a-magician-who-keeps-hope",
+      "/principles/pri-008-visual-identity",
+      "/principles/pri-005-licensing",
       // 2026-09-26: after what the house gives away, what stays the
       // citizen's own — and why leaving is easy. Before the closing sentence.
-      "/canon/can-012-what-is-yours-stays-with-you",
+      "/principles/pri-012-what-is-yours-stays-with-you",
       // 2026-10-03: what a citizen earns, and how it is recognised.
-      "/canon/can-015-we-recognise-the-act",
-      "/canon/can-010-leave-things-better",
+      "/principles/pri-015-we-recognise-the-act",
+      "/principles/pri-010-leave-things-better",
     ],
   },
   {
     numeral: "III",
     label: "The Summa",
     line: "The city keeps its memory in writing. To act is to write.",
-    // 2026-09-24 (ADR-063): the canon of money follows the archive canon —
-    // it is that canon applied to a payment: a charge not written does not
+    // 2026-09-24 (ADR-063): the principle of money follows the archive principle —
+    // it is that principle applied to a payment: a charge not written does not
     // exist.
     hrefs: [
-      "/canon/can-009-the-archive-is-the-organisation",
-      "/canon/can-011-value-makes-a-bond",
+      "/principles/pri-009-the-archive-is-the-organisation",
+      "/principles/pri-011-value-makes-a-bond",
     ],
   },
   {
@@ -389,8 +389,8 @@ const READING_GROUPS_CANON: ReadingGroup[] = [
     line: "The theory underneath. Walk the city first.",
     // The plainer argument first, the denser second.
     hrefs: [
-      "/canon/can-007-pragmatic-numen-system",
-      "/canon/can-006-epistemic-relations",
+      "/principles/pri-007-pragmatic-numen-system",
+      "/principles/pri-006-epistemic-relations",
     ],
   },
 ];
@@ -398,8 +398,8 @@ const READING_GROUPS_CANON: ReadingGroup[] = [
 /**
  * Standards read in FIVE GROUPS, by purpose (Oracle's word, 2026-09-24).
  *
- * The same shape as the canon's shelves — a numeral, a label, one line — but
- * not the canon's names: "the Summa" is the whole archive, never one shelf of
+ * The same shape as the principles' shelves — a numeral, a label, one line — but
+ * not the principles' names: "the Summa" is the whole archive, never one shelf of
  * it. Each shelf is named for what its standards are FOR. The citizen comes
  * first, because that is what speaks to the person reading; the ground that
  * holds everything up comes last.
@@ -437,7 +437,7 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-027-the-classification-scheme",
       "/standards/std-004-the-header",
       "/standards/std-007-one-page-per-document",
-      "/standards/std-031-a-canon-states",
+      "/standards/std-031-a-principle-states",
       "/standards/std-025-a-mission-is-a-card",
       "/standards/std-018-one-document-one-identifier",
       "/standards/std-028-one-document-one-address",
@@ -526,7 +526,7 @@ const READING_GROUPS_LORE: ReadingGroup[] = [
 ];
 
 export const READING_GROUPS: Record<string, ReadingGroup[]> = {
-  canon: READING_GROUPS_CANON,
+  principles: READING_GROUPS_PRINCIPLES,
   standards: READING_GROUPS_STANDARDS,
   lore: READING_GROUPS_LORE,
 };
@@ -536,8 +536,8 @@ export const READING_GROUPS: Record<string, ReadingGroup[]> = {
 // ---------------------------------------------------------------------------
 
 // A section index sorted by identifier is sorted by the order things HAPPENED
-// TO BE WRITTEN. CAN-001 came before CAN-002 because someone typed it first, and
-// the reader who lands on /canon/ inherits that accident as if it were
+// TO BE WRITTEN. PRI-001 came before PRI-002 because someone typed it first, and
+// the reader who lands on /principles/ inherits that accident as if it were
 // an argument. It is not one: "Welcome to Numinia" followed by "Brand and
 // Culture" tells a stranger nothing, because the second document answers a
 // question the first has not yet made them ask.
@@ -562,28 +562,28 @@ const READING_ORDER: Record<string, string[]> = {
   // an operating system → what it feels like → who lives here → what they are
   // made of, and how far they climb → what you may take with you.
   //
-  // Rewritten 2026-09-01 (ADR-036) when canon went from twelve files to
+  // Rewritten 2026-09-01 (ADR-036) when principles went from twelve files to
   // seven. The story lost three of its beats and kept the rest in order:
   // "how far they climb" is no longer its own document — Rank Specifications
-  // was absorbed into CAN-003, so the ranks are now read where the attributes
+  // was absorbed into PRI-003, so the ranks are now read where the attributes
   // are; "how you get in" left for lore/adventures/, because Session Zero is game
-  // design, not governing canon; "what the archive sounds like" moved into
+  // design, not governing principle; "what the archive sounds like" moved into
   // system/SYS-003 with the fondos it describes; and the cover page is gone.
   //
-  // 2026-09-24 (ADR-057): CAN-004 absorbed CAN-003, so "who lives here" and
+  // 2026-09-24 (ADR-057): PRI-004 absorbed PRI-003, so "who lives here" and
   // "what they are made of" are one document. Its address redirects to the
   // heir (astro.config.mjs); the sequence loses a step, not a beat.
   //
-  // 2026-09-24 (ADR-059): CAN-009 enters after function and structure — how
+  // 2026-09-24 (ADR-059): PRI-009 enters after function and structure — how
   // the work is done, before what the house is.
   //
-  // 2026-09-24, the Oracle's word: canon is read in FOUR GROUPS, in the order
+  // 2026-09-24, the Oracle's word: the principles are read in FOUR GROUPS, in the order
   // a stranger — person or digital agent — needs the answers: where am I →
   // who is here, and may I be one → how is anything done here → why does it
   // work. The theory goes LAST on purpose: it is the densest text and it is
   // understood from inside the city, not before it. The order below is
   // derived from READING_GROUPS so the two can never disagree.
-  canon: READING_GROUPS_CANON.flatMap((g) => g.hrefs),
+  principles: READING_GROUPS_PRINCIPLES.flatMap((g) => g.hrefs),
 
   // The life of a document, in the order the archive had to decide it:
   // where it lives → what it is called → how it is registered → what the
@@ -593,7 +593,7 @@ const READING_ORDER: Record<string, string[]> = {
     "/decisions/adr-030",
   ],
 
-  // 2026-09-24: derived from READING_GROUPS, like canon, so the two can never
+  // 2026-09-24: derived from READING_GROUPS, like principles, so the two can never
   // disagree. The five shelves are in READING_GROUPS_STANDARDS above.
   standards: READING_GROUPS_STANDARDS.flatMap((g) => g.hrefs),
 
@@ -777,7 +777,7 @@ export const SERIES_VIEWS: Record<string, SeriesView[]> = {
 // section gets one line of prose above its rows, in the same voice as the
 // blurb: what the sequence is doing, so the order reads as a choice.
 export const READING_NOTE: Record<string, string> = {
-  canon: "Four shelves, in the order a stranger needs them: where you are, who is here, how anything gets done, and — last, once you have walked the city — why it works.",
+  principles: "Four shelves, in the order a stranger needs them: where you are, who is here, how anything gets done, and — last, once you have walked the city — why it works.",
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
   standards: "Five shelves, from the person to the ground: living together, writing it down, showing it, what leaves the house, and what makes it last. Under each title, the one question that standard answers.",
   procedures: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
@@ -835,7 +835,7 @@ function questionOf(body: string | undefined): string | undefined {
  *                        which is its first SECTION, not its title.
  *
  * (brand-and-culture, which opened with a PDF's version stamp, left the lore
- * on 2026-10-03: its content lives in canon and the /brand book reads it.)
+ * on 2026-10-03: its content lives in the principles and the /brand book reads it.)
  *
  * No amount of cleverness fixes that: the information is not in the file. The
  * real repair is a `title` in the document, but these are reserved texts and

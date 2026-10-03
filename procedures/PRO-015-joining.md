@@ -4,17 +4,17 @@ uid: ""
 title: "Joining Numinia"
 type: procedure
 status: draft
-version: "2.0.2"
+version: "2.0.3"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
 tags: [procedure, onboarding, people, lifecycle]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
-related: ["PRO-024", "PRO-019", "CAN-004", "STD-035", "STD-022"]
-derived_from: "CAN-001"
+related: ["PRO-024", "PRO-019", "PRI-004", "STD-035", "STD-022"]
+derived_from: "PRI-001"
 ---
 
 <!--
@@ -80,7 +80,7 @@ list, never grant access on its own.
    Point them to the site's front door and to `AGENTS.md` if they will
    work in a repository.
 6. **Place them.** Their guild — what they know — and, if they choose one,
-   their faction (`CAN-004`). Their rank starts at Nomad; the system reads
+   their faction (`PRI-004`). Their rank starts at Nomad; the system reads
    it from what they do, it is never assigned by hand.
 7. **Give them the first piece of work,** small enough to finish in their
    first two weeks, with what done looks like written down.

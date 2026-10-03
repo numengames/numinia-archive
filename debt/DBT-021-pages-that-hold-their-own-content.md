@@ -4,9 +4,9 @@ uid: ""
 title: "Eight pages under /system/ hold their content in the template instead of the corpus"
 type: documentation
 status: active
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-22T12:20:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -52,7 +52,7 @@ document governs what this page states*. Six could not answer.
 | Page | Where its content lives | What the archive holds |
 |---|---|---|
 | `/system/cao` | `cao.astro`, agent metrics array | nothing |
-| `/system/language` | `language.astro`, the five narrative levels | `CAN-002` has three levels, not five |
+| `/system/language` | `language.astro`, the five narrative levels | `PRI-002` has three levels, not five |
 | `/system/sales` | `sales.astro`, ICP ranking | `operations/OPS-007-sales.md` exists, unread by the page |
 | `/system/simulations` | `simulations.astro`, 100 runs | `operations/OPS-005-simulations.md` exists, unread |
 | `/system/solutions` | `solutions.astro`, clusters | `operations/OPS-006-solutions.md` exists, unread |
@@ -78,8 +78,8 @@ Two archives of one thing, one of them silent — the exact failure `MIS-071`
 closed for `/wardley` and `/gaps`, reopened five times over.
 
 `/system/language` is worse than stale: the page presents **five** narrative
-levels and `CAN-002` → Verbal Identity declares **three**. A reader who takes
-the page as canon is reading something the canon does not say.
+levels and `PRI-002` → Verbal Identity declares **three**. A reader who takes
+the page as a principle is reading something the principles does not say.
 
 ## 3. Why a generated `.md` would make it worse
 
@@ -99,7 +99,7 @@ Per page, in this order:
    make the page read `OPS-007`, `OPS-005`, `OPS-006`. Where the array and the
    document disagree, the document wins or the document is corrected — that is
    a decision, not a merge.
-2. **`/system/language`**: reconcile with `CAN-002`. Either the canon gains the
+2. **`/system/language`**: reconcile with `PRI-002`. Either the principles gains the
    five levels or the page drops to three. The Oracle's call.
 3. **`/system/cao`**: decide whether agent metrics are a series at all. If they
    are, they are measured by the instrument, not typed. If they are not, the
@@ -114,5 +114,5 @@ is deleted.
 ## 5. Open decisions
 
 - Are agent metrics a series of the scheme, or an instrument's output?
-- Three narrative levels or five? `CAN-002` and `/system/language` disagree
+- Three narrative levels or five? `PRI-002` and `/system/language` disagree
   today and both are published.

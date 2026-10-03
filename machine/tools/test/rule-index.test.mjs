@@ -23,7 +23,7 @@ import { buildIndex, BEGIN, END } from '../rule-index.mjs';
    leaves the real tree edited. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'rule-index-'));
-  for (const p of ['standards', 'procedures', 'canon', 'machine', 'AGENTS.md', 'package.json'])
+  for (const p of ['standards', 'procedures', 'principles', 'machine', 'AGENTS.md', 'package.json'])
     cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
   execSync('git init -q && git add -A && git -c user.email=t@t -c user.name=t commit -qm scratch', { cwd: dir });
   return dir;
@@ -41,7 +41,7 @@ test('every rule document appears exactly once', () => {
   const rows = buildIndex(ROOT).rows;
   const ids = rows.map((r) => r.id);
   assert.equal(new Set(ids).size, ids.length, 'an identifier is listed twice');
-  const tracked = execFileSync('git', ['-C', ROOT, 'ls-files', 'standards/*.md', 'procedures/*.md', 'canon/*.md'], { encoding: 'utf8' })
+  const tracked = execFileSync('git', ['-C', ROOT, 'ls-files', 'standards/*.md', 'procedures/*.md', 'principles/*.md'], { encoding: 'utf8' })
     .split('\n').filter(Boolean);
   assert.equal(rows.length, tracked.length, `${rows.length} rows for ${tracked.length} rule documents`);
 });
@@ -79,7 +79,7 @@ test('a gap explains itself: an exemption is named, an omission is not dressed u
     const text = readFileSync(path.join(ROOT, r.file), 'utf8');
     const isRegister = /^subtype:\s*register\s*$/m.test(text.slice(0, text.indexOf('\n---', 4)));
     if (isRegister) assert.match(r.cell, /^register —/, `${r.id} is a register and the index does not say so`);
-    else if (r.file.startsWith('canon/')) assert.match(r.cell, /^canon —/, `${r.id} is canon and the index does not say so`);
+    else if (r.file.startsWith('principles/')) assert.match(r.cell, /^principles —/, `${r.id} is a principle and the index does not say so`);
     else assert.equal(r.cell, 'no scope line', `${r.id} has no exemption: the gap must be stated plainly, not explained away`);
   }
 });
@@ -91,8 +91,8 @@ test('the footnote counts what the table shows', () => {
   assert.match(foot, new RegExp(`^${rows.length} rule documents`), 'the footnote miscounts the corpus');
   const reg = count(/^register —/);
   if (reg) assert.match(foot, new RegExp(`${reg} (are registers|is a register)`), `the footnote does not report ${reg} registers`);
-  const can = count(/^canon —/);
-  if (can) assert.match(foot, new RegExp(`${can} are canon`), `the footnote does not report ${can} canon`);
+  const can = count(/^principles —/);
+  if (can) assert.match(foot, new RegExp(`${can} are principles`), `the footnote does not report ${can} principles`);
   // The honest half: unexplained gaps are reported as such, or their absence is.
   const gaps = count(/^no scope line$/);
   assert.match(foot, gaps ? new RegExp(`${gaps} declare no scope`) : /every other document names whom it binds/);

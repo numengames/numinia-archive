@@ -4,11 +4,11 @@ uid: ""
 title: "Auditing identity, authorization and secrets"
 type: procedure
 status: draft
-version: "2.1.2"
+version: "2.1.3"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 section: "Technology"
@@ -18,7 +18,7 @@ applies_to: [all-agents]
 mandatory: true
 review_next: "2027-08-21"
 related: ["STD-022", "STD-015", "PRO-005", "PRO-008"]
-derived_from: "CAN-010"
+derived_from: "PRI-010"
 ---
 
 <!--

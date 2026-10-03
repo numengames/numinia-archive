@@ -4,17 +4,17 @@ uid: ""
 title: "The Platform"
 type: blueprint
 status: active
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-09-09T12:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 tags: [blueprint, design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
-related: ["STD-008", "STD-023", "BLU-009", "CAN-008"]
-extraction_note: "Extracted verbatim from PRO-014 v1.1.0 (then its sections 6.11) under ADR-043 and ADR-044: recipes leave the procedure; the procedure keeps the order of decisions and the checklist. The direction decision it records (the Platform's primary is ink) is CAN-008's; this blueprint applies it."
+related: ["STD-008", "STD-023", "BLU-009", "PRI-008"]
+extraction_note: "Extracted verbatim from PRO-014 v1.1.0 (then its sections 6.11) under ADR-043 and ADR-044: recipes leave the procedure; the procedure keeps the order of decisions and the checklist. The direction decision it records (the Platform's primary is ink) is PRI-008's; this blueprint applies it."
 ---
 
 <!--
@@ -53,7 +53,7 @@ SPDX-License-Identifier: CC0-1.0
 
 Rules: sidebar in `superficie`; items in secondary text with Phosphor `regular` 18 px icon; **active = ink pill with paper text** (`control` radius, the same piece in both modes); groups with `type.etiqueta`; density: rows 36–40 px, padding `s300/s400` (the platform is compact, marketing breathes); amounts and wallet addresses ALWAYS in Mono (truncated `0x42e6…cA26` with the full title); state empties with `light` icon 48 px + one level I sentence; rarity (`STD-023` §4) only in inventory and loot, never in billing. Migration of the living product: white → paper `#F9EBDC`/`#FDF6EE`, black → Noche `#14110F`; the structure is not touched.
 
-**The platform table (resolved, with sorting).** Header in `type.etiqueta` Ámbar (toasted in Diurno); sortable column = a button with a `bold` 12 px caret that appears on hover and stays fixed on the active column (label to primary text); `aria-sort` on the active `th`; figures in tabular Mono aligned right; 40 px rows, hover = one surface step (`CAN-008` §3.9-04); selection by checkbox in the first column; state in a `BLU-009` §7 pill; empty and error per `BLU-009` §8. Demonstrated sorting live in the guide.
+**The platform table (resolved, with sorting).** Header in `type.etiqueta` Ámbar (toasted in Diurno); sortable column = a button with a `bold` 12 px caret that appears on hover and stays fixed on the active column (label to primary text); `aria-sort` on the active `th`; figures in tabular Mono aligned right; 40 px rows, hover = one surface step (`PRI-008` §3.9-04); selection by checkbox in the first column; state in a `BLU-009` §7 pill; empty and error per `BLU-009` §8. Demonstrated sorting live in the guide.
 
 ## Check
 

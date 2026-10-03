@@ -1,26 +1,26 @@
 ---
-id: "CAN-007"
+id: "PRI-007"
 uid: ""
 title: "Renaming is not transforming"
-type: seminal
+type: principle
 status: draft
-version: "2.1.5"
+version: "2.1.6"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
 section: "Strategy and governance"
-tags: [canon, seminal, function, structure, interpreter, architect]
+tags: [principle, function, structure, interpreter, architect]
 license: "CC0-1.0"
 registration: registered
 approved_by: "ADR-058"
 supersedes_version: "2.0.0"
-related: ["CAN-001", "CAN-004", "CAN-006"]
-former_id: "canon-pragmatic-numen-system-v020"
-former_id_note: "Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Pragmatic_Numen_System-v0.2.0.md"
+related: ["PRI-001", "PRI-004", "PRI-006"]
+former_id: "CAN-007"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-. Before that, canon-pragmatic-numen-system-v020: Renumbered by ADR-036 (2026-09-01). The dated filename declared this a frozen artifact under P-010 §3.2; the Oracle ruled that classification wrong — these two are living canon, not photographs, and they enter the CAN series like the rest of the folder. Former filename: 2026_04_15-Pragmatic_Numen_System-v0.2.0.md"
 
 ---
 
@@ -70,7 +70,7 @@ structure without function, because every relationship connects operational
 elements. They are still not the same thing: function defines the elements,
 structure defines their relationships.
 
-Here is the consequence, and it is the reason this canon exists. **The common
+Here is the consequence, and it is the reason this principle exists. **The common
 error of organisations is to intervene only in function** — changing names,
 redefining roles, introducing dynamics — while leaving the structure
 untouched. That produces apparent transformation and no change of paradigm.

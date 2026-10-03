@@ -4,11 +4,11 @@ uid: ""
 title: "System simulations"
 type: documentation
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Products and services"
@@ -136,7 +136,7 @@ Frequency of each failure cause over the simulations that ended in abandonment o
 | No external validation — internal coherence mistaken for market value | 29% | C1 |
 | Entry cognitive cost too high before first value | 24% | C2 |
 | Ritual fatigue: format without genuine experience | 18% | C5 |
-| Narrative fragmentation when scaling without a canon guardian | 16% | C8 |
+| Narrative fragmentation when scaling without a principle guardian | 16% | C8 |
 | Digital accountability blocked by legal structure | 14% | C4 |
 | ICP and business model undefined — nobody knows what they are buying | 12% | C3 |
 

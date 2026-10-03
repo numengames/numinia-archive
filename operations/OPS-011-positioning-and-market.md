@@ -5,16 +5,16 @@ title: "Positioning and market"
 type: documentation
 subtype: register
 status: draft
-version: "0.3.2"
+version: "0.3.3"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Brand and marketing"
 tags: [operations, positioning, market, messaging, product]
 license: "CC-BY-4.0"
-related: ["CAN-002", "CAN-013", "OPS-006", "OPS-007", "OPS-020"]
+related: ["PRI-002", "PRI-013", "OPS-006", "OPS-007", "OPS-020"]
 ---
 
 <!--
@@ -26,13 +26,13 @@ SPDX-License-Identifier: CC-BY-4.0
 
 > **Summary:** What Numen Games says to a buyer: the problem it names, the
 > solution it offers, who it is for, and the words used to say so. Carried
-> out of `CAN-002`, where it had been sitting as canon.
+> out of `PRI-002`, where it had been sitting as a principle.
 > **Epistemic:** The commercial framing, separated from what the company
-> believes — belief is canon, positioning is a bet that gets revised.
+> believes — belief is a principle, positioning is a bet that gets revised.
 > **Pragmatic:** Reach for it when writing a pitch, a deck or a landing page.
 > **Audience:** Oracles
 
-**Binds:** nothing. A register records; the canon of brand states what binds.
+**Binds:** nothing. A register records; the principle of brand states what binds.
 
 ## The problem and the solution
 
@@ -121,7 +121,7 @@ scenarios in virtual and mixed reality.
 ## What is deliberately absent
 
 Market sizing, revenue targets, headcount and dated milestones were carried in
-`CAN-002` and are not reproduced here. They were stale on arrival — a market
+`PRI-002` and are not reproduced here. They were stale on arrival — a market
 table with unfilled placeholders, and a 2026–2027 objective list whose first
 milestone was dated 2024. Figures belong where they are measured and revised,
 not in the archive.

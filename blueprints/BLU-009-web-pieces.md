@@ -4,16 +4,16 @@ uid: ""
 title: "Web pieces"
 type: blueprint
 status: active
-version: "1.2.1"
+version: "1.2.2"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 tags: [blueprint, design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
-related: ["STD-008", "STD-023", "CAN-008"]
+related: ["STD-008", "STD-023", "PRI-008"]
 extraction_note: "Extracted verbatim from STD-008 v6.1.0 (old §2.4–2.5, 3.1–3.2, 3.4, 5.1–5.3, 6.2, 6.4, 7.2–7.3, 8.1–8.5, 8.7–8.8, 9.2–9.3, 12) under ADR-043 and ADR-044: recipes leave the standard; the standard keeps the rules, the register keeps the values. Sections 12–13 came from PRO-014 v1.1.0 (then its sections 6.2 and 6.6) on 2026-09-09."
 ---
 
@@ -59,7 +59,7 @@ Line height 1.1 display / 1.55 body / 1.35 data. Measure 60–75 characters, max
 
 `0100110001100101…` degrading to `xxxxxx…`, Geist Mono `cuerpo.s`, color `linea.fuerte`, tracking `.15em`. It is real text, not an image. Use: section separator.
 
-**The binary speaks [CANON — direction decision].** The signal is not noise: **it encodes a canon phrase in 8-bit ASCII per character**, followed by the `x` sediment. Whoever decodes the separator finds the promise — the house's easter egg, very much of the Akashic Records: everything leaves a trace. Current phrase:
+**The binary speaks [CANON — direction decision].** The signal is not noise: **it encodes a principle phrase in 8-bit ASCII per character**, followed by the `x` sediment. Whoever decodes the separator finds the promise — the house's easter egg, very much of the Akashic Records: everything leaves a trace. Current phrase:
 
 > **«Leave things better than we found them.»** — 39 characters, 312 bits.
 
@@ -115,11 +115,11 @@ Every public web carries it (`STD-037` SIT-003). The `moon-stars` / `sun` pair i
 ## 6. Brand: how yes, how no
 
 
-Arena over Nocturno, Noche over Diurno — **the signature has no color version**; color over the brand exists, but lives in another register: the brand play (`CAN-008`). Respect area = the height of the «n» on all four sides. Minimums: wordmark 24 px / 12 mm; brandmark-favicon 16 px. Over image: veil `rgba(20,17,15,.72)` minimum. Over the circuit texture: only inside a **calm zone** (flat area equal to twice the respect area).
+Arena over Nocturno, Noche over Diurno — **the signature has no color version**; color over the brand exists, but lives in another register: the brand play (`PRI-008`). Respect area = the height of the «n» on all four sides. Minimums: wordmark 24 px / 12 mm; brandmark-favicon 16 px. Over image: veil `rgba(20,17,15,.72)` minimum. Over the circuit texture: only inside a **calm zone** (flat area equal to twice the respect area).
 
 ### How no
 
-DO NOT recolor to accents (the brand does not compete with the signal) · DO NOT rotate or tilt · NO shadows, gradients or reliefs · DO NOT deform proportions · DO NOT enclose in foreign shapes · NOT over an active background without veil · NO `Numinia_Word` signing the corporate · **DO NOT redraw the scarab**: the canonical path (below) is the only valid one — it replaces any previous reconstruction. Single closed exception: the canonical pixel sprite of the pixel register (`CAN-008`), which is not redrawn either — the delivered one is used.
+DO NOT recolor to accents (the brand does not compete with the signal) · DO NOT rotate or tilt · NO shadows, gradients or reliefs · DO NOT deform proportions · DO NOT enclose in foreign shapes · NOT over an active background without veil · NO `Numinia_Word` signing the corporate · **DO NOT redraw the scarab**: the canonical path (below) is the only valid one — it replaces any previous reconstruction. Single closed exception: the canonical pixel sprite of the pixel register (`PRI-008`), which is not redrawn either — the delivered one is used.
 
 ## 7. Components
 
@@ -215,7 +215,7 @@ Nocturno, 12 col, content ≤1100 px (`STD-023` §23), hero = the thesis with re
   <h1 data-tecleo>La tesis en una frase, con <span style="color:var(--ambar)">una palabra</span> en Ámbar.</h1>
   <p class="sub"><!-- cuerpo.l, texto-2, máx 56ch, nivel II --></p>
   <a class="btn btn-primario" href="#"><!-- verbo exacto; ÚNICO primario de la vista --></a>
-  <div class="binaria" aria-hidden="true">0100110001100101…xxxx</div><!-- la frase del canon en 8 bits: `BLU-009` §3 · binaria() del kit -->
+  <div class="binaria" aria-hidden="true">0100110001100101…xxxx</div><!-- la frase del principles en 8 bits: `BLU-009` §3 · binaria() del kit -->
 </section>
 ```
 

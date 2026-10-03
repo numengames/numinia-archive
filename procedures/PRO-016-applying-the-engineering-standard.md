@@ -4,9 +4,9 @@ uid: ""
 title: "Applying the engineering standard"
 type: procedure
 status: draft
-version: "3.1.3"
+version: "3.1.4"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [procedure, engineering, agents]
@@ -15,7 +15,7 @@ applies_to: [all-agents]
 mandatory: true
 section: "Technology"
 related: ["STD-005", "STD-015", "PRO-005", "PRO-013"]
-derived_from: "CAN-010"
+derived_from: "PRI-010"
 ---
 
 <!--

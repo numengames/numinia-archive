@@ -1,12 +1,12 @@
 ---
 name: numinia-nwos-pr
-description: "Use when opening a pull request in numengames/numinia-archive. One PR at a time, guards before push, telemetry last, fixed reviewers; canon is discussed before any branch."
+description: "Use when opening a pull request in numengames/numinia-archive. One PR at a time, guards before push, telemetry last, fixed reviewers; the principles are discussed before any branch."
 title: "SKILL — numinia-nwos-pr"
 type: agent
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-10T08:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -34,8 +34,8 @@ before acting (`git fetch && git log -1 origin/main`, `gh pr list --state open`)
   `main` and open the next one. **Never self-merge**: merging is the Oracle's
   signature (`AUT-006`).
 - **Unattended covers the normative axis only** — standards, procedures,
-  decisions. **Canon is out**: it is `governed`, it has other authors, and each
-  canon cut is discussed in conversation *before* a branch exists. A proposal
+  decisions. **The principles are out**: they are `governed`, they have other authors, and each
+  cut to them is discussed in conversation *before* a branch exists. A proposal
   written inside the PR body does not count as discussion.
 - A phase the Oracle declares ("solo ideas", "no implementar") is binding.
 

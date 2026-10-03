@@ -5,15 +5,15 @@ title: "Secrets"
 type: standard
 subtype: standard
 status: draft
-version: "1.2.8"
+version: "1.2.9"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
 license: "CC0-1.0"
 tags: [standards, security, secrets]
-derived_from: "CAN-010"
+derived_from: "PRI-010"
 
 ---
 

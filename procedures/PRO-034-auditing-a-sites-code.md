@@ -4,9 +4,9 @@ uid: ""
 title: "Auditing a site's code"
 type: procedure
 status: draft
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-10-02T12:20:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -16,7 +16,7 @@ applies_to: [all-agents]
 mandatory: true
 review_next: "2027-10-02"
 related: ["PRO-011", "STD-015", "STD-022", "STD-035", "PRO-027", "PRO-005", "PRO-008"]
-derived_from: "CAN-010"
+derived_from: "PRI-010"
 ---
 
 <!--

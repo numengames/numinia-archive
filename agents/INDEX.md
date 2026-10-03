@@ -3,11 +3,11 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.4.2"
+version: "3.4.3"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -52,7 +52,7 @@ agents/{name}/
 ## Oracles
 
 The humans. They govern; the rank is the ceiling (`STD-003`).
-A roster is a register; the canon says what the house is, not who staffs it.
+A roster is a register; the principle says what the house is, not who staffs it.
 
 | Name | Role |
 |---|---|
@@ -119,8 +119,8 @@ retired author strings here — this table survives any roster change
 | `Ursa <ursa-numinia@users.noreply.github.com>` | [Ursa](ursa/SOUL.md) | 2026-08-25 → | 5 |
 | `Ursa (agente) <ursa@numen.games>` | [Ursa](ursa/SOUL.md) | 2026-08-24 → | 30+ |
 
-`Centinela-01` committed the ten seminal canon documents on 2026-04-07,
-including `CAN-001-welcome-to-numinia.md`. The agent was renamed to Nimrod by
+`Centinela-01` committed the ten founding documents (today's principles) on 2026-04-07,
+including `PRI-001-welcome-to-numinia.md`. The agent was renamed to Nimrod by
 `MIS-089` and retired by `MIS-118`; the history did not change and cannot.
 See `D-027`.
 
@@ -130,4 +130,4 @@ The pre-2026-08-28 roster (Nimrod, Adonaz, procurador-01, and the
 character-voiced Senet/Ursa personas, with their `STATUS.md`/`MEMORY.md`
 state files) was retired by `MIS-118` and remains in Git history. Runtime
 state no longer lives in the archive: `status:` is a field in `AGENT.md`,
-and session metrics belong to the platform, not the canon.
+and session metrics belong to the platform, not the principles.

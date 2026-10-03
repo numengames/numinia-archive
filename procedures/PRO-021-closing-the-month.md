@@ -4,9 +4,9 @@ uid: ""
 title: "Closing the month"
 type: procedure
 status: draft
-version: "0.6.3"
+version: "0.6.4"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
@@ -15,8 +15,8 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 approved_by: "ADR-065"
 supersedes_version: "0.1.0"
-related: ["STD-036", "STD-033", "CAN-011", "SYS-008", "PRO-020", "PRO-031", "PRO-032"]
-derived_from: "CAN-011"
+related: ["STD-036", "STD-033", "PRI-011", "SYS-008", "PRO-020", "PRO-031", "PRO-032"]
+derived_from: "PRI-011"
 ---
 
 <!--

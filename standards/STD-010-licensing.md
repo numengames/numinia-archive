@@ -5,15 +5,15 @@ title: "Licensing"
 type: standard
 subtype: standard
 status: active
-version: "2.4.3"
+version: "2.4.4"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
 license: "CC0-1.0"
 tags: [licensing, legal, REUSE, SPDX]
-derived_from: "CAN-005"
+derived_from: "PRI-005"
 absorbs: ["STD-013"]
 ---
 
@@ -47,7 +47,7 @@ asks for, every piece traces back to someone who vouched for it.
 **The terms follow the kind of piece.** A program that runs one of our
 services is open, and anyone who changes it and offers it to others must
 share the changes. A tool, library or script is open with no conditions.
-Images, models, data, design, the canon, the agents and the world's stories
+Images, models, data, design, the principles, the agents and the world's stories
 belong to everyone, for good. Explanatory texts are reusable with credit.
 The brand and early prototypes stay ours.
 
@@ -142,7 +142,7 @@ of file carries its terms, and where each licence's text is read.
 |---|---|---|
 | A program that runs a service (`apps/*`) | open, changes must be shared | `AGPL-3.0-only` |
 | A tool, library, SDK, token set, script, CI step (`machine/packages/*`) | open, no conditions | `MIT` |
-| Images, models, data, design, canon, agents (`agents/*`), lore | belongs to everyone | `CC0-1.0` |
+| Images, models, data, design, principles, agents (`agents/*`), lore | belongs to everyone | `CC0-1.0` |
 | Explanatory texts | reusable with credit | `CC-BY-4.0` |
 | Brand, prototypes | stays ours | all rights reserved |
 | Work generated for a client | the client's | all rights reserved, in the client's name |
@@ -208,5 +208,5 @@ so any tool can check us.
 
 | ID | Title | Relation |
 |---|---|---|
-| `CAN-005` | Opening is an act | why; where this and the canon disagree, one is wrong and is corrected |
+| `PRI-005` | Opening is an act | why; where this and the principles disagree, one is wrong and is corrected |
 | `STD-014` | Publishing gates | the two irreversible acts and their checks |

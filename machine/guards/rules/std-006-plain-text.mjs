@@ -78,7 +78,7 @@ function yamlShape(rel, txt) {
   const lines = m[1].split('\n');
   let inBlockScalar = false, blockIndent = 0;
   // The last ROOT key: open (no inline value, may hold children) or closed?
-  // Deleting `fondos:` leaves `  - id: canon` indented under the previous
+  // Deleting `fondos:` leaves `  - id: principles` indented under the previous
   // root key `extraction_note: "..."`, which is closed and admits no children.
   let rootOpen = false, sawAnyRootKey = false;
   const bad = (what) => [{ plate: 'TXT-002', what, where: rel }];

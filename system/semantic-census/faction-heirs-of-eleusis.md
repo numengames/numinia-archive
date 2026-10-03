@@ -3,9 +3,9 @@ id: "SYS-011:faction-heirs-of-eleusis"
 title: "Heirs of Eleusis"
 type: entity
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -51,7 +51,7 @@ transformation (cited: `lore/game/manual/es/03-creacion-del-personaje.md` — «
 sacred and mystical, not recreational: the order borrows its rites from the
 Eleusinian mysteries and seeks «la transformación personal que supone el rito
 mistérico del trance» (cited: same). Like every faction it is a field of
-development, not a kind of knowledge (cited: `canon/CAN-004-role-structure.md` — «A faction is where you apply it»).
+development, not a kind of knowledge (cited: `principles/PRI-004-role-structure.md` — «A faction is where you apply it»).
 
 ## Constitutive traits
 
@@ -70,7 +70,7 @@ development, not a kind of knowledge (cited: `canon/CAN-004-role-structure.md` �
 | Gamification | Held within narrative projection, not beside it; riddles and challenges are one part | cited: same — «Ámbito de influencia»; Christian's review, 2026-09-29 — «también constela la gamificación» |
 | Mystic / initiatory (world only) | Rite, trance, death and rebirth: they shape the faction's character and identity; fully present only in play and fictional narrative, not in the working frame | cited: `lore/game/manual/es/03-creacion-del-personaje.md`; Christian's review, 2026-09-29 — «su valor estriba en perfilar la identidad de la facción» |
 | Territory and culture | Ouroboros, the Histrión sociolect, game masters, oniromancers, pythias | cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Distrito Ouroboros – El Laberinto del juego», «HISTRIÓN» |
-| Prototype of the factions | The central, most workable field, the entry into Numinia | cited: `canon/CAN-004-role-structure.md` — «Play is the centre, and the Heirs of Eleusis hold it» |
+| Prototype of the factions | The central, most workable field, the entry into Numinia | cited: `principles/PRI-004-role-structure.md` — «Play is the centre, and the Heirs of Eleusis hold it» |
 
 ## Contexts
 
@@ -84,7 +84,7 @@ development, not a kind of knowledge (cited: `canon/CAN-004-role-structure.md` �
 ## Relations
 
 - **Ouroboros district** — its territory: the faction's territorial frame, with a character of its own (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «han hecho de este distrito su dominio»; Christian's review, 2026-09-29 — «el distrito Ouroboros es el territorio de los Herederos de Eleusis»).
-- **Hermeticists / Stellar Circle** — peripheral fields that point back to play; **Neo-Atlantists** — itinerant (cited: `canon/CAN-004-role-structure.md`).
+- **Hermeticists / Stellar Circle** — peripheral fields that point back to play; **Neo-Atlantists** — itinerant (cited: `principles/PRI-004-role-structure.md`).
 - **Archetypes** Innocent, Destroyer, Jester (cited: `numinia-web:packages/domain/src/constants/archetypes.ts` — «alignedFactions: ['heirs-of-eleusis']»).
 
 ## Current manifestations
@@ -92,7 +92,7 @@ development, not a kind of knowledge (cited: `canon/CAN-004-role-structure.md` �
 | Where | How it shows up | Source |
 |---|---|---|
 | Game (manual, adventures) | Mystic order, Ouroboros, violet, NPCs | cited: manual ch. 3–6; `lore/adventures/tabletop/el-espejo-roto.md` |
-| House (canon, standards, agents, guilds of the archive) | "Play", prototype field; "Gamification / Experience" | cited: `canon/CAN-004-role-structure.md`; `standards/STD-030-the-worlds-vocabulary.md`; `standards/STD-026-operative-vocabulary.md` — «The field of Numinia's prototype faction» |
+| House (canon, standards, agents, guilds of the archive) | "Play", prototype field; "Gamification / Experience" | cited: `principles/PRI-004-role-structure.md`; `standards/STD-030-the-worlds-vocabulary.md`; `standards/STD-026-operative-vocabulary.md` — «The field of Numinia's prototype faction» |
 | Web (numinia.org, numinia.com) | .org: "Play" district; .com: `field: 'gamification'`, `prototypeRole: 'prototype'`; store landing `field: 'Narrativa'` | cited: `web/src/lib/summa.ts`; `numinia-web:packages/domain/src/constants/factions.ts`; `numinia-web:apps/store/src/i18n/city-landing.ts` |
 | Processes | No agent names the faction; Senet does «gamified systems» without it | inferred: `agents/`, `agents/senet/SOUL.md` |
 
@@ -102,14 +102,14 @@ development, not a kind of knowledge (cited: `canon/CAN-004-role-structure.md` �
 |---|---|---|---|
 | `STD-030` | Gamification / Experience — «They design game-based experiences that activate participation» | partial | Keeps challenge design. Gamification is truly inside the faction's field, but the field is narrative projection; the label names a part for the whole. Dropping the mystic facet is right for the working frame (Christian's review, 2026-09-29) |
 | `BLU-007` | Only generic Faction ↔ «Division / Area» | pending | Nothing on this faction; its gamification dial (badges, ranks, tokens) is a mechanics scale, not the faction |
-| `CAN-004` / `lore/world/role-structure.md` | Play | partial | Keeps play as knowledge and the prototype; drops narrative and mystic facets |
+| `PRI-004` / `lore/world/role-structure.md` | Play | partial | Keeps play as knowledge and the prototype; drops narrative and mystic facets |
 | `numinia-web` domain | `field: 'gamification'` | reductive | Fixes STD-030's label in code, overriding the manual's «Proyección narrativa» |
 
 ## Observations
 
-- **Field (resolved):** narrative projection, which holds gamification; play is one of its principles (Christian's review, 2026-09-29). The sources that disagreed: the manual says «Campo de desarrollo: Proyección narrativa» (ch. 3; «Foco» in ch. 5); CAN-004 says "Play"; STD-030, STD-026, `lore/world/welcome-to-numinia.md` («Gamification: Fantasy and fictional narrative») and `numinia-web:packages/domain/src/constants/factions.ts` say "gamification"; the store landing (`numinia-web:apps/store/src/i18n/city-landing.ts`) says «Narrativa». In the manual, gamification is only a sphere of influence.
+- **Field (resolved):** narrative projection, which holds gamification; play is one of its principles (Christian's review, 2026-09-29). The sources that disagreed: the manual says «Campo de desarrollo: Proyección narrativa» (ch. 3; «Foco» in ch. 5); PRI-004 says "Play"; STD-030, STD-026, `lore/world/welcome-to-numinia.md` («Gamification: Fantasy and fictional narrative») and `numinia-web:packages/domain/src/constants/factions.ts` say "gamification"; the store landing (`numinia-web:apps/store/src/i18n/city-landing.ts`) says «Narrativa». In the manual, gamification is only a sphere of influence.
 - The "gamification faction" label is a house attribution; nothing in the manual links the faction to BLU-007's gamification dial. Linking them would add a meaning (points, tokens) the manual does not give (proposed).
-- **Mystic facet (resolved):** it defines the faction's character in the world and adds no value in the real working frame, so no house equivalence should carry it; it lives fully only in play and fictional narrative (Christian's review, 2026-09-29). Earlier note: it appears in no house equivalence (inferred: absent from `STD-030`, `CAN-004`, `numinia-web:packages/domain/src/constants/factions.ts`).
+- **Mystic facet (resolved):** it defines the faction's character in the world and adds no value in the real working frame, so no house equivalence should carry it; it lives fully only in play and fictional narrative (Christian's review, 2026-09-29). Earlier note: it appears in no house equivalence (inferred: absent from `STD-030`, `PRI-004`, `numinia-web:packages/domain/src/constants/factions.ts`).
 - STD-026 itself warns gamification can be «manipulation with confetti» (cited: `standards/STD-026-operative-vocabulary.md`).
 
 ## Sources
@@ -117,7 +117,7 @@ development, not a kind of knowledge (cited: `canon/CAN-004-role-structure.md` �
 - `lore/game/manual/es/` ch. 02–06 — definition, mandate, Ouroboros, violet (authority)
 - `lore/game/manual/glossary-es-en.md` — ES/EN names
 - `lore/codex/glosario.md` — «Facción», «Distrito» entries
-- `lore/world/role-structure.md`, `canon/CAN-004-role-structure.md` — prototype, Play
+- `lore/world/role-structure.md`, `principles/PRI-004-role-structure.md` — prototype, Play
 - `lore/adventures/virtual-worlds/session-zero.md`, `lore/adventures/tabletop/el-espejo-roto.md` — contexts
 - `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-026-operative-vocabulary.md`, `blueprints/BLU-007-dual-nomenclature.md` — equivalences
 - `web/src/lib/summa.ts`, `numinia-web:packages/domain/src/constants/` (factions, archetypes), `numinia-web:apps/store/src/i18n/city-landing.ts` — web usage

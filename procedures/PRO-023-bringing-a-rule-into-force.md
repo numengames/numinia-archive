@@ -4,9 +4,9 @@ uid: ""
 title: "Bringing a rule into force"
 type: procedure
 status: active
-version: "1.1.3"
+version: "1.1.4"
 created: "2026-09-27T14:30:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -14,7 +14,7 @@ tags: [procedure, lifecycle, draft, active, promotion, checks]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-004", "STD-005", "STD-009", "STD-017", "STD-019", "STD-024"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--
@@ -24,7 +24,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # PRO-023 — Bringing a rule into force
 
-> **Summary:** How a canon, standard or procedure leaves `draft` and starts
+> **Summary:** How a principle, standard or procedure leaves `draft` and starts
 > to bind, without breaking the build and without surprising anyone.
 > **Epistemic:** What has to be true before a rule may bind?
 > **Pragmatic:** The steps from a candidate to `status: active`, and what to
@@ -51,7 +51,7 @@ agent proposes one. The **agent** prepares the change and shows it; the
 ## 2. Preconditions
 
 - A clone of `main`, with `npm ci` run at the root and in `web/`.
-- The candidate is `status: draft` in `canon/`, `standards/` or `procedures/`.
+- The candidate is `status: draft` in `principles/`, `standards/` or `procedures/`.
 - The checks and tests pass on `main` as it stands.
 
 ---

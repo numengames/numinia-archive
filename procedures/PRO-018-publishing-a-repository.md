@@ -4,9 +4,9 @@ uid: ""
 title: "Publishing a repository"
 type: procedure
 status: draft
-version: "2.1.2"
+version: "2.1.3"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -15,7 +15,7 @@ applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
 related: ["STD-014", "STD-010", "STD-022", "PRO-008", "PRO-011"]
-derived_from: "CAN-005"
+derived_from: "PRI-005"
 ---
 
 <!--

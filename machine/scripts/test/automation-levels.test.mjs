@@ -174,7 +174,7 @@ test('the levels register exists, is a register, and its five rows are the modul
   assert.ok(existsSync(LEVELS_DOC), 'standards/STD-041-the-levels-of-automation.md is missing');
   const doc = readFileSync(LEVELS_DOC, 'utf8');
   assert.match(doc, /^subtype: register$/m);
-  assert.match(doc, /^derived_from: "CAN-004"$/m, 'the levels derive from the roles canon: rank sets the reach');
+  assert.match(doc, /^derived_from: "PRI-004"$/m, 'the levels derive from the roles principle: rank sets the reach');
   const rows = tableUnder(doc, 'The levels');
   const { LEVELS } = load();
   assert.deepEqual(rows.map((r) => r[0].replace(/`/g, '')), LEVELS.map((l) => l.name), 'the register\'s level names, in order, are what the page draws');

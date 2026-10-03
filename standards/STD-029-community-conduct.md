@@ -5,9 +5,9 @@ title: "How we treat each other in the commons"
 type: standard
 subtype: standard
 status: draft
-version: "0.2.7"
+version: "0.2.8"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -15,8 +15,8 @@ section: "People and culture"
 tags: [standards, community, conduct, moderation, DSA]
 license: "CC0-1.0"
 approved_by: "ADR-052"
-related: ["CAN-002", "CAN-004", "PRO-005", "BLU-017"]
-derived_from: "CAN-010"
+related: ["PRI-002", "PRI-004", "PRO-005", "BLU-017"]
+derived_from: "PRI-010"
 ---
 
 <!--
@@ -107,7 +107,7 @@ a reason for every removal, and a door to knock on.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-002` | We build a game to work better | the values these rules protect |
-| `CAN-004` | You are what you are doing | Sentinels, who hold moderation |
+| `PRI-002` | We build a game to work better | the values these rules protect |
+| `PRI-004` | You are what you are doing | Sentinels, who hold moderation |
 | `PRO-005` | Escalating to the Oracle | a case a Sentinel cannot resolve |
 | `BLU-017` | Legal obligations to confirm | the hosting duties still to put in place |

@@ -4,9 +4,9 @@ uid: ""
 title: "Consumers install packages, never copy"
 type: adr
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-09-09T10:30:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
@@ -14,7 +14,7 @@ guild: "Alchemists"
 section: "Technology"
 tags: [design, packages, reconstruction, nwos, standards]
 amends: []
-related: ["STD-008", "STD-023", "CAN-008", "PRO-014"]
+related: ["STD-008", "STD-023", "PRI-008", "PRO-014"]
 license: "CC-BY-4.0"
 ---
 
@@ -45,7 +45,7 @@ The design system lives in five houses, each with one job:
 
 | House | Holds | Consumed by |
 |---|---|---|
-| `CAN-008` | direction: the mix, brand play, voice | people |
+| `PRI-008` | direction: the mix, brand play, voice | people |
 | `STD-008` | the rules that answer yes or no (`DSN-`) | reviewers, CI |
 | `STD-023` | the closed lists: palette, scales, animations, assets | the generator, which verifies register = tokens |
 | `blueprints/` | recipes, one per medium | the workspace template |

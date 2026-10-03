@@ -5,17 +5,17 @@ title: "Operative vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "Knowledge and quality"
 license: "CC0-1.0"
 tags: [standard, register, vocabulary, glossary, onboarding]
-related: ["CAN-002", "CAN-005", "CAN-006"]
-derived_from: "CAN-002"
+related: ["PRI-002", "PRI-005", "PRI-006"]
+derived_from: "PRI-002"
 ---
 
 <!--
@@ -89,7 +89,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 
 | Term | What it is | What it clears up | What it enables here | At the three levels · also |
 |---|---|---|---|---|
-| **Canon** *(document)* | A normative document that says what is so and why, and leaves the reader able to act. | A canon gives reasons, not procedures; it names no tool and keeps no clock. | Deciding a case nobody wrote a rule for, from the reason behind the rules. | Convention: principles, or policy — ISO 9000:2015 3.5.8; the series takes the word in cut 3 of `ADR-067`; *canon* keeps its place in the game. |
+| **Canon** | See *Principle*: the series' word until 2026-10-03, and the word of the Numinia stop of the dial. | | | |
 | **Card** *(record)* | A record read on one screen: a mission card, an entity card, the house card, a supplier card. | A card is the whole record, not a summary of one kept elsewhere. | Reading what a thing is and where it stands without opening a second file. | Convention: card — Kanban, and the one-screen record of common interface practice. |
 | **CC0** *(licence)* | The legal declaration that gives a work to the world by waiving every right that can be waived. | "may I use this?" answered with an unconditional yes. | The whole public catalogue is CC0: download it, remix it, sell it. | Also: open licence; public domain dedication. |
 | **Check** *(program)* | A small program that reads the archive and says where it breaks one of its own rules. | Nothing is judged by whether it looks right to whoever opened it last. | A rule that bites: once its standard is signed, its check can fail the build. | Also: guard (until 2026-10-03; the folder `machine/guards/` keeps the name until cut 5 of `ADR-067`).<br>Convention: check — the GitHub Checks API and the CI *checks*; lint rule, validator. |
@@ -215,7 +215,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 |---|---|---|---|---|
 | **Narrative dial** *(setting)* | How much of the world's vocabulary an organisation takes on, from plain business to full Numinia. | The vocabulary changes; the system underneath stays the same. | Offering the same system to a bank and to a game studio. | Convention: none in the industry; house word — the dial, its three stops and the moon that opens it in the bar. |
 | **NFT** *(token)* | An entry on a blockchain that says one particular digital object belongs to one wallet. | What is scarce is not the file, which copies, but the title over it. | The intended way for loot and season rewards to be real possessions. |  |
-| **Normative documents** *(set of documents)* | The canon, the standards and the procedures: the only documents that oblige. | Everything else records; a sentence binds you only if it lives in a normative document. | Telling whether a sentence obliges you by where it is written. | Also: axis (until 2026-10-03); what binds.<br>Convention: normative, as against informative — ISO/IEC Directives, Part 2; ISO 9001:2015 7.5, documented information to be maintained. |
+| **Normative documents** *(set of documents)* | The principles, the standards and the procedures: the only documents that oblige. | Everything else records; a sentence binds you only if it lives in a normative document. | Telling whether a sentence obliges you by where it is written. | Also: axis (until 2026-10-03); what binds.<br>Convention: normative, as against informative — ISO/IEC Directives, Part 2; ISO 9001:2015 7.5, documented information to be maintained. |
 | **Numen Games** *(company)* | The company, Numen Games S.L., that makes Numinia and runs on it. | Numen Games is who signs and invoices; Numinia is how it works. | Knowing which name goes on a contract and which on a story. |  |
 | **Numinia** *(world)* | The way Numen Games works, told as a city that anyone can walk into. | You do not learn it by being briefed; you learn it by walking in. | Using the city's words when they help, and the plain ones when they do not. | The organisation · The city · Numinia |
 | **NWOS** *(product)* | The Narrative Work Operating System: the archive, its agents and its narrative layer, offered to other organisations. | A work system first; the story is an optional layer on top. | An organisation adopts files, versions, agents and people, and adds narrative if it wants. | Work operating system · Narrative Work OS · Narrative Work OS |
@@ -250,10 +250,11 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Platform** *(product)* | The service where people of Numinia hold their account, rank, goods and sessions. | The platform is one way in; the archive and the files outlive it. | Entering with an e-mail and raising your sovereignty when you choose. |  |
 | **Playful learning** *(idea)* | The idea that people learn by playing, because play explores the unknown without fear of error. | Experience first, content second. | Adventures, riddles and the graphic-adventure heritage in what we build. |  |
 | **Position** *(attribute)* | The stable post a person holds that others can name, such as treasurer. | A position is a post; a role is what you are doing now. | Naming posts without confusing them with people's knowledge. |  |
-| **Positioning** *(statement)* | What the house says to a buyer: the problem, the solution, who it is for and the words used. | Positioning is a choice of market, not a belief; it is not canon. | Every piece of sales material speaks with one voice. |  |
+| **Positioning** *(statement)* | What the house says to a buyer: the problem, the solution, who it is for and the words used. | Positioning is a choice of market, not a belief; it is not principles. | Every piece of sales material speaks with one voice. |  |
 | **Pragmatic value** *(field)* | What a document lets its reader do once read. | Knowing is not enough; a document must change what you can do. | Choosing the document that lets you act, by reading one line. | Convention: purpose — technical-writing practice, as the pair with the epistemic value. |
 | **Precedence** *(rule)* | The order that decides which source wins when two disagree. | History beats a document, a document beats code, the costlier document beats the cheaper. | Settling a contradiction without asking who is more important. | Also: which rule wins. |
 | **Price** *(amount)* | What a buyer pays for a named good, shown whole, with tax, before paying. | No hidden fees; the price seen is the price paid. | Every charge passes the question "can the whole price be seen?". |  |
+| **Principle** *(document)* | A normative document that says what is so and why, and leaves the reader able to act; its header says `type: principle`. | A principle gives reasons, not procedures; it names no tool and keeps no clock. | Deciding a case nobody wrote a rule for, from the reason behind the rules. | Principle · Principle · Principio<br>Also: canon (until 2026-10-03); the word of the Numinia stop.<br>Convention: the governance hierarchy policy → standard → procedure → guideline; *policy*, "intentions and direction of an organization as formally expressed by its top management" — ISO 9000:2015 3.5.8. The archive's founding texts state what the system is and why, so the word is *principles* (the legal texts of `legal/` keep *policy*); the series `principles/` took it in cut 3 of `ADR-067`, the prefix `PRI-` for `CAN-`, each document keeping its old identifier in `former_id`. |
 | **Priority** *(field)* | How urgent a mission is: `critical`, `high`, `medium` or `low`. | Urgency is declared once, in the card, and the board sorts by it. | Picking what to do first without a meeting. | Convention: priority — ITIL's words. |
 | **Prism Cell** *(token)* | The unit of membership and value in Numinia's economy. | A membership that is owned, not rented. | Taking part in the full economy at the highest gamification threshold. | Membership token · Prism Cell · Celda Prisma<br>In the game: see the game's glossary. |
 | **Prisma** *(force)* | The force of refraction in the visual identity: it multiplies perspectives and gives the world a body. | It creates no truths; it lets each guild and faction show its own angle. | Choosing the look of a piece that shows the world, not the business. |  |
@@ -302,7 +303,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Section** *(field)* | The header field naming which of the ten sections of the company a document belongs to. | A document is placed in the company, not in a territory. | Reading the archive by section from the front door. | Convention: company section — a business label; ISO/IEC Directives use *section* and *clause* for the parts of a document, which the archive cites as `DOC-NNN §X`. |
 | **Security audit** *(procedure)* | Measuring the distance between what the documentation claims about access and secrets and what exists. | An audit says how many things it examined, out of how many. | Finding gaps before someone else does. |  |
 | **Seed of knowledge** *(unit of activity)* | The smallest unit of learning in Numinia: one idea, ready to grow. | Learning starts small and is counted. | Building courses and adventures from small pieces. | In the game: see the game's glossary. |
-| **Seminal** | See *Canon*: its `type` value. | | | |
+| **Seminal** | See *Principle*: its `type` value until 2026-10-03; `principle` since. | | | |
 | **Series** *(folder)* | A folder of the archive that holds one kind of document, numbered under one prefix. | A folder is a series only if losing it would break a named function. | Knowing how a document is numbered, what a change costs and which template it copies. | Convention: series — ISO 15489-1:2016 (which also says *aggregation*) and ISAD(G). |
 | **Shelf** *(reading group)* | A group of standards on the `/standards` page, named for what they are for. | A shelf is a way to read; the series is the way to file. | Finding the standards about one concern together. | Convention: none in the industry; house word. |
 | **SPDX** *(notice)* | The short standard notice in each file naming its copyright holder and its licence. | The licence travels inside the file, not only in a list somewhere. | A tool checks every file's terms in seconds. | Also: REUSE, for the specification that checks them. |
@@ -329,7 +330,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Timeline** *(part of a record)* | The lines of an opportunity's record, one per thing that happened, in order. | The record's state is read from its timeline, never typed by hand. | Anyone can see what happened and why the record is where it is. |  |
 | **Tooling** *(set of programs)* | The programs that read, verify, measure and template the archive: the checks, the tools, the scripts. | The tooling is not the archive; it reads it and binds nobody. | Running a check or a measurement, by hand or in CI. | Also: instruments (until 2026-10-03).<br>Convention: tooling — continuous-integration practice. |
 | **Trademark** *(legal right)* | A registered right over a name or mark that stops others trading under it. | The name is never opened, even when everything else is. | Remixing our world freely without using our name as yours. |  |
-| **Type** *(field)* | The header field naming a document's genre: `standard`, `procedure`, `adr`, `mission`, `report`, `blueprint`, `seminal`, `legal`, `agent`, `entity`, `opportunity`, `proposal`, `documentation`, `meta`. | A genre has a folder; a document of a strict genre filed elsewhere is an error. | Finding every document of one kind. | Convention: `dcterms:type` — DCMI Metadata Terms; the values match their folders. |
+| **Type** *(field)* | The header field naming a document's genre: `standard`, `procedure`, `adr`, `mission`, `report`, `blueprint`, `principle`, `legal`, `agent`, `entity`, `opportunity`, `proposal`, `documentation`, `meta`. | A genre has a folder; a document of a strict genre filed elsewhere is an error. | Finding every document of one kind. | Convention: `dcterms:type` — DCMI Metadata Terms; the values match their folders. |
 
 ## U
 

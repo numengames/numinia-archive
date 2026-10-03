@@ -44,7 +44,7 @@ const BUDGET = {
   standards: 500, procedures: 500, decisions: 500, missions: 500,
   debt: 300, guilds: 300,
   reports: 1000, blueprints: 1000,
-  canon: 1500,
+  principles: 1500,
 };
 const CAP = { title: 5, card: 40, scope: 15, why: 80, refs: 5 };
 const NEEDS_BINDS = new Set(['standards', 'procedures']);

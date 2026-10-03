@@ -5,17 +5,17 @@ uid: ""
 type: standard
 subtype: standard
 status: draft
-version: "3.2.8"
+version: "3.2.9"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
 section: "Products and services"
 tags: [standards, ranks, permissions, digital-goods, RBAC]
-derived_from: "CAN-004"
+derived_from: "PRI-004"
 license: "CC0-1.0"
 
 ---
@@ -156,5 +156,5 @@ governance from being captured inside the product.
 
 | ID | Title | Relation |
 |---|---|---|
-| `CAN-004` | You are what you are doing | what each rank is, and rank as one of the six attributes |
+| `PRI-004` | You are what you are doing | what each rank is, and rank as one of the six attributes |
 | `STD-033` | Every charge delivers something | payment, which this standard does not bind |

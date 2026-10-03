@@ -147,7 +147,7 @@ for (const { dir, tag } of dirSpecs) {
     // --include-exempt: the operator's explicit per-run assertion "this
     // --dir's exempt files ARE the ones D-008's ruling enumerated" —
     // required because guilds/*, operations/security-policy.md,
-    // credential-map.md, canon/archive-lore.md, the archive-summa
+    // credential-map.md, principles/archive-lore.md, the archive-summa
     // blueprints, and debt/D-024+D-028 ALL carry registration: exempt too,
     // and D-008 rules them IN. This flag does not distinguish
     // file-by-file — verify the --dir's file list against D-008's table

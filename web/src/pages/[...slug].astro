@@ -1,7 +1,7 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-// Generic canon document rendered at build from the repo root (MIS-087:
+// Generic principle document rendered at build from the repo root (MIS-087:
 // the full mirror — every .md gets a page, the folder is the source).
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
@@ -40,7 +40,7 @@ const repoUrl = repoFileUrl(rel);
 // Group from filePath, not id: the loader maps INDEX.md to the bare
 // directory id, which would mislabel section indexes as root files.
 const m = rel.match(
-  /(?:^|\/)(agents|blueprints|canon|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|procedures|reports|standards|system)\/(.+)$/
+  /(?:^|\/)(agents|blueprints|principles|decisions|guilds|history|legal|lore|missions|objects|operations|opportunities|procedures|reports|standards|system)\/(.+)$/
 );
 const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
 // A document with no `title` field still has one: its first heading. The
@@ -49,7 +49,7 @@ const dir = m ? [m[1], ...m[2].split("/").slice(0, -1)].join("/") : "raíz";
 const h1 = (entry.body ?? "").match(/^#\s+(.+?)\s*$/m)?.[1];
 const title = str(raw.title) ?? h1 ?? mdFilename;
 // A draft document binds nobody (STD-004), and the corpus mirror renders the
-// canon, the standards and the procedures — the three folders where that fact
+// principles, the standards and the procedures — the three folders where that fact
 // changes what a reader should do. Printing the bare word as a chip left them
 // to infer it; the band says it, and points at the rule that applies instead.
 const isDraft = f.status === "draft";

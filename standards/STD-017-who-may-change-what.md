@@ -5,15 +5,15 @@ title: "Who may change what"
 type: standard
 subtype: standard
 status: draft
-version: "2.2.4"
+version: "2.2.5"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
 license: "CC0-1.0"
 tags: [standards, governance, authority, ranks]
-derived_from: "CAN-004"
+derived_from: "PRI-004"
 
 ---
 
@@ -24,7 +24,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Who may change what
 
-> **Summary:** The canon, standards and procedures change by a written
+> **Summary:** The principles, standards and procedures change by a written
 > decision or a change the Oracle approves. Everything else changes by an
 > ordinary change. Each series sets an approval level, rank sets each actor's
 > reach, and an agent in doubt stops.
@@ -38,9 +38,9 @@ SPDX-License-Identifier: CC0-1.0
 
 ### What each kind of document needs
 
-**The canon needs the Oracle's approval.** The international quality
+**The principles need the Oracle's approval.** The international quality
 standard asks that a controlling document be approved before use, so anyone
-can show who let it in. The canon MUST change by a written decision or by a
+can show who let it in. The principles MUST change by a written decision or by a
 change the Oracle approves. That approval, kept with the change, is the
 signature.
 
@@ -110,7 +110,7 @@ controls an auditor already looks for.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| AUT-006 | The canon needs the Oracle's approval | [ISO 9001:2015, review and approval, clause 7.5.2 c](https://www.iso.org/standard/62085.html) (clause unverified); the approver being the Oracle is ours | by hand — the pull request approval is the record; whether it suffices is not parsed |
+| AUT-006 | The principles need the Oracle's approval | [ISO 9001:2015, review and approval, clause 7.5.2 c](https://www.iso.org/standard/62085.html) (clause unverified); the approver being the Oracle is ours | by hand — the pull request approval is the record; whether it suffices is not parsed |
 | AUT-007 | Standards, procedures and decisions need a record or an approval | [ISO 9001:2015, review and approval, clause 7.5.2 c](https://www.iso.org/standard/62085.html) (clause unverified) | by hand, as above |
 | AUT-068 | The approval level says what a change takes | [ISO 9001:2015, control of changes, clause 7.5.3.2 c](https://www.iso.org/standard/62085.html) (clause unverified); the five levels are ours (the *threshold* until 2026-10-03); holds deprecated SER-003 | by hand — what a signature is is read, not parsed; each series' approval level is a column of `STD-001` |
 | AUT-009 | Everything else needs an ordinary change | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) | branch protection, in the repository settings |
@@ -128,7 +128,7 @@ The five approval levels, and what a change to each takes:
 | `sealed` | the Oracle's signature and a decision record giving the reason |
 | `governed` | a decision record, or a pull request the Oracle approves |
 | `closed` | substance is not reopened; form may be corrected and the commit says so |
-| `live` | corrected when it contradicts the canon or a signed decision; the correction is recorded inside the document, naming who and against which decision |
+| `live` | corrected when it contradicts the principles or a signed decision; the correction is recorded inside the document, naming who and against which decision |
 | `open` | a pull request |
 
 | In the reading | Exact form |
@@ -141,7 +141,7 @@ The five approval levels, and what a change to each takes:
 
 ## Why
 
-No file in a repository is immutable. What tells the canon from a memory is
+No file in a repository is immutable. What tells the principles from a memory is
 what a change to it takes. That cost is the record the change leaves, and
 rank decides which records an actor may leave. A rule can then be switched
 off without lying about why it stopped.
@@ -151,7 +151,7 @@ off without lying about why it stopped.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-009` | Which rule wins | the precedence these costs produce |
-| `CAN-004` | You are what you are doing | what each rank is |
+| `PRI-004` | You are what you are doing | what each rank is |
 | `STD-003` | Platform ranks | the ranks on the platform |
 | `STD-004` | The header | the states a rule may hold |
 | `STD-001` | The series | the threshold each series declares |

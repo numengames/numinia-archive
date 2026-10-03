@@ -4,9 +4,9 @@ uid: ""
 title: "Closing a sale"
 type: procedure
 status: draft
-version: "0.4.2"
+version: "0.4.3"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -15,7 +15,7 @@ tags: [procedure, sales, follow-up, agreement, handover, win-loss, timeline]
 license: "CC0-1.0"
 applies_to: [all-agents]
 related: ["STD-038", "STD-039", "STD-036", "LEG-002", "PRO-029", "PRO-031", "PRO-021"]
-derived_from: "CAN-011"
+derived_from: "PRI-011"
 ---
 
 <!--

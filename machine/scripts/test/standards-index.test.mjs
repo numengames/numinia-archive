@@ -80,41 +80,41 @@ test('the note above the shelves describes the shelves as they stand', () => {
   }
 });
 
-/* ---- The canon: the title is the answer, the question sits under it ----
-   A canon's title already states its claim ("Opening is an act"). The
+/* ---- The principles: the title is the answer, the question sits under it ----
+   A principle's title already states its claim ("Opening is an act"). The
    question under it is the one a newcomer asks before reading, so it must
    not repeat the title's words: read together, question and title click. */
 
-const canon = execFileSync('git', ['-C', ROOT, 'ls-files', 'canon/CAN-*.md'], { encoding: 'utf8' })
+const principles = execFileSync('git', ['-C', ROOT, 'ls-files', 'principles/PRI-*.md'], { encoding: 'utf8' })
   .split('\n').filter(Boolean);
 const STOP = new Set(['what', 'whatever', 'when', 'where', 'which', 'with', 'this', 'that', 'than', 'they', 'your', 'from', 'does', 'have', 'also', 'just', 'here', 'there', 'about']);
 const content = (s) => new Set((s.toLowerCase().match(/[a-z]{4,}/g) ?? []).filter((w) => !STOP.has(w)));
 
-test('every canon states the question its title answers', () => {
-  assert.ok(canon.length >= 8, `only ${canon.length} canon documents found`);
-  const bad = canon.map((f) => [f.match(/CAN-\d{3}/)[0], epistemicOf(read(f))])
+test('every principle states the question its title answers', () => {
+  assert.ok(principles.length >= 8, `only ${principles.length} principle documents found`);
+  const bad = principles.map((f) => [f.match(/PRI-\d{3}/)[0], epistemicOf(read(f))])
     .filter(([, q]) => !/^[A-Z][^?]*\?$/.test(q) || q.split(/\s+/).length > 10)
     .map(([id, q]) => `${id}: "${q}"`);
   assert.deepEqual(bad, [], `these do not state one short question (at most ten words, ending in "?"):\n  ${bad.join('\n  ')}`);
 });
 
-test("a canon's question does not repeat its title", () => {
-  const echo = canon.map((f) => {
+test("a principle's question does not repeat its title", () => {
+  const echo = principles.map((f) => {
     const text = read(f);
     const title = text.match(/^# (.+)$/m)?.[1] ?? '';
     const shared = [...content(epistemicOf(text))].filter((w) => content(title).has(w));
-    return [f.match(/CAN-\d{3}/)[0], title, shared];
+    return [f.match(/PRI-\d{3}/)[0], title, shared];
   }).filter(([, , shared]) => shared.length).map(([id, title, shared]) => `${id} "${title}": ${shared.join(', ')}`);
   assert.deepEqual(echo, [], `the question repeats the title's words:\n  ${echo.join('\n  ')}`);
 });
 
-/* ---- Every canon sits on a reading shelf ----
-   A canon left off READING_GROUPS_CANON falls to the foot of /canon, after
+/* ---- Every principle sits on a reading shelf ----
+   A principle left off READING_GROUPS_PRINCIPLES falls to the foot of /principles, after
    the theory, where a newcomer never reaches it. */
-test('every canon is on a reading shelf', () => {
+test('every principle is on a reading shelf', () => {
   const corpusTs = readFileSync(path.join(ROOT, 'web/src/lib/corpus.ts'), 'utf8');
-  const groups = corpusTs.slice(corpusTs.indexOf('const READING_GROUPS_CANON'), corpusTs.indexOf('];', corpusTs.indexOf('const READING_GROUPS_CANON')));
-  const shelved = new Set((groups.match(/\/canon\/can-\d{3}/g) ?? []).map((h) => h.slice(-3)));
-  const off = canon.map((f) => f.match(/CAN-(\d{3})/)[1]).filter((n) => !shelved.has(n)).map((n) => `CAN-${n}`);
-  assert.deepEqual(off, [], `these canons are on no reading shelf in web/src/lib/corpus.ts: ${off.join(', ')}`);
+  const groups = corpusTs.slice(corpusTs.indexOf('const READING_GROUPS_PRINCIPLES'), corpusTs.indexOf('];', corpusTs.indexOf('const READING_GROUPS_PRINCIPLES')));
+  const shelved = new Set((groups.match(/\/principles\/pri-\d{3}/g) ?? []).map((h) => h.slice(-3)));
+  const off = principles.map((f) => f.match(/PRI-(\d{3})/)[1]).filter((n) => !shelved.has(n)).map((n) => `PRI-${n}`);
+  assert.deepEqual(off, [], `these principles are on no reading shelf in web/src/lib/corpus.ts: ${off.join(', ')}`);
 });

@@ -5,15 +5,15 @@ title: "Which rule wins"
 type: standard
 subtype: standard
 status: draft
-version: "1.2.3"
+version: "1.2.4"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
 license: "CC0-1.0"
 tags: [standards, governance, precedence, rules]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 absorbs: ["STD-002"]
 ---
 
@@ -57,7 +57,7 @@ the code, and a document that describes follows it.
 **The costlier document wins.** Between two documents, the one that needs
 more agreement to change MUST prevail. First come those only an Oracle may
 change, then those closed once finished, then those open to anyone. Among
-the first, the canon comes before standards and procedures, and they come
+the first, the principle comes before standards and procedures, and they come
 before the rest.
 
 **The later ruling wins.** At equal cost the later ruling MUST prevail, and
@@ -93,7 +93,7 @@ Each rule, its code, its source and its check.
 A hierarchy by importance invites argument about what is important. A
 hierarchy by cost of change is already on record: each shelf states how
 much agreement an edit demands, and a reader can check it without asking.
-The canon outranks a standard because changing it costs an Oracle's
+A principle outranks a standard because changing it costs an Oracle's
 signature, not because it matters more. History wins because no price worth
 paying can change who changed what, and when.
 
@@ -104,4 +104,4 @@ paying can change who changed what, and when.
 | `STD-001` | The series | the thresholds the costlier-document rule orders |
 | `STD-017` | Who may change what | who moves each approval level |
 | `STD-005` | When a rule bites | how a check bites by the state of its rule |
-| `CAN-004` | You are what you are doing | who holds which rank |
+| `PRI-004` | You are what you are doing | who holds which rank |

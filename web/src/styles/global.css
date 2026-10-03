@@ -392,7 +392,7 @@
 }
 
 /* ── Long strings must not widen the page ─────────────────────────────────
-   Measured at 375 px: CAN-001 pushed the document 590 px wide because a bare
+   Measured at 375 px: PRI-001 pushed the document 590 px wide because a bare
    Huly URL in a paragraph is one unbreakable word, and the glossary's code
    blocks ran to 691 px. The reader got a horizontal scrollbar on a page of
    prose, which is the most common mobile defect there is and the least

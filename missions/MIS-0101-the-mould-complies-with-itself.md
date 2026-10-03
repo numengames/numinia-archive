@@ -13,11 +13,11 @@ started: null
 completed: null
 
 type: mission
-version: "1.2.4"
+version: "1.2.5"
 created: "2026-08-18T14:47:39Z"
 created_source: "git:b91848e"
 created_confidence: exact
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 requested_by: "oracle"
@@ -98,7 +98,7 @@ contributor cannot tell "no variables" from "nobody documented them".
   were real product bugs. Expect a similar harvest.
 
 **Out of scope:** the design of the checks themselves (MIS-070 owns the
-baseline), anything under CAN-005, and the token layer of `web/` — that is
+baseline), anything under PRI-005, and the token layer of `web/` — that is
 MIS-102, which moves this site off its hand-written palette.
 
 ## Acceptance criteria

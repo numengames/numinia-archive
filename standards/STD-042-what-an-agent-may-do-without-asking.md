@@ -5,17 +5,17 @@ title: "What an agent may do without asking"
 type: standard
 subtype: register
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-29T12:30:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "People and culture"
 tags: [standards, register, agents, permissions, automation, least-privilege]
 license: "CC0-1.0"
-related: ["STD-041", "STD-017", "STD-022", "PRO-008", "PRO-016", "CAN-004"]
-derived_from: "CAN-004"
+related: ["STD-041", "STD-017", "STD-022", "PRO-008", "PRO-016", "PRI-004"]
+derived_from: "PRI-004"
 ---
 
 <!--

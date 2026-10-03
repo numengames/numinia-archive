@@ -1,19 +1,21 @@
 ---
-id: "CAN-015"
+id: "PRI-015"
 uid: ""
 title: "We recognise the act; we never buy the game"
-type: seminal
+type: principle
+former_id: "CAN-015"
+former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.1.1"
+version: "0.1.2"
 created: "2026-10-03T19:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 section: "People and culture"
-tags: [canon, seminal, culture, incentives, recognition, motivation, ranks]
+tags: [principle, culture, incentives, recognition, motivation, ranks]
 license: "CC0-1.0"
-related: ["CAN-002", "CAN-004", "CAN-007", "CAN-011", "CAN-012", "CAN-013", "STD-003", "PRO-019"]
+related: ["PRI-002", "PRI-004", "PRI-007", "PRI-011", "PRI-012", "PRI-013", "STD-003", "PRO-019"]
 ---
 
 <!--
@@ -103,11 +105,11 @@ test here.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `CAN-002` | We build a game to work better | the manifesto: relations, the human being, the old inheritance |
-| `CAN-004` | You are what you are doing | rank is the one attribute the system assigns |
-| `CAN-007` | Renaming is not transforming | gamification moves motivation; a new name for a reward changes nothing |
-| `CAN-011` | Value makes a bond | what money pays, and how a payer is remembered |
-| `CAN-012` | What is yours stays with you | what is earned leaves with the person |
-| `CAN-013` | A magician who keeps hope, with humans in charge | autonomy, competence and bonds as the humane model |
+| `PRI-002` | We build a game to work better | the manifesto: relations, the human being, the old inheritance |
+| `PRI-004` | You are what you are doing | rank is the one attribute the system assigns |
+| `PRI-007` | Renaming is not transforming | gamification moves motivation; a new name for a reward changes nothing |
+| `PRI-011` | Value makes a bond | what money pays, and how a payer is remembered |
+| `PRI-012` | What is yours stays with you | what is earned leaves with the person |
+| `PRI-013` | A magician who keeps hope, with humans in charge | autonomy, competence and bonds as the humane model |
 | `STD-003` | Platform ranks | rank is read from evidence; the top two are judged, not counted |
 | `PRO-019` | Holding a ritual | where recognition is said aloud |

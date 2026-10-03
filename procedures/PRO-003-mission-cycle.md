@@ -4,11 +4,11 @@ uid: ""
 title: "Running a mission"
 type: procedure
 status: draft
-version: "5.0.6"
+version: "5.0.7"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Operations"
@@ -17,7 +17,7 @@ applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
 related: ["STD-025", "STD-018", "PRO-001", "PRO-005", "PRO-008"]
-derived_from: "CAN-009"
+derived_from: "PRI-009"
 ---
 
 <!--
@@ -60,8 +60,8 @@ access or a decision the mission needs MUST be raised before the first
 action, not after. Blocked: `on-hold` with its reason (`MSN-039`), Oracle
 notified.
 
-**MCY-004 — Contradiction with the canon stops the mission.** The agent
-MUST escalate (`PRO-005`) rather than execute against the canon.
+**MCY-004 — Contradiction with the principles stops the mission.** The agent
+MUST escalate (`PRO-005`) rather than execute against the principles.
 
 **MCY-005 — Review is requested with evidence.** Before `in-review`, every
 acceptance criterion MUST be verified and Closure filled with what was
@@ -99,7 +99,7 @@ Freezing and unfreezing: `MSN-039`. Deleting a closed card: `MSN-004`.
 
 ## 5. Escalation
 
-Contradiction with the canon, a blocker the agent cannot lift, a conflict
+Contradiction with the principles, a blocker the agent cannot lift, a conflict
 with an active mission: `PRO-005`. Identifier collision: `IDN-015`, the
 second renumbers and fixes its own references.
 

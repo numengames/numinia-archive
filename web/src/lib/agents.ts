@@ -237,8 +237,8 @@ export function digitalAgents(): DigitalAgent[] {
 /**
  * The Oracles, read from the agents index.
  *
- * The table lived in CAN-002 until ADR-061 (2026-09-24): a roster is a
- * register, and the canon says what the house is, not who staffs it. Same
+ * The table lived in PRI-002 until ADR-061 (2026-09-24): a roster is a
+ * register, and the principle says what the house is, not who staffs it. Same
  * rule as the digital side: the archive states it, the page reads it — and
  * the build fails rather than publish a roster that names nobody.
  */

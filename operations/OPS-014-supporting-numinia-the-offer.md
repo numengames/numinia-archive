@@ -4,16 +4,16 @@ uid: ""
 title: "Supporting Numinia — the offer"
 type: documentation
 status: draft
-version: "0.5.1"
+version: "0.5.2"
 created: "2026-09-29T13:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T21:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Products and services"
 tags: [operations, offer, support, backer, sponsor, payments]
 license: "CC-BY-4.0"
-related: ["CAN-011", "STD-033", "SYS-008", "PRO-020", "PRO-021", "BLU-018"]
+related: ["PRI-011", "STD-033", "SYS-008", "PRO-020", "PRO-021", "BLU-018"]
 
 # The cards on sale. They are sold on numinia.com/back, never on
 # numinia.org: the archive keeps the record, the product site sells
@@ -77,7 +77,7 @@ away, and the payment on the processor's page. Numinia copies that.
 open to read and holds no shop; it keeps this record. numinia.com is the
 product: it has the sign-in and the citizen profile where the gift lands.
 
-Numinia takes no donations (`CAN-011`): every payment buys something named
+Numinia takes no donations (`PRI-011`): every payment buys something named
 before paying (`STD-033` PAY-001), so the gift is named on the page.
 
 ---
