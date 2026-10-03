@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 29593,
+  "chars": 29888,
   "apparatus": false,
   "archived": false,
-  "tokens": 8353
+  "tokens": 8453
  },
  {
   "path": "CLAUDE.md",
@@ -1461,17 +1461,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 13522
- },
- {
-  "path": "lore/world/brand-and-culture.md",
-  "dir": "lore",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 47561,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 10556
  },
  {
   "path": "lore/world/role-structure.md",
