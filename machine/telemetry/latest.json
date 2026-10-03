@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "193fa76",
-  "corpus_hash": "3d4d4ca1fad56691d3fa8b306c1a627f8983f3838793a66ec81696cc26b1a1f3",
+  "head": "6932b0d",
+  "corpus_hash": "e23f34f7bdbd5b564ad0e0a048f95a9fab3808e72abd33e6640a81ddf4cd44bc",
   "root_dirty": 0,
-  "measured_at": "2026-10-03T19:14:47Z",
+  "measured_at": "2026-10-03T19:40:59Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 341,
-          "bytes": 3778586
+          "bytes": 3783492
         },
         "Code": {
           "files": 260,
-          "bytes": 2338854
+          "bytes": 2346576
         },
         "Image": {
           "files": 115,
@@ -65,7 +65,7 @@
         },
         "Data": {
           "files": 68,
-          "bytes": 272917
+          "bytes": 275628
         },
         "Font": {
           "files": 7,
@@ -73,7 +73,7 @@
         },
         "Other": {
           "files": 6,
-          "bytes": 4893
+          "bytes": 4920
         },
         "Office": {
           "files": 1,
@@ -99,7 +99,6 @@
         ".github": 3,
         "agents": 45,
         "blueprints": 12,
-        "principles": 14,
         "debt": 3,
         "decisions": 11,
         "legal": 4,
@@ -109,6 +108,7 @@
         "objects": 2,
         "operations": 16,
         "opportunities": 27,
+        "principles": 14,
         "procedures": 28,
         "reports": 15,
         "standards": 40,
@@ -129,10 +129,10 @@
         "meta": 8,
         "mission": 8,
         "opportunity": 24,
+        "principle": 15,
         "procedure": 30,
         "proposal": 5,
         "report": 19,
-        "seminal": 15,
         "standard": 41
       },
       "unit": "documents",
@@ -174,13 +174,6 @@
           "archived": 0,
           "pct": 100
         },
-        "principles": {
-          "registered": 14,
-          "total": 14,
-          "apparatus": 0,
-          "archived": 0,
-          "pct": 100
-        },
         "debt": {
           "registered": 3,
           "total": 3,
@@ -212,6 +205,13 @@
         "operations": {
           "registered": 16,
           "total": 16,
+          "apparatus": 0,
+          "archived": 0,
+          "pct": 100
+        },
+        "principles": {
+          "registered": 14,
+          "total": 14,
           "apparatus": 0,
           "archived": 0,
           "pct": 100
@@ -365,28 +365,28 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 952912,
+      "value": 954204,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 481126,
-        "standards": 102613,
-        "system": 52054,
-        "reports": 36733,
-        "procedures": 36474,
-        "agents": 36266,
-        "operations": 30270,
+        "standards": 102934,
+        "system": 52090,
+        "reports": 36735,
+        "procedures": 36480,
+        "agents": 36282,
+        "operations": 30274,
         "blueprints": 27818,
-        "machine": 27398,
+        "machine": 27406,
         "opportunities": 25222,
-        "principles": 23420,
-        "missions": 17665,
-        "": 17026,
-        "decisions": 13263,
+        "principles": 24103,
+        "missions": 17666,
+        "": 17168,
+        "decisions": 13335,
         "legal": 13061,
-        "debt": 9708,
+        "debt": 9709,
         "objects": 1883,
         ".github": 912
       },
@@ -395,11 +395,11 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 505522,
-        "draft": 219564,
-        "active": 208654,
+        "(none)": 505665,
+        "draft": 220295,
+        "active": 209071,
         "todo": 13540,
-        "in-progress": 4516,
+        "in-progress": 4517,
         "done": 1116
       },
       "unit": "tokens",
@@ -482,6 +482,8 @@
         "value": 34,
         "applies_to": 29,
         "approved_by": 24,
+        "former_id": 24,
+        "former_id_note": 24,
         "visibility": 23,
         "category": 21,
         "absorbs": 20,
@@ -489,9 +491,7 @@
         "extraction_note": 16,
         "evidence_head": 14,
         "automation_level": 13,
-        "former_id": 13,
         "digital_source_type": 12,
-        "former_id_note": 12,
         "related_missions": 12,
         "role": 12,
         "evidence_script": 11,
@@ -782,16 +782,16 @@
           "3": 449
         },
         "STD": {
-          "3": 1097
+          "3": 1101
         },
         "OPS": {
           "3": 180
         },
-        "CAN": {
-          "3": 416
+        "PRI": {
+          "3": 382
         },
         "ADR": {
-          "3": 253
+          "3": 271
         },
         "DBT": {
           "3": 68
