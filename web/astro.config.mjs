@@ -255,6 +255,9 @@ export default defineConfig({
 		// → lore — adventures split into tabletop/ and virtual-worlds/ (2026-09-24)
 		"/lore/adventures/el-espejo-roto": "/lore/adventures/tabletop/el-espejo-roto",
 		"/lore/adventures/session-zero": "/lore/adventures/virtual-worlds/session-zero",
+		// → /brand — the old brand deck was merged into canon and records, and the
+		// brand and culture book reads them (2026-10-03). Same question answered.
+		"/lore/world/brand-and-culture": "/brand",
 	},
 	// MIS-088's /print/* intermediates are gone (2026-08-31). They existed
 	// only as Chromium print targets for a PDF step the build never ran, so

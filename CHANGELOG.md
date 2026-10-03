@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-03
 
+- **Added** The brand and culture book at /brand: seven chapters read from `CAN-014`, `CAN-002`, `CAN-013`, `CAN-008`, `CAN-010`, `STD-029`, `PRO-019`, `CAN-015`, `OPS-020`, `OPS-011`; `lore/world/brand-and-culture.md` (the old deck) is removed and its address leads to the book (site v0.136.0)
 - **Added** `OPS-021` how to get help from us (Discord, email, data address open; an agent coming); `STD-037` SIT-004 the epitaph behind a skull at the foot of every site; the footer button is now *Back Numinia* and leads to numinia.com/back; Discord joins the social column (site v0.135.0)
 - **Added** Culture from the old deck: `CAN-015` how Numinia rewards, six tests; rescued lines in `CAN-002`, `CAN-006`, `CAN-014`, `OPS-011`, `OPS-020` (site v0.134.0)
 - **Added** Brand and culture from the old deck: `CAN-013` the brand in three words, `CAN-014` where we come from, `OPS-020` the strategy; `CAN-002` gets the manifesto and epitaph back (site v0.133.0)

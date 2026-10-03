@@ -53,6 +53,7 @@ import { moulds as templateMoulds, matrix as templateMatrix, makes as templateMa
 import { settings as configSettings, MOULDS as CONFIG_MOULDS, CONFIG_INTRO } from "@/lib/configuration";
 import { playbookMarkdown, PLAYBOOK_SOURCES } from "@/lib/playbook";
 import { lexicon, LEXICON_SOURCE } from "@/lib/lexicon";
+import { brandMarkdown, BRAND_SOURCES } from "@/lib/brand-book";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -998,6 +999,10 @@ function lexiconEntry(t: ReturnType<typeof lexicon>[number]["terms"][number]): s
   if (t.game) lines.push(`- **In the game:** ${t.game}`);
   return lines.join("\n") + "\n";
 }
+/** /brand — the brand and culture book, read from its canons and records. */
+export function brandPage(): ComposedPage {
+  return { route: "/brand", filename: "brand-and-culture.md", sources: BRAND_SOURCES, body: preamble(BRAND_SOURCES) + brandMarkdown() };
+}
 export function lexiconPage(): ComposedPage {
   const body = ["# The Lexicon", "", "The words Numen Games works with, A to Z.", "", ...lexicon().flatMap((l) => [`## ${l.letter}`, "", ...l.terms.map(lexiconEntry)])].join("\n");
   return { route: "/lexicon", filename: "lexicon.md", sources: [LEXICON_SOURCE], body: preamble([LEXICON_SOURCE]) + body };
@@ -1010,7 +1015,7 @@ export function lexiconLetterPage(slug: string): ComposedPage {
 
 export async function allComposedPages(): Promise<ComposedPage[]> {
   const pages: ComposedPage[] = [mapPage(), homePage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), playbookPage(), templatesPage(), corePage()];
-  pages.push(lexiconPage());
+  pages.push(lexiconPage(), brandPage());
   for (const l of lexicon()) pages.push(lexiconLetterPage(l.slug));
   for (const c of coreFlow()) pages.push(coreCanonPage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
