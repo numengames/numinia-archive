@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.142.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "CHG", text: "The folder of the rules that run on every change is now machine/checks, the word continuous integration uses for a program that passes or fails a change (the GitHub Checks API, the CI checks); it was machine/guards, and in programming a guard is a clause, not a program. The manual of the tooling (SYS-007) and the classification scheme name the new folder; the command is npm run checks." },
+    ],
+  },
+  {
     version: "v0.141.0",
     date: "2026-10-03",
     entries: [

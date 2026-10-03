@@ -79,7 +79,7 @@ not as an intention.
 > without re-reading this document.
 
 "Closes when the docs are improved" closes nothing. "Closes when
-`node machine/guards/rules/std-004-the-header.mjs` reports zero HDR-031 findings" closes.
+`node machine/checks/rules/std-004-the-header.mjs` reports zero HDR-031 findings" closes.
 
 ---
 

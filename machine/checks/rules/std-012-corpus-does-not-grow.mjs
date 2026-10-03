@@ -29,7 +29,7 @@
 // a document is a citer); DEF-008 the bound corpus (not apparatus, not
 // outward-facing, STD-009).
 //
-// Run from anywhere: node machine/guards/rules/std-012-corpus-does-not-grow.mjs
+// Run from anywhere: node machine/checks/rules/std-012-corpus-does-not-grow.mjs
 
 import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';

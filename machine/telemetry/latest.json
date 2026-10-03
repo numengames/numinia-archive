@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "d723044",
-  "corpus_hash": "a9f56ade45cdebb9de897563267dd7aebaad5bd821cc4b1dff80fc90bd35fc36",
+  "head": "3f44959",
+  "corpus_hash": "6cb85ebf8eacc4a40af74573f7eb1e50016611eecd6d4f3c744b2cacf15133b3",
   "root_dirty": 0,
-  "measured_at": "2026-10-03T19:45:27Z",
+  "measured_at": "2026-10-03T19:54:03Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 341,
-          "bytes": 3786509
+          "bytes": 3786748
         },
         "Code": {
           "files": 260,
-          "bytes": 2349467
+          "bytes": 2349968
         },
         "Image": {
           "files": 115,
@@ -163,7 +163,7 @@
     "corpus.scripts_in_ci": {
       "value": 20,
       "unit": "files",
-      "definition": "guards the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)"
+      "definition": "checks the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)"
     },
     "series.registration": {
       "value": {
@@ -365,14 +365,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 955131,
+      "value": 955225,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 481126,
-        "standards": 103174,
+        "standards": 103153,
         "system": 52032,
         "reports": 36728,
         "procedures": 36472,
@@ -383,7 +383,7 @@
         "opportunities": 25222,
         "principles": 24099,
         "missions": 17662,
-        "": 17302,
+        "": 17417,
         "decisions": 13397,
         "legal": 13061,
         "debt": 9706,
@@ -395,9 +395,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 505797,
+        "(none)": 505912,
         "draft": 220495,
-        "active": 209670,
+        "active": 209649,
         "todo": 13537,
         "in-progress": 4516,
         "done": 1116
@@ -753,8 +753,8 @@
       "value": [
         "web/scripts/share-card.mjs",
         "machine/scripts/lib/regime.mjs",
-        "machine/scripts/run-guards.mjs",
-        "machine/guards/lib/guard.mjs",
+        "machine/scripts/run-checks.mjs",
+        "machine/checks/lib/guard.mjs",
         "machine/tools/check-deletable.mjs",
         "machine/tools/rule-index.mjs",
         "machine/packages/sales-kit/pipeline.mjs",
@@ -782,7 +782,7 @@
           "3": 449
         },
         "STD": {
-          "3": 1106
+          "3": 1109
         },
         "OPS": {
           "3": 180

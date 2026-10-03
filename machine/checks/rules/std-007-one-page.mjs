@@ -28,7 +28,7 @@
 // rule is one obligation, or a document is readable start to finish, is
 // editorial and not measured.
 //
-// Run from anywhere: node machine/guards/rules/std-007-one-page.mjs
+// Run from anywhere: node machine/checks/rules/std-007-one-page.mjs
 
 import { execute, isMain } from '../lib/guard.mjs';
 import { stripFM, rawFM, isApparatus, isTemplate } from '../../scripts/lib/frontmatter.mjs';

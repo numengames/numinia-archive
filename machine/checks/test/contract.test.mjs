@@ -2,13 +2,13 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// contract.test.mjs — every file in machine/guards/rules/ is a guard.
+// contract.test.mjs — every file in machine/checks/rules/ is a guard.
 //
 // The contract is small and it is all a reader may rely on: a guard exports
 // `meta` (family, plates) and `run(corpus) -> Finding[]`, is registered under
 // its own file name, emits only plates it declared, and neither prints nor
 // exits while running. Everything else — the regime, the blind-spot
-// declaration, the exit code — belongs to machine/guards/lib/guard.mjs, tested once.
+// declaration, the exit code — belongs to machine/checks/lib/guard.mjs, tested once.
 //
 // Run: npm test
 
@@ -22,14 +22,14 @@ import { citationRe } from '../../scripts/lib/citation-pattern.mjs';
 import { ROOT } from '../../scripts/lib/frontmatter.mjs';
 import { loadRegistry } from '../../scripts/lib/blindness.mjs';
 
-const RULES = path.join(ROOT, 'machine', 'guards', 'rules');
+const RULES = path.join(ROOT, 'machine', 'checks', 'rules');
 const PLATE = /^[A-Z]{2,4}-\d{3}$/;
 const registry = loadRegistry();
 const corpus = loadCorpus();
 
 const guards = readdirSync(RULES).filter((f) => f.endsWith('.mjs') && !f.endsWith('.test.mjs'));
 
-test('machine/guards/rules/ is not empty', () => {
+test('machine/checks/rules/ is not empty', () => {
   assert.ok(guards.length > 0, 'no guard to test');
 });
 
@@ -50,10 +50,10 @@ for (const file of guards) {
   });
 
   test(`${name}: is registered under its file name, at its path`, () => {
-    const entry = registry.guards[name];
+    const entry = registry.checks[name];
     assert.ok(entry, `blind-spots.json has no entry "${name}"`);
-    assert.equal(entry.script, `machine/guards/rules/${file}`, 'registry points elsewhere');
-    assert.ok(!entry.build_guard, 'a rule guard is registered as a build guard');
+    assert.equal(entry.script, `machine/checks/rules/${file}`, 'registry points elsewhere');
+    assert.ok(!entry.build_check, 'a rule guard is registered as a build guard');
   });
 
   test(`${name}: run(corpus) returns well-formed findings under declared plates, silently`, async () => {
@@ -128,8 +128,8 @@ const CITATION = citationRe();
 const SPECIMEN = /"[^"\n]*"/g;
 const VALUE = /(['"`])[A-Z]{2,5}-[0-9]{3,4}\1/g;
 
-/** Every .mjs under machine/guards/ except this shelf: a test may quote what it forbids. */
-function guardSources(dir = path.join(ROOT, 'machine', 'guards')) {
+/** Every .mjs under machine/checks/ except this shelf: a test may quote what it forbids. */
+function guardSources(dir = path.join(ROOT, 'machine', 'checks')) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
     const abs = path.join(dir, e.name);
     if (e.isDirectory()) return e.name === 'test' ? [] : guardSources(abs);

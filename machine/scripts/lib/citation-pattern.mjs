@@ -4,7 +4,7 @@
 // What a citation to a document looks like, in one place.
 //
 // Two tests enforce the same rule on two artefacts — the guard sources
-// (machine/guards/test/contract.test.mjs) and the blind-spot registry
+// (machine/checks/test/contract.test.mjs) and the blind-spot registry
 // (machine/scripts/test/blindness.test.mjs). A pattern copied into both drifts: one
 // gets a prefix the other never learns, and the gap is silent, because a
 // pattern that matches nothing looks exactly like a clean tree.

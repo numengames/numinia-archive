@@ -2,7 +2,7 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// prose-in-code.test.mjs — TXT-003's behaviour, proven (machine/guards/rules/std-006-plain-text.mjs).
+// prose-in-code.test.mjs — TXT-003's behaviour, proven (machine/checks/rules/std-006-plain-text.mjs).
 //
 // Each test runs the real guard against a real scratch file and reads its
 // verdict. No mocking — the thing under test is the guard's exit code and
@@ -20,7 +20,7 @@ import path from 'node:path';
 import { bindsFor } from '../lib/regime.mjs';
 
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
-const GUARD = path.join(ROOT, 'machine', 'guards', 'rules', 'std-006-plain-text.mjs');
+const GUARD = path.join(ROOT, 'machine', 'checks', 'rules', 'std-006-plain-text.mjs');
 const SCRATCH = path.join(ROOT, 'web', 'src', 'components', '_ProseFixture.astro');
 // The fixture page moved under pages/system/ on 2026-09-21 with the seven
 // other views the site draws about the System drawer; same prose, new path.

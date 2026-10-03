@@ -5,9 +5,9 @@ uid: ""
 type: standard
 subtype: register
 status: active
-version: "5.15.0"
+version: "5.16.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -55,7 +55,7 @@ SPDX-License-Identifier: CC0-1.0
 | `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
 | `lore/` | the fiction and the game; a second fonds (`ADR-046`) | — | `open` | — | `lore/adventures/tabletop/TEMPLATE.md` |
 | `objects/` | the objects the archive registers that are not documents | — | `open` | — | — |
-| `machine/guards/` | the checks, one file per standard, that run on every change | — | — | — | — |
+| `machine/checks/` | the checks, one file per standard, that run on every change | — | — | — | — |
 | `machine/tools/` | tooling run by hand or against the registers: checks, renames, exports | — | — | — | — |
 | `machine/scripts/` | the build and CI scripts: addresses, links, versions, the telemetry writer | — | — | — | — |
 | `machine/telemetry/` | the figures the repository states about itself, measured, never typed | — | — | — | — |

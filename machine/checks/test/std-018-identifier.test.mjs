@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: MIT
 //
 // Fixture tests for IDN-011, the reports/ rule (ADR-005 v1.2.0), on
-// machine/guards/rules/std-018-one-identifier.mjs.
+// machine/checks/rules/std-018-one-identifier.mjs.
 //
 // Written 2026-09-01 for lint-naming.mjs with the reports/ normalisation;
 // moved with the rule in R3. The guard is a module on the contract, so the

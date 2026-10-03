@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a check to CI"
 type: procedure
 status: draft
-version: "5.1.4"
+version: "5.1.5"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [procedure, ci, checks, engineering]
@@ -49,7 +49,7 @@ step 9. Executor: the agent; the Oracle for the review.
 - A check script written and run locally, reached from step 9 of Applying
   the engineering standard (`PRO-016`).
 - The standard that holds the check's rules, with their rule IDs.
-- A clone of `main` where `npm run guards` runs.
+- A clone of `main` where `npm run checks` runs.
 
 ## 3. Procedure
 
@@ -81,7 +81,7 @@ Steps are the agent's, save step 6, which is the Oracle's.
 | Check | Evidence |
 |---|---|
 | Both directions | planted-breakage run and clean run in the PR body |
-| Wired | `npm run guards` on the merged tree lists the check |
+| Wired | `npm run checks` on the merged tree lists the check |
 | Seen running | `gh run view <id> --log \| grep '<guard name>'` on `main`, id reported |
 
 ## 5. Escalation

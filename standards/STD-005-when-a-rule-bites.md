@@ -5,11 +5,11 @@ uid: ""
 type: standard
 subtype: standard
 status: draft
-version: "4.0.8"
+version: "4.0.9"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -135,8 +135,8 @@ Each rule, its code, its source and its check.
 | ENG-002 | Every practice names its check | — | the register check verifies each row's named check exists; it reports, it does not fail the build while the register is a draft |
 | ENG-066 | A check that fails on unstated behaviour is the defect | — | by hand, at review |
 | ENG-067 | A check bites by the state of its rule; signing a standard switches its checks on; a check over the artefact bites always | — | `machine/scripts/lib/regime.mjs` reads the holder's state; `regime.test.mjs` proves both directions; `blindness.test.mjs` checks every check is a build check or answers to the regime |
-| ENG-031 | A check runs from the change that merges it | — | `machine/scripts/run-guards.mjs` runs every registered check; `blindness.test.mjs` and the register check refuse a check script with no registry entry |
-| ENG-032 | The list of checks is read, never remembered | — | the workflow calls `npm run guards` and names no check; the register check verifies that step is present |
+| ENG-031 | A check runs from the change that merges it | — | `machine/scripts/run-checks.mjs` runs every registered check; `blindness.test.mjs` and the register check refuse a check script with no registry entry |
+| ENG-032 | The list of checks is read, never remembered | — | the workflow calls `npm run checks` and names no check; the register check verifies that step is present |
 
 ## Why
 

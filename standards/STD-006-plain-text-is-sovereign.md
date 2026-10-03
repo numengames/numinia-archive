@@ -5,9 +5,9 @@ title: "Plain text is sovereign"
 type: standard
 subtype: standard
 status: draft
-version: "2.1.7"
+version: "2.1.8"
 created: "2026-09-03T06:27:46Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -83,9 +83,9 @@ Each rule, its code, its source and its check.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| TXT-001 | Plain text, on its shelf | [GitHub Flavored Markdown 0.29-gfm](https://github.github.com/gfm/), a superset of [CommonMark](https://spec.commonmark.org/), plus the shelf and the naming shape | `machine/guards/rules/std-006-plain-text.mjs` — naming shape; the syntax, by the site build |
-| TXT-002 | The header is plain text too | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) (also holds deprecated HDR-041) | `machine/guards/rules/std-006-plain-text.mjs` — fence and parse |
-| TXT-003 | Nothing lives only outside the archive | — | `machine/guards/rules/std-006-plain-text.mjs` — partial: prose inside components only |
+| TXT-001 | Plain text, on its shelf | [GitHub Flavored Markdown 0.29-gfm](https://github.github.com/gfm/), a superset of [CommonMark](https://spec.commonmark.org/), plus the shelf and the naming shape | `machine/checks/rules/std-006-plain-text.mjs` — naming shape; the syntax, by the site build |
+| TXT-002 | The header is plain text too | [YAML 1.2.2](https://yaml.org/spec/1.2.2/) (also holds deprecated HDR-041) | `machine/checks/rules/std-006-plain-text.mjs` — fence and parse |
+| TXT-003 | Nothing lives only outside the archive | — | `machine/checks/rules/std-006-plain-text.mjs` — partial: prose inside components only |
 | TXT-004 | One document per file | — | by hand |
 | TXT-008 | Link, never copy | —; holds deprecated GIT-049 | by hand: a scan comparing file contents would catch it, and does not exist |
 | TXT-005 | No binary file is the truth | [Library of Congress Recommended Formats Statement](https://www.loc.gov/preservation/resources/rfs/) | by hand |

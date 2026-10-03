@@ -48,9 +48,9 @@ function assert(cond, msg) { if (!cond) throw new Error(msg); }
 // the first check is the other way round from before: no script may sit in
 // machine/scripts/ unregistered, or it is a guard that CI silently does not run.
 const guardScripts = readdirSync(path.join(ROOT, 'machine', 'scripts'))
-  .filter((f) => f.endsWith('.mjs') && f !== 'run-guards.mjs')
+  .filter((f) => f.endsWith('.mjs') && f !== 'run-checks.mjs')
   .map((f) => `machine/scripts/${f.replace(/\.mjs$/, '')}`);
-const registered = new Set(Object.values(registry.guards).map((g) => g.script.replace(/\.mjs$/, '')));
+const registered = new Set(Object.values(registry.checks).map((g) => g.script.replace(/\.mjs$/, '')));
 
 check('every script in machine/scripts/ is a registered guard, so the runner runs it', () => {
   const missing = guardScripts.filter((g) => !registered.has(g));
@@ -60,36 +60,36 @@ check('every script in machine/scripts/ is a registered guard, so the runner run
 
 check('every guard the runner runs is a build guard or answers to the regime (ENG-067)', () => {
   // ENG-067's exception is declared, not assumed: a guard that bites regardless
-  // of any standard's state says so in its registry entry (`build_guard`), and
+  // of any standard's state says so in its registry entry (`build_check`), and
   // every other guard hands its findings to machine/scripts/lib/regime.mjs. A guard
   // that is neither is exactly the defect of DBT-017 — code obliging where no
   // document obliges. `manual` entries are tools run by hand, not by the
-  // runner, and are out of scope here (same test as run-guards.mjs's filter).
+  // runner, and are out of scope here (same test as run-checks.mjs's filter).
   const offenders = [];
-  for (const [id, entry] of Object.entries(registry.guards)) {
+  for (const [id, entry] of Object.entries(registry.checks)) {
     if (entry.manual) continue;
-    if (entry.build_guard) continue;
+    if (entry.build_check) continue;
     const src = readFileSync(path.join(ROOT, entry.script), 'utf8');
-    // A guard under machine/guards/ answers through machine/guards/lib/guard.mjs, which is
-    // where regime.mjs is called for it (machine/guards/test/contract.test.mjs
+    // A guard under machine/checks/ answers through machine/checks/lib/guard.mjs, which is
+    // where regime.mjs is called for it (machine/checks/test/contract.test.mjs
     // proves the file fulfils that contract). A guard still in machine/scripts/
     // calls the regime itself.
     if (!src.includes('lib/regime.mjs') && !src.includes('lib/guard.mjs')) offenders.push(id);
   }
   assert(offenders.length === 0,
-    `these guards neither declare build_guard nor use regime.mjs: ${offenders.join(', ')}`);
+    `these guards neither declare build_check nor use regime.mjs: ${offenders.join(', ')}`);
 });
 
 check('a build guard says what it needs, so the runner can skip or refuse instead of crashing', () => {
-  for (const [id, entry] of Object.entries(registry.guards)) {
-    if (!entry.build_guard || entry.manual) continue;
+  for (const [id, entry] of Object.entries(registry.checks)) {
+    if (!entry.build_check || entry.manual) continue;
     assert(typeof entry.needs === 'string' && entry.needs.length > 0,
-      `${id}: build_guard with no \`needs\` path`);
+      `${id}: build_check with no \`needs\` path`);
   }
 });
 
 check('every registry entry points at a script that exists and imports the module', () => {
-  for (const [id, g] of Object.entries(registry.guards)) {
+  for (const [id, g] of Object.entries(registry.checks)) {
     const abs = path.join(ROOT, g.script);
     let src;
     try { src = readFileSync(abs, 'utf8'); }
@@ -99,7 +99,7 @@ check('every registry entry points at a script that exists and imports the modul
       // the registry key must BE that name, or the declaration throws at
       // runtime for an id nobody registered.
       assert(path.basename(g.script, '.mjs') === id,
-        `${id}: ${g.script} is under the machine/guards/ contract, which declares as "${path.basename(g.script, '.mjs')}" — the registry key must match the file name`);
+        `${id}: ${g.script} is under the machine/checks/ contract, which declares as "${path.basename(g.script, '.mjs')}" — the registry key must match the file name`);
       continue;
     }
     assert(src.includes('blindness.mjs'),
@@ -111,7 +111,7 @@ check('every registry entry points at a script that exists and imports the modul
 });
 
 check('every declared blind spot names a coverer or admits there is none', () => {
-  for (const [id, g] of Object.entries(registry.guards)) {
+  for (const [id, g] of Object.entries(registry.checks)) {
     assert(g.blind_to.length > 0, `${id}: declares an empty blind-spot list — that is a claim, not an omission`);
     for (const b of g.blind_to) {
       assert(typeof b.spot === 'string' && b.spot.length > 20,
@@ -129,7 +129,7 @@ check('formatBlindSpots refuses an unknown guard', () => {
 });
 
 check('the registry cites plates, not prose', () => {
-  // Same rule the guard sources answer to (machine/guards/test/contract.test.mjs),
+  // Same rule the guard sources answer to (machine/checks/test/contract.test.mjs),
   // on the other artefact that describes them. This text is PRINTED on every
   // run, so a reader meets a pointer here more often than one in a comment,
   // and it rots the same way: the document moves and the line stays.
@@ -160,7 +160,7 @@ check('the registry cites plates, not prose', () => {
 
 check('the declaration is printed on SUCCESS, not only on failure', () => {
   // std-006 exits 0 on the tree today (its holder is draft): the success path.
-  const res = spawnGuard('machine/guards/rules/std-006-plain-text.mjs', ROOT);
+  const res = spawnGuard('machine/checks/rules/std-006-plain-text.mjs', ROOT);
   assert(res.status === 0, `expected a green run to test success output, got exit ${res.status}`);
   assert(/BLIND TO \(D-025\)/.test(res.stderr),
     'a green guard run did not print its blind spots — this is the exact failure D-025 describes');
@@ -176,7 +176,7 @@ check('the declaration survives a failing run too', () => {
     writeFileSync(holder, readFileSync(holder, 'utf8').replace(/^status: \w+$/m, 'status: active'));
     writeFileSync(path.join(clone, 'debt/D-000-fence-broken.md'), '---\nid: "D-000"\n---# glued\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-006-plain-text.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-006-plain-text.mjs', clone);
     assert(res.status === 1, `expected the guard to fail on a glued fence, got exit ${res.status}`);
     assert(/BLIND TO \(D-025\)/.test(res.stderr),
       'the blind-spot declaration vanished on the failure path');
@@ -194,7 +194,7 @@ check('D-047 fixture — a wrong FOLDER in a path citation really does read gree
     writeFileSync(path.join(clone, 'debt/D-000-probe.md'),
       '---\nid: "D-000"\nlicense: "CC-BY-4.0"\n---\n\nSee `principles/INDEX.md`.\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-012-corpus-does-not-grow.mjs', clone);
     // The clone has no git history, so with STD-012 in force the guard may
     // exit 1 on citations only history resolves. What this fixture asks is
     // narrower: is the PROBE reported? It must not be.
@@ -214,7 +214,7 @@ check('D-049 fixture — an untracked .md with a BROKEN citation is not scanned,
     // Untracked, and broken: a citation to a file that does not exist anywhere.
     writeFileSync(path.join(clone, 'debt/D-000-untracked.md'),
       '---\nid: "D-000"\n---\n\nSee `principles/C-999-does-not-exist.md`.\n');
-    const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-012-corpus-does-not-grow.mjs', clone);
     // Not the exit code: the history-less clone may fail on other citations
     // now that STD-012 binds. The question is whether the untracked file's
     // broken citation was READ — it must not appear as a finding.
@@ -232,7 +232,7 @@ check('license guard fixture — a .md with no license: field is skipped, as dec
   try {
     writeFileSync(path.join(clone, 'debt/D-000-nolicense.md'), '---\nid: "D-000"\n---\n\nNo licence field.\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-010-licensing.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-010-licensing.mjs', clone);
     assert(res.status === 0,
       `the licence guard flagged a file with no license: field — the declaration is now wrong (exit ${res.status})`);
     assert(/no `license:` field|files with no `license:` field/.test(res.stderr),
@@ -251,7 +251,7 @@ check('license guard fixture — a header that contradicts REUSE.toml is reporte
   try {
     writeFileSync(path.join(clone, 'debt/D-000-wronglicense.md'), '---\nid: "D-000"\nlicense: "MIT"\n---\n\nWrong licence.\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-010-licensing.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-010-licensing.mjs', clone);
     assert(!/ERR_MODULE_NOT_FOUND|Cannot find module/.test(res.stderr),
       `the licence guard crashed on its failure path instead of reporting:\n${res.stderr}`);
     assert(/LIC-008/.test(res.stdout + res.stderr),
@@ -275,7 +275,7 @@ check('shape guard fixture — a missing card binds through the regime, an over-
       '---\nid: "STD-999"\ntitle: "Probe"\nstatus: draft\n---\n\n# Probe\n\n' +
       '**Binds:** nothing.\n\n**PRB-001 — A rule.** Cites STD-004 in prose.\n\n' + long + '\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-007-one-page.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-007-one-page.mjs', clone);
     const all = res.stdout + res.stderr;
     assert(!/ERR_MODULE_NOT_FOUND|Cannot find module|TypeError/.test(all), `the shape guard crashed:\n${res.stderr}`);
     assert(/DOC-002\s+S-02 card has no \*\*Summary:\*\*\n\s+standards\/STD-999-probe\.md/.test(all),
@@ -303,7 +303,7 @@ check('plain-text guard fixture — a broken YAML header, a versioned name and a
     writeFileSync(path.join(clone, 'debt/DBT-992-Bad_Slug.md'), '---\nid: "DBT-992"\n---\n\nbody\n');
     writeFileSync(path.join(clone, 'debt/DBT-993-clean.md'), '---\nid: "DBT-993"\n---\n\nbody\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-006-plain-text.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-006-plain-text.mjs', clone);
     const all = res.stdout + res.stderr;
     assert(!/ERR_MODULE_NOT_FOUND|Cannot find module|TypeError/.test(all), `the plain-text guard crashed:\n${res.stderr}`);
     assert(/TXT-002\s+line 3: indented under a closed key.*\n\s+debt\/DBT-990-orphan-child\.md/.test(all), `orphan child not reported as TXT-002:\n${all}`);
@@ -326,7 +326,7 @@ check('identifier guard fixture — state in a name, a version in a name and a r
     writeFileSync(path.join(clone, 'debt/DBT-984-x-not-frozen.md'), '---\nid: "DBT-984"\n---\n\nbody\n');
     writeFileSync(path.join(clone, 'debt/DBT-985-clean.md'), '---\nid: "DBT-985"\n---\n\nbody\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-018-one-identifier.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-018-one-identifier.mjs', clone);
     const all = res.stdout + res.stderr;
     assert(!/ERR_MODULE_NOT_FOUND|Cannot find module|TypeError/.test(all), `the identifier guard crashed:\n${res.stderr}`);
     assert(/IDN-012\s+filename encodes state\n\s+debt\/DBT-980-something-draft\.md/.test(all), `state in a name not reported as IDN-012:\n${all}`);
@@ -337,13 +337,13 @@ check('identifier guard fixture — state in a name, a version in a name and a r
   } finally { rmSync(clone, { recursive: true, force: true }); }
 });
 
-check('D-049 on the contract — a guard under machine/guards/ names the untracked .md it cannot see', () => {
+check('D-049 on the contract — a guard under machine/checks/ names the untracked .md it cannot see', () => {
   // lint-naming carried this warning itself; on the contract it is execute()'s.
   // Same three properties as the D-049 fixture above.
   const clone = scratchClone();
   try {
     writeFileSync(path.join(clone, 'debt/DBT-970-untracked-draft.md'), '---\nid: "DBT-970"\n---\n\nbody\n');
-    const res = spawnGuard('machine/guards/rules/std-018-one-identifier.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-018-one-identifier.mjs', clone);
     assert(res.status === 0, `the guard scanned an untracked file — D-049 may be fixed (exit ${res.status})`);
     assert(/NOT scanned/.test(res.stderr), 'the untracked file was skipped WITHOUT any warning — silent blindness is the bug');
     assert(/DBT-970-untracked-draft\.md/.test(res.stderr), 'the warning fired but did not NAME the file it could not see');
@@ -367,7 +367,7 @@ check('archive guard fixture — absorbed and former ids resolve, a closed recor
     // DEF-008: a live record naming an heir.
     writeFileSync(path.join(clone, 'debt/DBT-987-heir.md'), hdr('DBT-987', 'superseded_by: "DBT-981"\n') + 'body\n');
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    const res = spawnGuard('machine/guards/rules/std-012-corpus-does-not-grow.mjs', clone);
+    const res = spawnGuard('machine/checks/rules/std-012-corpus-does-not-grow.mjs', clone);
     const all = res.stdout + res.stderr;
     assert(!/DBT-984-citer[\s\S]{0,80}DBT-98[23]\b/.test(all) && !/ID -> DBT-98[23]\b/.test(all), 'an absorbed or former id was reported as broken');
     assert(/DBT-984-citer[\s\S]{0,200}ID -> DBT-985|ID -> DBT-985[\s\S]{0,200}DBT-984-citer/.test(all), 'the genuinely missing DBT-985 was not reported from the live citer');

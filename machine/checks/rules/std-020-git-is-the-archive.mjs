@@ -11,7 +11,7 @@
 // kit; GIT-029 manual. How a document is retired, and the citation resolver
 // that goes with it, is STD-012's guard (std-012-corpus-does-not-grow).
 //
-// Run from anywhere: node machine/guards/rules/std-020-git-is-the-archive.mjs
+// Run from anywhere: node machine/checks/rules/std-020-git-is-the-archive.mjs
 
 import { execFileSync } from 'node:child_process';
 import { execute, isMain } from '../lib/guard.mjs';

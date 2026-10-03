@@ -5,9 +5,9 @@ title: "One page per document"
 type: standard
 subtype: standard
 status: active
-version: "2.2.6"
+version: "2.2.7"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -116,16 +116,16 @@ Each rule, its code, its source and its check.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| DOC-001 | The title states the rule | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD: counted, reported, never handed to the regime |
-| DOC-002 | The card is three short paragraphs | — | `machine/guards/rules/std-007-one-page.mjs` — a missing part binds by this standard's state (`ENG-067`); length is a SHOULD |
+| DOC-001 | The title states the rule | — | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD: counted, reported, never handed to the regime |
+| DOC-002 | The card is three short paragraphs | — | `machine/checks/rules/std-007-one-page.mjs` — a missing part binds by this standard's state (`ENG-067`); length is a SHOULD |
 | DOC-012 | One document, one question | [DITA 1.3, the topic as the basic unit of information](https://docs.oasis-open.org/dita/dita/v1.3/os/part2-tech-content/archSpec/base/topicdefined.html): short enough to answer a single question — ours adds: the question is the epistemic line; merge or split | by hand, at the pull request; the map in `DES-016` records each standard's question |
-| DOC-003 | Scope is one line | [ISO/IEC Directives, Part 2 (2021), clause 14, Scope](https://www.iso.org/sites/directives/current/part2/index.xhtml) — ours adds: 15 words | `machine/guards/rules/std-007-one-page.mjs`; `machine/guards/test/std-007-one-page.test.mjs` |
-| DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the rule ID `AAA-NNN` | `machine/guards/rules/std-007-one-page.mjs` — a rule ID in a rule title or the Check table's first column (`platesIn`) |
+| DOC-003 | Scope is one line | [ISO/IEC Directives, Part 2 (2021), clause 14, Scope](https://www.iso.org/sites/directives/current/part2/index.xhtml) — ours adds: 15 words | `machine/checks/rules/std-007-one-page.mjs`; `machine/checks/test/std-007-one-page.test.mjs` |
+| DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the rule ID `AAA-NNN` | `machine/checks/rules/std-007-one-page.mjs` — a rule ID in a rule title or the Check table's first column (`platesIn`) |
 | DOC-013 | Obligation words mean one thing | [BCP 14](https://www.rfc-editor.org/info/bcp14) = [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) + [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) (capitals only); holds deprecated HDR-046 | by hand, at review |
-| DOC-005 | The reason is short | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
-| DOC-006 | The body fits its budget | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
-| DOC-007 | Few, necessary references | — | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
-| DOC-008 | Cite rules, not places | — (stricter than [ISO 690:2021](https://www.iso.org/standard/72642.html), which allows location references); holds the rule `STD-021` CIT-050 enforced | `machine/guards/rules/std-007-one-page.mjs` — bare IDs outside References and Check rows, section pointers, in `standards/`; `machine/guards/rules/std-021-evidence-and-citation.mjs` under CIT-050 — cited sections must exist elsewhere |
+| DOC-005 | The reason is short | — | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD |
+| DOC-006 | The body fits its budget | — | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD |
+| DOC-007 | Few, necessary references | — | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD |
+| DOC-008 | Cite rules, not places | — (stricter than [ISO 690:2021](https://www.iso.org/standard/72642.html), which allows location references); holds the rule `STD-021` CIT-050 enforced | `machine/checks/rules/std-007-one-page.mjs` — bare IDs outside References and Check rows, section pointers, in `standards/`; `machine/checks/rules/std-021-evidence-and-citation.mjs` under CIT-050 — cited sections must exist elsewhere |
 | DOC-009 | Registers are tables | — | `machine/scripts/check-templates.mjs` |
 | DOC-010 | No history inside | — | `machine/scripts/check-templates.mjs` |
 | DOC-011 | Written in English | [BCP 47](https://www.rfc-editor.org/info/bcp47) language tags | by hand, at the pull request |

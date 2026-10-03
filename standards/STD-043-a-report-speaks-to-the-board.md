@@ -5,9 +5,9 @@ title: "A report speaks to the board"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-29T19:30:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -87,9 +87,9 @@ and an annual three, apart from the annual's history.
 | RPR-003 | The whole organisation, nine headings | [Spanish Companies Act, art. 262](https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544#a262), the management report: the business's development, position, risks and outlook; the nine headings are ours | by hand, against the report template |
 | RPR-004 | Money is never left out | the ledger of the one-account standard | by hand |
 | RPR-005 | The annual report tells the story | — | by hand |
-| RPR-006 | Every figure is measured | the evidence standard: `evidence_script`, `evidence_head` | `machine/guards/rules/std-021-evidence-and-citation.mjs` where the fields are declared |
+| RPR-006 | Every figure is measured | the evidence standard: `evidence_script`, `evidence_head` | `machine/checks/rules/std-021-evidence-and-citation.mjs` where the fields are declared |
 | RPR-007 | Every figure has its comparison | IFRS Practice Statement 1, comparative information and consistent measures | by hand |
-| RPR-008 | A week is a page | the one-page standard's word budget for reports | `machine/guards/rules/std-007-one-page.mjs` — a SHOULD |
+| RPR-008 | A week is a page | the one-page standard's word budget for reports | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD |
 
 ## Why
 

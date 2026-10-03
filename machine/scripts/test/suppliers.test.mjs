@@ -23,7 +23,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, loadRules, parseFM } from '../lib/frontmatter.mjs';
-import { classify } from '../../guards/lib/naming.mjs';
+import { classify } from '../../checks/lib/naming.mjs';
 
 const RULES = loadRules();
 const DIR = 'system/suppliers';

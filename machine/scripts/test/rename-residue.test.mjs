@@ -30,7 +30,7 @@ const OLD_RE = `${OLD_PATH}(?![A-Za-z0-9-])`;
 
 const LIVE = [
   'package.json', 'README.md', 'SECURITY.md', 'CLAUDE.md', 'AGENTS.md', 'CONTRIBUTING.md', 'REUSE.toml',
-  '.github', 'scripts', 'tools', 'packages', 'guards', 'standards', 'agents', 'system', 'machine/templates/MIS-TEMPLATE.md',
+  '.github', 'scripts', 'tools', 'packages', 'checks', 'standards', 'agents', 'system', 'machine/templates/MIS-TEMPLATE.md',
   'web/src', 'web/public', 'web/README.md', 'web/wrangler.toml', 'web/astro.config.mjs', 'web/package.json',
 ];
 

@@ -67,7 +67,7 @@ Each rule, its code, its source and its check.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| XXX-001 | The rule, as a title | — | a check under `machine/guards/rules/` |
+| XXX-001 | The rule, as a title | — | a check under `machine/checks/rules/` |
 | XXX-002 | The next rule | [An outside standard](https://example.org/) | by hand, at the pull request |
 
 ## Why

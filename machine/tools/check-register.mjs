@@ -62,7 +62,7 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execute, isMain } from '../guards/lib/guard.mjs';
+import { execute, isMain } from '../checks/lib/guard.mjs';
 
 /* The plates this guard speaks for. ENG-067 decides whether a finding fails
    the build from the state of the standard that holds the plate — this module
@@ -175,21 +175,21 @@ function checkDebt(body, problems, where) {
 function checkGuardDiscovery(problems) {
   const registry = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/blind-spots.json'), 'utf8'));
   const registered = new Set(
-    Object.values(registry.guards).filter((g) => !g.manual).map((g) => g.script),
+    Object.values(registry.checks).filter((g) => !g.manual).map((g) => g.script),
   );
   /* Read the directory, not just the index. A guard written and not yet
      committed is the likeliest unregistered guard there is — the author is
      mid-change — and reading `git ls-files` alone would answer "all clear"
      about a file sitting right there. The index is what CI sees; the working
      tree is what the author sees, and both get told. */
-  const dir = path.join(ROOT, 'machine/guards/rules');
-  const onDisk = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.mjs')).map((f) => `machine/guards/rules/${f}`) : [];
-  for (const file of new Set([...onDisk, ...[...tracked].filter((f) => /^guards\/rules\/.+\.mjs$/.test(f))])) {
+  const dir = path.join(ROOT, 'machine/checks/rules');
+  const onDisk = existsSync(dir) ? readdirSync(dir).filter((f) => f.endsWith('.mjs')).map((f) => `machine/checks/rules/${f}`) : [];
+  for (const file of new Set([...onDisk, ...[...tracked].filter((f) => /^checks\/rules\/.+\.mjs$/.test(f))])) {
     if (registered.has(file)) continue;
     const untracked = !tracked.has(file) ? ' (not committed yet)' : '';
     problems.push(`guard discovery: ${file} is a rule guard that no registry entry names${untracked} — it never runs, and the run is green`);
   }
-  for (const [name, g] of Object.entries(registry.guards)) {
+  for (const [name, g] of Object.entries(registry.checks)) {
     if (g.manual) continue;
     if (!existsSync(path.join(ROOT, g.script)))
       problems.push(`guard discovery: registry entry "${name}" names ${g.script}, which does not exist`);
@@ -200,7 +200,7 @@ function checkGuardDiscovery(problems) {
    CI actually invoking the runner and the tests. */
 function checkPipelineInvokes(problems) {
   const ci = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf8');
-  for (const [what, needle] of [['the rule guards', 'run: npm run guards -- --rules'], ['the tests', 'run: npm test']])
+  for (const [what, needle] of [['the rule checks', 'run: npm run checks -- --rules'], ['the tests', 'run: npm test']])
     if (!ci.includes(needle)) problems.push(`pipeline: .github/workflows/ci.yml never invokes ${what} (looked for \`${needle}\`)`);
 }
 

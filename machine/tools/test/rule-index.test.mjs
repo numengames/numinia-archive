@@ -153,7 +153,7 @@ test('writing the index is idempotent and only touches its own block', () => {
 
 test('the tool declares its blindness', () => {
   const registry = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/blind-spots.json'), 'utf8'));
-  const entry = registry.guards['rule-index'];
+  const entry = registry.checks['rule-index'];
   assert.ok(entry, 'machine/scripts/blind-spots.json has no rule-index entry');
   assert.equal(entry.script, 'machine/tools/rule-index.mjs');
   assert.ok(entry.manual, 'rule-index takes arguments and is run by hand: it must be marked manual');

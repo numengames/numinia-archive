@@ -112,7 +112,7 @@ function cleanTitle(raw, id) {
  *  So the cell names the exemption instead of repeating `no scope line`
  *  fourteen times. A reader who sees `register` knows to look for the standard
  *  that cites it; a bare gap would have sent them nowhere. Anything else is an
- *  omission, and `machine/guards/test/std-007-one-page.test.mjs` fails on it. */
+ *  omission, and `machine/checks/test/std-007-one-page.test.mjs` fails on it. */
 function whyNoScope(file, fm) {
   if (fm.subtype === 'register') return 'register — scope belongs to the standard that cites it';
   if (file.startsWith('principles/')) return 'principles — states why, binds whoever leans on it';

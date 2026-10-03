@@ -83,7 +83,7 @@ NOTES ON USING THIS TEMPLATE — delete this block.
 LICENCE. operations/ is not uniform. Commercial and legal records carry
 LicenseRef-Numen-AllRightsReserved; the rest are CC-BY-4.0. The licence in the
 frontmatter MUST match what REUSE.toml declares for the path you copy this to,
-or `node machine/guards/rules/std-010-licensing.mjs` fails. Check before you write.
+or `node machine/checks/rules/std-010-licensing.mjs` fails. Check before you write.
 
 `extraction_note` is for records lifted from another surface (the old web,
 a PDF, a provider's console) and NOT edited afterwards. It is what tells a

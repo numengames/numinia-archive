@@ -5,9 +5,9 @@ title: "The tooling: what checks, measures and templates the archive"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.5"
+version: "0.1.6"
 created: "2026-09-21T18:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-03T22:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, tooling, checks, tools, scripts, telemetry, templates]
@@ -40,7 +40,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 1. Scope
 
-The five folders under `machine/` that `STD-027` classifies — `guards/`,
+The five folders under `machine/` that `STD-027` classifies — `checks/`,
 `tools/`, `scripts/`, `telemetry/` and `templates/` — and `packages/`, which
 it does not. What a run of them leaves — an artifact — is a short-lived
 record that never binds (`STD-027` CLS-002): it carries no identifier, is kept only while current, and may be
@@ -56,18 +56,18 @@ the CI workflow (`.github/workflows/`), which follow the platform they serve.
 
 ## 2. How it works
 
-### `machine/guards/` — Verifying
+### `machine/checks/` — Verifying
 
 The rules, one file per standard, that run on every change. A check is a
 module that declares the rule IDs it speaks for and returns findings against
-them; `guards/lib/guard.mjs` is the contract and the one place a finding is
+them; `checks/lib/guard.mjs` is the contract and the one place a finding is
 turned into a pass or a fail according to the standard's own state (a `draft`
 standard reports, an `active` one bites — `STD-015` ENG-067). Eight rule
 checks today, `std-004-the-header` through `std-021-evidence-and-citation`,
 each named after the standard it enforces.
 
-Run: `npm run guards -- --rules` from the repository root.
-Read: [machine/guards/](https://github.com/numengames/numinia-archive/tree/main/machine/guards)
+Run: `npm run checks -- --rules` from the repository root.
+Read: [machine/checks/](https://github.com/numengames/numinia-archive/tree/main/machine/checks)
 
 ### `machine/tools/` — Verifying
 
@@ -84,7 +84,7 @@ Read: [machine/tools/](https://github.com/numengames/numinia-archive/tree/main/m
 
 ### `machine/scripts/` — Verifying
 
-The build and CI scripts. `run-guards` runs the checks and says what ran.
+The build and CI scripts. `run-checks` runs the checks and says what ran.
 The build checks read `web/dist` after the site is built and verify the
 artefact, not the prose: `check-url-shape` (every address is
 `/<series>/<id>`, `STD-028`), `check-url-lifecycle` (which addresses a cut
@@ -94,7 +94,7 @@ and `check-version-bump` (a change to the site must say what it changed).
 the entity cards. `blind-spots.json` is the registry: which scripts are
 checks, and what each is blind to.
 
-Run: `npm run guards -- --build` after `cd web && npm run build`.
+Run: `npm run checks -- --build` after `cd web && npm run build`.
 Read: [machine/scripts/](https://github.com/numengames/numinia-archive/tree/main/machine/scripts)
 
 ### `machine/telemetry/` — Measuring
@@ -138,9 +138,9 @@ it. Named here so a reader who finds the folder is not surprised by it.
 
 ```
 $ ls machine
-guards  packages  scripts  telemetry  templates  tools
+checks  packages  scripts  telemetry  templates  tools
 
-$ npm run guards -- --list
+$ npm run checks -- --list
 rule   std-004-the-header
 …
 build  check-url-shape

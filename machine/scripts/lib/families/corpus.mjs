@@ -29,7 +29,7 @@ export function measure({ docs, rules }) {
     apparatus: { value: md.filter((d) => d.apparatus).length, unit: 'documents', definition: 'corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)' },
     scripts_total: { value: scripts.length, unit: 'files', definition: 'files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)' },
     scripts_by_language: { value: tally(scripts, (f) => CODE_EXT[ext(f)]), unit: 'files', definition: 'those scripts by language, from the extension' },
-    scripts_in_ci: { value: ciScripts(files).length, unit: 'files', definition: 'guards the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)' },
+    scripts_in_ci: { value: ciScripts(files).length, unit: 'files', definition: 'checks the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)' },
   };
 }
 
@@ -66,13 +66,13 @@ export function byKind(files, ext) {
 /** Scripts CI runs: what the runner finds — every registered, non-manual
  * guard (ENG-032). The workflow calls the runner and names no guard, so the
  * registry, not the YAML, is the record. A guard's own path is not a signal
- * of whether CI runs it — `manual` is (mirrors run-guards.mjs's filter).
+ * of whether CI runs it — `manual` is (mirrors run-checks.mjs's filter).
  * Only tracked files count. */
 export function ciScripts(files) {
   const p = path.join(ROOT, 'machine', 'scripts', 'blind-spots.json');
   if (!existsSync(p)) return [];
   const registry = JSON.parse(readFileSync(p, 'utf8'));
   const tracked = new Set(files);
-  return [...new Set(Object.values(registry.guards).filter((g) => !g.manual).map((g) => g.script))]
+  return [...new Set(Object.values(registry.checks).filter((g) => !g.manual).map((g) => g.script))]
     .filter((s) => tracked.has(s)).sort();
 }

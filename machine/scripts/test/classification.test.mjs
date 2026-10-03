@@ -245,13 +245,13 @@ test('one activity may produce several series, as the standard writes them', () 
   const dir = scratch({
     scheme: SCHEME.replace(
       '| **Creation** | Worldbuilding | `lore/` |',
-      '| **Assurance** | Verifying | `machine/guards/` · `machine/tools/` · `machine/scripts/` |',
+      '| **Assurance** | Verifying | `machine/checks/` · `machine/tools/` · `machine/scripts/` |',
     ),
     series: SERIES_REGISTER,
   });
   const r = ask(dir, 'm.functions().find((f) => f.name === "Assurance").activities[0].series.map((s) => s.folder)');
   assert.equal(r.code, 0, r.out);
-  assert.deepEqual(JSON.parse(r.out), ['machine/guards/', 'machine/tools/', 'machine/scripts/']);
+  assert.deepEqual(JSON.parse(r.out), ['machine/checks/', 'machine/tools/', 'machine/scripts/']);
   rmSync(dir, { recursive: true, force: true });
 });
 
@@ -282,11 +282,11 @@ test('an instrument with no page of its own links to the manual', () => {
   const dir = scratch({
     scheme: SCHEME.replace(
       '| **Creation** | Worldbuilding | `lore/` |',
-      '| **Assurance** | Verifying | `machine/guards/` |',
+      '| **Assurance** | Verifying | `machine/checks/` |',
     ),
     series: SERIES_REGISTER,
   });
-  const r = ask(dir, 'm.allSeries().find((s) => s.folder === "machine/guards/")');
+  const r = ask(dir, 'm.allSeries().find((s) => s.folder === "machine/checks/")');
   assert.equal(r.code, 0, r.out);
   const g = JSON.parse(r.out);
   assert.equal(g.instrument, true);

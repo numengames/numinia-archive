@@ -1,9 +1,9 @@
 {
-  "$comment": "Blind-spot registry. Single source of truth for what each guard CANNOT see. Guards import machine/scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by machine/scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted. A guard that verifies the artefact rather than a rule carries `build_guard` with its reason: it bites whatever any standard's state (ENG-067 exception). A guard without that field answers to the regime and must use machine/scripts/lib/regime.mjs.",
-  "guards": {
+  "$comment": "Blind-spot registry. Single source of truth for what each guard CANNOT see. Guards import machine/scripts/lib/blindness.mjs and call declareBlindSpots(<id>), which prints these on every exit path, success or failure. Verified by machine/scripts/test/blindness.test.mjs: every id here must be claimed by a guard, every guard must declare, and the fixture-backed entries are proven against real files rather than asserted. A guard that verifies the artefact rather than a rule carries `build_check` with its reason: it bites whatever any standard's state (ENG-067 exception). A guard without that field answers to the regime and must use machine/scripts/lib/regime.mjs.",
+  "checks": {
     "check-deletable": {
       "script": "machine/tools/check-deletable.mjs",
-      "manual": "takes arguments (a path, or --candidates) and is run by hand, not by run-guards.mjs (ENG-032's registry-discovery scope)",
+      "manual": "takes arguments (a path, or --candidates) and is run by hand, not by run-checks.mjs (ENG-032's registry-discovery scope)",
       "sees": "whether a document has living inbound citers, whether it is sealed, and which public URLs it publishes (the three tests a deletion must pass, minus the judgment in test 3)",
       "blind_to": [
         {
@@ -34,7 +34,7 @@
     },
     "check-internal-links": {
       "script": "machine/scripts/check-internal-links.mjs",
-      "build_guard": "verifies the built output, not a rule — a broken href is a broken page whatever any standard says (ENG-067 exception)",
+      "build_check": "verifies the built output, not a rule — a broken href is a broken page whatever any standard says (ENG-067 exception)",
       "needs": "web/dist",
       "sees": "every internal href in web/dist, resolved against the built output the way a browser would — a file must exist at the other end (redirects count, Astro emits them as HTML)",
       "blind_to": [
@@ -62,7 +62,7 @@
     },
     "check-orphan-content": {
       "script": "machine/scripts/check-orphan-content.mjs",
-      "build_guard": "verifies the built output, not a rule — a file that reaches dist/ without the renderer is an artefact defect (ENG-067 exception)",
+      "build_check": "verifies the built output, not a rule — a file that reaches dist/ without the renderer is an artefact defect (ENG-067 exception)",
       "needs": "web/dist",
       "sees": "files in web/public/ that reach web/dist/ without the renderer",
       "blind_to": [
@@ -80,7 +80,7 @@
     },
     "check-reachable": {
       "script": "machine/scripts/check-reachable.mjs",
-      "build_guard": "verifies the built site, not a rule in prose — a page no link leads to is hidden from every reader, whatever the standards say (ENG-067 exception)",
+      "build_check": "verifies the built site, not a rule in prose — a page no link leads to is hidden from every reader, whatever the standards say (ENG-067 exception)",
       "needs": "web/dist",
       "sees": "every built page that is not a redirect: that it is reached by following links in page bodies from the Map (/) or the Archive (/about). The bar and the footer are left out, since they sit on every page",
       "blind_to": [
@@ -134,7 +134,7 @@
     },
     "check-version-bump": {
       "script": "machine/scripts/check-version-bump.mjs",
-      "build_guard": "verifies the change, not a rule — a site that changes without raising its version and writing what changed misreports itself to every returning reader, whatever any standard says (ENG-067 exception)",
+      "build_check": "verifies the change, not a rule — a site that changes without raising its version and writing what changed misreports itself to every returning reader, whatever any standard says (ENG-067 exception)",
       "needs": "web/src/data/updates.ts",
       "sees": "any diff under web/src/ between the PR head and its merge base with the base branch, and whether the newest version in web/src/data/updates.ts moved",
       "blind_to": [
@@ -194,7 +194,7 @@
     },
     "check-url-lifecycle": {
       "script": "machine/scripts/check-url-lifecycle.mjs",
-      "build_guard": "REPORTS ONLY: it counts the addresses a cut removed and prints them; it does not fail the build. While the archive only grew, a retired address could always be redirected; while it is being pruned, an honest deletion would ADD an address instead of removing one, which is how the site came to publish more redirects than pages. The biting half is check-url-shape, which rejects a redirect leading to an index, to another redirect, or to a page the build does not publish.",
+      "build_check": "REPORTS ONLY: it counts the addresses a cut removed and prints them; it does not fail the build. While the archive only grew, a retired address could always be redirected; while it is being pruned, an honest deletion would ADD an address instead of removing one, which is how the site came to publish more redirects than pages. The biting half is check-url-shape, which rejects a redirect leading to an index, to another redirect, or to a page the build does not publish.",
       "needs": "web/dist",
       "sees": "public URLs that stop being built, and whether a redirect for them is declared in web/astro.config.mjs — reported as a figure the PR must state, not enforced",
       "blind_to": [
@@ -226,7 +226,7 @@
     },
     "check-url-shape": {
       "script": "machine/scripts/check-url-shape.mjs",
-      "build_guard": "verifies the built address space, not a rule in prose — an address whose shape contradicts STD-028 is a broken promise to a reader and to every citation, not a breach of a draft (ENG-067 exception)",
+      "build_check": "verifies the built address space, not a rule in prose — an address whose shape contradicts STD-028 is a broken promise to a reader and to every citation, not a breach of a draft (ENG-067 exception)",
       "needs": "web/dist",
       "sees": "the shape of every published address against STD-001's series register and STD-027's scheme: a first segment that is neither a series nor a declared standalone page, a function or activity named in a path, two addresses declaring one canonical, a retired Spanish segment, a redirect that leads to an index or to another redirect",
       "blind_to": [
@@ -258,7 +258,7 @@
       ]
     },
     "std-004-the-header": {
-      "script": "machine/guards/rules/std-004-the-header.mjs",
+      "script": "machine/checks/rules/std-004-the-header.mjs",
       "sees": "governed scope (rules.json `governed.dirs`): HDR-000..038 — the ring contract, closed vocabularies, dates, retired fields, anti-entropy. Bound scope (not apparatus, not outward-facing): HDR-040 (a header exists), HDR-043 (licence declared), HDR-044 (no placeholder value).",
       "blind_to": [
         {
@@ -279,7 +279,7 @@
       ]
     },
     "std-006-plain-text": {
-      "script": "machine/guards/rules/std-006-plain-text.mjs",
+      "script": "machine/checks/rules/std-006-plain-text.mjs",
       "sees": "every tracked .md outside web/: the frontmatter fence closes on its own line, the header is structurally sound YAML, the file name's shape (root UPPERCASE, no version/date in a living name, kebab-case slug); and every .astro/.tsx under web/src that reads no .md: characters of prose living only there",
       "blind_to": [
         {
@@ -320,7 +320,7 @@
       ]
     },
     "std-007-one-page": {
-      "script": "machine/guards/rules/std-007-one-page.mjs",
+      "script": "machine/checks/rules/std-007-one-page.mjs",
       "sees": "every governed .md: title length, body word count against its series budget, the card, the scope line, plated rules, the References table; and in standards/*.md the prose: bare series IDs outside the References table, section pointers anywhere, IDs used but never listed",
       "blind_to": [
         {
@@ -354,7 +354,7 @@
       ]
     },
     "std-010-licensing": {
-      "script": "machine/guards/rules/std-010-licensing.mjs",
+      "script": "machine/checks/rules/std-010-licensing.mjs",
       "sees": "frontmatter `license:` against the SPDX declaration in the same file (REUSE.toml for a file with none)",
       "blind_to": [
         {
@@ -376,7 +376,7 @@
       ]
     },
     "std-018-one-identifier": {
-      "script": "machine/guards/rules/std-018-one-identifier.mjs",
+      "script": "machine/checks/rules/std-018-one-identifier.mjs",
       "sees": "every tracked .md outside web/: the identifier a series filename carries against the series scheme (IDN-011, from lint-naming N-04); and, on the bound corpus (not apparatus, not outward-facing), a filename that encodes state or a version (IDN-012/013) and an id held by two documents (IDN-014)",
       "blind_to": [
         {
@@ -398,7 +398,7 @@
       ]
     },
     "std-019-versions": {
-      "script": "machine/guards/rules/std-019-versions.mjs",
+      "script": "machine/checks/rules/std-019-versions.mjs",
       "sees": "on the bound corpus (tracked .md outside web/, not apparatus, not outward-facing): `version:` is bare SemVer (VER-021); where a document keeps a `## Version history`/`## Changelog`, its newest entry is the header's version and the log does not go backwards (VER-024, VER-021)",
       "blind_to": [
         {
@@ -424,7 +424,7 @@
       ]
     },
     "std-012-corpus-does-not-grow": {
-      "script": "machine/guards/rules/std-012-corpus-does-not-grow.mjs",
+      "script": "machine/checks/rules/std-012-corpus-does-not-grow.mjs",
       "sees": "DEF-009 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted or renamed .md (one-letter prefixes included); closed records (CIT-053) and CHANGELOG.md, whose entries are each closed the day written, are indexed but not walked as citers; a path qualified by a sibling repository is elsewhere, not gone. DEF-008 on the bound corpus: an heir named by a record not withdrawn.",
       "blind_to": [
         {
@@ -455,7 +455,7 @@
       ]
     },
     "std-020-git-is-the-archive": {
-      "script": "machine/guards/rules/std-020-git-is-the-archive.mjs",
+      "script": "machine/checks/rules/std-020-git-is-the-archive.mjs",
       "sees": "GIT-026 on the last 400 commit subjects.",
       "blind_to": [
         {
@@ -465,7 +465,7 @@
       ]
     },
     "std-021-evidence-and-citation": {
-      "script": "machine/guards/rules/std-021-evidence-and-citation.mjs",
+      "script": "machine/checks/rules/std-021-evidence-and-citation.mjs",
       "sees": "CIT-050 twice: a standard (standards/, not apparatus, code stripped) cites no section by number; and everywhere else (every tracked .md outside web/dist, salida/, machine/templates/, history/) a `DOC-NNN §X.Y` resolves to a numbered heading DOC-NNN actually has, when DOC-NNN numbers its headings at all",
       "blind_to": [
         {
@@ -492,7 +492,7 @@
     },
     "telemetry": {
       "script": "machine/scripts/telemetry.mjs",
-      "build_guard": "verifies the artefact, not a rule — a stale machine/telemetry/latest.json misreports the tree whatever any standard says (ENG-067 exception)",
+      "build_check": "verifies the artefact, not a rule — a stale machine/telemetry/latest.json misreports the tree whatever any standard says (ENG-067 exception)",
       "needs": "machine/scripts/lib/tokenizer/cl100k_base.tiktoken",
       "run": [
         "--check"
@@ -531,8 +531,8 @@
           "debt": null
         },
         {
-          "spot": "build guards. Discovery is checked for machine/guards/rules/ only, so a build guard added and never registered is not reported here",
-          "covered_by": "run-guards.mjs fails the run when --build finds no input",
+          "spot": "build guards. Discovery is checked for machine/checks/rules/ only, so a build guard added and never registered is not reported here",
+          "covered_by": "run-checks.mjs fails the run when --build finds no input",
           "debt": null
         }
       ]
@@ -556,7 +556,7 @@
     },
     "check-md-portability": {
       "script": "machine/scripts/check-md-portability.mjs",
-      "build_guard": "verifies the built site, not a rule in prose — a page that cannot be taken out of the site is a broken promise to the reader, whatever the standards say (ENG-067 exception)",
+      "build_check": "verifies the built site, not a rule in prose — a page that cannot be taken out of the site is a broken promise to the reader, whatever the standards say (ENG-067 exception)",
       "needs": "web/dist",
       "sees": "every built page that is not a redirect: that it carries a toolbar, that the .md the toolbar names was produced by the build and is not empty, and that the listen button has text to speak (the player's own selector chain: <article>, then <main id=\"main\">, 20-word floor). Exempt pages are listed in the guard with a stated reason each",
       "blind_to": [
@@ -589,7 +589,7 @@
     },
     "check-machine-index": {
       "script": "machine/scripts/check-machine-index.mjs",
-      "build_guard": "verifies the built artefact against itself, not a rule in prose — an index naming an address the build never published misdirects every machine that trusts it, whatever any standard says (ENG-067 exception)",
+      "build_check": "verifies the built artefact against itself, not a rule in prose — an index naming an address the build never published misdirects every machine that trusts it, whatever any standard says (ENG-067 exception)",
       "needs": "web/dist",
       "sees": "every row of the built index.json: that its page address and its .md address were both published and are not empty, that every document row resolves a licence, that the index is not empty, and that llms.txt exists and names the .md convention",
       "blind_to": [
@@ -600,7 +600,7 @@
         },
         {
           "spot": "whether a licence is the RIGHT one. It checks that each document resolved to something, not that the something is correct; the header-vs-REUSE comparison is std-010-licensing's job",
-          "covered_by": "machine/guards/rules/std-010-licensing.mjs",
+          "covered_by": "machine/checks/rules/std-010-licensing.mjs",
           "debt": null
         },
         {
@@ -612,7 +612,7 @@
     },
     "rule-index": {
       "script": "machine/tools/rule-index.mjs",
-      "manual": "takes arguments (--check, --print) and is run by hand or by its test, not by run-guards.mjs (ENG-032's registry-discovery scope)",
+      "manual": "takes arguments (--check, --print) and is run by hand or by its test, not by run-checks.mjs (ENG-032's registry-discovery scope)",
       "sees": "the `**Binds:**` line of every tracked document in standards/, procedures/ and principles/, and whether the block in AGENTS.md still quotes them",
       "blind_to": [
         {
