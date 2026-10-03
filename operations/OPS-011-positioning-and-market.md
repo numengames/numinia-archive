@@ -5,9 +5,9 @@ title: "Positioning and market"
 type: documentation
 subtype: register
 status: draft
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-10-03T19:00:00+02:00"
+updated: "2026-10-03T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -103,7 +103,7 @@ gamers, metaverse lovers.
 |---|---|
 | **MVP → MLP** | The milestones, and the next one, are in the strategy record. |
 | **Revenue models** | Hosting · building experiences · subscription · microtransactions on art and digital goods · season passes |
-| **Support** | Digital agents for 24/7 first response · Discord for community support · forms for tracked requests |
+| **Help** | Discord and email open today; an agent at any hour is coming; no forms yet. The doors and their status are in the help record |
 | **Strengths** | Purpose · the human team · epistemic consistency · the size of the video-game market |
 | **Weaknesses** | Scalability · low adoption · friction to change · regulatory uncertainty · lack of technological maturity |
 

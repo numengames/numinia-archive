@@ -4,9 +4,9 @@ uid: ""
 title: "Supporting Numinia — the offer"
 type: documentation
 status: draft
-version: "0.4.1"
+version: "0.5.0"
 created: "2026-09-29T13:00:00+02:00"
-updated: "2026-09-30T12:30:00+02:00"
+updated: "2026-10-03T20:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -15,7 +15,7 @@ tags: [operations, offer, support, backer, sponsor, payments]
 license: "CC-BY-4.0"
 related: ["CAN-011", "STD-033", "SYS-008", "PRO-020", "PRO-021", "BLU-018"]
 
-# The cards on sale. They are sold on numinia.com/support, never on
+# The cards on sale. They are sold on numinia.com/back, never on
 # numinia.org: the archive keeps the record, the product site sells
 # (STD-033 PAY-003: the site's prices are copied from here). Prices are with
 # VAT, in EUR. `link` is the payment link an Oracle creates (PRO-020 step 5);
@@ -54,12 +54,12 @@ SPDX-License-Identifier: CC-BY-4.0
 
 > **Summary:** The first two things Numinia sells: **Backer**, a coffee
 > for 5 EUR, and **Sponsor**, from 200 EUR, both with VAT included. They are
-> sold on numinia.com/support, reached from a small coffee cup at the foot of
+> sold on numinia.com/back, reached from a small coffee cup at the foot of
 > every page of numinia.com. Neither is a donation: whoever pays gets a
 > supporter's badge inside Numinia.
 > **Epistemic:** The record every page, price and payment link for
 > supporting Numinia copies (`STD-033` PAY-003).
-> **Pragmatic:** Read it before changing the support page or creating
+> **Pragmatic:** Read it before changing the backing page or creating
 > anything in the payment processor; change it when a good or a price is
 > fixed.
 > **Audience:** Agents · Oracles · Supporters
@@ -92,10 +92,10 @@ before paying (`STD-033` PAY-001), so the gift is named on the page.
 | **Delivers** | A supporter's badge on the citizen profile on numinia.com. Never early or exclusive access to what the archive gives freely (PAY-008) |
 | **Price with VAT** | 5 EUR |
 | **Period** | Once. Giving every month comes later, as its own price |
-| **Site** | numinia.com/support |
+| **Site** | numinia.com/back |
 | **State** | Test: the payment link is in Stripe's test mode and charges nothing |
 | **Payment link** | `https://buy.stripe.com/test_fZu4gA4WU2ZG3iMgssdMI00` (test) |
-| **Thanks page** | numinia.com/support/thanks/backer, in the buyer's language (`STD-044`); set as the link's confirmation page |
+| **Thanks page** | numinia.com/back/thanks/backer, in the buyer's language (`STD-044`); set as the link's confirmation page. The old address, /support/thanks/backer, forwards there until the link is changed in the processor |
 
 ### Sponsor
 
@@ -105,7 +105,7 @@ before paying (`STD-033` PAY-001), so the gift is named on the page.
 | **Delivers** | *Proposed:* your logo with a link to your site, sized by level, the supporter's badge, and an invoice after each payment |
 | **Levels** | Bronze from 200 EUR · Silver from 2,000 EUR · Gold from 10,000 EUR |
 | **Period** | Once or every month, the payer's choice, when the links exist |
-| **Site** | numinia.com/support |
+| **Site** | numinia.com/back |
 | **State** | Not on sale: shown as *Coming soon* |
 | **Payment link** | None yet |
 
