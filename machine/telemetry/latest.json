@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "3e7e820",
-  "corpus_hash": "223dad8865ee9616e6f1bb119dfc21d93402c00176a6007d7fe1fa6cbc0a19ce",
-  "root_dirty": 0,
-  "measured_at": "2026-10-03T08:11:33Z",
+  "head": "d3ee903",
+  "corpus_hash": "29b3c4b5fb3f86b718eae7486039337cbba31cfa8b64ed46cc5290db44cd9704",
+  "root_dirty": 1,
+  "measured_at": "2026-10-03T10:03:33Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 335,
-          "bytes": 3712690
+          "bytes": 3747933
         },
         "Code": {
           "files": 249,
@@ -359,81 +359,34 @@
       "definition": "`started` written in `Z`"
     },
     "tokens.tokenizer": {
-      "value": "cl100k_base sha256:223921b76ee9",
+      "value": null,
       "unit": "identity",
-      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.total": {
-      "value": 935156,
+      "value": null,
       "unit": "tokens",
-      "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.by_dir": {
-      "value": {
-        "lore": 491682,
-        "standards": 85471,
-        "system": 51924,
-        "reports": 36705,
-        "protocols": 36390,
-        "agents": 35881,
-        "operations": 28320,
-        "blueprints": 27806,
-        "machine": 27302,
-        "opportunities": 25198,
-        "canon": 19794,
-        "missions": 17661,
-        "": 15849,
-        "legal": 13033,
-        "debt": 9702,
-        "decisions": 9661,
-        "objects": 1865,
-        ".github": 912
-      },
+      "value": null,
       "unit": "tokens",
-      "definition": "tokens per top-level dir, largest first"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.by_status": {
-      "value": {
-        "(none)": 514904,
-        "draft": 209631,
-        "active": 191467,
-        "todo": 13525,
-        "in-progress": 4513,
-        "done": 1116
-      },
+      "value": null,
       "unit": "tokens",
-      "definition": "tokens per frontmatter status ((none) = no status), largest first"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.missions_share_pct": {
-      "value": 1.89,
-      "unit": "percent",
-      "definition": "100·tokens(missions/)/total, rounded to 0.01"
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.largest": {
-      "value": [
-        [
-          "lore/game/manual/es/06-inventario-y-bestiario.md",
-          51702
-        ],
-        [
-          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
-          38607
-        ],
-        [
-          "lore/game/manual/es/07-construyendo-la-aventura.md",
-          37267
-        ],
-        [
-          "lore/game/manual/en/06-inventory-and-bestiary.md",
-          36491
-        ],
-        [
-          "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
-          36362
-        ]
-      ],
+      "value": null,
       "unit": "tokens",
-      "definition": "the five largest documents as [path, tokens]"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "headers.docs_with_frontmatter": {
       "value": 285,
@@ -778,7 +731,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "STD": {
-          "3": 1008
+          "3": 1009
         },
         "PRO": {
           "3": 440
@@ -787,7 +740,7 @@
           "3": 164
         },
         "CAN": {
-          "3": 354
+          "3": 351
         },
         "ADR": {
           "3": 233
