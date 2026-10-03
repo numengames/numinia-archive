@@ -11,9 +11,9 @@ author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
 territory: "Archive"
-tags: [canon, seminal, brand, personality, emotion, cause, archetype]
+tags: [canon, seminal, brand, personality, emotion, cause, archetype, sovereignty]
 license: "CC0-1.0"
-related: ["CAN-002", "CAN-008", "CAN-010", "CAN-012", "BLU-007", "STD-030"]
+related: ["CAN-002", "CAN-008", "CAN-010", "CAN-012", "BLU-007", "STD-026", "STD-030"]
 ---
 
 <!--
@@ -25,7 +25,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** A brand is three things: a personality it articulates, an
 > emotion it masters and a cause it advocates. Ours are the Magician, hope,
-> and humans in charge — made with agents, for humans.
+> and humans in charge — sovereignty, made with agents, for humans.
 > **Epistemic:** What does Numinia feel like from outside?
 > **Pragmatic:** Hold a piece of work up to three words and tell whether it
 > speaks as us; say the same three things to a buyer, a colleague or a
@@ -70,6 +70,9 @@ promises is what is hoped for, not where we start.
 
 ## The cause: humans in charge
 
+In one word, **sovereignty**: people rule over their work, their data and
+the decisions taken about them — not the model, not the machine.
+
 Seen from outside, the house is a company where people and digital agents
 work side by side, in the open. Everyone now works with agents; few show how
 they govern them. Here they do: an agent asks before it decides for a person,
@@ -90,7 +93,7 @@ narrative dial.
 |---|---|---|---|
 | **Personality** | The Magician: imaginative, it changes the rules so the work changes | The game master who rewrites the rules of work | The numen: the power that lives in things and changes them |
 | **Emotion** | Hope: anticipation and trust | Light that only shines in the darkness | Khepri rolling the sun through the night |
-| **Cause** | Humans in charge — made with agents, for humans | The problem is the model, not the people | Technology is a means and not an end |
+| **Cause** | Humans in charge: sovereignty — made with agents, for humans | The problem is the model, not the people | Technology is a means and not an end |
 
 Hold a piece up to the three words. If it lectures, it is not the Magician.
 If it promises a bright day without having looked at the night, it is not
@@ -106,4 +109,5 @@ model, it is not ours.
 | `CAN-010` | Leave things better than you found them | an agent does not decide for people |
 | `CAN-012` | What is yours stays with you | where trust comes from |
 | `BLU-007` | Two dials, one system | the narrative dial and its levels |
+| `STD-026` | Operative vocabulary | what digital sovereignty means |
 | `STD-030` | The world's vocabulary | why the archetype is not named after a house of the city |
