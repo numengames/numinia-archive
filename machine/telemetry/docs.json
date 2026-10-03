@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 29302,
+  "chars": 29593,
   "apparatus": false,
   "archived": false,
-  "tokens": 8269
+  "tokens": 8353
  },
  {
   "path": "CLAUDE.md",
@@ -2073,10 +2073,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5883,
+  "chars": 5906,
   "apparatus": false,
   "archived": false,
-  "tokens": 1361
+  "tokens": 1370
  },
  {
   "path": "operations/OPS-012-training-the-offer.md",
@@ -2106,10 +2106,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 6051,
+  "chars": 6136,
   "apparatus": false,
   "archived": false,
-  "tokens": 1708
+  "tokens": 1730
  },
  {
   "path": "operations/OPS-016-season-pass-the-offer.md",
@@ -2154,6 +2154,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1008
+ },
+ {
+  "path": "operations/OPS-021-how-to-get-help.md",
+  "dir": "operations",
+  "series": "operations",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 2832,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 789
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -3129,10 +3140,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "active",
-  "chars": 30007,
+  "chars": 30058,
   "apparatus": false,
   "archived": false,
-  "tokens": 9058
+  "tokens": 9074
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
@@ -3272,10 +3283,10 @@
   "series": "standards",
   "type": "documentation",
   "status": "draft",
-  "chars": 8651,
+  "chars": 9781,
   "apparatus": false,
   "archived": false,
-  "tokens": 2235
+  "tokens": 2538
  },
  {
   "path": "standards/STD-038-the-stages-of-an-opportunity.md",
