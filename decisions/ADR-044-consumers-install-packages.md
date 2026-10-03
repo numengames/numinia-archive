@@ -4,9 +4,9 @@ uid: ""
 title: "Consumers install packages, never copy"
 type: adr
 status: active
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-09T10:30:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 deciders: ["oracle"]
@@ -48,7 +48,7 @@ The design system lives in five houses, each with one job:
 | `PRI-008` | direction: the mix, brand play, voice | people |
 | `STD-008` | the rules that answer yes or no (`DSN-`) | reviewers, CI |
 | `STD-023` | the closed lists: palette, scales, animations, assets | the generator, which verifies register = tokens |
-| `blueprints/` | recipes, one per medium | the workspace template |
+| `designs/` | recipes, one per medium | the workspace template |
 | `machine/packages/design-kit/` | `sistema.css`, `.js`, `.tokens.json`, `.prompt.txt`, versioned (MIT) | every site, by install |
 
 `web/public/diseno/kit/` (since 2026-09-24, `web/public/design/kit/`) stays as the published output with a sha256

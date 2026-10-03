@@ -14,7 +14,7 @@ const en = {
   "nav.missions": "Missions",
   "nav.corpus": "Corpus",
   "nav.decisions": "Decisions",
-  "nav.blueprints": "Blueprints",
+  "nav.designs": "Designs",
   "nav.reports": "Reports",
   "nav.openMenu": "Open menu",
   "nav.langSelector": "Language",

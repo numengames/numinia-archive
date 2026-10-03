@@ -10,7 +10,7 @@
     "principles": { "prefix": ["PRI"],        "digits": 3, "threshold": "governed" },
     "operations": { "prefix": ["OPS"],        "digits": 3, "threshold": "open" },
     "reports":    { "prefix": ["RPT"],        "digits": 3, "threshold": "closed", "dailyDate": true },
-    "blueprints": { "prefix": ["BLU"],        "digits": 3, "threshold": "open" },
+    "designs": { "prefix": ["DES"],        "digits": 3, "threshold": "open" },
     "system":     { "prefix": ["SYS"],        "digits": 3, "threshold": "governed" },
     "legal":      { "prefix": ["LEG"],        "digits": 3, "threshold": "governed" },
     "opportunities": { "prefix": ["OPP", "PRP"], "digits": 0, "threshold": "open", "naming": false },
@@ -35,8 +35,8 @@
   },
   "types": {
     "_comment": "STD-004 HDR-003 closed type vocabulary; HDR-017 type ↔ series, strict except `lax`. `standard` (2026-10-03) is the type of every document in standards/ — a norm is a normative document, not documentation; `documentation` stays for the guides and references that explain a series.",
-    "all": ["mission", "adr", "procedure", "blueprint", "report", "principle", "legal", "standard", "documentation", "meta", "agent", "entity", "opportunity", "proposal"],
-    "series": { "mission": "missions", "adr": "decisions", "procedure": "procedures", "blueprint": "blueprints", "report": "reports", "principle": "principles", "standard": "standards", "legal": "legal", "agent": "agents", "opportunity": "opportunities", "proposal": "opportunities" },
+    "all": ["mission", "adr", "procedure", "design", "report", "principle", "legal", "standard", "documentation", "meta", "agent", "entity", "opportunity", "proposal"],
+    "series": { "mission": "missions", "adr": "decisions", "procedure": "procedures", "design": "designs", "report": "reports", "principle": "principles", "standard": "standards", "legal": "legal", "agent": "agents", "opportunity": "opportunities", "proposal": "opportunities" },
     "lax": ["documentation", "meta", "entity"]
   },
   "status": {
@@ -53,6 +53,6 @@
   },
   "governed": {
     "_comment": "STD-004 §10: the top-level directories whose tracked .md files std-004-the-header governs. Everything else (web/, machine/scripts/, root, .github/) is out of its scope.",
-    "dirs": ["missions", "decisions", "procedures", "debt", "standards", "principles", "reports", "agents", "blueprints", "operations", "system", "legal", "opportunities"]
+    "dirs": ["missions", "decisions", "procedures", "debt", "standards", "principles", "reports", "agents", "designs", "operations", "system", "legal", "opportunities"]
   }
 }

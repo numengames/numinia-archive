@@ -5,9 +5,9 @@ title: "The semantic census"
 type: documentation
 subtype: reference
 status: draft
-version: "0.3.3"
+version: "0.3.4"
 created: "2026-09-29T12:15:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -15,7 +15,7 @@ guild: "Exegetes"
 section: "Products and services"
 tags: [system, reference, vocabulary, census, narrative-dial]
 license: "CC0-1.0"
-related: ["RPT-023", "STD-030", "STD-026", "BLU-007", "PRI-007"]
+related: ["RPT-023", "STD-030", "STD-026", "DES-007", "PRI-007"]
 ---
 
 <!--
@@ -51,7 +51,7 @@ comes later, from these cards, in a separate translator.
 | Context | the situation that brings that facet forward |
 | Formulation | how the facet is said at each stop of the dial — *not in this census* |
 
-Existing business equivalents (`STD-030`, `BLU-007`) are hypotheses. Each
+Existing business equivalents (`STD-030`, `DES-007`) are hypotheses. Each
 card weighs them against the concept and records the verdict; none of them
 is a definition.
 
@@ -120,8 +120,8 @@ things. A card moves through four stages:
 The role-playing manual (`lore/game/manual/es/`), which has authority over
 the world; the codex glossary (`lore/codex/glosario.md`); the manual's
 Spanish–English name table; the principles, above all the roles and the visual
-identity; `STD-030` and `BLU-007` for the equivalents under test;
-numinia.com's code (the `numinia-web` repository, cited as `numinia-web:<path>`); the adventures; `BLU-011` for the LAP and the
+identity; `STD-030` and `DES-007` for the equivalents under test;
+numinia.com's code (the `numinia-web` repository, cited as `numinia-web:<path>`); the adventures; `DES-011` for the LAP and the
 Veil on the web.
 
 ## What comes next
@@ -139,4 +139,4 @@ research behind this census is `RPT-023`.
 |---|---|---|
 | `RPT-023` | The wall a newcomer hits is the house's own words, not the world's | the research that led here |
 | `STD-030` | The world's vocabulary | the equivalents the cards test |
-| `BLU-007` | Sistema de Nomenclatura Dual — Narrative & Gamification Dials | the dial the census feeds |
+| `DES-007` | Sistema de Nomenclatura Dual — Narrative & Gamification Dials | the dial the census feeds |

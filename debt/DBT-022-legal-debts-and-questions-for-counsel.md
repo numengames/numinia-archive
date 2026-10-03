@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.3.4"
+version: "0.3.5"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -19,7 +19,7 @@ detected: "2026-09-29"
 visibility: "restricted-oracle"
 visibility_reason: "working list for the Oracle and the company's lawyers (ATH21); it names gaps a reader could mistake for commitments"
 opened_by: "ursa"
-related: ["BLU-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021"]
+related: ["DES-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021"]
 ---
 
 <!--
@@ -71,7 +71,7 @@ to keep these providers or replace them is a decision, not a wording.
 
 The Oracle confirmed on 2026-09-29 that numinia.com will sell to consumers.
 The published terms (LEG-002) were written for companies buying services on
-numen.games and say so. See also BLU-017.
+numen.games and say so. See also DES-017.
 
 | # | Item | Who |
 |---|---|---|
@@ -112,7 +112,7 @@ numen.games and say so. See also BLU-017.
 | ~~28~~ | ~~No site had a legal notice (LSSI art. 10). LEG-004 is written; every footer must link it.~~ — closed by numinia-archive #572, numengames-web #54, nwos-deploy #67, numinia-web #64 | ours |
 | ~~29~~ | ~~numinia.com's legal notice page is a draft with "[PENDING: legal name, tax ID…]".~~ — closed by numinia-web #64 | ours |
 | ~~30~~ | ~~The Codex (numinia.com/lap/codex) has no legal links: its shell hides the site footer.~~ — closed by numinia-web #64 (legal line at the foot of the Codex) | ours |
-| 31 | Digital Services Act: numinia.com will host community content. A contact point, a notice-and-action form and statements of reasons are required (BLU-017). | counsel |
+| 31 | Digital Services Act: numinia.com will host community content. A contact point, a notice-and-action form and statements of reasons are required (DES-017). | counsel |
 | 32 | AI Act art. 50: nwos.numen.games generates documents with an AI model for the visitor's company. Say so where the visitor sees the result. | counsel |
 | 33 | numinia.com's cookie notice in Japanese and Korean shows the English text, and the Brazilian Portuguese text has not been read by a native speaker. Machine translation is not a legal text: have both reviewed by people. Listed as pending on numinia.com/updates. | company |
 | 34 | The privacy policy (LEG-001 §1) still gives the postal address without the postal code. Align it with LEG-004 0.2.0 in its next revision. | ours |

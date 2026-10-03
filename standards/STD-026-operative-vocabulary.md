@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.6.0"
+version: "0.7.0"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -76,7 +76,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 |---|---|---|---|---|
 | **Binds** *(line)* | The line of a normative document that names what it applies to. | A rule applies to what its scope names, and to nothing else. | Knowing in one line whether a standard reaches you. | Convention: scope — ISO/IEC Directives, Part 2, the Scope clause. |
 | **Blockchain** *(record)* | A shared, ordered record kept by many machines at once, where nothing written can be altered unnoticed. | Who guarantees this without a central authority: the guarantee is mathematical and collective. | Where proofs of ownership will live; today it names the destination, not the present. | Also: distributed ledger. |
-| **Blueprint** *(document)* | A recorded design: how something is or will be built, without obliging anyone to build it. | A recipe is how, not whether; the rule that obliges lives in a standard. | Building a piece from a written recipe instead of from memory. | System blueprint · Blueprint · Plano<br>Convention: design document — the RFC-style proposal (PEP 1, Rust RFC, Kubernetes KEP); the series takes the word in cut 4 of `ADR-067`. |
+| **Blueprint** | See *Design*: the series' word until 2026-10-03, and the word of the Numinia stop of the dial. | | | |
 | **Board** *(body)* | The group that governs the organisation and to which its reports are addressed. | A report is written for whoever governs, not for whoever did the work. | Writing a weekly, quarterly or annual report anyone could govern from. | Weekly strategy · Council · Dark Council<br>Also: council. |
 | **Bond** *(relation)* | The tie that paying makes between a person and the city, remembered as the person chooses. | Paying buys something named, and leaves a memory the payer controls. | Being remembered by name, by no name, with what you gave or without it. |  |
 | **Book** *(view)* | A long reading made by gathering many small documents of the archive, which writes nothing of its own. | The book is a way to read the archive whole, not a second copy of it. | Understanding a whole field in one sitting; change a document and the book changes. | Convention: book — the compiled reading of mdBook, GitBook and Sphinx. |
@@ -126,6 +126,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Dependency** *(software)* | A piece of software someone else wrote that ours needs in order to run. | What we depend on is part of what we ship, with its licence and its risks. | The licence gate and the audits watch what comes in. |  |
 | **Deploy** *(act)* | Putting a built version of a site or service where people can reach it. | Merged is not live; deploying is the step that publishes. | Each site deploys itself when its main line changes. |  |
 | **Deprecated** *(state of a field, a rule ID or a value)* | A header field, a rule ID or a value that is no longer used and is reported wherever it remains, until its migration lands. | A field leaves in waves, named; a document leaves by being withdrawn. | Reading an old header and knowing which fields to migrate: `provenance`, `type_execution`, `ratified_by`, `freeze_reason`, `semaforo`. | Also: retired (until 2026-10-03).<br>Convention: deprecated — Semantic Versioning 2.0.0 and API lifecycle practice (deprecated, then removed); ISO says *withdrawn* for a document. |
+| **Design** *(document)* | A recorded design: how something is or will be built, without obliging anyone to build it; its header says `type: design`. | A recipe is how, not whether; the rule that obliges lives in a standard. | Building a piece from a written recipe instead of from memory. | Design document · Blueprint · Plano<br>Also: blueprint (until 2026-10-03); the word of the Numinia stop.<br>Convention: design document, design proposal — the RFC-style enhancement proposal (PEP 1, Rust RFC, Kubernetes KEP). A vendor's *blueprint* is a deployable template (Azure Blueprints), which this is not; *proposal* is the word of `opportunities/`. The series `designs/` took the word in cut 4 of `ADR-067`, the prefix `DES-` for `BLU-`, each document keeping its old identifier in `former_id`. |
 | **Design system** *(system)* | The set of documents, values and pieces that makes everything the house shows look and behave as one. | Design here is the whole experience: seen, read, heard, moved through and played. | Making a new piece from what exists instead of inventing it. |  |
 | **Design token** *(value)* | A named design value, such as a colour, a size or a typeface, used by name and never retyped. | A colour is chosen once and read everywhere; nobody retypes a hex code. | Changing a value in one place and seeing it change in every site. |  |
 | **Digital agent** *(software system)* | A software system, today usually an AI, that perceives, decides and acts on assignments with real autonomy. | Not "which tool do I use?" but "who do I work with?": a collaborator, not a command. | Agents with missions, gates that check their work, and rules both people and agents obey. | AI agent · Digital agent · Agente Digital<br>Convention: AI agent — ISO/IEC 22989:2022. |
@@ -330,7 +331,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Timeline** *(part of a record)* | The lines of an opportunity's record, one per thing that happened, in order. | The record's state is read from its timeline, never typed by hand. | Anyone can see what happened and why the record is where it is. |  |
 | **Tooling** *(set of programs)* | The programs that read, verify, measure and template the archive: the checks, the tools, the scripts. | The tooling is not the archive; it reads it and binds nobody. | Running a check or a measurement, by hand or in CI. | Also: instruments (until 2026-10-03).<br>Convention: tooling — continuous-integration practice. |
 | **Trademark** *(legal right)* | A registered right over a name or mark that stops others trading under it. | The name is never opened, even when everything else is. | Remixing our world freely without using our name as yours. |  |
-| **Type** *(field)* | The header field naming a document's genre: `standard`, `procedure`, `adr`, `mission`, `report`, `blueprint`, `principle`, `legal`, `agent`, `entity`, `opportunity`, `proposal`, `documentation`, `meta`. | A genre has a folder; a document of a strict genre filed elsewhere is an error. | Finding every document of one kind. | Convention: `dcterms:type` — DCMI Metadata Terms; the values match their folders. |
+| **Type** *(field)* | The header field naming a document's genre: `standard`, `procedure`, `adr`, `mission`, `report`, `design`, `principle`, `legal`, `agent`, `entity`, `opportunity`, `proposal`, `documentation`, `meta`. | A genre has a folder; a document of a strict genre filed elsewhere is an error. | Finding every document of one kind. | Convention: `dcterms:type` — DCMI Metadata Terms; the values match their folders. |
 
 ## U
 

@@ -1,16 +1,18 @@
 ---
-id: "BLU-010"
+id: "DES-010"
 uid: ""
 title: "The pixel register"
-type: blueprint
+type: design
+former_id: "BLU-010"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.1.3"
+version: "1.1.4"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
-tags: [blueprint, design, recipes]
+tags: [design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
 related: ["STD-008", "STD-023", "PRI-008"]
@@ -22,14 +24,14 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# BLU-010 — The pixel register
+# DES-010 — The pixel register
 
 > **Summary:** How a pixel piece is built: dithering and palette cycling over the Píxel-16 index, Pixelify in scene, the integer grid, the register's components, sprite animation and the working grammar from silhouette to depth.
 > **Epistemic:** The recipes the old standard carried for the pixel register; the index and the grids are `STD-023`, the register's direction is `PRI-008`.
 > **Pragmatic:** Drawing or reviewing a sprite, a scene, a HUD or a dialogue box.
 > **Audience:** Agents · Oracles
 
-> **A blueprint is a design not yet executed.** This one is: every recipe here is in production. It stays a blueprint because a recipe is how, not whether — the rules are `STD-008`, the values `STD-023`.
+> **A design describes what is not yet built.** This one is built: every recipe here is in production. It stays a design because a recipe is how, not whether — the rules are `STD-008`, the values `STD-023`.
 
 ## 1. Clusters, dithering, transitions and palette cycling
 
@@ -137,7 +139,7 @@ An interactive object MUST be locatable through at least two channels: silhouett
 
 ## 7. Production pipeline of a scene
 
-*The blueprint in one line:* Nocturno, level II; Píxel-16 index with neutral dominance ≥60 %; sprites on 24/12/48 grids with Noche outline; Pixelify at multiples; dialogue typed and colored by speaker; integer scaling with `pixelated`; the register is entered and left completely.
+*The design in one line:* Nocturno, level II; Píxel-16 index with neutral dominance ≥60 %; sprites on 24/12/48 grids with Noche outline; Pixelify at multiples; dialogue typed and colored by speaker; integer scaling with `pixelated`; the register is entered and left completely.
 
 1. **Declare function and level.** Write what the person must understand, discover or do; confirm that level II is justified.
 2. **Choose the grid.** Assign `12×12`, `24×24` and `48×48` modules before drawing. Inventory assets and states.
@@ -145,9 +147,9 @@ An interactive object MUST be locatable through at least two channels: silhouett
 4. **Silhouettes.** Resolve characters and interactive objects in one color. Test direction, pose and hierarchy at ×1.
 5. **Values and light.** Add shadow, body and light from top-left; lock cast shadows before the details.
 6. **Assign ramps.** Choose ramps from `STD-023` §6, keep neutrals ≥60 % and reserve accents for function or story.
-7. **Build clusters.** Clean isolated pixels, regularize diagonals, apply selective outline and use dithering only where `BLU-010` §1 allows it.
-8. **Add interface and text.** Integrate `BLU-010` §4 components, AA contrast, visible focus and a reduced-motion alternative.
-9. **Animate from key poses.** Select 2–4 frames and a `BLU-010` §5 cadence. Test the cycle at ×1 without smoothing.
+7. **Build clusters.** Clean isolated pixels, regularize diagonals, apply selective outline and use dithering only where `DES-010` §1 allows it.
+8. **Add interface and text.** Integrate `DES-010` §4 components, AA contrast, visible focus and a reduced-motion alternative.
+9. **Animate from key poses.** Select 2–4 frames and a `DES-010` §5 cadence. Test the cycle at ×1 without smoothing.
 10. **Export and validate.** Export the master as indexed PNG; sprite sheets with uniform cells; check palette, transparency, integer scale, weight, names and absence of colors outside Píxel-16.
 
 ## 8. Minimum deliverables

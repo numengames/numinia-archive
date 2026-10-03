@@ -1,19 +1,21 @@
 ---
-id: "BLU-016"
+id: "DES-016"
 uid: ""
 title: "One question per standard"
-type: blueprint
+type: design
+former_id: "BLU-016"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.12.5"
+version: "0.12.6"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
-tags: [blueprint, standards, one-question, DITA, external]
+tags: [design, standards, one-question, DITA, external]
 section: "Knowledge and quality"
 license: "CC0-1.0"
 related_missions: []
-related: ["STD-007", "STD-017", "STD-012", "STD-005", "STD-008", "STD-023", "SYS-009", "BLU-017"]
+related: ["STD-007", "STD-017", "STD-012", "STD-005", "STD-008", "STD-023", "SYS-009", "DES-017"]
 ---
 
 <!--
@@ -32,7 +34,7 @@ SPDX-License-Identifier: CC0-1.0
 > answers; before splitting or merging one, read its row here.
 > **Audience:** Agents · Oracles
 
-> **A blueprint is a design not yet executed.** Nothing here binds anyone.
+> **A design describes what is not yet built.** Nothing here binds anyone.
 > The rule is in the one-page standard; this page is the map of the work
 > it asks for, and each row leaves when its work is done.
 
@@ -102,7 +104,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-020` | How does a change reach the main line? | — |
 | `STD-021` | What makes a claim checkable? | — |
 | `STD-022` | How does a secret stay out? | — (settings in the environment arrived from `STD-005`) |
-| `STD-023` | Which are the design values? | — (how the sky, the Veil and the reading player are built is `PRO-022`, a procedure; recipes are procedures, never blueprints) |
+| `STD-023` | Which are the design values? | — (how the sky, the Veil and the reading player are built is `PRO-022`, a procedure; recipes are procedures, never designs) |
 | `STD-024` | Which series is a document in, and does it bind? | — |
 | `STD-025` | What is a mission? | — |
 | `STD-026` | What do our operative words mean? | register |
@@ -163,7 +165,7 @@ any standard whose only use would be a badge.
 | Gap | What closes it |
 |---|---|
 | Twenty-one outside standards undecided | a line each: adopted into a standard, or set aside here |
-| Legal duties found while reviewing (working-time record, the AI Act) | a line in `BLU-017` |
+| Legal duties found while reviewing (working-time record, the AI Act) | a line in `DES-017` |
 
 ## Cost and risk
 
@@ -173,7 +175,7 @@ shelf where the same rule is said three times and drifts apart. The
 cheaper alternative, a word budget alone, was rejected: a short document
 can still answer two questions, and a long one may answer only one.
 
-This blueprint runs past its budget because the map needs one row per
+This design runs past its budget because the map needs one row per
 standard.
 
 ## Sources

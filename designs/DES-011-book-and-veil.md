@@ -1,16 +1,18 @@
 ---
-id: "BLU-011"
+id: "DES-011"
 uid: ""
 title: "The book and the Veil"
-type: blueprint
+type: design
+former_id: "BLU-011"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.1.5"
+version: "1.1.6"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
-tags: [blueprint, design, recipes]
+tags: [design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
 related: ["STD-008", "STD-023", "PRI-008"]
@@ -22,14 +24,14 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# BLU-011 — The book and the Veil
+# DES-011 — The book and the Veil
 
 > **Summary:** How the two discovered registers are built: the serif that narrates, the atmosphere and the paper's grain, the book's icons and components, the sky's behaviour and the reading veil.
 > **Epistemic:** The recipes the old standard carried for the codex and the Veil; their values are `STD-023`, their direction `PRI-008`.
 > **Pragmatic:** Building or reviewing a codex page, a Veil surface or the archive.
 > **Audience:** Agents · Oracles
 
-> **A blueprint is a design not yet executed.** This one is: every recipe here is in production. It stays a blueprint because a recipe is how, not whether — the rules are `STD-008`, the values `STD-023`.
+> **A design describes what is not yet built.** This one is built: every recipe here is in production. It stays a design because a recipe is how, not whether — the rules are `STD-008`, the values `STD-023`.
 
 ## 1. The third voice — the serif that narrates
 
@@ -41,7 +43,7 @@ Sans states, Mono measures, **the serif narrates**. The codex in production alre
 | Variable italic | `Alegreya-Italic-Variable.woff2` | Literary opening, quotes, epigraphs, glossary terms |
 | **Small caps** (400/500) | `AlegreyaSC-{Regular,Medium}.woff2` | **Drop cap**, chapter titles, section small caps |
 
-The **small caps is the piece that was missing from the record**: it is not a simulated typographic effect (synthetic `font-variant` is forbidden, like Pixelify's fake bold in §3.5), it is a proper cut with its own drawn shapes. A voice **exclusive to the book** (Book · codex surface, `BLU-011` §6); self-hosted with its OFL in `/assets/fonts/`, pending entry into the kit in the v5 rebuild. **Never** in interface, deck (the legacy guard `BLU-012` stays intact), corporate document or invoice. Until the Oracle's signature, its use stays confined to the already-published LAP.
+The **small caps is the piece that was missing from the record**: it is not a simulated typographic effect (synthetic `font-variant` is forbidden, like Pixelify's fake bold in §3.5), it is a proper cut with its own drawn shapes. A voice **exclusive to the book** (Book · codex surface, `DES-011` §6); self-hosted with its OFL in `/assets/fonts/`, pending entry into the kit in the v5 rebuild. **Never** in interface, deck (the legacy guard `DES-012` stays intact), corporate document or invoice. Until the Oracle's signature, its use stays confined to the already-published LAP.
 
 ---
 
@@ -68,7 +70,7 @@ In production, **self-hosted subset** (inline SVG or sprite), as the guide's own
 
 ## 4. The book's components
 
-The codex's editorial carpentry. They live **inside the paper register** (`BLU-011` §6) and do not replace the components of §8.1–9.5.
+The codex's editorial carpentry. They live **inside the paper register** (`DES-011` §6) and do not replace the components of §8.1–9.5.
 
 | Component | Construction | Usage rule |
 |---|---|---|
@@ -76,7 +78,7 @@ The codex's editorial carpentry. They live **inside the paper register** (`BLU-0
 | **Drop cap** | chapter's first letter in small caps at `4.4em`, floated, structure color | One per chapter and only in the first paragraph; removed in printable sheets |
 | **Reading box** | deep paper, 1 px border + 3 px solar edge on the left, radius `0 10px 10px 0`, `LECTURA` label riding the top border | Long quote, table rule or author's aside; in italics, secondary text |
 | **Plate** | `marco` frame, gap with diagonal hatching when the illustration does not yet exist, caption with description + technical sheet in Mono | The gap **is shown**, not disguised: a book under construction says so |
-| **Numbered table** | `caption` in Mono small caps («Tabla I · …»), header in structure, first column in italics, rows with hairline | The book's table is not the product's (`BLU-014`): here reading rules, not density |
+| **Numbered table** | `caption` in Mono small caps («Tabla I · …»), header in structure, first column in italics, rows with hairline | The book's table is not the product's (`DES-014`): here reading rules, not density |
 | **Margin note** | 200–220 px side column from `1200 px`; below that, it drops to the paragraph's foot | **Never duplicated**: either margin or foot. Reference in Mono, superscript in interactive color |
 | **Fillet** | hexagonal glyph centered between two 96 px gradients | Separator of the book's sections; replaces the binary inside the paper |
 | **Umbral seal** | 100 px disc, structure border, halo `0 0 12px rgba(239,165,23,.25)` and inner radial gradient | The **only** use of the legendary halo outside rarity: it marks the session boundary, not an object |
@@ -97,11 +99,11 @@ The register is decided in `PRI-008` §3.6. These are its numbers.
 ### The reading veil · seen, not read
 The codex's session boundary, already in production: the closed chapter **is shown** blurred (`blur(2.2px)`) and dissolving downward with a linear mask of `0→90 %`. It is not a wall that hides — it is a veil that promises; the funnel is soft by decision (D2 of the LAP). Rules: veiled text stays **inert** (`user-select:none`, `pointer-events:none`, out of the focus order); the Umbral's seal and its call float **sharp above**; content the person already had open is never veiled.
 
-**Its animations** live in §9.1 (10–14). The 01–09 catalogue remains available to Umbral and Veil alike; 10–12 are exclusive to the Veil and the living paper (`BLU-011` §6).
+**Its animations** live in §9.1 (10–14). The 01–09 catalogue remains available to Umbral and Veil alike; 10–12 are exclusive to the Veil and the living paper (`DES-011` §6).
 
-## 6. The living paper — the codex's blueprint
+## 6. The living paper — the codex's design
 
-*The blueprint in one line:* Diurno by default (it is paper) with Nocturno toggle as real night reading; the third voice narrates the body (`BLU-011` §1); the reading frame belongs to the Veil; the book can always be taken away.
+*The design in one line:* Diurno by default (it is paper) with Nocturno toggle as real night reading; the third voice narrates the body (`DES-011` §1); the reading frame belongs to the Veil; the book can always be taken away.
 
 All long-reading paper (codex, book, digital editorial) uses these pieces, **verified in production** at `numinia.com/lap/codex`:
 
@@ -137,9 +139,9 @@ PORTADA                                CAPÍTULO
 - **The colophon always signs:** typographic voice + System + "La fuente de verdad vive en Git" + scarab. The invoice's footer and the book's colophon are the same idea on two papers.
 - **The book has its own switch**, independent from the rest of the platform: someone can read at night without turning off the whole city. The book's Nocturno is dark paper (`#14110F` / `#1E1A17`) with the grain at half intensity, not the product Nocturno.
 - **The book's inks** [5.1.0 · H1]: the system's tertiary text (`#6E6259`/`#8A7D72`) sits at 3.7:1 over the codex's paper — below AA. Inside the paper register, the tertiary is `#75695E` (Diurno) and `#97897D` (Nocturno) — token `papel.tinta-terciaria`, verified in production. Outside the paper, the system's inks stay intact.
-- **The editions are blueprint, not courtesy** [5.1.0 · H4]: the **pdf** is produced by printing the site's CSS (`@media print`, A4 — the full codex prints like a real book, ~413 pages); the **printable sheet** ships without the action bar or controls (paper carries no buttons); the **epub** keeps the glossary links. No edition is generated with a separate typesetter: the source is one, the CSS is the same.
-- **The editorial pieces** (drop cap, reading box, plate, numbered table, margin note, fillet, seal, glossary, downloads, colophon, rating gears, Narrator) are specified in `BLU-011` §4; the book's icons, in `BLU-011` §3; the grain, in `BLU-011` §2.
-- **The invoice inherits none of it** (`BLU-011` §2): administrative paper remains pure Geist, one page, total in toasted Ámbar; neither third voice nor Veil frame.
+- **The editions are design, not courtesy** [5.1.0 · H4]: the **pdf** is produced by printing the site's CSS (`@media print`, A4 — the full codex prints like a real book, ~413 pages); the **printable sheet** ships without the action bar or controls (paper carries no buttons); the **epub** keeps the glossary links. No edition is generated with a separate typesetter: the source is one, the CSS is the same.
+- **The editorial pieces** (drop cap, reading box, plate, numbered table, margin note, fillet, seal, glossary, downloads, colophon, rating gears, Narrator) are specified in `DES-011` §4; the book's icons, in `DES-011` §3; the grain, in `DES-011` §2.
+- **The invoice inherits none of it** (`DES-011` §2): administrative paper remains pure Geist, one page, total in toasted Ámbar; neither third voice nor Veil frame.
 
 ## Check
 
@@ -148,4 +150,4 @@ After the general checklist in step 6 of `PRO-014`, and before delivering:
 - [ ] Veil: only alphas over canonicals; grid ≤3 %, fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Veil in Diurno; one dominant matter per view; animations 10–11 only here; still one orchestrated moment.
 - [ ] Sky built as `PRO-022` §3.1; grain (§2) only on paper, ≤5 %, never with relief or grid.
 - [ ] Living paper: third voice only in the book (roman body, SC drop cap and titles, italic lore, no synthetic small caps); bar that yields but does not disappear; glossary with a source per definition; moon as bookmark; `abierto / tras el Umbral` states; .md/pdf/epub visible; literary opening separated; full colophon with the scarab.
-- [ ] The invoice inherits none of it (`BLU-013`).
+- [ ] The invoice inherits none of it (`DES-013`).

@@ -25,7 +25,7 @@ member of any series, never published, never counted in the corpus figures.
 | `OPS-TEMPLATE.md` | an operations record | `operations/OPS-NNN-slug.md` |
 | `LEG-TEMPLATE.md` | a legal text | `legal/LEG-NNN-slug.md` |
 | `PRI-TEMPLATE.md` | a principle text | `principles/PRI-NNN-slug.md` |
-| `BLU-TEMPLATE.md` | a blueprint | `blueprints/BLU-NNN-slug.md` |
+| `DES-TEMPLATE.md` | a design | `designs/DES-NNN-slug.md` |
 | `SYS-TEMPLATE.md` | a system reference | `system/SYS-NNN-slug.md` |
 | `OPP-TEMPLATE.md` | an opportunity of any kind — a sale, a tender, a grant, a collaboration, a partner | `opportunities/OPP-YYYY-NNN.md` |
 | `PRP-TEMPLATE.md` | a proposal to a client | `opportunities/PRP-YYYY-NNN.md` |

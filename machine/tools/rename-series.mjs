@@ -148,7 +148,7 @@ for (const { dir, tag } of dirSpecs) {
     // --dir's exempt files ARE the ones D-008's ruling enumerated" —
     // required because guilds/*, operations/security-policy.md,
     // credential-map.md, principles/archive-lore.md, the archive-summa
-    // blueprints, and debt/D-024+D-028 ALL carry registration: exempt too,
+    // designs, and debt/D-024+D-028 ALL carry registration: exempt too,
     // and D-008 rules them IN. This flag does not distinguish
     // file-by-file — verify the --dir's file list against D-008's table
     // before passing it for a real Stage C run.
@@ -262,7 +262,7 @@ function grepCorpusCount(needle) {
 /* Ambiguous-basename guard: some basenames (charter.md, roster.md — one per
    guild folder) collide across sibling directories. A bare "charter.md"
    citation in prose, or a templated form like "{my-guild}/charter.md"
-   (confirmed live: blueprints/archive-summa-fundacional-v0.1.0.md:95), does
+   (confirmed live: designs/archive-summa-fundacional-v0.1.0.md:95), does
    not say WHICH guild it means — a corpus-wide string-replace of the bare
    basename would silently repoint another guild's citation, or corrupt a
    generic template line, to the file being renamed right now. Only the full

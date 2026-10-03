@@ -8,7 +8,7 @@
 // The Oracle's word: a newcomer opening /standards wants the title and the
 // question it answers, not the code, the date and the word "draft" first.
 // STD-007 already asks that each standard's Epistemic line state its one
-// question; this holds every standard to it, holds the map in BLU-016 to the
+// question; this holds every standard to it, holds the map in DES-016 to the
 // same words, and holds the index to render it.
 //
 // Run: npm test
@@ -37,7 +37,7 @@ export function epistemicOf(text) {
   return out.join(' ').replace(/\s+/g, ' ').trim();
 }
 
-const blu = read(execFileSync('git', ['-C', ROOT, 'ls-files', 'blueprints/BLU-016-*.md'], { encoding: 'utf8' }).trim());
+const blu = read(execFileSync('git', ['-C', ROOT, 'ls-files', 'designs/DES-016-*.md'], { encoding: 'utf8' }).trim());
 const mapQuestion = new Map(
   [...blu.matchAll(/^\| `(STD-\d{3})` \| ([^|]+) \|/gm)].map((m) => [m[1], m[2].trim()]),
 );

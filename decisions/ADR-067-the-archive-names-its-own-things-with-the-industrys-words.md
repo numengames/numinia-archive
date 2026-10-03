@@ -4,9 +4,9 @@ uid: ""
 title: "The archive names its own things with the industry's words"
 type: adr
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-03T20:30:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -94,7 +94,7 @@ The cuts, in order:
 | 1 | *fonds*; `semaforo` retired; `provenance` → `digital_source_type`; `type_execution: biological` → `executor: human`; `type: documentation` → `type: standard` for `standards/`; *instrument* → tooling/check; *mould* → template; *axis* → the normative documents; *plate* → rule ID; *guard* → check in prose; `ratified_by` → `approved_by`; `frozen` → `on-hold`; *threshold* → approval level; *retired* → deprecated; *ring* → core and extension fields; the lexicon with a convention per word | no |
 | 2 | `protocols/` → `procedures/`, `type: protocol` → `procedure`, prefix `PRO-` kept | 28 |
 | 3 | `canon/` → `principles/`, `type: seminal` → `principle`, prefix `CAN-` → `PRI-` | 14 |
-| 4 | `blueprints/` → `designs/`, `type: blueprint` → `design`, prefix `BLU-` → `DSN-` | 12 |
+| 4 | `blueprints/` → `designs/`, `type: blueprint` → `design`, prefix `BLU-` → `DES-` (not `DSN-`, as first written: `DSN-NNN` is the rule-ID family of `STD-008`, sixteen rules cited in five standards, a procedure, a mission and a report; a prefix that is also a rule family makes `DSN-007` two things) | 12 |
 | 5 | `machine/guards/` → `machine/checks/`, `npm run guards` → `npm run checks` | none public |
 
 Binds from the merge of each cut. `STD-001`, `STD-004` and `STD-026` are

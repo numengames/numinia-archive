@@ -52,8 +52,8 @@ export default defineConfig({
 		"/legal/terminos": "/legal/terms",
 		"/legal/terminos.md": "/legal/terms.md",
 		// → the Veil is its English name (2026-09-29): BLU-011 renamed
-		"/blueprints/book-and-velo": "/blueprints/book-and-veil",
-		"/blueprints/book-and-velo.md": "/blueprints/book-and-veil.md",
+		"/blueprints/book-and-velo": "/designs/book-and-veil",
+		"/blueprints/book-and-velo.md": "/designs/book-and-veil.md",
 		// → the design kit
 		// → / — the classification is the home (2026-09-21). /archive asked
 		// "how is this organised?"; the root now answers it. Its children keep
@@ -75,7 +75,7 @@ export default defineConfig({
 		"/blueprints/nwos-system.md": "/system/sys-006-nwos-system.md",
 		// → /archive — the fondo pages became function pages
 		"/archive/agents": "/archive/agency",
-		"/archive/blueprints": "/blueprints",
+		"/archive/blueprints": "/designs",
 		"/archive/canon": "/principles",
 		"/archive/operations": "/archive/administration",
 		"/archive/protocols": "/procedures",
@@ -284,6 +284,37 @@ export default defineConfig({
 		"/core/can-014-friends-who-play-build-and-learn.md": "/core/pri-014-friends-who-play-build-and-learn.md",
 		"/core/can-015-we-recognise-the-act": "/core/pri-015-we-recognise-the-act",
 		"/core/can-015-we-recognise-the-act.md": "/core/pri-015-we-recognise-the-act.md",
+		// → designs — the series took the industry's word (ADR-067 cut 4, 2026-10-03):
+		// blueprints/ became designs/ and BLU-NNN became DES-NNN, the old identifier kept in
+		// former_id. The address keeps its id-less slug; one rule per document and one per
+		// .md view, plus the index, its .md view and the mapping protocol page.
+		"/blueprints": "/designs",
+		"/blueprints.md": "/designs.md",
+		"/blueprints/meta": "/designs/meta",
+		"/blueprints/business-metrics": "/designs/business-metrics",
+		"/blueprints/business-metrics.md": "/designs/business-metrics.md",
+		"/blueprints/dual-nomenclature": "/designs/dual-nomenclature",
+		"/blueprints/dual-nomenclature.md": "/designs/dual-nomenclature.md",
+		"/blueprints/web-pieces": "/designs/web-pieces",
+		"/blueprints/web-pieces.md": "/designs/web-pieces.md",
+		"/blueprints/pixel-register": "/designs/pixel-register",
+		"/blueprints/pixel-register.md": "/designs/pixel-register.md",
+		"/blueprints/book-and-veil": "/designs/book-and-veil",
+		"/blueprints/book-and-veil.md": "/designs/book-and-veil.md",
+		"/blueprints/presentation-deck": "/designs/presentation-deck",
+		"/blueprints/presentation-deck.md": "/designs/presentation-deck.md",
+		"/blueprints/document-and-invoice": "/designs/document-and-invoice",
+		"/blueprints/document-and-invoice.md": "/designs/document-and-invoice.md",
+		"/blueprints/platform": "/designs/platform",
+		"/blueprints/platform.md": "/designs/platform.md",
+		"/blueprints/event-3d-and-email": "/designs/event-3d-and-email",
+		"/blueprints/event-3d-and-email.md": "/designs/event-3d-and-email.md",
+		"/blueprints/one-question-per-standard": "/designs/one-question-per-standard",
+		"/blueprints/one-question-per-standard.md": "/designs/one-question-per-standard.md",
+		"/blueprints/legal-obligations-to-confirm": "/designs/legal-obligations-to-confirm",
+		"/blueprints/legal-obligations-to-confirm.md": "/designs/legal-obligations-to-confirm.md",
+		"/blueprints/our-own-gateway": "/designs/our-own-gateway",
+		"/blueprints/our-own-gateway.md": "/designs/our-own-gateway.md",
 		// → standards — STD-031 took the series' word in its title (ADR-067 cut 3)
 		"/standards/std-031-a-canon-states": "/standards/std-031-a-principle-states",
 		"/standards/std-031-a-canon-states.md": "/standards/std-031-a-principle-states.md",
@@ -299,9 +330,9 @@ export default defineConfig({
 		"/standards/std-005-engineering-baseline.md": "/standards/std-005-when-a-rule-bites.md",
 		"/standards/std-032-the-design-system": "/system/sys-009-the-design-system",
 		"/standards/std-032-the-design-system.md": "/system/sys-009-the-design-system.md",
-		// → blueprints — BLU-016 renamed from its old subject to its question (2026-09-26)
-		"/blueprints/outside-standards-under-consideration": "/blueprints/one-question-per-standard",
-		"/blueprints/outside-standards-under-consideration.md": "/blueprints/one-question-per-standard.md",
+		// → designs — DES-016 (then BLU-016) renamed from its old subject to its question (2026-09-26)
+		"/blueprints/outside-standards-under-consideration": "/designs/one-question-per-standard",
+		"/blueprints/outside-standards-under-consideration.md": "/designs/one-question-per-standard.md",
 		// → system
 		"/blueprints/agent-experience": "/system/sys-002-agent-cycle",
 		"/blueprints/archive-fondos": "/system/sys-003-archive-fondos",

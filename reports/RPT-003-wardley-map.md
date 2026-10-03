@@ -5,11 +5,11 @@ title: "Wardley Map — Narrative Work OS"
 type: report
 subtype: analysis
 status: active
-version: "0.3.1"
+version: "0.3.2"
 created: "2026-04-07T12:29:23Z"
 created_source: "git:df48b24"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [strategy, wardley, market, moat, evolution]

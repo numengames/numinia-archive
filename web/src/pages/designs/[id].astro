@@ -1,7 +1,7 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-// Plano detail rendered at build from the repo's blueprints/ folder
+// Plano detail rendered at build from the repo's designs/ folder
 // (MIS-065). The full markdown document is the page.
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
@@ -9,14 +9,14 @@ import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
 import { getCollection, render } from "astro:content";
 
-const slug = (id: string) => id.replace(/^BLU-\d+-/i, "").toLowerCase();
+const slug = (id: string) => id.replace(/^DES-\d+-/i, "").toLowerCase();
 
 export async function getStaticPaths() {
-  const entries = (await getCollection("blueprints")).sort((a, b) =>
+  const entries = (await getCollection("designs")).sort((a, b) =>
     (a.data.id as string).localeCompare(b.data.id as string)
   );
   return entries.map((entry) => ({
-    params: { id: String(entry.id).replace(/^BLU-\d+-/i, "").toLowerCase() },
+    params: { id: String(entry.id).replace(/^DES-\d+-/i, "").toLowerCase() },
     props: { entry },
   }));
 }
@@ -26,19 +26,19 @@ const { Content } = await render(entry);
 const f = entry.data as Record<string, any>;
 const mdFilename = (entry.filePath as string).split("/").pop()!;
 const repoUrl = repoFileUrl(entry.filePath as string);
-const mdUrl = `/blueprints/${slug(entry.id as string)}.md`;
+const mdUrl = `/designs/${slug(entry.id as string)}.md`;
 
 ---
 
 <Layout
   title={`${f.id} — Numen Games CAO`}
   description={`${f.id} — ${f.title}`}
-  canonicalPath={`/blueprints/${slug(entry.id as string)}`}
+  canonicalPath={`/designs/${slug(entry.id as string)}`}
 >
   <section class="pb-20 pt-16">
     <div class="mx-auto max-w-[800px] px-6">
 
-      <a href="/blueprints" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
+      <a href="/designs" class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors mb-8">
         <Icon name="caret-left" size={12} />
         Los Planos del Mundo
       </a>

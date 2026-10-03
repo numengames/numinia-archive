@@ -43,7 +43,7 @@ Each folder answers one question.
 | [`standards/`](standards/) | What an artifact must **comply with** |
 | [`procedures/`](procedures/) | What an actor **executes**, step by step |
 | [`decisions/`](decisions/) | **Why** something was chosen |
-| [`blueprints/`](blueprints/) | What **could** be: designs not yet executed |
+| [`designs/`](designs/) | What **could** be: designs not yet executed |
 | [`missions/`](missions/) | The **work**, promised and done (suspended during the transition; see `AGENTS.md`) |
 | [`reports/`](reports/) | What was **observed**, on a date, by someone |
 | [`debt/`](debt/) | What we know is **missing** |

@@ -4,11 +4,11 @@ uid: ""
 title: "Session state — where to pick up"
 type: documentation
 status: active
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-08-18T15:09:29Z"
 created_source: "git:7e0e0a9"
 created_confidence: inferred
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 section: "Operations"
@@ -52,7 +52,7 @@ the board are for). First step of any session: `git pull` and audit
 
 - **Archive / information (MIS-089, draft):** 5-phase plan, F0 awaits
   signature. Duplicates detected and untouched: the game manual
-  duplicated (.txt and .md), 2 audits in `blueprints/`, 3
+  duplicated (.txt and .md), 2 audits in `designs/`, 3
   `archive-summa-*` that are a fondo, reports with a double source
   (`reports/daily/` vs 5 hardcoded pages), three naming conventions,
   manual INDEXes, ~32 files without frontmatter.

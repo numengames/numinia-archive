@@ -97,7 +97,7 @@ export const SEGMENTS: Segment[] = [
     E("The design system, as a book", "Everything a piece of ours is made of", "/design"),
   ] },
   { id: "production", ring: "work", word: "Production", title: "Production", a: [0, 120], entries: [
-    E("Blueprints", "The plans for every piece", "/blueprints/", "blueprints"),
+    E("Designs", "The plans for every piece", "/designs/", "designs"),
     E("Missions", "The work in progress, as cards", "/missions", "missions"),
   ] },
   { id: "assurance", ring: "work", word: "Assurance", title: "Assurance", a: [120, 240], entries: [

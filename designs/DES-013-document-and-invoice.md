@@ -1,19 +1,21 @@
 ---
-id: "BLU-013"
+id: "DES-013"
 uid: ""
 title: "Document and invoice"
-type: blueprint
+type: design
+former_id: "BLU-013"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.0.4"
+version: "1.0.5"
 created: "2026-09-09T12:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
-tags: [blueprint, design, recipes]
+tags: [design, recipes]
 license: "CC0-1.0"
 related_missions: ["MIS-0146"]
-related: ["STD-008", "STD-023", "BLU-011", "PRI-008"]
+related: ["STD-008", "STD-023", "DES-011", "PRI-008"]
 extraction_note: "Extracted verbatim from PRO-014 v1.1.0 (then its sections 6.4) under ADR-043 and ADR-044: recipes leave the procedure; the procedure keeps the order of decisions and the checklist."
 ---
 
@@ -22,7 +24,7 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# BLU-013 — Document and invoice
+# DES-013 — Document and invoice
 
 > **Summary:** Diurno A4 at level III, no texture, tabular figures, compact rhythm; the invoice fits on one page and its total is the only display figure.
 > **Epistemic:** A recipe. The rules it applies are `STD-008`; the values it names are `STD-023`; the order of decisions is `PRO-014`.
@@ -55,4 +57,4 @@ After the general checklist in step 6 of `PRO-014`, and before delivering:
 - [ ] Diurno, A4, level III, no texture; figures in tabular Mono; footer `AAAA_MM · Confidencial`.
 - [ ] Section rhythm `s500`, interior `s300–s400`; nothing at `s700`.
 - [ ] The invoice fits on one page; total as the only display figure, in toasted Ámbar; `page-break-inside: avoid` on rows and footer.
-- [ ] The invoice inherits nothing from the living paper (`BLU-011`): pure Geist, no third voice, no Veil frame.
+- [ ] The invoice inherits nothing from the living paper (`DES-011`): pure Geist, no third voice, no Veil frame.

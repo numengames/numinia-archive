@@ -5,9 +5,9 @@ title: "CAO Architecture — Complete System Reference"
 type: documentation
 subtype: reference
 status: active
-version: "0.2.7"
+version: "0.2.8"
 created: "2026-04-08T05:58:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, cao, architecture, agents, procedures, tools]
@@ -56,7 +56,7 @@ The CAO operates on a simple principle:
 │   (main session)    │   │  (GitHub — principles source)     │
 │                     │   │                             │
 │  Nimrod (primary)   │◄──┤  agents/    procedures/      │
-│  claude-sonnet-4-6  │   │  missions/  blueprints/     │
+│  claude-sonnet-4-6  │   │  missions/  designs/     │
 │                     │   │  decisions/ principles/          │
 └─────────┬───────────┘   └─────────────────────────────┘
           │ spawns
@@ -127,7 +127,7 @@ numinia-digital-agents/
 │   └── MIS-NNN-*.md     ← flat; status: frontmatter is the only state
 │                          surface (MIS-066), board built from the folder
 ├── procedures/           ← P-001 through P-009+
-├── blueprints/          ← System design documents
+├── designs/          ← System design documents
 ├── decisions/           ← ADRs and strategic decisions
 ├── principles/               ← Immutable seminal documents (10 docs)
 ├── operations/          ← Security policy, credential map
@@ -256,14 +256,14 @@ CEO visits pablofm.com/velo → Fills DeployForm
 | Can Procyon activate agents without Oracle approval? | Oracle | High |
 | Monthly cost ceiling for the CAO? | Oracle | High |
 | When does Adonaz get a persistent session? | Oracle | Medium |
-| NWOS license price point? | Oracle | High (blocks BLU-002) |
+| NWOS license price point? | Oracle | High (blocks DES-002) |
 | Can citizens propose missions directly to agents? | Oracle | Low |
 
 ---
 
 ## Related documents
 
-- [BLU-002-business-metrics.md](../blueprints/BLU-002-business-metrics.md) — KPI framework
+- [DES-002-business-metrics.md](../designs/DES-002-business-metrics.md) — KPI framework
 - [STD-009-which-rule-wins.md](../standards/STD-009-which-rule-wins.md) — precedence; [STD-017](../standards/STD-017-who-may-change-what.md) — who may change what
 - [agents/INDEX.md](../agents/INDEX.md) — Agent registry
 

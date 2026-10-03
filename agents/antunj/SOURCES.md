@@ -3,11 +3,11 @@ agent: antunj
 title: "SOURCES — Antunj"
 type: agent
 status: active
-version: "1.0.2"
+version: "1.0.3"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -35,9 +35,9 @@ principles/PRI-001, principles/PRI-002, principles/PRI-004 — what Numinia is; 
 
 operations/ — business and strategy documents (OPS-007-sales.md is reserved; read under authorization)
 
-## System blueprints
+## System designs
 
-blueprints/ — architecture of the archive and the web
+designs/ — architecture of the archive and the web
 
 ## Work in flight
 

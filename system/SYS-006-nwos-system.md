@@ -5,11 +5,11 @@ title: "NWOS — System Description, Layers and Principles"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.4"
+version: "1.1.5"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [system, reference, nwos, architecture, layers, principles]
@@ -95,14 +95,14 @@ Each unit of work is a structured document with a unique ID, acceptance criteria
 - **vs. alternatives:** Linear and Jira track completion. The Mission System tracks knowledge.
 - **Fields:** id · title · executor (human/agent/hybrid) · priority · effort · status · story · acceptance criteria · epistemic value · pragmatic value · execution reality
 
-### Blueprints (System Maps)
+### Designs (System Maps)
 
-- **id:** `blueprints` · **Status:** Active · **Default:** on
+- **id:** `designs` · **Status:** Active · **Default:** on
 
 Living architecture documents that show the current state, target state, gap delta, and open questions for each subsystem.
 
-- **Why it matters:** Most organizations have architectural decisions in people's heads. Blueprints externalize that knowledge into auditable, updatable files.
-- **vs. alternatives:** Architecture Decision Records (ADRs) capture one decision. Blueprints show the whole system at a glance.
+- **Why it matters:** Most organizations have architectural decisions in people's heads. Designs externalize that knowledge into auditable, updatable files.
+- **vs. alternatives:** Architecture Decision Records (ADRs) capture one decision. Designs show the whole system at a glance.
 - **Fields:** id · area · status semaphore (green/yellow/red) · current state · target state · related decisions · gap → mission delta table · open questions · dependencies
 
 ### Decision Registry

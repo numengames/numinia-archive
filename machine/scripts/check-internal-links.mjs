@@ -6,7 +6,7 @@
 //
 // Why this guard exists (2026-08-31): `main` shipped a section index that
 // returned 404. ADR-035 opened `system/`, the collection was declared, the
-// three SYS documents built and the retired /blueprints/* addresses were
+// three SYS documents built and the retired /designs/* addresses were
 // redirected to them — and CI was green through all of it, because every
 // existing guard was blind to this class of failure:
 //

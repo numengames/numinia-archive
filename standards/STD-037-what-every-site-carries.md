@@ -5,15 +5,15 @@ title: "What every site carries"
 type: standard
 subtype: standard
 status: draft
-version: "0.5.3"
+version: "0.5.4"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 license: "CC0-1.0"
 tags: [standards, web, footer, share-card, modes, sites]
-related: ["STD-008", "STD-023", "STD-034", "STD-035", "BLU-009", "LEG-003"]
+related: ["STD-008", "STD-023", "STD-034", "STD-035", "DES-009", "LEG-003"]
 derived_from: "PRI-008"
 ---
 
@@ -152,7 +152,7 @@ Marfil on Carbón: `favicon.svg`, `favicon.png` 32×32 and `apple-touch-icon.png
 
 | Rule | Exact value |
 |---|---|
-| Day and night on every site | the modes Nocturno and Diurno; storage key `numinia-modo`; attribute `data-modo` on the document, absent meaning Nocturno; the switch as in `BLU-009` |
+| Day and night on every site | the modes Nocturno and Diurno; storage key `numinia-modo`; attribute `data-modo` on the document, absent meaning Nocturno; the switch as in `DES-009` |
 
 ## Why
 
@@ -165,5 +165,5 @@ visitor who learns one knows the other three.
 |---|---|---|
 | `STD-008` | Design tokens | what a piece of a site may use |
 | `STD-023` | Design values | the colours, type and sky the footer and the card use |
-| `BLU-009` | Web pieces | the mode switch, drawn |
+| `DES-009` | Web pieces | the mode switch, drawn |
 | `LEG-003` | Cookie Policy — Numen Games | the name under which the mode is remembered |

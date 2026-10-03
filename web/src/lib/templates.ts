@@ -63,7 +63,7 @@ export interface Template {
 const MAKES: Record<string, string> = {
   MIS: "a mission", STD: "a standard", PRO: "a procedure", ADR: "a decision",
   DBT: "a debt entry", RPT: "a report", OPS: "an operations record", LEG: "a legal text",
-  PRI: "a principle", BLU: "a blueprint", SYS: "a system reference",
+  PRI: "a principle", DES: "a design", SYS: "a system reference",
   OPP: "a sales opportunity", PRP: "a proposal to a client", GRA: "a call for public money",
 };
 

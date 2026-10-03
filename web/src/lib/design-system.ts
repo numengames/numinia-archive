@@ -7,7 +7,7 @@
 // The design system began as one long guide (v5, a single HTML page served
 // at /diseno) and was then cut into small documents so each could be read,
 // argued and changed alone: the principle says why, the standards give the rules
-// and the values, the procedure the order of work, the blueprints one recipe
+// and the values, the procedure the order of work, the designs one recipe
 // per medium, the kit what is installed. Cutting it made it maintainable and
 // made it invisible: nobody could see the system whole, and the old guide,
 // frozen in August, went on describing four registers after the principles had
@@ -158,8 +158,8 @@ function siteHref(rel: string): string | null {
   if (/(^|\/)(README|INDEX|TEMPLATE)\.md$/.test(rel)) return null;
   const m = /^(principles|standards|procedures|lore|operations)\/(.+)\.md$/.exec(rel);
   if (m) return `/${m[1]}/${m[2].toLowerCase()}`;
-  const b = /^blueprints\/BLU-\d+-(.+)\.md$/i.exec(rel);
-  if (b) return `/blueprints/${b[1].toLowerCase()}`;
+  const b = /^designs\/DES-\d+-(.+)\.md$/i.exec(rel);
+  if (b) return `/designs/${b[1].toLowerCase()}`;
   return null;
 }
 

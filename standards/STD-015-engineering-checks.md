@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: standard
 subtype: register
 status: draft
-version: "6.1.3"
+version: "6.1.4"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -59,7 +59,7 @@ SPDX-License-Identifier: CC0-1.0
 | Traceability | TRC-002 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[DEBT: no label-sync workflow — oracle, 2026-09-11]` |
 | Traceability | TRC-004 | `CHANGELOG.md` written for people in the Keep a Changelog 1.1 form: newest first, an Unreleased section, every entry under one of six kinds (added, changed, deprecated, removed, fixed, security); a site with no releases heads each group with its date; a released package adds semver tags and GitHub Releases with notes | MUST | `[GATE: machine/scripts/test/changelog-shape.test.mjs → a reviewer reads each entry for people; numinia-web and nwos-deploy keep no changelog yet]` |
-| Traceability | TRC-005 | A roadmap in the repository — here, the `blueprints/` folder — saying what the project intends to do, and not do, for at least the next year (OpenSSF Best Practices Badge, documentation_roadmap; `STD-006`) | MUST | `[GATE: machine/tools/check-register.mjs → the Oracle keeps the blueprints current]` |
+| Traceability | TRC-005 | A roadmap in the repository — here, the `designs/` folder — saying what the project intends to do, and not do, for at least the next year (OpenSSF Best Practices Badge, documentation_roadmap; `STD-006`) | MUST | `[GATE: machine/tools/check-register.mjs → the Oracle keeps the designs current]` |
 | Traceability | TRC-006 | A check is verified by its step in the job, never by the run's colour: a green run and a workflow missing the check are indistinguishable from the conclusion | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-007 | Every check declares what it does not look at, on success as on failure (`machine/scripts/blind-spots.json`); a check that validates what is present cannot detect what is missing | MUST | `[AUTO: machine/scripts/test/blindness.test.mjs]` |
 | Ergonomics | DEV-001 | `.env.example` exhaustive and in sync with the env schema | MUST | `[DEBT: no .env.example and no env schema to compare it to — oracle, 2026-09-11]` |

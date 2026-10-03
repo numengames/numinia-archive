@@ -59,10 +59,10 @@ const decisions = defineCollection({
     .passthrough(),
 });
 
-// Blueprints/planos — the root blueprints/ folder is the source of truth
+// Designs/planos — the root designs/ folder is the source of truth
 // (MIS-065: the hardcoded planos.ts copy retires).
-const blueprints = defineCollection({
-  loader: glob({ pattern: ["BLU-*.md"], base: "../blueprints" }),
+const designs = defineCollection({
+  loader: glob({ pattern: ["DES-*.md"], base: "../designs" }),
   schema: z
     .object({
       id: z.string(),
@@ -148,10 +148,10 @@ const corpus = defineCollection({
       "decisions/**/*.md",
       "!decisions/DEC-*.md",
       "!decisions/ADR-*.md",
-      "blueprints/**/*.md",
-      "!blueprints/BLU-*.md",
-      // No exclusion twin to blueprints' below: BLU-* are excluded here
-      // because /blueprints/<slug> renders them. SYS-* have no route of
+      "designs/**/*.md",
+      "!designs/DES-*.md",
+      // No exclusion twin to designs' below: DES-* are excluded here
+      // because /designs/<slug> renders them. SYS-* have no route of
       // their own, so the corpus mirror is where they become readable —
       // and it is where MIS-129's redirects send the retired addresses.
       "system/**/*.md",
@@ -237,4 +237,4 @@ const corpus = defineCollection({
   schema: z.object({}).passthrough(),
 });
 
-export const collections = { missions, reports, decisions, blueprints, system, legal, corpus };
+export const collections = { missions, reports, decisions, designs, system, legal, corpus };

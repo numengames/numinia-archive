@@ -1,60 +1,60 @@
 ---
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-// Planos del Mundo, rendered from the repo's blueprints/ folder (MIS-065:
+// Planos del Mundo, rendered from the repo's designs/ folder (MIS-065:
 // the folder is the source of truth — no hardcoded copy).
 import Layout from "@/layouts/Layout.astro";
 import { placeOf } from "@/lib/classification";
 // The drawer this index opens, from the scheme: "Assurance · Observing".
-const here = placeOf("blueprints/")!;
+const here = placeOf("designs/")!;
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
 import { getCollection } from "astro:content";
 
-const slug = (id: string) => id.replace(/^BLU-\d+-/i, "").toLowerCase();
+const slug = (id: string) => id.replace(/^DES-\d+-/i, "").toLowerCase();
 
-const planos = (await getCollection("blueprints")).sort((a, b) =>
+const planos = (await getCollection("designs")).sort((a, b) =>
   (a.data.id as string).localeCompare(b.data.id as string)
 );
 ---
 
 <Layout
-  title="Blueprints — Numen Games CAO"
-  description="The blueprints — living architecture documents of the NWOS, rendered from blueprints/ in the canonical repo."
-  canonicalPath="/blueprints"
-  activeNav="blueprints/"
+  title="Designs — Numen Games CAO"
+  description="The designs — living architecture documents of the NWOS, rendered from designs/ in the canonical repo."
+  canonicalPath="/designs"
+  activeNav="designs/"
 >
   <PageHero
     label={`${here.fn.name} · ${here.activity.name}`}
-    title="Blueprints"
-    description="Living architecture documents — each blueprint is a .md in the repo."
+    title="Designs"
+    description="Living architecture documents — each design is a .md in the repo."
   />
 
   <section class="pb-24">
     <div class="mx-auto max-w-[800px] px-6">
       {/*
-        Listen, copy, download, source. Composed from the blueprints
+        Listen, copy, download, source. Composed from the designs
         collection; `Source` opens the series register, which is what decides
-        that blueprints/ holds what could be and is not a report of what
+        that designs/ holds what could be and is not a report of what
         happened.
       */}
       <div class="mb-6">
         <DocToolbar
-          mdUrl="/blueprints.md"
-          filename="blueprints.md"
+          mdUrl="/designs.md"
+          filename="designs.md"
           repoUrl={repoFileUrl("standards/STD-001-the-series.md")}
           lang="en"
         />
       </div>
       <div class="mb-6 text-right">
-        <a href="/blueprints/meta" class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors">The mapping protocol →</a>
+        <a href="/designs/meta" class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim hover:text-accent transition-colors">The mapping protocol →</a>
       </div>
       <div class="space-y-4">
         {planos.map((p) => {
           return (
             <a
-              href={"/blueprints/" + slug(p.id as string)}
+              href={"/designs/" + slug(p.id as string)}
               class="block rounded-[8px] border border-border bg-card p-6 hover:bg-card-hover transition-colors"
             >
               <div class="flex flex-wrap items-center gap-3 mb-2">

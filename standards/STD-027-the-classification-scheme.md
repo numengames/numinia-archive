@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: standard
 subtype: standard
 status: active
-version: "0.9.0"
+version: "0.10.0"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -95,7 +95,7 @@ read this table; its shape is their contract.
 | | Standardising | `standards/` |
 | | Prescribing | `procedures/` |
 | | Deciding | `decisions/` |
-| **Production** | Planning | `blueprints/` |
+| **Production** | Planning | `designs/` |
 | | Executing | `missions/` |
 | **Assurance** | Observing | `reports/` |
 | | Admitting | `debt/` |
@@ -112,7 +112,7 @@ read this table; its shape is their contract.
 
 Outside the scheme: `web/`, a lens onto the archive, and `machine/packages/`,
 a distributable. The tooling and its artifacts live under `machine/`
-(called *instruments* until 2026-10-03). The Founding activity's series was `canon/` until 2026-10-03 (`ADR-067`).
+(called *instruments* until 2026-10-03). The Founding activity's series was `canon/` and the Planning activity's `blueprints/` until 2026-10-03 (`ADR-067`).
 
 | What the scheme rests on | What it gives |
 |---|---|

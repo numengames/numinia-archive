@@ -25,7 +25,7 @@ const REGISTER = 'standards/STD-015-engineering-checks.md';
    prove a check bites would leave the repository wrong if a test threw. */
 function scratch() {
   const dir = mkdtempSync(path.join(tmpdir(), 'register-'));
-  for (const p of ['standards', 'blueprints', 'machine/scripts', 'machine/guards', 'machine/tools', '.github', 'AGENTS.md', 'CLAUDE.md', 'package.json', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', '.editorconfig'])
+  for (const p of ['standards', 'designs', 'machine/scripts', 'machine/guards', 'machine/tools', '.github', 'AGENTS.md', 'CLAUDE.md', 'package.json', 'CONTRIBUTING.md', 'CODE_OF_CONDUCT.md', '.editorconfig'])
     if (existsSync(path.join(ROOT, p))) cpSync(path.join(ROOT, p), path.join(dir, p), { recursive: true });
   execSync('git init -q && git add -A && git -c user.email=t@t -c user.name=t commit -qm scratch', { cwd: dir });
   return dir;
@@ -286,12 +286,12 @@ test('TRC-004: the changelog shape is checked, and the row owes only the two sit
   assert.doesNotMatch(row, /no changelog-shape check/, 'TRC-004 no longer claims nothing checks the shape');
 });
 
-test('TRC-005: the roadmap is the blueprints folder, and it is not empty', () => {
+test('TRC-005: the roadmap is the designs folder, and it is not empty', () => {
   const row = rowOf('TRC-005');
   assert.ok(row, 'STD-015 has no TRC-005 row');
-  assert.match(row, /`blueprints\/`/, 'TRC-005 points at the blueprints as the roadmap');
+  assert.match(row, /`designs\/`/, 'TRC-005 points at the designs as the roadmap');
   const dir = scratch();
   try {
-    assert.doesNotMatch(run(dir).out, /TRC-005: /, 'TRC-005 reported while blueprints exist');
+    assert.doesNotMatch(run(dir).out, /TRC-005: /, 'TRC-005 reported while designs exist');
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });

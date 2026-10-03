@@ -4,16 +4,16 @@ uid: ""
 title: "Supporting Numinia — the offer"
 type: documentation
 status: draft
-version: "0.5.2"
+version: "0.5.3"
 created: "2026-09-29T13:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Products and services"
 tags: [operations, offer, support, backer, sponsor, payments]
 license: "CC-BY-4.0"
-related: ["PRI-011", "STD-033", "SYS-008", "PRO-020", "PRO-021", "BLU-018"]
+related: ["PRI-011", "STD-033", "SYS-008", "PRO-020", "PRO-021", "DES-018"]
 
 # The cards on sale. They are sold on numinia.com/back, never on
 # numinia.org: the archive keeps the record, the product site sells

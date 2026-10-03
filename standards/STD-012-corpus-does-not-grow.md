@@ -5,9 +5,9 @@ title: "The corpus does not grow"
 type: standard
 subtype: standard
 status: active
-version: "2.1.4"
+version: "2.1.5"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -114,7 +114,7 @@ outside this archive.
 |---|---|
 | the version history | `git log --since` |
 | a roll-up report | `reports/`, `subtype: rollup`, with a `period` field |
-| a closed record | a mission `done`, or `on-hold` with its reason; a debt resolved; a blueprint built or abandoned |
+| a closed record | a mission `done`, or `on-hold` with its reason; a debt resolved; a design built or abandoned |
 | its list of absorbed names | the `absorbs:` field of the report carrying the line |
 | names it in its header | `superseded_by:` on the withdrawn document (Dublin Core `isReplacedBy`) |
 | says what it replaces | `absorbs:` on the heir (Dublin Core `replaces`) |

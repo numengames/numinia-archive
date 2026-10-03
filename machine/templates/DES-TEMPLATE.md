@@ -1,10 +1,10 @@
 ---
-# Copy this file to blueprints/BLU-NNN-<kebab-slug>.md and fill it in.
-# The filename shape is enforced: BLU-NNN-slug.md, three digits, kebab-case.
-id: "BLU-NNN"
+# Copy this file to designs/DES-NNN-<kebab-slug>.md and fill it in.
+# The filename shape is enforced: DES-NNN-slug.md, three digits, kebab-case.
+id: "DES-NNN"
 uid: ""
 title: "The design — named by what it builds, not by its area"
-type: blueprint
+type: design
 # status: opens at draft — the lifecycle is declared once, in STD-004
 status: draft
 version: "0.1.0"
@@ -13,7 +13,7 @@ updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
 owner: "oracle"
 section: "Knowledge and quality"
-tags: [blueprint]
+tags: [design]
 license: "CC0-1.0"
 # the missions that would execute this design, or that already partly did
 related_missions: []
@@ -26,7 +26,7 @@ related_missions: []
 # related: ["STD-NNN"]
 ---
 
-# BLU-NNN — The design
+# DES-NNN — The design
 
 > **Summary:** One sentence. WHAT this design would build, and the gap it closes.
 > **Epistemic:** Which design exists for this problem, and what it attacks.
@@ -36,7 +36,7 @@ related_missions: []
 <!-- Title: name what gets built. "One template per series, in one folder" —
      not "Template improvements". -->
 
-> **A blueprint is a design not yet executed.** It is not a decision, not a
+> **A design describes what is not yet built.** It is not a decision, not a
 > mission, and not a description of what exists. If it has been built, its
 > description belongs in `system/`; if it must be built, the work belongs in a
 > mission that cites this design.
@@ -48,7 +48,7 @@ related_missions: []
 What exists today, measured. The starting point a reader can verify without
 trusting this document.
 
-Dated, because a blueprint outlives the state it was drawn against, and the
+Dated, because a design outlives the state it was drawn against, and the
 day the current state stops matching this section is the day the design needs
 re-reading.
 
@@ -84,12 +84,12 @@ State the cheaper alternative that was rejected, and why.
 <!--
 NOTES ON USING THIS TEMPLATE — delete this block.
 
-A blueprint is a design, so it never carries acceptance criteria — those live
+A design is not a mission, so it never carries acceptance criteria — those live
 in the mission that executes it. If you find yourself writing checkboxes, the
 document you want is a mission.
 
 `related_missions` is how the design connects to execution. An empty list on a
-blueprint older than a few weeks says either that nobody adopted it or that
+design older than a few weeks says either that nobody adopted it or that
 somebody built it without citing it. Both are worth knowing.
 
 Sections 1-4 are required.

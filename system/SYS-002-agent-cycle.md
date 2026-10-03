@@ -5,11 +5,11 @@ title: "The Agent Cycle — experience and operation"
 type: documentation
 subtype: reference
 status: active
-version: "1.1.4"
+version: "1.1.5"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [system, agents, cycle, experience]
@@ -43,7 +43,7 @@ Representation of the original page's visual stack (top to bottom):
 |-------|-------|------|-----------------------|
 | L6 | L6 · Emergent | 🏛️ ORGANIZATION | Not instantiated — it emerges from the system's continuous operation |
 | L5 | L5 · Authority | 👤 HUMAN | IQ · Position · Role · Intuition · Approval — flow: «instrucción ↓» / «aprobación ↑» (⇅) |
-| L3 | L3 · Transversal — State Bus | 📚 ARCHIVE SUMMA | «↓ BOOT (git pull)» · «↑ COMMIT (git push)» — labels: SOUL.md · OPERATOR.md · Missions · Decisions · Blueprints · Reports · Procedures · Memory |
+| L3 | L3 · Transversal — State Bus | 📚 ARCHIVE SUMMA | «↓ BOOT (git pull)» · «↑ COMMIT (git push)» — labels: SOUL.md · OPERATOR.md · Missions · Decisions · Designs · Reports · Procedures · Memory |
 | L1 | L1 · Runtime | 🤖 DIGITAL AGENT | AI model · Orchestrator · Context · Vector DB |
 | L2 | L2 · Substrate | 🖥️ INFRASTRUCTURE | Server · GPU · Tools · Auth · Observability |
 | L4 | L4 · Media | 🎨 DIGITAL ASSETS (CDN) | jpg · mp4 · glb · vrm · mp3 · R2 / AWS S3 |
@@ -78,7 +78,7 @@ Representation of the original page's visual stack (top to bottom):
 
 *The permanent memory. The nervous system of the NWOS.* (color `#58a6ff`)
 
-**Components:** GitHub (git repo) · .md files with YAML frontmatter · SOUL.md — the agent's identity · OPERATOR.md — operational laws · Missions, decisions, blueprints, reports · Procedures and daily memory
+**Components:** GitHub (git repo) · .md files with YAML frontmatter · SOUL.md — the agent's identity · OPERATOR.md — operational laws · Missions, decisions, designs, reports · Procedures and daily memory
 
 - **🧠 Epistemic value:** The Archive is not a warehouse — it is the source of truth. What is not in the Archive does not exist institutionally. An agent that closes a session without writing loses that knowledge forever. That is why COMMIT is the most critical moment of the cycle.
 - **⚡ Pragmatic value:** Any new agent can read the Archive and operate with full context in minutes. Git is the complete, auditable history of every decision. There is no 'update' meeting — the Archive is the update.

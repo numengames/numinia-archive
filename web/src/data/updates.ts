@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.141.0",
+    date: "2026-10-03",
+    entries: [
+      { type: "CHG", text: "The series Blueprints is now Designs: the word engineering uses for a written account of how something is or will be built that obliges nobody — a design document, as the proposals of Python, Rust and Kubernetes are — where a vendor's blueprint is a template to deploy. Each document took a new identifier (DES-NNN for BLU-NNN) and remembers the old one; the old addresses under /blueprints lead to the new ones under /designs. On the dial, Blueprints is still what Numinia calls them." },
+    ],
+  },
+  {
     version: "v0.140.0",
     date: "2026-10-03",
     entries: [

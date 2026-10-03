@@ -71,7 +71,7 @@ const EXEMPT = new Map([
   ["/system/continuity", "data lives in the template, not the corpus — DBT-021"],
   ["/system/wardley", "renders BLU-001; links its source, toolbar owed — DBT-021"],
   ["/system/gaps", "carries the toolbar already; listed so the count is explicit"],
-  ["/blueprints/meta", "hand-written cartography protocol, in Spanish, with no corpus counterpart — the procedure it describes belongs in procedures/ and until it is moved a .md of it would be a record with no series. DBT-021"],
+  ["/designs/meta", "hand-written cartography protocol, in Spanish, with no corpus counterpart — the procedure it describes belongs in procedures/ and until it is moved a .md of it would be a record with no series. DBT-021"],
 ]);
 
 /** Every index.html under dist, as the address it serves. */

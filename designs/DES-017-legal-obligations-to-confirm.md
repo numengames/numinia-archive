@@ -1,15 +1,17 @@
 ---
-id: "BLU-017"
+id: "DES-017"
 uid: ""
 title: "Legal obligations to confirm"
-type: blueprint
+type: design
+former_id: "BLU-017"
+former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-25T15:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
-tags: [blueprint, legal, consumer-law, tax, DSA, GDPR]
+tags: [design, legal, consumer-law, tax, DSA, GDPR]
 section: "Legal and compliance"
 license: "CC0-1.0"
 related_missions: []
@@ -31,7 +33,7 @@ SPDX-License-Identifier: CC0-1.0
 > rule into the standard it belongs to. This is not legal advice.
 > **Audience:** Agents · Oracles
 
-> **A blueprint is a design not yet executed.** Nothing here binds anyone.
+> **A design describes what is not yet built.** Nothing here binds anyone.
 > When an item is confirmed, it becomes a rule inside the standard it
 > serves, marked as the law, and leaves this page.
 

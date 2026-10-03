@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: procedure
 status: draft
-version: "3.1.3"
+version: "3.1.4"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -30,7 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The order in which design decisions are taken, where the
 > values come from, and the checklist every piece passes before delivery.
-> The recipe for each medium is its blueprint; how the sky, the Veil and
+> The recipe for each medium is its design; how the sky, the Veil and
 > the reading player are built is `PRO-022`.
 > **Epistemic:** In what order does an agent take the design decisions of a piece, and what does it check before delivering?
 > **Pragmatic:** Followed literally by an agent producing a piece.
@@ -85,9 +85,9 @@ must decide how it looks. Runs before the first pixel.
    - [ ] One primary per view; destructive confirmed and apart.
    - [ ] AA contrast; nothing by colour alone; measure ≤90.
    - [ ] One element removed.
-7. **Pass the medium's blueprint Check.** `BLU-009` web and product ·
-   `BLU-010` pixel · `BLU-011` book and Veil · `BLU-012` deck · `BLU-013`
-   document and invoice · `BLU-014` Platform · `BLU-015` event, 3D, email.
+7. **Pass the medium's design Check.** `DES-009` web and product ·
+   `DES-010` pixel · `DES-011` book and Veil · `DES-012` deck · `DES-013`
+   document and invoice · `DES-014` Platform · `DES-015` event, 3D, email.
 
 ## 4. Verification
 

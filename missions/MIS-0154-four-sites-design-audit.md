@@ -12,9 +12,9 @@ assigned_to: null
 completed: null
 
 type: mission
-version: "0.1.2"
+version: "0.1.3"
 created: "2026-09-24T17:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [design-system, audit, web, day-night, four-sites]
@@ -22,7 +22,7 @@ license: "CC0-1.0"
 
 requires_oracle_approval: true
 context: "2026-09-24"
-paths: [standards/STD-008-design-tokens.md, standards/STD-023-design-values.md, blueprints/BLU-009-web-pieces.md, standards/STD-032-the-design-system.md]
+paths: [standards/STD-008-design-tokens.md, standards/STD-023-design-values.md, designs/DES-009-web-pieces.md, standards/STD-032-the-design-system.md]
 ---
 
 <!--
@@ -57,7 +57,7 @@ The four public sites and their repositories:
 
 **The rules** are the sixteen of `standards/STD-008-design-tokens.md`
 (DSN-001 to DSN-016), with their closed lists in `STD-023` and the web recipe
-in `BLU-009`. The whole system, readable at once, is `numinia.org/design`;
+in `DES-009`. The whole system, readable at once, is `numinia.org/design`;
 `numinia.org/design.md` is the same in one file.
 
 **Phase 1 — audit, one report.** For every site and every rule: *holds*,

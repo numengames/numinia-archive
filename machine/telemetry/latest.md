@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-03T19:40:59Z"
+updated: "2026-10-03T19:45:27Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `6932b0d`  · corpus_hash: `e23f34f7bdbd5b56…`  · measured_at: 2026-10-03T19:40:59Z  · root_dirty: 0
+- head: `d723044`  · corpus_hash: `a9f56ade45cdebb9…`  · measured_at: 2026-10-03T19:45:27Z  · root_dirty: 0
 
 ## corpus
 
@@ -71,10 +71,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files | bytes |
 |---|---|---|
-| Text | 341 | 3783492 |
-| Code | 260 | 2346576 |
+| Text | 341 | 3786509 |
+| Code | 260 | 2349467 |
 | Image | 115 | 3409823 |
-| Data | 68 | 275628 |
+| Data | 68 | 276551 |
 | Font | 7 | 684444 |
 | Other | 6 | 4920 |
 | Office | 1 | 43026 |
@@ -86,9 +86,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | (root) | 8 |
 | .github | 3 |
 | agents | 45 |
-| blueprints | 12 |
 | debt | 3 |
 | decisions | 11 |
+| designs | 12 |
 | legal | 4 |
 | lore | 37 |
 | machine | 36 |
@@ -109,7 +109,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | (none) | 61 |
 | adr | 12 |
 | agent | 41 |
-| blueprint | 13 |
+| design | 13 |
 | documentation | 33 |
 | entity | 25 |
 | legal | 5 |
@@ -141,9 +141,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | registered | total | apparatus | archived | pct |
 |---|---|---|---|---|---|
-| blueprints | 12 | 12 | 0 | 0 | 100 |
 | debt | 3 | 3 | 0 | 0 | 100 |
 | decisions | 11 | 11 | 0 | 0 | 100 |
+| designs | 12 | 12 | 0 | 0 | 100 |
 | legal | 4 | 4 | 0 | 0 | 100 |
 | missions | 6 | 6 | 1 | 0 | 100 |
 | operations | 16 | 16 | 0 | 0 | 100 |
@@ -223,7 +223,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 954204 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 955131 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 1.85 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -234,21 +234,21 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 481126 |
-| standards | 102934 |
-| system | 52090 |
-| reports | 36735 |
-| procedures | 36480 |
-| agents | 36282 |
-| operations | 30274 |
-| blueprints | 27818 |
-| machine | 27406 |
+| standards | 103174 |
+| system | 52032 |
+| reports | 36728 |
+| procedures | 36472 |
+| agents | 36280 |
+| operations | 30272 |
+| designs | 28406 |
+| machine | 27397 |
 | opportunities | 25222 |
-| principles | 24103 |
-| missions | 17666 |
-|  | 17168 |
-| decisions | 13335 |
+| principles | 24099 |
+| missions | 17662 |
+|  | 17302 |
+| decisions | 13397 |
 | legal | 13061 |
-| debt | 9709 |
+| debt | 9706 |
 | objects | 1883 |
 | .github | 912 |
 
@@ -256,11 +256,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 505665 |
-| draft | 220295 |
-| active | 209071 |
-| todo | 13540 |
-| in-progress | 4517 |
+| (none) | 505797 |
+| draft | 220495 |
+| active | 209670 |
+| todo | 13537 |
+| in-progress | 4516 |
 | done | 1116 |
 
 ### `tokens.largest`
@@ -307,6 +307,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | registration_reason | 48 |
 | agent | 41 |
 | currency | 41 |
+| former_id | 36 |
+| former_id_note | 36 |
 | contact_channel | 34 |
 | contact_role | 34 |
 | kind | 34 |
@@ -318,8 +320,6 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | value | 34 |
 | applies_to | 29 |
 | approved_by | 24 |
-| former_id | 24 |
-| former_id_note | 24 |
 | visibility | 23 |
 | category | 21 |
 | absorbs | 20 |
@@ -506,18 +506,18 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | 3 |
 |---|---|
 | PRO | 449 |
-| STD | 1101 |
+| STD | 1106 |
 | OPS | 180 |
 | PRI | 382 |
-| ADR | 271 |
+| ADR | 285 |
 | DBT | 68 |
 | OPP | 26 |
 | LEG | 72 |
 | SYS | 100 |
-| BLU | 157 |
 | RPT | 67 |
 | MIS | 399 |
 | DEC | 2 |
+| DES | 144 |
 | PRP | 10 |
 
 ### `contradictions.id_form_mixed`
@@ -532,7 +532,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `figures.live` | 286 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
+| `figures.live` | 287 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
 | `figures.live_by_doc` | (table below) | lines | the fifteen docs with most such lines |
 | `figures.cited` | 0 | citations | citations in the §10.5 form `key = value @ head` across the corpus |
 | `figures.stale_citations` | (table below) | citations | cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true |
@@ -548,14 +548,14 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | operations/OPS-018-the-house-card.md | 12 |
 | lore/game/manual/en/03-character-creation.md | 10 |
 | operations/OPS-007-sales.md | 10 |
-| blueprints/BLU-017-legal-obligations-to-confirm.md | 9 |
-| CHANGELOG.md | 8 |
-| blueprints/BLU-009-web-pieces.md | 8 |
-| blueprints/BLU-018-our-own-gateway.md | 7 |
+| CHANGELOG.md | 9 |
+| designs/DES-017-legal-obligations-to-confirm.md | 9 |
+| designs/DES-009-web-pieces.md | 8 |
+| designs/DES-018-our-own-gateway.md | 7 |
 | missions/MIS-0135-normalisation-residue-register.md | 7 |
 | operations/OPS-001-continuity.md | 7 |
 | reports/RPT-028-2026-w36.md | 7 |
-| blueprints/BLU-011-book-and-veil.md | 6 |
+| designs/DES-011-book-and-veil.md | 6 |
 
 ### `figures.stale_citations`
 

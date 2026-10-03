@@ -1,14 +1,14 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
-// Raw-markdown static endpoint for blueprints/planos (MIS-065).
+// Raw-markdown static endpoint for designs/planos (MIS-065).
 import fs from "node:fs";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const entries = await getCollection("blueprints");
+  const entries = await getCollection("designs");
   return entries.map((entry) => ({
-    params: { id: String(entry.id).replace(/^BLU-\d+-/i, "").toLowerCase() },
+    params: { id: String(entry.id).replace(/^DES-\d+-/i, "").toLowerCase() },
     props: { filePath: entry.filePath as string },
   }));
 }

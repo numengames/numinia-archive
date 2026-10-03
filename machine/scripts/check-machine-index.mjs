@@ -12,7 +12,7 @@
 // ASSEMBLED, from the same identifier shapes each route uses. Route and index
 // derive the address in two different files, so they can drift apart with no
 // error anywhere: the first version of this surface emitted fifteen addresses
-// that were never built (blueprints are served at their slug with the
+// that were never built (designs are served at their slug with the
 // identifier stripped, reports at the entry id, and the index assembled
 // `/<series>/<frontmatter id>` for both). The build was green. The sitemap was
 // right. Only the invented rows were wrong, and nothing was looking at them.

@@ -5,9 +5,9 @@ title: "The Numinia Design System"
 type: documentation
 subtype: reference
 status: active
-version: "1.0.4"
+version: "1.0.5"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -68,7 +68,7 @@ accessibility standard, which every row here serves.
 | Languages | Image | `standards/STD-008-design-tokens.md` | The rules an audit of any piece can fail on |
 | Languages | Image | `standards/STD-023-design-values.md` | Every value: colours, type, space, icons, the brand inventory, the sky |
 | Languages | Word | `standards/STD-030-the-worlds-vocabulary.md` | The names of the world, and what each is called outside the fiction |
-| Languages | Word | `blueprints/BLU-007-dual-nomenclature.md` | How much of the world the words carry: the narrative dial, from plain business to inside the fiction |
+| Languages | Word | `designs/DES-007-dual-nomenclature.md` | How much of the world the words carry: the narrative dial, from plain business to inside the fiction |
 | Languages | Word | `lore/game/manual/glossary-es-en.md` | Read alongside: the English of every Numinia term |
 | Languages | Word | `standards/STD-021-evidence-and-citation.md` | A quote carries its author's name |
 | Languages | Word | — | Not written yet: how we write — register by register, with rules and recipes |
@@ -79,13 +79,13 @@ accessibility standard, which every row here serves.
 | Languages | Play | `lore/codex/hoja-de-personaje.md` | Read alongside: the character sheet |
 | Languages | Play | — | Not written yet: how a mission, a character or a place is designed as ours |
 | Recipes | Any piece | `procedures/PRO-014-producing-a-design-piece.md` | The order in which a piece's decisions are taken |
-| Recipes | Web | `blueprints/BLU-009-web-pieces.md` | A web page, a product screen, every component |
-| Recipes | Pixel | `blueprints/BLU-010-pixel-register.md` | A sprite, a scene, a HUD |
-| Recipes | Book and Veil | `blueprints/BLU-011-book-and-veil.md` | The codex, the archive, the atmosphere |
-| Recipes | Deck | `blueprints/BLU-012-presentation-deck.md` | A presentation |
-| Recipes | Document | `blueprints/BLU-013-document-and-invoice.md` | A document and an invoice |
-| Recipes | Platform | `blueprints/BLU-014-platform.md` | The Platform |
-| Recipes | Event, 3D, email | `blueprints/BLU-015-event-3d-and-email.md` | A physical event, a 3D scene, an email |
+| Recipes | Web | `designs/DES-009-web-pieces.md` | A web page, a product screen, every component |
+| Recipes | Pixel | `designs/DES-010-pixel-register.md` | A sprite, a scene, a HUD |
+| Recipes | Book and Veil | `designs/DES-011-book-and-veil.md` | The codex, the archive, the atmosphere |
+| Recipes | Deck | `designs/DES-012-presentation-deck.md` | A presentation |
+| Recipes | Document | `designs/DES-013-document-and-invoice.md` | A document and an invoice |
+| Recipes | Platform | `designs/DES-014-platform.md` | The Platform |
+| Recipes | Event, 3D, email | `designs/DES-015-event-3d-and-email.md` | A physical event, a 3D scene, an email |
 | Toolkit | Tokens | `machine/packages/design-kit/sistema.tokens.json` | Every value in a machine format (W3C design tokens) |
 | Toolkit | Kit | `machine/packages/design-kit/sistema.css` | The stylesheet, installed, never copied |
 | Toolkit | Kit | `machine/packages/design-kit/sistema.js` | The behaviour the stylesheet needs |

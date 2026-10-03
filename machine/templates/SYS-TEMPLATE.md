@@ -24,7 +24,7 @@ license: "CC0-1.0"
 # former_id_note: "why the identifier changed"
 # extraction_note: "where this text came from, if it was extracted"
 # guild: "Sentinels"
-# related: ["BLU-NNN"]
+# related: ["DES-NNN"]
 ---
 
 # SYS-NNN — The component
@@ -38,7 +38,7 @@ license: "CC0-1.0"
      today" — not "Deployment". -->
 
 > **A system document is a reference manual, not a plan.** It describes what
-> exists. What could exist belongs in `blueprints/`; what must be built
+> exists. What could exist belongs in `designs/`; what must be built
 > belongs in a mission.
 
 ---

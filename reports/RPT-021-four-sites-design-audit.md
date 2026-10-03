@@ -5,9 +5,9 @@ title: "Only numinia.com serves day and night; three sites paint outside the pal
 type: report
 subtype: audit
 status: active
-version: "1.0.1"
+version: "1.0.2"
 created: "2026-09-24T19:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -43,7 +43,7 @@ SPDX-License-Identifier: CC-BY-4.0
 The rules are the sixteen of `standards/STD-008-design-tokens.md` (the
 yes-or-no rules of the design system), read with their closed lists in
 `STD-023` (the values: palette, radii, icons, animations, footer, share card)
-and the switch recipe in `BLU-009` (the web pieces).
+and the switch recipe in `DES-009` (the web pieces).
 
 Two instruments, both re-runnable:
 

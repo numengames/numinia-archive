@@ -4,9 +4,9 @@ uid: ""
 title: "The corpus rolls up weekly"
 type: adr
 status: active
-version: "1.1.2"
+version: "1.1.3"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 license: "CC-BY-4.0"
@@ -46,7 +46,7 @@ SPDX-License-Identifier: CC-BY-4.0
 3. `ADR-030` test 3 accepts a period report that carries the record's line.
 4. `PRI-001` gains one paragraph under *Numinia's Rituals*: the Dark Council
    opens with the roll-up; a contained system forgets on schedule.
-5. `debt/` and `blueprints/` follow the same exit as `missions/`: a line,
+5. `debt/` and `designs/` follow the same exit as `missions/`: a line,
    then deletion. `decisions/` do not roll up; their deflation is rules
    moving into standards.
 

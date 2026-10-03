@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-008"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "3.0.6"
+version: "3.0.7"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -17,7 +17,7 @@ tags: [principle, brand, design, direction, forces, registers]
 license: "CC0-1.0"
 approved_by: "ADR-061"
 supersedes_version: "2.0.0"
-related: ["PRI-002", "STD-008", "STD-023", "PRO-014", "BLU-009", "BLU-010"]
+related: ["PRI-002", "STD-008", "STD-023", "PRO-014", "DES-009", "DES-010"]
 ---
 
 <!--
@@ -200,7 +200,7 @@ the dish.
 Not one value: no hex, no size, no curve, no budget, no class name. Those are
 the design values register and the kit, where a check verifies them and a
 change is traceable. How a piece is produced is a procedure; each surface has
-its own blueprint; the licence is the licensing standard's.
+its own design; the licence is the licensing standard's.
 
 Where this principle and the principle of brand and culture disagree, that one holds:
 this is how the house looks, not what the house is.
