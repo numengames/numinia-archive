@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19046,
+  "chars": 19079,
   "apparatus": false,
   "archived": false,
-  "tokens": 4739
+  "tokens": 4751
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 33192,
+  "chars": 33485,
   "apparatus": false,
   "archived": false,
-  "tokens": 9565
+  "tokens": 9649
  },
  {
   "path": "CLAUDE.md",
@@ -2985,11 +2985,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "standard",
-  "status": "draft",
-  "chars": 8053,
+  "status": "active",
+  "chars": 8138,
   "apparatus": false,
   "archived": false,
-  "tokens": 1961
+  "tokens": 1979
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",

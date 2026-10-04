@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "fa9ec88",
-  "corpus_hash": "7fd178d07a4754405251d2cd5c1668e76717f19675caf44d491b3ca012963102",
+  "head": "2dbad11",
+  "corpus_hash": "b1533f9a99253d59d5fd64e4c993ada94407e58bf76680b4d3153236d0de1141",
   "root_dirty": 0,
-  "measured_at": "2026-10-03T20:27:24Z",
+  "measured_at": "2026-10-04T08:21:13Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 341,
-          "bytes": 3787018
+          "bytes": 3787432
         },
         "Code": {
           "files": 261,
-          "bytes": 2358590
+          "bytes": 2361574
         },
         "Image": {
           "files": 115,
@@ -365,14 +365,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 955300,
+      "value": 955414,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 481126,
-        "standards": 103153,
+        "standards": 103171,
         "system": 52032,
         "reports": 36728,
         "procedures": 36472,
@@ -383,7 +383,7 @@
         "opportunities": 25222,
         "principles": 24099,
         "missions": 17662,
-        "": 17492,
+        "": 17588,
         "decisions": 13397,
         "legal": 13061,
         "debt": 9706,
@@ -395,9 +395,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 505987,
-        "draft": 220495,
-        "active": 209649,
+        "(none)": 506083,
+        "draft": 218534,
+        "active": 211628,
         "todo": 13537,
         "in-progress": 4516,
         "done": 1116
@@ -730,8 +730,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 124,
-        "draft": 147,
+        "active": 125,
+        "draft": 146,
         "done": 1,
         "todo": 6,
         "in-progress": 1
@@ -782,7 +782,7 @@
           "3": 449
         },
         "STD": {
-          "3": 1110
+          "3": 1112
         },
         "OPS": {
           "3": 180
@@ -895,7 +895,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 287,
+      "value": 288,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -906,9 +906,9 @@
         "standards/STD-023-design-values.md": 19,
         "lore/game/manual/es/03-creacion-del-personaje.md": 12,
         "operations/OPS-018-the-house-card.md": 12,
+        "CHANGELOG.md": 10,
         "lore/game/manual/en/03-character-creation.md": 10,
         "operations/OPS-007-sales.md": 10,
-        "CHANGELOG.md": 9,
         "designs/DES-017-legal-obligations-to-confirm.md": 9,
         "designs/DES-009-web-pieces.md": 8,
         "designs/DES-018-our-own-gateway.md": 7,
