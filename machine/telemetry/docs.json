@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 33485,
+  "chars": 33700,
   "apparatus": false,
   "archived": false,
-  "tokens": 9649
+  "tokens": 9728
  },
  {
   "path": "CLAUDE.md",
@@ -797,10 +797,10 @@
   "series": "designs",
   "type": "design",
   "status": "active",
-  "chars": 21722,
+  "chars": 21922,
   "apparatus": false,
   "archived": false,
-  "tokens": 6025
+  "tokens": 6084
  },
  {
   "path": "designs/DES-010-pixel-register.md",
@@ -3294,10 +3294,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 9793,
+  "chars": 9828,
   "apparatus": false,
   "archived": false,
-  "tokens": 2537
+  "tokens": 2546
  },
  {
   "path": "standards/STD-038-the-stages-of-an-opportunity.md",
