@@ -4,9 +4,9 @@ uid: ""
 title: "Publishing a repository"
 type: procedure
 status: draft
-version: "2.1.3"
+version: "2.1.4"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-04T10:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -73,7 +73,7 @@ and the commit it ran at; a hand-typed list is not evidence (`PUB-003`).
 5. **Scan the whole history.** Scan every commit, not `HEAD`, for secrets
    and personal data: a secret removed from the tip is one `git log` away.
    On a find, stop and follow the real-value step of Auditing identity,
-   authorization and secrets (`PRO-011`; `KEY-056` of `STD-022`).
+   authorization and secrets (`PRO-011`; then `PRO-036`).
    *Evidence:* the scan command, the count, zero findings.
 6. **Check the legal debt.** Look in `debt/` for open entries tagged `legal`
    whose exit is a condition (`PUB-005`). *Evidence:* the entries, or none.
@@ -106,6 +106,6 @@ repository: `PRO-005` before step 7.
 |---|---|---|
 | `STD-014` | Publishing gates | `PUB-001..005`: the gates this procedure runs |
 | `STD-010` | Licensing | `LIC-001/005/006/007/011`: what the listings check; the allowlist steps 1 and 2 read |
-| `STD-022` | Secrets | `KEY-056`: a live finding reported out of band |
+| `PRO-036` | Handling a security weakness | a live finding, from the private report to the fix |
 | `PRO-008` | Requesting approval, issuing rulings | the signing request |
 | `PRO-011` | Auditing identity, authorization and secrets | the real-value step when the scan finds a value |

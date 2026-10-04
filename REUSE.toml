@@ -94,6 +94,7 @@ path = [
   "machine/packages/design-kit/sistema.prompt.txt",
   "machine/packages/design-kit/sistema.tokens.json",
   "machine/scripts/blind-spots.json",
+  "machine/scripts/hand-checked-rows.json",
   "machine/scripts/lib/rules.json",
   "machine/scripts/published-urls.json",
   "machine/scripts/retired-plates.json",

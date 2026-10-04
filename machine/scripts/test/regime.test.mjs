@@ -111,6 +111,63 @@ check('tree: when a rule bites is in force — ENG-002, ENG-066 and ENG-067 bind
   return true;
 });
 
+check('tree: secrets is in force — KEY-054, KEY-056 and KEY-057 bind (STD-022 active, 2026-10-04)', () => {
+  for (const plate of ['KEY-054', 'KEY-056', 'KEY-057']) {
+    const b = bindsFor(plate);
+    if (b.holder !== 'STD-022') return `${plate} holder ${b.holder}, want STD-022`;
+    if (!b.binds) return `${plate} does not bind: STD-022 is ${b.status}`;
+  }
+  return true;
+});
+
+/* No rule leaves draft while a row of its Check table is verified by hand
+   (the Oracle, 2026-10-04; PRO-023 step 7). The standards already in force
+   carry such rows from before the ruling: they are listed, as debt, in
+   machine/scripts/hand-checked-rows.json, and that list only shrinks. */
+const HAND = /by hand|by reading|at review|nothing yet|not checked|not wired/i;
+export function handRows(text) {
+  const m = /^## Check\s*$/m.exec(text);
+  if (!m) return [];
+  const out = [];
+  for (const l of text.slice(m.index).split('\n').slice(1)) {
+    if (/^## /.test(l)) break;
+    const c = l.split('|');
+    if (/^\| *[A-Z]{2,4}-\d{3}/.test(l) && c.length >= 6 && HAND.test(c[4])) out.push(c[1].trim());
+  }
+  return out;
+}
+
+check('hand rows: the reader finds a row checked by hand and passes one a machine checks', () => {
+  const t = '## Check\n\n| Rule ID | Rule | Source | Verified by |\n|---|---|---|---|\n| ZZZ-001 | a | — | by hand, at review |\n| ZZZ-002 | b | — | `a-check.mjs` |\n\n## Why\n| ZZZ-003 | c | — | by hand |\n';
+  const got = handRows(t).join(' ');
+  return got === 'ZZZ-001' || `read ${got}`;
+});
+
+check('hand rows: no standard in force gains a row checked by hand, and the debt list only shrinks', () => {
+  const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine', 'scripts', 'hand-checked-rows.json'), 'utf8')).rows;
+  const status = loadHolders().status;
+  const bad = [];
+  const seen = new Set();
+  for (const f of readdirSync(path.join(ROOT, 'standards')).filter((n) => /^STD-\d{3}-.+\.md$/.test(n))) {
+    const id = f.slice(0, 7);
+    if (status.get(id) !== 'active') continue;
+    for (const r of handRows(readFileSync(path.join(ROOT, 'standards', f), 'utf8'))) {
+      seen.add(`${id} ${r}`);
+      if (!(ledger[id] ?? []).includes(r)) bad.push(`${id} ${r} is checked by hand and not in the debt list`);
+    }
+  }
+  for (const [id, rows] of Object.entries(ledger))
+    for (const r of rows) if (!seen.has(`${id} ${r}`)) bad.push(`${id} ${r} is no longer checked by hand (or not in force): delete it from the debt list`);
+  return bad.length === 0 || bad.join('; ');
+});
+
+check('PRO-023: a row checked by hand blocks the activation', () => {
+  const dir = path.join(ROOT, 'procedures');
+  const text = readFileSync(path.join(dir, readdirSync(dir).find((f) => f.startsWith('PRO-023-'))), 'utf8');
+  if (!/hand-checked-rows\.json/.test(text)) return 'PRO-023 does not name the debt list';
+  return /by hand[^.]*(stays|remains) (in )?draft|not (be )?activated/i.test(text) || 'PRO-023 does not say a hand row keeps the rule in draft';
+});
+
 /* ---- against a fixture ---- */
 
 const fixture = {

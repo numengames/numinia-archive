@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.145.0",
+    date: "2026-10-04",
+    entries: [
+      { type: "ADD", text: "A new procedure on the shelf, Handling a security weakness (PRO-036): when a key is exposed or someone reports a flaw, the key is changed before anything about it is written, the finder is answered within seven days, the fix is merged, and only then is it written up." },
+      { type: "CHG", text: "Secrets (STD-022) is in force. Every rule it keeps is checked by a machine: the full-history secret scan, a test that refuses a tracked settings or key file, and a test that the security policy sends finders to GitHub's private reporting form. A rule leaves draft only when no row of its checks is left to a person (PRO-023)." },
+    ],
+  },
+  {
     version: "v0.144.0",
     date: "2026-10-04",
     entries: [

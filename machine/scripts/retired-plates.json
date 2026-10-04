@@ -257,6 +257,10 @@
       "was": "STD-004 The header",
       "now": "DOC-013 of One page per document, how the rules of a document are worded"
     },
+    "KEY-055": {
+      "was": "STD-022 Secrets",
+      "now": "step 2 of PRO-036 Handling a security weakness"
+    },
     "MON-001": {
       "was": "PRO-021 Closing the month",
       "now": "step 2 of Closing the month"

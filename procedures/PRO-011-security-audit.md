@@ -4,11 +4,11 @@ uid: ""
 title: "Auditing identity, authorization and secrets"
 type: procedure
 status: draft
-version: "2.1.3"
+version: "2.1.4"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-04T10:43:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 section: "Technology"
@@ -75,7 +75,7 @@ automated claim. Executor: an agent with read access to the scope.
    stop: the finding exists.
 5. **Stop on a real value.** A secret seen live or of unknown state is
    never copied, not even truncated: reference it by location and report
-   it out of band (`KEY-056`). Treat a repository that has ever been public
+   it out of band (`PRO-036`). Treat a repository that has ever been public
    as compromised: rotate first, history later.
 6. **Tier before filing.** Public (findings, gaps, scores; no identifiers),
    internal (names, dates, addresses; never in a public repository), hot
