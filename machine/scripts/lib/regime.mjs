@@ -60,6 +60,18 @@ export function platesIn(body) {
       for (const m of row[1].matchAll(/\b([A-Z]{2,4}-\d{3})\b/g)) add(m[1]);
     }
   }
+  /* A register keeps its plates in the `Rule ID` column of its own table,
+     not in a Check section (STD-015's practices). Without this the regime
+     could not resolve them, and every finding under them was unheld. */
+  for (let i = 0; i < lines.length; i++) {
+    const head = lines[i].startsWith('|') ? lines[i].split('|').map((c) => c.trim()) : null;
+    const col = head ? head.indexOf('Rule ID') : -1;
+    if (col < 0 || !/^\|[-\s|:]+\|$/.test(lines[i + 1] ?? '')) continue;
+    for (let j = i + 2; j < lines.length && lines[j].startsWith('|'); j++) {
+      const cell = lines[j].split('|')[col]?.trim() ?? '';
+      if (/^[A-Z]{2,4}-\d{3}$/.test(cell)) add(cell);
+    }
+  }
   return out;
 }
 
