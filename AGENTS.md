@@ -37,6 +37,7 @@ rule leaves draft without its steps, and the Oracle sees each activation
 before the branch. And the standards whose header says `active`:
 `STD-001` the series ·
 `STD-004` the header every document opens with ·
+`STD-005` when a rule bites ·
 `STD-007` one page per document ·
 `STD-010` licensing ·
 `STD-012` the corpus does not grow ·
@@ -208,7 +209,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-001` | The series | in force | every tracked document of the archive |
 | `STD-003` | Platform ranks | draft | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | in force | every document's header, and every date the archive writes |
-| `STD-005` | When a rule bites | draft | this repository and every workspace born from it; personal repositories SHOULD follow |
+| `STD-005` | When a rule bites | in force | this repository and every workspace born from it; personal repositories SHOULD follow |
 | `STD-006` | Plain text is sovereign | draft | every document; everything that stores, serves, builds or reads it… |
 | `STD-007` | One page per document | in force | every document on every shelf of the archive |
 | `STD-008` | Design tokens | draft | every public surface of Numen Games and Numinia, and every consumer of the kit |
@@ -246,7 +247,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
 | `STD-047` | The sales collateral | draft | register — scope belongs to the standard that cites it |
 
-82 rule documents, of which 16 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+82 rule documents, of which 17 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

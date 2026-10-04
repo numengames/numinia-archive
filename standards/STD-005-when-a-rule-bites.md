@@ -4,12 +4,12 @@ id: "STD-005"
 uid: ""
 type: standard
 subtype: standard
-status: draft
-version: "4.0.10"
+status: active
+version: "4.1.0"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-10-04T10:18:00+02:00"
+updated: "2026-10-04T10:20:00+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
