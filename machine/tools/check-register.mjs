@@ -64,11 +64,18 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execute, isMain } from '../checks/lib/guard.mjs';
 
-/* The plates this guard speaks for. ENG-067 decides whether a finding fails
-   the build from the state of the standard that holds the plate — this module
-   only reports. REG-001 is the register's own rows; REG-002 is discovery and
-   the pipeline the rows rest on. */
-export const meta = { family: 'REG', plates: ['REG-001', 'REG-002'] };
+/* The plates this guard speaks for, each written in the document that holds
+   it (ENG-066: a check never fails on a rule nobody wrote). ENG-067 decides
+   whether a finding fails the build from that document's state — this module
+   only reports. ENG-002 is the register's own rows (every practice names its
+   check); ENG-031 is discovery (a check runs from the change that merges it);
+   ENG-032 is the pipeline (the list of checks is read, never remembered). A
+   missing file a practice requires is reported under that practice's own
+   plate, so it bites by the register's state, not by STD-005's. */
+export const meta = {
+  family: 'ENG',
+  plates: ['ENG-002', 'ENG-031', 'ENG-032', 'SEC-010', 'TRC-002', 'TRC-005', 'AGT-001', 'OSS-001', 'OSS-002', 'DEV-003'],
+};
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..');
@@ -268,13 +275,15 @@ function checkSelfCount(text, rows, problems) {
 
 /* The guard contract: read, return findings, judge nothing. Every problem
    carries the plate it offends, what is wrong and where — `execute` hands
-   them to the regime, which decides from the state of STD-015 whether they
-   fail the build (ENG-067). */
+   them to the regime, which decides from the state of the document holding
+   each plate whether it fails the build (ENG-067). */
 export function run() {
   const text = readFileSync(path.join(ROOT, REGISTER), 'utf8');
   const rows = parseRegister(text);
   const rowProblems = [];
-  const structural = [];
+  const presence = [];
+  const discovery = [];
+  const pipeline = [];
   remoteRows.length = 0;
 
   for (const row of rows) {
@@ -291,14 +300,16 @@ export function run() {
   }
 
   checkSelfCount(text, rows, rowProblems);
-  checkPresence(rowProblems);
-  checkGuardDiscovery(structural);
-  checkPipelineInvokes(structural);
+  checkPresence(presence);
+  checkGuardDiscovery(discovery);
+  checkPipelineInvokes(pipeline);
 
   lastRows = rows;
   return [
-    ...rowProblems.map((p) => ({ plate: 'REG-001', what: p, where: REGISTER })),
-    ...structural.map((p) => ({ plate: 'REG-002', what: p, where: REGISTER })),
+    ...rowProblems.map((p) => ({ plate: 'ENG-002', what: p, where: REGISTER })),
+    ...presence.map((p) => ({ plate: p.slice(0, p.indexOf(':')), what: p, where: REGISTER })),
+    ...discovery.map((p) => ({ plate: 'ENG-031', what: p, where: REGISTER })),
+    ...pipeline.map((p) => ({ plate: 'ENG-032', what: p, where: REGISTER })),
   ];
 }
 
