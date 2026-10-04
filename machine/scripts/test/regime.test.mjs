@@ -102,6 +102,15 @@ check('tree: the design values and both vocabularies are in force — STD-023, S
   return off.length === 0 || `not active: ${off.map((id) => `${id} (${status.get(id)})`).join(', ')}`;
 });
 
+check('tree: when a rule bites is in force — ENG-002, ENG-066 and ENG-067 bind (STD-005 active, 2026-10-04)', () => {
+  for (const plate of ['ENG-002', 'ENG-066', 'ENG-067']) {
+    const b = bindsFor(plate);
+    if (b.holder !== 'STD-005') return `${plate} holder ${b.holder}, want STD-005`;
+    if (!b.binds) return `${plate} does not bind: STD-005 is ${b.status}`;
+  }
+  return true;
+});
+
 /* ---- against a fixture ---- */
 
 const fixture = {
