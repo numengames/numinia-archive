@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19079,
+  "chars": 19221,
   "apparatus": false,
   "archived": false,
-  "tokens": 4751
+  "tokens": 4789
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 33700,
+  "chars": 33997,
   "apparatus": false,
   "archived": false,
-  "tokens": 9728
+  "tokens": 9819
  },
  {
   "path": "CLAUDE.md",
@@ -104,10 +104,10 @@
   "series": null,
   "type": "documentation",
   "status": "active",
-  "chars": 1225,
+  "chars": 1329,
   "apparatus": false,
   "archived": false,
-  "tokens": 341
+  "tokens": 367
  },
  {
   "path": "TRADEMARKS.md",
@@ -2590,10 +2590,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4836,
+  "chars": 4853,
   "apparatus": false,
   "archived": false,
-  "tokens": 1289
+  "tokens": 1286
  },
  {
   "path": "procedures/PRO-019-holding-a-ritual.md",
@@ -2645,10 +2645,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "active",
-  "chars": 4774,
+  "chars": 5327,
   "apparatus": false,
   "archived": false,
-  "tokens": 1279
+  "tokens": 1416
  },
  {
   "path": "procedures/PRO-024-leaving.md",
@@ -2766,10 +2766,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5814,
+  "chars": 5825,
   "apparatus": false,
   "archived": false,
-  "tokens": 1562
+  "tokens": 1561
  },
  {
   "path": "procedures/PRO-035-watching-for-opportunities.md",
@@ -2781,6 +2781,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1515
+ },
+ {
+  "path": "procedures/PRO-036-handling-a-security-weakness.md",
+  "dir": "procedures",
+  "series": "procedures",
+  "type": "procedure",
+  "status": "draft",
+  "chars": 4341,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1107
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -3139,11 +3150,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "standard",
-  "status": "draft",
-  "chars": 4603,
+  "status": "active",
+  "chars": 4262,
   "apparatus": false,
   "archived": false,
-  "tokens": 1111
+  "tokens": 1049
  },
  {
   "path": "standards/STD-023-design-values.md",
