@@ -111,6 +111,15 @@ check('tree: when a rule bites is in force — ENG-002, ENG-066 and ENG-067 bind
   return true;
 });
 
+check('tree: secrets is in force — KEY-054, KEY-056 and KEY-057 bind (STD-022 active, 2026-10-04)', () => {
+  for (const plate of ['KEY-054', 'KEY-056', 'KEY-057']) {
+    const b = bindsFor(plate);
+    if (b.holder !== 'STD-022') return `${plate} holder ${b.holder}, want STD-022`;
+    if (!b.binds) return `${plate} does not bind: STD-022 is ${b.status}`;
+  }
+  return true;
+});
+
 /* No rule leaves draft while a row of its Check table is verified by hand
    (the Oracle, 2026-10-04; PRO-023 step 7). The standards already in force
    carry such rows from before the ruling: they are listed, as debt, in
