@@ -19,6 +19,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-04
 - **Changed** `STD-005` *When a rule bites* is in force (4.1.0): every check now finds the rule it reports under in a document — the register check speaks under ENG-002/031/032 and each practice's own plate, and the regime reads a register's Rule ID column; ENG-066 is a test.
+- **Changed** The narrative moon turns by taps, L1 → L2 → L3 → L1, with no dial; a switch's icon shows the state you are in, so night shows the moon and day the sun (`DES-009` 1.3.0, `STD-037` 0.6.0; site v0.144.0)
 
 ### 2026-10-03
 - **Changed** numinia.org opens on the archive by the ten sections of `STD-030`: `/` lists every record under its section, by series; the map is `/map`; `/about` redirects to `/`; the bar reads Archive · Map; `check-reachable` walks from `/` and `/map` (site v0.143.0)

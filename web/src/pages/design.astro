@@ -409,17 +409,17 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
                   <div class="ds-modes" data-modo-demo="nocturno">
                     <div class="ds-mode-bar">
                       <span class="ds-mode-name">numinia</span>
-                      <button type="button" class="ds-mode-btn" aria-label="Switch to day mode">
-                        <span class="ds-to-day"><Icon name="sun" size={20} /></span>
-                        <span class="ds-to-night"><Icon name="moon-stars" size={20} /></span>
+                      <button type="button" class="ds-mode-btn" aria-label="Night mode. Tap for day.">
+                        <span class="ds-is-day"><Icon name="sun" size={20} /></span>
+                        <span class="ds-is-night"><Icon name="moon-stars" size={20} /></span>
                       </button>
                     </div>
                     <p class="ds-mode-h">Leave things better than you found them.</p>
-                    <p class="ds-mode-b">A page in the mode you chose. The button shows where a tap takes you.</p>
+                    <p class="ds-mode-b">A page in the mode you chose. The button shows the mode you are in.</p>
                     <span class="ds-mode-link">Read the recipe →</span>
                   </div>
                   <ul class="space-y-2 text-xs leading-relaxed text-muted-foreground">
-                    <li><span class="text-foreground">The icon shows where you go, not where you are:</span> the sun takes you to the day, the moon with stars to the night. Try it.</li>
+                    <li><span class="text-foreground">The icon shows where you are:</span> the moon with stars at night, the sun by day. Try it.</li>
                     <li><span class="text-foreground">Until you choose, the page follows your device</span> — it turns to night when your phone does.</li>
                     <li><span class="text-foreground">Once you choose, it remembers</span>, and paints the right mode from the first instant, with no flash.</li>
                     <li><span class="text-foreground">Pixel scenes and the Veil keep their night</span> inside a day page, framed.</li>
@@ -537,9 +537,9 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
   .ds-mode-name { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; }
   .ds-mode-btn { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 6px; color: var(--m-ink); }
   .ds-mode-btn:focus-visible { outline: 2px solid #018EA1; outline-offset: 2px; }
-  .ds-to-night { display: none; }
-  .ds-modes[data-modo-demo="diurno"] .ds-to-day { display: none; }
-  .ds-modes[data-modo-demo="diurno"] .ds-to-night { display: inline-flex; }
+  .ds-is-day { display: none; }
+  .ds-modes[data-modo-demo="diurno"] .ds-is-night { display: none; }
+  .ds-modes[data-modo-demo="diurno"] .ds-is-day { display: inline-flex; }
   .ds-mode-h { padding: 16px 16px 0; font-size: 1.05rem; }
   .ds-mode-b { padding: 6px 16px 0; font-size: .75rem; color: var(--m-ink2); }
   .ds-mode-link { display: inline-block; padding: 10px 16px 0; font-size: .75rem; color: var(--m-link); }
@@ -553,7 +553,7 @@ const px = (s: string) => (s.endsWith("rem") ? parseFloat(s) * 16 : parseFloat(s
     btn.addEventListener("click", () => {
       const day = box.dataset.modoDemo !== "diurno";
       box.dataset.modoDemo = day ? "diurno" : "nocturno";
-      btn.setAttribute("aria-label", day ? "Switch to night mode" : "Switch to day mode");
+      btn.setAttribute("aria-label", day ? "Day mode. Tap for night." : "Night mode. Tap for day.");
     });
   });
 </script>

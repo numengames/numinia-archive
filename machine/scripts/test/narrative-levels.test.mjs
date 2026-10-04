@@ -102,5 +102,6 @@ test('the dial names its levels L1, L2, L3', () => {
   assert.deepEqual(STOPS.map((s) => s.level), ['L1', 'L2', 'L3']);
   const dial = read('web/src/components/NarrativeDial.astro');
   assert.match(dial, /Narrative level/);
-  assert.match(dial, /\{s\.level\}/, 'the stops do not print their level');
+  assert.match(dial, /Narrative level \$\{s\.level\}/, 'the moon does not name its level');
+  assert.match(dial, /% STOPS\.length/, 'a tap does not turn the moon to the next level, back to L1 after L3');
 });

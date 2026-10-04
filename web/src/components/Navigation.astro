@@ -60,11 +60,11 @@ import wordmark from "@/brand/Numinia_Word.svg?raw";
     <!-- The sales bell: every open opportunity's next step, ringing from noon of its day. -->
     <SalesBell />
 
-    <!-- The narrative dial: how the archive speaks to you (new, half, full moon). -->
+    <!-- The narrative dial: how the archive speaks to you; each tap the next moon (new, half, full). -->
     <NarrativeDial />
 
-    <!-- The mode switch (STD-037 SIT-003), numinia.com's copied: the icon shows where
-         a tap leads — moon with stars to the night, sun to the day. -->
+    <!-- The mode switch (STD-037 SIT-003), numinia.com's copied: the icon shows the
+         mode you are in — moon with stars at night, sun by day (DES-009). -->
     <button
       type="button"
       data-mode-switch
@@ -72,8 +72,8 @@ import wordmark from "@/brand/Numinia_Word.svg?raw";
       aria-label="Colour mode: day or night"
       title="Colour mode: day or night"
     >
-      <span class="solo-diurno"><Icon name="moon-stars" size={18} /></span>
-      <span class="solo-nocturno"><Icon name="sun" size={18} /></span>
+      <span class="solo-nocturno"><Icon name="moon-stars" size={18} /></span>
+      <span class="solo-diurno"><Icon name="sun" size={18} /></span>
     </button>
 
     <!-- Mobile: the button that opens the full-screen panel -->
