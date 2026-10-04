@@ -4,9 +4,9 @@ uid: ""
 title: "Auditing a site's code"
 type: procedure
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-10-02T12:20:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-04T10:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -95,7 +95,7 @@ with read access to the repository and a browser.
 11. **Read the Scorecard grade** against seven out of ten (`SEC-013`), and
     each check below its target.
 12. **Stop on a live exploit.** Record where it is, never a working
-    payload, and report it out of band (`KEY-056`).
+    payload, and report it out of band (`PRO-036`).
 13. **Report** (`RPT-TEMPLATE`, `subtype: audit`), tiered as in `PRO-011`.
     One row per finding: what, where, the request or command, the date,
     the severity. Coverage is the share of step 1's routes probed.
@@ -133,6 +133,6 @@ organisation's code receives an offer, never a fix.
 |---|---|---|
 | `PRO-011` | Auditing identity, authorization and secrets | tiers, scoring, stop on a real value |
 | `STD-015` | Engineering checks | `SEC-003`, `SEC-008`, `SEC-013`, `SEC-015` |
-| `STD-022` | Secrets | `KEY-056`: live findings out of band |
+| `PRO-036` | Handling a security weakness | live findings, out of band |
 | `PRO-027` | Changing what a site stores or loads | cookie differences are fixed there |
 | `PRO-008` | Requesting approval, issuing rulings | the fix list is an approval request |

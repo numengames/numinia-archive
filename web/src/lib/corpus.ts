@@ -609,6 +609,9 @@ const READING_ORDER: Record<string, string[]> = {
     // 2026-10-02: the second audit reads the site's own code — routes,
     // headers, cookies, workflows, dependencies.
     "/procedures/pro-034-auditing-a-sites-code",
+    // 2026-10-04: what follows a finding — the key changed before anything
+    // is written, the finder answered, the fix merged, then the write-up.
+    "/procedures/pro-036-handling-a-security-weakness",
     "/procedures/pro-013-handing-a-guard-to-ci",
     "/procedures/pro-018-publishing-a-repository",
     // 2026-09-27: a draft becomes binding — after publishing, before the

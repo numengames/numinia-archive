@@ -1,0 +1,74 @@
+{
+  "$comment": "Checked by hand in a rule already in force: the debt left when these standards were activated, before the Oracle ruled (2026-10-04) that no rule leaves draft while a row of its Check table is verified by hand (PRO-023, step 7). regime.test.mjs fails if a standard in force gains a hand-checked row not listed here, and if a row listed here is no longer checked by hand (delete it: the list only shrinks).",
+  "rows": {
+    "STD-004": [
+      "HDR-042",
+      "HDR-032",
+      "HDR-005",
+      "HDR-016",
+      "HDR-002",
+      "HDR-045",
+      "HDR-010, 011, 015"
+    ],
+    "STD-007": [
+      "DOC-012",
+      "DOC-013",
+      "DOC-011"
+    ],
+    "STD-010": [
+      "LIC-001",
+      "LIC-002",
+      "LIC-003",
+      "LIC-004",
+      "LIC-010",
+      "LIC-006",
+      "LIC-009",
+      "LIC-011",
+      "LIC-012",
+      "LIC-013"
+    ],
+    "STD-012": [
+      "DEF-001",
+      "DEF-002",
+      "DEF-003",
+      "DEF-006",
+      "DEF-007",
+      "DEF-009"
+    ],
+    "STD-018": [
+      "IDN-015",
+      "IDN-016",
+      "IDN-017"
+    ],
+    "STD-019": [
+      "VER-023",
+      "VER-022"
+    ],
+    "STD-020": [
+      "GIT-025",
+      "GIT-026",
+      "GIT-050",
+      "GIT-027",
+      "GIT-029"
+    ],
+    "STD-021": [
+      "CIT-051",
+      "CIT-052",
+      "EVI-057",
+      "CIT-055"
+    ],
+    "STD-024": [
+      "SER-001",
+      "SER-002",
+      "SER-008"
+    ],
+    "STD-027": [
+      "CLS-002",
+      "CLS-003",
+      "CLS-004"
+    ],
+    "STD-028": [
+      "URL-006"
+    ]
+  }
+}

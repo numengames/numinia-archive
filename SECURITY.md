@@ -3,9 +3,9 @@ id: "SECURITY"
 title: "Security Policy"
 type: documentation
 status: active
-version: "1.0.0"
+version: "1.1.0"
 created: "2026-08-17T00:00:00Z"
-updated: "2026-08-17T00:00:00Z"
+updated: "2026-10-04T08:43:00Z"
 author: "claude-fable-5"
 owner: "oracle"
 tags: [security, disclosure, policy]
@@ -25,6 +25,8 @@ SPDX-License-Identifier: CC-BY-4.0
 If you find a security issue in this repository or in the site it
 deploys (`numinia.org`), please report it privately:
 
+- **GitHub private reporting:**
+  https://github.com/numengames/numinia-archive/security/advisories/new
 - **Email:** legal@numengames.com (subject line starting with
   `[SECURITY]`)
 - Please do **not** open a public issue for security reports.
