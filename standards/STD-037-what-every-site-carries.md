@@ -5,9 +5,9 @@ title: "What every site carries"
 type: standard
 subtype: standard
 status: draft
-version: "0.5.4"
+version: "0.6.0"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-04T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -57,7 +57,7 @@ title tells a listener where they are.
 
 **Day and night on every site.** Every public site of Numen Games MUST
 serve both modes and carry the mode switch the web recipe describes: the
-moon with stars leads to night, the sun to day. The site follows the
+moon with stars shows the night, the sun the day: the icon is the mode you are in. The site follows the
 visitor's system setting through the web's colour scheme query until they
 choose. It remembers the choice under the name the cookie policy gives it,
 and applies it before painting. The switch behaves as a button in the

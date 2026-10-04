@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.144.0",
+    date: "2026-10-04",
+    entries: [
+      { type: "CHG", text: "The narrative moon in the bar turns with each tap: L1, plain words; L2, both; L3, Numinia's words; and back to L1. No dial opens. The moon shows the level you are in, and its tooltip names it." },
+      { type: "CHG", text: "The day and night switch shows the mode you are in: the moon with stars at night, the sun by day. It showed the other way round until now." },
+    ],
+  },
+  {
     version: "v0.143.0",
     date: "2026-10-03",
     entries: [
