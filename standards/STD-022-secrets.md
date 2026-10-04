@@ -4,10 +4,10 @@ uid: ""
 title: "Secrets"
 type: standard
 subtype: standard
-status: draft
-version: "2.0.0"
+status: active
+version: "2.1.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-04T10:43:00+02:00"
+updated: "2026-10-04T10:44:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
