@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.146.0",
+    date: "2026-10-04",
+    entries: [
+      { type: "DEL", text: "The lore holds the game only. Three texts about how the company works (the role structure, the agent attributes and an old 'Welcome to Numinia') were older copies of what the principles say better; they leave, and their addresses lead to those principles. The lore index loses its World shelf." },
+      { type: "ADD", text: "A new debt, DBT-023: the books, papers, talks and authors those texts named, kept until each one finds its place as a reference." },
+    ],
+  },
+  {
     version: "v0.145.0",
     date: "2026-10-04",
     entries: [
