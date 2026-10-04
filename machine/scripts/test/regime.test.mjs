@@ -39,20 +39,40 @@ check('axis: every prefix has exactly one holder', () => {
   return bad.length === 0 || bad.join('; ');
 });
 
-check('guards: every plate emitted by a regime guard has a holder', () => {
-  /* Only guards that import regime.mjs are held to this; the others migrate
-     in their own change and are listed here as they do. Build guards never do. */
-  const dir = path.join(ROOT, 'machine', 'scripts');
+/* ENG-066: a check that fails on unstated behaviour is the defect. Every
+   plate a rule check can emit must be written in a principle, standard or
+   procedure. The checks are read from the registry (ENG-032), wherever their
+   script sits: this test once walked machine/scripts/ only, and the checks
+   that moved to machine/checks/rules/ and machine/tools/ went unread. */
+const RULE_CHECKS = Object.entries(JSON.parse(readFileSync(path.join(ROOT, 'machine', 'scripts', 'blind-spots.json'), 'utf8')).checks)
+  .filter(([, g]) => !g.build_check && !g.manual)
+  .map(([name, g]) => ({ name, script: g.script }));
+
+/* A plate is what reaches a finding — as a literal in out.add(...) or
+   `plate: '…'`, through a PLATE/RULES table, or declared in `meta.plates`.
+   Any other quoted identifier is data, not a rule. */
+export function emittedPlates(src) {
+  const P = '([A-Z]{2,4}-\\d{3})';
+  const literal = [...src.matchAll(new RegExp(`(?:out\\.add\\(|plate:)\\s*'${P}'`, 'g'))].map((m) => m[1]);
+  const tables = [...src.matchAll(/const (?:PLATE|RULES) = (\{[^}]*\}|\[[^\]]*\])/g)].flatMap((m) => [...m[1].matchAll(/:\s*'([A-Z]{2,4}-\d{3})'|'([A-Z]{2,4}-\d{3})'(?=\s*[,\]])/g)].map((x) => x[1] ?? x[2]));
+  const declared = [...src.matchAll(/plates:\s*\[([^\]]*)\]/g)].flatMap((m) => [...m[1].matchAll(new RegExp(`'${P}'`, 'g'))].map((x) => x[1]));
+  return [...new Set([...literal, ...tables, ...declared])];
+}
+
+check('ENG-066: the plate reader sees literals, tables and meta.plates', () => {
+  const src = "export const meta = { family: 'ZZA', plates: ['ZZA-001'] };\nconst PLATE = { 'T-01': 'ZZB-002' };\nout.add('ZZC-003', 'x', 'y');\nreturn [{ plate: 'ZZD-004', what }];\nconst data = 'ZZE-005';";
+  const got = emittedPlates(src).sort().join(' ');
+  return got === 'ZZA-001 ZZB-002 ZZC-003 ZZD-004' || `read ${got}`;
+});
+
+check('ENG-066: every registered rule check emits only plates a document holds', () => {
   const unheld = [];
-  for (const f of readdirSync(dir).filter((n) => n.endsWith('.mjs'))) {
-    const src = readFileSync(path.join(dir, f), 'utf8');
-    if (!src.includes("lib/regime.mjs")) continue;
-    /* A plate is what reaches out.add() — as a literal, or through a
-       PLATE/RULES table. Any other quoted identifier is data, not a rule. */
-    const literal = [...src.matchAll(/out\.add\(\s*'([A-Z]{2,4}-\d{3})'/g)].map((m) => m[1]);
-    const tables = [...src.matchAll(/const (?:PLATE|RULES) = (\{[^}]*\}|\[[^\]]*\])/g)].flatMap((m) => [...m[1].matchAll(/:\s*'([A-Z]{2,4}-\d{3})'|'([A-Z]{2,4}-\d{3})'(?=\s*[,\]])/g)].map((x) => x[1] ?? x[2]));
-    for (const p of new Set([...literal, ...tables]))
-      if (!holderOf(p)) unheld.push(`${f}: ${p}`);
+  for (const { name, script } of RULE_CHECKS) {
+    const abs = path.join(ROOT, script);
+    if (!existsSync(abs)) { unheld.push(`${name}: no script at ${script}`); continue; }
+    const plates = emittedPlates(readFileSync(abs, 'utf8'));
+    if (!plates.length) continue;
+    for (const p of plates) if (!holderOf(p)) unheld.push(`${name}: ${p}`);
   }
   return unheld.length === 0 || unheld.join('; ');
 });
