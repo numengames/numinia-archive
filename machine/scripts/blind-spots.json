@@ -641,6 +641,27 @@
           "debt": "D-049"
         }
       ]
+    },
+    "generate-design-kit": {
+      "script": "machine/tools/generate-design-kit.mjs",
+      "build_check": "verifies a generated artefact against its source, not a rule in prose — a published kit that differs from the package misleads every site that loads it, whatever any standard says (ENG-067 exception)",
+      "needs": "machine/packages/design-kit/package.json",
+      "run": [
+        "--check"
+      ],
+      "sees": "the published design kit in web/public/design/kit: each file and the manifest, byte for byte, against what the package machine/packages/design-kit generates",
+      "blind_to": [
+        {
+          "spot": "whether the package itself still says what the design values standard says — it compares the published copy with the package, not the package with the standard",
+          "covered_by": "machine/scripts/test/design-leads.test.mjs and the design-system tests read the standard's tables",
+          "debt": null
+        },
+        {
+          "spot": "the copies the other three sites serve: it reads this repository only",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
     }
   }
 }

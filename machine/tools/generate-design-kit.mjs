@@ -28,12 +28,16 @@ import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { declareBlindSpots } from "../scripts/lib/blindness.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const pkgDir = path.join(root, "packages", "design-kit");
 // root is machine/; the site lives beside it, at the repository root.
 const kitDir = path.join(root, "..", "web", "public", "design", "kit");
 const check = process.argv.includes("--check");
+// Run with --check by the build checks (GIT-027): a hand edit or a
+// hand-resolved conflict in the published kit fails the build.
+if (check) declareBlindSpots("generate-design-kit");
 
 const pkgPath = path.join(pkgDir, "package.json");
 if (!fs.existsSync(pkgPath))
