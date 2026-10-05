@@ -72,7 +72,11 @@ export const DEFAULT_STOP = "plain";
  */
 export const WORDS = [
   // ── the four rings: their classical names, already printed under each ring
-  { bridge: "The rules", plain: { text: "Governance", source: "web/src/lib/summa.ts" } },
+  {
+    bridge: "The rules",
+    plain: { text: "Governance", source: "web/src/lib/summa.ts" },
+    numinia: { text: "Tabularium", source: "standards/STD-030-the-worlds-vocabulary.md" },
+  },
   {
     bridge: "The work",
     plain: { text: "Operations", source: "web/src/lib/summa.ts" },
@@ -83,7 +87,11 @@ export const WORDS = [
     plain: { text: "Product and brand", source: "web/src/lib/summa.ts" },
     numinia: { text: "The City", source: "designs/DES-007-dual-nomenclature.md" },
   },
-  { bridge: "The offer", plain: { text: "Offer and relations", source: "web/src/lib/summa.ts" } },
+  {
+    bridge: "The offer",
+    plain: { text: "Offer and relations", source: "web/src/lib/summa.ts" },
+    numinia: { text: "Emporium", source: "standards/STD-030-the-worlds-vocabulary.md" },
+  },
 
   // ── the districts, by the names the lore gives them
   { bridge: "Play", numinia: { text: "Ouroboros", source: "lore/codex/en/glossary.md" } },
@@ -164,13 +172,12 @@ export const TEXTS = {
   "home.rings": {
     uses: ["The rules", "The work", "The world", "The offer"],
     plain: "From the centre out: governance, operations, product and brand, offer and relations.",
-    numinia: "From the centre out: the rules, the guilds, the City, the offer.",
+    numinia: "From the centre out: the Tabularium, the guilds, the City, the Emporium.",
   },
 };
 
 /** Stops the archive has no word for yet, per label: the conversation owed. */
 export const GAPS = [
-  "The rules and The offer at the Numinia stop: no good candidate yet",
   // The front door (2026-10-03). The ten section names keep their business
   // name at every stop by the Oracle's decision; at the full moon the houses
   // that serve each one are named beneath it instead (translator.servedBy).

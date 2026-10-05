@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-10-05T14:30:00+02:00"
+updated: "2026-10-05T16:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -117,7 +117,15 @@ SPDX-License-Identifier: CC0-1.0
 | **Mission** | Project / Task | A structured unit of work with defined objectives. The basis of production. |
 | **Adventure** | Experience / Event | An experience designed for interaction, fostering cohesion and learning. |
 | **Seed of Knowledge** | Learning recognition | It marks acquired knowledge and cultural alignment. |
-| **Prism Cell** | Contribution recognition | It reflects practical contribution through execution. |
+| **Prism Cell** | Contribution credit | It reflects practical contribution through execution. |
+
+The two places that name the centre ring and the outer ring of the site's
+map at the full moon, as the lore reviewer named them on 2026-10-05:
+
+| In-world | Operational equivalent | What it does |
+|---|---|---|
+| **Tabularium** | The rules: principles, standards, procedures and decisions | The section of the Summa Archive that keeps the official records; in Rome, the archive of public records. |
+| **Emporium** | The offer: what can be played, hired or owned | The enclave where people met to trade, contract and offer. |
 
 ## Sections of the front door
 
@@ -161,8 +169,11 @@ keeps its own.
 
 Each house of the guilds above, by the disciplines it stands for. The words
 come from the house's operational equivalent and from what the game manual
-says the house does. *Stated* means a source says it; *proposed* means it is
-a reading still to be confirmed by the lore reviewer. A dash means no house
+says the house does. *Stated* means a source says it, or the lore reviewer
+confirmed it (his answers of 2026-10-05 confirmed every reading that was
+still proposed and placed the two disciplines no house carried, sharing out
+existing houses rather than founding new ones); *proposed* means it is a
+reading still to be confirmed by the lore reviewer. A dash means no house
 carries the discipline yet: a gap in the city, not in the company.
 
 | Discipline | Section | Guild | Branch | House | Basis | Note |
@@ -174,23 +185,25 @@ carries the discipline yet: a gap in the city, not in the company.
 | Memory and history: records, documentation, copywriting | Knowledge and quality | Exegetes | Chroniclers | Logographers | stated | |
 | News, chronicle and communication of the present | Brand and marketing | Exegetes | Chroniclers | Bards | stated | social media is one of its channels |
 | Expert knowledge by field, and passing it on | Knowledge and quality | Exegetes | Scholars | Hierophants | stated | training is also sold, under products and services |
-| Culture, new ideas and strategy | Strategy and governance | Exegetes | Scholars | Thaumaturges | stated | |
+| Culture, new ideas and strategy | Strategy and governance | Exegetes | Scholars | Thaumaturges | stated | the brand's concept, owned by the Exegetes; the Aesthetes give it form |
+| Communication, content and campaigns | Brand and marketing | Exegetes | Chroniclers | Bards | stated | |
 | Law and compliance | Legal and compliance | Procurators | Legates | Legal Rabbits | stated | |
 | Institutional relations and alliances | Sales and partners | Procurators | Legates | Heralds | stated | |
 | The economy: finance | Finance | Procurators | Trustees | Mercurials | stated | |
-| The economy: sales and revenue | Sales and partners | Procurators | Trustees | Mercurials | proposed | one house holds two disciplines a company keeps apart |
-| Pay and rewards | People and culture | Procurators | Trustees | Mercurials | proposed | the city's treasurers keep its economic interests |
+| The economy: sales and revenue | Sales and partners | Procurators | Trustees | Mercurials | stated | one house keeps both, by the reviewer's ruling |
+| Acquisition and commercial partnerships | Sales and partners | Procurators | Trustees | Mercurials | stated | |
+| Pay and rewards | People and culture | Procurators | Trustees | Mercurials | stated | Healers weigh in on benefits and well-being, not pay |
 | Operations and project management | Operations | Procurators | Trustees | Stewards | stated | |
-| Purchasing and suppliers | Operations | Procurators | Trustees | Stewards | proposed | the Stewards run the city's internal organisation |
-| Supervising and managing the structure | Strategy and governance | Sentinels | Seraphs | Captains | stated | in the house the Oracles have the last word; in the city direction is collegiate |
+| Purchasing and suppliers | Operations | Procurators | Trustees | Stewards | stated | Mercurials may weigh in on price and budget |
+| Supervising and managing the structure | Strategy and governance | Sentinels | Seraphs | Captains | stated | in the house the Oracles have the last word; in the city direction is collegiate; direction is not a house: it is a governance function held by ranks and positions |
 | Rules kept and conflicts handled | People and culture | Sentinels | Seraphs | Guardians | stated | |
-| Quality control and audit | Knowledge and quality | Sentinels | Seraphs | Guardians | proposed | they ensure the rules are kept |
-| Security and access | Technology | Sentinels | Seraphs | Guardians | proposed | the whole guild is the city's protection |
+| Quality control and audit | Knowledge and quality | Sentinels | Seraphs | Guardians | stated | |
+| Security governance: access, permissions, secrets | Technology | Sentinels | Seraphs | Guardians | stated | |
+| Security engineering: authentication, encryption, infrastructure | Technology | Alchemists | Engineers | Architects | stated | |
+| Data and analytics | Technology | Alchemists | Engineers | Architects | stated | data engineering and architecture; analysing a field's data falls to that field's house |
 | Well-being and care of people | People and culture | Sentinels | Archangels | Healers | stated | |
 | Welcome, guidance and community | People and culture | Sentinels | Archangels | Explorers | stated | |
-| Customer help | Sales and partners | Sentinels | Archangels | Explorers | proposed | the Archangels offer help; whoever enters is guided |
-| Marketing campaigns and acquisition | Brand and marketing | — | — | — | — | no house carries it |
-| Data and analytics | Technology | — | — | — | — | no house carries it |
+| Customer help | Sales and partners | Sentinels | Archangels | Explorers | stated | support, onboarding, customer success |
 
 ## Business lines
 

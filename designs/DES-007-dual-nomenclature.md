@@ -6,11 +6,11 @@ type: design
 former_id: "BLU-007"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.0.6"
+version: "1.2.0"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-10-05T08:50:00+02:00"
+updated: "2026-10-05T17:40:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [design, nomenclature, narrative-dial, gamification-dial, i18n]
@@ -40,14 +40,14 @@ The Narrative Work OS speaks any language. Organizations choose how much narrati
 
 ## The two dials
 
-### 🎭 Narrative Dial (1 → 10)
+### 🎭 Narrative Dial (three levels)
 
-Controls vocabulary and semantic identity. At 1, it's a business tool. At 10, you're inside a living world.
+Controls vocabulary and semantic identity. At 1, it's a business tool. At 3, you're inside a living world. The three levels are the moon's three stops on the sites: new moon, half moon, full moon.
 
 | Extreme | Label |
 |---------|-------|
 | 1 — Business | "Project Management" |
-| 10 — Numinia | "Misiones del Oráculo" |
+| 3 — Numinia | "Misiones del Oráculo" |
 
 ### 🎮 Gamification Dial (1 → 10 · 5 real thresholds)
 
@@ -68,42 +68,33 @@ Gamification has qualitative jumps, not a smooth curve. Five named thresholds. I
 | Example | Configuration | Feel |
 |---------|---------------|------|
 | 🏢 **Corp standard** | Narrative 1 · Gamification 1 | Pure business tool |
-| 🎮 **Gaming company** | Narrative 4 · Gamification 9 | Gamified but business language |
-| 🌒 **Numinia** | Narrative 10 · Gamification TBD | Full immersion |
+| 🎮 **Gaming company** | Narrative 1 · Gamification 9 | Gamified but business language |
+| 🌒 **Numinia** | Narrative 3 · Gamification TBD | Full immersion |
 
 ---
 
-## Narrative Dial — 5 levels
+## Narrative Dial — three levels
 
-### 1 — Business (color `#6b7280`)
+Reduced from five to three on 2026-09-29, to keep it simple: the three
+levels are the three stops of the moon in every site's bar. The earlier
+scale (1 · 3 · 5 · 7 · 10, with *Functional* and *Narrative* between) is
+retired.
 
-*Pure operational language. No metaphors.*
+### 1 — Business (new moon, colour `#6b7280`)
+
+*Pure operational language. No metaphors.* The archive is written at this level.
 
 - **Who:** Traditional companies, corporate teams, skeptical C-suites.
 - **Feel:** "This is a work management system with structured documentation and AI agents."
 
-### 3 — Functional (color `#fbbf24`)
+### 2 — Mixed (half moon, colour `#34d399`)
 
-*Light metaphors. Familiar structure with a distinct voice.*
-
-- **Who:** Agencies, creative studios, scale-ups with culture already.
-- **Feel:** "We run initiatives through guilds, with agents that keep institutional memory alive."
-
-### 5 — Mixed (color `#34d399`)
-
-*Half-narrative. Familiar enough to onboard fast, interesting enough to retain.*
+*Half and half: the business words with Numinia's beside them.*
 
 - **Who:** Tech startups, DAOs, companies building culture intentionally.
-- **Feel:** "Our missions run through Knowledge Leads and Innovation Leads, tracked in the Archive."
+- **Feel:** "Our missions run through the guilds, tracked in the Archive."
 
-### 7 — Narrative (color `#a78bfa`)
-
-*Rich vocabulary. The system has character.*
-
-- **Who:** Gaming companies, Web3 teams, organizations that want meaning at work.
-- **Feel:** "Exégetas and Alquimistas run missions together, reporting to the Council."
-
-### 10 — Numinia (color `#2dd4bf`)
+### 3 — Numinia (full moon, colour `#2dd4bf`)
 
 *Full immersion. The city is the system.*
 
@@ -114,60 +105,62 @@ Gamification has qualitative jumps, not a smooth curve. Five named thresholds. I
 
 ## Vocabulary map
 
-*Same concept · 5 languages.* Columns: **Business 1 · Functional 3 · Mixed 5 · Narrative 7 · Numinia 10**
+*Same concept · 3 levels.* Columns: **Business 1 · Mixed 2 · Numinia 3**
 
 ### Agents & Roles
 
-| Concept | Business 1 | Functional 3 | Mixed 5 | Narrative 7 | Numinia 10 |
-|---------|------------|--------------|---------|-------------|------------|
-| Executive | Executive | Founder | Council Lead | Arconte | Oráculo |
-| Operations Lead | Head of Operations | Operations Lead | Operations Lead | Centinela | Centinela |
-| CTO / Innovation | CTO / Head of Product | Innovation Lead | Innovation Lead | Alquimista | Alquimista |
-| Chief of Staff / Knowledge | Chief of Staff | Knowledge Lead | Knowledge Lead | Exégeta | Exégeta |
-| COO / Business | Head of Business | Business Lead | Business Lead | Procurador | Procurador |
-| AI Orchestration | AI Orchestration Layer | System Intelligence | System Intelligence | Procyon | Procyon |
-| AI Agent | AI Agent | Digital Coworker | Digital Agent | Agente Digital | Agente Digital |
-| New member | Onboarding | New member | Explorer | Nómada | Nómada |
-| Team member | Team Member | Member | Citizen | Ciudadano | Ciudadano |
-| Senior | Senior / Principal | Senior Member | Pilgrim | Peregrino | Peregrino |
-| Expert | Expert / Principal | Expert | Expert | Vernáculo | Vernáculo |
-| Director / Lead | Director / Lead | Lead | Archon | Arconte | Arconte |
+| Concept | Business 1 | Mixed 2 | Numinia 3 |
+|---------|------------|---------|------------|
+| Founding Partner | Founding Partner | Oracle | Oráculo |
+| Operations Lead | Head of Operations | Operations Lead | Centinela |
+| CTO / Innovation | CTO / Head of Product | Innovation Lead | Alquimista |
+| Chief of Staff / Knowledge | Chief of Staff | Knowledge Lead | Exégeta |
+| COO / Business | Head of Business | Business Lead | Procurador |
+| AI Orchestration | AI Orchestration Layer | System Intelligence | Procyon |
+| AI Agent | AI Agent | Digital Agent | Agente Digital |
+| New member | New member | Nomad | Nómada |
+| Team member | Team member | Citizen | Ciudadano |
+| Contributor | Contributor | Pilgrim | Peregrino |
+| Principal | Principal | Vernacular | Vernáculo |
+| Executive | Executive | Archon | Arconte |
 
 ### Structures
 
-| Concept | Business 1 | Functional 3 | Mixed 5 | Narrative 7 | Numinia 10 |
-|---------|------------|--------------|---------|-------------|------------|
-| Department / Team | Department | Team | Guild | Gremio | Gremio |
-| Division / Area | Division | Area | Faction | Facción | Facción |
-| Operations Center | Operations Center | Ops Center | CAO | CAO | CAO |
-| Design document | Design document | Design document | Blueprint | Plano | Plano |
-| Knowledge Base | Knowledge Base | Knowledge Base | Archive | Archivo | Summa Archive |
-| Decision Record | Decision Record | Decision Record | Decision Stone | Decisión | Piedra del Camino |
-| Report | Report | Report | Dispatch | Reporte | Reporte |
-| Procedure / SOP | Procedure / SOP | Procedure | Procedure | Procedimiento | Procedimiento |
+| Concept | Business 1 | Mixed 2 | Numinia 3 |
+|---------|------------|---------|------------|
+| Profession | Profession | Guild | Gremio |
+| Specialization | Specialization | Branch | Rama |
+| Subspecialization | Subspecialization | House | Casa |
+| Area | Area | Faction | Facción |
+| Operations Center | Operations Center | CAO | CAO |
+| Design document | Design document | Blueprint | Plano |
+| Knowledge Base | Knowledge Base | Archive | Summa Archive |
+| Decision Record | Decision Record | Decision Stone | Piedra del Camino |
+| Report | Report | Dispatch | Reporte |
+| Procedure / SOP | Procedure / SOP | Procedure | Procedimiento |
 
 ### Actions & Rituals
 
-| Concept | Business 1 | Functional 3 | Mixed 5 | Narrative 7 | Numinia 10 |
-|---------|------------|--------------|---------|-------------|------------|
-| Project / Initiative | Project | Initiative | Mission | Misión | Misión |
-| Daily Standup | Daily Standup | Daily | Daily | Daily | Daily |
-| Weekly Strategy | Weekly Strategy Meeting | Strategy Session | Council | Dark Council | Dark Council |
-| Creative Session | Creative Session | Creative Session | Coven | Lunar Coven | Lunar Coven |
-| Onboarding Workshop | Onboarding | Onboarding Workshop | Session Zero | Session Zero | Session Zero |
-| Campaign / Program | Program | Campaign | Adventure | Aventura | Aventura |
-| Quarter / Cycle | Quarter | Cycle | Season | Temporada | Temporada |
+| Concept | Business 1 | Mixed 2 | Numinia 3 |
+|---------|------------|---------|------------|
+| Project / Initiative | Project | Mission | Misión |
+| Daily Standup | Daily Standup | Daily | Daily |
+| Weekly Strategy | Weekly Strategy Meeting | Council | Dark Council |
+| Creative Session | Creative Session | Coven | Lunar Coven |
+| Onboarding Workshop | Onboarding | Session Zero | Session Zero |
+| Experience / Event | Experience | Adventure | Aventura |
+| Quarter / Cycle | Quarter | Season | Temporada |
 
 ### System & Product
 
-| Concept | Business 1 | Functional 3 | Mixed 5 | Narrative 7 | Numinia 10 |
-|---------|------------|--------------|---------|-------------|------------|
-| Work Operating System | Work Operating System | Work OS | Narrative Work OS | Narrative Work OS | Narrative Work OS |
-| The Organization | The Organization | The System | The City | Numinia | Numinia |
-| Membership Token | Membership Token | Access Token | Prism Cell | Prism Cell | Prism Cell |
-| Badge / Certificate | Badge | Achievement | Seal | Sello | Sello |
+| Concept | Business 1 | Mixed 2 | Numinia 3 |
+|---------|------------|---------|------------|
+| Work Operating System | Work Operating System | Narrative Work OS | Narrative Work OS |
+| The Organization | The Organization | The City | Numinia |
+| Contribution Credit | Contribution Credit | Prism Cell | Prism Cell |
+| Badge / Certificate | Badge | Seal | Sello |
 
-*Column colors in the original page: Business 1 `#6b7280` · Functional 3 `#fbbf24` · Mixed 5 `#34d399` · Narrative 7 `#a78bfa` · Numinia 10 `#2dd4bf`.*
+*Column colours: Business 1 `#6b7280` · Mixed 2 `#34d399` · Numinia 3 `#2dd4bf`.*
 
 ---
 
@@ -187,7 +180,7 @@ A company can have full gamification (ranks, achievements, tokens) at narrative 
 
 ### Numinia is the reference, not the constraint
 
-Numinia (10/10) is what full adoption looks like. It's the vision, not the requirement. Every organization starts wherever they are.
+Numinia (level 3) is what full adoption looks like. It's the vision, not the requirement. Every organization starts wherever they are.
 
 ---
 

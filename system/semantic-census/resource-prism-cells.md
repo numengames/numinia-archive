@@ -3,9 +3,9 @@ id: "SYS-011:resource-prism-cells"
 title: "Prism Cells"
 type: entity
 status: draft
-version: "0.1.3"
+version: "0.2.0"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-05T16:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -71,7 +71,7 @@ A Cell records affinity, not knowledge: «Una Célula no certifica que el person
 | Affinity record | Faction exits of Session Zero | cited: `lore/adventures/virtual-worlds/session-zero.md` — «Prism Cells: the value of a faction» |
 | Recovery / modifier | After a State or a Roll, at the player's choice | cited: `06-inventario-y-bestiario.md` — «Gastar la afinidad» |
 | Currency | Street of Mysteries, Old Quarter | cited: `05-geografia-y-cultura-de-numinia.md` — «Anexo: El Mercado Negro de Numinia» |
-| Contribution recognition (house) | Work ledger | cited: `STD-030` — «Units of activity» |
+| Contribution credit (house) | Work ledger | cited: `STD-030` — «Units of activity» |
 | Full economy (gamification) | Dial level 10 | cited: `designs/DES-007-dual-nomenclature.md` — «Full Economy» |
 
 ## Relations
@@ -86,16 +86,17 @@ A Cell records affinity, not knowledge: «Una Célula no certifica que el person
 | Where | How it shows up | Source |
 |---|---|---|
 | Game (manual, adventures) | Rules in chapters 2, 4, 5, 6; loot; Session Zero trails | cited: paths above |
-| House (canon, standards, agents, guilds of the archive) | «Contribution recognition» | cited: `STD-030` — «Units of activity» |
-| Web (numinia.org, numinia.com) | Dial table maps «Membership Token» → «Prism Cell» from level 3; `PrismCellBalance = Record<FactionId, number>` next to `walletAddress` | cited: `web/src/pages/system/language.astro`; `numinia-web:packages/domain/src/types/character-sheet.ts` |
+| House (canon, standards, agents, guilds of the archive) | «Contribution credit» (until 2026-10-05, «Contribution recognition») | cited: `STD-030` — «Units of activity»; `STD-026` — «Prism Cell» |
+| Web (numinia.org, numinia.com) | Dial table maps «Contribution Credit» → «Prism Cell» from level 3 (until 2026-10-05, «Membership Token»); `PrismCellBalance = Record<FactionId, number>` next to `walletAddress` | cited: `web/src/pages/system/language.astro`; `numinia-web:packages/domain/src/types/character-sheet.ts` |
 | Processes | None found | (inferred: `operations/` mentions only secret tokens) |
 
 ## Existing equivalences
 
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
-| `STD-030` | Contribution recognition, «practical contribution through execution» | contradictory | Manual says Cells record affinity/way of looking, not deeds; drops spendability, currency, faction lock |
-| `DES-007` / `web/src/pages/system/language.astro` | Membership Token ↔ Access Token ↔ Prism Cell | contradictory | Membership is individual, persistent, gating; Cells are fungible, consumed, faction-bound. Keeps only «access» facet |
+| `STD-026`, `STD-030`, `DES-007` | Contribution credit — the business label chosen by the Oracle on 2026-10-05, on the lore reviewer's answer | partial | Names a credit earned by contributing, which may be held across factions and used only in one's own; «contribution recognition» read as a mechanic's description and «membership token» misread the relation (cited: Christian's answers, 2026-10-05 — «Crédito de Contribución (Contribution Credit)»). Still silent on affinity and spending |
+| `STD-030` (until 2026-10-05) | Contribution recognition, «practical contribution through execution» | contradictory | Manual says Cells record affinity/way of looking, not deeds; drops spendability, currency, faction lock |
+| `DES-007` / `web/src/pages/system/language.astro` (until 2026-10-05) | Membership Token ↔ Access Token ↔ Prism Cell | contradictory | Membership is individual, persistent, gating; Cells are fungible, consumed, faction-bound. Keeps only «access» facet |
 | `DES-007` | Level 10 «Tokens, Prism Cells, real weight» | partial | Captures economy facet; silent on affinity |
 | `seal.ts` | Per-faction integer balance | partial | Fits fungible/accumulable; no consumption or faction-use rule modelled |
 | `lore/codex/glosario.md` | «token de un solo uso» with three uses | complete | Faithful summary of chapters 2 and 6 |

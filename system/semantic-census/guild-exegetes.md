@@ -3,9 +3,9 @@ id: "SYS-011:guild-exegetes"
 title: "Exegetes"
 type: entity
 status: draft
-version: "0.2.4"
+version: "0.3.0"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-04T13:00:00+02:00"
+updated: "2026-10-05T16:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -97,6 +97,7 @@ The guild that holds meaning: it records what happened, studies what is known, a
 | `standards/STD-030-the-worlds-vocabulary.md` | «Brand / Communication / Strategy» | reductive | Brand is a real strand of the guild's work, but only one: it takes a branch of governing meaning for the whole and drops memory, teaching, semantic governance and decoding (Christian's review, 2026-09-29) |
 | `designs/DES-007-dual-nomenclature.md` | «Chief of Staff / Knowledge» → «Knowledge Lead» | partial | Captures scholarship and memory; drops narrative and culture-making. «Chief of Staff» is a coordination role no source gives the guild. |
 | `web/src/pages/system/cao.astro` | «Content & Lore» / «Archivist General» | partial | Captures chronicle and archive; drops scholarship and governance. |
+| `standards/STD-026-operative-vocabulary.md` | the category: a guild is a *profession* (business) · Guild · Gremio; a branch a *specialization*, a house a *subspecialization* | complete | The business label for what a guild is, chosen by the Oracle on 2026-10-05 on the lore reviewer's answer; it replaces *discipline* and *department* (Christian's answers, 2026-10-05 — «Department no solo es reductora, es equívoca») |
 
 The three business readings (brand, knowledge lead, content/archive) point at three different departments (inferred: the rows above).
 

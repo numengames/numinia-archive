@@ -4,8 +4,10 @@
 import Layout from "@/layouts/Layout.astro";
 import Icon from "@/components/Icon.astro";
 
-// External scale is 1–5 (MIS-055 v1.2.0): five named levels per dial.
-// Internally each level maps to the 1–10 config scale: 1·3·5·7·10.
+// The narrative dial has three levels, the moon's three stops (2026-09-29):
+// L1 Business (new moon), L2 Mixed (half), L3 Numinia (full). The five-level
+// scale of MIS-055 (1·3·5·7·10) is retired for narrative; the gamification
+// dial keeps its five named thresholds.
 const levels = [
   {
     n: 1,
@@ -20,39 +22,17 @@ const levels = [
   },
   {
     n: 2,
-    name: "Functional",
-    subtitle: "Light metaphors. Familiar structure with a distinct voice.",
-    color: "var(--ink-ambar)",
-    bg: "bg-[var(--ink-ambar)]/8",
-    border: "border-[var(--ink-ambar)]/25",
-    dot: "bg-[var(--ink-ambar)]",
-    who: "Agencies, creative studios, scale-ups with culture already.",
-    feel: "\"We run initiatives through guilds, with agents that keep institutional memory alive.\"",
-  },
-  {
-    n: 3,
     name: "Mixed",
-    subtitle: "Half-narrative. Familiar enough to onboard fast, interesting enough to retain.",
+    subtitle: "Half and half: the business words with Numinia's beside them.",
     color: "var(--ink-verde)",
     bg: "bg-[var(--ink-verde)]/8",
     border: "border-[var(--ink-verde)]/25",
     dot: "bg-[var(--ink-verde)]",
     who: "Tech startups, DAOs, companies building culture intentionally.",
-    feel: "\"Our missions run through Knowledge Leads and Innovation Leads, tracked in the Archive.\"",
+    feel: "\"Our missions run through the guilds, tracked in the Archive.\"",
   },
   {
-    n: 4,
-    name: "Narrative",
-    subtitle: "Rich vocabulary. The system has character.",
-    color: "var(--ink-violeta)",
-    bg: "bg-[var(--ink-violeta)]/8",
-    border: "border-[var(--ink-violeta)]/25",
-    dot: "bg-[var(--ink-violeta)]",
-    who: "Gaming companies, Web3 teams, organizations that want meaning at work.",
-    feel: "\"Exégetas and Alquimistas run missions together, reporting to the Council.\"",
-  },
-  {
-    n: 5,
+    n: 3,
     name: "Numinia",
     subtitle: "Full immersion. The city is the system.",
     color: "var(--ink-verdemar)",
@@ -84,52 +64,54 @@ const vocab = [
   {
     category: "Agents & Roles",
     rows: [
-      { concept: "Executive", l1: "Executive", l2: "Founder", l3: "Council Lead", l4: "Arconte", l5: "Oráculo" },
-      { concept: "Operations Lead", l1: "Head of Operations", l2: "Operations Lead", l3: "Operations Lead", l4: "Centinela", l5: "Centinela" },
-      { concept: "CTO / Innovation", l1: "CTO / Head of Product", l2: "Innovation Lead", l3: "Innovation Lead", l4: "Alquimista", l5: "Alquimista" },
-      { concept: "Chief of Staff / Knowledge", l1: "Chief of Staff", l2: "Knowledge Lead", l3: "Knowledge Lead", l4: "Exégeta", l5: "Exégeta" },
-      { concept: "COO / Business", l1: "Head of Business", l2: "Business Lead", l3: "Business Lead", l4: "Procurador", l5: "Procurador" },
-      { concept: "AI Orchestration", l1: "AI Orchestration Layer", l2: "System Intelligence", l3: "System Intelligence", l4: "Procyon", l5: "Procyon" },
-      { concept: "AI Agent", l1: "AI Agent", l2: "Digital Coworker", l3: "Digital Agent", l4: "Agente Digital", l5: "Agente Digital" },
-      { concept: "New member", l1: "Onboarding", l2: "New member", l3: "Explorer", l4: "Nómada", l5: "Nómada" },
-      { concept: "Team member", l1: "Team Member", l2: "Member", l3: "Citizen", l4: "Ciudadano", l5: "Ciudadano" },
-      { concept: "Senior", l1: "Senior / Principal", l2: "Senior Member", l3: "Pilgrim", l4: "Peregrino", l5: "Peregrino" },
-      { concept: "Expert", l1: "Expert / Principal", l2: "Expert", l3: "Expert", l4: "Vernáculo", l5: "Vernáculo" },
-      { concept: "Director / Lead", l1: "Director / Lead", l2: "Lead", l3: "Archon", l4: "Arconte", l5: "Arconte" },
+      { concept: "Founding Partner", l1: "Founding Partner", l2: "Oracle", l3: "Oráculo" },
+      { concept: "Operations Lead", l1: "Head of Operations", l2: "Operations Lead", l3: "Centinela" },
+      { concept: "CTO / Innovation", l1: "CTO / Head of Product", l2: "Innovation Lead", l3: "Alquimista" },
+      { concept: "Chief of Staff / Knowledge", l1: "Chief of Staff", l2: "Knowledge Lead", l3: "Exégeta" },
+      { concept: "COO / Business", l1: "Head of Business", l2: "Business Lead", l3: "Procurador" },
+      { concept: "AI Orchestration", l1: "AI Orchestration Layer", l2: "System Intelligence", l3: "Procyon" },
+      { concept: "AI Agent", l1: "AI Agent", l2: "Digital Agent", l3: "Agente Digital" },
+      { concept: "New member", l1: "New member", l2: "Nomad", l3: "Nómada" },
+      { concept: "Team member", l1: "Team member", l2: "Citizen", l3: "Ciudadano" },
+      { concept: "Contributor", l1: "Contributor", l2: "Pilgrim", l3: "Peregrino" },
+      { concept: "Principal", l1: "Principal", l2: "Vernacular", l3: "Vernáculo" },
+      { concept: "Executive", l1: "Executive", l2: "Archon", l3: "Arconte" },
     ],
   },
   {
     category: "Structures",
     rows: [
-      { concept: "Department / Team", l1: "Department", l2: "Team", l3: "Guild", l4: "Gremio", l5: "Gremio" },
-      { concept: "Division / Area", l1: "Division", l2: "Area", l3: "Faction", l4: "Facción", l5: "Facción" },
-      { concept: "Operations Center", l1: "Operations Center", l2: "Ops Center", l3: "CAO", l4: "CAO", l5: "CAO" },
-      { concept: "Design document", l1: "Design document", l2: "Design document", l3: "Blueprint", l4: "Plano", l5: "Plano" },
-      { concept: "Knowledge Base", l1: "Knowledge Base", l2: "Knowledge Base", l3: "Archive", l4: "Archivo", l5: "Summa Archive" },
-      { concept: "Decision Record", l1: "Decision Record", l2: "Decision Record", l3: "Decision Stone", l4: "Decisión", l5: "Piedra del Camino" },
-      { concept: "Report", l1: "Report", l2: "Report", l3: "Dispatch", l4: "Reporte", l5: "Reporte" },
-      { concept: "Process / SOP", l1: "Process / SOP", l2: "Procedure", l3: "Procedure", l4: "Procedimiento", l5: "Procedimiento" },
+      { concept: "Profession", l1: "Profession", l2: "Guild", l3: "Gremio" },
+      { concept: "Specialization", l1: "Specialization", l2: "Branch", l3: "Rama" },
+      { concept: "Subspecialization", l1: "Subspecialization", l2: "House", l3: "Casa" },
+      { concept: "Area", l1: "Area", l2: "Faction", l3: "Facción" },
+      { concept: "Operations Center", l1: "Operations Center", l2: "CAO", l3: "CAO" },
+      { concept: "Design document", l1: "Design document", l2: "Blueprint", l3: "Plano" },
+      { concept: "Knowledge Base", l1: "Knowledge Base", l2: "Archive", l3: "Summa Archive" },
+      { concept: "Decision Record", l1: "Decision Record", l2: "Decision Stone", l3: "Piedra del Camino" },
+      { concept: "Report", l1: "Report", l2: "Dispatch", l3: "Reporte" },
+      { concept: "Procedure / SOP", l1: "Procedure / SOP", l2: "Procedure", l3: "Procedimiento" },
     ],
   },
   {
     category: "Actions & Rituals",
     rows: [
-      { concept: "Project / Initiative", l1: "Project", l2: "Initiative", l3: "Mission", l4: "Misión", l5: "Misión" },
-      { concept: "Daily Standup", l1: "Daily Standup", l2: "Daily", l3: "Daily", l4: "Daily", l5: "Daily" },
-      { concept: "Weekly Strategy", l1: "Weekly Strategy Meeting", l2: "Strategy Session", l3: "Council", l4: "Dark Council", l5: "Dark Council" },
-      { concept: "Creative Session", l1: "Creative Session", l2: "Creative Session", l3: "Coven", l4: "Lunar Coven", l5: "Lunar Coven" },
-      { concept: "Onboarding Workshop", l1: "Onboarding", l2: "Onboarding Workshop", l3: "Session Zero", l4: "Session Zero", l5: "Session Zero" },
-      { concept: "Campaign / Program", l1: "Program", l2: "Campaign", l3: "Adventure", l4: "Aventura", l5: "Aventura" },
-      { concept: "Quarter / Cycle", l1: "Quarter", l2: "Cycle", l3: "Season", l4: "Temporada", l5: "Temporada" },
+      { concept: "Project / Initiative", l1: "Project", l2: "Mission", l3: "Misión" },
+      { concept: "Daily Standup", l1: "Daily Standup", l2: "Daily", l3: "Daily" },
+      { concept: "Weekly Strategy", l1: "Weekly Strategy Meeting", l2: "Council", l3: "Dark Council" },
+      { concept: "Creative Session", l1: "Creative Session", l2: "Coven", l3: "Lunar Coven" },
+      { concept: "Onboarding Workshop", l1: "Onboarding", l2: "Session Zero", l3: "Session Zero" },
+      { concept: "Experience / Event", l1: "Experience", l2: "Adventure", l3: "Aventura" },
+      { concept: "Quarter / Cycle", l1: "Quarter", l2: "Season", l3: "Temporada" },
     ],
   },
   {
     category: "System & Product",
     rows: [
-      { concept: "Work Operating System", l1: "Work Operating System", l2: "Work OS", l3: "Narrative Work OS", l4: "Narrative Work OS", l5: "Narrative Work OS" },
-      { concept: "The Organization", l1: "The Organization", l2: "The System", l3: "The City", l4: "Numinia", l5: "Numinia" },
-      { concept: "Membership Token", l1: "Membership Token", l2: "Access Token", l3: "Prism Cell", l4: "Prism Cell", l5: "Prism Cell" },
-      { concept: "Badge / Certificate", l1: "Badge", l2: "Achievement", l3: "Seal", l4: "Sello", l5: "Sello" },
+      { concept: "Work Operating System", l1: "Work Operating System", l2: "Narrative Work OS", l3: "Narrative Work OS" },
+      { concept: "The Organization", l1: "The Organization", l2: "The City", l3: "Numinia" },
+      { concept: "Contribution Credit", l1: "Contribution Credit", l2: "Prism Cell", l3: "Prism Cell" },
+      { concept: "Badge / Certificate", l1: "Badge", l2: "Seal", l3: "Sello" },
     ],
   },
 ];
@@ -145,7 +127,7 @@ const mechData = mechanics;
 
 <Layout
   title="Narrative Dial — Language System · Numen Games"
-  description="Two dials, five levels each. Organizations choose their level of narrative and gamification. The NWOS speaks any language."
+  description="Two dials: three narrative levels, five gamification thresholds. Organizations choose their level of narrative and gamification. The NWOS speaks any language."
   canonicalPath="/system/language"
   activeNav="system/"
 >
@@ -158,7 +140,7 @@ const mechData = mechanics;
       </div>
       <h1 class="font-display text-4xl sm:text-5xl text-foreground mb-4">Two Dials. One System.</h1>
       <p class="text-lg text-muted-foreground leading-relaxed">
-        The Narrative Work OS speaks any language. Each organization sets two dials from 1 to 5 — how much narrative, how much gamification. The system is the same — the vocabulary and the mechanics adapt.
+        The Narrative Work OS speaks any language. Each organization sets two dials — how much narrative (three levels), how much gamification (five thresholds). The system is the same — the vocabulary and the mechanics adapt.
       </p>
     </div>
   </section>
@@ -181,7 +163,7 @@ const mechData = mechanics;
             </div>
             <span id="narr-readout" class="font-mono text-[0.7rem]"></span>
           </div>
-          <div id="narr-buttons" class="flex gap-2" role="radiogroup" aria-label="Narrative level (1 to 5)">
+          <div id="narr-buttons" class="flex gap-2" role="radiogroup" aria-label="Narrative level (1 to 3)">
             {levels.map((l) => (
               <button
                 type="button"
@@ -229,7 +211,7 @@ const mechData = mechanics;
         <p class="font-display text-xl mb-4"><span id="preview-title" class="text-foreground"></span></p>
         <p id="preview-feel" class="text-sm italic text-muted-foreground border-l-2 pl-3 mb-5"></p>
         <div id="preview-mechanics" class="grid sm:grid-cols-2 gap-x-6 gap-y-1.5"></div>
-        <p class="font-mono text-[0.55rem] text-dim mt-5">Internal config scale (1–10): narrative <span id="preview-internal-narr"></span> · gamification <span id="preview-internal-gamif"></span></p>
+        <p class="font-mono text-[0.55rem] text-dim mt-5">Internal config scale (1–10): gamification <span id="preview-internal-gamif"></span></p>
       </div>
     </div>
   </section>
@@ -249,11 +231,11 @@ const mechData = mechanics;
             <span class="text-accent"><Icon name="mask-happy" size={24} /></span>
             <div>
               <h2 class="font-display text-xl text-foreground">Narrative Dial</h2>
-              <p class="font-mono text-[0.6rem] text-dim">1 → 5</p>
+              <p class="font-mono text-[0.6rem] text-dim">1 → 3 · the moon's three stops</p>
             </div>
           </div>
           <p class="text-sm text-muted-foreground leading-relaxed mb-5">
-            Controls vocabulary and semantic identity. At 1, it's a business tool. At 5, you're inside a living world.
+            Controls vocabulary and semantic identity. At 1, it's a business tool. At 3, you're inside a living world.
           </p>
           <div class="space-y-2">
             <div class="flex items-center justify-between">
@@ -262,7 +244,7 @@ const mechData = mechanics;
             </div>
             <div class="h-2 rounded-full bg-gradient-to-r from-[var(--ink-ceniza)] via-[var(--ink-verde)] to-[var(--ink-verdemar)]"></div>
             <div class="flex items-center justify-between">
-              <span class="font-mono text-[0.6rem] text-[var(--ink-verdemar)]">5 — Numinia</span>
+              <span class="font-mono text-[0.6rem] text-[var(--ink-verdemar)]">3 — Numinia</span>
               <span class="font-mono text-[0.6rem] text-[var(--ink-verdemar)]">"Misiones del Oráculo"</span>
             </div>
           </div>
@@ -301,18 +283,18 @@ const mechData = mechanics;
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-3">The dials are independent</p>
         <div class="grid sm:grid-cols-3 gap-4 text-sm text-muted-foreground">
           <div><Icon name="buildings" size={14} class="inline-block align-[-2px]" /> <strong class="text-foreground">Corp standard</strong><br/>Narrative 1 · Gamification 1<br/><span class="text-xs">Pure business tool</span></div>
-          <div><Icon name="game-controller" size={14} class="inline-block align-[-2px]" /> <strong class="text-foreground">Gaming company</strong><br/>Narrative 2 · Gamification 5<br/><span class="text-xs">Gamified but business language</span></div>
-          <div><Icon name="moon" size={14} class="inline-block align-[-2px]" /> <strong class="text-foreground">Numinia</strong><br/>Narrative 5 · Gamification TBD<br/><span class="text-xs">Full immersion</span></div>
+          <div><Icon name="game-controller" size={14} class="inline-block align-[-2px]" /> <strong class="text-foreground">Gaming company</strong><br/>Narrative 1 · Gamification 5<br/><span class="text-xs">Gamified but business language</span></div>
+          <div><Icon name="moon" size={14} class="inline-block align-[-2px]" /> <strong class="text-foreground">Numinia</strong><br/>Narrative 3 · Gamification TBD<br/><span class="text-xs">Full immersion</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- The 5 narrative levels -->
+  <!-- The 3 narrative levels -->
   <section class="py-16 border-b border-border">
     <div class="mx-auto max-w-[800px] px-6">
       <div class="mb-8 flex items-center gap-3">
-        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Narrative Dial — 5 levels</span>
+        <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Narrative Dial — 3 levels</span>
         <span class="h-px flex-1 bg-border"></span>
       </div>
       <div class="space-y-4">
@@ -345,16 +327,16 @@ const mechData = mechanics;
       <div class="mb-8 flex items-center gap-3">
         <span class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim">Vocabulary map</span>
         <span class="h-px flex-1 bg-border"></span>
-        <span class="font-mono text-[0.6rem] text-dim">Same concept · 5 languages</span>
+        <span class="font-mono text-[0.6rem] text-dim">Same concept · 3 levels</span>
       </div>
 
       <div class="space-y-10">
         {vocab.map((section) => (
           <div>
             <p class="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim mb-3">{section.category}</p>
-            <div class="rounded-[8px] border border-border overflow-hidden">
+            <div class="rounded-[8px] border border-border overflow-x-auto">
               <!-- Header -->
-              <div class="grid bg-card/80 border-b border-border" style="grid-template-columns: 1.4fr repeat(5, 1fr)">
+              <div class="grid bg-card/80 border-b border-border" style="grid-template-columns: 1.4fr repeat(3, 1fr); min-width: 560px">
                 <div class="px-4 py-2.5">
                   <span class="font-mono text-[0.55rem] uppercase tracking-[0.15em] text-dim">Concept</span>
                 </div>
@@ -368,12 +350,12 @@ const mechData = mechanics;
               {section.rows.map((row, ri) => (
                 <div
                   class={`grid border-b border-border/50 last:border-0 ${ri % 2 === 0 ? "" : "bg-card/30"}`}
-                  style="grid-template-columns: 1.4fr repeat(5, 1fr)"
+                  style="grid-template-columns: 1.4fr repeat(3, 1fr); min-width: 560px"
                 >
                   <div class="px-4 py-2.5">
                     <span class="text-xs text-foreground/60">{row.concept}</span>
                   </div>
-                  {[row.l1, row.l2, row.l3, row.l4, row.l5].map((val, i) => (
+                  {[row.l1, row.l2, row.l3].map((val, i) => (
                     <div class="px-3 py-2.5 text-center vocab-cell" data-vocab-level={i + 1}>
                       <span class="font-mono text-[0.6rem]" style={`color: color-mix(in srgb, ${colColors[i]} var(--ink-soft), transparent)`}>{val}</span>
                     </div>
@@ -410,7 +392,7 @@ const mechData = mechanics;
           },
           {
             title: "Numinia is the reference, not the constraint",
-            desc: "Numinia (5/5) is what full adoption looks like. It's the vision, not the requirement. Every organization starts wherever they are.",
+            desc: "Numinia (level 3) is what full adoption looks like. It's the vision, not the requirement. Every organization starts wherever they are.",
           },
         ].map((item) => (
           <div class="rounded-[8px] border border-border bg-card p-5">
@@ -428,7 +410,7 @@ const mechData = mechanics;
       <div class="rounded-[8px] border border-yellow/20 bg-yellow/5 p-6">
         <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-yellow mb-3 flex items-center gap-1.5"><Icon name="lightning" size={11} /> Work in progress — MIS-055</p>
         <p class="text-sm text-muted-foreground leading-relaxed mb-3">
-          This page documents a system design proposal that emerged from the Dark Council on 2026-04-06. On 2026-08-18 the external scale was fixed at 1–5 per dial (five named levels), mapped internally to the 1–10 config scale. The vocabulary table above is a first proposal — it will evolve.
+          This page documents a system design proposal that emerged from the Dark Council on 2026-04-06. On 2026-08-18 the external scale was fixed at 1–5 per dial; on 2026-09-29 the narrative dial was reduced to three levels, the moon's three stops. The vocabulary table above is a first proposal — it will evolve.
         </p>
         <p class="text-sm text-muted-foreground leading-relaxed">
           Once validated, this becomes <strong class="text-foreground">DEC-006</strong> — a decision that modifies the NWOS architecture to include the two-dial system as a standard configuration parameter.
@@ -471,7 +453,7 @@ const mechData = mechanics;
 
 <script define:vars={{ narrData, gamifData, mechData }}>
   const INTERNAL = { 1: 1, 2: 3, 3: 5, 4: 7, 5: 10 };
-  const state = { narr: 3, gamif: 2 };
+  const state = { narr: 1, gamif: 2 };
 
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => Array.from(document.querySelectorAll(sel));
@@ -528,7 +510,6 @@ const mechData = mechanics;
         mech.appendChild(p);
       }
     }
-    $("#preview-internal-narr").textContent = String(INTERNAL[state.narr]);
     $("#preview-internal-gamif").textContent = String(INTERNAL[state.gamif]);
 
     // Highlights across the page

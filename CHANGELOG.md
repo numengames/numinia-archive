@@ -18,6 +18,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-05
+- **Changed** Christian's vocabulary answers: `STD-026` (0.9.0) ranks, guild, branch, house, Prism Cell, Adventure and the three design registers take their business words; `DES-007` (1.2.0) and /system/language follow; `STD-030` (0.6.0) adds Tabularium and Emporium and confirms every discipline (site v0.150.0)
+- **Changed** `DES-007` (1.2.0) and /system/language: the narrative dial has three levels, the moon's three stops (Business, Mixed, Numinia), as ruled on 2026-09-29; the five-level scale and its *Functional* and *Narrative* columns are retired (site v0.150.0)
 - **Changed** The game takes its section by folder: `STD-030` (0.5.0) gains *Series that take one section*, `lore/` → Products and services, and its ten published texts leave the front door's *Without a section*; `ADR-066` (0.2.0) admits the one case (site v0.149.0)
 - **Added** The books open the front door: the legal playbook (`/legal-playbook`) and the role-playing manual (`/manual`) are built, the open books join the shelf, two handbooks are named as pending; the manual's four missing illustrations become a visible line (site v0.148.0).
 - **Changed** `STD-040` 0.5.0: what a sent proposal offered never changes; its header may follow the header standard's changes of form (the Oracle's ruling).
