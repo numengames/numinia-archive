@@ -1,0 +1,41 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /manual/<chapter> — one chapter of the role-playing manual (the Oracle,
+// 2026-10-05), read from lore/game/manual/<edition>/<chapter>.md, with the
+// previous and next chapter of its own edition. web/src/lib/manual.ts.
+import Layout from "@/layouts/Layout.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import BackToTop from "@/components/BackToTop.astro";
+import { repoFileUrl } from "@/lib/build-info";
+import { manualChapters, chapterMarkdown } from "@/lib/manual";
+import { createMarkdownProcessor } from "@astrojs/markdown-remark";
+
+export function getStaticPaths() {
+  return manualChapters().map((c) => ({ params: { chapter: c.slug }, props: { c } }));
+}
+const { c } = Astro.props;
+const processor = await createMarkdownProcessor({});
+const html = (await processor.render(chapterMarkdown(c))).code;
+const etiqueta = "font-mono text-[0.65rem] uppercase tracking-[0.15em]";
+---
+
+<Layout title={`${c.title} — Numinia, the role-playing game`} description={`${c.title}. The tabletop role-playing game of Numinia, ${c.edition.split(" ")[0]} edition.`} canonicalPath={`/manual/${c.slug}`}>
+  <section class="pb-20 pt-16">
+    <div class="mx-auto max-w-[800px] px-6">
+      <a href="/manual" class:list={[etiqueta, "inline-flex items-center gap-2 text-dim hover:text-accent transition-colors mb-6"]}>← The role-playing manual</a>
+      <div class:list={[etiqueta, "text-accent mb-2"]}>{c.edition}</div>
+      <h1 class="font-display text-3xl sm:text-4xl text-foreground mb-8">{c.title}</h1>
+      <DocToolbar mdUrl={`/manual/${c.slug}.md`} filename={`${c.slug}.md`} repoUrl={repoFileUrl(c.file)} lang={c.lang} />
+      <article lang={c.lang} data-manual-chapter={c.slug} class="mission-md rounded-[8px] border border-border bg-card p-6 sm:p-8">
+        <Fragment set:html={html} />
+      </article>
+      <div role="navigation" aria-label="Chapters" class="mt-8 flex flex-wrap justify-between gap-4 text-sm">
+        {c.prev ? <a href={c.prev.href} class="text-accent hover:underline">← {c.prev.title}</a> : <span />}
+        {c.next ? <a href={c.next.href} class="text-accent hover:underline">{c.next.title} →</a> : <a href="/manual" class="text-accent hover:underline">Back to the contents</a>}
+      </div>
+    </div>
+  </section>
+  <BackToTop />
+</Layout>

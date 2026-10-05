@@ -1,0 +1,23 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /legal-playbook — the legal playbook (the Oracle, 2026-10-05): what the law
+// asks of us, read from the principles, standards, procedures, legal texts and
+// the open debt that hold it. Nothing here is typed but the frame
+// (BookPage.astro); the chapters are web/src/lib/legal-book.ts.
+import BookPage from "@/components/BookPage.astro";
+import { legalBook, LEGAL_GAPS } from "@/lib/legal-book";
+---
+
+<BookPage
+  title="The legal playbook — Numen Games"
+  description="What the law asks of Numen Games, in one place: what we hold to, the rules we keep, what to do when something happens, what we publish and what is still open."
+  canonicalPath="/legal-playbook"
+  label="The legal playbook"
+  heading="What the law asks of us"
+  lead="Five chapters: what we hold to, the rules we keep, what to do when something happens, what we publish, and what is still open. Every word is read from the archive."
+  mdFilename="legal-playbook.md"
+  book={legalBook()}
+  gaps={LEGAL_GAPS}
+/>

@@ -65,6 +65,26 @@ const brand = BOOKS.find((b) => b.href === "/brand")!;
     </div>
   </section>
 
+
+  <!-- The books open the archive (the Oracle, 2026-10-05): each gathers
+       documents from several series to read or hear end to end, so they are
+       the easiest way in. A book not served yet says what it waits for. -->
+  <section id="books" class="pb-10" aria-label="Books">
+    <div class="mx-auto max-w-[1100px] px-6">
+      <h2 class="font-display text-2xl tracking-tight text-foreground sm:text-3xl">Books</h2>
+      <p class="mt-2 mb-5 max-w-2xl text-base leading-relaxed text-muted-foreground">The archive gathered to read or hear end to end. Every word is read from the records below; a book writes nothing of its own.</p>
+      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {BOOKS.map((b) => (
+          <li>
+            {b.href
+              ? <a href={b.href} class="book-card" data-book={b.href}><span class="book-title">{b.label} →</span><span class="book-line">{b.line}</span></a>
+              : <div class="book-card todo" title={b.pending}><span class="book-title">{b.label} · soon</span><span class="book-line">{b.pending}</span></div>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
   <section class="pb-24">
     <div class="mx-auto max-w-[1100px] px-6">
       <!-- The ten sections at a glance: each a jump to its block. -->
@@ -137,23 +157,12 @@ const brand = BOOKS.find((b) => b.href === "/brand")!;
         <a href="/standards/std-030-the-worlds-vocabulary" class="text-accent hover:underline">world's vocabulary</a> (STD-030).
       </p>
 
-      <!-- What /about carried: the books and the sister sites (2026-10-03). -->
-      <div class="mt-12 grid gap-6 lg:grid-cols-2">
-        <div class="rounded-[8px] border border-border bg-card/60 p-5">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-1">Books</p>
-          <p class="text-sm text-muted-foreground mb-3">Documents from several series gathered to read or hear end to end.</p>
-          <div class="flex flex-wrap gap-2">
-            {BOOKS.map((b) => b.href
-              ? <a href={b.href} class="pill" title={b.line}>{b.label} →</a>
-              : <span class="pill todo" title={b.pending}>{b.label} · soon</span>)}
-          </div>
-        </div>
-        <div class="rounded-[8px] border border-border bg-card/60 p-5">
-          <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-1">Our other sites</p>
-          <p class="text-sm text-muted-foreground mb-3">Each one shows a part of this archive to the people it is for.</p>
-          <div class="flex flex-wrap gap-2">
-            {LENSES.map((l) => <a href={l.href} rel="noopener" class="pill" title={`${l.who}. ${l.line}`}>{l.site} ↗</a>)}
-          </div>
+      <!-- The sister sites (moved here from /about, 2026-10-03). The books went to the top (2026-10-05). -->
+      <div class="mt-12 rounded-[8px] border border-border bg-card/60 p-5">
+        <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-dim mb-1">Our other sites</p>
+        <p class="text-sm text-muted-foreground mb-3">Each one shows a part of this archive to the people it is for.</p>
+        <div class="flex flex-wrap gap-2">
+          {LENSES.map((l) => <a href={l.href} rel="noopener" class="pill" title={`${l.who}. ${l.line}`}>{l.site} ↗</a>)}
         </div>
       </div>
     </div>
@@ -164,6 +173,13 @@ const brand = BOOKS.find((b) => b.href === "/brand")!;
   .pill { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 6px 14px; border: 1px solid rgb(var(--border)); border-radius: 6px; background: rgb(var(--bg)); color: rgb(var(--text)); font-size: .9375rem; transition: border-color .15s, background-color .15s, color .15s; }
   .pill.small { min-height: 32px; padding: 2px 10px; font-size: .8125rem; gap: 6px; }
   a.pill:hover, a.pill:focus-visible { border-color: rgb(var(--accent)); background: rgb(var(--accent) / .08); color: rgb(var(--accent)); }
+  .book-card { display: flex; flex-direction: column; gap: 4px; height: 100%; padding: 14px 16px; border: 1px solid rgb(var(--border)); border-radius: 8px; background: rgb(var(--bg)); transition: border-color .15s, background-color .15s; }
+  a.book-card:hover, a.book-card:focus-visible { border-color: rgb(var(--accent)); background: rgb(var(--accent) / .06); }
+  .book-title { font-size: 1rem; color: rgb(var(--text)); }
+  a.book-card:hover .book-title, a.book-card:focus-visible .book-title { color: rgb(var(--accent)); }
+  .book-line { font-size: .8125rem; line-height: 1.5; color: rgb(var(--text-muted)); }
+  .book-card.todo { border-style: dashed; background: transparent; }
+  .book-card.todo .book-title { color: rgb(var(--text-muted)); }
   .pill.todo { border-style: dashed; background: transparent; color: rgb(var(--text-muted)); }
   .fd-records { list-style: none; margin: 0; padding: 0; column-gap: 32px; }
   .fd-section { scroll-margin-top: 72px; }

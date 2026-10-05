@@ -115,12 +115,13 @@ export const SEGMENTS: Segment[] = [
     E("The pipeline", "Sales, tenders, grants, collaborations and partners: what is due, the timeline, the funnel", "/system/pipeline"),
     E("The sales playbook", "Each stage of a sale, the procedure that moves it, what it hands over", "/playbook"),
     E("The Lexicon", "The words we work with, A to Z, one page per letter", "/lexicon"),
+    E("The legal playbook", "What the law asks of us, read from the documents that hold it", "/legal-playbook"),
     E("Brand and culture", "Who we are, what we believe, how we look, sound and live", "/brand"),
     E("Templates", "The template of every document type, headers side by side", "/templates"),
     E("The repository", "README, contributing, changelog, security", null),
   ] },
   { id: "world-play", ring: "world", district: "play", word: "Game", title: "Play · its world", a: [0, 90], entries: [
-    E("The game", "The role-playing manual, ES and EN", null),
+    E("The game", "The role-playing manual, ES and EN", "/manual"),
     E("Adventures", "Tabletop and virtual worlds", "/lore/#adventures", "lore/adventures"),
   ] },
   { id: "world-learn", ring: "world", district: "learn", word: "Codex", title: "Learn · its world", a: [90, 180], entries: [
@@ -174,13 +175,19 @@ export interface Book {
   pending?: string;
 }
 export const BOOKS: Book[] = [
-  { label: "The core", line: "Each principle, the standards that make it concrete, the procedures that carry it out", href: "/core", from: "principles · standards · procedures" },
-  { label: "The sales playbook", line: "From an opportunity found to a sale won or lost: each stage, its procedure, what it hands over", href: "/playbook", from: "standards · procedures · operations" },
-  { label: "The Lexicon", line: "The words we work with, A to Z: what each one is, what it clears up, what it lets you do", href: "/lexicon", from: "standards" },
+  // 2026-10-05 (the Oracle): the shelf opens the front door, every book is
+  // served or says what it waits for. The open books and the role-playing
+  // manual join; the legal playbook is built.
   { label: "Brand and culture", line: "Where we come from, what we believe, the brand in three words, how we sound, look and live, where we are going", href: "/brand", from: "principles · standards · procedures · operations" },
+  { label: "The core", line: "Each principle, the standards that make it concrete, the procedures that carry it out", href: "/core", from: "principles · standards · procedures" },
+  { label: "The Lexicon", line: "The words we work with, A to Z: what each one is, what it clears up, what it lets you do", href: "/lexicon", from: "standards" },
+  { label: "The sales playbook", line: "From an opportunity found to a sale won or lost: each stage, its procedure, what it hands over", href: "/playbook", from: "standards · procedures · operations" },
+  { label: "The legal playbook", line: "What the law asks of us: what we hold to, the rules we keep, what to do when something happens, what we publish, what is still open", href: "/legal-playbook", from: "principles · standards · procedures · legal · debt" },
+  { label: "The open books", line: "The company's accounts since 16 February 2024: what it spends, who governs it, where the money came from and how long it lasts", href: "/system/open-books", from: "system · operations · the ledgers" },
   { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · procedures · system" },
-  { label: "The role-playing manual", line: "The tabletop game of Numinia, in Spanish and English", href: null, from: "lore", pending: "Not on the site yet: four images the manual embeds were never committed" },
-  { label: "The legal playbook", line: "The rules the law asks of us, gathered in one place", href: null, from: "standards · legal", pending: "Being written: the standards the law requires are still to be gathered" },
+  { label: "The role-playing manual", line: "The tabletop game of Numinia, chapter by chapter, in Spanish and English", href: "/manual", from: "lore" },
+  { label: "The guild handbook", line: "How someone joins, what each role may do, and how they leave", href: null, from: "principles · standards · procedures", pending: "Not gathered yet: its documents exist (PRI-004, PRO-015, PRO-024, STD-017, STD-042), the book that reads them does not" },
+  { label: "The engineering handbook", line: "How the machine is built, checked, secured and published", href: null, from: "standards · procedures", pending: "Not gathered yet: its documents exist (STD-015, STD-022, PRO-011, PRO-016, PRO-018, PRO-034), the book that reads them does not" },
 ];
 
 export const LENSES: { site: string; href: string; who: string; line: string; paints: string[] }[] = [

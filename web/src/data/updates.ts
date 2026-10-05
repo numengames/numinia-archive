@@ -53,6 +53,16 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.148.0",
+    date: "2026-10-05",
+    entries: [
+      { type: "CHG", text: "The books open the front door: right under the title, one card per book with its one line; the ones not gathered yet say what they wait for." },
+      { type: "ADD", text: "The legal playbook, at /legal-playbook: what the law asks of us in five chapters — what we hold to, the rules we keep, what to do when something happens, what we publish, what is still open — read from the documents that hold it." },
+      { type: "ADD", text: "The role-playing manual, at /manual: the game chapter by chapter, in the Spanish original and the English edition. Four illustrations of chapter 2 never reached the archive; the text says where each one goes." },
+      { type: "ADD", text: "The open books join the shelf, and two books to gather are named: the guild handbook and the engineering handbook." },
+    ],
+  },
+  {
     version: "v0.147.0",
     date: "2026-10-05",
     entries: [

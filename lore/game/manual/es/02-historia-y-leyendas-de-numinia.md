@@ -318,8 +318,8 @@ lugar, así, al renacimiento de la ciudad de Numinia.
 2 Ver la sección titulada _La sombra de Athanasius_, dentro de este mismo capítulo.
 
 
+*[Ilustración del manual impreso: falta en el archivo; se añadirá cuando aparezca el original.]*
 
-![](images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-13-0.png)
 Reunidos cerca de la necrópolis de Tuna el-Yebel, los Oráculos descubrieron el mecanismo
 de Athanasius en pleno funcionamiento, y, gracias a su dinámica, lograron abrir una brecha
 espacio-temporal para encontrar la ciudad-estado: el colosal tablero de juego que había
@@ -493,8 +493,8 @@ perdida de Numinia, descubrieron en las catacumbas de la tumba de Petosiris una
 sorprendente colonia de 55 Khepris.
 
 
+*[Ilustración del manual impreso: falta en el archivo; se añadirá cuando aparezca el original.]*
 
-![](images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-16-0.png)
 Desde aquel momento, estos primeros Khepris serían conocidos, ya para siempre, como
 los Primordiales.
 
@@ -602,8 +602,8 @@ ya mencionada curva de Koch); el microcosmos y el macrocosmos formarán las dos 
 principales de nuestro engranaje, movidas por una tercera rueda, que llamaremos atanor.
 
 
+*[Ilustración del manual impreso: falta en el archivo; se añadirá cuando aparezca el original.]*
 
-![](images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-18-0.png)
 Este nombre se lo damos por su función como vínculo entre ambos mundos (al igual que
 el atanor alquímico, donde se cocía la conciencia universal). La rueda atanor conectará
 entonces la rueda del microcosmos con la del macrocosmos, agitándolas en su
@@ -930,8 +930,8 @@ dígitos y reduciéndolos hasta obtener un solo dígito:
 O bien:
 
 
+*[Ilustración del manual impreso: falta en el archivo; se añadirá cuando aparezca el original.]*
 
-![](images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-23-0.png)
 7+3+1+2+1+3 = 17
 
 

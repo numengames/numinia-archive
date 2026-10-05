@@ -139,7 +139,8 @@ This group of Oracles then revived the old ideas of the Five Initiates, thus giv
 
 2 See the section titled _The Shadow of Athanasius_, in this same chapter.
 
-![](images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-13-0.png)
+*[Illustration from the printed manual: missing from the archive; it will be added when the original turns up.]*
+
 
 Gathered near the necropolis of Tuna el-Gebel, the Oracles discovered Athanasius's mechanism in full operation and, thanks to its dynamics, managed to open a space-time breach to find the city-state: the colossal game board that had been consumed by flames on New Year's Eve 1920, on which the model of Numinia had been laid out.
 
@@ -209,7 +210,8 @@ It is said that its ceaseless activity for more than a century generated a magic
 
 When, in the year 2020, the Oracles performed the ritual on the very ruins of Tuna el-Gebel to open a space-time rift connecting them with the lost city of Numinia, they discovered in the catacombs of the tomb of Petosiris an astonishing colony of 55 Khepris.
 
-![](images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-16-0.png)
+*[Illustration from the printed manual: missing from the archive; it will be added when the original turns up.]*
+
 
 From that moment on, these first Khepris would be known, forevermore, as the Primordials.
 
@@ -249,7 +251,8 @@ Our points of reference are the gear mechanisms so popular among the thinkers of
 
 Our own gear mechanism bases its system on the relationship between that which is above and that which is below (which, as we have noted, display analogous cosmic movements according to the Hermetic view, ratified by new geometric proposals such as the aforementioned Koch curve); the microcosm and the macrocosm will form the two main wheels of our gearwork, driven by a third wheel, which we shall call the athanor.
 
-![](images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-18-0.png)
+*[Illustration from the printed manual: missing from the archive; it will be added when the original turns up.]*
+
 
 We give it this name because of its function as the link between both worlds (just like the alchemical athanor, in which universal consciousness was cooked). The athanor wheel will thus connect the wheel of the microcosm with that of the macrocosm, stirring them in their motion.
 
@@ -391,7 +394,8 @@ Now we proceed to the numerological synthesis, as we already know: adding all th
 
 Or alternatively:
 
-![](images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-23-0.png)
+*[Illustration from the printed manual: missing from the archive; it will be added when the original turns up.]*
+
 
 7+3+1+2+1+3 = 17
 

@@ -50,7 +50,8 @@ test('the ten sections of STD-030, in order, each with its line', { skip }, () =
   const html = readFileSync(HOME, 'utf8');
   const rows = sections();
   assert.equal(rows.length, 10, 'STD-030 names ten sections');
-  const ids = [...blocks(html).keys()].filter((id) => id !== 'without-a-section');
+  // The books shelf opens the page above the sections (the Oracle, 2026-10-05): not a section.
+  const ids = [...blocks(html).keys()].filter((id) => id !== 'without-a-section' && id !== 'books');
   assert.deepEqual(ids, rows.map((r) => slug(r.Section)), 'the blocks are the sections, in the standard\'s order');
   for (const r of rows) {
     const b = blocks(html).get(slug(r.Section));
