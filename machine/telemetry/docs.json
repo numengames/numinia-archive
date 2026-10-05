@@ -2007,10 +2007,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 5822,
+  "chars": 6032,
   "apparatus": false,
   "archived": false,
-  "tokens": 1837
+  "tokens": 1896
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2073,10 +2073,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 3381,
+  "chars": 3424,
   "apparatus": false,
   "archived": false,
-  "tokens": 997
+  "tokens": 1008
  },
  {
   "path": "opportunities/OPP-2026-022.md",
@@ -2106,10 +2106,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2809,
+  "chars": 2843,
   "apparatus": false,
   "archived": false,
-  "tokens": 822
+  "tokens": 831
  },
  {
   "path": "opportunities/OPP-2026-025.md",
