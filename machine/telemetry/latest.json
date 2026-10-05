@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "ccd7bb3",
-  "corpus_hash": "0188542267c3bca1181c94ed5a439140a080bf34c819d660b869c873eea90cab",
+  "head": "97506a3",
+  "corpus_hash": "67d22586a711b1a7b70d4565c240cd3127250d0dd9f0bc21922b0de5c26adeef",
   "root_dirty": 0,
-  "measured_at": "2026-10-05T07:03:24Z",
+  "measured_at": "2026-10-05T08:47:13Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 810,
+      "value": 811,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -33,7 +33,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 16,
-        ".md": 340,
+        ".md": 341,
         ".mjs": 126,
         ".png": 36,
         ".svg": 76,
@@ -52,12 +52,12 @@
     "corpus.files_by_kind": {
       "value": {
         "Text": {
-          "files": 340,
-          "bytes": 3728597
+          "files": 341,
+          "bytes": 3731919
         },
         "Code": {
           "files": 263,
-          "bytes": 2373431
+          "bytes": 2374472
         },
         "Image": {
           "files": 115,
@@ -84,12 +84,12 @@
       "definition": "tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted"
     },
     "corpus.md_total": {
-      "value": 340,
+      "value": 341,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 339,
+      "value": 340,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -103,7 +103,7 @@
         "designs": 12,
         "legal": 4,
         "lore": 34,
-        "machine": 36,
+        "machine": 37,
         "missions": 7,
         "objects": 2,
         "operations": 16,
@@ -133,7 +133,7 @@
         "procedure": 31,
         "proposal": 5,
         "report": 19,
-        "standard": 41
+        "standard": 42
       },
       "unit": "documents",
       "definition": "corpus documents by frontmatter `type`; `(none)` when absent"
@@ -144,7 +144,7 @@
       "definition": "corpus documents with no `---` block at the top"
     },
     "corpus.apparatus": {
-      "value": 52,
+      "value": 53,
       "unit": "documents",
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
@@ -365,7 +365,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 943693,
+      "value": 944368,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -379,7 +379,7 @@
         "agents": 36273,
         "operations": 30272,
         "designs": 28463,
-        "machine": 27397,
+        "machine": 28072,
         "opportunities": 25222,
         "principles": 24099,
         "": 17975,
@@ -395,12 +395,12 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 491153,
-        "draft": 218428,
-        "active": 214943,
-        "todo": 13537,
+        "(none)": 491201,
+        "draft": 219110,
+        "active": 214916,
+        "todo": 13513,
         "in-progress": 4516,
-        "done": 1116
+        "done": 1112
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
@@ -437,7 +437,7 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 294,
+      "value": 295,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -448,22 +448,22 @@
     },
     "headers.field_usage": {
       "value": {
-        "license": 293,
-        "title": 293,
-        "created": 281,
-        "status": 281,
-        "type": 281,
-        "updated": 281,
-        "version": 281,
-        "author": 277,
-        "owner": 276,
-        "section": 272,
-        "tags": 254,
-        "id": 252,
-        "uid": 207,
+        "license": 294,
+        "title": 294,
+        "created": 282,
+        "status": 282,
+        "type": 282,
+        "updated": 282,
+        "version": 282,
+        "author": 278,
+        "owner": 277,
+        "section": 273,
+        "tags": 255,
+        "id": 253,
+        "uid": 208,
         "related": 145,
-        "guild": 129,
-        "subtype": 75,
+        "guild": 118,
+        "subtype": 76,
         "derived_from": 69,
         "created_source": 65,
         "created_confidence": 64,
@@ -602,7 +602,7 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 2,
-        "empty_values": 231,
+        "empty_values": 232,
         "v_prefixed_versions": 0,
         "placeholders": 11
       },
@@ -613,10 +613,10 @@
       "value": {
         "ai-persona": 226,
         "no-frontmatter": 45,
-        "other": 38,
+        "other": 40,
         "no-author": 17,
         "ai-model": 8,
-        "human": 5
+        "human": 4
       },
       "unit": "documents",
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
@@ -731,7 +731,7 @@
     "contradictions.status_vocabulary_used": {
       "value": {
         "active": 127,
-        "draft": 146,
+        "draft": 147,
         "done": 1,
         "todo": 6,
         "in-progress": 1
@@ -783,7 +783,7 @@
           "3": 467
         },
         "STD": {
-          "3": 1116
+          "3": 1117
         },
         "OPS": {
           "3": 180

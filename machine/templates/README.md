@@ -39,9 +39,13 @@ Three companions of the report template, one per roll-up level:
 Same nine headings at every level, for a board that does not know the work
 (`STD-043`); only the scale changes.
 
+One companion of the standard template: `STD-TEMPLATE-RESPONSIBLES.md`, the
+register of who is responsible for each section. Every document's
+`owner: "person-responsible"` resolves to the person in its section's row.
+
 **Every template opens with the same header, in the same order** — `id`, `uid`,
 `title`, `type`, `status`, `version`, `created`, `updated`, `author`, `owner`,
-then `guild`, `section`, `tags`, `license` where the series uses them —
+then `section`, `tags`, `license` where the series uses them —
 and only then the series' own fields. Side by side, with every field of every
 template in one table: [numinia.org/templates](https://numinia.org/templates).
 

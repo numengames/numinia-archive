@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.147.0",
+    date: "2026-10-05",
+    entries: [
+      { type: "CHG", text: "The templates speak any organisation's language, so they can travel to NWOS clients: where they said the Oracle approves, they now say the person responsible; the guild leaves the header (the section stays); proposals are governed by the organisation's own terms, not Numen Games'; reports ask what the organisation created, not its lore. Numinia's words stay a layer on top." },
+      { type: "ADD", text: "A new companion on /templates: the register of who is responsible for what — one row per section, with the role, the person, who stands in and the agents beside them. Every \"person responsible\" in a document resolves to its section's row." },
+    ],
+  },
+  {
     version: "v0.146.0",
     date: "2026-10-04",
     entries: [

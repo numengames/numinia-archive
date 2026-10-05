@@ -6,15 +6,15 @@
 # LICENCE: legal texts are reserved; the SPDX comment below says so.
 id: "LEG-NNN"
 uid: ""
-title: "Name of the text — Numen Games"
+title: "Name of the text — Organisation name"
 type: legal
 # status: opens at draft — the lifecycle is declared once, in STD-004
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
-author: "oracle"
-owner: "oracle"
+author: "person-responsible"
+owner: "person-responsible"
 tags: [legal]
 license: "LicenseRef-Numen-AllRightsReserved"
 
@@ -32,12 +32,12 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
 -->
 
-# Name of the text — Numen Games
+# Name of the text — Organisation name
 
 > **Summary:** One sentence: what this text promises, and to whom.
 > **Epistemic:** What a visitor can hold the company to after reading it.
 > **Pragmatic:** Read it before using the sites it names; cite it when a site must comply.
-> **Audience:** Visitors · Oracles
+> **Audience:** Visitors · People responsible
 
 **Applies to:** the sites and services this text binds the company on.
 

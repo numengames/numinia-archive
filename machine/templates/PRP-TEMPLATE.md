@@ -16,8 +16,7 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "2026-09-29T12:00:00+02:00"
 author: "agent-id"
-owner: "oracle"
-guild: "Procurators"
+owner: "person-responsible"
 section: "Knowledge and quality"
 tags: [opportunities, sales, proposal]
 license: "CC0-1.0"
@@ -47,7 +46,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Epistemic:** What exactly is offered to this client, and on what terms?
 > **Pragmatic:** Read it before sending it; check a delivery or an invoice
 > against it.
-> **Audience:** Sales · Oracles · the client
+> **Audience:** Sales · People responsible · the client
 <!-- The card is the archive's. The copy sent to the client may leave it
      out; the six sections below are what the client reads. -->
 
@@ -88,7 +87,7 @@ SPDX-License-Identifier: CC0-1.0
 | Invoiced | … |
 | Delivered | … |
 | Licence of what is delivered | … |
-| Governed by | Numen Games' terms and conditions |
+| Governed by | the organisation's terms and conditions |
 
 ## Before you agree
 
@@ -104,6 +103,6 @@ SPDX-License-Identifier: CC0-1.0
 
 ## In the open
 
-Numen Games works in the open: we publish our proposals — what we offer,
+We work in the open: we publish our proposals — what we offer,
 how, and at what price. If you would rather your organisation were not
 named, tell us and it will appear by its sector only.
