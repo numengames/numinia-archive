@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-04
+- **Fixed** Seven hand-checked rows of rules in force get their machine: header relations resolve (HDR-016), titles in English (HDR-002), a deferral's mission lives (HDR-032), the design kit is a build check, stale since the PRI rename (GIT-027/029); DEF-009 and CLS-004 name theirs. Debt 47 → 40.
 - **Changed** `lore/` holds the game only: three company texts that were older copies of `PRI-001`, `PRI-004` and `PRI-006` leave it and redirect there; their reading list and sources wait in `DBT-023`; the lore index drops its World shelf (site v0.146.0)
 - **Changed** `STD-022` *Secrets* in force (2.1.0): only what a machine checks — the history scan, no tracked key file, `SECURITY.md` links the private form; KEY-055 retired into `PRO-036` *Handling a security weakness*; `PRO-023` step 7: a hand-checked row keeps a rule in draft (site v0.145.0).
 - **Changed** `STD-005` *When a rule bites* is in force (4.1.0): every check now finds the rule it reports under in a document — the register check speaks under ENG-002/031/032 and each practice's own plate, and the regime reads a register's Rule ID column; ENG-066 is a test.

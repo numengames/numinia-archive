@@ -1,6 +1,6 @@
 Diseña con el Numinia Design System (numinia.org/design; el registro de documentos es SYS-009).
 Diseño es la experiencia entera — lo que se ve, se lee, se oye, se mueve y se juega.
-Fuerza antes que medio (CAN-008): 1 Umbral (la base: web, deck, documento, factura,
+Fuerza antes que medio (PRI-008): 1 Umbral (la base: web, deck, documento, factura,
 interfaz, evento, email) · 2 Velo (la profundidad: archivo, Summa, visores) · 3 Prisma
 (el cuerpo del mundo, en dos manifestaciones: low-poly 3D y píxel 2D). Las fuerzas no se
 apilan: se enmarcan, con frontera visible. Recetas por medio: DES-009…DES-015 — cópialas,

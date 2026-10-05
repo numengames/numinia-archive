@@ -5,9 +5,9 @@ title: "The corpus does not grow"
 type: standard
 subtype: standard
 status: active
-version: "2.1.6"
+version: "2.1.7"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-05T08:51:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -108,7 +108,7 @@ outside this archive.
 | DEF-008 | The replacement is named in the header | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); holds deprecated GIT-045 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs`, which reads the `superseded_by` and `status` fields |
 | DEF-010 | A document changes series under a new name | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); no move without updating its readers is ours; holds deprecated SER-005 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs` |
 | DEF-011 | Absorption carries the reasoning | [Dublin Core, Replaces](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/replaces/); holds deprecated SER-006 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs` (`absorbs:`) |
-| DEF-009 | Nothing is deleted while cited | —; holds deprecated GIT-048 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs`; `machine/tools/check-deletable.mjs`, run by hand |
+| DEF-009 | Nothing is deleted while cited | —; holds deprecated GIT-048 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs`: a deletion that leaves a citation behind fails the build; `machine/tools/check-deletable.mjs` answers the question before deleting |
 
 | In the reading | Exact form |
 |---|---|

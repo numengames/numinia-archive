@@ -141,6 +141,18 @@ function index(corpus) {
   return { known, basenames };
 }
 
+/** Does an identifier resolve — to a document the tree has, one it absorbed
+ *  or renamed, or one it once had and deleted (git is the archive)? The same
+ *  answer DEF-009 gives a citation in the body; the header's relations
+ *  (HDR-016) ask it too. Exported for that guard and the test. */
+export function makeResolver(corpus) {
+  const { known } = index(corpus);
+  // A corpus with no repository behind it (a test's) has no history to read.
+  const retired = existsSync(path.join(corpus.root, '.git')) ? retiredIds(corpus.root) : new Map();
+  return (id) => known.has(id) || retired.has(id)
+    || (/^ADR-\d+$/.test(id) && WEB_ADR_RANGE(Number(id.slice(4))));
+}
+
 function brokenReferences(corpus) {
   const { known, basenames } = index(corpus);
   const retired = retiredIds(corpus.root);

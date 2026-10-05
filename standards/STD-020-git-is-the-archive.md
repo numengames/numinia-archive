@@ -5,9 +5,9 @@ title: "Git is the archive"
 type: standard
 subtype: standard
 status: active
-version: "2.2.5"
+version: "2.2.6"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-05T08:51:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -81,9 +81,9 @@ Each rule, its code, its source and its check.
 | GIT-026 | One-line subject | [Conventional Commits 1.0.0, the header](https://www.conventionalcommits.org/en/v1.0.0/#specification) | the check of this standard (`machine/checks/rules/std-020-git-is-the-archive.mjs`), last 400 commit subjects, one line only; the kind and the why are not checked (no commitlint, `DBT-020`) |
 | GIT-050 | Leave it better | holds deprecated ENG-005 | by hand, at review: the pull request says what it left behind |
 | GIT-030 | Shared history is never rewritten | [OpenSSF Scorecard, Branch-Protection tier 1](https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection); [SLSA 1.1, Source track level 2](https://slsa.dev/spec/) | `.github/rulesets/protect-main.json`: no force push, no deletion, linear history |
-| GIT-027 | Generated means generated again | — | `machine/scripts/telemetry.mjs --check` in the build checks; `machine/tools/generate-design-kit.mjs --check`, run by hand |
+| GIT-027 | Generated means generated again | — | `machine/scripts/telemetry.mjs --check` and `machine/tools/generate-design-kit.mjs --check`, both in the build checks |
 | GIT-028 | Measurements follow the commit | — | `machine/scripts/telemetry.mjs --check` in the build checks |
-| GIT-029 | Conflicts in generated files are generated again | — | by hand: a resolved conflict looks like any other change |
+| GIT-029 | Conflicts in generated files are generated again | — | the same two build checks: a resolved conflict that leaves a generated file different from the file generated again fails the build |
 
 | Kind of commit | Written |
 |---|---|

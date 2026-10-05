@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 34253,
+  "chars": 34551,
   "apparatus": false,
   "archived": false,
-  "tokens": 9891
+  "tokens": 9972
  },
  {
   "path": "CLAUDE.md",
@@ -797,10 +797,10 @@
   "series": "designs",
   "type": "design",
   "status": "active",
-  "chars": 9197,
+  "chars": 9192,
   "apparatus": false,
   "archived": false,
-  "tokens": 2342
+  "tokens": 2340
  },
  {
   "path": "designs/DES-009-web-pieces.md",
@@ -2964,10 +2964,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 18425,
+  "chars": 18514,
   "apparatus": false,
   "archived": false,
-  "tokens": 5226
+  "tokens": 5242
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -3041,10 +3041,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7417,
+  "chars": 7499,
   "apparatus": false,
   "archived": false,
-  "tokens": 1908
+  "tokens": 1921
  },
  {
   "path": "standards/STD-014-publishing-gates.md",
@@ -3107,10 +3107,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 5091,
+  "chars": 5162,
   "apparatus": false,
   "archived": false,
-  "tokens": 1300
+  "tokens": 1310
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -3184,10 +3184,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7669,
+  "chars": 7738,
   "apparatus": false,
   "archived": false,
-  "tokens": 1917
+  "tokens": 1931
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -3481,10 +3481,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 6124,
+  "chars": 6119,
   "apparatus": false,
   "archived": false,
-  "tokens": 1616
+  "tokens": 1615
  },
  {
   "path": "system/SYS-012-suppliers.md",

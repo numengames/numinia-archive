@@ -5,9 +5,9 @@ title: "The semantic census"
 type: documentation
 subtype: reference
 status: draft
-version: "0.3.4"
+version: "0.3.5"
 created: "2026-09-29T12:15:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-05T08:50:00+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -139,4 +139,4 @@ research behind this census is `RPT-023`.
 |---|---|---|
 | `RPT-023` | The wall a newcomer hits is the house's own words, not the world's | the research that led here |
 | `STD-030` | The world's vocabulary | the equivalents the cards test |
-| `DES-007` | Sistema de Nomenclatura Dual — Narrative & Gamification Dials | the dial the census feeds |
+| `DES-007` | Dual nomenclature — the narrative and gamification dials | the dial the census feeds |

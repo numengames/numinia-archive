@@ -1,16 +1,16 @@
 ---
 id: "DES-007"
 uid: ""
-title: "Sistema de Nomenclatura Dual — Narrative & Gamification Dials"
+title: "Dual nomenclature — the narrative and gamification dials"
 type: design
 former_id: "BLU-007"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.0.5"
+version: "1.0.6"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: exact
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-05T08:50:00+02:00"
 author: "nimrod"
 owner: "oracle"
 tags: [design, nomenclature, narrative-dial, gamification-dial, i18n]

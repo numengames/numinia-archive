@@ -26,11 +26,12 @@
 import { execute, isMain } from '../lib/guard.mjs';
 import { loadRules, isTemplate, isApparatus } from '../../scripts/lib/frontmatter.mjs';
 import { RING1, RING2, RING3, RING3_ALL } from '../../scripts/lib/rings.mjs';
+import { makeResolver } from './std-012-corpus-does-not-grow.mjs';
 
 export const meta = {
   family: 'HDR',
   plates: ['HDR-000', 'HDR-001', 'HDR-002', 'HDR-003', 'HDR-004', 'HDR-005', 'HDR-006', 'HDR-007',
-    'HDR-008', 'HDR-009', 'HDR-012', 'HDR-013', 'HDR-014', 'HDR-017', 'HDR-018', 'HDR-019', 'HDR-020',
+    'HDR-008', 'HDR-009', 'HDR-012', 'HDR-013', 'HDR-014', 'HDR-016', 'HDR-017', 'HDR-018', 'HDR-019', 'HDR-020',
     'HDR-030', 'HDR-031', 'HDR-032', 'HDR-033', 'HDR-034', 'HDR-035', 'HDR-036', 'HDR-037', 'HDR-038',
     'HDR-040', 'HDR-043', 'HDR-044'],
 };
@@ -93,6 +94,42 @@ const SEMVER = /^\d+\.\d+\.\d+$/;
 const DEFERRED = 'TBA';
 const DEFERRAL_OWNER = {};
 
+/* HDR-032: a deferral is owned by a mission, and the mission must still be
+   alive — present in the tree and not in a terminal state. A dead owner is
+   the same parking space with a name on it. */
+export function deferrals(corpus, owners = DEFERRAL_OWNER) {
+  const out = [];
+  const missions = new Map();
+  for (const rel of corpus.files) {
+    if (!rel.startsWith('missions/')) continue;
+    const fm = corpus.fm(rel);
+    if (fm?.id) missions.set(String(fm.id), fm.status);
+  }
+  const terminal = new Set(STATUS._terminal);
+  for (const rel of corpus.files) {
+    if (!GOVERNED.has(rel.split('/')[0])) continue;
+    const fm = corpus.fm(rel);
+    if (!fm) continue;
+    for (const [k, v] of Object.entries(fm)) {
+      if (v !== DEFERRED) continue;
+      const owner = owners[k];
+      if (!owner) out.push({ plate: 'HDR-032', where: rel, what: `"${k}: ${DEFERRED}" defers a value with no mission to resolve it — a deferral nobody owns is a parking space` });
+      else if (!missions.has(owner)) out.push({ plate: 'HDR-032', where: rel, what: `"${k}: ${DEFERRED}" is owned by ${owner}, which is not in missions/` });
+      else if (terminal.has(missions.get(owner))) out.push({ plate: 'HDR-032', where: rel, what: `"${k}: ${DEFERRED}" is owned by ${owner}, which is ${missions.get(owner)}: nobody is resolving it` });
+    }
+  }
+  return out;
+}
+
+/* HDR-016: every relation names a document that resolves — in the tree, or
+   once in it (the same resolver DEF-009 uses for a citation in the body).
+   `null` is an absent value (HDR-009), not a relation. */
+const RELATIONS = ['supersedes', 'superseded_by', 'derived_from', 'absorbs', 'approved_by', 'related', 'parent_mission'];
+
+/* HDR-002: a title is English. A title is short, so the test is the words
+   only Spanish uses — the archive's other language — and its marks. */
+const NOT_ENGLISH = /[ñ¿¡]|\b(el|la|los|las|de|del|para|una|que|con|y)\b/i;
+
 /* HDR-017: documents whose type is honest but whose home is historical —
    moving them breaks live references. Registered with the reason, not
    parked in a baseline. */
@@ -109,15 +146,22 @@ const RING1_PLATE = { id: 'HDR-001', title: 'HDR-002', type: 'HDR-003', status: 
 
 function rings(corpus, out) {
   const F = (plate, where, what) => out.push({ plate, what, where });
+  const resolves = makeResolver(corpus);
   for (const rel of corpus.files) {
     const top = rel.split('/')[0];
     if (!GOVERNED.has(top)) continue;
     const fm = corpus.fm(rel);
     if (fm === null) { F('HDR-000', rel, 'no frontmatter — invisible to every check'); continue; }
 
-    for (const [k, v] of Object.entries(fm))
-      if (v === DEFERRED && !DEFERRAL_OWNER[k])
-        F('HDR-032', rel, `"${k}: ${DEFERRED}" defers a value with no mission to resolve it — a deferral nobody owns is a parking space`);
+    for (const k of RELATIONS)
+      for (const v of [].concat(fm[k] ?? [])) {
+        if (v == null || v === '' || v === 'null') continue;
+        const id = /^[A-Z]+-[\w-]+?(?=$|\s)/.exec(String(v))?.[0] ?? String(v);
+        if (!resolves(id)) F('HDR-016', rel, `${k}: "${v}" names no document the tree has or had`);
+      }
+
+    if (fm.title && NOT_ENGLISH.test(String(fm.title)))
+      F('HDR-002', rel, `title "${fm.title}" is not in English`);
 
     // HDR-009: empty is absent. `uid` is the exception — it is declared and
     // left empty on purpose until the UID system exists, so its emptiness is
@@ -225,6 +269,7 @@ function presence(corpus, out) {
 export function run(corpus) {
   const out = [];
   rings(corpus, out);
+  out.push(...deferrals(corpus));
   presence(corpus, out);
   return out;
 }

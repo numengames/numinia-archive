@@ -134,3 +134,28 @@ test('meta.plates is exactly what run() can emit', () => {
   ]) for (const f of run(corpus(src))) emitted.add(f.plate);
   for (const p of emitted) assert.ok(meta.plates.includes(p), `${p} emitted but not declared`);
 });
+
+/* Paid from the debt list (2026-10-04): three rows that were read by hand. */
+
+test('HDR-016: a header relation names a document that exists; null is absent', () => {
+  const other = { 'debt/DBT-901-b.md': doc({ ...GOOD, id: 'DBT-901' }) };
+  assert.deepEqual(plates({ 'debt/DBT-900-a.md': doc({ ...GOOD, related: ['DBT-901'] }), ...other }), []);
+  assert.deepEqual(plates({ 'debt/DBT-900-a.md': doc({ ...GOOD, derived_from: 'PRI-999' }), ...other }), ['HDR-016']);
+  assert.deepEqual(plates({ 'debt/DBT-900-a.md': doc({ ...GOOD, superseded_by: 'null' }), ...other }), []);
+});
+
+test('HDR-002: a title in another language is reported', () => {
+  assert.deepEqual(one({ ...GOOD, title: 'Sistema de Nomenclatura Dual para los mundos' }), ['HDR-002']);
+  assert.deepEqual(one({ ...GOOD, title: 'Dual naming for the worlds' }), []);
+});
+
+test('HDR-032: a deferred value names a mission that is alive', async () => {
+  const { deferrals } = await import('../rules/std-004-the-header.mjs');
+  const mission = (status) => ({ 'missions/MIS-0900-a.md': doc({ ...GOOD, id: 'MIS-900', type: 'mission', status }) });
+  const deferring = { 'debt/DBT-900-a.md': doc({ ...GOOD, section: 'TBA' }) };
+  const ps = (files, owners) => deferrals(corpus(files), owners).map((f) => f.plate);
+  assert.deepEqual(ps(deferring, {}), ['HDR-032']);
+  assert.deepEqual(ps({ ...deferring, ...mission('todo') }, { section: 'MIS-900' }), []);
+  assert.deepEqual(ps({ ...deferring, ...mission('done') }, { section: 'MIS-900' }), ['HDR-032']);
+  assert.deepEqual(ps(deferring, { section: 'MIS-900' }), ['HDR-032']);
+});

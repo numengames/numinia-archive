@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: standard
 subtype: standard
 status: active
-version: "0.11.0"
+version: "0.11.1"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-05T08:51:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -84,7 +84,7 @@ reads it, and what it rests on.
 | CLS-001 | A function classifies; a series files | [ISO 15489-1:2016, classification](https://www.iso.org/standard/62542.html) (clause unverified) · [National Archives of Australia, developing a business classification scheme](https://www.naa.gov.au/information-management/describing-information/classifying-information/develop-business-or-records-classification-scheme); a name on the series, not the function, is ours | `machine/checks/rules/std-004-the-header.mjs` (`HDR-017`, folder against `type:`) |
 | CLS-002 | Artifacts are short-lived records that never bind | [ISO 15489-1:2016, what a record is](https://www.iso.org/standard/62542.html), clause 3 (clause unverified); retention while current and no binding force are ours. Reversed in 0.2.0: it said they are not records and never evidence, which contradicted the standard and citing a file as evidence (`STD-021` CIT-052) | by hand — an artifact carrying an identifier, or cited as a rule, is caught in review |
 | CLS-003 | Classification and approval level answer different questions | — | by hand |
-| CLS-004 | A new folder declares its function first | [National Archives of Australia, all records belong to a function and activity](https://www.naa.gov.au/information-management/describing-information/classifying-information/develop-business-or-records-classification-scheme); before the first commit is ours | partly: the site build fails when a section it serves is not in the scheme (`web/src/pages/[section].astro`); a new unserved folder, by hand |
+| CLS-004 | A new folder declares its function first | [National Archives of Australia, all records belong to a function and activity](https://www.naa.gov.au/information-management/describing-information/classifying-information/develop-business-or-records-classification-scheme); before the first commit is ours | `machine/scripts/test/hand-debt.test.mjs` fails when a folder holding identified documents has no row in the scheme; the site build fails when a section it serves is not in it (`web/src/pages/[section].astro`) |
 
 The scheme, one producer: **Numen Games S.L.** The site and the URL checker
 read this table; its shape is their contract.
