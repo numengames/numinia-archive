@@ -5,9 +5,9 @@ title: "A proposal says four things"
 type: standard
 subtype: standard
 status: draft
-version: "0.4.4"
+version: "0.5.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-05T10:52:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -90,9 +90,11 @@ price is the house's to publish; the client's name is theirs to withhold.
 document sent and any page shown to the client are both rendered. Neither
 is edited on its own.
 
-**Kept with its opportunity.** A sent proposal MUST be kept, unchanged,
-beside the opportunity record that points to it. A revised proposal is a
-new file; the record points to the current one. It opens with the header
+**Kept with its opportunity.** A sent proposal MUST be kept beside the
+opportunity record that points to it, and what it offered MUST NOT change:
+the four things, the price and the validity. Its header may follow the
+header standard's changes of form. A revised offer is a new file; the record
+points to the current one. It opens with the header
 every document carries: draft while it is written, active once sent,
 withdrawn when a revision replaces it or it lapses unanswered.
 
