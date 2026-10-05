@@ -5,11 +5,11 @@ title: "The header"
 type: standard
 subtype: standard
 status: active
-version: "4.17.0"
+version: "4.18.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-05T08:51:00+02:00"
+updated: "2026-10-05T10:40:00+02:00"
 approved_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -107,7 +107,8 @@ always named with the internet's standard language tags.
 **Dates are written the internet's way.** Every date MUST follow the
 internet's timestamp format: year, month, day, the hour and its offset from
 universal time, in that order. Dates then sort as text and read one way;
-no updated date comes before its created date.
+no updated date comes before its created date. Where a date's source gives
+no hour, the house's hours card (`OPS-022`) gives it.
 
 This standard runs over its word budget because each rule names the outside
 standard it follows.
@@ -134,7 +135,7 @@ then the extensions, with its value, code, series and outside meaning.
 | HDR-004 | Replaced is a relation, not a state | differs on purpose from [MADR](https://adr.github.io/madr/) and [Nygard](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions) `superseded`; the heir is [`dcterms:isReplacedBy`](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/) | `machine/checks/rules/std-004-the-header.mjs` — status in its lifecycle |
 | HDR-016 | Relations live in the header and resolve | [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/): `replaces`, `isReplacedBy`, `relation`, `isPartOf`; [PROV-O](https://www.w3.org/TR/prov-o/) `wasDerivedFrom`; the field map is the outside meaning below | `machine/checks/rules/std-004-the-header.mjs` resolves every relation field against the tree and its history, with the resolver the body's citations use (`DEF-009`) |
 | HDR-002 | Titles are English | [BCP 47](https://www.rfc-editor.org/info/bcp47) — the tag `en` | `machine/checks/rules/std-004-the-header.mjs`: presence, and a title carrying words or marks only Spanish uses is reported |
-| HDR-045 | Dates are written the internet's way | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), a free, exact profile of [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) — ours adds: time required, `updated` ≥ `created` | `machine/checks/rules/std-004-the-header.mjs` for `created` and `updated` (HDR-006, HDR-007); other dates by hand |
+| HDR-045 | Dates are written the internet's way | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), a free, exact profile of [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) — ours adds: time required, `updated` ≥ `created`; the hour a source leaves out comes from `OPS-022` | `machine/checks/rules/std-004-the-header.mjs`: `created` and `updated` under HDR-006 and HDR-007; every other header field holding a date must carry its hour and offset, and midnight passes only where a call's notice wrote it |
 | HDR-001, 003, 006, 007, 012..014, 017..019, 033..038 | each field's own rule, in the tables below | — | `machine/checks/rules/std-004-the-header.mjs`, one rule ID per finding |
 | HDR-010, 011, 015 | author, owner, commissioned by | — | by hand, presence only |
 

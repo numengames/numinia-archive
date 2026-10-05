@@ -14,7 +14,7 @@ type: proposal
 status: draft
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
-updated: "2026-09-29T12:00:00+02:00"
+updated: "2026-10-05T10:40:00+02:00"
 author: "agent-id"
 owner: "person-responsible"
 section: "Knowledge and quality"
@@ -23,8 +23,9 @@ license: "CC0-1.0"
 
 # THE PROPOSAL — read by the pipeline tool with --proposals.
 opportunity: "OPP-YYYY-NNN"
-date: "YYYY-MM-DD"
-valid_until: "YYYY-MM-DD"
+# date: the moment it was sent; valid_until: 23:59 Madrid time of its last day (OPS-022)
+date: "YYYY-MM-DDTHH:MM:SS+02:00"
+valid_until: "YYYY-MM-DDT23:59:00+02:00"
 # level: reaction | learning | behaviour | results — the level agreed with the client
 level: "learning"
 # price: without tax

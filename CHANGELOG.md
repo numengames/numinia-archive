@@ -17,6 +17,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-05
+- **Changed** `STD-040` 0.5.0: what a sent proposal offered never changes; its header may follow the header standard's changes of form (the Oracle's ruling).
+- **Added** `OPS-022` *The house's hours* (draft): Madrid time, 37 h a week, two clocks, send windows, the hour a date takes when its source gives none; every header date now carries its hour and HDR-045 checks them all; the sales kit reads date-times. Debt 40 → 39.
+
 ### 2026-10-04
 - **Fixed** Seven hand-checked rows of rules in force get their machine: header relations resolve (HDR-016), titles in English (HDR-002), a deferral's mission lives (HDR-032), the design kit is a build check, stale since the PRI rename (GIT-027/029); DEF-009 and CLS-004 name theirs. Debt 47 → 40.
 - **Changed** `lore/` holds the game only: three company texts that were older copies of `PRI-001`, `PRI-004` and `PRI-006` leave it and redirect there; their reading list and sources wait in `DBT-023`; the lore index drops its World shelf (site v0.146.0)

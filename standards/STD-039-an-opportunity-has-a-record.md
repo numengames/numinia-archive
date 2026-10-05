@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: standard
 subtype: standard
 status: draft
-version: "0.10.3"
+version: "0.11.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-05T10:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -56,7 +56,7 @@ view by organisation is computed.
 **The header carries the fields the pipeline needs.** The header MUST open
 with the fields every document carries, then carry: identifier, kind,
 organisation, sector, source, value before tax, currency, how it pays,
-the contact's role, the contact channel, the date opened, and the licence.
+the contact's role, the contact channel, the moment opened, and the licence.
 The rest are written when due and absent before: the offer it sells,
 required for a sale and a tender; the share paid in advance, required when
 it pays in advance or by milestones; the proposal's path, for a sale from
@@ -120,8 +120,8 @@ stands; it holds nothing that outlives its use.
 **A call links its notice.** A tender MUST carry the procedure the
 authority buys by and — for every procedure but the minor contract, which
 has no notice — the address of its notice; a grant MUST carry the
-instrument and the address of its call. Both carry the day the call
-closes. A tender's value is the estimated value the notice states, before
+instrument and the address of its call. Both carry the moment the call
+closes, with the notice's hour. A tender's value is the estimated value the notice states, before
 tax; the house's own price enters the record only once the authority has
 published the award.
 

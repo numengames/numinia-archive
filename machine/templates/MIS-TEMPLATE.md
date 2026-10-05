@@ -31,7 +31,7 @@ effort: S
 executor: agent
 # agent-id, or null while unassigned
 assigned_to: null
-# YYYY-MM-DD, filled when status becomes done
+# YYYY-MM-DDTHH:MM:SS+02:00, filled when status becomes done
 completed: null
 
 # OPTIONAL — use when they apply, omit without guilt.
@@ -39,7 +39,7 @@ completed: null
 # blocked_by: "MIS-NNN"
 # parent_mission: "MIS-NNN"         # when this is a phase of a larger mission
 # requires_oracle_approval: false   # true when the mission leaves the system
-# context: "YYYY-MM-DD"             # when the premise was last checked
+# context: "YYYY-MM-DDTHH:MM:SS+02:00" # when the premise was last checked
 # paths: []                         # repo paths to start from — a hint, not a fence
 # hold_reason: "why this is on hold"
 # started: "YYYY-MM-DDTHH:MM:SSZ"   # when status became in-progress

@@ -17,7 +17,7 @@ type: opportunity
 status: active
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
-updated: "2026-10-02T12:00:00+02:00"
+updated: "2026-10-05T10:40:00+02:00"
 author: "agent-id"
 owner: "person-responsible"
 section: "Knowledge and quality"
@@ -46,7 +46,8 @@ pays: "to-ask"
 contact_role: "head of learning"
 # contact_channel: email | phone | meeting | form
 contact_channel: "email"
-opened: "YYYY-MM-DD"
+# opened: the moment the house opened it; no recorded hour is 09:00 (OPS-022)
+opened: "YYYY-MM-DDTHH:MM:SS+02:00"
 
 # WHEN DUE — absent until due; never written empty. Uncomment as they come.
 # offer: "OPS-NNN"
@@ -69,8 +70,8 @@ opened: "YYYY-MM-DD"
 # A TENDER or a GRANT (a call) adds:
 # call: "https://..."
 #   the notice's or the call's address; a tender by a minor contract has none
-# closes: "YYYY-MM-DD"
-#   the day offers or applications close
+# closes: "YYYY-MM-DDTHH:MM:SS+02:00"
+#   the moment offers or applications close, the notice's hour; none in it: 23:59
 # read_from: "terms"
 #   terms | notice: a summary is never enough to record
 #
@@ -85,14 +86,14 @@ opened: "YYYY-MM-DD"
 #   from the terms, EUR; above the card's ceiling it is not recorded
 # works_asked: 0
 #   from the terms, past works asked, EUR
-# starts: "YYYY-MM-DD"
-#   the day the service starts
+# starts: "YYYY-MM-DDTHH:MM:SS+02:00"
+#   the moment the service starts, the notice's hour; none in it: 09:00
 #
 # A GRANT only adds:
 # instrument: "grant"
 #   grant | loan | prize | programme (STD-038 What the funder gives)
-# opens: "YYYY-MM-DD"
-#   the day the call opens
+# opens: "YYYY-MM-DDTHH:MM:SS+02:00"
+#   the moment the call opens, the notice's hour; none in it: 23:59
 # estimated: "yes"
 #   yes while the days are last year's; no once the call is out
 #

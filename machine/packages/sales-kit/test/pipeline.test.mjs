@@ -448,6 +448,19 @@ check('OPP-012: a tender names its procedure from the register, and links its ca
   assert.match(run(dir).err, /OPP-012.*a tender with no `call`/);
 });
 
+check('OPP-002 / OPP-012: a record\'s days carry their hour and offset', (dir) => {
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^opened: .*$/m, 'opened: "2099-08-01"').replace(/^closes: .*$/m, 'closes: "2099-09-15"'));
+  let e = run(dir).err;
+  assert.match(e, /OPP-002.*opened "2099-08-01" has no hour/);
+  assert.match(e, /OPP-012.*closes "2099-09-15" has no hour/);
+  edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^opened: .*$/m, 'opened: "2099-08-01T09:00:00+02:00"')
+    .replace(/^closes: .*$/m, 'closes: "2099-09-15T14:00:00+02:00"').replace(/^opens: .*$/m, 'opens: "2099-08-15T09:00:00+02:00"'));
+  const r = run(dir, '--json');
+  assert.equal(r.code, 0, r.err);
+  const x = JSON.parse(r.out).records.find((y) => y.id === 'OPP-2099-004');
+  assert.equal(x.closes, '2099-09-15T14:00:00+02:00', 'the closing hour reaches the figures whole');
+});
+
 check('OPP-012: a call is an address; it closes on a date', (dir) => {
   edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^call: .*$/m, 'call: "see the gazette"').replace(/^closes: .*\n/m, ''));
   const e = run(dir).err;

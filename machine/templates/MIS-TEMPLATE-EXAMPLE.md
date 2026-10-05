@@ -5,10 +5,10 @@ title: "Example — a real small mission written with this template"
 type: mission
 status: done
 version: "1.2.0"
-created: "2026-08-25"
+created: "2026-08-25T09:00:00+02:00"
 created_source: "git:c2ee691"
 created_confidence: exact
-updated: "2026-09-28"
+updated: "2026-09-28T09:00:00+02:00"
 author: "ursa"
 owner: "person-responsible"
 section: "Knowledge and quality"
@@ -19,9 +19,9 @@ priority: medium
 effort: S
 executor: agent
 assigned_to: "ursa"
-completed: "2026-08-25"
+completed: "2026-08-25T09:00:00+02:00"
 
-context: "2026-08-25"
+context: "2026-08-25T09:00:00+02:00"
 paths: [web/dist/print/, web/package.json, web/astro.config.mjs]
 ---
 # MIS-EXAMPLE — Retire the /print/ intermediates from the served site

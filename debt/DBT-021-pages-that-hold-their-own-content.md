@@ -4,9 +4,9 @@ uid: ""
 title: "Eight pages under /system/ hold their content in the template instead of the corpus"
 type: documentation
 status: active
-version: "0.1.4"
+version: "0.1.5"
 created: "2026-09-22T12:20:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-05T10:38:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,7 +15,7 @@ tags: [debt, web, corpus, portability]
 license: "CC-BY-4.0"
 severity: medium
 severity_reason: "the site states things the archive does not hold. Nothing is wrong on screen; what is wrong is that the screen is the only place it exists, so it cannot be cited, versioned, licensed or measured"
-detected: "2026-09-22"
+detected: "2026-09-22T12:33:00+02:00"
 visibility: "public"
 visibility_reason: "a reader looking at those pages deserves to know they are not archive records"
 opened_by: "ursa"

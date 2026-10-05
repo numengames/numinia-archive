@@ -18,8 +18,9 @@ license: "CC-BY-4.0"
 # severity: critical | high | medium | low — and the reason, in one line
 severity: medium
 severity_reason: "what the severity is measured against"
-# when the defect was observed, not when this file was written
-detected: "YYYY-MM-DD"
+# when the defect was observed, not when this file was written; the hour
+# nobody recorded is 09:00 Madrid time (OPS-022)
+detected: "YYYY-MM-DDTHH:MM:SS+02:00"
 # debt/ publishes ONLY with visibility: public. Absent means invisible on the web.
 visibility: "restricted-oracle"
 visibility_reason: "why this entry is not public"
@@ -28,7 +29,7 @@ visibility_reason: "why this entry is not public"
 # opened_by: "agent-id"             # who found it
 # source_audit: "RPT-NNN"           # the report that surfaced it
 # absorbs: ["DBT-NNN"]              # identifiers this entry inherits, kept resolving
-# refuted: "YYYY-MM-DD"             # the day the claim was shown to be false
+# refuted: "YYYY-MM-DDTHH:MM:SS+02:00" # the moment the claim was shown to be false
 # resolved_by: "MIS-NNNN"           # what closed it
 # related: ["MIS-NNNN"]
 ---

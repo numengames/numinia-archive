@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.3.5"
+version: "0.3.6"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-05T10:38:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -15,7 +15,7 @@ tags: [debt, legal, gdpr, lssi, consumer-law, cookies, intellectual-property, op
 license: "CC-BY-4.0"
 severity: high
 severity_reason: "the four sites publish legal texts that do not describe what the sites do, and numinia.com is about to sell to consumers without consumer terms"
-detected: "2026-09-29"
+detected: "2026-09-29T15:20:00+02:00"
 visibility: "restricted-oracle"
 visibility_reason: "working list for the Oracle and the company's lawyers (ATH21); it names gaps a reader could mistake for commitments"
 opened_by: "ursa"

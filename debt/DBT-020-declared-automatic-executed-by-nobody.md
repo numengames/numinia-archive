@@ -4,9 +4,9 @@ uid: ""
 title: "Four automations are declared in the standards and none of them exists in the tree"
 type: documentation
 status: active
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-09-07T15:20:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-05T10:38:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -15,7 +15,7 @@ tags: [debt, ci, guards, provenance, standards]
 license: "CC-BY-4.0"
 severity: high
 severity_reason: "an [AUTO] mark tells a reader a machine is checking. Four of them are checked by nothing, and one of those four is the licence declaration the system presents as its best-executed standard"
-detected: "2026-09-07"
+detected: "2026-09-07T16:37:00+02:00"
 visibility: "restricted-oracle"
 visibility_reason: "internal structural debt"
 opened_by: "ursa"
