@@ -76,7 +76,7 @@ export const WORDS = [
   {
     bridge: "The work",
     plain: { text: "Operations", source: "web/src/lib/summa.ts" },
-    numinia: { text: "The guilds", source: "lore/world/welcome-to-numinia.md" },
+    numinia: { text: "The guilds", source: "standards/STD-030-the-worlds-vocabulary.md" },
   },
   {
     bridge: "The world",

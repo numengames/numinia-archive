@@ -275,7 +275,7 @@ nota solo aparece cuando la elección no es obvia.
 | Océano de Lúnacar | Ocean of Lúnacar | Nombre propio: Lúnacar no se traduce. |
 | Río Virelai | Virelai River |  |
 | Tres grandes fuerzas | Three great forces |  |
-| Semillas del Conocimiento | Seeds of Knowledge | Ya así en *attributes-and-ranks*. |
+| Semillas del Conocimiento | Seeds of Knowledge | |
 | Nivel Delta | Delta Level |  |
 | Grieta de Inversión | Inversion Rift |  |
 | Rarezas y Anomalías | Rarities and Anomalies |  |
@@ -287,7 +287,7 @@ nota solo aparece cuando la elección no es obvia.
 | Ofrenda de Gloria | Offering of Glory |  |
 | Puntos de Prestigio | Prestige Points |  |
 | Características | Characteristics | Las ocho: Fuerza/Strength, Movimiento/Movement, Tamaño/Size, Constitución/Constitution, Inteligencia/Intelligence, Sabiduría/Wisdom, Percepción/Perception, Carisma/Charisma. |
-| Competencias | Competences | Así en numinia.com y en *attributes-and-ranks*. |
+| Competencias | Competences | Así en numinia.com. |
 | Especie | Species |  |
 | Gremio | Guild |  |
 | Facción | Faction |  |

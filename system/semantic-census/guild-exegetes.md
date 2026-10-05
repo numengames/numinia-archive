@@ -3,9 +3,9 @@ id: "SYS-011:guild-exegetes"
 title: "Exegetes"
 type: entity
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-04T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -77,7 +77,7 @@ The guild that holds meaning: it records what happened, studies what is known, a
 
 ## Relations
 
-- **Alchemists, Procurators, Sentinels** — co-hyponyms defined by opposition (cited: `lore/world/role-structure.md` — «defined by opposition to the others»).
+- **Alchemists, Procurators, Sentinels** — co-hyponyms defined by opposition (cited: `principles/PRI-004-role-structure.md` — «Each is defined by the three it is not»).
 - **Pythias / Ouroboros** — sit together in the Circle of Umbra (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Círculo del Umbra»).
 
 ## Current manifestations
@@ -97,7 +97,6 @@ The guild that holds meaning: it records what happened, studies what is known, a
 | `standards/STD-030-the-worlds-vocabulary.md` | «Brand / Communication / Strategy» | reductive | Brand is a real strand of the guild's work, but only one: it takes a branch of governing meaning for the whole and drops memory, teaching, semantic governance and decoding (Christian's review, 2026-09-29) |
 | `designs/DES-007-dual-nomenclature.md` | «Chief of Staff / Knowledge» → «Knowledge Lead» | partial | Captures scholarship and memory; drops narrative and culture-making. «Chief of Staff» is a coordination role no source gives the guild. |
 | `web/src/pages/system/cao.astro` | «Content & Lore» / «Archivist General» | partial | Captures chronicle and archive; drops scholarship and governance. |
-| `lore/world/welcome-to-numinia.md` | «History, theory, and narrative» | partial | Closest to the manual; drops semantic governance. |
 
 The three business readings (brand, knowledge lead, content/archive) point at three different departments (inferred: the rows above).
 
@@ -112,6 +111,6 @@ The three business readings (brand, knowledge lead, content/archive) point at th
 
 ## Sources
 
-- Manual ES chapters 02–05, `lore/game/manual/glossary-es-en.md`, `lore/codex/glosario.md`, `lore/world/`, `lore/adventures/`: the world.
+- Manual ES chapters 02–05, `lore/game/manual/glossary-es-en.md`, `lore/codex/glosario.md`, `lore/adventures/`: the world.
 - `principles/PRI-004-role-structure.md`, `standards/STD-030-the-worlds-vocabulary.md`, `standards/STD-004-the-header.md`, `designs/DES-007-dual-nomenclature.md`: house definitions and equivalences.
 - `agents/`, `web/src/pages/system/`, `numinia-web:packages/domain/`, `numinia-web:apps/store/`: manifestations.

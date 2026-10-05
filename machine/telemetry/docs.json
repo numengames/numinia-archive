@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 34295,
+  "chars": 34253,
   "apparatus": false,
   "archived": false,
-  "tokens": 9900
+  "tokens": 9891
  },
  {
   "path": "CLAUDE.md",
@@ -511,10 +511,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1557,
+  "chars": 1527,
   "apparatus": false,
   "archived": false,
-  "tokens": 435
+  "tokens": 428
  },
  {
   "path": "agents/skills/numinia-nwos-pr/SKILL.md",
@@ -647,6 +647,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 6714
+ },
+ {
+  "path": "debt/DBT-023-sources-and-inspirations-without-a-home.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 7212,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2000
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -786,10 +797,10 @@
   "series": "designs",
   "type": "design",
   "status": "active",
-  "chars": 9192,
+  "chars": 9197,
   "apparatus": false,
   "archived": false,
-  "tokens": 2340
+  "tokens": 2342
  },
  {
   "path": "designs/DES-009-web-pieces.md",
@@ -951,10 +962,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 2275,
+  "chars": 2028,
   "apparatus": true,
   "archived": false,
-  "tokens": 632
+  "tokens": 565
  },
  {
   "path": "lore/adventures/README.md",
@@ -962,10 +973,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1568,
+  "chars": 1552,
   "apparatus": true,
   "archived": false,
-  "tokens": 403
+  "tokens": 401
  },
  {
   "path": "lore/adventures/tabletop/README.md",
@@ -1109,17 +1120,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 232
- },
- {
-  "path": "lore/game/attributes-and-ranks.md",
-  "dir": "lore",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 8963,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1725
  },
  {
   "path": "lore/game/manual/en/00-introduction.md",
@@ -1325,32 +1325,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 42034,
+  "chars": 41972,
   "apparatus": false,
   "archived": false,
-  "tokens": 13522
- },
- {
-  "path": "lore/world/role-structure.md",
-  "dir": "lore",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 32596,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 6677
- },
- {
-  "path": "lore/world/welcome-to-numinia.md",
-  "dir": "lore",
-  "series": null,
-  "type": null,
-  "status": null,
-  "chars": 29587,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 6804
+  "tokens": 13506
  },
  {
   "path": "machine/packages/sales-kit/README.md",
@@ -2986,10 +2964,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 18514,
+  "chars": 18425,
   "apparatus": false,
   "archived": false,
-  "tokens": 5242
+  "tokens": 5226
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -3063,10 +3041,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7499,
+  "chars": 7417,
   "apparatus": false,
   "archived": false,
-  "tokens": 1921
+  "tokens": 1908
  },
  {
   "path": "standards/STD-014-publishing-gates.md",
@@ -3129,10 +3107,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 5162,
+  "chars": 5091,
   "apparatus": false,
   "archived": false,
-  "tokens": 1310
+  "tokens": 1300
  },
  {
   "path": "standards/STD-021-evidence-and-citation.md",
@@ -3206,10 +3184,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7738,
+  "chars": 7669,
   "apparatus": false,
   "archived": false,
-  "tokens": 1931
+  "tokens": 1917
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -3503,10 +3481,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 6119,
+  "chars": 6124,
   "apparatus": false,
   "archived": false,
-  "tokens": 1615
+  "tokens": 1616
  },
  {
   "path": "system/SYS-012-suppliers.md",
@@ -3536,10 +3514,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9486,
+  "chars": 9464,
   "apparatus": false,
   "archived": false,
-  "tokens": 2786
+  "tokens": 2779
  },
  {
   "path": "system/semantic-census/faction-heirs-of-eleusis.md",
@@ -3547,10 +3525,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 10432,
+  "chars": 10281,
   "apparatus": false,
   "archived": false,
-  "tokens": 2934
+  "tokens": 2894
  },
  {
   "path": "system/semantic-census/force-threshold.md",
@@ -3569,10 +3547,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 10408,
+  "chars": 10268,
   "apparatus": false,
   "archived": false,
-  "tokens": 3016
+  "tokens": 2985
  },
  {
   "path": "system/semantic-census/institution-summa-archive.md",
@@ -3591,10 +3569,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9841,
+  "chars": 9725,
   "apparatus": false,
   "archived": false,
-  "tokens": 2845
+  "tokens": 2817
  },
  {
   "path": "system/semantic-census/resource-prism-cells.md",

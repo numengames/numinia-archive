@@ -254,7 +254,7 @@ export const SERIES: SeriesPage[] = [
   // is the thing the archive was built to hold.
   { prefix: "lore/",       slug: "lore",       label: "Lore",       collection: "corpus",
     question: "What is the world of Numinia, and how is the game in it actually played?",
-    blurb: "The fiction and the game: the RPG manual, the adventures a Director runs at a table, who Numinia is, and the Codex matter. Public domain (CC0), like the rest of the corpus: copy it, adapt it, play it, publish your own adventures.",
+    blurb: "The fiction and the game: the RPG manual, the adventures a Director runs at a table, and the Codex matter. Public domain (CC0), like the rest of the corpus: copy it, adapt it, play it, publish your own adventures.",
     epistemic: "The world of Numinia and how the game in it is played.",
     pragmatic: "Run a session, write in the world, or settle what something in it is called.",
   },
@@ -504,22 +504,18 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
   },
 ];
 
-// The lore shelves (2026-09-28): the archive page's World, Codex and
-// Adventures each open the lore index at their own shelf, so the anchors are
+// The lore shelves (2026-09-28): the archive page's Codex and Adventures
+// each open the lore index at their own shelf (the World shelf left on
+// 2026-10-04 with the three company texts that filled it), so the anchors are
 // addresses those buttons rely on — rename one and they land on the top.
 const READING_GROUPS_LORE: ReadingGroup[] = [
   {
-    numeral: "I", id: "world", label: "The world",
-    line: "Who Numinia is: the city, the culture, the roles people play in it.",
-    hrefs: ["/lore/world/welcome-to-numinia", "/lore/world/role-structure"],
-  },
-  {
-    numeral: "II", id: "adventures", label: "Adventures",
+    numeral: "I", id: "adventures", label: "Adventures",
     line: "How a game is actually played: the tutorial first, then a whole adventure to run at a table.",
-    hrefs: ["/lore/adventures/virtual-worlds/session-zero", "/lore/adventures/tabletop/el-espejo-roto", "/lore/adventures/tabletop/the-broken-mirror", "/lore/game/attributes-and-ranks"],
+    hrefs: ["/lore/adventures/virtual-worlds/session-zero", "/lore/adventures/tabletop/el-espejo-roto", "/lore/adventures/tabletop/the-broken-mirror"],
   },
   {
-    numeral: "III", id: "codex", label: "Codex",
+    numeral: "II", id: "codex", label: "Codex",
     line: "The reference shelf a Director reaches for mid-session: the glossary, the character sheet, the credits.",
     hrefs: ["/lore/codex/glosario", "/lore/codex/en/glossary", "/lore/codex/hoja-de-personaje", "/lore/codex/en/character-sheet", "/lore/codex/agradecimientos", "/lore/codex/en/acknowledgments", "/lore/codex/legal"],
   },
@@ -712,19 +708,15 @@ const READING_ORDER: Record<string, string[]> = {
     "/designs/dual-nomenclature",
     "/designs/business-metrics",
   ],
-  // The world before the game, and the game before its edition matter: who
-  // Numinia is and why the fiction does real work → how a table actually plays
-  // it, tutorial first → the reference shelf a Director reaches for mid-session.
+  // The game before its edition matter: how a table actually plays it,
+  // tutorial first → the reference shelf a Director reaches for mid-session.
   //
   // The RPG manual is absent because the build cannot render it: it embeds four
   // images that were never committed. See content.config.ts.
   lore: [
-    "/lore/world/welcome-to-numinia",
-    "/lore/world/role-structure",
     "/lore/adventures/virtual-worlds/session-zero",
     "/lore/adventures/tabletop/el-espejo-roto",
     "/lore/adventures/tabletop/the-broken-mirror",
-    "/lore/game/attributes-and-ranks",
     "/lore/codex/glosario",
     "/lore/codex/hoja-de-personaje",
     "/lore/codex/legal",
@@ -791,7 +783,7 @@ export const READING_NOTE: Record<string, string> = {
   operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, what it offers, and the handling of keys.",
   legal: "The three texts written for someone outside the company: what we do with your data, the terms of using our sites, and what your browser keeps. Each is the master copy every site publishes.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",
-  lore: "The world first, then the table, then the shelf: who Numinia is and why its fiction does real work, then how a game is actually played in it — the tutorial before the adventure — and last the reference matter a Director reaches for mid-session.",
+  lore: "The table first, then the shelf: how a game is actually played — the tutorial before the adventure — and last the reference matter a Director reaches for mid-session.",
 };
 
 /** One row of a section index. */
@@ -832,15 +824,13 @@ function questionOf(body: string | undefined): string | undefined {
  * and here is why it earns the exception.
  *
  * `titleOf` reads the document first: frontmatter, then a heading-like opening
- * line. That gets the lore documents right but one:
+ * line. That gets every lore document right today, so the table is empty.
+ * The two that needed it left the lore: brand-and-culture (a PDF's version
+ * stamp for a first line) on 2026-10-03, its content in the principles and
+ * the /brand book; welcome-to-numinia (its first SECTION for a title) on
+ * 2026-10-04, superseded by PRI-001 and the principles beside it.
  *
- *   welcome-to-numinia   opens with "Introduction to the Gamified System",
- *                        which is its first SECTION, not its title.
- *
- * (brand-and-culture, which opened with a PDF's version stamp, left the lore
- * on 2026-10-03: its content lives in the principles and the /brand book reads it.)
- *
- * No amount of cleverness fixes that: the information is not in the file. The
+ * When a title is missing, no amount of cleverness fixes that: the information is not in the file. The
  * real repair is a `title` in the document, but these are reserved texts and
  * editing them is the Oracle's call, not a build's. So the viewer declares
  * what it displays, out loud, keyed by address — and `getSeriesDocs` throws
@@ -848,7 +838,6 @@ function questionOf(body: string | undefined): string | undefined {
  * reading order. A silent override is a lie; a checked one is a caption.
  */
 const TITLE_OVERRIDE: Record<string, string> = {
-  "/lore/world/welcome-to-numinia": "Welcome to Numinia",
 };
 
 /**

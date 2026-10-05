@@ -3,11 +3,11 @@ agent: senet
 title: "SOURCES — Senet"
 type: agent
 status: active
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-04T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -29,7 +29,7 @@ the repository is the source of truth and this file only says where to look.
 
 ## The game itself
 
-lore/game/manual/es/ — the RPG manual (v0.6.0), one file per chapter, CC0; authoritative for mechanics, chronology, factions, geography. lore/adventures/ — the modules, `tabletop/` (for a Game Director) and `virtual-worlds/` (the 3D spaces); lore/world/ — identity texts
+lore/game/manual/es/ — the RPG manual (v0.6.0), one file per chapter, CC0; authoritative for mechanics, chronology, factions, geography. lore/adventures/ — the modules, `tabletop/` (for a Game Director) and `virtual-worlds/` (the 3D spaces)
 
 ## Session Zero
 

@@ -417,6 +417,11 @@ export default defineConfig({
 		// → /brand — the old brand deck was merged into the principles and records, and the
 		// brand and culture book reads them (2026-10-03). Same question answered.
 		"/lore/world/brand-and-culture": "/brand",
+		// → the principles — three texts of the company's model left the lore, which holds
+		// the game only (2026-10-04). Each was an older copy of what these say.
+		"/lore/world/role-structure": "/principles/pri-004-role-structure",
+		"/lore/game/attributes-and-ranks": "/principles/pri-004-role-structure",
+		"/lore/world/welcome-to-numinia": "/principles/pri-001-welcome-to-numinia",
 	},
 	// MIS-088's /print/* intermediates are gone (2026-08-31). They existed
 	// only as Chromium print targets for a PDF step the build never ran, so

@@ -3,9 +3,9 @@ id: "SYS-011:rank-oracle"
 title: "Oracle"
 type: entity
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-04T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -42,7 +42,7 @@ plausible reading nobody has confirmed yet.
 
 ## Concept
 
-The Oracle is the highest rank. Each rank contains every rank below it (cited: `principles/PRI-004-role-structure.md` — «each rank contains every rank below it»). Its holder is a founder: «Co-founder of the new Numinia and one of the driving forces of the city» (cited: `lore/game/attributes-and-ranks.md` — «RANK»). In the world, the Oracles «no gobiernan, no dictan leyes»; their job is to «activar, inspirar y preservar los fundamentos de la ciudad» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Los Oráculos, Arquitectos del Equilibrio»). The ranks just below it are defined by how close they are to the Oracles (inferred: uses in `lore/game/attributes-and-ranks.md`, `principles/PRI-004-role-structure.md`).
+The Oracle is the highest rank. Each rank contains every rank below it (cited: `principles/PRI-004-role-structure.md` — «each rank contains every rank below it»). Its holder is a founder: «one of the founders of the new Numinia» (cited: `principles/PRI-004-role-structure.md` — «Six things, not one»). In the world, the Oracles «no gobiernan, no dictan leyes»; their job is to «activar, inspirar y preservar los fundamentos de la ciudad» (cited: `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md` — «Los Oráculos, Arquitectos del Equilibrio»). The ranks just below it are defined by how close they are to the Oracles (inferred: uses in `principles/PRI-004-role-structure.md`).
 
 ## Constitutive traits
 
@@ -101,7 +101,7 @@ The Oracle is the highest rank. Each rank contains every rank below it (cited: `
 
 ## Observations
 
-- **Ladder check:** `attributes-and-ranks.md`, `PRI-004`, `STD-003`, the glossary and `ranks.ts` all match the ruling: six ranks, same order. But no ES manual chapter defines the ladder (Nómada and Peregrino never appear there as ranks), and the glossary's rank table came from web code (cited: `lore/game/manual/glossary-es-en.md` — «Taken verbatim from `numinia-web/packages/domain/src/constants/`»).
+- **Ladder check:** `PRI-004`, `STD-003`, the glossary and `ranks.ts` all match the ruling: six ranks, same order. But no ES manual chapter defines the ladder (Nómada and Peregrino never appear there as ranks), and the glossary's rank table came from web code (cited: `lore/game/manual/glossary-es-en.md` — «Taken verbatim from `numinia-web/packages/domain/src/constants/`»).
 - **Count (resolved):** the Oracles began as five and one was lost. The Chronicles of Numinia tell that he was caught in a sandstorm and, lost and confused, entered the Inversion Rift in the Neuma Subvale, passing to another plane of existence and leaving Numinia (Christian's review, 2026-09-29 — «quedó atrapado en una tormenta de arena […] terminó por introducirse en la Grieta de Inversión, en el Subvalle de Neuma»). Four remain: STD-003's cap and the four named in `agents/INDEX.md` agree with that. The manual still says «son cinco» without the loss; this story is not yet in the manual (proposed: a line in chapter 5 beside «La Grieta de Inversión»).
 - **Singular vs plural:** the house says «the Oracle» (Pablo, as operator; `agents/INDEX.md`), but the rank has four holders. Does «the Oracle's approval» (`STD-017`) mean Pablo or any Oracle?
 - **Rank vs institution:** the manual presents a founding collective with an «Órgano Creador», which reads close to an institution. The ruling says rank. Left open.
@@ -111,7 +111,7 @@ The Oracle is the highest rank. Each rank contains every rank below it (cited: `
 ## Sources
 
 - `lore/game/manual/es/05-geografia-y-cultura-de-numinia.md`, `lore/game/manual/es/02-historia-y-leyendas-de-numinia.md`, `lore/codex/glosario.md` — world facets
-- `lore/game/attributes-and-ranks.md`, `principles/PRI-004-role-structure.md`, `lore/game/manual/glossary-es-en.md` — rank and names
+- `principles/PRI-004-role-structure.md`, `lore/game/manual/glossary-es-en.md` — rank and names
 - `standards/STD-003-platform-ranks.md`, `standards/STD-017-who-may-change-what.md`, `agents/INDEX.md`, `AGENTS.md`, `web/src/lib/agents.ts` — house facets
 - `designs/DES-007-dual-nomenclature.md`, `standards/STD-030-the-worlds-vocabulary.md` — equivalences
 - `numinia-web:packages/domain/src/constants/ranks.ts`, `permissions.ts` — platform
