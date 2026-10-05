@@ -207,20 +207,13 @@ const corpus = defineCollection({
       // ADR-046 registered lore/ as a series in STD-001, so /lore/<id> is an
       // address URL-001 admits.
       "lore/**/*.md",
-      // …except the RPG manual, and this exclusion is a FINDING, not a policy.
-      //
-      // (Now lore/game/manual/es/, one file per chapter; chapter 2 carries
-      // the embeds.) The manual embeds four images by relative path —
-      // `images/Numinia_Manual_del_juego_de_rol_v0_6_0.pdf-13-0.png` and three
-      // siblings, extracted when the PDF was converted to Markdown. No
-      // `lore/game/images/` directory was ever committed, so the build fails
-      // outright (`ImageNotFound`) rather than rendering a gap. The document
-      // has been incomplete since it arrived; nothing rendered it, so nothing
-      // said so.
-      //
-      // Excluded so the other thirteen lore documents publish today. The fix
-      // is to commit the four images (or drop the embeds) — a change to the
-      // text of the manual, not a build workaround.
+      // …except the RPG manual, which is served as a book instead (the Oracle,
+      // 2026-10-05): /manual and /manual/<chapter>, rendered by
+      // web/src/pages/manual/ from the same files. Served here it would sit at
+      // /lore/game/manual/es/…, and "es" is a retired segment (URL-004). It had
+      // been kept out since it arrived because chapter 2 embedded four images
+      // that were never committed; those embeds are now a visible line saying
+      // the illustration is missing (legal-book.test.mjs holds it).
       "!lore/game/manual/**",
       // The folder's own README and the adventure TEMPLATE stay out, for the
       // same reason README.md and CONTRIBUTING.md at the root do (ADR-047):

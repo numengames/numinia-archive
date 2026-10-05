@@ -1,0 +1,61 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /manual — the role-playing manual, a book (the Oracle, 2026-10-05): its
+// cover and the two tables of contents, Spanish original and English edition.
+// Each chapter is its own page (/manual/<chapter>); web/src/lib/manual.ts
+// reads the list. The contents are <section>, not <nav>: check-reachable
+// ignores links inside <nav> (the bar), and these are the way in.
+import Layout from "@/layouts/Layout.astro";
+import PageHero from "@/components/PageHero.astro";
+import DocToolbar from "@/components/DocToolbar.astro";
+import { manualEditions, MANUAL_GAPS } from "@/lib/manual";
+
+const editions = manualEditions();
+const etiqueta = "font-mono text-[0.6rem] uppercase tracking-[0.15em]";
+---
+
+<Layout
+  title="Numinia — the role-playing game"
+  description="The tabletop role-playing game of Numinia (v0.6.0), chapter by chapter, in Spanish and English. Public domain."
+  canonicalPath="/manual"
+>
+  <PageHero
+    label="The role-playing manual"
+    title="Numinia, the role-playing game"
+    description="The tabletop game of Numinia (v0.6.0), chapter by chapter: the Spanish original and the English edition. Public domain: copy it, adapt it, play it, publish your own adventures."
+  />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[800px] px-6">
+      <div class="mb-8"><DocToolbar mdUrl="/manual.md" filename="manual.md" lang="en" /></div>
+
+      <div class="grid gap-6 sm:grid-cols-2">
+        {editions.map((e) => (
+          <section aria-label={e.label} lang={e.lang} data-edition={e.lang} class="rounded-[8px] border border-border bg-card p-5">
+            <div class:list={[etiqueta, "text-accent mb-3"]}>{e.label}</div>
+            <ol class="space-y-2 text-sm">
+              {e.chapters.map((c) => (
+                <li><a href={c.href} class="text-foreground hover:text-accent">{c.title}</a></li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </div>
+
+      <p class="mt-8 text-sm leading-relaxed text-muted-foreground">
+        To play: the adventures to run at a table and the tutorial are on <a href="/lore/#adventures" class="text-accent hover:underline">the adventures shelf</a>;
+        the glossary, the character sheet and the credits on <a href="/lore/#codex" class="text-accent hover:underline">the Codex shelf</a>.
+      </p>
+
+      <section id="not-written-yet" class="mt-10">
+        <h2 class="font-display text-2xl text-foreground">Not written yet</h2>
+        <p class="mt-1 mb-4 text-sm text-muted-foreground">What this book does not hold yet, said instead of filled.</p>
+        <ul class="list-disc space-y-2 pl-5 text-sm text-muted-foreground">
+          {MANUAL_GAPS.map((g) => <li>{g}</li>)}
+        </ul>
+      </section>
+    </div>
+  </section>
+</Layout>

@@ -56,6 +56,8 @@ import { settings as configSettings, TEMPLATES as CONFIG_TEMPLATES, CONFIG_INTRO
 import { playbookMarkdown, PLAYBOOK_SOURCES } from "@/lib/playbook";
 import { lexicon, LEXICON_SOURCE } from "@/lib/lexicon";
 import { brandMarkdown, BRAND_SOURCES } from "@/lib/brand-book";
+import { legalMarkdown, LEGAL_SOURCES } from "@/lib/legal-book";
+import { manualMarkdown, MANUAL_SOURCES, manualChapters, chapterMarkdown } from "@/lib/manual";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
 /** A composed page's markdown, and where the facts in it come from. */
@@ -340,6 +342,10 @@ export async function homePage(): Promise<ComposedPage> {
     "Who we are — the brand and culture — is read whole in `/brand`. The Summa",
     "drawn as a map is at `/map`.",
     "",
+    "## Books",
+    "",
+    ...BOOKS.map((b) => (b.href ? `- [${b.label}](${b.href}) — ${b.line}.` : `- ${b.label} — ${b.line}. *Soon: ${b.pending}.*`)),
+    "",
     `${total} records in ${sections.length} sections, in the order the standard gives them.`,
     "A section groups records for a reader; it does not file them — the",
     "classification scheme (`/scheme`) does.",
@@ -368,10 +374,6 @@ export async function homePage(): Promise<ComposedPage> {
           ...unplaced.flatMap((g) => [`### ${g.label}`, "", ...g.records.map(record), ""]),
         ]
       : []),
-    "## Books",
-    "",
-    ...BOOKS.map((b) => (b.href ? `- [${b.label}](${b.href}) — ${b.line}.` : `- ${b.label} — ${b.line}. *Soon: ${b.pending}.*`)),
-    "",
     "## Our other sites",
     "",
     ...LENSES.map((l) => `- ${l.site} — ${l.who}. ${l.line}`),
@@ -993,6 +995,18 @@ function lexiconEntry(t: ReturnType<typeof lexicon>[number]["terms"][number]): s
 export function brandPage(): ComposedPage {
   return { route: "/brand", filename: "brand-and-culture.md", sources: BRAND_SOURCES, body: preamble(BRAND_SOURCES) + brandMarkdown() };
 }
+/** /legal-playbook — the legal playbook, read from the documents that hold what the law asks. */
+export function legalPlaybookPage(): ComposedPage {
+  return { route: "/legal-playbook", filename: "legal-playbook.md", sources: LEGAL_SOURCES, body: preamble(LEGAL_SOURCES) + legalMarkdown() };
+}
+/** /manual — the role-playing manual: its two tables of contents. */
+export function manualPage(): ComposedPage {
+  return { route: "/manual", filename: "manual.md", sources: MANUAL_SOURCES, body: preamble(MANUAL_SOURCES) + manualMarkdown() };
+}
+/** /manual/<chapter> — one chapter of the role-playing manual, its file as it is. */
+export function manualChapterPages(): ComposedPage[] {
+  return manualChapters().map((c) => ({ route: `/manual/${c.slug}`, filename: `${c.slug}.md`, sources: [c.file], body: preamble([c.file]) + chapterMarkdown(c) }));
+}
 export function lexiconPage(): ComposedPage {
   const body = ["# The Lexicon", "", "The words Numen Games works with, A to Z.", "", ...lexicon().flatMap((l) => [`## ${l.letter}`, "", ...l.terms.map(lexiconEntry)])].join("\n");
   return { route: "/lexicon", filename: "lexicon.md", sources: [LEXICON_SOURCE], body: preamble([LEXICON_SOURCE]) + body };
@@ -1005,7 +1019,7 @@ export function lexiconLetterPage(slug: string): ComposedPage {
 
 export async function allComposedPages(): Promise<ComposedPage[]> {
   const pages: ComposedPage[] = [await homePage(), mapPage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), playbookPage(), templatesPage(), corePage()];
-  pages.push(lexiconPage(), brandPage());
+  pages.push(lexiconPage(), brandPage(), legalPlaybookPage(), manualPage(), ...manualChapterPages());
   for (const l of lexicon()) pages.push(lexiconLetterPage(l.slug));
   for (const c of coreFlow()) pages.push(corePrinciplePage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));

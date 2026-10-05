@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 34992,
+  "chars": 35271,
   "apparatus": false,
   "archived": false,
-  "tokens": 10095
+  "tokens": 10161
  },
  {
   "path": "CLAUDE.md",
@@ -1149,10 +1149,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 127465,
+  "chars": 127665,
   "apparatus": false,
   "archived": false,
-  "tokens": 26982
+  "tokens": 26974
  },
  {
   "path": "lore/game/manual/en/03-character-creation.md",
@@ -1248,7 +1248,7 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 135753,
+  "chars": 135885,
   "apparatus": false,
   "archived": false,
   "tokens": 38607
