@@ -6,9 +6,9 @@ type: design
 former_id: "BLU-011"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.1.6"
+version: "1.1.7"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-05T16:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -133,7 +133,7 @@ PORTADA                                CAPÍTULO
 - **Frame and page are distinct registers.** The page (the paper) is Umbral-Diurno with the third voice; the **reading frame** (the LAP's bar, bookmark, A·A·A controls, switch) MAY live in Veil when the mode is Nocturno. The boundary is visible.
 - **The moon is the bookmark** (`STD-023` §14-06, waxing phases): reading progress is told in moon, from new to full — finishing is a full moon. The reading position is persisted.
 - **A · A · A:** the reading size belongs to the reader, not the designer — three steps over the type scale (`STD-023` §8), without breaking the grid.
-- **The access state is named in the world:** chapters `abierto` / `tras el Umbral` — the session boundary uses the canonical lexicon (`PRI-008` §3.10), never "login required".
+- **The access state is named in the world, as a proposal:** chapters `abierto` / `tras el Umbral` — the session boundary is named in the world's words, never "login required". These two labels are a proposal, not canonical lexicon: neither the game manual nor the visual identity (`PRI-008`, which has no §3.10) fixes them, and they become canon only when the visual identity or the standard of the brand's registers writes them in (the lore reviewer, 2026-10-05).
 - **"The book travels free" is a principle, not a feature:** the downloads (.md first — File Over App made interface —, Diurno pdf for printing, epub) are always one step away.
 - **The literary opening** in italics is the only level II inside a II/III body and does not blend with it.
 - **The colophon always signs:** typographic voice + System + "La fuente de verdad vive en Git" + scarab. The invoice's footer and the book's colophon are the same idea on two papers.

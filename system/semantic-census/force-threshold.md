@@ -3,9 +3,9 @@ id: "SYS-011:force-threshold"
 title: "Threshold"
 type: entity
 status: draft
-version: "0.2.3"
+version: "0.3.0"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-05T16:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -93,6 +93,7 @@ The Threshold is one of Numinia's three forces, alongside the Veil and the Prism
 
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
+| `STD-026` | Base design register (business) · Threshold · Umbral | complete | Confirmed by the lore reviewer on 2026-10-05 as the business label of the visual register; the Veil is the atmospheric and the Prisma the adaptive design register (cited: Christian's answers, 2026-10-05 — «Umbral (Threshold) continúa como Registro Base de Diseño») |
 | `STD-030` | none | pending | The Threshold does not appear in it |
 | `DES-007` | none | pending | Its «thresholds» are gamification levels |
 | `glossary-es-en.md` | Umbral → Threshold | complete | Covers the language only |
@@ -104,8 +105,8 @@ The Threshold is one of Numinia's three forces, alongside the Veil and the Prism
 
 - **Homonym clash:** the archive's rules use «threshold» for how hard a document is to change (`STD-001`, `STD-017`, `STD-027`, `web/src/lib/classification.ts`). `DES-007` uses it for gamification levels, and `about.astro` calls the home page «the threshold». If the dial matches on the word alone, it will confuse these with the force.
 - **Two web meanings (resolved):** in `PRI-008` the Threshold is a register; on numinia.com it is a portal, and crossing it registers you. Both are facets of one wide concept; neither wins (Christian's review, 2026-09-29).
-- **Citation not found:** `DES-011` cites «`PRI-008` §3.10» for `abierto / tras el Umbral`. `PRI-008` has no numbered sections, and a grep finds neither term in it.
-- **Empty table cell:** in the forces table, the UMBRAL «Simbolismo» cell is empty, while the VELO column lists «umbral» as one of its symbols (`02-historia…`). Pending for the Oracle.
+- **Citation not found (answered):** `DES-011` cited «`PRI-008` §3.10» for `abierto / tras el Umbral`. `PRI-008` has no numbered sections, and a grep finds neither term in it. The lore reviewer confirms neither the manual nor a canonical section fixes them: they are a proposal until the visual identity or the brand registers' standard writes them in (Christian's answers, 2026-10-05); `DES-011` now says so.
+- **Empty table cell (answered):** in the forces table, the UMBRAL «Simbolismo» cell is empty, while the VELO column lists «umbral» as one of its symbols (`02-historia…`). The lore reviewer fills it with «Límite, tránsito, acción, manifestación» and replaces the Veil's «umbral» with «revelación» (Christian's answers, 2026-10-05); the manual is not yet changed.
 - Common-noun «umbral» in the lore («siglo Umbral», «un umbral entre un ciclo y otro») is not the force.
 
 ## Sources

@@ -3,9 +3,9 @@ id: "SYS-011:rank-oracle"
 title: "Oracle"
 type: entity
 status: draft
-version: "0.2.4"
+version: "0.3.0"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-04T13:00:00+02:00"
+updated: "2026-10-05T16:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -93,8 +93,9 @@ The Oracle is the highest rank. Each rank contains every rank below it (cited: `
 
 | Source | Equivalence it proposes | Evaluation | Why |
 |---|---|---|---|
+| `STD-026` | Founding Partner (business) · Oracle · Oráculo — the business label chosen by the Oracle on 2026-10-05, on the lore reviewer's answer | complete | A founder who also decides and acts: keeps the founding facet and the approver facet. Supersedes «Executive» and «Council lead» (cited: Christian's answers, 2026-10-05 — «Founding Partner, como Socio Fundador») |
 | `STD-030` | none for Oracle; it defers the ranks to «a document of their own» | pending | No business term has been proposed yet |
-| `DES-007` | Executive / Founder / Council Lead / Arconte / Oráculo | reductive | «Founder» captures the founding facet. «Executive» contradicts the manual's «no gobiernan». Using «Arconte» at stop 7 merges two ranks |
+| `DES-007` | Founding Partner / Founding Partner / Oracle / Arconte / Oráculo (until 2026-10-05: Executive / Founder / Council Lead) | partial | The business stops now follow `STD-026`. Using «Arconte» at stop 7 still merges two ranks |
 | `DES-007` Numinia stop | «The Oráculos govern from the Summa Archive» | contradictory | Manual: «no gobiernan»; the Archive was founded by the Council, with the Oracles' endorsement |
 | `STD-003` | admin / top RBAC role | partial | Covers permissions and the facet of being unbannable. Drops the founding and ethical facets |
 | `PRI-004` | co-founder | partial | Accurate, but says nothing of the approver or operator facets |
@@ -103,10 +104,10 @@ The Oracle is the highest rank. Each rank contains every rank below it (cited: `
 
 - **Ladder check:** `PRI-004`, `STD-003`, the glossary and `ranks.ts` all match the ruling: six ranks, same order. But no ES manual chapter defines the ladder (Nómada and Peregrino never appear there as ranks), and the glossary's rank table came from web code (cited: `lore/game/manual/glossary-es-en.md` — «Taken verbatim from `numinia-web/packages/domain/src/constants/`»).
 - **Count (resolved):** the Oracles began as five and one was lost. The Chronicles of Numinia tell that he was caught in a sandstorm and, lost and confused, entered the Inversion Rift in the Neuma Subvale, passing to another plane of existence and leaving Numinia (Christian's review, 2026-09-29 — «quedó atrapado en una tormenta de arena […] terminó por introducirse en la Grieta de Inversión, en el Subvalle de Neuma»). Four remain: STD-003's cap and the four named in `agents/INDEX.md` agree with that. The manual still says «son cinco» without the loss; this story is not yet in the manual (proposed: a line in chapter 5 beside «La Grieta de Inversión»).
-- **Singular vs plural:** the house says «the Oracle» (Pablo, as operator; `agents/INDEX.md`), but the rank has four holders. Does «the Oracle's approval» (`STD-017`) mean Pablo or any Oracle?
+- **Singular vs plural (answered):** the house says «the Oracle» (Pablo, as operator; `agents/INDEX.md`), but the rank has four holders. The lore reviewer keeps formulas like «the Oracle's approval» (`STD-017`), read as *the Founding Partner's approval*; which Oracle is meant is for the Oracles to settle, with no proper names in a structure meant to be replicable (Christian's answers, 2026-10-05).
 - **Rank vs institution:** the manual presents a founding collective with an «Órgano Creador», which reads close to an institution. The ruling says rank. Left open.
 - **Observers conflict:** the Oracles' observers on the Council are «Arcontes» in one passage and «Vernáculos» in another (`05-geografia-y-cultura-de-numinia.md`, «Pensamiento organizado» section vs «El Consejo de Concordia»).
-- **For Christian:** should the dial's Empresa stop take «Founder / Partner» or a governance term? «Executive» contradicts the lore.
+- **Business label (answered):** the dial's business stop takes «Founding Partner» (ES «Socio fundador»), not «Executive», which now names the Archon (`STD-026`, 2026-10-05).
 
 ## Sources
 

@@ -53,6 +53,15 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.150.0",
+    date: "2026-10-05",
+    entries: [
+      { type: "CHG", text: "The narrative dial on /system/language has three levels, like the moon in the bar: Business, Mixed and Numinia. The two in-between levels of the old five-level scale are gone, and the vocabulary table has three columns." },
+      { type: "CHG", text: "The map's last two rings have Numinia names. At the full moon the centre ring of the map now reads Tabularium (the city's archive of official records) and the outer ring Emporium (the enclave where people trade and offer), instead of keeping their plain names." },
+      { type: "CHG", text: "New business words on /system/language. The dial's table now says Founding Partner, Executive, Principal, Contributor, Team member and New member for the six ranks, Profession, Specialization and Subspecialization for guild, branch and house, Contribution Credit for the Prism Cell and Experience / Event for the adventure, as the lore reviewer answered." },
+    ],
+  },
+  {
     version: "v0.149.0",
     date: "2026-10-05",
     entries: [

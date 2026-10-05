@@ -37,7 +37,8 @@ const swappable = new Set(WORDS.filter((w) => w.plain || w.numinia).map((w) => w
 test('wordAt gives the stop\'s word, or today\'s word when the register has none', () => {
   assert.equal(wordAt('The world', 'numinia'), 'The City');
   assert.equal(wordAt('The world', 'bridge'), 'The world');
-  assert.equal(wordAt('The rules', 'numinia'), 'The rules');
+  assert.equal(wordAt('The rules', 'numinia'), 'Tabularium');
+  assert.equal(wordAt('Production', 'numinia'), 'Production');
   assert.equal(wordAt('Nothing like this', 'plain'), 'Nothing like this');
 });
 
