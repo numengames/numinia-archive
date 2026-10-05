@@ -20,11 +20,13 @@
 // the typed collections that render their own routes (decisions, designs,
 // missions, reports). The typed `system` and `legal` collections are the
 // corpus mirror's twins — the corpus serves their pages — so they are not
-// read twice. The section comes from each record's `section` header; the
+// read twice. The section comes from each record's `section` header, or —
+// for a series whose records carry no header, like the game in lore/ — from
+// the series' one section in STD-030 ("Series that take one section"); the
 // series from the folder it lives in.
 import { getCollection } from "astro:content";
 import { getPublicCorpus, titleOf } from "@/lib/corpus";
-import { sections as sectionRows, servedBy } from "@/lib/translator.mjs";
+import { sections as sectionRows, servedBy, seriesSections } from "@/lib/translator.mjs";
 
 /** One published record, as the front door lists it. */
 export interface FrontRecord {
@@ -74,6 +76,7 @@ const str = (v: unknown) => (typeof v === "string" ? v : undefined);
 /** Every record the site publishes, each with its section when it declares one. */
 export async function allRecords(): Promise<FrontRecord[]> {
   const out: FrontRecord[] = [];
+  const inherited = seriesSections() as Record<string, string>;
   for (const e of await getPublicCorpus()) {
     const f = e.data as Record<string, unknown>;
     const folder = e.id.split("/")[0];
@@ -83,7 +86,7 @@ export async function allRecords(): Promise<FrontRecord[]> {
       series: SERIES_OF_FOLDER[folder] ?? folder,
       docId: str(f.id),
       status: str(f.status),
-      section: str(f.section),
+      section: str(f.section) ?? inherited[folder],
     });
   }
   for (const e of await getCollection("decisions")) {

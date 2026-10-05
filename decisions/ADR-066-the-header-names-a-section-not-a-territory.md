@@ -4,9 +4,9 @@ uid: ""
 title: "The header names a section of the company, not a territory"
 type: adr
 status: draft
-version: "0.1.1"
+version: "0.2.0"
 created: "2026-10-03T19:40:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-05T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -92,7 +92,10 @@ sections of the front door as written in `STD-030`, exactly: *Strategy and
 governance*, *Products and services*, *Brand and marketing*, *Sales and
 partners*, *Operations*, *People and culture*, *Finance*, *Legal and
 compliance*, *Technology*, *Knowledge and quality*. Every published record
-carries exactly one. A record's section is a reading for the front door, not
+carries exactly one. A series whose records carry no header and all belong
+to one section names that section once, in `STD-030` (*Series that take one
+section*), and its records inherit it; today that is `lore/`, the game, in
+*Products and services*. A record's section is a reading for the front door, not
 a filing: the function classifies and the series files (`STD-027`, CLS-001),
 and neither changes here.
 
@@ -112,7 +115,7 @@ Binds from the merge of this record. `STD-004` is active and ratified by
 | Name the field `business_section` and leave the code alone | Two words for one thing in 280 headers, to spare 23 lines of code a rename. The uglier word would be the one every author types. |
 | Name the field `category`, APQC's own word | `category` is already a header field of two series under `system/` (the census cards, the supplier cards), with other meanings. |
 | Name the field `function`, records management's word for a business grouping | `function` is taken by the classification scheme (`STD-027`): six functions, not ten, and they classify rather than arrange. |
-| Derive the section from the folder, write nothing in the header | Folders and sections are not one to one: `protocols/` holds sales procedures and legal ones; `operations/` holds offers and secrets. Half the archive would be guessed. |
+| Derive the section from the folder, write nothing in the header | Folders and sections are not one to one: `protocols/` holds sales procedures and legal ones; `operations/` holds offers and secrets. Half the archive would be guessed. Kept for one case only: a series without headers whose every record is one section (`lore/`), declared once in `STD-030`. |
 
 ---
 

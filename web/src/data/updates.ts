@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.149.0",
+    date: "2026-10-05",
+    entries: [
+      { type: "CHG", text: "The game has its section. The ten texts of the role-playing game on the front door (the codex, the two tabletop adventures and Session Zero) now sit under Products and services, and the 'Without a section' block is gone. The game's folder names its section once, in the vocabulary standard, and every text in it inherits it." },
+    ],
+  },
+  {
     version: "v0.148.0",
     date: "2026-10-05",
     entries: [

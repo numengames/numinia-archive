@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-05
+- **Changed** The game takes its section by folder: `STD-030` (0.5.0) gains *Series that take one section*, `lore/` → Products and services, and its ten published texts leave the front door's *Without a section*; `ADR-066` (0.2.0) admits the one case (site v0.149.0)
 - **Added** The books open the front door: the legal playbook (`/legal-playbook`) and the role-playing manual (`/manual`) are built, the open books join the shelf, two handbooks are named as pending; the manual's four missing illustrations become a visible line (site v0.148.0).
 - **Changed** `STD-040` 0.5.0: what a sent proposal offered never changes; its header may follow the header standard's changes of form (the Oracle's ruling).
 - **Added** `OPS-022` *The house's hours* (draft): Madrid time, 37 h a week, two clocks, send windows, the hour a date takes when its source gives none; every header date now carries its hour and HDR-045 checks them all; the sales kit reads date-times. Debt 40 → 39.
