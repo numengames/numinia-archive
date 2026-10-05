@@ -3,9 +3,9 @@ id: "SYS-011:district-ouroboros"
 title: "Ouroboros District"
 type: entity
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-09-29T12:10:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-04T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -70,7 +70,7 @@ Ouroboros is the territory of the Heirs of Eleusis. It has no single equivalent:
 |---|---|---|
 | Place of play | A GM setting a module | cited: `lore/adventures/tabletop/el-espejo-roto.md` — «Ámbito principal: Distrito Ouroboros» |
 | Underground economy | Seeking items that remove states | cited: `lore/game/manual/es/04-sistema-de-juego.md` — «mercado negro» |
-| Identity | Character sheet | cited: `lore/game/attributes-and-ranks.md` — «DISTRICT Ouroboros (Identity)» |
+| Identity | Character sheet | cited: `lore/codex/en/character-sheet.md` — «District» |
 | House business line | Browsing the numinia.org map | cited: `web/src/lib/summa.ts` — «Four districts cross ONLY the two outer rings» |
 
 ## Relations

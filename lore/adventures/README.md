@@ -17,10 +17,10 @@ does — but a table module and a virtual-world experience are written for
 different people and played differently, so each lives in its own folder.
 
 What both draw from is the **Codex**, Numinia's roleplaying game
-(`../game/`): the manual, its translation glossary and the compendium
-`attributes-and-ranks.md`. Guilds, factions, species, districts, history and
-rules are written there once, in Spanish — the original — and in English. Who
-Numinia is as a house lives in `../world/`. An adventure cites them; it does
+(`../game/`): the manual and its translation glossary. Guilds, factions,
+species, districts, history and rules are written there once, in Spanish —
+the original — and in English. Who Numinia is as a house lives in the
+principles (`PRI-001`, `PRI-004`). An adventure cites them; it does
 not copy them, and there is no third folder for shared material: the Codex
 is it.
 

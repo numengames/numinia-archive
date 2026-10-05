@@ -10,8 +10,9 @@
 // own.
 //
 // The world entries (2026-09-28) point at their own shelf of the lore index
-// (/lore/#codex, #world, #adventures), never at one document inside it: the
-// Codex used to open the glossary and World the first essay.
+// (/lore/#codex, #adventures), never at one document inside it: the Codex
+// used to open the glossary. (World and its shelf left on 2026-10-04: the
+// three texts on it were the company's model, not the game.)
 //
 // Every entry that names a `folder` is counted from the tree at build time;
 // an entry with no folder yet is a series still to be created and says so.
@@ -124,7 +125,6 @@ export const SEGMENTS: Segment[] = [
   ] },
   { id: "world-learn", ring: "world", district: "learn", word: "Codex", title: "Learn · its world", a: [90, 180], entries: [
     E("Codex", "Glossary, character sheet, acknowledgments", "/lore/#codex", "lore/codex"),
-    E("World", "The city, its districts, its species", "/lore/#world", "lore/world"),
   ] },
   { id: "world-order", ring: "world", district: "order", word: "Agents", title: "Organise · its world", a: [180, 270], entries: [
     E("Agents", "Humans and digital agents: who does the work", "/agent", "agents"),
