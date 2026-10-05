@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 35538,
+  "chars": 36111,
   "apparatus": false,
   "archived": false,
-  "tokens": 10243
+  "tokens": 10416
  },
  {
   "path": "CLAUDE.md",
@@ -797,10 +797,10 @@
   "series": "designs",
   "type": "design",
   "status": "active",
-  "chars": 9192,
+  "chars": 7985,
   "apparatus": false,
   "archived": false,
-  "tokens": 2340
+  "tokens": 2059
  },
  {
   "path": "designs/DES-009-web-pieces.md",
@@ -830,10 +830,10 @@
   "series": "designs",
   "type": "design",
   "status": "active",
-  "chars": 15027,
+  "chars": 15316,
   "apparatus": false,
   "archived": false,
-  "tokens": 4095
+  "tokens": 4161
  },
  {
   "path": "designs/DES-012-presentation-deck.md",
@@ -3195,10 +3195,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 70255,
+  "chars": 74977,
   "apparatus": false,
   "archived": false,
-  "tokens": 17160
+  "tokens": 18340
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -3239,10 +3239,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 16040,
+  "chars": 17206,
   "apparatus": false,
   "archived": false,
-  "tokens": 3727
+  "tokens": 3993
  },
  {
   "path": "standards/STD-031-a-principle-states.md",
@@ -3558,10 +3558,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8736,
+  "chars": 9506,
   "apparatus": false,
   "archived": false,
-  "tokens": 2528
+  "tokens": 2730
  },
  {
   "path": "system/semantic-census/guild-exegetes.md",
@@ -3569,10 +3569,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 10268,
+  "chars": 10690,
   "apparatus": false,
   "archived": false,
-  "tokens": 2985
+  "tokens": 3104
  },
  {
   "path": "system/semantic-census/institution-summa-archive.md",
@@ -3591,10 +3591,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 9725,
+  "chars": 10367,
   "apparatus": false,
   "archived": false,
-  "tokens": 2817
+  "tokens": 2999
  },
  {
   "path": "system/semantic-census/resource-prism-cells.md",
@@ -3602,10 +3602,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 8195,
+  "chars": 8830,
   "apparatus": false,
   "archived": false,
-  "tokens": 2368
+  "tokens": 2554
  },
  {
   "path": "system/suppliers/advisory-ony.md",
