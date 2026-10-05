@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "13ee484",
-  "corpus_hash": "36115f8e7adc6d61dd397eb0d7611df365fe9f3fb996dcf280ce98e921dd934f",
+  "head": "ccd7bb3",
+  "corpus_hash": "0188542267c3bca1181c94ed5a439140a080bf34c819d660b869c873eea90cab",
   "root_dirty": 0,
-  "measured_at": "2026-10-05T06:50:39Z",
+  "measured_at": "2026-10-05T07:03:24Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 809,
+      "value": 810,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,7 +34,7 @@
         ".js": 2,
         ".json": 16,
         ".md": 340,
-        ".mjs": 125,
+        ".mjs": 126,
         ".png": 36,
         ".svg": 76,
         ".toml": 3,
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 340,
-          "bytes": 3727996
+          "bytes": 3728597
         },
         "Code": {
-          "files": 262,
-          "bytes": 2365325
+          "files": 263,
+          "bytes": 2373431
         },
         "Image": {
           "files": 115,
@@ -65,7 +65,7 @@
         },
         "Data": {
           "files": 69,
-          "bytes": 278243
+          "bytes": 279262
         },
         "Font": {
           "files": 7,
@@ -149,19 +149,19 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 86,
+      "value": 87,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 86
+        "node": 87
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 20,
+      "value": 21,
       "unit": "files",
       "definition": "checks the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)"
     },
@@ -365,24 +365,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 943562,
+      "value": 943693,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465835,
-        "standards": 103118,
-        "system": 51926,
+        "standards": 103171,
+        "system": 51925,
         "procedures": 37712,
         "reports": 36728,
         "agents": 36273,
         "operations": 30272,
-        "designs": 28465,
+        "designs": 28463,
         "machine": 27397,
         "opportunities": 25222,
         "principles": 24099,
-        "": 17894,
+        "": 17975,
         "missions": 17662,
         "decisions": 13397,
         "legal": 13061,
@@ -395,9 +395,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 491072,
-        "draft": 218429,
-        "active": 214892,
+        "(none)": 491153,
+        "draft": 218428,
+        "active": 214943,
         "todo": 13537,
         "in-progress": 4516,
         "done": 1116
@@ -705,7 +705,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 40,
+      "value": 41,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -771,7 +771,8 @@
         "machine/scripts/check-orphan-content.mjs",
         "machine/scripts/check-reachable.mjs",
         "machine/scripts/telemetry.mjs",
-        "machine/tools/check-register.mjs"
+        "machine/tools/check-register.mjs",
+        "machine/tools/generate-design-kit.mjs"
       ],
       "unit": "scripts",
       "definition": "scripts the runner runs in CI that no Check row of any standard names — a check the norm does not claim"
@@ -895,7 +896,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 284,
+      "value": 285,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -906,7 +907,7 @@
         "standards/STD-023-design-values.md": 19,
         "lore/game/manual/es/03-creacion-del-personaje.md": 12,
         "operations/OPS-018-the-house-card.md": 12,
-        "CHANGELOG.md": 10,
+        "CHANGELOG.md": 11,
         "lore/game/manual/en/03-character-creation.md": 10,
         "operations/OPS-007-sales.md": 10,
         "designs/DES-017-legal-obligations-to-confirm.md": 9,
