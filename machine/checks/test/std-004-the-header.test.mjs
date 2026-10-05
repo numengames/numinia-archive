@@ -71,6 +71,33 @@ test('HDR-006 / HDR-007: real times, no midnight, updated after created', () => 
   assert.deepEqual(one({ ...GOOD, updated: '2026-09-11T09:00:00+02:00' }), ['HDR-007']);
 });
 
+test('HDR-045: every header date carries its hour and offset, not only created and updated', () => {
+  // a day with no hour, in any field that holds a date
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07' }), ['HDR-045']);
+  assert.deepEqual(one({ ...GOOD, id: 'PRO-900', type: 'procedure', review_next: '2027-08-21' }, 'procedures/PRO-900-a.md'), ['HDR-045']);
+  // an hour with no offset is not a moment either
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T09:00' }), ['HDR-045']);
+  // the hour and the offset: passes
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T09:00:00+02:00' }), []);
+  assert.deepEqual(one({ ...GOOD, id: 'PRO-900', type: 'procedure', review_next: '2027-08-21T10:00:00+02:00' }, 'procedures/PRO-900-a.md'), []);
+  // midnight nobody wrote: reported
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T00:00:00+02:00' }), ['HDR-045']);
+  // a value that is not a date is not judged
+  assert.deepEqual(one({ ...GOOD, tags: ['2026', 'x'] }), []);
+  // created and updated keep their own codes
+  assert.deepEqual(one({ ...GOOD, created: '2026-09-11' }), ['HDR-006']);
+});
+
+test('HDR-045: midnight passes only where a call\'s own notice wrote it', () => {
+  const call = { ...GOOD, id: 'OPP-2099-900', type: 'opportunity', kind: 'grant', read_from: 'notice' };
+  const at = (fields) => one(fields, 'opportunities/OPP-2099-900.md').filter((p) => p === 'HDR-045');
+  assert.deepEqual(at({ ...call, opens: '2027-04-08T00:00:00+02:00' }), []);
+  const unread = { ...call }; delete unread.read_from;
+  assert.deepEqual(at({ ...unread, opens: '2027-04-08T00:00:00+02:00' }), ['HDR-045']);
+  // the record's own day is the house's, not the notice's
+  assert.deepEqual(at({ ...call, opened: '2026-10-01T00:00:00+02:00' }), ['HDR-045']);
+});
+
 test('HDR-009: an empty value is written; uid is the exception', () => {
   assert.deepEqual(one({ ...GOOD, guild: '' }), ['HDR-009']);
   assert.deepEqual(one({ ...GOOD, uid: '' }), []);
