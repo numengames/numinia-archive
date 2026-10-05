@@ -15,8 +15,7 @@ version: "1.0.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
-guild: "Alchemists"
+owner: "person-responsible"
 section: "Knowledge and quality"
 tags: [report, audit]
 license: "CC-BY-4.0"
@@ -40,7 +39,7 @@ visibility: "public"
 > **Summary:** One sentence. WHAT was observed, and on what date it was true.
 > **Epistemic:** What the system looked like on the observation date.
 > **Pragmatic:** Evidence other documents may cite.
-> **Audience:** Agents · Oracles
+> **Audience:** Agents · People responsible
 
 <!-- Title: state the finding, not the exercise. "Nine checks certify a corpus
      three of them cannot read" — not "CI audit". -->

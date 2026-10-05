@@ -11,7 +11,7 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
+owner: "person-responsible"
 section: "Knowledge and quality"
 tags: [design]
 license: "CC0-1.0"
@@ -19,7 +19,6 @@ license: "CC0-1.0"
 related_missions: []
 
 # OPTIONAL — use when they apply, omit without guilt.
-# guild: "Alchemists"
 # mission: "MIS-NNNN"               # the mission that produced this design
 # scope: "what the design covers"
 # extraction_note: "where this text came from, if it was extracted"
@@ -31,7 +30,7 @@ related_missions: []
 > **Summary:** One sentence. WHAT this design would build, and the gap it closes.
 > **Epistemic:** Which design exists for this problem, and what it attacks.
 > **Pragmatic:** Consult before designing anything in this area.
-> **Audience:** Agents · Oracles
+> **Audience:** Agents · People responsible
 
 <!-- Title: name what gets built. "One template per series, in one folder" —
      not "Template improvements". -->

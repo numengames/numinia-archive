@@ -15,12 +15,10 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
-# guild: Sentinels | Alchemists | Exegetes | Procurators
-guild: "Alchemists"
+owner: "person-responsible"
 # section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
 section: "Knowledge and quality"
-tags: [area, guild]
+tags: [area, subject]
 license: "CC0-1.0"
 
 # THE BOARD — what /missions paints. The build needs `id` and `title`; the
@@ -53,7 +51,7 @@ completed: null
 > **Summary:** One sentence. WHAT this mission changes.
 > **Epistemic:** What you learn by reading this document.
 > **Pragmatic:** What you can do with it.
-> **Audience:** Agents · Oracles
+> **Audience:** Agents · People responsible
 
 <!-- Title: verb + object + result, e.g. "Retire the /print/ intermediates
      from the served site". Not "Print pages" — a noun is not a mission. -->
@@ -124,7 +122,7 @@ this template that put its vocabularies inline. The vocabularies above are on
 their own lines for that reason; keep them there or delete them, never move
 them onto the value.
 
-VERSION opens at 0.1.0. Every artefact starts there; only the Oracle promotes
+VERSION opens at 0.1.0. Every artefact starts there; only the person responsible promotes
 to 1.0.0.
 
 OPTIONAL SECTIONS — add only when they earn their place.

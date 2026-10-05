@@ -14,12 +14,11 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
+owner: "person-responsible"
 tags: [operations]
 license: "CC-BY-4.0"
 
 # OPTIONAL — use when they apply, omit without guilt.
-# guild: "Procurators"
 # section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
 # extraction_note: "extracted from <source> on YYYY-MM-DD, unedited"
 # restoration_note: "restored from <source>, what was recovered and what was not"
@@ -34,7 +33,7 @@ license: "CC-BY-4.0"
 > **Summary:** One sentence. WHAT this record sustains in the running business.
 > **Epistemic:** The operational context this document captures.
 > **Pragmatic:** When it is consulted, and by whom.
-> **Audience:** Agents · Oracles
+> **Audience:** Agents · People responsible
 
 <!-- Title: name the fact, not the department. "The company's fiscal identity"
      — not "Administration". -->

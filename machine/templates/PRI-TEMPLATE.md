@@ -13,8 +13,7 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
-guild: "Exegetes"
+owner: "person-responsible"
 section: "Knowledge and quality"
 tags: [principle]
 license: "CC0-1.0"
@@ -32,7 +31,7 @@ license: "CC0-1.0"
 > **Summary:** TODO — one sentence stating what is true, not what the document is about.
 > **Epistemic:** TODO — what a reader understands after this that they could not before.
 > **Pragmatic:** TODO — what they can now do, decide or recognise.
-> **Audience:** Everyone · Agents · Oracles — pick, do not list all three by default.
+> **Audience:** Everyone · Agents · People responsible — pick, do not list all three by default.
 
 **Binds:** TODO — who is held to this. One line.
 
@@ -82,7 +81,7 @@ is the only thing between a principle and a ramble. A principle that cannot say 
 one thing in 1 500 words is probably two principles, or one principle and a standard.
 No changelog inside the document; git is the history.
 
-READ IT ALOUD before proposing it. The Oracle reads drafts by text-to-speech;
+READ IT ALOUD before proposing it. Drafts are often read by text-to-speech;
 a body that names `PRI-004` mid-sentence (STA-011) reads like a directory,
 and a condensed sentence that kept the punchline and lost the because reads
 like a riddle.

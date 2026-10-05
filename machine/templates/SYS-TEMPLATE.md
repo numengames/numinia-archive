@@ -12,7 +12,7 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
+owner: "person-responsible"
 section: "Knowledge and quality"
 tags: [system, reference]
 license: "CC0-1.0"
@@ -23,7 +23,6 @@ license: "CC0-1.0"
 # former_id: "SYS-NNN"              # if reshelved — the old identifier never frees
 # former_id_note: "why the identifier changed"
 # extraction_note: "where this text came from, if it was extracted"
-# guild: "Sentinels"
 # related: ["DES-NNN"]
 ---
 
@@ -32,7 +31,7 @@ license: "CC0-1.0"
 > **Summary:** One sentence. WHAT part of the live system this documents.
 > **Epistemic:** How it works as wired today — components, flows, boundaries.
 > **Pragmatic:** Use to onboard, audit, or plan a change to it.
-> **Audience:** Agents · Oracles
+> **Audience:** Agents · People responsible
 
 <!-- Title: name the component and its state. "The deploy pipeline as it runs
      today" — not "Deployment". -->
