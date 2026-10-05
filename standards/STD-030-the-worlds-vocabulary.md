@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.4.3"
+version: "0.5.0"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-05T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -143,6 +143,19 @@ and culture book, above the sections.
 | Legal and compliance | The laws we follow, the policies we publish and the risks we watch. | 11.0 Manage enterprise risk, compliance, remediation and resiliency |
 | Technology | The systems and sites we run, and how we keep them secure. | 8.0 Manage information technology |
 | Knowledge and quality | How we record, check and keep what we know and decide. | 13.0 Develop and manage business capabilities |
+
+## Series that take one section
+
+A record names its section in its header. A series whose records carry no
+header, and whose every record belongs to the same section, names it once
+here instead, and each of its records inherits it: metadata kept at the
+level of the series, as [ISO 15489-1:2016](https://www.iso.org/standard/62542.html)
+allows. A record of such a series that ever carries a `section` of its own
+keeps its own.
+
+| Series | Section | Why |
+|---|---|---|
+| `lore/` | Products and services | The role-playing game: its manual, its codex and its adventures. The game is one of the things we make. |
 
 ## Disciplines
 

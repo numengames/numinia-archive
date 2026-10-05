@@ -29,7 +29,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT, parseFM } from '../lib/frontmatter.mjs';
-import { table, sections, disciplines, businessLines, whoDecides, guilds, servedBy, GUILD_TABLES } from '../../../web/src/lib/translator.mjs';
+import { table, sections, disciplines, businessLines, whoDecides, guilds, servedBy, seriesSections, GUILD_TABLES } from '../../../web/src/lib/translator.mjs';
 
 const words = (s) => s.split(/\s+/).filter(Boolean).length;
 const APQC = /^(1[0-3]|[1-9])\.0 /;
@@ -117,6 +117,23 @@ test('header: every record carries exactly one section, and it is one of the ten
     if (/^territory:/m.test(text.split('---')[1])) wrong.push(`${f}: still carries territory`);
   }
   assert.deepEqual(wrong, []);
+});
+
+test('series that take one section: a known section, a real folder the header guard leaves alone', () => {
+  // A series inherits a section only when its records carry no header — the
+  // header guard's OUTWARD — so the record cannot say otherwise.
+  const names = new Set(sections().map((r) => r.Section));
+  const guard = readFileSync(path.join(ROOT, 'machine/checks/rules/std-004-the-header.mjs'), 'utf8');
+  const outward = new RegExp(guard.match(/^const OUTWARD = \/(.*)\/;$/m)[1]);
+  const map = seriesSections();
+  assert.ok(Object.keys(map).length > 0, 'the table is empty');
+  for (const [folder, section] of Object.entries(map)) {
+    assert.ok(names.has(section), `${folder}/: "${section}" is not one of the ten`);
+    const files = execFileSync('git', ['ls-files', `${folder}/*.md`], { cwd: ROOT, encoding: 'utf8' }).split('\n').filter(Boolean);
+    assert.ok(files.length > 0, `${folder}/ holds no record`);
+    assert.ok(outward.test(`${folder}/x.md`), `${folder}/ carries headers: it names its sections there`);
+  }
+  assert.equal(map.lore, 'Products and services');
 });
 
 test('header: the guard lists the ten sections of STD-030, word for word', () => {

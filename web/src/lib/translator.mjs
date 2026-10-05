@@ -83,6 +83,18 @@ export function table(heading, text = read()) {
 /** The front door's sections, in order: { Section, Line, "APQC category" }. */
 export const sections = (text) => table("Sections of the front door", text);
 
+/**
+ * The series whose records carry no header and all belong to one section,
+ * as a map from folder to section: { lore: "Products and services" }.
+ * Metadata kept at the level of the series (ISO 15489-1); a record that
+ * ever names a section of its own keeps it.
+ */
+export function seriesSections(text) {
+  return Object.fromEntries(
+    table("Series that take one section", text).map((r) => [r.Series.replace(/`/g, "").replace(/\/$/, ""), r.Section]),
+  );
+}
+
 /** Each house by its disciplines; gaps have "—" as their house. */
 export const disciplines = (text) => table("Disciplines", text);
 
