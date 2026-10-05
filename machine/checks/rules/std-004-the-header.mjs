@@ -33,7 +33,7 @@ export const meta = {
   plates: ['HDR-000', 'HDR-001', 'HDR-002', 'HDR-003', 'HDR-004', 'HDR-005', 'HDR-006', 'HDR-007',
     'HDR-008', 'HDR-009', 'HDR-012', 'HDR-013', 'HDR-014', 'HDR-016', 'HDR-017', 'HDR-018', 'HDR-019', 'HDR-020',
     'HDR-030', 'HDR-031', 'HDR-032', 'HDR-033', 'HDR-034', 'HDR-035', 'HDR-036', 'HDR-037', 'HDR-038',
-    'HDR-040', 'HDR-043', 'HDR-044'],
+    'HDR-040', 'HDR-043', 'HDR-044', 'HDR-045'],
 };
 
 const RULES = loadRules();
@@ -85,6 +85,8 @@ const VOCAB_PLATE = { guild: 'HDR-033', executor: 'HDR-034', visibility: 'HDR-03
   section: 'HDR-036', priority: 'HDR-037', effort: 'HDR-038' };
 
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
+/* The days a call's notice sets: the one place a written midnight is a source's. */
+const CALL_DAYS = ['opens', 'closes', 'starts'];
 const SEMVER = /^\d+\.\d+\.\d+$/;
 
 /* `TBA` defers a value, and a deferral is legal only when something owns it:
@@ -217,6 +219,17 @@ function rings(corpus, out) {
       if (!ISO_TIME.test(fm.updated)) F('HDR-007', rel, `updated "${fm.updated}" lacks a real time`);
       else if (fm.created && ISO_TIME.test(fm.created) && fm.updated < fm.created)
         F('HDR-007', rel, `updated ${fm.updated} < created ${fm.created}`);
+    }
+
+    // HDR-045: every other field that holds a date holds a moment too — the
+    // day, the hour and the offset. Where the source gives no hour, the
+    // house's hours card gives it; midnight is nobody's hour, except where a
+    // call's own notice wrote it and the record says it read the notice.
+    if (!tpl) for (const [k, v] of Object.entries(fm)) {
+      if (k === 'created' || k === 'updated' || typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}/.test(v)) continue;
+      if (!ISO_TIME.test(v)) F('HDR-045', rel, `${k} "${v}" has no hour and offset — write the moment; where the source gives no hour, the house's hours card gives it`);
+      else if (/T00:00(:00(\.0+)?)?(Z|[+-])/.test(v) && !(CALL_DAYS.includes(k) && fm.read_from))
+        F('HDR-045', rel, `${k} "${v}" carries the midnight nobody wrote — a day with no hour takes the house's hour for its kind`);
     }
 
     if (fm.digital_source_type && !['human', 'ai-assisted', 'ai-generated'].includes(fm.digital_source_type))

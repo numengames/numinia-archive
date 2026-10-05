@@ -186,6 +186,11 @@ export function personNames(text, allowed = []) {
 }
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+/* A header day is a moment: the day, the hour and the offset (RFC 3339).
+   Where the source gives no hour, the house's hours card gives it. The
+   timeline's lines stay days: they order what happened, not when. */
+const DATE_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:\d{2})$/;
+const moment = (k, v) => (ISO_DATE.test(v) ? `${k} "${v}" has no hour — write the moment with its offset; where the source gives no hour, the house's hours card gives it` : `${k} "${v}" is not a date with its hour and offset`);
 const ID_RE = /^OPP-\d{4}-\d{3,}$/;
 const NUMBER = /^\d+(\.\d+)?$/;
 /* The separator of a timeline line: space, U+00B7 middle dot, space. */
@@ -463,7 +468,7 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
   among('disclosure', DISCLOSURES, 'OPP-011');
   if (fm.currency !== undefined && fm.currency !== 'EUR') F('OPP-002', `currency "${fm.currency}" — values are kept in EUR, so they add up`);
   if (fm.value !== undefined && !NUMBER.test(fm.value)) F('OPP-002', `value "${fm.value}" is not a number (before tax)`);
-  if (fm.opened !== undefined && !ISO_DATE.test(fm.opened)) F('OPP-002', `opened "${fm.opened}" is not a date`);
+  if (fm.opened !== undefined && !DATE_TIME.test(fm.opened)) F('OPP-002', moment('opened', fm.opened));
   if (fm.offer !== undefined && !/^OPS-\d{3}$/.test(fm.offer)) F('OPP-002', `offer "${fm.offer}" is not an offer record (OPS-NNN)`);
   if (['sale', 'tender'].includes(kind) && !fm.offer) F('OPP-002', `a ${kind} with no \`offer\` — name the offer record it sells`);
   if (fm.follows !== undefined && !ID_RE.test(fm.follows)) F('OPP-002', `follows "${fm.follows}" is not a record's id`);
@@ -496,8 +501,8 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
   if (CALLS.includes(kind)) {
     if (!fm.call && !(kind === 'tender' && fm.procedure === 'minor')) F('OPP-012', `a ${kind} with no \`call\` — the address of the notice or the call's page`);
     if (fm.call && !URL_RE.test(fm.call)) F('OPP-012', `call "${fm.call}" is not an address`);
-    if (!fm.closes) F('OPP-012', `a ${kind} with no \`closes\` — the day offers or applications close`);
-    for (const k of ['closes', 'opens', 'starts']) if (fm[k] && !ISO_DATE.test(fm[k])) F('OPP-012', `${k} "${fm[k]}" is not a date`);
+    if (!fm.closes) F('OPP-012', `a ${kind} with no \`closes\` — the moment offers or applications close`);
+    for (const k of ['closes', 'opens', 'starts']) if (fm[k] && !DATE_TIME.test(fm[k])) F('OPP-012', moment(k, fm[k]));
     /* OPP-014: the verdict rests on the call's own words */
     if (!fm.read_from) F('OPP-014', `a ${kind} that does not say where it was read — ${reg.readFrom.join(' · ')}`);
     else if (!reg.readFrom.includes(fm.read_from)) F('OPP-014', `read_from "${fm.read_from}" is not one of ${reg.readFrom.join(' · ')} — a summary is never enough to record`);

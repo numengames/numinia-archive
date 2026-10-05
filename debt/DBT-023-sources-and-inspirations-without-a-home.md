@@ -4,9 +4,9 @@ uid: ""
 title: "The archive's sources and inspirations have no home since the lore was cleared"
 type: documentation
 status: active
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-04T13:00:00+02:00"
-updated: "2026-10-04T13:00:00+02:00"
+updated: "2026-10-05T10:38:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -15,7 +15,7 @@ tags: [debt, sources, references, culture, lore]
 license: "CC-BY-4.0"
 severity: low
 severity_reason: "nothing the archive states depends on these titles. What is lost while they wait is the trail to where its ideas came from, which a reader can no longer follow"
-detected: "2026-10-04"
+detected: "2026-10-04T09:00:00+02:00"
 visibility: "public"
 visibility_reason: "a reading list is meant to be read; whoever wants to know where the house's ideas come from deserves to see it"
 opened_by: "ursa"

@@ -21,7 +21,7 @@ applies_to: [all-agents]
 # mandatory: true                   # execution is not discretionary
 # approved_by: "ADR-NNN"            # the decision that made this binding
 # supersedes_version: "1.2.0"       # the version of THIS procedure replaced
-# review_next: "YYYY-MM-DD"         # when this procedure is due for re-reading
+# review_next: "YYYY-MM-DDT10:00:00+02:00" # due for re-reading, at 10:00 (OPS-022)
 # guild: "Sentinels"
 # section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
 # related: ["STD-NNN"]

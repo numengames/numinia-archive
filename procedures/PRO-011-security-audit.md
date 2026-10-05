@@ -4,11 +4,11 @@ uid: ""
 title: "Auditing identity, authorization and secrets"
 type: procedure
 status: draft
-version: "2.1.4"
+version: "2.1.5"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-10-04T10:43:00+02:00"
+updated: "2026-10-05T10:38:00+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 section: "Technology"
@@ -16,7 +16,7 @@ tags: [procedures, security, audit, credentials, secrets, identity, authorizatio
 license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
-review_next: "2027-08-21"
+review_next: "2027-08-21T10:00:00+02:00"
 related: ["STD-022", "STD-015", "PRO-005", "PRO-008"]
 derived_from: "PRI-010"
 ---
