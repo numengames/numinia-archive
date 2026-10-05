@@ -7,7 +7,7 @@ subtype: register
 status: draft
 version: "0.1.0"
 created: "2026-10-05T10:40:00+02:00"
-updated: "2026-10-05T10:40:00+02:00"
+updated: "2026-10-05T10:43:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -60,8 +60,8 @@ of March to the last Sunday of October.
 
 The legal maximum is 40 h a week on annual average (ET art. 34.1); the
 37.5 h bill was returned by Congress on 10 September 2025. Collective
-agreements average about 1,750 h a year, which the house reads as about
-37.8 h a week (the press divides it to 38.3 h). Every working day is
+agreements average about 1,750 h a year, about 37.8 h a week (RTVE,
+10 September 2025, from the Ministry's statistics). Every working day is
 recorded, start and end (ET art. 34.9, RD-ley 8/2019); 12 hours of rest
 separate two days, and an ordinary day is at most 9 hours (ET art. 34.3).
 There is no summer schedule.
@@ -91,12 +91,13 @@ Mail Privacy Protection.
 | Date | Hour | Source |
 |---|---|---|
 | Our own deadline, "until day X" (a proposal's validity) | 23:59 | Ley 39/2015 art. 30: a term in days ends with its last day |
-| A call's day, when its notice gives no hour | 23:59, said in the record's notes | the same |
+| A call's opening day, when its notice gives no hour | 00:00, said in the record's notes | Ley 39/2015 art. 30: a term in days begins with its first day |
+| A call's closing day, when its notice gives no hour | 23:59, said in the record's notes | the same: it ends with its last day |
 | A scheduled review | 10:00 | the house's ruling |
 | A day something happened, whose hour nobody recorded | 09:00, the office opening | declared, not guessed |
 | A contract or service start, with no hour in its source | 09:00 | the house's ruling |
 
-Midnight is nobody's hour: only a notice that writes it gives it.
+Midnight is nobody's hour, except where a notice writes it or a call opens on a day.
 
 ## References
 
