@@ -75,6 +75,7 @@ const COMPANIONS: Record<string, { file: string; what: string }[]> = {
     { file: "RPT-TEMPLATE-QUARTER.md", what: "the quarterly report: the nine headings, one row per week" },
     { file: "RPT-TEMPLATE-YEAR.md", what: "the annual report: the nine headings and the organisation's story so far" },
   ],
+  STD: [{ file: "STD-TEMPLATE-RESPONSIBLES.md", what: "the register of who is responsible for each section — where every \"person responsible\" resolves" }],
 };
 
 /** Templates that live elsewhere, because the tool that reads them needs them there. */

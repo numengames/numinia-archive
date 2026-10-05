@@ -1655,10 +1655,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 5514,
+  "chars": 5732,
   "apparatus": true,
   "archived": false,
-  "tokens": 1502
+  "tokens": 1553
  },
  {
   "path": "machine/templates/RPT-TEMPLATE-QUARTER.md",
@@ -1703,6 +1703,17 @@
   "apparatus": true,
   "archived": false,
   "tokens": 1148
+ },
+ {
+  "path": "machine/templates/STD-TEMPLATE-RESPONSIBLES.md",
+  "dir": "machine",
+  "series": null,
+  "type": "standard",
+  "status": "draft",
+  "chars": 2983,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 739
  },
  {
   "path": "machine/templates/STD-TEMPLATE.md",

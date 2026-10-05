@@ -39,6 +39,10 @@ Three companions of the report template, one per roll-up level:
 Same nine headings at every level, for a board that does not know the work
 (`STD-043`); only the scale changes.
 
+One companion of the standard template: `STD-TEMPLATE-RESPONSIBLES.md`, the
+register of who is responsible for each section. Every document's
+`owner: "person-responsible"` resolves to the person in its section's row.
+
 **Every template opens with the same header, in the same order** — `id`, `uid`,
 `title`, `type`, `status`, `version`, `created`, `updated`, `author`, `owner`,
 then `section`, `tags`, `license` where the series uses them —

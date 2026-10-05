@@ -73,6 +73,8 @@ const COMPANIONS = {
   'RPT-TEMPLATE-WEEK.md': 'reports',
   'RPT-TEMPLATE-QUARTER.md': 'reports',
   'RPT-TEMPLATE-YEAR.md': 'reports',
+  // The register every organisation fills first: who answers for each section.
+  'STD-TEMPLATE-RESPONSIBLES.md': 'standards',
 };
 const EXEMPT = new Set(['README.md']);
 
