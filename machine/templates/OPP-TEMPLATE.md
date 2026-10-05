@@ -19,8 +19,7 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "2026-10-02T12:00:00+02:00"
 author: "agent-id"
-owner: "oracle"
-guild: "Procurators"
+owner: "person-responsible"
 section: "Knowledge and quality"
 tags: [opportunities]
 license: "CC0-1.0"
@@ -112,7 +111,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Epistemic:** Is this opportunity worth pursuing, and what is still
 > unknown about it?
 > **Pragmatic:** Prepare the next step, or decide to drop it.
-> **Audience:** Sales · Oracles
+> **Audience:** Sales · People responsible
 
 ## Need
 

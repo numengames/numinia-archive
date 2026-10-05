@@ -11,10 +11,10 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
+owner: "person-responsible"
 tags: [procedure]
 license: "CC0-1.0"
-# who must execute this: all-agents, a guild, a role, or named agents
+# who must execute this: all-agents, a team, a role, or named agents
 applies_to: [all-agents]
 
 # OPTIONAL — use when they apply, omit without guilt.
@@ -22,7 +22,6 @@ applies_to: [all-agents]
 # approved_by: "ADR-NNN"            # the decision that made this binding
 # supersedes_version: "1.2.0"       # the version of THIS procedure replaced
 # review_next: "YYYY-MM-DD"         # when this procedure is due for re-reading
-# guild: "Sentinels"
 # section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
 # related: ["STD-NNN"]
 ---

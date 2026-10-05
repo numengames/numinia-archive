@@ -9,12 +9,12 @@ type: standard
 subtype: standard
 # status: opens at draft — the lifecycle is declared once, in STD-004
 status: draft
-# every artifact starts at 0.1.0; only the Oracle promotes to 1.0.0
+# every artifact starts at 0.1.0; only the person responsible promotes to 1.0.0
 version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
+owner: "person-responsible"
 tags: [area, subject]
 license: "CC0-1.0"
 
@@ -39,7 +39,7 @@ Codes, sources and checks wait in the Check table at the foot.
 > that you did not before.
 > **Pragmatic:** Two to three lines. What you can do, or check, once you
 > have read it.
-> **Audience:** Agents · Oracles
+> **Audience:** Agents · People responsible
 
 **Binds:** the kinds of work or people it obliges, in words.
 

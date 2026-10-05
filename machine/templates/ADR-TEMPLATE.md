@@ -11,16 +11,14 @@ version: "0.1.0"
 created: "YYYY-MM-DDTHH:MM:SSZ"
 updated: "YYYY-MM-DDTHH:MM:SSZ"
 author: "agent-id"
-owner: "oracle"
-# guild: Sentinels | Alchemists | Exegetes | Procurators
-guild: "Alchemists"
+owner: "person-responsible"
 # section: Strategy and governance | Products and services | Brand and marketing | Sales and partners | Operations | People and culture | Finance | Legal and compliance | Technology | Knowledge and quality
 section: "Knowledge and quality"
 tags: [decisions, adr]
 license: "CC-BY-4.0"
 
 # OPTIONAL — use when they apply, omit without guilt.
-# deciders: ["oracle"]              # who ruled
+# deciders: ["person-responsible"]            # who ruled
 # consulted: ["agent-id"]           # who was asked, and did not rule
 # absorbs: ["ADR-NNN"]              # identifiers this record inherits, kept resolving
 # amends: "STD-NNN"                 # a standard this narrows without superseding
@@ -34,7 +32,7 @@ license: "CC-BY-4.0"
 > **Summary:** One sentence. WHAT was decided.
 > **Epistemic:** The reasoning that makes this the chosen path.
 > **Pragmatic:** What changes because of this decision.
-> **Audience:** Agents · Oracles
+> **Audience:** Agents · People responsible
 
 <!-- Title: state the choice, not the subject. "Prefixes are three letters,
      not four" — not "Prefix naming". A reader scanning the index must know
