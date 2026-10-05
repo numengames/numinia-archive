@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 35271,
+  "chars": 35538,
   "apparatus": false,
   "archived": false,
-  "tokens": 10161
+  "tokens": 10243
  },
  {
   "path": "CLAUDE.md",
@@ -764,10 +764,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 6674,
+  "chars": 7026,
   "apparatus": false,
   "archived": false,
-  "tokens": 1765
+  "tokens": 1852
  },
  {
   "path": "decisions/ADR-067-the-archive-names-its-own-things-with-the-industrys-words.md",
@@ -3239,10 +3239,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 15428,
+  "chars": 16040,
   "apparatus": false,
   "archived": false,
-  "tokens": 3569
+  "tokens": 3727
  },
  {
   "path": "standards/STD-031-a-principle-states.md",

@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "9d98777",
-  "corpus_hash": "b4b5cee9b37acd48d9d650d79dbe902e63f2a2ffd81d92d8a3261a9f01577ef4",
-  "root_dirty": 1,
-  "measured_at": "2026-10-05T09:38:38Z",
+  "head": "c232722",
+  "corpus_hash": "fc78af3760d36b618fe8c25f333705cbc3e17e26f8a49f3e5f6fcce2e6409420",
+  "root_dirty": 0,
+  "measured_at": "2026-10-05T14:26:51Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 342,
-          "bytes": 3742213
+          "bytes": 3743446
         },
         "Code": {
           "files": 272,
-          "bytes": 2408937
+          "bytes": 2411209
         },
         "Image": {
           "files": 115,
@@ -365,14 +365,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 947878,
+      "value": 948205,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 103262,
+        "standards": 103420,
         "system": 51925,
         "procedures": 37732,
         "reports": 36728,
@@ -382,9 +382,9 @@
         "designs": 28463,
         "opportunities": 25991,
         "principles": 24099,
-        "": 18164,
+        "": 18246,
         "missions": 17702,
-        "decisions": 13397,
+        "decisions": 13484,
         "legal": 13061,
         "debt": 11746,
         "objects": 1883,
@@ -395,9 +395,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 491582,
-        "draft": 221143,
-        "active": 215913,
+        "(none)": 491664,
+        "draft": 221230,
+        "active": 216071,
         "todo": 13562,
         "in-progress": 4526,
         "done": 1152
@@ -783,7 +783,7 @@
           "3": 476
         },
         "STD": {
-          "3": 1121
+          "3": 1124
         },
         "OPS": {
           "3": 194
@@ -792,7 +792,7 @@
           "3": 406
         },
         "ADR": {
-          "3": 285
+          "3": 286
         },
         "DBT": {
           "3": 71
