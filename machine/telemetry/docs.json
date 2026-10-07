@@ -16,10 +16,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 898,
+  "chars": 996,
   "apparatus": false,
   "archived": false,
-  "tokens": 235
+  "tokens": 256
  },
  {
   "path": ".github/rulesets/README.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 36407,
+  "chars": 36952,
   "apparatus": false,
   "archived": false,
-  "tokens": 10512
+  "tokens": 10661
  },
  {
   "path": "CLAUDE.md",
@@ -3085,10 +3085,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 13117,
+  "chars": 14090,
   "apparatus": false,
   "archived": false,
-  "tokens": 3409
+  "tokens": 3644
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",

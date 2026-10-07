@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.152.0",
+    date: "2026-10-07",
+    entries: [
+      { type: "ADD", text: "The site is now watched from outside: every six hours a check opens the front door, its text version, the map and the lexicon, and raises an alarm for the team when one of them stops answering. Behind it, every change to the code is also scanned for security weaknesses and for vulnerable dependencies." },
+    ],
+  },
+  {
     version: "v0.151.0",
     date: "2026-10-07",
     entries: [

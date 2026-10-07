@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-07T15:22:56Z"
+updated: "2026-10-07T18:01:37Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `5c5201d`  · corpus_hash: `34dc3d5e5f2e4565…`  · measured_at: 2026-10-07T15:22:56Z  · root_dirty: 0
+- head: `135e24a`  · corpus_hash: `1e7ee29a028f62e2…`  · measured_at: 2026-10-07T18:01:37Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 822 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 825 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.files_by_kind` | (table below) | files · bytes | tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted |
 | `corpus.md_total` | 342 | files | tracked `.md` anywhere, including `web/` |
@@ -65,14 +65,14 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .webp | 1 |
 | .woff2 | 7 |
 | .yaml | 36 |
-| .yml | 5 |
+| .yml | 8 |
 
 ### `corpus.files_by_kind`
 
 | | files | bytes |
 |---|---|---|
-| Text | 342 | 3757315 |
-| Code | 273 | 2431826 |
+| Text | 342 | 3758933 |
+| Code | 273 | 2432241 |
 | Image | 115 | 3409823 |
 | Data | 69 | 279245 |
 | Font | 7 | 684444 |
@@ -223,7 +223,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 951837 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 952242 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 1.86 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -234,7 +234,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 465827 |
-| standards | 105227 |
+| standards | 105462 |
 | system | 52614 |
 | procedures | 37743 |
 | reports | 36728 |
@@ -244,20 +244,20 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | designs | 28248 |
 | opportunities | 26427 |
 | principles | 24099 |
-|  | 18515 |
+|  | 18664 |
 | missions | 17702 |
 | decisions | 13484 |
 | legal | 13061 |
 | debt | 11746 |
 | objects | 1883 |
-| .github | 912 |
+| .github | 933 |
 
 ### `tokens.by_status`
 
 | | tokens |
 |---|---|
-| (none) | 492129 |
-| draft | 222482 |
+| (none) | 492299 |
+| draft | 222717 |
 | active | 217986 |
 | todo | 13562 |
 | in-progress | 4526 |
@@ -508,7 +508,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | 3 |
 |---|---|
 | PRO | 476 |
-| STD | 1140 |
+| STD | 1141 |
 | OPS | 196 |
 | PRI | 407 |
 | ADR | 286 |

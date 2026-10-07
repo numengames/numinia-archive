@@ -18,6 +18,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-07
+- **Changed** `STD-015` 6.2.0: four new practices — code scanning (SEC-016), workflow lint (SEC-017), the dependency audit before merge (SEC-018) and the outside probe of every public site (SRE-008); DEV-006 asks a pull request for the evidence that it works.
+- **Added** CI parity: workflows `workflow-lint` (actionlint + zizmor), `audit` (npm audit of web/, production, high+) and `monitor` (numinia.org every 6 h, night-watch issue), seen, not enforced; checkouts drop persisted credentials; the PR template asks for evidence (site v0.152.0)
 - **Changed** /system/pipeline opens on what is due (Today, 7 days, open, closed), with search, kind and dates; `STD-039` 0.12.0 adds `operation`, `line`, a deadline on any kind and OPP-016, the chance from the line and the house's wins; `OPS-018` lists the lines (site v0.151.0)
 
 ### 2026-10-05
