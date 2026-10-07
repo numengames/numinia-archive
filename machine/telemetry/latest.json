@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "5c5201d",
-  "corpus_hash": "34dc3d5e5f2e456575c869c84fc89689c17699001411a5436c6cc44751f72c55",
+  "head": "135e24a",
+  "corpus_hash": "1e7ee29a028f62e241c0b09e6c3ff882830ecef83a1c9b0a1b68ae58d1542d0c",
   "root_dirty": 0,
-  "measured_at": "2026-10-07T15:22:56Z",
+  "measured_at": "2026-10-07T18:01:37Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 822,
+      "value": 825,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -44,7 +44,7 @@
         ".webp": 1,
         ".woff2": 7,
         ".yaml": 36,
-        ".yml": 5
+        ".yml": 8
       },
       "unit": "files",
       "definition": "tracked files by lowercase extension; `(none)` when no extension"
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 342,
-          "bytes": 3757315
+          "bytes": 3758933
         },
         "Code": {
           "files": 273,
-          "bytes": 2431826
+          "bytes": 2432241
         },
         "Image": {
           "files": 115,
@@ -365,14 +365,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 951837,
+      "value": 952242,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 105227,
+        "standards": 105462,
         "system": 52614,
         "procedures": 37743,
         "reports": 36728,
@@ -382,21 +382,21 @@
         "designs": 28248,
         "opportunities": 26427,
         "principles": 24099,
-        "": 18515,
+        "": 18664,
         "missions": 17702,
         "decisions": 13484,
         "legal": 13061,
         "debt": 11746,
         "objects": 1883,
-        ".github": 912
+        ".github": 933
       },
       "unit": "tokens",
       "definition": "tokens per top-level dir, largest first"
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 492129,
-        "draft": 222482,
+        "(none)": 492299,
+        "draft": 222717,
         "active": 217986,
         "todo": 13562,
         "in-progress": 4526,
@@ -785,7 +785,7 @@
           "3": 476
         },
         "STD": {
-          "3": 1140
+          "3": 1141
         },
         "OPS": {
           "3": 196
