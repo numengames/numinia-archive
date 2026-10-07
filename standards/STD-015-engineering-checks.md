@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: standard
 subtype: register
 status: draft
-version: "6.1.5"
+version: "6.2.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-07T19:43:30+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 55 practices every repository of ours keeps, grouped by
+> **Summary:** The 59 practices every repository of ours keeps, grouped by
 > what they protect, each with its level and its check. A practice checked by
 > hand is debt. A row marked as owed was once called automatic, and nothing
 > runs it.
@@ -47,6 +47,9 @@ SPDX-License-Identifier: CC0-1.0
 | Security | SEC-013 | Every repository keeps a security score: the OpenSSF Scorecard grades it every week and on each push to the main line, a named person reads the grade, and a public repository aims at seven out of ten or better | MUST | `[GATE: .github/workflows/scorecard.yml → a named person reads the grade each week]` |
 | Security | SEC-014 | Migrate in order: a repository that already exists adopts the security score first, then the check that required files are present, then the full pipeline — measure first, then tighten | SHOULD | `[DEBT: no check reads the order a repository adopted its checks in — oracle, 2026-09-26]` |
 | Security | SEC-015 | A route that fetches an address taken from the request accepts only the hosts it names, and never re-serves an executable content type (HTML, SVG, JavaScript) under our domain (OWASP Top 10 A10, server-side request forgery) | MUST | `[DEBT: no check reads the routes of a site; found by hand through PRO-034 — oracle, 2026-10-02]` |
+| Security | SEC-016 | The code is scanned for known kinds of weakness on every change and every week (CodeQL) | MUST | `[AUTO: .github/workflows/codeql.yml]` |
+| Security | SEC-017 | A change to a workflow is read for script injection and unsafe triggers before it merges (actionlint, zizmor) | MUST | `[AUTO: .github/workflows/workflow-lint.yml]` |
+| Security | SEC-018 | A change that brings in a production dependency with a known high or critical weakness says so before it merges | MUST | `[AUTO: .github/workflows/audit.yml]` |
 | Architecture | ARC-001 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[AUTO: .github/workflows/ci.yml]` |
 | Architecture | ARC-002 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: scorecard Branch-Protection]` |
 | Architecture | ARC-004 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[DEBT: no smoke script, no CI or coverage badge in README.md — oracle, 2026-09-11]` |
@@ -67,7 +70,7 @@ SPDX-License-Identifier: CC0-1.0
 | Ergonomics | DEV-003 | `.editorconfig` and shared editor settings committed | SHOULD | `[AUTO: machine/tools/check-register.mjs]` |
 | Ergonomics | DEV-004 | Pre-commit hooks under five seconds; CI stays the authority | MUST | `[DEBT: no pre-commit hooks — oracle, 2026-09-11]` |
 | Ergonomics | DEV-005 | Comments in English explaining *why*; TSDoc on every exported API | MUST | `[AUTO: machine/scripts/test/prose-in-code.test.mjs]` |
-| Ergonomics | DEV-006 | Small pull requests with what, why and how to verify | SHOULD | `[GATE: .github/PULL_REQUEST_TEMPLATE.md → a reviewer approves the pull request]` |
+| Ergonomics | DEV-006 | Small pull requests that say what changes, why, how to verify it and the evidence that it works | SHOULD | `[GATE: .github/PULL_REQUEST_TEMPLATE.md → a reviewer approves the pull request]` |
 | Ergonomics | DEV-008 | The test that describes a change is written, run and seen to fail before the code; the pull request shows the test commit before the code commit | MUST | `[GATE: .github/PULL_REQUEST_TEMPLATE.md → the reviewer reads the commit order before approving]` |
 | Operations | SRE-001 | Documented, rehearsed rollback for every deployable | MUST | `[DEBT: no rehearsal job and no documented rollback — oracle, 2026-09-11]` |
 | Operations | SRE-002 | Health-check endpoint on every deployed service | MUST | `[DEBT: no health endpoint and no post-deploy probe — oracle, 2026-09-11]` |
@@ -75,6 +78,7 @@ SPDX-License-Identifier: CC0-1.0
 | Operations | SRE-004 | Runbook per service: deploy, rollback, common failures | MUST | `[DEBT: no runbook for the deployed service — oracle, 2026-09-11]` |
 | Operations | SRE-005 | Deploy reproducible from a clean clone | MUST | `[DEBT: CI builds but never deploys from a clean clone — oracle, 2026-09-11]` |
 | Operations | SRE-007 | Incidents produce rules, not culprits: which events call for a written review is decided before any happens, and each review says what happened, what it cost and what changes, never who is at fault; an incident brings in a new practice only through a written decision (Google SRE book, ch. 15) | MUST | `[DEBT: the triggers are not written down, and no template in .github/ asks for a postmortem — oracle, 2026-09-26]` |
+| Operations | SRE-008 | Every public site is probed from outside on a schedule: a failure opens an issue, and the next good probe closes it | MUST | `[AUTO: .github/workflows/monitor.yml]` |
 | Community | OSS-001 | `CONTRIBUTING.md` a stranger can follow | MUST (public) | `[GATE: machine/tools/check-register.mjs → a reviewer reads it as a stranger would]` |
 | Community | OSS-002 | Code of conduct at the root: the Contributor Covenant, as the community conduct standard applies it | MUST (public) | `[AUTO: machine/tools/check-register.mjs]` |
 | Community | OSS-004 | Issue triage cadence declared, and most issues opened in the last two to twelve months answered (OpenSSF Best Practices Badge, report_responses) | SHOULD | `[DEBT: triage cadence is declared nowhere a machine can read — oracle, 2026-09-11]` |
@@ -103,7 +107,9 @@ contributions and the scan for leaked credentials.
 on every change to the main line, aiming at seven out of ten or better on a
 public repository, with each repository saying which of its checks apply;
 the shared pipeline of the engineering baseline, where too little test coverage is a failure and every
-file's licence is checked; one step that checks the required files are
+file's licence is checked; scans for leaked secrets, for weaknesses in the
+code and the workflows, and for dependencies with a known weakness; for a
+site, a probe from outside; one step that checks the required files are
 present — the agent instructions, the security policy, the contribution
 guide, the list of owners, the templates, the example settings and the
 repository's description; and local hooks that are a courtesy, may be
