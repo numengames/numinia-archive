@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: standard
 subtype: standard
 status: draft
-version: "0.11.0"
+version: "0.12.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-05T10:40:00+02:00"
+updated: "2026-10-07T17:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -29,8 +29,8 @@ SPDX-License-Identifier: CC0-1.0
 > a tender, a grant, a collaboration, a partner — is one public file: a
 > header saying who, what kind, worth how much and how it pays, and a
 > timeline with one line per thing that happened. The stage, the next step,
-> the funnel and the chance are computed from the timeline and the criteria,
-> never typed. A call from a public body is read against the house's card,
+> the funnel and the chance are computed from the timeline, the line it
+> falls in and what the house has won, never typed. A call from a public body is read against the house's card,
 > and only a call that passes is recorded. Nobody's name is in it; the
 > organisation is named once it has agreed, or when it is a public body
 > that publishes its own call.
@@ -55,8 +55,10 @@ view by organisation is computed.
 
 **The header carries the fields the pipeline needs.** The header MUST open
 with the fields every document carries, then carry: identifier, kind,
-organisation, sector, source, value before tax, currency, how it pays,
-the contact's role, the contact channel, the moment opened, and the licence.
+organisation, sector, source, the operation — what the deal is about, in
+one line —, the line of the house it falls in, value before tax, currency,
+how it pays, the contact's role, the contact channel, the moment opened,
+and the licence.
 The rest are written when due and absent before: the offer it sells,
 required for a sale and a tender; the share paid in advance, required when
 it pays in advance or by milestones; the proposal's path, for a sale from
@@ -64,8 +66,9 @@ it pays in advance or by milestones; the proposal's path, for a sale from
 for a sale from `agreed`; the disclosure once the client has been told the
 house works in the open — `open` if it did not object, `unnamed` if it
 asked to stay out; the record it follows from; what came back, for a
-collaboration; and for a tender or a grant, the call's fields the register
-names. The stage, the next step, the closing date, the reason and the
+collaboration; the deadline, the moment an answer, an offer or an
+application is due, on any kind whose other side sets one; and for a tender
+or a grant, the call's fields the register names. The stage, the next step, the closing date, the reason and the
 chance are never written in the header.
 
 **The kind and the stage come from the register.** The kind MUST be one of
@@ -121,7 +124,7 @@ stands; it holds nothing that outlives its use.
 authority buys by and — for every procedure but the minor contract, which
 has no notice — the address of its notice; a grant MUST carry the
 instrument and the address of its call. Both carry the moment the call
-closes, with the notice's hour. A tender's value is the estimated value the notice states, before
+closes — their deadline — with the notice's hour. A tender's value is the estimated value the notice states, before
 tax; the house's own price enters the record only once the authority has
 published the award.
 
@@ -130,8 +133,8 @@ A tender and a grant MUST carry a `## Criteria` table — each requirement of
 the call, what it asks, what the house holds, and whether it meets it: yes
 or check. A call that fails a requirement MUST NOT be
 recorded: what it taught goes to the house's card, and the file is not
-kept. The house's chance is computed from the table — high when every row
-says yes, medium when any says check.
+kept. The table is a gate, not a grade: the chance is the same for a call
+as for any record.
 
 **A call's verdict rests on its own terms.** A tender and a grant MUST say
 where the call was read, terms or notice; a call known only from a summary
@@ -143,6 +146,16 @@ not recorded.
 **One call, one record.** A tender MUST carry the authority's file
 reference; two records with the same file reference and value are one
 call listed twice, and one of them goes.
+
+### The chance
+
+**The chance is computed from the line and the house's wins.** A record's
+line MUST be one of the lines the house's card lists, or `other`. The
+chance of an open record is computed from two questions — is it in a line
+the house sells, and has the house already won another record in that
+line — high when both, medium when one, low when neither, as the register
+says. A closed record has no chance. A past job the house delivered enters
+as a record closed `won`, paid or not, so the chance learns from it.
 
 ### Where it lives and what it hands on
 
@@ -182,6 +195,7 @@ Each rule, its code, its source and its check.
 | OPP-013 | A call is read against the house's card, and only what passes is recorded | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 87 (turnover at most 1.5 times the value), 90.4 (no past works asked of a company under five years, below the harmonised threshold), 145 (award criteria); [Law 38/2003](https://www.boe.es/buscar/act.php?id=BOE-A-2003-20977) art. 13 (who may be a beneficiary); `STD-038` *The house's chance*; the house's card (`OPS-018`) | `machine/packages/sales-kit/pipeline.mjs`: a tender or a grant requires a `## Criteria` table whose last column is yes or check; a no is refused; the chance computed |
 | OPP-014 | A call's verdict rests on its own terms | the Oracle's ruling of 2026-10-01, from a summary that turned a forklift simulator into a 3D platform; LCSP art. 87 (turnover); `STD-038` *Where a call was read*, *What the buyer really buys*; `OPS-018` | `machine/packages/sales-kit/pipeline.mjs`: `read_from` terms or notice; a tender's `object` build or deliver; a `turnover_asked` above the card's ceiling refused |
 | OPP-015 | One call, one record | the Oracle's ruling of 2026-10-01: aggregators list one file twice under different titles | `machine/packages/sales-kit/pipeline.mjs`: `file_ref` required on a tender; the same file reference and value in two records is reported |
+| OPP-016 | The chance is computed from the line and the house's wins | the Oracle's ruling of 2026-10-07: how close it is to the business, and whether the house has done something like it | `machine/packages/sales-kit/pipeline.mjs`: `line` read against the card's lines; the chance computed per open record; `test/pipeline.test.mjs` |
 
 ## Why
 

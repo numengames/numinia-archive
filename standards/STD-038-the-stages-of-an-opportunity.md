@@ -5,9 +5,9 @@ title: "The stages of an opportunity"
 type: standard
 subtype: register
 status: draft
-version: "0.9.4"
+version: "0.10.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-07T17:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -32,8 +32,8 @@ SPDX-License-Identifier: CC0-1.0
 > the five steps of the funnel they mark, the closed list of reasons an
 > opportunity is lost, how the money arrives, what a funder gives, where an
 > opportunity came from, and — for a call from a public body — the
-> procedure it buys by, where it was read, what it really buys and the
-> house's chance. The record standard cites these values; the pipeline tool
+> procedure it buys by, where it was read and what it really buys; and the
+> house's chance of any open opportunity. The record standard cites these values; the pipeline tool
 > reads them here and nowhere else. A register records: nothing in it binds
 > by itself.
 > **Epistemic:** Which stages does an opportunity pass through, and what moves it?
@@ -219,22 +219,25 @@ does not make keeps it out of the next sweep.
 
 ## The house's chance
 
-How likely the house is to get the money, read from the call's criteria
-against the house's card. The tool computes it from the criteria table of
-a tender or a grant; it is written nowhere. A call that fails a requirement
-has no chance and no record.
+How likely an open opportunity is to end won, from two questions answered
+yes or no: is it in one of the lines the house sells (the house's card), and
+has the house already won something in that line — another record with a
+`won` line? The tool computes it from the record's `line` and the other
+records; it is written nowhere. A closed record has none. A call's criteria
+stay a gate, not a grade: a call that fails a requirement has no record.
 
 | Chance | Means |
 |---|---|
-| `high` | every requirement is met: each row of the criteria says yes |
-| `medium` | one or more requirements are still to check, none failed |
+| `high` | both: in a line the house sells, and the house has won in that line before |
+| `medium` | one of the two |
+| `low` | neither: outside the house's lines, with no win behind it |
 
 ## A watch's verdict
 
 What a watch says of a call before anyone has decided on it, read from its
 terms against the house's card (`PRO-035`). It is written in the watch's
 feed, never in a record: a record's chance is the tool's, computed from its
-criteria. The last column is the feed's filter: in doubt the watch keeps a
+line and the house's wins. The last column is the feed's filter: in doubt the watch keeps a
 call, and what could fall is the Oracle's to drop.
 
 | Verdict | Means | Goes to the feed |

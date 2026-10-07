@@ -4,9 +4,9 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.5.2"
+version: "0.6.0"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-07T17:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -175,11 +175,27 @@ Read from the law, against the card:
   asking a published game with sales, five years of trading, a non-profit
   applicant, or a capital the house does not have.
 
+## The lines the house sells
+
+What the house makes, one line each. Every record names the line it falls
+in, or `other`; the pipeline tool computes a record's chance from it — an
+opportunity in one of these lines is close to the house's business, and
+one in a line where the house has already won something has been done
+before.
+
+| Line | What it is |
+|---|---|
+| `training` | gamified training and onboarding: a procedure walked in a 3D world |
+| `gamification` | live gamification: workshops, events and fairs the house runs |
+| `worlds` | 3D web worlds with AI agents, on Hyperfy: culture, heritage, education |
+| `games` | game design, narrative and video games |
+| `agents` | running an organisation with AI agents: the house's own case, told or set up |
+
 ## What the house makes, and what it does not
 
-**Makes:** 3D web worlds with AI agents (on Hyperfy, not Unity or Unreal);
-gamified training and onboarding; culture, heritage and education workshops
-and events; game design and narrative.
+**Makes:** the lines above — 3D web worlds with AI agents (on Hyperfy, not
+Unity or Unreal); gamified training and onboarding; culture, heritage and
+education workshops and events; game design and narrative.
 
 **Does not make:** hardware, or another maker's product passed on; desktop
 industrial simulators with replicated controls; generic courses or videos;
