@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "135e24a",
-  "corpus_hash": "1e7ee29a028f62e241c0b09e6c3ff882830ecef83a1c9b0a1b68ae58d1542d0c",
+  "head": "f8e7753",
+  "corpus_hash": "a0496a16352f605e4f77f1d38d350d1527b76fd10eab455b1bcf892fd0786084",
   "root_dirty": 0,
-  "measured_at": "2026-10-07T18:01:37Z",
+  "measured_at": "2026-10-07T20:01:15Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 825,
+      "value": 826,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -33,7 +33,7 @@
         ".jpg": 2,
         ".js": 2,
         ".json": 16,
-        ".md": 342,
+        ".md": 343,
         ".mjs": 129,
         ".png": 36,
         ".svg": 76,
@@ -52,8 +52,8 @@
     "corpus.files_by_kind": {
       "value": {
         "Text": {
-          "files": 342,
-          "bytes": 3758933
+          "files": 343,
+          "bytes": 3762057
         },
         "Code": {
           "files": 273,
@@ -84,12 +84,12 @@
       "definition": "tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted"
     },
     "corpus.md_total": {
-      "value": 342,
+      "value": 343,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 341,
+      "value": 342,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -104,7 +104,7 @@
         "legal": 4,
         "lore": 34,
         "machine": 37,
-        "missions": 7,
+        "missions": 8,
         "objects": 2,
         "operations": 17,
         "opportunities": 27,
@@ -127,7 +127,7 @@
         "entity": 25,
         "legal": 5,
         "meta": 8,
-        "mission": 8,
+        "mission": 9,
         "opportunity": 24,
         "principle": 15,
         "procedure": 31,
@@ -196,8 +196,8 @@
           "pct": 100
         },
         "missions": {
-          "registered": 6,
-          "total": 6,
+          "registered": 7,
+          "total": 7,
           "apparatus": 1,
           "archived": 0,
           "pct": 100
@@ -249,12 +249,12 @@
       "definition": "per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`."
     },
     "series.registered_total": {
-      "value": 163,
+      "value": 164,
       "unit": "documents",
       "definition": "sum of `registration[*].registered`"
     },
     "series.registrable_total": {
-      "value": 184,
+      "value": 185,
       "unit": "documents",
       "definition": "sum of `registration[*].total`"
     },
@@ -264,20 +264,21 @@
       "definition": "directories under `agents/` other than `_template` — identified by folder name, no prefix by design (ADR-005 v1.1.0)"
     },
     "missions.total": {
-      "value": 6,
+      "value": 7,
       "unit": "missions",
       "definition": "files `missions/MIS-NNNN-*.md` with a frontmatter block"
     },
     "missions.by_status": {
       "value": {
         "in-progress": 1,
-        "todo": 5
+        "todo": 6
       },
       "unit": "missions",
       "definition": "by frontmatter `status`"
     },
     "missions.by_guild": {
       "value": {
+        "(none)": 1,
         "Alchemists": 2,
         "Sentinels": 4
       },
@@ -289,7 +290,7 @@
         "Brand and marketing": 1,
         "Knowledge and quality": 1,
         "People and culture": 1,
-        "Technology": 3
+        "Technology": 4
       },
       "unit": "missions",
       "definition": "by frontmatter `section` (ADR-066; was `territory`); `TBA` folds into `(none)`, reported separately as `section_tba`"
@@ -297,7 +298,8 @@
     "missions.by_priority": {
       "value": {
         "critical": 1,
-        "high": 5
+        "high": 5,
+        "medium": 1
       },
       "unit": "missions",
       "definition": "by frontmatter `priority`"
@@ -306,14 +308,14 @@
       "value": {
         "L": 2,
         "M": 2,
-        "S": 2
+        "S": 3
       },
       "unit": "missions",
       "definition": "by frontmatter `effort`"
     },
     "missions.by_assignee": {
       "value": {
-        "(none)": 5,
+        "(none)": 6,
         "ursa": 1
       },
       "unit": "missions",
@@ -325,7 +327,7 @@
       "definition": "`section: TBA` (ADR-028 deferral; owner MIS-124 closed 2026-09-09, zero TBA remains)"
     },
     "missions.unassigned": {
-      "value": 5,
+      "value": 6,
       "unit": "missions",
       "definition": "`assigned_to` absent or null-like"
     },
@@ -365,7 +367,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 952242,
+      "value": 953122,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -382,8 +384,8 @@
         "designs": 28248,
         "opportunities": 26427,
         "principles": 24099,
-        "": 18664,
-        "missions": 17702,
+        "": 18700,
+        "missions": 18546,
         "decisions": 13484,
         "legal": 13061,
         "debt": 11746,
@@ -395,10 +397,10 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 492299,
+        "(none)": 492335,
         "draft": 222717,
         "active": 217986,
-        "todo": 13562,
+        "todo": 14406,
         "in-progress": 4526,
         "done": 1152
       },
@@ -406,7 +408,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 1.86,
+      "value": 1.95,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -437,7 +439,7 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 296,
+      "value": 297,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -448,19 +450,19 @@
     },
     "headers.field_usage": {
       "value": {
-        "license": 295,
-        "title": 295,
-        "created": 283,
-        "status": 283,
-        "type": 283,
-        "updated": 283,
-        "version": 283,
-        "author": 279,
-        "owner": 278,
-        "section": 274,
-        "tags": 256,
-        "id": 254,
-        "uid": 209,
+        "license": 296,
+        "title": 296,
+        "created": 284,
+        "status": 284,
+        "type": 284,
+        "updated": 284,
+        "version": 284,
+        "author": 280,
+        "owner": 279,
+        "section": 275,
+        "tags": 257,
+        "id": 255,
+        "uid": 210,
         "related": 146,
         "guild": 119,
         "subtype": 77,
@@ -495,22 +497,22 @@
         "automation_level": 13,
         "closes": 12,
         "digital_source_type": 12,
+        "executor": 12,
         "related_missions": 12,
         "role": 12,
         "evidence_script": 11,
-        "executor": 11,
         "mandatory": 11,
         "period": 11,
         "supersedes_version": 10,
         "amends": 9,
+        "assigned_to": 9,
         "call": 9,
+        "completed": 9,
         "deciders": 9,
+        "effort": 9,
+        "priority": 9,
         "read_from": 9,
-        "assigned_to": 8,
-        "completed": 8,
         "confidence": 8,
-        "effort": 8,
-        "priority": 8,
         "stage": 8,
         "advance": 7,
         "date": 7,
@@ -519,18 +521,18 @@
         "price": 7,
         "tax_rate": 7,
         "valid_until": 7,
+        "context": 6,
         "estimated": 6,
         "instrument": 6,
         "opens": 6,
+        "paths": 6,
         "proposal": 6,
+        "requires_oracle_approval": 6,
         "consulted": 5,
-        "context": 5,
         "decision": 5,
         "depends_on": 5,
         "detected": 5,
         "outcome": 5,
-        "paths": 5,
-        "requires_oracle_approval": 5,
         "scope": 5,
         "severity": 5,
         "severity_reason": 5,
@@ -604,16 +606,16 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 0,
-        "empty_values": 233,
+        "empty_values": 234,
         "v_prefixed_versions": 0,
-        "placeholders": 11
+        "placeholders": 12
       },
       "unit": "values",
       "definition": "frontmatter-census.py §4: created/updated without time; empty values; version with v prefix; values matching TODO|TBD|FIXME|{{|<…>|xxx"
     },
     "provenance.authorship": {
       "value": {
-        "ai-persona": 227,
+        "ai-persona": 228,
         "no-frontmatter": 45,
         "other": 40,
         "no-author": 17,
@@ -624,7 +626,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 263,
+      "value": 264,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -725,7 +727,7 @@
     },
     "provenance.protocol_anchor": {
       "value": {
-        "not-oracle-state": 6
+        "not-oracle-state": 7
       },
       "unit": "missions",
       "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
@@ -735,7 +737,7 @@
         "active": 127,
         "draft": 148,
         "done": 1,
-        "todo": 6,
+        "todo": 7,
         "in-progress": 1
       },
       "unit": "documents",
@@ -782,7 +784,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "PRO": {
-          "3": 476
+          "3": 478
         },
         "STD": {
           "3": 1141
@@ -795,6 +797,10 @@
         },
         "ADR": {
           "3": 286
+        },
+        "MIS": {
+          "3": 402,
+          "4": 178
         },
         "OPP": {
           "3": 28,
@@ -816,10 +822,6 @@
           "3": 67,
           "4": 4
         },
-        "MIS": {
-          "3": 399,
-          "4": 178
-        },
         "DEC": {
           "3": 2
         },
@@ -833,9 +835,9 @@
     },
     "contradictions.id_form_mixed": {
       "value": [
+        "MIS",
         "OPP",
         "RPT",
-        "MIS",
         "PRP"
       ],
       "unit": "prefixes",

@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 36952,
+  "chars": 37087,
   "apparatus": false,
   "archived": false,
-  "tokens": 10661
+  "tokens": 10697
  },
  {
   "path": "CLAUDE.md",
@@ -1813,6 +1813,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1758
+ },
+ {
+  "path": "missions/MIS-0155-kairos-github-app.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2986,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 844
  },
  {
   "path": "objects/CHECK.md",
