@@ -12,7 +12,7 @@
  * file with a header and a `## Timeline`: one line per thing that happened.
  * This script is the only place the figures about those files come from
  * (OPP-009). The stage, the next step, overdue and stale, the funnel and the
- * chance of a call are COMPUTED from the timeline and the criteria table,
+ * chance are COMPUTED from the timeline, the line and the house's wins,
  * never typed: a typed stage is a second copy of what the lines already say,
  * and the second copy is the one that drifts.
  *
@@ -55,15 +55,18 @@ export const DEFAULT_CARD = path.join(ROOT, 'operations', 'OPS-018-the-house-car
 /* ---------- the record, as STD-039 defines it ---------- */
 
 /* On every record, whatever its kind (OPP-002). */
-export const REQUIRED = ['id', 'kind', 'organisation', 'sector', 'source', 'value', 'currency', 'pays',
+export const REQUIRED = ['id', 'kind', 'organisation', 'sector', 'source', 'operation', 'line', 'value', 'currency', 'pays',
   'contact_role', 'contact_channel', 'opened', 'license'];
 /* Written when due — absent before, and an empty value is absent (STD-004
    HDR-009). Which kind and which stage asks for each is in validate(). */
 export const WHEN_DUE = ['offer', 'advance', 'proposal', 'agreement', 'decider_role', 'disclosure',
   'follows', 'gives_back',
+  // a deadline: the moment an answer, an offer or an application is due —
+  // required on a call, written on any other kind when the other side sets one
+  'closes',
   // a call — a tender or a grant: where it is published, when it closes,
   // what it was read from (OPP-012, OPP-014)
-  'call', 'closes', 'read_from',
+  'call', 'read_from',
   // a tender: how the buyer purchases, its file, what it really buys, the
   // solvency the terms ask, the day the service starts (OPP-012/014/015)
   'procedure', 'file_ref', 'object', 'turnover_asked', 'works_asked', 'starts',
@@ -79,7 +82,7 @@ export const COMPUTED = {
   next_date: 'the next step is the timeline\'s `next` line',
   closed: 'the closing day is the timeline\'s `won` or `lost` line',
   reason: 'the reason is written on the timeline\'s `lost` line',
-  chance: 'the chance is computed from the criteria table',
+  chance: 'the chance is computed from the line and what the house has won before',
 };
 /* The rest were renamed when grants joined the one record (OPP-002). */
 export const RENAMED = {
@@ -92,14 +95,14 @@ export const RENAMED = {
 /* Fields only some kinds carry: present on another kind, they are a breach. */
 const ONLY = {
   gives_back: ['collaboration'],
-  call: ['tender', 'grant'], closes: ['tender', 'grant'], read_from: ['tender', 'grant'],
+  call: ['tender', 'grant'], read_from: ['tender', 'grant'],
   procedure: ['tender'], file_ref: ['tender'], object: ['tender'],
   turnover_asked: ['tender'], works_asked: ['tender'], starts: ['tender'],
   instrument: ['grant'], opens: ['grant'], estimated: ['grant'],
 };
 /* The rule each kind-bound field answers to: where a call is and when it
    runs (OPP-012); what it was read from and what it asks (OPP-014). */
-const ONLY_PLATE = { gives_back: 'OPP-002', call: 'OPP-012', closes: 'OPP-012', procedure: 'OPP-012', instrument: 'OPP-012', opens: 'OPP-012', estimated: 'OPP-012', file_ref: 'OPP-015' };
+const ONLY_PLATE = { gives_back: 'OPP-002', call: 'OPP-012', procedure: 'OPP-012', instrument: 'OPP-012', opens: 'OPP-012', estimated: 'OPP-012', file_ref: 'OPP-015' };
 /* The header every document of the archive opens with (STD-004, rings 1 and
    2 and the fields of every series). A record carries it like any document;
    the tool accepts it and reads none of it but the title. Kept here, not
@@ -128,10 +131,12 @@ export const LEVELS = ['reaction', 'learning', 'behaviour', 'results'];
 export const EVENTS = ['found', 'out', 'pos', 'neg', 'won', 'lost', 'next'];
 /* Closing stages: reached only by a `won` or `lost` line, never by a token. */
 export const CLOSED = ['won', 'lost'];
-/* Kinds that are calls a public body publishes: read against the card, with
-   a criteria table and a computed chance; their funder or authority may be
+/* Kinds that are calls a public body publishes: read against the card with
+   a criteria table, and recorded only when they pass; their funder or authority may be
    named, since it published the call itself (OPP-011). */
 export const CALLS = ['tender', 'grant'];
+/* OPP-016: a record outside every line the house sells says so. */
+export const OTHER_LINE = 'other';
 /* A sale's stage from which the proposal, the decider and the agreement are
    due (OPP-002, OPP-010): the stage they become knowable, not earlier. */
 const SALE_PROPOSED = 'proposed', SALE_AGREED = 'agreed';
@@ -304,7 +309,7 @@ export function loadRegister(file = DEFAULT_REGISTER) {
  * file reads as an empty card; a deciding name with no row throws (exit 2).
  */
 export function loadCard(file = DEFAULT_CARD) {
-  if (!existsSync(file)) return { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [] };
+  if (!existsSync(file)) return { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [], lines: [] };
   const text = readFileSync(file, 'utf8');
   const fig = Object.fromEntries(tableUnder(text, 'The figures the tool reads').map(([k, v]) => [String(k).toLowerCase(), Number(String(v).replace(/[^\d.]/g, ''))]));
   const key = (s) => String(s ?? '').trim().toLowerCase();
@@ -327,6 +332,8 @@ export function loadCard(file = DEFAULT_CARD) {
     /* OPP-006: the only people a public record may name — the house's own and
        clients whose signed agreement allows it */
     named: firsts(tableUnder(text, 'Who may be named')).filter(Boolean),
+    /* OPP-016: the lines the house sells — what a record's `line` names */
+    lines: tableUnder(text, 'The lines the house sells').map(([line, what]) => ({ line: tick(line), what: what ?? '' })).filter((l) => l.line),
   };
 }
 
@@ -436,7 +443,7 @@ export function walk(events, stages, reg) {
 /* ---------- validation ---------- */
 
 /** Validate one record against STD-039. Returns the list of breaches (plate + what). */
-export function validate(rec, reg, card = { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [] }) {
+export function validate(rec, reg, card = { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [], lines: [] }) {
   const { fm, file, text } = rec;
   const bad = [];
   const F = (plate, what) => bad.push({ plate, what, file });
@@ -472,6 +479,12 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
   if (fm.offer !== undefined && !/^OPS-\d{3}$/.test(fm.offer)) F('OPP-002', `offer "${fm.offer}" is not an offer record (OPS-NNN)`);
   if (['sale', 'tender'].includes(kind) && !fm.offer) F('OPP-002', `a ${kind} with no \`offer\` — name the offer record it sells`);
   if (fm.follows !== undefined && !ID_RE.test(fm.follows)) F('OPP-002', `follows "${fm.follows}" is not a record's id`);
+  if (fm.closes !== undefined && !CALLS.includes(kind) && !DATE_TIME.test(fm.closes)) F('OPP-002', moment('closes', fm.closes));
+
+  /* OPP-016: the line it falls in, from the card — or `other` */
+  const lines = (card.lines ?? []).map((l) => l.line);
+  if (fm.line !== undefined && lines.length && ![...lines, OTHER_LINE].includes(fm.line))
+    F('OPP-016', `line "${fm.line}" is not one of the card's lines — ${[...lines, OTHER_LINE].join(' · ')}`);
 
   /* how it pays: the share before the work, when the work is paid in parts */
   if (fm.advance !== undefined && (!NUMBER.test(fm.advance) || Number(fm.advance) > 100)) F('OPP-002', `advance "${fm.advance}" is a share of the value: 0 to 100`);
@@ -610,7 +623,8 @@ const or = (v) => (v === undefined ? null : v);
  * and never recomputes a verdict (overdue, stale, chance) from dates.
  */
 export function figures(records, reg, card, today) {
-  card ??= { requirements: [], turnoverCeiling: null, outOfDomain: [] };
+  card ??= { requirements: [], turnoverCeiling: null, outOfDomain: [], lines: [] };
+  const lines = new Set((card.lines ?? []).map((l) => l.line));
   const kindOf = Object.fromEntries(reg.kinds.map((k) => [k.kind, k]));
   const followed = new Set(records.map((r) => r.fm?.follows).filter(Boolean));
   const stepNames = reg.steps.map((s) => s.step);
@@ -634,20 +648,28 @@ export function figures(records, reg, card, today) {
     for (let i = chain.length - 1; i > 0; i--) if (steps[chain[i]]) steps[chain[i - 1]] = true;
     if ('again' in steps) steps.again = followed.has(fm.id);
     const crit = criteriaOf(r.text) ?? [];
-    const chance = CALLS.includes(fm.kind) && crit.length ? (crit.every((c) => c.meets === 'yes') ? 'high' : 'medium') : null;
     out.push({
       id: fm.id, kind: fm.kind, title: or(fm.title), organisation: or(fm.organisation), sector: or(fm.sector), source: or(fm.source),
-      offer: or(fm.offer), value: Number(fm.value) || 0, currency: or(fm.currency), pays: or(fm.pays), advance: num(fm.advance),
+      operation: or(fm.operation), line: or(fm.line), offer: or(fm.offer), value: Number(fm.value) || 0, currency: or(fm.currency), pays: or(fm.pays), advance: num(fm.advance),
       stage: w.stage, open, opened: or(fm.opened), closed: w.closed, reason: w.reason,
       next: w.next, overdue: !!(open && w.next && w.next.date < today), stale,
       events: events.map(({ date, event, stage, reason, text }) => ({ date, event, stage, reason, text })),
-      steps, chance, criteria: crit,
+      steps, chance: null, fits: lines.has(fm.line), doneBefore: false, criteria: crit,
       call: or(fm.call), closes: or(fm.closes), opens: or(fm.opens), estimated: or(fm.estimated), procedure: or(fm.procedure),
       instrument: or(fm.instrument), file_ref: or(fm.file_ref), gives_back: or(fm.gives_back), follows: or(fm.follows),
       _entered: w.entered,
     });
   }
   out.sort((a, b) => a.id.localeCompare(b.id));
+  /* OPP-016: the chance of an open record, from two questions — is it in a
+     line the house sells, and has the house already won something in that
+     line (a `won` line on another record, up to today)? Both: high; one:
+     medium; none: low. A closed record has no chance left to weigh. */
+  const wonIn = (line, id) => out.some((x) => x.id !== id && x.line === line && x.events.some((e) => e.event === 'won' && e.date <= today));
+  for (const x of out) {
+    x.doneBefore = !!x.line && x.line !== OTHER_LINE && wonIn(x.line, x.id);
+    if (x.open) x.chance = x.fits && x.doneBefore ? 'high' : x.fits || x.doneBefore ? 'medium' : 'low';
+  }
 
   const due = out.filter((x) => x.open && x.next).map((x) => ({ id: x.id, kind: x.kind, date: x.next.date, action: x.next.action, overdue: x.overdue }))
     .sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));

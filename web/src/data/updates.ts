@@ -53,6 +53,15 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.151.0",
+    date: "2026-10-07",
+    entries: [
+      { type: "CHG", text: "The pipeline starts with what is due. /system/pipeline opens on four buttons — Today (late steps and the day's own), Next 7 days, All open and Closed, so old records no longer mix with new ones — then a search, the kind and a range of dates (7, 30 or 90 days, or two dates of your own)." },
+      { type: "CHG", text: "Each opportunity is one row of a list grouped by day: what it is about, its next step and how late it runs, its deadline with the days left, its value and how it pays, and its chance. The list can be ordered by date or by chance; Timeline and Asked / we have are the other two views, and the funnel closes the page." },
+      { type: "ADD", text: "Every opportunity says what it is about and the line of the house it falls in; its chance — high, medium or low — is computed from whether that line is one the house sells and whether the house has already won something in it. A deadline can be written on any kind of opportunity, not only on tenders and grants." },
+    ],
+  },
+  {
     version: "v0.150.0",
     date: "2026-10-05",
     entries: [

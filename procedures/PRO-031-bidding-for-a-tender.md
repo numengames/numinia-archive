@@ -4,9 +4,9 @@ uid: ""
 title: "Bidding for a tender"
 type: procedure
 status: draft
-version: "0.3.3"
+version: "0.3.4"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-07T17:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -100,8 +100,8 @@ It starts when the screening (`PRO-033`) has opened a tender's record.
 7. **Correct the card.** What the tender taught — a certificate missing, a
    solvency figure, a partner who answered — goes into the card the same
    week.
-8. **Run the pipeline tool.** The record conforms, and its chance agrees
-   with its criteria.
+8. **Run the pipeline tool.** The record conforms, no criterion says no,
+   and the tool gives its chance from the line and the house's wins.
 
 ---
 

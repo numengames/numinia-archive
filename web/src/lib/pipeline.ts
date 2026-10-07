@@ -49,10 +49,14 @@ export type Kind = "sale" | "tender" | "grant" | "collaboration" | "partner";
 export interface PEvent { date: string; event: string; stage: string | null; reason: string | null; text: string }
 export interface PRecord {
   id: string; kind: Kind; title: string | null; organisation: string | null; sector: string | null; source: string | null;
+  /** what the deal is about, one line; the line of the house it falls in (OPS-018) */
+  operation: string | null; line: string | null;
   offer: string | null; value: number; currency: string | null; pays: string | null; advance: number | null;
   stage: string; open: boolean; opened: string | null; closed: string | null; reason: string | null;
   next: { date: string; action: string } | null; overdue: boolean; stale: { days: number; limit: number } | null;
-  events: PEvent[]; steps: Record<string, boolean>; chance: "high" | "medium" | null;
+  events: PEvent[]; steps: Record<string, boolean>;
+  /** OPP-016: from the line and the house's wins; null once closed */
+  chance: "high" | "medium" | "low" | null; fits: boolean; doneBefore: boolean;
   criteria: { requirement: string; asks: string; house: string; meets: string }[];
   call: string | null; closes: string | null; opens: string | null; estimated: string | null; procedure: string | null;
   instrument: string | null; file_ref: string | null; gives_back: string | null; follows: string | null;

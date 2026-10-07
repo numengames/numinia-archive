@@ -75,7 +75,7 @@ test('the register is read by heading: five kinds with their stages, seven event
   assert.deepEqual(reg.procedures, ['minor', 'simplified-abridged', 'simplified', 'open']);
   assert.deepEqual(reg.readFrom, ['terms', 'notice']);
   assert.deepEqual(reg.objects, ['build', 'deliver']);
-  assert.deepEqual(reg.chances, ['high', 'medium']);
+  assert.deepEqual(reg.chances, ['high', 'medium', 'low']);
 });
 
 test('a register that lacks a table the tool needs stops it: exit 2, the table named', () => {
@@ -96,7 +96,7 @@ test('the card is read by heading, numbered or not: requirements, the turnover c
   assert.deepEqual(card.requirements.map((q) => q.state).slice(0, 3), ['check', 'no', 'no']);
   assert.equal(outOfDomain('Contrato de hinchables para fiestas', card).why, 'inflatables and attractions');
   assert.equal(outOfDomain('Un mundo virtual', card), null);
-  assert.deepEqual(loadCard(path.join(FIX, 'no-such-card.md')), { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [] }, 'a missing default card reads as empty');
+  assert.deepEqual(loadCard(path.join(FIX, 'no-such-card.md')), { requirements: [], turnoverCeiling: null, outOfDomain: [], named: [], lines: [] }, 'a missing default card reads as empty');
 });
 
 test('the card marks what decides most calls: each row carries its place in that list, or null', () => {
@@ -185,8 +185,8 @@ check('the fixtures conform — one record of every kind — and the report carr
 check('--json is the figures\' contract: its keys, records sorted by id, stages and steps computed', (dir) => {
   const f = json(dir);
   assert.deepEqual(Object.keys(f), ['today', 'kinds', 'steps', 'records', 'due', 'funnel', 'byKind', 'reasons', 'daysPerStage', 'card', 'ceiling', 'overdue', 'stale']);
-  assert.deepEqual(Object.keys(f.records[0]), ['id', 'kind', 'title', 'organisation', 'sector', 'source', 'offer', 'value', 'currency', 'pays', 'advance',
-    'stage', 'open', 'opened', 'closed', 'reason', 'next', 'overdue', 'stale', 'events', 'steps', 'chance', 'criteria',
+  assert.deepEqual(Object.keys(f.records[0]), ['id', 'kind', 'title', 'organisation', 'sector', 'source', 'operation', 'line', 'offer', 'value', 'currency', 'pays', 'advance',
+    'stage', 'open', 'opened', 'closed', 'reason', 'next', 'overdue', 'stale', 'events', 'steps', 'chance', 'fits', 'doneBefore', 'criteria',
     'call', 'closes', 'opens', 'estimated', 'procedure', 'instrument', 'file_ref', 'gives_back', 'follows']);
   assert.deepEqual(f.records.map((x) => [x.id, x.kind, x.stage, x.open]), [
     ['OPP-2099-001', 'sale', 'won', false], ['OPP-2099-002', 'sale', 'proposed', true], ['OPP-2099-003', 'tender', 'filed', true],
@@ -198,9 +198,13 @@ check('--json is the figures\' contract: its keys, records sorted by id, stages 
   assert.equal(by['OPP-2099-001'].next, null);
   assert.equal(by['OPP-2099-007'].reason, 'price');
   assert.equal(by['OPP-2099-001'].advance, 30);
-  assert.equal(by['OPP-2099-003'].chance, 'high', 'every requirement yes');
-  assert.equal(by['OPP-2099-004'].chance, 'medium', 'one requirement still to check');
-  assert.equal(by['OPP-2099-002'].chance, null, 'a sale has no chance');
+  assert.equal(by['OPP-2099-002'].chance, 'high', 'in a line the house sells, and OPP-2099-001 won in it');
+  assert.equal(by['OPP-2099-003'].chance, 'medium', 'in a line the house sells, never won in it');
+  assert.equal(by['OPP-2099-004'].chance, 'medium', 'in a line the house sells, never won in it');
+  assert.equal(by['OPP-2099-006'].chance, 'low', 'outside every line');
+  assert.equal(by['OPP-2099-001'].chance, null, 'a closed record has no chance left to weigh');
+  assert.equal(by['OPP-2099-002'].operation, 'Training: a crime scene to train in');
+  assert.equal(by['OPP-2099-006'].closes, '2099-10-30T18:00:00+01:00', 'a deadline on a kind that is not a call');
   assert.deepEqual(f.overdue, ['OPP-2099-002']);
   assert.deepEqual(f.stale, [{ id: 'OPP-2099-002', days: 43, limit: 21 }, { id: 'OPP-2099-006', days: 51, limit: 21 }]);
   assert.deepEqual(f.due.map((d) => d.id), ['OPP-2099-002', 'OPP-2099-006', 'OPP-2099-003', 'OPP-2099-004'], 'open records\' next, by date');
@@ -413,7 +417,7 @@ check('OPP-006: CPV codes, gazette ids, dates and addresses are not phones; a ph
 check('OPP-009: what is computed is never typed — state, next, closed, reason, chance', (dir) => {
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('object: "build"', 'object: "build"\nchance: "high"\nnext_action: "wait"'));
   const e = run(dir).err;
-  assert.match(e, /OPP-009.*header carries `chance` — the chance is computed from the criteria table/);
+  assert.match(e, /OPP-009.*header carries `chance` — the chance is computed from the line and what the house has won before/);
   assert.match(e, /OPP-009.*header carries `next_action`/);
 });
 
@@ -569,4 +573,26 @@ test('no folder: usage and exit 2', () => {
   const r = spawnSync('node', [TOOL], { encoding: 'utf8' });
   assert.equal(r.status, 2);
   assert.match(r.stderr, /usage:/);
+});
+
+check('OPP-016: the line comes from the card, and the chance from the line and the house\'s wins', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('line: "training"', 'line: "catering"'));
+  assert.match(run(dir).err, /OPP-016.*line "catering" is not one of the card's lines — training · gamification · worlds · games · agents · other/);
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace(/^line: .*\n/m, '').replace(/^operation: .*\n/m, ''));
+  const e = run(dir).err;
+  assert.match(e, /OPP-002.*header lacks `operation`/);
+  assert.match(e, /OPP-002.*header lacks `line`/);
+});
+
+check('OPP-016: a win only counts once it happened, and only in the same line', (dir) => {
+  edit(dir, 'OPP-2099-001.md', (t) => t.replace('line: "training"', 'line: "worlds"'));
+  const by = Object.fromEntries(json(dir).records.map((x) => [x.id, x]));
+  assert.equal(by['OPP-2099-002'].chance, 'medium', 'the training win moved to another line');
+  assert.equal(by['OPP-2099-003'].chance, 'high', 'a worlds record now has a worlds win behind it');
+  assert.equal(by['OPP-2099-003'].doneBefore, true);
+});
+
+check('a deadline on any kind carries its hour', (dir) => {
+  edit(dir, 'OPP-2099-006.md', (t) => t.replace(/^closes: .*$/m, 'closes: "2099-10-30"'));
+  assert.match(run(dir).err, /OPP-002.*closes "2099-10-30" has no hour/);
 });
