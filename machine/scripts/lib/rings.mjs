@@ -88,7 +88,11 @@ export const RING3 = {
     // the level of automation the agent is operated at — one of the five
     // names of web/src/lib/automation-levels.ts (assisted · partial ·
     // conditional · high · full). Registered 2026-09-29; /automation reads it.
-    'automation_level'],
+    'automation_level',
+    // agents/<human>/PERSON.md: the card of a biological agent (an Oracle) —
+    // rank, shares, links, CV, consent — as one nested block. Registered
+    // 2026-10-07 for the human pages.
+    'person'],
   'debt': ['severity', 'severity_reason', 'detected', 'refuted', 'source_audit', 'opened_by',
     'visibility_reason',
     // registered 2026-08-31 (RPT-001 §12, the debt renumbering). Same
