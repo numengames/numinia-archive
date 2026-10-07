@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "8f68e69",
-  "corpus_hash": "f06b1a406e2b452055786a24f0805b8fe1d938019d4a1401bb6b49d8419d6630",
+  "head": "5c5201d",
+  "corpus_hash": "34dc3d5e5f2e456575c869c84fc89689c17699001411a5436c6cc44751f72c55",
   "root_dirty": 0,
-  "measured_at": "2026-10-05T15:13:07Z",
+  "measured_at": "2026-10-07T15:22:56Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 821,
+      "value": 822,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,7 +34,7 @@
         ".js": 2,
         ".json": 16,
         ".md": 342,
-        ".mjs": 128,
+        ".mjs": 129,
         ".png": 36,
         ".svg": 76,
         ".toml": 3,
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 342,
-          "bytes": 3751528
+          "bytes": 3757315
         },
         "Code": {
-          "files": 272,
-          "bytes": 2410694
+          "files": 273,
+          "bytes": 2431826
         },
         "Image": {
           "files": 115,
@@ -365,24 +365,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 950298,
+      "value": 951837,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 104866,
+        "standards": 105227,
         "system": 52614,
-        "procedures": 37732,
+        "procedures": 37743,
         "reports": 36728,
         "agents": 36273,
-        "operations": 32168,
-        "machine": 28545,
+        "operations": 32365,
+        "machine": 28983,
         "designs": 28248,
-        "opportunities": 25991,
+        "opportunities": 26427,
         "principles": 24099,
-        "": 18419,
+        "": 18515,
         "missions": 17702,
         "decisions": 13484,
         "legal": 13061,
@@ -395,9 +395,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 491837,
-        "draft": 221919,
-        "active": 217302,
+        "(none)": 492129,
+        "draft": 222482,
+        "active": 217986,
         "todo": 13562,
         "in-progress": 4526,
         "done": 1152
@@ -476,7 +476,9 @@
         "contact_channel": 34,
         "contact_role": 34,
         "kind": 34,
+        "line": 34,
         "opened": 34,
+        "operation": 34,
         "organisation": 34,
         "pays": 34,
         "sector": 34,
@@ -491,6 +493,7 @@
         "extraction_note": 16,
         "evidence_head": 14,
         "automation_level": 13,
+        "closes": 12,
         "digital_source_type": 12,
         "related_missions": 12,
         "role": 12,
@@ -501,7 +504,6 @@
         "supersedes_version": 10,
         "amends": 9,
         "call": 9,
-        "closes": 9,
         "deciders": 9,
         "read_from": 9,
         "assigned_to": 8,
@@ -745,7 +747,7 @@
       "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-004 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 82,
+      "value": 83,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -783,10 +785,10 @@
           "3": 476
         },
         "STD": {
-          "3": 1139
+          "3": 1140
         },
         "OPS": {
-          "3": 194
+          "3": 196
         },
         "PRI": {
           "3": 407
@@ -794,15 +796,15 @@
         "ADR": {
           "3": 286
         },
+        "OPP": {
+          "3": 28,
+          "4": 94
+        },
         "DES": {
           "3": 149
         },
         "DBT": {
           "3": 71
-        },
-        "OPP": {
-          "3": 26,
-          "4": 94
         },
         "LEG": {
           "3": 72
