@@ -7,7 +7,7 @@
 # The header is every document's (STD-004), then the opportunity's own
 # fields, which machine/packages/sales-kit/pipeline.mjs reads. The stage,
 # the next step, the closing day, the reason and the chance are NOT here:
-# the tool computes them from the ## Timeline and the ## Criteria table.
+# the tool computes them from the ## Timeline, the line and the house's wins.
 id: "OPP-YYYY-NNN"
 uid: ""
 title: "The organisation, by sector and size"
@@ -35,6 +35,12 @@ organisation: "a large retailer"
 sector: "retail"
 # source: referral | inbound | outbound | event | platform (a procurement platform or an official gazette)
 source: "referral"
+# operation: what the deal is about, in one line the pipeline page shows
+# under the name: what the house would do, sell or receive.
+operation: "Training: a first day in the shop, for new staff"
+# line: the line of the house it falls in, from the card (OPS-018 The lines
+# the house sells), or other. The chance is computed from it.
+line: "training"
 # value: a number, before tax. sale: the price · tender: the notice's
 # estimated value · grant: the most the house could receive · partner: the
 # house's agreed share, 0 until agreed · collaboration: 0 or the money involved.
@@ -66,12 +72,14 @@ opened: "YYYY-MM-DDTHH:MM:SS+02:00"
 #   the earlier record this comes from: a repeat client or a referral
 # gives_back: "a case, a contact, visibility"
 #   a collaboration only: what came back instead of money
+# closes: "YYYY-MM-DDTHH:MM:SS+02:00"
+#   the deadline: the moment an answer, an offer or an application is due.
+#   REQUIRED on a tender and a grant (the notice's hour; none in it: 23:59);
+#   on any other kind, written when the other side sets one
 #
 # A TENDER or a GRANT (a call) adds:
 # call: "https://..."
 #   the notice's or the call's address; a tender by a minor contract has none
-# closes: "YYYY-MM-DDTHH:MM:SS+02:00"
-#   the moment offers or applications close, the notice's hour; none in it: 23:59
 # read_from: "terms"
 #   terms | notice: a summary is never enough to record
 #

@@ -173,15 +173,15 @@ export const RING3 = {
   // funding/ series and its ring were retired into this one.
   'opportunities': [
     // every record (OPP-002)
-    'kind', 'organisation', 'sector', 'source', 'value', 'currency', 'pays',
+    'kind', 'organisation', 'sector', 'source', 'operation', 'line', 'value', 'currency', 'pays',
     'contact_role', 'contact_channel', 'opened',
     // written when due: the offer it sells, the share paid first, the
     // proposal, the agreement, who signs, whether it may be named, the
-    // record it follows, what a collaboration gave back
+    // record it follows, what a collaboration gave back, a deadline
     'offer', 'advance', 'proposal', 'agreement', 'decider_role', 'disclosure',
-    'follows', 'gives_back',
-    // a call — tender or grant: where it is, when it closes, what it was read from (OPP-012/014)
-    'call', 'closes', 'read_from',
+    'follows', 'gives_back', 'closes',
+    // a call — tender or grant: where it is, what it was read from (OPP-012/014)
+    'call', 'read_from',
     // a tender: how the buyer purchases, its file, what it really buys,
     // the solvency asked, the day it starts (OPP-012/014/015)
     'procedure', 'file_ref', 'object', 'turnover_asked', 'works_asked', 'starts',

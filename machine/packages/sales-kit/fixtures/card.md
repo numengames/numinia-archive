@@ -52,6 +52,16 @@ The requirements that sink most calls, in the order a reader checks them.
 |---|---|---|
 | Turnover ceiling | 50000 | check |
 
+## The lines the house sells
+
+| Line | What it is |
+|---|---|
+| `training` | gamified training and onboarding |
+| `gamification` | live gamification: workshops and events |
+| `worlds` | 3D web worlds |
+| `games` | game design and video games |
+| `agents` | running an organisation with AI agents |
+
 ## 4. What the house makes, and what it does not
 
 | Out of domain | Why |

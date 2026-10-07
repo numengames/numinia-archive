@@ -161,5 +161,6 @@ them, so the kit's tests run whatever the real register says that day.
 
 | Chance | Means |
 |---|---|
-| `high` | every requirement met |
-| `medium` | one or more still to check |
+| `high` | in a line the house sells, and the house has won in that line before |
+| `medium` | one of the two |
+| `low` | neither |
