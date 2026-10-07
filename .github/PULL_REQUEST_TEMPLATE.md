@@ -15,7 +15,8 @@ practice IDs from standards/STD-015-engineering-checks.md when applicable
 
 ## How to verify
 
-<!-- Commands or URLs a reviewer can use. -->
+<!-- Commands or URLs a reviewer can use, and the evidence it works: the
+tests run and their result; before and after for anything visible. -->
 
 ## Definition of Done
 
