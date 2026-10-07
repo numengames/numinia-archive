@@ -857,9 +857,11 @@ export function pipelinePage(): ComposedPage {
     "",
     "## Every record",
     "",
-    table(["Record", "Kind", "Organisation", "Stage", "Value", "Pays", "Next"], F.records.map((r) => [
-      `[${r.id}](${r.url})`, KIND_LABEL[r.kind], cell(r.organisation), `${r.stage}${r.reason ? ` (${r.reason})` : ""}`,
-      r.value ? eur(r.value) : "no money", cell(pays(r)), r.next ? `${r.next.date}: ${cell(r.next.action)}` : "",
+    "What each is about, its line, its chance (from the line and the house's wins: high, medium, low) and its deadline, when there is one.",
+    "",
+    table(["Record", "Kind", "Organisation", "What", "Line", "Stage", "Chance", "Value", "Pays", "Deadline", "Next"], F.records.map((r) => [
+      `[${r.id}](${r.url})`, KIND_LABEL[r.kind], cell(r.organisation), cell(r.operation), r.line ?? "", `${r.stage}${r.reason ? ` (${r.reason})` : ""}`,
+      r.chance ?? "", r.value ? eur(r.value) : "no money", cell(pays(r)), r.closes ? r.closes.slice(0, 10) : "", r.next ? `${r.next.date}: ${cell(r.next.action)}` : "",
     ])),
     "",
     "## Reasons lost",
