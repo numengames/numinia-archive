@@ -137,6 +137,10 @@ CI runs the checks, the tests, the web build, then the build-time ratchets.
   the tool that reads them.
 - `objects/` — entity cards: one Markdown per registered thing that is not a
   document (an avatar, a model). The bytes live in the depot.
+- `stakeholders/` — one card per stakeholder outside the house (an
+  organisation, a public body, an event): who they are, from what they
+  publish, and how they can take part. Nobody's name; what was agreed lives
+  in `opportunities/`.
 - `system/` — reference manuals of how the system works today.
 - `designs/` — architecture documents · `web/` — the Astro viewer ·
   `machine/` — checks, scripts, tools and telemetry.

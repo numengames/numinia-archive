@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: standard
 subtype: standard
 status: active
-version: "0.11.1"
+version: "0.12.0"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-05T08:51:00+02:00"
+updated: "2026-10-08T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -47,7 +47,7 @@ to mirror, and no function is named after one.
 Governance founds, standardises, prescribes and decides. Production plans
 and carries out. Assurance observes, admits debt, verifies and measures.
 Agency constitutes the agents. Creation builds the world and catalogues its
-objects. Administration sustains the business, sells its services, commits
+objects. Administration sustains the business, sells its services, knows who takes part, commits
 it to the public in law, wires the systems and keeps the templates. The website is a lens onto the archive, not part of it.
 
 ### How the scheme is used
@@ -106,6 +106,7 @@ read this table; its shape is their contract.
 | | Cataloguing | `objects/` |
 | **Administration** | Sustaining | `operations/` |
 | | Selling | `opportunities/` |
+| | Relating | `stakeholders/` |
 | | Committing | `legal/` |
 | | Wiring | `system/` |
 | | Templating | `machine/templates/` |
