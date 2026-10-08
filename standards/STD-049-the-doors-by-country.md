@@ -117,7 +117,7 @@ is `published`.
 |---|---|---|---|
 | 2026-10-08 | The page is written; the first-contact e-mail of `STD-047` waits for a yes; records carry the organisation's public mailbox (`STD-039` OPP-017) | every rule | the first-contact e-mail had no door: now it is sent only after a yes or to a published call |
 | 2026-10-08 | Review of every sales and legal document and every record: a `door` on each record (OPP-018), the kit's e-mail gated and footed, twelve records moved from e-mail to a call or a meeting, mobile numbers ruled out | every rule of `STD-048` | twelve open records planned a cold e-mail or form: each now goes through a call, a meeting or a published channel; what is still missing is debt, in `DBT-022` and `DBT-024` |
-| 2026-10-08 | From MVP to alpha: every record checked against its door | `CLD-001`, `CLD-002` | three lost event sales (OPP-2026-002, 003, 004) and their proposals had no door: deleted, nothing kept; the eighteen records left each go through a published call, a call, or a meeting |
+| 2026-10-08 | From MVP to alpha: every record checked against its door, and against whether it is still alive | `CLD-001`, `CLD-002` | three lost event sales (OPP-2026-002, 003, 004) and their proposals had no door: deleted, nothing kept. Five more deleted on the Oracle's reading: three grants out of time or with no 2026 call (021, 022, 023), a call the house cannot enter, since it asks for a game already sold and funds only pre-production (036), and a partner with nothing known (020). The thirteen open records left each go through a published call, a call, or a meeting |
 
 ## Why
 

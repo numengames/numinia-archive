@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 39107,
+  "chars": 39150,
   "apparatus": false,
   "archived": false,
-  "tokens": 11354
+  "tokens": 11380
  },
  {
   "path": "CLAUDE.md",
@@ -2057,50 +2057,6 @@
   "tokens": 1184
  },
  {
-  "path": "opportunities/OPP-2026-020.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "opportunity",
-  "status": "active",
-  "chars": 4739,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1246
- },
- {
-  "path": "opportunities/OPP-2026-021.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "opportunity",
-  "status": "active",
-  "chars": 3549,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1045
- },
- {
-  "path": "opportunities/OPP-2026-022.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "opportunity",
-  "status": "active",
-  "chars": 3481,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1034
- },
- {
-  "path": "opportunities/OPP-2026-023.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "opportunity",
-  "status": "active",
-  "chars": 3247,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 940
- },
- {
   "path": "opportunities/OPP-2026-024.md",
   "dir": "opportunities",
   "series": "opportunities",
@@ -2231,17 +2187,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 667
- },
- {
-  "path": "opportunities/OPP-2026-036.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "opportunity",
-  "status": "active",
-  "chars": 5477,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1448
  },
  {
   "path": "opportunities/OPP-2026-037.md",
@@ -3481,10 +3426,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 10525,
+  "chars": 10821,
   "apparatus": false,
   "archived": false,
-  "tokens": 3016
+  "tokens": 3087
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

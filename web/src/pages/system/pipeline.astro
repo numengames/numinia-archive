@@ -310,7 +310,7 @@ const CHANCE_WORD: Record<string, string> = { alta: "high", media: "medium", baj
               {i.blocker && <p class="pq-feed-line"><b>Blocker:</b> {i.blocker}</p>}
               {i.next && <p class="pq-feed-line"><b>Next:</b> {i.next}</p>}
               {i.contact_email && <p class="pq-feed-line"><b>Write to:</b> <a href={`mailto:${i.contact_email}`}>{i.contact_email}</a>{i.web && <> · <a href={i.web} rel="noopener">where they publish it</a></>}</p>}
-              {i.in_archive && <p class="pq-feed-line">Already a record: <a href={`/opportunities/${i.in_archive.toLowerCase()}`}>{i.in_archive}</a></p>}
+              {i.in_archive && F.records.some((r) => r.id === i.in_archive) && <p class="pq-feed-line">Already a record: <a href={`/opportunities/${i.in_archive.toLowerCase()}`}>{i.in_archive}</a></p>}
             </li>
           ))}
         </ul>
