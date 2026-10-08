@@ -54,6 +54,8 @@ export interface Playbook {
   procedures: Procedure[];
   pieces: Piece[];
   sources: { register: string; collateral: string };
+  /** How a first contact asks (STD-047), shown at the stage that sends it. */
+  firstContact: { stage: string; rules: Rule[] };
 }
 
 const unTick = (s: string) => s.replace(/`/g, "").trim();
@@ -91,6 +93,24 @@ function procedureOf(id: string): Procedure {
   return p;
 }
 
+/** STD-047's *How a first contact asks*: each numbered rule, its bold title and the rest. */
+export interface Rule { title: string; text: string }
+export const FIRST_CONTACT_SOURCE = "standards/STD-047-the-sales-collateral.md";
+function firstContactRules(): Rule[] {
+  const text = fs.readFileSync(path.join(ROOT, FIRST_CONTACT_SOURCE), "utf8");
+  const start = text.indexOf("\n## How a first contact asks");
+  if (start < 0) throw new Error(`the playbook reads "How a first contact asks" in ${FIRST_CONTACT_SOURCE}, which has no such section`);
+  const end = text.indexOf("\n## ", start + 5);
+  const body = text.slice(start, end < 0 ? undefined : end);
+  return [...body.matchAll(/^\d+\. \*\*(.+?)\*\*([\s\S]*?)(?=^\d+\. \*\*|^Why:|$(?![\s\S]))/gm)]
+    .map((m) => {
+      const text = m[2].replace(/\s+/g, " ").replace(/`/g, "").trim();
+      // "**The price is on the sheet**, with…": the comma stays with the title.
+      const lead = /^[,;:]/.test(text) ? text[0] : "";
+      return { title: m[1].trim() + lead, text: text.slice(lead.length).trim() };
+    });
+}
+
 let cached: Playbook | null = null;
 
 export function playbook(): Playbook {
@@ -118,6 +138,7 @@ export function playbook(): Playbook {
     procedures: [...procedures.values()],
     pieces: all,
     sources: { register: "/standards/std-038-the-stages-of-an-opportunity", collateral: "/standards/std-047-the-sales-collateral" },
+    firstContact: { stage: "qualified", rules: firstContactRules() },
   };
   return cached;
 }
@@ -152,6 +173,11 @@ export function playbookMarkdown(): string {
     k.stages.forEach((s, i) => {
       out.push(`### ${i + 1} · \`${s.stage}\``, "", `**${s.means}.** Evidence: ${s.evidence}.`, "");
       if (s.procedure) out.push(`Moved on by [${s.procedure.title}](${s.procedure.href}) — ${s.procedure.question}`, "");
+      if (k.kind === "sale" && s.stage === b.firstContact.stage) {
+        out.push("**How a first contact asks** (from [the sales collateral](/standards/std-047-the-sales-collateral)):", "");
+        b.firstContact.rules.forEach((r, j) => out.push(`${j + 1}. **${r.title}** ${r.text}`));
+        out.push("");
+      }
       if (s.pieces.length) {
         out.push("| Piece | What it does | Made from | Made by | State |", "|---|---|---|---|---|");
         for (const p of s.pieces) out.push(`| ${p.piece} | ${p.does} | ${p.from} | ${p.renderable ? "the kit" : "hand"} | ${p.state} |`);

@@ -59,6 +59,7 @@ export const UPDATES: readonly UpdateVersion[] = [
       { type: "ADD", text: "A sale's wand hands over the first-contact sheet in two formats, an A4 page for the e-mail and a one-column page for a phone, each ready to print to PDF under the client's file name. The sheet shows the price with and without tax, is valid one week and asks one thing: yes or no." },
       { type: "ADD", text: "A new piece, the expiry e-mail: sent once when the week ends with no answer, it asks the buyer to confirm the no." },
       { type: "DEL", text: "The four-page first-contact deck is retired; the one-page sheet replaces it." },
+      { type: "ADD", text: "The sales playbook shows, at the stage that sends the first contact, how it asks: the price in the open, one week, yes or no, the no welcome, no sign of need." },
     ],
   },
   {
