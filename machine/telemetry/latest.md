@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-07T20:01:15Z"
+updated: "2026-10-08T08:20:52Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `f8e7753`  · corpus_hash: `a0496a16352f605e…`  · measured_at: 2026-10-07T20:01:15Z  · root_dirty: 0
+- head: `33dc15f`  · corpus_hash: `bb48d30c73482ce1…`  · measured_at: 2026-10-08T08:20:52Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 826 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 830 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.files_by_kind` | (table below) | files · bytes | tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted |
 | `corpus.md_total` | 343 | files | tracked `.md` anywhere, including `web/` |
@@ -50,18 +50,18 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .docx | 1 |
 | .editorconfig | 1 |
 | .gitignore | 2 |
-| .html | 2 |
-| .jpg | 2 |
+| .html | 3 |
+| .jpg | 3 |
 | .js | 2 |
 | .json | 16 |
 | .md | 343 |
 | .mjs | 129 |
 | .png | 36 |
-| .svg | 76 |
+| .svg | 77 |
 | .toml | 3 |
 | .ts | 62 |
 | .tsx | 2 |
-| .txt | 14 |
+| .txt | 15 |
 | .webp | 1 |
 | .woff2 | 7 |
 | .yaml | 36 |
@@ -71,10 +71,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files | bytes |
 |---|---|---|
-| Text | 343 | 3762057 |
-| Code | 273 | 2432241 |
-| Image | 115 | 3409823 |
-| Data | 69 | 279245 |
+| Text | 343 | 3772709 |
+| Code | 274 | 2443499 |
+| Image | 117 | 3475037 |
+| Data | 70 | 279983 |
 | Font | 7 | 684444 |
 | Other | 6 | 4920 |
 | Office | 1 | 43026 |
@@ -225,10 +225,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 953122 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 955961 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 1.95 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 1.94 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -236,17 +236,17 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 465827 |
-| standards | 105462 |
+| standards | 106391 |
 | system | 52614 |
-| procedures | 37743 |
+| procedures | 37741 |
 | reports | 36728 |
 | agents | 36273 |
-| operations | 32365 |
-| machine | 28983 |
+| operations | 33119 |
+| machine | 29549 |
 | designs | 28248 |
-| opportunities | 26427 |
+| opportunities | 26913 |
 | principles | 24099 |
-|  | 18700 |
+|  | 18806 |
 | missions | 18546 |
 | decisions | 13484 |
 | legal | 13061 |
@@ -258,9 +258,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 492335 |
-| draft | 222717 |
-| active | 217986 |
+| (none) | 492441 |
+| draft | 224398 |
+| active | 219038 |
 | todo | 14406 |
 | in-progress | 4526 |
 | done | 1152 |
@@ -509,13 +509,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | 3 |
 |---|---|
-| PRO | 478 |
-| STD | 1141 |
-| OPS | 196 |
+| PRO | 482 |
+| STD | 1144 |
+| OPS | 197 |
 | PRI | 407 |
 | ADR | 286 |
-| MIS | 402 |
 | OPP | 28 |
+| MIS | 402 |
 | DES | 149 |
 | DBT | 71 |
 | LEG | 72 |
@@ -536,7 +536,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `figures.live` | 293 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
+| `figures.live` | 299 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
 | `figures.live_by_doc` | (table below) | lines | the fifteen docs with most such lines |
 | `figures.cited` | 0 | citations | citations in the §10.5 form `key = value @ head` across the corpus |
 | `figures.stale_citations` | (table below) | citations | cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true |

@@ -4,9 +4,9 @@ uid: ""
 title: "Closing a sale"
 type: procedure
 status: draft
-version: "0.4.3"
+version: "0.5.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-08T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -66,11 +66,10 @@ at step 3 (`PRO-031`).
 
 ## 3. Procedure
 
-1. **Follow up on the register's cadence.** At the `next` date, one
-   contact; if silence, a second a fortnight later. Each contact is an
-   `out` line in the timeline, and a new `next` line replaces the old one.
-   After the second silence: a `lost` line, `silence`, and a last courteous
-   line to the client.
+1. **Follow up once, and ask for the no.** A proposal is valid one
+   week (`STD-047`). The day after, one contact: the expiry e-mail, an
+   `out` line, and a `next` line a week on. Silence after it: a `lost`
+   line, `silence`. No second chase, no discount.
 2. **Take the answer.** A yes in writing is a `pos` line marked `agreed`;
    the decider's role goes in the header; the name stays as the disclosure
    says. A client who asks now not to be named is written back to its

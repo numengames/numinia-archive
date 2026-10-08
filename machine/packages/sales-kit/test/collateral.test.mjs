@@ -64,25 +64,61 @@ test('the real register names only templates the kit can render', { skip: !exist
   }
 });
 
-test('a deck renders with every field filled, and the e-mail too', () => {
+const CONTACT = { contactName: 'Ada Lovelace', contactRole: 'Socia · Numen Games', contactPhone: '+34 600 000 000', contactMail: 'ada@example.org' };
+
+test('the first-contact sheet renders in both formats, every field filled, from the Pitch and the offer', () => {
   const rec = readFileSync(RECORD, 'utf8'), offer = readFileSync(OFFER, 'utf8');
-  const opts = { lang: 'es', organisation: 'una tienda de prueba', signature: 'Numen Games', today: '2099-10-15', card: CARD };
-  const deck = render('first-contact-deck.html', rec, offer, opts);
-  assert.deepEqual(deck.missing, []);
-  assert.doesNotMatch(deck.text, /\{\{[a-z_]+\}\}/);
-  assert.match(deck.text, /El primer día antes del primer día\./);
-  assert.match(deck.text, /1\.000 €/);
+  const opts = { lang: 'es', organisation: 'una tienda de prueba', signature: 'Ada Lovelace', today: '2099-10-15', card: CARD, ...CONTACT };
+  for (const piece of ['first-contact-sheet.html', 'first-contact-sheet-mobile.html']) {
+    const r = render(piece, rec, offer, opts);
+    assert.deepEqual(r.missing, [], `${piece}: ${r.missing.join(', ')}`);
+    assert.doesNotMatch(r.text, /\{\{[a-z_]+\}\}/, `${piece} leaves a field unfilled`);
+    assert.match(r.text, /El primer día antes del primer día\./);
+    assert.match(r.text, /1\.000 €/, 'the price is shown');
+    assert.match(r.text, /1\.210 € con IVA/, 'and with tax');
+    assert.match(r.text, /La demo es la <b>primera sala<\/b>/, '**bold** in a Pitch cell becomes bold');
+    assert.match(r.text, /<li><div>¿Quién decide\?<\/div><\/li>/, 'the three questions are listed');
+    assert.match(r.text, /<td class="p">100 %<\/td>/, 'a payment in brackets goes to its column');
+    assert.match(r.text, /https:\/\/numinia\.org\/sales\/demo-numinia-qr\.svg/, 'site paths become full addresses');
+    assert.match(r.text, /Numen_Games-Propuesta_Formacion_El_primer_dia/, 'the title is the client\'s file name, no accents');
+  }
+});
+
+test('a first contact is valid one week, asks yes or no, and carries the P. D.', () => {
+  const rec = readFileSync(RECORD, 'utf8'), offer = readFileSync(OFFER, 'utf8');
+  const opts = { lang: 'es', organisation: 'una tienda', signature: 'Ada Lovelace', today: '2099-10-15', card: CARD, ...CONTACT };
+  const sheet = render('first-contact-sheet.html', rec, offer, opts).text;
+  assert.match(sheet, /<dd>15\.10\.2099<\/dd>/, 'sent today');
+  assert.match(sheet, /<dd>22\.10\.2099<\/dd>/, 'valid seven days');
+  assert.match(sheet, /Respondednos antes del 22\.10\.2099<\/b> con una palabra: sí o no/);
+  assert.match(sheet, /P\. D\.<\/b> Un no también nos sirve\. Preferimos un no claro el 22 de octubre de 2099/);
+  const sent = render('first-contact-sheet.html', rec, offer, { ...opts, sent: '2099-11-02' }).text;
+  assert.match(sent, /<dd>09\.11\.2099<\/dd>/, 'the week runs from the day it is sent');
   const mail = render('first-contact-email.txt', rec, offer, opts);
   assert.deepEqual(mail.missing, []);
   assert.match(mail.text, /^Asunto: Ensayar el primer día · propuesta/);
+  assert.match(mail.text, /1\.000 € sin IVA \(1\.210 € con IVA\)/, 'the e-mail says the price too');
+  assert.match(mail.text, /vale hasta el 22 de octubre de 2099/);
+  assert.match(mail.text, /Adjunto: Numen_Games-Propuesta_Formacion_El_primer_dia\.pdf/);
+  assert.doesNotMatch(mail.text, /cada alumno|cuatro páginas/, 'no per-learner trace, no deck');
+});
+
+test('the expiry e-mail asks for the no, from the day the sheet was sent', () => {
+  const rec = readFileSync(RECORD, 'utf8'), offer = readFileSync(OFFER, 'utf8');
+  const r = render('expiry-email.txt', rec, offer, { lang: 'es', organisation: 'una tienda', signature: 'Ada Lovelace', today: '2099-10-23', sent: '2099-10-15', card: CARD });
+  assert.deepEqual(r.missing, []);
+  assert.match(r.text, /^Asunto: Re: Ensayar el primer día · propuesta/);
+  assert.match(r.text, /el 15 de octubre de 2099 caducó ayer, 22 de octubre de 2099/);
+  assert.match(r.text, /¿Me lo confirmáis con un no\?/);
+  assert.doesNotMatch(r.text, /descuento|rebaja|oferta especial/, 'never lowers the price to rescue a sale');
 });
 
 test('what is missing is named, not invented', () => {
-  const rec = readFileSync(RECORD, 'utf8').replace(/^\| Ask \|.*\n/m, '');
-  const deck = render('first-contact-deck.html', rec, readFileSync(OFFER, 'utf8'), { lang: 'es', today: '2099-10-15', card: CARD });
-  assert.ok(deck.missing.includes('Ask'), deck.missing.join(', '));
-  assert.ok(deck.missing.includes('organisation'), 'the organisation is typed at render time, never read from the record');
-  assert.match(deck.text, /\[falta: Ask\]/);
+  const rec = readFileSync(RECORD, 'utf8').replace(/^\| Questions \|.*\n/m, '');
+  const sheet = render('first-contact-sheet.html', rec, readFileSync(OFFER, 'utf8'), { lang: 'es', today: '2099-10-15', card: CARD });
+  assert.ok(sheet.missing.includes('Questions'), sheet.missing.join(', '));
+  assert.ok(sheet.missing.includes('contact phone'), 'the phone is typed at render time, never read from the archive');
+  assert.match(sheet.text, /\[falta: Questions\]/);
 });
 
 test('a rendered piece holding a name the card does not list is refused (OPP-006)', () => {
@@ -118,9 +154,11 @@ test('the command line refuses to write a piece holding an unlisted name, and ne
 test('the archive\'s first case renders from its own record and offer', { skip: !existsSync(path.join(ROOT, 'opportunities', 'OPP-2026-025.md')) }, () => {
   const rec = readFileSync(path.join(ROOT, 'opportunities', 'OPP-2026-025.md'), 'utf8');
   const offer = readFileSync(path.join(ROOT, 'operations', 'OPS-012-training-the-offer.md'), 'utf8');
-  const r = render('first-contact-deck.html', rec, offer, { lang: 'es', organisation: 'el centro', signature: 'Numen Games', today: '2026-10-02' });
-  assert.deepEqual(r.missing, []);
-  assert.deepEqual(r.names, []);
-  assert.match(r.text, /8\.500 €/);
-  assert.match(r.text, /14\.500 €/);
+  for (const piece of ['first-contact-sheet.html', 'first-contact-sheet-mobile.html', 'first-contact-email.txt', 'expiry-email.txt']) {
+    const r = render(piece, rec, offer, { lang: 'es', organisation: 'el centro', signature: 'Numen Games', today: '2026-10-08', contactName: 'Numen Games', contactRole: 'Ventas', contactPhone: '[teléfono]', contactMail: '[correo]' });
+    assert.deepEqual(r.missing, [], `${piece}: ${r.missing.join(', ')}`);
+    assert.deepEqual(r.names, []);
+    if (piece !== 'expiry-email.txt') assert.match(r.text, /8\.000 €/);
+    assert.doesNotMatch(r.text, /8\.500|14\.500/, 'the old floors are gone');
+  }
 });

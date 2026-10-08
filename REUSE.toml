@@ -60,6 +60,7 @@ SPDX-License-Identifier = "CC0-1.0"
 [[annotations]]
 path = [
   "lore/codex/hoja-de-personaje-v0.6.0.jpg",
+  "web/public/sales/escena-del-crimen-demo.jpg",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "CC0-1.0"

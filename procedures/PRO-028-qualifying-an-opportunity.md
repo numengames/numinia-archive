@@ -4,9 +4,9 @@ uid: ""
 title: "Qualifying an opportunity"
 type: procedure
 status: draft
-version: "0.6.4"
+version: "0.7.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-08T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -86,9 +86,9 @@ and decides. A public tender is screened by `PRO-033`, a grant by
    line, `no-decider` or `no-budget`.
 4. **Decide to pursue.** Whoever sells weighs the fit, what is known of who
    signs, and the house's capacity to deliver in the time asked, and
-   decides. Pursue: a line marked `qualified`, the record's Pitch written,
-   and the `next` line asks for the needs analysis (`PRO-029`) with the
-   stage's collateral (`STD-047`). Decline: a `lost` line, `we-declined`,
+   decides. Pursue: a line marked `qualified`, the Pitch written, and the
+   first contact sent as `STD-047` says it asks — one week, yes or no;
+   the `next` line is the day after the week ends. Decline: a `lost` line, `we-declined`,
    with the reason in a sentence.
 5. **A collaboration or a partner.** Write what each side gives. Their
    yes: a `pos` line marked `talking`; the split agreed — who signs, who

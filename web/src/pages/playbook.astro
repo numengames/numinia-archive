@@ -98,6 +98,17 @@ const stageCount = book.kinds.reduce((n, k) => n + k.stages.length, 0);
                     {s.procedure.question && <span> — {s.procedure.question}</span>}
                   </p>
                 )}
+                {k.kind === "sale" && s.stage === book.firstContact.stage && (
+                  <div data-first-contact class="mt-4 rounded-[6px] border border-accent/40 bg-accent/5 px-4 py-3">
+                    <div class:list={[etiqueta, "text-accent mb-2"]}>How a first contact asks</div>
+                    <ol class="list-decimal space-y-1 pl-5 text-sm text-muted-foreground">
+                      {book.firstContact.rules.map((r) => (
+                        <li><span class="font-medium text-foreground">{r.title}</span> {r.text}</li>
+                      ))}
+                    </ol>
+                    <p class="mt-2 text-xs text-dim">From <a href={book.sources.collateral} class={enlace}>the sales collateral</a>.</p>
+                  </div>
+                )}
                 {s.pieces.length > 0 && (
                   <ul class="mt-4 space-y-2">
                     {s.pieces.map((p) => (

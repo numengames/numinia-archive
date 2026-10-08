@@ -5,9 +5,9 @@ title: "The sales collateral"
 type: standard
 subtype: register
 status: draft
-version: "0.1.3"
+version: "0.2.0"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-08T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -25,10 +25,11 @@ SPDX-License-Identifier: CC0-1.0
 
 # The sales collateral
 
-> **Summary:** What each stage of a sale hands to the other side — a deck,
-> an e-mail, a sheet, a video, a proposal — what each piece is made from,
+> **Summary:** What each stage of a sale hands to the other side — a sheet,
+> an e-mail, a video, a proposal — what each piece is made from,
 > what stops it from being made, the template that makes it and whether it
-> has earned its place. A piece is made from the opportunity's record, the
+> has earned its place, and how a first contact asks: the price in the
+> open, one week, one question, yes or no. A piece is made from the opportunity's record, the
 > offer it points at and the house's card, never from memory; the sales kit
 > renders it and names what is missing. The menu grows and is pruned by
 > real sales. A register records: nothing in it binds by itself.
@@ -47,15 +48,56 @@ piece is still made by hand.
 | Stage | Piece | What it does | Made from | Missing when | Template | State |
 |---|---|---|---|---|---|---|
 | `lead` | Research note | says who decides, how they buy, where the house fits and by which channels to reach them | public sources only: the buyer's plans, its awarded contracts, its transparency portal | — | — | trial |
-| `qualified` | First-contact deck | asks for a first meeting: the gap, what the house proposes, where it fits in the buyer's own plan, the price range, the ask | the record's header and Pitch; the offer's Packages | the Pitch lacks a headline, a promise, a gap, a first fit or the ask; the offer has no Packages | `first-contact-deck.html` | trial |
-| `qualified` | First-contact e-mail | carries the deck: one hook in the buyer's own words, the promise, the ask | the record's header and Pitch | the Pitch lacks a subject, a hook, a promise or the ask; the record has no contact channel | `first-contact-email.txt` | trial |
-| `qualified` | One-page sheet | the deck in one page, to hand over at an event | the offer and the card | — | — | trial |
+| `qualified` | First-contact sheet, A4 | wins the first meeting, and only that: the buyer's gap in a headline, what the learner lives in the demo, one checkable study with its limits, what is delivered, the weeks and the payments, the price with and without tax, three questions for the buyer, and one ask — yes or no within a week | the record's header and Pitch; the offer's Packages and its First-contact sheet table; the contact typed at render time | the Pitch lacks a service, an audience, a headline, a lead, a demo, a picture, the evidence or the questions; the offer has no Packages or no First-contact sheet table | `first-contact-sheet.html` | trial |
+| `qualified` | First-contact sheet, mobile | the same sheet in one column, 100 mm wide, with links that can be tapped — for WhatsApp or a phone | as the A4 | as the A4 | `first-contact-sheet-mobile.html` | trial |
+| `qualified` | First-contact e-mail | carries the A4 sheet: one hook in the buyer's own words, the promise, the price, the ask, the date it expires and a P. D. that welcomes a no | the record's header and Pitch; the offer's Packages | the Pitch lacks a subject, a hook, a promise, the ask or the service; the record has no contact channel | `first-contact-email.txt` | trial |
+| `qualified` | Expiry e-mail | sent once, the day after the week ends with no answer: asks the buyer to confirm the no, so the sale closes either way | the record's Pitch; the day the sheet was sent | the Pitch lacks a subject | `expiry-email.txt` | trial |
+| `qualified` | First-contact deck | asked for a first meeting in four pages; the one-page sheet replaced it on 8 October 2026 | the record's Pitch and Where it fits | — | — | retired |
 | `qualified` | Ninety-second video | the demonstration walked in ninety seconds, for the follow-up | the offer's earlier case and its demonstration | no demonstration address | — | trial |
 | `analysed` | First-meeting script | what to show, and the questions the needs analysis must leave answered | the record's Need and `PRO-029` step 1 | — | — | trial |
 | `proposed` | Proposal | the four things a proposal says | the record's Need, the offer, the template | a thing of the four is missing (`STD-040`) | `PRP-TEMPLATE.md` | works |
 | `proposed` | Follow-up e-mails | one line each, on the stage's cadence | the record's timeline | — | — | trial |
 | `agreed` | Agreement and papers | the agreement from the house's terms, and the certificates a public buyer asks | the proposal and the card | the decider's role is not known | — | trial |
 | `won` · `lost` | Hand-over and lessons | the need, the map and the scope to whoever builds; what the sale taught, to the offer | the record and the proposal | — | — | trial |
+
+## How a first contact asks
+
+The Oracle's rules of 8 October 2026, for every first contact of a sale:
+
+1. **The price is on the sheet**, with and without tax. A public buyer
+   cannot approve a spend it has no figure for (LCSP art. 118), and a sheet
+   without one forces a second exchange before anyone can decide.
+2. **One week.** The sheet is valid seven days from the day it is sent; its
+   header, its second step, the e-mail and the P. D. all name that day.
+3. **One question: yes or no.** The sheet asks for one word before the
+   date. A yes buys one hour to close the scope; a no closes the sale, and
+   the record gets a `lost` line with the buyer's reason.
+4. **The no is welcome.** The sheet and the e-mail say so in a P. D. When
+   the week ends with no answer, the expiry e-mail asks the buyer to
+   confirm the no — once. Silence after it is a `lost` line, `silence`.
+5. **No sign of need.** No chasing, no discount to rescue a sale, no
+   «we would love to work with you», no list of what else the house could
+   sell. The sheet asks the buyer three questions instead: what fails
+   today, who decides and signs, and which budget it goes on.
+6. **Two formats from the same fields.** The A4 travels with the e-mail;
+   the mobile one goes where the buyer reads on a phone. Both are printed
+   to PDF under the client's file name, without accents, date or plate.
+7. **Evidence the buyer can open.** One primary study, its DOI printed and
+   its limits shown; nothing read only in someone else's summary.
+
+Why: the aim is a short decision, not a long courtship. Jim Camp's
+*Start with No* (2002) holds that giving the other side the right to say
+no lowers their guard and shortens the decision, and that a seller who
+shows need loses the negotiation; Isra Bravo's school of copy asks for one
+reader, short sentences, one ask and a P. D. Naming the price first
+anchors the talk: in three experiments, whichever side made the first
+offer reached the better outcome (Galinsky & Mussweiler 2001, *Journal of
+Personality and Social Psychology* 81, 657–669,
+doi.org/10.1037/0022-3514.81.4.657). And buyers want to decide without a
+seller in the room: 75 % of 771 business buyers surveyed by Gartner at the
+end of 2022 said they prefer a buying experience without a sales
+representative. These are rules on trial, like the pieces: the closing
+step of each sale (`PRO-030`, *Learn*) records whether they helped.
 
 ## The states
 
@@ -70,7 +112,7 @@ piece is still made by hand.
 A buyer meets the house through what it hands over before they meet anyone
 in it. Kept as a register, the menu is one list every seller and every
 agent reads, and each piece points at where its words come from, so a price
-changed in the offer changes in every deck. Sales practice calls these
+changed in the offer changes in every sheet. Sales practice calls these
 pieces *sales collateral* and the work of keeping the right one ready at
 each stage *sales enablement*; the stages are this house's own (`STD-038`).
 
@@ -81,6 +123,8 @@ each stage *sales enablement*; the stages are this house's own (`STD-038`).
 | `STD-038` | The stages of an opportunity | the stages a piece belongs to |
 | `STD-039` | An opportunity has a record | the record and its Pitch, the pieces' source |
 | `STD-040` | A proposal says four things | the one piece with a standard of its own |
-| `OPS-012` | Training — the offer | the Packages a deck prices |
+| `OPS-012` | Training — the offer | the Packages the sheet prices, and its First-contact sheet table |
+| `PRO-028` | Qualifying an opportunity | the step that sends the first contact |
+| `PRO-030` | Closing a sale | the follow-up, the expiry and the no |
 | `OPS-018` | The house's card | what the house holds, and who may be named |
 | `PRI-009` | The archive is the organisation | why a piece is made from the records and not from memory |

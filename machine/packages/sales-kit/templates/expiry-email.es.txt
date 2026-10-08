@@ -1,0 +1,21 @@
+<!--
+SPDX-FileCopyrightText: 2026 Numen Games S.L.
+SPDX-License-Identifier: CC0-1.0
+Expiry e-mail (STD-047), Spanish rendering: sent once, the day after the
+sheet's week ends with no answer. It asks for the no; it never lowers the
+price, never chases and never says the house needs the sale.
+collateral.mjs removes this block when it renders the piece.
+-->
+Asunto: Re: {{subject}}
+
+{{greeting}}
+
+La propuesta que os envié el {{sent_long}} caducó ayer, {{valid_long}}.
+
+Entiendo que ahora no es para vosotros, y está bien. ¿Me lo confirmáis con un no? Así la cierro y no os vuelvo a escribir sobre esto.
+
+Si me equivoco y sí os interesa, respondedme con un sí y buscamos una hora esta semana.
+
+Un saludo,
+
+{{signature}}
