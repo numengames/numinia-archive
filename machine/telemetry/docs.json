@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38901,
+  "chars": 39107,
   "apparatus": false,
   "archived": false,
-  "tokens": 11285
+  "tokens": 11354
  },
  {
   "path": "CLAUDE.md",
@@ -643,10 +643,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 28455,
+  "chars": 29090,
   "apparatus": false,
   "archived": false,
-  "tokens": 7645
+  "tokens": 7820
  },
  {
   "path": "debt/DBT-023-sources-and-inspirations-without-a-home.md",
@@ -665,10 +665,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 3923,
+  "chars": 4022,
   "apparatus": false,
   "archived": false,
-  "tokens": 1087
+  "tokens": 1112
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",

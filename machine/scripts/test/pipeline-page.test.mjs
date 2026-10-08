@@ -173,6 +173,7 @@ test('the agenda comes first, then the filters, then one row per record with the
     if (x.chance) assert.match(r.body, new RegExp(`cq-ch--${x.chance}`), `${x.id} shows its chance`);
     assert.ok(r.body.includes(x.closes ? 'Deadline' : 'no deadline'), `${x.id} names its deadline or its absence`);
     assert.ok(r.attrs['data-q'].includes(x.id.toLowerCase()), 'the search reads the id');
+    assert.ok(r.body.includes(`<span class="pq-id">${x.id}</span>`), `${x.id}: the card shows its number`);
   }
   const groups = openingTags(built, /<h3 ([^>]*\bpq-grp\b[^>]*)>/g).map((g) => g.attrs['data-g']);
   assert.deepEqual(groups, ['late', 'today', 'week', 'later', 'closed'], 'the list\'s groups, in order');
@@ -186,6 +187,7 @@ test('the timeline, the requirements and the funnel keep the tool\'s figures', {
   assert.deepEqual(panels.filter((p) => !('hidden' in p.attrs)).map((p) => p.attrs['data-view']), ['list'], 'without a script, the list shows');
   const tl = openingTags(built, /<div ([^>]*\bpq-g-row\b[^>]*\bdata-id="[^"]*"[^>]*)>/g).map((t) => t.attrs['data-id']);
   assert.deepEqual(new Set(tl), new Set(data.records.map((r) => r.id)), 'every record on the timeline');
+  for (const r of data.records) assert.ok((built.match(new RegExp(`<span class="pq-id">${r.id}</span>`, 'g')) ?? []).length === 2, `${r.id}: its number on the list and on the timeline`);
   const marks = (built.match(/class="pq-dot pq-dl-mark"/g) ?? []).length;
   assert.equal(marks, data.records.filter((r) => r.closes).length, 'one deadline mark per record with a deadline');
   assert.match(built, /pq-today/, 'a today line');

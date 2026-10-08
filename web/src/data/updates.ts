@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.156.0",
+    date: "2026-10-08",
+    entries: [
+      { type: "CHG", text: "The pipeline shows each opportunity's number on its card, in the list and on the timeline — OPP-2026-037 — so when someone talks about \"the 37\" you can find it at a glance." },
+      { type: "DEL", text: "Three lost event sales (OPP-2026-002, 003, 004) and their proposals leave the archive: they had no door under the rules for reaching someone who did not ask." },
+    ],
+  },
+  {
     version: "v0.155.0",
     date: "2026-10-08",
     entries: [

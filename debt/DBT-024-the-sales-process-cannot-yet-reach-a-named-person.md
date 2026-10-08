@@ -4,9 +4,9 @@ uid: ""
 title: "The sales process cannot yet reach a named person"
 type: documentation
 status: active
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-08T17:00:00+02:00"
-updated: "2026-10-08T17:00:00+02:00"
+updated: "2026-10-08T17:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -46,7 +46,7 @@ SPDX-License-Identifier: CC-BY-4.0
 |---|---|---|
 | 1 | The private contacts: one place outside the archive holding, per person, organisation, role, where the data was found, door, the yes, purpose and a no; the no's are the suppression list, checked before any contact (`STD-048` CLD-004, CLD-007). Where it lives and who reaches it is undecided. | company |
 | 2 | Register Numen Games S.L. with the Lista Robinson (Adigital) as a company, and log each consultation (`STD-048` CLD-005). | company |
-| 3 | A fixed line, or an 800/900 number, for commercial calls: a mobile number may not be used (Orden TDF/149/2025 art. 9). | company |
+| 3 | A fixed line, or an 800/900 number, for commercial calls: a mobile number may not be used (Orden TDF/149/2025 art. 9). Whether that binds a business-to-business call goes to counsel first: `DBT-022` item 49. | company · counsel |
 | 4 | The record of processing activities, with an entry for prospecting (`DBT-022` #20). | company · counsel |
 | 5 | The call script and the letter of `STD-047` exist only as rows: write them as templates of the sales kit, in Spanish, with the spoken and written notice of `STD-049`. | ours |
 | 6 | `OPS-007` is still April 2026's strategy for NWOS: its ideal client, prices, typed funnel and eight-week pilot no longer match what the house sells (`OPS-012`, `OPS-013`). Rewrite it: the lines and clients of the house's card, the doors per client, weekly activity targets, prices read from the offers, the funnel read from the pipeline. | ours · Oracle |
