@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "6de6233",
-  "corpus_hash": "b2e6639d29821c49450607a8a4ca03de50825ac6c16e672de3164db5c60490c3",
+  "head": "34748d6",
+  "corpus_hash": "ce55af4ab3a3926f442cc09e8bfb4194d6696c5cf177de72a1e571ecf1a85eec",
   "root_dirty": 0,
-  "measured_at": "2026-10-08T10:40:18Z",
+  "measured_at": "2026-10-08T10:52:49Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 345,
-          "bytes": 3787447
+          "bytes": 3787601
         },
         "Code": {
           "files": 274,
-          "bytes": 2457610
+          "bytes": 2457915
         },
         "Image": {
           "files": 117,
@@ -368,7 +368,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 960186,
+      "value": 960234,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -377,14 +377,14 @@
         "lore": 465827,
         "standards": 113618,
         "system": 52614,
-        "procedures": 37765,
+        "procedures": 37768,
         "reports": 36728,
         "agents": 36326,
         "operations": 33570,
         "machine": 30068,
         "designs": 28300,
         "principles": 24099,
-        "": 19603,
+        "": 19648,
         "missions": 18546,
         "opportunities": 15128,
         "debt": 13954,
@@ -399,8 +399,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 493249,
-        "draft": 235957,
+        "(none)": 493294,
+        "draft": 235960,
         "active": 210896,
         "todo": 14406,
         "in-progress": 4526,
@@ -785,7 +785,7 @@
     "contradictions.id_form_per_series": {
       "value": {
         "PRO": {
-          "3": 485
+          "3": 486
         },
         "STD": {
           "3": 1260
