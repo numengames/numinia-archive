@@ -4,11 +4,11 @@ uid: ""
 title: "Sales — commercial strategy"
 type: documentation
 status: active
-version: "1.0.1"
+version: "1.1.0"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-08T13:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Sales and partners"
@@ -88,6 +88,22 @@ Based on the 100 simulations and the gap analysis. Combined score: adoption rate
 - **Their pain:** "Every new client restarts the team's identity"
 - **Your message:** NWOS gives the team permanent identity beyond each project. The Archive is the institutional memory that survives every delivery.
 - **Promised KPI →** Senior creative talent retention: target -50% turnover
+
+---
+
+## What the law lets us do — The doors
+
+Every first contact goes through a door the law leaves open, by country:
+*Reaching someone who did not ask* (`STD-048`). In short, in Spain and the
+EU: answer what an organisation published, call like a person, write a
+letter, meet in person, be introduced — and send an e-mail only once they
+say yes, or to a former client. The Lista Robinson is read before calling
+or writing to a person who has not said yes; a no is final. The United
+States has its own rules, kept as a separate table there, and they replace
+Spain's only once a lawyer confirms. Look first for organisations that ask
+to be reached: calls for suppliers, partners, sponsors or speakers, open
+innovation challenges, tenders. Every change to this sales process is
+audited against that page.
 
 ---
 

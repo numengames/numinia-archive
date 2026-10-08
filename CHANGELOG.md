@@ -17,6 +17,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-08
+- **Added** `STD-048` Reaching someone who did not ask (an e-mail only after a yes, Lista Robinson first, a no is final, the strictest law travels, audit at every change) and its register `STD-049` The doors, by country (Spain/EU, United States); `STD-047` 0.2.0 gates the first-contact e-mail; `OPS-007` 1.1.0.
+- **Changed** `STD-039` 0.13.0, OPP-017: an open record whose organisation may be named carries its public mailbox (`contact_email`) and page (`web`), never a person's; the six open calls carry theirs; /system/pipeline and the radar's feed show them.
+
 ### 2026-10-07
 - **Added** `MIS-155`: Kairos gets its own GitHub App, installed on the feed only with contents write, and the feed leaves Ursa's App.
 - **Changed** `STD-015` 6.2.0: four new practices — code scanning (SEC-016), workflow lint (SEC-017), the dependency audit before merge (SEC-018) and the outside probe of every public site (SRE-008); DEV-006 asks a pull request for the evidence that it works.

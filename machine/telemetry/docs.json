@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19221,
+  "chars": 19480,
   "apparatus": false,
   "archived": false,
-  "tokens": 4789
+  "tokens": 4856
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 37087,
+  "chars": 37666,
   "apparatus": false,
   "archived": false,
-  "tokens": 10697
+  "tokens": 10868
  },
  {
   "path": "CLAUDE.md",
@@ -885,10 +885,10 @@
   "series": "designs",
   "type": "design",
   "status": "draft",
-  "chars": 10912,
+  "chars": 11121,
   "apparatus": false,
   "archived": false,
-  "tokens": 2896
+  "tokens": 2948
  },
  {
   "path": "designs/DES-017-legal-obligations-to-confirm.md",
@@ -1897,10 +1897,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 8798,
+  "chars": 9602,
   "apparatus": false,
   "archived": false,
-  "tokens": 2325
+  "tokens": 2513
  },
  {
   "path": "operations/OPS-008-session-state.md",
@@ -3404,10 +3404,32 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 5228,
+  "chars": 5482,
   "apparatus": false,
   "archived": false,
-  "tokens": 1396
+  "tokens": 1468
+ },
+ {
+  "path": "standards/STD-048-reaching-someone-who-did-not-ask.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "standard",
+  "status": "draft",
+  "chars": 7023,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1970
+ },
+ {
+  "path": "standards/STD-049-the-doors-by-country.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "standard",
+  "status": "draft",
+  "chars": 6906,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1914
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

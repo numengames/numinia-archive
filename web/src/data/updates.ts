@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.153.0",
+    date: "2026-10-08",
+    entries: [
+      { type: "ADD", text: "A new standard, Reaching someone who did not ask: the doors the law leaves open for a first contact — what an organisation published, a call, a letter, a meeting, an introduction — and that an e-mail waits for a yes. Its register, The doors, by country, keeps Spain and the EU and the United States in separate tables, with the audit of every change." },
+      { type: "CHG", text: "The pipeline says where to write: each record whose organisation may be named shows its public mailbox and the page it is read from, and the radar's unreviewed calls do too." },
+    ],
+  },
+  {
     version: "v0.152.0",
     date: "2026-10-07",
     entries: [

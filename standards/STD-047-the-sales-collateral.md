@@ -5,16 +5,16 @@ title: "The sales collateral"
 type: standard
 subtype: register
 status: draft
-version: "0.1.3"
+version: "0.2.0"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-08T13:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
 tags: [standards, register, sales, collateral, playbook, opportunity, templates]
 license: "CC0-1.0"
-related: ["STD-038", "STD-039", "STD-040", "OPS-012", "OPS-018", "PRO-028", "PRO-029", "PRO-030"]
+related: ["STD-038", "STD-039", "STD-040", "OPS-012", "OPS-018", "PRO-028", "PRO-029", "PRO-030", "STD-048"]
 derived_from: "PRI-009"
 ---
 
@@ -48,8 +48,8 @@ piece is still made by hand.
 |---|---|---|---|---|---|---|
 | `lead` | Research note | says who decides, how they buy, where the house fits and by which channels to reach them | public sources only: the buyer's plans, its awarded contracts, its transparency portal | — | — | trial |
 | `qualified` | First-contact deck | asks for a first meeting: the gap, what the house proposes, where it fits in the buyer's own plan, the price range, the ask | the record's header and Pitch; the offer's Packages | the Pitch lacks a headline, a promise, a gap, a first fit or the ask; the offer has no Packages | `first-contact-deck.html` | trial |
-| `qualified` | First-contact e-mail | carries the deck: one hook in the buyer's own words, the promise, the ask | the record's header and Pitch | the Pitch lacks a subject, a hook, a promise or the ask; the record has no contact channel | `first-contact-email.txt` | trial |
-| `qualified` | One-page sheet | the deck in one page, to hand over at an event | the offer and the card | — | — | trial |
+| `qualified` | First-contact e-mail | carries the deck: one hook in the buyer's own words, the promise, the ask | the record's header and Pitch | the Pitch lacks a subject, a hook, a promise or the ask; the record has no contact channel; nobody has asked for it and it answers no published call — an e-mail waits for a yes (`STD-048` CLD-002) | `first-contact-email.txt` | trial |
+| `qualified` | One-page sheet | the deck in one page, to hand over at an event, where the yes to write is asked (`STD-048`) | the offer and the card | — | — | trial |
 | `qualified` | Ninety-second video | the demonstration walked in ninety seconds, for the follow-up | the offer's earlier case and its demonstration | no demonstration address | — | trial |
 | `analysed` | First-meeting script | what to show, and the questions the needs analysis must leave answered | the record's Need and `PRO-029` step 1 | — | — | trial |
 | `proposed` | Proposal | the four things a proposal says | the record's Need, the offer, the template | a thing of the four is missing (`STD-040`) | `PRP-TEMPLATE.md` | works |
@@ -84,3 +84,4 @@ each stage *sales enablement*; the stages are this house's own (`STD-038`).
 | `OPS-012` | Training — the offer | the Packages a deck prices |
 | `OPS-018` | The house's card | what the house holds, and who may be named |
 | `PRI-009` | The archive is the organisation | why a piece is made from the records and not from memory |
+| `STD-048` | Reaching someone who did not ask | the doors a first contact may go through |
