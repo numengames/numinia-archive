@@ -3,9 +3,9 @@ agent: kairos
 title: "SOURCES — Kairos"
 type: agent
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-10-02T12:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-08T12:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -43,7 +43,7 @@ here, never from a private list.
 ## How a watch runs
 
 `procedures/PRO-035-watching-for-opportunities.md` — the whole watch, from the
-sweep to the Oracle's decision: what is kept in doubt, what goes to the feed,
+sweep to the Oracle's decision: what is dropped at sight, what goes to the feed,
 how a filter is retuned. Its verdicts are the table *A watch's verdict* in
 `standards/STD-038-the-stages-of-an-opportunity.md`; where it writes is the
 rule *Automation writes to its feed* in `standards/STD-017-who-may-change-what.md`.

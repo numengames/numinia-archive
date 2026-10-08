@@ -3,9 +3,9 @@ agent: kairos
 title: "OPERATOR — Kairos"
 type: agent
 status: draft
-version: "0.2.2"
+version: "0.2.3"
 created: "2026-10-02T12:00:00+02:00"
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-08T12:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -40,11 +40,11 @@ Who authorises, how this file itself may change, and how changes are recorded ar
 Running a watch by `procedures/PRO-035-watching-for-opportunities.md`; reading
 public notices, terms, bases and calls; downloading their documents; keeping
 the watch's own list, discards and report outside the archive; writing what
-could fall to the feed, `numengames/numinia-archive-feed`, without review,
-after the name check (`STD-017` AUT-069); telling the operator what could
-fall; proposing a filter change.
+the house can take (high or medium) to the feed, `numengames/numinia-archive-feed`, without review,
+after the name check (`STD-017` AUT-069); telling the operator what the
+house can take; proposing a filter change.
 
 ## Silence
 
-A run with nothing new that could fall sends nothing. A failed run, or a
+A run with nothing new the house can take sends nothing. A failed run, or a
 source that keeps failing, is always reported.
