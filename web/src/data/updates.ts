@@ -57,6 +57,7 @@ export const UPDATES: readonly UpdateVersion[] = [
     date: "2026-10-08",
     entries: [
       { type: "ADD", text: "A new standard, Reaching someone who did not ask: the doors the law leaves open for a first contact — what an organisation published, a call, a letter, a meeting, an introduction — and that an e-mail waits for a yes. Its register, The doors, by country, keeps Spain and the EU and the United States in separate tables, with the audit of every change." },
+      { type: "ADD", text: "A new debt, DBT-024: what the sales process still lacks before it calls anyone by name — a private place for contacts, the Lista Robinson, a fixed line, a call script, and a strategy that matches what the house sells today." },
       { type: "CHG", text: "The pipeline says where to write: each record whose organisation may be named shows its public mailbox and the page it is read from, and the radar's unreviewed calls do too." },
     ],
   },

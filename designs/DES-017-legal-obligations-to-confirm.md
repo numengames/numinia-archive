@@ -6,9 +6,9 @@ type: design
 former_id: "BLU-017"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.2.4"
+version: "0.2.3"
 created: "2026-09-25T15:00:00+02:00"
-updated: "2026-10-08T15:00:00+02:00"
+updated: "2026-10-03T22:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [design, legal, consumer-law, tax, DSA, GDPR]
@@ -136,7 +136,6 @@ media be marked as such, from August 2026. A lawyer confirms what reaches us.
 | No notice form, statement of reasons or contact point | three templates and a published page |
 | No record of processing, breach procedure or age check | the privacy work the notice already awaits |
 | No legal notice on the sites | one footer, from the company's details |
-| No prospecting kit: record of processing, Lista Robinson registration, private contacts with a suppression list, legitimate-interest assessment, a fixed line for commercial calls | the record's entry and the Robinson registration, then `STD-048` CLD-004 and CLD-005 checked |
 | No working-time record, no notice that an agent is speaking | the gestoría's answer, then one line each in the relevant standard |
 
 ## Cost and risk

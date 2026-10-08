@@ -45,7 +45,7 @@ confirmed. *Before* is what must be done before using the door.
 | Door | Record's `door` | Open? | Before | Source | State |
 |---|---|---|---|---|---|
 | What the organisation published to be reached for this: a tender, a grant, a call for suppliers, partners, sponsors, exhibitors or speakers, a preliminary market consultation | `published` | yes, through the channel it published | read the call; answer what it asks | it asked for it: not unsolicited ([LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 21.1) | pending |
-| A call made by a person to an organisation's published number | `call` | yes, under legitimate interest | **never from a mobile number**: a fixed line, or 800/900; to a named person, read the Lista Robinson first; say who we are, where we found the number, and that they can ask us never to call again; a no ends it | [Law 11/2022 on telecommunications](https://www.boe.es/buscar/act.php?id=BOE-A-2022-10757) art. 66.1.b; [Orden TDF/149/2025](https://www.boe.es/buscar/act.php?id=BOE-A-2025-2870) arts. 9–10; [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) art. 23.4; [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 14.3.b, 21.4 | pending — whether the commercial-call code 400 (from 17 October 2026, [Ley 10/2025](https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698) and [Resolution of 14 April 2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-8409)) binds a small business-to-business seller: to the lawyer; until then, a fixed line |
+| A call made by a person to an organisation's published number | `call` | yes, under legitimate interest | **never from a mobile number**: a fixed line, or 800/900; to a named person, read the Lista Robinson first; say who we are, where we found the number, and that they can ask us never to call again; a no ends it | [Law 11/2022 on telecommunications](https://www.boe.es/buscar/act.php?id=BOE-A-2022-10757) art. 66.1.b; [Orden TDF/149/2025](https://www.boe.es/buscar/act.php?id=BOE-A-2025-2870) arts. 9–10; [Ley 10/2025](https://www.boe.es/buscar/act.php?id=BOE-A-2025-26698) and the [Resolution of 14 April 2026](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-8409), commercial-call code 400 from 17 October 2026; [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) art. 23.4; [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 14.3.b, 21.4 | pending |
 | An automated or recorded call | — | no, without consent | — | Law 11/2022 art. 66.1.a | pending |
 | A letter by post to an organisation | `letter` | yes, under legitimate interest | to a named person, read the Lista Robinson first; the letter carries the notice below | LOPDGDD art. 23.4; GDPR arts. 6.1.f, 14 | pending |
 | Meeting in person — a fair, a congress, a meetup, a visit | `in-person` | yes | ask there for the yes to write — whom, on what, by which channel — keep it, and give the short notice (the one-page sheet carries it) | GDPR arts. 6.1.a, 7, 13; LSSI art. 21.1 ("expressly authorised") | pending |
@@ -59,7 +59,7 @@ confirmed. *Before* is what must be done before using the door.
 **Exclusion list:** the [Lista Robinson](https://www.listarobinson.es/empresas),
 run by Adigital. The house registers as a company and reads it before each
 call, letter or former-client e-mail to a named person who has not given
-consent; the consultations are logged. Not yet registered.
+consent; the consultations are logged.
 
 ### What the first contact says
 
@@ -84,7 +84,6 @@ NUMEN GAMES S.L. (CIF B70735949), Calle Chile 10, 28290 Las Rozas de
 Madrid. Si no desea recibir más mensajes nuestros, responda «BAJA» o
 escriba a legal@numengames.com; lo atenderemos el mismo día y sin coste.»
 
-The retention period is the house's proposal until a lawyer confirms it.
 
 ## United States
 
@@ -96,7 +95,7 @@ federal texts:
 
 | Door | US law | Before | Source | State |
 |---|---|---|---|---|
-| A commercial e-mail to someone who has not asked | allowed without consent, business to business included, if it meets the rules | true sender and subject, says it is an advertisement, a valid postal address, an opt-out honoured within 10 business days; up to 53,088 $ a message | [CAN-SPAM Act](https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business), 15 U.S.C. 7701–7713; 16 CFR 316 | pending — whether LSSI art. 21 reaches a recipient outside the EU |
+| A commercial e-mail to someone who has not asked | allowed without consent, business to business included, if it meets the rules | true sender and subject, says it is an advertisement, a valid postal address, an opt-out honoured within 10 business days; up to 53,088 $ a message | [CAN-SPAM Act](https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business), 15 U.S.C. 7701–7713; 16 CFR 316 | pending |
 | A call made by a person to a business | mostly outside the Telemarketing Sales Rule, National Do Not Call Registry included | keep the house's own do-not-call list; no misrepresentation (16 CFR 310.3(a)(2), (4) still apply); state laws may ask more | [Telemarketing Sales Rule](https://www.ftc.gov/business-guidance/resources/complying-telemarketing-sales-rule), 16 CFR 310.6(b)(7) | pending |
 | A call to a consumer's number | allowed outside the National Do Not Call Registry | read the National Do Not Call Registry and the house's own list; call between 8 am and 9 pm local time; send caller ID | 16 CFR 310.4(b)(1)(iii), 310.4(c), 310.4(a)(8) | pending |
 | An automated or recorded call, or a text, to a mobile number | no, without prior express consent — written consent for marketing | — | Telephone Consumer Protection Act, 47 U.S.C. 227(b); 47 CFR 64.1200(a)(2) | pending |
@@ -112,21 +111,12 @@ or a grant, an accelerator's intake. There the first message answers a
 question they asked, through the channel they gave, and the record's door
 is `published`.
 
-## For the lawyer
-
-Open questions the rows above wait on: the retention periods; whether the
-Lista Robinson must be read for professional contacts held under LOPDGDD
-art. 19; whether LSSI art. 21 reaches recipients outside the EU; whether
-the commercial-call code 400 binds a small business-to-business seller;
-whether a professional network's message or a website form is
-"equivalent electronic means"; tracking pixels in e-mail.
-
 ## Audits
 
 | Date | What changed | Checked against | Result |
 |---|---|---|---|
 | 2026-10-08 | The page is written; the first-contact e-mail of `STD-047` waits for a yes; records carry the organisation's public mailbox (`STD-039` OPP-017) | every rule | the first-contact e-mail had no door: now it is sent only after a yes or to a published call |
-| 2026-10-08 | Review of every sales and legal document and every record: a `door` on each record (OPP-018), the kit's e-mail gated and footed, twelve records moved from e-mail to a call or a meeting, mobile numbers ruled out | every rule of `STD-048` | twelve open records planned a cold e-mail or form: each now goes through a call, a meeting or a published channel; the private contacts, the Robinson registration and the record of processing are still missing: they come before the calls of the week of 13 October |
+| 2026-10-08 | Review of every sales and legal document and every record: a `door` on each record (OPP-018), the kit's e-mail gated and footed, twelve records moved from e-mail to a call or a meeting, mobile numbers ruled out | every rule of `STD-048` | twelve open records planned a cold e-mail or form: each now goes through a call, a meeting or a published channel; what is still missing is debt, in `DBT-022` and `DBT-024` |
 
 ## Why
 

@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 37954,
+  "chars": 38200,
   "apparatus": false,
   "archived": false,
-  "tokens": 10973
+  "tokens": 11046
  },
  {
   "path": "CLAUDE.md",
@@ -643,10 +643,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 25147,
+  "chars": 28455,
   "apparatus": false,
   "archived": false,
-  "tokens": 6724
+  "tokens": 7645
  },
  {
   "path": "debt/DBT-023-sources-and-inspirations-without-a-home.md",
@@ -658,6 +658,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2010
+ },
+ {
+  "path": "debt/DBT-024-the-sales-process-cannot-yet-reach-a-named-person.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 3923,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1087
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -896,10 +907,10 @@
   "series": "designs",
   "type": "design",
   "status": "draft",
-  "chars": 8284,
+  "chars": 8006,
   "apparatus": false,
   "archived": false,
-  "tokens": 2192
+  "tokens": 2134
  },
  {
   "path": "designs/DES-018-our-own-gateway.md",
@@ -918,10 +929,10 @@
   "series": "legal",
   "type": "legal",
   "status": "active",
-  "chars": 18105,
+  "chars": 17646,
   "apparatus": false,
   "archived": false,
-  "tokens": 4326
+  "tokens": 4188
  },
  {
   "path": "legal/LEG-002-terms-and-conditions-numengames.md",
@@ -1897,10 +1908,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "active",
-  "chars": 9922,
+  "chars": 9612,
   "apparatus": false,
   "archived": false,
-  "tokens": 2605
+  "tokens": 2515
  },
  {
   "path": "operations/OPS-008-session-state.md",
@@ -2271,10 +2282,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 5121,
+  "chars": 5093,
   "apparatus": false,
   "archived": false,
-  "tokens": 1439
+  "tokens": 1435
  },
  {
   "path": "opportunities/PRP-2026-001.md",
@@ -3415,10 +3426,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 9394,
+  "chars": 9264,
   "apparatus": false,
   "archived": false,
-  "tokens": 2586
+  "tokens": 2573
  },
  {
   "path": "standards/STD-049-the-doors-by-country.md",
@@ -3426,10 +3437,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 11009,
+  "chars": 10241,
   "apparatus": false,
   "archived": false,
-  "tokens": 3085
+  "tokens": 2933
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

@@ -48,13 +48,6 @@ review_flags: |
   the EEA" — false for Cloudflare, thirdweb, GitHub and Anthropic — with
   the transfers that happen, and §8 states the age of 18. Review
   pending with ATH21; open questions in DBT-022.
-  FLAG-8: v2.2.0 (2026-10-08) was edited by an agent, not a lawyer, to
-  cover prospecting (STD-048, STD-049): §2 the professional contacts the
-  house gathers, §3 purposes 7 (prospecting, legitimate interest, LOPDGDD
-  art. 19) and 8 (proof of consent and the suppression list), §4 their
-  periods, §6 the absolute objection to direct marketing (GDPR art. 21.3)
-  and how to stop commercial messages. The periods are a proposal: review
-  pending with ATH21.
 ---
 
 <!--

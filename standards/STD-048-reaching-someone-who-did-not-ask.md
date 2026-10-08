@@ -128,11 +128,11 @@ Each rule, its code, its source and its check.
 |---|---|---|---|
 | CLD-001 | A door from the register | the Oracle's ruling of 2026-10-08: legal by design | `machine/packages/sales-kit/pipeline.mjs` OPP-018: an open record with an `out` line carries a `door` from the register; by hand that the door is open in the recipient's country (`STD-049`) |
 | CLD-002 | Nothing electronic until they ask | law: [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) arts. 21, 38, 39 and annex f) | `machine/packages/sales-kit/pipeline.mjs` OPP-018: `contact_channel` email or form only through `published`, `asked`, `inbound` or `former-client`; `collateral.mjs` does not render the first-contact e-mail through any other door |
-| CLD-003 | The yes is kept | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 7.1, 7.3; LSSI arts. 21.1, 22.1 | by hand; the private contacts are not yet built |
-| CLD-004 | One place for every person | law: GDPR arts. 5.2, 30; [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) arts. 19, 31 | nothing yet: the private contacts are not built — the first job before the calls of the week of 13 October |
-| CLD-005 | Exclusion lists first | law: LOPDGDD art. 23.4; 16 CFR 310.4(b)(1)(iii)(B) | nothing yet: the house is not registered with the Lista Robinson |
+| CLD-003 | The yes is kept | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 7.1, 7.3; LSSI arts. 21.1, 22.1 | by hand, in the private contacts (`DBT-024`) |
+| CLD-004 | One place for every person | law: GDPR arts. 5.2, 30; [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) arts. 19, 31 | nothing yet (`DBT-024`) |
+| CLD-005 | Exclusion lists first | law: LOPDGDD art. 23.4; 16 CFR 310.4(b)(1)(iii)(B) | nothing yet (`DBT-024`) |
 | CLD-006 | The first contact says who and where from | law: GDPR arts. 14.3.b, 21.4; LOPDGDD art. 11 | by hand; the words are in `STD-049`, the e-mail's footer in the kit's template |
-| CLD-007 | A no is final | law: GDPR art. 21.3; LOPDGDD arts. 23.1, 23.3; LSSI art. 22.1; 16 CFR 310.4(b)(1)(iii)(A) | by hand; the private contacts are not yet built |
+| CLD-007 | A no is final | law: GDPR art. 21.3; LOPDGDD arts. 23.1, 23.3; LSSI art. 22.1; 16 CFR 310.4(b)(1)(iii)(A) | by hand, in the private contacts (`DBT-024`) |
 | CLD-008 | Every message says who and how to stop | law: LSSI arts. 20.1, 21.2, 22.1, 22.2; [CAN-SPAM](https://www.ftc.gov/business-guidance/resources/can-spam-act-compliance-guide-business), 15 U.S.C. 7704(a)(3)–(5) | `machine/packages/sales-kit/templates/first-contact-email.es.txt` carries the line; by hand on every other message |
 | CLD-009 | The strictest law travels | law: GDPR art. 3.1; LSSI art. 2.1, 2.3 | by hand; each row's State column in `STD-049` |
 | CLD-010 | Audited at every change | the Oracle's ruling of 2026-10-08 | by hand: the *Audits* table of `STD-049`, in the same pull request |

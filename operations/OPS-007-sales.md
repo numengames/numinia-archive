@@ -91,12 +91,6 @@ Based on the 100 simulations and the gap analysis. Combined score: adoption rate
 
 ---
 
-> **Being rewritten (2026-10-08).** The ICP, prices, funnel and pilot below
-> are April 2026's, for NWOS. What the house sells today is `OPS-012`
-> (training) and `OPS-013` (live gamification for events), at their prices;
-> the funnel is read from `/system/pipeline`, never typed. The doors below
-> hold now.
-
 ## What the law lets us do — The doors
 
 Every first contact goes through a door the law leaves open, by country:
