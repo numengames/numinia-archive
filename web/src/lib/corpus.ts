@@ -231,6 +231,17 @@ export const SERIES: SeriesPage[] = [
     epistemic: "Whom the company is trying to sell to, and where each sale stands.",
     pragmatic: "See the pipeline as it is, and open the record before talking to a client again.",
   },
+  // Stakeholders — its own series since 2026-10-08, by the Oracle's word:
+  // everyone who takes part is one kind of thing, and the role is a field.
+  // The cards say who an organisation is from what it publishes; what was
+  // agreed with it stays in its opportunity's record (STD-039).
+  { prefix: "stakeholders/", slug: "stakeholders", label: "Stakeholders", collection: "corpus",
+    question: "Who takes part in the system, and how can each one take part?",
+    emptyMeans: "No stakeholder is carded yet. The folder exists and its cards are read at build time, so the first card to land appears here on its own.",
+    blurb: "One card per stakeholder outside the house — an organisation, a public body, an event: who they are, from what they publish, and the role they can play. The house's own people and agents keep their cards in Agents.",
+    epistemic: "Who takes part in the system, and how each one can.",
+    pragmatic: "Know who someone is before reaching them, and file a new one in the same shape.",
+  },
   // Legal — its own series since 2026-09-27. These texts were loose in
   // operations/ while three sources disagreed on where they belonged. They are
   // the company's promises to the public in law, and they change when the law
@@ -684,6 +695,21 @@ const READING_ORDER: Record<string, string[]> = {
   // running number — which is the order they were opened.
   opportunities: [],
 
+  // What a stakeholder is first, then the cards by name: a stakeholder has
+  // no order of importance.
+  stakeholders: [
+    "/stakeholders/readme",
+    "/stakeholders/active-inference-institute",
+    "/stakeholders/adigital",
+    "/stakeholders/arcasiles",
+    "/stakeholders/city-of-mesa",
+    "/stakeholders/codemotion",
+    "/stakeholders/commit-conf",
+    "/stakeholders/nerdearla",
+    "/stakeholders/r3s3t",
+    "/stakeholders/tetuan-valley",
+  ],
+
   // The three promises the company makes to anyone who uses its sites, in the
   // order a visitor meets them: what we do with your data, the terms of use,
   // then what the browser keeps.
@@ -784,6 +810,7 @@ export const READING_NOTE: Record<string, string> = {
   debt: "No order to argue about. These are confessions, filed by number, and the point of the register is that none of them is hidden.",
   opportunities: "Every chance to sell something, in the order it was opened: who (by sector, until they agree), at which stage, and what happens next.",
   operations: "The company looking at itself, inside out: how it survives its own failures, what it still has not resolved, where the work was left — then the strategy, what it offers, and the handling of keys.",
+  stakeholders: "Who is in the system besides the house, by name: what each one is and the part it can play. Nothing here says what was agreed — that is an opportunity's record.",
   legal: "The three texts written for someone outside the company: what we do with your data, the terms of using our sites, and what your browser keeps. Each is the master copy every site publishes.",
   objects: "The card comes first and the audit after it: a card says where a thing's bytes live, and the check says whether they were still there the day someone looked.",
   lore: "The table first, then the shelf: how a game is actually played — the tutorial before the adventure — and last the reference matter a Director reaches for mid-session.",

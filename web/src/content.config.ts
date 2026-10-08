@@ -164,6 +164,8 @@ const corpus = defineCollection({
       // CHECK.md is the dated copy-check report; it renders too, on purpose:
       // the count it carries is the resilience figure a reader may want.
       "objects/**/*.md",
+      // stakeholders/ — one card per stakeholder outside the house (2026-10-08).
+      "stakeholders/**/*.md",
       "history/**/*.md",
       "missions/**/*.md",
       "!missions/MIS-*.md",

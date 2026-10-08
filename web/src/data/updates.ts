@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.155.0",
+    date: "2026-10-08",
+    entries: [
+      { type: "ADD", text: "A new section, Stakeholders: one card for each organisation, public body or event that takes part in the system — who they are, from what they publish, and the role they can play. The first nine are Active Inference Institute, Adigital, Arcasiles, City of Mesa, Codemotion, Commit Conf, Nerdearla, R3S3T and Tetuan Valley." },
+    ],
+  },
+  {
     version: "v0.154.0",
     date: "2026-10-08",
     entries: [
