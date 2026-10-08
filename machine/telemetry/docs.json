@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 37087,
+  "chars": 37348,
   "apparatus": false,
   "archived": false,
-  "tokens": 10697
+  "tokens": 10796
  },
  {
   "path": "CLAUDE.md",
@@ -1490,10 +1490,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 2007,
+  "chars": 2775,
   "apparatus": true,
   "archived": false,
-  "tokens": 604
+  "tokens": 820
  },
  {
   "path": "machine/packages/sales-kit/fixtures/collateral/offer.md",
@@ -1501,10 +1501,10 @@
   "series": null,
   "type": "meta",
   "status": "active",
-  "chars": 537,
+  "chars": 1389,
   "apparatus": true,
   "archived": false,
-  "tokens": 189
+  "tokens": 444
  },
  {
   "path": "machine/packages/sales-kit/fixtures/collateral/register.md",
@@ -1512,10 +1512,10 @@
   "series": null,
   "type": "meta",
   "status": "active",
-  "chars": 867,
+  "chars": 1228,
   "apparatus": true,
   "archived": false,
-  "tokens": 273
+  "tokens": 368
  },
  {
   "path": "machine/packages/sales-kit/fixtures/register.md",
@@ -1941,10 +1941,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 6510,
+  "chars": 9111,
   "apparatus": false,
   "archived": false,
-  "tokens": 1600
+  "tokens": 2328
  },
  {
   "path": "operations/OPS-013-live-gamification-the-offer.md",
@@ -1996,10 +1996,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 16236,
+  "chars": 16342,
   "apparatus": false,
   "archived": false,
-  "tokens": 4160
+  "tokens": 4186
  },
  {
   "path": "operations/OPS-020-the-strategy.md",
@@ -2139,10 +2139,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 7360,
+  "chars": 9313,
   "apparatus": false,
   "archived": false,
-  "tokens": 1898
+  "tokens": 2384
  },
  {
   "path": "opportunities/OPP-2026-026.md",
@@ -2711,10 +2711,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5537,
+  "chars": 5551,
   "apparatus": false,
   "archived": false,
-  "tokens": 1477
+  "tokens": 1484
  },
  {
   "path": "procedures/PRO-029-making-a-proposal.md",
@@ -2733,10 +2733,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5586,
+  "chars": 5532,
   "apparatus": false,
   "archived": false,
-  "tokens": 1488
+  "tokens": 1479
  },
  {
   "path": "procedures/PRO-031-bidding-for-a-tender.md",
@@ -3404,10 +3404,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 5228,
+  "chars": 8871,
   "apparatus": false,
   "archived": false,
-  "tokens": 1396
+  "tokens": 2325
  },
  {
   "path": "system/SYS-001-cao-architecture.md",
