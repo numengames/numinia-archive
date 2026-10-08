@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38200,
+  "chars": 38472,
   "apparatus": false,
   "archived": false,
-  "tokens": 11046
+  "tokens": 11143
  },
  {
   "path": "CLAUDE.md",
@@ -1501,10 +1501,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 2021,
+  "chars": 2789,
   "apparatus": true,
   "archived": false,
-  "tokens": 610
+  "tokens": 826
  },
  {
   "path": "machine/packages/sales-kit/fixtures/collateral/offer.md",
@@ -1512,10 +1512,10 @@
   "series": null,
   "type": "meta",
   "status": "active",
-  "chars": 537,
+  "chars": 1389,
   "apparatus": true,
   "archived": false,
-  "tokens": 189
+  "tokens": 444
  },
  {
   "path": "machine/packages/sales-kit/fixtures/collateral/register.md",
@@ -1523,10 +1523,10 @@
   "series": null,
   "type": "meta",
   "status": "active",
-  "chars": 867,
+  "chars": 1228,
   "apparatus": true,
   "archived": false,
-  "tokens": 273
+  "tokens": 368
  },
  {
   "path": "machine/packages/sales-kit/fixtures/register.md",
@@ -1952,10 +1952,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 6510,
+  "chars": 9111,
   "apparatus": false,
   "archived": false,
-  "tokens": 1600
+  "tokens": 2328
  },
  {
   "path": "operations/OPS-013-live-gamification-the-offer.md",
@@ -2007,10 +2007,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 16236,
+  "chars": 16342,
   "apparatus": false,
   "archived": false,
-  "tokens": 4160
+  "tokens": 4186
  },
  {
   "path": "operations/OPS-020-the-strategy.md",
@@ -2150,10 +2150,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 7560,
+  "chars": 9513,
   "apparatus": false,
   "archived": false,
-  "tokens": 1953
+  "tokens": 2439
  },
  {
   "path": "opportunities/OPP-2026-026.md",
@@ -2722,7 +2722,7 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5623,
+  "chars": 5601,
   "apparatus": false,
   "archived": false,
   "tokens": 1513
@@ -2744,10 +2744,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5586,
+  "chars": 5532,
   "apparatus": false,
   "archived": false,
-  "tokens": 1488
+  "tokens": 1479
  },
  {
   "path": "procedures/PRO-031-bidding-for-a-tender.md",
@@ -3415,10 +3415,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 6089,
+  "chars": 10118,
   "apparatus": false,
   "archived": false,
-  "tokens": 1635
+  "tokens": 2666
  },
  {
   "path": "standards/STD-048-reaching-someone-who-did-not-ask.md",

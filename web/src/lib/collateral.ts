@@ -128,6 +128,12 @@ export function wandFor(id: string): Wand | null {
       organisation: "[nombre del organismo]",
       signature: "[tu nombre y firma] · Numen Games S.L.",
       greeting: "Buenos días:",
+      // Whoever signs the sheet types their own name, role, phone and e-mail
+      // at render time: a public page shows the marks, never the numbers.
+      contactName: "[tu nombre]",
+      contactRole: "[tu cargo] · Numen Games",
+      contactPhone: "[tu teléfono]",
+      contactMail: "[tu correo]",
       today,
     });
     if (r.names.length) throw new Error(`${record.id} ${p.template}: ${r.names.join(", ")} read as a person's name the card does not list (OPP-006)`);

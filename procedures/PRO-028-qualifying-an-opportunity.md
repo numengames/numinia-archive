@@ -6,7 +6,7 @@ type: procedure
 status: draft
 version: "0.7.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-08T15:00:00+02:00"
+updated: "2026-10-08T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -77,18 +77,18 @@ and decides. A public tender is screened by `PRO-033`, a grant by
    e-mail or phone.
 2. **Ask the fit question.** Is what they need learnt by walking it, or made
    of people participating? A course, a video or a report: decline,
-   `lost` with `not-a-fit`, and point them somewhere honest.
+   `lost`, `not-a-fit`.
 3. **Go through a door, then ask who signs.** The first contact uses a
    door `STD-049` leaves open, named in `door` — never a cold e-mail or
    form. Ask who approves the spend, from which budget line and when, and
-   for the yes to send the deck; a no is final. Each contact an `out`
+   for the yes to send the sheet; a no is final. Each contact an `out`
    line, each answer `pos` or `neg`. Nobody who signs reached after four
    attempts in three weeks, by two doors: `lost`, `no-decider`.
 4. **Decide to pursue.** Whoever sells weighs the fit, what is known of who
    signs, and the house's capacity to deliver in the time asked, and
-   decides. Pursue: a line marked `qualified`, the record's Pitch written,
-   and the `next` line asks for the needs analysis (`PRO-029`) with the
-   stage's collateral (`STD-047`). Decline: a `lost` line, `we-declined`,
+   decides. Pursue: a line marked `qualified`, the Pitch written, and the
+   first contact sent as `STD-047` says it asks — one week, yes or no;
+   the `next` line is the day after the week ends. Decline: a `lost` line, `we-declined`,
    with the reason in a sentence.
 5. **After an event.** The yes goes to the private contacts that day.
 6. **A collaboration or a partner.** Write what each side gives. Their

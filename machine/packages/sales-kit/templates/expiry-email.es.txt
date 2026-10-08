@@ -1,33 +1,26 @@
 <!--
 SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
-First-contact e-mail (STD-047), Spanish rendering: it carries the A4 sheet.
-One reader, short sentences, the price in the open, one question, a P. D.
+Expiry e-mail (STD-047), Spanish rendering: sent once, the day after the
+sheet's week ends with no answer. It asks for the no; it never lowers the
+price, never chases and never says the house needs the sale.
 Sent only through a door that lets an e-mail through (STD-048 CLD-002);
 it says who sends it and how to stop (CLD-008).
 collateral.mjs removes this block when it renders the piece.
 -->
-Asunto: {{subject}}
+Asunto: Re: {{subject}}
 
 {{greeting}}
 
-{{opening}}
+La propuesta que os envié el {{sent_long}} caducó ayer, {{valid_long}}.
 
-{{hook}} {{promise}}
+Entiendo que ahora no es para vosotros, y está bien. ¿Me lo confirmáis con un no? Así la cierro y no os vuelvo a escribir sobre esto.
 
-Os adjunto una hoja con todo: qué vive el alumno, qué recibís, cómo trabajamos y el precio, {{price}} sin IVA ({{price_tax}} con IVA), que entra en un contrato menor. La demo se abre con un enlace desde el móvil, el ordenador o unas gafas VR: {{demo_label}}.
-
-{{ask}}
-
-La propuesta vale hasta el {{valid_long}}. Me basta una palabra: sí o no.
+Si me equivoco y sí os interesa, respondedme con un sí y buscamos una hora esta semana.
 
 Un saludo,
 
 {{signature}}
-
-P. D.: Si no encaja, decídmelo sin más y lo cerramos. Un no claro nos sirve tanto como un sí.
-
-Adjunto: {{attachment}}
 
 --
 Comunicación comercial de NUMEN GAMES S.L. (CIF B70735949), Calle Chile 10, 28290 Las Rozas de Madrid (España). Si no desea recibir más mensajes nuestros, responda «BAJA» o escriba a legal@numengames.com: lo atenderemos el mismo día y sin coste.

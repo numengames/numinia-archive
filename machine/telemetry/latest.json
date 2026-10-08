@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "1233dae",
-  "corpus_hash": "1e5498ddcddb2fb5a4e74cb335118b92719f9117b0ef7e6b7ac2bfe06f57dead",
+  "head": "b238d2d",
+  "corpus_hash": "112cbbbaa8375672758d6b73288df8601f39f168d2e03e7f04d9e09ac3309846",
   "root_dirty": 0,
-  "measured_at": "2026-10-08T09:01:03Z",
+  "measured_at": "2026-10-08T09:16:10Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 829,
+      "value": 833,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -29,18 +29,18 @@
         ".docx": 1,
         ".editorconfig": 1,
         ".gitignore": 2,
-        ".html": 2,
-        ".jpg": 2,
+        ".html": 3,
+        ".jpg": 3,
         ".js": 2,
         ".json": 16,
         ".md": 346,
         ".mjs": 129,
         ".png": 36,
-        ".svg": 76,
+        ".svg": 77,
         ".toml": 3,
         ".ts": 62,
         ".tsx": 2,
-        ".txt": 14,
+        ".txt": 15,
         ".webp": 1,
         ".woff2": 7,
         ".yaml": 36,
@@ -53,19 +53,19 @@
       "value": {
         "Text": {
           "files": 346,
-          "bytes": 3804591
+          "bytes": 3815579
         },
         "Code": {
-          "files": 273,
-          "bytes": 2442453
+          "files": 274,
+          "bytes": 2454096
         },
         "Image": {
-          "files": 115,
-          "bytes": 3409823
+          "files": 117,
+          "bytes": 3475037
         },
         "Data": {
-          "files": 69,
-          "bytes": 280056
+          "files": 70,
+          "bytes": 281616
         },
         "Font": {
           "files": 7,
@@ -367,24 +367,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 964743,
+      "value": 967668,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 112345,
+        "standards": 113376,
         "system": 52614,
-        "procedures": 37779,
+        "procedures": 37770,
         "reports": 36728,
         "agents": 36273,
-        "operations": 32555,
-        "machine": 29502,
+        "operations": 33309,
+        "machine": 30068,
         "designs": 28300,
-        "opportunities": 27276,
+        "opportunities": 27762,
         "principles": 24099,
-        "": 19116,
+        "": 19213,
         "missions": 18546,
         "debt": 13754,
         "legal": 13729,
@@ -397,9 +397,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 492762,
-        "draft": 229700,
-        "active": 222197,
+        "(none)": 492859,
+        "draft": 231476,
+        "active": 223249,
         "todo": 14406,
         "in-progress": 4526,
         "done": 1152
@@ -788,13 +788,13 @@
     "contradictions.id_form_per_series": {
       "value": {
         "PRO": {
-          "3": 482
+          "3": 486
         },
         "STD": {
-          "3": 1251
+          "3": 1255
         },
         "OPS": {
-          "3": 206
+          "3": 207
         },
         "PRI": {
           "3": 409
@@ -807,7 +807,7 @@
         },
         "OPP": {
           "3": 43,
-          "4": 95
+          "4": 96
         },
         "LEG": {
           "3": 79
@@ -904,7 +904,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 299,
+      "value": 305,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },

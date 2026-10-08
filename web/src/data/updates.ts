@@ -53,12 +53,22 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
-    version: "v0.153.0",
+    version: "v0.154.0",
     date: "2026-10-08",
     entries: [
       { type: "ADD", text: "A new standard, Reaching someone who did not ask: the doors the law leaves open for a first contact — what an organisation published, a call, a letter, a meeting, an introduction — and that an e-mail waits for a yes. Its register, The doors, by country, keeps Spain and the EU and the United States in separate tables, with the audit of every change." },
       { type: "ADD", text: "A new debt, DBT-024: what the sales process still lacks before it calls anyone by name — a private place for contacts, the Lista Robinson, a fixed line, a call script, and a strategy that matches what the house sells today." },
       { type: "CHG", text: "The pipeline says where to write: each record whose organisation may be named shows its public mailbox and the page it is read from, and the radar's unreviewed calls do too." },
+    ],
+  },
+  {
+    version: "v0.153.0",
+    date: "2026-10-08",
+    entries: [
+      { type: "ADD", text: "A sale's wand hands over the first-contact sheet in two formats, an A4 page for the e-mail and a one-column page for a phone, each ready to print to PDF under the client's file name. The sheet shows the price with and without tax, is valid one week and asks one thing: yes or no." },
+      { type: "ADD", text: "A new piece, the expiry e-mail: sent once when the week ends with no answer, it asks the buyer to confirm the no." },
+      { type: "DEL", text: "The four-page first-contact deck is retired; the one-page sheet replaces it." },
+      { type: "ADD", text: "The sales playbook shows, at the stage that sends the first contact, how it asks: the price in the open, one week, yes or no, the no welcome, no sign of need." },
     ],
   },
   {

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- SPDX-FileCopyrightText: 2026 Numen Games S.L. -->
+<!-- SPDX-License-Identifier: CC0-1.0 -->
+<!-- First-contact sheet, A4: the page attached to the first-contact e-mail (STD-047), Spanish rendering. Rendered by
+     machine/packages/sales-kit/collateral.mjs: every double-braced field comes
+     from the record's Pitch, the offer's Packages and its First-contact sheet
+     table, or the command line (the contact, the day it is sent); an unfilled
+     one is reported as missing. The steps and the P. D. are the house's way of
+     asking (STD-047, How a first contact asks): one week, yes or no.
+     Print it to PDF in A4: the title is the client's file name. -->
+<html lang="es"><head><meta charset="UTF-8">
+<title>{{client_file}}</title><style>
+@font-face { font-family:'Geist'; src:url('{{fonts}}/Geist-Variable.woff2') format('woff2'); font-weight:100 900; }
+@font-face { font-family:'Geist Mono'; src:url('{{fonts}}/GeistMono-Variable.woff2') format('woff2'); font-weight:100 900; }
+:root{
+  --papel:#F9EBDC; --superficie:#FDF6EE; --linea:#E2D3C2;
+  --tinta:#14110F; --tinta-2:#4A423B; --tinta-3:#6E6259;
+  --ambar-t:#7A5100; --verdemar-t:#1F6B5F; --tinte-aviso:#F8D8CC;
+  --sans:'Geist',system-ui,Arial,sans-serif; --mono:'Geist Mono',Consolas,monospace;
+  --s100:4px; --s200:8px; --s300:12px; --s400:16px; --s500:24px; --s600:32px;
+  --frame:8px;
+}
+*{ box-sizing:border-box; font-synthesis:none }
+@page{ size:A4; margin:0 }
+html,body{ margin:0; padding:0 }
+body{ background:var(--papel); color:var(--tinta); font-family:var(--sans); font-size:8.4pt; line-height:1.5;
+  font-variant-numeric:tabular-nums; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.pagina{ background:var(--papel); width:210mm; height:297mm; margin:0 auto; padding:13mm 20mm 9mm; display:flex; flex-direction:column; overflow:hidden; }
+.pagina > *{ flex-shrink:0 }
+.et{ font-family:var(--mono); font-size:6.8pt; letter-spacing:.15em; text-transform:uppercase; color:var(--verdemar-t); display:block; font-weight:500; }
+.mono{ font-family:var(--mono); }
+b{ font-weight:600; color:var(--tinta); }
+
+header{ display:flex; justify-content:space-between; align-items:flex-end; gap:var(--s600); padding-bottom:var(--s300); border-bottom:1px solid var(--tinta); }
+.marca svg{ height:18px; width:auto; display:block; }
+.marca .claim{ display:block; margin-top:var(--s200); font-size:8pt; color:var(--tinta-3); }
+dl.id{ margin:0; display:flex; gap:var(--s500); }
+dl.id dt{ font-family:var(--mono); font-size:6.3pt; letter-spacing:.15em; text-transform:uppercase; color:var(--tinta-3); margin-bottom:2px; }
+dl.id dd{ margin:0; font-family:var(--mono); font-size:7.6pt; color:var(--tinta); white-space:nowrap; }
+
+.apertura{ display:grid; grid-template-columns:1fr 58mm; gap:8mm; margin-top:var(--s500); align-items:stretch; }
+h1{ font-size:27pt; font-weight:400; letter-spacing:-.025em; line-height:1.02; margin:var(--s200) 0 var(--s300); }
+.lead{ font-size:9.6pt; color:var(--tinta-2); margin:0; line-height:1.45; }
+
+.precio{ background:var(--superficie); border:1px solid var(--linea); border-radius:var(--frame); padding:var(--s400); display:flex; flex-direction:column; }
+.precio .cifra{ font-family:var(--mono); font-size:26pt; font-weight:500; letter-spacing:-.02em; line-height:1; color:var(--ambar-t); margin:var(--s200) 0 var(--s100); }
+.precio .iva{ font-family:var(--mono); font-size:7pt; color:var(--tinta-3); }
+.precio p{ margin:var(--s200) 0 0; font-size:7.9pt; color:var(--tinta-2); }
+.precio .demo{ display:grid; grid-template-columns:15mm 1fr; gap:var(--s300); align-items:center; margin-top:auto; padding-top:var(--s300); border-top:1px solid var(--linea); }
+.precio .demo .qr{ width:15mm; height:15mm; display:block; }
+.precio .demo p{ margin:0; font-size:7.6pt; line-height:1.35; }
+.precio .demo .u{ display:block; font-family:var(--mono); color:var(--ambar-t); font-size:7.2pt; margin-top:2px; }
+
+.cols{ display:grid; grid-template-columns:1fr 1fr; gap:8mm; margin-top:var(--s400); margin-bottom:var(--s300); }
+.b + .b{ margin-top:var(--s400); }
+.b > .et{ padding-bottom:var(--s100); border-bottom:1px solid var(--linea); margin-bottom:var(--s200); }
+.b h2{ font-size:10pt; font-weight:600; letter-spacing:-.01em; line-height:1.2; margin:0 0 var(--s100); }
+.b p{ margin:0; color:var(--tinta-2); }
+.foto{ margin:0 0 var(--s200); height:20mm; border-radius:var(--frame); overflow:hidden; border:1px solid var(--linea); }
+.foto img{ width:100%; height:100%; object-fit:cover; object-position:50% 62%; display:block; }
+.dato{ background:var(--superficie); border:1px solid var(--linea); border-radius:var(--frame); padding:var(--s200) var(--s300); }
+.dato p{ font-size:7.9pt; margin-top:2px; }
+.cite{ display:block; font-family:var(--mono); font-size:6.3pt; color:var(--tinta-3); margin-top:var(--s100); }
+.lim{ color:var(--tinta-3); font-size:7.4pt; }
+.dato .extra{ border-top:1px solid var(--linea); padding-top:var(--s200); }
+.extra{ margin-top:var(--s200) !important; font-size:7.9pt; }
+
+ol.l{ margin:0; padding:0; list-style:none; color:var(--tinta-2); counter-reset:n; }
+ol.l li{ display:grid; grid-template-columns:var(--s500) 1fr; padding:4px 0; border-bottom:1px solid var(--linea); counter-increment:n; }
+ol.l li:last-child{ border-bottom:0; }
+ol.l li::before{ content:counter(n, decimal-leading-zero); font-family:var(--mono); font-size:6.8pt; color:var(--ambar-t); padding-top:1px; }
+table.plan{ width:100%; border-collapse:collapse; color:var(--tinta-2); }
+table.plan td{ padding:4px 0; border-bottom:1px solid var(--linea); vertical-align:baseline; }
+table.plan tr:last-child td{ border-bottom:0; }
+table.plan td.s{ font-family:var(--mono); font-size:6.8pt; color:var(--ambar-t); width:15mm; white-space:nowrap; }
+table.plan td.p{ font-family:var(--mono); font-size:6.8pt; color:var(--tinta-3); text-align:right; white-space:nowrap; padding-left:var(--s200); }
+.nota{ font-size:7.8pt; margin-top:var(--s100) !important; }
+.mant{ display:grid; grid-template-columns:auto 1fr; gap:var(--s300); align-items:baseline; margin-top:var(--s200); padding:var(--s200) var(--s300); background:var(--superficie); border:1px solid var(--linea); border-radius:var(--frame); }
+.mant .n{ font-family:var(--mono); font-size:11pt; font-weight:500; color:var(--ambar-t); white-space:nowrap; }
+.mant p{ font-size:7.8pt; }
+.why{ margin:0; padding:0; list-style:none; color:var(--tinta-2); } .why li{ padding:2px 0 2px var(--s300); position:relative; } .why li::before{ content:"·"; position:absolute; left:2px; color:var(--ambar-t); font-weight:700; }
+.hecho{ margin-top:var(--s200) !important; font-size:7.8pt; } .hecho .d{ color:var(--tinta-3); }
+ul.casos{ margin:var(--s200) 0 0; padding:0; list-style:none; display:grid; grid-template-columns:1fr 1fr; gap:var(--s100) var(--s300); }
+ul.casos li{ font-size:7.6pt; color:var(--tinta-2); line-height:1.3; border-left:2px solid var(--linea); padding-left:var(--s200); }
+
+.mas{ margin-top:auto; display:grid; grid-template-columns:34mm 1fr; gap:5mm; align-items:center; background:var(--superficie); border:1px solid var(--linea); border-radius:var(--frame); padding:var(--s300) var(--s400); }
+.mas .t{ margin:var(--s100) 0 0; font-size:9pt; font-weight:600; letter-spacing:-.01em; line-height:1.2; }
+.mas ul{ margin:0; padding:0; list-style:none; display:grid; grid-template-columns:repeat(4,1fr); gap:var(--s200) var(--s500); }
+.mas li{ font-size:7.8pt; color:var(--tinta-2); line-height:1.35; padding-left:var(--s300); position:relative; }
+.mas li::before{ content:"+"; position:absolute; left:0; font-family:var(--mono); color:var(--ambar-t); }
+.cierre-cta{ margin-top:auto; border-top:1px solid var(--tinta); padding-top:var(--s300); display:grid; grid-template-columns:1fr 1fr 1fr 50mm; gap:5mm; }
+.paso .n{ font-family:var(--mono); font-size:6.8pt; color:var(--ambar-t); }
+.paso p{ margin:2px 0 0; font-size:7.8pt; color:var(--tinta-2); line-height:1.35; }
+.quien{ border-left:1px solid var(--linea); padding-left:var(--s300); font-size:7.8pt; line-height:1.45; }
+.quien .nom{ font-weight:600; font-size:8.6pt; display:block; }
+.quien .r{ color:var(--tinta-3); display:block; margin-bottom:2px; }
+.quien .mono{ font-size:7.4pt; }
+.ph{ color:var(--ambar-t); background:var(--tinte-aviso); padding:0 2px; border-radius:2px; }
+footer{ display:grid; grid-template-columns:auto 1fr; gap:var(--s300); align-items:center; margin-top:var(--s300); padding-top:var(--s200); border-top:1px solid var(--linea); }
+footer .khepri{ width:18px; height:18px; display:block; }
+footer .doc{ font-family:var(--mono); font-size:6.2pt; color:var(--tinta-3); line-height:1.55; }
+footer .conf{ font-family:var(--mono); font-size:6.3pt; color:var(--tinta-3); text-align:right; line-height:1.55; }
+.pd{ margin:var(--s200) 0 0; font-size:8.2pt; color:var(--tinta-2); padding:var(--s200) var(--s300); background:var(--superficie); border:1px solid var(--linea); border-radius:var(--frame); }
+@media screen{ body{ background:#E2D3C2; } }
+</style></head>
+<body><div class="pagina">
+<header>
+  <div class="marca"><svg viewBox="0 0 382.79 28.09" fill="currentColor" role="img" aria-label="Numen Games"><path d="M136.21,18.87v-5.4h7.76c0-4.95-2.74-7.99-8.64-8.06h0s-2.27,0-2.27,0c-6.05,0-8.85,3.06-8.85,8.07,0,5.01,2.8,8.07,8.85,8.07h11.04v5.4h-11.04c-9.43,0-13.66-5.4-13.66-13.47,0-8.07,4.23-13.47,13.66-13.47h2.27c9.28.09,13.46,5.46,13.46,13.47v5.4h-12.57Z"/><path d="M5.89,26.94v-12.04c0-6.6,3.34-9.65,8.8-9.65s8.8,3.05,8.8,9.65v12.04h5.89v-12.04C29.38,4.61,23.49,0,14.69,0S0,4.61,0,14.9v12.04h5.89Z"/><path d="M157.25,26.94v-12.04c0-6.6,3.34-9.65,8.8-9.65s8.8,3.05,8.8,9.65v12.04h5.89v-12.04c0-10.29-5.89-14.9-14.69-14.9s-14.69,4.61-14.69,14.9v12.04h5.89Z"/><path d="M102.14,0c-5.07,0-9.16,1.54-11.73,4.81-2.57-3.27-6.66-4.81-11.73-4.81-8.8,0-14.69,4.61-14.69,14.9v12.04h5.89v-12.04c0-6.6,3.34-9.65,8.8-9.65s8.67,2.95,8.79,9.3c0,.12-.01.23-.01.35v12.04h5.91v-12.04c0-.12-.01-.24-.01-.36.12-6.35,3.43-9.29,8.79-9.29s8.8,3.05,8.8,9.65v12.04h5.89v-12.04c0-10.29-5.89-14.9-14.69-14.9Z"/><path d="M55.52,1.15v12.04c0,6.6-3.34,9.65-8.8,9.65s-8.8-3.05-8.8-9.65V1.15h-5.89v12.04c0,10.29,5.89,14.9,14.69,14.9s14.69-4.61,14.69-14.9V1.15h-5.89Z"/><path d="M339.28,20.02v-5.4h7.76c0-4.95-2.74-7.99-8.64-8.06h0s-2.27,0-2.27,0c-6.05,0-8.85,3.06-8.85,8.07,0,5.01,2.8,8.07,8.85,8.07h11.04v5.4h-11.04c-9.43,0-13.66-5.4-13.66-13.47,0-8.07,4.23-13.47,13.66-13.47h2.27c9.28.09,13.46,5.46,13.46,13.47v5.4h-12.57Z"/><path d="M305.2,1.15c-5.07,0-9.16,1.54-11.73,4.81-2.57-3.27-6.66-4.81-11.73-4.81-8.8,0-14.69,4.61-14.69,14.9v12.04h5.89v-12.04c0-6.6,3.34-9.65,8.8-9.65s8.67,2.95,8.79,9.3c0,.12-.01.23-.01.35v12.04h5.91v-12.04c0-.12-.01-.24-.01-.36.12-6.35,3.43-9.29,8.79-9.29s8.8,3.05,8.8,9.65v12.04h5.89v-12.04c0-10.29-5.89-14.9-14.69-14.9Z"/><path d="M219.88,9.22v5.4h7.76c0,4.95-2.74,7.99-8.64,8.06h0s-2.27,0-2.27,0c-6.05,0-8.85-3.06-8.85-8.07s2.8-8.07,8.85-8.07h11.04V1.15h-11.04c-9.43,0-13.66,5.4-13.66,13.47s4.23,13.47,13.66,13.47h2.27c9.28-.09,13.46-5.46,13.46-13.47v-5.4h-12.57Z"/><path d="M370.34,7.04h12.45V1.15h-12.45c-10.29,0-14.9,5.89-14.9,14.69v2.05h21.18c-.11.23-.25.44-.39.65-1.48,2.74-4.25,4.3-8.51,4.3h-12.2s-.08.01-.08.01v5.24h12.45c10.29,0,14.9-5.89,14.9-14.69v-1.41h-21.45c1.21-3.14,4.14-4.96,9-4.96Z"/><path d="M262.94,20.32V1.15h-12.71c-9.43,0-13.66,5.4-13.66,13.47s4.23,13.47,13.66,13.47h12.7v-5.4h-6.06s-6.65,0-6.65,0c-6.05,0-8.85-3.06-8.85-8.07s2.8-8.07,8.85-8.07h6.66v13.77h6.06Z"/></svg><span class="claim">{{claim}}</span></div>
+  <dl class="id"><div><dt>Servicio</dt><dd>{{service}}</dd></div><div><dt>Fecha</dt><dd>{{sent_dot}}</dd></div><div><dt>Válida hasta</dt><dd>{{valid_dot}}</dd></div></dl>
+</header>
+
+<div class="apertura">
+  <div>
+    <span class="et">{{audience}}</span>
+    <h1>{{headline}}</h1>
+    <p class="lead">{{lead}}</p>
+  </div>
+  <div class="precio">
+    <span class="et">{{package}}</span>
+    <div class="cifra">{{price}}</div><span class="iva">sin IVA · {{price_tax}} con IVA</span>
+    <p>{{package_line}}</p>
+    <div class="demo"><img class="qr" src="{{qr}}" alt="QR de la demo"><p><span class="u" style="margin:0 0 2px">{{demo_label}}</span><b>Móvil:</b> escanead.<br><b>Ordenador o cualquier gafa VR:</b> abrid el enlace.</p></div>
+  </div>
+</div>
+
+<div class="cols">
+  <div>
+    <div class="b">
+      <span class="et">Qué vive el alumno · la demo</span>
+      <figure class="foto"><img src="{{picture}}" alt="La demo"></figure>
+      <p>{{demo}}</p>
+    </div>
+    <div class="b">
+      <span class="et">Lo que dicen los datos</span>
+      <div class="dato"><p>{{evidence}} <span class="lim">{{evidence_limits}}</span></p><span class="cite">{{evidence_source}}</span></div>
+    </div>
+    <div class="b">
+      <span class="et">Tres preguntas para vosotros</span>
+      <ol class="l">{{question_items}}</ol>
+    </div>
+  </div>
+  <div>
+    <div class="b">
+      <span class="et">Qué recibís</span>
+      <ol class="l">{{deliverable_items}}</ol>
+    </div>
+    <div class="b">
+      <span class="et">{{method_title}}</span>
+      <table class="plan">{{method_rows}}</table>
+      <p class="nota">{{method_note}}</p>
+      <div class="mant"><span class="n">{{upkeep_price}}</span><p><b>Mantenimiento</b> {{upkeep_line}}</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="cierre-cta">
+  <div class="paso"><span class="n">01</span><p><b>Probad la demo</b> diez minutos, con el QR o el enlace.</p></div>
+  <div class="paso"><span class="n">02</span><p><b>Respondednos antes del {{valid_dot}}</b> con una palabra: sí o no.</p></div>
+  <div class="paso"><span class="n">03</span><p><b>Si es sí,</b> una hora para cerrar el alcance. Si es no, lo cerramos aquí.</p></div>
+  <div class="quien"><span class="et" style="margin-bottom:4px">Hablemos</span><span class="nom">{{contact_name}}</span><span class="r">{{contact_role}}</span><span class="mono">{{contact_phone}}<br>{{contact_mail}}</span></div>
+</div>
+<p class="pd"><b>P. D.</b> Un no también nos sirve. Preferimos un no claro el {{valid_long}} a un «ya veremos» dentro de tres meses.</p>
+<footer><svg class="khepri" viewBox="0 0 75.44 75.53" fill="currentColor" role="img" aria-label="Khepri"><path d="M75.44,48.41v-6.01c0-7.43-2.44-12.51-6.61-15.5,3.83-2.74,6.21-7.23,6.58-13.69h0V0h-15.86v7.92h8.44v5.29h-.01c-.58,7.07-4.65,10.37-11.02,10.37h0s-.79,0-.79,0c-.91-11.22-8.07-16.29-18.43-16.29s-17.51,5.07-18.43,16.29h-.8c-6.37,0-10.44-3.3-11.02-10.37h-.01v-5.29h8.44V0H.03v13.22h0c.37,6.46,2.75,10.96,6.58,13.69-4.17,2.99-6.61,8.06-6.61,15.5v6.01h7.43v-6.01c0-8.32,4.21-12.17,11.1-12.17h0s.66,0,.66,0v13.83c0,2.48.28,4.7.79,6.67h-1.51C7.91,50.73.68,56.02,0,67.71h0v7.81h23.14v-7.8H7.45c.58-7.07,4.65-10.37,11.02-10.37h4.91c3.26,3.74,8.24,5.51,14.34,5.51s11.09-1.77,14.34-5.51h4.91c6.37,0,10.44,3.3,11.02,10.37h-15.7v7.8h23.14v-7.81h0c-.68-11.7-7.9-16.98-18.46-16.98h-1.51c.52-1.97.79-4.19.79-6.67v-13.83h.66c6.89,0,11.1,3.85,11.1,12.17v6.01h7.43ZM37.72,13.91c6.21,0,10.22,3.13,10.97,9.83-4.62.66-8.39,2.55-10.94,5.81-2.56-3.28-6.35-5.16-10.99-5.82.74-6.69,4.76-9.82,10.97-9.82ZM26.62,44.07v-13.54c4.67,1.22,7.41,5.02,7.41,11.73v13.55c-4.67-1.22-7.41-5.02-7.41-11.73ZM48.82,44.07c0,6.68-2.72,10.48-7.35,11.72v-13.53c0-6.68,2.72-10.48,7.35-11.71v10.73h0v2.79Z"/><path d="M46.18,7.36c-.57-4.16-4.14-7.36-8.46-7.36s-7.89,3.2-8.46,7.36c2.55-.77,5.39-1.15,8.46-1.15s5.91.38,8.46,1.15Z"/></svg><div class="doc">{{company}} · Importes sin IVA (21 % aparte).</div></footer>
+</div></body></html>
