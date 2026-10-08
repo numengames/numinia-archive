@@ -83,3 +83,21 @@ test('the playbook page walks every sale stage and lists every piece of the regi
   for (const p of kit.catalogue()) assert.ok(html.includes(p.piece), `piece "${p.piece}" is on the playbook`);
   assert.ok(existsSync(path.join(DIST, 'playbook.md')), 'the playbook has its markdown twin');
 });
+
+test('the playbook carries how a first contact asks, read from STD-047, at the stage that sends it', { skip: notBuilt }, () => {
+  const std = readFileSync(path.join(ROOT, 'standards', 'STD-047-the-sales-collateral.md'), 'utf8');
+  const sec = std.slice(std.indexOf('\n## How a first contact asks'), std.indexOf('\n## ', std.indexOf('\n## How a first contact asks') + 5));
+  const rules = [...sec.matchAll(/^\d+\. \*\*(.+?)\*\*/gm)].map((m) => m[1]);
+  assert.ok(rules.length >= 5, 'STD-047 lists the rules');
+  const html = decode(page('playbook/index.html'));
+  const md = page('playbook.md');
+  const at = html.indexOf('data-first-contact');
+  assert.ok(at > 0, 'the playbook has the first-contact block');
+  assert.ok(at > html.indexOf('data-stage="qualified"'), 'inside the stage that sends it');
+  for (const r of rules) {
+    assert.ok(html.includes(r), `the playbook page says "${r}"`);
+    assert.ok(md.includes(r), `and its markdown twin`);
+  }
+  assert.doesNotMatch(readFileSync(PLAYBOOK, 'utf8'), /One week|yes or no/i, 'the page types none of the rules');
+});
+
