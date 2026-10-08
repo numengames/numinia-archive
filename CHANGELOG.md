@@ -18,6 +18,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-08
+- **Added** `DBT-024` The sales process cannot yet reach a named person (private contacts, Lista Robinson, a fixed line, call script, `OPS-007` rewrite); `DBT-022` 0.4.0 §1.8 takes the questions for counsel on prospecting; OPP-2026-037 declined.
+- **Changed** Sales and legal review: a `door` on every record (`STD-039` 0.14.0, OPP-018) and in `STD-038`; the kit refuses a cold e-mail and adds the legal footer; twelve records move to calls or meetings; `STD-048`/`STD-049` 0.2.0; `LEG-001` 2.2.0 covers prospecting; `PRO-028` 0.7.0.
+- **Added** `STD-048` Reaching someone who did not ask (an e-mail only after a yes, Lista Robinson first, a no is final, the strictest law travels, audit at every change) and its register `STD-049` The doors, by country (Spain/EU, United States); `STD-047` 0.2.0 gates the first-contact e-mail; `OPS-007` 1.1.0.
+- **Changed** `STD-039` 0.13.0, OPP-017: an open record whose organisation may be named carries its public mailbox (`contact_email`) and page (`web`), never a person's; the six open calls carry theirs; /system/pipeline and the radar's feed show them.
 - **Changed** `STD-047` 0.2.0: the first contact asks yes or no in a week, price shown; a one-page sheet (A4 + mobile) and an expiry e-mail replace the deck; `PRO-028`, `PRO-030`, `OPS-012` (8,000 € pilot), `OPP-2026-025` follow; /playbook shows the rules (site v0.153.0)
 
 ### 2026-10-07

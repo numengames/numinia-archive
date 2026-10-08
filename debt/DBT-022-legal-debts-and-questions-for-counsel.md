@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.3.6"
+version: "0.4.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-05T10:38:00+02:00"
+updated: "2026-10-08T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -19,7 +19,7 @@ detected: "2026-09-29T15:20:00+02:00"
 visibility: "restricted-oracle"
 visibility_reason: "working list for the Oracle and the company's lawyers (ATH21); it names gaps a reader could mistake for commitments"
 opened_by: "ursa"
-related: ["DES-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021"]
+related: ["DES-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021", "STD-048", "STD-049"]
 ---
 
 <!--
@@ -115,7 +115,7 @@ numen.games and say so. See also DES-017.
 | 31 | Digital Services Act: numinia.com will host community content. A contact point, a notice-and-action form and statements of reasons are required (DES-017). | counsel |
 | 32 | AI Act art. 50: nwos.numen.games generates documents with an AI model for the visitor's company. Say so where the visitor sees the result. | counsel |
 | 33 | numinia.com's cookie notice in Japanese and Korean shows the English text, and the Brazilian Portuguese text has not been read by a native speaker. Machine translation is not a legal text: have both reviewed by people. Listed as pending on numinia.com/updates. | company |
-| 34 | The privacy policy (LEG-001 §1) still gives the postal address without the postal code. Align it with LEG-004 0.2.0 in its next revision. | ours |
+| ~~34~~ | ~~The privacy policy (LEG-001 §1) still gives the postal address without the postal code. Align it with LEG-004 0.2.0 in its next revision.~~ — closed by LEG-001 2.2.0 | ours |
 
 ### 1.7 Open books: publishing what we pay to people
 
@@ -134,6 +134,25 @@ initials.
 | 37 | Legal basis for publishing what a natural person invoiced: consent (art. 6.1.a) or legitimate interest (art. 6.1.f); whether role-only is enough while consent is missing; what happens to published history when consent is withdrawn. | counsel |
 | 38 | Payroll and social security are not in the input VAT book and are missing from the ledger. In a team this small an aggregate reveals individual salaries: decide the level at which staff costs are published. Interim, from 2026-10-01: one people block a quarter (payroll, freelancers, director), employer cost only, on the verbal agreement of the people in it (`STD-036` LED-006); written consent to replace it: a one-page consent text (what is published, the right to withdraw) is drafted, outside the repository, for each person to sign. | counsel · company |
 | 39 | Signed contracts may make a price confidential (negotiated fees, studio agreements). Check every contract before its amounts are published. | company |
+
+### 1.8 Reaching people who did not ask (`STD-048`, `STD-049`)
+
+The house is about to call, write and meet organisations that did not ask.
+`STD-048` sets the rules and `STD-049` the doors by country, every row
+*pending* a lawyer. LEG-001 2.2.0 was written by an agent, not a lawyer, to
+cover prospecting.
+
+| # | Item | Who |
+|---|---|---|
+| 40 | Review LEG-001 2.2.0: §2 the professional contacts gathered, §3 purposes 7 (prospecting, legitimate interest, LOPDGDD art. 19) and 8 (proof of consent, suppression list), §6 the absolute objection to direct marketing. | counsel |
+| 41 | Retention: prospecting data twelve months after the last contact, the suppression entry while the house markets, consent evidence while relied on and then blocked. Confirm or set the periods. | counsel |
+| 42 | Whether the Lista Robinson must be read for professional contacts held under LOPDGDD art. 19, and for calls to an organisation's switchboard. | counsel |
+| 43 | Whether LSSI art. 21 binds an e-mail from Numen to a recipient outside the EU (the United States allows it under CAN-SPAM). | counsel |
+| 44 | Whether the commercial-call code 400 (Ley 10/2025; Resolution of 14 April 2026, from 17 October 2026) binds a small business-to-business seller, or a fixed line is enough. | counsel |
+| 45 | Whether a message on a professional network, or a website's contact form, is "equivalent electronic means" under LSSI art. 21. | counsel |
+| 46 | Whether a tracking pixel or a per-reader link in a commercial e-mail needs consent (LSSI art. 22.2). | counsel |
+| 47 | A legitimate-interest assessment for prospecting (GDPR art. 6.1.f), one page, to back the LOPDGDD art. 19 presumption. | ours · counsel |
+| 48 | numen.games carries its own copy of the privacy policy, in the numengames-web repository: re-copy LEG-001 2.2.0 there once merged. | ours |
 
 ## 2. Evidence
 
@@ -265,6 +284,18 @@ Queremos publicar en numinia.org las cuentas reales de la empresa, empezando por
 - [#36] ¿Podéis redactar una cláusula de transparencia para todos los contratos nuevos con freelancers, proveedores y colaboradores? Diría que los importes se publican con nombre y función, y que quien se oponga aparece solo por su función.
 - [#37] ¿Cuál es la base legal correcta: el consentimiento o el interés legítimo? ¿Basta con mostrar solo la función mientras falte el consentimiento? Si alguien retira su consentimiento, ¿qué hacemos con lo ya publicado?
 - [#38] Las nóminas y la Seguridad Social no están en ese libro. En un equipo tan pequeño, publicar el total deja adivinar el sueldo de cada persona. ¿Cómo lo publicamos, o no lo publicamos?
+
+### 9. Contactar con organizaciones que no nos lo han pedido
+
+Vamos a empezar a llamar, escribir cartas y visitar a organizaciones que no nos han contactado: academias de formación pública, asociaciones, organizadores de eventos. Hemos escrito nuestras reglas: el primer contacto es una llamada desde un fijo, una carta, un encuentro en persona, una presentación o una respuesta a lo que ellos publican; el correo solo después de que nos digan que sí. La política de privacidad (versión 2.2.0) ya describe la prospección; la hemos redactado nosotros.
+
+- [#40] ¿Podéis revisar los apartados nuevos de la política de privacidad sobre prospección (§2, finalidades 7 y 8 del §3, §6)?
+- [#41] ¿Qué plazos de conservación fijamos para los datos de prospección, la lista de bajas y la prueba del consentimiento?
+- [#42] ¿Hay que consultar la Lista Robinson para contactos profesionales (art. 19 LOPDGDD) y para llamar a la centralita de una organización?
+- [#43] Un correo comercial nuestro a una empresa de EE. UU., ¿está sujeto al art. 21 de la LSSI?
+- [#44] ¿Nos obliga el prefijo 400 de llamadas comerciales (Ley 10/2025) siendo una empresa pequeña que vende a empresas, o basta con un fijo?
+- [#45] Un mensaje privado en LinkedIn o el formulario de contacto de una web, ¿cuentan como correo electrónico a efectos del art. 21 LSSI?
+- [#46] ¿Un píxel de seguimiento en un correo comercial necesita consentimiento?
 
 ### Lo que ya está hecho
 

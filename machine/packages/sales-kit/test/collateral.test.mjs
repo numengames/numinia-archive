@@ -113,6 +113,15 @@ test('the expiry e-mail asks for the no, from the day the sheet was sent', () =>
   assert.doesNotMatch(r.text, /descuento|rebaja|oferta especial/, 'never lowers the price to rescue a sale');
 });
 
+test('STD-048: the first-contact e-mail is not made for someone who did not ask', () => {
+  const rec = readFileSync(RECORD, 'utf8').replace('door: "asked"', 'door: "call"');
+  const r = render('first-contact-email.txt', rec, readFileSync(OFFER, 'utf8'), { lang: 'es', organisation: 'una tienda', signature: 'Numen Games', today: '2099-10-15', card: CARD });
+  assert.ok(r.missing.some((m) => m.startsWith('door')), r.missing.join(', '));
+  const ok = render('first-contact-email.txt', readFileSync(RECORD, 'utf8'), readFileSync(OFFER, 'utf8'), { lang: 'es', organisation: 'una tienda', signature: 'Numen Games', today: '2099-10-15', card: CARD });
+  assert.match(ok.text, /Como me pidió/);
+  assert.match(ok.text, /responda «BAJA»/);
+});
+
 test('what is missing is named, not invented', () => {
   const rec = readFileSync(RECORD, 'utf8').replace(/^\| Questions \|.*\n/m, '');
   const sheet = render('first-contact-sheet.html', rec, readFileSync(OFFER, 'utf8'), { lang: 'es', today: '2099-10-15', card: CARD });
@@ -154,8 +163,11 @@ test('the command line refuses to write a piece holding an unlisted name, and ne
 test('the archive\'s first case renders from its own record and offer', { skip: !existsSync(path.join(ROOT, 'opportunities', 'OPP-2026-025.md')) }, () => {
   const rec = readFileSync(path.join(ROOT, 'opportunities', 'OPP-2026-025.md'), 'utf8');
   const offer = readFileSync(path.join(ROOT, 'operations', 'OPS-012-training-the-offer.md'), 'utf8');
+  /* the record's door is a call: the e-mails wait for the yes (STD-048) */
+  assert.ok(render('first-contact-email.txt', rec, offer, { lang: 'es', organisation: 'el centro', signature: 'Numen Games', today: '2026-10-08' }).missing.some((m) => m.startsWith('door')));
+  const asked = rec.replace(/^door: "\w+"$/m, 'door: "asked"');
   for (const piece of ['first-contact-sheet.html', 'first-contact-sheet-mobile.html', 'first-contact-email.txt', 'expiry-email.txt']) {
-    const r = render(piece, rec, offer, { lang: 'es', organisation: 'el centro', signature: 'Numen Games', today: '2026-10-08', contactName: 'Numen Games', contactRole: 'Ventas', contactPhone: '[teléfono]', contactMail: '[correo]' });
+    const r = render(piece, piece.endsWith('.txt') ? asked : rec, offer, { lang: 'es', organisation: 'el centro', signature: 'Numen Games', today: '2026-10-08', contactName: 'Numen Games', contactRole: 'Ventas', contactPhone: '[teléfono]', contactMail: '[correo]' });
     assert.deepEqual(r.missing, [], `${piece}: ${r.missing.join(', ')}`);
     assert.deepEqual(r.names, []);
     if (piece !== 'expiry-email.txt') assert.match(r.text, /8\.000 €/);

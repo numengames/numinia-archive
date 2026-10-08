@@ -60,6 +60,8 @@ export interface PRecord {
   criteria: { requirement: string; asks: string; house: string; meets: string }[];
   call: string | null; closes: string | null; opens: string | null; estimated: string | null; procedure: string | null;
   instrument: string | null; file_ref: string | null; gives_back: string | null; follows: string | null;
+  /** OPP-017: the organisation's page and public mailbox, once it may be named */
+  web: string | null; contact_email: string | null;
   /** made at build time: the record's page on this site */
   url: string;
 }
