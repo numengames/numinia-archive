@@ -5,9 +5,9 @@ title: "The sales collateral"
 type: standard
 subtype: register
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-08T13:00:00+02:00"
+updated: "2026-10-08T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -47,8 +47,10 @@ piece is still made by hand.
 | Stage | Piece | What it does | Made from | Missing when | Template | State |
 |---|---|---|---|---|---|---|
 | `lead` | Research note | says who decides, how they buy, where the house fits and by which channels to reach them | public sources only: the buyer's plans, its awarded contracts, its transparency portal | — | — | trial |
+| `lead` | Call script | the first minute of a call through the door `call`: who we are and where we found the number, why them (their own published plan), one question, the ask for 20 minutes and for the yes to write; a no ends it (`STD-048`) | the record's Pitch and the research note; the spoken notice of `STD-049` | the record has no door | — | trial |
+| `lead` | Letter | the deck's first page, the ask, a phone number and the written notice of `STD-049`, signed, by post (door `letter`) | the record's Pitch; the card | the record has no door | — | trial |
 | `qualified` | First-contact deck | asks for a first meeting: the gap, what the house proposes, where it fits in the buyer's own plan, the price range, the ask | the record's header and Pitch; the offer's Packages | the Pitch lacks a headline, a promise, a gap, a first fit or the ask; the offer has no Packages | `first-contact-deck.html` | trial |
-| `qualified` | First-contact e-mail | carries the deck: one hook in the buyer's own words, the promise, the ask | the record's header and Pitch | the Pitch lacks a subject, a hook, a promise or the ask; the record has no contact channel; nobody has asked for it and it answers no published call — an e-mail waits for a yes (`STD-048` CLD-002) | `first-contact-email.txt` | trial |
+| `qualified` | First-contact e-mail | carries the deck: one hook in the buyer's own words, the promise, the ask | the record's header and Pitch | the Pitch lacks a subject, a hook, a promise or the ask; the record has no contact channel; the record's door is not `published`, `asked`, `inbound` or `former-client` — an e-mail waits for a yes, and the kit refuses it (`STD-048` CLD-002) | `first-contact-email.txt` | trial |
 | `qualified` | One-page sheet | the deck in one page, to hand over at an event, where the yes to write is asked (`STD-048`) | the offer and the card | — | — | trial |
 | `qualified` | Ninety-second video | the demonstration walked in ninety seconds, for the follow-up | the offer's earlier case and its demonstration | no demonstration address | — | trial |
 | `analysed` | First-meeting script | what to show, and the questions the needs analysis must leave answered | the record's Need and `PRO-029` step 1 | — | — | trial |

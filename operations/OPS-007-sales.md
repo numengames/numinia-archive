@@ -91,6 +91,12 @@ Based on the 100 simulations and the gap analysis. Combined score: adoption rate
 
 ---
 
+> **Being rewritten (2026-10-08).** The ICP, prices, funnel and pilot below
+> are April 2026's, for NWOS. What the house sells today is `OPS-012`
+> (training) and `OPS-013` (live gamification for events), at their prices;
+> the funnel is read from `/system/pipeline`, never typed. The doors below
+> hold now.
+
 ## What the law lets us do — The doors
 
 Every first contact goes through a door the law leaves open, by country:
@@ -148,12 +154,12 @@ The entry format. Fixed price, defined deliverables, success criterion agreed be
 
 | # | Deadline | Action | Owner |
 |----|---------|--------|-------|
-| 01 | This week | Blind-exposure protocol: 2 external people, 48h without context. Observe without intervening. | Pablo + free Oracle |
+| 01 | This week | Blind-exposure protocol: 2 external people, 48h without context. Observe without intervening. | the Oracle + a free Oracle |
 | 02 | This week | Confirm ICP #1: technical-startup CEO, 5–15p. List 10 concrete contacts that fit. | Dark Council |
 | 03 | Week 2 | Create the sales deck with 5 concepts maximum. No Numinia in layer 1. | Alquimista-01 |
 | 04 | Week 2 | Define the 3 pilot KPIs the client will measure. Without this there is no success criterion. | Dark Council |
-| 05 | Week 3 | First exploratory conversation with 3 contacts from ICP #1. It is not a demo — it is listening. | Pablo |
-| 06 | Week 4 | If there is a positive signal: formalized pilot proposal. Price, deliverables, criterion. Signature. | Pablo + legal Oracle |
+| 05 | Week 3 | First exploratory conversation with 3 contacts from ICP #1. It is not a demo — it is listening. | the Oracle |
+| 06 | Week 4 | If there is a positive signal: formalized pilot proposal. Price, deliverables, criterion. Signature. | the Oracle + the legal Oracle |
 
 ---
 
@@ -165,4 +171,4 @@ The sequence is: blind validation → confirmed ICP → pilot sold → documente
 
 ---
 
-*Metadata of the original page (`ventas.astro`), translated: HTML title «NWOS — Sales Strategy — Pablo FM» · description «Narrative Work OS sales guide for the Numen Games Oracles. ICP, funnel, blockers and pilot plan.» · canonical route `/ventas` · hero label «NWOS — Ventas».*
+*Metadata of the original page (`ventas.astro`), translated: HTML title «NWOS — Sales Strategy» · description «Narrative Work OS sales guide for the Numen Games Oracles. ICP, funnel, blockers and pilot plan.» · canonical route `/ventas` · hero label «NWOS — Ventas».*

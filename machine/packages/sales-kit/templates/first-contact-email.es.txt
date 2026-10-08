@@ -1,14 +1,16 @@
 <!--
 SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
-First-contact e-mail (STD-047), Spanish rendering. collateral.mjs removes
+First-contact e-mail (STD-047), Spanish rendering. Sent only through a
+door that lets an e-mail through (STD-048 CLD-002); it says who sends it
+and how to stop (CLD-006). collateral.mjs removes
 this block when it renders the piece.
 -->
 Asunto: {{subject}}
 
 {{greeting}}
 
-Le escribo desde Numen Games, un estudio madrileño que construye lugares en 3D donde se ensaya un procedimiento antes de hacerlo de verdad.
+{{opening}} Somos Numen Games, un estudio madrileño que construye lugares en 3D donde se ensaya un procedimiento antes de hacerlo de verdad.
 
 {{hook}} {{promise}}
 
@@ -26,3 +28,7 @@ Un saludo,
 {{signature}}
 
 Adjunto: {{attachment}}
+
+--
+Comunicación comercial de NUMEN GAMES S.L. (CIF B70735949), Calle Chile 10, 28290 Las Rozas de Madrid (España). Si no desea recibir más mensajes nuestros, responda «BAJA» o escriba a legal@numengames.com: lo atenderemos el mismo día y sin coste.
+Protección de datos: responsable NUMEN GAMES S.L., legal@numengames.com. Usamos sus datos de contacto profesional solo para tratar con su organización, por interés legítimo (art. 6.1.f RGPD; art. 19 LOPDGDD), o porque nos pidió esta información. No los cedemos. Puede acceder, rectificar, suprimir u oponerse en legal@numengames.com y reclamar ante la AEPD (www.aepd.es). Más información: https://numen.games/es/legal/privacy

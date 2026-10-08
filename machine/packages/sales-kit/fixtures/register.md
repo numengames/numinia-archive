@@ -134,6 +134,23 @@ them, so the kit's tests run whatever the real register says that day.
 | `event` | met at an event |
 | `platform` | a procurement platform or an official gazette |
 
+## The doors
+
+How the house first reached the other side (`STD-048`); which doors are
+open in each country is `STD-049`. An e-mail goes only through `published`,
+`asked`, `inbound` or `former-client`.
+
+| Door | Means |
+|---|---|
+| `published` | the organisation published a channel to receive exactly this: a call, a tender, a request for suppliers, partners, sponsors or speakers |
+| `call` | a person phoned the organisation's published number |
+| `letter` | a letter by post to the organisation |
+| `in-person` | met in person, at an event or a visit |
+| `introduction` | someone both sides know introduced the house |
+| `asked` | they asked to hear from the house, and the yes is kept |
+| `inbound` | they came to the house first |
+| `former-client` | a client of the house, about services like the ones they bought |
+
 ## When the buyer publishes a notice
 
 | Procedure | Services, estimated value before tax | What it asks of the bidder | Source |

@@ -6,11 +6,11 @@ uid: ""
 title: "Privacy Policy — Numen Games"
 type: legal
 status: active
-version: "2.1.2"
+version: "2.2.0"
 created: "2026-08-17T14:37:43Z"
 created_source: "git:5d7bd39"
 created_confidence: inferred
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-08T15:00:00+02:00"
 author: "oracle"
 owner: "oracle"
 section: "Legal and compliance"
@@ -48,6 +48,13 @@ review_flags: |
   the EEA" — false for Cloudflare, thirdweb, GitHub and Anthropic — with
   the transfers that happen, and §8 states the age of 18. Review
   pending with ATH21; open questions in DBT-022.
+  FLAG-8: v2.2.0 (2026-10-08) was edited by an agent, not a lawyer, to
+  cover prospecting (STD-048, STD-049): §2 the professional contacts the
+  house gathers, §3 purposes 7 (prospecting, legitimate interest, LOPDGDD
+  art. 19) and 8 (proof of consent and the suppression list), §4 their
+  periods, §6 the absolute objection to direct marketing (GDPR art. 21.3)
+  and how to stop commercial messages. The periods are a proposal: review
+  pending with ATH21.
 ---
 
 <!--
@@ -56,7 +63,7 @@ SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
 -->
 # Privacy Policy — Numen Games
 
-> **Summary:** What Numen Games S.L. does with the personal data of anyone who uses its four websites, why, for how long, who else sees it, and how to exercise your rights.
+> **Summary:** What Numen Games S.L. does with the personal data of anyone who uses its four websites, and of the professionals it contacts on behalf of their organisations, why, for how long, who else sees it, and how to exercise your rights.
 > **Epistemic:** What you can hold the company to about your data.
 > **Pragmatic:** Read it before signing in, buying or sending us a form; write to legal@numengames.com to exercise any right.
 > **Audience:** Visitors · Customers
@@ -79,7 +86,7 @@ to the processing of your data.
 
 - **Identity:** NUMEN GAMES S.L
 - **Tax ID (CIF):** B70735949
-- **Postal address:** Calle Chile 10, Las Rozas, Madrid.
+- **Postal address:** Calle Chile 10, 28290 Las Rozas de Madrid, Madrid (Spain).
 - **Email:** legal@numengames.com
 
 ## 2. When do we collect your personal data?
@@ -98,6 +105,14 @@ Your personal data may be collected at the following moments:
   nwos.numen.games asks for your company's name and a contact email.
 - **When you write to us:** by email, including through the contact
   page of numen.games, which opens your own email program.
+- **When we look for organisations to work with:** from the
+  organisation's own website, a public register, a published call, a
+  professional directory, an event, or someone who introduces us, we may
+  collect the name, job title, organisation, professional email and
+  professional telephone of a person who works for that organisation, or
+  of a sole trader in that capacity. We collect only what is needed to
+  reach the organisation through that person, and we record where we
+  found it.
 - **Through cookies and similar technologies:** our websites store only
   what the Cookie Policy lists — your own preferences, your session
   and, on numinia.com, the record of your choice on the cookie notice.
@@ -148,6 +163,30 @@ Your personal data may be collected at the following moments:
    wallet address and session are processed to perform the service you
    ask for (Article 6.1(b) GDPR).
 
+7. **Offering our services to organisations (prospecting).** We
+   process the professional contact details described in §2 solely to
+   locate the person professionally and to deal with the organisation
+   they work for. The basis is our legitimate interest in offering our
+   services to organisations (Article 6.1(f) GDPR; Article 19 LOPDGDD).
+   We will not send you commercial email, text or other electronic
+   messages unless you asked for them or expressly authorised them, or
+   you are or were our client and the message concerns our own services
+   similar to those you contracted, in which case you may object in each
+   message (Articles 21 and 22 LSSI). We never make automated commercial
+   calls. Before calling or writing to you without your consent, we
+   check the advertising exclusion systems — the Lista Robinson — and
+   leave out anyone registered (Article 23.4 LOPDGDD). We tell you who we
+   are and where we obtained your data at our first contact, and at the
+   latest within one month.
+
+8. **Proving your choices.** When you agree to receive our commercial
+   communications, we keep the date, the channel and the words of your
+   agreement, to be able to prove it (Article 7.1 GDPR). When you object
+   or withdraw your consent, we keep only what is needed to recognise you
+   — your email or telephone and the date — in a suppression list, so
+   that we never contact you again (Article 23.1 LOPDGDD; Articles 6.1(c)
+   and 6.1(f) GDPR).
+
 ## 4. For how long will we keep your personal data?
 
 Your personal data will be processed for the period necessary to
@@ -166,6 +205,12 @@ requirements.
 
 Two periods are fixed today: hosting logs are kept by the hosting
 provider for a few days, and the numinia.com session lasts one hour.
+
+Prospecting data (§3, purpose 7) is erased twelve months after our last
+contact if no relationship follows, and at once if you object — except
+your suppression entry, kept for as long as we market our services.
+Evidence of your consent is kept while we rely on it and then blocked for
+the period in which a claim can be brought.
 
 Please note that, in some cases, we may retain your data for the
 period necessary for the formulation, exercise or defence of claims,
@@ -218,9 +263,10 @@ If we process your data, you should know that your rights are:
   case, NUMEN will only retain the data for the exercise or defence of
   claims.
 - **The right to object to the processing:** we will stop processing
-  the personal data, except where it must continue to be processed for
-  legitimate reasons or for the exercise or defence of possible
-  claims.
+  your data, unless we demonstrate compelling legitimate grounds or need
+  it for the exercise or defence of possible claims. **If you object to
+  direct marketing, including prospecting, we stop at once and without
+  exception.**
 - **The right to data portability:** should you wish your data to be
   processed by another controller, we will facilitate the transfer of
   your data to the new controller, whenever technically possible.
@@ -230,6 +276,13 @@ If we process your data, you should know that your rights are:
 If you have given us your consent for any specific purpose, you may
 withdraw it whenever you wish, without affecting the lawfulness of the
 processing based on the consent given prior to its withdrawal.
+
+**Commercial communications.** You may object at any time, free of
+charge, to receiving our commercial communications or to our
+prospecting: reply "BAJA" or "STOP" to any message, say so on a call, or
+write to legal@numengames.com. We stop the day we receive it. You may also
+register with the Lista Robinson (<https://www.listarobinson.es>) to
+object to advertising from any company.
 
 To exercise your rights, you must contact us by sending an email to
 legal@numengames.com or in writing to the postal address stated in

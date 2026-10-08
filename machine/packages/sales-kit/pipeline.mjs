@@ -64,6 +64,10 @@ export const WHEN_DUE = ['offer', 'advance', 'proposal', 'agreement', 'decider_r
   // the organisation's door (OPP-017): its page for this opportunity and the
   // mailbox it publishes — only once the organisation may be named
   'web', 'contact_email',
+  // the door a first contact went through (OPP-018, STD-048): from the
+  // register's *The doors*; due from the first `out` line of a record that
+  // is not a call
+  'door',
   // a deadline: the moment an answer, an offer or an application is due —
   // required on a call, written on any other kind when the other side sets one
   'closes',
@@ -127,7 +131,11 @@ export const MEETS = ['yes', 'check'];
 /* OPP-011: `open` — told the house works in the open and did not ask to stay
    unnamed; absent or `unnamed` — sector and size only. Lost: never named. */
 export const DISCLOSURES = ['open', 'unnamed'];
-export const CHANNELS = ['email', 'phone', 'meeting', 'form'];
+export const CHANNELS = ['email', 'phone', 'letter', 'meeting', 'form'];
+/* OPP-018: the doors through which an e-mail may reach someone (STD-048
+   CLD-002): they published the channel, they asked, they wrote first, or
+   they are a former client. Every other door is a call, a letter or a meeting. */
+export const EMAIL_DOORS = ['published', 'asked', 'inbound', 'former-client'];
 export const LEVELS = ['reaction', 'learning', 'behaviour', 'results'];
 /* The events the timeline grammar gives a meaning to. The register lists and
    explains them; the tool needs each one to exist there, or it cannot read. */
@@ -299,6 +307,8 @@ export function loadRegister(file = DEFAULT_REGISTER) {
     readFrom: firsts(tableUnder(text, 'Where a call was read')),
     objects: firsts(tableUnder(text, 'What the buyer really buys')),
     chances: firsts(tableUnder(text, "The house's chance")),
+    /* OPP-018: absent in an older register, the door is not judged */
+    doors: firsts(tableUnder(text, 'The doors')),
   };
   const lacks = [];
   if (!kinds.length) lacks.push('The kinds');
@@ -574,6 +584,16 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
   } else if (stage && !CLOSED.includes(stage)) {
     if (!CALLS.includes(kind) && !fm.web) F('OPP-017', 'an open record of a named organisation with no `web` — the page where the opportunity is described');
     if (!fm.contact_email && fm.contact_channel !== 'form') F('OPP-017', 'an open record of a named organisation with no `contact_email` — the mailbox it publishes; if it takes contact only by a form, write `contact_channel: "form"`');
+  }
+
+  /* OPP-018: a first contact names its door, and an e-mail goes only
+     through a door that lets it (STD-048 CLD-001, CLD-002) */
+  if (reg.doors?.length) {
+    among('door', reg.doors, 'OPP-018');
+    if (!CALLS.includes(kind) && stage && !CLOSED.includes(stage)) {
+      if (!fm.door && (events ?? []).some((e) => e.event === 'out')) F('OPP-018', `an \`out\` line and no \`door\` — say how the house reached them: ${reg.doors.join(' · ')}`);
+      if (['email', 'form'].includes(fm.contact_channel) && !EMAIL_DOORS.includes(fm.door)) F('OPP-018', `contact_channel ${fm.contact_channel} through the door \`${fm.door ?? 'none'}\` — an e-mail waits for a yes (STD-048 CLD-002): ${EMAIL_DOORS.join(' · ')}; otherwise phone, letter or meeting`);
+    }
   }
 
   /* OPP-006: nobody's e-mail or phone, anywhere in a public record — but the

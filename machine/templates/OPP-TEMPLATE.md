@@ -51,8 +51,10 @@ currency: "EUR"
 pays: "to-ask"
 # contact_role: the role of who asked, never a name.
 contact_role: "head of learning"
-# contact_channel: email | phone | meeting | form
-contact_channel: "email"
+# contact_channel: phone | letter | meeting | email | form — email and form
+#   only through a door that lets them (OPP-018): published, asked, inbound,
+#   former-client. A cold e-mail is not a door (STD-048).
+contact_channel: "phone"
 # opened: the moment the house opened it; no recorded hour is 09:00 (OPS-022)
 opened: "YYYY-MM-DDTHH:MM:SS+02:00"
 
@@ -73,6 +75,11 @@ opened: "YYYY-MM-DDTHH:MM:SS+02:00"
 #   the earlier record this comes from: a repeat client or a referral
 # gives_back: "a case, a contact, visibility"
 #   a collaboration only: what came back instead of money
+# door: "call"
+#   how the house first reached them, from STD-038 The doors: published |
+#   call | letter | in-person | introduction | asked | inbound |
+#   former-client. REQUIRED from the first `out` line of a record that is
+#   not a call; STD-049 says which doors each country leaves open
 # web: "https://..."
 #   the organisation's page for this opportunity (OPP-017). Only once the
 #   organisation may be named: a tender, a grant, or disclosure open.

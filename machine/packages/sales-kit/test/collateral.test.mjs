@@ -77,6 +77,15 @@ test('a deck renders with every field filled, and the e-mail too', () => {
   assert.match(mail.text, /^Asunto: Ensayar el primer día · propuesta/);
 });
 
+test('STD-048: the first-contact e-mail is not made for someone who did not ask', () => {
+  const rec = readFileSync(RECORD, 'utf8').replace('door: "asked"', 'door: "call"');
+  const r = render('first-contact-email.txt', rec, readFileSync(OFFER, 'utf8'), { lang: 'es', organisation: 'una tienda', signature: 'Numen Games', today: '2099-10-15', card: CARD });
+  assert.ok(r.missing.some((m) => m.startsWith('door')), r.missing.join(', '));
+  const ok = render('first-contact-email.txt', readFileSync(RECORD, 'utf8'), readFileSync(OFFER, 'utf8'), { lang: 'es', organisation: 'una tienda', signature: 'Numen Games', today: '2099-10-15', card: CARD });
+  assert.match(ok.text, /Como me pidió/);
+  assert.match(ok.text, /responda «BAJA»/);
+});
+
 test('what is missing is named, not invented', () => {
   const rec = readFileSync(RECORD, 'utf8').replace(/^\| Ask \|.*\n/m, '');
   const deck = render('first-contact-deck.html', rec, readFileSync(OFFER, 'utf8'), { lang: 'es', today: '2099-10-15', card: CARD });

@@ -407,6 +407,18 @@ check('OPP-017: an open named organisation needs its page and its mailbox, unles
   assert.match(err, /OPP-017.*no `contact_email`/);
 });
 
+check('OPP-018: an e-mail first contact needs a door that lets it — a call, a letter or a meeting otherwise', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('door: "inbound"', 'door: "call"'));
+  assert.match(run(dir).err, /OPP-018.*contact_channel email through the door `call`/);
+});
+
+check('OPP-018: a door outside the register is refused; an e-mail after a yes passes', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('door: "inbound"', 'door: "asked"'));
+  assert.doesNotMatch(run(dir).err, /OPP-018/);
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('door: "asked"', 'door: "cold-mail"'));
+  assert.match(run(dir).err, /OPP-018.*door "cold-mail" is not one of/);
+});
+
 check('OPP-006: a person\'s name in the body is refused, whatever office they hold', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up to Carmen Ortega Ruiz, the head of training, no answer.'));
   assert.match(run(dir).err, /OPP-006.*"Carmen Ortega Ruiz" reads as a person's name/);

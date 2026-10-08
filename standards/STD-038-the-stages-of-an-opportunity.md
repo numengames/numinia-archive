@@ -5,16 +5,16 @@ title: "The stages of an opportunity"
 type: standard
 subtype: register
 status: draft
-version: "0.10.0"
+version: "0.11.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-07T17:20:00+02:00"
+updated: "2026-10-08T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
 tags: [standards, register, sales, pipeline, opportunity, stages, timeline, funnel, tenders, grants, public-procurement, chance]
 license: "CC0-1.0"
-related: ["STD-039", "STD-040", "OPS-018", "PRO-035", "PRI-009", "PRI-011"]
+related: ["STD-039", "STD-040", "OPS-018", "PRO-035", "PRI-009", "PRI-011", "STD-048", "STD-049"]
 derived_from: "PRI-009"
 ---
 
@@ -179,6 +179,23 @@ thirty-first (LCSP art. 198.4).
 | `outbound` | the house went to them |
 | `event` | met at an event |
 | `platform` | a procurement platform or an official gazette |
+
+## The doors
+
+How the house first reached the other side (`STD-048`); which doors are
+open in each country is `STD-049`. An e-mail goes only through `published`,
+`asked`, `inbound` or `former-client`.
+
+| Door | Means |
+|---|---|
+| `published` | the organisation published a channel to receive exactly this: a call, a tender, a request for suppliers, partners, sponsors or speakers |
+| `call` | a person phoned the organisation's published number |
+| `letter` | a letter by post to the organisation |
+| `in-person` | met in person, at an event or a visit |
+| `introduction` | someone both sides know introduced the house |
+| `asked` | they asked to hear from the house, and the yes is kept |
+| `inbound` | they came to the house first |
+| `former-client` | a client of the house, about services like the ones they bought |
 
 ## When the buyer publishes a notice
 

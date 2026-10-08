@@ -40,7 +40,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseFM, personNames, loadCard, DEFAULT_CARD } from './pipeline.mjs';
+import { parseFM, personNames, loadCard, DEFAULT_CARD, EMAIL_DOORS } from './pipeline.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
@@ -59,6 +59,8 @@ export const PIECES = {
   'first-contact-email.txt': {
     file: 'first-contact-email.es.txt', ext: 'txt',
     needs: ['Subject', 'Hook', 'Promise', 'Ask', 'packages', 'organisation', 'signature'],
+    /* STD-048 CLD-002: an e-mail goes only through a door that lets it */
+    doors: EMAIL_DOORS,
   },
 };
 
@@ -162,6 +164,15 @@ export function render(piece, recordText, offerText, opts = {}) {
   if (!prices.length) missing.push('Packages');
   const calendar = String(p.calendar ?? '').split('·').map((s) => s.trim()).filter(Boolean);
   if (spec.needs.includes('Calendar') && !calendar.length) missing.push('Calendar');
+  /* STD-048 CLD-002: no e-mail to someone who did not ask — the record's door
+     must be one that lets an e-mail through, or the piece is not made */
+  if (spec.doors && !spec.doors.includes(fm.door)) missing.push(`door (an e-mail waits for a yes: ${spec.doors.join(' · ')} — STD-048)`);
+  const OPENING = {
+    asked: 'Gracias por atenderme. Como me pidió, le envío la información.',
+    published: 'Le escribo en respuesta a lo que han publicado.',
+    inbound: 'Gracias por escribirnos. Le respondo con la información.',
+    'former-client': 'Le escribo como cliente de Numen Games, sobre un servicio parecido al que contrataron.',
+  };
 
   const values = {
     fonts: FONTS,
@@ -178,6 +189,7 @@ export function render(piece, recordText, offerText, opts = {}) {
     calendar_items: calendar.map((c) => { const [k, ...v] = c.split(':'); return `      <li><b>${esc(k.trim())}:</b> ${esc(v.join(':').trim())}</li>`; }).join('\n'),
     subject: field('Subject'), hook: field('Hook'), promise: field('Promise'),
     greeting: opts.greeting ?? 'Buenos días:',
+    opening: OPENING[fm.door] ?? '[falta: door]',
     price_line: prices.length ? `Los dos formatos que proponemos (${prices.slice(0, 2).map((x) => eur(x.price)).join(' y ')} sin IVA) entran en un contrato menor de servicios.` : '[falta: Packages]',
     attachment: opts.attachment ?? `${today.replace(/-/g, '_')}-Numen_Presentacion-${fm.id ?? 'OPP'}.pdf`,
   };
