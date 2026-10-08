@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38696,
+  "chars": 38901,
   "apparatus": false,
   "archived": false,
-  "tokens": 11215
+  "tokens": 11285
  },
  {
   "path": "CLAUDE.md",
@@ -1963,10 +1963,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 6194,
+  "chars": 6146,
   "apparatus": false,
   "archived": false,
-  "tokens": 1604
+  "tokens": 1577
  },
  {
   "path": "operations/OPS-014-supporting-numinia-the-offer.md",
@@ -2055,39 +2055,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1184
- },
- {
-  "path": "opportunities/OPP-2026-002.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "opportunity",
-  "status": "active",
-  "chars": 3906,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1052
- },
- {
-  "path": "opportunities/OPP-2026-003.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "opportunity",
-  "status": "active",
-  "chars": 2779,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 792
- },
- {
-  "path": "opportunities/OPP-2026-004.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "opportunity",
-  "status": "active",
-  "chars": 3498,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 951
  },
  {
   "path": "opportunities/OPP-2026-020.md",
@@ -2297,39 +2264,6 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1677
- },
- {
-  "path": "opportunities/PRP-2026-002.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "proposal",
-  "status": "active",
-  "chars": 5577,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1392
- },
- {
-  "path": "opportunities/PRP-2026-003.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "proposal",
-  "status": "active",
-  "chars": 4307,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1129
- },
- {
-  "path": "opportunities/PRP-2026-004.md",
-  "dir": "opportunities",
-  "series": "opportunities",
-  "type": "proposal",
-  "status": "active",
-  "chars": 6167,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1605
  },
  {
   "path": "opportunities/README.md",
@@ -3547,10 +3481,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 10241,
+  "chars": 10525,
   "apparatus": false,
   "archived": false,
-  "tokens": 2933
+  "tokens": 3016
  },
  {
   "path": "system/SYS-001-cao-architecture.md",

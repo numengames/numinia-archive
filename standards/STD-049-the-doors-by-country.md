@@ -5,9 +5,9 @@ title: "The doors, by country"
 type: standard
 subtype: register
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-10-08T13:00:00+02:00"
-updated: "2026-10-08T15:00:00+02:00"
+updated: "2026-10-08T15:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -117,6 +117,7 @@ is `published`.
 |---|---|---|---|
 | 2026-10-08 | The page is written; the first-contact e-mail of `STD-047` waits for a yes; records carry the organisation's public mailbox (`STD-039` OPP-017) | every rule | the first-contact e-mail had no door: now it is sent only after a yes or to a published call |
 | 2026-10-08 | Review of every sales and legal document and every record: a `door` on each record (OPP-018), the kit's e-mail gated and footed, twelve records moved from e-mail to a call or a meeting, mobile numbers ruled out | every rule of `STD-048` | twelve open records planned a cold e-mail or form: each now goes through a call, a meeting or a published channel; what is still missing is debt, in `DBT-022` and `DBT-024` |
+| 2026-10-08 | From MVP to alpha: every record checked against its door | `CLD-001`, `CLD-002` | three lost event sales (OPP-2026-002, 003, 004) and their proposals had no door: deleted, nothing kept; the eighteen records left each go through a published call, a call, or a meeting |
 
 ## Why
 
