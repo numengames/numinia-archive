@@ -5,9 +5,9 @@ uid: ""
 type: standard
 subtype: register
 status: active
-version: "5.16.0"
+version: "5.17.0"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-08T11:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -55,6 +55,7 @@ SPDX-License-Identifier: CC0-1.0
 | `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
 | `lore/` | the fiction and the game; a second fonds (`ADR-046`) | — | `open` | — | `lore/adventures/tabletop/TEMPLATE.md` |
 | `objects/` | the objects the archive registers that are not documents | — | `open` | — | — |
+| `stakeholders/` | who takes part in the system from outside the house — an organisation, a public body, an event — one card each; the house's own people and agents keep theirs in `agents/` | — | `open` | — | — |
 | `machine/checks/` | the checks, one file per standard, that run on every change | — | — | — | — |
 | `machine/tools/` | tooling run by hand or against the registers: checks, renames, exports | — | — | — | — |
 | `machine/scripts/` | the build and CI scripts: addresses, links, versions, the telemetry writer | — | — | — | — |
@@ -94,7 +95,7 @@ system, and it belongs to everyone.
 | `agent` | `agents/` | yes |
 | `opportunity` · `proposal` | `opportunities/` | yes |
 | `meta` | anywhere — apparatus accompanies its series | no |
-| `entity` | an entity card: `agents/<agent>/AGENT.md`, `objects/` | no |
+| `entity` | an entity card: `agents/<agent>/AGENT.md`, `objects/`, `stakeholders/` | no |
 
 Three kinds are withdrawn: an audit is now a report of the audit kind, a
 decision is a decision record, and a roster is apparatus. A standard was

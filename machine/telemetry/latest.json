@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "b238d2d",
-  "corpus_hash": "112cbbbaa8375672758d6b73288df8601f39f168d2e03e7f04d9e09ac3309846",
+  "head": "f744dbe",
+  "corpus_hash": "250af09bca53659108e2842510900bce644ed26a41746762e4b80d9ca342f485",
   "root_dirty": 0,
-  "measured_at": "2026-10-08T09:16:10Z",
+  "measured_at": "2026-10-08T09:28:42Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 833,
+      "value": 843,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -33,7 +33,7 @@
         ".jpg": 3,
         ".js": 2,
         ".json": 16,
-        ".md": 346,
+        ".md": 356,
         ".mjs": 129,
         ".png": 36,
         ".svg": 77,
@@ -52,12 +52,12 @@
     "corpus.files_by_kind": {
       "value": {
         "Text": {
-          "files": 346,
-          "bytes": 3815579
+          "files": 356,
+          "bytes": 3830872
         },
         "Code": {
           "files": 274,
-          "bytes": 2454096
+          "bytes": 2456375
         },
         "Image": {
           "files": 117,
@@ -84,12 +84,12 @@
       "definition": "tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted"
     },
     "corpus.md_total": {
-      "value": 346,
+      "value": 356,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 345,
+      "value": 355,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -111,6 +111,7 @@
         "principles": 14,
         "procedures": 29,
         "reports": 15,
+        "stakeholders": 10,
         "standards": 42,
         "system": 32
       },
@@ -124,9 +125,9 @@
         "agent": 41,
         "design": 13,
         "documentation": 36,
-        "entity": 25,
+        "entity": 34,
         "legal": 5,
-        "meta": 8,
+        "meta": 9,
         "mission": 9,
         "opportunity": 24,
         "principle": 15,
@@ -144,7 +145,7 @@
       "definition": "corpus documents with no `---` block at the top"
     },
     "corpus.apparatus": {
-      "value": 53,
+      "value": 54,
       "unit": "documents",
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
@@ -367,14 +368,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 967668,
+      "value": 971896,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 113376,
+        "standards": 113457,
         "system": 52614,
         "procedures": 37770,
         "reports": 36728,
@@ -384,11 +385,12 @@
         "designs": 28300,
         "opportunities": 27762,
         "principles": 24099,
-        "": 19213,
+        "": 19349,
         "missions": 18546,
         "debt": 13754,
         "legal": 13729,
         "decisions": 13484,
+        "stakeholders": 4011,
         "objects": 1883,
         ".github": 933
       },
@@ -397,9 +399,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 492859,
-        "draft": 231476,
-        "active": 223249,
+        "(none)": 492995,
+        "draft": 235487,
+        "active": 223330,
         "todo": 14406,
         "in-progress": 4526,
         "done": 1152
@@ -408,7 +410,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 1.92,
+      "value": 1.91,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -439,7 +441,7 @@
       "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
-      "value": 300,
+      "value": 310,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -450,18 +452,18 @@
     },
     "headers.field_usage": {
       "value": {
-        "license": 299,
-        "title": 299,
-        "created": 287,
-        "status": 287,
-        "type": 287,
-        "updated": 287,
-        "version": 287,
-        "author": 283,
-        "owner": 282,
-        "section": 278,
-        "tags": 260,
-        "id": 258,
+        "license": 309,
+        "title": 309,
+        "created": 297,
+        "status": 297,
+        "type": 297,
+        "updated": 297,
+        "version": 297,
+        "author": 293,
+        "owner": 292,
+        "section": 288,
+        "tags": 270,
+        "id": 268,
         "uid": 213,
         "related": 149,
         "guild": 122,
@@ -469,8 +471,8 @@
         "derived_from": 71,
         "created_source": 65,
         "created_confidence": 64,
-        "registration": 52,
-        "registration_reason": 48,
+        "registration": 62,
+        "registration_reason": 58,
         "agent": 41,
         "currency": 41,
         "former_id": 36,
@@ -490,17 +492,18 @@
         "visibility": 25,
         "approved_by": 24,
         "category": 21,
+        "digital_source_type": 21,
+        "role": 21,
         "absorbs": 20,
         "offer": 18,
         "door": 16,
         "extraction_note": 16,
         "evidence_head": 14,
         "automation_level": 13,
+        "entity": 13,
         "closes": 12,
-        "digital_source_type": 12,
         "executor": 12,
         "related_missions": 12,
-        "role": 12,
         "evidence_script": 11,
         "mandatory": 11,
         "period": 11,
@@ -540,7 +543,6 @@
         "opened_by": 5,
         "outcome": 5,
         "scope": 5,
-        "entity": 4,
         "forms": 4,
         "review_flags": 4,
         "web": 4,
@@ -618,7 +620,7 @@
     },
     "provenance.authorship": {
       "value": {
-        "ai-persona": 231,
+        "ai-persona": 241,
         "no-frontmatter": 45,
         "other": 40,
         "no-author": 17,
@@ -629,7 +631,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 267,
+      "value": 277,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
@@ -738,7 +740,7 @@
     "contradictions.status_vocabulary_used": {
       "value": {
         "active": 128,
-        "draft": 150,
+        "draft": 160,
         "done": 1,
         "todo": 7,
         "in-progress": 1
@@ -791,10 +793,10 @@
           "3": 486
         },
         "STD": {
-          "3": 1255
+          "3": 1260
         },
         "OPS": {
-          "3": 207
+          "3": 208
         },
         "PRI": {
           "3": 409
@@ -803,7 +805,7 @@
           "3": 286
         },
         "DBT": {
-          "3": 83
+          "3": 85
         },
         "OPP": {
           "3": 43,
@@ -820,7 +822,7 @@
           "3": 149
         },
         "SYS": {
-          "3": 100
+          "3": 101
         },
         "RPT": {
           "3": 67,
