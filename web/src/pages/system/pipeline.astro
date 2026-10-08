@@ -188,6 +188,7 @@ const CHANCE_WORD: Record<string, string> = { alta: "high", media: "medium", baj
           <div class="pq-main">
             <a class="pq-name" href={r.url} title={r.id}><span class={`pq-tag pq-k-${r.kind}`}>{KIND_LABEL[r.kind]}</span> {r.title ?? r.organisation ?? r.id}</a>
             {r.operation && <p class="pq-op"><span class="pq-op-k">What:</span> {r.operation}</p>}
+            {(r.contact_email || r.web || r.call) && <p class="pq-op pq-door"><span class="pq-op-k">Write to:</span> {r.contact_email ? <a href={`mailto:${r.contact_email}`}>{r.contact_email}</a> : "their form"}{(r.call ?? r.web) && <> · <a href={(r.call ?? r.web)!} rel="noopener">{r.call ? "the call" : "their page"}</a></>}{r.call && r.web && <> · <a href={r.web} rel="noopener">where they publish it</a></>}</p>}
             {r.open
               ? r.next && <p class="pq-act">→ {r.next.action}</p>
               : <p class={`pq-act${r.stage === "lost" ? " pq-lost" : ""}`}>{r.stage === "lost" ? `Lost — ${r.reason}: ${lostLine(r)}` : "Won"}</p>}
@@ -291,7 +292,7 @@ const CHANCE_WORD: Record<string, string> = { alta: "high", media: "medium", baj
         <a href={FEED_REPO}>its own repository</a>, without review. Shown here as it is, in the radar's Spanish,
         apart from the records and never counted in the funnel. A call becomes a record only through a reviewed pull request.
         {FEED.state === "read" && FEED.published && <> Last written {FEED.published.replace("T", " ")}.</>}
-        {FEED.held > 0 && <> {FEED.held} held back here: they read as a person's name.</>}
+        {FEED.held > 0 && <> {FEED.held} held back here: they read as a person's name or a person's mailbox.</>}
       </p>
       {FEED.state === "unreachable" ? (
         <p class="pq-funnote">The feed could not be read when this page was built.</p>
@@ -308,6 +309,7 @@ const CHANCE_WORD: Record<string, string> = { alta: "high", media: "medium", baj
               <p class="pq-feed-line">{[i.buyer, i.amount].filter(Boolean).join(" · ")}</p>
               {i.blocker && <p class="pq-feed-line"><b>Blocker:</b> {i.blocker}</p>}
               {i.next && <p class="pq-feed-line"><b>Next:</b> {i.next}</p>}
+              {i.contact_email && <p class="pq-feed-line"><b>Write to:</b> <a href={`mailto:${i.contact_email}`}>{i.contact_email}</a>{i.web && <> · <a href={i.web} rel="noopener">where they publish it</a></>}</p>}
               {i.in_archive && <p class="pq-feed-line">Already a record: <a href={`/opportunities/${i.in_archive.toLowerCase()}`}>{i.in_archive}</a></p>}
             </li>
           ))}

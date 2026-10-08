@@ -179,7 +179,7 @@ export const RING3 = {
     // proposal, the agreement, who signs, whether it may be named, the
     // record it follows, what a collaboration gave back, a deadline
     'offer', 'advance', 'proposal', 'agreement', 'decider_role', 'disclosure',
-    'follows', 'gives_back', 'closes',
+    'follows', 'gives_back', 'web', 'contact_email', 'closes',
     // a call — tender or grant: where it is, what it was read from (OPP-012/014)
     'call', 'read_from',
     // a tender: how the buyer purchases, its file, what it really buys,

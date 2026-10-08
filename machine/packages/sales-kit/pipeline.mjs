@@ -22,7 +22,7 @@
  * house holds from its card, OPS-018. A list renamed there is renamed here
  * without touching code. The records are public (OPP-008), so it also
  * refuses what identifies a person (OPP-006), an organisation named before
- * it agreed (OPP-011), and a call that fails a requirement (OPP-013): such a
+ * it agreed (OPP-011) or reachable by a mailbox before it may be named (OPP-017), and a call that fails a requirement (OPP-013): such a
  * call is not recorded at all; what it taught goes to the card.
  *
  * WHAT IT DOES
@@ -61,6 +61,9 @@ export const REQUIRED = ['id', 'kind', 'organisation', 'sector', 'source', 'oper
    HDR-009). Which kind and which stage asks for each is in validate(). */
 export const WHEN_DUE = ['offer', 'advance', 'proposal', 'agreement', 'decider_role', 'disclosure',
   'follows', 'gives_back',
+  // the organisation's door (OPP-017): its page for this opportunity and the
+  // mailbox it publishes — only once the organisation may be named
+  'web', 'contact_email',
   // a deadline: the moment an answer, an offer or an application is due —
   // required on a call, written on any other kind when the other side sets one
   'closes',
@@ -142,6 +145,8 @@ export const OTHER_LINE = 'other';
 const SALE_PROPOSED = 'proposed', SALE_AGREED = 'agreed';
 
 export const URL_RE = /^https?:\/\/\S+$/;
+/* OPP-017: one address, the whole value — the organisation's mailbox. */
+export const MAILBOX_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 /* OPP-011: without `disclosure: open`, and always once lost, the organisation
    is a sector and a size, never a name. */
 export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police|forces?|academy|school|university|hospital|health|bank|insurer|utility|logistics|manufacturer|industry|technology|software|agency|non-profit|foundation|association|accelerator|municipality|ministry|company|firm|organisation|organization|studio|startup|sme|enterprise|chain|group|community|conference|forum|event|festival|museum|council)\b/i;
@@ -188,6 +193,16 @@ export function personNames(text, allowed = []) {
     if (at >= 0) keep(words.slice(caps[at].i).join(' '));
   }
   return [...found];
+}
+
+/* OPP-017: a mailbox that reads as a person's — a common first name among
+   the words of its local part (ana.garcia@, jgarcia@ passes: deliberately
+   eager on names, blind to initials; the review reads the rest). */
+const fold = (w) => w.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const FOLDED_NAMES = new Set([...FIRST_NAMES].map(fold));
+export function personalMailbox(addr) {
+  const local = String(addr).split('@')[0] ?? '';
+  return local.split(/[._+-]+/).map(fold).some((w) => FOLDED_NAMES.has(w));
 }
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -546,9 +561,26 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
     else if (!MEETS.includes(c.meets)) F('OPP-013', `requirement "${c.requirement}" says "${c.meets}" — meets is one of ${MEETS.join(' · ')}`);
   }
 
-  /* OPP-006: nobody's e-mail or phone, anywhere in a public record */
+  /* OPP-017: the organisation's door — its page and its public mailbox, once
+     it may be named; a sector and a size carry neither, both would name it */
+  const nameable = CALLS.includes(kind) || fm.disclosure === 'open';
+  if (fm.web !== undefined && !URL_RE.test(fm.web)) F('OPP-017', `web "${fm.web}" is not an address`);
+  if (fm.contact_email !== undefined) {
+    if (!MAILBOX_RE.test(fm.contact_email)) F('OPP-017', `contact_email "${fm.contact_email}" is not one e-mail address`);
+    else if (personalMailbox(fm.contact_email)) F('OPP-006', `contact_email "${fm.contact_email}" reads as a person's mailbox — only the organisation's own (contracting, info, the call's helpdesk) is public; a person's goes to the private contacts, outside the archive`);
+  }
+  if (!nameable) {
+    for (const k of ['web', 'contact_email']) if (fm[k] !== undefined) F('OPP-017', `\`${k}\` on a record whose organisation is still a sector and a size — it would name it; keep it in the private contacts until \`disclosure: open\``);
+  } else if (stage && !CLOSED.includes(stage)) {
+    if (!CALLS.includes(kind) && !fm.web) F('OPP-017', 'an open record of a named organisation with no `web` — the page where the opportunity is described');
+    if (!fm.contact_email && fm.contact_channel !== 'form') F('OPP-017', 'an open record of a named organisation with no `contact_email` — the mailbox it publishes; if it takes contact only by a form, write `contact_channel: "form"`');
+  }
+
+  /* OPP-006: nobody's e-mail or phone, anywhere in a public record — but the
+     organisation's own mailbox, in its one field (OPP-017) */
   const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
-  if (EMAIL_RE.test(text)) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
+  const scanned = text.replace(/^contact_email:.*$/m, '');
+  if (EMAIL_RE.test(scanned)) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
   if (PHONE_RE.test(body.replace(NOT_A_PHONE, ' '))) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
   for (const n of personNames(text, card.named)) F('OPP-006', `"${n}" reads as a person's name — write the role; only the card's "Who may be named" passes`);
 
@@ -657,6 +689,7 @@ export function figures(records, reg, card, today) {
       steps, chance: null, fits: lines.has(fm.line), doneBefore: false, criteria: crit,
       call: or(fm.call), closes: or(fm.closes), opens: or(fm.opens), estimated: or(fm.estimated), procedure: or(fm.procedure),
       instrument: or(fm.instrument), file_ref: or(fm.file_ref), gives_back: or(fm.gives_back), follows: or(fm.follows),
+      web: or(fm.web), contact_email: or(fm.contact_email),
       _entered: w.entered,
     });
   }

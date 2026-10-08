@@ -3,7 +3,8 @@
 # for every kind of opportunity: a sale, a tender, a grant, a collaboration,
 # a partner. The record is PUBLIC: its rules are STD-039 (the record) and
 # STD-038 (kinds, stages, events, reasons, how it pays, when the organisation
-# is named). Nobody's name, e-mail or phone, anywhere in it.
+# is named). Nobody's name, e-mail or phone, anywhere in it — only the
+# organisation's own public mailbox, in contact_email.
 # The header is every document's (STD-004), then the opportunity's own
 # fields, which machine/packages/sales-kit/pipeline.mjs reads. The stage,
 # the next step, the closing day, the reason and the chance are NOT here:
@@ -72,6 +73,16 @@ opened: "YYYY-MM-DDTHH:MM:SS+02:00"
 #   the earlier record this comes from: a repeat client or a referral
 # gives_back: "a case, a contact, visibility"
 #   a collaboration only: what came back instead of money
+# web: "https://..."
+#   the organisation's page for this opportunity (OPP-017). Only once the
+#   organisation may be named: a tender, a grant, or disclosure open.
+#   REQUIRED then on an open record that is not a call; on a call, only
+#   when its contact is published somewhere other than the call
+# contact_email: "contratacion@organisation.example"
+#   the mailbox the ORGANISATION publishes (contracting, info, the call's
+#   helpdesk), never a person's: no name in it. Same moment as web;
+#   REQUIRED on an open record unless contact_channel is form. A person's
+#   name or own address goes to the private contacts, never here
 # closes: "YYYY-MM-DDTHH:MM:SS+02:00"
 #   the deadline: the moment an answer, an offer or an application is due.
 #   REQUIRED on a tender and a grant (the notice's hour; none in it: 23:59);

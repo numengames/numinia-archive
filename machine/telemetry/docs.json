@@ -1600,10 +1600,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 8277,
+  "chars": 8977,
   "apparatus": true,
   "archived": false,
-  "tokens": 2230
+  "tokens": 2404
  },
  {
   "path": "machine/templates/OPS-TEMPLATE.md",
@@ -2095,10 +2095,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 3502,
+  "chars": 3549,
   "apparatus": false,
   "archived": false,
-  "tokens": 1029
+  "tokens": 1045
  },
  {
   "path": "opportunities/OPP-2026-022.md",
@@ -2106,10 +2106,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 3250,
+  "chars": 3481,
   "apparatus": false,
   "archived": false,
-  "tokens": 959
+  "tokens": 1034
  },
  {
   "path": "opportunities/OPP-2026-023.md",
@@ -2117,10 +2117,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 3186,
+  "chars": 3247,
   "apparatus": false,
   "archived": false,
-  "tokens": 921
+  "tokens": 940
  },
  {
   "path": "opportunities/OPP-2026-024.md",
@@ -2128,10 +2128,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 2915,
+  "chars": 3008,
   "apparatus": false,
   "archived": false,
-  "tokens": 851
+  "tokens": 878
  },
  {
   "path": "opportunities/OPP-2026-025.md",
@@ -2260,10 +2260,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 5194,
+  "chars": 5412,
   "apparatus": false,
   "archived": false,
-  "tokens": 1357
+  "tokens": 1447
  },
  {
   "path": "opportunities/OPP-2026-037.md",
@@ -2271,10 +2271,10 @@
   "series": "opportunities",
   "type": "opportunity",
   "status": "active",
-  "chars": 4997,
+  "chars": 5043,
   "apparatus": false,
   "archived": false,
-  "tokens": 1396
+  "tokens": 1412
  },
  {
   "path": "opportunities/PRP-2026-001.md",
@@ -2997,10 +2997,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 18778,
+  "chars": 18800,
   "apparatus": false,
   "archived": false,
-  "tokens": 5304
+  "tokens": 5311
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -3338,10 +3338,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 15482,
+  "chars": 17165,
   "apparatus": false,
   "archived": false,
-  "tokens": 4011
+  "tokens": 4437
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",

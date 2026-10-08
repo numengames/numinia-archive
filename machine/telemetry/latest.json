@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "f8e7753",
-  "corpus_hash": "a0496a16352f605e4f77f1d38d350d1527b76fd10eab455b1bcf892fd0786084",
+  "head": "98c3208",
+  "corpus_hash": "a674ed7ff2cbc1fa0a9300d1931b9fc397cfd23c9ef0d081c6877821ecded155",
   "root_dirty": 0,
-  "measured_at": "2026-10-07T20:01:15Z",
+  "measured_at": "2026-10-08T08:11:40Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 343,
-          "bytes": 3762057
+          "bytes": 3765172
         },
         "Code": {
           "files": 273,
-          "bytes": 2432241
+          "bytes": 2437693
         },
         "Image": {
           "files": 115,
@@ -367,22 +367,22 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 953122,
+      "value": 953972,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 105462,
+        "standards": 105895,
         "system": 52614,
         "procedures": 37743,
         "reports": 36728,
         "agents": 36273,
         "operations": 32365,
-        "machine": 28983,
+        "machine": 29157,
         "designs": 28248,
-        "opportunities": 26427,
+        "opportunities": 26670,
         "principles": 24099,
         "": 18700,
         "missions": 18546,
@@ -398,8 +398,8 @@
     "tokens.by_status": {
       "value": {
         "(none)": 492335,
-        "draft": 222717,
-        "active": 217986,
+        "draft": 223143,
+        "active": 218410,
         "todo": 14406,
         "in-progress": 4526,
         "done": 1152
@@ -408,7 +408,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 1.95,
+      "value": 1.94,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -521,6 +521,7 @@
         "price": 7,
         "tax_rate": 7,
         "valid_until": 7,
+        "contact_email": 6,
         "context": 6,
         "estimated": 6,
         "instrument": 6,
@@ -550,6 +551,7 @@
         "requested_by": 3,
         "started": 3,
         "turnover_asked": 3,
+        "web": 3,
         "accuracy_warning": 2,
         "description": 2,
         "disclosure": 2,
@@ -749,7 +751,7 @@
       "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-004 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 83,
+      "value": 84,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -787,7 +789,7 @@
           "3": 478
         },
         "STD": {
-          "3": 1141
+          "3": 1142
         },
         "OPS": {
           "3": 196
@@ -803,7 +805,7 @@
           "4": 178
         },
         "OPP": {
-          "3": 28,
+          "3": 31,
           "4": 94
         },
         "DES": {
@@ -900,7 +902,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 293,
+      "value": 294,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
