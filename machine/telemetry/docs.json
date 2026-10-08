@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 39150,
+  "chars": 39449,
   "apparatus": false,
   "archived": false,
-  "tokens": 11380
+  "tokens": 11469
  },
  {
   "path": "CLAUDE.md",
@@ -302,10 +302,10 @@
   "series": "agents",
   "type": "entity",
   "status": "draft",
-  "chars": 3287,
+  "chars": 3302,
   "apparatus": false,
   "archived": false,
-  "tokens": 870
+  "tokens": 876
  },
  {
   "path": "agents/kairos/OPERATOR.md",
@@ -313,10 +313,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1741,
+  "chars": 1777,
   "apparatus": false,
   "archived": false,
-  "tokens": 454
+  "tokens": 464
  },
  {
   "path": "agents/kairos/SOUL.md",
@@ -324,10 +324,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 5179,
+  "chars": 5322,
   "apparatus": false,
   "archived": false,
-  "tokens": 1232
+  "tokens": 1269
  },
  {
   "path": "agents/kairos/SOURCES.md",
@@ -335,7 +335,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 3467,
+  "chars": 3470,
   "apparatus": false,
   "archived": false,
   "tokens": 927
@@ -2007,10 +2007,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 16342,
+  "chars": 17665,
   "apparatus": false,
   "archived": false,
-  "tokens": 4186
+  "tokens": 4474
  },
  {
   "path": "operations/OPS-020-the-strategy.md",
@@ -2678,10 +2678,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5626,
+  "chars": 5587,
   "apparatus": false,
   "archived": false,
-  "tokens": 1515
+  "tokens": 1510
  },
  {
   "path": "procedures/PRO-036-handling-a-security-weakness.md",
@@ -3327,10 +3327,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 17314,
+  "chars": 17344,
   "apparatus": false,
   "archived": false,
-  "tokens": 4610
+  "tokens": 4617
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",

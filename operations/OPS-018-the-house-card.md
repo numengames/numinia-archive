@@ -4,9 +4,9 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.6.1"
+version: "0.7.0"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-08T12:00:00+02:00"
+updated: "2026-10-08T12:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -187,7 +187,7 @@ before.
 | Line | What it is |
 |---|---|
 | `training` | gamified training and onboarding: a procedure walked in a 3D world |
-| `gamification` | live gamification: workshops, events and fairs the house runs |
+| `gamification` | live gamification: workshops, and the game layer of an event or a fair — never producing the event |
 | `worlds` | 3D web worlds with AI agents, on Hyperfy: culture, heritage, education |
 | `games` | game design, narrative and video games |
 | `agents` | running an organisation with AI agents: the house's own case, told or set up |
@@ -196,12 +196,19 @@ before.
 
 **Makes:** the lines above — 3D web worlds with AI agents (on Hyperfy, not
 Unity or Unreal); gamified training and onboarding; culture, heritage and
-education workshops and events; game design and narrative.
+education workshops; the game layer of an event; game design and narrative.
 
 **Does not make:** hardware, or another maker's product passed on; desktop
 industrial simulators with replicated controls; generic courses or videos;
 running a centre; children's entertainment; corporate websites; supplying
-staff; health or psychological services.
+staff; health or psychological services; producing or organising an event,
+a fair, a fiesta, a parade or a physical exhibition (staging, sound,
+stands, inflatables, merchandising, logistics); communication, advertising
+or social media work; generic software such as apps or tourism platforms;
+district animation and general socio-educational services. Nor a call the
+house could only win through a partner doing the core of the work, one that
+asks for staff, past contracts or solvency it does not have, or one that
+starts within five weeks.
 
 A sweep skips a notice whose title matches one of these, unless its
 technical terms say otherwise. The pipeline tool reads this table.
@@ -219,6 +226,20 @@ technical terms say otherwise. The pipeline tool reads this table.
 | psicolog | psychological or health services, done by licensed professionals |
 | personal de | supplying staff, not making a work |
 | producto existente | an existing product bought off the shelf, a licence or a resale |
+| cabalgata | producing a parade: event production |
+| navideñ | Christmas fiestas and parks: event production |
+| fiestas patronales | town fiestas: event production |
+| producción de eventos | event production |
+| organización de eventos | event production |
+| montaje y desmontaje | setting up and taking down stands, stages or exhibitions |
+| escenario | building or hiring a stage |
+| merchandising | supplying printed goods |
+| exposición itinerante | producing and touring a physical exhibition |
+| publicidad | advertising agency work |
+| redes sociales | social media management |
+| turismo inteligente | a generic software platform |
+| dinamización del distrito | district animation |
+| socioeducativ | general socio-educational services, done by monitors |
 
 ## To get, in order
 

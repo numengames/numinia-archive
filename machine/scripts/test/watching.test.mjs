@@ -43,7 +43,7 @@ test('a procedure holds the watch, from the sweep to the Oracle\'s decision', ()
     ['the two screenings it hands to', /PRO-033[\s\S]*PRO-032|PRO-032[\s\S]*PRO-033/],
     ['the qualifying procedure for a sale', /PRO-028/],
     ['a reviewed pull request as the only way in', /pull request/],
-    ['the doubt rule', /doubt/i],
+    ['the rule of taking only what the house can take alone', /alone/i],
     ['the retuning of a filter', /retun|filter/i],
   ]) assert.match(b, re, `the procedure names ${what}`);
   assert.ok(b.split(/\s+/).filter(Boolean).length <= 900, 'under the 900-word cap');
@@ -56,7 +56,7 @@ test('the watch\'s verdicts are a register, and the feed\'s filter is in it', ()
   const rows = sec.split('\n').filter((l) => /^\| `[a-z]+` \|/.test(l));
   assert.deepEqual(rows.map((r) => r.match(/^\| `([a-z]+)`/)[1]), ['high', 'medium', 'low', 'none']);
   const feed = rows.map((r) => r.split('|').map((c) => c.trim())).map((c) => c[c.length - 2]);
-  assert.deepEqual(feed.map((f) => /^yes/.test(f)), [true, true, true, false], 'high, medium and low-with-an-unlock go to the feed; none does not');
+  assert.deepEqual(feed.map((f) => /^yes/.test(f)), [true, true, false, false], 'high and medium go to the feed; low and none do not (the Oracle, 2026-10-08)');
 });
 
 test('the rule on the feed points at the procedure and says what checks it', () => {

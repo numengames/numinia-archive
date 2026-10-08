@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-08
+- **Changed** The watch brings only what the house can take alone: `PRO-035` 0.2.0 (drop at sight what needs a partner, staff or solvency it lacks, or starts within five weeks), `STD-038` 0.12.0 (a low verdict leaves the feed), `OPS-018` 0.7.0 (event production, advertising, generic software out).
 - **Changed** /system/pipeline shows each record's number on its card, list and timeline (site v0.156.0); `DBT-022` 0.4.1 item 49 asks counsel whether calls need a fixed line, `DBT-024` 0.1.1 points to it.
 - **Removed** OPP-2026-002, 003, 004 and PRP-2026-002, 003, 004 (lost, no door under `STD-048`); 021, 022, 023 (grants out of time or without a 2026 call), 036 (asks for a game already sold) and 020 (nothing known). `STD-049` 0.2.1 logs the audit.
 - **Added** `stakeholders/`, a new series (Administration · Relating): one public card per organisation, public body or event that takes part, nine to start; `STD-027` 0.12.0 and `STD-001` 5.17.0 add the row (site v0.155.0)

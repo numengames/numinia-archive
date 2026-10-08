@@ -5,9 +5,9 @@ title: "The stages of an opportunity"
 type: standard
 subtype: register
 status: draft
-version: "0.11.0"
+version: "0.12.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-08T14:00:00+02:00"
+updated: "2026-10-08T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -254,14 +254,14 @@ stay a gate, not a grade: a call that fails a requirement has no record.
 What a watch says of a call before anyone has decided on it, read from its
 terms against the house's card (`PRO-035`). It is written in the watch's
 feed, never in a record: a record's chance is the tool's, computed from its
-line and the house's wins. The last column is the feed's filter: in doubt the watch keeps a
-call, and what could fall is the Oracle's to drop.
+line and the house's wins. The last column is the feed's filter: only what the house can take, alone
+and with what it holds today, goes out.
 
 | Verdict | Means | Goes to the feed |
 |---|---|---|
 | `high` | read from the terms, every requirement met | yes |
 | `medium` | some requirement still to check, none failed | yes |
-| `low` | a requirement fails today, and one named thing — a partner, a registration, a published game — would unlock it before the close | yes, with the unlock |
+| `low` | a requirement fails today, and only a partner doing the core of the work, or something the house cannot get before the close, would unlock it | no: it stays in the watch's own memory |
 | `none` | outside what the house makes, or a requirement no one can meet before the close | no: it stays in the watch's own memory |
 
 ## Weighing a tender
