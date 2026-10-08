@@ -161,7 +161,7 @@ export function playbookMarkdown(): string {
     "",
     "## Before the record",
     "",
-    `A watch sweeps the places where calls are published, weighs what could fall and writes it, unreviewed, to its feed; the pipeline page shows it apart; the Oracle decides; only a reviewed pull request opens the record. [${b.watch.title}](${b.watch.href}) — ${b.watch.question}`,
+    `A watch sweeps the places where calls are published, keeps only what the house can take alone and writes it, unreviewed, to its feed; the pipeline page shows it apart; the Oracle decides; only a reviewed pull request opens the record. [${b.watch.title}](${b.watch.href}) — ${b.watch.question}`,
     "",
     "| Verdict | Means | Goes to the feed |",
     "|---|---|---|",

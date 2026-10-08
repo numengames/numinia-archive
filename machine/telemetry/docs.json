@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 39449,
+  "chars": 39590,
   "apparatus": false,
   "archived": false,
-  "tokens": 11469
+  "tokens": 11514
  },
  {
   "path": "CLAUDE.md",
@@ -2678,10 +2678,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5587,
+  "chars": 5600,
   "apparatus": false,
   "archived": false,
-  "tokens": 1510
+  "tokens": 1513
  },
  {
   "path": "procedures/PRO-036-handling-a-security-weakness.md",

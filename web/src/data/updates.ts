@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.157.0",
+    date: "2026-10-08",
+    entries: [
+      { type: "CHG", text: "Kairos's card and the playbook say what the watch does now: it brings only what the house can take alone, with what it holds today." },
+    ],
+  },
+  {
     version: "v0.156.0",
     date: "2026-10-08",
     entries: [

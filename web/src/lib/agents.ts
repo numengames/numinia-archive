@@ -155,7 +155,7 @@ const PRESENTATION: Record<
     quote: "Doubt in favour of the house.",
     stats: [["Vigilance", "S+"], ["Reach", "S"], ["Haste", "C"]],
     specialties: ["Tenders", "Grants", "Calls", "Triage", "Reading terms", "Filters"],
-    bio: "Kairos keeps watch on every place where the house's opportunities are published. He reads the terms, not the title, weighs what could be won, and brings the Oracle everything that could fall — with what it would take.",
+    bio: "Kairos keeps watch on every place where the house's opportunities are published. He reads the terms, not the title, and brings the Oracle only what the house can really take, alone and with what it holds today — with what it would take.",
   },
 };
 

@@ -4,9 +4,9 @@ uid: ""
 title: "Watching for opportunities"
 type: procedure
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-08T12:40:00+02:00"
+updated: "2026-10-08T12:55:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -26,8 +26,8 @@ SPDX-License-Identifier: CC0-1.0
 # PRO-035 — Watching for opportunities
 
 > **Summary:** From the places where opportunities are published to the
-> Oracle's yes or no: a watch sweeps them, weighs what could fall, writes
-> it unreviewed to its feed, and nothing enters the archive until the
+> Oracle's yes or no: a watch sweeps them, keeps what the house can take
+> alone, writes it unreviewed to its feed, and nothing enters the archive until the
 > Oracle accepts it and a reviewed change writes its record.
 > **Epistemic:** How does an opportunity published somewhere reach the Oracle's decision without entering the archive unreviewed?
 > **Pragmatic:** Sweep, weigh, write to the feed, show it, let the Oracle
