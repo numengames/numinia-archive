@@ -4,9 +4,9 @@ uid: ""
 title: "Training — the offer"
 type: documentation
 status: draft
-version: "0.1.3"
+version: "0.2.0"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-08T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -69,7 +69,7 @@ this record says what is delivered instead.
 |---|---|
 | The place | One or more rooms, each a step of the procedure; a guide who accompanies the learner; ten to fifteen minutes per room |
 | The accesses | A link per group or per learner, valid for the period agreed |
-| The trace | A record per learner of what they did — the sequence, the choices, the completion — readable by the responsible |
+| The evaluation | A final form at the end of the adventure; the answers reach the responsible by e-mail or in a spreadsheet. No per-learner login, live metrics or per-learner tracking: they do not exist |
 | The files | The scene and its assets, under the licence written in the proposal |
 | The measure | The indicator agreed at the level agreed, before and after |
 
@@ -105,17 +105,44 @@ told as above.
 
 ### Packages
 
-The floors the Oracle set on 1 October 2026, both under the minor-contract
+The floors the Oracle set on 6 October 2026, under the minor-contract
 threshold for services (15,000 EUR before tax), so a public buyer may award
-them directly. The first-contact deck reads this table (`STD-047`).
+them directly. The first-contact sheet and e-mail read this table
+(`STD-047`); the first row with a price is the one they show.
 
 | Package | What it holds | Price before tax | En castellano |
 |---|---|---|---|
-| Pilot scene | one scene of up to 3 rooms, one class of learners, 6 months of access, each learner's record | 8500 | Escena piloto: una escena de hasta 3 salas, una promoción de alumnos, 6 meses de acceso y registro por alumno |
-| Full scene | one scene of up to 6 rooms, unlimited access for 12 months, each learner's record and a results report | 14500 | Escena completa: una escena de hasta 6 salas, accesos ilimitados durante 12 meses, registro por alumno e informe de resultados |
-| Upkeep, optional | hosting in the EU, minor changes, a new class | 150–300 a month | Mantenimiento opcional: alojamiento en la UE, cambios menores y nuevas promociones |
+| Pilot experience | one adventure of about 20 minutes with a final evaluation form, unlimited learners, delivered in 6 to 8 weeks | 8000 | Experiencia piloto: aventura de unos 20 minutos con evaluación final, alumnos ilimitados, entrega en 6–8 semanas |
+| Upkeep | hosting, support, warranty and one change a year, in the same contract; paid upfront, 20 % more in instalments; none when the client hosts it on its own subdomain | 500 a year | Mantenimiento: alojamiento, soporte, garantía y una modificación al año, en el mismo contrato |
+
+Payment: 50 % at the first delivery in week 2 (the script validated and a
+rough scene to walk), 50 % at the final delivery. A public buyer pays only
+delivered, accepted work (LCSP art. 198), so the first delivery is the
+control point that makes the first invoice lawful; nothing is paid at
+signing.
 
 The last column is the client's rendering; the English is the original.
+
+### The first-contact sheet
+
+What every first-contact sheet of this offer says (`STD-047`), beside what
+the opportunity's own Pitch says. A list's items are separated by ` · `; a
+week's payment goes in brackets; `**…**` stresses a phrase; a path that
+starts with `/` is on numinia.org.
+
+| Field | English | Español |
+|---|---|---|
+| Claim | We build games to work better. | Construimos juegos para trabajar mejor. |
+| Package | Pilot experience | Experiencia piloto |
+| Package line | An adventure of about 20 minutes with a final evaluation. Unlimited learners. Delivered in 6–8 weeks. Minor contract. | Aventura de unos 20 minutos con evaluación final. Alumnos ilimitados. Entrega en 6–8 semanas. Contrato menor. |
+| Demo address | https://demo.numinia.com | https://demo.numinia.com |
+| QR | /sales/demo-numinia-qr.svg | /sales/demo-numinia-qr.svg |
+| Deliverables | **The scene,** with your protocol; 10 to 20 learners at a time per room · **Final evaluation:** answers by e-mail or in a spreadsheet · **Links, files** and the instructor's guide · **Hosting** in the EU or on your own subdomain · **Licence** private or open: you decide | **La escena,** con vuestro protocolo; de 10 a 20 alumnos a la vez por sala · **Evaluación final:** respuestas por correo o en hoja de cálculo · **Enlaces, archivos** y guía del instructor · **Alojamiento** en la UE o en vuestro subdominio · **Licencia** privada o abierta: decidís vosotros |
+| Method title | How we work · 6 to 8 weeks | Cómo trabajamos · 6 a 8 semanas |
+| Method | Week 1: **Protocol** meeting · Week 2: **First delivery:** script and rough scene [50 %] · Weeks 3–6: **Building** and one round of changes · Weeks 7–8: **Final delivery** [50 %] | Sem. 1: **Reunión** de protocolo · Sem. 2: **Primera entrega:** guion y escena en bruto [50 %] · Sem. 3–6: **Construcción** y una ronda de cambios · Sem. 7–8: **Entrega final** [50 %] |
+| Method note | From you: the procedure and 2 to 4 interviews of 50 minutes with an instructor. | De vosotros: el procedimiento y de 2 a 4 entrevistas de 50 min con un instructor. |
+| Upkeep | 500 | 500 |
+| Upkeep line | a year, in the same contract: hosting, support, warranty and one change a year. | al año, en el mismo contrato: alojamiento, soporte, garantía y una modificación al año. |
 
 ### How it is sold
 
@@ -127,7 +154,7 @@ opportunity points at this offer.
 
 ## 3. Validity
 
-**As of:** 2026-09-28. **Re-checked when:** a proposal is won or lost — the
+**As of:** 2026-10-08. **Re-checked when:** a proposal is won or lost — the
 closing step of the sales procedure writes here what the client asked that
 this record did not answer, and what they wanted that the house did not
 offer.

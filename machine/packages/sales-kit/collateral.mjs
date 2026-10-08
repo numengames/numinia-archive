@@ -25,10 +25,15 @@
  *
  * WHAT IT DOES
  *
- *   node collateral.mjs <record.md> --piece first-contact-deck.html
+ *   node collateral.mjs <record.md> --piece first-contact-sheet.html
  *        [--lang es] [--offer PATH] [--card PATH]
  *        [--organisation "…"] [--signature "…"] [--greeting "…"]
- *        [--attachment "…"] [--out DIR] [--today YYYY-MM-DD] [--draft]
+ *        [--contact "…"] [--role "…"] [--phone "…"] [--mail "…"]
+ *        [--sent YYYY-MM-DD] [--attachment "…"] [--out DIR] [--today YYYY-MM-DD]
+ *
+ * The sheet (A4 and mobile) is valid VALID_DAYS from --sent (default today);
+ * the expiry e-mail takes the same --sent and names both dates. The phone
+ * and the e-mail of whoever signs are typed here, never kept in the archive.
  *   node collateral.mjs --list                 the pieces the register names
  *
  * Exit 0 written · 1 something is missing, or a name is not allowed (each
@@ -47,20 +52,26 @@ const ROOT = path.resolve(HERE, '..', '..', '..');
 export const DEFAULT_REGISTER = path.join(ROOT, 'standards', 'STD-047-the-sales-collateral.md');
 const OFFERS = path.join(ROOT, 'operations');
 const FONTS = 'https://numinia.org/design/assets/fonts';
+/* The house's legal line, as web/src/data/company.ts and LEG-004 hold it. */
+const HOUSE = 'Numen Games S.L. · CIF B70735949 · C/ Chile 10, 28290 Las Rozas de Madrid · numen.games<br>Empresa emergente (Ley 28/2022), financiada por ENISA';
 
 /* The pieces the kit can render: the register's Template column → the file
    under templates/ and the fields the template needs. A register row naming
    a template the kit does not know fails the kit's test. */
+const SHEET_NEEDS = ['Service', 'Audience', 'Headline', 'Lead', 'Demo', 'Picture', 'Evidence', 'Evidence limits', 'Evidence source', 'Questions', 'packages', 'sheet', 'contact'];
 export const PIECES = {
-  'first-contact-deck.html': {
-    file: 'first-contact-deck.es.html', ext: 'html',
-    needs: ['Headline', 'Lead', 'Gap headline', 'Gap', 'Ask', 'Calendar', 'fits', 'packages', 'organisation', 'signature'],
-  },
+  'first-contact-sheet.html': { file: 'first-contact-sheet.es.html', ext: 'html', needs: SHEET_NEEDS },
+  'first-contact-sheet-mobile.html': { file: 'first-contact-sheet-mobile.es.html', ext: 'html', needs: SHEET_NEEDS },
   'first-contact-email.txt': {
     file: 'first-contact-email.es.txt', ext: 'txt',
-    needs: ['Subject', 'Hook', 'Promise', 'Ask', 'packages', 'organisation', 'signature'],
+    needs: ['Subject', 'Hook', 'Promise', 'Ask', 'Service', 'packages', 'sheet', 'organisation', 'signature'],
   },
+  'expiry-email.txt': { file: 'expiry-email.es.txt', ext: 'txt', needs: ['Subject', 'organisation', 'signature'] },
 };
+
+/* How a first contact asks (STD-047): the sheet is valid one week from the day it is sent. */
+export const VALID_DAYS = 7;
+const SITE = 'https://numinia.org';
 
 /* ---------- reading ---------- */
 
@@ -102,6 +113,17 @@ export function packagesOf(text) {
   return rows.slice(1).map(([name, holds, price, es]) => ({ name, holds, price, es: es ?? '' }));
 }
 
+/** The offer's First-contact sheet table, in one language: what every sheet of this offer says. */
+export function sheetOf(text, lang = 'es') {
+  const rows = rowsUnder(text, 'The first-contact sheet');
+  const out = {};
+  if (!rows) return out;
+  const [head, ...body] = rows;
+  const col = lang === 'en' ? 1 : Math.max(1, head.findIndex((h) => /español|castellano|spanish/i.test(h)));
+  for (const r of body) out[r[0].toLowerCase().replace(/\s+/g, '_')] = r[col] ?? '';
+  return out;
+}
+
 /** The register's pieces (STD-047 *The pieces*). */
 export function catalogue(file = DEFAULT_REGISTER) {
   const rows = rowsUnder(readFileSync(file, 'utf8'), 'The pieces');
@@ -118,21 +140,16 @@ export function catalogue(file = DEFAULT_REGISTER) {
 /* ---------- rendering ---------- */
 
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+/** Escaped, then **bold** → <b>bold</b>: a cell may stress a phrase. */
+const rich = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+const MESES = 'enero febrero marzo abril mayo junio julio agosto septiembre octubre noviembre diciembre'.split(' ');
+const addDays = (iso, n) => { const d = new Date(`${iso}T12:00:00Z`); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); };
+const dot = (iso) => iso.split('-').reverse().join('.');
+const long = (iso) => { const [y, m, d] = iso.split('-').map(Number); return `${d} de ${MESES[m - 1]} de ${y}`; };
+const ascii = (s) => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9]+/g, '_').replace(/^_|_$/g, '');
+/** A site path (`/sales/…`) becomes a full address, so a downloaded piece still finds its images. */
+const url = (s) => (String(s).startsWith('/') ? `${SITE}${s}` : String(s));
 const eur = (n) => `${Number(n).toLocaleString('es-ES', { useGrouping: 'always' })} €`;
-
-function packageCards(pk) {
-  return pk.filter((p) => /^\d+$/.test(p.price)).slice(0, 2).map((p) => {
-    const [title, ...rest] = (p.es || p.name).split(':');
-    return `      <div class="cifra"><span class="etiqueta">${esc(title.trim())}</span><span class="v">${eur(p.price)}</span><p>${esc(rest.join(':').trim() || p.holds)}</p></div>`;
-  }).join('\n');
-}
-function packageNote(pk) {
-  const fixed = pk.filter((p) => /^\d+$/.test(p.price));
-  const withTax = fixed.map((p) => eur(Math.round(Number(p.price) * 1.21))).join(' y ');
-  const upkeep = pk.find((p) => !/^\d+$/.test(p.price));
-  const upkeepLine = upkeep ? ` ${(upkeep.es || upkeep.name).split(':')[0].trim()}: ${upkeep.price.replace('a month', '€/mes')}.` : '';
-  return `Importes sin IVA (21 % aparte: ${withTax} con IVA).${upkeepLine}`;
-}
 
 /**
  * Fill one piece. Returns { text, missing, names }: `missing` lists every
@@ -153,34 +170,63 @@ export function render(piece, recordText, offerText, opts = {}) {
   };
   const field = (label) => need(label, p[label.toLowerCase().replace(/\s+/g, '_')]);
   const today = opts.today ?? new Date().toISOString().slice(0, 10);
-  const doc = `${today.replace(/-/g, '_')}-Numen_${spec.ext === 'html' ? 'Presentacion' : 'Correo'}-${fm.id ?? 'OPP'}`;
+  const sent = opts.sent ?? today;
+  const valid = addDays(sent, VALID_DAYS);
+  const sh = sheetOf(offerText ?? '', lang);
+  const sheetField = (label) => need(label, sh[label.toLowerCase().replace(/\s+/g, '_')]);
+  const uses = (k) => spec.needs.includes(k);
 
-  const fitRows = p.fits.length
-    ? p.fits.map(([course, who, what], i) => `      <tr><td class="concepto">${esc(course)}</td><td>${esc(who)}</td><td>${i === 0 ? `<b>${esc(what)}</b>` : esc(what)}</td></tr>`).join('\n')
-    : (missing.push('Where it fits'), '      <tr><td>[falta: Where it fits]</td></tr>');
   const prices = pk.filter((x) => /^\d+$/.test(x.price));
-  if (!prices.length) missing.push('Packages');
-  const calendar = String(p.calendar ?? '').split('·').map((s) => s.trim()).filter(Boolean);
-  if (spec.needs.includes('Calendar') && !calendar.length) missing.push('Calendar');
+  if (uses('packages') && !prices.length) missing.push('Packages');
+  const first = prices[0];
+  const list = (label, cell, item) => {
+    const parts = String(cell ?? '').split(' · ').map((x) => x.trim()).filter(Boolean);
+    if (!parts.length) { missing.push(label); return `[falta: ${label}]`; }
+    return parts.map(item).join('');
+  };
+  const service = p.service ?? '';
+  const clientFile = `Numen_Games-Propuesta_${ascii(service.replace(/·/g, ' ')) || 'Numen'}`;
 
   const values = {
     fonts: FONTS,
-    stamp: opts.draft === false ? '' : '<span class="sello">Borrador para revisar</span>',
-    doc,
     organisation: esc(need('organisation', opts.organisation)),
     signature: esc(need('signature', opts.signature)),
-    headline: esc(field('Headline')), lead: esc(field('Lead')),
-    gap_headline: esc(field('Gap headline')), gap: esc(field('Gap')),
-    ask: spec.ext === 'html' ? esc(field('Ask')) : field('Ask'),
-    fit_rows: fitRows,
-    package_cards: prices.length ? packageCards(pk) : '[falta: Packages]',
-    package_note: prices.length ? packageNote(pk) : '',
-    calendar_items: calendar.map((c) => { const [k, ...v] = c.split(':'); return `      <li><b>${esc(k.trim())}:</b> ${esc(v.join(':').trim())}</li>`; }).join('\n'),
-    subject: field('Subject'), hook: field('Hook'), promise: field('Promise'),
+    subject: field('Subject'),
     greeting: opts.greeting ?? 'Buenos días:',
-    price_line: prices.length ? `Los dos formatos que proponemos (${prices.slice(0, 2).map((x) => eur(x.price)).join(' y ')} sin IVA) entran en un contrato menor de servicios.` : '[falta: Packages]',
-    attachment: opts.attachment ?? `${today.replace(/-/g, '_')}-Numen_Presentacion-${fm.id ?? 'OPP'}.pdf`,
+    sent_dot: dot(sent), sent_long: long(sent), valid_dot: dot(valid), valid_long: long(valid),
+    client_file: clientFile,
+    attachment: opts.attachment ?? `${clientFile}.pdf`,
+    price: first ? eur(first.price) : '[falta: Packages]',
+    price_tax: first ? eur(Math.round(Number(first.price) * 1.21)) : '[falta: Packages]',
   };
+  if (uses('Hook')) Object.assign(values, { hook: field('Hook'), promise: field('Promise'), ask: field('Ask'), service: field('Service') });
+  if (uses('sheet')) values.demo_label = esc(String(sheetField('Demo address')).replace(/^https?:\/\//, ''));
+  if (uses('contact')) {
+    Object.assign(values, {
+      service: esc(field('Service')), audience: esc(field('Audience')),
+      headline: esc(field('Headline')), lead: rich(field('Lead')),
+      demo: rich(field('Demo')), picture: esc(url(field('Picture'))),
+      evidence: rich(field('Evidence')), evidence_limits: esc(field('Evidence limits')), evidence_source: esc(field('Evidence source')),
+      question_items: list('Questions', p.questions, (q) => `<li><div>${rich(q)}</div></li>`),
+      claim: esc(sheetField('Claim')), package: esc(sheetField('Package')), package_line: rich(sheetField('Package line')),
+      demo_url: esc(sheetField('Demo address')),
+      qr: esc(url(sheetField('QR'))),
+      deliverable_items: list('Deliverables', sh.deliverables, (d) => `<li><div>${rich(d)}</div></li>`),
+      method_title: esc(sheetField('Method title')),
+      method_rows: list('Method', sh.method, (m) => {
+        const [when, ...rest] = m.split(': ');
+        const text = rest.join(': ');
+        const pay = text.match(/\[([^\]]+)\]\s*$/);
+        return `<tr><td class="s">${esc(when)}</td><td>${rich(text.replace(/\s*\[[^\]]+\]\s*$/, ''))}</td><td class="p">${pay ? esc(pay[1]) : ''}</td></tr>`;
+      }),
+      method_note: rich(sheetField('Method note')),
+      upkeep_price: eur(sheetField('Upkeep')), upkeep_line: rich(sheetField('Upkeep line')),
+      contact_name: esc(need('contact name', opts.contactName)), contact_role: esc(need('contact role', opts.contactRole)),
+      contact_phone: esc(need('contact phone', opts.contactPhone)), contact_tel: esc(String(opts.contactPhone ?? '').replace(/[^+\d]/g, '')),
+      contact_mail: esc(need('contact e-mail', opts.contactMail)),
+      company: HOUSE,
+    });
+  }
   /* A plain-text template carries its licence in a leading comment block; it
      never reaches the reader. */
   const raw = readFileSync(path.join(HERE, 'templates', spec.file), 'utf8');
@@ -204,7 +250,7 @@ function main(argv) {
   const record = args[0];
   const piece = val('--piece');
   if (!record || !existsSync(record) || !piece) {
-    console.error('usage: node collateral.mjs <record.md> --piece <template> [--lang es] [--offer PATH] [--card PATH] [--organisation …] [--signature …] [--greeting …] [--out DIR] [--today YYYY-MM-DD]');
+    console.error('usage: node collateral.mjs <record.md> --piece <template> [--lang es] [--offer PATH] [--card PATH] [--organisation …] [--signature …] [--greeting …] [--contact …] [--role …] [--phone …] [--mail …] [--sent YYYY-MM-DD] [--out DIR] [--today YYYY-MM-DD]');
     return 2;
   }
   const out = path.resolve(val('--out') ?? process.cwd());
@@ -221,7 +267,8 @@ function main(argv) {
   try {
     r = render(piece, text, readFileSync(offerPath, 'utf8'), {
       lang, organisation: val('--organisation'), signature: val('--signature'), greeting: val('--greeting'),
-      attachment: val('--attachment'), today: val('--today'), card: val('--card'), draft: !args.includes('--final'),
+      attachment: val('--attachment'), today: val('--today'), sent: val('--sent'), card: val('--card'),
+      contactName: val('--contact') ?? val('--signature'), contactRole: val('--role'), contactPhone: val('--phone'), contactMail: val('--mail'),
     });
   } catch (e) { console.error(String(e.message)); return 2; }
   if (r.names.length) { console.error(`OPP-006: ${r.names.map((n) => `"${n}"`).join(', ')} read as a person's name the card does not list — write the role, or add the person to the card's Who may be named`); return 1; }

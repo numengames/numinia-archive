@@ -53,6 +53,15 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.153.0",
+    date: "2026-10-08",
+    entries: [
+      { type: "ADD", text: "A sale's wand hands over the first-contact sheet in two formats, an A4 page for the e-mail and a one-column page for a phone, each ready to print to PDF under the client's file name. The sheet shows the price with and without tax, is valid one week and asks one thing: yes or no." },
+      { type: "ADD", text: "A new piece, the expiry e-mail: sent once when the week ends with no answer, it asks the buyer to confirm the no." },
+      { type: "DEL", text: "The four-page first-contact deck is retired; the one-page sheet replaces it." },
+    ],
+  },
+  {
     version: "v0.152.0",
     date: "2026-10-07",
     entries: [

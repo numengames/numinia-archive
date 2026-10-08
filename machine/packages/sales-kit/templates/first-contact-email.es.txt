@@ -1,28 +1,26 @@
 <!--
 SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
-First-contact e-mail (STD-047), Spanish rendering. collateral.mjs removes
-this block when it renders the piece.
+First-contact e-mail (STD-047), Spanish rendering: it carries the A4 sheet.
+One reader, short sentences, the price in the open, one question, a P. D.
+collateral.mjs removes this block when it renders the piece.
 -->
 Asunto: {{subject}}
 
 {{greeting}}
 
-Le escribo desde Numen Games, un estudio madrileño que construye lugares en 3D donde se ensaya un procedimiento antes de hacerlo de verdad.
-
 {{hook}} {{promise}}
 
-La idea es sencilla:
-- Se entra con un enlace desde el ordenador, el móvil o unas gafas, sin instalar nada.
-- Se recorre una escena construida con vuestro protocolo, en su orden.
-- El instructor ve qué hizo cada alumno y dónde falló, y compara su primer recorrido con el último.
+Os adjunto una hoja con todo: qué vive el alumno, qué recibís, cómo trabajamos y el precio, {{price}} sin IVA ({{price_tax}} con IVA), que entra en un contrato menor. La demo se abre con un enlace desde el móvil, el ordenador o unas gafas VR: {{demo_label}}.
 
-Le adjunto una presentación de cuatro páginas. {{price_line}}
+{{ask}}
 
-{{ask}} Si no es usted quien debe verlo, le agradecería que me indicara con quién hablar.
+La propuesta vale hasta el {{valid_long}}. Me basta una palabra: sí o no.
 
 Un saludo,
 
 {{signature}}
+
+P. D.: Si no encaja, decídmelo sin más y lo cerramos. Un no claro nos sirve tanto como un sí.
 
 Adjunto: {{attachment}}

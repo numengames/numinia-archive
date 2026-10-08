@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-08
+- **Changed** `STD-047` 0.2.0: the first contact asks yes or no in a week, price shown; a one-page sheet (A4 + mobile) and an expiry e-mail replace the deck; `PRO-028`, `PRO-030`, `OPS-012` (8,000 € pilot), `OPP-2026-025` follow (site v0.153.0)
+
 ### 2026-10-07
 - **Added** `MIS-155`: Kairos gets its own GitHub App, installed on the feed only with contents write, and the feed leaves Ursa's App.
 - **Changed** `STD-015` 6.2.0: four new practices — code scanning (SEC-016), workflow lint (SEC-017), the dependency audit before merge (SEC-018) and the outside probe of every public site (SRE-008); DEV-006 asks a pull request for the evidence that it works.

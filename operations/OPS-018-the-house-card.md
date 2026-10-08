@@ -4,9 +4,9 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.6.0"
+version: "0.6.1"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-07T17:20:00+02:00"
+updated: "2026-10-08T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -113,6 +113,7 @@ by a reviewed change; the tool refuses any other name.
 
 | Name | Why |
 |---|---|
+| Pablo Fernández-Maquieira | the house's own: an Oracle and partner, who signs the first-contact sheet |
 
 ## The figures the tool reads
 
