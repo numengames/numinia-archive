@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.4.0"
+version: "0.4.1"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-08T17:00:00+02:00"
+updated: "2026-10-08T17:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -153,6 +153,7 @@ cover prospecting.
 | 46 | Whether a tracking pixel or a per-reader link in a commercial e-mail needs consent (LSSI art. 22.2). | counsel |
 | 47 | A legitimate-interest assessment for prospecting (GDPR art. 6.1.f), one page, to back the LOPDGDD art. 19 presumption. | ours · counsel |
 | 48 | numen.games carries its own copy of the privacy policy, in the numengames-web repository: re-copy LEG-001 2.2.0 there once merged. | ours |
+| 49 | Whether a commercial call to an organisation's published number must come from a fixed line or an 800/900 number (Orden TDF/149/2025 art. 9), or a mobile is allowed when the call is business to business. Until counsel answers, the house does not call from a mobile (`STD-049`; `DBT-024` item 3). | counsel |
 
 ## 2. Evidence
 
@@ -296,6 +297,7 @@ Vamos a empezar a llamar, escribir cartas y visitar a organizaciones que no nos 
 - [#44] ¿Nos obliga el prefijo 400 de llamadas comerciales (Ley 10/2025) siendo una empresa pequeña que vende a empresas, o basta con un fijo?
 - [#45] Un mensaje privado en LinkedIn o el formulario de contacto de una web, ¿cuentan como correo electrónico a efectos del art. 21 LSSI?
 - [#46] ¿Un píxel de seguimiento en un correo comercial necesita consentimiento?
+- [#49] Para llamar al número público de una organización y ofrecerle nuestros servicios, ¿tenemos que llamar desde un fijo o un 800/900 (art. 9 de la Orden TDF/149/2025), o podemos hacerlo desde un móvil cuando llamamos a una empresa o a un organismo? Mientras no nos digáis lo contrario, no llamaremos desde un móvil.
 
 ### Lo que ya está hecho
 

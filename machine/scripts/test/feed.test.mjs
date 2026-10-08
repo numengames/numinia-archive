@@ -74,7 +74,11 @@ test('the pipeline page shows the feed marked unreviewed, apart from the funnel'
   assert.match(sec, /[Uu]nreviewed/);
   assert.match(sec, /github\.com\/numengames\/numinia-archive-feed/, 'it links the feed itself');
   if (/data-feed-state="read"/.test(sec)) {
-    for (const m of sec.matchAll(/data-in-archive="(OPP-\d{4}-\d{3})"/g)) assert.match(sec, new RegExp(`href="/opportunities/${m[1].toLowerCase()}"`), `${m[1]} is linked to its record`);
+    // linked while the record exists; a record deleted from the archive is not linked (no dead link)
+    for (const m of sec.matchAll(/data-in-archive="(OPP-\d{4}-\d{3})"/g)) {
+      const kept = existsSync(path.join(ROOT, 'opportunities', `${m[1]}.md`));
+      assert.equal(new RegExp(`href="/opportunities/${m[1].toLowerCase()}"`).test(sec), kept, `${m[1]} is linked only while its record exists`);
+    }
   }
   const before = html.slice(0, html.indexOf(sec));
   assert.ok(/class="pq-fun"/.test(before), 'the feed comes after the funnel: it is not counted in it');

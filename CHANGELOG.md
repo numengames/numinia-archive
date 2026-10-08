@@ -18,6 +18,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-08
+- **Changed** /system/pipeline shows each record's number on its card, list and timeline (site v0.156.0); `DBT-022` 0.4.1 item 49 asks counsel whether calls need a fixed line, `DBT-024` 0.1.1 points to it.
+- **Removed** OPP-2026-002, 003, 004 and PRP-2026-002, 003, 004 (lost, no door under `STD-048`); 021, 022, 023 (grants out of time or without a 2026 call), 036 (asks for a game already sold) and 020 (nothing known). `STD-049` 0.2.1 logs the audit.
 - **Added** `stakeholders/`, a new series (Administration · Relating): one public card per organisation, public body or event that takes part, nine to start; `STD-027` 0.12.0 and `STD-001` 5.17.0 add the row (site v0.155.0)
 - **Added** `DBT-024` The sales process cannot yet reach a named person (private contacts, Lista Robinson, a fixed line, call script, `OPS-007` rewrite); `DBT-022` 0.4.0 §1.8 takes the questions for counsel on prospecting; OPP-2026-037 declined.
 - **Changed** Sales and legal review: a `door` on every record (`STD-039` 0.14.0, OPP-018) and in `STD-038`; the kit refuses a cold e-mail and adds the legal footer; twelve records move to calls or meetings; `STD-048`/`STD-049` 0.2.0; `LEG-001` 2.2.0 covers prospecting; `PRO-028` 0.7.0.

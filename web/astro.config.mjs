@@ -366,15 +366,10 @@ export default defineConfig({
 		// → one pipeline (2026-10-02): grants left funding/ for opportunities/
 		// as kind grant; the stages of a sale and of a grant became the stages
 		// of an opportunity; the two cards became one. Records of calls the
-		// house cannot win (GRA-2026-005/006, OPP-2026-005…019) were deleted,
+		// house cannot win (GRA-2026-005/006, OPP-2026-005…019; on 2026-10-08
+		// GRA-2026-001…003 = OPP-2026-021…023) were deleted,
 		// not redirected: their question was withdrawn (URL-005).
 		"/funding": "/opportunities/",
-		"/funding/gra-2026-001": "/opportunities/opp-2026-021",
-		"/funding/gra-2026-001.md": "/opportunities/opp-2026-021.md",
-		"/funding/gra-2026-002": "/opportunities/opp-2026-022",
-		"/funding/gra-2026-002.md": "/opportunities/opp-2026-022.md",
-		"/funding/gra-2026-003": "/opportunities/opp-2026-023",
-		"/funding/gra-2026-003.md": "/opportunities/opp-2026-023.md",
 		"/funding/gra-2026-004": "/opportunities/opp-2026-024",
 		"/funding/gra-2026-004.md": "/opportunities/opp-2026-024.md",
 		"/standards/std-038-the-stages-of-a-sale": "/standards/std-038-the-stages-of-an-opportunity",

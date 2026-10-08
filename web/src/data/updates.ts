@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.156.0",
+    date: "2026-10-08",
+    entries: [
+      { type: "CHG", text: "The pipeline shows each opportunity's number on its card, in the list and on the timeline — OPP-2026-037 — so when someone talks about \"the 37\" you can find it at a glance. A radar finding links to its record only while the record exists." },
+      { type: "DEL", text: "Eight opportunities leave the archive: three lost event sales (OPP-2026-002, 003, 004) and their proposals, which had no door under the rules for reaching someone who did not ask; three grants out of time or with no call this year (021, 022, 023); the Creative Europe call, which asks for a game already sold (036); and a partner with nothing known (020)." },
+    ],
+  },
+  {
     version: "v0.155.0",
     date: "2026-10-08",
     entries: [

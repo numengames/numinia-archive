@@ -186,7 +186,7 @@ const CHANCE_WORD: Record<string, string> = { alta: "high", media: "medium", baj
             <span class="pq-rel" data-rel>{r.open ? "next step" : r.stage}</span>
           </div>
           <div class="pq-main">
-            <a class="pq-name" href={r.url} title={r.id}><span class={`pq-tag pq-k-${r.kind}`}>{KIND_LABEL[r.kind]}</span> {r.title ?? r.organisation ?? r.id}</a>
+            <a class="pq-name" href={r.url}><span class="pq-id">{r.id}</span> <span class={`pq-tag pq-k-${r.kind}`}>{KIND_LABEL[r.kind]}</span> {r.title ?? r.organisation ?? r.id}</a>
             {r.operation && <p class="pq-op"><span class="pq-op-k">What:</span> {r.operation}</p>}
             {(r.contact_email || r.web || r.call) && <p class="pq-op pq-door"><span class="pq-op-k">Write to:</span> {r.contact_email ? <a href={`mailto:${r.contact_email}`}>{r.contact_email}</a> : "their form"}{(r.call ?? r.web) && <> · <a href={(r.call ?? r.web)!} rel="noopener">{r.call ? "the call" : "their page"}</a></>}{r.call && r.web && <> · <a href={r.web} rel="noopener">where they publish it</a></>}</p>}
             {r.open
@@ -218,7 +218,7 @@ const CHANCE_WORD: Record<string, string> = { alta: "high", media: "medium", baj
           return (
             <div class={`pq-g-row${r.open ? "" : " pq-g-row--closed"}`} data-id={r.id}>
               <span class="pq-g-label">
-                <a class="pq-g-name" href={r.url} title={r.id}><span class={`pq-tag pq-k-${r.kind}`}>{KIND_LABEL[r.kind]}</span> {r.title ?? r.organisation ?? r.id}</a>
+                <a class="pq-g-name" href={r.url}><span class="pq-id">{r.id}</span> <span class={`pq-tag pq-k-${r.kind}`}>{KIND_LABEL[r.kind]}</span> {r.title ?? r.organisation ?? r.id}</a>
                 <span class="pq-g-sub">{r.operation ?? value(r)}{!r.open && ` · ${r.stage}`}</span>
               </span>
               <span class="pq-g-track">
@@ -310,7 +310,7 @@ const CHANCE_WORD: Record<string, string> = { alta: "high", media: "medium", baj
               {i.blocker && <p class="pq-feed-line"><b>Blocker:</b> {i.blocker}</p>}
               {i.next && <p class="pq-feed-line"><b>Next:</b> {i.next}</p>}
               {i.contact_email && <p class="pq-feed-line"><b>Write to:</b> <a href={`mailto:${i.contact_email}`}>{i.contact_email}</a>{i.web && <> · <a href={i.web} rel="noopener">where they publish it</a></>}</p>}
-              {i.in_archive && <p class="pq-feed-line">Already a record: <a href={`/opportunities/${i.in_archive.toLowerCase()}`}>{i.in_archive}</a></p>}
+              {i.in_archive && F.records.some((r) => r.id === i.in_archive) && <p class="pq-feed-line">Already a record: <a href={`/opportunities/${i.in_archive.toLowerCase()}`}>{i.in_archive}</a></p>}
             </li>
           ))}
         </ul>
@@ -523,6 +523,7 @@ draw();
 .pq-funnote{font-size:.875rem;color:rgb(var(--text-muted));margin:10px 0 0;line-height:1.55}
 .pq-funnote a{text-decoration:none}
 .pq-legend{font-size:.8125rem;color:rgb(var(--text-muted));margin:0 0 10px;line-height:1.6}
+.pq-id{font-family:var(--font-mono);font-size:.75rem;font-weight:500;letter-spacing:.02em;color:rgb(var(--text-muted));white-space:nowrap}
 .pq-tag{display:inline-block;padding:0 8px;border-radius:999px;border:1px solid currentColor;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.04em;line-height:1.6;vertical-align:1px}
 .pq-k-sale{color:rgb(var(--green))}.pq-k-tender{color:rgb(var(--yellow))}.pq-k-grant{color:rgb(var(--blue))}.pq-k-collaboration{color:rgb(var(--purple))}.pq-k-partner{color:rgb(var(--teal))}
 /* timeline */
