@@ -8,7 +8,7 @@
 //
 // THE ARCHIVE DOES NOT TRUST THE FEED. Every item goes through the same name
 // check as a record (OPP-006, the sales kit's personNames) and is dropped if
-// it trips it; a call already closed is dropped; an item the archive already
+// it trips it, or if its mailbox reads as a person's (OPP-017); a call already closed is dropped; an item the archive already
 // holds keeps its record id, so the page links the record instead of showing
 // the call twice. A feed that is slow, missing or malformed leaves the page
 // saying so: it never breaks the build.
@@ -40,6 +40,9 @@ export interface FeedItem {
   why?: string;
   next?: string;
   read_from?: string;
+  /** the buyer's public mailbox and the page it is read from (OPP-017) */
+  contact_email?: string;
+  web?: string;
   updated?: string;
   in_archive?: string;
 }
@@ -91,6 +94,7 @@ async function read(today: string): Promise<Feed> {
     .filter((i) => {
       const text = Object.values(i).filter((v) => typeof v === "string").join("\n");
       if (kit.personNames(text, named).length) { held++; return false; }
+      if (i.contact_email && (typeof kit.personalMailbox !== "function" || kit.personalMailbox(i.contact_email))) { held++; return false; }
       return true;
     })
     .sort((a, b) => (CHANCE_ORDER[a.chance ?? ""] ?? 9) - (CHANCE_ORDER[b.chance ?? ""] ?? 9) || (a.closes ?? "").localeCompare(b.closes ?? ""));

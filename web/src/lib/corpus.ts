@@ -497,6 +497,9 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       "/standards/std-040-a-proposal-says-four-things",
       // 2026-10-02: what each stage of a sale hands over.
       "/standards/std-047-the-sales-collateral",
+      // 2026-10-08: the doors a first contact may go through, by country.
+      "/standards/std-048-reaching-someone-who-did-not-ask",
+      "/standards/std-049-the-doors-by-country",
       "/standards/std-036-one-account",
     ],
   },

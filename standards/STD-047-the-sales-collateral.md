@@ -5,16 +5,16 @@ title: "The sales collateral"
 type: standard
 subtype: register
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-08T12:00:00+02:00"
+updated: "2026-10-08T17:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Sales and partners"
 tags: [standards, register, sales, collateral, playbook, opportunity, templates]
 license: "CC0-1.0"
-related: ["STD-038", "STD-039", "STD-040", "OPS-012", "OPS-018", "PRO-028", "PRO-029", "PRO-030"]
+related: ["STD-038", "STD-039", "STD-040", "OPS-012", "OPS-018", "PRO-028", "PRO-029", "PRO-030", "STD-048"]
 derived_from: "PRI-009"
 ---
 
@@ -48,10 +48,12 @@ piece is still made by hand.
 | Stage | Piece | What it does | Made from | Missing when | Template | State |
 |---|---|---|---|---|---|---|
 | `lead` | Research note | says who decides, how they buy, where the house fits and by which channels to reach them | public sources only: the buyer's plans, its awarded contracts, its transparency portal | — | — | trial |
+| `lead` | Call script | the first minute of a call through the door `call`: who we are and where we found the number, why them (their own published plan), one question, the ask for 20 minutes and for the yes to write; a no ends it (`STD-048`) | the record's Pitch and the research note; the spoken notice of `STD-049` | the record has no door | — | trial |
+| `lead` | Letter | the A4 first-contact sheet, the ask, a phone number and the written notice of `STD-049`, signed, by post (door `letter`) | the record's Pitch; the card | the record has no door | — | trial |
 | `qualified` | First-contact sheet, A4 | wins the first meeting, and only that: the buyer's gap in a headline, what the learner lives in the demo, one checkable study with its limits, what is delivered, the weeks and the payments, the price with and without tax, three questions for the buyer, and one ask — yes or no within a week | the record's header and Pitch; the offer's Packages and its First-contact sheet table; the contact typed at render time | the Pitch lacks a service, an audience, a headline, a lead, a demo, a picture, the evidence or the questions; the offer has no Packages or no First-contact sheet table | `first-contact-sheet.html` | trial |
 | `qualified` | First-contact sheet, mobile | the same sheet in one column, 100 mm wide, with links that can be tapped — for WhatsApp or a phone | as the A4 | as the A4 | `first-contact-sheet-mobile.html` | trial |
-| `qualified` | First-contact e-mail | carries the A4 sheet: one hook in the buyer's own words, the promise, the price, the ask, the date it expires and a P. D. that welcomes a no | the record's header and Pitch; the offer's Packages | the Pitch lacks a subject, a hook, a promise, the ask or the service; the record has no contact channel | `first-contact-email.txt` | trial |
-| `qualified` | Expiry e-mail | sent once, the day after the week ends with no answer: asks the buyer to confirm the no, so the sale closes either way | the record's Pitch; the day the sheet was sent | the Pitch lacks a subject | `expiry-email.txt` | trial |
+| `qualified` | First-contact e-mail | carries the A4 sheet: one hook in the buyer's own words, the promise, the price, the ask, the date it expires and a P. D. that welcomes a no | the record's header and Pitch; the offer's Packages | the Pitch lacks a subject, a hook, a promise, the ask or the service; the record has no contact channel; the record's door is not `published`, `asked`, `inbound` or `former-client` — an e-mail waits for a yes, and the kit refuses it (`STD-048` CLD-002) | `first-contact-email.txt` | trial |
+| `qualified` | Expiry e-mail | sent once, the day after the week ends with no answer: asks the buyer to confirm the no, so the sale closes either way | the record's Pitch; the day the sheet was sent | the Pitch lacks a subject; the record's door does not let an e-mail through (`STD-048` CLD-002) | `expiry-email.txt` | trial |
 | `qualified` | First-contact deck | asked for a first meeting in four pages; the one-page sheet replaced it on 8 October 2026 | the record's Pitch and Where it fits | — | — | retired |
 | `qualified` | Ninety-second video | the demonstration walked in ninety seconds, for the follow-up | the offer's earlier case and its demonstration | no demonstration address | — | trial |
 | `analysed` | First-meeting script | what to show, and the questions the needs analysis must leave answered | the record's Need and `PRO-029` step 1 | — | — | trial |
@@ -84,6 +86,11 @@ The Oracle's rules of 8 October 2026, for every first contact of a sale:
    to PDF under the client's file name, without accents, date or plate.
 7. **Evidence the buyer can open.** One primary study, its DOI printed and
    its limits shown; nothing read only in someone else's summary.
+8. **Through a door.** The sheet travels by e-mail or a messaging app only
+   when the record's door lets one through — `published`, `asked`,
+   `inbound`, `former-client`; otherwise it is handed over in person or sent
+   by post, and the call that comes first asks for the yes to send it
+   (`STD-048`). Every e-mail carries who sends it and how to stop.
 
 Why: the aim is a short decision, not a long courtship. Jim Camp's
 *Start with No* (2002) holds that giving the other side the right to say
@@ -128,3 +135,4 @@ each stage *sales enablement*; the stages are this house's own (`STD-038`).
 | `PRO-030` | Closing a sale | the follow-up, the expiry and the no |
 | `OPS-018` | The house's card | what the house holds, and who may be named |
 | `PRI-009` | The archive is the organisation | why a piece is made from the records and not from memory |
+| `STD-048` | Reaching someone who did not ask | the doors a first contact may go through |

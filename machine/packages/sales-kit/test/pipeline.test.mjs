@@ -187,7 +187,7 @@ check('--json is the figures\' contract: its keys, records sorted by id, stages 
   assert.deepEqual(Object.keys(f), ['today', 'kinds', 'steps', 'records', 'due', 'funnel', 'byKind', 'reasons', 'daysPerStage', 'card', 'ceiling', 'overdue', 'stale']);
   assert.deepEqual(Object.keys(f.records[0]), ['id', 'kind', 'title', 'organisation', 'sector', 'source', 'operation', 'line', 'offer', 'value', 'currency', 'pays', 'advance',
     'stage', 'open', 'opened', 'closed', 'reason', 'next', 'overdue', 'stale', 'events', 'steps', 'chance', 'fits', 'doneBefore', 'criteria',
-    'call', 'closes', 'opens', 'estimated', 'procedure', 'instrument', 'file_ref', 'gives_back', 'follows']);
+    'call', 'closes', 'opens', 'estimated', 'procedure', 'instrument', 'file_ref', 'gives_back', 'follows', 'web', 'contact_email']);
   assert.deepEqual(f.records.map((x) => [x.id, x.kind, x.stage, x.open]), [
     ['OPP-2099-001', 'sale', 'won', false], ['OPP-2099-002', 'sale', 'proposed', true], ['OPP-2099-003', 'tender', 'filed', true],
     ['OPP-2099-004', 'grant', 'applied', true], ['OPP-2099-005', 'collaboration', 'won', false], ['OPP-2099-006', 'partner', 'talking', true],
@@ -382,6 +382,41 @@ check('OPP-006: a name in the header is refused', (dir) => {
 check('OPP-006: an e-mail address anywhere in a record is refused — the record is public', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up to head.training@example.org, no answer.'));
   assert.match(run(dir).err, /OPP-006.*e-mail address/);
+});
+
+check('OPP-017: a named organisation\'s public mailbox and page pass, in their own fields', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Logística Ejemplo"\ndisclosure: "open"\nweb: "https://logistica.example/formacion"\ncontact_email: "formacion@logistica.example"'));
+  const r = run(dir);
+  assert.doesNotMatch(r.err, /OPP-017|OPP-006/, r.err);
+});
+
+check('OPP-017: an organisation still a sector and a size carries no mailbox — it would name it', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('contact_role:', 'contact_email: "formacion@logistica.example"\ncontact_role:'));
+  assert.match(run(dir).err, /OPP-017.*`contact_email` on a record whose organisation is still a sector and a size/);
+});
+
+check('OPP-017: a mailbox that reads as a person\'s is refused, even in its field', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Logística Ejemplo"\ndisclosure: "open"\nweb: "https://logistica.example"\ncontact_email: "maria.lopez@logistica.example"'));
+  assert.match(run(dir).err, /OPP-006.*contact_email "maria\.lopez@logistica\.example" reads as a person's mailbox/);
+});
+
+check('OPP-017: an open named organisation needs its page and its mailbox, unless it takes contact by a form', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Logística Ejemplo"\ndisclosure: "open"').replace(/contact_channel: "\w+"/, 'contact_channel: "email"'));
+  const err = run(dir).err;
+  assert.match(err, /OPP-017.*no `web`/);
+  assert.match(err, /OPP-017.*no `contact_email`/);
+});
+
+check('OPP-018: an e-mail first contact needs a door that lets it — a call, a letter or a meeting otherwise', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('door: "inbound"', 'door: "call"'));
+  assert.match(run(dir).err, /OPP-018.*contact_channel email through the door `call`/);
+});
+
+check('OPP-018: a door outside the register is refused; an e-mail after a yes passes', (dir) => {
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('door: "inbound"', 'door: "asked"'));
+  assert.doesNotMatch(run(dir).err, /OPP-018/);
+  edit(dir, 'OPP-2099-002.md', (t) => t.replace('door: "asked"', 'door: "cold-mail"'));
+  assert.match(run(dir).err, /OPP-018.*door "cold-mail" is not one of/);
 });
 
 check('OPP-006: a person\'s name in the body is refused, whatever office they hold', (dir) => {

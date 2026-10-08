@@ -45,7 +45,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseFM, personNames, loadCard, DEFAULT_CARD } from './pipeline.mjs';
+import { parseFM, personNames, loadCard, DEFAULT_CARD, EMAIL_DOORS } from './pipeline.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
@@ -65,8 +65,10 @@ export const PIECES = {
   'first-contact-email.txt': {
     file: 'first-contact-email.es.txt', ext: 'txt',
     needs: ['Subject', 'Hook', 'Promise', 'Ask', 'Service', 'packages', 'sheet', 'organisation', 'signature'],
+    /* STD-048 CLD-002: an e-mail goes only through a door that lets it */
+    doors: EMAIL_DOORS,
   },
-  'expiry-email.txt': { file: 'expiry-email.es.txt', ext: 'txt', needs: ['Subject', 'organisation', 'signature'] },
+  'expiry-email.txt': { file: 'expiry-email.es.txt', ext: 'txt', needs: ['Subject', 'organisation', 'signature'], doors: EMAIL_DOORS },
 };
 
 /* How a first contact asks (STD-047): the sheet is valid one week from the day it is sent. */
@@ -178,6 +180,15 @@ export function render(piece, recordText, offerText, opts = {}) {
 
   const prices = pk.filter((x) => /^\d+$/.test(x.price));
   if (uses('packages') && !prices.length) missing.push('Packages');
+  /* STD-048 CLD-002: no e-mail to someone who did not ask — the record's door
+     must be one that lets an e-mail through, or the piece is not made */
+  if (spec.doors && !spec.doors.includes(fm.door)) missing.push(`door (an e-mail waits for a yes: ${spec.doors.join(' · ')} — STD-048)`);
+  const OPENING = {
+    asked: 'Gracias por atenderme. Como me pidió, le envío la información.',
+    published: 'Le escribo en respuesta a lo que han publicado.',
+    inbound: 'Gracias por escribirnos. Le respondo con la información.',
+    'former-client': 'Le escribo como cliente de Numen Games, sobre un servicio parecido al que contrataron.',
+  };
   const first = prices[0];
   const list = (label, cell, item) => {
     const parts = String(cell ?? '').split(' · ').map((x) => x.trim()).filter(Boolean);
@@ -193,6 +204,7 @@ export function render(piece, recordText, offerText, opts = {}) {
     signature: esc(need('signature', opts.signature)),
     subject: field('Subject'),
     greeting: opts.greeting ?? 'Buenos días:',
+    opening: OPENING[fm.door] ?? '[falta: door]',
     sent_dot: dot(sent), sent_long: long(sent), valid_dot: dot(valid), valid_long: long(valid),
     client_file: clientFile,
     attachment: opts.attachment ?? `${clientFile}.pdf`,

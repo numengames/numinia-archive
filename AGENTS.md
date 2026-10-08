@@ -252,8 +252,10 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-043` | A report speaks to the board | draft | every roll-up report of a week, a quarter or a year |
 | `STD-044` | Every purchase ends in thanks | draft | every payment link or checkout of ours, and the page it returns to |
 | `STD-047` | The sales collateral | draft | register — scope belongs to the standard that cites it |
+| `STD-048` | Reaching someone who did not ask | draft | every first contact made in Numen Games' or Numinia's name with an organisation or a person who… |
+| `STD-049` | The doors, by country | draft | register — scope belongs to the standard that cites it |
 
-83 rule documents, of which 18 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 8 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+85 rule documents, of which 18 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 9 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

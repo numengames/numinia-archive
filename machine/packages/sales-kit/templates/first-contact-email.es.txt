@@ -3,11 +3,15 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 First-contact e-mail (STD-047), Spanish rendering: it carries the A4 sheet.
 One reader, short sentences, the price in the open, one question, a P. D.
+Sent only through a door that lets an e-mail through (STD-048 CLD-002);
+it says who sends it and how to stop (CLD-008).
 collateral.mjs removes this block when it renders the piece.
 -->
 Asunto: {{subject}}
 
 {{greeting}}
+
+{{opening}}
 
 {{hook}} {{promise}}
 
@@ -24,3 +28,7 @@ Un saludo,
 P. D.: Si no encaja, decídmelo sin más y lo cerramos. Un no claro nos sirve tanto como un sí.
 
 Adjunto: {{attachment}}
+
+--
+Comunicación comercial de NUMEN GAMES S.L. (CIF B70735949), Calle Chile 10, 28290 Las Rozas de Madrid (España). Si no desea recibir más mensajes nuestros, responda «BAJA» o escriba a legal@numengames.com: lo atenderemos el mismo día y sin coste.
+Protección de datos: responsable NUMEN GAMES S.L., legal@numengames.com. Usamos sus datos de contacto profesional solo para tratar con su organización, por interés legítimo (art. 6.1.f RGPD; art. 19 LOPDGDD), o porque nos pidió esta información. No los cedemos. Puede acceder, rectificar, suprimir u oponerse en legal@numengames.com y reclamar ante la AEPD (www.aepd.es). Más información: https://numen.games/es/legal/privacy

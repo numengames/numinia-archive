@@ -4,11 +4,11 @@ uid: ""
 title: "Sales — commercial strategy"
 type: documentation
 status: active
-version: "1.0.1"
+version: "1.1.0"
 created: "2026-08-17T19:30:52Z"
 created_source: "git:809f717"
 created_confidence: inferred
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-08T13:00:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Sales and partners"
@@ -91,6 +91,22 @@ Based on the 100 simulations and the gap analysis. Combined score: adoption rate
 
 ---
 
+## What the law lets us do — The doors
+
+Every first contact goes through a door the law leaves open, by country:
+*Reaching someone who did not ask* (`STD-048`). In short, in Spain and the
+EU: answer what an organisation published, call like a person, write a
+letter, meet in person, be introduced — and send an e-mail only once they
+say yes, or to a former client. The Lista Robinson is read before calling
+or writing to a person who has not said yes; a no is final. The United
+States has its own rules, kept as a separate table there, and they replace
+Spain's only once a lawyer confirms. Look first for organisations that ask
+to be reached: calls for suppliers, partners, sponsors or speakers, open
+innovation challenges, tenders. Every change to this sales process is
+audited against that page.
+
+---
+
 ## Sales funnel — The target funnel
 
 Conservative projection for the first 12 months. Awareness → client conversion: ~0.9%.
@@ -132,12 +148,12 @@ The entry format. Fixed price, defined deliverables, success criterion agreed be
 
 | # | Deadline | Action | Owner |
 |----|---------|--------|-------|
-| 01 | This week | Blind-exposure protocol: 2 external people, 48h without context. Observe without intervening. | Pablo + free Oracle |
+| 01 | This week | Blind-exposure protocol: 2 external people, 48h without context. Observe without intervening. | the Oracle + a free Oracle |
 | 02 | This week | Confirm ICP #1: technical-startup CEO, 5–15p. List 10 concrete contacts that fit. | Dark Council |
 | 03 | Week 2 | Create the sales deck with 5 concepts maximum. No Numinia in layer 1. | Alquimista-01 |
 | 04 | Week 2 | Define the 3 pilot KPIs the client will measure. Without this there is no success criterion. | Dark Council |
-| 05 | Week 3 | First exploratory conversation with 3 contacts from ICP #1. It is not a demo — it is listening. | Pablo |
-| 06 | Week 4 | If there is a positive signal: formalized pilot proposal. Price, deliverables, criterion. Signature. | Pablo + legal Oracle |
+| 05 | Week 3 | First exploratory conversation with 3 contacts from ICP #1. It is not a demo — it is listening. | the Oracle |
+| 06 | Week 4 | If there is a positive signal: formalized pilot proposal. Price, deliverables, criterion. Signature. | the Oracle + the legal Oracle |
 
 ---
 
@@ -149,4 +165,4 @@ The sequence is: blind validation → confirmed ICP → pilot sold → documente
 
 ---
 
-*Metadata of the original page (`ventas.astro`), translated: HTML title «NWOS — Sales Strategy — Pablo FM» · description «Narrative Work OS sales guide for the Numen Games Oracles. ICP, funnel, blockers and pilot plan.» · canonical route `/ventas` · hero label «NWOS — Ventas».*
+*Metadata of the original page (`ventas.astro`), translated: HTML title «NWOS — Sales Strategy» · description «Narrative Work OS sales guide for the Numen Games Oracles. ICP, funnel, blockers and pilot plan.» · canonical route `/ventas` · hero label «NWOS — Ventas».*
