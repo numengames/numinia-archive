@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19480,
+  "chars": 19717,
   "apparatus": false,
   "archived": false,
-  "tokens": 4856
+  "tokens": 4920
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 38472,
+  "chars": 38696,
   "apparatus": false,
   "archived": false,
-  "tokens": 11143
+  "tokens": 11215
  },
  {
   "path": "CLAUDE.md",
@@ -2981,15 +2981,125 @@
   "tokens": 1939
  },
  {
+  "path": "stakeholders/README.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "meta",
+  "status": "draft",
+  "chars": 2664,
+  "apparatus": true,
+  "archived": false,
+  "tokens": 724
+ },
+ {
+  "path": "stakeholders/active-inference-institute.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1468,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 381
+ },
+ {
+  "path": "stakeholders/adigital.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1297,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 349
+ },
+ {
+  "path": "stakeholders/arcasiles.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1294,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 356
+ },
+ {
+  "path": "stakeholders/city-of-mesa.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1376,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 386
+ },
+ {
+  "path": "stakeholders/codemotion.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1336,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 377
+ },
+ {
+  "path": "stakeholders/commit-conf.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1226,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 353
+ },
+ {
+  "path": "stakeholders/nerdearla.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1360,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 392
+ },
+ {
+  "path": "stakeholders/r3s3t.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1149,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 330
+ },
+ {
+  "path": "stakeholders/tetuan-valley.md",
+  "dir": "stakeholders",
+  "series": null,
+  "type": "entity",
+  "status": "draft",
+  "chars": 1328,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 363
+ },
+ {
   "path": "standards/STD-001-the-series.md",
   "dir": "standards",
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 6815,
+  "chars": 7046,
   "apparatus": false,
   "archived": false,
-  "tokens": 2052
+  "tokens": 2116
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -3228,10 +3338,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7738,
+  "chars": 7793,
   "apparatus": false,
   "archived": false,
-  "tokens": 1931
+  "tokens": 1948
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
