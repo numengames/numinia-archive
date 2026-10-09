@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-09
+- **Added** `ADR-068` Each thing lives in one place (polyrepo with a single source; legal texts at one address; common CI in the organisation's `.github`; the monorepo question goes to a trial) and `SYS-013` The repositories, as wired; `SYS-001` retired, redirected there (site v0.158.0)
+
 ### 2026-10-08
 - **Changed** Kairos's card, the playbook and `PRO-035` 0.2.1's summary: the watch keeps only what the house can take alone (site v0.157.0).
 - **Changed** The watch brings only what the house can take alone: `PRO-035` 0.2.0 (drop at sight what needs a partner, staff or solvency it lacks, or starts within five weeks), `STD-038` 0.12.0 (a low verdict leaves the feed), `OPS-018` 0.7.0 (event production, advertising, generic software out).
