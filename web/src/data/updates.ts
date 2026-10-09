@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.160.0",
+    date: "2026-10-09",
+    entries: [
+      { type: "ADD", text: "ADR-069: each 3D world has a card in the archive, an order the servers read and keys only on its server; public and private worlds never share a fleet. MIS-156 brings up the first public world." },
+    ],
+  },
+  {
     version: "v0.159.0",
     date: "2026-10-09",
     entries: [
