@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-09
+- **Added** `MIS-157`: numinia.com's sign-in, sessions, ranks and bans follow published standards (OWASP ASVS, NIST, EIP-4361), selected in an ADR before any code; the site's code keeps `STD-003`, whose four breaches it lists; the automatic rank ladder goes to debt.
 - **Changed** `ADR-069`: a 3D world has a card in `objects/`, an order the servers read and keys only on its server; public and private worlds never share a fleet; the first public fleet lives in numinia-assets for its trial. `MIS-156` builds it; `SYS-013` 0.2.0.
 - **Changed** The archive's secret scan, workflow lint, dependency audit, night watch and Dependabot auto-merge call the shared workflows in `numengames/.github`, pinned by commit; the register check and the tests hold each caller to it (`STD-015` ARC-011); `STD-022` 2.1.1, `STD-005` 4.1.1.
 - **Changed** The rules of `ADR-068`: `STD-037` 1.0.0 (legal texts at one address on numinia.org, no copies), `STD-015` 7.0.0 (common CI called from `.github`, pinned; no hand copy), `STD-017` 3.0.0 (`.github` needs the Oracle), `PRO-027` 0.3.0, `LEG-001`–`004` name their one address (site v0.159.0).
