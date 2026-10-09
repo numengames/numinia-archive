@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.159.0",
+    date: "2026-10-09",
+    entries: [
+      { type: "CHG", text: "The legal texts have one address: STD-037 asks the other three sites to link to the numinia.org pages and keep no copy, and each legal text says it is the single text for the four sites." },
+      { type: "CHG", text: "STD-015 7.0.0: the common checks are called from the organisation's .github repository, pinned by commit, and no shared thing is copied by hand; STD-017 3.0.0: a change there needs the Oracle." },
+    ],
+  },
+  {
     version: "v0.158.0",
     date: "2026-10-09",
     entries: [

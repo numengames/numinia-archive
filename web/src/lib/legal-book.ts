@@ -54,7 +54,7 @@ const CHAPTERS: ChapterSpec[] = [
   {
     id: "what-we-publish",
     title: "What we publish",
-    line: "The four texts every site carries: privacy, terms, cookies and the legal notice.",
+    line: "The four texts every site carries, written once and published here, where the other sites link: privacy, terms, cookies and the legal notice.",
     parts: [
       { path: "legal/LEG-001-privacy-policy-numengames.md" },
       { path: "legal/LEG-002-terms-and-conditions-numengames.md" },

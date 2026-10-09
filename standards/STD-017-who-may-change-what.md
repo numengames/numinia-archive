@@ -5,9 +5,9 @@ title: "Who may change what"
 type: standard
 subtype: standard
 status: draft
-version: "2.2.5"
+version: "3.0.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-09T16:41:32+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
@@ -95,6 +95,13 @@ archive. The archive MAY read a feed and show it, marked unreviewed. A
 finding enters the archive only by a change that someone reviews, which
 promotes it.
 
+**The organisation's shared repository needs the Oracle.** One merge in
+the organisation's `.github` repository changes the checks of every
+repository that calls it. A change there MUST have the Oracle's approval;
+an agent only proposes it, by pull request. Each repository MUST then move
+its pin to the new commit in a reviewed pull request of its own, so no
+repository's checks change without a review in that repository.
+
 **No agent edits its own identity.** The information-security standard
 separates conflicting duties, so no one can grant themselves power. The
 Oracle approves the files that say who an agent is and who operates it.
@@ -118,6 +125,7 @@ controls an auditor already looks for.
 | AUT-008 | Finished work keeps its claims | [ISO 15489-1:2016, integrity, clause 5.2.2](https://www.iso.org/standard/62542.html) (clause unverified) · [Nygard, documenting architecture decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions): supersede, do not edit | by hand |
 | AUT-065 | Rank sets the reach | [ISO 30301:2019, roles, responsibilities and authorities, clause 5.3](https://www.iso.org/standard/74292.html) (clause unverified); the ranks are ours; holds deprecated ENG-034 (three layers) and VER-064 (who moves which version number) | by hand — an author's rank is read, not parsed |
 | AUT-069 | Automation writes to its feed, not to the archive | [ISO 15489-1:2016, integrity, clause 5.2.2](https://www.iso.org/standard/62542.html) (clause unverified) · [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) · the raw, validated and curated layers of data practice ([Databricks, medallion architecture](https://www.databricks.com/glossary/medallion-architecture)) · [Willison, git scraping](https://simonwillison.net/2020/Oct/9/git-scraping/) | by hand — the archive's branch protection refuses a direct write; reading a feed, `web/src/lib/feed.ts` drops what reads as a person's name or has closed and shows the rest marked unreviewed; the watch that writes one is `PRO-035` |
+| AUT-070 | The organisation's shared repository needs the Oracle | [ISO/IEC 27001:2022, change management, control A.8.32](https://www.iso.org/standard/27001) (clause unverified); [GitHub, reusing workflows](https://docs.github.com/en/actions/sharing-automations/reusing-workflows): a caller pinned by commit runs that commit; the Oracle as approver is ours (`ADR-068`) | by hand — the Oracle's approval on the pull request in the shared repository is the record; a ruleset there requiring it is not wired. Each repository's pin is a line of its callers, which this archive's register check reads for a full commit |
 | AUT-067 | No agent edits its own identity | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified): conflicting duties shall be segregated | by hand — a code-owners file could decide it; not wired |
 | AUT-010 | In doubt, stop | — | by hand — an act not taken leaves no trace |
 
@@ -137,6 +145,8 @@ The five approval levels, and what a change to each takes:
 | a change | a pull request |
 | the repository's protection | branch protection on `main` |
 | the files that say who an agent is and who operates it | `SOUL.md` and `OPERATOR.md` |
+| the organisation's `.github` repository | `numengames/.github`: the common CI as reusable workflows and the default community files (`SYS-013`) |
+| its pin | the commit after `@` in each caller's `uses:` line |
 | the feed of the part it serves | a public repository named after its part with `-feed` (the archive's: `numinia-archive-feed`) |
 
 ## Why

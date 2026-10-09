@@ -6,11 +6,11 @@ uid: ""
 title: "Terms and Conditions — Numen Games"
 type: legal
 status: active
-version: "1.0.3"
+version: "1.0.4"
 created: "2026-08-17T14:34:34Z"
 created_source: "git:54f7b0b"
 created_confidence: inferred
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-09T16:41:32+02:00"
 author: "oracle"
 owner: "oracle"
 section: "Legal and compliance"
@@ -43,6 +43,9 @@ SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
 > **Epistemic:** What binds a business before and around a signed agreement; visitors are covered by the Legal Notice.
 > **Pragmatic:** Read it before requesting a demo or a proposal; a signed agreement prevails over it.
 > **Audience:** Businesses
+
+This is the single text for the four sites. It is published on
+numinia.org, and numen.games, numinia.com and nwos.numen.games link to it.
 
 ---
 

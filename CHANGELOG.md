@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-09
+- **Changed** The rules of `ADR-068`: `STD-037` 1.0.0 (legal texts at one address on numinia.org, no copies), `STD-015` 7.0.0 (common CI called from `.github`, pinned; no hand copy), `STD-017` 3.0.0 (`.github` needs the Oracle), `PRO-027` 0.3.0, `LEG-001`–`004` name their one address (site v0.159.0).
 - **Added** `ADR-068` Each thing lives in one place (polyrepo with a single source; legal texts at one address; common CI in the organisation's `.github`; the monorepo question goes to a trial) and `SYS-013` The repositories, as wired; `SYS-001` retired, redirected there (site v0.158.0)
 
 ### 2026-10-08
