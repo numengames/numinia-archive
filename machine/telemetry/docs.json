@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 40488,
+  "chars": 40752,
   "apparatus": false,
   "archived": false,
-  "tokens": 11801
+  "tokens": 11878
  },
  {
   "path": "CLAUDE.md",
@@ -801,6 +801,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2393
+ },
+ {
+  "path": "decisions/ADR-069-a-world-has-a-card-an-order-and-a-key-each-in-its-place.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 8477,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2081
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -1846,6 +1857,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 844
+ },
+ {
+  "path": "missions/MIS-0156-first-public-world.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4172,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1158
  },
  {
   "path": "objects/CHECK.md",
@@ -3558,10 +3580,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 9196,
+  "chars": 9649,
   "apparatus": false,
   "archived": false,
-  "tokens": 2424
+  "tokens": 2535
  },
  {
   "path": "system/semantic-census/artefact-lap.md",
