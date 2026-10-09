@@ -28,7 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > footer, presents itself when a link to it is shared, and serves day and
 > night with the same switch.
 > **Epistemic:** What does every one of our sites carry?
-> **Pragmatic:** Check a new or changed site against three rules before it
+> **Pragmatic:** Check a new or changed site against its rules before it
 > goes out.
 > **Audience:** Agents · Oracles
 
