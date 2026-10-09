@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 40752,
+  "chars": 41019,
   "apparatus": false,
   "archived": false,
-  "tokens": 11878
+  "tokens": 11951
  },
  {
   "path": "CLAUDE.md",
@@ -1868,6 +1868,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1158
+ },
+ {
+  "path": "missions/MIS-0157-identity-and-ranks-by-the-standards.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 8424,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2220
  },
  {
   "path": "objects/CHECK.md",
