@@ -5,11 +5,11 @@ uid: ""
 type: standard
 subtype: standard
 status: active
-version: "4.1.0"
+version: "4.1.1"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-10-04T10:20:00+02:00"
+updated: "2026-10-09T16:41:32+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -122,7 +122,7 @@ says whether the change under review is wrong. Checks come in two kinds:
 | `machine/scripts/check-version-bump.mjs` | refuses a change to a site that does not raise its version; only its two path settings differ |
 | `web/scripts/share-card.mjs` | draws the card shown when a link is shared |
 | `.github/dependabot.yml` | asks for dependency updates |
-| `.github/workflows/dependabot-auto-merge.yml` | merges those updates once the checks pass |
+| `.github/workflows/dependabot-auto-merge.yml` | merges those updates once the checks pass; a caller of the shared job in `numengames/.github`, pinned by commit (`STD-015` ARC-011) |
 | `.github/workflows/scorecard.yml` | runs the weekly security score |
 
 ## Check

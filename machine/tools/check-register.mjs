@@ -51,6 +51,11 @@
  * A guard is discovered through machine/scripts/blind-spots.json, so a rule file that
  * no registry entry names never runs, and the run is green for not looking.
  *
+ * The common jobs (secret scan, workflow lint, dependency audit, night watch,
+ * Dependabot auto-merge) live once, in the organisation's `.github`
+ * repository: each workflow file here for one of them must be a caller of
+ * the shared job, pinned to a full commit, with no steps of its own.
+ *
  *   node machine/tools/check-register.mjs            local rows only (CI runs this)
  *   node machine/tools/check-register.mjs --github   also the GitHub settings rows
  *   node machine/tools/check-register.mjs --list     print the register as parsed
@@ -74,7 +79,7 @@ import { execute, isMain } from '../checks/lib/guard.mjs';
    plate, so it bites by the register's state, not by STD-005's. */
 export const meta = {
   family: 'ENG',
-  plates: ['ENG-002', 'ENG-031', 'ENG-032', 'SEC-010', 'TRC-002', 'TRC-005', 'AGT-001', 'OSS-001', 'OSS-002', 'DEV-003'],
+  plates: ['ENG-002', 'ENG-031', 'ENG-032', 'SEC-010', 'TRC-002', 'TRC-005', 'AGT-001', 'OSS-001', 'OSS-002', 'DEV-003', 'ARC-011'],
 };
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -271,6 +276,41 @@ function checkSelfCount(text, rows, problems) {
     problems.push(`summary: says ${m[1]} practices, table has ${rows.length}`);
 }
 
+/* ARC-011: the common jobs live once, in the organisation's `.github`
+   repository, and this repository only calls them. Each caller must name
+   the shared workflow for its own job, pinned to a full commit — a tag or a
+   branch moves under the caller without a review here — and must run no
+   steps of its own: a caller with steps beside the call is a hand copy
+   again. Whether the pinned commit exists or was merged there is not read:
+   that needs the network, and the workflow run itself fails on a bad ref. */
+export const SHARED_JOBS = ['secrets', 'workflow-lint', 'audit', 'monitor', 'dependabot-auto-merge'];
+const SHARED_HOME = 'numengames/.github/.github/workflows/';
+
+export function callerProblems(job, text) {
+  const want = `${SHARED_HOME}${job}.yml@`;
+  const call = [...text.matchAll(/^\s*uses:\s*(\S+)/gm)].map((m) => m[1]).find((u) => u.startsWith(want));
+  if (!call) return [`does not call the shared ${job} job (looked for \`uses: ${want}<commit>\`)`];
+  const problems = [];
+  const ref = call.slice(want.length);
+  if (!/^[0-9a-f]{40}$/.test(ref))
+    problems.push(`calls the shared ${job} job at "${ref}", not a full commit — pin it to the merged commit of numengames/.github`);
+  if (/^\s*(runs-on|steps):/m.test(text))
+    problems.push('runs steps of its own beside the call — a hand copy of the shared job');
+  return problems;
+}
+
+function checkSharedCallers(problems) {
+  for (const job of SHARED_JOBS) {
+    const rel = `.github/workflows/${job}.yml`;
+    if (!tracked.has(rel)) {
+      problems.push(`ARC-011: ${rel} is missing — the shared ${job} job is called from nowhere`);
+      continue;
+    }
+    for (const p of callerProblems(job, readFileSync(path.join(ROOT, rel), 'utf8')))
+      problems.push(`ARC-011: ${rel} ${p}`);
+  }
+}
+
 // ── run ──────────────────────────────────────────────────────────────────────
 
 /* The guard contract: read, return findings, judge nothing. Every problem
@@ -301,6 +341,7 @@ export function run() {
 
   checkSelfCount(text, rows, rowProblems);
   checkPresence(presence);
+  checkSharedCallers(presence);
   checkGuardDiscovery(discovery);
   checkPipelineInvokes(pipeline);
 

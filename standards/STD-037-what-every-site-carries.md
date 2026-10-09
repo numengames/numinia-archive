@@ -5,15 +5,15 @@ title: "What every site carries"
 type: standard
 subtype: standard
 status: draft
-version: "0.6.0"
+version: "1.0.0"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-04T12:00:00+02:00"
+updated: "2026-10-09T16:41:32+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 license: "CC0-1.0"
 tags: [standards, web, footer, share-card, modes, sites]
-related: ["STD-008", "STD-023", "STD-034", "STD-035", "DES-009", "LEG-003"]
+related: ["STD-008", "STD-023", "STD-034", "STD-035", "DES-009", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "ADR-068", "SYS-013"]
 derived_from: "PRI-008"
 ---
 
@@ -28,7 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > footer, presents itself when a link to it is shared, and serves day and
 > night with the same switch.
 > **Epistemic:** What does every one of our sites carry?
-> **Pragmatic:** Check a new or changed site against three rules before it
+> **Pragmatic:** Check a new or changed site against its rules before it
 > goes out.
 > **Audience:** Agents · Oracles
 
@@ -40,8 +40,7 @@ numinia.com, numen.games and nwos.numen.games.
 **One house, one footer.** Every public site of Numen Games MUST close with
 the house footer the design values lay out. It holds the site's written
 name and its line, its navigation, a column naming the four sites with this
-one marked, the legal texts published for the site, and its social
-accounts. Under the site's line, a button invites people to back Numinia in
+one marked, links to the legal texts, and its social accounts. Under the site's line, a button invites people to back Numinia in
 plain sight and leads to the page that sells it. The closing line comes
 last: the scarab, our signature, and the licence, telemetry, version and
 commit. There is no copyright notice. The
@@ -49,6 +48,13 @@ version opens the updates page, and its minor number moves with every
 release; this is a house rule, not semantic versioning. The legal texts
 include a notice giving every visitor the company's name, address, registry
 entry and tax number, as Spanish law on online services requires.
+
+**The legal texts have one address.** The privacy policy, the terms, the
+cookie policy and the legal notice are written once, in this archive, and
+published on numinia.org. numinia.com, numen.games and nwos.numen.games
+MUST link to those pages from their footer and MUST NOT keep a copy of
+any of them. A copy drifts from its original, and a visitor who reads the
+wrong one is held to a text that is no longer ours.
 
 **A link presents itself.** Every public site MUST carry the scarab as its
 icon, a title of its own on every page, and the four open graph properties
@@ -79,6 +85,7 @@ laid out, and the exact values. **Law** marks what a statute requires.
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | SIT-001 | One house, one footer | [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 10 — **law**: the provider's identity reachable from every site; the version rule is ours and is not SemVer | `check-version-bump` in each site's CI, all four; the legal notice by hand |
+| SIT-005 | The legal texts have one address | `ADR-068`, point 3; the address on numinia.org is ours | by hand: open each footer's legal links and search each site's code for a local legal text; a check is owed — a site build that fails when it finds a local copy of a legal text |
 | SIT-002 | A link presents itself | [Open Graph protocol](https://ogp.me/): `og:title`, `og:type`, `og:image`, `og:url` required; WCAG 2.2 SC 2.4.2 Page Titled (A); [HTML `rel=icon`](https://html.spec.whatwg.org/multipage/links.html#rel-icon); scarab and 1200 × 630 card ours | `share-card --check` in each site's CI, all four: card size, icon, title, description and image; `og:type` and `og:url` not checked |
 | SIT-003 | Day and night on every site | [Media Queries 5, `prefers-color-scheme`](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme); [WAI-ARIA APG button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/) | Playwright on numinia.com only (`preferences.spec.ts`): the switch exists, a tap swaps mode and icon, a reload keeps the choice |
 | SIT-004 | The epitaph at the foot | The words: the manifesto in `PRI-002`; [WAI-ARIA APG tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and WCAG 2.2 SC 1.4.13 Content on Hover or Focus (AA) | by hand on the four sites: hover, focus, tap and Escape |
@@ -107,7 +114,7 @@ a day.
 | Back button | The Phosphor coffee cup and *Back Numinia* in the site's language (*Apoya Numinia* in Spanish), outlined in the accent, under the line; leads to numinia.com/back, the only page that sells backing (`OPS-014`). Opens in a new tab from the other three sites. numinia.com/support is the help page (`OPS-021`), not this |
 | Navigation | The site's primary routes; two columns from five entries, reading down the first column then the second |
 | Numen Games column | The four sites, in the order of the share-card table, this one marked «you are here» and not linked |
-| Legal | Only texts published for this site's scope; none invented |
+| Legal | Links to the four legal texts on numinia.org (`LEG-001` to `LEG-004`); numinia.org shows its own pages; no site keeps a local copy; none invented |
 | Social | Company accounts only; a missing account is a missing entry, never a personal one |
 | Signature | `by Numen Games — we build for a better future.` in English on every site; `Numen Games` opens numen.games in a new tab |
 | Build line | `licence · telemetry · vX.Y.Z · sha` — licence opens the repository's `REUSE.toml`; version opens `/updates`; sha opens the commit |
@@ -167,3 +174,5 @@ visitor who learns one knows the other three.
 | `STD-023` | Design values | the colours, type and sky the footer and the card use |
 | `DES-009` | Web pieces | the mode switch, drawn |
 | `LEG-003` | Cookie Policy — Numen Games | the name under which the mode is remembered |
+| `ADR-068` | Each thing lives in one place | why the legal texts have one address |
+| `SYS-013` | The repositories, as wired | the legal copies still standing, as debt |

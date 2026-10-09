@@ -5,9 +5,9 @@ title: "The repositories, as wired"
 type: documentation
 subtype: reference
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-09T16:01:15+02:00"
-updated: "2026-10-09T16:01:15+02:00"
+updated: "2026-10-09T16:48:47+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -73,7 +73,7 @@ not read from the repository itself.
 | **numinia-k8s** | The earlier AWS infrastructure (EKS), paused for cost | to confirm | public | AGPL-3.0 | none while paused | kept as it is; last push in July |
 | **numinia-terragrunt** | The earlier AWS infrastructure as code | to confirm | public | GPL-3.0 | none while paused | kept as it is; last push in July |
 | **alchemists-tower** | The back office that managed worlds on the earlier infrastructure | to confirm | public | GPL-3.0 | none while paused | kept as it is; last push in September |
-| **.github** (organisation) | The common CI as reusable workflows, and the default community files (the pull request template) | to be set by `STD-017` | public | workflows MIT, README and pull request template CC0-1.0 | every repository of the organisation | **not wired** — the cut that moves the common workflows out of the four site repositories (`ADR-068`) |
+| **.github** (organisation) | The common CI as reusable workflows (secrets, workflow-lint, audit, monitor, dependabot-auto-merge), and the default community files (the pull request template) | Oracles and agents by pull request; a merge needs the Oracle's approval (`STD-017` AUT-070) | public | workflows MIT, README and pull request template CC0-1.0 | every repository of the organisation, each calling it pinned by commit | wired on 2026-10-09: numengames/.github #1; the four site repositories call it |
 | **3D worlds fleet** | — | — | — | — | — | **not wired**; open questions in `ADR-068` |
 
 ### How a shared thing flows
@@ -91,7 +91,7 @@ The copies that still exist today, as known debt:
 |---|---|---|---|
 | The legal texts | `LEG-001` to `LEG-004`, in this archive | numinia-web, numengames-web, nwos-deploy, each with its own copy | `LEG-001` is 2.2.0 here and 2.1.0 in all three copies (2026-10-09) |
 | The design kit | the design-kit package in this archive, 6.4.0 | numinia-web pins the design standard v5.0.0, a document deleted on 2026-08-24, and vendors its stylesheet and script; numengames-web keeps a tokens stylesheet of its own | both copies are behind the package; nwos-deploy installs the kit instead (6.0.0, from a release of this archive) |
-| The common CI workflows | none yet: the organisation's `.github` repository is not wired | four hand-copied versions, one per site repository | different action pins — the OpenSSF Scorecard action at v2.4.2 here and v2.4.4 in the three sites |
+| The pull request template | the organisation default in numengames/.github | this archive keeps its own copy, because its site reads it to show the house templates | none yet; the copy goes when the site reads the organisation's file |
 | The lore read by path | the game's texts in this archive's `lore/`, and one operations record | numinia-web's lore fetch script reads 25 archive paths from main on every deploy | not a copy, but tied to paths: a moved file fails or silently stales numinia.com's deploy |
 
 ---

@@ -6,9 +6,9 @@ uid: ""
 title: "Cookie Policy — Numen Games"
 type: legal
 status: draft
-version: "2.1.3"
+version: "2.1.4"
 created: "2026-09-18T17:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-09T16:41:32+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -60,6 +60,8 @@ SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
 > **Audience:** Visitors
 
 **Applies to:** numen.games · numinia.com · numinia.org · nwos.numen.games.
+This is the single text for the four sites. It is published on
+numinia.org, and numen.games, numinia.com and nwos.numen.games link to it.
 
 ## 1. Who we are
 

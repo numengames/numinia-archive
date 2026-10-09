@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: standard
 subtype: register
 status: draft
-version: "6.2.0"
+version: "7.0.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-07T19:43:30+02:00"
+updated: "2026-10-09T16:41:32+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 59 practices every repository of ours keeps, grouped by
+> **Summary:** The 61 practices every repository of ours keeps, grouped by
 > what they protect, each with its level and its check. A practice checked by
 > hand is debt. A row marked as owed was once called automatic, and nothing
 > runs it.
@@ -35,7 +35,7 @@ SPDX-License-Identifier: CC0-1.0
 | Security | SEC-001 | Two-factor authentication required of every member, set at organisation level | MUST | `[AUTO: github orgs/numengames]` |
 | Security | SEC-002 | Secret scanning and push protection on every repository | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
 | Security | SEC-003 | Dependabot alerts and security updates on; merge only on green CI | MUST | `[AUTO: github repos/numengames/numinia-archive/dependabot/alerts]` |
-| Security | SEC-004 | The secrets rule applied (KEY-054): no secret in the tree or in any commit of its history, found by a full-history secret scan (gitleaks); secrets live in GitHub Environments scoped `pre`/`prod` | MUST | `[AUTO: .github/workflows/secrets.yml]` |
+| Security | SEC-004 | The secrets rule applied (KEY-054): no secret in the tree or in any commit of its history, found by a full-history secret scan (gitleaks); secrets live in GitHub Environments scoped `pre`/`prod` | MUST | `[AUTO: .github/workflows/secrets.yml]` — a caller of the shared job in `numengames/.github`, pinned by commit |
 | Security | SEC-005 | Cloud deploy auth via OIDC, no long-lived tokens | MUST | `[DEBT: no Terraform in the tree, no OIDC policy to read — oracle, 2026-09-11]` |
 | Security | SEC-006 | Personal access tokens fine-grained, minimum scope, expiring, one per purpose | MUST | `[AUTO: github orgs/numengames]` |
 | Security | SEC-007 | Third-party Actions pinned by commit SHA | MUST | `[AUTO: scorecard Pinned-Dependencies]` |
@@ -48,8 +48,8 @@ SPDX-License-Identifier: CC0-1.0
 | Security | SEC-014 | Migrate in order: a repository that already exists adopts the security score first, then the check that required files are present, then the full pipeline — measure first, then tighten | SHOULD | `[DEBT: no check reads the order a repository adopted its checks in — oracle, 2026-09-26]` |
 | Security | SEC-015 | A route that fetches an address taken from the request accepts only the hosts it names, and never re-serves an executable content type (HTML, SVG, JavaScript) under our domain (OWASP Top 10 A10, server-side request forgery) | MUST | `[DEBT: no check reads the routes of a site; found by hand through PRO-034 — oracle, 2026-10-02]` |
 | Security | SEC-016 | The code is scanned for known kinds of weakness on every change and every week (CodeQL default setup) | MUST | `[AUTO: github repos/numengames/numinia-archive/code-scanning/default-setup]` |
-| Security | SEC-017 | A change to a workflow is read for script injection and unsafe triggers before it merges (actionlint, zizmor) | MUST | `[AUTO: .github/workflows/workflow-lint.yml]` |
-| Security | SEC-018 | A change that brings in a production dependency with a known high or critical weakness says so before it merges | MUST | `[AUTO: .github/workflows/audit.yml]` |
+| Security | SEC-017 | A change to a workflow is read for script injection and unsafe triggers before it merges (actionlint, zizmor) | MUST | `[AUTO: .github/workflows/workflow-lint.yml]` — a caller of the shared job in `numengames/.github`, pinned by commit |
+| Security | SEC-018 | A change that brings in a production dependency with a known high or critical weakness says so before it merges | MUST | `[AUTO: .github/workflows/audit.yml]` — a caller of the shared job in `numengames/.github`, pinned by commit |
 | Architecture | ARC-001 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[AUTO: .github/workflows/ci.yml]` |
 | Architecture | ARC-002 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: scorecard Branch-Protection]` |
 | Architecture | ARC-004 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[DEBT: no smoke script, no CI or coverage badge in README.md — oracle, 2026-09-11]` |
@@ -58,6 +58,8 @@ SPDX-License-Identifier: CC0-1.0
 | Architecture | ARC-007 | Infrastructure declarative only: Terraform and containers | MUST | `[DEBT: no Terraform in the tree, no drift detection — oracle, 2026-09-11]` |
 | Architecture | ARC-008 | Shared base config (tsconfig, eslint, prettier) imported from one package, never copied | MUST | `[DEBT: no knip and no shared base config package — oracle, 2026-09-11]` |
 | Architecture | ARC-009 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[GATE: github repos/numengames/numinia-archive/dependabot/alerts → a person adopts the dependency]` |
+| Architecture | ARC-011 | The common jobs — secret scan, workflow lint, dependency audit, night watch, Dependabot auto-merge — run as reusable workflows called from the organisation repository `numengames/.github`, pinned by commit; a repository keeps a workflow of its own only for a job specific to it (build, deploy, Scorecard) | MUST | `[AUTO: machine/tools/check-register.mjs]` |
+| Architecture | ARC-012 | No hand copy of a shared thing: every fact, text or piece of machinery shared between repositories has one original, and a consumer links to it or installs it; a copy still standing is debt listed in `SYS-013` | MUST | `[DEBT: no scan fails when a consumer holds a copy of an original listed in SYS-013 — oracle, 2026-10-09]` |
 | Traceability | TRC-001 | Repository "About" complete: description, website, topics | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
 | Traceability | TRC-002 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[DEBT: no label-sync workflow — oracle, 2026-09-11]` |
@@ -78,7 +80,7 @@ SPDX-License-Identifier: CC0-1.0
 | Operations | SRE-004 | Runbook per service: deploy, rollback, common failures | MUST | `[DEBT: no runbook for the deployed service — oracle, 2026-09-11]` |
 | Operations | SRE-005 | Deploy reproducible from a clean clone | MUST | `[DEBT: CI builds but never deploys from a clean clone — oracle, 2026-09-11]` |
 | Operations | SRE-007 | Incidents produce rules, not culprits: which events call for a written review is decided before any happens, and each review says what happened, what it cost and what changes, never who is at fault; an incident brings in a new practice only through a written decision (Google SRE book, ch. 15) | MUST | `[DEBT: the triggers are not written down, and no template in .github/ asks for a postmortem — oracle, 2026-09-26]` |
-| Operations | SRE-008 | Every public site is probed from outside on a schedule: a failure opens an issue, and the next good probe closes it | MUST | `[AUTO: .github/workflows/monitor.yml]` |
+| Operations | SRE-008 | Every public site is probed from outside on a schedule: a failure opens an issue, and the next good probe closes it | MUST | `[AUTO: .github/workflows/monitor.yml]` — a caller of the shared job in `numengames/.github`, pinned by commit |
 | Community | OSS-001 | `CONTRIBUTING.md` a stranger can follow | MUST (public) | `[GATE: machine/tools/check-register.mjs → a reviewer reads it as a stranger would]` |
 | Community | OSS-002 | Code of conduct at the root: the Contributor Covenant, as the community conduct standard applies it | MUST (public) | `[AUTO: machine/tools/check-register.mjs]` |
 | Community | OSS-004 | Issue triage cadence declared, and most issues opened in the last two to twelve months answered (OpenSSF Best Practices Badge, report_responses) | SHOULD | `[DEBT: triage cadence is declared nowhere a machine can read — oracle, 2026-09-11]` |
@@ -109,7 +111,8 @@ public repository, with each repository saying which of its checks apply;
 the shared pipeline of the engineering baseline, where too little test coverage is a failure and every
 file's licence is checked; scans for leaked secrets, for weaknesses in the
 code and the workflows, and for dependencies with a known weakness; for a
-site, a probe from outside; one step that checks the required files are
+site, a probe from outside — each of these called from the organisation's
+`.github` repository, never copied; one step that checks the required files are
 present — the agent instructions, the security policy, the contribution
 guide, the list of owners, the templates, the example settings and the
 repository's description; and local hooks that are a courtesy, may be

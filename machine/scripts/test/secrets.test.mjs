@@ -44,11 +44,18 @@ test('KEY-057: no environment or key file is tracked', () => {
   assert.deepEqual(found, [], `tracked: ${found.join(', ')}`);
 });
 
+/* The scan itself (gitleaks, the whole history, the checksum-verified
+   binary) lives once, in the organisation's .github repository; this
+   repository keeps the caller that says when it runs, and the allowances
+   only it can judge. */
 test('KEY-054: the full-history secret scan runs on every pull request and on main', () => {
   const wf = read('.github/workflows/secrets.yml');
-  assert.match(wf, /gitleaks/);
+  assert.match(wf, /^\s*uses:\s*numengames\/\.github\/\.github\/workflows\/secrets\.yml@[0-9a-f]{40}\s*$/m, 'the caller does not call the shared secret scan pinned to a full commit');
+  assert.doesNotMatch(wf, /^\s*(runs-on|steps):/m, 'the caller runs steps of its own: a hand copy of the shared scan');
   assert.match(wf, /pull_request/);
-  assert.match(wf, /fetch-depth:\s*0/, 'the scan does not read the whole history');
+  assert.match(wf, /push:\s*\n\s*branches: \[main\]/, 'the scan does not run on pushes to main');
+  assert.match(wf, /schedule:/, 'the scan does not run weekly');
+  assert.ok(tracked.includes('.gitleaks.toml'), 'no .gitleaks.toml: the shared scan has no allowances of this repository to read');
 });
 
 test('KEY-056: the security policy sends a finder to the private channel, never to an open issue', () => {

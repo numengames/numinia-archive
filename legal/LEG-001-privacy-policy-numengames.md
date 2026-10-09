@@ -6,11 +6,11 @@ uid: ""
 title: "Privacy Policy — Numen Games"
 type: legal
 status: active
-version: "2.2.0"
+version: "2.2.1"
 created: "2026-08-17T14:37:43Z"
 created_source: "git:5d7bd39"
 created_confidence: inferred
-updated: "2026-10-08T15:00:00+02:00"
+updated: "2026-10-09T16:41:32+02:00"
 author: "oracle"
 owner: "oracle"
 section: "Legal and compliance"
@@ -62,6 +62,8 @@ SPDX-License-Identifier: LicenseRef-Numen-AllRightsReserved
 > **Audience:** Visitors · Customers
 
 **Applies to:** numen.games · numinia.com · numinia.org · nwos.numen.games.
+This is the single text for the four sites. It is published on
+numinia.org, and numen.games, numinia.com and nwos.numen.games link to it.
 
 ---
 

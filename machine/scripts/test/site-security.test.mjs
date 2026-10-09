@@ -96,6 +96,8 @@ test('the Dependabot auto-merge workflow is read-only except for its job', () =>
   assert.doesNotMatch(top, /write/);
   const job = wf.slice(wf.indexOf('\njobs:'));
   assert.match(job, /\n {4}permissions:\n {6}contents: write\n {6}pull-requests: write\n/);
+  // The job itself lives once, in numengames/.github; this file only calls it.
+  assert.match(job, /\n {4}uses: numengames\/\.github\/\.github\/workflows\/dependabot-auto-merge\.yml@[0-9a-f]{40}\n/, 'the caller does not call the shared auto-merge job pinned to a full commit');
 });
 
 test('the cookie notice lists every key LEG-003 names for numinia.org', () => {
