@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 41019,
+  "chars": 41282,
   "apparatus": false,
   "archived": false,
-  "tokens": 11951
+  "tokens": 12018
  },
  {
   "path": "CLAUDE.md",
@@ -1875,10 +1875,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 8424,
+  "chars": 10658,
   "apparatus": false,
   "archived": false,
-  "tokens": 2220
+  "tokens": 2792
  },
  {
   "path": "objects/CHECK.md",
