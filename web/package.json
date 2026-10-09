@@ -21,7 +21,7 @@
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/geist": "^5.2.8",
     "@fontsource-variable/geist-mono": "^5.2.7",
-    "@radix-ui/react-slot": "^1.2.4",
+    "@radix-ui/react-slot": "^1.4.0",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.5",
     "class-variance-authority": "^0.7.1",
