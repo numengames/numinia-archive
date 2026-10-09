@@ -1,13 +1,10 @@
 # SPDX-FileCopyrightText: 2026 Numen Games S.L.
 # SPDX-License-Identifier: MIT
 #
-# Dependency audit (beside STD-015 SEC-003's Dependabot alerts): the site's production dependencies
-# (web/, the only lockfile in the repository) against the npm advisory
-# database, high severity and above. Seen, not enforced: the verdict goes to
-# the job summary and the job stays green; Dependabot opens the fixes. It is
-# not a required check.
-#
-# Actions are pinned by commit SHA. The token is read-only.
+# Dependency audit (STD-015 SEC-018): the site's production dependencies
+# (web/, the only lockfile in the repository) against the advisory database,
+# high and above. Seen, not enforced. The job lives once, in
+# numengames/.github.
 name: audit
 
 on:
@@ -21,35 +18,10 @@ permissions:
   contents: read
 
 jobs:
-  npm-audit:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          persist-credentials: false
-
-      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
-        with:
-          node-version: 22
-
-      - name: npm audit — production, high and above (seen, not enforced)
-        working-directory: web
-        continue-on-error: true
-        run: |
-          set +e
-          out="$(npm audit --omit=dev --audit-level=high 2>&1)"; status=$?
-          set -e
-          echo "$out"
-          if [ "$status" -eq 0 ]; then
-            echo "npm audit (web/, production, high+): clean." >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          {
-            echo "### npm audit (web/, production, high and above) — findings, not blocking"
-            echo
-            echo '```'
-            echo "$out" | head -80
-            echo '```'
-          } >> "$GITHUB_STEP_SUMMARY"
-          echo "::warning::npm audit found high or critical advisories — see the job summary; not blocking"
-          exit "$status"
+  audit:
+    uses: numengames/.github/.github/workflows/audit.yml@c87e85e17306324752a59426f899e48059d42609
+    permissions:
+      contents: read
+    with:
+      package-manager: npm
+      working-directory: web

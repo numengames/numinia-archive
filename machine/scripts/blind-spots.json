@@ -513,7 +513,7 @@
     },
     "check-register": {
       "script": "machine/tools/check-register.mjs",
-      "sees": "whether every row of the engineering register states a mechanism this tree can produce: a tracked file, an npm script, a real Scorecard check name, a GitHub setting, a gate with its human act named, or a debt with an owner and a date. Also whether every rule guard on disk is named by a registry entry, and whether the pipeline still invokes the runner and the tests",
+      "sees": "whether every row of the engineering register states a mechanism this tree can produce: a tracked file, an npm script, a real Scorecard check name, a GitHub setting, a gate with its human act named, or a debt with an owner and a date. Also whether every rule guard on disk is named by a registry entry, and whether the pipeline still invokes the runner and the tests. And whether each common job (secret scan, workflow lint, dependency audit, night watch, Dependabot auto-merge) is a caller of the shared workflow in numengames/.github, pinned to a full commit, with no steps of its own",
       "blind_to": [
         {
           "spot": "whether the named mechanism actually checks the practice the row describes. A row may cite a tracked script that tests something else entirely: the check proves the machine exists, not that it is the right machine",
@@ -528,6 +528,11 @@
         {
           "spot": "whether a DEBT entry is still true. An owner and a date make the debt answerable; nothing here notices that the thing was built and the row never updated. That is the drift that left three rows claiming a person checks what a guard had been checking for weeks",
           "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether a caller's pinned commit exists in numengames/.github, was merged there, or is the newest one. Reading that needs the network; the check sees only that the pin is a full commit",
+          "covered_by": "the workflow run fails on a ref that does not exist",
           "debt": null
         },
         {

@@ -1,16 +1,13 @@
 # SPDX-FileCopyrightText: 2026 Numen Games S.L.
 # SPDX-License-Identifier: MIT
 #
-# Night watch for numinia.org: every six hours it probes the LIVE site's key
-# pages. On failure it opens (or comments on) a "night-watch" issue, which
-# GitHub turns into a notification; when the probes answer again it closes
-# the issue itself. Modelled on numinia-web's monitor.
+# Night watch for numinia.org (STD-015 SRE-008): a probe of the live site
+# every six hours. On failure it opens a `night-watch` issue here; on
+# recovery it closes it. The job lives once, in numengames/.github; this
+# file says when and what to probe.
 #
 # A failure seen only from Spain may be a Cloudflare range blocked during
 # football matches (status 000): check from another network before acting.
-#
-# No third-party action. The token is read-only except for issues, granted to
-# the one job that needs it.
 name: monitor
 
 on:
@@ -18,8 +15,7 @@ on:
     - cron: "23 */6 * * *" # every six hours, off the :00 stampede
   workflow_dispatch:
 
-permissions:
-  contents: read
+permissions: {}
 
 concurrency:
   group: night-watch
@@ -27,55 +23,14 @@ concurrency:
 
 jobs:
   probe:
-    name: Probe numinia.org
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+    uses: numengames/.github/.github/workflows/monitor.yml@c87e85e17306324752a59426f899e48059d42609
     permissions:
-      issues: write # open and close the night-watch issue
-    steps:
-      - name: Probe
-        id: probe
-        run: |
-          fails=""
-          check() {
-            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "https://numinia.org$1" || echo 000)
-            echo "GET $1 -> $code (want $2)"
-            [ "$code" = "$2" ] || fails="$fails $1→$code(want:$2)"
-          }
-          check /         200
-          check /home.md  200
-          check /map/     200
-          check /lexicon/ 200
-          if [ -n "$fails" ]; then
-            echo "fails=$fails" >> "$GITHUB_OUTPUT"
-            echo "::error::Probes failing:$fails"
-            exit 1
-          fi
-      - name: Raise the alarm
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-          FAILS: ${{ steps.probe.outputs.fails }}
-        run: |
-          gh label create night-watch --repo "$GITHUB_REPOSITORY" --color D33440 \
-            --description "Live-site alarm raised by the monitor" 2>/dev/null || true
-          open=$(gh issue list --repo "$GITHUB_REPOSITORY" --label night-watch --state open --json number --jq '.[0].number // empty')
-          body="Probes failing: \`$FAILS\` · $(date -u +%FT%TZ) · [run](https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)"
-          if [ -n "$open" ]; then
-            gh issue comment "$open" --repo "$GITHUB_REPOSITORY" --body "Still failing — $body"
-          else
-            full=$(printf 'The night watch found numinia.org failing. %s\n\nDiagnosis: verify from outside Spain-on-match-day networks first.' "$body")
-            gh issue create --repo "$GITHUB_REPOSITORY" --label night-watch \
-              --title "numinia.org is failing its probes" \
-              --body "$full"
-          fi
-      - name: Stand down on recovery
-        if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          open=$(gh issue list --repo "$GITHUB_REPOSITORY" --label night-watch --state open --json number --jq '.[0].number // empty')
-          if [ -n "$open" ]; then
-            gh issue close "$open" --repo "$GITHUB_REPOSITORY" \
-              --comment "numinia.org answers again — probes green at $(date -u +%FT%TZ). Standing down."
-          fi
+      issues: write
+    with:
+      site: numinia.org
+      follow-redirects: false
+      checks: |
+        / 200
+        /home.md 200
+        /map/ 200
+        /lexicon/ 200

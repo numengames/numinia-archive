@@ -17,6 +17,7 @@ import { readFileSync, writeFileSync, mkdtempSync, cpSync, rmSync, mkdirSync, ex
 import { execFileSync, execSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { callerProblems, SHARED_JOBS } from '../check-register.mjs';
 
 const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
 const REGISTER = 'standards/STD-015-engineering-checks.md';
@@ -244,11 +245,45 @@ test('SEC-004: the full-history secret scan runs in CI and the row says so', () 
   const row = rowOf('SEC-004');
   assert.ok(row, 'STD-015 has no SEC-004 row');
   assert.match(row, /`\[AUTO: \.github\/workflows\/secrets\.yml\]`/, 'SEC-004 names the secret-scan workflow as its machine');
+  assert.match(row, /`numengames\/\.github`, pinned by commit/, 'SEC-004 says the scan is called from the shared repository');
+  /* The scan's own steps (gitleaks over the whole history, its binary
+     verified against the published checksum) moved to numengames/.github;
+     what stays here is a caller pinned to a full commit, and the
+     allowances only this repository can judge. */
   const wf = readFileSync(path.join(ROOT, '.github/workflows/secrets.yml'), 'utf8');
-  assert.match(wf, /fetch-depth: 0/, 'the scan reads the whole history, not a shallow clone');
-  assert.match(wf, /gitleaks/, 'the workflow runs gitleaks');
-  assert.match(wf, /sha256sum -c/, 'the scanner binary is verified against its published checksum');
-  assert.doesNotMatch(wf, /uses: [^@\s]+@v\d/, 'third-party actions are pinned by commit, never by tag (SEC-007)');
+  assert.deepEqual(callerProblems('secrets', wf), [], 'secrets.yml is not a pinned caller of the shared scan');
+  assert.doesNotMatch(wf, /uses: [^@\s]+@v\d/, 'actions and shared workflows are pinned by commit, never by tag (SEC-007)');
+  assert.ok(existsSync(path.join(ROOT, '.gitleaks.toml')), 'the shared scan reads this repository\'s .gitleaks.toml');
+});
+
+/* ARC-011: the common jobs are called from the organisation's .github
+   repository, never copied. Each of the three ways back to a copy — a
+   moving ref, steps beside the call, a caller that is gone — is reported. */
+test('ARC-011: the row names the register check, and every common job is a pinned caller', () => {
+  const row = rowOf('ARC-011');
+  assert.ok(row, 'STD-015 has no ARC-011 row');
+  assert.match(row, /`numengames\/\.github`/, 'ARC-011 names the shared repository');
+  assert.match(row, /`\[AUTO: machine\/tools\/check-register\.mjs\]`/, 'ARC-011 is checked by this script');
+  for (const job of SHARED_JOBS) {
+    const wf = readFileSync(path.join(ROOT, `.github/workflows/${job}.yml`), 'utf8');
+    assert.deepEqual(callerProblems(job, wf), [], `${job}.yml is not a pinned caller of the shared job`);
+  }
+});
+
+test('ARC-011: a caller on a tag, a caller with steps of its own and a missing caller are reported', () => {
+  const caller = (ref) => `on: pull_request\njobs:\n  audit:\n    uses: numengames/.github/.github/workflows/audit.yml@${ref}\n`;
+  assert.deepEqual(callerProblems('audit', caller('a'.repeat(40))), []);
+  assert.match(callerProblems('audit', caller('v1'))[0], /not a full commit/);
+  assert.match(callerProblems('audit', caller('main'))[0], /not a full commit/);
+  assert.match(callerProblems('audit', caller('a'.repeat(40)) + '  copy:\n    runs-on: ubuntu-latest\n')[0], /steps of its own/);
+  assert.match(callerProblems('audit', 'jobs:\n  audit:\n    runs-on: ubuntu-latest\n')[0], /does not call the shared audit job/);
+  assert.match(callerProblems('audit', caller('a'.repeat(40)).replace('audit.yml@', 'monitor.yml@'))[0], /does not call the shared audit job/);
+
+  const dir = scratch();
+  try {
+    execSync('git rm -q .github/workflows/monitor.yml', { cwd: dir });
+    assert.match(run(dir).out, /ARC-011: \.github\/workflows\/monitor\.yml is missing/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
 test('SEC-004: the scan config allows only what is not a secret, each with its reason', () => {
