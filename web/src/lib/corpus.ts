@@ -656,7 +656,9 @@ const READING_ORDER: Record<string, string[]> = {
   // reshelved); SYS-007 is new the same day, the manual of machine/.
   system: [
     "/system/sys-006-nwos-system",
-    "/system/sys-001-cao-architecture",
+    // 2026-10-09: the repositories and what reads what — replaces the April
+    // CAO architecture (SYS-001, retired) as the shape of the whole machine.
+    "/system/sys-013-the-repositories-as-wired",
     "/system/sys-002-agent-cycle",
     "/system/sys-003-archive-fondos",
     "/system/sys-007-the-instruments",

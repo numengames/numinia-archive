@@ -4,11 +4,11 @@ uid: ""
 title: "Opening and closing a session"
 type: procedure
 status: draft
-version: "2.1.4"
+version: "2.1.5"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-09T16:01:15+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "People and culture"
@@ -16,7 +16,7 @@ tags: [procedure, briefing, startup, session, close, context, mandatory]
 applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
-related: ["PRO-003", "PRO-005", "PRO-016", "OPS-008", "OPS-009", "SYS-001", "STD-020", "STD-022", "STD-025"]
+related: ["PRO-003", "PRO-005", "PRO-016", "OPS-008", "OPS-009", "SYS-002", "STD-020", "STD-022", "STD-025"]
 derived_from: "PRI-009"
 ---
 
@@ -137,4 +137,4 @@ state in `OPS-008` why. A mission assigned that has no briefing: `PRO-005`.
 | `STD-020` | Git is the archive | the trunk is reached by pull request |
 | `STD-022` | Secrets | how secrets are handled in every session |
 | `STD-025` | A mission is a card | the card is read whole, never by title |
-| `SYS-001` | CAO architecture | the procedure chain a session runs through |
+| `SYS-002` | The agent cycle | the loop a session runs through |

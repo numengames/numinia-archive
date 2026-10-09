@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.158.0",
+    date: "2026-10-09",
+    entries: [
+      { type: "ADD", text: "SYS-013, the repositories as wired: every repository of the house, who writes to it, its licence and what reads it, and the copies still standing between them." },
+      { type: "DEL", text: "SYS-001, the April architecture reference, is retired as stale; its addresses lead to SYS-013." },
+    ],
+  },
+  {
     version: "v0.157.0",
     date: "2026-10-08",
     entries: [

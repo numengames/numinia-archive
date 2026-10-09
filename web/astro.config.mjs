@@ -340,7 +340,11 @@ export default defineConfig({
 		// → system
 		"/blueprints/agent-experience": "/system/sys-002-agent-cycle",
 		"/blueprints/archive-fondos": "/system/sys-003-archive-fondos",
-		"/blueprints/cao-architecture": "/system/sys-001-cao-architecture",
+		"/blueprints/cao-architecture": "/system/sys-013-the-repositories-as-wired",
+		// SYS-001 (CAO architecture, April 2026: OpenClaw, numinia.store) retired as
+		// stale; the map of what lives where is SYS-013 (ADR-068, 2026-10-09)
+		"/system/sys-001-cao-architecture": "/system/sys-013-the-repositories-as-wired",
+		"/system/sys-001-cao-architecture.md": "/system/sys-013-the-repositories-as-wired.md",
 		"/canon/archive-lore": "/system/sys-003-archive-fondos",
 		// → operations
 		"/operations/credential-map": "/operations/ops-009-secrets-handling",

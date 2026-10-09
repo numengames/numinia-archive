@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 39590,
+  "chars": 39894,
   "apparatus": false,
   "archived": false,
-  "tokens": 11514
+  "tokens": 11601
  },
  {
   "path": "CLAUDE.md",
@@ -790,6 +790,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1885
+ },
+ {
+  "path": "decisions/ADR-068-each-thing-lives-in-one-place.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 9609,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2393
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -2381,10 +2392,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5520,
+  "chars": 5508,
   "apparatus": false,
   "archived": false,
-  "tokens": 1541
+  "tokens": 1540
  },
  {
   "path": "procedures/PRO-003-mission-cycle.md",
@@ -3432,17 +3443,6 @@
   "tokens": 3087
  },
  {
-  "path": "system/SYS-001-cao-architecture.md",
-  "dir": "system",
-  "series": "system",
-  "type": "documentation",
-  "status": "active",
-  "chars": 10539,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 2850
- },
- {
   "path": "system/SYS-002-agent-cycle.md",
   "dir": "system",
   "series": "system",
@@ -3503,10 +3503,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 7495,
+  "chars": 7484,
   "apparatus": false,
   "archived": false,
-  "tokens": 1927
+  "tokens": 1922
  },
  {
   "path": "system/SYS-009-the-design-system.md",
@@ -3551,6 +3551,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1348
+ },
+ {
+  "path": "system/SYS-013-the-repositories-as-wired.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 9060,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2396
  },
  {
   "path": "system/semantic-census/artefact-lap.md",
