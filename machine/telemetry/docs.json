@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 39894,
+  "chars": 40488,
   "apparatus": false,
   "archived": false,
-  "tokens": 11601
+  "tokens": 11801
  },
  {
   "path": "CLAUDE.md",
@@ -940,10 +940,10 @@
   "series": "legal",
   "type": "legal",
   "status": "active",
-  "chars": 17646,
+  "chars": 17784,
   "apparatus": false,
   "archived": false,
-  "tokens": 4188
+  "tokens": 4225
  },
  {
   "path": "legal/LEG-002-terms-and-conditions-numengames.md",
@@ -951,10 +951,10 @@
   "series": "legal",
   "type": "legal",
   "status": "active",
-  "chars": 23041,
+  "chars": 23180,
   "apparatus": false,
   "archived": false,
-  "tokens": 4902
+  "tokens": 4939
  },
  {
   "path": "legal/LEG-003-cookie-policy-numengames.md",
@@ -962,10 +962,10 @@
   "series": "legal",
   "type": "legal",
   "status": "draft",
-  "chars": 11753,
+  "chars": 11891,
   "apparatus": false,
   "archived": false,
-  "tokens": 2992
+  "tokens": 3029
  },
  {
   "path": "legal/LEG-004-legal-notice-numengames.md",
@@ -973,10 +973,10 @@
   "series": "legal",
   "type": "legal",
   "status": "draft",
-  "chars": 6346,
+  "chars": 6484,
   "apparatus": false,
   "archived": false,
-  "tokens": 1647
+  "tokens": 1684
  },
  {
   "path": "lore/README.md",
@@ -2601,10 +2601,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4773,
+  "chars": 5484,
   "apparatus": false,
   "archived": false,
-  "tokens": 1216
+  "tokens": 1394
  },
  {
   "path": "procedures/PRO-028-qualifying-an-opportunity.md",
@@ -3019,10 +3019,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 8138,
+  "chars": 8228,
   "apparatus": false,
   "archived": false,
-  "tokens": 1979
+  "tokens": 2006
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -3107,10 +3107,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 14090,
+  "chars": 15197,
   "apparatus": false,
   "archived": false,
-  "tokens": 3644
+  "tokens": 3911
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -3118,10 +3118,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 9015,
+  "chars": 10271,
   "apparatus": false,
   "archived": false,
-  "tokens": 2273
+  "tokens": 2563
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -3173,10 +3173,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 4262,
+  "chars": 4374,
   "apparatus": false,
   "archived": false,
-  "tokens": 1049
+  "tokens": 1078
  },
  {
   "path": "standards/STD-023-design-values.md",
@@ -3327,10 +3327,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 9828,
+  "chars": 10826,
   "apparatus": false,
   "archived": false,
-  "tokens": 2546
+  "tokens": 2816
  },
  {
   "path": "standards/STD-038-the-stages-of-an-opportunity.md",
@@ -3558,10 +3558,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 9060,
+  "chars": 9196,
   "apparatus": false,
   "archived": false,
-  "tokens": 2396
+  "tokens": 2424
  },
  {
   "path": "system/semantic-census/artefact-lap.md",
