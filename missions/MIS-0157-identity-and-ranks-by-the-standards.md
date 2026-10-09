@@ -4,9 +4,9 @@ uid: ""
 title: "Bring numinia.com's sign-in, sessions, ranks and bans up to published industry standards, and make its code keep STD-003"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-09T20:02:00+02:00"
-updated: "2026-10-09T20:02:00+02:00"
+updated: "2026-10-09T20:52:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -157,6 +157,46 @@ step 5; payments (`STD-033`); sign-in on any site other than numinia.com.
   throttled as one. Today: each server counts on its own.
 - [ ] `debt/` holds an entry for the automatic ladder from Nomad to Citizen
   to Pilgrim. Today: none.
+
+---
+
+## Execution log
+
+**2026-10-09 — the Oracle's working hypothesis: the wallet first.** Not a
+selection yet; the ADR of step 1 still decides.
+
+- **Where each rank would come from.** Pilgrim comes from the wallet: it
+  holds a good of the house's collection. The season room already reads
+  ERC-1155 balances on Base, so no database is needed. Citizen also comes
+  from the wallet, through a free, non-transferable badge given when Session
+  Zero ends; that is still debt. Vernacular and Archon come for now from a
+  list in a Worker secret, like the Oracles, and later from roles written on
+  chain. Bans come from a private list kept off chain, and from a database
+  only when there are members to ban.
+- **The census in a private GitHub repository was set aside by the Oracle.**
+  It needs a repository and a token that expires, and it is slow to read on
+  every request. It stays in the code until the ADR replaces it.
+- **No database for now.** The site has no members to promote or to ban
+  yet. Cloudflare D1 is the candidate once bans or volume need it: a change
+  there reaches every server at once, while Cloudflare KV takes up to a
+  minute.
+- **Candidates added for the ADR, for ranks held by the wallet:**
+  - token gating on ERC-1155 and ERC-721, as Guild.xyz and Collab.Land do;
+  - Ethereum Attestation Service, revocable attestations signed by the
+    house;
+  - Hats Protocol, revocable roles in a tree, which is `STD-003`'s ladder
+    written on chain;
+  - non-transferable tokens (ERC-5192, with ERC-5484 for who may burn them).
+- **Zero-knowledge proofs.** The candidates are Semaphore, Privado ID
+  (formerly Polygon ID) and W3C Verifiable Credentials 2.0, a W3C
+  Recommendation since May 2025. They prove membership of a group without
+  saying which wallet. That fits anonymous votes or proving a fact without
+  showing the wallet. It does not fit signing in to the player area, where
+  the site must know who the member is.
+- **Never on chain:** a ban, or anything else that marks a person. A public
+  chain cannot forget, and GDPR's erasure and minimisation rules apply.
+- **Done today.** The Oracle's wallet is in the Oracle list, set as a Worker
+  secret so that deploys keep it, and the site reads it.
 
 ---
 
