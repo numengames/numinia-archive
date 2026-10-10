@@ -17,6 +17,13 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-10
+- **Changed** `MIS-156` 0.2.0 shrinks to one thing: a new small machine (`open-1`) that obeys the order book — bootstrap, reconciler, first card and order; the hand-run server stays as it is.
+- **Added** `MIS-158`: each fleet machine makes, every night, a self-contained zip of each world (the Alchemists' Tower backup shape) that runs anywhere with `docker compose up`.
+- **Added** `MIS-159`: the Worlds room shows machines, copies with *Download*, the admin code, and owners by wallet who see only their worlds.
+- **Added** `MIS-160`: copies and keys reach the console through the house's AWS (S3, Secrets Manager) with two least-privilege users; `ADR-069` to be patched then.
+- **Added** `MIS-161`: the cost model of a world by piece (machine share, hours on, voice, agents, boost) before any public price.
+
 ### 2026-10-09
 - **Changed** `MIS-157` 0.2.0 logs the Oracle's working hypothesis, the wallet first: Pilgrim and Citizen read from the wallet, hand ranks in a Worker secret for now, bans off chain, no database yet; on-chain role and zero-knowledge candidates added for the ADR.
 - **Added** `MIS-157`: numinia.com's sign-in, sessions, ranks and bans follow published standards (OWASP ASVS, NIST, EIP-4361), selected in an ADR before any code; the site's code keeps `STD-003`, whose four breaches it lists; the automatic rank ladder goes to debt.
