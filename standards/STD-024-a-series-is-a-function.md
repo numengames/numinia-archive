@@ -5,9 +5,9 @@ title: "A series is a function"
 type: standard
 subtype: standard
 status: active
-version: "3.2.2"
+version: "3.2.3"
 created: "2026-09-09T12:30:00+02:00"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -106,4 +106,4 @@ sits. The folder rule keeps that answer honest.
 | `STD-001` | The series | which series exist |
 | `STD-017` | Who may change what | who signs a change, and the approval level of each series |
 | `STD-012` | The corpus does not grow | how a document moves or leaves |
-| `PRI-004` | You are what you are doing | the archive is the system's memory |
+| `PRI-009` | The archive is the organisation | the archive is the system's memory |

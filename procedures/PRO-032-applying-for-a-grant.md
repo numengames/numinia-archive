@@ -4,9 +4,9 @@ uid: ""
 title: "Applying for a grant"
 type: procedure
 status: draft
-version: "0.2.5"
+version: "0.2.6"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:15+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -31,7 +31,7 @@ SPDX-License-Identifier: CC0-1.0
 > see it paid.
 > **Epistemic:** What does the house do with a call for funding it has found, and when does it apply?
 > **Pragmatic:** No call is weighed from memory: the criteria table is
-> written first, the chance and the way it pays decide, the Oracle signs.
+> a gate, written first; the way it pays decides; the Oracle signs.
 > **Audience:** Agents · Oracles
 
 **Binds:** whoever finds, reads, decides on, applies for or justifies a

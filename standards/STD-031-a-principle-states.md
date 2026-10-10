@@ -5,9 +5,9 @@ title: "A principle states"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.13"
+version: "0.2.0"
 created: "2026-09-24T22:00:00+02:00"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -67,8 +67,10 @@ not its subject: *Opening is an act*, not *Licensing*.
 way something is done. It states the capability. The tool belongs in
 the system notes or a procedure.
 
-**No clock.** A principle MUST NOT carry a date, hour, cadence or calendar in
-its body. The schedule belongs in a procedure, the hours in the calendar.
+**No clock, no byline.** A principle MUST NOT carry a date, hour, cadence,
+calendar or byline in its body. The schedule belongs in a procedure, the
+hours in the calendar, and a signed voice arguing on a given day in a report
+or a decision.
 
 **No restatement.** Where another principle or a standard develops a thing, a
 principle MUST name it and stop. A summary of a neighbour is a second place to
@@ -77,9 +79,6 @@ go stale.
 **A border only when real.** A principle MAY say what it does not cover only
 where it names the document a reader would confuse it with. Otherwise it
 MUST NOT.
-
-**No date, no byline in the body.** A signed voice arguing on a given day
-is a report or a decision, not a principle.
 
 **Document names at the foot.** A principle MUST name a thing in words, and
 keep its code in the header and the reference table, never mid-sentence.
@@ -103,10 +102,9 @@ Each rule, its code, its source and its check.
 | STA-004 | Obligations, not sections | — | by hand |
 | STA-005 | The title is a claim | — | by hand; `machine/tools/rule-index.mjs` shows every title side by side, where a label stands out |
 | STA-006 | No tool | — | by hand — a search for vendor names catches the crude cases |
-| STA-007 | No clock | — | by hand — a search for years catches the crude cases |
+| STA-007 | No clock, no byline | — | by hand — a search for years catches the crude cases |
 | STA-008 | No restatement | — | by hand |
 | STA-009 | A border only when real | — | by hand |
-| STA-010 | No date, no byline in the body | — | by hand |
 | STA-011 | Document names at the foot | — | `machine/checks/rules/std-021-evidence-and-citation.mjs` (`CIT-050`) reports a section cited by number; a bare name mid-prose is read |
 | STA-012 | The manual names the world | [ISO 25964-1:2011, thesauri](https://www.iso.org/standard/53657.html) — one preferred term per concept | by hand, against `lore/game/manual/glossary-es-en.md` |
 | — | the body length, 1,500 words, a SHOULD | — | `machine/checks/rules/std-007-one-page.mjs` (`DOC-006`) — counted and reported, never enforced |
@@ -131,5 +129,5 @@ standard judges only whether a text can be read.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-007` | One page per document | the card, the length, the reference table |
-| `STD-024` | A series is a function | why a rule in a decision binds nobody until it is here |
-| `STD-001` | The series | the principles' row: threshold, length, template |
+| `STD-017` | Who may change what | why a rule in a decision binds nobody until it is here (`AUT-063`) |
+| `STD-001` | The series | the principles' row: approval level, budget, template |

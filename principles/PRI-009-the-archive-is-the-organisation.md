@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-009"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "1.0.8"
+version: "1.0.9"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -82,7 +82,8 @@ a standard sustains it, and a reader can tell whether a sentence binds them
 by where it lives, without asking.
 
 And a document that only states an intention says so. What is in draft is
-published to be read and argued with, and quoted against nobody.
+on trial: it is followed, it warns and never blocks, and any change to it is
+analysed before its owner decides.
 
 ## Work is a change to the text
 

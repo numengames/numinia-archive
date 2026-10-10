@@ -5,9 +5,9 @@ title: "Who may change what"
 type: standard
 subtype: standard
 status: draft
-version: "3.0.0"
+version: "3.0.1"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-09T16:41:32+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
@@ -80,8 +80,8 @@ an owner. Every actor MUST stay within its rank's reach. An Oracle approves
 structural change, and alone makes something stable or breaks it. An
 Archon authorises work below that line. A digital agent writes its own
 files and missions. A custodian keeps documents, indexes and change logs.
-Automation writes only reports and its feed. The same line sets the three layers of a
-practice: principles move only by the Oracle's decision, practices by a
+Automation writes only to its feed, never straight into the archive. The
+same line sets the three layers of a practice: principles move only by the Oracle's decision, practices by a
 written decision, checks by an ordinary change. It also sets the three
 numbers of a version: a digital agent moves the last, an Archon the middle,
 and only an Oracle the first.
@@ -164,4 +164,4 @@ off without lying about why it stopped.
 | `PRI-004` | You are what you are doing | what each rank is |
 | `STD-003` | Platform ranks | the ranks on the platform |
 | `STD-004` | The header | the states a rule may hold |
-| `STD-001` | The series | the threshold each series declares |
+| `STD-001` | The series | the approval level each series declares |

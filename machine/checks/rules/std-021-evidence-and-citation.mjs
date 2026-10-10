@@ -23,7 +23,7 @@
 //            ordinal, and a false failure teaches people to ignore the guard.
 //
 // CIT-053 and CIT-054 are read by std-012-corpus-does-not-grow, which is
-// where they bite. CIT-051/052 and EVI-057 are manual.
+// where they bite. CIT-052 and EVI-057 are manual.
 //
 // Not here: `--report` (list everything, exit 0) — the contract prints every
 // finding under its plate and judges by the holder's state.

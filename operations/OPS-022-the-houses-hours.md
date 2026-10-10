@@ -5,16 +5,16 @@ title: "The house's hours"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-05T10:40:00+02:00"
-updated: "2026-10-05T10:43:00+02:00"
+updated: "2026-10-10T12:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
 section: "Operations"
 tags: [operations, hours, time-zone, holidays, send-windows, dates, RFC-3339]
 license: "CC-BY-4.0"
-related: ["STD-004", "OPS-018", "PRO-028", "PRO-029", "PRO-036"]
+related: ["STD-004", "OPS-018", "PRO-028", "PRO-029", "STD-040", "STD-047", "PRO-036"]
 ---
 
 <!--
@@ -32,7 +32,7 @@ SPDX-License-Identifier: CC-BY-4.0
 > **Pragmatic:** Plan a send, count a wait, or write a date with its hour.
 > **Audience:** Agents · Oracles
 
-**Binds:** nothing while a draft; `STD-004` sends here for a missing hour.
+**Binds:** everyone who writes a date or plans a send, on trial while a draft; `STD-004` sends here for a missing hour.
 
 ## The two clocks
 
@@ -77,13 +77,14 @@ There is no summer schedule.
 
 | What | When | Source |
 |---|---|---|
-| First sales email | Tuesday to Thursday, 10:00 in the recipient's local time | Belkins 2025; Mailchimp |
-| Follow-up | three working days later, 10:00 | Belkins 2025 |
+| First-contact message, once its door lets it through (`STD-047`, `STD-048`) | Tuesday to Thursday, 10:00 in the recipient's local time | Belkins 2025; Mailchimp |
+| Expiry e-mail, once | the day after the week ends (`STD-047`), 10:00 | Belkins 2025 |
 | Never | after 18:00 in Spain, on Friday after 14:00, at a weekend or holiday | Mailjet 2024; the office hours |
 
-Belkins read 7.5 million cold emails: 08:00–12:00 had the best reply rate
-(0.54 %) and meeting rate (0.4 %, against 0.1 % after noon); Wednesday and
-Thursday were the best days (0.48 %). Open rates mean little since Apple
+The sources give the hour, not the practice: the house sends no cold e-mail
+(`STD-048`). Belkins read 7.5 million of them: 08:00–12:00 had the best
+reply rate (0.54 %) and meeting rate (0.4 %, against 0.1 % after noon);
+Wednesday and Thursday were the best days (0.48 %). Open rates mean little since Apple
 Mail Privacy Protection.
 
 ## The hour a date takes when its source gives none
@@ -105,8 +106,9 @@ Midnight is nobody's hour, except where a notice writes it or a call opens on a 
 |---|---|---|
 | `STD-004` | The header | the rule on dates that sends here |
 | `OPS-018` | The house's card | what a call is read against |
-| `PRO-028` | Qualifying an opportunity | the first email and its follow-up |
-| `PRO-029` | Making a proposal | a proposal's validity, until 23:59 |
+| `PRO-028` | Qualifying an opportunity | the first contact |
+| `STD-047` | The sales collateral | the sheet's week and its one expiry e-mail |
+| `STD-040` | A proposal says four things | a proposal's validity, `valid_until`, until 23:59 |
 | `PRO-036` | Handling a security weakness | an incident wakes a person |
 | `PRO-025` | Handling a personal data breach | an incident wakes a person |
 | — | [ET art. 34](https://www.boe.es/buscar/act.php?id=BOE-A-2015-11430#a34) | hours, rest, recording |

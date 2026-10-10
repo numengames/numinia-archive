@@ -4,9 +4,9 @@ uid: ""
 title: "Publishing a repository"
 type: procedure
 status: draft
-version: "2.1.4"
+version: "2.1.5"
 created: "2026-09-10T01:00:00+02:00"
-updated: "2026-10-04T10:43:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -14,7 +14,7 @@ tags: [procedure, publishing, licensing, reuse, spdx, visibility]
 applies_to: [all-agents]
 mandatory: true
 license: "CC0-1.0"
-related: ["STD-014", "STD-010", "STD-022", "PRO-008", "PRO-011"]
+related: ["STD-014", "STD-010", "STD-022", "PRO-008", "PRO-036"]
 derived_from: "PRI-005"
 ---
 
@@ -72,8 +72,7 @@ and the commit it ran at; a hand-typed list is not evidence (`PUB-003`).
    annotation. *Evidence:* the listing command and its output.
 5. **Scan the whole history.** Scan every commit, not `HEAD`, for secrets
    and personal data: a secret removed from the tip is one `git log` away.
-   On a find, stop and follow the real-value step of Auditing identity,
-   authorization and secrets (`PRO-011`; then `PRO-036`).
+   On a find, stop and follow Handling a security weakness (`PRO-036`).
    *Evidence:* the scan command, the count, zero findings.
 6. **Check the legal debt.** Look in `debt/` for open entries tagged `legal`
    whose exit is a condition (`PUB-005`). *Evidence:* the entries, or none.
@@ -95,8 +94,8 @@ and the commit it ran at; a hand-typed list is not evidence (`PUB-003`).
 
 ## 5. Escalation
 
-A secret or personal data found: stop and follow the real-value step of
-Auditing identity, authorization and secrets (`PRO-011`). Ownership
+A secret or personal data found: stop; a secret is handled as Handling a
+security weakness (`PRO-036`) says. Ownership
 unclear, a *signed decision* tier dependency, or another organization's
 repository: `PRO-005` before step 7.
 
@@ -108,4 +107,3 @@ repository: `PRO-005` before step 7.
 | `STD-010` | Licensing | `LIC-001/005/006/007/011`: what the listings check; the allowlist steps 1 and 2 read |
 | `PRO-036` | Handling a security weakness | a live finding, from the private report to the fix |
 | `PRO-008` | Requesting approval, issuing rulings | the signing request |
-| `PRO-011` | Auditing identity, authorization and secrets | the real-value step when the scan finds a value |

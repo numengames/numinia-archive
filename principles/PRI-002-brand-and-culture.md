@@ -6,11 +6,11 @@ type: principle
 former_id: "CAN-002"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "4.2.3"
+version: "4.2.4"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -159,7 +159,7 @@ and divulge. That order matters.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `PRI-008` | The house looks one way | the imagery, the mix and the registers |
+| `PRI-008` | One identity, three forces | the imagery, the mix and the registers |
 | `PRI-005` | Opening is an act | what *remix* obliges |
 | `PRI-010` | Leave things better than you found them | the one sentence that is the house's ethics |
 | `PRI-013` | A magician who keeps hope, with humans in charge | the brand's personality, emotion and cause |

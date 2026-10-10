@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-011"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -95,7 +95,8 @@ figures, each read the way they need to read them. A figure is closed from
 documents, never from estimates, and what is still an estimate says so. The
 time of the people who build the city is part of what it costs, but no
 person's pay is published: what is open is the organisation's account, not
-anyone's life. The principle of ethics says why.
+anyone's life. The principle *Leave things better than you found them* says
+why.
 
 If a charge is not written in the archive, it does not exist, and anyone
 may refuse to make it.

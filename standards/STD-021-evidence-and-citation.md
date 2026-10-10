@@ -5,9 +5,9 @@ title: "Evidence and citation"
 type: standard
 subtype: standard
 status: active
-version: "1.4.5"
+version: "1.5.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -25,9 +25,8 @@ SPDX-License-Identifier: CC0-1.0
 # Evidence and citation
 
 > **Summary:** A claim about the code names the file that proves it. An
-> audit says how many things it examined, out of how many. References
-> gather at the foot. A broken link in a closed document stays. A quotation
-> carries its author's name.
+> audit says how many things it examined, out of how many. A broken link in
+> a closed document stays. A quotation carries its author's name.
 > **Epistemic:** What makes a claim checkable?
 > **Pragmatic:** Cite and audit so that a reader can verify without asking.
 > **Audience:** Agents · Oracles
@@ -38,14 +37,10 @@ quotes a person.
 ## Rules
 
 The one-page standard already says that a citation names a rule, never a
-section number.
+section number, and that the documents a text depends on are gathered at
+its end.
 
 ### How a document cites another
-
-**Structural references are gathered.** The documents a text depends on
-MUST be listed together at its end, as the international standard for
-references asks. A reader then sees at a glance everything the text leans
-on.
 
 **Bare is a citation; enclosed is data.** A document's name written in the
 running text cites it, and MUST lead somewhere. Inside code, a table, a list
@@ -83,7 +78,6 @@ rules under one rule ID.
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | CIT-050 | the section-citation check, part of `STD-007` DOC-008 (cite rules, not places) | — (stricter than [ISO 690:2021](https://www.iso.org/standard/72642.html), which allows location references) | `machine/checks/rules/std-021-evidence-and-citation.mjs` — a standard cites no section by number; elsewhere a cited section must exist |
-| CIT-051 | Structural references are gathered | [ISO 690:2021](https://www.iso.org/standard/72642.html), the reference list — ours adds: only what the text depends on | by hand |
 | CIT-054 | Bare is a citation; enclosed is data | — | `machine/checks/rules/std-012-corpus-does-not-grow.mjs` — what it resolves and what it skips |
 | CIT-052 | Name the file | — | by hand — the proof is prose |
 | EVI-057 | Say how many out of how many | [ISO 19011:2018](https://www.iso.org/standard/70017.html), annex A.6, audit sampling | by hand — the denominator is prose |

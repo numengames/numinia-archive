@@ -5,9 +5,9 @@ title: "Design tokens"
 type: standard
 subtype: standard
 status: draft
-version: "10.0.9"
+version: "10.1.0"
 created: "2026-08-18T13:41:01Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -24,7 +24,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Design tokens
 
-> **Summary:** The parts of our design that pass or fail: sixteen colours,
+> **Summary:** The parts of our design that pass or fail: a closed palette,
 > four self-served typefaces, one spacing scale, two roundings, one icon
 > family, sixteen animations and one kit installed from its package.
 > **Epistemic:** What can a design piece fail an audit on?
@@ -41,9 +41,10 @@ to the accessibility standard. These rules add to it.
 
 ### Colour, type and shape
 
-**The palette is closed.** A piece MUST use only the sixteen colours of the
-design values, their text variants and the rarity scale. Ramps and chart
-palettes only order those colours. A new colour is a breach.
+**The palette is closed.** A piece MUST use only the colours the design
+values list, and their transparencies where the design values give one. A
+sprite or a pixel scene MUST use only the pixel palette among them. Ramps
+and chart palettes only order those colours. A new colour is a breach.
 
 **Type is served by us.** Our four typefaces MUST come from our own server,
 with their licences, so visitors' addresses never reach a font company.
@@ -60,7 +61,9 @@ copyright notice ships with the icons. The scarab and the Moon are marks,
 not icons.
 
 **Pixels sit whole.** Text and pixel art MUST sit on whole pixels, never
-shifted by half a pixel or smoothed when scaled. Lines are never broken with
+shifted by half a pixel or smoothed when scaled. A pixel asset is drawn on
+its grid at the scale it is shown, never drawn large to be reduced, and
+never rotated with interpolation. Lines are never broken with
 spaces: a screen reader or a narrow screen would read the text out of order.
 
 ### What we add to accessibility
@@ -104,20 +107,20 @@ point at. **Law** marks what a statute requires.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| DSN-001 | The palette is closed | — (ours) | by hand: the value lookup in step 3 of `PRO-014` |
+| DSN-001 | The palette is closed | — (ours) | by hand: the value lookup in step 4 of `PRO-014`; `machine/scripts/test/rules.test.mjs` holds every colour the design values name to the kit, not a piece to the colours |
 | DSN-002 | Type is served by us | [CSS Fonts 4, `font-synthesis`](https://www.w3.org/TR/css-fonts-4/#font-synthesis-prop); [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 6 — **law**: a visitor's IP sent to a third-party font host needs a legal basis | by hand: the `PRO-014` checklist; no check reads `font-synthesis: none` yet |
-| DSN-003 | Space and shape follow the scale | — (ours); the focus clause moved to `ACC-002` | by hand: the value lookup in step 3 of `PRO-014` |
-| DSN-004 | One family of icons | [Phosphor Icons](https://phosphoricons.com/), [MIT licence](https://opensource.org/license/mit): the notice ships (licence condition); names for icon-only buttons are `ACC-003` | by hand: the `PRO-014` checklist; the notice is declared in `REUSE.toml` and `LICENSES/MIT.txt` |
+| DSN-003 | Space and shape follow the scale | — (ours); the focus clause moved to `ACC-002` | numinia.org: `machine/scripts/test/design-leads.test.mjs` fails on any radius in `web/src` but 6 px, 8 px, a circle or a capsule; the spacing scale, and the other three sites, by hand: the value lookup in step 4 of `PRO-014` |
+| DSN-004 | One family of icons | [Phosphor Icons](https://phosphoricons.com/), [MIT licence](https://opensource.org/license/mit): the notice ships (licence condition); names for icon-only buttons are `ACC-003` | numinia.org: `machine/scripts/test/design-leads.test.mjs` fails when the kit's subset and the glyphs `web/src/icons` serves part, or the design values miss one; weights, and the other three sites, by hand: the `PRO-014` checklist; the notice is declared in `REUSE.toml` and `LICENSES/MIT.txt` |
 | DSN-007 | Pixels sit whole | [WCAG 2.2 failure F32](https://www.w3.org/WAI/WCAG22/Techniques/failures/F32), under SC 1.3.2 Meaningful Sequence (A), for the line-break clause; the rest ours | by hand: the `PRO-014` checklist; no site checks it (`RPT-021`) |
 | DSN-005 | Texture never costs contrast, and a finger always fits | [WCAG 2.2](https://www.w3.org/TR/WCAG22/) SC 1.4.3 and 1.4.11 through `ACC-002`, applied over veils and textures in both modes (ours); SC 2.5.8 Target Size (Minimum) AA is 24 × 24, SC 2.5.5 Target Size (Enhanced) AAA is 44 × 44 | axe with Playwright, both modes — numinia.com only (`e2e/a11y.spec.ts`); axe does not judge text over images nor measure 44 px; the other three sites have no gate (`RPT-021`) |
-| DSN-008 | Text comes before motion | [Core Web Vitals](https://web.dev/articles/vitals): LCP ≤ 2.5 s, CLS ≤ 0.1; reduced motion and pausing moved to `ACC-005` | nothing measures it on any site yet |
-| DSN-012 | Motion is catalogued | WCAG 2.2 SC 1.4.2 Audio Control (A) — stricter: no autoplay sound at all; pause, flashes and reduced motion are `ACC-005` | by hand: the `PRO-014` checklist, against the catalogue in `STD-023` |
+| DSN-008 | Text comes before motion | [Core Web Vitals](https://web.dev/articles/vitals): LCP ≤ 2.5 s, CLS ≤ 0.1; reduced motion and pausing moved to `ACC-005` | numinia.com: Playwright `perf.spec.ts` in numinia-web holds the landing's layout shift under 0.1; the time to the main text is measured on no site, and the other three sites measure nothing (`RPT-021`) |
+| DSN-012 | Motion is catalogued | WCAG 2.2 SC 1.4.2 Audio Control (A) — stricter: no autoplay sound at all; pause, flashes and reduced motion are `ACC-005` | numinia.org, in part: `machine/scripts/test/design-leads.test.mjs` keeps the kit's instruction counting the catalogue, the entrance at its catalogued duration and an uncatalogued twinkle out; every other animation, and the other three sites, by hand: the `PRO-014` checklist, against the catalogue in `STD-023` |
 | DSN-009 | The kit is installed, never copied | [Semantic Versioning 2.0.0](https://semver.org/) for the package; [Subresource Integrity](https://www.w3.org/TR/SRI/) for the sha256 manifest | `node machine/tools/generate-design-kit.mjs --check` — byte-identical; runs in no consumer's CI (`RPT-021`); the manifest holds hex digests, not yet `integrity` values |
-| DSN-010 | A value exists, or it does not | [Design Tokens Format Module 2025.10](https://www.designtokens.org/tr/2025.10/format/) (first stable) | by hand: the value lookup in step 3 of `PRO-014`; the file uses `$value` and `$type`; Terrazzo or Style Dictionary could validate it, and neither runs today |
+| DSN-010 | A value exists, or it does not | [Design Tokens Format Module 2025.10](https://www.designtokens.org/tr/2025.10/format/) (first stable) | by hand: the value lookup in step 4 of `PRO-014`; the file uses `$value` and `$type`; Terrazzo or Style Dictionary could validate it, and neither runs today |
 
 | Rule | Exact value |
 |---|---|
-| The palette is closed | the sixteen colours, text variants and rarity scale of `STD-023` |
+| The palette is closed | every colour `STD-023` lists, and its Píxel-16 palette for pixel art |
 | Type is served by us | Geist, Geist Mono, Pixelify Sans and Alegreya, variable `woff2`, from `/assets/fonts/` with their licence files; `font-synthesis: none` |
 | Space and shape follow the scale | spacing 4 px base; radius `control` 6 px, `frame` 8 px |
 | One family of icons | Phosphor, the house subset; `thin` and `duotone` never |

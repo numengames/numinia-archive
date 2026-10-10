@@ -91,7 +91,7 @@ test('a debt must name who owes it and when it was booked', () => {
 test('a gate states the human act and still proves its machine half', () => {
   const dir = scratch();
   try {
-    edit(dir, REGISTER, (t) => t.replace(/`\[GATE: machine\/checks\/rules\/std-010-licensing\.mjs → [^\]]*\]`/, '`[GATE: machine/checks/rules/std-010-licensing.mjs]`'));
+    edit(dir, REGISTER, (t) => t.replace(/`\[GATE: \.github\/workflows\/scorecard\.yml → [^\]]*\]`/, '`[GATE: .github/workflows/scorecard.yml]`'));
     assert.match(run(dir).out, /a GATE must read/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 
@@ -154,7 +154,7 @@ test('the summary counts the rows it actually has', () => {
         readFileSync(path.join(dir, REGISTER), 'utf8').replace(/\n>\s*/g, ' '),
       )[1],
     );
-    edit(dir, REGISTER, (t) => t.replace(/^(\| Legal \| LEG-001 .*)$/m, '$1\n| Legal | LEG-002 | Probe row | MUST | `[DEBT: probe — oracle, 2026-09-11]` |'));
+    edit(dir, REGISTER, (t) => t.replace(/^(\| Ergonomics \| DEV-008 .*)$/m, '$1\n| Ergonomics | DEV-098 | Probe row | MUST | `[DEBT: probe — oracle, 2026-09-11]` |'));
     assert.match(run(dir).out, new RegExp(`says ${before} practices, table has ${before + 1}`));
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
@@ -241,11 +241,14 @@ test('CLAUDE.md remains an adapter that points at AGENTS.md', () => {
 const rowOf = (plate) => readFileSync(path.join(ROOT, REGISTER), 'utf8')
   .split('\n').find((l) => new RegExp(`^\\| [A-Za-z]+ \\| ${plate} \\|`).test(l));
 
-test('SEC-004: the full-history secret scan runs in CI and the row says so', () => {
-  const row = rowOf('SEC-004');
-  assert.ok(row, 'STD-015 has no SEC-004 row');
-  assert.match(row, /`\[AUTO: \.github\/workflows\/secrets\.yml\]`/, 'SEC-004 names the secret-scan workflow as its machine');
-  assert.match(row, /`numengames\/\.github`, pinned by commit/, 'SEC-004 says the scan is called from the shared repository');
+/* SEC-004 retired 2026-10-10 into KEY-054 of the secrets standard, which
+   holds the obligation; the scan's machine is now read from that row. */
+test('KEY-054: the full-history secret scan runs in CI and the secrets standard says so', () => {
+  const row = readFileSync(path.join(ROOT, 'standards/STD-022-secrets.md'), 'utf8')
+    .split('\n').find((l) => l.startsWith('| KEY-054 |'));
+  assert.ok(row, 'STD-022 has no KEY-054 row');
+  assert.match(row, /`\.github\/workflows\/secrets\.yml`/, 'KEY-054 names the secret-scan workflow as its machine');
+  assert.match(row, /`numengames\/\.github`, pinned by commit/, 'KEY-054 says the scan is called from the shared repository');
   /* The scan's own steps (gitleaks over the whole history, its binary
      verified against the published checksum) moved to numengames/.github;
      what stays here is a caller pinned to a full commit, and the
@@ -286,7 +289,7 @@ test('ARC-011: a caller on a tag, a caller with steps of its own and a missing c
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
-test('SEC-004: the scan config allows only what is not a secret, each with its reason', () => {
+test('KEY-054: the scan config allows only what is not a secret, each with its reason', () => {
   const cfg = readFileSync(path.join(ROOT, '.gitleaks.toml'), 'utf8');
   assert.match(cfg, /useDefault = true/, 'the default rule set stays on');
   // Every allowance carries a description: an unexplained exemption is how a

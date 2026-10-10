@@ -5,9 +5,9 @@ title: "What every site carries"
 type: standard
 subtype: standard
 status: draft
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-09T16:41:32+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -38,8 +38,8 @@ numinia.com, numen.games and nwos.numen.games.
 ## Rules
 
 **One house, one footer.** Every public site of Numen Games MUST close with
-the house footer the design values lay out. It holds the site's written
-name and its line, its navigation, a column naming the four sites with this
+the house footer laid out below; this standard is its one home. It carries
+the site's written name and its line, its navigation, a column naming the four sites with this
 one marked, links to the legal texts, and its social accounts. Under the site's line, a button invites people to back Numinia in
 plain sight and leads to the page that sells it. The closing line comes
 last: the scarab, our signature, and the licence, telemetry, version and
@@ -84,11 +84,11 @@ laid out, and the exact values. **Law** marks what a statute requires.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| SIT-001 | One house, one footer | [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 10 — **law**: the provider's identity reachable from every site; the version rule is ours and is not SemVer | `check-version-bump` in each site's CI, all four; the legal notice by hand |
+| SIT-001 | One house, one footer | [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 10 — **law**: the provider's identity reachable from every site; the version rule is ours and is not SemVer | `check-version-bump` in each site's CI, all four; the legal notice's company name, tax ID, address and registry entry by `machine/scripts/test/legal-texts.test.mjs`, on the one original every site links to (`LEG-004`); that each footer links it, by hand |
 | SIT-005 | The legal texts have one address | `ADR-068`, point 3; the address on numinia.org is ours | by hand: open each footer's legal links and search each site's code for a local legal text; a check is owed — a site build that fails when it finds a local copy of a legal text |
 | SIT-002 | A link presents itself | [Open Graph protocol](https://ogp.me/): `og:title`, `og:type`, `og:image`, `og:url` required; WCAG 2.2 SC 2.4.2 Page Titled (A); [HTML `rel=icon`](https://html.spec.whatwg.org/multipage/links.html#rel-icon); scarab and 1200 × 630 card ours | `share-card --check` in each site's CI, all four: card size, icon, title, description and image; `og:type` and `og:url` not checked |
 | SIT-003 | Day and night on every site | [Media Queries 5, `prefers-color-scheme`](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme); [WAI-ARIA APG button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/) | Playwright on numinia.com only (`preferences.spec.ts`): the switch exists, a tap swaps mode and icon, a reload keeps the choice |
-| SIT-004 | The epitaph at the foot | The words: the manifesto in `PRI-002`; [WAI-ARIA APG tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and WCAG 2.2 SC 1.4.13 Content on Hover or Focus (AA) | by hand on the four sites: hover, focus, tap and Escape |
+| SIT-004 | The epitaph at the foot | The words: the manifesto in `PRI-002`; [WAI-ARIA APG tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and WCAG 2.2 SC 1.4.13 Content on Hover or Focus (AA) | numinia.com: Playwright `epitaph.spec.ts` in numinia-web (a tap shows and hides the words, Escape closes, focus shows them, a 44 px target, the words stay inside a phone's screen); numinia.org, numen.games and nwos.numen.games by hand: hover, focus, tap and Escape |
 
 ### The house footer
 
@@ -174,5 +174,5 @@ visitor who learns one knows the other three.
 | `STD-023` | Design values | the colours, type and sky the footer and the card use |
 | `DES-009` | Web pieces | the mode switch, drawn |
 | `LEG-003` | Cookie Policy — Numen Games | the name under which the mode is remembered |
-| `ADR-068` | Each thing lives in one place | why the legal texts have one address |
+| `ADR-068` | Each thing lives in one place: how the house's repositories are organised | why the legal texts have one address |
 | `SYS-013` | The repositories, as wired | the legal copies still standing, as debt |

@@ -5,9 +5,9 @@ title: "Publishing gates"
 type: standard
 subtype: standard
 status: draft
-version: "1.1.9"
+version: "1.1.10"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -83,7 +83,7 @@ Each rule, its code, its source and its check.
 |---|---|---|---|
 | PUB-001 | Permanent publication is gated; what fails the gate stays withdrawable | [ISO/IEC 5230 OpenChain, clause 3.3 review and approval of open source content](https://github.com/OpenChain-Project/License-Compliance-Specification) | by hand: the Oracle's signature, recorded outside the corpus |
 | PUB-002 | Going public is the grant | [ISO/IEC 5230 OpenChain, clause 3.5 community engagement](https://github.com/OpenChain-Project/License-Compliance-Specification) | by hand: the Oracle's signature, recorded outside the corpus |
-| PUB-003 | Four checks before visibility changes; nothing reserved slips through | [REUSE 3.3, `reuse lint`](https://reuse.software/spec-3.3/); KEY-054 of Secrets, which holds the full-history scan; [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for personal data | `reuse lint` in CI; no full-history secret scan (gitleaks) runs yet, register row SEC-004 is owed; the listing is produced by a command and its output attached to the signing; `TRADEMARKS.md` and `NOTICE` by hand |
+| PUB-003 | Four checks before visibility changes; nothing reserved slips through | [REUSE 3.3, `reuse lint`](https://reuse.software/spec-3.3/); KEY-054 of Secrets, which holds the full-history scan; [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for personal data | `reuse lint` in CI, reporting without blocking while the engineering register is draft; the full-history secret scan (gitleaks) in `.github/workflows/secrets.yml`, held by KEY-054; the listing is produced by a command and its output attached to the signing; `TRADEMARKS.md` and `NOTICE` by hand |
 | PUB-004 | Being born licensed is not publication | — | by hand: a `LICENSE` file present at the first commit |
 | PUB-005 | A legal debt waits for a condition | — | nothing yet: the check that evaluates conditions is described, not built (`DBT-020`) |
 

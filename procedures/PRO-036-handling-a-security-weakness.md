@@ -4,9 +4,9 @@ uid: ""
 title: "Handling a security weakness"
 type: procedure
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-04T10:40:00+02:00"
-updated: "2026-10-04T10:40:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -75,8 +75,9 @@ or approves the fix; an agent may prepare everything and never publishes.
    enough: history keeps it.
 3. **Answer the finder within seven days,** through the channel they used:
    that the report arrived, who is handling it, and when to expect more.
-   The best practices badge of the Open Source Security Foundation allows
-   fourteen; `SECURITY.md` promises seven.
+   This is what `SECURITY.md` promises and what the engineering register
+   asks of every repository; the best practices badge of the Open Source
+   Security Foundation allows up to fourteen.
 4. **If personal data could have been reached,** start `PRO-025` now: its
    72 hours count from step 1.
 5. **Fix the cause** through its own pull request, with a test where the

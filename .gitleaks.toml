@@ -1,7 +1,7 @@
 # SPDX-FileCopyrightText: 2026 Numen Games S.L.
 # SPDX-License-Identifier: MIT
 #
-# The secret scanner's configuration (STD-015 SEC-004, STD-022 KEY-054).
+# The secret scanner's configuration (STD-022 KEY-054).
 # The default rule set stays on. Each allowance below names what it lets
 # through and why that is not a secret; an allowance without a reason is how
 # a real leak gets waved through, and check-register.test.mjs refuses one.

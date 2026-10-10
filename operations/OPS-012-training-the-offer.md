@@ -4,9 +4,9 @@ uid: ""
 title: "Training — the offer"
 type: documentation
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-09-28T17:00:00+02:00"
-updated: "2026-10-08T12:00:00+02:00"
+updated: "2026-10-10T11:53:15+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -28,8 +28,8 @@ SPDX-License-Identifier: CC-BY-4.0
 > the day it counts — from a phone, a computer or a headset, with nothing
 > to install. What it delivers, whom it is for, how learning is judged,
 > what it costs and how a proposal for it is made.
-> **Epistemic:** The one offer record every Training proposal starts from;
-> what it says is what a client may hold the house to.
+> **Epistemic:** What does the house sell as Training, and what may a client
+> hold it to?
 > **Pragmatic:** Read it before opening an opportunity for Training, and
 > change it when a client asks something it does not answer.
 > **Audience:** Agents · Oracles · Clients

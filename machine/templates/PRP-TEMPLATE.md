@@ -2,7 +2,7 @@
 # Copy this file beside its opportunity record, as opportunities/PRP-YYYY-NNN.md;
 # point the record's `proposal:` at it once sent. The rules are STD-040. A
 # revised proposal is a new file; never edit a sent one. Whoever sends it has
-# read it: the record's transition to `proposed`, with a name in By, is the
+# read it: the record's timeline line marked `proposed` is the
 # evidence — no field here says so twice. Signatures live in the agreement.
 # The header is every document's (STD-004), then the proposal's own fields.
 id: "PRP-YYYY-NNN"

@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-013"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -110,6 +110,6 @@ model, it is not ours.
 | `PRI-008` | One identity, three forces | the scarab, the night and the garden in the identity |
 | `PRI-010` | Leave things better than you found them | an agent does not decide for people |
 | `PRI-012` | What is yours stays with you | where trust comes from |
-| `DES-007` | Two dials, one system | the narrative dial and its levels |
+| `DES-007` | Dual nomenclature — the narrative and gamification dials | the narrative dial and its levels |
 | `STD-026` | Operative vocabulary | what digital sovereignty means |
 | `STD-030` | The world's vocabulary | why the archetype is not named after a house of the city |

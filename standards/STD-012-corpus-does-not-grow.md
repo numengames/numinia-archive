@@ -5,9 +5,9 @@ title: "The corpus does not grow"
 type: standard
 subtype: standard
 status: active
-version: "2.1.7"
+version: "2.1.8"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-05T08:51:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -104,17 +104,17 @@ outside this archive.
 | DEF-003 | Three kinds of line survive | [ISO 15489-1:2016, appraisal](https://www.iso.org/standard/62542.html), clause 7 (clause unverified); the three kinds are ours | by hand — the procedure makes the executor say which of the three |
 | DEF-006 | A phase is an index, not a level | — | by hand |
 | DEF-007 | The written procedure authorises every removal | [ISO 15489-1:2016, disposition authorities](https://www.iso.org/standard/62542.html), clause 8.5 (clause unverified); the authority is `PRO-017` | by hand |
-| DEF-004 | A record leaves by transfer, not destruction | [ISO 15489-1:2016, disposition](https://www.iso.org/standard/62542.html), clause 9.9 (clause unverified); git keeps the transferred file | `machine/tools/check-deletable.mjs --candidates` — closed records with no living citer |
+| DEF-004 | A record leaves by transfer, not destruction | [ISO 15489-1:2016, disposition](https://www.iso.org/standard/62542.html), clause 9.9 (clause unverified); git keeps the transferred file | `machine/checks/rules/std-012-corpus-does-not-grow.mjs`: a record a report lists in `absorbs:` and still in the tree; `machine/tools/check-deletable.mjs --candidates` lists closed records with no living citer |
 | DEF-008 | The replacement is named in the header | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); holds deprecated GIT-045 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs`, which reads the `superseded_by` and `status` fields |
-| DEF-010 | A document changes series under a new name | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); no move without updating its readers is ours; holds deprecated SER-005 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs` |
-| DEF-011 | Absorption carries the reasoning | [Dublin Core, Replaces](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/replaces/); holds deprecated SER-006 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs` (`absorbs:`) |
+| DEF-010 | A document changes series under a new name | [Dublin Core, Is Replaced By](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/isReplacedBy/); no move without updating its readers is ours; holds deprecated SER-005 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs`: a `former_id:` still held by a document not withdrawn naming its heir |
+| DEF-011 | Absorption carries the reasoning | [Dublin Core, Replaces](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/terms/replaces/); holds deprecated SER-006 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs`: an `absorbs:` entry still held by a document not withdrawn naming its heir |
 | DEF-009 | Nothing is deleted while cited | —; holds deprecated GIT-048 | `machine/checks/rules/std-012-corpus-does-not-grow.mjs`: a deletion that leaves a citation behind fails the build; `machine/tools/check-deletable.mjs` answers the question before deleting |
 
 | In the reading | Exact form |
 |---|---|
 | the version history | `git log --since` |
 | a roll-up report | `reports/`, `subtype: rollup`, with a `period` field |
-| a closed record | a mission `done`, or `on-hold` with its reason; a debt resolved; a design built or abandoned |
+| a closed record | a mission `done`; a debt resolved; a design built or abandoned |
 | its list of absorbed names | the `absorbs:` field of the report carrying the line |
 | names it in its header | `superseded_by:` on the withdrawn document (Dublin Core `isReplacedBy`) |
 | says what it replaces | `absorbs:` on the heir (Dublin Core `replaces`) |

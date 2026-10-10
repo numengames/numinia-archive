@@ -4,9 +4,9 @@ uid: ""
 title: "Applying the engineering standard"
 type: procedure
 status: draft
-version: "3.1.4"
+version: "3.1.5"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [procedure, engineering, agents]
@@ -105,5 +105,5 @@ Oracle through `PRO-005`, with the decision record drafted.
 |---|---|---|
 | `STD-005` | When a rule bites | the principles this procedure applies |
 | `STD-015` | Engineering checks | the practice register the rule IDs come from, test-first included |
-| `PRO-005` | Escalation | how the Oracle tier is reached |
+| `PRO-005` | Escalating to the Oracle | how the Oracle tier is reached |
 | `PRO-013` | Handing a check to CI | continues this when the task is a check |

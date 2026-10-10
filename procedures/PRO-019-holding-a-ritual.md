@@ -4,9 +4,9 @@ uid: ""
 title: "Holding a ritual"
 type: procedure
 status: draft
-version: "0.2.5"
+version: "0.2.6"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -112,8 +112,8 @@ without functions.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `PRI-001` | Numinia is the operating system, narrated | a name without a function is removed |
-| `PRI-002` | Numinia Brand and Culture | what the rituals mean, and their names |
+| `PRI-001` | You are already in the game | a name without a function is removed |
+| `PRI-002` | We build a game to work better | what the rituals mean, and their names |
 | `PRO-017` | Rolling up the week | the material an operational ritual reads |
 | `PRO-005` | Escalating to the Oracle | a cadence that no longer earns itself |
 | `STD-012` | The corpus does not grow | why minutes are not written |

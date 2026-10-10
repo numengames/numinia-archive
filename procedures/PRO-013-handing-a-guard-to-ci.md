@@ -4,11 +4,11 @@ uid: ""
 title: "Handing a check to CI"
 type: procedure
 status: draft
-version: "5.1.5"
+version: "5.1.6"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [procedure, ci, checks, engineering]
@@ -30,7 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 # PRO-013 — Handing a check to CI
 
 > **Summary:** How a verification check written by an agent reaches the
-> pipeline: it is merged into the guards folder, and the runner the
+> pipeline: it is merged into the `machine/checks/` folder, and the runner the
 > workflow already calls picks it up. The agent still cannot edit the
 > workflow file.
 > **Epistemic:** How does a check an agent wrote come to run in CI?
@@ -66,11 +66,11 @@ Steps are the agent's, save step 6, which is the Oracle's.
    No flag changes what is checked; same tree, same output.
 4. **Test both directions.** Fail on planted breakage, pass on a clean tree,
    before offering it. Declare blindness (`TRC-007`).
-5. **Place it in the guards folder and touch nothing else.** The runner
+5. **Place it in the `machine/checks/` folder and touch nothing else.** The runner
    finds it; never edit the workflow file. A script that must not run as a
    check does not live there. A check that reads build output says so where
    the runner reads it. Keep no table of checks in any document: `npm run
-   guards` lists what runs.
+   checks` lists what runs.
 6. **The Oracle reviews and merges the pull request.** This is the control:
    a check that is not merged does not run.
 7. **Report the run on `main`.** The handoff ends when the run identifier of

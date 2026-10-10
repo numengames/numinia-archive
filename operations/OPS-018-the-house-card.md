@@ -4,9 +4,9 @@ uid: ""
 title: "The house's card"
 type: documentation
 status: draft
-version: "0.7.0"
+version: "0.7.1"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-08T12:40:00+02:00"
+updated: "2026-10-10T11:53:15+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -159,16 +159,13 @@ terms, taught the card these lessons.
 
 ## What the card leaves within reach
 
-Read from the law, against the card:
+Read from the law, against the card; the thresholds and what each
+procedure asks are in `STD-038`, *When the buyer publishes a notice*:
 
-- **Minor contracts, under 15,000 €** — no notice and no solvency: the
-  authority asks and awards directly (LCSP art. 118). Won by being known to
-  the technician before the need is written.
-- **Abridged simplified procedure, under 60,000 €, not intellectual
-  services** — no solvency to prove; ROLECE or its application; price and
-  formula criteria only (LCSP art. 159.6).
-- **Simplified procedure, under 35,000 €** — no solvency unless the terms
-  say so (RGLCAP art. 11.5). In reach with ROLECE.
+- **Minor contracts, the abridged simplified procedure, and the simplified
+  procedure below the solvency threshold** — no solvency to prove; the two
+  simplified ones ask ROLECE or its application. A minor contract is won by
+  being known to the technician before the need is written.
 - **Calls for micro and small companies with a Madrid seat**, for profit,
   without a minimum age or staff, paid in advance or bridged — in reach.
 - **Out of reach today** — a tender asking ENS, an ISO certificate, a team

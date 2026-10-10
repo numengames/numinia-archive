@@ -5,9 +5,9 @@ title: "Which rule wins"
 type: standard
 subtype: standard
 status: draft
-version: "1.2.5"
+version: "1.2.6"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
@@ -83,7 +83,7 @@ Each rule, its code, its source and its check.
 |---|---|---|---|
 | PRE-001 | History outranks the document | — (the history is kept in [Git](https://git-scm.com/)) | by hand — recognising that two sources conflict is a judgement no parser makes |
 | PRE-002 | Documents outrank code | — | by hand |
-| PRE-003 | The costlier document wins | —; the thresholds `governed` · `closed` · `open` in `STD-001` | by hand |
+| PRE-003 | The costlier document wins | —; the approval levels `governed` · `closed` · `open` in `STD-001` | by hand |
 | PRE-004 | The later ruling wins | — | by hand |
 | PRE-005 | Authority is not self-declared | — | by hand |
 | PRE-006 | A draft is on trial: followed, warns, never blocks | [RFC 2026, Internet-Drafts, section 2.2](https://www.rfc-editor.org/rfc/rfc2026#section-2.2): drafts are work in progress, and no one may claim compliance with one | every check on the shared contract (`machine/checks/lib/guard.mjs`) reads each standard's `status` and reports without failing while it is `draft`, as `ENG-067` in `STD-005` requires |
@@ -101,7 +101,7 @@ paying can change who changed what, and when.
 
 | ID | Title | Relation |
 |---|---|---|
-| `STD-001` | The series | the thresholds the costlier-document rule orders |
+| `STD-001` | The series | the approval levels the costlier-document rule orders |
 | `STD-017` | Who may change what | who moves each approval level |
 | `STD-005` | When a rule bites | how a check bites by the state of its rule |
 | `PRI-004` | You are what you are doing | who holds which rank |
