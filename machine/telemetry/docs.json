@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 41282,
+  "chars": 42108,
   "apparatus": false,
   "archived": false,
-  "tokens": 12018
+  "tokens": 12245
  },
  {
   "path": "CLAUDE.md",
@@ -1864,10 +1864,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 4172,
+  "chars": 4830,
   "apparatus": false,
   "archived": false,
-  "tokens": 1158
+  "tokens": 1352
  },
  {
   "path": "missions/MIS-0157-identity-and-ranks-by-the-standards.md",
@@ -1879,6 +1879,50 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2792
+ },
+ {
+  "path": "missions/MIS-0158-a-worlds-copy-runs-anywhere.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3599,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1041
+ },
+ {
+  "path": "missions/MIS-0159-the-worlds-room-shows-machines-copies-and-owners.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3951,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1120
+ },
+ {
+  "path": "missions/MIS-0160-copies-and-keys-through-the-houses-aws.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4081,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1191
+ },
+ {
+  "path": "missions/MIS-0161-what-a-world-costs.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2934,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 828
  },
  {
   "path": "objects/CHECK.md",
