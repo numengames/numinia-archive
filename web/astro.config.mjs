@@ -11,6 +11,7 @@ import { defineConfig } from "astro/config";
 import rehypeContextCard from "./src/lib/rehype-context-card.mjs";
 import rehypeBindsState from "./src/lib/rehype-binds-state.mjs";
 import { rehypeShiftHeadings } from "./src/lib/rehype-shift-headings.mjs";
+import rehypeDocLinks from "./src/lib/rehype-doc-links.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -441,8 +442,10 @@ export default defineConfig({
 	markdown: {
 		// Order matters: the card is built from the document's opening
 		// blockquote, then every heading drops one level so the page keeps the
-		// single h1 it printed itself. See rehype-shift-headings.mjs.
-		rehypePlugins: [rehypeContextCard, rehypeBindsState, rehypeShiftHeadings],
+		// single h1 it printed itself. See rehype-shift-headings.mjs. Links
+		// between documents are rewritten from file to page last
+		// (rehype-doc-links.mjs).
+		rehypePlugins: [rehypeContextCard, rehypeBindsState, rehypeShiftHeadings, rehypeDocLinks],
 	},
 	vite: {
 		// Tailwind 4 is a Vite plugin: the @astrojs/tailwind integration was
