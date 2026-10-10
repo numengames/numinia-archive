@@ -128,6 +128,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 - **Changed** `ADR-069` 0.2.0: at the Oracle's request the book of orders lives on each machine and changes by a request the Oracle's wallet signs; the pull-request path is gone. `SYS-013` 0.3.0, `MIS-156` 0.3.0 log it; `STD-003` 3.3.0 lists the worlds room under the Oracle.
 
 ### 2026-10-10
+- **Fixed** site v0.161.0: 22 links on /agents and /stakeholders/readme led to 404 — repository-style links (`ursa/SOUL.md`) now point at the page; a build test holds every internal link.
 - **Changed** `MIS-156` 0.2.0 shrinks to one thing: a new small machine (`open-1`) that obeys the order book — bootstrap, reconciler, first card and order; the hand-run server stays as it is.
 - **Added** `MIS-158`: each fleet machine makes, every night, a self-contained zip of each world (the Alchemists' Tower backup shape) that runs anywhere with `docker compose up`.
 - **Added** `MIS-159`: the Worlds room shows machines, copies with *Download*, the admin code, and owners by wallet who see only their worlds.
