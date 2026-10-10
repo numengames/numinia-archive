@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-10
+- **Fixed** Core coherence, no activation: draft means on trial in `STD-026`/`PRI-009`; `STD-012` checks DEF-004/010/011; seven-day security answer; duplicates retired (URL-006, CIT-051, STA-010, SEC-004, LEG-001); sales flow agrees on silence, validity, one `won`; reference titles tested.
+
 ### 2026-10-09
 - **Changed** `MIS-157` 0.2.0 logs the Oracle's working hypothesis, the wallet first: Pilgrim and Citizen read from the wallet, hand ranks in a Worker secret for now, bans off chain, no database yet; on-chain role and zero-knowledge candidates added for the ADR.
 - **Added** `MIS-157`: numinia.com's sign-in, sessions, ranks and bans follow published standards (OWASP ASVS, NIST, EIP-4361), selected in an ADR before any code; the site's code keeps `STD-003`, whose four breaches it lists; the automatic rank ladder goes to debt.
