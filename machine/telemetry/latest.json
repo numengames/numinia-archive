@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "b2b717d",
-  "corpus_hash": "6ec5d14a492aaf91df6f9d695ec7a79068ea57016f3b1ec7197e8c29873403bc",
+  "head": "4502912",
+  "corpus_hash": "971f4841132bcea23ad085fbe8205ec23e97d416e0f543cef535d72b03c16a5e",
   "root_dirty": 0,
-  "measured_at": "2026-10-12T10:10:11Z",
+  "measured_at": "2026-10-12T10:59:44Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 844,
+      "value": 846,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,7 +34,7 @@
         ".js": 2,
         ".json": 16,
         ".md": 357,
-        ".mjs": 129,
+        ".mjs": 131,
         ".png": 36,
         ".svg": 77,
         ".toml": 3,
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 357,
-          "bytes": 3874396
+          "bytes": 3876964
         },
         "Code": {
-          "files": 274,
-          "bytes": 2465245
+          "files": 276,
+          "bytes": 2476974
         },
         "Image": {
           "files": 117,
@@ -65,7 +65,7 @@
         },
         "Data": {
           "files": 70,
-          "bytes": 282998
+          "bytes": 284651
         },
         "Font": {
           "files": 7,
@@ -150,13 +150,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 89,
+      "value": 91,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 89
+        "node": 91
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -369,26 +369,26 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 983269,
+      "value": 983963,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 114584,
+        "standards": 114778,
         "system": 58666,
-        "procedures": 37945,
+        "procedures": 38062,
         "reports": 36728,
         "agents": 36326,
-        "operations": 33570,
-        "machine": 30068,
+        "operations": 33602,
+        "machine": 30063,
         "designs": 28300,
         "missions": 27072,
-        "principles": 24099,
-        "": 20667,
+        "principles": 24143,
+        "": 20751,
         "decisions": 18203,
-        "debt": 15382,
+        "debt": 15610,
         "opportunities": 15128,
         "legal": 13877,
         "stakeholders": 4011,
@@ -400,9 +400,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 494313,
-        "draft": 250747,
-        "active": 209599,
+        "(none)": 494397,
+        "draft": 251069,
+        "active": 209887,
         "todo": 22932,
         "in-progress": 4526,
         "done": 1152
@@ -749,7 +749,7 @@
       "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-004 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 87,
+      "value": 88,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -785,35 +785,35 @@
     "contradictions.id_form_per_series": {
       "value": {
         "PRO": {
-          "3": 479
+          "3": 481
         },
         "STD": {
-          "3": 1318
+          "3": 1341
         },
         "OPS": {
-          "3": 195
+          "3": 197
         },
         "PRI": {
-          "3": 415
+          "3": 416
         },
         "ADR": {
           "3": 335
+        },
+        "LEG": {
+          "3": 103
         },
         "SYS": {
           "3": 155
         },
         "DBT": {
-          "3": 99
+          "3": 102
         },
         "MIS": {
           "3": 471,
           "4": 178
         },
-        "LEG": {
-          "3": 101
-        },
         "OPP": {
-          "3": 43,
+          "3": 44,
           "4": 68
         },
         "PRP": {
@@ -824,7 +824,7 @@
           "3": 146
         },
         "RPT": {
-          "3": 67,
+          "3": 68,
           "4": 4
         },
         "DEC": {
@@ -901,7 +901,7 @@
       "definition": "the register, verified this run: id, severity (MIS-135: A norm↔norm/guard · B norm↔corpus · C housekeeping), state, where (path#line when open), claim"
     },
     "figures.live": {
-      "value": 299,
+      "value": 300,
       "unit": "lines",
       "definition": "lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — \"N tokens|documents|files|missions\", \"N/M\", \"N %\" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines"
     },
@@ -910,15 +910,15 @@
         "operations/OPS-005-simulations.md": 19,
         "reports/RPT-008-gaps-capability-map.md": 19,
         "standards/STD-023-design-values.md": 19,
+        "CHANGELOG.md": 12,
         "lore/game/manual/es/03-creacion-del-personaje.md": 12,
         "operations/OPS-018-the-house-card.md": 12,
-        "CHANGELOG.md": 11,
         "lore/game/manual/en/03-character-creation.md": 10,
         "operations/OPS-007-sales.md": 10,
         "designs/DES-017-legal-obligations-to-confirm.md": 9,
         "operations/OPS-022-the-houses-hours.md": 9,
+        "debt/DBT-022-legal-debts-and-questions-for-counsel.md": 8,
         "designs/DES-009-web-pieces.md": 8,
-        "debt/DBT-022-legal-debts-and-questions-for-counsel.md": 7,
         "designs/DES-018-our-own-gateway.md": 7,
         "missions/MIS-0135-normalisation-residue-register.md": 7,
         "operations/OPS-001-continuity.md": 7
