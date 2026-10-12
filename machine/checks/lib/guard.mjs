@@ -21,6 +21,11 @@
 // regime. The guard says so because the standard says so in prose; there is
 // no machine-readable severity to derive it from.
 //
+// A finding may carry `onTrial: true`: the document it is about is itself a
+// draft, so under a rule in force it warns and never blocks (a draft is on
+// trial). The guard says so because only it knows which document a finding
+// is about; the regime (machine/scripts/lib/regime.mjs) does the rest.
+//
 // `execute` is the standalone entry: it declares the guard's blind spots,
 // loads the corpus once, runs the guard, hands the findings to the regime and
 // exits with its verdict. A guard's last line is:
@@ -94,15 +99,24 @@ export async function execute(importMeta, meta, run, { corpus = loadCorpus() } =
   const name = nameOf(importMeta);
   declareBlindSpots(name);
   warnUntracked(name, corpus.root);
-  const out = new Findings(name);
+  judge(name, meta, run(corpus));
+}
+
+/** Hand a guard's findings to the regime and finish. SHOULD findings are
+ *  measured on one line, never judged; a finding marked `onTrial` (the
+ *  document it is about is still a draft) is reported, never enforced.
+ *  `index`, `log` and `exit` are injectable so a test can apply the regime
+ *  to a fixture as the build would. */
+export function judge(name, meta, findings, { index, log = console, exit } = {}) {
+  const out = new Findings(name, index ? { index, log } : { log });
   const measured = new Map();
-  for (const f of run(corpus)) {
+  for (const f of findings) {
     if (f.should) { measured.set(f.plate, (measured.get(f.plate) ?? 0) + 1); continue; }
-    out.add(f.plate, f.what, f.where);
+    out.add(f.plate, f.what, f.where, { onTrial: f.onTrial });
   }
   if (measured.size) {
     const parts = [...measured].sort().map(([p, n]) => `${p} ×${n}`);
-    console.log(`${name}: measured, not judged (SHOULD): ${parts.join(', ')}`);
+    log.log(`${name}: measured, not judged (SHOULD): ${parts.join(', ')}`);
   }
-  out.finish({ ok: `${meta.plates.join(' ')} — all hold.` });
+  return out.finish({ ok: `${meta.plates.join(' ')} — all hold.`, ...(exit ? { exit } : {}) });
 }

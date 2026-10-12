@@ -24,7 +24,9 @@
 //          a «quotation». A name the same in both languages is not a term.
 //
 // Read: every tracked principles/*.md that is not apparatus, a template or
-// withdrawn. Never read: the header, HTML comments (the licence block),
+// withdrawn. A finding in a principle whose own header is not `active` is
+// marked on trial: it warns and never blocks, even with STD-031 in force.
+// Never read: the header, HTML comments (the licence block),
 // fenced code, a link's address, a bare URL, and the References section to
 // the next `## ` heading. Positions are kept, so every finding names its line.
 //
@@ -185,7 +187,11 @@ export function run(corpus) {
     const fm = corpus.fm(rel);
     if (!fm || fm.status === 'withdrawn') continue;
     if (fm.lang && fm.lang !== 'en') continue;   // the rule reads English principles
-    findings.push(...read(rel, corpus.text(rel)));
+    // A principle not yet in force is on trial: under STD-031 in force its
+    // findings warn and never block; once its own header says `active`, they
+    // fail the build like any rule in force (regime.mjs, Findings).
+    const onTrial = fm.status !== 'active';
+    findings.push(...read(rel, corpus.text(rel)).map((f) => (onTrial ? { ...f, onTrial } : f)));
   }
   return findings;
 }

@@ -122,7 +122,16 @@ export function bindsFor(plate, index = loadHolders()) {
   return { binds: status === 'active', holder, status };
 }
 
-/** Collects a guard's findings and applies the regime on finish(). */
+/** Collects a guard's findings and applies the regime on finish().
+ *
+ *  A finding may also be ON TRIAL: the document it was found in is itself a
+ *  draft (`add(plate, what, where, { onTrial: true })`). A draft is on trial
+ *  — followed, warned about, never blocking — and that holds for the
+ *  document as much as for the rule: a principle still in draft does not
+ *  fail the build under a standard in force; once its own header says
+ *  `active`, it does. Which findings are on trial is the guard's to say,
+ *  because only the guard knows which document a finding is about
+ *  (std-031-a-principle-states is the first to say it). */
 export class Findings {
   constructor(guard, { index = loadHolders(), log = console } = {}) {
     this.guard = guard;
@@ -131,13 +140,17 @@ export class Findings {
     this.items = [];
   }
 
-  add(plate, what, where) {
-    this.items.push({ plate, what, where });
+  add(plate, what, where, { onTrial = false } = {}) {
+    this.items.push({ plate, what, where, onTrial: Boolean(onTrial) });
     return this;
   }
 
-  get enforced() { return this.items.filter((f) => bindsFor(f.plate, this.index).binds); }
-  get reported() { return this.items.filter((f) => !bindsFor(f.plate, this.index).binds); }
+  /** Does this finding fail the build: its holder is active and the
+   *  document it is about is not on trial. */
+  binds(f) { return !f.onTrial && bindsFor(f.plate, this.index).binds; }
+
+  get enforced() { return this.items.filter((f) => this.binds(f)); }
+  get reported() { return this.items.filter((f) => !this.binds(f)); }
 
   /** The holders this run touched, with their state — printed so a reader
    *  knows WHY a red finding was red and a grey one was grey. */
@@ -161,8 +174,9 @@ export class Findings {
     }
     const hard = this.enforced;
     for (const f of this.items) {
-      const binds = bindsFor(f.plate, this.index).binds;
-      (binds ? log.error : log.log)(`  ${binds ? '✗' : '·'} ${f.plate}  ${f.what}\n      ${f.where}`);
+      const binds = this.binds(f);
+      const trial = f.onTrial ? ' (on trial: the document is a draft)' : '';
+      (binds ? log.error : log.log)(`  ${binds ? '✗' : '·'} ${f.plate}  ${f.what}${trial}\n      ${f.where}`);
     }
     if (!this.items.length) {
       log.log(`${this.guard}: ${ok}`);
@@ -170,7 +184,8 @@ export class Findings {
     }
     log.log(`\n${this.guard}: ${this.items.length} finding(s), ${hard.length} enforced (ENG-067).`);
     if (hard.length) return exit(1);
-    log.log('Not enforced: the holding standards await ratification.');
+    if (this.items.some((f) => f.onTrial)) log.log('Not enforced on trial: a finding in a document still draft warns and never blocks.');
+    if (this.items.some((f) => !f.onTrial)) log.log('Not enforced: the holding standards await ratification.');
     return exit(0);
   }
 }
