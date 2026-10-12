@@ -4,11 +4,11 @@ uid: ""
 title: "Renaming is not transforming"
 type: principle
 status: draft
-version: "2.1.6"
+version: "2.1.7"
 created: "2026-04-15T16:40:18Z"
 created_source: "git:b8f31d1"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -205,3 +205,11 @@ becomes dominant when the ground is ready.
 NWOS introduces no new elements. It reconfigures the existing ones: how they
 are interpreted, how they relate, and how they operate. What it introduces is
 a change of paradigm.
+
+## References
+
+| ID | Name | Why cited |
+|---|---|---|
+| `PRI-001` | You are already in the game | a name without a function is a costume |
+| `PRI-004` | You are what you are doing | guilds, factions and the roles that come from their relations |
+| `PRI-006` | The model needs a story | the narrative that crosses both planes |

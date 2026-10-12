@@ -4,11 +4,11 @@ uid: ""
 title: "Opening is an act"
 type: principle
 status: draft
-version: "5.0.5"
+version: "5.0.6"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -112,10 +112,7 @@ outright, nothing at all.
 This is why a piece meant to stay reserved is declared so **before** it is
 published, never after. A document added to an already-open folder inherits
 that folder's offer the moment it is pushed, and the offer cannot then be
-taken back. It happened to us: the archive's own principle is open because it was
-published under an open licence before any reservation existed, and no later
-decision could reach back over it. We are glad it is open. We would rather
-have chosen it.
+taken back.
 
 ## A licence on the shelf grants nothing
 

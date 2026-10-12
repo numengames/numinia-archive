@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-12
+- **Changed** `STD-031` 0.3.0: a principle's tools, dates, names, bare ids and Spanish world names are checked by `std-031-a-principle-states` (draft: reported, not blocking); judgement rows go to the PR template. Principles form pass: banners, restated standards, repeats cut; Threshold, Prism; three citations fixed.
 - **Added** `MIS-162`: each fleet machine measures itself and every world on it (memory, processor, disk, people inside, restarts), keeps a week, publishes it at its door with no person in it, and the worlds room shows it.
 - **Added** `MIS-163`: a machine never takes more than it holds — each world reserves its share, the door refuses one that does not fit (`no-room`), and the room shows the machine's room and switches Create and Start off, saying why.
 - **Added** `MIS-164`: a world comes back from its zip — one signed `ImportWorld` brings up the fleet's own copies, the Alchemists' Tower's backups and the hand-run server's worlds, with every hostile-zip rule tested.

@@ -5,15 +5,15 @@ title: "One account"
 type: standard
 subtype: standard
 status: draft
-version: "0.3.6"
+version: "0.3.7"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-10T11:53:13+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
 license: "CC0-1.0"
 tags: [standards, economy, ledger, accounting, transparency, audit]
-related: ["PRI-011", "PRI-010", "STD-033", "STD-035", "SYS-008", "PRO-021", "DES-017"]
+related: ["PRI-011", "STD-033", "STD-035", "SYS-008", "PRO-021", "DES-017"]
 derived_from: "PRI-011"
 ---
 
@@ -124,8 +124,7 @@ can check the books against something they know.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `PRI-011` | What has value also makes a bond | the reason for every rule here |
-| `PRI-010` | Leave things better than you found them | why no person's pay is published |
+| `PRI-011` | What has value also makes a bond | the reason for every rule here, and why no person's pay is published |
 | `STD-033` | Every charge delivers something | what may be charged, each charge a line here |
 | `STD-035` | Personal data | what the ledger may say about a person |
 | `SYS-008` | The account: how money moves and is recorded, as wired today | where the ledger lives and who holds each key |

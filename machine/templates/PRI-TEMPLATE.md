@@ -43,8 +43,9 @@ TODO — the body.
 <!--
 NOTES ON USING THIS TEMPLATE — delete this block.
 
-THE RULES ARE A STANDARD, NOT THIS COMMENT. What a principle must do and must
-never contain is `STD-031` (A principle states), twelve plated rules STA-001..012.
+THE RULES ARE A STANDARD, NOT THIS COMMENT. What a principle must never contain
+is `STD-031` (A principle states), checked by a machine; what it must do is read
+by its reviewers (the reading list in the pull request template).
 Read it before writing a line; this comment only tells you how to hold the
 pen. Until 2026-09-24 the rules lived here and in three decision records,
 where — by the archive's own rule — they obliged nobody.
@@ -61,7 +62,7 @@ THE THREE ADMISSION QUESTIONS. Answer before writing:
   Three noes and you are holding a principle. One yes and you are holding another
   series with a principle's confidence.
 
-THERE IS NO PRESCRIBED SECTIONING (STA-004). Write it as one continuous text,
+THERE IS NO PRESCRIBED SECTIONING. Write it as one continuous text,
 or with headings you choose, or with none. Headings belong to your argument,
 not to a form: "The city you walked into" is a heading; "1. The definition"
 is a filing label, and a reader can tell which one was written for them.
@@ -71,7 +72,7 @@ and what an agent reads before deciding to open the file. The TODOs above are
 deliberately loud: a principle shipped with one unfilled told the whole internet
 "what you learn by reading this document", for months.
 
-THE TITLE IS A CLAIM (STA-005), and short enough to say aloud in one breath —
+THE TITLE IS A CLAIM (the reviewers read for it), and short enough to say aloud in one breath —
 the index shows nine of them in a column. "Opening is an act", not
 "Licensing".
 

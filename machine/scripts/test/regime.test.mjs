@@ -256,6 +256,23 @@ check('tree: one question per standard — the last rows: guards apart from safe
   return true;
 });
 
+check('tree: a principle states is checkable — its check speaks for STD-031, its judgement rows left for the reviewers', () => {
+  const script = path.join(ROOT, 'machine/checks/rules/std-031-a-principle-states.mjs');
+  if (!existsSync(script)) return 'no machine/checks/rules/std-031-a-principle-states.mjs';
+  const plates = emittedPlates(readFileSync(script, 'utf-8'));
+  if (!plates.length) return 'the STD-031 check declares no plate';
+  for (const p of plates) if (index.byPlate.get(p) !== 'STD-031') return `${p} holder ${index.byPlate.get(p)}, want STD-031`;
+  const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine/scripts/retired-plates.json'), 'utf-8')).plates;
+  for (const p of ['STA-001', 'STA-002', 'STA-003', 'STA-004', 'STA-005', 'STA-008', 'STA-009']) {
+    if (!ledger[p]) return `${p} is not in the retired-plates ledger`;
+    if (index.byPlate.has(p)) return `${p} is retired and still held by ${index.byPlate.get(p)}`;
+  }
+  const tpl = readFileSync(path.join(ROOT, '.github/PULL_REQUEST_TEMPLATE.md'), 'utf-8');
+  if (!/^## For reviewers: read for$/m.test(tpl)) return 'the pull request template has no reviewers\' reading list';
+  if (!/^- principles\/: it says what is so; it says why;/m.test(tpl)) return 'the reading list has no line for principles/';
+  return true;
+});
+
 check('tree: a series threshold is stated once, in STD-001 — no document header repeats it', () => {
   for (const d of ['standards', 'principles', 'procedures', 'machine/templates']) {
     for (const f of readdirSync(path.join(ROOT, d)).filter((n) => n.endsWith('.md'))) {

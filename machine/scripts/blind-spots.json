@@ -498,6 +498,36 @@
         }
       ]
     },
+    "std-031-a-principle-states": {
+      "script": "machine/checks/rules/std-031-a-principle-states.mjs",
+      "sees": "every tracked principles/*.md (not apparatus, templates or withdrawn), header, HTML comments, fenced code, link addresses, bare URLs and the References section blanked: STA-006 a tool from its list named as a whole word; STA-007 a year 19xx/20xx, an ISO date, a month with a day, an hour, a person's name by the sales kit's personNames(); STA-011 a bare document id; STA-012 a Spanish name from the manual's glossary tables outside a «quotation» or code span",
+      "blind_to": [
+        {
+          "spot": "whether a principle states, argues, leaves the reader able to act, carries a claim for a title, restates no neighbour or draws a border only where one is real — judgement, read by the reviewers from the reading list in the pull request template",
+          "covered_by": null
+        },
+        {
+          "spot": "a tool missing from its list, or named in lower case where the list holds the capitalised form; ambiguous English words (Linear, Unity, Word, Meta, Apple, Steam) are left out on purpose",
+          "covered_by": null
+        },
+        {
+          "spot": "a clock written in words (\"every Monday\", \"each quarter\", \"the twenties\") — only digits and month names are read; and a year that names an era rather than a date is reported all the same",
+          "covered_by": null
+        },
+        {
+          "spot": "a person named without a common first name or a courtesy title (a surname alone) — the sales kit's detector is eager on first names and blind to the rest",
+          "covered_by": null
+        },
+        {
+          "spot": "a world name the glossary does not hold, or a Spanish name inside a code span or a «quotation», which is read as a quotation",
+          "covered_by": "machine/scripts/test/world-names.test.mjs, for the Veil and the Summa across every file"
+        },
+        {
+          "spot": "untracked files — enumerates via `git ls-files`",
+          "covered_by": "its own untracked-file warning (D-049)"
+        }
+      ]
+    },
     "telemetry": {
       "script": "machine/scripts/telemetry.mjs",
       "build_check": "verifies the artefact, not a rule — a stale machine/telemetry/latest.json misreports the tree whatever any standard says (ENG-067 exception)",

@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-010"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.2.3"
+version: "0.2.4"
 created: "2026-09-24T17:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -38,10 +38,6 @@ SPDX-License-Identifier: CC0-1.0
 
 **Binds:** whoever acts in Numinia's name, human or digital.
 
-> This principle is a first statement, written in draft to be argued with. It
-> infers its commitments from what the corpus already holds; where a
-> commitment is missing, that is the argument to have.
-
 ---
 
 ## The sentence
@@ -54,9 +50,8 @@ after, and it puts the burden on the one acting. The values of the house —
 harmony, fairness, curiosity, healthy environments — are what *better* means
 here; this sentence is what makes them bind.
 
-The reason is the one the whole house rests on. The organisations we
-inherited produce a particular kind of deadness, and what we build is meant
-to be the opposite: a place where the relations between people come out of
+The reason is the one the whole house rests on: what we build is meant
+to be a place where the relations between people come out of
 the work stronger than they went in. A system that leaves people, data or the
 commons worse off has failed at the only thing it was for, whatever else it
 delivered.
@@ -72,8 +67,7 @@ The conduct standard states the terms; this is why they are the terms.
 **Their data.** A person's data is treated as their property: consent before
 capture, the minimum captured, and what is captured leaves with them. *Humans
 are not the problem.* A site of this house stores what it needs for the
-person and nothing for anyone else, and says so from a measured inventory,
-not from a template. Where the law demands less than this, the house does
+person and nothing for anyone else. Where the law demands less than this, the house does
 not take the difference.
 
 **The commons.** What is opened is opened for good, and what is given to the
