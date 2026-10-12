@@ -16,10 +16,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 996,
+  "chars": 1345,
   "apparatus": false,
   "archived": false,
-  "tokens": 256
+  "tokens": 341
  },
  {
   "path": ".github/rulesets/README.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 43406,
+  "chars": 43715,
   "apparatus": false,
   "archived": false,
-  "tokens": 12617
+  "tokens": 12699
  },
  {
   "path": "CLAUDE.md",
@@ -1666,10 +1666,10 @@
   "series": null,
   "type": "principle",
   "status": "draft",
-  "chars": 3973,
+  "chars": 4047,
   "apparatus": true,
   "archived": false,
-  "tokens": 1025
+  "tokens": 1036
  },
  {
   "path": "machine/templates/PRO-TEMPLATE.md",
@@ -3360,10 +3360,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 5719,
+  "chars": 3961,
   "apparatus": false,
   "archived": false,
-  "tokens": 1513
+  "tokens": 1076
  },
  {
   "path": "standards/STD-033-every-charge-delivers-something.md",

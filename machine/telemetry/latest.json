@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "4502912",
-  "corpus_hash": "971f4841132bcea23ad085fbe8205ec23e97d416e0f543cef535d72b03c16a5e",
+  "head": "df0fa93",
+  "corpus_hash": "6f402359914d4bcafb72312a482075d39bcc5b08442908095b21eea3e4e876ce",
   "root_dirty": 0,
-  "measured_at": "2026-10-12T10:59:44Z",
+  "measured_at": "2026-10-12T11:43:19Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 846,
+      "value": 848,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,7 +34,7 @@
         ".js": 2,
         ".json": 16,
         ".md": 357,
-        ".mjs": 131,
+        ".mjs": 133,
         ".png": 36,
         ".svg": 77,
         ".toml": 3,
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 357,
-          "bytes": 3876964
+          "bytes": 3875920
         },
         "Code": {
-          "files": 276,
-          "bytes": 2476974
+          "files": 278,
+          "bytes": 2492765
         },
         "Image": {
           "files": 117,
@@ -65,7 +65,7 @@
         },
         "Data": {
           "files": 70,
-          "bytes": 284651
+          "bytes": 287806
         },
         "Font": {
           "files": 7,
@@ -162,7 +162,7 @@
       "definition": "those scripts by language, from the extension"
     },
     "corpus.scripts_in_ci": {
-      "value": 21,
+      "value": 22,
       "unit": "files",
       "definition": "checks the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)"
     },
@@ -369,39 +369,39 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 983963,
+      "value": 983704,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 114778,
+        "standards": 114341,
         "system": 58666,
         "procedures": 38062,
         "reports": 36728,
         "agents": 36326,
         "operations": 33602,
-        "machine": 30063,
+        "machine": 30074,
         "designs": 28300,
         "missions": 27072,
         "principles": 24143,
-        "": 20751,
+        "": 20833,
         "decisions": 18203,
         "debt": 15610,
         "opportunities": 15128,
         "legal": 13877,
         "stakeholders": 4011,
         "objects": 1883,
-        ".github": 933
+        ".github": 1018
       },
       "unit": "tokens",
       "definition": "tokens per top-level dir, largest first"
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 494397,
-        "draft": 251069,
+        "(none)": 494564,
+        "draft": 250643,
         "active": 209887,
         "todo": 22932,
         "in-progress": 4526,
@@ -749,7 +749,7 @@
       "definition": "status values in use that machine/scripts/lib/rules.json does not declare (STD-004 lifecycles), with the docs carrying them — a contradiction between a document and the vocabulary"
     },
     "contradictions.ci_markers_std001": {
-      "value": 88,
+      "value": 90,
       "unit": "rows",
       "definition": "table rows of STD-001 carrying `[CI]`"
     },
@@ -760,7 +760,6 @@
         "machine/scripts/run-checks.mjs",
         "machine/checks/lib/guard.mjs",
         "machine/tools/check-deletable.mjs",
-        "machine/tools/rule-index.mjs",
         "machine/packages/sales-kit/pipeline.mjs",
         "machine/scripts/pipeline.mjs",
         "machine/scripts/collateral.mjs"
@@ -788,7 +787,7 @@
           "3": 481
         },
         "STD": {
-          "3": 1341
+          "3": 1342
         },
         "OPS": {
           "3": 197
