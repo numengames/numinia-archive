@@ -19,6 +19,14 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ### 2026-10-12
 - **Changed** `STD-031` 0.3.0: a principle's tools, dates, names, bare ids and Spanish world names are checked by `std-031-a-principle-states` (draft: reported, not blocking); judgement rows go to the PR template. Principles form pass: banners, restated standards, repeats cut; Threshold, Prism; three citations fixed.
+- **Added** `MIS-162`: each fleet machine measures itself and every world on it (memory, processor, disk, people inside, restarts), keeps a week, publishes it at its door with no person in it, and the worlds room shows it.
+- **Added** `MIS-163`: a machine never takes more than it holds — each world reserves its share, the door refuses one that does not fit (`no-room`), and the room shows the machine's room and switches Create and Start off, saying why.
+- **Added** `MIS-164`: a world comes back from its zip — one signed `ImportWorld` brings up the fleet's own copies, the Alchemists' Tower's backups and the hand-run server's worlds, with every hostile-zip rule tested.
+- **Added** `MIS-165`: each rank sees the fleet at its own depth — an owner their worlds, an Archon every number without acting, the Oracle everything — written in `STD-003` and built in the worlds room.
+- **Added** `MIS-166`: a public list of the open worlds on numinia.com with the people inside, fed by the machines; each world's `/status` stops handing outsiders every visitor's name and position.
+- **Added** `MIS-167`, on hold until a machine holds more worlds than room: an empty world sleeps and wakes for its first visitor, without losing an edit.
+- **Added** `MIS-168`: a machine updates itself when the Oracle signs the commit to install, and goes back by itself if the new build does not come up — no bootstrap line over SSH.
+- **Added** `MIS-169`: a world can be paid for — hosting on sale through the house's one payment account, priced by the size a world reserves, born with its buyer as owner, stopped when the payment stops.
 - **Fixed** Core coherence, no activation: draft means on trial in `STD-026`/`PRI-009`; `STD-012` checks DEF-004/010/011; seven-day security answer; duplicates retired (URL-006, CIT-051, STA-010, SEC-004, LEG-001); sales flow agrees on silence, validity, one `won`; reference titles tested.
 - **Added** `SYS-014` The worlds fleet, as wired: an Oracle signs one request in numinia.com's worlds room and the machine checks it and creates, stops, starts, downloads or deletes the world; what each piece holds, what it refuses, what a theft gives.
 - **Added** `SYS-015` Signing in to numinia.com, as wired: thirdweb and Sign-In with Ethereum, the site's own one-hour session, where each rank comes from, the two lists of Oracles, and what is not built (bans, early revocation).

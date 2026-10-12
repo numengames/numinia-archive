@@ -16,10 +16,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1345,
+  "chars": 996,
   "apparatus": false,
   "archived": false,
-  "tokens": 341
+  "tokens": 256
  },
  {
   "path": ".github/rulesets/README.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 43725,
+  "chars": 45024,
   "apparatus": false,
   "archived": false,
-  "tokens": 12697
+  "tokens": 13011
  },
  {
   "path": "CLAUDE.md",
@@ -1666,10 +1666,10 @@
   "series": null,
   "type": "principle",
   "status": "draft",
-  "chars": 4047,
+  "chars": 3973,
   "apparatus": true,
   "archived": false,
-  "tokens": 1036
+  "tokens": 1025
  },
  {
   "path": "machine/templates/PRO-TEMPLATE.md",
@@ -1934,6 +1934,94 @@
   "apparatus": false,
   "archived": false,
   "tokens": 828
+ },
+ {
+  "path": "missions/MIS-0162-a-machine-knows-what-it-spends.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 6039,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1621
+ },
+ {
+  "path": "missions/MIS-0163-a-machine-never-takes-more-than-it-holds.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5303,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1435
+ },
+ {
+  "path": "missions/MIS-0164-a-world-comes-back-from-its-zip.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5891,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1588
+ },
+ {
+  "path": "missions/MIS-0165-each-rank-sees-the-fleet-at-its-own-depth.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4973,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1378
+ },
+ {
+  "path": "missions/MIS-0166-anyone-sees-which-worlds-are-open.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3876,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1064
+ },
+ {
+  "path": "missions/MIS-0167-an-empty-world-sleeps-and-wakes.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "on-hold",
+  "chars": 3728,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1030
+ },
+ {
+  "path": "missions/MIS-0168-a-machine-updates-itself-with-one-signature.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3950,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1089
+ },
+ {
+  "path": "missions/MIS-0169-a-world-can-be-paid-for.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5017,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1381
  },
  {
   "path": "objects/CHECK.md",
@@ -2337,10 +2425,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 7005,
+  "chars": 7378,
   "apparatus": false,
   "archived": false,
-  "tokens": 1715
+  "tokens": 1793
  },
  {
   "path": "principles/PRI-004-role-structure.md",
@@ -2359,10 +2447,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 6727,
+  "chars": 6965,
   "apparatus": false,
   "archived": false,
-  "tokens": 1663
+  "tokens": 1715
  },
  {
   "path": "principles/PRI-006-epistemic-relations.md",
@@ -2370,10 +2458,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 15539,
+  "chars": 15203,
   "apparatus": false,
   "archived": false,
-  "tokens": 3244
+  "tokens": 3159
  },
  {
   "path": "principles/PRI-007-pragmatic-numen-system.md",
@@ -2381,10 +2469,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 10876,
+  "chars": 10547,
   "apparatus": false,
   "archived": false,
-  "tokens": 2384
+  "tokens": 2296
  },
  {
   "path": "principles/PRI-008-visual-identity.md",
@@ -2392,10 +2480,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 10034,
+  "chars": 10112,
   "apparatus": false,
   "archived": false,
-  "tokens": 2432
+  "tokens": 2456
  },
  {
   "path": "principles/PRI-009-the-archive-is-the-organisation.md",
@@ -2403,10 +2491,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5772,
+  "chars": 6232,
   "apparatus": false,
   "archived": false,
-  "tokens": 1445
+  "tokens": 1554
  },
  {
   "path": "principles/PRI-010-leave-things-better.md",
@@ -2414,10 +2502,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 4654,
+  "chars": 5005,
   "apparatus": false,
   "archived": false,
-  "tokens": 1199
+  "tokens": 1275
  },
  {
   "path": "principles/PRI-011-value-makes-a-bond.md",
@@ -2425,10 +2513,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 4778,
+  "chars": 5123,
   "apparatus": false,
   "archived": false,
-  "tokens": 1242
+  "tokens": 1323
  },
  {
   "path": "principles/PRI-012-what-is-yours-stays-with-you.md",
@@ -2436,10 +2524,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5349,
+  "chars": 5566,
   "apparatus": false,
   "archived": false,
-  "tokens": 1374
+  "tokens": 1424
  },
  {
   "path": "principles/PRI-013-a-magician-who-keeps-hope.md",
@@ -2447,10 +2535,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5117,
+  "chars": 5254,
   "apparatus": false,
   "archived": false,
-  "tokens": 1317
+  "tokens": 1349
  },
  {
   "path": "principles/PRI-014-friends-who-play-build-and-learn.md",
@@ -2469,10 +2557,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5104,
+  "chars": 5411,
   "apparatus": false,
   "archived": false,
-  "tokens": 1307
+  "tokens": 1377
  },
  {
   "path": "procedures/PRO-001-agent-session.md",
@@ -2601,10 +2689,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4682,
+  "chars": 4658,
   "apparatus": false,
   "archived": false,
-  "tokens": 1239
+  "tokens": 1234
  },
  {
   "path": "procedures/PRO-020-putting-something-on-sale.md",
@@ -3360,10 +3448,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 3961,
+  "chars": 5719,
   "apparatus": false,
   "archived": false,
-  "tokens": 1076
+  "tokens": 1513
  },
  {
   "path": "standards/STD-033-every-charge-delivers-something.md",
@@ -3404,10 +3492,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8154,
+  "chars": 8218,
   "apparatus": false,
   "archived": false,
-  "tokens": 2258
+  "tokens": 2277
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
