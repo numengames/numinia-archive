@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-015"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-10-03T19:00:00+02:00"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -49,10 +49,6 @@ relations flourish — between the people who work together, and between them
 and what they make. A reward that raises the output and sours the table has
 failed, however good the numbers look.
 
-That is why the inheritance of the old factory does not serve: it pays for
-the hour and punishes the error, and gets exactly what it pays for — people
-who count hours and hide errors.
-
 ## Six tests
 
 **It feeds three needs and starves none.** People keep doing what leaves them
@@ -70,9 +66,8 @@ are judged by who someone is, and not counted by how much they produced.
 Money and recognition do not mix: money pays the work, recognition
 celebrates it.
 
-**What you earn is yours.** A rank, a title, a badge or a good belongs to the
-person who earned it, and leaves with them. A reward that can be taken back
-when someone goes was a loan.
+**What you earn is yours.** A reward that can be taken back when someone
+goes was a loan.
 
 **It is celebrated in public.** Recognition that happens in private is a
 transaction. Ours is said aloud, at the table where the others are, because
@@ -105,11 +100,11 @@ test here.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `PRI-002` | We build a game to work better | the manifesto: relations, the human being, the old inheritance |
+| `PRI-002` | We build a game to work better | the manifesto: relations and the human being |
 | `PRI-004` | You are what you are doing | rank is the one attribute the system assigns |
 | `PRI-007` | Renaming is not transforming | gamification moves motivation; a new name for a reward changes nothing |
 | `PRI-011` | What has value also makes a bond | what money pays, and how a payer is remembered |
 | `PRI-012` | What is yours stays with you | what is earned leaves with the person |
-| `PRI-013` | A magician who keeps hope, with humans in charge | autonomy, competence and bonds as the humane model |
+| `PRI-013` | A magician who keeps hope, with humans in charge | the problem is the model, not the people |
 | `STD-003` | Platform ranks | rank is read from evidence; the top two are judged, not counted |
 | `PRO-019` | Holding a ritual | where recognition is said aloud |

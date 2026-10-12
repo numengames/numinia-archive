@@ -6,11 +6,11 @@ type: principle
 former_id: "CAN-002"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "4.2.4"
+version: "4.2.5"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -110,12 +110,6 @@ human necessity to be organised in groups.
 Numinia focuses on the capacity of every individual to make a change through
 curiosity and creativity, leveling up relations within organisations. We are
 building a game to work better.
-
-For change to take place, organisations have to change. The inheritance of
-the Second Industrial Revolution has come to an end, and a new path has to
-open for organisations in which humans thrive. We honour what was learnt in
-the past, and we believe things can be done differently, with the focus on
-the human being and on the construction of fairer, stronger relations.
 
 We are convinced that our generation has the duty to propose new models for
 organisations — more balanced, closer to the human being. We want a better

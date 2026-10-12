@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-011"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.2.4"
+version: "0.2.5"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -38,10 +38,6 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** whoever sets a price, takes a payment or keeps the account in
 Numinia's name, human or digital.
 
-> This principle is a first statement, written in draft to be argued with. It
-> says why money works here the way it does; the rules a charge must meet
-> and the steps to set one up belong to the documents that follow it.
-
 ---
 
 ## The member's card
@@ -57,7 +53,7 @@ Whoever pays in Numinia receives something: a good that stays with them and
 that they can name before they pay. There are no payments for nothing. A
 payment for nothing is a favour, and favours are asked once; what is
 received is sought again. So the city does not ask for donations. It offers
-something, with its whole price in view, taxes included — because a price
+something, with its whole price in view — because a price
 that grows at the last step has taken advantage of a decision already made.
 
 What is sold is never the key to something the commons already holds. The
@@ -97,9 +93,6 @@ time of the people who build the city is part of what it costs, but no
 person's pay is published: what is open is the organisation's account, not
 anyone's life. The principle *Leave things better than you found them* says
 why.
-
-If a charge is not written in the archive, it does not exist, and anyone
-may refuse to make it.
 
 ## Three questions
 

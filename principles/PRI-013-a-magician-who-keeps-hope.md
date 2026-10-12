@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-013"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.1.4"
+version: "0.1.5"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -67,7 +67,7 @@ theirs stays with them.
 
 The house sees the world through lenses that are partly dark, and says so.
 The city burned and was called back; the scarab rolls the sun through the
-night; the epitaph sits at the foot of every page. The garden the identity
+night. The garden the identity
 promises is what is hoped for, not where we start.
 
 ## The cause: humans in charge
@@ -78,9 +78,7 @@ the decisions taken about them — not the model, not the machine.
 Seen from outside, the house is a company where people and digital agents
 work side by side, in the open. Everyone now works with agents; few show how
 they govern them. Here they do: an agent asks before it decides for a person,
-and a person signs. The problem is the model, not the people, and the model is
-humane when it leaves people their autonomy, their competence and their
-bonds.
+and a person signs. The problem is the model, not the people.
 
 The cause never travels alone, because alone it reads as a movement against
 the machine, and nothing could be further from the truth. It goes with its
@@ -112,4 +110,4 @@ model, it is not ours.
 | `PRI-012` | What is yours stays with you | where trust comes from |
 | `DES-007` | Dual nomenclature — the narrative and gamification dials | the narrative dial and its levels |
 | `STD-026` | Operative vocabulary | what digital sovereignty means |
-| `STD-030` | The world's vocabulary | why the archetype is not named after a house of the city |
+| `STD-030` | The world's vocabulary | the house of Explorers, which the Explorer companion is not |

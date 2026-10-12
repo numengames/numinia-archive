@@ -4,11 +4,11 @@ uid: ""
 title: "The model needs a story"
 type: principle
 status: draft
-version: "2.1.3"
+version: "2.1.4"
 created: "2026-04-15T16:25:05Z"
 created_source: "git:89404d7"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "Christian Numinia"
 owner: "oracle"
 guild: "Exegetes"
@@ -85,3 +85,11 @@ And this explains the order followed by the scheme, from an origin idea, the Ger
 We can now specify that Numinia is the paradigmatic and prototypical example of this Narrative Projection, with a literary foundation that combines elements from the early 20th century (1900–1920) and the early 21st century (2000–2020), drawing an analogy between the social, scientific, and technological phenomena of one era and another. From this perspective, the literary creation of Numinia incorporates elements of science fiction and fantasy, as well as influences from cultures such as steampunk and cyberpunk, all of it held within the philosophy and mythology of the Mediterranean — Greek, Egyptian and Latin — where the city's symbols come from. The intention is that this literary and dimensioned framework, as a Narrative Projection, covers the needs of the Regulatory and organizational Model, in the same way that the latter covers the needs of the Germinal Motive. Therefore, the literary framework must be meticulously aligned with all the elements of the complex system it encompasses.
 
 And the purpose of this Narrative Projection of the Regulatory Model is for the Germinal Motive to become much more accessible and expansive through narrative and gameplay experience. Numen Games understands that if play is the basic principle of learning, and fiction (myth) constitutes the path to becoming aware of archetypal ideas, any executable task acquires dimension through the gameplay experience. Education, efficiency, and multiplicity sustain this Narrative Projection. Therefore, the function is not directly (or primarily) playful, but formative, educational, and operational; the fact that the gameplay experience is projected, by its nature, into a narrative experience more clearly constitutes its raison d’être and the teleological and axiological principles of its essentiality. Consciousness turns toward play, toward narrative, to learn, develop, expand, recognize itself, and realize itself.
+
+## References
+
+| ID | Name | Why cited |
+|---|---|---|
+| `PRI-001` | You are already in the game | the narration as the system's form of appearing |
+| `PRI-007` | Renaming is not transforming | the regulatory model read as function and structure |
+| `STD-026` | Operative vocabulary | the plain words for the model's narrative names |

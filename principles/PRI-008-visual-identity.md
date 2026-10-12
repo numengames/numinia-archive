@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-008"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "3.0.7"
+version: "3.0.8"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -28,7 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 # One identity, three forces
 
 > **Summary:** Numen Games has one visual identity that speaks through the
-> three forces of its world — the Umbral, the Veil and the Prisma — and stays
+> three forces of its world — the Threshold, the Veil and the Prism — and stays
 > recognisable in all of them, because the foundation underneath never
 > changes.
 > **Epistemic:** Why does it all look like this?
@@ -103,11 +103,11 @@ used wrong.
 ## The three forces
 
 The world of Numinia moves by three forces, and the identity speaks through
-the same three. Where the Veil keeps, the Umbral manifests, and the Prisma
+the same three. Where the Veil keeps, the Threshold manifests, and the Prism
 unfolds. Every piece declares the force it lives in **before it declares its
 medium**.
 
-**The Umbral** is the force of manifestation, named for the border anyone can
+**The Threshold** is the force of manifestation, named for the border anyone can
 cross. It is the base system: websites, presentations, documents, invoices,
 interface, events, email. It sets the priors of whoever arrives from outside,
 and it is the force that invoices.
@@ -119,7 +119,7 @@ viewers, discovery surfaces. It makes visible how knowledge settles, as
 literal layers. Its single rule: **the Veil adds no new colour, only
 transparency.** Nothing enters the system through that door.
 
-**The Prisma** is the force of refraction: it creates no truths, it
+**The Prism** is the force of refraction: it creates no truths, it
 multiplies perspectives, and it lets each guild and faction project its own
 angle of the world. In the identity it is the force that gives the world a
 body, and it does so in two manifestations, each a way of looking chosen
@@ -139,7 +139,7 @@ narrative scenes — never corporate communication, where the pixel would be
 costume rather than narrative. It lives in the night: a pixel scene inside a
 light piece keeps its dark canvas, framed, and is never recoloured.
 
-Where the Veil asks for rite and the Umbral for action, the Prisma asks for a
+Where the Veil asks for rite and the Threshold for action, the Prism asks for a
 choice — and that is why its two manifestations are entered and left
 completely: a refraction is an angle, and an angle is not mixed.
 
@@ -202,8 +202,7 @@ the design values register and the kit, where a check verifies them and a
 change is traceable. How a piece is produced is a procedure; each surface has
 its own design; the licence is the licensing standard's.
 
-Where this principle and the principle of brand and culture disagree, that one holds:
-this is how the house looks, not what the house is.
+This is how the house looks, not what the house is.
 
 ## References
 

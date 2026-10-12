@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-009"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "1.0.9"
+version: "1.0.10"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-12T13:59:03+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -63,7 +63,7 @@ claim: this is what we believe, this is how we do it, this is what was
 decided. What cannot be argued with is the history — who wrote what, and
 when — because that is the one thing no one can change at any price worth
 paying. So when a document and its history disagree, the history wins; when
-a document and the code disagree, the direction decides which is wrong; and
+a document and the code disagree, the document wins; and
 between two documents, the one that costs more agreement to change wins, not
 the one that sounds more important.
 
@@ -81,25 +81,17 @@ put anyone in breach. So an obligation written anywhere else is a plan until
 a standard sustains it, and a reader can tell whether a sentence binds them
 by where it lives, without asking.
 
-And a document that only states an intention says so. What is in draft is
-on trial: it is followed, it warns and never blocks, and any change to it is
-analysed before its owner decides.
-
 ## Work is a change to the text
 
 Work here leaves the text different from how it found it. Not as a
-by-product: the change is the work. A mission is a card on the board before
-it starts and a deletion when it ends; a decision is a record with its
+by-product: the change is the work. A decision is a record with its
 alternatives; a rule is a document with the check that verifies it. Anything
 that happened and left no change is a conversation, and conversations are
 not memory.
 
 Because the text is what changes, the text is also what is checked. Checks
 read the repository and say where it disagrees with its own rules; nothing
-is judged by whether it looks right to whoever last opened it. And because
-every record has a written exit, the archive does not grow: it rolls up, and
-what survives is what changed a rule, opened or closed a debt, or produced an
-address.
+is judged by whether it looks right to whoever last opened it.
 
 ## An agent is a citizen
 
