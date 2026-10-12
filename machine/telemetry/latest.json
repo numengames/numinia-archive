@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "df0fa93",
-  "corpus_hash": "6f402359914d4bcafb72312a482075d39bcc5b08442908095b21eea3e4e876ce",
+  "head": "0ec14dd",
+  "corpus_hash": "927e2df356120068d88645a4a0bbbcce68ddb2bad26752fa4a1f88a648c92ebd",
   "root_dirty": 0,
-  "measured_at": "2026-10-12T11:43:19Z",
+  "measured_at": "2026-10-12T12:00:43Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 357,
-          "bytes": 3875920
+          "bytes": 3874019
         },
         "Code": {
           "files": 278,
@@ -369,24 +369,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 983704,
+      "value": 983287,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 114341,
+        "standards": 114327,
         "system": 58666,
-        "procedures": 38062,
+        "procedures": 38067,
         "reports": 36728,
         "agents": 36326,
         "operations": 33602,
         "machine": 30074,
         "designs": 28300,
         "missions": 27072,
-        "principles": 24143,
-        "": 20833,
+        "principles": 23737,
+        "": 20831,
         "decisions": 18203,
         "debt": 15610,
         "opportunities": 15128,
@@ -400,8 +400,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 494564,
-        "draft": 250643,
+        "(none)": 494562,
+        "draft": 250228,
         "active": 209887,
         "todo": 22932,
         "in-progress": 4526,
@@ -787,13 +787,13 @@
           "3": 481
         },
         "STD": {
-          "3": 1342
+          "3": 1343
         },
         "OPS": {
           "3": 197
         },
         "PRI": {
-          "3": 416
+          "3": 420
         },
         "ADR": {
           "3": 335
