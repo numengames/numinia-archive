@@ -16,10 +16,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 996,
+  "chars": 1345,
   "apparatus": false,
   "archived": false,
-  "tokens": 256
+  "tokens": 341
  },
  {
   "path": ".github/rulesets/README.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 45024,
+  "chars": 45343,
   "apparatus": false,
   "archived": false,
-  "tokens": 13011
+  "tokens": 13091
  },
  {
   "path": "CLAUDE.md",
@@ -1666,10 +1666,10 @@
   "series": null,
   "type": "principle",
   "status": "draft",
-  "chars": 3973,
+  "chars": 4047,
   "apparatus": true,
   "archived": false,
-  "tokens": 1025
+  "tokens": 1036
  },
  {
   "path": "machine/templates/PRO-TEMPLATE.md",
@@ -2425,10 +2425,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 7378,
+  "chars": 7005,
   "apparatus": false,
   "archived": false,
-  "tokens": 1793
+  "tokens": 1715
  },
  {
   "path": "principles/PRI-004-role-structure.md",
@@ -2447,10 +2447,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 6965,
+  "chars": 6727,
   "apparatus": false,
   "archived": false,
-  "tokens": 1715
+  "tokens": 1663
  },
  {
   "path": "principles/PRI-006-epistemic-relations.md",
@@ -2458,10 +2458,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 15203,
+  "chars": 15539,
   "apparatus": false,
   "archived": false,
-  "tokens": 3159
+  "tokens": 3244
  },
  {
   "path": "principles/PRI-007-pragmatic-numen-system.md",
@@ -2469,10 +2469,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 10547,
+  "chars": 10876,
   "apparatus": false,
   "archived": false,
-  "tokens": 2296
+  "tokens": 2384
  },
  {
   "path": "principles/PRI-008-visual-identity.md",
@@ -2480,10 +2480,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 10112,
+  "chars": 10034,
   "apparatus": false,
   "archived": false,
-  "tokens": 2456
+  "tokens": 2432
  },
  {
   "path": "principles/PRI-009-the-archive-is-the-organisation.md",
@@ -2491,10 +2491,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 6232,
+  "chars": 5772,
   "apparatus": false,
   "archived": false,
-  "tokens": 1554
+  "tokens": 1445
  },
  {
   "path": "principles/PRI-010-leave-things-better.md",
@@ -2502,10 +2502,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5005,
+  "chars": 4654,
   "apparatus": false,
   "archived": false,
-  "tokens": 1275
+  "tokens": 1199
  },
  {
   "path": "principles/PRI-011-value-makes-a-bond.md",
@@ -2513,10 +2513,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5123,
+  "chars": 4778,
   "apparatus": false,
   "archived": false,
-  "tokens": 1323
+  "tokens": 1242
  },
  {
   "path": "principles/PRI-012-what-is-yours-stays-with-you.md",
@@ -2524,10 +2524,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5566,
+  "chars": 5349,
   "apparatus": false,
   "archived": false,
-  "tokens": 1424
+  "tokens": 1374
  },
  {
   "path": "principles/PRI-013-a-magician-who-keeps-hope.md",
@@ -2535,10 +2535,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5254,
+  "chars": 5117,
   "apparatus": false,
   "archived": false,
-  "tokens": 1349
+  "tokens": 1317
  },
  {
   "path": "principles/PRI-014-friends-who-play-build-and-learn.md",
@@ -2557,10 +2557,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5411,
+  "chars": 5104,
   "apparatus": false,
   "archived": false,
-  "tokens": 1377
+  "tokens": 1307
  },
  {
   "path": "procedures/PRO-001-agent-session.md",
@@ -2689,10 +2689,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4658,
+  "chars": 4682,
   "apparatus": false,
   "archived": false,
-  "tokens": 1234
+  "tokens": 1239
  },
  {
   "path": "procedures/PRO-020-putting-something-on-sale.md",
@@ -3448,10 +3448,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 5719,
+  "chars": 3961,
   "apparatus": false,
   "archived": false,
-  "tokens": 1513
+  "tokens": 1076
  },
  {
   "path": "standards/STD-033-every-charge-delivers-something.md",
@@ -3492,10 +3492,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8218,
+  "chars": 8154,
   "apparatus": false,
   "archived": false,
-  "tokens": 2277
+  "tokens": 2258
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
