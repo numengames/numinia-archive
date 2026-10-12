@@ -5,16 +5,16 @@ title: "The repositories, as wired"
 type: documentation
 subtype: reference
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-09T16:01:15+02:00"
-updated: "2026-10-09T17:30:00+02:00"
+updated: "2026-10-12T11:53:57+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
 section: "Technology"
 tags: [system, reference, repositories, polyrepo, licences, consumers, single-source-of-truth]
 license: "CC0-1.0"
-related: ["ADR-068", "ADR-069", "ADR-044", "STD-010", "STD-015", "STD-017", "STD-037", "SYS-006", "SYS-009"]
+related: ["ADR-068", "ADR-069", "ADR-044", "STD-010", "STD-015", "STD-017", "STD-037", "SYS-006", "SYS-009", "SYS-014"]
 ---
 
 <!--
@@ -61,7 +61,7 @@ not read from the repository itself.
 | Repository | What it holds | Who writes, under what review | Visibility | Licence regime | What reads it | State |
 |---|---|---|---|---|---|---|
 | **numinia-archive** | The memory of the house: about 360 Markdown documents (principles, standards, procedures, decisions, missions, the game, operations, the legal texts in `legal/`), the site numinia.org in `web/`, and `machine/` (checks, tools, telemetry, the design-kit and sales-kit packages) | Oracles and agents, by pull request with human reviewers; one open pull request at a time; no self-merge (`AGENTS.md`) | public | per file, declared in `REUSE.toml`: documents CC0-1.0 or CC-BY-4.0, tools MIT, fonts OFL-1.1, legal texts and the brand reserved | numinia.org, built on every push to main; numinia-web reads lore paths and `objects/catalogue.json`; nwos-deploy installs the design kit from a release; three sites hold copies of the legal texts | wired |
-| **numinia-assets** | The heavy files (images, audio, models, avatars) whose records live in the archive; for its trial, also the public 3D worlds fleet's orders (`ADR-069`) | to confirm | public | per file (`REUSE.toml`, headers or `.license` notices); no repository-wide grant | the sites, by its README; which ones, to confirm | wired; first intake only |
+| **numinia-assets** | The heavy files (images, audio, models, avatars) whose records live in the archive; for its trial, also the recipe of the public 3D worlds fleet's machines and the two orders the trial first wrote by pull request (`ADR-069`) | to confirm | public | per file (`REUSE.toml`, headers or `.license` notices); no repository-wide grant | the sites, by its README; which ones, to confirm; each fleet machine installs its programs from it | wired; first intake only |
 | **numinia-archive-feed** | What the house's automation finds, unreviewed — today the tender radar's board | machines, without review (`STD-017` AUT-069); nothing becomes a record until a reviewed pull request writes it into the archive | public | data CC0-1.0, by its README; no `REUSE.toml` | the archive, which shows it marked *unreviewed* | wired |
 | **numinia-web** | numinia.com: an npm-workspaces monorepo; the store app serves the site; shared packages for auth, domain, UI, state, analytics | by pull request with human reviewers | public | per directory (`REUSE.toml`): apps AGPL-3.0-only, packages MIT, documentation CC-BY-4.0, fixtures CC0-1.0, legal texts reserved | numinia.com, deployed on every push to main | wired |
 | **numengames-web** | numen.games, the company site | by pull request with human reviewers | public | AGPL-3.0-only for code, CC0-1.0 for public assets, CC-BY-4.0 for documentation, legal texts reserved, by its README and `REUSE.toml`; its `LICENSE` file holds the GPL-3.0 text — to confirm which is meant | numen.games, deployed on every push to main | wired |
@@ -74,7 +74,7 @@ not read from the repository itself.
 | **numinia-terragrunt** | The earlier AWS infrastructure as code | to confirm | public | GPL-3.0 | none while paused | kept as it is; last push in July |
 | **alchemists-tower** | The back office that managed worlds on the earlier infrastructure | to confirm | public | GPL-3.0 | none while paused | kept as it is; last push in September |
 | **.github** (organisation) | The common CI as reusable workflows (secrets, workflow-lint, audit, monitor, dependabot-auto-merge), and the default community files (the pull request template) | Oracles and agents by pull request; a merge needs the Oracle's approval (`STD-017` AUT-070) | public | workflows MIT, README and pull request template CC0-1.0 | every repository of the organisation, each calling it pinned by commit | wired on 2026-10-09: numengames/.github #1; the four site repositories call it |
-| **3D worlds fleet** | Public fleet: one order per world, in a folder named open-worlds in numinia-assets; each order points to the world's card in this archive's `objects/`; keys only on the server (`ADR-069`) | by pull request with human reviewers; the console on numinia.com only proposes | public; a private fleet, when it comes, is a separate private repository | CC0-1.0 for the orders | the world servers, read-only | **not wired**; built by `MIS-156` |
+| **3D worlds fleet** | Public fleet: each machine keeps its own book of orders, one per world, each pointing to the world's card in this archive's `objects/`; the machines' recipe is the folder open-worlds in numinia-assets; keys only on the machine (`ADR-069`, `SYS-014`) | an Oracle, by a request their wallet signs and the machine checks; the console on numinia.com reads each machine and holds no key | public; a private fleet, when it comes, is a separate private repository | CC0-1.0 for the orders | the worlds room on numinia.com, which reads each machine's public window | wired: one machine, `open-1` (`SYS-014`) |
 
 ### How a shared thing flows
 

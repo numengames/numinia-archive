@@ -5,11 +5,11 @@ uid: ""
 type: standard
 subtype: standard
 status: draft
-version: "3.2.9"
+version: "3.3.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-12T11:53:57+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -106,8 +106,9 @@ seasons, read the global statistics and the audit log, publish to permanent
 storage, ban and unban, and appoint Vernaculars.
 
 An Oracle is named on the list of Oracles. They may appoint and remove
-Archons, change what each rank may do, and configure the system. They cannot
-be banned.
+Archons, change what each rank may do, configure the system, and create,
+stop, start, download and delete the house's 3D worlds from the worlds
+room. They cannot be banned.
 
 ### Keeping this page true
 
@@ -122,7 +123,9 @@ cannot live anywhere else.
 ## Check
 
 Each rule, its code, its source and its check. Then where the platform
-reads each rank from.
+reads each rank from. That column still names the retired platform's
+files; where the platform reads each rank today is described, from its
+code, in the system reference listed below.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
@@ -142,7 +145,7 @@ reads each rank from.
 | Pilgrim | purchases any digital good | `data/seasons/*-progress.json` or `data/purchases/` | purchased premium content; burn ritual; seasonal adventures; purchase history |
 | Vernacular | promoted by an Archon or Oracle | `data/system/rank-overrides.json` | upload, edit, delete own assets and see their statistics; creator panel; portfolio |
 | Archon | promoted by an Oracle | `data/system/rank-overrides.json` | any asset; seasons; global statistics; audit log; sync to R2 / IPFS / Arweave; ban and unban; appoint Vernaculars |
-| Oracle | listed in the overrides file | `data/system/rank-overrides.json` | appoint and remove Archons; edit the matrix; system configuration; cannot be banned; every privileged action logged |
+| Oracle | listed in the overrides file | `data/system/rank-overrides.json` | appoint and remove Archons; edit the matrix; system configuration; the worlds room; cannot be banned; every privileged action logged |
 
 ## Why
 
@@ -158,3 +161,4 @@ governance from being captured inside the product.
 |---|---|---|
 | `PRI-004` | You are what you are doing | what each rank is, and rank as one of the six attributes |
 | `STD-033` | Every charge delivers something | payment, which this standard does not bind |
+| `SYS-015` | Signing in to numinia.com, as wired | where the platform reads each rank today |
