@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 19717,
+  "chars": 20181,
   "apparatus": false,
   "archived": false,
-  "tokens": 4920
+  "tokens": 5067
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 45343,
+  "chars": 45647,
   "apparatus": false,
   "archived": false,
-  "tokens": 13091
+  "tokens": 13197
  },
  {
   "path": "CLAUDE.md",
@@ -2413,44 +2413,44 @@
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 4490,
+  "status": "active",
+  "chars": 3709,
   "apparatus": false,
   "archived": false,
-  "tokens": 1182
+  "tokens": 1006
  },
  {
   "path": "principles/PRI-002-brand-and-culture.md",
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 7005,
+  "status": "active",
+  "chars": 5926,
   "apparatus": false,
   "archived": false,
-  "tokens": 1715
+  "tokens": 1485
  },
  {
   "path": "principles/PRI-004-role-structure.md",
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 9824,
+  "status": "active",
+  "chars": 8272,
   "apparatus": false,
   "archived": false,
-  "tokens": 2426
+  "tokens": 2094
  },
  {
   "path": "principles/PRI-005-licensing.md",
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 6727,
+  "status": "active",
+  "chars": 6366,
   "apparatus": false,
   "archived": false,
-  "tokens": 1663
+  "tokens": 1574
  },
  {
   "path": "principles/PRI-006-epistemic-relations.md",
@@ -2479,19 +2479,19 @@
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 10034,
+  "status": "active",
+  "chars": 9503,
   "apparatus": false,
   "archived": false,
-  "tokens": 2432
+  "tokens": 2295
  },
  {
   "path": "principles/PRI-009-the-archive-is-the-organisation.md",
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 5772,
+  "status": "active",
+  "chars": 5756,
   "apparatus": false,
   "archived": false,
   "tokens": 1445
@@ -2501,66 +2501,55 @@
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 4654,
+  "status": "active",
+  "chars": 4167,
   "apparatus": false,
   "archived": false,
-  "tokens": 1199
+  "tokens": 1105
  },
  {
   "path": "principles/PRI-011-value-makes-a-bond.md",
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 4778,
+  "status": "active",
+  "chars": 4757,
   "apparatus": false,
   "archived": false,
-  "tokens": 1242
+  "tokens": 1240
  },
  {
   "path": "principles/PRI-012-what-is-yours-stays-with-you.md",
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 5349,
+  "status": "active",
+  "chars": 5451,
   "apparatus": false,
   "archived": false,
-  "tokens": 1374
+  "tokens": 1391
  },
  {
   "path": "principles/PRI-013-a-magician-who-keeps-hope.md",
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 5117,
+  "status": "active",
+  "chars": 4997,
   "apparatus": false,
   "archived": false,
-  "tokens": 1317
- },
- {
-  "path": "principles/PRI-014-friends-who-play-build-and-learn.md",
-  "dir": "principles",
-  "series": "principles",
-  "type": "principle",
-  "status": "draft",
-  "chars": 3058,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 814
+  "tokens": 1289
  },
  {
   "path": "principles/PRI-015-we-recognise-the-act.md",
   "dir": "principles",
   "series": "principles",
   "type": "principle",
-  "status": "draft",
-  "chars": 5104,
+  "status": "active",
+  "chars": 5105,
   "apparatus": false,
   "archived": false,
-  "tokens": 1307
+  "tokens": 1314
  },
  {
   "path": "procedures/PRO-001-agent-session.md",
@@ -3173,10 +3162,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8196,
+  "chars": 8221,
   "apparatus": false,
   "archived": false,
-  "tokens": 2021
+  "tokens": 2028
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -3239,10 +3228,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 4393,
+  "chars": 4381,
   "apparatus": false,
   "archived": false,
-  "tokens": 1112
+  "tokens": 1108
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -3294,10 +3283,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 10300,
+  "chars": 10294,
   "apparatus": false,
   "archived": false,
-  "tokens": 2569
+  "tokens": 2566
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -3360,10 +3349,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 30156,
+  "chars": 30421,
   "apparatus": false,
   "archived": false,
-  "tokens": 9090
+  "tokens": 9176
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
@@ -3447,8 +3436,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "standard",
-  "status": "draft",
-  "chars": 3961,
+  "status": "active",
+  "chars": 3962,
   "apparatus": false,
   "archived": false,
   "tokens": 1076
@@ -3690,10 +3679,10 @@
   "series": "system",
   "type": "documentation",
   "status": "active",
-  "chars": 6951,
+  "chars": 6939,
   "apparatus": false,
   "archived": false,
-  "tokens": 1831
+  "tokens": 1824
  },
  {
   "path": "system/SYS-010-selling-as-wired-today.md",
@@ -3833,10 +3822,10 @@
   "series": "system",
   "type": "entity",
   "status": "draft",
-  "chars": 10367,
+  "chars": 10259,
   "apparatus": false,
   "archived": false,
-  "tokens": 2999
+  "tokens": 2961
  },
  {
   "path": "system/semantic-census/resource-prism-cells.md",
