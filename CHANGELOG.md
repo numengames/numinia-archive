@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-12
+- **Changed** `STD-031` 0.3.0: a principle's tools, dates, names, bare ids and Spanish world names are checked by `std-031-a-principle-states` (22 findings, draft: reported, not blocking); its judgement rows leave the standard for the reviewers' reading list in the PR template (STA-001–005/008/009 retired).
 - **Fixed** Core coherence, no activation: draft means on trial in `STD-026`/`PRI-009`; `STD-012` checks DEF-004/010/011; seven-day security answer; duplicates retired (URL-006, CIT-051, STA-010, SEC-004, LEG-001); sales flow agrees on silence, validity, one `won`; reference titles tested.
 - **Added** `SYS-014` The worlds fleet, as wired: an Oracle signs one request in numinia.com's worlds room and the machine checks it and creates, stops, starts, downloads or deletes the world; what each piece holds, what it refuses, what a theft gives.
 - **Added** `SYS-015` Signing in to numinia.com, as wired: thirdweb and Sign-In with Ethereum, the site's own one-hour session, where each rank comes from, the two lists of Oracles, and what is not built (bans, early revocation).
