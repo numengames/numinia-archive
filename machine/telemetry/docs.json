@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 41589,
+  "chars": 43115,
   "apparatus": false,
   "archived": false,
-  "tokens": 12111
+  "tokens": 12533
  },
  {
   "path": "CLAUDE.md",
@@ -643,10 +643,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 29930,
+  "chars": 29090,
   "apparatus": false,
   "archived": false,
-  "tokens": 8048
+  "tokens": 7820
  },
  {
   "path": "debt/DBT-023-sources-and-inspirations-without-a-home.md",
@@ -669,6 +669,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1112
+ },
+ {
+  "path": "debt/DBT-025-the-worlds-fleet-runs-on-unreviewed-shortcuts.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5557,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1428
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -808,10 +819,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 8477,
+  "chars": 9445,
   "apparatus": false,
   "archived": false,
-  "tokens": 2081
+  "tokens": 2326
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -1677,10 +1688,10 @@
   "series": null,
   "type": "proposal",
   "status": "draft",
-  "chars": 3969,
+  "chars": 3982,
   "apparatus": true,
   "archived": false,
-  "tokens": 1087
+  "tokens": 1092
  },
  {
   "path": "machine/templates/README.md",
@@ -1864,10 +1875,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 4172,
+  "chars": 5586,
   "apparatus": false,
   "archived": false,
-  "tokens": 1158
+  "tokens": 1554
  },
  {
   "path": "missions/MIS-0157-identity-and-ranks-by-the-standards.md",
@@ -1879,6 +1890,50 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2792
+ },
+ {
+  "path": "missions/MIS-0158-a-worlds-copy-runs-anywhere.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3599,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1041
+ },
+ {
+  "path": "missions/MIS-0159-the-worlds-room-shows-machines-copies-and-owners.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3951,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1120
+ },
+ {
+  "path": "missions/MIS-0160-copies-and-keys-through-the-houses-aws.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4081,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1191
+ },
+ {
+  "path": "missions/MIS-0161-what-a-world-costs.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2934,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 828
  },
  {
   "path": "objects/CHECK.md",
@@ -1996,10 +2051,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 9072,
+  "chars": 9111,
   "apparatus": false,
   "archived": false,
-  "tokens": 2323
+  "tokens": 2328
  },
  {
   "path": "operations/OPS-013-live-gamification-the-offer.md",
@@ -2051,10 +2106,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 17548,
+  "chars": 17665,
   "apparatus": false,
   "archived": false,
-  "tokens": 4416
+  "tokens": 4474
  },
  {
   "path": "operations/OPS-020-the-strategy.md",
@@ -2084,10 +2139,10 @@
   "series": "operations",
   "type": "documentation",
   "status": "draft",
-  "chars": 6358,
+  "chars": 6032,
   "apparatus": false,
   "archived": false,
-  "tokens": 1991
+  "tokens": 1896
  },
  {
   "path": "opportunities/OPP-2026-001.md",
@@ -2282,7 +2337,7 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 7378,
+  "chars": 7375,
   "apparatus": false,
   "archived": false,
   "tokens": 1793
@@ -2293,10 +2348,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 9824,
+  "chars": 9813,
   "apparatus": false,
   "archived": false,
-  "tokens": 2426
+  "tokens": 2421
  },
  {
   "path": "principles/PRI-005-licensing.md",
@@ -2348,10 +2403,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 6232,
+  "chars": 6185,
   "apparatus": false,
   "archived": false,
-  "tokens": 1554
+  "tokens": 1539
  },
  {
   "path": "principles/PRI-010-leave-things-better.md",
@@ -2370,10 +2425,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5123,
+  "chars": 5091,
   "apparatus": false,
   "archived": false,
-  "tokens": 1323
+  "tokens": 1315
  },
  {
   "path": "principles/PRI-012-what-is-yours-stays-with-you.md",
@@ -2381,10 +2436,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5566,
+  "chars": 5534,
   "apparatus": false,
   "archived": false,
-  "tokens": 1424
+  "tokens": 1417
  },
  {
   "path": "principles/PRI-013-a-magician-who-keeps-hope.md",
@@ -2392,10 +2447,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5254,
+  "chars": 5219,
   "apparatus": false,
   "archived": false,
-  "tokens": 1349
+  "tokens": 1343
  },
  {
   "path": "principles/PRI-014-friends-who-play-build-and-learn.md",
@@ -2414,10 +2469,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 5411,
+  "chars": 5397,
   "apparatus": false,
   "archived": false,
-  "tokens": 1377
+  "tokens": 1374
  },
  {
   "path": "procedures/PRO-001-agent-session.md",
@@ -2425,10 +2480,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5617,
+  "chars": 5508,
   "apparatus": false,
   "archived": false,
-  "tokens": 1561
+  "tokens": 1540
  },
  {
   "path": "procedures/PRO-003-mission-cycle.md",
@@ -2436,10 +2491,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4500,
+  "chars": 4480,
   "apparatus": false,
   "archived": false,
-  "tokens": 1203
+  "tokens": 1199
  },
  {
   "path": "procedures/PRO-005-escalation.md",
@@ -2469,10 +2524,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5253,
+  "chars": 5138,
   "apparatus": false,
   "archived": false,
-  "tokens": 1333
+  "tokens": 1298
  },
  {
   "path": "procedures/PRO-013-handing-a-guard-to-ci.md",
@@ -2480,10 +2535,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 3648,
+  "chars": 3626,
   "apparatus": false,
   "archived": false,
-  "tokens": 1015
+  "tokens": 1005
  },
  {
   "path": "procedures/PRO-014-producing-a-design-piece.md",
@@ -2491,10 +2546,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4650,
+  "chars": 4641,
   "apparatus": false,
   "archived": false,
-  "tokens": 1276
+  "tokens": 1274
  },
  {
   "path": "procedures/PRO-015-joining.md",
@@ -2513,10 +2568,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4482,
+  "chars": 4468,
   "apparatus": false,
   "archived": false,
-  "tokens": 1203
+  "tokens": 1200
  },
  {
   "path": "procedures/PRO-017-rolling-up-the-week.md",
@@ -2524,10 +2579,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4643,
+  "chars": 4548,
   "apparatus": false,
   "archived": false,
-  "tokens": 1302
+  "tokens": 1277
  },
  {
   "path": "procedures/PRO-018-publishing-a-repository.md",
@@ -2535,10 +2590,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4663,
+  "chars": 4853,
   "apparatus": false,
   "archived": false,
-  "tokens": 1243
+  "tokens": 1286
  },
  {
   "path": "procedures/PRO-019-holding-a-ritual.md",
@@ -2546,10 +2601,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4658,
+  "chars": 4667,
   "apparatus": false,
   "archived": false,
-  "tokens": 1234
+  "tokens": 1237
  },
  {
   "path": "procedures/PRO-020-putting-something-on-sale.md",
@@ -2568,10 +2623,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5659,
+  "chars": 5670,
   "apparatus": false,
   "archived": false,
-  "tokens": 1446
+  "tokens": 1448
  },
  {
   "path": "procedures/PRO-022-building-the-living-pieces.md",
@@ -2579,10 +2634,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5637,
+  "chars": 5635,
   "apparatus": false,
   "archived": false,
-  "tokens": 1527
+  "tokens": 1524
  },
  {
   "path": "procedures/PRO-023-bringing-a-rule-into-force.md",
@@ -2612,10 +2667,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4517,
+  "chars": 4540,
   "apparatus": false,
   "archived": false,
-  "tokens": 1201
+  "tokens": 1202
  },
  {
   "path": "procedures/PRO-026-answering-a-request-about-personal-data.md",
@@ -2634,10 +2689,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5648,
+  "chars": 5484,
   "apparatus": false,
   "archived": false,
-  "tokens": 1431
+  "tokens": 1394
  },
  {
   "path": "procedures/PRO-028-qualifying-an-opportunity.md",
@@ -2645,7 +2700,7 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5592,
+  "chars": 5601,
   "apparatus": false,
   "archived": false,
   "tokens": 1513
@@ -2667,10 +2722,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5555,
+  "chars": 5532,
   "apparatus": false,
   "archived": false,
-  "tokens": 1491
+  "tokens": 1479
  },
  {
   "path": "procedures/PRO-031-bidding-for-a-tender.md",
@@ -2678,10 +2733,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5636,
+  "chars": 5641,
   "apparatus": false,
   "archived": false,
-  "tokens": 1499
+  "tokens": 1500
  },
  {
   "path": "procedures/PRO-032-applying-for-a-grant.md",
@@ -2689,7 +2744,7 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5489,
+  "chars": 5495,
   "apparatus": false,
   "archived": false,
   "tokens": 1501
@@ -2733,10 +2788,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4416,
+  "chars": 4341,
   "apparatus": false,
   "archived": false,
-  "tokens": 1122
+  "tokens": 1107
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -3019,10 +3074,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7074,
+  "chars": 7046,
   "apparatus": false,
   "archived": false,
-  "tokens": 2125
+  "tokens": 2116
  },
  {
   "path": "standards/STD-003-platform-ranks.md",
@@ -3030,10 +3085,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 7837,
+  "chars": 8196,
   "apparatus": false,
   "archived": false,
-  "tokens": 1938
+  "tokens": 2021
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -3041,10 +3096,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 18752,
+  "chars": 18807,
   "apparatus": false,
   "archived": false,
-  "tokens": 5296
+  "tokens": 5314
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
@@ -3052,10 +3107,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 8254,
+  "chars": 8228,
   "apparatus": false,
   "archived": false,
-  "tokens": 2018
+  "tokens": 2006
  },
  {
   "path": "standards/STD-006-plain-text-is-sovereign.md",
@@ -3074,10 +3129,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 8084,
+  "chars": 7864,
   "apparatus": false,
   "archived": false,
-  "tokens": 2128
+  "tokens": 2073
  },
  {
   "path": "standards/STD-008-design-tokens.md",
@@ -3085,10 +3140,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 9535,
+  "chars": 8416,
   "apparatus": false,
   "archived": false,
-  "tokens": 2563
+  "tokens": 2286
  },
  {
   "path": "standards/STD-009-which-rule-wins.md",
@@ -3096,10 +3151,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 4393,
+  "chars": 4383,
   "apparatus": false,
   "archived": false,
-  "tokens": 1112
+  "tokens": 1110
  },
  {
   "path": "standards/STD-010-licensing.md",
@@ -3118,10 +3173,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7725,
+  "chars": 7499,
   "apparatus": false,
   "archived": false,
-  "tokens": 1971
+  "tokens": 1921
  },
  {
   "path": "standards/STD-014-publishing-gates.md",
@@ -3129,10 +3184,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 4685,
+  "chars": 4602,
   "apparatus": false,
   "archived": false,
-  "tokens": 1149
+  "tokens": 1135
  },
  {
   "path": "standards/STD-015-engineering-checks.md",
@@ -3140,10 +3195,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 14819,
+  "chars": 15197,
   "apparatus": false,
   "archived": false,
-  "tokens": 3811
+  "tokens": 3911
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",
@@ -3151,10 +3206,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 10300,
+  "chars": 10271,
   "apparatus": false,
   "archived": false,
-  "tokens": 2569
+  "tokens": 2563
  },
  {
   "path": "standards/STD-018-one-document-one-identifier.md",
@@ -3162,10 +3217,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 5276,
+  "chars": 5084,
   "apparatus": false,
   "archived": false,
-  "tokens": 1344
+  "tokens": 1300
  },
  {
   "path": "standards/STD-019-versions.md",
@@ -3195,10 +3250,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 4105,
+  "chars": 4473,
   "apparatus": false,
   "archived": false,
-  "tokens": 1098
+  "tokens": 1185
  },
  {
   "path": "standards/STD-022-secrets.md",
@@ -3206,10 +3261,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 4361,
+  "chars": 4374,
   "apparatus": false,
   "archived": false,
-  "tokens": 1070
+  "tokens": 1078
  },
  {
   "path": "standards/STD-023-design-values.md",
@@ -3217,10 +3272,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 30156,
+  "chars": 30067,
   "apparatus": false,
   "archived": false,
-  "tokens": 9090
+  "tokens": 9064
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
@@ -3228,10 +3283,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 5049,
+  "chars": 5044,
   "apparatus": false,
   "archived": false,
-  "tokens": 1295
+  "tokens": 1296
  },
  {
   "path": "standards/STD-025-a-mission-is-a-card.md",
@@ -3250,10 +3305,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 75014,
+  "chars": 74977,
   "apparatus": false,
   "archived": false,
-  "tokens": 18349
+  "tokens": 18340
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -3261,10 +3316,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 7894,
+  "chars": 7793,
   "apparatus": false,
   "archived": false,
-  "tokens": 1978
+  "tokens": 1948
  },
  {
   "path": "standards/STD-028-one-document-one-address.md",
@@ -3272,10 +3327,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 5851,
+  "chars": 6092,
   "apparatus": false,
   "archived": false,
-  "tokens": 1541
+  "tokens": 1602
  },
  {
   "path": "standards/STD-029-community-conduct.md",
@@ -3305,10 +3360,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 5719,
+  "chars": 5785,
   "apparatus": false,
   "archived": false,
-  "tokens": 1513
+  "tokens": 1532
  },
  {
   "path": "standards/STD-033-every-charge-delivers-something.md",
@@ -3316,10 +3371,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 5699,
+  "chars": 5613,
   "apparatus": false,
   "archived": false,
-  "tokens": 1553
+  "tokens": 1531
  },
  {
   "path": "standards/STD-034-accessibility.md",
@@ -3338,10 +3393,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 6985,
+  "chars": 6768,
   "apparatus": false,
   "archived": false,
-  "tokens": 1988
+  "tokens": 1925
  },
  {
   "path": "standards/STD-036-one-account.md",
@@ -3349,10 +3404,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8218,
+  "chars": 8261,
   "apparatus": false,
   "archived": false,
-  "tokens": 2277
+  "tokens": 2288
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
@@ -3360,10 +3415,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 11280,
+  "chars": 10826,
   "apparatus": false,
   "archived": false,
-  "tokens": 2929
+  "tokens": 2816
  },
  {
   "path": "standards/STD-038-the-stages-of-an-opportunity.md",
@@ -3371,10 +3426,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 16166,
+  "chars": 17344,
   "apparatus": false,
   "archived": false,
-  "tokens": 4346
+  "tokens": 4617
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
@@ -3382,10 +3437,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 18407,
+  "chars": 18312,
   "apparatus": false,
   "archived": false,
-  "tokens": 4786
+  "tokens": 4760
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -3393,10 +3448,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 7476,
+  "chars": 7426,
   "apparatus": false,
   "archived": false,
-  "tokens": 1937
+  "tokens": 1925
  },
  {
   "path": "standards/STD-041-the-levels-of-automation.md",
@@ -3580,10 +3635,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 4507,
+  "chars": 4685,
   "apparatus": false,
   "archived": false,
-  "tokens": 1348
+  "tokens": 1400
  },
  {
   "path": "system/SYS-013-the-repositories-as-wired.md",
@@ -3591,10 +3646,32 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 9649,
+  "chars": 9947,
   "apparatus": false,
   "archived": false,
-  "tokens": 2535
+  "tokens": 2601
+ },
+ {
+  "path": "system/SYS-014-the-worlds-fleet-as-wired.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 12820,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3342
+ },
+ {
+  "path": "system/SYS-015-signing-in-to-numinia-com-as-wired.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 9467,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2382
  },
  {
   "path": "system/semantic-census/artefact-lap.md",
@@ -3738,6 +3815,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 386
+ },
+ {
+  "path": "system/suppliers/cloud-ovh.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1915,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 530
  },
  {
   "path": "system/suppliers/event-merge.md",
