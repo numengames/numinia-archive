@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 45647,
+  "chars": 49123,
   "apparatus": false,
   "archived": false,
-  "tokens": 13197
+  "tokens": 14092
  },
  {
   "path": "CLAUDE.md",
@@ -676,10 +676,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 5557,
+  "chars": 7875,
   "apparatus": false,
   "archived": false,
-  "tokens": 1428
+  "tokens": 2090
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -1919,10 +1919,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 4081,
+  "chars": 7260,
   "apparatus": false,
   "archived": false,
-  "tokens": 1191
+  "tokens": 2025
  },
  {
   "path": "missions/MIS-0161-what-a-world-costs.md",
@@ -1963,10 +1963,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 5891,
+  "chars": 6581,
   "apparatus": false,
   "archived": false,
-  "tokens": 1588
+  "tokens": 1761
  },
  {
   "path": "missions/MIS-0165-each-rank-sees-the-fleet-at-its-own-depth.md",
@@ -2018,10 +2018,87 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 5017,
+  "chars": 6941,
   "apparatus": false,
   "archived": false,
-  "tokens": 1381
+  "tokens": 1930
+ },
+ {
+  "path": "missions/MIS-0170-each-world-has-its-own-admin-code.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 9962,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2754
+ },
+ {
+  "path": "missions/MIS-0171-a-clients-own-domain-is-added-with-one-signature.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4710,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1214
+ },
+ {
+  "path": "missions/MIS-0172-a-worlds-size-changes-with-one-signature-for-an-event.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4644,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1203
+ },
+ {
+  "path": "missions/MIS-0173-a-machine-installs-one-reviewed-commit-of-its-recipe.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 6986,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1994
+ },
+ {
+  "path": "missions/MIS-0174-numinia-assets-main-cannot-change-by-one-hand.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3455,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 948
+ },
+ {
+  "path": "missions/MIS-0175-changing-a-worlds-code-leaves-no-one-its-administrator.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5092,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1382
+ },
+ {
+  "path": "missions/MIS-0176-the-house-enters-a-clients-world-only-when-asked-or-for-security.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5319,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1398
  },
  {
   "path": "objects/CHECK.md",
@@ -3734,10 +3811,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 12820,
+  "chars": 17853,
   "apparatus": false,
   "archived": false,
-  "tokens": 3342
+  "tokens": 4640
  },
  {
   "path": "system/SYS-015-signing-in-to-numinia-com-as-wired.md",
