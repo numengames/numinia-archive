@@ -18,6 +18,13 @@ practice IDs from standards/STD-015-engineering-checks.md when applicable
 <!-- Commands or URLs a reviewer can use, and the evidence it works: the
 tests run and their result; before and after for anything visible. -->
 
+## For reviewers: read for
+
+<!-- What no check can read. A question here is still written, and no
+longer a rule in force: read each changed document of the series for it. -->
+
+- principles/: it says what is so; it says why; the reader can act on it; the title is a claim; it restates no other principle or standard; a border only where one is real
+
 ## Definition of Done
 
 - [ ] CI green (licence guard + build)

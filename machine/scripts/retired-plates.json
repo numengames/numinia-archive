@@ -421,6 +421,34 @@
       "was": "STD-015 Engineering checks",
       "now": "SRE-007 of Engineering checks, incidents produce rules, not culprits"
     },
+    "STA-001": {
+      "was": "STD-031 A principle states",
+      "now": "the reviewers' reading list in the pull request template"
+    },
+    "STA-002": {
+      "was": "STD-031 A principle states",
+      "now": "the reviewers' reading list in the pull request template"
+    },
+    "STA-003": {
+      "was": "STD-031 A principle states",
+      "now": "the reviewers' reading list in the pull request template"
+    },
+    "STA-004": {
+      "was": "STD-031 A principle states",
+      "now": "a sentence of A principle states with no plate: no sectioning is prescribed (a permission, not a rule to check)"
+    },
+    "STA-005": {
+      "was": "STD-031 A principle states",
+      "now": "the reviewers' reading list in the pull request template"
+    },
+    "STA-008": {
+      "was": "STD-031 A principle states",
+      "now": "the reviewers' reading list in the pull request template"
+    },
+    "STA-009": {
+      "was": "STD-031 A principle states",
+      "now": "the reviewers' reading list in the pull request template"
+    },
     "STA-010": {
       "was": "STD-031 A principle states",
       "now": "STA-007 of A principle states, which forbids a date and a byline in the body together"
