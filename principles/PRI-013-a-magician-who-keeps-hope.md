@@ -5,10 +5,10 @@ title: "A magician who keeps hope, with humans in charge"
 type: principle
 former_id: "CAN-013"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
-status: draft
-version: "0.2.0"
+status: active
+version: "1.0.0"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-12T18:48:00+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"

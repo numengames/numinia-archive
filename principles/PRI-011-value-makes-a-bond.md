@@ -5,10 +5,10 @@ title: "What has value also makes a bond"
 type: principle
 former_id: "CAN-011"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
-status: draft
-version: "0.3.0"
+status: active
+version: "1.0.0"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-10-12T18:48:00+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"

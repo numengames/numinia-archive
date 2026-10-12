@@ -3,12 +3,12 @@ id: "PRI-005"
 uid: ""
 title: "Opening is an act"
 type: principle
-status: draft
-version: "5.1.0"
+status: active
+version: "5.2.0"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-10-12T18:48:00+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
