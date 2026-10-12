@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 43406,
+  "chars": 45024,
   "apparatus": false,
   "archived": false,
-  "tokens": 12617
+  "tokens": 13011
  },
  {
   "path": "CLAUDE.md",
@@ -1934,6 +1934,94 @@
   "apparatus": false,
   "archived": false,
   "tokens": 828
+ },
+ {
+  "path": "missions/MIS-0162-a-machine-knows-what-it-spends.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 6039,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1621
+ },
+ {
+  "path": "missions/MIS-0163-a-machine-never-takes-more-than-it-holds.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5303,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1435
+ },
+ {
+  "path": "missions/MIS-0164-a-world-comes-back-from-its-zip.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5891,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1588
+ },
+ {
+  "path": "missions/MIS-0165-each-rank-sees-the-fleet-at-its-own-depth.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4973,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1378
+ },
+ {
+  "path": "missions/MIS-0166-anyone-sees-which-worlds-are-open.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3876,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1064
+ },
+ {
+  "path": "missions/MIS-0167-an-empty-world-sleeps-and-wakes.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "on-hold",
+  "chars": 3728,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1030
+ },
+ {
+  "path": "missions/MIS-0168-a-machine-updates-itself-with-one-signature.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3950,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1089
+ },
+ {
+  "path": "missions/MIS-0169-a-world-can-be-paid-for.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5017,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1381
  },
  {
   "path": "objects/CHECK.md",
