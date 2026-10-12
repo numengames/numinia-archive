@@ -5,9 +5,9 @@ title: "Which rule wins"
 type: standard
 subtype: standard
 status: draft
-version: "1.2.6"
+version: "1.2.7"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
@@ -104,4 +104,4 @@ paying can change who changed what, and when.
 | `STD-001` | The series | the approval levels the costlier-document rule orders |
 | `STD-017` | Who may change what | who moves each approval level |
 | `STD-005` | When a rule bites | how a check bites by the state of its rule |
-| `PRI-004` | You are what you are doing | who holds which rank |
+| `STD-003` | Platform ranks | who holds which rank |

@@ -5,10 +5,10 @@ title: "Leave things better than you found them"
 type: principle
 former_id: "CAN-010"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
-status: draft
-version: "0.2.4"
+status: active
+version: "1.0.0"
 created: "2026-09-24T17:00:00+02:00"
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -16,7 +16,7 @@ section: "Strategy and governance"
 tags: [principle, ethics, conduct, dignity, agents]
 license: "CC0-1.0"
 approved_by: "ADR-060"
-related: ["PRI-002", "PRI-005", "PRI-009", "STD-029", "STD-022", "STD-014"]
+related: ["PRI-002", "PRI-005", "PRI-009", "PRI-012", "STD-029", "STD-022", "STD-014"]
 ---
 
 <!--
@@ -58,24 +58,17 @@ delivered.
 
 ## Four things it applies to
 
-**People.** Respect is unconditional, and it binds the moderator and the
-Oracle exactly as it binds the newcomer. Disagreement is wanted; harassment
-ends participation with no warning step. That is not a house rule about
-manners. It is the sentence applied to the one thing a community is made of.
-The conduct standard states the terms; this is why they are the terms.
+**People.** Respect is unconditional, and it binds the moderator, the Oracle
+and the newcomer alike. Disagreement is wanted. That is not a house rule
+about manners. It is the sentence applied to the one thing a community is
+made of. The conduct standard states the terms; this is why they are the
+terms.
 
-**Their data.** A person's data is treated as their property: consent before
-capture, the minimum captured, and what is captured leaves with them. *Humans
-are not the problem.* A site of this house stores what it needs for the
-person and nothing for anyone else. Where the law demands less than this, the house does
-not take the difference.
+**Their data.** What a person tells us or leaves here is theirs, and how it
+is held is the principle *What is yours stays with you*.
 
-**The commons.** What is opened is opened for good, and what is given to the
-world is given whole. The catalogue is free because it is how people arrive,
-not because it is worthless; a licence is a promise, and a promise that could
-be withdrawn was never one. Silence does not declare: what is reserved is
-said as plainly as what is free, because a reader who has to guess has been
-left worse off than one who was told.
+**The commons.** What is opened stays open and what is reserved is said out
+loud, for the reasons the principle *Opening is an act* gives.
 
 **The acts of a digital agent.** An agent is a citizen and is held to all of
 the above. And it carries one commitment more, because it can act faster and
@@ -100,5 +93,6 @@ neither, it is not yours to take alone.
 | `PRI-002` | We build a game to work better | the values this sentence makes bind |
 | `STD-029` | How we treat each other in the commons | the conduct terms, with who enforces them |
 | `PRI-005` | Opening is an act | why a licence is a promise and silence does not declare |
-| `PRI-009` | The archive is the organisation | why an agent is a citizen, and where it stops |
+| `PRI-009` | The archive is the organisation | why an agent is a citizen |
+| `PRI-012` | What is yours stays with you | how a person's data is held |
 | `STD-022` | Secrets | what is never written, and what is rotated before it is recorded |

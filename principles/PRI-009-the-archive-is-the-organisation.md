@@ -5,10 +5,10 @@ title: "The archive is the organisation"
 type: principle
 former_id: "CAN-009"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
-status: draft
-version: "1.0.10"
+status: active
+version: "1.2.0"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -16,7 +16,7 @@ section: "Strategy and governance"
 tags: [principle, archive, work, agents, memory, git]
 license: "CC0-1.0"
 approved_by: "ADR-059"
-related: ["PRI-001", "PRI-004", "STD-006", "STD-020", "STD-024", "STD-009", "STD-012"]
+related: ["PRI-001", "PRI-004", "PRI-010", "STD-006", "STD-020", "STD-024", "STD-009", "STD-012"]
 ---
 
 <!--
@@ -99,9 +99,8 @@ Whoever can read the text can act in it, and that includes agents that are
 not people. A digital agent here has a guild, a rank, a name and a place on
 the board, is bound by the same documents and leaves the same records. It is
 not a tool the organisation uses; it is a citizen the organisation admits,
-and it is held to that. The one thing it does not have is the last word:
-where a change is irreversible, or where the rule itself is being decided, an
-agent stops and asks. Stopping is not failure; it is the rank speaking.
+and it is held to that; where it stops and asks is the principle *Leave
+things better than you found them*.
 
 This is why everything here is written for two readers at once. A document a
 person can read and an agent cannot act on is a brochure. A document an agent
@@ -131,3 +130,4 @@ gap in the archive — not a reason to ask around.
 | `STD-020` | Git is the archive | how history is protected and how a document dies |
 | `STD-006` | Plain text is sovereign | what the file must be so that it outlives its readers |
 | `PRI-004` | You are what you are doing | what an agent is made of, and its rank |
+| `PRI-010` | Leave things better than you found them | where an agent stops and asks |

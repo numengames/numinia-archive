@@ -34,7 +34,19 @@ below.
 
 In force: `PRO-023` (bringing a rule into force, since 2026-09-27): no
 rule leaves draft without its steps, and the Oracle sees each activation
-before the branch. And the standards whose header says `active`:
+before the branch. And the principles and standards whose header says
+`active`:
+`PRI-001` you are already in the game ·
+`PRI-002` we build a game to work better ·
+`PRI-004` you are what you are doing ·
+`PRI-005` opening is an act ·
+`PRI-008` one identity, three forces ·
+`PRI-009` the archive is the organisation ·
+`PRI-010` leave things better than you found them ·
+`PRI-011` what has value also makes a bond ·
+`PRI-012` what is yours stays with you ·
+`PRI-013` a magician who keeps hope, with humans in charge ·
+`PRI-015` we recognise the act; we never buy the game ·
 `STD-001` the series ·
 `STD-004` the header every document opens with ·
 `STD-005` when a rule bites ·
@@ -51,7 +63,8 @@ before the branch. And the standards whose header says `active`:
 `STD-026` the operative vocabulary ·
 `STD-027` the archive is classified by function ·
 `STD-028` one document, one address ·
-`STD-030` the world's vocabulary.
+`STD-030` the world's vocabulary ·
+`STD-031` a principle states.
 
 Nothing else in `principles/`, `standards/` or `procedures/` binds you. A test
 (`machine/scripts/test/door-resolves.test.mjs`) fails if this list and the
@@ -169,20 +182,19 @@ adding a dependency, changing a LICENSE or making anything public.
 
 | Rule | What it rules | State | Binds |
 |---|---|---|---|
-| `PRI-001` | You are already in the game | draft | every document, artefact and agent that speaks in Numinia's name |
-| `PRI-002` | We build a game to work better | draft | every piece of work that speaks, looks or behaves in Numinia's name |
-| `PRI-004` | You are what you are doing | draft | whoever describes, classifies or registers a person, a role or a piece of work in Numinia |
-| `PRI-005` | Opening is an act | draft | every Numen Games repository, and whoever publishes from one |
+| `PRI-001` | You are already in the game | in force | every document, artefact and agent that speaks in Numinia's name |
+| `PRI-002` | We build a game to work better | in force | every piece of work that speaks, looks or behaves in Numinia's name |
+| `PRI-004` | You are what you are doing | in force | whoever describes, classifies or registers a person, a role or a piece of work in Numinia |
+| `PRI-005` | Opening is an act | in force | every Numen Games repository, and whoever publishes from one |
 | `PRI-006` | The model needs a story | draft | whoever reasons about how Numen Games, its model and Numinia relate |
 | `PRI-007` | Renaming is not transforming | draft | whoever designs, renames or reorganises anything in this system |
-| `PRI-008` | One identity, three forces | draft | every piece that carries the Numen Games or Numinia mark |
-| `PRI-009` | The archive is the organisation | draft | every document of this archive, every change to it, and whoever — human or digital… |
-| `PRI-010` | Leave things better than you found them | draft | whoever acts in Numinia's name, human or digital |
-| `PRI-011` | What has value also makes a bond | draft | whoever sets a price, takes a payment or keeps the account in Numinia's name, human or digital |
-| `PRI-012` | What is yours stays with you | draft | whoever builds, runs or changes anything that holds something of a person's in Numinia's name… |
-| `PRI-013` | A magician who keeps hope, with humans in… | draft | every piece of work that speaks, looks or behaves in Numinia's name |
-| `PRI-014` | Friends who play, build and learn | draft | every piece that tells where Numinia comes from |
-| `PRI-015` | We recognise the act; we never buy the game | draft | whoever designs, grants or audits a reward, a rank, a title or a recognition in Numinia's name |
+| `PRI-008` | One identity, three forces | in force | every piece that carries the Numen Games or Numinia mark |
+| `PRI-009` | The archive is the organisation | in force | every document of this archive, every change to it, and whoever — human or digital… |
+| `PRI-010` | Leave things better than you found them | in force | whoever acts in Numinia's name, human or digital |
+| `PRI-011` | What has value also makes a bond | in force | whoever sets a price, takes a payment or keeps the account in Numinia's name, human or digital |
+| `PRI-012` | What is yours stays with you | in force | whoever builds, runs or changes anything that holds something of a person's in Numinia's name… |
+| `PRI-013` | A magician who keeps hope, with humans in… | in force | every piece of work that speaks, looks or behaves in Numinia's name |
+| `PRI-015` | We recognise the act; we never buy the game | in force | whoever designs, grants or audits a reward, a rank, a title or a recognition in Numinia's name |
 | `PRO-001` | Opening and closing a session | draft | every agent, in every session, whatever the mission |
 | `PRO-003` | Running a mission | draft | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
 | `PRO-005` | Escalating to the Oracle | draft | any agent facing a decision it may not, or cannot, take alone |
@@ -238,7 +250,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-028` | One document, one address | in force | every web address the public site gives a document of the archive |
 | `STD-029` | How we treat each other in the commons | draft | everyone in a Numinia community space: citizens, moderators, Oracles and digital agents alike |
 | `STD-030` | The world's vocabulary | in force | register — scope belongs to the standard that cites it |
-| `STD-031` | A principle states | draft | every document in the principles |
+| `STD-031` | A principle states | in force | every document in the principles |
 | `STD-033` | Every charge delivers something | draft | every site of ours that takes a payment, and every record of something on sale |
 | `STD-034` | Accessibility | draft | every public page of every Numen Games and Numinia site |
 | `STD-035` | Personal data | draft | everything of ours that collects or keeps data about a person |
@@ -255,7 +267,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-048` | Reaching someone who did not ask | draft | every first contact made in Numen Games' or Numinia's name with an organisation or a person who… |
 | `STD-049` | The doors, by country | draft | register — scope belongs to the standard that cites it |
 
-85 rule documents, of which 18 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 9 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+84 rule documents, of which 30 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 9 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

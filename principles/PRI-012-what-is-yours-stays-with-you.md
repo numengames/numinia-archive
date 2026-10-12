@@ -5,10 +5,10 @@ title: "What is yours stays with you"
 type: principle
 former_id: "CAN-012"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
-status: draft
-version: "0.1.6"
+status: active
+version: "1.0.0"
 created: "2026-09-26T16:40:00+02:00"
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -63,6 +63,12 @@ can read, and the person can take it whole, without asking and without
 waiting. A record that only our service can open is a record we hold about
 someone, not one they own.
 
+What they told us is theirs in the same way. Consent comes before anything
+is captured, only the minimum is captured, and what is captured leaves with
+them. A place of this house keeps what it needs for the person and nothing
+for anyone else; where the law demands less than this, the house does not
+take the difference.
+
 What is yours is not what is everyone's. What the house has opened belongs
 to no one in particular, and the principle of licensing says why it stays open.
 A file can be copied without loss by anyone; what is scarce is the title
@@ -97,9 +103,7 @@ step.
 Until a person climbs, the house holds their things for them, as a steward
 holds a house for its owner: in good order, and ready to hand over whole the
 day they ask. Closing someone's access to the city is not taking their
-things; what they held goes with them. How their data is treated while it is
-here is the principle *Leave things better than you found them*, and it is
-not repeated here.
+things; what they held goes with them.
 
 ## Three questions
 
@@ -121,7 +125,6 @@ refuse to build.
 | ID | Name | Why cited |
 |---|---|---|
 | `PRI-005` | Opening is an act | why what is everyone's stays open, and is not what is yours |
-| `PRI-010` | Leave things better than you found them | how a person's data is treated while it is here |
 | `PRI-011` | What has value also makes a bond | what a person gets when they pay, and why a Token keeps its history |
-| `PRI-004` | You are what you are doing | who a citizen is, and the ranks they climb |
+| `PRI-004` | You are what you are doing | who a citizen is, and rank as read from what they have done |
 | `STD-026` | Operative vocabulary | what digital sovereignty, a key of one's own and progressive identity mean |

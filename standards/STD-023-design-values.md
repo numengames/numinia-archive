@@ -5,9 +5,9 @@ title: "Design values"
 type: standard
 subtype: register
 status: active
-version: "1.11.0"
+version: "1.12.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-10T11:53:13+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -24,7 +24,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Design values
 
-> **Summary:** The design system's closed lists, as values: colours,
+> **Summary:** The design system's closed lists, as values: the threads' dose, colours,
 > contrasts, type and space scales, icons, brand marks, animations, the sky
 > and pixel grids. The design kit holds them for machines; a test fails if a
 > colour here is missing there.
@@ -33,6 +33,15 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 ## 1. Palette
+
+The identity mixes three threads in a fixed dose; each is one era of the same
+story.
+
+| Thread | Dose | Era |
+|---|---|---|
+| Solarpunk | 40 % | 2120, the garden |
+| Steampunk | 40 % | 1920, the machine |
+| Cyberpunk | 20 % | 2020, the signal |
 
 | Hex | Name | Thread | Role |
 |---|---|---|---|

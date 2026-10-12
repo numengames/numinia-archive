@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-12
+- **Changed** Principles, one belief one home: `PRI-014` retires into `PRI-002`; ranks to `STD-003`/`STD-026`, data to `PRI-012`, the threads' dose and era to `STD-023`. In force: `STD-031` 1.0.0 and the eleven principles by ursa (`PRI-006`/`PRI-007` stay on trial, their findings warn) (site v0.161.0).
 - **Changed** `STD-031` 0.3.0: a principle's tools, dates, names, bare ids and Spanish world names are checked by `std-031-a-principle-states` (draft: reported, not blocking); judgement rows go to the PR template. Principles form pass: banners, restated standards, repeats cut; Threshold, Prism; three citations fixed.
 - **Added** `MIS-162`: each fleet machine measures itself and every world on it (memory, processor, disk, people inside, restarts), keeps a week, publishes it at its door with no person in it, and the worlds room shows it.
 - **Added** `MIS-163`: a machine never takes more than it holds — each world reserves its share, the door refuses one that does not fit (`no-room`), and the room shows the machine's room and switches Create and Start off, saying why.

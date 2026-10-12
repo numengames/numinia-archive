@@ -5,10 +5,10 @@ title: "We recognise the act; we never buy the game"
 type: principle
 former_id: "CAN-015"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
-status: draft
-version: "0.1.4"
+status: active
+version: "1.0.0"
 created: "2026-10-03T19:00:00+02:00"
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -61,17 +61,17 @@ a rule that buys obedience with freedom — is not ours.
 playing and people stop playing for the joy of it; take the prize away and
 they stop playing at all. So nothing here is offered to make someone play. We
 recognise what was done once it is done, and we read it from what the person
-did, never from what they say they did — which is also why the higher ranks
-are judged by who someone is, and not counted by how much they produced.
-Money and recognition do not mix: money pays the work, recognition
-celebrates it.
+did, never from what they say they did, as the principle *You are what you
+are doing* reads rank. Work is not paid with recognition, and recognition is
+not given in money.
 
 **What you earn is yours.** A reward that can be taken back when someone
 goes was a loan.
 
-**It is celebrated in public.** Recognition that happens in private is a
-transaction. Ours is said aloud, at the table where the others are, because
-the point is the bond and not the prize.
+**It is said aloud at the table.** Recognition that happens in private is a
+transaction. Ours is said aloud, at the table, before the others, because
+the point is the bond and not the prize. Outside it, in public places,
+someone is named only if they want to be.
 
 **It rewards cathedrals, not prefab homes.** We look for proactive builders
 who want a prosperous future for those who come behind, and what moves them
@@ -101,7 +101,7 @@ test here.
 | ID | Name | Why cited |
 |---|---|---|
 | `PRI-002` | We build a game to work better | the manifesto: relations and the human being |
-| `PRI-004` | You are what you are doing | rank is the one attribute the system assigns |
+| `PRI-004` | You are what you are doing | rank is read from what is done |
 | `PRI-007` | Renaming is not transforming | gamification moves motivation; a new name for a reward changes nothing |
 | `PRI-011` | What has value also makes a bond | what money pays, and how a payer is remembered |
 | `PRI-012` | What is yours stays with you | what is earned leaves with the person |

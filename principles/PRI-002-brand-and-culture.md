@@ -5,12 +5,12 @@ title: "We build a game to work better"
 type: principle
 former_id: "CAN-002"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
-status: draft
-version: "4.2.5"
+status: active
+version: "4.4.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -19,7 +19,8 @@ tags: [principle, brand, culture, purpose, values, play]
 license: "CC0-1.0"
 approved_by: "ADR-061"
 supersedes_version: "3.0.0"
-related: ["PRI-001", "PRI-005", "PRI-008", "PRI-010", "PRI-013", "PRI-014", "PRO-019", "STD-023"]
+related: ["PRI-001", "PRI-005", "PRI-006", "PRI-008", "PRI-010", "PRI-013", "PRO-019", "STD-023"]
+absorbs: ["PRI-014"]
 
 ---
 
@@ -46,36 +47,20 @@ name.
 
 ## Why we exist
 
-**Leveling up organisations to build better relationships.** That is the
-purpose, and it is not about productivity: it is about what happens between
-people while they work.
-
-The inheritance of the Second Industrial Revolution has run out. Its
-organisations were built for a world that no longer exists, and what they
-produce now is a particular kind of deadness — existential monotony, which
-kills creativity and the human spirit before it kills anything measurable.
-People raised on multiplayer games and science fiction will not spend their
-lives in it, and they are right not to.
-
-So the mission is narrow and concrete: **build gamified frameworks to make
-work better.** Not metaphorically. Actual games, with rules, stakes and
-progression, in which real work is done.
+**Leveling up organisations to build better relationships** is the purpose,
+and it is about what happens between people while they work, not about
+productivity. The mission follows from it: **build gamified frameworks to
+make work better** — actual games, with rules, stakes and progression, in
+which real work is done.
 
 ## Why a game
 
 **Play is our first narrative, our first lesson and our first creative
-drive.** Before anyone is taught anything they have played, and in playing
-they have already told a story, learnt a rule and made something up. A game
-is not a way of dressing work so that it hurts less. It is the oldest way
-human beings have of understanding a situation from inside it.
-
-That is why the game here is the instrument and not the packaging. A working
-framework can stand without one — most do — but it stands flat, with less
-dimension and fewer possibilities, and the story it needs turns up anyway,
-in sporadic brushstrokes nobody is aware of. Doing it on purpose, with a
-narrative and rules that are meant, is what gives the work its full size.
-The archetype turns to myth to become conscious; a way of working turns to a
-game for the same reason.
+drive**, and why the game is the form of the work rather than its wrapping
+is argued in the principle *The model needs a story*. Numinia was a game
+before it was a company, and friendship comes first: Numen Games is the
+Oracles' company, friends who play, build, learn and divulge, and that order
+matters.
 
 ## What we will not trade away
 
@@ -146,9 +131,6 @@ The symbols are the scarab — Khepri, creation, cycle, rebirth — and the moon
 in its phases. Where the imagery comes from, and how the house looks, is the
 principle of visual identity's.
 
-Numen Games is the Oracles' company, and it is friends who play, build, learn
-and divulge. That order matters.
-
 ## References
 
 | ID | Name | Why cited |
@@ -157,5 +139,4 @@ and divulge. That order matters.
 | `PRI-005` | Opening is an act | what *remix* obliges |
 | `PRI-010` | Leave things better than you found them | the one sentence that is the house's ethics |
 | `PRI-013` | A magician who keeps hope, with humans in charge | the brand's personality, emotion and cause |
-| `PRI-014` | Friends who play, build and learn | where the house comes from |
-| `PRI-001` | You are already in the game | why the work is narrated at all |
+| `PRI-006` | The model needs a story | why the game is the form of the work |

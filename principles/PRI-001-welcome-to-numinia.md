@@ -5,12 +5,12 @@ title: "You are already in the game"
 type: principle
 former_id: "CAN-001"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
-status: draft
-version: "4.0.7"
+status: active
+version: "4.2.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:51:02+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -55,40 +55,19 @@ that stopped needing a footnote.
 This is a company that builds a way of working, and Numinia is that way of
 working, told as a city. The two are not a thing and its packaging. **The
 narration is not decoration over the system, it is the system's form of
-appearing.**
+appearing**, and why a way of working needs its story at all is argued in
+the principle *The model needs a story*.
 
 So every element here holds on both sides at once, and neither half is the
 true one. A guild is what someone is trained in. A faction is where the work
-happens. A mission is an act that leaves the place better than it found it.
-Strip the names and you have an org chart nobody can remember; strip the
-functions and you have a costume party.
+happens. A role is what you are doing there, never a label you carry. A
+mission is an act that leaves the place better than it found it. Strip the
+names and you have an org chart nobody can remember; strip the functions and
+you have a costume party.
 
 ---
 
-## 2. Why it is told this way
-
-Because **a structure that can be narrated is a structure someone can hold in
-their head** — and a structure you hold in your head is one you can act in
-without being told what to do.
-
-That is the whole wager. Not that work should feel lighter, but that a person
-who has understood a place will do the right thing in a situation nobody wrote
-down for them. A list of processes cannot manage that: it covers the cases it
-lists, and reality brings others. A city can, because you have walked it.
-
-This is why, here, **to play is to operate and to operate is to play** — and
-why a role is never a label you carry. It is what you are doing right now, and
-it comes out of three things at once: what you know, what the moment needs,
-and where you happen to be standing. A paperweight is made to hold down paper,
-but it has the weight and the heft to drive a nail, so when there is a nail
-and no hammer, that is what it becomes. People work the same way: **what you
-are here is what you are doing**, not what your profile said you would do.
-Which is also why leading one piece of work and reviewing the next are not two
-rungs of anything.
-
----
-
-## 3. How to tell what is real
+## 2. How to tell what is real
 
 Everything in this system exists twice — as a function and as a name in the
 world — and neither version may say what the other denies. Three things follow,
@@ -108,3 +87,10 @@ it.
 
 So if something here reads like set dressing, that is a defect and you may say
 so. You are already in the game; that is what playing it looks like.
+
+## References
+
+| ID | Name | Why cited |
+|---|---|---|
+| `PRI-006` | The model needs a story | why a way of working needs its story |
+| `PRI-004` | You are what you are doing | a role is what you are doing, never a label |
