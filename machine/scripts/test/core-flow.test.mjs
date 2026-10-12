@@ -48,6 +48,26 @@ test('every standard and procedure names the one principle it comes from', () =>
   assert.deepEqual(bad, [], `each needs derived_from: "PRI-NNN" naming an existing principle:\n  ${bad.join('\n  ')}`);
 });
 
+// Every standard derives from a principle in force (the Oracle's meaning of a
+// principle in force, 2026-10-12). A document deriving from a principle still
+// on trial is named here, one by one, so the exception is a decision and not
+// a drift. Today none does: no standard or procedure derives from PRI-006 or
+// PRI-007.
+const DERIVES_FROM_A_DRAFT = [];
+test('every standard and procedure derives from a principle in force, save the ones named', () => {
+  const status = new Map(ls('principles/PRI-*.md').map((f) => {
+    const fm = parseFM(readFileSync(path.join(ROOT, f), 'utf8')) ?? {};
+    return [f.match(/PRI-\d{3}/)[0], fm.status];
+  }));
+  const onTrial = [];
+  for (const f of [...ls('standards/STD-*.md'), ...ls('procedures/PRO-*.md')]) {
+    const fm = parseFM(readFileSync(path.join(ROOT, f), 'utf8')) ?? {};
+    if (status.get(fm.derived_from) !== 'active') onTrial.push(`${fm.id} ← ${fm.derived_from} (${status.get(fm.derived_from)})`);
+  }
+  assert.deepEqual(onTrial.map((s) => s.split(' ')[0]).sort(), [...DERIVES_FROM_A_DRAFT].sort(),
+    `derive from a principle not in force:\n  ${onTrial.join('\n  ')}`);
+});
+
 const doc = (id, title, extra = '', body = '') =>
   `---\nid: "${id}"\ntitle: "${title}"\nstatus: draft\n${extra}---\n\n<!--\nSPDX\n-->\n\n# ${title}\n\n> **Summary:** S of ${id}.\n> **Epistemic:** Q of ${id}?\n\n${body}`;
 

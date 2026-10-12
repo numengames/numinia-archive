@@ -120,6 +120,30 @@ check('tree: secrets is in force — KEY-054, KEY-056 and KEY-057 bind (STD-022 
   return true;
 });
 
+/* The principles in force (2026-10-12): STD-031 and every principle written
+   by ursa are activated together, since a principle has no Check table of
+   its own and binds through STD-031's check. A principle by another author
+   (today PRI-006 and PRI-007, Christian's) is never edited here and stays on
+   trial until its author brings it in. */
+check('tree: a principle states is in force — STA-006, STA-007, STA-011 and STA-012 bind (STD-031 active, 2026-10-12)', () => {
+  for (const plate of ['STA-006', 'STA-007', 'STA-011', 'STA-012']) {
+    const b = bindsFor(plate);
+    if (b.holder !== 'STD-031') return `${plate} holder ${b.holder}, want STD-031`;
+    if (!b.binds) return `${plate} does not bind: STD-031 is ${b.status}`;
+  }
+  return true;
+});
+check('tree: every principle written by ursa is in force (2026-10-12)', () => {
+  const dir = path.join(ROOT, 'principles');
+  const mine = readdirSync(dir).filter((f) => /^PRI-\d{3}-.*\.md$/.test(f))
+    .map((f) => readFileSync(path.join(dir, f), 'utf8'))
+    .filter((t) => /^author:\s*"?ursa"?\s*$/m.test(t))
+    .map((t) => ({ id: t.match(/^id:\s*"?(PRI-\d{3})"?/m)[1], status: t.match(/^status:\s*"?(\w+)"?/m)[1] }));
+  if (mine.length === 0) return 'no principle written by ursa found';
+  const off = mine.filter((p) => p.status !== 'active');
+  return off.length === 0 || `not active: ${off.map((p) => `${p.id} (${p.status})`).join(', ')}`;
+});
+
 /* No rule leaves draft while a row of its Check table is verified by hand
    (the Oracle, 2026-10-04; PRO-023 step 7). The standards already in force
    carry such rows from before the ruling: they are listed, as debt, in
