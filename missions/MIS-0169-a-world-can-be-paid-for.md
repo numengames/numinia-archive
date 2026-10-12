@@ -4,9 +4,9 @@ uid: ""
 title: "A world can be paid for: hosting a world goes on sale through the house's one payment account, priced by the size it reserves, and a paid world is born with its buyer as owner"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-12T13:27:54+02:00"
-updated: "2026-10-12T13:27:54+02:00"
+updated: "2026-10-12T16:51:33+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -102,6 +102,42 @@ priced in `MIS-161`'s model.
   payment.
 - [ ] The worlds room shows the Oracle each paid world, its size and the
   state of its payment. Today: the room knows nothing about payments.
+
+---
+
+## Execution log
+
+**2026-10-12 — the route to the first paid world, measured against
+numen.games/hosting as published that day.** The order of work below is the
+Oracle's; it selects none of the standards above.
+
+- **The page already sells by hand:** request, call, proposal, then "You
+  accept the proposal and pay the first month. We send the invoice." The
+  first payment needs no payment integration. It needs a price per plan,
+  set from real measurements (`MIS-161`), and the page's promises made true
+  on the fleet.
+- **Promises kept today:** an address with HTTPS; the full export
+  (*Download*); security updates (the machine's unattended upgrades);
+  servers in France (open-1 is an OVH server in Strasbourg); monthly, with
+  no lock-in.
+- **Not kept yet:** reserved power (`MIS-163`); a copy every night and going
+  back to any saved night (`MIS-158`, `MIS-160`, `MIS-164`); the event boost
+  (`MIS-172`); "how many people came in and when the peak was", and the
+  monthly summary (`MIS-162`); the client's own domain without anyone
+  logging into the machine (`MIS-171`).
+- **Before a client's world shares a machine:** each world its own admin
+  code (`MIS-170`), and each world's `/status` closed to outsiders
+  (`MIS-166`) — today it hands anyone every visitor's id, name and live
+  position.
+- **The contract:** a proposal to a client also needs the Data Processing
+  Agreement that `LEG-002` promises — the client as controller, Numen as
+  processor, OVH and AWS as sub-processors. No template exists in the
+  archive, and item 20 of `DBT-022` records that no data processing
+  agreement is on file with any provider.
+- **The order, chosen by the Oracle:** `MIS-170` with `MIS-173` (the
+  pinned recipe) → `MIS-158` and `MIS-160` → `MIS-164` → `MIS-162` →
+  `MIS-163` → `MIS-166` (its `/status` part), `MIS-171` and `MIS-172` →
+  `MIS-161` and the first invoice. Stripe comes after the first clients.
 
 ---
 

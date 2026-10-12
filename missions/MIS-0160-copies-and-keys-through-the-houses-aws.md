@@ -4,9 +4,9 @@ uid: ""
 title: "Copies and keys reach the console through the house's AWS: S3 for the zips, Secrets Manager for each world's keys"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-10T12:00:00+02:00"
-updated: "2026-10-10T12:00:00+02:00"
+updated: "2026-10-12T16:51:33+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -93,6 +93,60 @@ cluster; anything that lets the room write to the bucket or the secrets.
   room reads a local source.
 - [ ] `ADR-069` 0.2.0 and the AWS supplier card are merged. Today: 0.1.0, no
   card.
+
+---
+
+## Execution log
+
+**2026-10-12 — the Oracle's direction: the copies go to AWS first, and the
+website holds no AWS key.** The Oracle put the copies in AWS ahead of the
+machines' measurements and reservations (`MIS-162`, `MIS-163`), because "it
+affects a great many things". Since site v0.77.0 the machines obey requests
+the Oracle's wallet signs (`SYS-014`), so the design this mission was
+written with — a `worlds-room` AWS key in the Worker that lists the copies,
+presigns their links and reads Secrets Manager — is superseded. What
+replaces it, not a selection yet where it names a store for a second
+machine:
+
+- **The Worker holds no AWS key:** a stolen website takes no copy.
+- **Each machine holds one narrow key:** the managed policy
+  `fleet-machine-copies` — `s3:PutObject`, `s3:GetObject` and
+  `s3:AbortMultipartUpload` on `copies/*`, `s3:ListBucket` limited to the
+  prefix `copies/*`, no delete of any kind — attached to the IAM user
+  `fleet-open-1`.
+- **A download link is presigned by the machine,** for an hour, after an
+  Oracle's signed request — later an owner's (`MIS-159`).
+- **A new bucket, `numinia-world-copies`, in Paris (`eu-west-3`),** so
+  "servers in France" stays literal for the copies too: versioning on, Block
+  Public Access on, SSE-S3 encryption, and a lifecycle rule on `copies/` —
+  current versions expire after 14 days, noncurrent versions are deleted 7
+  days later, incomplete multipart uploads after 1 day. With versioning on,
+  a stolen machine that overwrites a copy leaves the previous one in place.
+- **The layout is `copies/<organisation>/<world>/<date>.zip`:** one folder
+  per organisation, so the house's worlds and each client's stay apart.
+- **A world's live keys stay on its machine.** Restoring a night on the
+  same machine keeps people's identity; restoring on another machine makes
+  new keys, which is written as debt. When a second machine exists, the keys
+  go to AWS Systems Manager Parameter Store standard parameters (no
+  additional charge) rather than Secrets Manager ($0.40 per secret per
+  month), both prices read from AWS on 2026-10-12.
+- **What it costs:** S3 Standard in `eu-west-3` is $0.024 per GB-month and
+  $0.0053 per 1,000 PUT requests (AWS price list published 2026-09-28).
+- **When the copies ship,** numen.games/hosting's answer on where the data
+  lives ("On OVHcloud servers in France") and the privacy policy (`LEG-001`)
+  name Amazon Web Services, Paris, as where the copies are kept.
+- **The Oracle's own steps** are a guide outside the repository: the
+  bucket, its rule, the policy and the user now; the access key only when
+  the machine can upload. He made the first four the same day, with a
+  second rule, `copies-cleanup-markers`, that removes a delete marker as
+  soon as no version is left behind it; the 14-day rule alone removes it
+  only once it is 14 days old.
+
+The criteria above that name `worlds-room` are read against this design at
+closure: there is no such user and no AWS key in the Worker. The same holds
+for the copies' place (`copies/<organisation>/<world>/` rather than
+`backups/<id>/`) and for the keys, which stay on the machine rather than in
+Secrets Manager.
 
 ---
 

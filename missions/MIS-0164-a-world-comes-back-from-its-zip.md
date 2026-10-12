@@ -4,9 +4,9 @@ uid: ""
 title: "A world comes back from its zip: an Oracle uploads a world's copy from the room and a fleet machine brings it up with its data"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-12T13:11:36+02:00"
-updated: "2026-10-12T13:11:36+02:00"
+updated: "2026-10-12T16:51:33+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -19,7 +19,7 @@ executor: hybrid
 assigned_to: null
 completed: null
 
-depends_on: ["MIS-163"]
+depends_on: []
 requires_oracle_approval: true
 context: "2026-10-12T13:04:00+02:00"
 paths: [principles/PRI-012-what-is-yours-stays-with-you.md, system/SYS-014-the-worlds-fleet-as-wired.md]
@@ -118,6 +118,24 @@ at once.
   used. Today: no importer.
 - [ ] An import that does not fit its machine is refused `no-room` before
   its upload starts. Today: there is no count (`MIS-163`).
+
+---
+
+## Execution log
+
+**2026-10-12 — the Oracle's direction: an imported world is always born
+stopped, and the Oracle picks its machine.** Read against the scope and the
+criteria above:
+
+- A stopped world takes only disk, so the import no longer waits for
+  `MIS-163`: `depends_on` is now empty, and `MIS-163` stays among the
+  related missions.
+- The scope's count before the upload and the last criterion's `no-room`
+  are read as free disk, checked before the upload starts. *Start* is where
+  the memory question is asked.
+- Restoring a night from the bucket (`MIS-160`) is the same piece on the
+  machine, with the bucket as the source instead of an upload — a
+  hypothesis, not a selection.
 
 ---
 
