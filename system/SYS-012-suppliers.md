@@ -5,9 +5,9 @@ title: "Suppliers"
 type: documentation
 subtype: register
 status: draft
-version: "0.1.2"
+version: "0.2.0"
 created: "2026-09-30T19:00:00+02:00"
-updated: "2026-10-03T20:30:00+02:00"
+updated: "2026-10-12T11:53:57+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -26,7 +26,8 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** One card per service Numen Games contracts from a company:
 > who it is, what we use it for, what it holds of ours and what it cost,
-> year by year. Thirteen cards, from the FY2025 book, all in draft.
+> year by year. Fourteen cards, all in draft: thirteen from the FY2025 book,
+> and one opened in 2026 before its first invoice is booked.
 > **Epistemic:** Which companies does the house depend on, and what does
 > each one cost?
 > **Pragmatic:** Read the card before adding, renewing or dropping a service;
@@ -52,6 +53,7 @@ Net amounts, excluding VAT, for 2025. Sorted by cost.
 | [AEVI](/system/suppliers/membership-aevi/) | Asociación Española de Videojuegos | `membership` | 150,00 € |
 | [Roll20](/system/suppliers/software-roll20/) | Roll20 (as booked) | `software` | 96,02 € |
 | [LiveKit](/system/suppliers/cloud-livekit/) | LiveKit, Inc. | `cloud` | 95,57 € |
+| [OVHcloud](/system/suppliers/cloud-ovh/) | to confirm from the first invoice | `cloud` | — (since 2026) |
 | **Total** | | | **26.360,59 €** |
 
 ## What is not here

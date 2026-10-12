@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 42108,
+  "chars": 43115,
   "apparatus": false,
   "archived": false,
-  "tokens": 12245
+  "tokens": 12533
  },
  {
   "path": "CLAUDE.md",
@@ -671,6 +671,17 @@
   "tokens": 1112
  },
  {
+  "path": "debt/DBT-025-the-worlds-fleet-runs-on-unreviewed-shortcuts.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 5557,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1428
+ },
+ {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
   "dir": "decisions",
   "series": "decisions",
@@ -808,10 +819,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 8477,
+  "chars": 9445,
   "apparatus": false,
   "archived": false,
-  "tokens": 2081
+  "tokens": 2326
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -1864,10 +1875,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 4830,
+  "chars": 5586,
   "apparatus": false,
   "archived": false,
-  "tokens": 1352
+  "tokens": 1554
  },
  {
   "path": "missions/MIS-0157-identity-and-ranks-by-the-standards.md",
@@ -3074,10 +3085,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 7837,
+  "chars": 8196,
   "apparatus": false,
   "archived": false,
-  "tokens": 1938
+  "tokens": 2021
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -3624,10 +3635,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 4507,
+  "chars": 4685,
   "apparatus": false,
   "archived": false,
-  "tokens": 1348
+  "tokens": 1400
  },
  {
   "path": "system/SYS-013-the-repositories-as-wired.md",
@@ -3635,10 +3646,32 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 9649,
+  "chars": 9947,
   "apparatus": false,
   "archived": false,
-  "tokens": 2535
+  "tokens": 2601
+ },
+ {
+  "path": "system/SYS-014-the-worlds-fleet-as-wired.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 12820,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3342
+ },
+ {
+  "path": "system/SYS-015-signing-in-to-numinia-com-as-wired.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 9467,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2382
  },
  {
   "path": "system/semantic-census/artefact-lap.md",
@@ -3782,6 +3815,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 386
+ },
+ {
+  "path": "system/suppliers/cloud-ovh.md",
+  "dir": "system",
+  "series": "system",
+  "type": "entity",
+  "status": "draft",
+  "chars": 1915,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 530
  },
  {
   "path": "system/suppliers/event-merge.md",

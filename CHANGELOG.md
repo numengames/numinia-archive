@@ -17,6 +17,12 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-12
+- **Added** `SYS-014` The worlds fleet, as wired: an Oracle signs one request in numinia.com's worlds room and the machine checks it and creates, stops, starts, downloads or deletes the world; what each piece holds, what it refuses, what a theft gives.
+- **Added** `SYS-015` Signing in to numinia.com, as wired: thirdweb and Sign-In with Ethereum, the site's own one-hour session, where each rank comes from, the two lists of Oracles, and what is not built (bans, early revocation).
+- **Added** `DBT-025`: nine shortcuts of the worlds fleet's trial no technical reviewer has checked (one admin code per machine, no nightly copy yet, the engine as root…), each with what pays it; OVHcloud's card in `SYS-012` 0.2.0.
+- **Changed** `ADR-069` 0.2.0: at the Oracle's request the book of orders lives on each machine and changes by a request the Oracle's wallet signs; the pull-request path is gone. `SYS-013` 0.3.0, `MIS-156` 0.3.0 log it; `STD-003` 3.3.0 lists the worlds room under the Oracle.
+
 ### 2026-10-10
 - **Changed** `MIS-156` 0.2.0 shrinks to one thing: a new small machine (`open-1`) that obeys the order book — bootstrap, reconciler, first card and order; the hand-run server stays as it is.
 - **Added** `MIS-158`: each fleet machine makes, every night, a self-contained zip of each world (the Alchemists' Tower backup shape) that runs anywhere with `docker compose up`.

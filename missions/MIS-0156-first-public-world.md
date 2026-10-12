@@ -4,9 +4,9 @@ uid: ""
 title: "The first machine of the public fleet obeys the order book: open-1 brings up the first world from its card and its order"
 type: mission
 status: todo
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-09T17:30:00+02:00"
-updated: "2026-10-10T12:00:00+02:00"
+updated: "2026-10-12T11:53:57+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -23,7 +23,7 @@ depends_on: []
 requires_oracle_approval: true
 context: "2026-10-10T12:00:00+02:00"
 paths: [objects/, system/suppliers/, system/SYS-013-the-repositories-as-wired.md]
-related: ["ADR-069", "SYS-013", "MIS-158", "MIS-159", "MIS-160", "MIS-161"]
+related: ["ADR-069", "SYS-013", "SYS-014", "MIS-158", "MIS-159", "MIS-160", "MIS-161", "DBT-025"]
 ---
 
 <!--
@@ -105,6 +105,24 @@ Out of scope, each its own mission:
 - [ ] `git grep -nE 'BEGIN .*PRIVATE KEY|JWT_SECRET=|ADMIN_CODE='` returns
   nothing in either repository. Today: no fleet files exist to check.
 - [ ] `system/suppliers/` has a card for OVH. Today: it does not.
+
+---
+
+## Execution log
+
+**2026-10-12 — the Oracle replaced the pull-request book.** Each machine now
+keeps its own book and obeys requests the Oracle's wallet signs, checked by
+the machine itself; no pull request and no login at the machine
+(`ADR-069` 0.2.0, `SYS-014`). Read against the criteria above:
+
+- the first criterion is met by `prueba` and `pablofm`: their `/status`
+  answers with the build their orders pin;
+- the third, a change merged on numinia-assets' main reaching the server, is
+  replaced by the same change signed in the worlds room;
+- the machine holds no GitHub credential at all: it clones the public
+  repository without one;
+- the card for OVH is written (`SYS-012`); no world has its card yet
+  (`DBT-025`).
 
 ---
 
