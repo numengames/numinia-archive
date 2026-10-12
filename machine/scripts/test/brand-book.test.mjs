@@ -40,7 +40,7 @@ test('the old deck is gone from the lore, and its address leads to the book', ()
 
 test('the built book carries every chapter, the epitaph, its .md view and the back-to-top button', { skip: notBuilt }, () => {
   const html = readFileSync(path.join(DIST, 'brand', 'index.html'), 'utf8');
-  for (const id of ['where-we-come-from', 'why-we-exist', 'what-we-will-not-trade', 'the-brand', 'voice-and-look', 'how-we-live', 'where-we-are-going']) {
+  for (const id of ['why-we-exist', 'what-we-will-not-trade', 'the-brand', 'voice-and-look', 'how-we-live', 'where-we-are-going']) {
     assert.match(html, new RegExp(`data-chapter="${id}"`), `chapter ${id} is on the page`);
   }
   assert.match(html, /did not let us alone/, 'the manifesto closes on the epitaph');

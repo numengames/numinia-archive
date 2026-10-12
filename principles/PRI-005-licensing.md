@@ -4,11 +4,11 @@ uid: ""
 title: "Opening is an act"
 type: principle
 status: draft
-version: "5.0.6"
+version: "5.1.0"
 created: "2026-08-16T19:58:17+02:00"
 created_source: "git:2efd546"
 created_confidence: exact
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -65,29 +65,16 @@ opened by deliberate acts, never by default.** Not because we are cautious
 with what we make — most of it ends up given away — but because opening is a
 promise, and a promise made by accident is the kind that gets broken.
 
-What we make falls into five kinds, and each is held differently, for a
-reason a stranger can follow.
-
-The **catalogue** — the assets, the data, the design tokens — is given away
-outright. It is how people arrive, not what we sell; the teacher takes the
-scarab and owes us nothing, not even a credit.
-
-The **edge** — the interfaces, the viewer, the tooling, the infrastructure —
-is shared, because its worth grows with every person who adopts it. The
-developer forks the viewer, improves it, and the improvement is as free as
-the original.
-
-The **core** — identity, progression, billing — is protected by copyleft:
-free to whoever shares back, paid by whoever will not. The studio may run its
-own city on our system; if it improves the system it gives the improvement
-back, and if it would rather keep it, it pays for that.
-
-The **world** — the lore, the narrative, the game — is given away like the
-catalogue, because a world grows by being played, retold and remixed. The
-fan writes the story, and it is hers.
-
-Only the **name** is kept — the brand and its marks — because it is the one
-thing nobody else can be. More on that below.
+What we make falls into five kinds, each held differently for a reason a
+stranger can follow. The **catalogue** — the assets, the data, the design
+tokens — is given away outright, because it is how people arrive; the
+teacher takes the scarab and owes us nothing, not even a credit. The
+**edge** — the interfaces, the viewer, the tooling — is shared, because its
+worth grows with every person who adopts it. The **core** — identity,
+progression, billing — is free to whoever shares back and paid by whoever
+will not, and the **world** — the lore, the narrative, the game — is given
+away like the catalogue, because a world grows by being played and retold.
+Only the **name** is kept, because it is the one thing nobody else can be.
 
 ## What is reserved is said out loud
 
@@ -152,4 +139,4 @@ suggest we sponsor you, present a fork as the official one — no.
 | `STD-014` | Publishing gates | the checks an Oracle-signed publication passes |
 | `PRO-018` | Publishing a repository | the act this principle says must be signed |
 | `PRI-002` | We build a game to work better | remix as a pillar of the house |
-| `PRI-010` | Leave things better than you found them | why a licence is a promise |
+| `PRI-010` | Leave things better than you found them | the one sentence of the house's ethics, which a kept promise applies |

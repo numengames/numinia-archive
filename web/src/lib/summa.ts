@@ -178,7 +178,7 @@ export const BOOKS: Book[] = [
   // 2026-10-05 (the Oracle): the shelf opens the front door, every book is
   // served or says what it waits for. The open books and the role-playing
   // manual join; the legal playbook is built.
-  { label: "Brand and culture", line: "Where we come from, what we believe, the brand in three words, how we sound, look and live, where we are going", href: "/brand", from: "principles · standards · procedures · operations" },
+  { label: "Brand and culture", line: "What we believe, the brand in three words, how we sound, look and live, where we are going", href: "/brand", from: "principles · standards · procedures · operations" },
   { label: "The core", line: "Each principle, the standards that make it concrete, the procedures that carry it out", href: "/core", from: "principles · standards · procedures" },
   { label: "The Lexicon", line: "The words we work with, A to Z: what each one is, what it clears up, what it lets you do", href: "/lexicon", from: "standards" },
   { label: "The sales playbook", line: "From an opportunity found to a sale won or lost: each stage, its procedure, what it hands over", href: "/playbook", from: "standards · procedures · operations" },

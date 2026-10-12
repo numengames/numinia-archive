@@ -6,11 +6,11 @@ type: principle
 former_id: "CAN-004"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "4.0.7"
+version: "4.1.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -33,8 +33,8 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** What you know is a guild, where you apply it is a faction, and
 > a role is what appears when the two meet in an act. Six attributes make up
-> anyone in Numinia, human or digital, and only one of them is assigned by
-> the system.
+> anyone in Numinia, human or digital, and only one of them is not the
+> person's to choose.
 > **Epistemic:** Who am I here?
 > **Pragmatic:** Place any person or piece of work without inventing a
 > category; tell a role from a profile from a position; know which six things
@@ -61,14 +61,8 @@ they are doing right now, to meet a need nobody had a post for, is their
 **role**; it comes from interacting with the world. And how far they have come
 is their **rank**.
 
-Five of these the person adopts. Rank alone is assigned: the system reads it
-from what they have done, never from what they say, and each rank contains
-every rank below it. A Nomad has arrived and has no guild or faction yet. A
-Citizen has chosen both. A Pilgrim exchanges something with the city — work or
-trade. A Vernacular is inside the Oracles' circle of trust. An Archon is in
-the closest circle, with attributions to match. An Oracle is one of the
-founders of the new Numinia. What each rank earns and what it may do is the
-platform standard's; what each one *is* is this.
+Five of these the person adopts. Rank is not chosen by the person: it is
+read from what they have done and, at the top, judged.
 
 The rest of this principle is about three of the six — profile, identity, role —
 because those are the three the city is built from.
@@ -144,11 +138,6 @@ function to a thing never intended for it — and a name to the use. *This thing
 does X, and it is called Y.* That name Y is a role. Every role in Numinia is a
 stone somebody picked up.
 
-Function here is not utility. To say a hammer *drives nails* is to leave
-yourself unable to drive a nail with the microscope on your desk. Function is
-a matter of ends and of values — what something is for, and what it is worth —
-and the principle *Renaming is not transforming* is where that is argued.
-
 A **position** is a role someone has settled into: the preferred role, taken
 one grade looser — a branch on a field rather than a house on a field. It is
 more stable, more predictable, harder to leave, and it mediates every other
@@ -172,25 +161,11 @@ attributes each line is — and notice which one is missing. And when a
 registry, a form or a system wants to record something about a person that is
 none of the six, you may ask what it is for.
 
-## The five approaches
-
-The six attributes arise from a relationship with the environment, and that
-relationship can be read five ways. They are listed because a reader will meet
-all five in the documents of this city and should know which lens is on.
-
-| Approach | What it holds |
-|---|---|
-| Philosophical | The relationship with the environment is subjective and triggers a framework of interpretations |
-| Psychological | The relationship with the environment triggers a framework of subjective interpretations |
-| Semantic | The environment possesses a definition and a dimension of meaning |
-| Semiotic | The environment has an expression and a dimension of content |
-| Hermeneutic | The environment contains a narrative and a dimension of sense |
-
 ## References
 
 | ID | Name | Why cited |
 |---|---|---|
 | `STD-030` | The world's vocabulary | every guild, branch, house and faction by name, with its operational equivalent |
 | `STD-003` | Platform ranks | what earns each rank and what it may do |
-| `PRI-007` | Renaming is not transforming | what function is, and why renaming is not transforming |
+| `STD-026` | Operative vocabulary | what each rank is |
 | `PRI-001` | You are already in the game | why a name and a function are the same thing here |

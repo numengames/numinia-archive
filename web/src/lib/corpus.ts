@@ -369,7 +369,6 @@ const READING_GROUPS_PRINCIPLES: ReadingGroup[] = [
     // gives away, what stays each citizen's own, and the sentence it closes on.
     hrefs: [
       "/principles/pri-004-role-structure",
-      "/principles/pri-014-friends-who-play-build-and-learn",
       "/principles/pri-002-brand-and-culture",
       "/principles/pri-013-a-magician-who-keeps-hope",
       "/principles/pri-008-visual-identity",

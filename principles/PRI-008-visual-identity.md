@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-008"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "3.0.8"
+version: "3.1.0"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -50,41 +50,32 @@ resource that does not encode something true about the content is removed.
 **Equable**: accessibility is equity, not compliance. **Curiosity**, read
 through active inference: minimise surprise where the user acts, and
 maximise exploration where they discover. **Healthy environments**: the
-material lasts and weighs little. The emotion aimed for is joy, trust and
-interest; the archetypes behind it are the magician who heals, the caregiver
-and the explorer.
+material lasts and weighs little.
 
-## The mix: forty, forty, twenty
+## The mix: three threads
 
 Three threads, in a fixed dosage, and they are not three aesthetics — they are
-**three decades of the same story**.
+**three eras of the same story**.
 
-**Solarpunk**, forty per cent, the year 2120: Mediterranean optimism,
-technology in the service of life. It brings the light, the whole day mode,
-and compositional serenity. Even the night here is its warm garden night —
-brown blacks, sand under moonlight, never acid neon.
+**Solarpunk** is the garden: Mediterranean optimism, technology in the
+service of life. It brings the light, the whole day mode, and compositional
+serenity. Even the night here is its warm garden night — brown blacks, sand
+under moonlight, never acid neon.
 
-**Steampunk**, forty per cent, 1920: the machine. Bronze, mechanism, measure,
-the Second Industrial Revolution. It brings the neutrals, the monospaced
-letter, the mechanical grid and the instruments in the iconography.
+**Steampunk** is the machine: bronze, mechanism, measure. It brings the
+neutrals, the monospaced letter, the mechanical grid and the instruments in
+the iconography.
 
-**Cyberpunk**, twenty per cent, 2020: the signal, the flash that cuts through.
-Dosed neon and the binary texture. At twenty per cent, cyber is accent and
-never ambience.
+**Cyberpunk** is the signal, the flash that cuts through: dosed neon and the
+binary texture. Cyber is accent and never ambience.
 
 **The mixing rule: light dominates, the machine structures, the signal
 blinks.** The dose test is done squinting — does it look like a Mediterranean
 garden with bronze machinery where a signal blinks? Correct. Like Blade
 Runner? Too much cyber. Like a gardening catalogue? Not enough machine.
+The dose of each thread and its era are design values.
 
-**The hundred-years line.** 1920, the material city burns and the machine
-remains. 2020, the decade of invocation: the signal cuts through and the
-Oracles call the city back. 2120, the full city, the garden. We always speak
-in decades — the twenties of three centuries — and the system does not mix
-eras: it traverses a two-century journey, with the scarab pushing the sun from
-one to the next.
-
-**The era is flavour, not skin.** A piece is never "set" in one decade: the
+**The era is flavour, not skin.** A piece is never "set" in one era: the
 dosage holds always, and the era is emphasised only through its sanctioned
 devices. The test: remove those, and the piece must still be unmistakably
 ours.
@@ -178,8 +169,9 @@ identifier, the pair must stay legible.
 Motion follows from curiosity: nothing moves where the user acts, content
 reveals itself where they discover, **one orchestrated moment per piece**, and
 with reduced motion everything simply appears. The typing is the flagship,
-and it carries a double heritage — the 1920 typewriter and the 2020 terminal
-at once, which is what makes it the most Numinian movement in the catalogue.
+and it carries a double heritage — the machine's typewriter and the signal's
+terminal at once, which is what makes it the most Numinian movement in the
+catalogue.
 
 The voice and its three levels are the principle of brand and culture's. What a
 piece does with them: the colloquial for community, product and interface;
@@ -190,10 +182,10 @@ lore in it is not signed; a home page full of metrics convenes nobody.
 The world's vocabulary is the literary level's own, and in the technical it
 is cited rather than narrated. Its names are written as the manual and its
 translation glossary fix them, and no relatives are invented for them.
-Alongside it, each decade has words that smell of it — cenacle and bronze
-and correspondence for 1920, signal and invocation and terminal for 2020,
-garden and harvest and morning light for 2120 — used as spices and not as
-the dish.
+Alongside it, each era has words that smell of it — cenacle and bronze and
+correspondence for the machine, signal and invocation and terminal for the
+signal, garden and harvest and morning light for the garden — used as spices
+and not as the dish.
 
 ## What this principle does not define
 
@@ -208,7 +200,7 @@ This is how the house looks, not what the house is.
 
 | ID | Name | Why cited |
 |---|---|---|
-| `STD-023` | Design values | every value this principle refuses to quote |
+| `STD-023` | Design values | every value this principle refuses to quote, the dose and era of each thread among them |
 | `STD-008` | Design tokens | the rules a builder applies |
 | `PRO-014` | Producing a design piece | how a piece is made and reviewed |
 | `PRI-002` | We build a game to work better | the purpose, the values and the voice this identity makes visible |

@@ -5,9 +5,9 @@ title: "Who may change what"
 type: standard
 subtype: standard
 status: draft
-version: "3.0.1"
+version: "3.0.2"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Strategy and governance"
@@ -161,7 +161,7 @@ off without lying about why it stopped.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-009` | Which rule wins | the precedence these costs produce |
-| `PRI-004` | You are what you are doing | what each rank is |
+| `STD-026` | Operative vocabulary | what each rank is |
 | `STD-003` | Platform ranks | the ranks on the platform |
 | `STD-004` | The header | the states a rule may hold |
 | `STD-001` | The series | the approval level each series declares |

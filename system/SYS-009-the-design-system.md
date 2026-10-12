@@ -5,9 +5,9 @@ title: "The Numinia Design System"
 type: documentation
 subtype: reference
 status: active
-version: "1.0.5"
+version: "1.0.6"
 created: "2026-09-24T15:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -62,7 +62,7 @@ accessibility standard, which every row here serves.
 | Part | Chapter | Document | Gives |
 |---|---|---|---|
 | Core | Purpose | `principles/PRI-002-brand-and-culture.md` | Why we exist, why a game, what we will not trade, how we sound |
-| Core | Identity | `principles/PRI-008-visual-identity.md` | The three forces, the forty-forty-twenty mix, the eras, the brand architecture, the signature and the play |
+| Core | Identity | `principles/PRI-008-visual-identity.md` | The three forces, the mix of three threads, the brand architecture, the signature and the play |
 | Core | Ethics | `principles/PRI-010-leave-things-better.md` | The sentence every piece closes on |
 | Core | World | `principles/PRI-001-welcome-to-numinia.md` | The city every piece belongs to |
 | Languages | Image | `standards/STD-008-design-tokens.md` | The rules an audit of any piece can fail on |

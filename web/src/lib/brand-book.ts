@@ -19,12 +19,6 @@ import { composeBook, bookSources, bookMarkdown, type ChapterSpec, type BookChap
 
 const CHAPTERS: ChapterSpec[] = [
   {
-    id: "where-we-come-from",
-    title: "Where we come from",
-    line: "The origin, the present era and who we are to each other.",
-    parts: [{ path: "principles/PRI-014-friends-who-play-build-and-learn.md" }],
-  },
-  {
     id: "why-we-exist",
     title: "Why we exist",
     line: "The purpose, why it is a game, and the manifesto that closes on the epitaph.",
@@ -48,7 +42,7 @@ const CHAPTERS: ChapterSpec[] = [
     line: "The voice and its three registers, the name and its symbols, the three forces of the identity.",
     parts: [
       { path: "principles/PRI-002-brand-and-culture.md", sections: ["How we sound", "The name"] },
-      { path: "principles/PRI-008-visual-identity.md", sections: ["The mix: forty, forty, twenty"] },
+      { path: "principles/PRI-008-visual-identity.md", sections: ["The mix: three threads"] },
     ],
   },
   {

@@ -5,11 +5,11 @@ uid: ""
 type: standard
 subtype: standard
 status: draft
-version: "3.3.0"
+version: "3.3.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-12T11:53:57+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -159,6 +159,6 @@ governance from being captured inside the product.
 
 | ID | Title | Relation |
 |---|---|---|
-| `PRI-004` | You are what you are doing | what each rank is, and rank as one of the six attributes |
+| `PRI-004` | You are what you are doing | rank as one of the six attributes, read from what is done and, at the top, judged |
 | `STD-033` | Every charge delivers something | payment, which this standard does not bind |
 | `SYS-015` | Signing in to numinia.com, as wired | where the platform reads each rank today |

@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-011"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.2.5"
+version: "0.3.0"
 created: "2026-09-24T23:30:00+02:00"
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -16,7 +16,7 @@ section: "Finance"
 tags: [principle, economy, money, tokens, transparency]
 license: "CC0-1.0"
 approved_by: "ADR-063"
-related: ["PRI-009", "PRI-010", "PRI-005", "PRI-004"]
+related: ["PRI-009", "PRI-012", "PRI-005", "PRI-004"]
 ---
 
 <!--
@@ -91,7 +91,7 @@ figures, each read the way they need to read them. A figure is closed from
 documents, never from estimates, and what is still an estimate says so. The
 time of the people who build the city is part of what it costs, but no
 person's pay is published: what is open is the organisation's account, not
-anyone's life. The principle *Leave things better than you found them* says
+anyone's life. The principle *What is yours stays with you* says
 why.
 
 ## Three questions
@@ -109,6 +109,6 @@ Before any charge exists, put three questions to it:
 | ID | Name | Why cited |
 |---|---|---|
 | `PRI-009` | The archive is the organisation | why what is not written does not exist, and anyone may refuse it |
-| `PRI-010` | Leave things better than you found them | why a person's data — their pay among it — is theirs |
+| `PRI-012` | What is yours stays with you | why a person's data — their pay among it — is theirs |
 | `PRI-005` | Opening is an act | why what is opened stays open, and nothing sold may close it |
 | `PRI-004` | You are what you are doing | who holds the city up, and what a citizen is |

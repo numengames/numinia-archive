@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.161.0",
+    date: "2026-10-12",
+    entries: [
+      { type: "DEL", text: "The brand book loses its chapter Where we come from: the principle it read joined We build a game to work better in one sentence, and the origin story left the principles. Six chapters remain." },
+      { type: "CHG", text: "The principles shelf no longer lists Friends who play, build and learn; its old addresses lead to We build a game to work better." },
+    ],
+  },
+  {
     version: "v0.160.0",
     date: "2026-10-09",
     entries: [

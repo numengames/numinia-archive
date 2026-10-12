@@ -181,7 +181,6 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRI-011` | What has value also makes a bond | draft | whoever sets a price, takes a payment or keeps the account in Numinia's name, human or digital |
 | `PRI-012` | What is yours stays with you | draft | whoever builds, runs or changes anything that holds something of a person's in Numinia's name… |
 | `PRI-013` | A magician who keeps hope, with humans in… | draft | every piece of work that speaks, looks or behaves in Numinia's name |
-| `PRI-014` | Friends who play, build and learn | draft | every piece that tells where Numinia comes from |
 | `PRI-015` | We recognise the act; we never buy the game | draft | whoever designs, grants or audits a reward, a rank, a title or a recognition in Numinia's name |
 | `PRO-001` | Opening and closing a session | draft | every agent, in every session, whatever the mission |
 | `PRO-003` | Running a mission | draft | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
@@ -255,7 +254,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-048` | Reaching someone who did not ask | draft | every first contact made in Numen Games' or Numinia's name with an organisation or a person who… |
 | `STD-049` | The doors, by country | draft | register — scope belongs to the standard that cites it |
 
-85 rule documents, of which 18 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 9 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+84 rule documents, of which 18 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 9 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

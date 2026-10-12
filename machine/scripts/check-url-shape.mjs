@@ -81,7 +81,7 @@ const STANDALONE = new Set([
   '/telemetry',   // the measured figures
   '/agent',       // the roster's detail view
   '/binding',     // what is in force while the rules are draft — the regime, from AGENTS.md
-  '/brand',       // the brand and culture book: seven chapters read from principles and records (PRI-002, PRI-013, PRI-014, PRI-015)
+  '/brand',       // the brand and culture book: six chapters read from principles and records (PRI-002, PRI-008, PRI-010, PRI-013, PRI-015)
   '/lexicon',     // the Lexicon, a book: the operative vocabulary A to Z, one page per letter (STD-026)
   '/legal-playbook', // the legal playbook, a book: what the law asks, read from PRI-005, PRI-012, STD-035, STD-010, PRO-025..027, LEG-001..004, DBT-022
   '/manual',      // the role-playing manual, a book: its cover and the chapters of lore/game/manual/ in both editions

@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-013"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.1.5"
+version: "0.2.0"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-12T18:48:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -66,8 +66,7 @@ anticipation is curiosity, and trust is what a person feels when what is
 theirs stays with them.
 
 The house sees the world through lenses that are partly dark, and says so.
-The city burned and was called back; the scarab rolls the sun through the
-night. The garden the identity
+The scarab rolls the sun through the night. The garden the identity
 promises is what is hoped for, not where we start.
 
 ## The cause: humans in charge
@@ -76,9 +75,8 @@ In one word, **sovereignty**: people rule over their work, their data and
 the decisions taken about them — not the model, not the machine.
 
 Seen from outside, the house is a company where people and digital agents
-work side by side, in the open. Everyone now works with agents; few show how
-they govern them. Here they do: an agent asks before it decides for a person,
-and a person signs. The problem is the model, not the people.
+work side by side, in the open. Few show how they govern their agents; here
+that is shown. The problem is the model, not the people.
 
 The cause never travels alone, because alone it reads as a movement against
 the machine, and nothing could be further from the truth. It goes with its
