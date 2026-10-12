@@ -2326,10 +2326,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 4444,
+  "chars": 4490,
   "apparatus": false,
   "archived": false,
-  "tokens": 1173
+  "tokens": 1182
  },
  {
   "path": "principles/PRI-002-brand-and-culture.md",
@@ -2425,10 +2425,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 4787,
+  "chars": 4778,
   "apparatus": false,
   "archived": false,
-  "tokens": 1244
+  "tokens": 1242
  },
  {
   "path": "principles/PRI-012-what-is-yours-stays-with-you.md",
@@ -3404,10 +3404,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8165,
+  "chars": 8154,
   "apparatus": false,
   "archived": false,
-  "tokens": 2263
+  "tokens": 2258
  },
  {
   "path": "standards/STD-037-what-every-site-carries.md",
