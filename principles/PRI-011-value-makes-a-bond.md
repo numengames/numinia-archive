@@ -101,7 +101,7 @@ Before any charge exists, put three questions to it:
 - **What does whoever pays take away?** If it does not fit in one sentence,
   it is not charged.
 - **Where is it written?** If it is not in the archive, it is not charged.
-- **Can it be seen whole?** The price with its taxes, what is spent and what
+- **Can it be seen whole?** The whole price, what is spent and what
   comes in. If any of it cannot be shown, something is wrong.
 
 ## References

@@ -59,7 +59,7 @@ appearing.**
 
 So every element here holds on both sides at once, and neither half is the
 true one. A guild is what someone is trained in. A faction is where the work
-happens. A mission is an act.
+happens. A mission is an act that leaves the place better than it found it.
 Strip the names and you have an org chart nobody can remember; strip the
 functions and you have a costume party.
 

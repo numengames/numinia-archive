@@ -13,7 +13,7 @@ owner: "oracle"
 section: "Finance"
 license: "CC0-1.0"
 tags: [standards, economy, ledger, accounting, transparency, audit]
-related: ["PRI-011", "PRI-010", "STD-033", "STD-035", "SYS-008", "PRO-021", "DES-017"]
+related: ["PRI-011", "STD-033", "STD-035", "SYS-008", "PRO-021", "DES-017"]
 derived_from: "PRI-011"
 ---
 
