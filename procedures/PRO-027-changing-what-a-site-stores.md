@@ -4,9 +4,9 @@ uid: ""
 title: "Changing what a site stores or loads"
 type: procedure
 status: draft
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-10-09T16:41:32+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -85,9 +85,10 @@ change; the **Oracle** approves the policy text, which is reserved.
    reserved legal text; the agent drafts, the Oracle approves.
 6. **Raise the consent version** if the new thing needs consent, so the
    notice asks every visitor again. Refusing stays as easy as accepting.
-7. **Change the site and the policy in the same release.** The pull
-   request carries both, and the site's `/updates` entry says what now
-   stores or loads.
+7. **Change the site and the policy in the same release.** Two linked
+   pull requests, one in the site's repository and one changing `LEG-003`
+   here, each citing the other, merged the same day; the site's `/updates`
+   entry says what now stores or loads.
 8. **Check the built site as a new visitor.** Open it with an empty
    browser, refuse consent, and confirm nothing beyond the necessary is
    stored or loaded; then accept and confirm the new thing appears.
@@ -111,7 +112,7 @@ change; the **Oracle** approves the policy text, which is reserved.
 | 1 | The search and its result, in the pull request |
 | 4 | For each replaced item: its name kept with its format, or the old one removed or expired |
 | 5 | The Oracle's approval of the policy text |
-| 7 | One pull request changing both the site and `LEG-003` |
+| 7 | The site's pull request and the archive's pull request changing `LEG-003`, each citing the other, merged the same day |
 | 8 | What an empty browser held after refusing and after accepting |
 | 9 | What a browser carrying the previous version's choice held, on two pages of the built site |
 | 10 | The pull request changing the legal text touches only this archive; numinia.com asks a signed-in user to accept again after it is published |

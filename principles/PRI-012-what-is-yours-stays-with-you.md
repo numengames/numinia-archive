@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-012"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "0.1.4"
+version: "0.1.5"
 created: "2026-09-26T16:40:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -102,7 +102,8 @@ Until a person climbs, the house holds their things for them, as a steward
 holds a house for its owner: in good order, and ready to hand over whole the
 day they ask. Closing someone's access to the city is not taking their
 things; what they held goes with them. How their data is treated while it is
-here is the principle of ethics, and it is not repeated here.
+here is the principle *Leave things better than you found them*, and it is
+not repeated here.
 
 ## Three questions
 

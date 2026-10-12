@@ -4,11 +4,11 @@ uid: ""
 title: "Opening and closing a session"
 type: procedure
 status: draft
-version: "2.1.5"
+version: "2.1.6"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-10-09T16:01:15+02:00"
+updated: "2026-10-10T12:20:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "People and culture"
@@ -132,9 +132,9 @@ state in `OPS-008` why. A mission assigned that has no briefing: `PRO-005`.
 |---|---|---|
 | `PRO-003` | Running a mission | the briefing a new mission opens with |
 | `PRO-005` | Escalating to the Oracle | where a gap or a mission without briefing goes |
-| `OPS-008` | Session state | where to pick up is written at close |
-| `OPS-009` | Secrets handling | read every session |
+| `OPS-008` | Session state — where to pick up | where to pick up is written at close |
+| `OPS-009` | Secrets handling — what never enters the repository, and where it lives instead | read every session |
 | `STD-020` | Git is the archive | the trunk is reached by pull request |
 | `STD-022` | Secrets | how secrets are handled in every session |
 | `STD-025` | A mission is a card | the card is read whole, never by title |
-| `SYS-002` | The agent cycle | the loop a session runs through |
+| `SYS-002` | The Agent Cycle — experience and operation | the loop a session runs through |

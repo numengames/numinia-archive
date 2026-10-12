@@ -5,9 +5,9 @@ title: "A proposal says four things"
 type: standard
 subtype: standard
 status: draft
-version: "0.5.0"
+version: "0.5.1"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-05T10:52:00+02:00"
+updated: "2026-10-10T11:53:15+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -31,7 +31,7 @@ SPDX-License-Identifier: CC0-1.0
 > the three questions any charge must answer, it is read by whoever sends
 > it, and one record renders both the document and the page.
 > **Epistemic:** What must a proposal contain before it is sent?
-> **Pragmatic:** Write a proposal from the template and check it against nine
+> **Pragmatic:** Write a proposal from the template and check it against ten
 > rules before it is sent. This is not legal advice.
 > **Audience:** Agents · Oracles
 
@@ -76,8 +76,8 @@ price can be seen.
 
 **Read before it is sent.** A proposal MUST be read against these rules by
 whoever sends it, who is never its writer alone; sending it is the approval.
-The evidence is the opportunity record's transition to proposed, dated and
-signed by whoever sent it — no field in the proposal says so twice. Who
+The evidence is the opportunity record's `out` line marked `proposed`,
+dated, saying who sent it — no field in the proposal says so twice. Who
 signs the agreement is written in the agreement, which is where signatures
 live.
 
@@ -92,7 +92,8 @@ is edited on its own.
 
 **Kept with its opportunity.** A sent proposal MUST be kept beside the
 opportunity record that points to it, and what it offered MUST NOT change:
-the four things, the price and the validity. Its header may follow the
+the four things, the price and the validity — its header's `valid_until`,
+the last moment it holds. Its header may follow the
 header standard's changes of form. A revised offer is a new file; the record
 points to the current one. It opens with the header
 every document carries: draft while it is written, active once sent,
@@ -104,13 +105,13 @@ Each rule, its code, its source and its check.
 
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
-| PRP-001 | Objectives, in the client's words | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 a), 7 needs analysis (clause 7 unverified) | `machine/packages/sales-kit/pipeline.mjs` `--proposals`: the section exists and is not the template's text; by hand for the words |
+| PRP-001 | Objectives, in the client's words | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 a), 7 needs analysis (clause 7 unverified) | `machine/packages/sales-kit/pipeline.mjs` `--proposals`: the section exists; by hand for the words |
 | PRP-002 | Capacity, shown | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 b) | `pipeline.mjs --proposals`: the section exists; by hand |
 | PRP-003 | How it teaches, and how it measures | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 c); [Kirkpatrick, the four levels](https://www.kirkpatrickpartners.com/the-kirkpatrick-model/) | `pipeline.mjs --proposals`: the section exists and names a level from the four; by hand for the map |
 | PRP-004 | Price, terms and conditions | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 5.2 d), 14 invoicing (clause 14 unverified); `STD-033` PAY-001 | `pipeline.mjs --proposals`: the section exists and states a tax rate; by hand |
 | PRP-005 | What the client must know first | [ISO 29993:2017](https://www.iso.org/standard/70357.html) 6 (items beyond title, objectives and prerequisites unverified) | by hand, at the review |
 | PRP-006 | The three questions answered | `PRI-011` | `pipeline.mjs --proposals`: the three answers present; by hand for their truth |
-| PRP-007 | Read before it is sent | [ISO 9001:2015](https://www.iso.org/standard/62085.html) 8.2.3, review before committing to supply (clause unverified) | `pipeline.mjs`: a record at `proposed` has a transition row to it with a date and a name in *By*; the reading itself, by hand |
+| PRP-007 | Read before it is sent | [ISO 9001:2015](https://www.iso.org/standard/62085.html) 8.2.3, review before committing to supply (clause unverified) | `pipeline.mjs`: a sale reaches `proposed` only by a line marked `proposed`, and must then point to its proposal; who sent it and the reading itself, by hand |
 | PRP-010 | In the open, said first | customer-reference practice (consent to be named, withdrawable); `PRI-009` | `pipeline.mjs --proposals`: the section *In the open* exists |
 | PRP-008 | One record, two renderings | `PRI-009` | by hand until a renderer exists |
 | PRP-009 | Kept with its opportunity | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html) (clause unverified) | `pipeline.mjs`: a proposed record's `proposal` path resolves |
@@ -133,4 +134,4 @@ client signs.
 | `STD-039` | An opportunity has a record | the record a proposal is kept beside |
 | `STD-038` | The stages of an opportunity | the stage a sent proposal puts a sale in |
 | `STD-033` | Every charge delivers something | the whole price, tax visible |
-| `LEG-002` | Terms and conditions (Numen Games) | the house's terms a proposal names |
+| `LEG-002` | Terms and Conditions — Numen Games | the house's terms a proposal names |

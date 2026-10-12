@@ -6,11 +6,11 @@ type: principle
 former_id: "CAN-004"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: draft
-version: "4.0.6"
+version: "4.0.7"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -147,7 +147,7 @@ stone somebody picked up.
 Function here is not utility. To say a hammer *drives nails* is to leave
 yourself unable to drive a nail with the microscope on your desk. Function is
 a matter of ends and of values — what something is for, and what it is worth —
-and the principle of function and structure is where that is argued.
+and the principle *Renaming is not transforming* is where that is argued.
 
 A **position** is a role someone has settled into: the preferred role, taken
 one grade looser — a branch on a field rather than a house on a field. It is
@@ -192,5 +192,5 @@ all five in the documents of this city and should know which lens is on.
 |---|---|---|
 | `STD-030` | The world's vocabulary | every guild, branch, house and faction by name, with its operational equivalent |
 | `STD-003` | Platform ranks | what earns each rank and what it may do |
-| `PRI-007` | Function and structure | what function is, and why renaming is not transforming |
+| `PRI-007` | Renaming is not transforming | what function is, and why renaming is not transforming |
 | `PRI-001` | You are already in the game | why a name and a function are the same thing here |

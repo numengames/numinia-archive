@@ -4,9 +4,9 @@ uid: ""
 title: "Qualifying an opportunity"
 type: procedure
 status: draft
-version: "0.7.0"
+version: "0.7.1"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-08T17:00:00+02:00"
+updated: "2026-10-10T11:53:15+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -99,7 +99,7 @@ and decides. A public tender is screened by `PRO-033`, a grant by
    `gives_back`. A record that comes from an earlier one names it in
    `follows`.
 7. **Run the pipeline tool.** The record conforms, or the tool says which
-   rule it breaks; fix it before the day ends.
+   rule it breaks; fix it that day.
 
 ---
 
@@ -109,7 +109,7 @@ and decides. A public tender is screened by `PRO-033`, a grant by
 |---|---|
 | 1 | A record exists in the opportunities series, opened the day the sign arrived, with its kind, a `found` line and a `next` line |
 | 2–3 | The timeline holds the contacts and answers, and the body what is known of who signs and from which budget — or a `lost` line with its reason |
-| 4 | A line marked `qualified` and a `next` line naming the needs analysis, or a `lost` line |
+| 4 | A line marked `qualified` and a `next` line the day after the week ends, or a `lost` line |
 | 5 | The yes is in the private contacts |
 | 6 | A collaboration or partner record says what each side gives; its lines mark `talking`, `agreed`, `filed` or close it |
 | 7 | The pipeline tool reports no breach on the record |

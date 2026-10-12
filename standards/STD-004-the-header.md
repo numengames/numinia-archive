@@ -5,11 +5,11 @@ title: "The header"
 type: standard
 subtype: standard
 status: active
-version: "4.19.1"
+version: "4.19.2"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-08T12:00:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 approved_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -140,8 +140,8 @@ then the extensions, with its value, code, series and outside meaning.
 | HDR-010, 011, 015 | author, owner, commissioned by | — | by hand, presence only |
 
 A governed folder is one `machine/scripts/lib/rules.json` lists under
-`governed.dirs`. HDR-045 was EXT-006 and HDR-046 was EXT-001 in the external
-standards; those rule IDs are deprecated there.
+`governed.dirs`. HDR-045 was EXT-006 in the external standards; that rule ID is deprecated
+there.
 
 ### Core fields 1 — identity, every document
 
@@ -235,7 +235,7 @@ key never used) and the other field names from the Spanish era (`ADR-067`).
 
 | Field | Values | Rule ID |
 |---|---|---|
-| `type` | the closed list in `STD-001`, plus `agent` for `agents/`; a document of `standards/` is `type: standard`, one of `principles/` is `type: principle` (`seminal` until 2026-10-03), one of `designs/` is `type: design` (`blueprint` until 2026-10-03) | HDR-003 |
+| `type` | the closed list in `STD-001`; a document of `standards/` is `type: standard`, one of `principles/` is `type: principle` (`seminal` until 2026-10-03), one of `designs/` is `type: design` (`blueprint` until 2026-10-03) | HDR-003 |
 | `type` → series | strict for registered genres, `standard` among them; warn-only for the two general ones | HDR-017 |
 | `subtype` | reports: `audit` `analysis` `proposal` `rollup` (`daily` deprecated, `STD-012`) · standard: `standard` `register` · documentation: `register` `guide` `reference` | HDR-018 |
 | `guild` | `Sentinels` · `Alchemists` · `Exegetes` · `Procurators` | HDR-033 |

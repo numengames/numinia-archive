@@ -5,11 +5,11 @@ uid: ""
 type: standard
 subtype: standard
 status: active
-version: "4.1.1"
+version: "4.1.2"
 created: "2026-08-17T21:55:38+02:00"
 created_source: "git:e3123fc"
 created_confidence: exact
-updated: "2026-10-09T16:41:32+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -72,11 +72,11 @@ where it lists what it cannot see.
 ### How checks come to run
 
 **A check runs from the change that merges it.** A check is a script in the
-guards folder, where the runner finds and runs it. No document or workflow
+`machine/checks/` folder, where the runner finds and runs it. No document or workflow
 line makes it exist. A script that must not run as a check lives elsewhere.
 
 **The list of checks is read, never remembered.** What runs is what the
-runner finds in the guards folder. The workflow calls the runner and names no
+runner finds in the `machine/checks/` folder. The workflow calls the runner and names no
 check, because a hand-written list is stale the day it is written.
 
 The practices a repository keeps (its security score, changelog and incident
@@ -152,4 +152,4 @@ means the same thing everywhere.
 |---|---|---|
 | `STD-015` | Engineering checks | the practices, their level and their check |
 | `PRO-016` | Applying the engineering standard | the procedure for a task |
-| `STD-009` | Which rule wins | where ENG-031..035 and ENG-066 came from; `PRE-006`, the principle ENG-067 executes |
+| `STD-009` | Which rule wins | where ENG-031, ENG-032 and ENG-066 came from; `PRE-006`, the principle ENG-067 executes |

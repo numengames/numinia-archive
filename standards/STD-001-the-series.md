@@ -5,9 +5,9 @@ uid: ""
 type: standard
 subtype: register
 status: active
-version: "5.17.0"
+version: "5.17.1"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-08T11:00:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -50,7 +50,7 @@ SPDX-License-Identifier: CC0-1.0
 | `debt/` | what is known to be missing; deleted once nothing living cites it | `DBT-NNN` | `open` | 300 | `DBT-TEMPLATE.md` |
 | `operations/` | what sustains the business: strategy, sales, continuity | `OPS-NNN` | `open` | — | `OPS-TEMPLATE.md` |
 | `opportunities/` | each opportunity of any kind — a sale, a tender, a grant, a collaboration, a partner — one record each with its timeline, its proposals beside it; every document's header, then the fields the pipeline tool reads | `OPP-YYYY-NNN` · `PRP-YYYY-NNN` | `open` | — | `OPP-TEMPLATE.md` · `PRP-TEMPLATE.md` |
-| `legal/` | what the company has promised the public in law: privacy, terms, cookies; changes when the law or the service does | `LEG-NNN` | `governed` | — | — |
+| `legal/` | what the company has promised the public in law: privacy, terms, cookies; changes when the law or the service does | `LEG-NNN` | `governed` | — | `LEG-TEMPLATE.md` |
 | `system/` | how the machine is wired | `SYS-NNN` | `governed` | — | `SYS-TEMPLATE.md` |
 | `agents/` | who acts: `SOUL` · `OPERATOR` · `STATUS` · `MEMORY` per agent | — | `live` (memory) | — | `agents/_template/` |
 | `lore/` | the fiction and the game; a second fonds (`ADR-046`) | — | `open` | — | `lore/adventures/tabletop/TEMPLATE.md` |
@@ -114,8 +114,8 @@ listed there too.
 Older documents were numbered under the earlier prefixes listed below.
 Nothing is renumbered. A citation of an old number stays as written, a
 promise about the past, and the archive resolves it against its history.
-Across repositories, an identifier carries the repository's short name in
-front.
+How an identifier from another repository is cited is set by *One document,
+one identifier*.
 
 | Earlier prefix |
 |---|

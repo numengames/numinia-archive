@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.4.1"
+version: "0.4.2"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-08T17:30:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -52,6 +52,7 @@ decision from Numen Games S.L.
 | ~~2~~ | ~~The legal notice gives the address as "Calle Chile 10, Las Rozas, Madrid". Confirm it is the registered address and add the postal code.~~ — closed by LEG-004 0.2.0: Calle Chile 10, 28290 Las Rozas de Madrid | company |
 | 3 | There is no signed assignment of rights from the manual's authors (Christian Märtens 80 %, Pablo Fernández-Maquieira 20 %) to Numen Games S.L., yet the company declares itself rights holder and released the lore under CC0. Draft and sign the assignment; file it with the signed contracts. | company · counsel |
 | ~~3b~~ | ~~The retired `numinia-lore` repository is still public and its README says the lore is "all rights reserved", while the archive and the Codex publish the same lore as CC0. Archive or delete the old repository, or add a line pointing at the current licence.~~ — closed 2026-10-02: nothing reads it any more (checked across the fifteen repositories of the organisation); the Oracle deletes it, and the pull request that removes every reference to it closes this row. A full copy with its history is kept off-repository. | company |
+| 51 | Which Spanish general accounting plan the ledger follows: the small-company version (PGC PYMES, RD 1515/2007) or the full plan (RD 1514/2007). The ledger standard (`STD-036`, one ledger) names the plan's accounts and leaves the choice open. The gestoría, our accountants, confirms it. | company |
 
 ### 1.2 International transfers (the "nothing leaves the EEA" rule)
 
@@ -93,6 +94,7 @@ numen.games and say so. See also DES-017.
 | 19 | Retention: only the hosting logs (days) and the session cookie (one hour) have a measured period. Sign-in data held by thirdweb and emails have none. | counsel · company |
 | 20 | No record of processing activities (GDPR art. 30) and no data processing agreement on file with any provider in §1.2. | company · counsel |
 | 21 | The Spanish original of the policy (v1.1.0) is in git history only. Confirm the English master against the lawyers' original. | counsel |
+| 50 | Blocking periods: once its purpose is done, personal data is blocked for as long as a claim over it can still arise, then erased (LOPDGDD art. 32; `STD-035`, blocked then erased). No period is set for any kind of data we hold. Set one per kind. | counsel |
 
 ### 1.5 Cookies and consent
 
@@ -258,6 +260,7 @@ numinia.org publica el archivo con licencias abiertas, fichero a fichero. El Có
 - [#19] Plazos de conservación: solo tenemos medidos los registros del servidor (días) y la cookie de sesión (una hora). Los datos de inicio de sesión que guarda thirdweb y los correos no tienen plazo. ¿Qué plazos debemos fijar?
 - [#20] No tenemos registro de actividades de tratamiento (art. 30 RGPD) ni contratos de encargado de tratamiento con ningún proveedor del bloque 1. ¿Nos ayudáis a prepararlos? ¿Nos aplica la excepción de menos de 250 empleados?
 - [#21] El original en español de la política (v1.1.0) solo existe en el historial. ¿Podéis confirmar que la versión en inglés actual respeta vuestro original?
+- [#50] Bloqueo: cuando un dato personal ya no sirve a su finalidad, lo bloqueamos mientras pueda surgir una reclamación sobre él y después lo borramos (art. 32 LOPDGDD). No tenemos fijado ningún plazo de bloqueo. ¿Qué plazo corresponde a cada tipo de dato que guardamos?
 
 ### 5. Cookies
 

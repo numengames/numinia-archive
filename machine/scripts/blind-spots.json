@@ -246,7 +246,7 @@
           "debt": null
         },
         {
-          "spot": "URL-006 — how a document is cited in prose. That is text a reader writes, not an address the build emits; it is read in review",
+          "spot": "IDN-017 — how a document is cited in prose. That is text a reader writes, not an address the build emits; it is read in review",
           "covered_by": "review",
           "debt": null
         },
@@ -425,7 +425,7 @@
     },
     "std-012-corpus-does-not-grow": {
       "script": "machine/checks/rules/std-012-corpus-does-not-grow.mjs",
-      "sees": "DEF-009 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted or renamed .md (one-letter prefixes included); closed records (CIT-053) and CHANGELOG.md, whose entries are each closed the day written, are indexed but not walked as citers; a path qualified by a sibling repository is elsewhere, not gone. DEF-008 on the bound corpus: an heir named by a record not withdrawn.",
+      "sees": "DEF-009 on every tracked .md (web/ included as a citer): markdown links, plain-text identifiers and bare filenames resolved against the tree's names, `id:`, `absorbs:`, `former_id:` and the git log of deleted or renamed .md (one-letter prefixes included); closed records (CIT-053) and CHANGELOG.md, whose entries are each closed the day written, are indexed but not walked as citers; a path qualified by a sibling repository is elsewhere, not gone. DEF-008 on the bound corpus: an heir named by a record not withdrawn. DEF-004, DEF-010 and DEF-011 on every tracked .md but apparatus: an identifier named in `absorbs:` or `former_id:` still held by a document in the tree (a report's absorbed record not deleted; any other heir whose old document is not withdrawn naming it); an absorbed identifier that once left the tree and was later reused is not a stay.",
       "blind_to": [
         {
           "spot": "consumers written in code (.ts, .astro) — slug maps and import.meta.glob",
@@ -449,7 +449,15 @@
           "covered_by": "review"
         },
         {
-          "spot": "DEF-008 reads `superseded_by` and `status` only — whether the named heir EXISTS is DEF-009's question, answered only if the heir is cited in the body, not in the header (HDR-016 is manual)",
+          "spot": "DEF-008 reads `superseded_by` and `status` only — whether the named heir EXISTS is DEF-009's question, answered by HDR-016, which resolves every relation field in the header with the same resolver",
+          "covered_by": "std-004-the-header (HDR-016)"
+        },
+        {
+          "spot": "DEF-004 sees only records a report lists in `absorbs:` — a closed record whose line was carried up but whose identifier the report does not list is not seen; `check-deletable --candidates` lists closed records with no living citer",
+          "covered_by": null
+        },
+        {
+          "spot": "DEF-010 does not ask whether the documents citing the old name were updated: a `former_id:` makes the old name resolve, so DEF-009 reads such a citation as green",
           "covered_by": null
         }
       ]

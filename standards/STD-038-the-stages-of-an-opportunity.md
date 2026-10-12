@@ -5,9 +5,9 @@ title: "The stages of an opportunity"
 type: standard
 subtype: register
 status: draft
-version: "0.12.0"
+version: "0.12.1"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-08T14:30:00+02:00"
+updated: "2026-10-10T11:53:15+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -135,7 +135,7 @@ Metrics for Pirates", 2007). A later step counts the earlier ones too.
 | `price` | they wanted it and would not pay what it costs |
 | `timing` | they wanted it, later; or the day came before the dossier could |
 | `chose-another` | they bought it elsewhere |
-| `silence` | two follow-ups unanswered |
+| `silence` | no answer after the one expiry e-mail |
 | `we-declined` | the house chose not to pursue it |
 | `outbid` | another bid or application scored higher |
 | `excluded` | the bid or the application was excluded, or the call withdrawn |
@@ -214,8 +214,8 @@ these values; the thresholds are the 2026 ones.
 
 A summary is not the call. Aggregators and alert e-mails paraphrase a title
 and can invent the object; only the buyer's or the funder's own documents
-say what it buys or funds. A call known only from a summary is not
-recorded.
+say what it buys or funds. What a record must say of where its call was
+read is the record standard's rule (`STD-039`).
 
 | Read from | Means |
 |---|---|
@@ -224,10 +224,10 @@ recorded.
 
 ## What the buyer really buys
 
-Read from the technical terms, never from the title or the code. A tender
-for another maker's product, a licence or hardware passed on, or for what
-the house does not make, is not recorded; the card's list of what the house
-does not make keeps it out of the next sweep.
+Read from the technical terms, never from the title or the code. Which
+tenders are not recorded is the record standard's rule (`STD-039`); the
+card's list of what the house does not make keeps them out of the next
+sweep.
 
 | Object | Means |
 |---|---|
@@ -240,8 +240,8 @@ How likely an open opportunity is to end won, from two questions answered
 yes or no: is it in one of the lines the house sells (the house's card), and
 has the house already won something in that line — another record with a
 `won` line? The tool computes it from the record's `line` and the other
-records; it is written nowhere. A closed record has none. A call's criteria
-stay a gate, not a grade: a call that fails a requirement has no record.
+records; it is written nowhere. A closed record has none; a call's criteria
+do not enter it (`STD-039`).
 
 | Chance | Means |
 |---|---|
@@ -281,23 +281,6 @@ last column is declined unless the Oracle says otherwise.
 
 ## Naming the organisation
 
-The house works in the open, and says so in every proposal. The record
-names the organisation when the organisation knows it may be named.
-
-| When | The organisation is written as |
-|---|---|
-| before a proposal is sent, or when the client was never told | its sector and size: *a large retailer*, *a provincial police force* |
-| from the proposal sent, told in it, and the client did not ask otherwise | its name |
-| the client asked not to be named, at any stage | its sector and size |
-| `lost`, always | its sector and size — the reason is public, the name is not |
-| a tender's authority, a grant's funder | its name, at any stage: a public body that publishes its own call |
-
-Records are public and hold nobody's name at any stage; they are kept as
-they stand, since the statistics are made from them. A public buyer met
-outside a call is named in a sale only once told, like any other client; a
-tender's authority and a grant's funder publish the call themselves, so the
-record names them and links the call. What a contracting authority
-publishes about a minor contract — object, duration, amount, awardee — is
-public in any case once awarded. The house's own price in a tender is not
-written until the authority publishes the award, since a bidder's offer is
-confidential until then (LCSP art. 133).
+When a record may name the organisation, what it keeps once lost, and when
+the house's own price in a tender may be written are the record standard's
+rules (`STD-039`).

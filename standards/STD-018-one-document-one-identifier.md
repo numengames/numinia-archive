@@ -5,9 +5,9 @@ title: "One document, one identifier"
 type: standard
 subtype: standard
 status: active
-version: "1.2.5"
+version: "1.3.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -73,7 +73,8 @@ changes, never over your own uncommitted work.
 another repository MUST carry that repository's short name and a colon in
 front, the web's compact-identifier form. Any reader or tool then expands
 it to exactly one place. Within its own repository, the bare identifier is
-correct.
+correct. A web address SHOULD be written only to send the reader to the
+web, never as the proper form of a citation.
 
 This standard runs over its word budget because each rule names the outside
 practice it follows.
@@ -90,7 +91,7 @@ Each rule, its code, its source and its check.
 | IDN-013 | No version in the file name | [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI) — ours applies it to file names as well as addresses | `machine/checks/rules/std-018-one-identifier.mjs` |
 | IDN-015 | The first commit keeps the number | — | by hand, by commit order at the moment of the clash |
 | IDN-016 | The next number is read from the trunk | — | by hand: counted after `git pull`, never over the working tree |
-| IDN-017 | Across repositories, name the repository | [W3C CURIE Syntax 1.0](https://www.w3.org/TR/curie/) — ours adds: the prefix is the repository's short name | by hand: written `nwos:ADR-006`, `web:ADR-006` |
+| IDN-017 | Across repositories, name the repository | [W3C CURIE Syntax 1.0](https://www.w3.org/TR/curie/) — ours adds: the prefix is the repository's short name, and a web address is never the form of a citation; holds deprecated URL-006 | by hand: written `nwos:ADR-006`, `web:ADR-006` |
 
 ## Why
 
@@ -107,4 +108,4 @@ points every citation at the wrong rule.
 | `STD-001` | The series | the series prefixes |
 | `STD-004` | The header | where state and version live |
 | `STD-006` | Plain text is sovereign | the readable part of a file name |
-| `STD-020` | Git is the archive | what happens to the address when the document retires |
+| `STD-028` | One document, one address | what happens to the address when the document retires |

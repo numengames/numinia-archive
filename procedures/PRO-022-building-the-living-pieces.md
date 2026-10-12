@@ -4,9 +4,9 @@ uid: ""
 title: "Building the living pieces"
 type: procedure
 status: draft
-version: "0.2.4"
+version: "0.2.5"
 created: "2026-09-26T18:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -49,7 +49,8 @@ builds; the **Oracle** approves anything that changes what a reader sees.
 
 ## 2. Preconditions
 
-The values the piece uses are in `STD-023`: the sky's tiers in §15, the Veil
+The values the piece uses are in `STD-023`: the sky's tiers in §15 and its
+count in §20, its motion as animation 14 of §14, the Veil
 tokens and their ceilings in §20, the reading player's numbers in §22. A
 value that is not there is proposed there first.
 
@@ -61,10 +62,9 @@ value that is not there is proposed there first.
 
 1. **Draw the five tiers.** Weights, radii and colours from `STD-023` §15,
    no other colour.
-2. **Animate it as it stands in production.** **175 stars**; drift of `±0.06 px` per frame with
-   reappearance on the opposite side; alpha breathing between `.05` and
-   `.85`, each star at its own rhythm (`.002–.006` per frame);
-   reseeding on resize.
+2. **Animate it as it stands in production.** The star count of
+   `velo.cielo` (§20); the drift, reappearance and breathing of animation
+   14 (§14), each star at its own rhythm; reseeding on resize.
 3. **Draw it in Nocturno.** As built today, Diurno has no sky.
 4. **Stop it under `prefers-reduced-motion`.** The stars stay fixed at mid
    alpha.

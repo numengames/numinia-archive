@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: procedure
 status: draft
-version: "3.1.4"
+version: "3.1.5"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -76,14 +76,14 @@ must decide how it looks. Runs before the first pixel.
 6. **Pass the checklist.** Every piece:
    - [ ] Register declared before the medium; the boundary visible.
    - [ ] Mode, language level and 40/40/20 dose correct.
-   - [ ] Colours from the register only; max three; Coral and Grana never together.
+   - [ ] Colours from the register only; Coral and Grana never together.
    - [ ] Spacing on the 4-scale; one display level; tabular Mono figures.
    - [ ] Icons by weight; label on first use; the scarab and the Moon never as icons.
    - [ ] Brand: monochrome signature on the corporate; colour and glyphs only in play.
-   - [ ] Texture only on Nocturno backgrounds ≤6 %; never in Diurno.
+   - [ ] Texture only on Nocturno backgrounds, within the ceilings of `STD-023` §20; never in Diurno.
    - [ ] Motion from the catalogue; one orchestrated moment; reduced motion respected.
    - [ ] One primary per view; destructive confirmed and apart.
-   - [ ] AA contrast; nothing by colour alone; measure ≤90.
+   - [ ] AA contrast; nothing by colour alone.
    - [ ] One element removed.
 7. **Pass the medium's design Check.** `DES-009` web and product ·
    `DES-010` pixel · `DES-011` book and Veil · `DES-012` deck · `DES-013`

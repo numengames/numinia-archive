@@ -4,16 +4,16 @@ uid: ""
 title: "Handling a personal data breach"
 type: procedure
 status: draft
-version: "0.1.3"
+version: "0.1.4"
 created: "2026-09-27T19:50:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
 tags: [procedure, personal-data, breach, gdpr]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
-related: ["STD-035", "STD-022", "LEG-001", "PRO-005", "PRO-024"]
+related: ["STD-035", "PRO-036", "LEG-001", "PRO-005", "PRO-024"]
 derived_from: "PRI-012"
 ---
 
@@ -69,8 +69,8 @@ notices. An agent may prepare every document, never send a notice.
 
 1. **Report it to the Oracle now,** privately, with what you saw and when
    you saw it. Write down that time: the 72 hours count from it.
-2. **Stop the leak.** Close the access, take the file down, revoke and
-   change any key involved before writing the key anywhere (`STD-022`).
+2. **Stop the leak.** Close the access and take the file down; any key
+   involved is handled as `PRO-036` step 2 says.
    Do not delete evidence of what happened.
 3. **Write the facts down.** What data, whose, how many people, how it
    happened, since when, and what step 2 did. Keep it outside this

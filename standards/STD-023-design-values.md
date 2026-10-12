@@ -5,9 +5,9 @@ title: "Design values"
 type: standard
 subtype: register
 status: active
-version: "1.10.4"
+version: "1.11.0"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -75,7 +75,7 @@ Rules: full scale and in order, no invented steps. **Progressive treatment beyon
 
 ## 5. Píxel-16 palette
 
-Sixteen colors, **zero new hexes**: seven neutrals, the six brand colors and three already-defined shadows, plus the rarity green. Every sprite and every pixel scene MUST limit itself to this index.
+Sixteen colors, **zero new hexes**: seven neutrals, the six brand colors and three already-defined shadows, plus the rarity green. This is the index every sprite and every pixel scene draws from (`STD-008`, the palette is closed).
 
 | Nº | Hex | Name | Role in pixel |
 |---|---|---|---|
@@ -131,7 +131,7 @@ Scale 1.200, base 16 px; pt for the 1920×1080 canvas: `display.xl` 4.300rem/50p
 ## 9. Space, grid, shape, elevation, focus
 
 
-**Spacing** base 4 px: `4·8·12·16·24·32·48·64·96·128` (`space.100–1000`); every gap MUST be from the scale.
+**Spacing** base 4 px: `4·8·12·16·24·32·48·64·96·128` (`space.100–1000`); every gap is a step of it (`STD-008`, space and shape follow the scale).
 **Grids**: web column **≤1100** / 12 col / margin 24 / gutter 24 (numinia.org's column, 1.7.0); tablet 8/40/24; mobile 4/20/16; slide 1920×1080 / 12 / 120 / 32; A4 12 / 20 mm / 5 mm. Baseline 8 (4 mm printed). Rhythm: sections `s900` web · `s800` deck; blocks `s700`; headline→body `s400`; card `s500`.
 **Shape [CANON — direction decision, 4.0.0]**: two radii and nothing more — **control `6px`** (buttons, fields, chips, toggles) and **frame `8px`** (cards, panels, dialogs, canvases, status bands). Warm without fashion: the frame rounds a little; the content inside inherits no radius of its own. Circle only in markers, avatars and stickers; the pill is a capsule. **No third radius** [1.7.0]: 12 and 16 px cards, 4 px buttons and 2–3 px bars are all read as one of the two, or as a capsule when the piece is a thin bar; a framework's own radius scale (`rounded-xl`, `rounded-lg`…) is not used, only the two values. **The pixel register keeps its straight edges** (the pixel does not curve) and printed tables too. Borders 1 px.
 **Elevation**: in Nocturno no shadows — surface step + hairline (`base→superficie→elevada`); sole exception the legendary halo. In Diurno a single shadow `0 1px 2px rgba(20,17,15,.08), 0 8px 24px rgba(20,17,15,.06)`.
@@ -235,7 +235,7 @@ How the sky moves, and where it may not appear, is `PRO-022`.
 | **Scene module** | `48×48 px` | depth, entry/exit, focus and light mass | that the focus stays visible without zoom |
 
 - Drawing and correcting happen at **×1**; ×2, ×3, ×4, ×6 and ×8 serve inspection and presentation, not pixel decisions.
-- An asset's scale is fixed at the start. It MUST NOT be drawn large to be reduced later, nor rotated with interpolation. A new scale demands a redraw on its grid.
+- An asset's scale is fixed at the start, and a new scale demands a redraw on its grid; drawing large to reduce, or rotating with interpolation, breaks `STD-008` (pixels sit whole).
 - All anchor points — feet, object center, tool origin and dialogue box — use integer coordinates and hold across frames.
 - The *hitbox* and touch zone belong to interaction, not the visual outline: it MAY be larger than the sprite to meet the `44×44 px` touch target without enlarging the drawing (the guidelines' highest level; their AA minimum is 24×24).
 

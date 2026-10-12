@@ -41,6 +41,10 @@
       "was": "STD-015 Engineering checks",
       "now": "ACC-004, an accessibility test on every change, which the accessibility standard alone holds"
     },
+    "CIT-051": {
+      "was": "STD-021 Evidence and citation",
+      "now": "DOC-007 of One page per document, which gathers the references at the end"
+    },
     "CMS-002": {
       "was": "STD-029 How we treat each other in the commons",
       "now": "CMS-001"
@@ -261,6 +265,10 @@
       "was": "STD-022 Secrets",
       "now": "step 2 of PRO-036 Handling a security weakness"
     },
+    "LEG-001": {
+      "was": "STD-015 Engineering checks",
+      "now": "PUB-002 and PUB-003 of STD-014 Publishing gates"
+    },
     "MON-001": {
       "was": "PRO-021 Closing the month",
       "now": "step 2 of Closing the month"
@@ -361,6 +369,10 @@
       "was": "PRO-020 Putting something on sale",
       "now": "withdrawing steps 1 and 3 of Putting something on sale"
     },
+    "SEC-004": {
+      "was": "STD-015 Engineering checks",
+      "now": "KEY-054 of STD-022 Secrets, which holds nothing secret in the tree and its full-history scan"
+    },
     "SER-003": {
       "was": "STD-024 A series is a function",
       "now": "AUT-068 of Who may change what, which now holds the thresholds"
@@ -409,6 +421,10 @@
       "was": "STD-015 Engineering checks",
       "now": "SRE-007 of Engineering checks, incidents produce rules, not culprits"
     },
+    "STA-010": {
+      "was": "STD-031 A principle states",
+      "now": "STA-007 of A principle states, which forbids a date and a byline in the body together"
+    },
     "TRC-008": {
       "was": "STD-015 Engineering checks",
       "now": "URL-001 and URL-005, the address rules"
@@ -432,6 +448,10 @@
     "TSK-005": {
       "was": "PRO-016 Applying the engineering standard",
       "now": "step 7 of Applying the engineering standard"
+    },
+    "URL-006": {
+      "was": "STD-028 One document, one address",
+      "now": "IDN-017 of One document, one identifier, which says how a document is cited across repositories"
     },
     "VER-064": {
       "was": "STD-019 Versions",

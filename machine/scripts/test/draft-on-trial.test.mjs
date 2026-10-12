@@ -22,7 +22,7 @@
 // Run: npm test
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -60,6 +60,22 @@ const DEFINERS = [
   'web/src/pages/[...slug].astro',
   'machine/tools/rule-index.mjs',
 ];
+
+// Beyond the definers: anywhere in the core, a paragraph or table row that
+// speaks of a draft must not say it binds no one or is quoted against nobody.
+// ("Binds nobody" about instruments and tools is another claim and stays.)
+const ABOUT_DRAFT_OLD = /\bbind(s|ing)? (nobody|no one|no-one)\b|quoted against nobody/i;
+const CORE = ['principles', 'standards', 'procedures'];
+for (const dir of CORE) {
+  for (const f of readdirSync(path.join(ROOT, dir)).filter((n) => n.endsWith('.md'))) {
+    const p = `${dir}/${f}`;
+    test(`${p} never says a draft binds no one`, () => {
+      const chunks = read(p).split(/\n\s*\n|\n(?=\|)/);
+      const bad = chunks.find((c) => /\bdraft\b/i.test(c) && ABOUT_DRAFT_OLD.test(c));
+      assert.equal(bad, undefined, `${p} says a draft binds no one: "${bad?.trim().slice(0, 160)}"`);
+    });
+  }
+}
 
 for (const p of DEFINERS) {
   test(`${p} never says a draft binds nobody`, () => {

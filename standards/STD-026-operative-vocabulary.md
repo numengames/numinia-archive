@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.9.0"
+version: "0.9.1"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-10-05T16:55:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -136,7 +136,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Digital sovereignty** *(capacity)* | A person's capacity to control their identity, data and digital goods without asking an intermediary. | The test every feature faces: does it empower, or create dependence? | An exportable character sheet, seals you carry, sessions issued by us and not by a vendor. |  |
 | **Diurno and Nocturno** *(theme)* | The two themes every site serves: Diurno, paper by day; Nocturno, the night. | One switch, the same on every site; neither is the "real" one. | Reading in the light that suits you, with the same contrasts in both. | Also: light and dark mode. |
 | **Documentation** *(kind of document)* | A guide or a reference that explains a series or a system, without obliging anyone; its header says `type: documentation`. | A norm is normative; what explains it is documentation. | Telling what you must satisfy from what helps you understand. | Convention: informative, as against normative — ISO/IEC Directives, Part 2; the Diátaxis genres for guides and references. |
-| **Draft** *(status)* | The status of a document published to be read and argued with, and quoted against nobody. | A draft binds no one, however firm it sounds. | Sharing a rule before it is in force, without surprising anyone. | Convention: draft — universal; the ISO stage before publication. |
+| **Draft** *(status)* | On trial: followed, warns, never blocks. Any change is analysed, then its owner decides. | A draft is followed, not ignored; breaking it warns and blocks nothing. | Trying a rule in real work before it is in force, without surprising anyone. | Convention: draft — universal; the ISO stage before publication. |
 
 ## E
 

@@ -22,6 +22,9 @@
 // DEF-008  the heir is a field: `superseded_by` on a record whose status is
 //          not `withdrawn` is a document pointing past itself while claiming
 //          to bind.
+// DEF-004, DEF-010, DEF-011  the old name has left: an identifier named in
+//          `absorbs:` or `former_id:` is no longer held by a document that
+//          stays in the tree (see oldNamesStill below).
 // Where a retired address leads is STD-028 URL-005, checked by
 // check-url-shape and check-url-lifecycle.
 //
@@ -38,7 +41,7 @@ import { execute, isMain } from '../lib/guard.mjs';
 import { loadRules, prefixToDir, stripFM, isApparatus } from '../../scripts/lib/frontmatter.mjs';
 import { isPhotograph } from '../../scripts/lib/rings.mjs';
 
-export const meta = { family: 'DEF', plates: ['DEF-008', 'DEF-009'] };
+export const meta = { family: 'DEF', plates: ['DEF-004', 'DEF-008', 'DEF-009', 'DEF-010', 'DEF-011'] };
 
 const RULES = loadRules();
 const PREFIX_DIR = prefixToDir(RULES);   // includes retired prefixes (D-): they must keep resolving
@@ -217,8 +220,56 @@ function heirs(corpus) {
   return out;
 }
 
+/* ---------- DEF-004, DEF-010, DEF-011: the old name has left ---------- */
+
+// A document that names an old identifier as its own — `former_id:` (it
+// moved series under a new name) or `absorbs:` (it carried the other in) —
+// says the old document has left. If a file in the tree still holds that
+// identifier, it has not:
+//   DEF-004  a report's `absorbs:` names a record still in the tree: the
+//            record was carried up but not deleted in the same change;
+//   DEF-011  any other absorber names a document still in the tree that is
+//            not withdrawn naming it as its replacement;
+//   DEF-010  a `former_id:` is still held by a document that is not withdrawn
+//            naming the new one as its replacement.
+// An absorbed identifier that once left the tree (git log) and was later
+// given to a new document is a reuse — STD-018's question, not this one —
+// so it is not a stay. Exported for the test.
+export function oldNamesStill(corpus, retired = existsSync(path.join(corpus.root, '.git')) ? retiredIds(corpus.root) : new Map()) {
+  const holders = new Map();
+  for (const rel of corpus.files) {
+    const id = corpus.fm(rel)?.id;
+    if (typeof id === 'string' && id) (holders.get(id) ?? holders.set(id, []).get(id)).push(rel);
+  }
+  const out = [];
+  const namesHeir = (rel, heir) => {
+    const fm = corpus.fm(rel) ?? {};
+    return fm.status === 'withdrawn' && String(fm.superseded_by ?? '').trim() === heir;
+  };
+  for (const rel of corpus.files) {
+    const fm = corpus.fm(rel) ?? {};
+    if (isApparatus(rel, fm)) continue;
+    const self = typeof fm.id === 'string' ? fm.id : '';
+    const isReport = rel.startsWith('reports/');
+    if (Array.isArray(fm.absorbs)) for (const old of fm.absorbs) {
+      if (!old || old === self || retired.has(old)) continue;
+      for (const held of holders.get(old) ?? []) {
+        if (held === rel) continue;
+        if (isReport) out.push({ plate: 'DEF-004', what: `absorbs ${old}, which is still in the tree — a record carried up is deleted in the same change`, where: rel });
+        else if (!namesHeir(held, self)) out.push({ plate: 'DEF-011', what: `absorbs ${old}, but ${held} is still in the tree and not withdrawn naming ${self || rel}`, where: rel });
+      }
+    }
+    const former = typeof fm.former_id === 'string' ? fm.former_id.trim() : '';
+    if (former && former !== self) for (const held of holders.get(former) ?? []) {
+      if (held !== rel && !namesHeir(held, self))
+        out.push({ plate: 'DEF-010', what: `former_id ${former} is still held by ${held}, which is not withdrawn naming ${self || rel}`, where: rel });
+    }
+  }
+  return out;
+}
+
 export function run(corpus) {
-  return [...brokenReferences(corpus), ...heirs(corpus)];
+  return [...brokenReferences(corpus), ...heirs(corpus), ...oldNamesStill(corpus)];
 }
 
 if (isMain(import.meta)) await execute(import.meta, meta, run);

@@ -5,9 +5,9 @@ title: "One document, one address"
 type: standard
 subtype: standard
 status: active
-version: "1.0.4"
+version: "1.1.0"
 created: "2026-09-20T20:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -71,12 +71,8 @@ know the removal was deliberate. A redirect to an index, to a list of
 deletions or to another redirect answers nothing. When the answer moves,
 every redirect to it moves in the same change.
 
-### How a document is cited
-
-**A citation is the name.** Inside the archive, a document is cited by its
-name alone; across repositories, the name carries its repository. A web
-address SHOULD be written only to send the reader to the web, never as the
-proper form of a citation.
+How a document is cited, inside the archive and across repositories, is
+said in *One document, one identifier*.
 
 This standard is over its word budget because each rule says what its
 outside standard does, as well as what it obliges.
@@ -92,7 +88,6 @@ Each rule, its code, its source and its check.
 | URL-004 | English is the address | — | `machine/scripts/check-url-shape.mjs` |
 | URL-003 | One address per document | [RFC 6596, the canonical link relation](https://www.rfc-editor.org/rfc/rfc6596) — ours is stricter: no duplicate is published at all | `machine/scripts/check-url-shape.mjs` — two addresses serving one document; `rel="canonical"` emitted by the site layout |
 | URL-005 | A retired address leads to the answer, or says it is gone | [RFC 9110, section 15.4.2, 301 Moved Permanently](https://www.rfc-editor.org/rfc/rfc9110#section-15.4.2); [RFC 9110, section 15.5.11, 410 Gone](https://www.rfc-editor.org/rfc/rfc9110#section-15.5.11); [W3C, Cool URIs don't change](https://www.w3.org/Provider/Style/URI); holds deprecated GIT-046, GIT-047 and DEF-005, which said the same three times | `machine/scripts/check-url-shape.mjs` — a redirect to an index, and a redirect chain; `machine/scripts/check-url-lifecycle.mjs` — addresses that stopped being built, reported. Not yet: the site answers a removed address with 404, not 410 — debt |
-| URL-006 | A citation is the name | — | by hand — prose, read in review |
 
 | In the reading | Exact form |
 |---|---|

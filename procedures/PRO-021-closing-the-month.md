@@ -4,9 +4,9 @@ uid: ""
 title: "Closing the month"
 type: procedure
 status: draft
-version: "0.6.4"
+version: "0.6.5"
 created: "2026-09-24T18:10:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T11:53:15+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Finance"
@@ -76,7 +76,7 @@ Nothing is closed from an estimate.
 4. **Write the income lines.** Agent: from the processor's report — gross,
    VAT, fees, net, number of payers. A public contract invoiced, and a
    grant or public loan paid in the month, is one line each, naming its
-   record in the opportunities or funding series; a grant's amount is
+   record in the opportunities series; a grant's amount is
    income only once paid, never when granted.
 5. **Update the homage list.** Agent: only as each payer chose; the quarter's
    and the year's lists when those close.

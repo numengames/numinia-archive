@@ -4,11 +4,11 @@ uid: ""
 title: "Running a mission"
 type: procedure
 status: draft
-version: "5.0.7"
+version: "5.0.8"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-10T12:20:00+02:00"
 author: "nimrod"
 owner: "oracle"
 section: "Operations"
@@ -108,6 +108,6 @@ second renumbers and fixes its own references.
 | Document | Title | Why it obliges here |
 |---|---|---|
 | `STD-025` | A mission is a card | the artefact this procedure executes |
-| `STD-018` | Identity | `IDN-015`: first commit keeps the number |
+| `STD-018` | One document, one identifier | `IDN-015`: first commit keeps the number |
 | `PRO-005` | Escalating to the Oracle | blockers, contradictions, conflicts |
 | `PRO-008` | Requesting approval, issuing rulings | the review request is scored |

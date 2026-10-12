@@ -5,9 +5,9 @@ title: "The archive is classified by function"
 type: standard
 subtype: standard
 status: active
-version: "0.12.0"
+version: "0.12.1"
 created: "2026-09-20T12:00:00+02:00"
-updated: "2026-10-08T11:00:00+02:00"
+updated: "2026-10-10T11:53:10+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -140,5 +140,6 @@ reports. The scheme comes from archival practice; we did not invent it.
 | ID | Title | Relation |
 |---|---|---|
 | `STD-001` | The series | which series exist, and the table this scheme groups |
-| `STD-024` | A series is a function | what a series obliges, and its approval levels |
+| `STD-024` | A series is a function | what a series obliges |
+| `STD-017` | Who may change what | what a change at each approval level takes; each series' level is a column of `STD-001` |
 | `STD-012` | The corpus does not grow | how long records are kept |

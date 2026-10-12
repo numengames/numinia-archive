@@ -4,11 +4,11 @@ uid: ""
 title: "Auditing identity, authorization and secrets"
 type: procedure
 status: draft
-version: "2.1.5"
+version: "2.1.6"
 created: "2026-08-21T07:35:05Z"
 created_source: "git:b35ab06"
 created_confidence: exact
-updated: "2026-10-05T10:38:00+02:00"
+updated: "2026-10-10T11:53:13+02:00"
 author: "claude-opus-5"
 owner: "oracle"
 section: "Technology"
@@ -17,7 +17,7 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
 review_next: "2027-08-21T10:00:00+02:00"
-related: ["STD-022", "STD-015", "PRO-005", "PRO-008"]
+related: ["STD-022", "STD-015", "PRO-036", "PRO-005", "PRO-008"]
 derived_from: "PRI-010"
 ---
 
@@ -75,8 +75,8 @@ automated claim. Executor: an agent with read access to the scope.
    stop: the finding exists.
 5. **Stop on a real value.** A secret seen live or of unknown state is
    never copied, not even truncated: reference it by location and report
-   it out of band (`PRO-036`). Treat a repository that has ever been public
-   as compromised: rotate first, history later.
+   it out of band. Treat a repository that has ever been public as
+   compromised, and handle every live key as `PRO-036` step 2 says.
 6. **Tier before filing.** Public (findings, gaps, scores; no identifiers),
    internal (names, dates, addresses; never in a public repository), hot
    (out of band) never share a document. No destination for the internal
@@ -112,7 +112,8 @@ correction.
 
 | Document | Title | Why it obliges here |
 |---|---|---|
-| `STD-022` | Secrets | `KEY-054..056`: nothing in the tree, rotate before write, live findings out of band |
+| `STD-022` | Secrets | `KEY-054`, `KEY-056`: nothing in the tree, a weakness reported privately |
+| `PRO-036` | Handling a security weakness | step 2: a live key is changed before anything is written |
 | `STD-015` | Engineering checks | `TRC-007`: blindness declared, here as coverage |
 | `PRO-008` | Requesting approval, issuing rulings | the correction list is an approval request |
 | `PRO-005` | Escalating to the Oracle | stop conditions |

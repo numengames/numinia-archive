@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: standard
 subtype: standard
 status: draft
-version: "0.14.0"
+version: "0.14.1"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-08T15:00:00+02:00"
+updated: "2026-10-10T11:53:15+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -118,7 +118,8 @@ at any stage.
 **Minimal, with its basis.** What a record says about an organisation MUST
 be the least needed to pursue the opportunity, held under the house's
 legitimate interest in offering its services. A lost record is kept as it
-stands; it holds nothing that outlives its use.
+stands, save a call that turns out to fail a requirement, which is not kept;
+it holds nothing that outlives its use.
 
 **The organisation's door.** Once the organisation may be named — a
 tender, a grant, or a record with the disclosure `open` — an open record
@@ -216,7 +217,7 @@ Each rule, its code, its source and its check.
 | OPP-010 | A won record hands on | `STD-036` LED-001 | by hand, at the ledger's month close |
 | OPP-011 | The organisation, named when it knows | the client's interest; customer-reference practice — a client's name used with its consent, withdrawable; `LCSP` art. 133 (a bidder's own offer is not the authority's to disclose) | `machine/packages/sales-kit/pipeline.mjs`: a name without `disclosure: open`, or any name in a lost record, is reported, a tender or a grant exempt; by hand for the client's wish |
 | OPP-012 | A call links its notice | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 63 (the contracting profile), 133 (a bid is confidential until award), 159 (what each procedure asks); [Law 38/2003](https://www.boe.es/buscar/act.php?id=BOE-A-2003-20977) art. 17 (the bases of a call); `STD-038` | `machine/packages/sales-kit/pipeline.mjs`: a tender requires `procedure` and `call` unless the procedure is `minor`; a grant requires `instrument` and `call`; both require `closes` |
-| OPP-013 | A call is read against the house's card, and only what passes is recorded | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 87 (turnover at most 1.5 times the value), 90.4 (no past works asked of a company under five years, below the harmonised threshold), 145 (award criteria); [Law 38/2003](https://www.boe.es/buscar/act.php?id=BOE-A-2003-20977) art. 13 (who may be a beneficiary); `STD-038` *The house's chance*; the house's card (`OPS-018`) | `machine/packages/sales-kit/pipeline.mjs`: a tender or a grant requires a `## Criteria` table whose last column is yes or check; a no is refused; the chance computed |
+| OPP-013 | A call is read against the house's card, and only what passes is recorded | [LCSP](https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902) arts. 87 (turnover at most 1.5 times the value), 90.4 (no past works asked of a company under five years, below the harmonised threshold), 145 (award criteria); [Law 38/2003](https://www.boe.es/buscar/act.php?id=BOE-A-2003-20977) art. 13 (who may be a beneficiary); `STD-038` *The house's chance*; the house's card (`OPS-018`) | `machine/packages/sales-kit/pipeline.mjs`: a tender or a grant requires a `## Criteria` table whose last column is yes or check; a no is refused; the table does not enter the chance (OPP-016) |
 | OPP-014 | A call's verdict rests on its own terms | the Oracle's ruling of 2026-10-01, from a summary that turned a forklift simulator into a 3D platform; LCSP art. 87 (turnover); `STD-038` *Where a call was read*, *What the buyer really buys*; `OPS-018` | `machine/packages/sales-kit/pipeline.mjs`: `read_from` terms or notice; a tender's `object` build or deliver; a `turnover_asked` above the card's ceiling refused |
 | OPP-015 | One call, one record | the Oracle's ruling of 2026-10-01: aggregators list one file twice under different titles | `machine/packages/sales-kit/pipeline.mjs`: `file_ref` required on a tender; the same file reference and value in two records is reported |
 | OPP-017 | The organisation's door | the Oracle's ruling of 2026-10-08: every record says where to write and where to read; a functional mailbox of an organisation is not personal data ([GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 4(1)); a person's professional address is: art. 19 of the [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) lets the house hold it to deal with the organisation, and publishing it would exceed that | `machine/packages/sales-kit/pipeline.mjs`: `web` an address and `contact_email` one mailbox; neither before the organisation may be named; on an open named record, `web` required off a call and `contact_email` unless the channel is `form`; a mailbox whose local part holds a common first name refused under OPP-006; that field alone is exempt from the e-mail scan |
