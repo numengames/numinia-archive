@@ -17,6 +17,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseFM } from '../../scripts/lib/frontmatter.mjs';
 import { meta, run, glossaryTerms } from '../rules/std-031-a-principle-states.mjs';
+import * as guard from '../lib/guard.mjs';
 
 const HEAD = '---\nid: "PRI-900"\ntitle: "A thing is so"\ntype: principle\nstatus: draft\nupdated: "2026-10-12T10:00:00+02:00"\nauthor: "ursa"\n---\n\n'
   + '<!--\nSPDX-FileCopyrightText: 2026 Numen Games S.L.\nSPDX-License-Identifier: CC0-1.0\n-->\n\n# A thing is so\n\n';
@@ -96,4 +97,43 @@ test('a withdrawn principle and the series index are not read', () => {
   const withdrawn = principle('We use GitHub.\n').replace('status: draft', 'status: withdrawn');
   const files = { 'principles/PRI-901-x.md': withdrawn, 'principles/INDEX.md': 'GitHub 2026 PRI-004 Umbral\n' };
   assert.deepEqual(run(corpus(files)), []);
+});
+
+/* ---- in force: STD-031 active, each principle judged by its own state ---- */
+
+// The regime as it reads once STD-031 is active: every plate of the check is
+// held by an active standard. A principle still on trial (its own header
+// says draft) is followed and warned about, never blocks; a principle in
+// force blocks like any rule in force.
+const IN_FORCE = {
+  byPlate: new Map(meta.plates.map((p) => [p, 'STD-031'])),
+  byPrefix: new Map([['STA', new Set(['STD-031'])]]),
+  status: new Map([['STD-031', 'active']]),
+  title: new Map(),
+};
+const verdict = (status) => {
+  const text = principle('In 2024 we met.\n').replace('status: draft', `status: ${status}`);
+  const lines = [];
+  let code = null;
+  if (typeof guard.judge !== 'function') assert.fail('guard.judge is not exported: the regime cannot be applied to a fixture');
+  guard.judge('std-031-a-principle-states', meta, run(corpus({ 'principles/PRI-900-a-thing-is-so.md': text })), {
+    index: IN_FORCE,
+    log: { log: (s) => lines.push(s), error: (s) => lines.push(s) },
+    exit: (c) => { code = c; },
+  });
+  return { code, out: lines.join('\n') };
+};
+
+test('in force: STD-031 active and an active principle with a year — the build fails', () => {
+  const v = verdict('active');
+  assert.equal(v.code, 1, v.out);
+  assert.match(v.out, /✗ STA-007 .*2024/);
+});
+
+test('in force: STD-031 active and a draft principle with a year — it passes with a warning', () => {
+  const v = verdict('draft');
+  assert.equal(v.code, 0, v.out);
+  assert.match(v.out, /· STA-007 .*2024/);
+  assert.match(v.out, /1 finding\(s\), 0 enforced/);
+  assert.match(v.out, /on trial/);
 });
