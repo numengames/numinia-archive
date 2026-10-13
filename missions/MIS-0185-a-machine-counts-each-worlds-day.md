@@ -4,9 +4,9 @@ uid: ""
 title: "A machine counts each world's day by state and size, keeps 35 days of it, and gives each day to the till on a signed read"
 type: mission
 status: todo
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T10:15:09+02:00"
+updated: "2026-10-13T14:17:50+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -23,7 +23,7 @@ parent_mission: "MIS-169"
 requires_oracle_approval: true
 context: "2026-10-13T08:24:00+02:00"
 paths: [system/SYS-014-the-worlds-fleet-as-wired.md, decisions/ADR-070-a-world-is-paid-for-by-the-day-from-a-prepaid-balance.md]
-related: ["ADR-070", "MIS-169", "MIS-162", "MIS-163", "MIS-172", "MIS-178", "MIS-181", "SYS-014"]
+related: ["ADR-070", "MIS-169", "MIS-162", "MIS-163", "MIS-167", "MIS-172", "MIS-178", "MIS-181", "SYS-014"]
 ---
 
 <!--
@@ -54,6 +54,10 @@ SPDX-License-Identifier: CC0-1.0
   create, start, stop (including a stop for balance), a resize for an
   event (`MIS-172`) and delete — with their times. A whole day while a
   world existed adds up to 1,440 minutes.
+- **Asleep is running:** a world asleep because nobody is in it
+  (`MIS-167`) keeps its room on the machine, so its minutes count as
+  running; minutes stopped are those a person, or the balance at zero,
+  stopped it (`ADR-070`).
 - **Kept 35 days,** the margin the till waits for a silent machine.
 - **Read by the till:** the door hands a day's lines only to a read the
   till signed, as it already checks Oracles' signatures (`SYS-014`); the
@@ -69,8 +73,9 @@ which are a presence log, not a bill.
 ## 2. Acceptance criteria
 
 - [ ] For each world, the machine keeps per UTC day its minutes running
-  and stopped and the size reserved, from its own events, for 35 days, and
-  a whole day while the world existed adds up to 1,440 minutes. Today: the
+  (asleep ones included) and stopped and the size reserved, from its own
+  events, for 35 days, and a whole day while the world existed adds up to
+  1,440 minutes. Today: the
   door publishes the machine, its worlds, its log, requests and copies, and
   none says how long a world ran on a day (numinia-assets `fleetd.py` at
   `9eb226f`).
