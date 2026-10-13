@@ -17,6 +17,24 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-13
+- **Added** `ADR-070`: a world is paid for by the day from a prepaid balance in euros, in a ledger of our own apart from the website; Stripe takes the money and the tax, one customer per account; consumers see VAT, companies do not; teams with four roles; only owners sign the delicate.
+- **Changed** `MIS-169` 0.3.0, opened and rewritten by `ADR-070`: a monthly fee per size becomes a daily charge from a prepaid balance, people and teams buy, a paid world's owner signs its birth beside the till's "has credit"; the pieces move to `MIS-177` to `MIS-188`.
+- **Added** `MIS-177`: the till keeps each account's balance as lines only ever added — top-ups as lots spent oldest first, world-days, adjustments — and the tariff as dated versions; the house's first database, in a Worker of its own.
+- **Added** `MIS-178`: each night at 00:30 Madrid time the till charges one line per world by state and size, never estimates a day nobody measured, and at zero lists the running worlds to stop and keeps the stopped ones 90 days for free.
+- **Added** `MIS-179`: a personal account for every person and teams with four roles — owner, administration, finance, member — checked cell by cell; invitations by email for seven days; a team always keeps an owner; nobody acts upward.
+- **Added** `MIS-180`: top-ups on Stripe's page — one customer per account, tax per country, tax ID collected, one invoice per top-up, events verified and counted once, refunds and disputes as lines, a key that cannot refund.
+- **Added** `MIS-181`: the till signs three things a machine checks — a team pass of at most 15 minutes, "has credit" for a size, "stop for balance" — under a domain of its own, with two keys and a shared file of examples.
+- **Added** `MIS-182`: the till mails whoever may pay — balance low at the current pace, at zero, weekly while a world is kept for free, twice before a deletion, the day a price rise is scheduled — through Amazon SES in Paris.
+- **Added** `MIS-183`: the clients' screens on numinia.com — account switcher, worlds with their price per day, balance and days left, usage by day with table and CSV, invoices, team, thanks — VAT shown to consumers, every refusal with its way out.
+- **Added** `MIS-184`: the Oracle's till and tariff screens — collected against consumed, client balances, the month's cross-check with Stripe, adjustments with who and why, a rise refused before its notice ends, the history of versions.
+- **Added** `MIS-185`: a machine counts each world's day — minutes running and stopped, the size reserved — keeps 35 days and gives each day to the till on a signed read, replacing the till's pretend meter.
+- **Added** `MIS-186`: a machine obeys a world's owners and the till — the order names account and owners, the delicate needs an owner, the daily a team pass beside the person's signature, a client's world starts only with credit.
+- **Added** `MIS-187`: the norms follow `ADR-070` — `STD-033` net prices for companies and a dated tariff, `PRO-020` steps for a tariff, `SYS-008` the till, `STD-003` team roles are not ranks — and the offer record in test.
+- **Added** `MIS-188`: numen.games/hosting sells the World plan from 10 euros — "Start with 10 €" leads to numinia.com and the prices per day come from the tariff in force; the dedicated plan and events stay by proposal.
+- **Added** `DBT-026`: pay per use runs on example figures — prices per day, the event boost, the minimum top-up, the notice before a rise, the final notices — and on choices left for later: refunds on request, plans, automatic top-ups, crypto.
+- **Changed** `DBT-022` 0.5.0: rows 52 to 61 for pay-per-use hosting — terms for consumers and companies, withdrawal, a price rise, deletion at zero, privacy; a top-up's VAT, Stripe's invoices, the advance, the one-stop shop — and block 2 of the letter.
+
 ### 2026-10-12
 - **Changed** `MIS-160` 0.2.0 logs the Oracle's direction, copies first: no AWS key in the Worker; each machine's narrow key writes and reads `copies/`, deletes nothing, and the machine presigns downloads on a signed request; a versioned bucket in Paris, 14 days, a folder per organisation; keys stay on the machine.
 - **Changed** `MIS-164` 0.2.0 logs the Oracle's direction: an imported world is born stopped on the machine the Oracle picks, so the import needs free disk, not `MIS-163` (`depends_on` emptied); restoring a night from the bucket is the same piece (a hypothesis).
