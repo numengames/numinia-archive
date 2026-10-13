@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 52953,
+  "chars": 53253,
   "apparatus": false,
   "archived": false,
-  "tokens": 15059
+  "tokens": 15162
  },
  {
   "path": "CLAUDE.md",
@@ -841,10 +841,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 16444,
+  "chars": 17176,
   "apparatus": false,
   "archived": false,
-  "tokens": 4110
+  "tokens": 4308
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -2128,7 +2128,7 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 4493,
+  "chars": 4490,
   "apparatus": false,
   "archived": false,
   "tokens": 1270
@@ -2139,10 +2139,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 4678,
+  "chars": 4696,
   "apparatus": false,
   "archived": false,
-  "tokens": 1282
+  "tokens": 1288
  },
  {
   "path": "missions/MIS-0179-a-person-has-a-personal-account-and-can-create-teams.md",
@@ -2194,10 +2194,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 5272,
+  "chars": 5509,
   "apparatus": false,
   "archived": false,
-  "tokens": 1436
+  "tokens": 1499
  },
  {
   "path": "missions/MIS-0184-the-oracle-sees-the-till-and-changes-the-tariff-without-code.md",
@@ -2205,10 +2205,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 3875,
+  "chars": 3993,
   "apparatus": false,
   "archived": false,
-  "tokens": 1052
+  "tokens": 1084
  },
  {
   "path": "missions/MIS-0185-a-machine-counts-each-worlds-day.md",
@@ -2216,10 +2216,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 3308,
+  "chars": 3291,
   "apparatus": false,
   "archived": false,
-  "tokens": 960
+  "tokens": 956
  },
  {
   "path": "missions/MIS-0186-a-machine-obeys-a-worlds-owners-and-the-till.md",
