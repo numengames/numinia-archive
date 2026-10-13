@@ -4,9 +4,9 @@ uid: ""
 title: "Clients see their money on numinia.com: the account switcher, each world's price per day, the balance and how long it lasts, usage by day with its CSV, invoices, the team and the thanks page — in five languages"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T08:24:00+02:00"
+updated: "2026-10-13T10:15:09+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -64,6 +64,9 @@ SPDX-License-Identifier: CC0-1.0
 - **Usage:** one bar per day for 7, 30 or 90 days, by world or by concept,
   today hatched as provisional; the same figures as a table for whoever
   cannot see the colours; a CSV download (`PRI-012`).
+- **Days and hours:** a day is the ledger's UTC day and the screens say so;
+  every hour is shown in the viewer's own zone, computed from UTC
+  (`ADR-070`).
 - **Invoices:** one per top-up with its base, VAT and total, opened from
   Stripe; billing details changed on Stripe's portal (`MIS-180`); monthly
   statements as CSV, which are not invoices.
@@ -98,9 +101,10 @@ flow for team members, which comes with the machine's side (`MIS-186`).
 - [ ] A consumer sees every amount with VAT included and a company sees it
   without, on every screen, from the same ledger figures. Today: no screen
   shows a balance.
-- [ ] Usage shows a bar per day for 7, 30 or 90 days, by world or by
+- [ ] Usage shows a bar per UTC day for 7, 30 or 90 days, by world or by
   concept, today marked as provisional, and the same figures as a table and
-  as a CSV. Today: no usage is recorded.
+  as a CSV; the screen says its days are UTC and shows any hour in the
+  viewer's zone. Today: no usage is recorded.
 - [ ] Each refusal in the scope shows its own words and its way out, and an
   unknown one shows the till's text as it came. Today: the till does not
   exist.

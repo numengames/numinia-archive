@@ -4,9 +4,9 @@ uid: ""
 title: "A machine counts each world's day by state and size, keeps 35 days of it, and gives each day to the till on a signed read"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T08:24:00+02:00"
+updated: "2026-10-13T10:15:09+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -35,7 +35,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The till charges what a machine says each world did each
 > day, and nothing it did not measure (`ADR-070`). This mission makes each
-> fleet machine keep, for each world and Madrid day, its minutes running
+> fleet machine keep, for each world and UTC day, its minutes running
 > and stopped and the size it reserved, for 35 days, and hand a day's lines
 > to the till when the till asks with its signature. The till's pretend
 > meter (`MIS-178`) gives way to it.
@@ -49,11 +49,11 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 1. Scope
 
-- **What is counted,** per world and per Madrid day: minutes running,
+- **What is counted,** per world and per UTC day: minutes running,
   minutes stopped and the size reserved, from the machine's own events —
   create, start, stop (including a stop for balance), a resize for an
-  event (`MIS-172`) and delete — with their times. A day while a world
-  existed adds up to its length, 23, 24 or 25 hours.
+  event (`MIS-172`) and delete — with their times. A whole day while a
+  world existed adds up to 1,440 minutes.
 - **Kept 35 days,** the margin the till waits for a silent machine.
 - **Read by the till:** the door hands a day's lines only to a read the
   till signed, as it already checks Oracles' signatures (`SYS-014`); the
@@ -68,9 +68,9 @@ which are a presence log, not a bill.
 
 ## 2. Acceptance criteria
 
-- [ ] For each world, the machine keeps per Madrid day its minutes running
+- [ ] For each world, the machine keeps per UTC day its minutes running
   and stopped and the size reserved, from its own events, for 35 days, and
-  a day while the world existed adds up to the day's length. Today: the
+  a whole day while the world existed adds up to 1,440 minutes. Today: the
   door publishes the machine, its worlds, its log, requests and copies, and
   none says how long a world ran on a day (numinia-assets `fleetd.py` at
   `9eb226f`).

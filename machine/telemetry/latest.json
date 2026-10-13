@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "9b9d53f",
-  "corpus_hash": "45741ef92e4b32913c389b7b8af797a0ffb0dfce7c27a83e4373b907e01d9c3c",
+  "head": "1e5d58f",
+  "corpus_hash": "6b3cd960582fa22a17e966d7725d1ceed54f6b2020471332658f05f747dcde56",
   "root_dirty": 0,
-  "measured_at": "2026-10-13T06:42:01Z",
+  "measured_at": "2026-10-13T08:17:08Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 385,
-          "bytes": 4049646
+          "bytes": 4051029
         },
         "Code": {
           "files": 278,
@@ -374,7 +374,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1030906,
+      "value": 1031304,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -382,7 +382,7 @@
       "value": {
         "lore": 465827,
         "standards": 114408,
-        "missions": 65422,
+        "missions": 65519,
         "system": 59919,
         "procedures": 38067,
         "reports": 36728,
@@ -390,8 +390,8 @@
         "operations": 33602,
         "machine": 30074,
         "designs": 28300,
-        "": 23340,
-        "decisions": 22313,
+        "": 23443,
+        "decisions": 22511,
         "principles": 21866,
         "debt": 18797,
         "opportunities": 15128,
@@ -405,10 +405,10 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 497071,
-        "draft": 236408,
+        "(none)": 497174,
+        "draft": 236606,
         "active": 230467,
-        "todo": 52789,
+        "todo": 52886,
         "in-progress": 7241,
         "in-review": 4748,
         "done": 1152,
@@ -808,10 +808,10 @@
           "3": 199
         },
         "ADR": {
-          "3": 396
+          "3": 400
         },
         "MIS": {
-          "3": 906,
+          "3": 911,
           "4": 178
         },
         "SYS": {
