@@ -4,9 +4,9 @@ uid: ""
 title: "A world is paid for by the day from a prepaid balance in euros, kept in a ledger of our own: Stripe takes the money and the tax, teams share a balance, and only a world's owners sign what cannot be undone"
 type: adr
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T10:15:09+02:00"
+updated: "2026-10-13T14:17:50+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -17,7 +17,7 @@ consulted: ["ursa"]
 outcome: proposed
 decision: "Hosting a world is paid for by the day from a prepaid balance in euros that each account, a person's own or a team's, tops up on Stripe's page. Each night a ledger of our own, in a service apart from the website, charges each world by its state and its size at the tariff in force. At zero the running worlds stop after saving and nothing is deleted for 90 days. Paid balance is not refunded except where the law obliges, and it does not expire. Consumers see prices with VAT, companies without. Teams have four roles, and only a world's owners sign what cannot be undone."
 amends: "STD-033"
-related: ["MIS-169", "STD-033", "STD-036", "STD-044", "PRO-020", "SYS-008", "STD-003", "ADR-069", "SYS-014", "DBT-022", "DBT-025", "DBT-026", "MIS-161", "MIS-163", "MIS-158", "MIS-176"]
+related: ["MIS-169", "STD-033", "STD-036", "STD-044", "PRO-020", "SYS-008", "STD-003", "ADR-069", "SYS-014", "DBT-022", "DBT-025", "DBT-026", "MIS-161", "MIS-163", "MIS-158", "MIS-176", "MIS-167", "MIS-184"]
 ---
 
 <!--
@@ -103,7 +103,10 @@ judgement goes to debt while the mechanical parts are built first.
    computed from it — a screen shows hours in its viewer's own zone.
    Today's spend shows as provisional. What was not measured is not
    charged: a machine that does not answer is charged when it does, up to
-   35 days back, and nothing is estimated.
+   35 days back, and nothing is estimated. A world asleep because nobody is
+   in it (`MIS-167`) counts as running: it keeps its room on the machine to
+   wake the moment someone arrives. A world is stopped only when a person
+   stopped it, or the balance at zero did (point 4).
 3. **The tariff is data with a date.** The prices per day for each size,
    the event boost, the minimum top-up, the quick amounts, the minimum
    balance to create a world (two days running), the days a world is kept
@@ -111,7 +114,12 @@ judgement goes to debt while the mechanical parts are built first.
    from a screen, each with the day it starts. Every charged line keeps the
    version it was charged with, so history never changes. A cut applies
    from the next day; a rise only after notice to every account with
-   worlds. Today's figures are examples (`DBT-026`).
+   worlds. Sizes are sold by how many people a world holds at once —
+   Small up to 20, Medium up to 50, Large up to 100 — each a reservation and
+   a ceiling on its machine, with a limit of people that the machine sets
+   and the world's admins cannot raise. The Oracle sets and changes the
+   figures from his price room (`MIS-184`); the starting ones, and what is
+   still judgement, are in `DBT-026`.
 4. **At zero nothing is lost.** That night the account's running worlds
    stop after saving, as any stop does. Stopped worlds are then kept for
    free for 90 days, with a notice every week to whoever may pay, and their
@@ -198,6 +206,8 @@ the day. Bespoke work and the dedicated plan stay by proposal and invoice.
 | Payment Links with no API key (the design's first version) | Each payment through a link creates a new Stripe customer, so a team's billing details and invoices would scatter across customers. One customer per account needs the till to open each Checkout Session with a restricted key. |
 | Credits instead of euros | A unit the client must convert hides the price. Hermes, OpenAI and Anthropic show money. |
 | Charging by processor and memory used | The bill becomes unpredictable and depends on visitors the client does not control. A reserved size is the price the machine really holds aside (`MIS-163`). |
+| Selling a size by its memory, as "a world of 2 GB" (this record's first version) | In a load test on 2026-10-13 a world ran out of processor, never of memory: its processor grows with the square of the people inside while its memory barely moves. The market sells worlds by people at once, and numen.games/hosting already asks how many come. |
+| A world asleep because it is empty paying as stopped | Hermes Cloud charges only the time a machine is up. An asleep world here keeps its room reserved to wake at once, so the house holds the machine for it; charged as stopped, the example fleet's margin would fall to 39 % with worlds used half the month. |
 | Madrid days (this record's first version) | A local day: one that changes the clock lasts 23 or 25 hours, one run at 00:30 needs two schedules, and a client outside Spain reads another country's day. The Oracle fixed UTC as the reference time, as Nous charges, with every local time computed from it. |
 | Starting the worlds when a top-up arrives | A top-up would spend money nobody chose to spend. One signature starts them. |
 | Refunding unused balance on request | Stolen cards, top-up-and-refund loops, a corrective invoice and a VAT correction per country, and Stripe keeps its fee. Not refunding is what Hermes, OpenAI and Anthropic do; the ledger's lots keep the door open (`DBT-026`). |
@@ -263,3 +273,7 @@ Changed on 2026-10-13 (0.2.0), at the Oracle's request: the reference time
 is UTC and every other time is computed from it, so the night's close runs
 at 00:30 UTC over days of 24 hours (point 2), and Madrid days move to the
 alternatives.
+Changed on 2026-10-13 (0.3.0), from the Oracle's decisions on the prices:
+sizes are sold by people at once (point 3), a world asleep because it is
+empty counts as running (point 2), and the figures change from the price
+room (`MIS-184`); the starting figures are in `DBT-026`.

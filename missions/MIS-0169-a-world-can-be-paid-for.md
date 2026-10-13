@@ -4,9 +4,9 @@ uid: ""
 title: "A world is paid for by the day from a prepaid balance: an account tops up on Stripe's page, each night charges each of its worlds by state and size, and at zero the worlds stop and nothing is lost"
 type: mission
 status: in-progress
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-10-12T13:27:54+02:00"
-updated: "2026-10-13T08:24:00+02:00"
+updated: "2026-10-13T14:17:50+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -24,7 +24,7 @@ requires_oracle_approval: true
 context: "2026-10-13T08:24:00+02:00"
 started: "2026-10-13T08:24:00+02:00"
 paths: [decisions/ADR-070-a-world-is-paid-for-by-the-day-from-a-prepaid-balance.md, standards/STD-033-every-charge-delivers-something.md, procedures/PRO-020-putting-something-on-sale.md, system/SYS-008-the-account.md]
-related: ["ADR-070", "MIS-161", "MIS-163", "MIS-158", "MIS-160", "MIS-159", "MIS-176", "STD-033", "STD-036", "STD-044", "PRO-020", "SYS-008", "DBT-022", "DBT-026"]
+related: ["ADR-070", "MIS-161", "MIS-163", "MIS-158", "MIS-160", "MIS-159", "MIS-176", "MIS-189", "STD-033", "STD-036", "STD-044", "PRO-020", "SYS-008", "DBT-022", "DBT-026"]
 ---
 
 <!--
@@ -169,6 +169,15 @@ people too" became both; the birth of a paid world is signed by its owner
 with the till's "has credit" beside it, not by an Oracle; and "when the
 subscription ends" became the rules at zero. The pieces moved to the child
 missions in the table above.
+
+**2026-10-13, afternoon — the prices.** The Oracle approved selling the
+worlds by how many people they hold at once, in three sizes, with the
+starting figures of the pricing study (`DBT-026`), and decided that a world
+asleep because it is empty pays as running (`ADR-070` 0.3.0, `MIS-185`
+0.3.0). He asked for the calculator in the Oracles' zone of numinia.com with
+a button to publish, because prices will change often: `MIS-184` becomes
+that price room, and the screen of the till's money it also held moves to
+`MIS-189`, after Stripe.
 
 ---
 

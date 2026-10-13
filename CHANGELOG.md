@@ -18,6 +18,12 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-13
+- **Changed** `ADR-070` 0.3.0, from the Oracle's decisions on the prices: sizes are sold by people at once — Small up to 20, Medium up to 50, Large up to 100 — a world asleep because it is empty counts as running, and the figures change from the price room (`MIS-184`).
+- **Changed** `MIS-184` 0.3.0, opened: the Oracle's price room on numinia.com — a calculator with dated costs, each size's cost and margin, an example fleet's monthly profit, and Publish, which schedules a dated tariff version in the till with who and why.
+- **Added** `MIS-189`: the Oracle sees the till's money — collected against consumed in a month, client balances, the month's cross-check with Stripe, adjustments by hand with who and why — split from `MIS-184`, after Stripe (`MIS-180`).
+- **Changed** `MIS-185` 0.3.0: a world asleep because nobody is in it counts its minutes as running; stopped minutes are those a person or the balance at zero stopped.
+- **Changed** `MIS-169` 0.4.0 logs the prices: three sizes by people at once with starting figures, an asleep world pays as running, `MIS-184` becomes the price room and the till's money moves to `MIS-189`.
+- **Changed** `DBT-026` 0.2.0: starting figures — Small 0.20 and 0.02, Medium 0.75 and 0.05, Large 1.80 and 0.10 euros a day without VAT — from the pricing study of 2026-10-13, with what is still judgement: a load test on OVH, the machine holding the people limit, the copies.
 - **Changed** `ADR-070` 0.2.0, at the Oracle's request: UTC is the reference time and every other time is computed from it — the night's close runs at 00:30 UTC over days of 24 hours, and screens show hours in the viewer's zone; `MIS-177`, `MIS-178`, `MIS-183`, `MIS-184` and `MIS-185` 0.2.0 follow.
 - **Added** `ADR-070`: a world is paid for by the day from a prepaid balance in euros, in a ledger of our own apart from the website; Stripe takes the money and the tax, one customer per account; consumers see VAT, companies do not; teams with four roles; only owners sign the delicate.
 - **Changed** `MIS-169` 0.3.0, opened and rewritten by `ADR-070`: a monthly fee per size becomes a daily charge from a prepaid balance, people and teams buy, a paid world's owner signs its birth beside the till's "has credit"; the pieces move to `MIS-177` to `MIS-188`.
