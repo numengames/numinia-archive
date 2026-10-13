@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 49123,
+  "chars": 52953,
   "apparatus": false,
   "archived": false,
-  "tokens": 14092
+  "tokens": 15059
  },
  {
   "path": "CLAUDE.md",
@@ -643,10 +643,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 29930,
+  "chars": 34539,
   "apparatus": false,
   "archived": false,
-  "tokens": 8048
+  "tokens": 9266
  },
  {
   "path": "debt/DBT-023-sources-and-inspirations-without-a-home.md",
@@ -680,6 +680,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2090
+ },
+ {
+  "path": "debt/DBT-026-pay-per-use-runs-on-example-figures.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 4609,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1307
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -823,6 +834,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2326
+ },
+ {
+  "path": "decisions/ADR-070-a-world-is-paid-for-by-the-day-from-a-prepaid-balance.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 16444,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 4110
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -2017,11 +2039,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 6941,
+  "status": "in-progress",
+  "chars": 9914,
   "apparatus": false,
   "archived": false,
-  "tokens": 1930
+  "tokens": 2715
  },
  {
   "path": "missions/MIS-0170-each-world-has-its-own-admin-code.md",
@@ -2099,6 +2121,138 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1398
+ },
+ {
+  "path": "missions/MIS-0177-the-till-keeps-each-accounts-balance-in-euros.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4493,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1270
+ },
+ {
+  "path": "missions/MIS-0178-each-night-closes-the-day.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4678,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1282
+ },
+ {
+  "path": "missions/MIS-0179-a-person-has-a-personal-account-and-can-create-teams.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4538,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1272
+ },
+ {
+  "path": "missions/MIS-0180-an-account-tops-up-on-stripes-page.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4953,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1356
+ },
+ {
+  "path": "missions/MIS-0181-the-till-signs-three-things-a-machine-checks.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4326,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1191
+ },
+ {
+  "path": "missions/MIS-0182-the-till-writes-when-money-runs-low.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4041,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1127
+ },
+ {
+  "path": "missions/MIS-0183-clients-see-their-money-on-numinia-com.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 5272,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1436
+ },
+ {
+  "path": "missions/MIS-0184-the-oracle-sees-the-till-and-changes-the-tariff-without-code.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3875,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1052
+ },
+ {
+  "path": "missions/MIS-0185-a-machine-counts-each-worlds-day.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3308,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 960
+ },
+ {
+  "path": "missions/MIS-0186-a-machine-obeys-a-worlds-owners-and-the-till.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4953,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1365
+ },
+ {
+  "path": "missions/MIS-0187-the-norms-follow-the-pay-per-use-decision.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4462,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1243
+ },
+ {
+  "path": "missions/MIS-0188-numen-games-hosting-sells-the-world-plan-from-10-euros.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3357,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 976
  },
  {
   "path": "objects/CHECK.md",
