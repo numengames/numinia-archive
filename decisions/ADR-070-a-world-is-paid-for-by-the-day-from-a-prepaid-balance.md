@@ -4,9 +4,9 @@ uid: ""
 title: "A world is paid for by the day from a prepaid balance in euros, kept in a ledger of our own: Stripe takes the money and the tax, teams share a balance, and only a world's owners sign what cannot be undone"
 type: adr
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T08:24:00+02:00"
+updated: "2026-10-13T10:15:09+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -95,14 +95,15 @@ judgement goes to debt while the mechanical parts are built first.
    or a team's. It tops up on Stripe's page from 10 euros (buttons for 10,
    20, 50 and 100, or another amount), and each top-up is one lot with its
    payment and its invoice. The house never says "credits".
-2. **Each night charges each world one line.** At 00:30 Madrid time the
-   till asks each machine for the day that has just closed and writes one
-   line per world: minutes running and minutes stopped, priced by the size
-   the world reserves, never by the processor it used. Days are Madrid's,
-   so a day changing the clock has 23 or 25 hours. Today's spend shows as
-   provisional. What was not measured is not charged: a machine that does
-   not answer is charged when it does, up to 35 days back, and nothing is
-   estimated.
+2. **Each night charges each world one line.** At 00:30 UTC the till asks
+   each machine for the day that has just closed and writes one line per
+   world: minutes running and minutes stopped, priced by the size the world
+   reserves, never by the processor it used. UTC is the reference time:
+   days are UTC days, every one of 24 hours, and every other time is
+   computed from it — a screen shows hours in its viewer's own zone.
+   Today's spend shows as provisional. What was not measured is not
+   charged: a machine that does not answer is charged when it does, up to
+   35 days back, and nothing is estimated.
 3. **The tariff is data with a date.** The prices per day for each size,
    the event boost, the minimum top-up, the quick amounts, the minimum
    balance to create a world (two days running), the days a world is kept
@@ -197,7 +198,7 @@ the day. Bespoke work and the dedicated plan stay by proposal and invoice.
 | Payment Links with no API key (the design's first version) | Each payment through a link creates a new Stripe customer, so a team's billing details and invoices would scatter across customers. One customer per account needs the till to open each Checkout Session with a restricted key. |
 | Credits instead of euros | A unit the client must convert hides the price. Hermes, OpenAI and Anthropic show money. |
 | Charging by processor and memory used | The bill becomes unpredictable and depends on visitors the client does not control. A reserved size is the price the machine really holds aside (`MIS-163`). |
-| UTC days, as Nous charges | The house's clients live in Madrid's day; a midnight in UTC splits their evening. |
+| Madrid days (this record's first version) | A local day: one that changes the clock lasts 23 or 25 hours, one run at 00:30 needs two schedules, and a client outside Spain reads another country's day. The Oracle fixed UTC as the reference time, as Nous charges, with every local time computed from it. |
 | Starting the worlds when a top-up arrives | A top-up would spend money nobody chose to spend. One signature starts them. |
 | Refunding unused balance on request | Stolen cards, top-up-and-refund loops, a corrective invoice and a VAT correction per country, and Stripe keeps its fee. Not refunding is what Hermes, OpenAI and Anthropic do; the ledger's lots keep the door open (`DBT-026`). |
 | Letting balance expire after a year | The client loses money for not using a world; nothing in the house's costs asks for it. |
@@ -235,6 +236,9 @@ the day. Bespoke work and the dedicated plan stay by proposal and invoice.
   for that reason.
 - A world stopped for weeks keeps paying its small daily price while
   costing the house the same machine.
+- In Madrid a UTC day runs from 01:00 to 01:00 in winter and from 02:00 to
+  02:00 in summer, so the first hour or two after a Spanish midnight count
+  on the previous day's line; the screens say their days are UTC.
 - Refusing refunds may cost a sale; the lots keep the way open.
 - A machine must now say what it charged for each world and day, and obey
   owners and the till as well as Oracles (`MIS-185`, `MIS-186`).
@@ -255,3 +259,7 @@ change, what happens at zero, that balance is neither refunded nor expired,
 and the teams; he left three technical choices to Ursa — the ledger in a
 service of our own, automatic top-ups later, and Amazon SES for mail — which
 can change without a new record.
+Changed on 2026-10-13 (0.2.0), at the Oracle's request: the reference time
+is UTC and every other time is computed from it, so the night's close runs
+at 00:30 UTC over days of 24 hours (point 2), and Madrid days move to the
+alternatives.

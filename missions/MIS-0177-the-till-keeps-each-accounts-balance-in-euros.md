@@ -4,9 +4,9 @@ uid: ""
 title: "The till keeps each account's balance in euros as lines that are only ever added: each top-up a lot spent oldest first, each world's day a line, and the tariff as dated versions"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T08:24:00+02:00"
+updated: "2026-10-13T10:15:09+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -59,7 +59,7 @@ SPDX-License-Identifier: CC0-1.0
   the screens add VAT for consumers (`ADR-070`).
   - *top-up:* a lot — its net amount, its VAT, and the ids of its Stripe
     payment and invoice;
-  - *world-day:* the account, the world, the Madrid date, minutes running
+  - *world-day:* the account, the world, the UTC date, minutes running
     and minutes stopped, the size, the tariff version and the amount,
     rounded once to the cent;
   - *adjustment:* who made it and why;

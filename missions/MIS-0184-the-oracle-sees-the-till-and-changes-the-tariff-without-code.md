@@ -4,9 +4,9 @@ uid: ""
 title: "The Oracle sees the till and changes the tariff without code: collected against consumed, client balances, the month's cross-check with Stripe, every manual adjustment with who and why, and dated tariff changes with their history"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T08:24:00+02:00"
+updated: "2026-10-13T10:15:09+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -66,6 +66,8 @@ SPDX-License-Identifier: CC0-1.0
   version with who scheduled it and when.
 - These figures feed the house's one account, where each month's top-ups
   and consumption enter as lines (`STD-036`, `SYS-008`).
+- Dates are the ledger's UTC days, and every hour is shown in the viewer's
+  own zone, computed from UTC (`ADR-070`).
 
 Out of scope: refunds, which an Oracle makes in Stripe's dashboard
 (`ADR-070`); the figures themselves (`DBT-026`).
