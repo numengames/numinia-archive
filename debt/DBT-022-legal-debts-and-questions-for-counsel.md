@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.4.2"
+version: "0.5.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-10T11:53:13+02:00"
+updated: "2026-10-13T08:24:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -19,7 +19,7 @@ detected: "2026-09-29T15:20:00+02:00"
 visibility: "restricted-oracle"
 visibility_reason: "working list for the Oracle and the company's lawyers (ATH21); it names gaps a reader could mistake for commitments"
 opened_by: "ursa"
-related: ["DES-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021", "STD-048", "STD-049"]
+related: ["DES-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021", "STD-048", "STD-049", "ADR-070", "MIS-169", "DBT-026"]
 ---
 
 <!--
@@ -157,6 +157,27 @@ cover prospecting.
 | 48 | numen.games carries its own copy of the privacy policy, in the numengames-web repository: re-copy LEG-001 2.2.0 there once merged. | ours |
 | 49 | Whether a commercial call to an organisation's published number must come from a fixed line or an 800/900 number (Orden TDF/149/2025 art. 9), or a mobile is allowed when the call is business to business. Until counsel answers, the house does not call from a mobile (`STD-049`; `DBT-024` item 3). | counsel |
 
+### 1.9 Pay-per-use hosting of 3D worlds (`ADR-070`)
+
+From 2026-10-13 numinia.com is to sell 3D worlds by the day from a prepaid
+balance, to consumers and to companies, with Stripe computing the VAT and
+issuing one invoice per top-up. Nothing is sold in live mode before the rows
+below close (`MIS-169`). Row 31, the Digital Services Act, now also covers
+the worlds the house hosts for clients, and row 20 the processors this adds.
+
+| # | Item | Who |
+|---|---|---|
+| 52 | Terms of sale for pay-per-use hosting, for consumers and for companies, accepted in a checkbox on Stripe's page before paying: what a day delivers, the price per day, the balance, what happens at zero, the 90 days and the deletion. None exist; `LEG-002` never mentions hosting. | counsel |
+| 53 | Paid balance is not refunded except where the law obliges, and never expires (the Oracle, 2026-10-13). May we say so to consumers? If a consumer withdraws within 14 days of a top-up, what must be refunded — our unverified reading: the unused part of that top-up — and what does the checkbox say when the consumer asks the service to start at once? | counsel |
+| 54 | A price rise announced 30 days ahead: what happens to the balance of whoever does not accept it, consumer or company? | counsel |
+| 55 | A team that is a company: is the declaration of whoever creates it, that they may act for the company, enough? | counsel |
+| 56 | A world whose account reaches zero is kept 90 days for free, then deleted after two notices. Is saying so in the terms enough, and what must be kept blocked, and for how long (row 50)? | counsel |
+| 57 | The privacy policy must name Stripe, OVH, AWS and Amazon SES for the paying clients' data, and the data processing agreement with each client must say when the house may enter its world (`MIS-176`). Neither does today. | counsel · ours |
+| 58 | VAT of a top-up: is it due when the top-up is paid, as an advance or a single-purpose voucher whose VAT is known, so that one invoice per top-up is enough, or when the balance is consumed? | company |
+| 59 | Is the invoice Stripe issues for each top-up a valid Spanish invoice (Numen's tax ID, the client's, series and number), and how does it meet Verifactu from 2027 (`DES-017`)? | company |
+| 60 | Balance paid and not yet consumed is a customer advance until consumed — our unverified reading: account 438 — but when does balance that is never spent count as income? Ties with row 51. | company |
+| 61 | Stripe Tax (0.5 % per transaction) for the reverse charge with companies elsewhere in the EU, and Spanish VAT for consumers in other EU countries up to 10,000 euros a year, the one-stop shop above it: should Numen register for the one-stop shop from the start? | company |
+
 ## 2. Evidence
 
 ```
@@ -246,6 +267,15 @@ numinia.com va a vender contenido digital (objetos del juego) a particulares. Lo
 - [#16] Edad: los servicios son para mayores de 18 años. Hoy nada pide al comprador que lo confirme. ¿Basta una declaración en el pago?
 - [#15] Al iniciar sesión, una casilla dice que se aceptan «los Términos y la Política de privacidad». Aceptar una política de privacidad no tiene sentido jurídico; en nwos.numen.games ya decimos «acepto los Términos y he leído la Política de privacidad». ¿Os vale esa fórmula para numinia.com?
 - [#13] Los términos (§5.3) prohíben cualquier bot o rastreador. Eso choca con las licencias abiertas de numinia.org (CC0, CC BY, MIT) y con los buscadores. ¿Podemos limitarlo al uso abusivo?
+
+**Alojamiento de mundos 3D por días (añadido el 13 de octubre de 2026).** Vamos a vender en numinia.com, a particulares y a empresas, mundos 3D que se pagan por días desde un saldo que se recarga por adelantado en la página de Stripe, desde 10 €. Cada noche se descuenta lo que gastó cada mundo; si el saldo llega a cero, los mundos se paran y se guardan gratis 90 días antes de borrarse, con avisos. El saldo pagado no se devuelve ni caduca, salvo lo que obligue la ley. A los particulares les enseñamos los precios con IVA; a las empresas, sin IVA, y Stripe lo añade antes de pagar. Mientras no tengamos vuestras condiciones, todo va en modo de pruebas.
+
+- [#52] ¿Podéis redactar las condiciones de este alojamiento, para particulares y para empresas, que se aceptarían en una casilla de la página de Stripe antes de pagar?
+- [#53] ¿Podemos decir a un particular que el saldo no se devuelve, salvo lo que obligue la ley? Si desiste en los 14 días siguientes a una recarga, ¿qué hay que devolverle? (Nuestra lectura, sin verificar: lo no gastado de esa recarga.) ¿Qué texto lleva la casilla con la que pide que el servicio empiece ya?
+- [#54] Si subimos un precio avisando con 30 días, ¿qué pasa con el saldo de quien no acepte la subida?
+- [#55] Quien crea en la web el equipo de una empresa, ¿basta con que declare que puede actuar en su nombre?
+- [#56] Un mundo cuya cuenta llega a cero se guarda gratis 90 días y se borra tras dos avisos. ¿Basta con decirlo en las condiciones? ¿Qué hay que guardar bloqueado, y cuánto tiempo?
+- [#57] La política de privacidad tendrá que nombrar a Stripe, OVH, AWS y Amazon SES para los datos de los clientes que pagan, y el contrato de encargo de tratamiento con cada cliente, decir cuándo entramos en su mundo: solo si lo pide o por seguridad, con firma y registro. ¿Nos ayudáis con los dos textos?
 
 ### 3. Términos de uso de numinia.org y del Códex
 
