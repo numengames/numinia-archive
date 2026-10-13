@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 53253,
+  "chars": 54670,
   "apparatus": false,
   "archived": false,
-  "tokens": 15162
+  "tokens": 15564
  },
  {
   "path": "CLAUDE.md",
@@ -687,10 +687,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 4609,
+  "chars": 6695,
   "apparatus": false,
   "archived": false,
-  "tokens": 1307
+  "tokens": 1890
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
@@ -841,10 +841,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 17176,
+  "chars": 18720,
   "apparatus": false,
   "archived": false,
-  "tokens": 4308
+  "tokens": 4706
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -2040,10 +2040,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-progress",
-  "chars": 9914,
+  "chars": 10464,
   "apparatus": false,
   "archived": false,
-  "tokens": 2715
+  "tokens": 2874
  },
  {
   "path": "missions/MIS-0170-each-world-has-its-own-admin-code.md",
@@ -2204,11 +2204,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 3993,
+  "status": "in-progress",
+  "chars": 5674,
   "apparatus": false,
   "archived": false,
-  "tokens": 1084
+  "tokens": 1518
  },
  {
   "path": "missions/MIS-0185-a-machine-counts-each-worlds-day.md",
@@ -2216,10 +2216,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 3291,
+  "chars": 3557,
   "apparatus": false,
   "archived": false,
-  "tokens": 956
+  "tokens": 1031
  },
  {
   "path": "missions/MIS-0186-a-machine-obeys-a-worlds-owners-and-the-till.md",
@@ -2253,6 +2253,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 976
+ },
+ {
+  "path": "missions/MIS-0189-the-oracle-sees-the-tills-money.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3298,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 938
  },
  {
   "path": "objects/CHECK.md",
