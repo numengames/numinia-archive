@@ -224,6 +224,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-034` | Auditing a site's code | draft | any agent auditing the code of a Numen Games or Numinia site, and the report it files |
 | `PRO-035` | Watching for opportunities | draft | whoever keeps a watch for Numen Games — person, agent or program, on any machine |
 | `PRO-036` | Handling a security weakness | draft | whoever learns of a weakness in a repository or a site of ours… |
+| `PRO-037` | Placing an agent in a 3D world | draft | whoever places an agent in a world of ours — an Oracle, or an agent acting for one |
+| `PRO-038` | Raising the brain that agents in worlds think… | draft | the Oracle who holds the brain's key. An agent may prepare files and read results… |
+| `PRO-039` | Opening the brain to the worlds | draft | the Oracle who holds the brain's key (STD-022) |
 | `STD-001` | The series | in force | every tracked document of the archive |
 | `STD-003` | Platform ranks | draft | the Numinia digital-goods platform — authentication, character sheets, creator panel… |
 | `STD-004` | The header | in force | every document's header, and every date the archive writes |
@@ -267,7 +270,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-048` | Reaching someone who did not ask | draft | every first contact made in Numen Games' or Numinia's name with an organisation or a person who… |
 | `STD-049` | The doors, by country | draft | register — scope belongs to the standard that cites it |
 
-84 rule documents, of which 30 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 9 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+87 rule documents, of which 30 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 9 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
