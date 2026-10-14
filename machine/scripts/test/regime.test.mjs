@@ -259,6 +259,18 @@ check('tree: one question per standard — charging, the account and what every 
   return true;
 });
 
+check('tree: one question per standard — what a member may do in an organisation, what a role may carry and who sees who is connected each have one holder', () => {
+  const want = { 'ORG-001': 'STD-051', 'ORG-003': 'STD-051', 'ORG-007': 'STD-051', 'ORG-012': 'STD-051', 'PRS-001': 'STD-053', 'PRS-003': 'STD-053', 'PRS-008': 'STD-053' };
+  for (const [plate, doc] of Object.entries(want)) {
+    const got = index.byPlate.get(plate);
+    if (got !== doc) return `${plate} holder ${got}, want ${doc}`;
+  }
+  const register = readdirSync(path.join(ROOT, 'standards')).find((f) => f.startsWith('STD-052-'));
+  if (!register) return 'STD-052, the register of what a role may carry, does not exist';
+  if (!/^subtype: register$/m.test(readFileSync(path.join(ROOT, 'standards', register), 'utf-8'))) return `${register} is not a register`;
+  return true;
+});
+
 check('tree: one question per standard — the last rows: guards apart from safety; the design map is a manual', () => {
   const want = { 'ENG-067': 'STD-005', 'ENG-032': 'STD-005', 'KEY-057': 'STD-022', 'GIT-050': 'STD-020' };
   for (const [plate, doc] of Object.entries(want)) {
