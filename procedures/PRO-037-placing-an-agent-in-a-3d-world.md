@@ -4,16 +4,16 @@ uid: ""
 title: "Placing an agent in a 3D world"
 type: procedure
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-14T13:08:11+02:00"
-updated: "2026-10-14T19:48:28+02:00"
+updated: "2026-10-14T20:35:04+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
 tags: [procedures, agents, worlds, hyperfy, avatars, ai]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
-related: ["PRO-038", "PRO-039", "PRO-040", "STD-003", "STD-022", "SYS-013"]
+related: ["PRO-038", "PRO-039", "PRO-040", "STD-050", "STD-003", "STD-022", "SYS-013"]
 derived_from: "PRI-001"
 ---
 
@@ -82,8 +82,9 @@ to numinia.com, out of the world.
    files (`agents/<name>/SOUL.md` and `OPERATOR.md`); *Nombre visible* and
    *Avatar (VRM)* are optional.
 4. **Lo que sabe → Enlace 1, Enlace 2…:** public pages it reads (a site's
-   front page: its `llms.txt` first). Filling the last one opens another, up
-   to five; an emptied one is forgotten at the next question.
+   front page: its `llms.txt` first). **Enlace 1 is the world's card** — the
+   space's `.md`, raw (STD-050). Filling the last link opens another, up to
+   five; an emptied one is forgotten at the next question.
 5. **Lo que sabe → Notas:** what it cannot read on the web (times, rules,
    whom to ask), up to 4,000 characters.
 6. **Comportamiento:** *Saluda a (m)* (default 6), *Saluda al acercarse*,

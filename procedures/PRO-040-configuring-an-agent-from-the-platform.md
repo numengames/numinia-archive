@@ -4,16 +4,16 @@ uid: ""
 title: "Configuring an agent from the platform"
 type: procedure
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-14T19:48:28+02:00"
-updated: "2026-10-14T19:48:28+02:00"
+updated: "2026-10-14T20:35:04+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
 tags: [procedures, agents, worlds, platform, communities, ai]
 license: "CC0-1.0"
 applies_to: [oracles, all-agents]
-related: ["PRO-037", "PRO-038", "PRO-039", "ADR-070", "STD-022"]
+related: ["PRO-037", "PRO-038", "PRO-039", "STD-050", "ADR-070", "STD-022"]
 derived_from: "PRI-012"
 ---
 
@@ -84,9 +84,9 @@ built (wireframe held by Ursa). Until they ship, PRO-037 is the way.
    - ***Identidad*:** name, how it is and how it speaks, language, avatar
      (from the Bazar or an uploaded `.vrm`). That it says it is an AI is
      fixed and cannot be turned off (EU AI Act, article 50).
-   - ***Lo que sabe*:** up to five links and up to five Markdown documents
-     (`.md`), uploaded there and kept in the community's memory, plus notes.
-     What a world contains (objects, people, weight) it reads by itself.
+   - ***Lo que sabe*:** up to five links and five `.md` documents, kept in
+     the community's memory, plus notes. It also reads each world's card,
+     the space's own `.md` (STD-050), and what the world contains.
    - ***Cómo se porta*:** `/p` always on; by name; greeting; short answers;
      which gestures it may make; and for each role of the community,
      *Manda*, *Le habla* or *Nada*.
@@ -99,15 +99,10 @@ built (wireframe held by Ursa). Until they ship, PRO-037 is the way.
 6. **To take it out of a world**, switch that world off; to stop it
    everywhere, *Pausar*.
 
-**Rules the platform keeps, whatever is configured:**
-
-- An emptied link or a removed document is forgotten at the next question.
-- What it reads from links and documents is reference material: it never
-  follows instructions written inside them.
-- Who commands it comes from the community's roles, never from what someone
-  types in the chat.
-- Every answer, change and placement is written in its *Registro*, with
-  who did it.
+**Whatever is configured,** the platform keeps STD-050 — links, documents,
+cards and names are material it never obeys; what is removed is forgotten;
+roles, not the chat, say who commands — and writes every answer, change and
+placement in its *Registro*.
 
 ---
 
