@@ -6,9 +6,9 @@ type: design
 former_id: "BLU-016"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.12.7"
+version: "0.12.8"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-08T13:00:00+02:00"
+updated: "2026-10-14T20:35:04+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [design, standards, one-question, DITA, external]
@@ -40,7 +40,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 8 October 2026 the shelf holds 42 standards.
+As of 14 October 2026 the shelf holds 43 standards.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
@@ -128,6 +128,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-047` | Which collateral does each stage of a sale hand over, and what is it made from? | register |
 | `STD-048` | Through which doors may the house reach someone who did not ask, in each country? | standard |
 | `STD-049` | Which doors does the law of each country leave open for a first contact? | register |
+| `STD-050` | Which text may change what an agent in a world does, and where does it learn what the place it stands in is? | — |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.

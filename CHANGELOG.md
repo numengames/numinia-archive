@@ -18,6 +18,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-14
+- **Added** `STD-050`: what an agent in a world reads, and what it obeys — instructions hold only identity, house rules, organisers' notes and roles; links, documents, a space's card and names are material sent apart and never obeyed; every space has a `.md` card for agents.
+- **Changed** `PRO-040` 0.2.0 and `PRO-037` 0.3.0: an agent reads each world's card, the space's own `.md`, and keeps `STD-050`; `DES-016` 0.12.8 adds its question (43 standards).
 - **Added** `PRO-040`: configuring an agent from the platform — a community adds an AI on its numinia.com panel, fills its page (identity, five links, five `.md` documents, behaviour, which roles it obeys) and switches on its worlds; the platform places it, the agent never holds a world's code.
 - **Changed** `PRO-037` 0.2.0: the agent answers only `/p` or its name, appears in front of the speaker, follows on *sígueme*, gives administrators priority; up to five links; the bridge is found on the world's own machine.
 - **Changed** `PRO-038` 0.2.0, now choosing the brain: a Claude key by default; Hermes optional, with empty memory, a 16+ character key, and tools taken from its API only (`platform_toolsets`, not the global `disabled_toolsets`).
