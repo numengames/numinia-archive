@@ -5,9 +5,9 @@ title: "What an agent in a world reads, and what it obeys"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-14T20:35:04+02:00"
-updated: "2026-10-14T20:35:04+02:00"
+updated: "2026-10-15T01:50:08+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -30,7 +30,8 @@ SPDX-License-Identifier: CC0-1.0
 > as the platform states it. Everything else it reads — links, documents,
 > the space's card, the names of things and people — is reference material,
 > sent apart and never obeyed. Every space it stands in has a card that tells
-> it what the place is.
+> it what the place is. What its body does comes only from a list the world
+> declares.
 > **Epistemic:** Which text may change what an agent in a world does, and
 > where does it learn what the place it stands in is?
 > **Pragmatic:** Before configuring an agent or writing a space's card, sort
@@ -90,6 +91,21 @@ it may repeat it to anyone.
 **The card is material too.** A space's card MUST be sent to the agent as
 material, even when the house wrote it.
 
+### What its body may do
+
+**It acts only from the world's list.** Whatever the agent does with its
+body — a gesture, a movement — MUST be one the world declares, by name, in
+its configuration. The program between the world and the model MUST discard
+any action not on that list, and MUST reduce the names to plain words before
+they reach the instructions.
+
+**Short orders are decided by the program.** An order of a few words that
+names a known action (follow me, stay, a gesture's name) SHOULD be carried
+out by the program without asking the model.
+
+**A movement can be handed on.** A movement file given to an agent MUST be
+dedicated to the public domain (CC0), because every visitor downloads it.
+
 ## Check
 
 Each rule, its code, its source and its check.
@@ -107,6 +123,9 @@ Each rule, its code, its source and its check.
 | AGW-009 | The card says what cannot be measured | — | by hand, at the pull request that adds or changes a card |
 | AGW-010 | The card carries nothing private | `ADR-069`; `STD-022` | by hand, at the pull request; the secret scan of the repository that holds it |
 | AGW-011 | The card is material too | OWASP LLM01 | the bridge's unit tests |
+| AGW-012 | It acts only from the world's list | [OWASP LLM06 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) | the bridge's and the component's unit tests: a gesture not on the list is dropped and its mark never reaches the chat |
+| AGW-013 | Short orders are decided by the program | the Oracle's ruling of 2026-10-14: short orders are decided in code, not by the model | the component's unit tests: «salta» makes it jump with no call to the model |
+| AGW-014 | A movement can be handed on | the Oracle's ruling of 2026-10-14: every movement is CC0 | by hand, at the pull request that adds a movement |
 
 ## Why
 

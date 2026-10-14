@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-15
+- **Changed** `STD-050` 0.2.0: what an agent's body does comes only from a list the world declares (AGW-012); short orders such as a gesture's name are decided by the program (AGW-013); every movement file is CC0 (AGW-014). `PRO-037` 0.4.0 adds the panel's Gestos section and `/p salta`.
+
 ### 2026-10-14
 - **Added** `ADR-071`: each organisation runs its own roles, as a Discord server does, and its members see who is connected; selects OWASP ASVS 5.0.0 (L2 + 8.3.2), OWASP's authorization and logging cheat sheets, AuthZEN 1.0, GDPR art. 25(2) with EDPB 03/2022 v2.0, and RFC 6121 (site v0.162.0).
 - **Added** `STD-051` organisation roles (ORG-001–012: roles add up, owners are not a role, act only below your highest role, read on the server at each request, the house's reach, every change logged), `STD-052` the register of what a role can carry, `STD-053` presence (PRS-001–010); all draft.
