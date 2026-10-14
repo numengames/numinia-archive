@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20582,
+  "chars": 20737,
   "apparatus": false,
   "archived": false,
-  "tokens": 5176
+  "tokens": 5209
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 55284,
+  "chars": 56212,
   "apparatus": false,
   "archived": false,
-  "tokens": 15715
+  "tokens": 15955
  },
  {
   "path": "CLAUDE.md",
@@ -3118,10 +3118,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5517,
+  "chars": 5463,
   "apparatus": false,
   "archived": false,
-  "tokens": 1571
+  "tokens": 1567
  },
  {
   "path": "procedures/PRO-038-raising-the-brain-that-agents-in-worlds-think-with.md",
@@ -3129,10 +3129,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5473,
+  "chars": 5795,
   "apparatus": false,
   "archived": false,
-  "tokens": 1539
+  "tokens": 1628
  },
  {
   "path": "procedures/PRO-039-opening-the-brain-to-the-worlds.md",
@@ -3140,10 +3140,21 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5119,
+  "chars": 4784,
   "apparatus": false,
   "archived": false,
-  "tokens": 1485
+  "tokens": 1422
+ },
+ {
+  "path": "procedures/PRO-040-configuring-an-agent-from-the-platform.md",
+  "dir": "procedures",
+  "series": "procedures",
+  "type": "procedure",
+  "status": "draft",
+  "chars": 5560,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1496
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
