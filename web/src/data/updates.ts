@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.162.0",
+    date: "2026-10-14",
+    entries: [
+      { type: "ADD", text: "ADR-071: each organisation runs its own roles, as a Discord server does, and its members see who is connected. Three standards in draft hold the rules, on the Living together shelf: Organisation roles, Organisation permissions and Presence." },
+    ],
+  },
+  {
     version: "v0.161.0",
     date: "2026-10-12",
     entries: [

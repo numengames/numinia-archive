@@ -5,11 +5,11 @@ uid: ""
 type: standard
 subtype: standard
 status: draft
-version: "3.3.1"
+version: "3.4.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-12T18:48:00+02:00"
+updated: "2026-10-14T23:36:00+02:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -44,6 +44,8 @@ sheets, creator panel, administration.
 **Ranks add up.** A rank MUST grant every permission of the ranks below it,
 as a role hierarchy does in NIST role-based access control. One ladder is
 easy to audit: what someone may do is their rank and everything under it.
+Inside an organisation, what a member may do is that organisation's own
+roles; a rank adds nothing there but the house's reach, below.
 
 **Rank is read, never declared.** The platform MUST work out a member's
 rank on its own server, from their sign-in, character sheet and purchases,
@@ -108,7 +110,9 @@ storage, ban and unban, and appoint Vernaculars.
 An Oracle is named on the list of Oracles. They may appoint and remove
 Archons, change what each rank may do, configure the system, and create,
 stop, start, download and delete the house's 3D worlds from the worlds
-room. They cannot be banned.
+room. They may enter any organisation with an administrator's reach, as
+that organisation's access for the house allows, and every act there is
+written in its log. They cannot be banned.
 
 ### Keeping this page true
 
@@ -162,3 +166,4 @@ governance from being captured inside the product.
 | `PRI-004` | You are what you are doing | rank as one of the six attributes, read from what is done and, at the top, judged |
 | `STD-033` | Every charge delivers something | payment, which this standard does not bind |
 | `SYS-015` | Signing in to numinia.com, as wired | where the platform reads each rank today |
+| `STD-051` | Organisation roles | what a member may do inside an organisation, and when the house enters one |

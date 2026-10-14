@@ -4,9 +4,9 @@ uid: ""
 title: "A world is paid for by the day from a prepaid balance in euros, kept in a ledger of our own: Stripe takes the money and the tax, teams share a balance, and only a world's owners sign what cannot be undone"
 type: adr
 status: draft
-version: "0.3.0"
+version: "0.3.1"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T14:17:50+02:00"
+updated: "2026-10-14T23:36:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -150,7 +150,9 @@ judgement goes to debt while the mechanical parts are built first.
    world, seeing or changing its code and downloading it are for owners
    only. Invitations go by email with the role inside and expire in seven
    days. A team role is not a rank of the city (`STD-003`): it grants
-   nothing outside its team.
+   nothing outside its team. `ADR-071` makes these four roles the Team
+   template of the roles each organisation runs; the owners and their acts
+   stay as written here.
 8. **The ledger is ours, in a service apart from the website.** It is a
    table where lines are only ever added — one per top-up, per world and
    day, per adjustment — and a balance is their sum. It keeps the
@@ -277,3 +279,5 @@ Changed on 2026-10-13 (0.3.0), from the Oracle's decisions on the prices:
 sizes are sold by people at once (point 3), a world asleep because it is
 empty counts as running (point 2), and the figures change from the price
 room (`MIS-184`); the starting figures are in `DBT-026`.
+Changed on 2026-10-14 (0.3.1): point 7 points to `ADR-071`, which makes
+the four team roles the Team template of each organisation's own roles.

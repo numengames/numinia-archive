@@ -271,8 +271,11 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-048` | Reaching someone who did not ask | draft | every first contact made in Numen Games' or Numinia's name with an organisation or a person who… |
 | `STD-049` | The doors, by country | draft | register — scope belongs to the standard that cites it |
 | `STD-050` | What an agent in a world reads, and what it… | draft | every agent placed in a world of ours or of a community on the platform… |
+| `STD-051` | Organisation roles | draft | numinia.com's organisations — their panel… |
+| `STD-052` | Organisation permissions | draft | register — scope belongs to the standard that cites it |
+| `STD-053` | Presence | draft | numinia.com's status menu, its lists of people, and the service that knows who is connected |
 
-89 rule documents, of which 30 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 9 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+92 rule documents, of which 30 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

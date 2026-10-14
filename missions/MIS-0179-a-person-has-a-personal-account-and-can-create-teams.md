@@ -4,9 +4,9 @@ uid: ""
 title: "A person has a personal account and can create teams: four roles, invitations by email that expire in seven days, and each role does only what its row allows"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-13T08:24:00+02:00"
+updated: "2026-10-14T23:36:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -24,7 +24,7 @@ depends_on: ["MIS-177"]
 requires_oracle_approval: false
 context: "2026-10-13T08:24:00+02:00"
 paths: [decisions/ADR-070-a-world-is-paid-for-by-the-day-from-a-prepaid-balance.md, standards/STD-003-platform-ranks.md]
-related: ["ADR-070", "MIS-169", "MIS-177", "MIS-180", "MIS-181", "MIS-157", "STD-003", "SYS-015"]
+related: ["ADR-070", "ADR-071", "STD-051", "STD-052", "MIS-169", "MIS-177", "MIS-180", "MIS-181", "MIS-157", "STD-003", "SYS-015"]
 ---
 
 <!--
@@ -105,6 +105,18 @@ Out of scope: the machine obeying team members (`MIS-186`), the screens
 - [ ] An invitation carries its role, is accepted once within seven days
   from its link, can be withdrawn, and dies when the person who sent it
   leaves the team. Today: no invitation exists.
+
+## Execution log
+
+### 2026-10-14 — the roles become each organisation's own (`ADR-071`)
+
+The Oracle decided that each organisation runs its own roles, as a Discord
+server does. The four roles of the table above become the Team template of
+`STD-052`: the roles a team is born with, which its owners may change
+afterwards. Ownership becomes a mark of the person rather than a role, and
+the acts in the owners' column stay theirs alone. The criteria keep
+holding: the test that walks every cell of the table walks the Team
+template. The rules are `STD-051`.
 
 ---
 
