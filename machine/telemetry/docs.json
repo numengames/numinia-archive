@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20737,
+  "chars": 20881,
   "apparatus": false,
   "archived": false,
-  "tokens": 5209
+  "tokens": 5248
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 56212,
+  "chars": 56668,
   "apparatus": false,
   "archived": false,
-  "tokens": 15955
+  "tokens": 16090
  },
  {
   "path": "CLAUDE.md",
@@ -951,10 +951,10 @@
   "series": "designs",
   "type": "design",
   "status": "draft",
-  "chars": 11121,
+  "chars": 11251,
   "apparatus": false,
   "archived": false,
-  "tokens": 2948
+  "tokens": 2983
  },
  {
   "path": "designs/DES-017-legal-obligations-to-confirm.md",
@@ -3118,10 +3118,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5463,
+  "chars": 5547,
   "apparatus": false,
   "archived": false,
-  "tokens": 1567
+  "tokens": 1598
  },
  {
   "path": "procedures/PRO-038-raising-the-brain-that-agents-in-worlds-think-with.md",
@@ -3151,10 +3151,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5560,
+  "chars": 5387,
   "apparatus": false,
   "archived": false,
-  "tokens": 1496
+  "tokens": 1470
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -3892,6 +3892,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3087
+ },
+ {
+  "path": "standards/STD-050-what-an-agent-in-a-world-reads.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "standard",
+  "status": "draft",
+  "chars": 7068,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1833
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
