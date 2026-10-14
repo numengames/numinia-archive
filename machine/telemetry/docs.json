@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20181,
+  "chars": 20582,
   "apparatus": false,
   "archived": false,
-  "tokens": 5067
+  "tokens": 5176
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 54670,
+  "chars": 55284,
   "apparatus": false,
   "archived": false,
-  "tokens": 15564
+  "tokens": 15715
  },
  {
   "path": "CLAUDE.md",
@@ -3111,6 +3111,39 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1122
+ },
+ {
+  "path": "procedures/PRO-037-placing-an-agent-in-a-3d-world.md",
+  "dir": "procedures",
+  "series": "procedures",
+  "type": "procedure",
+  "status": "draft",
+  "chars": 5517,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1571
+ },
+ {
+  "path": "procedures/PRO-038-raising-the-brain-that-agents-in-worlds-think-with.md",
+  "dir": "procedures",
+  "series": "procedures",
+  "type": "procedure",
+  "status": "draft",
+  "chars": 5473,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1539
+ },
+ {
+  "path": "procedures/PRO-039-opening-the-brain-to-the-worlds.md",
+  "dir": "procedures",
+  "series": "procedures",
+  "type": "procedure",
+  "status": "draft",
+  "chars": 5119,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1485
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
