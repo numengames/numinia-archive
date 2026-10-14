@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20881,
+  "chars": 21203,
   "apparatus": false,
   "archived": false,
-  "tokens": 5248
+  "tokens": 5325
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 56668,
+  "chars": 57919,
   "apparatus": false,
   "archived": false,
-  "tokens": 16090
+  "tokens": 16474
  },
  {
   "path": "CLAUDE.md",
@@ -643,10 +643,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 34539,
+  "chars": 37055,
   "apparatus": false,
   "archived": false,
-  "tokens": 9266
+  "tokens": 9889
  },
  {
   "path": "debt/DBT-023-sources-and-inspirations-without-a-home.md",
@@ -841,10 +841,21 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 18720,
+  "chars": 19006,
   "apparatus": false,
   "archived": false,
-  "tokens": 4706
+  "tokens": 4782
+ },
+ {
+  "path": "decisions/ADR-071-an-organisation-runs-its-own-roles-and-its-members-see-who-is-connected.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 15410,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3859
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -951,10 +962,10 @@
   "series": "designs",
   "type": "design",
   "status": "draft",
-  "chars": 11251,
+  "chars": 11467,
   "apparatus": false,
   "archived": false,
-  "tokens": 2983
+  "tokens": 3041
  },
  {
   "path": "designs/DES-017-legal-obligations-to-confirm.md",
@@ -2150,10 +2161,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 4538,
+  "chars": 5127,
   "apparatus": false,
   "archived": false,
-  "tokens": 1272
+  "tokens": 1420
  },
  {
   "path": "missions/MIS-0180-an-account-tops-up-on-stripes-page.md",
@@ -3448,10 +3459,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8221,
+  "chars": 8626,
   "apparatus": false,
   "archived": false,
-  "tokens": 2028
+  "tokens": 2117
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -3668,10 +3679,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 75014,
+  "chars": 75935,
   "apparatus": false,
   "archived": false,
-  "tokens": 18349
+  "tokens": 18563
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -3903,6 +3914,39 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1833
+ },
+ {
+  "path": "standards/STD-051-organisation-roles.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "standard",
+  "status": "draft",
+  "chars": 7635,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1984
+ },
+ {
+  "path": "standards/STD-052-organisation-permissions.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "standard",
+  "status": "draft",
+  "chars": 4342,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1083
+ },
+ {
+  "path": "standards/STD-053-presence.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "standard",
+  "status": "draft",
+  "chars": 5927,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1588
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
