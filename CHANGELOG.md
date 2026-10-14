@@ -18,6 +18,11 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-14
+- **Added** `ADR-071`: each organisation runs its own roles, as a Discord server does, and its members see who is connected; selects OWASP ASVS 5.0.0 (L2 + 8.3.2), OWASP's authorization and logging cheat sheets, AuthZEN 1.0, GDPR art. 25(2) with EDPB 03/2022 v2.0, and RFC 6121 (site v0.162.0).
+- **Added** `STD-051` organisation roles (ORG-001–012: roles add up, owners are not a role, act only below your highest role, read on the server at each request, the house's reach, every change logged), `STD-052` the register of what a role can carry, `STD-053` presence (PRS-001–010); all draft.
+- **Changed** `STD-003` 3.4.0: inside an organisation a rank adds nothing but the house's reach, and an Oracle may enter any organisation as its access for the house allows; `STD-026` 0.10.0 adds *Organisation role* and *Presence*.
+- **Changed** `ADR-070` 0.3.1 and `MIS-179` 0.2.0: the four team roles become the Team template of each organisation's own roles (`ADR-071`); `DES-016` 0.12.9 adds the three questions (46 standards).
+- **Debt** `DBT-022` 0.6.0: rows 62–65 for counsel — the first-run presence question as consent, the house's access during the alpha, how long an organisation's log is kept, and who decides an organisation's ban under the DSA.
 - **Added** `STD-050`: what an agent in a world reads, and what it obeys — instructions hold only identity, house rules, organisers' notes and roles; links, documents, a space's card and names are material sent apart and never obeyed; every space has a `.md` card for agents.
 - **Changed** `PRO-040` 0.2.0 and `PRO-037` 0.3.0: an agent reads each world's card, the space's own `.md`, and keeps `STD-050`; `DES-016` 0.12.8 adds its question (43 standards).
 - **Added** `PRO-040`: configuring an agent from the platform — a community adds an AI on its numinia.com panel, fills its page (identity, five links, five `.md` documents, behaviour, which roles it obeys) and switches on its worlds; the platform places it, the agent never holds a world's code.
