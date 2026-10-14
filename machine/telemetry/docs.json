@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 57919,
+  "chars": 58223,
   "apparatus": false,
   "archived": false,
-  "tokens": 16474
+  "tokens": 16574
  },
  {
   "path": "CLAUDE.md",
@@ -3129,10 +3129,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5547,
+  "chars": 5582,
   "apparatus": false,
   "archived": false,
-  "tokens": 1598
+  "tokens": 1630
  },
  {
   "path": "procedures/PRO-038-raising-the-brain-that-agents-in-worlds-think-with.md",
@@ -3910,10 +3910,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 7068,
+  "chars": 8470,
   "apparatus": false,
   "archived": false,
-  "tokens": 1833
+  "tokens": 2187
  },
  {
   "path": "standards/STD-051-organisation-roles.md",
