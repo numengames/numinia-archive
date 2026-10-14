@@ -1,19 +1,19 @@
 ---
 id: "PRO-038"
 uid: ""
-title: "Raising the brain that agents in worlds think with"
+title: "Choosing the brain that agents in worlds think with"
 type: procedure
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-14T13:08:11+02:00"
-updated: "2026-10-14T13:08:11+02:00"
+updated: "2026-10-14T19:48:28+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
-tags: [procedures, agents, worlds, hermes, security, ai]
+tags: [procedures, agents, worlds, hermes, claude, security, ai]
 license: "CC0-1.0"
 applies_to: [oracles]
-related: ["PRO-037", "PRO-039", "STD-022", "PRO-036"]
+related: ["PRO-037", "PRO-039", "PRO-040", "STD-022", "PRO-036"]
 derived_from: "PRI-010"
 ---
 
@@ -22,15 +22,15 @@ SPDX-FileCopyrightText: 2026 Numen Games S.L.
 SPDX-License-Identifier: CC0-1.0
 -->
 
-# PRO-038 — Raising the brain that agents in worlds think with
+# PRO-038 — Choosing the brain that agents in worlds think with
 
-> **Summary:** How to raise, once, the machine that thinks for every agent in
-> our 3D worlds: a separate VPS with Hermes signed in to the Nous Portal,
-> listening only inside the machine, with every tool taken away.
-> **Epistemic:** Why a machine of our own rather than a Hermes Cloud
-> instance, and what makes Hermes safe to put in front of strangers?
-> **Pragmatic:** Rent, lock SSH, install and sign in, open the API on
-> loopback, strip the tools, prove each part before PRO-039.
+> **Summary:** The model an agent in a world thinks with: a Claude key by
+> default — nothing to run — or, optionally, a Hermes of our own on its own
+> machine, with every tool taken away from its API.
+> **Epistemic:** Which brain gives a world's agent good answers at the
+> lowest risk, and what must a Hermes never carry into a stranger's chat?
+> **Pragmatic:** Make a Claude key with a spending limit; only if Hermes is
+> wanted, raise it with an empty memory and no API tools.
 > **Audience:** Oracles
 
 **Binds:** the Oracle who holds the brain's key. An agent may prepare files
@@ -40,84 +40,96 @@ and read results, never hold the key (STD-022).
 
 ## 1. Purpose and trigger
 
-An agent placed in a world (PRO-037) asks the brain for every answer. This
-procedure raises the brain's machine and its Hermes; PRO-039 then puts the
-bridge and the HTTPS door in front of it. The trigger is the first agent
-placed in a world, or the machine being replaced.
+An agent placed in a world (PRO-037) asks the bridge (PRO-039) for every
+answer, and the bridge asks a brain. The bridge can hold up to three brains
+and tries them in order, so one failing does not silence the agent. The
+trigger is the first agent placed in a world, a key replaced, or a brain
+added.
 
-| Choice | Why |
-|---|---|
-| **Its own machine, apart from any world** | if the brain hangs or overloads, the worlds keep running and the agent says it cannot think right now |
-| **Not a Hermes Cloud instance** | an instance from the Nous Portal exposes only its dashboard, behind the portal sign-in; its API is not reachable from outside (read from Hermes' source, October 2026). The same Hermes on our machine, signed in to the same Portal account, gives the same models with a door we control |
-| **No tools** | Hermes can run commands and read files; a visitor could try to talk it into doing so |
+| Brain | When | Why |
+|---|---|---|
+| **Claude, by its API** (the default) | always, as the first brain | nothing to install or keep running; the key and its monthly limit live in Anthropic's console |
+| **Hermes on its own machine** | only when the house wants its own agent loop behind the answers | more control, more to look after: a machine, its updates, its door (PRO-039 §3, last step) |
+
+A Hermes Cloud instance is not used: it shows its dashboard behind the Nous
+Portal sign-in, and its API being reachable from outside is not confirmed.
 
 ---
 
 ## 2. Preconditions
 
-1. An account at the hosting provider (the house uses OVH) and an SSH key
-   pair on the Oracle's computer.
-2. A Nous Portal account with an active subscription.
-3. A password manager to keep one new key.
+1. An Anthropic console account (the API is paid by use, apart from any
+   Claude subscription).
+2. A password manager to keep each new key.
+3. For Hermes only: a small VPS of its own (OVH VPS-1 is enough), an SSH key
+   pair, and a Nous Portal account.
 
 ---
 
 ## 3. Procedure
 
-1. **Rent a small VPS** (OVH VPS-1 is enough): Ubuntu 24.04, in the worlds'
-   country, with the Oracle's SSH public key added at order time.
-2. **Close password logins before installing anything.** OVH's image ships
-   `50-cloud-init.conf`, which turns them back on. SSH keeps the first value
-   it reads, in alphabetical order, so a `00-` file wins:
+**A. Claude (always)**
+
+1. In the Anthropic console, set a **monthly spending limit** (e.g. 20 $) —
+   the hard ceiling.
+2. **API Keys → Create Key**, named `puente-mundo`; copy it into the password
+   manager. It starts with `sk-ant-`. It never goes into a chat, a
+   repository or a world: only into the bridge's installer (PRO-039).
+
+**B. Hermes (optional)**
+
+3. **Rent the VPS** (Ubuntu 24.04) with the Oracle's SSH key, and **close
+   password logins before installing anything** — OVH's image re-enables
+   them, and the first file SSH reads wins:
 
    ```bash
    printf 'PasswordAuthentication no\nKbdInteractiveAuthentication no\nPermitRootLogin prohibit-password\n' | sudo tee /etc/ssh/sshd_config.d/00-solo-llaves.conf
    sudo sshd -t && sudo systemctl reload ssh
    ```
 
-   Keep this session open until a second key login works.
-3. **Install Hermes:** `curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`,
-   then log out and in.
-4. **Sign in to the Portal:** `hermes portal`. It prints an address and a
-   code: approve it on any device, pick a fast, cheap model, and decline the
-   Tool Gateway.
-5. **Make the key:** `openssl rand -hex 32`, stored in the password manager.
-   It never goes into a chat, a repository or a world.
-6. **Open the API on loopback only** — append to `~/.hermes/.env`:
+4. **Install Hermes** (`curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash`),
+   log out and in, then `hermes portal`: approve the code, pick a fast,
+   cheap model, decline the Tool Gateway.
+5. **Keep its memory empty.** Hermes adds its two memory files (what it
+   remembers, and who its user is) to every API prompt, tools or not: this
+   install is the brain only, never anyone's assistant.
+6. **Make the key:** `openssl rand -hex 32`. Hermes leaves its API **off,
+   silently,** with a key under 16 characters.
+7. **Open the API on loopback** — append to `~/.hermes/.env`:
    `API_SERVER_ENABLED=true`, `API_SERVER_HOST=127.0.0.1`,
-   `API_SERVER_PORT=8642`, `API_SERVER_KEY=<the key>`, one per line.
-7. **Take away every tool** — append to `~/.hermes/config.yaml`, merging into
-   any of the three keys that already exist:
+   `API_SERVER_PORT=8642`, `API_SERVER_KEY=<the key>`.
+8. **Take the tools away from the API only** — in `~/.hermes/config.yaml`:
 
    ```yaml
    platform_toolsets:
      api_server: []
-   agent:
-     disabled_toolsets: [terminal, file, code_execution, browser, computer_use, memory, session_search, cronjob, delegation, web, search, skills, image_gen, video_gen, tts, kanban]
    gateway:
      api_server:
        max_concurrent_runs: 5
    ```
 
-8. **Run it for good:** `hermes gateway install`, then
-   `sudo loginctl enable-linger ubuntu` (or Hermes stops when SSH closes),
-   then `hermes gateway restart`.
+   Not `agent.disabled_toolsets`: it switches tools off for every platform
+   of that Hermes, not only the API.
+9. **Run it for good:** `hermes gateway install`,
+   `sudo loginctl enable-linger ubuntu`, `hermes gateway restart`.
+
+Each Hermes answer is a stored session. The bridge sends a fresh marker per
+visitor and deletes the session after each turn, so two visitors never
+share one and nothing piles up.
 
 ---
 
 ## 4. Verification
 
-Run on the machine. A tool listed, or a real folder list, is a stop: do not
-start PRO-039 until it is fixed.
-
 | Step | Check | Must show |
 |---|---|---|
-| 2 | `sudo sshd -T \| grep -i -E '^(passwordauthentication\|kbdinteractiveauthentication)'` | both `no` |
-| 4 | `hermes portal info` | logged in, Nous as provider |
-| 8 | `curl -s http://127.0.0.1:8642/health` | `{"status": "ok"}` |
-| 8 | `POST /v1/chat/completions` with the key, `"model":"hermes-agent"`, asking for a one-line hello | a greeting |
-| 8 | `GET /v1/toolsets` with the key | an empty list, or toolsets with no tools in them |
-| 8 | a chat completion asking it to run `ls /` | a refusal, never `bin`, `etc`, `home`… |
+| 1 | the console's limits page | the monthly limit set |
+| 2 | PRO-039's installer, stage 3/6 | `✓ Clave aceptada por Anthropic` |
+| 3 | `sudo sshd -T \| grep -i -E '^(passwordauthentication\|kbdinteractiveauthentication)'` | both `no` |
+| 9 | `curl -s http://127.0.0.1:8642/health` | `{"status": "ok"}` |
+| 9 | a chat completion with the key, `"model":"hermes-agent"` | a greeting |
+| 9 | `GET /v1/toolsets` with the key | no tools in any toolset |
+| 9 | a chat completion asking it to run `ls /` | a refusal, never `bin`, `etc`, `home`… |
 
 ---
 
@@ -125,10 +137,11 @@ start PRO-039 until it is fixed.
 
 | What you see | Do |
 |---|---|
-| `hermes: command not found` | log out and in |
-| not logged in after `hermes portal` | run it again and approve the code |
-| `401` from the API | the key in the request is not the one in `.env` |
-| a tool in `/v1/toolsets`, or it lists folders | stop; send the output to Ursa |
-| the key was exposed | PRO-036: make it useless first (new key in steps 5 and 6, and in PRO-039 step 1), then write about it |
+| the installer rejects the Claude key | copy it again from the console; check the account has credit |
+| answers stop mid-month | the spending limit was reached: raise it or wait |
+| Hermes `/health` silent | the key is under 16 characters, or `API_SERVER_ENABLED` is missing |
+| `401` from Hermes | the key in the request is not the one in `.env` |
+| a tool listed, or it lists folders | stop; send the output to Ursa |
+| a key was exposed | PRO-036: make it useless first (revoke it in the console, or a new Hermes key), then write about it |
 
 Anything else: stop, keep the output, hand it to Ursa.

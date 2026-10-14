@@ -18,6 +18,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-14
+- **Added** `PRO-040`: configuring an agent from the platform — a community adds an AI on its numinia.com panel, fills its page (identity, five links, five `.md` documents, behaviour, which roles it obeys) and switches on its worlds; the platform places it, the agent never holds a world's code.
+- **Changed** `PRO-037` 0.2.0: the agent answers only `/p` or its name, appears in front of the speaker, follows on *sígueme*, gives administrators priority; up to five links; the bridge is found on the world's own machine.
+- **Changed** `PRO-038` 0.2.0, now choosing the brain: a Claude key by default; Hermes optional, with empty memory, a 16+ character key, and tools taken from its API only (`platform_toolsets`, not the global `disabled_toolsets`).
+- **Changed** `PRO-039` 0.2.0: the bridge installs beside each world with one installer — no domain, no certificate, no other machine; an HTTPS door only for a Hermes elsewhere.
 - **Added** `PRO-037`: placing an agent in a 3D world — drop the agent component into a Hyperfy world, choose who it is and what it knows in its panel, test the connection, talk to it; the component carries no secret.
 - **Added** `PRO-038`: raising the brain agents in worlds think with — Hermes on its own machine, signed in to the Nous Portal, listening only inside it, every tool taken away; why not a Hermes Cloud instance.
 - **Added** `PRO-039`: opening the brain to the worlds — a bridge that holds the key and the limits and answers only listed worlds, behind one HTTPS door and a firewall.
