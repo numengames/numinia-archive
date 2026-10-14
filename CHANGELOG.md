@@ -17,6 +17,11 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-14
+- **Added** `PRO-037`: placing an agent in a 3D world — drop the agent component into a Hyperfy world, choose who it is and what it knows in its panel, test the connection, talk to it; the component carries no secret.
+- **Added** `PRO-038`: raising the brain agents in worlds think with — Hermes on its own machine, signed in to the Nous Portal, listening only inside it, every tool taken away; why not a Hermes Cloud instance.
+- **Added** `PRO-039`: opening the brain to the worlds — a bridge that holds the key and the limits and answers only listed worlds, behind one HTTPS door and a firewall.
+
 ### 2026-10-13
 - **Changed** `ADR-070` 0.3.0, from the Oracle's decisions on the prices: sizes are sold by people at once — Small up to 20, Medium up to 50, Large up to 100 — a world asleep because it is empty counts as running, and the figures change from the price room (`MIS-184`).
 - **Changed** `MIS-184` 0.3.0, opened: the Oracle's price room on numinia.com — a calculator with dated costs, each size's cost and margin, an example fleet's monthly profit, and Publish, which schedules a dated tariff version in the till with who and why.
