@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.9.1"
+version: "0.10.0"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-14T23:36:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -239,6 +239,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Operator** *(person)* | The person who runs a digital agent and answers for what it does. | An agent acts; a person is responsible. | Knowing whom to ask about an agent's work. |  |
 | **Opportunity** *(record)* | A chance to bring money or work into the house, kept as one public file with its timeline. | There are five kinds: sale, tender, grant, collaboration and partner. | The stage, the next step and the chance are computed from the record, never typed. | Convention: opportunity — CRM vocabulary (Salesforce); the folder is `opportunities/`. |
 | **Oracle** *(rank)* | The highest rank in Numinia: one of the founders, who signs the decisions that bind the house. | Who decides in the end; digital agents propose, they do not sign. | Knowing whom to escalate to when you cannot decide. | Founding Partner · Oracle · Oráculo<br>Also: the Oracle, as in *the Oracle approves*; which Oracle is meant is for the Oracles to settle, and no proper name stands for the rank.<br>Convention: founding partner — the business label chosen by the Oracle on 2026-10-05, on the lore reviewer's answer: a founder who also decides and acts; a dial word. |
+| **Organisation role** *(permission set)* | A named set of permissions an organisation gives some of its members, kept in an ordered list; the base role, which every member holds, is one of them. | Not a person's role — what they are doing in an act — nor their rank, how far they have come: it says what a member may do in one organisation and grants nothing outside it. | Building and checking what each member may do in an organisation (`STD-051`). | Convention: organization role — GitHub's word; *role* in Discord. |
 | **Outcome** *(field)* | The header field of a decision record saying where the decision stands: `proposed` or `accepted`. | The document's lifecycle is `status`; the decision's own state is this field. | Reading whether a decision was taken or only put forward. | Convention: the MADR template's `status` (proposed · rejected · accepted · deprecated · superseded); the archive's `status` is the lifecycle, so a second key is forced. |
 | **Owner** *(field)* | The person who answers for a document and approves its changes. | The author wrote it; the owner keeps it. | Knowing whom to ask before changing a document. | Convention: document owner — ISO/IEC 27001 practice. |
 
@@ -259,6 +260,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Positioning** *(statement)* | What the house says to a buyer: the problem, the solution, who it is for and the words used. | Positioning is a choice of market, not a belief; it is not principles. | Every piece of sales material speaks with one voice. |  |
 | **Pragmatic value** *(field)* | What a document lets its reader do once read. | Knowing is not enough; a document must change what you can do. | Choosing the document that lets you act, by reading one line. | Convention: purpose — technical-writing practice, as the pair with the epistemic value. |
 | **Precedence** *(rule)* | The order that decides which source wins when two disagree. | History beats a document, a document beats code, the costlier document beats the cheaper. | Settling a contradiction without asking who is more important. | Also: which rule wins. |
+| **Presence** *(state)* | Whether a person is connected and how available they are: online, idle, do not disturb or offline, which is also what an invisible person shows. | Not a document's *Status* field, nor a person's rank. | Seeing who is there to meet now, without showing anyone who did not choose to be seen (`STD-053`). | Convention: presence — IETF RFC 6121; the Matrix specification. |
 | **Price** *(amount)* | What a buyer pays for a named good, shown whole, with tax, before paying. | No hidden fees; the price seen is the price paid. | Every charge passes the question "can the whole price be seen?". |  |
 | **Principle** *(document)* | A normative document that says what is so and why, and leaves the reader able to act; its header says `type: principle`. | A principle gives reasons, not procedures; it names no tool and keeps no clock. | Deciding a case nobody wrote a rule for, from the reason behind the rules. | Principle · Principle · Principio<br>Also: canon (until 2026-10-03); the word of the Numinia stop.<br>Convention: the governance hierarchy policy → standard → procedure → guideline; *policy*, "intentions and direction of an organization as formally expressed by its top management" — ISO 9000:2015 3.5.8. The archive's founding texts state what the system is and why, so the word is *principles* (the legal texts of `legal/` keep *policy*); the series `principles/` took it in cut 3 of `ADR-067`, the prefix `PRI-` for `CAN-`, each document keeping its old identifier in `former_id`. |
 | **Priority** *(field)* | How urgent a mission is: `critical`, `high`, `medium` or `low`. | Urgency is declared once, in the card, and the board sorts by it. | Picking what to do first without a meeting. | Convention: priority — ITIL's words. |

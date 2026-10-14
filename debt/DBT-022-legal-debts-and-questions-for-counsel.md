@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.5.0"
+version: "0.6.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-13T08:24:00+02:00"
+updated: "2026-10-14T23:36:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -178,6 +178,20 @@ the worlds the house hosts for clients, and row 20 the processors this adds.
 | 60 | Balance paid and not yet consumed is a customer advance until consumed — our unverified reading: account 438 — but when does balance that is never spent count as income? Ties with row 51. | company |
 | 61 | Stripe Tax (0.5 % per transaction) for the reverse charge with companies elsewhere in the EU, and Spanish VAT for consumers in other EU countries up to 10,000 euros a year, the one-stop shop above it: should Numen register for the one-stop shop from the start? | company |
 
+### 1.10 Organisation roles and presence (`ADR-071`)
+
+Each organisation on numinia.com is to run its own roles and see which of
+its members are connected (`STD-051`, `STD-053`), and during the alpha the
+house's staff enter every organisation's panel. The privacy texts say none
+of it yet.
+
+| # | Item | Who |
+|---|---|---|
+| 62 | The first time, a person is asked who may see that they are connected, with nothing preselected, and looks offline until they answer. Is that answer consent for showing their status to the members of their organisations, or is the basis legitimate interest? Only the present status is kept. | counsel |
+| 63 | During the alpha the house's staff enter every organisation's panel without being members, and every act is written in that organisation's log. What must the privacy policy and each organisation's terms say about it, and on which legal basis? | counsel |
+| 64 | An organisation's log holds personal data — who changed which role, who was banned and why. How long may it be kept, and may its owners read it after a member leaves? | counsel |
+| 65 | When an organisation, not the house, bans someone, who decides under the Digital Services Act (art. 17, statement of reasons; art. 20, complaints), and must the house offer the banned person a way to appeal? | counsel |
+
 ## 2. Evidence
 
 ```
@@ -331,6 +345,15 @@ Vamos a empezar a llamar, escribir cartas y visitar a organizaciones que no nos 
 - [#45] Un mensaje privado en LinkedIn o el formulario de contacto de una web, ¿cuentan como correo electrónico a efectos del art. 21 LSSI?
 - [#46] ¿Un píxel de seguimiento en un correo comercial necesita consentimiento?
 - [#49] Para llamar al número público de una organización y ofrecerle nuestros servicios, ¿tenemos que llamar desde un fijo o un 800/900 (art. 9 de la Orden TDF/149/2025), o podemos hacerlo desde un móvil cuando llamamos a una empresa o a un organismo? Mientras no nos digáis lo contrario, no llamaremos desde un móvil.
+
+### 10. Roles en las organizaciones y quién está conectado
+
+Cada organización de numinia.com tendrá sus propios roles, como un servidor de Discord, y sus miembros verán quién está conectado. Durante la alfa, el personal de la casa entra en el panel de todas las organizaciones, y todo lo que hace queda escrito en el registro de cada una.
+
+- [#62] La primera vez preguntamos «¿quién ve si estás conectada?», sin nada marcado, y hasta que contestas sales desconectada. ¿Esa respuesta es consentimiento para enseñar tu estado a los miembros de tus organizaciones, o la base es el interés legítimo? Solo guardamos el estado de ahora, sin historial.
+- [#63] ¿Qué deben decir la política de privacidad y las condiciones de cada organización sobre la entrada de la casa durante la alfa, y con qué base legal?
+- [#64] ¿Cuánto tiempo podemos guardar el registro de cada organización (quién cambió qué rol, a quién se vetó y por qué), y pueden leerlo sus propietarios cuando un miembro se va?
+- [#65] Cuando veta una organización y no la casa, ¿quién decide a efectos del Reglamento de Servicios Digitales (art. 17, motivación; art. 20, reclamaciones), y tenemos que ofrecer a la persona vetada una vía de recurso?
 
 ### Lo que ya está hecho
 
