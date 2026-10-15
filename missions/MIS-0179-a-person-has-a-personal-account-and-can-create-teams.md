@@ -122,10 +122,13 @@ template. The rules are `STD-051`.
 
 The Oracle split the table's row «Top up and change billing details»:
 adding to the team's balance takes nothing from anyone, and the ledger
-keeps who paid, so every member may top up, as the till already let them;
-changing the billing details stays with owners, administration and finance.
-`STD-052` 0.2.0 says so: `manage-balance` now carries only the billing
-details. The test that walks every cell of the table walks the split row.
+keeps who paid, so topping up becomes a permission of its own, `top-up`,
+which every template gives to the base role — every member may top up, as
+the till already let them, and a team may take it away. Changing the
+billing details stays with owners, administration and finance
+(`manage-balance`). What a tax adviser says about who may pay for a team
+changes only the templates' default. `STD-052` 0.2.0 says so; the test that
+walks every cell of the table walks the split row.
 
 ---
 

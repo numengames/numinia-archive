@@ -144,8 +144,8 @@ judgement goes to debt while the mechanical parts are built first.
    answered.
 7. **A person has a personal account and may create teams.** A team has a
    shared balance, its worlds and its billing details, and four roles:
-   owner, administration, finance and member. Any member may top up its
-   balance; changing its billing details is for the first three; starting
+   owner, administration, finance and member. Every member may top up its
+   balance unless the team takes that away; changing its billing details is for the first three; starting
    and stopping worlds for owners, administration and
    members; creating worlds for owners and administration. Deleting a
    world, seeing or changing its code and downloading it are for owners

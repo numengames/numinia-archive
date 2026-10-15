@@ -25,7 +25,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Organisation permissions
 
-> **Summary:** What a role in an organisation can carry: sixteen
+> **Summary:** What a role in an organisation can carry: seventeen
 > permissions, the acts no role carries because they belong to the owners,
 > the settings for the house's access, and the roles an organisation is born
 > with. A register: the rules that read it are in *Organisation roles*
@@ -54,11 +54,12 @@ label. A role with no permission is a title.
 | `start-stop-worlds` | Start and stop worlds | start and stop the organisation's worlds, which spends its balance |
 | `create-worlds` | Create worlds | create worlds paid from the organisation's balance |
 | `view-balance` | View balance and invoices | see the balance, the daily use and the invoices |
+| `top-up` | Top up | add to the organisation's balance; the ledger keeps who paid |
 | `manage-balance` | Billing details | change the billing details: the name and tax ID the invoices carry |
 
-Topping up needs no permission: any member may add to the organisation's
-balance, as anyone in a Discord server may boost it, and the ledger keeps
-who paid.
+Every template gives `top-up` to the base role, so any member may top up,
+as anyone in a Discord server may boost it; an organisation that wants
+fewer hands on its balance takes it away from the base role.
 
 ## Only owners
 
@@ -88,6 +89,6 @@ the list down; the base role is always last.
 
 | Template | For | Roles, and what each carries |
 |---|---|---|
-| Alpha | every organisation the house opens during the alpha | Administration: `administrator` · base role: `enter-worlds` |
-| Team | a studio or a company that pays for worlds | Administration: `administrator` · Finance: `manage-balance` · Member: `enter-worlds`, `start-stop-worlds`, `build-in-worlds` · base role: `view-balance` |
-| Community | a congress, a class, an open group | Administration: `administrator` · Moderation: `remove-members`, `ban-members`, `mute-members`, `manage-rituals` · base role: `enter-worlds` |
+| Alpha | every organisation the house opens during the alpha | Administration: `administrator` · base role: `enter-worlds`, `top-up` |
+| Team | a studio or a company that pays for worlds | Administration: `administrator` · Finance: `manage-balance` · Member: `enter-worlds`, `start-stop-worlds`, `build-in-worlds` · base role: `view-balance`, `top-up` |
+| Community | a congress, a class, an open group | Administration: `administrator` · Moderation: `remove-members`, `ban-members`, `mute-members`, `manage-rituals` · base role: `enter-worlds`, `top-up` |

@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.6.0"
+version: "0.7.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-15T11:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -191,6 +191,7 @@ of it yet.
 | 63 | During the alpha the house's staff enter every organisation's panel without being members, and every act is written in that organisation's log. What must the privacy policy and each organisation's terms say about it, and on which legal basis? | counsel |
 | 64 | An organisation's log holds personal data — who changed which role, who was banned and why. How long may it be kept, and may its owners read it after a member leaves? | counsel |
 | 65 | When an organisation, not the house, bans someone, who decides under the Digital Services Act (art. 17, statement of reasons; art. 20, complaints), and must the house offer the banned person a way to appeal? | counsel |
+| 66 | By default any member may top up an organisation's shared balance (`top-up`, `STD-052`), while only owners, administration and finance change its billing details. When a member who is not finance pays, who is the buyer for VAT and for the invoice — the person or the organisation, which may be a company — and should the templates leave topping up to every member? | counsel |
 
 ## 2. Evidence
 
@@ -354,6 +355,7 @@ Cada organización de numinia.com tendrá sus propios roles, como un servidor de
 - [#63] ¿Qué deben decir la política de privacidad y las condiciones de cada organización sobre la entrada de la casa durante la alfa, y con qué base legal?
 - [#64] ¿Cuánto tiempo podemos guardar el registro de cada organización (quién cambió qué rol, a quién se vetó y por qué), y pueden leerlo sus propietarios cuando un miembro se va?
 - [#65] Cuando veta una organización y no la casa, ¿quién decide a efectos del Reglamento de Servicios Digitales (art. 17, motivación; art. 20, reclamaciones), y tenemos que ofrecer a la persona vetada una vía de recurso?
+- [#66] Por defecto cualquier miembro puede recargar el saldo común de su organización, y solo la propietaria, Administración y Finanzas cambian los datos de facturación. Cuando paga un miembro que no es de Finanzas, ¿quién es el comprador a efectos del IVA y de la factura: esa persona o la organización, que puede ser una empresa? ¿Conviene que por defecto pueda recargar cualquier miembro?
 
 ### Lo que ya está hecho
 
