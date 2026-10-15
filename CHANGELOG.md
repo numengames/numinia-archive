@@ -18,6 +18,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-15
+- **Changed** `STD-054` 0.2.0, `PRO-029` 0.5.0: a company is named only once it has confirmed in writing, not once told and not objecting.
+- **Changed** `STD-039` 0.16.1 (OPP-019): a lost opportunity is kept 90 days, then the next quarterly roll-up counts it and deletes its file; won ones stay. `PRO-017` and the quarterly template carry the step, the pipeline report lists *Ready to leave* (site v0.164.0).
 - **Changed** `STD-039` 0.15.0 splits in three, same obligations: `STD-054` *A client is named by consent* (NAM-001–003) takes who may be named; `STD-055` *Only a call that passes is recorded* (CAL-001–004) takes the public call; OPP-007 and OPP-010 leave to the reviewers and procedures.
 - **Changed** `PRO-003` *Running a mission* (5.2.0) and `PRO-005` *Escalating to the Oracle* (3.2.0) are in force: a task starts from a mission card, an escalation names its mission, and `AGENTS.md` stops suspending the card. `PRO-003` first takes the procedure form (5.1.0); MCY-001–007 become steps.
 - **Changed** `STD-052` 0.2.0: `top-up` is a permission of its own, given to the base role by every template; `manage-balance` keeps the billing details. `ADR-070` 0.3.2, `ADR-071` 0.1.1 and `MIS-179` 0.3.0 follow; `DBT-022` 0.7.0 asks counsel who buys when a member pays (#66).

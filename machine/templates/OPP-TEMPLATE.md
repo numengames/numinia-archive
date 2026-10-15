@@ -28,8 +28,8 @@ license: "CC0-1.0"
 # EVERY KIND — required on every record.
 # kind: sale | tender | grant | collaboration | partner (STD-038 The kinds)
 kind: "sale"
-# organisation: sector and size until it agreed to be named (disclosure:
-# open); a lost record is never named. A grant's funder and a tender's
+# organisation: sector and size until it confirmed in writing that it may be
+# named (disclosure: open); a lost record is never named. A grant's funder and a tender's
 # buyer published their call and may be named.
 organisation: "a large retailer"
 # sector: retail | public-sector | education | technology | events | non-profit | other
@@ -70,7 +70,7 @@ opened: "YYYY-MM-DDTHH:MM:SS+02:00"
 # agreement: "path to the signed agreement"
 #   a sale: REQUIRED at won
 # disclosure: "open"
-#   open | unnamed: open once told the house works in the open and it did not object
+#   open | unnamed: open only once the client confirmed in writing that it may be named
 # follows: "OPP-YYYY-NNN"
 #   the earlier record this comes from: a repeat client or a referral
 # gives_back: "a case, a contact, visibility"

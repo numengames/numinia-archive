@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: procedure
 status: draft
-version: "3.3.6"
+version: "3.4.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-15T10:57:40Z"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -81,6 +81,10 @@ on the first Monday of a year over four quarterlies. Executor: any agent on
 
 Quarterly and annual: copy `RPT-TEMPLATE-QUARTER.md` or `RPT-TEMPLATE-YEAR.md`;
 the "records" are the reports of the level below.
+Quarterly, also: run `node machine/packages/sales-kit/pipeline.mjs opportunities`
+and read its *Ready to leave* list. Write its count, value and reasons
+under *business and customers*, beside the quarter before; put the
+identifiers in `absorbs:`; then `git rm` those lost records.
 Carry up only `rule`, `debt`, `address` lines; move `absorbs:` lists whole
 (`DEF-011`); repoint redirects (`URL-005`); delete the lower reports.
 

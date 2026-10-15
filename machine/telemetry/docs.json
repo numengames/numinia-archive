@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 59093,
+  "chars": 59502,
   "apparatus": false,
   "archived": false,
-  "tokens": 16868
+  "tokens": 16994
  },
  {
   "path": "CLAUDE.md",
@@ -1677,10 +1677,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 9432,
+  "chars": 9458,
   "apparatus": true,
   "archived": false,
-  "tokens": 2524
+  "tokens": 2528
  },
  {
   "path": "machine/templates/OPS-TEMPLATE.md",
@@ -1743,10 +1743,10 @@
   "series": null,
   "type": "report",
   "status": "draft",
-  "chars": 3349,
+  "chars": 3519,
   "apparatus": true,
   "archived": false,
-  "tokens": 877
+  "tokens": 922
  },
  {
   "path": "machine/templates/RPT-TEMPLATE-WEEK.md",
@@ -2286,6 +2286,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1121
+ },
+ {
+  "path": "missions/MIS-0191-retire-a-lost-opportunitys-file-at-the-quarterly-roll-up.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3490,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1021
  },
  {
   "path": "objects/CHECK.md",
@@ -2920,10 +2931,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4643,
+  "chars": 4919,
   "apparatus": false,
   "archived": false,
-  "tokens": 1302
+  "tokens": 1368
  },
  {
   "path": "procedures/PRO-018-publishing-a-repository.md",
@@ -3052,10 +3063,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5581,
+  "chars": 5605,
   "apparatus": false,
   "archived": false,
-  "tokens": 1407
+  "tokens": 1410
  },
  {
   "path": "procedures/PRO-030-closing-a-sale.md",
@@ -3822,10 +3833,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8643,
+  "chars": 9028,
   "apparatus": false,
   "archived": false,
-  "tokens": 2257
+  "tokens": 2369
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -3965,10 +3976,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 6358,
+  "chars": 6348,
   "apparatus": false,
   "archived": false,
-  "tokens": 1641
+  "tokens": 1634
  },
  {
   "path": "standards/STD-055-only-a-call-that-passes-is-recorded.md",

@@ -128,8 +128,8 @@ export const PROPOSAL_FIELDS = ['opportunity', 'date', 'valid_until', 'level', '
 /* CAL-002: each requirement of a call is met, or still to check. A `no` is
    not a value of the table: a call that fails a requirement is not kept. */
 export const MEETS = ['yes', 'check'];
-/* NAM-002: `open` — told the house works in the open and did not ask to stay
-   unnamed; absent or `unnamed` — sector and size only. Lost: never named. */
+/* NAM-002: `open` — the client confirmed in writing that it may be named;
+   absent or `unnamed` — sector and size only. Lost: never named. */
 export const DISCLOSURES = ['open', 'unnamed'];
 export const CHANNELS = ['email', 'phone', 'letter', 'meeting', 'form'];
 /* OPP-018: the doors through which an e-mail may reach someone (STD-048
@@ -148,6 +148,9 @@ export const CLOSED = ['won', 'lost'];
 export const CALLS = ['tender', 'grant'];
 /* OPP-016: a record outside every line the house sells says so. */
 export const OTHER_LINE = 'other';
+/* How long a lost record is kept (OPP-019, the Oracle, 2026-10-15): the first
+   quarterly roll-up after this many days counts it and deletes its file. */
+export const LOST_KEPT_DAYS = 90;
 /* A sale's stage from which the proposal, the decider and the agreement are
    due (OPP-002): the stage they become knowable, not earlier. */
 const SALE_PROPOSED = 'proposed', SALE_AGREED = 'agreed';
@@ -770,6 +773,8 @@ export function figures(records, reg, card, today) {
     ceiling: card.turnoverCeiling ?? null,
     overdue: out.filter((x) => x.overdue).map((x) => x.id),
     stale: out.filter((x) => x.stale).map((x) => ({ id: x.id, ...x.stale })),
+    leaving: out.filter((x) => x.stage === 'lost' && x.closed && days(x.closed, today) > LOST_KEPT_DAYS)
+      .map((x) => ({ id: x.id, kind: x.kind, closed: x.closed, days: days(x.closed, today), limit: LOST_KEPT_DAYS, reason: x.reason, value: x.value })),
   };
 }
 
@@ -794,6 +799,12 @@ export function report(fig, reg) {
   if (!fig.overdue.length && !fig.stale.length) L.push('Nothing overdue, nothing stale.');
   for (const id of fig.overdue) { const x = fig.records.find((r) => r.id === id); L.push(`- **${id}** overdue since ${x.next.date}: ${x.next.action}`); }
   for (const s of fig.stale) { const x = fig.records.find((r) => r.id === s.id); L.push(`- **${s.id}** stale: ${s.days} days since the last line, at \`${x.stage}\` (limit ${s.limit})`); }
+  L.push('', '## Ready to leave', '');
+  if (!fig.leaving.length) L.push('Nothing is ready to leave.');
+  else {
+    L.push(`${fig.leaving.length} lost, ${money(fig.leaving.reduce((a, x) => a + x.value, 0))}: the quarterly roll-up counts them under business and customers, then deletes their files.`, '');
+    for (const x of fig.leaving) L.push(`- **${x.id}** lost ${x.closed} (${x.reason}), ${x.days} days, ${money(x.value)}`);
+  }
   L.push('', '## Every record', '', '| Record | Kind | Organisation | Stage | Value | Pays | Chance |', '|---|---|---|---|---|---|---|');
   for (const x of fig.records) L.push(`| ${x.id} | \`${x.kind}\` | ${x.organisation ?? '—'} | \`${x.stage}\`${x.reason ? ` (${x.reason})` : ''} | ${money(x.value)} | ${pays(x)} | ${x.chance ? `\`${x.chance}\`` : '—'} |`);
   L.push('', '## Funnel', '', `| Kind | ${fig.steps.map((s) => s.step).join(' | ')} |`, `|---|${fig.steps.map(() => '---').join('|')}|`);
