@@ -269,6 +269,34 @@
       "was": "STD-015 Engineering checks",
       "now": "PUB-002 and PUB-003 of STD-014 Publishing gates"
     },
+    "MCY-001": {
+      "was": "PRO-003 Running a mission",
+      "now": "step 7 of Running a mission"
+    },
+    "MCY-002": {
+      "was": "PRO-003 Running a mission",
+      "now": "step 3 of Running a mission"
+    },
+    "MCY-003": {
+      "was": "PRO-003 Running a mission",
+      "now": "step 4 of Running a mission"
+    },
+    "MCY-004": {
+      "was": "PRO-003 Running a mission",
+      "now": "step 5 of Running a mission"
+    },
+    "MCY-005": {
+      "was": "PRO-003 Running a mission",
+      "now": "step 9 of Running a mission"
+    },
+    "MCY-006": {
+      "was": "PRO-003 Running a mission",
+      "now": "step 8 of Running a mission"
+    },
+    "MCY-007": {
+      "was": "PRO-003 Running a mission",
+      "now": "step 6 of Running a mission"
+    },
     "MON-001": {
       "was": "PRO-021 Closing the month",
       "now": "step 2 of Closing the month"

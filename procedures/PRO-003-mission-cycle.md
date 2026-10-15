@@ -4,11 +4,11 @@ uid: ""
 title: "Running a mission"
 type: procedure
 status: draft
-version: "5.0.8"
+version: "5.1.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-10T12:20:00+02:00"
+updated: "2026-10-15T10:10:00Z"
 author: "nimrod"
 owner: "oracle"
 section: "Operations"
@@ -30,8 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** How a mission is received, understood, executed and handed
 > back: briefing before any action, the cycle of states, coordination when
 > more than one agent is near the same file.
-> **Epistemic:** A mission not understood is a mission not executed.
-> Briefing is not overhead; it is the first act of execution.
+> **Epistemic:** What must an agent understand before it touches a mission, and what does it hand back?
 > **Pragmatic:** Briefing before touching anything, states while working,
 > coordination when another agent is involved.
 > **Audience:** Agents · Oracle
@@ -39,69 +38,75 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** any agent assigned a mission, and the Oracle who opens, reviews
 and closes it.
 
-## 1. Trigger
+---
 
-A mission is assigned, self-identified, arrives by chat or instruction, or
-one on hold is reactivated. Executor: the agent; the Oracle at open,
-review and close.
+## 1. Purpose and trigger
 
-## 2. Rules
+A mission not understood is a mission not executed: briefing is not overhead,
+it is the first act of execution. The procedure starts when a mission is
+assigned, self-identified, arrives by chat or instruction, or when one on hold
+is reactivated. Quick tasks are where the errors happen; they are not exempt.
+Executor: the agent; the Oracle at open, review and close.
 
-**MCY-001 — Mission first, execution after.** No work MUST begin before the
-briefing is complete and the card's activation is committed (`MSN-036`).
-Quick tasks are where the errors happen; they are not exempt.
+---
 
-**MCY-002 — Three answers before the first action.** The agent MUST be able
-to state the deliverable, what done looks like, and the first concrete
-action — a tool call or a file write, never "research". Unclear: ask.
+## 2. Preconditions
 
-**MCY-003 — Blockers are flagged before starting.** A dependency, a key, an
-access or a decision the mission needs MUST be raised before the first
-action, not after. Blocked: `on-hold` with its reason (`MSN-039`), Oracle
-notified.
+- A mission card made from `machine/templates/MIS-TEMPLATE.md`, in the
+  archive (`STD-025`).
+- A clone on a fresh pull, so the next free number is really free (`IDN-015`).
 
-**MCY-004 — Contradiction with the principles stops the mission.** The agent
-MUST escalate (`PRO-005`) rather than execute against the principles.
-
-**MCY-005 — Review is requested with evidence.** Before `in-review`, every
-acceptance criterion MUST be verified and Closure filled with what was
-done, what diverged and the evidence; the request is scored (`PRO-008`).
-
-**MCY-006 — The repository is the channel.** Agents coordinate through
-commits, pull requests and the mission file; there is no real-time
-channel. Agents do not assign each other work. Ambiguity is escalated,
-never resolved by overwriting another's work.
-
-**MCY-007 — Announce M and above.** A mission of effort M or larger, or
-one worked live with the Oracle, opens with mission, estimate and first
-action stated. Smaller work may start silently.
+---
 
 ## 3. Procedure
 
-| Step | Whose | What |
-|---|---|---|
-| 1 | Oracle | Open from `machine/templates/MIS-TEMPLATE`, next free number verified after a pull (`IDN-015`), `todo`, pull request. |
-| 2 | agent | Brief: read the whole card (`MSN-041`), answer the three questions (`MCY-002`), check blockers (`MCY-003`). |
-| 3 | agent | Activate: `in-progress`, `started`, commit (`MSN-002`). Announce if M+ (`MCY-007`). |
-| 4 | agent | Execute; record progress and any change of plan in the card. |
-| 5 | agent | Verify criteria, fill Closure, `in-review`, `in_review_at`, approval request (`MCY-005`). |
-| 6 | Oracle | `done` with `completed`, or back to `in-progress` with the changes requested. |
+1. **Open the card (Oracle).** From `machine/templates/MIS-TEMPLATE.md`, the
+   next free number verified after a pull (`IDN-015`), state `todo`, by pull
+   request.
+2. **Read the whole card (agent).** Every field, before anything else
+   (`MSN-041`).
+3. **Answer three questions before the first action.** The deliverable, what
+   done looks like, and the first concrete action — a tool call or a file
+   write, never "research". If any is unclear, ask.
+4. **Raise every blocker before starting.** A dependency, a key, an access or
+   a decision the mission needs is raised now, not after. Blocked: set
+   `on-hold` with its reason (`MSN-039`) and tell the Oracle.
+5. **Stop at a contradiction with the principles.** Escalate (`PRO-005`)
+   rather than execute against them.
+6. **Announce a mission of effort M or larger,** or one worked live with the
+   Oracle: state the mission, the estimate and the first action. Smaller work
+   may start silently.
+7. **Activate the card.** `in-progress`, `started`, and commit it
+   (`MSN-002`). No work begins before this commit (`MSN-036`).
+8. **Execute and record.** Progress and every change of plan go in the card.
+   Agents coordinate through commits, pull requests and the card; there is no
+   real-time channel. Agents do not assign each other work, and an ambiguity
+   is escalated, never settled by overwriting another's work.
+9. **Verify and ask for review.** Verify every acceptance criterion, fill
+   Closure with what was done, what diverged and the evidence, then set
+   `in-review` and `in_review_at`. The request is scored (`PRO-008`).
+10. **Close (Oracle).** `done` with `completed`, or back to `in-progress` with
+    the changes requested.
 
-Freezing and unfreezing: `MSN-039`. Deleting a closed card: `MSN-004`.
+Freezing and unfreezing a card: `MSN-039`. Deleting a closed card: `MSN-004`.
+
+---
 
 ## 4. Verification
 
-| Check | Evidence |
+| Step | Evidence it completed |
 |---|---|
-| Registered first | the activation commit predates the first work commit |
-| Briefed | the three answers in the card or the opening message |
-| Reviewable | every criterion marked with its command; Closure dated |
+| 3 | The three answers in the card or in the opening message |
+| 7 | The activation commit predates the first work commit |
+| 9 | Every criterion marked with its command; Closure dated |
+
+---
 
 ## 5. Escalation
 
-Contradiction with the principles, a blocker the agent cannot lift, a conflict
-with an active mission: `PRO-005`. Identifier collision: `IDN-015`, the
-second renumbers and fixes its own references.
+A contradiction with the principles, a blocker the agent cannot lift, or a
+conflict with an active mission: `PRO-005`. An identifier collision:
+`IDN-015`; the second renumbers and fixes its own references.
 
 ## References
 
