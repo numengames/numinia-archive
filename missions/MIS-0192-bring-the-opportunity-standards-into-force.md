@@ -3,10 +3,10 @@ id: "MIS-192"
 uid: ""
 title: "Bring the four opportunity standards into force"
 type: mission
-status: in-progress
+status: in-review
 version: "0.1.0"
 created: "2026-10-15T12:01:28Z"
-updated: "2026-10-15T12:01:28Z"
+updated: "2026-10-15T12:03:26Z"
 author: "ursa"
 owner: "oracle"
 section: "Sales and partners"
@@ -22,6 +22,7 @@ completed: null
 started: "2026-10-15T12:01:28Z"
 requires_oracle_approval: true
 context: "2026-10-15T12:01:28Z"
+in_review_at: "2026-10-15T12:03:26Z"
 paths: [standards/STD-038-the-stages-of-an-opportunity.md, standards/STD-039-an-opportunity-has-a-record.md, standards/STD-054-a-client-is-named-by-consent.md, standards/STD-055-only-a-call-that-passes-is-recorded.md, AGENTS.md, machine/scripts/test/regime.test.mjs]
 related: ["MIS-190", "MIS-191", "PRO-023", "STD-038", "STD-039", "STD-054", "STD-055"]
 ---
@@ -71,4 +72,19 @@ Out of scope: any other draft; any change to what the four standards say.
 
 ## 3. Closure
 
-*(Filled when the mission closes.)*
+- **What was done:** the four headers read `status: active`, `1.0.0`,
+  `updated` 2026-10-15T12:02:04Z, nothing else; `AGENTS.md` names them in
+  force and the rule index counts 36 in force; one test in
+  `regime.test.mjs` holds the activation (seen failing first: "STD-038 is
+  draft, want active").
+- **What diverged, and why:** the Oracle's plan named three standards;
+  `STD-038` joined on the agent's recommendation, accepted in chat, since
+  `STD-039` takes its values from that register and the tool reads it as
+  its one source. A dry run on `origin/main` before the branch showed the
+  only reds were the two that are part of the change (the *In force* list
+  and the rule index).
+- **Evidence:** `npm test` 967 tests, 0 failed; `--rules` 12 checks, 0
+  failed; `--build` 10 checks, 0 failed; `web/dist/binding/index.html`
+  shows the four as *in force*; `pipeline.mjs opportunities --proposals`
+  exits 0 on the records as they stand.
+- **Closed:** pending the Oracle's review · **by:** ursa
