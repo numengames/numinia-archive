@@ -5,6 +5,9 @@
 # Oracle rule (2026-09-18): nothing stays pinned to an old release; the
 # checks decide, not a person. `dependabot-auto-merge.yml` approves and
 # merges each update once CI is green.
+# Cooldown (2026-10-15): a version is proposed only after it has been public
+# for 7 days, so a hijacked or broken release is usually flagged by others
+# before it reaches this repository. Security updates ignore the cooldown.
 version: 2
 updates:
   - package-ecosystem: npm
@@ -14,6 +17,8 @@ updates:
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore(deps)"
+    cooldown:
+      default-days: 7
     ignore:
       # @astrojs/check does not support TypeScript 7 yet: the major left the
       # dev-tooling group red (PR #492). Remove this when it does.
@@ -31,3 +36,5 @@ updates:
       interval: daily
     commit-message:
       prefix: "ci(deps)"
+    cooldown:
+      default-days: 7
