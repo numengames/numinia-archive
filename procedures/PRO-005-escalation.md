@@ -3,12 +3,12 @@ id: "PRO-005"
 uid: ""
 title: "Escalating to the Oracle"
 type: procedure
-status: draft
-version: "3.1.3"
+status: active
+version: "3.2.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-15T10:12:00Z"
 author: "nimrod"
 owner: "oracle"
 section: "Strategy and governance"

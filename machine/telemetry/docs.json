@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 21203,
+  "chars": 21249,
   "apparatus": false,
   "archived": false,
-  "tokens": 5325
+  "tokens": 5346
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 58502,
+  "chars": 58804,
   "apparatus": false,
   "archived": false,
-  "tokens": 16681
+  "tokens": 16779
  },
  {
   "path": "CLAUDE.md",
@@ -2820,22 +2820,22 @@
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 4500,
+  "status": "active",
+  "chars": 4438,
   "apparatus": false,
   "archived": false,
-  "tokens": 1203
+  "tokens": 1172
  },
  {
   "path": "procedures/PRO-005-escalation.md",
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 3452,
+  "status": "active",
+  "chars": 3448,
   "apparatus": false,
   "archived": false,
-  "tokens": 924
+  "tokens": 921
  },
  {
   "path": "procedures/PRO-008-decision.md",
