@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 59363,
+  "chars": 59502,
   "apparatus": false,
   "archived": false,
-  "tokens": 16946
+  "tokens": 16994
  },
  {
   "path": "CLAUDE.md",
@@ -1677,10 +1677,10 @@
   "series": null,
   "type": "opportunity",
   "status": "active",
-  "chars": 9432,
+  "chars": 9458,
   "apparatus": true,
   "archived": false,
-  "tokens": 2524
+  "tokens": 2528
  },
  {
   "path": "machine/templates/OPS-TEMPLATE.md",
@@ -2293,10 +2293,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-review",
-  "chars": 3207,
+  "chars": 3490,
   "apparatus": false,
   "archived": false,
-  "tokens": 949
+  "tokens": 1021
  },
  {
   "path": "objects/CHECK.md",
@@ -3063,10 +3063,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5581,
+  "chars": 5605,
   "apparatus": false,
   "archived": false,
-  "tokens": 1407
+  "tokens": 1410
  },
  {
   "path": "procedures/PRO-030-closing-a-sale.md",
@@ -3833,10 +3833,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 9046,
+  "chars": 9028,
   "apparatus": false,
   "archived": false,
-  "tokens": 2374
+  "tokens": 2369
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -3976,10 +3976,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 6358,
+  "chars": 6348,
   "apparatus": false,
   "archived": false,
-  "tokens": 1641
+  "tokens": 1634
  },
  {
   "path": "standards/STD-055-only-a-call-that-passes-is-recorded.md",

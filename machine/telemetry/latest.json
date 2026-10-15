@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "ab4ce5c",
-  "corpus_hash": "ca73dbd7b5bf6f6d7edbee57ed6a92303b74e7532394883de2b4569fd5c7f916",
+  "head": "188e204",
+  "corpus_hash": "656d5209df53a14c3f958eafe404a2df208e87551c9f04920b294e8aa87ebf68",
   "root_dirty": 0,
-  "measured_at": "2026-10-15T10:58:22Z",
+  "measured_at": "2026-10-15T11:14:32Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 399,
-          "bytes": 4148742
+          "bytes": 4149186
         },
         "Code": {
           "files": 278,
-          "bytes": 2508979
+          "bytes": 2510203
         },
         "Image": {
           "files": 117,
@@ -375,24 +375,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1057510,
+      "value": 1057625,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 122336,
-        "missions": 69512,
+        "standards": 122324,
+        "missions": 69584,
         "system": 59919,
-        "procedures": 44250,
+        "procedures": 44253,
         "reports": 36728,
         "agents": 36326,
         "operations": 33602,
-        "machine": 30121,
+        "machine": 30125,
         "designs": 28434,
         "decisions": 26863,
-        "": 25580,
+        "": 25628,
         "principles": 21866,
         "debt": 20191,
         "opportunities": 15128,
@@ -406,12 +406,12 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 499351,
-        "draft": 252941,
-        "active": 234168,
+        "(none)": 499399,
+        "draft": 252932,
+        "active": 234172,
         "todo": 53132,
         "in-progress": 8918,
-        "in-review": 6818,
+        "in-review": 6890,
         "done": 1152,
         "on-hold": 1030
       },
@@ -419,7 +419,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.57,
+      "value": 6.58,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -797,10 +797,10 @@
     "contradictions.id_form_per_series": {
       "value": {
         "PRO": {
-          "3": 583
+          "3": 585
         },
         "STD": {
-          "3": 1560
+          "3": 1563
         },
         "PRI": {
           "3": 437
