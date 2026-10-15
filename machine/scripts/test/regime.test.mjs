@@ -653,3 +653,25 @@ check('tree: missions are in force — PRO-003 and PRO-005 are active, named in 
   if (/open a mission card/i.test(suspended)) return 'the regime still says a mission card is not opened';
   return true;
 });
+
+check('tree: one question per standard — the record, who is named and which calls are recorded each have one holder (2026-10-15)', () => {
+  // STD-039 answered three questions in one document. The record keeps OPP;
+  // naming took NAM and the public call took CAL. The plates of a judgement
+  // (OPP-007) and an act (OPP-010) left the standards for the reviewers' list
+  // and the procedures that hold the act.
+  const want = {
+    'OPP-001': 'STD-039', 'OPP-005': 'STD-039', 'OPP-016': 'STD-039', 'OPP-018': 'STD-039',
+    'NAM-001': 'STD-054', 'NAM-002': 'STD-054', 'NAM-003': 'STD-054',
+    'CAL-001': 'STD-055', 'CAL-002': 'STD-055', 'CAL-003': 'STD-055', 'CAL-004': 'STD-055',
+  };
+  for (const [plate, doc] of Object.entries(want)) {
+    const got = index.byPlate.get(plate);
+    if (got !== doc) return `${plate} holder ${got}, want ${doc}`;
+  }
+  for (const gone of ['OPP-006', 'OPP-007', 'OPP-010', 'OPP-011', 'OPP-012', 'OPP-013', 'OPP-014', 'OPP-015', 'OPP-017']) {
+    if (index.byPlate.has(gone)) return `${gone} is still held by ${index.byPlate.get(gone)}`;
+  }
+  const f = readdirSync(path.join(ROOT, 'standards')).find((n) => n.startsWith('STD-039-'));
+  const words = readFileSync(path.join(ROOT, 'standards', f), 'utf-8').split(/\s+/).length;
+  return words <= 1300 || `STD-039 has ${words} words, a page holds 1,300`;
+});
