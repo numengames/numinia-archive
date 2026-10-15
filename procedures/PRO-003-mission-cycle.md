@@ -3,12 +3,12 @@ id: "PRO-003"
 uid: ""
 title: "Running a mission"
 type: procedure
-status: draft
-version: "5.1.0"
+status: active
+version: "5.2.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-15T10:10:00Z"
+updated: "2026-10-15T10:12:00Z"
 author: "nimrod"
 owner: "oracle"
 section: "Operations"

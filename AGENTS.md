@@ -34,7 +34,9 @@ below.
 
 In force: `PRO-023` (bringing a rule into force, since 2026-09-27): no
 rule leaves draft without its steps, and the Oracle sees each activation
-before the branch. And the principles and standards whose header says
+before the branch. `PRO-003` (running a mission) and `PRO-005` (escalating
+to the Oracle), since 2026-10-15: a task starts from a mission card, and an
+escalation names its mission. And the principles and standards whose header says
 `active`:
 `PRI-001` you are already in the game ·
 `PRI-002` we build a game to work better ·
@@ -96,11 +98,9 @@ What still holds, because each rule protects something that can be seen:
   further ceremony.
 
 What the draft procedures describe and you do NOT do while they are draft:
-open a mission card for a task the operator asked for in chat (the chat is
-the briefing, the pull request is the record); write a decision record to
-set or reverse what the operator stated in chat (the reversal goes in the
-`CHANGELOG.md` entry and the commit body); classify the task or cite
-practice codes in commits; score your context load or keep a session log;
+write a decision record to set or reverse what the operator stated in chat
+(the reversal goes in the `CHANGELOG.md` entry and the commit body);
+classify the task or cite practice codes in commits; score your context load or keep a session log;
 stop a second time before pushing — the operator's go on a plan covers
 commits, push and the pull request.
 
@@ -196,8 +196,8 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRI-013` | A magician who keeps hope, with humans in… | in force | every piece of work that speaks, looks or behaves in Numinia's name |
 | `PRI-015` | We recognise the act; we never buy the game | in force | whoever designs, grants or audits a reward, a rank, a title or a recognition in Numinia's name |
 | `PRO-001` | Opening and closing a session | draft | every agent, in every session, whatever the mission |
-| `PRO-003` | Running a mission | draft | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
-| `PRO-005` | Escalating to the Oracle | draft | any agent facing a decision it may not, or cannot, take alone |
+| `PRO-003` | Running a mission | in force | any agent assigned a mission, and the Oracle who opens, reviews and closes it |
+| `PRO-005` | Escalating to the Oracle | in force | any agent facing a decision it may not, or cannot, take alone |
 | `PRO-008` | Requesting approval, issuing rulings | draft | any agent requesting approval; any Oracle issuing a ruling; any agent executing one |
 | `PRO-011` | Auditing identity, authorization and secrets | draft | any agent running a security audit over a Numinia scope, and the report it files |
 | `PRO-013` | Handing a check to CI | draft | any agent that writes a check script, and the Oracle who wires it |
@@ -275,7 +275,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-052` | Organisation permissions | draft | register — scope belongs to the standard that cites it |
 | `STD-053` | Presence | draft | numinia.com's status menu, its lists of people, and the service that knows who is connected |
 
-92 rule documents, of which 30 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+92 rule documents, of which 32 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
