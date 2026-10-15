@@ -3,10 +3,10 @@ id: "MIS-196"
 uid: ""
 title: "Trim what every site carries to what protects someone"
 type: mission
-status: in-progress
+status: in-review
 version: "0.1.0"
 created: "2026-10-15T15:50:00Z"
-updated: "2026-10-15T15:50:00Z"
+updated: "2026-10-15T16:50:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -22,6 +22,7 @@ completed: null
 started: "2026-10-15T15:50:00Z"
 requires_oracle_approval: true
 context: "2026-10-15T15:50:00Z"
+in_review_at: "2026-10-15T16:50:00Z"
 paths: [standards/STD-037-what-every-site-carries.md, machine/scripts/test/regime.test.mjs]
 related: ["STD-037", "STD-005", "LEG-004", "ADR-068", "SYS-013"]
 ---
@@ -68,17 +69,32 @@ any change under `web/src/`.
 
 ## 2. Acceptance criteria
 
-- [ ] The rules for day and night and for the epitaph carry no `MUST`, and
+- [x] The rules for day and night and for the epitaph carry no `MUST`, and
   the footer rule asks a `MUST` only for the legal links. Today: all three
   say `MUST` about the layout, the switch or the skull.
-- [ ] Each Check row says whether its verification is automated or the rule
+- [x] Each Check row says whether its verification is automated or the rule
   is only recommended. Today: SIT-003 and SIT-004 name hand checks for three
   sites.
-- [ ] `npm test`, both check sets, the web build and `rule-index --check`
+- [x] `npm test`, both check sets, the web build and `rule-index --check`
   pass; telemetry is the last commit.
 
 ---
 
 ## 3. Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** `STD-037` 2.0.0 (draft). Four `MUST` remain: the
+  legal links from the footer, no local copy of a legal text (two, link and
+  keep no copy) and the share card. The footer layout, day and night, and the
+  epitaph say `SHOULD`; Check rows SIT-003 and SIT-004 say "a
+  recommendation" and name only numinia.com's Playwright tests as checks.
+- **What diverged, and why:** nothing was built in the sites. numinia.com's
+  footer is already a platform footer, and the three legal copies still
+  stand (`SYS-013`), so SIT-001 (footer links) and SIT-005 (no copy) are
+  still checked by hand and `STD-037` cannot leave draft yet. The
+  "a check is owed" clause inside SIT-005 belongs in the debt series; left
+  as it was.
+- **Evidence:** the new `regime.test.mjs` case failed on the base ("Day and
+  night on every site" still says MUST) and passes after; `npm test` 970
+  tests, 0 failed; `--rules` and `--build` green except telemetry, which
+  is the last commit; web build 444 pages.
+- **Closed:** pending the Oracle's review · **by:** ursa

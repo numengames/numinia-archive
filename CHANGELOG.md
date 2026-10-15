@@ -47,7 +47,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 - **Added** `DES-019`: where an object's logic lives in Numinia Engine — closed rules first, new classes in code on the server with a counted budget, only rules travel between worlds; an agent re-evaluates it every six hours.
 - **Added** `ADR-079`: a world's content lives in its own files, the service on the platform, secrets and people on the machine; numinia.com edits a world by writing into its files; amends `ADR-074` and `ADR-069`.
 - **Added** `ADR-080`: an AI enters a world through one door — its own key listed in the world, the world's tools over MCP, a connection it opens — and Hermes, with any model, builds in the Oracle's worlds; amends `ADR-075`.
-- **Added** `PRI-016`, `PRI-017`, `PRI-018` (site v0.165.0): what Numinia Engine owes whoever comes to it — a machine can read it, so anyone can use it; a device is never asked more than it can bear; every limit says how it is known. They sit on the citizens' shelf (`MIS-196`).
+- **Added** `PRI-016`, `PRI-017`, `PRI-018` (site v0.165.0): what Numinia Engine owes whoever comes to it — a machine can read it, so anyone can use it; a device is never asked more than it can bear; every limit says how it is known. They sit on the citizens' shelf (`MIS-195`).
 - **Added** `SYS-016` *Numinia Engine, as wired*: the engine's layers, what decides what, its gates and what is measured, estimated or not measured yet (`MIS-195`).
 - **Changed** `SYS-013` (0.4.0): `numinia-engine` joins the repositories as wired — public, AGPL-3.0-only, not yet on the fleet.
 - **Added** `STD-026` 0.11.0: *Numinia Engine* (product) joins the operative vocabulary; `MIS-195` opens the gathering of the engine's principles, standards and procedures into the Summa, whose source of truth is the archive.
@@ -56,7 +56,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 - **Added** `ADR-072`: a world's address is written by the fleet, through the till's DNS desk (an A record, DNS only, at the machine's IPv4); the only Cloudflare key lives in the till, limited to numinia.com and numen.games; amends `ADR-069`.
 
 ### 2026-10-15
-- **Changed** `STD-037` *What every site carries* 2.0.0: only the legal links, the one address of the legal texts and the share card bind the four sites; the footer layout, the day and night switch and the epitaph are recommended (still draft; MIS-195).
+- **Changed** `STD-037` *What every site carries* 2.0.0: only the legal links, the one address of the legal texts and the share card bind the four sites; the footer layout, the day and night switch and the epitaph are recommended (still draft; MIS-196).
 - **Changed** `PRO-015` *Joining Numinia* (2.1.0) and `PRO-024` *Leaving Numinia* (1.0.0) are in force: nobody starts before the agreement is signed, nobody is gone before their access list is closed; `AGENTS.md` names them (`PRO-023`, MIS-194).
 - **Changed** `AGENTS.md` 21.7 → ~18 KB, under the 20 KB cap Hermes enforces (above it the middle of the file is dropped): the repository map is shorter and the rule index quotes the first 40 characters of each `Binds:` line (`rule-index.mjs` `SCOPE_CHARS` 96 → 40); no rule changed.
 - **Changed** `STD-038`, `STD-039`, `STD-054` and `STD-055` are in force at 1.0.0: the opportunity register, record, naming and call rules bind; every Check row is verified by the pipeline tool in CI, no row by hand (`PRO-023`, MIS-192).
