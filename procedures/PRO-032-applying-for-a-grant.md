@@ -3,10 +3,10 @@ id: "PRO-032"
 uid: ""
 title: "Applying for a grant"
 type: procedure
-status: draft
-version: "0.2.6"
+status: active
+version: "1.0.0"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-10T11:53:15+02:00"
+updated: "2026-10-15T12:22:36Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

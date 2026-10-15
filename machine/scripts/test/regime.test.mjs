@@ -670,6 +670,23 @@ check('tree: missions are in force — PRO-003 and PRO-005 are active, named in 
   return true;
 });
 
+/* The selling procedures in force (2026-10-15, MIS-193): the standards they
+   move a record by — STD-038, STD-039, STD-054, STD-055 — bind, so the steps
+   that write the record bind with them. PRO-023 step 10: the regime names
+   each one. */
+check('tree: selling is in force — PRO-028, 029, 030, 031, 032, 033 and 035 are active and named in the regime (2026-10-15)', () => {
+  const dir = path.join(ROOT, 'procedures');
+  const agents = readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf-8');
+  const inForce = /^In force:([^\n]*(?:\n(?!\n)[^\n]*)*)/m.exec(agents)?.[1] ?? '';
+  for (const id of ['PRO-028', 'PRO-029', 'PRO-030', 'PRO-031', 'PRO-032', 'PRO-033', 'PRO-035']) {
+    const f = readdirSync(dir).find((n) => n.startsWith(`${id}-`));
+    const head = readFileSync(path.join(dir, f), 'utf-8').slice(0, 2000);
+    if (!/^status:\s*"?active/m.test(head)) return `${id} is not active`;
+    if (!inForce.includes(`\`${id}\``)) return `AGENTS.md does not name ${id} in force`;
+  }
+  return true;
+});
+
 check('tree: one question per standard — the record, who is named and which calls are recorded each have one holder (2026-10-15)', () => {
   // STD-039 answered three questions in one document. The record keeps OPP;
   // naming took NAM and the public call took CAL. The plates of a judgement

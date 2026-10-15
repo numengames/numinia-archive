@@ -3,10 +3,10 @@ id: "PRO-029"
 uid: ""
 title: "Making a proposal"
 type: procedure
-status: draft
-version: "0.5.0"
+status: active
+version: "1.0.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-15T11:12:38Z"
+updated: "2026-10-15T12:22:36Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

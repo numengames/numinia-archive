@@ -3,10 +3,10 @@ id: "PRO-030"
 uid: ""
 title: "Closing a sale"
 type: procedure
-status: draft
-version: "0.5.1"
+status: active
+version: "1.0.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-10T11:53:15+02:00"
+updated: "2026-10-15T12:22:36Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
