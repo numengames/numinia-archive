@@ -54,7 +54,7 @@ export const END = '<!-- rule-index:end -->';
 
 const TARGET = 'AGENTS.md';
 const DIRS = ['standards', 'procedures', 'principles'];
-const SCOPE_CHARS = 96;
+const SCOPE_CHARS = 40;
 const TITLE_CHARS = 46;
 
 /** The `**Binds:**` line, joined across wrapped lines, or null when absent.
