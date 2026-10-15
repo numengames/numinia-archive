@@ -128,8 +128,8 @@ export const PROPOSAL_FIELDS = ['opportunity', 'date', 'valid_until', 'level', '
 /* CAL-002: each requirement of a call is met, or still to check. A `no` is
    not a value of the table: a call that fails a requirement is not kept. */
 export const MEETS = ['yes', 'check'];
-/* NAM-002: `open` — told the house works in the open and did not ask to stay
-   unnamed; absent or `unnamed` — sector and size only. Lost: never named. */
+/* NAM-002: `open` — the client confirmed in writing that it may be named;
+   absent or `unnamed` — sector and size only. Lost: never named. */
 export const DISCLOSURES = ['open', 'unnamed'];
 export const CHANNELS = ['email', 'phone', 'letter', 'meeting', 'form'];
 /* OPP-018: the doors through which an e-mail may reach someone (STD-048

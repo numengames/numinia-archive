@@ -4,9 +4,9 @@ uid: ""
 title: "Making a proposal"
 type: procedure
 status: draft
-version: "0.4.4"
+version: "0.5.0"
 created: "2026-09-28T16:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-15T11:12:38Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -97,8 +97,8 @@ before it leaves, and sending it is the approval.
    proposal's path, an `out` line marked `proposed` saying who sent it,
    and a new `next` line. That line is the evidence; no field in the
    proposal repeats it. Who signs lives in the agreement.
-   From here the record may name the organisation, `disclosure: open`;
-   asked not to, `unnamed`.
+   Until the client confirms in writing, the record keeps sector and size;
+   then `disclosure: open`; asked not to, `unnamed`.
 6. **Run the pipeline tool** with proposals on. The record and the proposal
    conform, or the tool says what does not.
 

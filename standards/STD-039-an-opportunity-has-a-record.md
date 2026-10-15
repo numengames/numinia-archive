@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: standard
 subtype: standard
 status: draft
-version: "0.16.0"
+version: "0.16.1"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-15T10:56:38Z"
+updated: "2026-10-15T11:12:38Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -56,7 +56,7 @@ computed values MUST NOT be written in it.
 | When | Fields |
 |---|---|
 | Always | identifier, kind, organisation, sector, source, the operation (what the deal is about, in one line), the line of the house it falls in, value before tax, currency, how it pays, the contact's role, the contact channel, the moment opened, the licence |
-| When due, absent before | the offer it sells (a sale, a tender); the share paid in advance (when it pays in advance or by milestones); the proposal's path (a sale from `proposed`); the agreement's path (a sale at `won`); the decider's role (a sale from `agreed`); the disclosure, once the client has been told the house works in the open; the record it follows from; what came back (a collaboration); the deadline, on any kind whose other side sets one; the call's fields the register names (a tender, a grant) |
+| When due, absent before | the offer it sells (a sale, a tender); the share paid in advance (when it pays in advance or by milestones); the proposal's path (a sale from `proposed`); the agreement's path (a sale at `won`); the decider's role (a sale from `agreed`); the disclosure, once the client has answered in writing; the record it follows from; what came back (a collaboration); the deadline, on any kind whose other side sets one; the call's fields the register names (a tender, a grant) |
 | Never typed | the stage, the next step, the closing date, the reason, the chance |
 
 **The kind and the stage come from the register.** The kind MUST be one of

@@ -80,7 +80,11 @@ putting `STD-039` in force.
 - **What diverged, and why:** to stay under the page limit of `STD-039`
   (1,500 words) the Why section and the summary's list of kinds were
   shortened; no obligation changed. A lost record's file is not deleted by
-  the tool: the roll-up does it, with the count written first.
+  the tool: the roll-up does it, with the count written first. The scope called naming
+  a company from first contact "still open"; it was already decided: a
+  company is named only after its written confirmation, and `STD-054`,
+  `STD-039`, `PRO-029`, the record template and a tool comment now say
+  that (they said "told and did not object").
 - **Evidence:** `npm test` all green (three new tests on the 90-day
   boundary, the report section and the tree); both check sets pass.
 - **Closed:** pending the Oracle's review · **by:** ursa

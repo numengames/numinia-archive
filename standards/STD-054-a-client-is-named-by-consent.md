@@ -5,9 +5,9 @@ title: "A client is named by consent"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-15T10:28:18Z"
-updated: "2026-10-15T10:28:18Z"
+updated: "2026-10-15T11:12:38Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -31,8 +31,8 @@ SPDX-License-Identifier: CC0-1.0
 > about. A client who asks to stay out is never named.
 > **Epistemic:** Who may be named in the record of an opportunity, and when?
 > **Pragmatic:** Write roles and channels, never people. Keep the
-> organisation as sector and size until the client has been told the house
-> works in the open, and name it only if it did not object.
+> organisation as sector and size, and name it only once the client has
+> confirmed in writing that the house may.
 > **Audience:** Agents · Oracles
 
 **Binds:** every record of an opportunity kept in Numen Games' or Numinia's
@@ -53,10 +53,10 @@ and a client's people whose signed agreement allows it.
 ### The organisation
 
 **The organisation, named when it knows.** A record MUST name the
-organisation by sector and size until the client has been told, in the
-proposal, that the house works in the open. From then on the record MAY
-carry its name with the disclosure `open`. A client who asks not to be named
-is not named, at any stage, and the record carries `unnamed`. An
+organisation by sector and size until the client has confirmed in writing
+that the house may name it. From then on the record MAY carry its name with
+the disclosure `open`. A client who asks not to be named, before or after, is
+not named, at any stage, and the record carries `unnamed`. An
 organisation that is a person — a sole trader, a professional — is never
 named, unless its signed agreement allows it. A lost record MUST go back to
 sector and size, whatever it said before: why a sale was lost is public; who
@@ -89,7 +89,7 @@ Each rule, its code, its source and its check.
 | Rule ID | Rule | Source | Verified by |
 |---|---|---|---|
 | NAM-001 | Nobody's name | law: [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) arts. 5(1)(c), 6; `STD-035` PRV-001; the Oracle's ruling of 2026-10-02: not even a public officer, so no mistake can enter | `machine/packages/sales-kit/pipeline.mjs`: header fields against a closed list; the record and its proposal scanned for an e-mail, a phone, and anything that reads as a person's name — a common first name before a capitalised word, or a courtesy title — unless the card's *Who may be named* lists it; deliberately eager, a false alarm costs a look |
-| NAM-002 | The organisation, named when it knows | the client's interest; customer-reference practice — a client's name used with its consent, withdrawable; `LCSP` art. 133 (a bidder's own offer is not the authority's to disclose) | `machine/packages/sales-kit/pipeline.mjs`: a name without `disclosure: open`, or any name in a lost record, is reported, a tender or a grant exempt; the client's answer is entered by the step of `PRO-029` that sets the disclosure |
+| NAM-002 | The organisation, named when it knows | the client's interest; customer-reference practice — a client's name used with its consent, withdrawable; `LCSP` art. 133 (a bidder's own offer is not the authority's to disclose) | `machine/packages/sales-kit/pipeline.mjs`: a name without `disclosure: open`, or any name in a lost record, is reported, a tender or a grant exempt; the written confirmation is entered by the step of `PRO-029` that sets the disclosure |
 | NAM-003 | The organisation's door | the Oracle's ruling of 2026-10-08: every record says where to write and where to read; a functional mailbox of an organisation is not personal data ([GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj) art. 4(1)); a person's professional address is: art. 19 of the [LOPDGDD](https://www.boe.es/buscar/act.php?id=BOE-A-2018-16673) lets the house hold it to deal with the organisation, and publishing it would exceed that | `machine/packages/sales-kit/pipeline.mjs`: `web` an address and `contact_email` one mailbox; neither before the organisation may be named; on an open named record, `web` required off a call and `contact_email` unless the channel is `form`; a mailbox whose local part holds a common first name refused under NAM-001; that field alone is exempt from the e-mail scan |
 
 ## Why
