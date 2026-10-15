@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 58449,
+  "chars": 58502,
   "apparatus": false,
   "archived": false,
-  "tokens": 16650
+  "tokens": 16681
  },
  {
   "path": "CLAUDE.md",
@@ -643,10 +643,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 37055,
+  "chars": 37832,
   "apparatus": false,
   "archived": false,
-  "tokens": 9889
+  "tokens": 10077
  },
  {
   "path": "debt/DBT-023-sources-and-inspirations-without-a-home.md",
@@ -841,10 +841,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 19066,
+  "chars": 19100,
   "apparatus": false,
   "archived": false,
-  "tokens": 4794
+  "tokens": 4800
  },
  {
   "path": "decisions/ADR-071-an-organisation-runs-its-own-roles-and-its-members-see-who-is-connected.md",
@@ -852,10 +852,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 15410,
+  "chars": 15412,
   "apparatus": false,
   "archived": false,
-  "tokens": 3859
+  "tokens": 3860
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -2161,10 +2161,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 5636,
+  "chars": 5819,
   "apparatus": false,
   "archived": false,
-  "tokens": 1543
+  "tokens": 1589
  },
  {
   "path": "missions/MIS-0180-an-account-tops-up-on-stripes-page.md",
@@ -3932,10 +3932,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 4521,
+  "chars": 4687,
   "apparatus": false,
   "archived": false,
-  "tokens": 1122
+  "tokens": 1168
  },
  {
   "path": "standards/STD-053-presence.md",
