@@ -635,3 +635,21 @@ check('tree: a site\'s code has its own audit, and a stored item is checked with
   if (!/keep the old name and format/.test(p027)) return 'PRO-027 says nothing about an item the change replaces';
   return true;
 });
+
+check('tree: missions are in force — PRO-003 and PRO-005 are active, named in the regime, and the regime no longer suspends the mission card (2026-10-15)', () => {
+  // The Oracle brought the mission procedure back with the escalation that
+  // asks for a mission line (PRO-005). PRO-023 step 10: the regime says which
+  // procedure now binds, and what it still suspends is only the rest.
+  const dir = path.join(ROOT, 'procedures');
+  const agents = readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf-8');
+  const inForce = /^In force:([^\n]*(?:\n(?!\n)[^\n]*)*)/m.exec(agents)?.[1] ?? '';
+  for (const id of ['PRO-003', 'PRO-005']) {
+    const f = readdirSync(dir).find((n) => n.startsWith(`${id}-`));
+    const head = readFileSync(path.join(dir, f), 'utf-8').slice(0, 2000);
+    if (!/^status:\s*"?active/m.test(head)) return `${id} is not active`;
+    if (!inForce.includes(`\`${id}\``)) return `AGENTS.md does not name ${id} in force`;
+  }
+  const suspended = /What the draft procedures describe[\s\S]*?\n\n/.exec(agents)?.[0] ?? '';
+  if (/open a mission card/i.test(suspended)) return 'the regime still says a mission card is not opened';
+  return true;
+});
