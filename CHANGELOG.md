@@ -20,6 +20,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ### 2026-10-15
 - **Changed** `AGENTS.md` 21.7 → ~18 KB, under the 20 KB cap Hermes enforces (above it the middle of the file is dropped): the repository map is shorter and the rule index quotes the first 40 characters of each `Binds:` line (`rule-index.mjs` `SCOPE_CHARS` 96 → 40); no rule changed.
 - **Changed** `STD-038`, `STD-039`, `STD-054` and `STD-055` are in force at 1.0.0: the opportunity register, record, naming and call rules bind; every Check row is verified by the pipeline tool in CI, no row by hand (`PRO-023`, MIS-192).
+- **Changed** `PRO-028` to `PRO-033` and `PRO-035` are in force at 1.0.0: an opportunity's record moves only by the steps of qualifying, proposing, closing, bidding, applying, screening and watching; `AGENTS.md` names them (`PRO-023`, MIS-193).
 - **Changed** `STD-054` 0.2.0, `PRO-029` 0.5.0: a company is named only once it has confirmed in writing, not once told and not objecting.
 - **Changed** `STD-039` 0.16.1 (OPP-019): a lost opportunity is kept 90 days, then the next quarterly roll-up counts it and deletes its file; won ones stay. `PRO-017` and the quarterly template carry the step, the pipeline report lists *Ready to leave* (site v0.164.0).
 - **Changed** `STD-039` 0.15.0 splits in three, same obligations: `STD-054` *A client is named by consent* (NAM-001–003) takes who may be named; `STD-055` *Only a call that passes is recorded* (CAL-001–004) takes the public call; OPP-007 and OPP-010 leave to the reviewers and procedures.
