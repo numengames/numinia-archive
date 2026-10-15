@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18097,
+  "chars": 18456,
   "apparatus": false,
   "archived": false,
-  "tokens": 4677
+  "tokens": 4786
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 60024,
+  "chars": 60269,
   "apparatus": false,
   "archived": false,
-  "tokens": 17148
+  "tokens": 17220
  },
  {
   "path": "CLAUDE.md",
@@ -2310,6 +2310,17 @@
   "tokens": 1045
  },
  {
+  "path": "missions/MIS-0193-bring-the-selling-procedures-into-force.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3880,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1138
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -3062,19 +3073,19 @@
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 5592,
+  "status": "active",
+  "chars": 5588,
   "apparatus": false,
   "archived": false,
-  "tokens": 1513
+  "tokens": 1510
  },
  {
   "path": "procedures/PRO-029-making-a-proposal.md",
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 5605,
+  "status": "active",
+  "chars": 5606,
   "apparatus": false,
   "archived": false,
   "tokens": 1410
@@ -3084,44 +3095,44 @@
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 5555,
+  "status": "active",
+  "chars": 5551,
   "apparatus": false,
   "archived": false,
-  "tokens": 1491
+  "tokens": 1488
  },
  {
   "path": "procedures/PRO-031-bidding-for-a-tender.md",
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 5636,
+  "status": "active",
+  "chars": 5632,
   "apparatus": false,
   "archived": false,
-  "tokens": 1499
+  "tokens": 1496
  },
  {
   "path": "procedures/PRO-032-applying-for-a-grant.md",
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 5489,
+  "status": "active",
+  "chars": 5485,
   "apparatus": false,
   "archived": false,
-  "tokens": 1501
+  "tokens": 1498
  },
  {
   "path": "procedures/PRO-033-screening-a-tender.md",
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 5696,
+  "status": "active",
+  "chars": 5692,
   "apparatus": false,
   "archived": false,
-  "tokens": 1485
+  "tokens": 1482
  },
  {
   "path": "procedures/PRO-034-auditing-a-sites-code.md",
@@ -3139,11 +3150,11 @@
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 5600,
+  "status": "active",
+  "chars": 5596,
   "apparatus": false,
   "archived": false,
-  "tokens": 1514
+  "tokens": 1511
  },
  {
   "path": "procedures/PRO-036-handling-a-security-weakness.md",
