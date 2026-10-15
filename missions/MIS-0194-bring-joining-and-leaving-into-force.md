@@ -3,10 +3,10 @@ id: "MIS-194"
 uid: ""
 title: "Bring joining and leaving into force"
 type: mission
-status: in-progress
+status: in-review
 version: "0.1.0"
 created: "2026-10-15T12:34:02Z"
-updated: "2026-10-15T12:34:02Z"
+updated: "2026-10-15T12:34:44Z"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -22,6 +22,7 @@ completed: null
 started: "2026-10-15T12:34:02Z"
 requires_oracle_approval: true
 context: "2026-10-15T12:34:02Z"
+in_review_at: "2026-10-15T12:34:44Z"
 paths: [procedures/PRO-015-joining.md, procedures/PRO-024-leaving.md, AGENTS.md, machine/scripts/test/regime.test.mjs]
 related: ["MIS-193", "PRO-023", "PRO-015", "PRO-024", "STD-022", "PRI-004"]
 ---
@@ -73,4 +74,17 @@ the two procedures say.
 
 ## 3. Closure
 
-*(Filled when the mission closes.)*
+- **What was done:** both headers read `status: active` — `PRO-015`
+  2.1.0 (a minor bump, already past 1.0.0), `PRO-024` 1.0.0 — and
+  nothing else; `AGENTS.md`'s *In force* line names them with what they
+  restore; one test in `regime.test.mjs` holds it (seen failing first:
+  "PRO-015 is not active"). Both read whole against the regime: every
+  step is an act of the Oracle or the person, with its evidence kept in
+  the person's records outside the tree; none asks for a ceremony the
+  regime suspends.
+- **What diverged, and why:** nothing; the branch was cut from `main`
+  after MIS-193 merged, so no rebase was needed.
+- **Evidence:** `npm test` all green; `--rules` 12 checks, 0 failed;
+  `--build` 10 checks, 0 failed; `web/dist/binding/index.html` lists 12
+  procedures in force.
+- **Closed:** pending the Oracle's review · **by:** ursa
