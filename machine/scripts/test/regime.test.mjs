@@ -687,6 +687,21 @@ check('tree: selling is in force — PRO-028, 029, 030, 031, 032, 033 and 035 ar
   return true;
 });
 
+/* A person's passage in force (2026-10-15, MIS-194): joining opens the
+   access list that leaving revokes, so the two activate together. */
+check('tree: joining and leaving are in force — PRO-015 and PRO-024 are active and named in the regime (2026-10-15)', () => {
+  const dir = path.join(ROOT, 'procedures');
+  const agents = readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf-8');
+  const inForce = /^In force:([^\n]*(?:\n(?!\n)[^\n]*)*)/m.exec(agents)?.[1] ?? '';
+  for (const id of ['PRO-015', 'PRO-024']) {
+    const f = readdirSync(dir).find((n) => n.startsWith(`${id}-`));
+    const head = readFileSync(path.join(dir, f), 'utf-8').slice(0, 2000);
+    if (!/^status:\s*"?active/m.test(head)) return `${id} is not active`;
+    if (!inForce.includes(`\`${id}\``)) return `AGENTS.md does not name ${id} in force`;
+  }
+  return true;
+});
+
 check('tree: one question per standard — the record, who is named and which calls are recorded each have one holder (2026-10-15)', () => {
   // STD-039 answered three questions in one document. The record keeps OPP;
   // naming took NAM and the public call took CAL. The plates of a judgement
