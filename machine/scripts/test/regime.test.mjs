@@ -476,11 +476,11 @@ check('tree: a procedure is steps — no Rules section, no plate, and its Episte
   // A procedure is carried out, a standard is complied with (STD-024). The
   // rules a procedure used to carry either moved to the standard that holds
   // the thing, or became steps; their plates went to the ledger.
-  // Running a mission (PRO-003) is left as it is, in draft, by the Oracle's
-  // word (2026-09-27): missions are suspended by the transition regime.
+  // Running a mission (PRO-003) was held out of this form while missions were
+  // suspended by the transition regime; it comes in with its activation.
   const dir = path.join(ROOT, 'procedures');
   const bad = [];
-  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !n.startsWith('PRO-003-'))) {
+  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
     const body = text.slice(text.indexOf('\n---', 3) + 4);
     if (/^##\s+(?:\d+\.\s*)?Rules\b/m.test(body)) bad.push(`${f}: a Rules section`);
@@ -496,12 +496,12 @@ check('tree: a procedure is steps — no Rules section, no plate, and its Episte
 check('tree: every procedure has the five parts of the template, in order', () => {
   // machine/templates/PRO-TEMPLATE.md: purpose and trigger, preconditions,
   // procedure, verification, escalation. The Oracle asked that every
-  // procedure read alike (2026-09-27). Running a mission (PRO-003) is left
-  // out by his word: it stays as it is while missions are suspended.
+  // procedure read alike (2026-09-27). Running a mission (PRO-003) was left
+  // out while missions were suspended; it is held to the form now.
   const PARTS = ['Purpose and trigger', 'Preconditions', 'Procedure', 'Verification', 'Escalation'];
   const dir = path.join(ROOT, 'procedures');
   const bad = [];
-  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !n.startsWith('PRO-003-'))) {
+  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
     const heads = [...text.matchAll(/^## (\d+)\. (.+)$/gm)].map((m) => `${m[1]}. ${m[2].trim()}`);
     const want = PARTS.map((p, i) => `${i + 1}. ${p}`);
@@ -513,7 +513,7 @@ check('tree: every procedure has the five parts of the template, in order', () =
 check('tree: a procedure numbers its steps — the procedure is a numbered list, not a table', () => {
   const dir = path.join(ROOT, 'procedures');
   const bad = [];
-  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n) && !n.startsWith('PRO-003-'))) {
+  for (const f of readdirSync(dir).filter((n) => /^PRO-\d{3}-.*\.md$/.test(n))) {
     const text = readFileSync(path.join(dir, f), 'utf-8');
     const proc = /^## 3\. Procedure\n([\s\S]*?)(?=^## 4\.)/m.exec(text)?.[1] ?? '';
     if (!/^1\. /m.test(proc)) bad.push(f);
