@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 59093,
+  "chars": 59363,
   "apparatus": false,
   "archived": false,
-  "tokens": 16868
+  "tokens": 16946
  },
  {
   "path": "CLAUDE.md",
@@ -1743,10 +1743,10 @@
   "series": null,
   "type": "report",
   "status": "draft",
-  "chars": 3349,
+  "chars": 3519,
   "apparatus": true,
   "archived": false,
-  "tokens": 877
+  "tokens": 922
  },
  {
   "path": "machine/templates/RPT-TEMPLATE-WEEK.md",
@@ -2286,6 +2286,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1121
+ },
+ {
+  "path": "missions/MIS-0191-retire-a-lost-opportunitys-file-at-the-quarterly-roll-up.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3207,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 949
  },
  {
   "path": "objects/CHECK.md",
@@ -2920,10 +2931,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4643,
+  "chars": 4919,
   "apparatus": false,
   "archived": false,
-  "tokens": 1302
+  "tokens": 1368
  },
  {
   "path": "procedures/PRO-018-publishing-a-repository.md",
@@ -3822,10 +3833,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8643,
+  "chars": 9046,
   "apparatus": false,
   "archived": false,
-  "tokens": 2257
+  "tokens": 2374
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
