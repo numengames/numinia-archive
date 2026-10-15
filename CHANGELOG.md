@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-15
+- **Changed** `PRO-015` *Joining Numinia* (2.1.0) and `PRO-024` *Leaving Numinia* (1.0.0) are in force: nobody starts before the agreement is signed, nobody is gone before their access list is closed; `AGENTS.md` names them (`PRO-023`, MIS-194).
 - **Changed** `AGENTS.md` 21.7 → ~18 KB, under the 20 KB cap Hermes enforces (above it the middle of the file is dropped): the repository map is shorter and the rule index quotes the first 40 characters of each `Binds:` line (`rule-index.mjs` `SCOPE_CHARS` 96 → 40); no rule changed.
 - **Changed** `STD-038`, `STD-039`, `STD-054` and `STD-055` are in force at 1.0.0: the opportunity register, record, naming and call rules bind; every Check row is verified by the pipeline tool in CI, no row by hand (`PRO-023`, MIS-192).
 - **Changed** `PRO-028` to `PRO-033` and `PRO-035` are in force at 1.0.0: an opportunity's record moves only by the steps of qualifying, proposing, closing, bidding, applying, screening and watching; `AGENTS.md` names them (`PRO-023`, MIS-193).
