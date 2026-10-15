@@ -690,3 +690,17 @@ check('tree: a lost opportunity leaves at the quarterly roll-up — STD-039 hold
   const tpl = readFileSync(path.join(ROOT, 'machine/templates/RPT-TEMPLATE-QUARTER.md'), 'utf-8');
   return /lost/i.test(tpl) && /leave|leaving/i.test(tpl) || 'the quarterly template does not say that the lost records counted leave';
 });
+
+check('tree: a company is named only after its written confirmation — STD-054, PRO-029 and the record template say so (the Oracle, 2026-10-15)', () => {
+  // Decided, not pending: until the client has confirmed in writing the record
+  // keeps sector and size; "told and did not object" is not enough.
+  const read = (rel) => readFileSync(path.join(ROOT, rel), 'utf-8');
+  const std = readdirSync(path.join(ROOT, 'standards')).find((f) => f.startsWith('STD-054-'));
+  const nam = /\*\*The organisation, named when it knows\.\*\*([\s\S]*?)\n\*\*/.exec(read(`standards/${std}`))?.[1] ?? '';
+  if (!/confirmed in writing/.test(nam)) return 'STD-054 does not ask for the client\'s confirmation in writing';
+  if (/did not object|not object/i.test(read(`standards/${std}`))) return 'STD-054 still names a client that did not object';
+  const pro = readdirSync(path.join(ROOT, 'procedures')).find((f) => f.startsWith('PRO-029-'));
+  if (!/confirm\w* in writing/.test(read(`procedures/${pro}`))) return 'PRO-029 does not say the name waits for the written confirmation';
+  if (/did not object/.test(read('machine/templates/OPP-TEMPLATE.md'))) return 'the record template still says open means the client did not object';
+  return true;
+});
