@@ -24,6 +24,7 @@ tests run and their result; before and after for anything visible. -->
 longer a rule in force: read each changed document of the series for it. -->
 
 - principles/: it says what is so; it says why; the reader can act on it; the title is a claim; it restates no other principle or standard; a border only where one is real
+- opportunities/: a record says the least needed to pursue the opportunity, on the house's legitimate interest in offering its services, and a lost record keeps nothing that outlives its use
 
 ## Definition of Done
 

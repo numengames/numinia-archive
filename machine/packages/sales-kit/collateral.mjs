@@ -20,7 +20,7 @@
  * list, which lives outside the archive, and the rendered piece is written
  * outside the archive too: a rendered e-mail addressed to someone is not a
  * public record. Even so, a piece holding a person's name the card does not
- * list is refused (OPP-006), so a slip at the keyboard cannot leave the
+ * list is refused (NAM-001), so a slip at the keyboard cannot leave the
  * house.
  *
  * WHAT IT DOES
@@ -283,7 +283,7 @@ function main(argv) {
       contactName: val('--contact') ?? val('--signature'), contactRole: val('--role'), contactPhone: val('--phone'), contactMail: val('--mail'),
     });
   } catch (e) { console.error(String(e.message)); return 2; }
-  if (r.names.length) { console.error(`OPP-006: ${r.names.map((n) => `"${n}"`).join(', ')} read as a person's name the card does not list — write the role, or add the person to the card's Who may be named`); return 1; }
+  if (r.names.length) { console.error(`NAM-001: ${r.names.map((n) => `"${n}"`).join(', ')} read as a person's name the card does not list — write the role, or add the person to the card's Who may be named`); return 1; }
   const today = val('--today') ?? new Date().toISOString().slice(0, 10);
   const file = path.join(out, `${today.replace(/-/g, '_')}-${fm.id ?? 'OPP'}-${piece.replace(/\.(html|txt)$/, '')}.${lang}.${PIECES[piece].ext}`);
   mkdirSync(out, { recursive: true });

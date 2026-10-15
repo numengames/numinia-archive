@@ -13,8 +13,8 @@
 // the built HTML, and a template literal inside a script is not an address it
 // can follow.
 //
-// Nobody's name is in a record (OPP-006) and the organisation is a sector
-// until it agrees (OPP-011), so everything here is public as it stands.
+// Nobody's name is in a record (NAM-001) and the organisation is a sector
+// until it agrees (NAM-002), so everything here is public as it stands.
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 
@@ -60,7 +60,7 @@ export interface PRecord {
   criteria: { requirement: string; asks: string; house: string; meets: string }[];
   call: string | null; closes: string | null; opens: string | null; estimated: string | null; procedure: string | null;
   instrument: string | null; file_ref: string | null; gives_back: string | null; follows: string | null;
-  /** OPP-017: the organisation's page and public mailbox, once it may be named */
+  /** NAM-003: the organisation's page and public mailbox, once it may be named */
   web: string | null; contact_email: string | null;
   /** made at build time: the record's page on this site */
   url: string;

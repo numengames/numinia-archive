@@ -207,15 +207,15 @@
     },
     "GRA-006": {
       "was": "STD-046 A grant has a record",
-      "now": "OPP-013 of An opportunity has a record"
+      "now": "CAL-002 of Only a call that passes is recorded"
     },
     "GRA-007": {
       "was": "STD-046 A grant has a record",
-      "now": "OPP-013 of An opportunity has a record"
+      "now": "CAL-002 of Only a call that passes is recorded"
     },
     "GRA-008": {
       "was": "STD-046 A grant has a record",
-      "now": "OPP-006 of An opportunity has a record"
+      "now": "NAM-001 of A client is named by consent"
     },
     "GRA-009": {
       "was": "STD-046 A grant has a record",
@@ -223,7 +223,7 @@
     },
     "GRA-010": {
       "was": "STD-046 A grant has a record",
-      "now": "OPP-010 of An opportunity has a record"
+      "now": "step 5 of Closing a sale, and the month's close for a grant"
     },
     "GRD-001": {
       "was": "PRO-013 Handing a guard to CI",
@@ -312,6 +312,42 @@
     "MON-004": {
       "was": "PRO-021 Closing the month",
       "now": "correcting a closed month, in Closing the month"
+    },
+    "OPP-006": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "NAM-001 of A client is named by consent"
+    },
+    "OPP-007": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "the reviewers' reading list in the pull request template"
+    },
+    "OPP-010": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "step 5 of Closing a sale, and the month's close for a grant"
+    },
+    "OPP-011": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "NAM-002 of A client is named by consent"
+    },
+    "OPP-012": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "CAL-001 of Only a call that passes is recorded"
+    },
+    "OPP-013": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "CAL-002 of Only a call that passes is recorded"
+    },
+    "OPP-014": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "CAL-003 of Only a call that passes is recorded"
+    },
+    "OPP-015": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "CAL-004 of Only a call that passes is recorded"
+    },
+    "OPP-017": {
+      "was": "STD-039 An opportunity has a record",
+      "now": "NAM-003 of A client is named by consent"
     },
     "OSS-003": {
       "was": "STD-015 Engineering checks",

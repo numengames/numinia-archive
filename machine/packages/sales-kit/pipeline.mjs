@@ -21,8 +21,8 @@
  * buyer buys, the chances — from STD-038's tables (one source), and what the
  * house holds from its card, OPS-018. A list renamed there is renamed here
  * without touching code. The records are public (OPP-008), so it also
- * refuses what identifies a person (OPP-006), an organisation named before
- * it agreed (OPP-011) or reachable by a mailbox before it may be named (OPP-017), and a call that fails a requirement (OPP-013): such a
+ * refuses what identifies a person (NAM-001), an organisation named before
+ * it agreed (NAM-002) or reachable by a mailbox before it may be named (NAM-003), and a call that fails a requirement (CAL-002): such a
  * call is not recorded at all; what it taught goes to the card.
  *
  * WHAT IT DOES
@@ -61,7 +61,7 @@ export const REQUIRED = ['id', 'kind', 'organisation', 'sector', 'source', 'oper
    HDR-009). Which kind and which stage asks for each is in validate(). */
 export const WHEN_DUE = ['offer', 'advance', 'proposal', 'agreement', 'decider_role', 'disclosure',
   'follows', 'gives_back',
-  // the organisation's door (OPP-017): its page for this opportunity and the
+  // the organisation's door (NAM-003): its page for this opportunity and the
   // mailbox it publishes — only once the organisation may be named
   'web', 'contact_email',
   // the door a first contact went through (OPP-018, STD-048): from the
@@ -72,10 +72,10 @@ export const WHEN_DUE = ['offer', 'advance', 'proposal', 'agreement', 'decider_r
   // required on a call, written on any other kind when the other side sets one
   'closes',
   // a call — a tender or a grant: where it is published, when it closes,
-  // what it was read from (OPP-012, OPP-014)
+  // what it was read from (CAL-001, CAL-003)
   'call', 'read_from',
   // a tender: how the buyer purchases, its file, what it really buys, the
-  // solvency the terms ask, the day the service starts (OPP-012/014/015)
+  // solvency the terms ask, the day the service starts (CAL-001/003/004)
   'procedure', 'file_ref', 'object', 'turnover_asked', 'works_asked', 'starts',
   // a grant: what the funder gives and when the call opens; `estimated`
   // marks days copied from last year's call until this year's is out
@@ -108,8 +108,8 @@ const ONLY = {
   instrument: ['grant'], opens: ['grant'], estimated: ['grant'],
 };
 /* The rule each kind-bound field answers to: where a call is and when it
-   runs (OPP-012); what it was read from and what it asks (OPP-014). */
-const ONLY_PLATE = { gives_back: 'OPP-002', call: 'OPP-012', procedure: 'OPP-012', instrument: 'OPP-012', opens: 'OPP-012', estimated: 'OPP-012', file_ref: 'OPP-015' };
+   runs (CAL-001); what it was read from and what it asks (CAL-003). */
+const ONLY_PLATE = { gives_back: 'OPP-002', call: 'CAL-001', procedure: 'CAL-001', instrument: 'CAL-001', opens: 'CAL-001', estimated: 'CAL-001', file_ref: 'CAL-004' };
 /* The header every document of the archive opens with (STD-004, rings 1 and
    2 and the fields of every series). A record carries it like any document;
    the tool accepts it and reads none of it but the title. Kept here, not
@@ -120,15 +120,15 @@ export const COMMON = ['title', 'type', 'status', 'version', 'created', 'updated
   'supersedes', 'superseded_by', 'derived_from',
   'tags', 'visibility', 'guild', 'section', 'registration', 'registration_reason',
   'registration_exemption', 'evidence_script', 'evidence_head', 'related', 'uid'];
-/* Roles and channels, never names (OPP-006): the header may carry only these. */
+/* Roles and channels, never names (NAM-001): the header may carry only these. */
 export const ALLOWED = new Set([...REQUIRED, ...WHEN_DUE, ...COMMON]);
 /* The proposal's own fields (STD-040), kept beside the record in the folder. */
 export const PROPOSAL_FIELDS = ['opportunity', 'date', 'valid_until', 'level', 'price', 'tax_rate'];
 
-/* OPP-013: each requirement of a call is met, or still to check. A `no` is
+/* CAL-002: each requirement of a call is met, or still to check. A `no` is
    not a value of the table: a call that fails a requirement is not kept. */
 export const MEETS = ['yes', 'check'];
-/* OPP-011: `open` — told the house works in the open and did not ask to stay
+/* NAM-002: `open` — told the house works in the open and did not ask to stay
    unnamed; absent or `unnamed` — sector and size only. Lost: never named. */
 export const DISCLOSURES = ['open', 'unnamed'];
 export const CHANNELS = ['email', 'phone', 'letter', 'meeting', 'form'];
@@ -144,28 +144,28 @@ export const EVENTS = ['found', 'out', 'pos', 'neg', 'won', 'lost', 'next'];
 export const CLOSED = ['won', 'lost'];
 /* Kinds that are calls a public body publishes: read against the card with
    a criteria table, and recorded only when they pass; their funder or authority may be
-   named, since it published the call itself (OPP-011). */
+   named, since it published the call itself (NAM-002). */
 export const CALLS = ['tender', 'grant'];
 /* OPP-016: a record outside every line the house sells says so. */
 export const OTHER_LINE = 'other';
 /* A sale's stage from which the proposal, the decider and the agreement are
-   due (OPP-002, OPP-010): the stage they become knowable, not earlier. */
+   due (OPP-002): the stage they become knowable, not earlier. */
 const SALE_PROPOSED = 'proposed', SALE_AGREED = 'agreed';
 
 export const URL_RE = /^https?:\/\/\S+$/;
-/* OPP-017: one address, the whole value — the organisation's mailbox. */
+/* NAM-003: one address, the whole value — the organisation's mailbox. */
 export const MAILBOX_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
-/* OPP-011: without `disclosure: open`, and always once lost, the organisation
+/* NAM-002: without `disclosure: open`, and always once lost, the organisation
    is a sector and a size, never a name. */
 export const SECTOR_WORDS = /\b(retailer|retail|public body|public-sector|police|forces?|academy|school|university|hospital|health|bank|insurer|utility|logistics|manufacturer|industry|technology|software|agency|non-profit|foundation|association|accelerator|municipality|ministry|company|firm|organisation|organization|studio|startup|sme|enterprise|chain|group|community|conference|forum|event|festival|museum|council)\b/i;
-/* OPP-006: what identifies a person — an e-mail, a phone — never enters a record. */
+/* NAM-001: what identifies a person — an e-mail, a phone — never enters a record. */
 export const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/;
 export const PHONE_RE = /(?:\+\d{1,3}[\s-]?)?(?:\(?\d{2,4}\)?[\s-]?)\d{3}[\s-]?\d{3,4}\b/;
 /* What looks like a phone and is not: a CPV code (80500000-9), an official
    gazette's identifier (BOE-B-2026-10741), a date, an address. Read out
    before the phone scan. */
 export const NOT_A_PHONE = /\b\d{8}-\d\b|\b(?:BOE|BOCM|BORME|DOUE|BOP)-[A-Z]-\d{4}-\d+(?:-\d+)?\b|\b\d{4}-\d{2}-\d{2}\b|https?:\/\/\S+/g;
-/* OPP-006: what reads as a person's name — a common first name followed by a
+/* NAM-001: what reads as a person's name — a common first name followed by a
    capitalised word, or a courtesy title before one. Deliberately eager: a
    false alarm costs a look, a name let through cannot be taken back. Only
    the card's "Who may be named" (the house's own, and clients whose signed
@@ -203,7 +203,7 @@ export function personNames(text, allowed = []) {
   return [...found];
 }
 
-/* OPP-017: a mailbox that reads as a person's — a common first name among
+/* NAM-003: a mailbox that reads as a person's — a common first name among
    the words of its local part (ana.garcia@, jgarcia@ passes: deliberately
    eager on names, blind to initials; the review reads the rest). */
 const fold = (w) => w.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -354,7 +354,7 @@ export function loadCard(file = DEFAULT_CARD) {
     requirements,
     turnoverCeiling: Number.isFinite(fig['turnover ceiling']) && fig['turnover ceiling'] > 0 ? fig['turnover ceiling'] : null,
     outOfDomain: tableUnder(text, 'What the house makes, and what it does not').map(([pattern, why]) => ({ pattern, why })),
-    /* OPP-006: the only people a public record may name — the house's own and
+    /* NAM-001: the only people a public record may name — the house's own and
        clients whose signed agreement allows it */
     named: firsts(tableUnder(text, 'Who may be named')).filter(Boolean),
     /* OPP-016: the lines the house sells — what a record's `line` names */
@@ -398,7 +398,7 @@ export function timelineOf(text) {
 }
 
 /**
- * The criteria table of a call (OPP-013): [{requirement, asks, house, meets}].
+ * The criteria table of a call (CAL-002): [{requirement, asks, house, meets}].
  * The last cell is the verdict and the first names the requirement, which
  * the card's rows name too.
  */
@@ -483,7 +483,7 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
   for (const k of Object.keys(fm)) {
     if (COMPUTED[k]) F('OPP-009', `header carries \`${k}\` — ${COMPUTED[k]}; it is computed, never typed`);
     else if (RENAMED[k]) F('OPP-002', `header carries \`${k}\` — ${RENAMED[k]}`);
-    else if (!ALLOWED.has(k)) F('OPP-006', `header carries \`${k}\`, not a field of the record — a name or an address belongs nowhere in it`);
+    else if (!ALLOWED.has(k)) F('NAM-001', `header carries \`${k}\`, not a field of the record — a name or an address belongs nowhere in it`);
   }
 
   /* OPP-003: the kind comes from the register */
@@ -491,13 +491,13 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
   const stages = reg.stages[kind];
   if (kind !== undefined && !stages) F('OPP-003', `kind "${kind}" is not one of ${reg.kinds.map((k) => k.kind).join(' · ')}`);
   for (const [k, kinds] of Object.entries(ONLY))
-    if (fm[k] !== undefined && stages && !kinds.includes(kind)) F(ONLY_PLATE[k] ?? 'OPP-014', `\`${k}\` on a ${kind} — it belongs to a ${kinds.join(' or a ')}`);
+    if (fm[k] !== undefined && stages && !kinds.includes(kind)) F(ONLY_PLATE[k] ?? 'CAL-003', `\`${k}\` on a ${kind} — it belongs to a ${kinds.join(' or a ')}`);
 
   const among = (k, list, plate = 'OPP-002') => { if (fm[k] !== undefined && !list.includes(fm[k])) F(plate, `${k} "${fm[k]}" is not one of ${list.join(' · ')}`); };
   among('source', reg.sources);
   among('pays', reg.pays);
   among('contact_channel', CHANNELS);
-  among('disclosure', DISCLOSURES, 'OPP-011');
+  among('disclosure', DISCLOSURES, 'NAM-002');
   if (fm.currency !== undefined && fm.currency !== 'EUR') F('OPP-002', `currency "${fm.currency}" — values are kept in EUR, so they add up`);
   if (fm.value !== undefined && !NUMBER.test(fm.value)) F('OPP-002', `value "${fm.value}" is not a number (before tax)`);
   if (fm.opened !== undefined && !DATE_TIME.test(fm.opened)) F('OPP-002', moment('opened', fm.opened));
@@ -532,58 +532,58 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
     const at = (s) => stages.indexOf(w.reached) >= stages.indexOf(s) || w.stage === 'won';
     if (at(SALE_PROPOSED) && !fm.proposal) F('OPP-002', `a sale that reached \`${SALE_PROPOSED}\` with no \`proposal\` path`);
     if ([SALE_AGREED, 'won'].includes(stage) && !fm.decider_role) F('OPP-003', `a sale at \`${stage}\` with no decider role — who signs for the client is known by the time they agree`);
-    if (stage === 'won' && !fm.agreement) F('OPP-010', 'a sale won with no agreement path');
+    if (stage === 'won' && !fm.agreement) F('OPP-002', 'a sale won with no agreement path');
   }
 
-  /* OPP-012: a call links where it is published */
+  /* CAL-001: a call links where it is published */
   if (CALLS.includes(kind)) {
-    if (!fm.call && !(kind === 'tender' && fm.procedure === 'minor')) F('OPP-012', `a ${kind} with no \`call\` — the address of the notice or the call's page`);
-    if (fm.call && !URL_RE.test(fm.call)) F('OPP-012', `call "${fm.call}" is not an address`);
-    if (!fm.closes) F('OPP-012', `a ${kind} with no \`closes\` — the moment offers or applications close`);
-    for (const k of ['closes', 'opens', 'starts']) if (fm[k] && !DATE_TIME.test(fm[k])) F('OPP-012', moment(k, fm[k]));
-    /* OPP-014: the verdict rests on the call's own words */
-    if (!fm.read_from) F('OPP-014', `a ${kind} that does not say where it was read — ${reg.readFrom.join(' · ')}`);
-    else if (!reg.readFrom.includes(fm.read_from)) F('OPP-014', `read_from "${fm.read_from}" is not one of ${reg.readFrom.join(' · ')} — a summary is never enough to record`);
+    if (!fm.call && !(kind === 'tender' && fm.procedure === 'minor')) F('CAL-001', `a ${kind} with no \`call\` — the address of the notice or the call's page`);
+    if (fm.call && !URL_RE.test(fm.call)) F('CAL-001', `call "${fm.call}" is not an address`);
+    if (!fm.closes) F('CAL-001', `a ${kind} with no \`closes\` — the moment offers or applications close`);
+    for (const k of ['closes', 'opens', 'starts']) if (fm[k] && !DATE_TIME.test(fm[k])) F('CAL-001', moment(k, fm[k]));
+    /* CAL-003: the verdict rests on the call's own words */
+    if (!fm.read_from) F('CAL-003', `a ${kind} that does not say where it was read — ${reg.readFrom.join(' · ')}`);
+    else if (!reg.readFrom.includes(fm.read_from)) F('CAL-003', `read_from "${fm.read_from}" is not one of ${reg.readFrom.join(' · ')} — a summary is never enough to record`);
   }
   if (kind === 'tender') {
-    if (!fm.procedure) F('OPP-012', 'a tender with no procedure — the register names how a public buyer purchases');
-    else among('procedure', reg.procedures, 'OPP-012');
-    if (!fm.object) F('OPP-014', `a tender that does not say what the buyer really buys — ${reg.objects.join(' · ')}`);
-    else if (!reg.objects.includes(fm.object)) F('OPP-014', `object "${fm.object}" is not one of ${reg.objects.join(' · ')} — the house does not record what it does not make`);
-    for (const k of ['turnover_asked', 'works_asked']) if (fm[k] !== undefined && !NUMBER.test(fm[k])) F('OPP-014', `${k} "${fm[k]}" is not a number`);
+    if (!fm.procedure) F('CAL-001', 'a tender with no procedure — the register names how a public buyer purchases');
+    else among('procedure', reg.procedures, 'CAL-001');
+    if (!fm.object) F('CAL-003', `a tender that does not say what the buyer really buys — ${reg.objects.join(' · ')}`);
+    else if (!reg.objects.includes(fm.object)) F('CAL-003', `object "${fm.object}" is not one of ${reg.objects.join(' · ')} — the house does not record what it does not make`);
+    for (const k of ['turnover_asked', 'works_asked']) if (fm[k] !== undefined && !NUMBER.test(fm[k])) F('CAL-003', `${k} "${fm[k]}" is not a number`);
     if (card.turnoverCeiling !== null && Number(fm.turnover_asked) > card.turnoverCeiling)
-      F('OPP-014', `turnover asked ${Number(fm.turnover_asked).toLocaleString('en-GB')} € is above the card's ${card.turnoverCeiling.toLocaleString('en-GB')} € — not recorded; bid as a partner instead (kind partner)`);
-    /* OPP-015: the file reference is what makes two listings one tender */
-    if (!fm.file_ref) F('OPP-015', 'a tender with no file reference — the buyer\'s file number');
+      F('CAL-003', `turnover asked ${Number(fm.turnover_asked).toLocaleString('en-GB')} € is above the card's ${card.turnoverCeiling.toLocaleString('en-GB')} € — not recorded; bid as a partner instead (kind partner)`);
+    /* CAL-004: the file reference is what makes two listings one tender */
+    if (!fm.file_ref) F('CAL-004', 'a tender with no file reference — the buyer\'s file number');
   }
   if (kind === 'grant') {
-    if (!fm.instrument) F('OPP-012', `a grant with no instrument — ${reg.instruments.join(' · ')}`);
-    else among('instrument', reg.instruments, 'OPP-012');
-    if (fm.estimated !== undefined && !['yes', 'no'].includes(fm.estimated)) F('OPP-012', `estimated "${fm.estimated}" is yes or no`);
-    if (fm.estimated === 'yes' && stage && stage !== stages[0] && !CLOSED.includes(stage)) F('OPP-012', `stage \`${stage}\` but the days are still estimated — the call is out: read its days and write estimated: "no"`);
+    if (!fm.instrument) F('CAL-001', `a grant with no instrument — ${reg.instruments.join(' · ')}`);
+    else among('instrument', reg.instruments, 'CAL-001');
+    if (fm.estimated !== undefined && !['yes', 'no'].includes(fm.estimated)) F('CAL-001', `estimated "${fm.estimated}" is yes or no`);
+    if (fm.estimated === 'yes' && stage && stage !== stages[0] && !CLOSED.includes(stage)) F('CAL-001', `stage \`${stage}\` but the days are still estimated — the call is out: read its days and write estimated: "no"`);
   }
 
-  /* OPP-013: a call is read against the card; only what passes is recorded */
+  /* CAL-002: a call is read against the card; only what passes is recorded */
   const crit = criteriaOf(text);
-  if (CALLS.includes(kind) && (!crit || !crit.length)) F('OPP-013', 'no criteria table — a "## Criteria" table: Requirement · The call asks · We have · Meets');
+  if (CALLS.includes(kind) && (!crit || !crit.length)) F('CAL-002', 'no criteria table — a "## Criteria" table: Requirement · The call asks · We have · Meets');
   for (const c of crit ?? []) {
-    if (c.meets === 'no') F('OPP-013', `requirement "${c.requirement}" is not met — a call that fails a requirement is not recorded — take what it taught to the card (OPS-018) and delete the record`);
-    else if (!MEETS.includes(c.meets)) F('OPP-013', `requirement "${c.requirement}" says "${c.meets}" — meets is one of ${MEETS.join(' · ')}`);
+    if (c.meets === 'no') F('CAL-002', `requirement "${c.requirement}" is not met — a call that fails a requirement is not recorded — take what it taught to the card (OPS-018) and delete the record`);
+    else if (!MEETS.includes(c.meets)) F('CAL-002', `requirement "${c.requirement}" says "${c.meets}" — meets is one of ${MEETS.join(' · ')}`);
   }
 
-  /* OPP-017: the organisation's door — its page and its public mailbox, once
+  /* NAM-003: the organisation's door — its page and its public mailbox, once
      it may be named; a sector and a size carry neither, both would name it */
   const nameable = CALLS.includes(kind) || fm.disclosure === 'open';
-  if (fm.web !== undefined && !URL_RE.test(fm.web)) F('OPP-017', `web "${fm.web}" is not an address`);
+  if (fm.web !== undefined && !URL_RE.test(fm.web)) F('NAM-003', `web "${fm.web}" is not an address`);
   if (fm.contact_email !== undefined) {
-    if (!MAILBOX_RE.test(fm.contact_email)) F('OPP-017', `contact_email "${fm.contact_email}" is not one e-mail address`);
-    else if (personalMailbox(fm.contact_email)) F('OPP-006', `contact_email "${fm.contact_email}" reads as a person's mailbox — only the organisation's own (contracting, info, the call's helpdesk) is public; a person's goes to the private contacts, outside the archive`);
+    if (!MAILBOX_RE.test(fm.contact_email)) F('NAM-003', `contact_email "${fm.contact_email}" is not one e-mail address`);
+    else if (personalMailbox(fm.contact_email)) F('NAM-001', `contact_email "${fm.contact_email}" reads as a person's mailbox — only the organisation's own (contracting, info, the call's helpdesk) is public; a person's goes to the private contacts, outside the archive`);
   }
   if (!nameable) {
-    for (const k of ['web', 'contact_email']) if (fm[k] !== undefined) F('OPP-017', `\`${k}\` on a record whose organisation is still a sector and a size — it would name it; keep it in the private contacts until \`disclosure: open\``);
+    for (const k of ['web', 'contact_email']) if (fm[k] !== undefined) F('NAM-003', `\`${k}\` on a record whose organisation is still a sector and a size — it would name it; keep it in the private contacts until \`disclosure: open\``);
   } else if (stage && !CLOSED.includes(stage)) {
-    if (!CALLS.includes(kind) && !fm.web) F('OPP-017', 'an open record of a named organisation with no `web` — the page where the opportunity is described');
-    if (!fm.contact_email && fm.contact_channel !== 'form') F('OPP-017', 'an open record of a named organisation with no `contact_email` — the mailbox it publishes; if it takes contact only by a form, write `contact_channel: "form"`');
+    if (!CALLS.includes(kind) && !fm.web) F('NAM-003', 'an open record of a named organisation with no `web` — the page where the opportunity is described');
+    if (!fm.contact_email && fm.contact_channel !== 'form') F('NAM-003', 'an open record of a named organisation with no `contact_email` — the mailbox it publishes; if it takes contact only by a form, write `contact_channel: "form"`');
   }
 
   /* OPP-018: a first contact names its door, and an e-mail goes only
@@ -596,19 +596,19 @@ export function validate(rec, reg, card = { requirements: [], turnoverCeiling: n
     }
   }
 
-  /* OPP-006: nobody's e-mail or phone, anywhere in a public record — but the
-     organisation's own mailbox, in its one field (OPP-017) */
+  /* NAM-001: nobody's e-mail or phone, anywhere in a public record — but the
+     organisation's own mailbox, in its one field (NAM-003) */
   const body = text.replace(/^---\s*\n[\s\S]*?\n---/, '');
   const scanned = text.replace(/^contact_email:.*$/m, '');
-  if (EMAIL_RE.test(scanned)) F('OPP-006', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
-  if (PHONE_RE.test(body.replace(NOT_A_PHONE, ' '))) F('OPP-006', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
-  for (const n of personNames(text, card.named)) F('OPP-006', `"${n}" reads as a person's name — write the role; only the card's "Who may be named" passes`);
+  if (EMAIL_RE.test(scanned)) F('NAM-001', 'an e-mail address is in the record — a person is identified; keep it where the conversation happened');
+  if (PHONE_RE.test(body.replace(NOT_A_PHONE, ' '))) F('NAM-001', 'a phone number is in the record — a person is identified; keep it where the conversation happened');
+  for (const n of personNames(text, card.named)) F('NAM-001', `"${n}" reads as a person's name — write the role; only the card's "Who may be named" passes`);
 
-  /* OPP-011: the organisation, named when it knows — a public funder or a
+  /* NAM-002: the organisation, named when it knows — a public funder or a
      buyer that published its own call may always be named */
   const named = fm.organisation && !CALLS.includes(kind) && !SECTOR_WORDS.test(fm.organisation);
-  if (named && stage === 'lost') F('OPP-011', `organisation "${fm.organisation}" reads as a name in a lost record — a lost one is kept by sector and size ("a large retailer"); the reason is public, the name is not`);
-  else if (named && fm.disclosure !== 'open') F('OPP-011', `organisation "${fm.organisation}" reads as a name; without \`disclosure: open\` it is a sector and a size ("a large retailer")`);
+  if (named && stage === 'lost') F('NAM-002', `organisation "${fm.organisation}" reads as a name in a lost record — a lost one is kept by sector and size ("a large retailer"); the reason is public, the name is not`);
+  else if (named && fm.disclosure !== 'open') F('NAM-002', `organisation "${fm.organisation}" reads as a name; without \`disclosure: open\` it is a sector and a size ("a large retailer")`);
   return bad;
 }
 
@@ -622,7 +622,7 @@ export function readFolder(folder) {
 }
 
 /**
- * Checks that need the whole folder: OPP-015, two tender records with the
+ * Checks that need the whole folder: CAL-004, two tender records with the
  * same file reference and value are one call listed twice; OPP-002, a
  * `follows` names a record that exists.
  */
@@ -634,7 +634,7 @@ export function duplicates(records) {
     if (fm.follows && !ids.has(fm.follows)) bad.push({ plate: 'OPP-002', what: `follows "${fm.follows}", a record that is not in the folder`, file: r.file });
     if (fm.kind !== 'tender' || !fm.file_ref) continue;
     const key = `${fm.file_ref.replace(/[\s⁄/]+/g, '/').toLowerCase()}|${Number(fm.value) || 0}`;
-    if (seen.has(key)) bad.push({ plate: 'OPP-015', what: `${fm.id} has the same file "${fm.file_ref}" and value as ${seen.get(key)} — one call, two listings: keep one record`, file: r.file });
+    if (seen.has(key)) bad.push({ plate: 'CAL-004', what: `${fm.id} has the same file "${fm.file_ref}" and value as ${seen.get(key)} — one call, two listings: keep one record`, file: r.file });
     else seen.set(key, fm.id);
   }
   return bad;
@@ -657,9 +657,9 @@ export function validateProposal(file, text, named = []) {
   if (!NUMBER.test(fm.tax_rate ?? '')) F('PRP-004', 'no tax rate in the header');
   if (!NUMBER.test(fm.price ?? '')) F('PRP-004', 'no price in the header');
   if (/…/.test(body.slice(body.indexOf('## The three questions')))) F('PRP-006', 'the three questions still hold the template\'s ellipsis');
-  /* OPP-006 holds for a proposal too: it is public like its record */
-  if (EMAIL_RE.test(text)) F('OPP-006', 'an e-mail address is in the proposal — a person is identified');
-  for (const n of personNames(text, named)) F('OPP-006', `"${n}" reads as a person's name — write the role; only the card's "Who may be named" passes`);
+  /* NAM-001 holds for a proposal too: it is public like its record */
+  if (EMAIL_RE.test(text)) F('NAM-001', 'an e-mail address is in the proposal — a person is identified');
+  for (const n of personNames(text, named)) F('NAM-001', `"${n}" reads as a person's name — write the role; only the card's "Who may be named" passes`);
   return bad;
 }
 

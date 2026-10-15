@@ -10,7 +10,7 @@
 // and shows it apart from the records: marked unreviewed, never counted in
 // the funnel, an item the archive already holds linked to its record instead
 // of shown twice. The archive does not trust the feed: every item goes
-// through the same name check as a record (OPP-006), and a closed call is
+// through the same name check as a record (NAM-001), and a closed call is
 // dropped. An unreachable feed never breaks the build.
 //
 // Run: npm test  (the built-page checks need web/dist: `cd web && npm run build`)

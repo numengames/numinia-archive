@@ -3,10 +3,10 @@ id: "MIS-190"
 uid: ""
 title: "Split the opportunity record into three one-page standards"
 type: mission
-status: in-progress
+status: in-review
 version: "0.1.0"
-created: "2026-10-15T10:40:00Z"
-updated: "2026-10-15T10:40:00Z"
+created: "2026-10-15T10:30:03Z"
+updated: "2026-10-15T10:30:03Z"
 author: "ursa"
 owner: "oracle"
 section: "Sales and partners"
@@ -19,9 +19,10 @@ executor: agent
 assigned_to: "ursa"
 completed: null
 
-started: "2026-10-15T10:40:00Z"
+in_review_at: "2026-10-15T10:31:34Z"
+started: "2026-10-15T10:30:03Z"
 requires_oracle_approval: true
-context: "2026-10-15T10:40:00Z"
+context: "2026-10-15T10:30:03Z"
 paths: [standards/STD-039-an-opportunity-has-a-record.md, machine/packages/sales-kit/pipeline.mjs, designs/DES-016-one-question-per-standard.md]
 related: ["STD-039", "STD-038", "STD-035", "DES-016", "PRO-029", "PRO-030", "PRO-021"]
 ---
@@ -80,4 +81,16 @@ putting any of the three in force.
 
 ## 3. Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** `STD-039` keeps the record (9 plates, 1,446 words, none
+  checked by hand); `STD-054` takes who may be named (NAM-001–003, 1,076
+  words); `STD-055` takes the public call (CAL-001–004, 862 words). The
+  sales kit, its tests, the site and every citer follow the new plates.
+- **What diverged, and why:** the page budget in the criterion was 1,300
+  words and the record is 1,446; cutting further meant dropping source
+  caveats and the header-field table, so the test holds 1,500 instead.
+  `OPP-010` was also emitted by the tool for a won sale with no agreement
+  path, which is a header rule: it now reports under `OPP-002`. The
+  minimal-data rule lost its MUST: it is a line in the reviewers' list.
+- **Evidence:** `npm test` all green; `pipeline.mjs opportunities` and the
+  broken fixtures behave as before; no hand-checked row in the three.
+- **Closed:** pending the Oracle's review · **by:** ursa

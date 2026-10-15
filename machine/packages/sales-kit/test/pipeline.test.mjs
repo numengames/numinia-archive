@@ -266,15 +266,15 @@ test('figures() read in-process match the CLI\'s', () => {
 test('the broken fixtures each break what they say', () => {
   const r = spawnSync('node', [TOOL, path.join(FIX, 'broken'), '--today', TODAY, '--register', REGISTER, '--card', CARD], { encoding: 'utf8' });
   assert.equal(r.status, 1);
-  assert.match(r.stderr, /OPP-013 .*OPP-2099-101.*"Turnover" is not met — a call that fails a requirement is not recorded — take what it taught to the card \(OPS-018\) and delete the record/);
-  assert.match(r.stderr, /OPP-014 .*OPP-2099-101.*turnover asked 450,000 € is above the card's 50,000 €/);
+  assert.match(r.stderr, /CAL-002 .*OPP-2099-101.*"Turnover" is not met — a call that fails a requirement is not recorded — take what it taught to the card \(OPS-018\) and delete the record/);
+  assert.match(r.stderr, /CAL-003 .*OPP-2099-101.*turnover asked 450,000 € is above the card's 50,000 €/);
   assert.match(r.stderr, /OPP-009 .*OPP-2099-102.*header carries `state`/);
   assert.match(r.stderr, /OPP-009 .*OPP-2099-102.*header carries `next_date`/);
   assert.match(r.stderr, /OPP-003 .*OPP-2099-102.*stages only move forward/);
   assert.match(r.stderr, /OPP-004 .*OPP-2099-102.*2 `next` lines/);
-  assert.match(r.stderr, /OPP-011 .*OPP-2099-103.*"Northwind Traders" reads as a name in a lost record/);
+  assert.match(r.stderr, /NAM-002 .*OPP-2099-103.*"Northwind Traders" reads as a name in a lost record/);
   assert.match(r.stderr, /OPP-003 .*OPP-2099-103.*reason "bad-luck"/);
-  assert.match(r.stderr, /OPP-006 .*OPP-2099-103.*phone number/);
+  assert.match(r.stderr, /NAM-001 .*OPP-2099-103.*phone number/);
 });
 
 check('OPP-001: the file is named by its id', (dir) => {
@@ -374,37 +374,37 @@ check('OPP-005: nothing happens after a record closed', (dir) => {
   assert.match(run(dir).err, /OPP-005.*a `pos` line after the record closed on 2099-09-15/);
 });
 
-check('OPP-006: a name in the header is refused', (dir) => {
+check('NAM-001: a name in the header is refused', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('contact_role:', 'contact_name: "Someone Real"\ncontact_role:'));
-  assert.match(run(dir).err, /OPP-006.*header carries `contact_name`/);
+  assert.match(run(dir).err, /NAM-001.*header carries `contact_name`/);
 });
 
-check('OPP-006: an e-mail address anywhere in a record is refused — the record is public', (dir) => {
+check('NAM-001: an e-mail address anywhere in a record is refused — the record is public', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up to head.training@example.org, no answer.'));
-  assert.match(run(dir).err, /OPP-006.*e-mail address/);
+  assert.match(run(dir).err, /NAM-001.*e-mail address/);
 });
 
-check('OPP-017: a named organisation\'s public mailbox and page pass, in their own fields', (dir) => {
+check('NAM-003: a named organisation\'s public mailbox and page pass, in their own fields', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Logística Ejemplo"\ndisclosure: "open"\nweb: "https://logistica.example/formacion"\ncontact_email: "formacion@logistica.example"'));
   const r = run(dir);
-  assert.doesNotMatch(r.err, /OPP-017|OPP-006/, r.err);
+  assert.doesNotMatch(r.err, /NAM-003|NAM-001/, r.err);
 });
 
-check('OPP-017: an organisation still a sector and a size carries no mailbox — it would name it', (dir) => {
+check('NAM-003: an organisation still a sector and a size carries no mailbox — it would name it', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('contact_role:', 'contact_email: "formacion@logistica.example"\ncontact_role:'));
-  assert.match(run(dir).err, /OPP-017.*`contact_email` on a record whose organisation is still a sector and a size/);
+  assert.match(run(dir).err, /NAM-003.*`contact_email` on a record whose organisation is still a sector and a size/);
 });
 
-check('OPP-017: a mailbox that reads as a person\'s is refused, even in its field', (dir) => {
+check('NAM-003: a mailbox that reads as a person\'s is refused, even in its field', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Logística Ejemplo"\ndisclosure: "open"\nweb: "https://logistica.example"\ncontact_email: "maria.lopez@logistica.example"'));
-  assert.match(run(dir).err, /OPP-006.*contact_email "maria\.lopez@logistica\.example" reads as a person's mailbox/);
+  assert.match(run(dir).err, /NAM-001.*contact_email "maria\.lopez@logistica\.example" reads as a person's mailbox/);
 });
 
-check('OPP-017: an open named organisation needs its page and its mailbox, unless it takes contact by a form', (dir) => {
+check('NAM-003: an open named organisation needs its page and its mailbox, unless it takes contact by a form', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Logística Ejemplo"\ndisclosure: "open"').replace(/contact_channel: "\w+"/, 'contact_channel: "email"'));
   const err = run(dir).err;
-  assert.match(err, /OPP-017.*no `web`/);
-  assert.match(err, /OPP-017.*no `contact_email`/);
+  assert.match(err, /NAM-003.*no `web`/);
+  assert.match(err, /NAM-003.*no `contact_email`/);
 });
 
 check('OPP-018: an e-mail first contact needs a door that lets it — a call, a letter or a meeting otherwise', (dir) => {
@@ -419,34 +419,34 @@ check('OPP-018: a door outside the register is refused; an e-mail after a yes pa
   assert.match(run(dir).err, /OPP-018.*door "cold-mail" is not one of/);
 });
 
-check('OPP-006: a person\'s name in the body is refused, whatever office they hold', (dir) => {
+check('NAM-001: a person\'s name in the body is refused, whatever office they hold', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up to Carmen Ortega Ruiz, the head of training, no answer.'));
-  assert.match(run(dir).err, /OPP-006.*"Carmen Ortega Ruiz" reads as a person's name/);
+  assert.match(run(dir).err, /NAM-001.*"Carmen Ortega Ruiz" reads as a person's name/);
 });
 
-check('OPP-006: a courtesy title before a surname is a name too', (dir) => {
+check('NAM-001: a courtesy title before a surname is a name too', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up 2099-09-16; Sra. Ortega did not answer.'));
-  assert.match(run(dir).err, /OPP-006.*"Sra\. Ortega" reads as a person's name/);
+  assert.match(run(dir).err, /NAM-001.*"Sra\. Ortega" reads as a person's name/);
 });
 
-check('OPP-006: a name the card lets be named passes; places and bodies that carry a first name do not trip', (dir) => {
+check('NAM-001: a name the card lets be named passes; places and bodies that carry a first name do not trip', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('First follow-up 2099-09-16, no answer.', 'First follow-up 2099-09-16 by Ada Lovelace, from the office in San José de Costa Rica, no answer.'));
   assert.equal(run(dir).code, 0, run(dir).err);
 });
 
-test('OPP-006: the card says who may be named, read from its own table', () => {
+test('NAM-001: the card says who may be named, read from its own table', () => {
   assert.deepEqual(loadCard(CARD).named, ['Ada Lovelace']);
 });
 
-test('OPP-006: no person\'s name in the archive\'s real records and proposals', { skip: !existsSync(path.join(ROOT, 'opportunities')) }, () => {
+test('NAM-001: no person\'s name in the archive\'s real records and proposals', { skip: !existsSync(path.join(ROOT, 'opportunities')) }, () => {
   const r = spawnSync('node', [TOOL, path.join(ROOT, 'opportunities'), '--proposals'], { encoding: 'utf8' });
   assert.doesNotMatch(r.stderr, /reads as a person's name/);
 });
 
-check('OPP-006: CPV codes, gazette ids, dates and addresses are not phones; a phone is', (dir) => {
+check('NAM-001: CPV codes, gazette ids, dates and addresses are not phones; a phone is', (dir) => {
   assert.equal(run(dir).code, 0, 'OPP-2099-003 carries CPV codes, OPP-2099-004 a BOE id');
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('(CPV 72212911-3, 80500000-9)', '(call 912 345 678)'));
-  assert.match(run(dir).err, /OPP-006.*phone number/);
+  assert.match(run(dir).err, /NAM-001.*phone number/);
 });
 
 check('OPP-009: what is computed is never typed — state, next, closed, reason, chance', (dir) => {
@@ -456,42 +456,42 @@ check('OPP-009: what is computed is never typed — state, next, closed, reason,
   assert.match(e, /OPP-009.*header carries `next_action`/);
 });
 
-check('OPP-010: a sale won with no agreement path fails', (dir) => {
+check('OPP-002: a sale won with no agreement path fails', (dir) => {
   edit(dir, 'OPP-2099-001.md', (t) => t.replace(/^agreement: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-010.*a sale won with no agreement path/);
+  assert.match(run(dir).err, /OPP-002.*a sale won with no agreement path/);
 });
 
-check('OPP-011: an organisation named before it agreed is refused; with disclosure open it may be named', (dir) => {
+check('NAM-002: an organisation named before it agreed is refused; with disclosure open it may be named', (dir) => {
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "a provincial police force"', 'organisation: "Provincial Forensic Unit"'));
-  assert.match(run(dir).err, /OPP-011.*"Provincial Forensic Unit" reads as a name/);
+  assert.match(run(dir).err, /NAM-002.*"Provincial Forensic Unit" reads as a name/);
   edit(dir, 'OPP-2099-002.md', (t) => t.replace('organisation: "Provincial Forensic Unit"', 'organisation: "Provincial Forensic Unit"\ndisclosure: "open"'));
-  assert.doesNotMatch(run(dir).err, /OPP-011/);
+  assert.doesNotMatch(run(dir).err, /NAM-002/);
 });
 
-check('OPP-011: a public funder or buyer that published its call may be named', (dir) => {
+check('NAM-002: a public funder or buyer that published its call may be named', (dir) => {
   edit(dir, 'OPP-2099-004.md', (t) => t.replace('organisation: "the Ministry of Culture"', 'organisation: "Ministerio de Cultura"'));
   assert.equal(run(dir).code, 0, run(dir).err);
 });
 
-check('OPP-011: a disclosure outside the list is refused', (dir) => {
+check('NAM-002: a disclosure outside the list is refused', (dir) => {
   edit(dir, 'OPP-2099-007.md', (t) => t.replace(/^(organisation: .*)$/m, '$1\ndisclosure: "maybe"'));
-  assert.match(run(dir).err, /OPP-011.*disclosure "maybe"/);
+  assert.match(run(dir).err, /NAM-002.*disclosure "maybe"/);
 });
 
-check('OPP-012: a tender names its procedure from the register, and links its call except a minor contract', (dir) => {
+check('CAL-001: a tender names its procedure from the register, and links its call except a minor contract', (dir) => {
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('procedure: "simplified-abridged"', 'procedure: "negotiated"'));
-  assert.match(run(dir).err, /OPP-012.*procedure "negotiated" is not one of minor · simplified-abridged · simplified · open/);
+  assert.match(run(dir).err, /CAL-001.*procedure "negotiated" is not one of minor · simplified-abridged · simplified · open/);
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('procedure: "negotiated"', 'procedure: "minor"').replace(/^call: .*\n/m, ''));
   assert.equal(run(dir).code, 0, 'a minor contract has no notice to link');
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('procedure: "minor"', 'procedure: "open"'));
-  assert.match(run(dir).err, /OPP-012.*a tender with no `call`/);
+  assert.match(run(dir).err, /CAL-001.*a tender with no `call`/);
 });
 
-check('OPP-002 / OPP-012: a record\'s days carry their hour and offset', (dir) => {
+check('OPP-002 / CAL-001: a record\'s days carry their hour and offset', (dir) => {
   edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^opened: .*$/m, 'opened: "2099-08-01"').replace(/^closes: .*$/m, 'closes: "2099-09-15"'));
   let e = run(dir).err;
   assert.match(e, /OPP-002.*opened "2099-08-01" has no hour/);
-  assert.match(e, /OPP-012.*closes "2099-09-15" has no hour/);
+  assert.match(e, /CAL-001.*closes "2099-09-15" has no hour/);
   edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^opened: .*$/m, 'opened: "2099-08-01T09:00:00+02:00"')
     .replace(/^closes: .*$/m, 'closes: "2099-09-15T14:00:00+02:00"').replace(/^opens: .*$/m, 'opens: "2099-08-15T09:00:00+02:00"'));
   const r = run(dir, '--json');
@@ -500,63 +500,63 @@ check('OPP-002 / OPP-012: a record\'s days carry their hour and offset', (dir) =
   assert.equal(x.closes, '2099-09-15T14:00:00+02:00', 'the closing hour reaches the figures whole');
 });
 
-check('OPP-012: a call is an address; it closes on a date', (dir) => {
+check('CAL-001: a call is an address; it closes on a date', (dir) => {
   edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^call: .*$/m, 'call: "see the gazette"').replace(/^closes: .*\n/m, ''));
   const e = run(dir).err;
-  assert.match(e, /OPP-012.*call "see the gazette" is not an address/);
-  assert.match(e, /OPP-012.*a grant with no `closes`/);
+  assert.match(e, /CAL-001.*call "see the gazette" is not an address/);
+  assert.match(e, /CAL-001.*a grant with no `closes`/);
 });
 
-check('OPP-012: a grant names its instrument; its days stop being estimated once the call is out', (dir) => {
+check('CAL-001: a grant names its instrument; its days stop being estimated once the call is out', (dir) => {
   edit(dir, 'OPP-2099-004.md', (t) => t.replace('instrument: "grant"', 'instrument: "gift"').replace('estimated: "no"', 'estimated: "yes"'));
   const e = run(dir).err;
-  assert.match(e, /OPP-012.*instrument "gift" is not one of grant · loan · prize · programme/);
-  assert.match(e, /OPP-012.*stage `applied` but the days are still estimated/);
+  assert.match(e, /CAL-001.*instrument "gift" is not one of grant · loan · prize · programme/);
+  assert.match(e, /CAL-001.*stage `applied` but the days are still estimated/);
 });
 
-check('OPP-012: call fields belong to calls — a procedure on a sale fails', (dir) => {
+check('CAL-001: call fields belong to calls — a procedure on a sale fails', (dir) => {
   edit(dir, 'OPP-2099-007.md', (t) => t.replace('pays: "to-ask"', 'pays: "to-ask"\nprocedure: "minor"'));
-  assert.match(run(dir).err, /OPP-012.*`procedure` on a sale — it belongs to a tender/);
+  assert.match(run(dir).err, /CAL-001.*`procedure` on a sale — it belongs to a tender/);
 });
 
-check('OPP-013: a call reads its requirements into a table; no table fails', (dir) => {
+check('CAL-002: a call reads its requirements into a table; no table fails', (dir) => {
   edit(dir, 'OPP-2099-004.md', (t) => t.replace('## Criteria', '## Criteria read later'));
-  assert.match(run(dir).err, /OPP-013.*no criteria table/);
+  assert.match(run(dir).err, /CAL-002.*no criteria table/);
 });
 
-check('OPP-013: a requirement not met means the call is not recorded', (dir) => {
+check('CAL-002: a requirement not met means the call is not recorded', (dir) => {
   edit(dir, 'OPP-2099-004.md', (t) => t.replace('| not yet certified | check |', '| not yet certified | no |'));
-  assert.match(run(dir).err, /OPP-013.*"Tax and Social Security" is not met — a call that fails a requirement is not recorded — take what it taught to the card \(OPS-018\) and delete the record/);
+  assert.match(run(dir).err, /CAL-002.*"Tax and Social Security" is not met — a call that fails a requirement is not recorded — take what it taught to the card \(OPS-018\) and delete the record/);
 });
 
-check('OPP-013: a verdict other than yes or check is refused', (dir) => {
+check('CAL-002: a verdict other than yes or check is refused', (dir) => {
   edit(dir, 'OPP-2099-004.md', (t) => t.replace('| not yet certified | check |', '| not yet certified | probably |'));
-  assert.match(run(dir).err, /OPP-013.*says "probably" — meets is one of yes · check/);
+  assert.match(run(dir).err, /CAL-002.*says "probably" — meets is one of yes · check/);
 });
 
-check('OPP-014: a call says where it was read — an aggregator is never enough', (dir) => {
+check('CAL-003: a call says where it was read — an aggregator is never enough', (dir) => {
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('read_from: "terms"', 'read_from: "aggregator"'));
-  assert.match(run(dir).err, /OPP-014.*read_from "aggregator" is not one of terms · notice/);
+  assert.match(run(dir).err, /CAL-003.*read_from "aggregator" is not one of terms · notice/);
   edit(dir, 'OPP-2099-004.md', (t) => t.replace(/^read_from: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-014.*a grant that does not say where it was read/);
+  assert.match(run(dir).err, /CAL-003.*a grant that does not say where it was read/);
 });
 
-check('OPP-014: what the buyer really buys — resale is not recorded', (dir) => {
+check('CAL-003: what the buyer really buys — resale is not recorded', (dir) => {
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('object: "build"', 'object: "resale"'));
-  assert.match(run(dir).err, /OPP-014.*object "resale" is not one of build · deliver/);
+  assert.match(run(dir).err, /CAL-003.*object "resale" is not one of build · deliver/);
 });
 
-check('OPP-014: a turnover asked above the card\'s ceiling is not recorded', (dir) => {
+check('CAL-003: a turnover asked above the card\'s ceiling is not recorded', (dir) => {
   edit(dir, 'OPP-2099-003.md', (t) => t.replace('turnover_asked: 30000', 'turnover_asked: 90000'));
-  assert.match(run(dir).err, /OPP-014.*turnover asked 90,000 € is above the card's 50,000 €/);
+  assert.match(run(dir).err, /CAL-003.*turnover asked 90,000 € is above the card's 50,000 €/);
 });
 
-check('OPP-015: a tender names its file reference, and one file is one record', (dir) => {
+check('CAL-004: a tender names its file reference, and one file is one record', (dir) => {
   const t = readFileSync(path.join(dir, 'OPP-2099-003.md'), 'utf8').replace(/OPP-2099-003/g, 'OPP-2099-008');
   writeFileSync(path.join(dir, 'OPP-2099-008.md'), t);
-  assert.match(run(dir).err, /OPP-015.*OPP-2099-008 has the same file "PE-2099-17" and value as OPP-2099-003/);
+  assert.match(run(dir).err, /CAL-004.*OPP-2099-008 has the same file "PE-2099-17" and value as OPP-2099-003/);
   edit(dir, 'OPP-2099-008.md', (x) => x.replace(/^file_ref: .*\n/m, ''));
-  assert.match(run(dir).err, /OPP-015.*a tender with no file reference/);
+  assert.match(run(dir).err, /CAL-004.*a tender with no file reference/);
 });
 
 /* ---- proposals (STD-040) ---- */

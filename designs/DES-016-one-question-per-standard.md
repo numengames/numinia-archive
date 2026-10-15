@@ -6,9 +6,9 @@ type: design
 former_id: "BLU-016"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.12.9"
+version: "0.13.0"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-15T10:30:03Z"
 author: "ursa"
 owner: "oracle"
 tags: [design, standards, one-question, DITA, external]
@@ -40,7 +40,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## Current state
 
-As of 14 October 2026 the shelf holds 46 standards.
+As of 15 October 2026 the shelf holds 48 standards.
 The first cut is done: who may change what, how a document leaves, how a
 change reaches the main line, how obligation words are written and what a
 site may store each have one home now, and the rules that repeated them
@@ -132,6 +132,8 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-051` | What may each member do inside their organisation? | — |
 | `STD-052` | Which permissions can a role in an organisation carry? | register |
 | `STD-053` | Who may see whether a person is connected? | — |
+| `STD-054` | Who may be named in the record of an opportunity, and when? | — |
+| `STD-055` | Which tenders and grants does the house record? | — |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.

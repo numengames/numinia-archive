@@ -10,11 +10,11 @@
 //
 // What a public page may NOT carry: the organisation's name before it agreed,
 // and the person written to. So the preview is rendered with the record's own
-// organisation line (a sector and a size until it agreed, OPP-011) and a
+// organisation line (a sector and a size until it agreed, NAM-002) and a
 // placeholder for the person; the seller renders the piece they will send
 // with the command line, from the target list, outside the archive. A piece
 // holding a person's name the card does not list fails the build here, as it
-// fails the command line (OPP-006).
+// fails the command line (NAM-001).
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
@@ -136,7 +136,7 @@ export function wandFor(id: string): Wand | null {
       contactMail: "[tu correo]",
       today,
     });
-    if (r.names.length) throw new Error(`${record.id} ${p.template}: ${r.names.join(", ")} read as a person's name the card does not list (OPP-006)`);
+    if (r.names.length) throw new Error(`${record.id} ${p.template}: ${r.names.join(", ")} read as a person's name the card does not list (NAM-001)`);
     rendered.push({
       piece: p.piece,
       template: p.template,

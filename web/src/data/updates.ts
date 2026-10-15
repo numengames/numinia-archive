@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.163.0",
+    date: "2026-10-15",
+    entries: [
+      { type: "CHG", text: "The standard for an opportunity's record splits in three, each on one page: the record itself, who may be named in it and when (A client is named by consent), and which tenders and grants are recorded at all (Only a call that passes is recorded). Same rules, on the shelf What leaves the house; the rule codes of the last two change prefix." },
+    ],
+  },
+  {
     version: "v0.162.0",
     date: "2026-10-14",
     entries: [

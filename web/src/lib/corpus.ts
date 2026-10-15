@@ -497,6 +497,9 @@ const READING_GROUPS_STANDARDS: ReadingGroup[] = [
       // and partners pass through one register and one record.
       "/standards/std-038-the-stages-of-an-opportunity",
       "/standards/std-039-an-opportunity-has-a-record",
+      // 2026-10-15: who may be named in a record, and which calls enter it.
+      "/standards/std-054-a-client-is-named-by-consent",
+      "/standards/std-055-only-a-call-that-passes-is-recorded",
       "/standards/std-040-a-proposal-says-four-things",
       // 2026-10-02: what each stage of a sale hands over.
       "/standards/std-047-the-sales-collateral",
