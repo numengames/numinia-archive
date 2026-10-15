@@ -5,9 +5,9 @@ title: "An opportunity has a record"
 type: standard
 subtype: standard
 status: draft
-version: "0.15.0"
+version: "0.16.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-15T10:28:18Z"
+updated: "2026-10-15T10:56:38Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -25,8 +25,8 @@ SPDX-License-Identifier: CC0-1.0
 
 # An opportunity has a record
 
-> **Summary:** Every chance to bring money or work into the house — a sale,
-> a tender, a grant, a collaboration, a partner — is one public file: a
+> **Summary:** Every chance to bring money or work into the house is one
+> public file: a
 > header saying what kind, worth how much and how it pays, and a timeline
 > with one line per thing that happened. The stage, the next step, the
 > funnel and the chance are computed from the timeline, never typed.
@@ -39,9 +39,6 @@ SPDX-License-Identifier: CC0-1.0
 **Binds:** every record of an opportunity kept in Numen Games' or Numinia's
 name — a sale, a tender, a grant, a collaboration, a partner — and every
 tool that reads them.
-
-Who may be named in a record, and when, is the business of a standard of its
-own, and so is which public calls are recorded at all.
 
 ## Rules
 
@@ -105,6 +102,11 @@ as a record closed `won`, paid or not, so the chance learns from it.
 opportunities series, one file each, whatever their kind; the pipeline is
 read from there by anyone.
 
+**A lost record leaves after a quarter.** A record closed `lost` MUST be kept
+for 90 days from its `lost` line. The first quarterly roll-up after that MUST
+count it — how many, their value, their reason — and delete its file. A won
+record stays, because the chance learns from it.
+
 **The pipeline is computed.** Stages, counts, values, the funnel, overdue
 and stale records, time per stage, reasons lost and the chance MUST be read
 from the records by a tool. No figure about the pipeline is typed by hand
@@ -129,13 +131,13 @@ Each rule, its code, its source and its check.
 | OPP-009 | The pipeline is computed | `PRI-009` | `machine/packages/sales-kit/pipeline.mjs` is the only source of pipeline figures; the page reads it |
 | OPP-016 | The chance is computed from the line and the house's wins | the Oracle's ruling of 2026-10-07: how close it is to the business, and whether the house has done something like it | `machine/packages/sales-kit/pipeline.mjs`: `line` read against the card; the chance computed; `test/pipeline.test.mjs` |
 | OPP-018 | A first contact names its door | `STD-048` CLD-001, CLD-002; law: [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 21 | `machine/packages/sales-kit/pipeline.mjs`: `door` among the register's doors; e-mail or form through a door that does not let one through is refused; `test/pipeline.test.mjs` |
+| OPP-019 | A lost record leaves after a quarter | [ISO 15489-1:2016](https://www.iso.org/standard/62542.html), disposition (clause unverified); `STD-012`; the Oracle's ruling of 2026-10-15 | `machine/packages/sales-kit/pipeline.mjs`: every lost record past 90 days is listed under *Ready to leave*; `test/pipeline.test.mjs`; the roll-up that removes it is a step of `PRO-017` |
 
 ## Why
 
-A sale kept in one person's head is lost with a holiday, and a pipeline
-typed into a sheet is wrong by the second week. A header a tool can read and
-a timeline of what happened outlive the seller, and the figures come from
-the files.
+A sale kept in one person's head is lost with a holiday. A header a tool can
+read and a timeline of what happened outlive the seller; the figures come
+from the files.
 
 ## References
 

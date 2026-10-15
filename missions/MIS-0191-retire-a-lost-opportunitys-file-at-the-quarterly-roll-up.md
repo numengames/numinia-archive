@@ -3,7 +3,7 @@ id: "MIS-191"
 uid: ""
 title: "Retire a lost opportunity's file at the quarterly roll-up, after 90 days"
 type: mission
-status: in-progress
+status: in-review
 version: "0.1.0"
 created: "2026-10-15T10:55:00Z"
 updated: "2026-10-15T10:55:00Z"
@@ -72,4 +72,15 @@ putting `STD-039` in force.
 
 ## 3. Closure
 
-*(Fill when the mission closes.)*
+- **What was done:** `pipeline.mjs` lists `leaving` (lost records past 90
+  days) in its figures and a *Ready to leave* section in its report;
+  `STD-039` 0.16.0 holds the rule as OPP-019; `PRO-017` 3.4.0 and the
+  quarterly template carry the quarterly step; the site's figures type
+  knows the new key.
+- **What diverged, and why:** to stay under the page limit of `STD-039`
+  (1,500 words) the Why section and the summary's list of kinds were
+  shortened; no obligation changed. A lost record's file is not deleted by
+  the tool: the roll-up does it, with the count written first.
+- **Evidence:** `npm test` all green (three new tests on the 90-day
+  boundary, the report section and the tree); both check sets pass.
+- **Closed:** pending the Oracle's review · **by:** ursa

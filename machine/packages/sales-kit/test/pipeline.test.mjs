@@ -665,6 +665,7 @@ check('OPP-019: a lost record 91 days past its lost line is listed to leave, wit
 check('OPP-019: exactly 90 days is not yet past the limit, and a won record never leaves', (dir) => {
   loseOn(dir, '2099-07-17');
   assert.deepEqual(json(dir).leaving, []);
-  edit(dir, 'OPP-2099-001.md', (t) => t.replace(/2099-09-10 · won/, '2099-01-10 · won').replace(/2099-08-20 · agreed/, '2099-01-05 · agreed'));
-  assert.ok(!json(dir).leaving.some((x) => x.id === 'OPP-2099-001'));
+  const r = spawnSync('node', [TOOL, dir, '--today', '2100-06-01', '--register', REGISTER, '--card', CARD, '--json'], { encoding: 'utf8' });
+  const f = JSON.parse(r.stdout);
+  assert.deepEqual(f.leaving.map((x) => x.id), ['OPP-2099-007'], 'the won record is far past 90 days and stays');
 });

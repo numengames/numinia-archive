@@ -81,6 +81,8 @@ export interface Figures {
   ceiling: number | null;
   overdue: string[];
   stale: { id: string; days: number; limit: number }[];
+  /** OPP-019: lost records past 90 days, counted by the quarterly roll-up and then deleted */
+  leaving: { id: string; kind: Kind; closed: string; days: number; limit: number; reason: string | null; value: number }[];
 }
 
 /** Labels for the page and the markdown twin — presentation only. */

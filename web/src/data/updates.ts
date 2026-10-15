@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.164.0",
+    date: "2026-10-15",
+    entries: [
+      { type: "ADD", text: "The pipeline report gains Ready to leave: opportunities lost more than 90 days ago, which the next quarterly roll-up counts and then deletes. Won ones stay." },
+    ],
+  },
+  {
     version: "v0.163.0",
     date: "2026-10-15",
     entries: [

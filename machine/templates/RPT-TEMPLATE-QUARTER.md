@@ -45,12 +45,15 @@ its figures, so the trend reads at a glance.
 
 Opportunities opened, won and lost, with their value and the stage they
 reached; proposals sent; customers served. A table against the period
-before. Where the sales records are empty, say so in one line.
+before. The pipeline's *Ready to leave* list — lost records past 90 days —
+is counted here and then their files are deleted. Where the sales records
+are empty, say so in one line.
 
 | | quarter before | this quarter |
 |---|---|---|
 | Opportunities open | | |
 | Won · lost | | |
+| Lost, ready to leave (count · EUR · reasons) | | |
 | Value in play (EUR) | | |
 
 ## 3. Money
