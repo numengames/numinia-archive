@@ -4,9 +4,9 @@ uid: ""
 title: "Placing an agent in a 3D world"
 type: procedure
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-10-14T13:08:11+02:00"
-updated: "2026-10-14T20:35:04+02:00"
+updated: "2026-10-15T01:50:08+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -40,28 +40,25 @@ agent acting for one.
 
 ## 1. Purpose and trigger
 
-A world, an organisation or an event wants a guide inside it: an avatar that
-greets, answers questions about the place and goes along with people, with
-the identity of one of our agents. The trigger is the request to put an
-agent in a named world.
+The trigger is a request for a guide in a named world: an avatar with the
+identity of one of our agents that greets, answers questions about the place
+and goes along with people.
 
 The agent is one **component** (a `.hyp` file, Hyperfy's app format): a VRM
 body plus a script, and nothing secret. It does not think by itself; it asks
 the **bridge**, a small program on the world's own machine that holds the
-model key (PRO-039) and calls the brain (PRO-038). Only the half of the
-script that runs on the world's server calls the bridge; the half in each
-visitor's browser draws the avatar and the bubble.
+model key (PRO-039) and calls the brain (PRO-038). The script's server half
+calls the bridge; its browser half draws the avatar and the bubble.
 
-This is the way **until the platform does it**: PRO-040 moves the whole panel
-to numinia.com, out of the world.
+This holds **until the platform does it**: PRO-040 moves the panel to
+numinia.com.
 
 ---
 
 ## 2. Preconditions
 
 1. **The bridge runs on the world's machine** (PRO-039 verified), from the
-   same release as the component: an older bridge ignores the links of
-   step 4.
+   same release as the component: an older bridge ignores steps 4 and 6.
 2. **The component file**, *Agente-IA.hyp*. Its source is held by Ursa until
    it is published in the hyperfy-components repository (SYS-013).
 3. **Builder rights** in the world (you can drag files into it).
@@ -75,9 +72,9 @@ to numinia.com, out of the world.
 
 ## 3. Procedure
 
-1. **Enter the world** with builder rights and **drag *Agente-IA.hyp*** in.
+1. **With builder rights, drag *Agente-IA.hyp*** into the world.
    The avatar appears with the name tag *Procyon · IA*.
-2. **Open its panel** (labels are quoted as shown, in Spanish).
+2. **Open its panel** (labels as shown, in Spanish).
 3. **Personalidad:** *Agente* picks the identity, read from its published
    files (`agents/<name>/SOUL.md` and `OPERATOR.md`); *Nombre visible* and
    *Avatar (VRM)* are optional.
@@ -89,15 +86,18 @@ to numinia.com, out of the world.
    whom to ask), up to 4,000 characters.
 6. **Comportamiento:** *Saluda a (m)* (default 6), *Saluda al acercarse*,
    *Aparece delante de quien le llama*, *Pasea*, *Zona de paseo (m)*.
+   **Gestos:** it knows *saltar* and *voltereta*; each *Gesto N* adds a named
+   `.glb` movement, CC0 only (STD-050), up to six. It makes no other.
 7. **Conexión:** *Cerebro* — *Automático* unless one is wanted; *Puente*
    **empty**: it finds the bridge on its own machine.
 8. **Press *Probar conexión*.** Administrators see **✓ Conectado. Cerebros: …**
    in green, or a red line naming what is missing.
-9. **Call it:** write `/p` and a question in the chat (the question does not
-   show; the agent repeats it, then answers), or its name in a sentence. It
+9. **Call it:** write `/p` and a question in the chat (it repeats the
+   question, then answers), or its name in a sentence. It
    appears in front of you, facing you. It ignores any other chat line.
 10. **Short orders, decided by its script, not by the model:** *sígueme*
-    (it appears behind you whenever you move away) and *quieto*. An
+    (it appears behind you whenever you move away), *quieto*, and a
+    gesture's name (*salta*). An
     administrator's question goes ahead of visitors waiting; a visitor
     cannot take it away from an administrator it follows.
 11. **Record it** in the world's entity card in `objects/` (ADR-069): which
@@ -114,6 +114,7 @@ to numinia.com, out of the world.
 | 9 | `/p` with a question about a fact from a link or the notes: the question appears once in the chat, then an answer in the language you wrote in |
 | 9 | A chat line without `/p` or its name gets no answer |
 | 10 | *sígueme*, then walk ten metres: it appears behind you |
+| 10 | `/p salta`: it jumps, with no answer from the model |
 | 11 | The world's card names the agent |
 
 ---

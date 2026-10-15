@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "57b83c1",
-  "corpus_hash": "08fc4c7ffb9e754aa62ec1e4d3af22b373fbad28ca18720966638144db04b6b5",
+  "head": "e8838cd",
+  "corpus_hash": "9fffaa37af4347b72e1d1350af31c283d2a7682600d844cee5f371b9e24c21a9",
   "root_dirty": 0,
-  "measured_at": "2026-10-14T21:41:43Z",
+  "measured_at": "2026-10-14T23:53:51Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 395,
-          "bytes": 4133439
+          "bytes": 4135186
         },
         "Code": {
           "files": 278,
@@ -374,24 +374,24 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1053169,
+      "value": 1053655,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 121199,
+        "standards": 121553,
         "missions": 67273,
         "system": 59919,
-        "procedures": 44185,
+        "procedures": 44217,
         "reports": 36728,
         "agents": 36326,
         "operations": 33602,
         "machine": 30074,
         "designs": 28393,
         "decisions": 26844,
-        "": 25013,
+        "": 25113,
         "principles": 21866,
         "debt": 20003,
         "opportunities": 15128,
@@ -405,8 +405,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 498744,
-        "draft": 253727,
+        "(none)": 498844,
+        "draft": 254113,
         "active": 231887,
         "todo": 52963,
         "in-progress": 8918,
@@ -418,7 +418,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.39,
+      "value": 6.38,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -718,7 +718,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 48,
+      "value": 52,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -796,10 +796,10 @@
     "contradictions.id_form_per_series": {
       "value": {
         "PRO": {
-          "3": 563
+          "3": 564
         },
         "STD": {
-          "3": 1514
+          "3": 1516
         },
         "PRI": {
           "3": 436
