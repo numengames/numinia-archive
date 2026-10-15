@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 21524,
+  "chars": 21706,
   "apparatus": false,
   "archived": false,
-  "tokens": 5420
+  "tokens": 5475
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 59502,
+  "chars": 59740,
   "apparatus": false,
   "archived": false,
-  "tokens": 16994
+  "tokens": 17067
  },
  {
   "path": "CLAUDE.md",
@@ -2299,6 +2299,17 @@
   "tokens": 1021
  },
  {
+  "path": "missions/MIS-0192-bring-the-opportunity-standards-into-force.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3468,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1045
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -3821,18 +3832,18 @@
   "dir": "standards",
   "series": "standards",
   "type": "standard",
-  "status": "draft",
-  "chars": 16166,
+  "status": "active",
+  "chars": 16161,
   "apparatus": false,
   "archived": false,
-  "tokens": 4346
+  "tokens": 4343
  },
  {
   "path": "standards/STD-039-an-opportunity-has-a-record.md",
   "dir": "standards",
   "series": "standards",
   "type": "standard",
-  "status": "draft",
+  "status": "active",
   "chars": 9028,
   "apparatus": false,
   "archived": false,
@@ -3975,8 +3986,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "standard",
-  "status": "draft",
-  "chars": 6348,
+  "status": "active",
+  "chars": 6349,
   "apparatus": false,
   "archived": false,
   "tokens": 1634
@@ -3986,8 +3997,8 @@
   "dir": "standards",
   "series": "standards",
   "type": "standard",
-  "status": "draft",
-  "chars": 5311,
+  "status": "active",
+  "chars": 5312,
   "apparatus": false,
   "archived": false,
   "tokens": 1466

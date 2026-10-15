@@ -4,10 +4,10 @@ uid: ""
 title: "A client is named by consent"
 type: standard
 subtype: standard
-status: draft
-version: "0.2.0"
+status: active
+version: "1.0.0"
 created: "2026-10-15T10:28:18Z"
-updated: "2026-10-15T11:12:38Z"
+updated: "2026-10-15T12:02:04Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

@@ -66,7 +66,11 @@ escalation names its mission. And the principles and standards whose header says
 `STD-027` the archive is classified by function ·
 `STD-028` one document, one address ·
 `STD-030` the world's vocabulary ·
-`STD-031` a principle states.
+`STD-031` a principle states ·
+`STD-038` the stages of an opportunity ·
+`STD-039` an opportunity has a record ·
+`STD-054` a client is named by consent ·
+`STD-055` only a call that passes is recorded.
 
 Nothing else in `principles/`, `standards/` or `procedures/` binds you. A test
 (`machine/scripts/test/door-resolves.test.mjs`) fails if this list and the
@@ -260,8 +264,8 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-035` | Personal data | draft | everything of ours that collects or keeps data about a person |
 | `STD-036` | One account | draft | the ledger of what Numen Games and Numinia cost and take in, and every view published from it |
 | `STD-037` | What every site carries | draft | every public site of Numen Games and Numinia: numinia.org, numinia.com… |
-| `STD-038` | The stages of an opportunity | draft | register — scope belongs to the standard that cites it |
-| `STD-039` | An opportunity has a record | draft | every record of an opportunity kept in Numen Games' or Numinia's name — a sale, a tender… |
+| `STD-038` | The stages of an opportunity | in force | register — scope belongs to the standard that cites it |
+| `STD-039` | An opportunity has a record | in force | every record of an opportunity kept in Numen Games' or Numinia's name — a sale, a tender… |
 | `STD-040` | A proposal says four things | draft | every proposal for a service that Numen Games sends to an organisation, and whoever writes… |
 | `STD-041` | The levels of automation | draft | register — scope belongs to the standard that cites it |
 | `STD-042` | What an agent may do without asking | draft | register — scope belongs to the standard that cites it |
@@ -274,10 +278,10 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-051` | Organisation roles | draft | numinia.com's organisations — their panel… |
 | `STD-052` | Organisation permissions | draft | register — scope belongs to the standard that cites it |
 | `STD-053` | Presence | draft | numinia.com's status menu, its lists of people, and the service that knows who is connected |
-| `STD-054` | A client is named by consent | draft | every record of an opportunity kept in Numen Games' or Numinia's name, its proposal… |
-| `STD-055` | Only a call that passes is recorded | draft | every tender and every grant recorded in Numen Games' or Numinia's name… |
+| `STD-054` | A client is named by consent | in force | every record of an opportunity kept in Numen Games' or Numinia's name, its proposal… |
+| `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded in Numen Games' or Numinia's name… |
 
-94 rule documents, of which 32 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+94 rule documents, of which 36 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

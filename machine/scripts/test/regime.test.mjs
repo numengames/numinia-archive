@@ -120,6 +120,21 @@ check('tree: secrets is in force — KEY-054, KEY-056 and KEY-057 bind (STD-022 
   return true;
 });
 
+/* The opportunity standards in force (2026-10-15, MIS-192): the register
+   STD-038 is a value list the pipeline tool reads as its one source, and
+   every Check row of STD-039, STD-054 and STD-055 is verified by that tool
+   in CI — no row by hand, so PRO-023 step 7 lets them through together. */
+check('tree: an opportunity has a record is in force — STD-038 active; OPP-001, NAM-001 and CAL-001 bind (STD-039, STD-054, STD-055 active, 2026-10-15)', () => {
+  const status = loadHolders().status;
+  if (status.get('STD-038') !== 'active') return `STD-038 is ${status.get('STD-038')}, want active`;
+  for (const [plate, id] of [['OPP-001', 'STD-039'], ['OPP-019', 'STD-039'], ['NAM-001', 'STD-054'], ['NAM-003', 'STD-054'], ['CAL-001', 'STD-055'], ['CAL-004', 'STD-055']]) {
+    const b = bindsFor(plate);
+    if (b.holder !== id) return `${plate} holder ${b.holder}, want ${id}`;
+    if (!b.binds) return `${plate} does not bind: ${id} is ${b.status}`;
+  }
+  return true;
+});
+
 /* The principles in force (2026-10-12): STD-031 and every principle written
    by ursa are activated together, since a principle has no Check table of
    its own and binds through STD-031's check. A principle by another author
