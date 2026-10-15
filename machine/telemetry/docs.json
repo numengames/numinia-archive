@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18456,
+  "chars": 18642,
   "apparatus": false,
   "archived": false,
-  "tokens": 4786
+  "tokens": 4841
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 60269,
+  "chars": 60515,
   "apparatus": false,
   "archived": false,
-  "tokens": 17220
+  "tokens": 17301
  },
  {
   "path": "CLAUDE.md",
@@ -2321,6 +2321,17 @@
   "tokens": 1138
  },
  {
+  "path": "missions/MIS-0194-bring-joining-and-leaving-into-force.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3267,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1003
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -2930,11 +2941,11 @@
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 4333,
+  "status": "active",
+  "chars": 4329,
   "apparatus": false,
   "archived": false,
-  "tokens": 1142
+  "tokens": 1139
  },
  {
   "path": "procedures/PRO-016-applying-the-engineering-standard.md",
@@ -3029,11 +3040,11 @@
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 4027,
+  "status": "active",
+  "chars": 4023,
   "apparatus": false,
   "archived": false,
-  "tokens": 1067
+  "tokens": 1064
  },
  {
   "path": "procedures/PRO-025-handling-a-personal-data-breach.md",
