@@ -41,7 +41,9 @@ escalation names its mission. The procedures of selling, since 2026-10-15 —
 `PRO-030` (closing a sale), `PRO-031` (bidding for a tender), `PRO-032`
 (applying for a grant), `PRO-033` (screening a tender) and `PRO-035`
 (watching for opportunities): an opportunity's record moves only by their
-steps. And the principles and standards whose header says
+steps. `PRO-015` (joining Numinia) and `PRO-024` (leaving Numinia), since
+2026-10-15: nobody starts before the agreement is signed, and nobody is
+gone before their access list is closed. And the principles and standards whose header says
 `active`:
 `PRI-001` you are already in the game ·
 `PRI-002` we build a game to work better ·
@@ -194,7 +196,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-011` | Auditing identity, authorization and secrets | draft | any agent running a security audit over… |
 | `PRO-013` | Handing a check to CI | draft | any agent that writes a check script,… |
 | `PRO-014` | Producing a design piece | draft | any agent producing a design piece in… |
-| `PRO-015` | Joining Numinia | draft | whoever brings a person into Numinia to… |
+| `PRO-015` | Joining Numinia | in force | whoever brings a person into Numinia to… |
 | `PRO-016` | Applying the engineering standard | draft | any agent executing a task in a… |
 | `PRO-017` | Rolling up the week | draft | any agent executing a weekly, quarterly… |
 | `PRO-018` | Publishing a repository | draft | any agent preparing a visibility change… |
@@ -203,7 +205,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-021` | Closing the month | draft | whoever brings the month's documents,… |
 | `PRO-022` | Building the living pieces | draft | whoever builds, changes or reviews the… |
 | `PRO-023` | Bringing a rule into force | in force | whoever proposes, prepares or approves… |
-| `PRO-024` | Leaving Numinia | draft | whoever lets a person go from Numinia,… |
+| `PRO-024` | Leaving Numinia | in force | whoever lets a person go from Numinia,… |
 | `PRO-025` | Handling a personal data breach | draft | whoever learns of a possible breach of… |
 | `PRO-026` | Answering a person's request about their data | draft | whoever receives or answers a request… |
 | `PRO-027` | Changing what a site stores or loads | draft | whoever changes a site so that it… |
@@ -269,7 +271,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
 | `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded… |
 
-94 rule documents, of which 43 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+94 rule documents, of which 45 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

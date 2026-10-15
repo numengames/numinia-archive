@@ -3,10 +3,10 @@ id: "PRO-015"
 uid: ""
 title: "Joining Numinia"
 type: procedure
-status: draft
-version: "2.0.3"
+status: active
+version: "2.1.0"
 created: "2026-09-07T19:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-15T12:34:36Z"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"

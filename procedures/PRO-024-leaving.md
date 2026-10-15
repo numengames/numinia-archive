@@ -3,10 +3,10 @@ id: "PRO-024"
 uid: ""
 title: "Leaving Numinia"
 type: procedure
-status: draft
-version: "0.1.3"
+status: active
+version: "1.0.0"
 created: "2026-09-27T19:40:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-15T12:34:36Z"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
