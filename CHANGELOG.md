@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-15
+- **Changed** `STD-052` 0.2.0: `top-up` is a permission of its own, given to the base role by every template; `manage-balance` keeps the billing details. `ADR-070` 0.3.2, `ADR-071` 0.1.1 and `MIS-179` 0.3.0 follow; `DBT-022` 0.7.0 asks counsel who buys when a member pays (#66).
 - **Changed** `STD-050` 0.2.0: what an agent's body does comes only from a list the world declares (AGW-012); short orders such as a gesture's name are decided by the program (AGW-013); every movement file is CC0 (AGW-014). `PRO-037` 0.4.0 adds the panel's Gestos section and `/p salta`.
 
 ### 2026-10-14

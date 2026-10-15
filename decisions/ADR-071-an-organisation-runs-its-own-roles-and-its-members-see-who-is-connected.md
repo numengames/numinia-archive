@@ -4,9 +4,9 @@ uid: ""
 title: "An organisation runs its own roles, as a Discord server does, and its members see who is connected"
 type: adr
 status: draft
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-10-14T23:36:00+02:00"
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-15T11:20:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -112,7 +112,7 @@ claim was quoted from the source's own page on 2026-10-14. What decided:
    `ADR-070` already said. Granting the administrator or role-managing
    permission, banning, and changing the house's access ask for a new wallet
    signature at that moment: Numinia's version of Roblox's second check.
-4. **Sixteen permissions in plain words, and three templates** (`STD-052`).
+4. **Seventeen permissions in plain words, and three templates** (`STD-052`).
    The four team roles of `ADR-070` become the Team template, so the table of
    `MIS-179` still holds. The Alpha template, administration and members, is
    what the house opens during the alpha; the Community template adds
