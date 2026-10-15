@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 58223,
+  "chars": 58449,
   "apparatus": false,
   "archived": false,
-  "tokens": 16574
+  "tokens": 16650
  },
  {
   "path": "CLAUDE.md",
@@ -841,10 +841,10 @@
   "series": "decisions",
   "type": "adr",
   "status": "draft",
-  "chars": 19006,
+  "chars": 19066,
   "apparatus": false,
   "archived": false,
-  "tokens": 4782
+  "tokens": 4794
  },
  {
   "path": "decisions/ADR-071-an-organisation-runs-its-own-roles-and-its-members-see-who-is-connected.md",
@@ -2161,10 +2161,10 @@
   "series": "missions",
   "type": "mission",
   "status": "todo",
-  "chars": 5127,
+  "chars": 5636,
   "apparatus": false,
   "archived": false,
-  "tokens": 1420
+  "tokens": 1543
  },
  {
   "path": "missions/MIS-0180-an-account-tops-up-on-stripes-page.md",
@@ -3932,10 +3932,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 4342,
+  "chars": 4521,
   "apparatus": false,
   "archived": false,
-  "tokens": 1083
+  "tokens": 1122
  },
  {
   "path": "standards/STD-053-presence.md",
