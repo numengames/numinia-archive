@@ -751,3 +751,25 @@ check('tree: a company is named only after its written confirmation — STD-054,
   if (/did not object/.test(read('machine/templates/OPP-TEMPLATE.md'))) return 'the record template still says open means the client did not object';
   return true;
 });
+
+check('tree: what every site carries obliges only what protects someone — the legal links, the one address and the card; the look is recommended (the Oracle, 2026-10-15)', () => {
+  // The footer layout, the day and night switch and the epitaph are the
+  // house's offer: a platform may arrange its own. Only the legal texts and
+  // the card of a shared link bind every site.
+  const file = readdirSync(path.join(ROOT, 'standards')).find((f) => f.startsWith('STD-037-'));
+  const text = readFileSync(path.join(ROOT, 'standards', file), 'utf-8');
+  const rules = (/\n## Rules\n([\s\S]*?)\n## Check\n/.exec(text)?.[1] ?? '').replace(/[ \t]*\n(?!\n)[ \t]*/g, ' ');
+  const paragraph = (title) => new RegExp(`\\*\\*${title}[^*]*\\*\\*([\\s\\S]*?)(?=\\n\\*\\*|$)`).exec(rules)?.[1] ?? '';
+  for (const title of ['Day and night on every site', 'The epitaph at the foot']) {
+    const p = paragraph(title);
+    if (!p) return `STD-037 has no rule titled "${title}"`;
+    if (/\bMUST\b/.test(p)) return `"${title}" still says MUST`;
+    if (!/\bSHOULD\b/.test(p)) return `"${title}" does not recommend`;
+  }
+  const footer = paragraph('One house, one footer');
+  if (/MUST close/.test(footer)) return 'the footer rule still obliges the whole layout';
+  if (!/MUST link the four legal texts/.test(footer)) return 'the footer rule does not oblige the legal links';
+  if (!/\bSHOULD\b/.test(footer)) return 'the footer layout is not recommended';
+  const stray = (rules.match(/\bMUST\b/g) || []).length;
+  return stray === 4 || `STD-037 holds ${stray} MUST, want 4: the legal links, the one address (two: link and no copy) and the card`;
+});
