@@ -4,9 +4,9 @@ uid: ""
 title: "A world is paid for by the day from a prepaid balance in euros, kept in a ledger of our own: Stripe takes the money and the tax, teams share a balance, and only a world's owners sign what cannot be undone"
 type: adr
 status: draft
-version: "0.3.1"
+version: "0.3.2"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-15T10:48:49+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Products and services"
@@ -144,8 +144,9 @@ judgement goes to debt while the mechanical parts are built first.
    answered.
 7. **A person has a personal account and may create teams.** A team has a
    shared balance, its worlds and its billing details, and four roles:
-   owner, administration, finance and member. Paying is for the first
-   three; starting and stopping worlds for owners, administration and
+   owner, administration, finance and member. Any member may top up its
+   balance; changing its billing details is for the first three; starting
+   and stopping worlds for owners, administration and
    members; creating worlds for owners and administration. Deleting a
    world, seeing or changing its code and downloading it are for owners
    only. Invitations go by email with the role inside and expire in seven

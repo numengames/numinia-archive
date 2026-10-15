@@ -5,9 +5,9 @@ title: "Organisation permissions"
 type: standard
 subtype: register
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-14T23:36:00+02:00"
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-15T10:48:49+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -54,7 +54,11 @@ label. A role with no permission is a title.
 | `start-stop-worlds` | Start and stop worlds | start and stop the organisation's worlds, which spends its balance |
 | `create-worlds` | Create worlds | create worlds paid from the organisation's balance |
 | `view-balance` | View balance and invoices | see the balance, the daily use and the invoices |
-| `manage-balance` | Top up and billing | pay top-ups and change the billing details |
+| `manage-balance` | Billing details | change the billing details: the name and tax ID the invoices carry |
+
+Topping up needs no permission: any member may add to the organisation's
+balance, as anyone in a Discord server may boost it, and the ledger keeps
+who paid.
 
 ## Only owners
 

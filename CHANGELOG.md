@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-15
+- **Changed** `STD-052` 0.2.0: any member tops up an organisation's balance, with no permission; `manage-balance` keeps only the billing details. `ADR-070` 0.3.2 point 7 and `MIS-179` 0.3.0 (execution log) split the same row.
 - **Changed** `STD-050` 0.2.0: what an agent's body does comes only from a list the world declares (AGW-012); short orders such as a gesture's name are decided by the program (AGW-013); every movement file is CC0 (AGW-014). `PRO-037` 0.4.0 adds the panel's Gestos section and `/p salta`.
 
 ### 2026-10-14

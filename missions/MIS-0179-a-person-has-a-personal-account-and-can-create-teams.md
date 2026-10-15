@@ -4,9 +4,9 @@ uid: ""
 title: "A person has a personal account and can create teams: four roles, invitations by email that expire in seven days, and each role does only what its row allows"
 type: mission
 status: todo
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-13T08:24:00+02:00"
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-15T10:48:49+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -117,6 +117,15 @@ afterwards. Ownership becomes a mark of the person rather than a role, and
 the acts in the owners' column stay theirs alone. The criteria keep
 holding: the test that walks every cell of the table walks the Team
 template. The rules are `STD-051`.
+
+### 2026-10-15 — any member tops up; billing details stay with finance
+
+The Oracle split the table's row «Top up and change billing details»:
+adding to the team's balance takes nothing from anyone, and the ledger
+keeps who paid, so every member may top up, as the till already let them;
+changing the billing details stays with owners, administration and finance.
+`STD-052` 0.2.0 says so: `manage-balance` now carries only the billing
+details. The test that walks every cell of the table walks the split row.
 
 ---
 
