@@ -4,10 +4,10 @@ uid: ""
 title: "The stages of an opportunity"
 type: standard
 subtype: register
-status: draft
-version: "0.12.1"
+status: active
+version: "1.0.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-10T11:53:15+02:00"
+updated: "2026-10-15T12:02:04Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

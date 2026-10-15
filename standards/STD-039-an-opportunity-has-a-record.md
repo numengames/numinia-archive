@@ -4,10 +4,10 @@ uid: ""
 title: "An opportunity has a record"
 type: standard
 subtype: standard
-status: draft
-version: "0.16.1"
+status: active
+version: "1.0.0"
 created: "2026-09-28T13:00:00+02:00"
-updated: "2026-10-15T11:12:38Z"
+updated: "2026-10-15T12:02:04Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
