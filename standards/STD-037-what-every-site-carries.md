@@ -5,9 +5,9 @@ title: "What every site carries"
 type: standard
 subtype: standard
 status: draft
-version: "1.0.1"
+version: "2.0.0"
 created: "2026-09-26T13:00:00+02:00"
-updated: "2026-10-10T11:53:13+02:00"
+updated: "2026-10-15T15:55:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -24,9 +24,10 @@ SPDX-License-Identifier: CC0-1.0
 
 # What every site carries
 
-> **Summary:** Every public site of Numen Games closes with the house
-> footer, presents itself when a link to it is shared, and serves day and
-> night with the same switch.
+> **Summary:** Every public site of Numen Games links the one set of legal
+> texts from its footer and presents itself when a link to it is shared. The
+> house footer, the day and night switch and the epitaph are offered, not
+> required.
 > **Epistemic:** What does every one of our sites carry?
 > **Pragmatic:** Check a new or changed site against its rules before it
 > goes out.
@@ -37,17 +38,20 @@ numinia.com, numen.games and nwos.numen.games.
 
 ## Rules
 
-**One house, one footer.** Every public site of Numen Games MUST close with
-the house footer laid out below; this standard is its one home. It carries
+**One house, one footer.** Every public site of Numen Games MUST link the
+four legal texts from its footer. The legal texts include a notice giving
+every visitor the company's name, address, registry entry and tax number, as
+Spanish law on online services requires. The rest of the footer is the
+house's offer: a site SHOULD close with the footer laid out below, which is
+its one home, so that the four read as one house; a platform may arrange its
+own footer as its work needs, keeping those links. The house footer carries
 the site's written name and its line, its navigation, a column naming the four sites with this
-one marked, links to the legal texts, and its social accounts. Under the site's line, a button invites people to back Numinia in
+one marked, the legal links, and its social accounts. Under the site's line, a button invites people to back Numinia in
 plain sight and leads to the page that sells it. The closing line comes
 last: the scarab, our signature, and the licence, telemetry, version and
 commit. There is no copyright notice. The
 version opens the updates page, and its minor number moves with every
-release; this is a house rule, not semantic versioning. The legal texts
-include a notice giving every visitor the company's name, address, registry
-entry and tax number, as Spanish law on online services requires.
+release; this is a house rule, not semantic versioning.
 
 **The legal texts have one address.** The privacy policy, the terms, the
 cookie policy and the legal notice are written once, in this archive, and
@@ -61,7 +65,7 @@ icon, a title of its own on every page, and the four open graph properties
 that turn a link into a card: title, type, image and address. The page
 title tells a listener where they are.
 
-**Day and night on every site.** Every public site of Numen Games MUST
+**Day and night on every site.** Every public site of Numen Games SHOULD
 serve both modes and carry the mode switch the web recipe describes: the
 moon with stars shows the night, the sun the day: the icon is the mode you are in. The site follows the
 visitor's system setting through the web's colour scheme query until they
@@ -70,7 +74,7 @@ and applies it before painting. The switch behaves as a button in the
 accessible rich internet applications practices. A pixel scene or a veiled
 surface keeps its night inside a day page, framed.
 
-**The epitaph at the foot.** Every public site MUST end its closing line
+**The epitaph at the foot.** Every public site SHOULD end its closing line
 with a small skull that holds the epitaph closing the manifesto. Hovering,
 focusing or tapping it shows the words; Escape hides them; it opens no
 page. The epitaph is said in English on every site, like the signature, and
@@ -87,8 +91,8 @@ laid out, and the exact values. **Law** marks what a statute requires.
 | SIT-001 | One house, one footer | [LSSI](https://www.boe.es/buscar/act.php?id=BOE-A-2002-13758) art. 10 — **law**: the provider's identity reachable from every site; the version rule is ours and is not SemVer | `check-version-bump` in each site's CI, all four; the legal notice's company name, tax ID, address and registry entry by `machine/scripts/test/legal-texts.test.mjs`, on the one original every site links to (`LEG-004`); that each footer links it, by hand |
 | SIT-005 | The legal texts have one address | `ADR-068`, point 3; the address on numinia.org is ours | by hand: open each footer's legal links and search each site's code for a local legal text; a check is owed — a site build that fails when it finds a local copy of a legal text |
 | SIT-002 | A link presents itself | [Open Graph protocol](https://ogp.me/): `og:title`, `og:type`, `og:image`, `og:url` required; WCAG 2.2 SC 2.4.2 Page Titled (A); [HTML `rel=icon`](https://html.spec.whatwg.org/multipage/links.html#rel-icon); scarab and 1200 × 630 card ours | `share-card --check` in each site's CI, all four: card size, icon, title, description and image; `og:type` and `og:url` not checked |
-| SIT-003 | Day and night on every site | [Media Queries 5, `prefers-color-scheme`](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme); [WAI-ARIA APG button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/) | Playwright on numinia.com only (`preferences.spec.ts`): the switch exists, a tap swaps mode and icon, a reload keeps the choice |
-| SIT-004 | The epitaph at the foot | The words: the manifesto in `PRI-002`; [WAI-ARIA APG tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and WCAG 2.2 SC 1.4.13 Content on Hover or Focus (AA) | numinia.com: Playwright `epitaph.spec.ts` in numinia-web (a tap shows and hides the words, Escape closes, focus shows them, a 44 px target, the words stay inside a phone's screen); numinia.org, numen.games and nwos.numen.games by hand: hover, focus, tap and Escape |
+| SIT-003 | Day and night on every site | [Media Queries 5, `prefers-color-scheme`](https://www.w3.org/TR/mediaqueries-5/#prefers-color-scheme); [WAI-ARIA APG button pattern](https://www.w3.org/WAI/ARIA/apg/patterns/button/) | A recommendation, not checked on three sites. numinia.com: Playwright (`preferences.spec.ts`): the switch exists, a tap swaps mode and icon, a reload keeps the choice |
+| SIT-004 | The epitaph at the foot | The words: the manifesto in `PRI-002`; [WAI-ARIA APG tooltip pattern](https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/) and WCAG 2.2 SC 1.4.13 Content on Hover or Focus (AA) | A recommendation. numinia.com: Playwright `epitaph.spec.ts` in numinia-web (a tap shows and hides the words, Escape closes, focus shows them, a 44 px target, the words stay inside a phone's screen); the other three sites are not checked |
 
 ### The house footer
 
@@ -163,8 +167,11 @@ Marfil on Carbón: `favicon.svg`, `favicon.png` 32×32 and `apple-touch-icon.png
 
 ## Why
 
-Four sites that close, present and switch the same way read as one house; a
-visitor who learns one knows the other three.
+Four sites that present themselves the same way when a link is shared, and
+that all send a visitor to the same legal texts, read as one house; a visitor
+who learns one finds the same papers in the other three. Beyond that the sites
+serve different people, and a platform is not a company page, so the house
+look is offered and each site decides.
 
 ## References
 
