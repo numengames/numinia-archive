@@ -676,3 +676,17 @@ check('tree: one question per standard — the record, who is named and which ca
   const words = readFileSync(path.join(ROOT, 'standards', f), 'utf-8').split(/\s+/).length;
   return words <= 1500 || `STD-039 has ${words} words, a page holds 1,500`;
 });
+
+check('tree: a lost opportunity leaves at the quarterly roll-up — STD-039 holds OPP-019 and says 90 days, PRO-017 removes the files (2026-10-15)', () => {
+  // The Oracle's ruling (2026-10-15): a record closed lost is kept 90 days from
+  // its lost line; the first quarterly roll-up after that counts it and
+  // deletes its file. A won record stays, since the chance learns from it.
+  if (index.byPlate.get('OPP-019') !== 'STD-039') return `OPP-019 holder ${index.byPlate.get('OPP-019')}, want STD-039`;
+  const read = (d, p) => { const dir = path.join(ROOT, d); return readFileSync(path.join(dir, readdirSync(dir).find((f) => f.startsWith(`${p}-`))), 'utf-8'); };
+  const std = read('standards', 'STD-039');
+  if (!/90 days/.test(std) || !/quarterly roll-up/i.test(std)) return 'STD-039 does not say a lost record leaves at the quarterly roll-up after 90 days';
+  const pro = read('procedures', 'PRO-017');
+  if (!/ready to leave/i.test(pro) || !/pipeline\.mjs/.test(pro)) return 'PRO-017 does not read the pipeline\'s ready-to-leave list';
+  const tpl = readFileSync(path.join(ROOT, 'machine/templates/RPT-TEMPLATE-QUARTER.md'), 'utf-8');
+  return /lost/i.test(tpl) && /leave|leaving/i.test(tpl) || 'the quarterly template does not say that the lost records counted leave';
+});

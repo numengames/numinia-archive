@@ -184,7 +184,7 @@ check('the fixtures conform — one record of every kind — and the report carr
 
 check('--json is the figures\' contract: its keys, records sorted by id, stages and steps computed', (dir) => {
   const f = json(dir);
-  assert.deepEqual(Object.keys(f), ['today', 'kinds', 'steps', 'records', 'due', 'funnel', 'byKind', 'reasons', 'daysPerStage', 'card', 'ceiling', 'overdue', 'stale']);
+  assert.deepEqual(Object.keys(f), ['today', 'kinds', 'steps', 'records', 'due', 'funnel', 'byKind', 'reasons', 'daysPerStage', 'card', 'ceiling', 'overdue', 'stale', 'leaving']);
   assert.deepEqual(Object.keys(f.records[0]), ['id', 'kind', 'title', 'organisation', 'sector', 'source', 'operation', 'line', 'offer', 'value', 'currency', 'pays', 'advance',
     'stage', 'open', 'opened', 'closed', 'reason', 'next', 'overdue', 'stale', 'events', 'steps', 'chance', 'fits', 'doneBefore', 'criteria',
     'call', 'closes', 'opens', 'estimated', 'procedure', 'instrument', 'file_ref', 'gives_back', 'follows', 'web', 'contact_email']);
@@ -630,4 +630,41 @@ check('OPP-016: a win only counts once it happened, and only in the same line', 
 check('a deadline on any kind carries its hour', (dir) => {
   edit(dir, 'OPP-2099-006.md', (t) => t.replace(/^closes: .*$/m, 'closes: "2099-10-30"'));
   assert.match(run(dir).err, /OPP-002.*closes "2099-10-30" has no hour/);
+});
+
+/* ---- a lost record leaves after 90 days (MIS-191, OPP-019) ---- */
+
+/* OPP-2099-007 is lost on 2099-09-15, thirty days before the tests' TODAY.
+   This moves its whole timeline back so that its `lost` line falls on `lost`. */
+function loseOn(dir, lost) {
+  edit(dir, 'OPP-2099-007.md', (t) => t
+    .replace('2099-08-01T09:00', '2099-06-01T09:00')
+    .replace('- 2099-08-01 · found', '- 2099-06-01 · found')
+    .replace('- 2099-08-05 · out', '- 2099-06-05 · out')
+    .replace('- 2099-09-01 · neg', '- 2099-07-01 · neg')
+    .replace('- 2099-09-15 · lost', `- ${lost} · lost`));
+}
+
+check('OPP-019: a lost record thirty days old is kept, and so is every open and won one', (dir) => {
+  assert.deepEqual(json(dir).leaving, []);
+  assert.match(run(dir).out, /Nothing is ready to leave\./);
+});
+
+check('OPP-019: a lost record 91 days past its lost line is listed to leave, with its reason and value', (dir) => {
+  loseOn(dir, '2099-07-16');
+  const f = json(dir);
+  assert.equal(f.leaving.length, 1);
+  const x = f.leaving[0];
+  assert.deepEqual([x.id, x.kind, x.closed, x.days, x.limit, x.reason], ['OPP-2099-007', 'sale', '2099-07-16', 91, 90, 'price']);
+  assert.equal(typeof x.value, 'number');
+  const out = run(dir).out;
+  assert.match(out, /## Ready to leave/);
+  assert.match(out, /OPP-2099-007\*\* lost 2099-07-16 \(price\), 91 days/);
+});
+
+check('OPP-019: exactly 90 days is not yet past the limit, and a won record never leaves', (dir) => {
+  loseOn(dir, '2099-07-17');
+  assert.deepEqual(json(dir).leaving, []);
+  edit(dir, 'OPP-2099-001.md', (t) => t.replace(/2099-09-10 · won/, '2099-01-10 · won').replace(/2099-08-20 · agreed/, '2099-01-05 · agreed'));
+  assert.ok(!json(dir).leaving.some((x) => x.id === 'OPP-2099-001'));
 });
