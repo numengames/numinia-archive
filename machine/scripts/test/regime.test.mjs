@@ -371,7 +371,8 @@ check('tree: opportunities have one home — opportunities/, registered in STD-0
   if (!/`opportunities\/`/.test(s027)) return 'STD-027 does not place opportunities/ in the scheme';
   const s039 = readFileSync(path.join(ROOT, 'standards/STD-039-an-opportunity-has-a-record.md'), 'utf-8');
   if (/Outside the public archive/.test(s039)) return 'STD-039 still says records live outside the public archive';
-  if (!/named when it knows/i.test(s039)) return 'STD-039 does not say when the organisation is named';
+  const s054 = readFileSync(path.join(ROOT, 'standards/STD-054-a-client-is-named-by-consent.md'), 'utf-8');
+  if (!/named when it knows/i.test(s054)) return 'STD-054 does not say when the organisation is named';
   const ci = readFileSync(path.join(ROOT, '.github/workflows/ci.yml'), 'utf-8');
   if (!/pipeline\.mjs opportunities/.test(ci)) return 'CI does not run pipeline.mjs on opportunities/';
   return true;
@@ -652,4 +653,26 @@ check('tree: missions are in force — PRO-003 and PRO-005 are active, named in 
   const suspended = /What the draft procedures describe[\s\S]*?\n\n/.exec(agents)?.[0] ?? '';
   if (/open a mission card/i.test(suspended)) return 'the regime still says a mission card is not opened';
   return true;
+});
+
+check('tree: one question per standard — the record, who is named and which calls are recorded each have one holder (2026-10-15)', () => {
+  // STD-039 answered three questions in one document. The record keeps OPP;
+  // naming took NAM and the public call took CAL. The plates of a judgement
+  // (OPP-007) and an act (OPP-010) left the standards for the reviewers' list
+  // and the procedures that hold the act.
+  const want = {
+    'OPP-001': 'STD-039', 'OPP-005': 'STD-039', 'OPP-016': 'STD-039', 'OPP-018': 'STD-039',
+    'NAM-001': 'STD-054', 'NAM-002': 'STD-054', 'NAM-003': 'STD-054',
+    'CAL-001': 'STD-055', 'CAL-002': 'STD-055', 'CAL-003': 'STD-055', 'CAL-004': 'STD-055',
+  };
+  for (const [plate, doc] of Object.entries(want)) {
+    const got = index.byPlate.get(plate);
+    if (got !== doc) return `${plate} holder ${got}, want ${doc}`;
+  }
+  for (const gone of ['OPP-006', 'OPP-007', 'OPP-010', 'OPP-011', 'OPP-012', 'OPP-013', 'OPP-014', 'OPP-015', 'OPP-017']) {
+    if (index.byPlate.has(gone)) return `${gone} is still held by ${index.byPlate.get(gone)}`;
+  }
+  const f = readdirSync(path.join(ROOT, 'standards')).find((n) => n.startsWith('STD-039-'));
+  const words = readFileSync(path.join(ROOT, 'standards', f), 'utf-8').split(/\s+/).length;
+  return words <= 1500 || `STD-039 has ${words} words, a page holds 1,500`;
 });

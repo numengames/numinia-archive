@@ -180,10 +180,10 @@ export const RING3 = {
     // record it follows, what a collaboration gave back, a deadline
     'offer', 'advance', 'proposal', 'agreement', 'decider_role', 'disclosure',
     'follows', 'gives_back', 'web', 'contact_email', 'door', 'closes',
-    // a call — tender or grant: where it is, what it was read from (OPP-012/014)
+    // a call — tender or grant: where it is, what it was read from (CAL-001/003)
     'call', 'read_from',
     // a tender: how the buyer purchases, its file, what it really buys,
-    // the solvency asked, the day it starts (OPP-012/014/015)
+    // the solvency asked, the day it starts (CAL-001/003/004)
     'procedure', 'file_ref', 'object', 'turnover_asked', 'works_asked', 'starts',
     // a grant: what the funder gives, when the call opens, days estimated
     'instrument', 'opens', 'estimated',

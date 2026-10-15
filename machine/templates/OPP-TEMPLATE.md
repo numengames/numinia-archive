@@ -81,7 +81,7 @@ opened: "YYYY-MM-DDTHH:MM:SS+02:00"
 #   former-client. REQUIRED from the first `out` line of a record that is
 #   not a call; STD-049 says which doors each country leaves open
 # web: "https://..."
-#   the organisation's page for this opportunity (OPP-017). Only once the
+#   the organisation's page for this opportunity (NAM-003). Only once the
 #   organisation may be named: a tender, a grant, or disclosure open.
 #   REQUIRED then on an open record that is not a call; on a call, only
 #   when its contact is published somewhere other than the call

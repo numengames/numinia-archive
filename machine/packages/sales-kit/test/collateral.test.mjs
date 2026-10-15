@@ -130,7 +130,7 @@ test('what is missing is named, not invented', () => {
   assert.match(sheet.text, /\[falta: Questions\]/);
 });
 
-test('a rendered piece holding a name the card does not list is refused (OPP-006)', () => {
+test('a rendered piece holding a name the card does not list is refused (NAM-001)', () => {
   const rec = readFileSync(RECORD, 'utf8');
   const r = render('first-contact-email.txt', rec, readFileSync(OFFER, 'utf8'),
     { lang: 'es', organisation: 'una tienda', signature: 'Numen Games', greeting: 'Estimada Sra. Ortega:', today: '2099-10-15', card: CARD });
@@ -154,7 +154,7 @@ test('the command line refuses to write a piece holding an unlisted name, and ne
   const r = run(RECORD, '--piece', 'first-contact-email.txt', '--lang', 'es', '--offer', OFFER, '--card', CARD,
     '--organisation', 'una tienda', '--signature', 'Numen Games', '--greeting', 'Estimado Sr. Pérez:', '--out', dir, '--today', '2099-10-15');
   assert.equal(r.code, 1);
-  assert.match(r.err, /OPP-006.*"Sr\. Pérez"/);
+  assert.match(r.err, /NAM-001.*"Sr\. Pérez"/);
   const inside = run(RECORD, '--piece', 'first-contact-email.txt', '--offer', OFFER, '--card', CARD, '--organisation', 'x', '--signature', 'y', '--out', path.join(ROOT, 'opportunities'));
   assert.equal(inside.code, 2);
   assert.match(inside.err, /outside the archive/);

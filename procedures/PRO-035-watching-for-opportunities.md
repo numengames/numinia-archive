@@ -83,7 +83,7 @@ Oracle** decides; **whoever sells** opens the record.
 5. **Write to the feed.** A high or a medium goes to the feed, with its
    blocker and next step; a low or a none stays in the watcher's own
    memory, outside any repository. Before writing, the same name check a record passes
-   (`STD-039` OPP-006): an item that reads as a person's name is held back
+   (`STD-054` NAM-001): an item that reads as a person's name is held back
    and reported. A call the archive already holds carries its record's id.
 6. **The archive shows it, unreviewed.** The pipeline page (`/system/pipeline`)
    reads the feed when built, checks names and closing days again, and

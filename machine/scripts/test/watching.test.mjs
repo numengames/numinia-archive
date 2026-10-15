@@ -37,7 +37,7 @@ test('a procedure holds the watch, from the sweep to the Oracle\'s decision', ()
   for (const [what, re] of [
     ['the feed, by its repository', /numinia-archive-feed/],
     ['the rule it follows', /AUT-069/],
-    ['the name check', /OPP-006/],
+    ['the name check', /NAM-001/],
     ['the pipeline page that shows it', /\/system\/pipeline/],
     ['the register of verdicts', /STD-038/],
     ['the two screenings it hands to', /PRO-033[\s\S]*PRO-032|PRO-032[\s\S]*PRO-033/],

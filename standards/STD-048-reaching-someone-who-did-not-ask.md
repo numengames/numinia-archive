@@ -67,12 +67,12 @@ to receive exactly this (a call, a tender, a request for suppliers,
 partners, sponsors or speakers); the recipient is a former client under
 the conditions `STD-049` sets; or `STD-049` lists the channel as open for
 that country and its row is *confirmed*. A public mailbox in a record
-(`STD-039` OPP-017) says where to write once a door is open; it is not a
+(`STD-054` NAM-003) says where to write once a door is open; it is not a
 door.
 
 **The yes is kept.** When someone asks to hear from us, the day, the door,
 whom it covers, on what, by which channel, and their words MUST be kept in
-the house's private contacts — never in this archive (`STD-039` OPP-006).
+the house's private contacts — never in this archive (`STD-054` NAM-001).
 Withdrawing the yes stops everything, the day it arrives.
 
 ### Before and after

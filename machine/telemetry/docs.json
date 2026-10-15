@@ -16,10 +16,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1345,
+  "chars": 1536,
   "apparatus": false,
   "archived": false,
-  "tokens": 341
+  "tokens": 379
  },
  {
   "path": ".github/rulesets/README.md",
@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 21249,
+  "chars": 21524,
   "apparatus": false,
   "archived": false,
-  "tokens": 5346
+  "tokens": 5420
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 58804,
+  "chars": 59093,
   "apparatus": false,
   "archived": false,
-  "tokens": 16779
+  "tokens": 16868
  },
  {
   "path": "CLAUDE.md",
@@ -962,10 +962,10 @@
   "series": "designs",
   "type": "design",
   "status": "draft",
-  "chars": 11467,
+  "chars": 11610,
   "apparatus": false,
   "archived": false,
-  "tokens": 3041
+  "tokens": 3082
  },
  {
   "path": "designs/DES-017-legal-obligations-to-confirm.md",
@@ -1548,7 +1548,7 @@
   "chars": 815,
   "apparatus": true,
   "archived": false,
-  "tokens": 274
+  "tokens": 276
  },
  {
   "path": "machine/packages/sales-kit/fixtures/card.md",
@@ -2275,6 +2275,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 938
+ },
+ {
+  "path": "missions/MIS-0190-split-the-opportunity-record-into-three-one-page-standards.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3924,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1121
  },
  {
   "path": "objects/CHECK.md",
@@ -3110,7 +3121,7 @@
   "chars": 5600,
   "apparatus": false,
   "archived": false,
-  "tokens": 1513
+  "tokens": 1514
  },
  {
   "path": "procedures/PRO-036-handling-a-security-weakness.md",
@@ -3811,10 +3822,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 18407,
+  "chars": 8643,
   "apparatus": false,
   "archived": false,
-  "tokens": 4786
+  "tokens": 2257
  },
  {
   "path": "standards/STD-040-a-proposal-says-four-things.md",
@@ -3891,7 +3902,7 @@
   "chars": 9264,
   "apparatus": false,
   "archived": false,
-  "tokens": 2573
+  "tokens": 2575
  },
  {
   "path": "standards/STD-049-the-doors-by-country.md",
@@ -3902,7 +3913,7 @@
   "chars": 10821,
   "apparatus": false,
   "archived": false,
-  "tokens": 3087
+  "tokens": 3088
  },
  {
   "path": "standards/STD-050-what-an-agent-in-a-world-reads.md",
@@ -3947,6 +3958,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1588
+ },
+ {
+  "path": "standards/STD-054-a-client-is-named-by-consent.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "standard",
+  "status": "draft",
+  "chars": 6358,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1641
+ },
+ {
+  "path": "standards/STD-055-only-a-call-that-passes-is-recorded.md",
+  "dir": "standards",
+  "series": "standards",
+  "type": "standard",
+  "status": "draft",
+  "chars": 5311,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1466
  },
  {
   "path": "system/SYS-002-agent-cycle.md",
