@@ -36,7 +36,12 @@ In force: `PRO-023` (bringing a rule into force, since 2026-09-27): no
 rule leaves draft without its steps, and the Oracle sees each activation
 before the branch. `PRO-003` (running a mission) and `PRO-005` (escalating
 to the Oracle), since 2026-10-15: a task starts from a mission card, and an
-escalation names its mission. And the principles and standards whose header says
+escalation names its mission. The procedures of selling, since 2026-10-15 —
+`PRO-028` (qualifying an opportunity), `PRO-029` (making a proposal),
+`PRO-030` (closing a sale), `PRO-031` (bidding for a tender), `PRO-032`
+(applying for a grant), `PRO-033` (screening a tender) and `PRO-035`
+(watching for opportunities): an opportunity's record moves only by their
+steps. And the principles and standards whose header says
 `active`:
 `PRI-001` you are already in the game ·
 `PRI-002` we build a game to work better ·
@@ -202,14 +207,14 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-025` | Handling a personal data breach | draft | whoever learns of a possible breach of… |
 | `PRO-026` | Answering a person's request about their data | draft | whoever receives or answers a request… |
 | `PRO-027` | Changing what a site stores or loads | draft | whoever changes a site so that it… |
-| `PRO-028` | Qualifying an opportunity | draft | whoever hears of a chance to sell,… |
-| `PRO-029` | Making a proposal | draft | whoever analyses a need, writes,… |
-| `PRO-030` | Closing a sale | draft | whoever follows up, negotiates, signs… |
-| `PRO-031` | Bidding for a tender | draft | whoever reads, decides on or files a… |
-| `PRO-032` | Applying for a grant | draft | whoever finds, reads, decides on,… |
-| `PRO-033` | Screening a tender | draft | whoever judges, in Numen Games' name,… |
+| `PRO-028` | Qualifying an opportunity | in force | whoever hears of a chance to sell,… |
+| `PRO-029` | Making a proposal | in force | whoever analyses a need, writes,… |
+| `PRO-030` | Closing a sale | in force | whoever follows up, negotiates, signs… |
+| `PRO-031` | Bidding for a tender | in force | whoever reads, decides on or files a… |
+| `PRO-032` | Applying for a grant | in force | whoever finds, reads, decides on,… |
+| `PRO-033` | Screening a tender | in force | whoever judges, in Numen Games' name,… |
 | `PRO-034` | Auditing a site's code | draft | any agent auditing the code of a Numen… |
-| `PRO-035` | Watching for opportunities | draft | whoever keeps a watch for Numen Games —… |
+| `PRO-035` | Watching for opportunities | in force | whoever keeps a watch for Numen Games —… |
 | `PRO-036` | Handling a security weakness | draft | whoever learns of a weakness in a… |
 | `PRO-037` | Placing an agent in a 3D world | draft | whoever places an agent in a world of… |
 | `PRO-038` | Choosing the brain that agents in worlds… | draft | the Oracle who holds the brain's key.… |
@@ -264,7 +269,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
 | `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded… |
 
-94 rule documents, of which 36 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+94 rule documents, of which 43 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

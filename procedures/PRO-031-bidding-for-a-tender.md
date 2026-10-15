@@ -3,10 +3,10 @@ id: "PRO-031"
 uid: ""
 title: "Bidding for a tender"
 type: procedure
-status: draft
-version: "0.3.5"
+status: active
+version: "1.0.0"
 created: "2026-10-01T15:00:00+02:00"
-updated: "2026-10-10T11:53:15+02:00"
+updated: "2026-10-15T12:22:36Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

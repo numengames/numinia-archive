@@ -3,10 +3,10 @@ id: "PRO-035"
 uid: ""
 title: "Watching for opportunities"
 type: procedure
-status: draft
-version: "0.2.1"
+status: active
+version: "1.0.0"
 created: "2026-10-02T21:00:00+02:00"
-updated: "2026-10-08T12:55:00+02:00"
+updated: "2026-10-15T12:22:36Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"

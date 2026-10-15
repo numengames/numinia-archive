@@ -3,10 +3,10 @@ id: "PRO-033"
 uid: ""
 title: "Screening a tender"
 type: procedure
-status: draft
-version: "0.2.5"
+status: active
+version: "1.0.0"
 created: "2026-10-01T17:00:00+02:00"
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-15T12:22:36Z"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
