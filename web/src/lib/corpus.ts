@@ -378,6 +378,11 @@ const READING_GROUPS_PRINCIPLES: ReadingGroup[] = [
       "/principles/pri-012-what-is-yours-stays-with-you",
       // 2026-10-03: what a citizen earns, and how it is recognised.
       "/principles/pri-015-we-recognise-the-act",
+      // 2026-10-16: what the engine owes whoever comes to it — legible to
+      // anyone, kind to the device they own, honest about its limits.
+      "/principles/pri-016-what-a-machine-can-read-anyone-can-use",
+      "/principles/pri-017-a-device-that-heats-up-has-been-asked-too-much",
+      "/principles/pri-018-a-limit-nobody-can-check-is-a-promise",
       "/principles/pri-010-leave-things-better",
     ],
   },

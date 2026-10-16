@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.165.0",
+    date: "2026-10-16",
+    entries: [
+      { type: "ADD", text: "Three principles for Numinia Engine, on the citizens' shelf: What a machine can read, anyone can use; A device that heats up has been asked too much; A limit nobody can check is a promise." },
+      { type: "ADD", text: "SYS-016, Numinia Engine as wired: its layers, what decides what, its checks, and what is measured, estimated or not measured yet. The engine joins the list of repositories, and the Lexicon defines it as a product." },
+    ],
+  },
+  {
     version: "v0.164.0",
     date: "2026-10-15",
     entries: [
