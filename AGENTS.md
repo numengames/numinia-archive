@@ -56,6 +56,9 @@ gone before their access list is closed. And the principles and standards whose 
 `PRI-012` what is yours stays with you ·
 `PRI-013` a magician who keeps hope, with humans in charge ·
 `PRI-015` we recognise the act; we never buy the game ·
+`PRI-016` what a machine can read, anyone can use ·
+`PRI-017` a device that heats up has been asked too much ·
+`PRI-018` a limit nobody can check is a promise ·
 `STD-001` the series ·
 `STD-004` the header every document opens with ·
 `STD-005` when a rule bites ·
@@ -189,6 +192,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRI-012` | What is yours stays with you | in force | whoever builds, runs or changes… |
 | `PRI-013` | A magician who keeps hope, with humans in… | in force | every piece of work that speaks, looks… |
 | `PRI-015` | We recognise the act; we never buy the game | in force | whoever designs, grants or audits a… |
+| `PRI-016` | What a machine can read, anyone can use | in force | whoever builds, runs or changes Numinia… |
+| `PRI-017` | A device that heats up has been asked too much | in force | whoever builds, runs or changes Numinia… |
+| `PRI-018` | A limit nobody can check is a promise | in force | whoever builds, runs or changes Numinia… |
 | `PRO-001` | Opening and closing a session | draft | every agent, in every session, whatever… |
 | `PRO-003` | Running a mission | in force | any agent assigned a mission, and the… |
 | `PRO-005` | Escalating to the Oracle | in force | any agent facing a decision it may not,… |
@@ -271,7 +277,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
 | `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded… |
 
-94 rule documents, of which 45 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+97 rule documents, of which 48 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

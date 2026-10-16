@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.10.0"
+version: "0.11.0"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-16T16:25:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -223,6 +223,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Normative documents** *(set of documents)* | The principles, the standards and the procedures: the only documents that oblige. | Everything else records; a sentence binds you only if it lives in a normative document. | Telling whether a sentence obliges you by where it is written. | Also: axis (until 2026-10-03); what binds.<br>Convention: normative, as against informative — ISO/IEC Directives, Part 2; ISO 9001:2015 7.5, documented information to be maintained. |
 | **Numen Games** *(company)* | The company, Numen Games S.L., that makes Numinia and runs on it. | Numen Games is who signs and invoices; Numinia is how it works. | Knowing which name goes on a contract and which on a story. |  |
 | **Numinia** *(world)* | The way Numen Games works, told as a city that anyone can walk into. | You do not learn it by being briefed; you learn it by walking in. | Using the city's words when they help, and the plain ones when they do not. | The organisation · The city · Numinia |
+| **Numinia Engine** *(product)* | The web engine in which Numinia's 3D worlds are built and played: one link for a computer, a phone or a headset, up to a thousand people in one space, nothing to install. | The engine is not the world: it draws, synchronises, simulates and loads data, and does not know what Numinia is; the city, the adventures and the rules of play are data it runs. | Making a world, an adventure or an event as text and running it for people and agents alike; the rules that bind the engine's work carry its name in their scope. |  |
 | **NWOS** *(product)* | The Narrative Work Operating System: the archive, its agents and its narrative layer, offered to other organisations. | A work system first; the story is an optional layer on top. | An organisation adopts files, versions, agents and people, and adds narrative if it wants. | Work operating system · Narrative Work OS · Narrative Work OS |
 
 ## O

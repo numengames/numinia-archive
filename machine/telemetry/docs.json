@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 18642,
+  "chars": 19138,
   "apparatus": false,
   "archived": false,
-  "tokens": 4841
+  "tokens": 4982
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 61844,
+  "chars": 62643,
   "apparatus": false,
   "archived": false,
-  "tokens": 17646
+  "tokens": 17878
  },
  {
   "path": "CLAUDE.md",
@@ -2431,6 +2431,17 @@
   "tokens": 1003
  },
  {
+  "path": "missions/MIS-0195-gather-the-engines-rules-into-the-summa-by-kind.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 4753,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1320
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -2957,6 +2968,39 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1314
+ },
+ {
+  "path": "principles/PRI-016-what-a-machine-can-read-anyone-can-use.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "active",
+  "chars": 2239,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 591
+ },
+ {
+  "path": "principles/PRI-017-a-device-that-heats-up-has-been-asked-too-much.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "active",
+  "chars": 2081,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 539
+ },
+ {
+  "path": "principles/PRI-018-a-limit-nobody-can-check-is-a-promise.md",
+  "dir": "principles",
+  "series": "principles",
+  "type": "principle",
+  "status": "active",
+  "chars": 1989,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 516
  },
  {
   "path": "procedures/PRO-001-agent-session.md",
@@ -3833,10 +3877,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 75935,
+  "chars": 76491,
   "apparatus": false,
   "archived": false,
-  "tokens": 18563
+  "tokens": 18700
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",
@@ -4240,10 +4284,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 9947,
+  "chars": 10999,
   "apparatus": false,
   "archived": false,
-  "tokens": 2601
+  "tokens": 2904
  },
  {
   "path": "system/SYS-014-the-worlds-fleet-as-wired.md",
@@ -4266,6 +4310,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2382
+ },
+ {
+  "path": "system/SYS-016-numinia-engine-as-wired.md",
+  "dir": "system",
+  "series": "system",
+  "type": "documentation",
+  "status": "draft",
+  "chars": 7272,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1915
  },
  {
   "path": "system/semantic-census/artefact-lap.md",

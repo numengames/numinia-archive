@@ -5,16 +5,16 @@ title: "The repositories, as wired"
 type: documentation
 subtype: reference
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-10-09T16:01:15+02:00"
-updated: "2026-10-12T11:53:57+02:00"
+updated: "2026-10-16T16:50:00+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
 section: "Technology"
 tags: [system, reference, repositories, polyrepo, licences, consumers, single-source-of-truth]
 license: "CC0-1.0"
-related: ["ADR-068", "ADR-069", "ADR-044", "STD-010", "STD-015", "STD-017", "STD-037", "SYS-006", "SYS-009", "SYS-014"]
+related: ["ADR-068", "ADR-069", "ADR-044", "STD-010", "STD-015", "STD-017", "STD-037", "SYS-006", "SYS-009", "SYS-014", "SYS-016"]
 ---
 
 <!--
@@ -55,7 +55,7 @@ described.
 
 ### The repositories
 
-Thirteen today, all public. *To confirm* marks a fact this document could
+Fifteen today, all public. *To confirm* marks a fact this document could
 not read from the repository itself.
 
 | Repository | What it holds | Who writes, under what review | Visibility | Licence regime | What reads it | State |
@@ -67,6 +67,7 @@ not read from the repository itself.
 | **numengames-web** | numen.games, the company site | by pull request with human reviewers | public | AGPL-3.0-only for code, CC0-1.0 for public assets, CC-BY-4.0 for documentation, legal texts reserved, by its README and `REUSE.toml`; its `LICENSE` file holds the GPL-3.0 text — to confirm which is meant | numen.games, deployed on every push to main | wired |
 | **nwos-deploy** | nwos.numen.games: NWOS as a service — a landing page and a generator that creates an organisation's workspace from a private template | by pull request with human reviewers; contributions need the CLA | public | AGPL-3.0-only for the application, per path in `REUSE.toml` | nwos.numen.games, deployed on every push to main | wired |
 | **numinia-hyperfy2** | The 3D world engine: a fork of Hyperfy 2 | to confirm | public | GPL-3.0, inherited from the original; no `REUSE.toml` | to confirm | wired as a fork; the fleet that would run it is not |
+| **numinia-engine** | Numinia Engine: the web 3D/XR engine in TypeScript — layered packages (`core` to `server`, `render`, `agent`), game features in `features/`, the plaza page in `apps/plaza`, and, until `MIS-195` moves them here, its own agent rules, gates and work queue in `AGENTS.md` and `docs/` | by pull request the Oracle approves; the unattended shift never pushes and never opens a pull request (its `AGENTS.md`) | public | AGPL-3.0-only by its `LICENSE`; dependencies MIT, Apache-2.0, BSD or ISC; world assets CC0 or CC-BY, by its README; no `REUSE.toml` | the plaza and the server run from it on the Oracle's machine; the unattended shift works in a worktree of it; the fleet does not run it yet (its branch for the fleet is open) | wired: builds and tests, first commit 2026-10-14; not on the fleet |
 | **hyperfy-components** | Reusable components for Hyperfy worlds (visibility, rotation, translation, emitters, teleport) | to confirm | public | MIT | worlds built on Hyperfy; which ones, to confirm | wired; last push in September |
 | **numinia-docs** | A Docusaurus site | to confirm | public | no licence file | to confirm | idle since August; whether it is archived is open in `ADR-068` |
 | **numengames-experiments** | An experimental rebuild of numen.games | to confirm | public | all rights reserved, by its `LICENSE` | none known | idle since September; whether it is archived is open in `ADR-068` |
@@ -103,7 +104,7 @@ $ curl -s https://api.github.com/orgs/numengames/repos?per_page=100 \
     | grep -E '"(name|visibility|archived)"'
 ```
 
-Thirteen names, each `"visibility": "public"`. For each row, the
+Fifteen names on 2026-10-16, each `"visibility": "public"`. For each row, the
 repository's README, `LICENSE` and `REUSE.toml` are the source of the
 licence column. For the debt table: compare the `version:` line of each
 legal copy with `legal/` here, and the `uses:` lines of each site's
@@ -117,6 +118,7 @@ workflows with this archive's.
 clones of the site repositories (numinia-archive at `48f6a4c`), on
 2026-10-09.
 
+- `numinia-engine` joined on 2026-10-16: its row was read from the organisation's listing, its `LICENSE`, README and `AGENTS.md`, and the repository's branches; it is not covered by the check above of 2026-10-09.
 - Who writes to the nine repositories other than the four sites and the
   feed, and under what review, was not read from them: *to confirm*.
 - The licence of numengames-web disagrees with itself (README and
