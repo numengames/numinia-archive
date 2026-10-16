@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 62869,
+  "chars": 63705,
   "apparatus": false,
   "archived": false,
-  "tokens": 17932
+  "tokens": 18167
  },
  {
   "path": "CLAUDE.md",
@@ -126,10 +126,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 5959,
+  "chars": 6615,
   "apparatus": true,
   "archived": false,
-  "tokens": 1697
+  "tokens": 1849
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -273,6 +273,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 306
+ },
+ {
+  "path": "agents/doulos/PLAYBOOK.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 1496,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 428
  },
  {
   "path": "agents/doulos/SOUL.md",
@@ -429,6 +440,17 @@
   "tokens": 451
  },
  {
+  "path": "agents/nimrod/PLAYBOOK.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 1622,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 459
+ },
+ {
   "path": "agents/nimrod/SOUL.md",
   "dir": "agents",
   "series": "agents",
@@ -548,6 +570,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 604
+ },
+ {
+  "path": "agents/talos/PLAYBOOK.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 1737,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 500
  },
  {
   "path": "agents/talos/SOUL.md",
