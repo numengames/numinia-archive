@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 62643,
+  "chars": 62869,
   "apparatus": false,
   "archived": false,
-  "tokens": 17878
+  "tokens": 17932
  },
  {
   "path": "CLAUDE.md",
@@ -1087,6 +1087,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1779
+ },
+ {
+  "path": "designs/DES-019-where-an-objects-logic-lives.md",
+  "dir": "designs",
+  "series": "designs",
+  "type": "design",
+  "status": "draft",
+  "chars": 11706,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3030
  },
  {
   "path": "legal/LEG-001-privacy-policy-numengames.md",

@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-16
+- **Added** `DES-019`: where an object's logic lives in Numinia Engine — closed rules first, new classes in code on the server with a counted budget, only rules travel between worlds; an agent re-evaluates it every six hours.
 - **Added** `ADR-079`: a world's content lives in its own files, the service on the platform, secrets and people on the machine; numinia.com edits a world by writing into its files; amends `ADR-074` and `ADR-069`.
 - **Added** `ADR-080`: an AI enters a world through one door — its own key listed in the world, the world's tools over MCP, a connection it opens — and Hermes, with any model, builds in the Oracle's worlds; amends `ADR-075`.
 - **Added** `PRI-016`, `PRI-017`, `PRI-018` (site v0.165.0): what Numinia Engine owes whoever comes to it — a machine can read it, so anyone can use it; a device is never asked more than it can bear; every limit says how it is known. They sit on the citizens' shelf (`MIS-195`).
