@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 60774,
+  "chars": 61405,
   "apparatus": false,
   "archived": false,
-  "tokens": 17377
+  "tokens": 17530
  },
  {
   "path": "CLAUDE.md",
@@ -867,6 +867,72 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1521
+ },
+ {
+  "path": "decisions/ADR-073-the-engine-is-for-a-social-city-with-play-and-its-first-product-is-an-escape-room.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6157,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1594
+ },
+ {
+  "path": "decisions/ADR-074-a-world-is-text-formats-only-grow-and-the-whole-world-can-always-be-downloaded.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 5734,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1525
+ },
+ {
+  "path": "decisions/ADR-075-game-logic-runs-on-the-server-and-people-and-agents-build-live-by-role.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6224,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1602
+ },
+ {
+  "path": "decisions/ADR-076-every-thing-in-a-world-carries-a-card-and-a-spoken-name.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 5542,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1408
+ },
+ {
+  "path": "decisions/ADR-077-adventures-are-text-and-escape-rooms-are-state-machines-on-the-server.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6090,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1565
+ },
+ {
+  "path": "decisions/ADR-078-an-object-knows-its-class-and-scope-acts-through-closed-rules-and-is-found-through-one-selector.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 11880,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2956
  },
  {
   "path": "designs/DES-002-business-metrics.md",
