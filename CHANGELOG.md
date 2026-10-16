@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-16
+- **Added** `ADR-072`: a world's address is written by the fleet, through the till's DNS desk (an A record, DNS only, at the machine's IPv4); the only Cloudflare key lives in the till, limited to numinia.com and numen.games; amends `ADR-069`.
+
 ### 2026-10-15
 - **Changed** `PRO-015` *Joining Numinia* (2.1.0) and `PRO-024` *Leaving Numinia* (1.0.0) are in force: nobody starts before the agreement is signed, nobody is gone before their access list is closed; `AGENTS.md` names them (`PRO-023`, MIS-194).
 - **Changed** `AGENTS.md` 21.7 → ~18 KB, under the 20 KB cap Hermes enforces (above it the middle of the file is dropped): the repository map is shorter and the rule index quotes the first 40 characters of each `Binds:` line (`rule-index.mjs` `SCOPE_CHARS` 96 → 40); no rule changed.

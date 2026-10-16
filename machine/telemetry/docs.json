@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 60515,
+  "chars": 60774,
   "apparatus": false,
   "archived": false,
-  "tokens": 17301
+  "tokens": 17377
  },
  {
   "path": "CLAUDE.md",
@@ -856,6 +856,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3860
+ },
+ {
+  "path": "decisions/ADR-072-a-worlds-address-is-written-by-the-fleet-through-the-till.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 5818,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1521
  },
  {
   "path": "designs/DES-002-business-metrics.md",
