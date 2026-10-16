@@ -26,8 +26,7 @@ approvals:
     transmits, or materially changes legal documents, regulatory filings,
     contractual terms, compliance records, policies, permissions, or
     authoritative project documentation.
-    Always ESCALATE commands that push commits or tags to a remote repository
-    when they modify legal or compliance materials.
+    Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
     Escalate destructive Git operations, branch deletion, repository cleanup,
     bulk renames, or commands that may irreversibly alter legal records or
     documentary history.

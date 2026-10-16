@@ -18,6 +18,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-16
+- **Added** `PLAYBOOK.md` (1.0.0, draft) for Doulos, Nimrod and Talos: how each agent does its job well — when a lesson applies, what to do, the pitfall, the evidence — edited by the agent through pull requests; the first lessons are the seeds written on 2026-10-16.
+- **Added** `agents/INDEX.md` 3.5.0 (minor, by Pablo's go in chat on 2026-10-16, `STD-017` AUT-065): the section *How an agent grows* — an agent records what it learned in its own `PLAYBOOK.md` and ships it by pull request; the operator's merge is the review.
+- **Changed** Hermes adapters of Ursa, Byblos, Antunj, Lexa, Senet, Doulos and Nimrod: pushing a branch and opening a pull request needs no ask while the repository has no other open pull request (Dependabot does not count); force-pushes, tags, remote-branch deletion and `.github/workflows/` still escalate.
 - **Added** `DES-019`: where an object's logic lives in Numinia Engine — closed rules first, new classes in code on the server with a counted budget, only rules travel between worlds; an agent re-evaluates it every six hours.
 - **Added** `ADR-079`: a world's content lives in its own files, the service on the platform, secrets and people on the machine; numinia.com edits a world by writing into its files; amends `ADR-074` and `ADR-069`.
 - **Added** `ADR-080`: an AI enters a world through one door — its own key listed in the world, the world's tools over MCP, a connection it opens — and Hermes, with any model, builds in the Oracle's worlds; amends `ADR-075`.

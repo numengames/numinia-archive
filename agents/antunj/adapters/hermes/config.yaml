@@ -21,9 +21,10 @@ approvals:
     - "git push --force*"
     - "git push -f*"
   smart_policy: |
-    Always ESCALATE commands that publish, push, overwrite, delete, or materially
+    Always ESCALATE commands that publish, overwrite, delete, or materially
     alter project repositories, remote content, production assets, or authoritative
     project documentation.
+    Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
     Allow ordinary local inspection, reading, comparison, search, and non-destructive
     file operations when they are otherwise safe.
     Escalate destructive Git operations, branch deletion, repository cleanup, or any
