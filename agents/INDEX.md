@@ -3,11 +3,11 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.4.3"
+version: "3.5.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T21:30:00+02:00"
+updated: "2026-10-16T21:09:33Z"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -43,6 +43,7 @@ agents/{name}/
 ├── SOUL.md               ← identity, function, limits
 ├── OPERATOR.md           ← governance: authority, escalation
 ├── SOURCES.md            ← where its authoritative knowledge lives
+├── PLAYBOOK.md           ← how the agent does its job well; the agent edits it through pull requests; present once it has a first lesson
 └── adapters/
     └── hermes/
         ├── profile.yaml  ← Hermes routing description
@@ -99,6 +100,10 @@ once:
 - **Traceability.** Changes to authoritative content travel through Git —
   commits, reviews, the pull request. History is not sacrificed for
   convenience.
+
+## How an agent grows
+
+An agent improves through its own folder. After a task it records what it learned in `agents/{name}/PLAYBOOK.md` — when the lesson applies, what to do, the pitfall, the evidence — and ships the change through a pull request; the operator's merge is the review. `SOUL.md`, `OPERATOR.md` and the card change only by the operator: the agent proposes in the pull request body. A new lesson that contradicts an old one replaces it; detail that outgrows the playbook moves to `agents/{name}/references/`.
 
 ## Renames
 

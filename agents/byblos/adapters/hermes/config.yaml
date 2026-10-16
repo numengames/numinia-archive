@@ -23,7 +23,7 @@ approvals:
     Always ESCALATE any command that deletes, overwrites, renames, moves, rewrites,
     or changes permissions on documentary records, repositories, archive trees,
     metadata stores, canonical content, or authoritative project documentation.
-    Always ESCALATE commands that push commits or tags to a remote Git repository.
+    Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
     Always ESCALATE destructive Git operations, branch deletion, repository cleanup,
     bulk file moves, bulk renames, or commands that could irreversibly alter archive
     structure or document history.

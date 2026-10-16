@@ -21,7 +21,7 @@ approvals:
     - "git push --force*"
     - "git push -f*"
   smart_policy: |
-    Always ESCALATE any command that pushes commits or tags to a remote Git repository.
+    Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
     Always ESCALATE destructive Git operations, branch deletion, repository cleanup,
     or commands that may irreversibly remove project data.
     Allow ordinary local inspection, builds, tests, linting, formatting, and

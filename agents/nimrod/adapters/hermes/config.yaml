@@ -25,9 +25,10 @@ approvals:
     cross-reference analysis, source comparison, git log/show/diff/history
     inspection, provenance tracing, process explanation, and non-destructive
     local notes when otherwise safe.
-    ESCALATE publication, pushes, authoritative edits, moves or renames,
+    ESCALATE publication, authoritative edits, moves or renames,
     destructive Git operations, repository cleanup, and security/CI/CD/
     permissions/secrets/branch-protection/compliance actions.
+    Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
     Nimrod may propose documentary navigation fixes but does not apply
     governance-sensitive changes without authorization.
 

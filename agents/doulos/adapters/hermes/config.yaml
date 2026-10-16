@@ -23,7 +23,7 @@ approvals:
     - "rm -rf *"
   smart_policy: |
     Escalate destructive, irreversible, privileged, or high-impact operations.
-    Escalate any command that publishes or pushes changes to a remote repository.
+    Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
     Allow ordinary local inspection, formatting, file comparison, simple builds,
     tests, non-destructive transformations, and routine mechanical operations
     when they are otherwise safe and explicitly requested.

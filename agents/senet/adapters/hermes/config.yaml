@@ -23,9 +23,10 @@ approvals:
     - "rm -rf *"
   smart_policy: |
     Always ESCALATE destructive, irreversible, or high-impact operations.
-    Always ESCALATE commands that publish, push, overwrite, delete, or materially
+    Always ESCALATE commands that publish, overwrite, delete, or materially
     alter authoritative game rules, canonical project content, campaign records,
     or repository history.
+    Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
     Allow ordinary read-only inspection, source lookup, local drafting, rule
     comparison, non-destructive formatting, and routine analysis when they are
     otherwise safe.
