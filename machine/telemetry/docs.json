@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 61405,
+  "chars": 61844,
   "apparatus": false,
   "archived": false,
-  "tokens": 17530
+  "tokens": 17646
  },
  {
   "path": "CLAUDE.md",
@@ -933,6 +933,28 @@
   "apparatus": false,
   "archived": false,
   "tokens": 2956
+ },
+ {
+  "path": "decisions/ADR-079-a-worlds-content-lives-in-its-files-the-service-on-the-platform-and-secrets-on-the-machine.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 7353,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1900
+ },
+ {
+  "path": "decisions/ADR-080-an-ai-enters-a-world-through-one-door-and-hermes-builds-in-the-oracles-worlds.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 7560,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1940
  },
  {
   "path": "designs/DES-002-business-metrics.md",
