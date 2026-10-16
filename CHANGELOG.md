@@ -18,6 +18,8 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-16
+- **Added** `ADR-079`: a world's content lives in its own files, the service on the platform, secrets and people on the machine; numinia.com edits a world by writing into its files; amends `ADR-074` and `ADR-069`.
+- **Added** `ADR-080`: an AI enters a world through one door — its own key listed in the world, the world's tools over MCP, a connection it opens — and Hermes, with any model, builds in the Oracle's worlds; amends `ADR-075`.
 - **Added** `ADR-073` to `ADR-077`: the engine's standing decisions, recorded so the Oracle can change them — purpose and first product (a one-room escape room, one group at a time); a world is text; logic on the server, live building by role; every thing carries a card; adventures are text, KHR_interactivity a bridge.
 - **Added** `ADR-078`: the object model for the escape room — class and scope, closed rules «when → then» editable from both ends, one selector for the target, a live world and a city by published version, the object list in the page with «mine» from the server, a gauge per zone that stops building at 100 %.
 - **Added** `ADR-072`: a world's address is written by the fleet, through the till's DNS desk (an A record, DNS only, at the machine's IPv4); the only Cloudflare key lives in the till, limited to numinia.com and numen.games; amends `ADR-069`.
