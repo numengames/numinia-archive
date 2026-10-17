@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.166.0",
+    date: "2026-10-17",
+    entries: [
+      { type: "CHG", text: "/automation grades a seventeenth permission: merging to a train branch, never to main. It is granted alone at High and Full; merging to main stays with the person." },
+    ],
+  },
+  {
     version: "v0.165.0",
     date: "2026-10-16",
     entries: [

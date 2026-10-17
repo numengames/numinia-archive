@@ -56,8 +56,8 @@ export const SETTINGS: Setting[] = [
   {
     label: "Automation",
     question: "What may an agent do without asking?",
-    line: "Five levels, from an agent that only proposes to one that acts alone, and the sixteen permissions granted at each.",
-    scale: "5 levels · 16 permissions",
+    line: "Five levels, from an agent that only proposes to one that acts alone, and the seventeen permissions granted at each.",
+    scale: "5 levels · 17 permissions",
     href: "/automation",
     page: "automation.astro",
     icon: "lightning",

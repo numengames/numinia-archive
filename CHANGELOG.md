@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-17
+- **Changed** `STD-042` 0.1.5 (site v0.166.0): a new permission, *Merge to a train branch* (`tren/*`, never main), `alone` at `High` and `Full`; merges to `main` stay the person's; the permissions after it move up one number.
+
 ### 2026-10-16
 - **Added** `PLAYBOOK.md` (1.0.0, draft) for Doulos, Nimrod and Talos: how each agent does its job well — when a lesson applies, what to do, the pitfall, the evidence — edited by the agent through pull requests; the first lessons are the seeds written on 2026-10-16.
 - **Added** `agents/INDEX.md` 3.5.0 (minor, by Pablo's go in chat on 2026-10-16, `STD-017` AUT-065): the section *How an agent grows* — an agent records what it learned in its own `PLAYBOOK.md` and ships it by pull request; the operator's merge is the review.
