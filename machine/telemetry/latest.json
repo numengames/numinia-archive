@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "0ad6690",
-  "corpus_hash": "07cf4c1816637af00ea356e01772ae5fe6106eff6d6c22939ce4e341c6168fea",
+  "head": "aee1ed2",
+  "corpus_hash": "f9a64567437e631a9105714df7bf9203b2531421ac7eba75750ba4f5b931d56c",
   "root_dirty": 0,
-  "measured_at": "2026-10-16T21:13:54Z",
+  "measured_at": "2026-10-17T07:50:43Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 420,
-          "bytes": 4261592
+          "bytes": 4262540
         },
         "Code": {
           "files": 278,
-          "bytes": 2513951
+          "bytes": 2514229
         },
         "Image": {
           "files": 117,
@@ -375,14 +375,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1087420,
+      "value": 1087690,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 465827,
-        "standards": 122458,
+        "standards": 122646,
         "missions": 74090,
         "system": 62137,
         "procedures": 44229,
@@ -392,7 +392,7 @@
         "operations": 33602,
         "designs": 31464,
         "machine": 30125,
-        "": 26363,
+        "": 26445,
         "principles": 23512,
         "debt": 20191,
         "opportunities": 15128,
@@ -406,9 +406,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 500134,
+        "(none)": 500216,
         "active": 258517,
-        "draft": 253141,
+        "draft": 253329,
         "todo": 53132,
         "in-progress": 10238,
         "in-review": 10076,
@@ -800,7 +800,7 @@
           "3": 636
         },
         "STD": {
-          "3": 1646
+          "3": 1647
         },
         "PRI": {
           "3": 470

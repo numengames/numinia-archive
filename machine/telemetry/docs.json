@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 63705,
+  "chars": 63947,
   "apparatus": false,
   "archived": false,
-  "tokens": 18167
+  "tokens": 18249
  },
  {
   "path": "CLAUDE.md",
@@ -4086,10 +4086,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8212,
+  "chars": 8914,
   "apparatus": false,
   "archived": false,
-  "tokens": 2274
+  "tokens": 2462
  },
  {
   "path": "standards/STD-043-a-report-speaks-to-the-board.md",
