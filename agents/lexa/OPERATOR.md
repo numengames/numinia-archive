@@ -3,11 +3,11 @@ agent: lexa
 title: "OPERATOR — Lexa"
 type: agent
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-18T17:35:08+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -30,7 +30,7 @@ Who authorises, how this file itself may change, and how changes are recorded ar
 ## Always escalate
 
 - publishing, submitting, filing, signing, accepting, or transmitting legal documents, regulatory filings, contractual terms, compliance records, or policies.
-- pushing commits that modify legal or compliance materials.
+- deleting remote branches, security-sensitive changes, or touching another session's or agent's open pull request.
 - destructive Git operations or anything that may irreversibly alter legal records or documentary history.
 
 Escalation is not failure: fabricating a decision outside this agent's

@@ -3,11 +3,11 @@ agent: byblos
 title: "OPERATOR — Byblos"
 type: agent
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-08-28T09:54:16Z"
 created_source: "git:eba0b00"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-18T17:35:08+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -30,7 +30,7 @@ Who authorises, how this file itself may change, and how changes are recorded ar
 ## Always escalate
 
 - deleting, overwriting, renaming, moving, rewriting, or changing permissions on documentary records, archive trees, metadata stores, canonical content, or authoritative documentation.
-- pushing commits or tags to a remote repository.
+- deleting remote branches, security-sensitive changes, or touching another session's or agent's open pull request.
 - bulk file moves, bulk renames, or anything that could irreversibly alter archive structure or document history.
 
 Escalation is not failure: fabricating a decision outside this agent's
@@ -38,4 +38,4 @@ authority is.
 
 ## Allowed without asking
 
-Read-only inspection, search, comparison, metadata review, status checks, and non-destructive Git inspection, when otherwise safe.
+Read-only inspection, search, comparison, metadata review, status checks, and non-destructive Git inspection, when otherwise safe. Pushing commits and opening a pull request, when this repo's PR slot is free (one open PR per repo, Dependabot excluded; FIFO when occupied).

@@ -3,9 +3,9 @@ agent: nimrod
 title: "OPERATOR — Nimrod"
 type: agent
 status: draft
-version: "0.2.1"
+version: "0.2.2"
 created: "2026-09-04T08:23:00Z"
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-18T17:35:08+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
@@ -27,8 +27,9 @@ Who authorises, how this file itself may change, and how changes are recorded ar
 
 ## Always escalate
 
-- publishing, pushing, overwriting, deleting, moving, renaming, or materially
-  altering authoritative repository content;
+- overwriting, deleting, moving, renaming, or materially
+  altering authoritative repository content (opening a pull request is
+  allowed when the repo's PR slot is free);
 - changing indexes, registries, classifications, canonical paths, or repository
   structure when the change affects governance or authority;
 - destructive Git operations, history rewriting, branch deletion, repository
@@ -36,6 +37,7 @@ Who authorises, how this file itself may change, and how changes are recorded ar
 - security, CI/CD, permissions, secrets, branch-protection, dependency,
   automation, or compliance actions that belong to the repository security or
   administration domain;
+- touching another session's or agent's open pull request;
 - decisions that require specialist authority rather than documentary
   navigation.
 

@@ -3,11 +3,11 @@ agent: senet
 title: "OPERATOR — Senet"
 type: agent
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-04-07T15:22:58Z"
 created_source: "git:0ead4f5"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-18T17:35:08+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -29,8 +29,8 @@ Who authorises, how this file itself may change, and how changes are recorded ar
 
 ## Always escalate
 
-- destructive, irreversible, or high-impact operations.
-- publishing, pushing, overwriting, deleting, or materially altering authoritative game rules, canonical content, or campaign records.
+- destructive, irreversible, or high-impact operations, including deleting remote branches, security-sensitive changes, or touching another session's or agent's open pull request.
+- publishing, overwriting, deleting, or materially altering authoritative game rules, canonical content, or campaign records (pushing commits and opening a pull request is allowed when the repo's PR slot is free).
 
 Escalation is not failure: fabricating a decision outside this agent's
 authority is.
