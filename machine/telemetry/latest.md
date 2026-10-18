@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-18T22:25:41Z"
+updated: "2026-10-18T22:53:06Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,13 +20,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `5b4e96b`  · corpus_hash: `74c691b8634f31c0…`  · measured_at: 2026-10-18T22:25:41Z  · root_dirty: 0
+- head: `3d58c16`  · corpus_hash: `164013214bb66ed0…`  · measured_at: 2026-10-18T22:53:06Z  · root_dirty: 0
 
 ## corpus
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `corpus.files_total` | 915 | files | `git ls-files` at HEAD, every path |
+| `corpus.files_total` | 912 | files | `git ls-files` at HEAD, every path |
 | `corpus.files_by_ext` | (table below) | files | tracked files by lowercase extension; `(none)` when no extension |
 | `corpus.files_by_kind` | (table below) | files · bytes | tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted |
 | `corpus.md_total` | 421 | files | tracked `.md` anywhere, including `web/` |
@@ -59,8 +59,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | .png | 38 |
 | .svg | 77 |
 | .toml | 3 |
-| .ts | 62 |
-| .tsx | 2 |
+| .ts | 61 |
 | .txt | 15 |
 | .webp | 1 |
 | .woff2 | 7 |
@@ -71,8 +70,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files | bytes |
 |---|---|---|
-| Text | 421 | 4281223 |
-| Code | 279 | 2523295 |
+| Text | 421 | 4281470 |
+| Code | 276 | 2519812 |
 | Image | 119 | 3538727 |
 | Data | 70 | 291616 |
 | Font | 7 | 684444 |
@@ -233,53 +232,36 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 1092475 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
-| `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
-| `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 6.8 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
-| `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
+| `tokens.tokenizer` | (table below) | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.total` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.by_dir` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.by_status` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.missions_share_pct` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+| `tokens.largest` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
+
+### `tokens.tokenizer`
+
+(none — 0 rows)
+
+### `tokens.total`
+
+(none — 0 rows)
 
 ### `tokens.by_dir`
 
-| | tokens |
-|---|---|
-| lore | 466704 |
-| standards | 122716 |
-| missions | 74277 |
-| system | 63150 |
-| procedures | 44229 |
-| decisions | 42874 |
-| agents | 38165 |
-| reports | 36728 |
-| operations | 33602 |
-| designs | 31464 |
-| machine | 30125 |
-|  | 27498 |
-| principles | 23512 |
-| debt | 21476 |
-| opportunities | 15128 |
-| legal | 13877 |
-| stakeholders | 4011 |
-| objects | 1883 |
-| .github | 1056 |
+(none — 0 rows)
 
 ### `tokens.by_status`
 
-| | tokens |
-|---|---|
-| (none) | 502146 |
-| active | 260077 |
-| draft | 254437 |
-| todo | 53132 |
-| in-progress | 10238 |
-| in-review | 8082 |
-| done | 3333 |
-| on-hold | 1030 |
+(none — 0 rows)
+
+### `tokens.missions_share_pct`
+
+(none — 0 rows)
 
 ### `tokens.largest`
 
-5 rows (tokens) — in `latest.json`.
+(none — 0 rows)
 
 ## headers
 
@@ -453,7 +435,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `provenance.dates_vs_commits_compared` | 342 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
 | `provenance.created_ahead_of_commit` | 12 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
-| `provenance.created_behind_commit` | 52 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
+| `provenance.created_behind_commit` | 53 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
 | `provenance.regime_crossings` | 0 | renames | renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py |
 | `provenance.regime_crossings_list` | (table below) | renames | [from, to, regime change, date] |
 | `provenance.protocol_anchor` | (table below) | missions | P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible |
