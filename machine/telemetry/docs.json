@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 64967,
+  "chars": 65273,
   "apparatus": false,
   "archived": false,
-  "tokens": 18552
+  "tokens": 18654
  },
  {
   "path": "CLAUDE.md",
@@ -621,10 +621,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1158,
+  "chars": 1544,
   "apparatus": false,
   "archived": false,
-  "tokens": 316
+  "tokens": 414
  },
  {
   "path": "agents/ursa/SOUL.md",
@@ -4086,10 +4086,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8914,
+  "chars": 9177,
   "apparatus": false,
   "archived": false,
-  "tokens": 2462
+  "tokens": 2532
  },
  {
   "path": "standards/STD-043-a-report-speaks-to-the-board.md",

@@ -3,11 +3,11 @@ agent: ursa
 title: "OPERATOR — Ursa"
 type: agent
 status: active
-version: "1.1.1"
+version: "1.1.2"
 created: "2026-04-07T15:14:58Z"
 created_source: "git:78dbd77"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-18T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -38,3 +38,5 @@ authority is.
 ## Allowed without asking
 
 Local inspection, builds, tests, linting, formatting, and non-destructive Git operations, when otherwise safe.
+
+Running scripts via heredoc, or via the shell's `-e`/`-c` flag, on every surface including cron — granted since 2026-10-15 by the Oracle through `command_allowlist` in this profile's Hermes configuration (`STD-042` row 3): the agent could already write the same script to a file and run it unasked, so the prompt protected nothing. `approvals.mode` stays `manual` for everything else.

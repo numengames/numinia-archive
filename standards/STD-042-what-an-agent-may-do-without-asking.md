@@ -5,9 +5,9 @@ title: "What an agent may do without asking"
 type: standard
 subtype: register
 status: draft
-version: "0.1.5"
+version: "0.1.6"
 created: "2026-09-29T12:30:00+02:00"
-updated: "2026-10-17T09:50:00+02:00"
+updated: "2026-10-18T15:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -74,7 +74,7 @@ request from train to `main` is the person's to merge.
 |---|---|---|---|---|
 | 1 | clone, read files, see pull requests and history | nothing: they are public | nobody: they are public | — |
 | 2 | create files and clones in its working folder | use disk | Hermes, without asking | — |
-| 3 | run npm, node, tests, builds, checks | install packages, use network and disk; a malicious script in a dependency | Hermes: today it asks often | OWASP agentic: supply chain |
+| 3 | run npm, node, tests, builds, checks | install packages, use network and disk; a malicious script in a dependency | Hermes: today it asks often; since 2026-10-15 `command_allowlist` auto-approves heredoc and `-e`/`-c` script execution for Ursa on every surface, cron included — the Oracle's reason: the agent could already write the same script to a file and run it unasked, so the prompt protected nothing | OWASP agentic: supply chain |
 | 4 | search, read pages and documentation | a page slipping it instructions | Hermes, with filters | OWASP agentic: goal hijack |
 | 5 | act as its own GitHub account | the token leaking into a log | the profile; house rule: never print it | OWASP agentic: identity and privilege abuse |
 | 6 | prepare the work with a history | nothing outside its desk | Hermes | — |
