@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 64416,
+  "chars": 64704,
   "apparatus": false,
   "archived": false,
-  "tokens": 18378
+  "tokens": 18474
  },
  {
   "path": "CLAUDE.md",
@@ -4328,10 +4328,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 10999,
+  "chars": 11550,
   "apparatus": false,
   "archived": false,
-  "tokens": 2904
+  "tokens": 3060
  },
  {
   "path": "system/SYS-014-the-worlds-fleet-as-wired.md",
@@ -4339,10 +4339,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 17853,
+  "chars": 19416,
   "apparatus": false,
   "archived": false,
-  "tokens": 4640
+  "tokens": 5054
  },
  {
   "path": "system/SYS-015-signing-in-to-numinia-com-as-wired.md",
@@ -4361,10 +4361,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 7272,
+  "chars": 8809,
   "apparatus": false,
   "archived": false,
-  "tokens": 1915
+  "tokens": 2341
  },
  {
   "path": "system/semantic-census/artefact-lap.md",
