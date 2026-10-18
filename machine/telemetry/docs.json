@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 64206,
+  "chars": 64416,
   "apparatus": false,
   "archived": false,
-  "tokens": 18328
+  "tokens": 18378
  },
  {
   "path": "CLAUDE.md",
@@ -82,10 +82,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 1894,
+  "chars": 2081,
   "apparatus": false,
   "archived": false,
-  "tokens": 467
+  "tokens": 504
  },
  {
   "path": "README.md",
@@ -93,10 +93,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 4191,
+  "chars": 4738,
   "apparatus": true,
   "archived": false,
-  "tokens": 1114
+  "tokens": 1231
  },
  {
   "path": "SECURITY.md",

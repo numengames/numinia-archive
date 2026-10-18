@@ -33,6 +33,22 @@ files on every push to `main`, so nothing on numinia.org lives anywhere else.
 
 ---
 
+## Run it locally
+
+You need Node.js 22 or newer. From a clone of this repository:
+
+```sh
+npm test                                  # the test suites for the tooling
+npm run checks                            # the archive checks in machine/checks/
+cd web && npm ci && npm run dev           # the site, with live reload
+cd web && npm run build                   # the production build (what CI runs)
+```
+
+Before opening a pull request, read [`CONTRIBUTING.md`](CONTRIBUTING.md).
+Commit messages and pull request titles are written in English.
+
+---
+
 ## Where things live
 
 Each folder answers one question.
