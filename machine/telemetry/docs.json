@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 65273,
+  "chars": 65581,
   "apparatus": false,
   "archived": false,
-  "tokens": 18654
+  "tokens": 18751
  },
  {
   "path": "CLAUDE.md",
@@ -170,10 +170,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1271,
+  "chars": 1435,
   "apparatus": false,
   "archived": false,
-  "tokens": 327
+  "tokens": 359
  },
  {
   "path": "agents/antunj/SOUL.md",
@@ -203,10 +203,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1364,
+  "chars": 1572,
   "apparatus": false,
   "archived": false,
-  "tokens": 353
+  "tokens": 397
  },
  {
   "path": "agents/byblos/SOUL.md",
@@ -269,10 +269,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1154,
+  "chars": 1214,
   "apparatus": false,
   "archived": false,
-  "tokens": 306
+  "tokens": 317
  },
  {
   "path": "agents/doulos/PLAYBOOK.md",
@@ -357,10 +357,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1313,
+  "chars": 1368,
   "apparatus": false,
   "archived": false,
-  "tokens": 336
+  "tokens": 347
  },
  {
   "path": "agents/lexa/SOUL.md",
@@ -434,10 +434,10 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1976,
+  "chars": 2084,
   "apparatus": false,
   "archived": false,
-  "tokens": 451
+  "tokens": 476
  },
  {
   "path": "agents/nimrod/PLAYBOOK.md",
@@ -511,10 +511,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1194,
+  "chars": 1397,
   "apparatus": false,
   "archived": false,
-  "tokens": 318
+  "tokens": 356
  },
  {
   "path": "agents/senet/SOUL.md",
@@ -621,10 +621,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1544,
+  "chars": 1735,
   "apparatus": false,
   "archived": false,
-  "tokens": 414
+  "tokens": 455
  },
  {
   "path": "agents/ursa/SOUL.md",
