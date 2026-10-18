@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "b1ef064",
-  "corpus_hash": "316754e0b2bde46491a4cbf4d4b30b3a67ec90fea2f0583ff62227ad7f823733",
+  "head": "2e44a7c",
+  "corpus_hash": "53460be160056560c401844c3faca08a366981b175da7fa4d138b81585fb5ca5",
   "root_dirty": 0,
-  "measured_at": "2026-10-18T16:56:29Z",
+  "measured_at": "2026-10-18T17:38:08Z",
   "families": [
     "corpus",
     "series",
@@ -57,7 +57,7 @@
         },
         "Code": {
           "files": 279,
-          "bytes": 2520443
+          "bytes": 2520849
         },
         "Image": {
           "files": 119,
@@ -73,7 +73,7 @@
         },
         "Other": {
           "files": 6,
-          "bytes": 4920
+          "bytes": 5457
         },
         "Office": {
           "files": 1,

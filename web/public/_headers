@@ -17,10 +17,18 @@
 #     its worker from /pagefind/; the copy button fetches the page's .md.
 # Nothing loads from another host. Add a source here only with the change
 # that needs it, and say which.
+#
+# frame-ancestors (2026-10-18, t_98c49144): the engine's world screens embed
+# numinia.org (and /missions/) in an iframe, read from numinia.com /
+# *.numinia.com. frame-ancestors names exactly those two hosts; every other
+# site stays refused. X-Frame-Options stays DENY for browsers too old to
+# read CSP frame-ancestors — per the Fetch spec, a frame-ancestors directive
+# overrides X-Frame-Options wherever both are understood, so numinia.com's
+# iframe still renders in current browsers.
 /*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: DENY
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; media-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; worker-src 'self'; media-src 'self'; frame-ancestors 'self' https://numinia.com https://*.numinia.com; base-uri 'self'; form-action 'self'; object-src 'none'
