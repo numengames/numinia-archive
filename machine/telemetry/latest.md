@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-18T18:11:12Z"
+updated: "2026-10-18T18:16:15Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `235d65b+index`  · corpus_hash: `613256fb95158c8c…`  · measured_at: 2026-10-18T18:11:12Z  · root_dirty: 0
+- head: `f76d509`  · corpus_hash: `613256fb95158c8c…`  · measured_at: 2026-10-18T18:16:15Z  · root_dirty: 0
 
 ## corpus
 
@@ -233,36 +233,53 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `tokens.tokenizer` | (table below) | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.total` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.by_dir` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.by_status` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.missions_share_pct` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.largest` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-
-### `tokens.tokenizer`
-
-(none — 0 rows)
-
-### `tokens.total`
-
-(none — 0 rows)
+| `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
+| `tokens.total` | 1091907 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
+| `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
+| `tokens.missions_share_pct` | 6.8 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
-(none — 0 rows)
+| | tokens |
+|---|---|
+| lore | 466704 |
+| standards | 122716 |
+| missions | 74277 |
+| system | 63150 |
+| procedures | 44229 |
+| decisions | 42874 |
+| agents | 38165 |
+| reports | 36728 |
+| operations | 33602 |
+| designs | 31464 |
+| machine | 30125 |
+|  | 27319 |
+| principles | 23512 |
+| debt | 21087 |
+| opportunities | 15128 |
+| legal | 13877 |
+| stakeholders | 4011 |
+| objects | 1883 |
+| .github | 1056 |
 
 ### `tokens.by_status`
 
-(none — 0 rows)
-
-### `tokens.missions_share_pct`
-
-(none — 0 rows)
+| | tokens |
+|---|---|
+| (none) | 501967 |
+| active | 259688 |
+| draft | 254437 |
+| todo | 53132 |
+| in-progress | 10238 |
+| in-review | 8082 |
+| done | 3333 |
+| on-hold | 1030 |
 
 ### `tokens.largest`
 
-(none — 0 rows)
+5 rows (tokens) — in `latest.json`.
 
 ## headers
 
@@ -433,7 +450,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `provenance.authorship` | (table below) | documents | nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude\|gpt\|opus\|sonnet\|fable\|gemini\|llm) · other · no-author · no-frontmatter |
-| `provenance.dates_vs_commits_compared` | 341 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
+| `provenance.dates_vs_commits_compared` | 342 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
 | `provenance.created_ahead_of_commit` | 12 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
 | `provenance.created_behind_commit` | 52 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |

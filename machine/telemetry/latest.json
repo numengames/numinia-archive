@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "235d65b+index",
+  "head": "f76d509",
   "corpus_hash": "613256fb95158c8c798b5d5fc7ce82299255358239d81f17d8fabd87a2588ecf",
   "root_dirty": 0,
-  "measured_at": "2026-10-18T18:11:12Z",
+  "measured_at": "2026-10-18T18:16:15Z",
   "families": [
     "corpus",
     "series",
@@ -371,34 +371,84 @@
       "definition": "`started` written in `Z`"
     },
     "tokens.tokenizer": {
-      "value": null,
+      "value": "cl100k_base sha256:223921b76ee9",
       "unit": "identity",
-      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": null,
+      "value": 1091907,
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
-      "value": null,
+      "value": {
+        "lore": 466704,
+        "standards": 122716,
+        "missions": 74277,
+        "system": 63150,
+        "procedures": 44229,
+        "decisions": 42874,
+        "agents": 38165,
+        "reports": 36728,
+        "operations": 33602,
+        "designs": 31464,
+        "machine": 30125,
+        "": 27319,
+        "principles": 23512,
+        "debt": 21087,
+        "opportunities": 15128,
+        "legal": 13877,
+        "stakeholders": 4011,
+        "objects": 1883,
+        ".github": 1056
+      },
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "tokens per top-level dir, largest first"
     },
     "tokens.by_status": {
-      "value": null,
+      "value": {
+        "(none)": 501967,
+        "active": 259688,
+        "draft": 254437,
+        "todo": 53132,
+        "in-progress": 10238,
+        "in-review": 8082,
+        "done": 3333,
+        "on-hold": 1030
+      },
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": null,
-      "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "value": 6.8,
+      "unit": "percent",
+      "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
     "tokens.largest": {
-      "value": null,
+      "value": [
+        [
+          "lore/game/manual/es/06-inventario-y-bestiario.md",
+          51702
+        ],
+        [
+          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
+          38623
+        ],
+        [
+          "lore/game/manual/es/07-construyendo-la-aventura.md",
+          37267
+        ],
+        [
+          "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
+          36881
+        ],
+        [
+          "lore/game/manual/en/06-inventory-and-bestiary.md",
+          36491
+        ]
+      ],
       "unit": "tokens",
-      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
+      "definition": "the five largest documents as [path, tokens]"
     },
     "headers.docs_with_frontmatter": {
       "value": 375,
@@ -592,7 +642,7 @@
       "definition": "nature of author: per doc, `author:` normalised → human (Oracle aliases) · ai-persona (agents whose SOUL.md declares a model, list of 2026-08-26) · ai-model (name matches claude|gpt|opus|sonnet|fable|gemini|llm) · other · no-author · no-frontmatter"
     },
     "provenance.dates_vs_commits_compared": {
-      "value": 341,
+      "value": 342,
       "unit": "documents",
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
