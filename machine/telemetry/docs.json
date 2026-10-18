@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 66375,
+  "chars": 66597,
   "apparatus": false,
   "archived": false,
-  "tokens": 18969
+  "tokens": 19038
  },
  {
   "path": "CLAUDE.md",
@@ -3822,10 +3822,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 14819,
+  "chars": 15310,
   "apparatus": false,
   "archived": false,
-  "tokens": 3811
+  "tokens": 3933
  },
  {
   "path": "standards/STD-017-who-may-change-what.md",

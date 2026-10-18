@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-18
+- **Added** `STD-015` 7.2.0: `ARC-013`, a site never reads this Archive's raw files through the GitHub REST API — the 60-requests-an-hour limit tripped three outages, the Oracle ruled it out 2026-10-18; debt, no scan yet.
 - **Changed** `lore/game/manual/es/` and `en/`, chapters 2 and 5: the two edits pending since #649 — the fifth Oracle's disappearance at the Inversion Rift (ch. 5) and the Threshold's blank symbolism cell, now "Límite, tránsito, acción, manifestación" (the Veil's cell drops "umbral" for "revelación").
 - **Added** `machine/tools/check-visual-header-footer.mjs` + `machine/visual-baselines/`: a Playwright + pixelmatch gate for the home page's nav bar and footer against a committed reference PNG; wired into `.github/workflows/ci.yml` after `build checks` (patch — the App has no `workflows` permission).
 - **Changed** 7 agent `OPERATOR.md` (ursa 1.1.3; byblos, antunj, lexa, senet, doulos 1.1.2; nimrod 0.2.2): dropped the blanket "escalate any push" line that contradicted the PR-slot rule — pushing/opening a PR is allowed when the slot is free; still escalate branch deletion, security, or another's open PR.
