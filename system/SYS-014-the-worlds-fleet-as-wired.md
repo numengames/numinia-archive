@@ -5,9 +5,9 @@ title: "The worlds fleet, as wired"
 type: documentation
 subtype: reference
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-12T11:53:57+02:00"
-updated: "2026-10-12T22:13:00+02:00"
+updated: "2026-10-18T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -66,7 +66,7 @@ does not exist yet.
 | **The door** | `fleetd`, a small web service on each machine: takes signed requests, publishes the machine's facts, hands out copies, and shows or makes a world's admin code for a signed Oracle | numinia-assets `open-worlds/machine/fleetd.py`, behind the machine's Caddy at `https://<alias>.numinia.com/fleet/v1/` | the request numbers already used; it reads each world's code to show it and makes the new one a creation or a change of code carries, but never writes a key file | wired on open-1 |
 | **The reconciler** | the machine's worker: checks each request again, changes the machine's book, writes each world's keys and code, and makes the containers match the book | numinia-assets `open-worlds/machine/reconcile.py`, run every minute and on each request | root on the machine | wired: open-1 runs recipe `2ca8e2c…` |
 | **The book** | one order per world: id, card, state, machine, address, engine image, limits | on each machine, written only by its reconciler | no secret; which wallet signed the creation | wired on open-1, which adopted its first orders once from numinia-assets `open-worlds/`; `prueba.json` and `pablofm.json` still sit there, and no machine takes them again |
-| **The worlds** | one container per world, running the house's engine image pinned to one build, with Caddy in front for HTTPS | on each machine | the world's data, each person's rank among it, and its keys — a JWT secret and the world's own admin code — made by the machine | three on open-1 at 20:27 UTC: `p1` running, `dani` and `pablofm` stopped |
+| **The worlds** | one container per world, running one of the house's two engine images (the Hyperfy fork or Numinia Engine, told apart by image) pinned to one build, with Caddy in front for HTTPS | on each machine | the world's data, each person's rank among it, and its keys — a JWT secret and the world's own admin code — made by the machine | three on open-1 at 20:27 UTC: `p1` running, `dani` and `pablofm` stopped |
 | **The recipe** | one bootstrap line that turns a fresh server into a fleet machine, or updates one: it names one reviewed commit of numinia-assets (`FLEET_REF`) and installs exactly that one — a value that is not a whole commit stops it, and none at all installs `main`, flagged *NOT pinned* — and the machine says which it runs | numinia-assets `open-worlds/machine/`; the line, in the worlds room | nothing secret | wired: the room's line names `2ca8e2c…`, which open-1 runs |
 | **DNS** | wildcard records `*.numinia.com` and `*.numen.games` pointing at open-1, DNS only | Cloudflare, set by an Oracle | — | wired while there is one machine |
 | **The world's card** | what the world is: an entity card in `objects/` (`ADR-069`) | this archive | nothing secret | not wired: no world has one yet |
@@ -89,7 +89,8 @@ does not exist yet.
 3. *New world* asks for four things: a name, which names the world, its
    order and its card alike; the machine and the address, a name under
    numinia.com or numen.games that the browser checks against public DNS;
-   the engine, a pinned build of the house's image; and the limits, by
+   the engine, a pinned build of one of the house's two engine images (the
+   Hyperfy fork or Numinia Engine); and the limits, by
    default 2 GB of memory, 1.5 CPUs and 50 MB per upload.
 4. *Sign and create.* The room writes a `CreateWorld` request: machine,
    world, address, image, limits, a random 128-bit number and an expiry ten
@@ -124,6 +125,21 @@ does not exist yet.
    typed in the world's chat makes that browser an administrator of the
    world, who can then build in it; the world keeps that rank in its own
    database.
+
+### Another build of the engine, and a world back from its zip
+
+One signed `UpdateWorld` (machine, world, image) moves a running world to
+another build of its own engine, pinned by image like a creation; a signed
+`PinWorld` holds a world on one build so an automatic update skips it, an
+empty image releasing the pin. A world's zip — the one *Download* makes, or
+an older copy — comes back as a new world, always created **stopped**, with
+one signed `ImportWorld` (the creation's fields plus the zip's exact size
+and hash) and one upload; the reconciler unpacks only the database and the
+world's files, checks the database is sound, and gives it fresh keys, never
+the zip's. A zip signed with the `numinia-engine` image also passes the
+engine's own `comprobar`/`importar` check before it is accepted
+(numinia-assets `open-worlds/machine/README.md`, "Two engines" and "Another
+build of the engine: UpdateWorld").
 
 ### Stop, start, download, delete, a world's code
 
@@ -210,7 +226,8 @@ Each is a debt of the trial, kept with what pays it in `DBT-025`:
 - no nightly copy (`MIS-158`), although numen.games/hosting offers one;
 - the book lives only on its machine;
 - a world is born without its card;
-- a world's engine and limits cannot be changed after it is created;
+- a world's limits cannot be changed after it is created; its engine build
+  can, by a signed `UpdateWorld` (above);
 - what a world costs is not shown (`MIS-161`).
 
 ---
@@ -259,6 +276,13 @@ and `a593e13` at 11:56.
   are read from the code and its README, not from the machine.
 - No world has a card in `objects/` yet, although `ADR-069` asks for the
   card first; the room marks such a world *No card*.
+- Refreshed 2026-10-18 against numinia-assets `55c75ad`
+  (`open-worlds/machine/README.md`): the machine now runs two engine images
+  (Hyperfy fork and Numinia Engine, told apart by image), a running world's
+  engine build can be changed with a signed `UpdateWorld` or held with
+  `PinWorld`, and a world's zip comes back with a signed `ImportWorld`. The
+  room side of `UpdateWorld`/`ImportWorld` (numinia-web `fleet.ts`) was not
+  re-read for this refresh: *to confirm*.
 
 ---
 

@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-18
+- **Changed** `SYS-013` 0.5.0, `SYS-014` 0.3.0, `SYS-016` 0.2.0: refreshed against numinia-engine `328ea0a` and numinia-assets `55c75ad` — the fleet now runs Numinia Engine's image beside the Hyperfy fork, a world's engine build can change by `UpdateWorld`, and proximity voice is wired.
 - **Changed** `README.md`, `CONTRIBUTING.md`: the README gains a "Run it locally" section (tests, checks, site dev and build); both files now say commit messages and pull request titles are written in English.
 - **Changed** `MIS-173` (0.3.0): closed by the Oracle's word after a live re-check (`https://open-1.numinia.com/fleet/v1/machine` answers a full 40-character `recipe` commit) — the mission's only remaining step was `requires_oracle_approval`.
 

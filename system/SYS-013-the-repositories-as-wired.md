@@ -5,9 +5,9 @@ title: "The repositories, as wired"
 type: documentation
 subtype: reference
 status: draft
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-10-09T16:01:15+02:00"
-updated: "2026-10-16T16:50:00+02:00"
+updated: "2026-10-18T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -66,8 +66,8 @@ not read from the repository itself.
 | **numinia-web** | numinia.com: an npm-workspaces monorepo; the store app serves the site; shared packages for auth, domain, UI, state, analytics | by pull request with human reviewers | public | per directory (`REUSE.toml`): apps AGPL-3.0-only, packages MIT, documentation CC-BY-4.0, fixtures CC0-1.0, legal texts reserved | numinia.com, deployed on every push to main | wired |
 | **numengames-web** | numen.games, the company site | by pull request with human reviewers | public | AGPL-3.0-only for code, CC0-1.0 for public assets, CC-BY-4.0 for documentation, legal texts reserved, by its README and `REUSE.toml`; its `LICENSE` file holds the GPL-3.0 text — to confirm which is meant | numen.games, deployed on every push to main | wired |
 | **nwos-deploy** | nwos.numen.games: NWOS as a service — a landing page and a generator that creates an organisation's workspace from a private template | by pull request with human reviewers; contributions need the CLA | public | AGPL-3.0-only for the application, per path in `REUSE.toml` | nwos.numen.games, deployed on every push to main | wired |
-| **numinia-hyperfy2** | The 3D world engine: a fork of Hyperfy 2 | to confirm | public | GPL-3.0, inherited from the original; no `REUSE.toml` | to confirm | wired as a fork; the fleet that would run it is not |
-| **numinia-engine** | Numinia Engine: the web 3D/XR engine in TypeScript — layered packages (`core` to `server`, `render`, `agent`), game features in `features/`, the plaza page in `apps/plaza`, and, until `MIS-195` moves them here, its own agent rules, gates and work queue in `AGENTS.md` and `docs/` | by pull request the Oracle approves; the unattended shift never pushes and never opens a pull request (its `AGENTS.md`) | public | AGPL-3.0-only by its `LICENSE`; dependencies MIT, Apache-2.0, BSD or ISC; world assets CC0 or CC-BY, by its README; no `REUSE.toml` | the plaza and the server run from it on the Oracle's machine; the unattended shift works in a worktree of it; the fleet does not run it yet (its branch for the fleet is open) | wired: builds and tests, first commit 2026-10-14; not on the fleet |
+| **numinia-hyperfy2** | The 3D world engine: a fork of Hyperfy 2 | to confirm | public | GPL-3.0, inherited from the original; no `REUSE.toml` | to confirm | wired as a fork; the fleet runs its image as one of its two engines (`SYS-014`) |
+| **numinia-engine** | Numinia Engine: the web 3D/XR engine in TypeScript — layered packages (`core` to `server`, `render`, `agent`), game features in `features/`, the plaza page in `apps/plaza`, and, until `MIS-195` moves them here, its own agent rules, gates and work queue in `AGENTS.md` and `docs/` | by pull request the Oracle approves; the unattended shift never pushes and never opens a pull request (its `AGENTS.md`) | public | AGPL-3.0-only by its `LICENSE`; dependencies MIT, Apache-2.0, BSD or ISC; world assets CC0 or CC-BY, by its README; no `REUSE.toml` | the plaza and the server run from it on the Oracle's machine; the unattended shift works in a worktree of it; every merge to main is published as `ghcr.io/numengames/numinia-engine:sha-<commit>` and the fleet runs that image beside the Hyperfy fork, told apart by image (`SYS-014`) | wired: builds and tests, first commit 2026-10-14; on the fleet as its own image |
 | **hyperfy-components** | Reusable components for Hyperfy worlds (visibility, rotation, translation, emitters, teleport) | to confirm | public | MIT | worlds built on Hyperfy; which ones, to confirm | wired; last push in September |
 | **numinia-docs** | A Docusaurus site | to confirm | public | no licence file | to confirm | idle since August; whether it is archived is open in `ADR-068` |
 | **numengames-experiments** | An experimental rebuild of numen.games | to confirm | public | all rights reserved, by its `LICENSE` | none known | idle since September; whether it is archived is open in `ADR-068` |
@@ -119,6 +119,7 @@ clones of the site repositories (numinia-archive at `48f6a4c`), on
 2026-10-09.
 
 - `numinia-engine` joined on 2026-10-16: its row was read from the organisation's listing, its `LICENSE`, README and `AGENTS.md`, and the repository's branches; it is not covered by the check above of 2026-10-09.
+- Refreshed 2026-10-18 against numinia-engine `328ea0a` (`.github/workflows/publicar-motor.yml`) and numinia-assets `55c75ad` (`open-worlds/machine/README.md`, "Two engines, told apart by their image"): the fleet now runs Numinia Engine's published image (`ghcr.io/numengames/numinia-engine:sha-<commit>`) beside the Hyperfy fork's image; both rows above said *not wired on the fleet* and no longer do.
 - Who writes to the nine repositories other than the four sites and the
   feed, and under what review, was not read from them: *to confirm*.
 - The licence of numengames-web disagrees with itself (README and
