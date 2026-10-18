@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.7.0"
+version: "0.8.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-15T11:20:00+02:00"
+updated: "2026-10-18T14:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -177,6 +177,7 @@ the worlds the house hosts for clients, and row 20 the processors this adds.
 | 59 | Is the invoice Stripe issues for each top-up a valid Spanish invoice (Numen's tax ID, the client's, series and number), and how does it meet Verifactu from 2027 (`DES-017`)? | company |
 | 60 | Balance paid and not yet consumed is a customer advance until consumed — our unverified reading: account 438 — but when does balance that is never spent count as income? Ties with row 51. | company |
 | 61 | Stripe Tax (0.5 % per transaction) for the reverse charge with companies elsewhere in the EU, and Spanish VAT for consumers in other EU countries up to 10,000 euros a year, the one-stop shop above it: should Numen register for the one-stop shop from the start? | company |
+| 67 | Negative balance. The Oracle decided on 2026-10-18 (D-004) that a balance may go below zero when Stripe resolves a refund or a chargeback against us after the person has spent the money, and that a won dispute restores it. `ADR-070` is silent on this and stays so until counsel answers. Is a negative balance lawful and enforceable against a consumer, what must the terms say, and may we block spending and withdrawals until it is repaid? | counsel |
 
 ### 1.10 Organisation roles and presence (`ADR-071`)
 
@@ -291,6 +292,7 @@ numinia.com va a vender contenido digital (objetos del juego) a particulares. Lo
 - [#55] Quien crea en la web el equipo de una empresa, ¿basta con que declare que puede actuar en su nombre?
 - [#56] Un mundo cuya cuenta llega a cero se guarda gratis 90 días y se borra tras dos avisos. ¿Basta con decirlo en las condiciones? ¿Qué hay que guardar bloqueado, y cuánto tiempo?
 - [#57] La política de privacidad tendrá que nombrar a Stripe, OVH, AWS y Amazon SES para los datos de los clientes que pagan, y el contrato de encargo de tratamiento con cada cliente, decir cuándo entramos en su mundo: solo si lo pide o por seguridad, con firma y registro. ¿Nos ayudáis con los dos textos?
+- [#67] Saldo negativo. Una persona recarga su saldo, lo gasta en mundos, y después su banco o Stripe resuelve una devolución o una disputa (contracargo) en contra de Numen. El dinero ya no está y el gasto ya se hizo. Hemos decidido que en ese caso el saldo pueda quedar por debajo de cero, y que si Numen gana la disputa, se le restituya. Hoy nuestras condiciones no dicen nada de esto. ¿Es lícito, y exigible a un consumidor según el derecho de consumo español, un saldo negativo así? ¿Qué tienen que decir las condiciones para que valga (aviso previo, casilla, importe, plazo)? ¿Podemos bloquear los gastos y las retiradas mientras no se reponga, y qué más podemos hacer o no si no lo repone?
 
 ### 3. Términos de uso de numinia.org y del Códex
 
