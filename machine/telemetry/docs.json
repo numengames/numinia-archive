@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 66409,
+  "chars": 66597,
   "apparatus": false,
   "archived": false,
-  "tokens": 18983
+  "tokens": 19038
  },
  {
   "path": "CLAUDE.md",
@@ -724,6 +724,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1890
+ },
+ {
+  "path": "debt/DBT-027-telemetry-determinism-flake-under-load.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 2139,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 596
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",

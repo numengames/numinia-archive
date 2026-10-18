@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.167.0",
+    date: "2026-10-18",
+    entries: [
+      { type: "FIX", text: "22 links on the agents page and the stakeholders list led to a missing page; they now open the agent's or the stakeholder's page. A test on the built site holds every internal link." },
+    ],
+  },
+  {
     version: "v0.166.0",
     date: "2026-10-17",
     entries: [
