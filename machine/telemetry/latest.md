@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-17T07:50:43Z"
+updated: "2026-10-18T10:57:35Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `aee1ed2`  · corpus_hash: `f9a64567437e631a…`  · measured_at: 2026-10-17T07:50:43Z  · root_dirty: 0
+- head: `f3e2ee1`  · corpus_hash: `9394ddaf5168535b…`  · measured_at: 2026-10-18T10:57:35Z  · root_dirty: 0
 
 ## corpus
 
@@ -71,7 +71,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files | bytes |
 |---|---|---|
-| Text | 420 | 4262540 |
+| Text | 420 | 4263418 |
 | Code | 278 | 2514229 |
 | Image | 117 | 3475037 |
 | Data | 70 | 291534 |
@@ -168,8 +168,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `missions.section_tba` | 0 | missions | `section: TBA` (ADR-028 deferral; owner MIS-124 closed 2026-09-09, zero TBA remains) |
 | `missions.unassigned` | 38 | missions | `assigned_to` absent or null-like |
 | `missions.in_progress_unassigned` | 0 | missions | `status: in-progress` with no `assigned_to` |
-| `missions.done_without_closure` | 0 | missions | `status: done` with no `## Closure` heading (MIS-134 strict form) |
-| `missions.done_without_closure_tolerant` | 0 | missions | `status: done` with none of the five closure headings MIS-134 tolerates |
+| `missions.done_without_closure` | 1 | missions | `status: done` with no `## Closure` heading (MIS-134 strict form) |
+| `missions.done_without_closure_tolerant` | 1 | missions | `status: done` with none of the five closure headings MIS-134 tolerates |
 | `missions.without_author` | 0 | missions | frontmatter `author` absent or null-like |
 | `missions.started_with_offset` | 3 | missions | `started` written with a UTC offset instead of `Z` |
 | `missions.started_zulu` | 6 | missions | `started` written in `Z` |
@@ -178,8 +178,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | missions |
 |---|---|
+| done | 1 |
 | in-progress | 4 |
-| in-review | 7 |
+| in-review | 6 |
 | on-hold | 1 |
 | todo | 35 |
 
@@ -233,10 +234,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 1087690 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 1087956 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 6.81 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 6.83 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -245,7 +246,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|
 | lore | 465827 |
 | standards | 122646 |
-| missions | 74090 |
+| missions | 74277 |
 | system | 62137 |
 | procedures | 44229 |
 | decisions | 42874 |
@@ -254,7 +255,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | operations | 33602 |
 | designs | 31464 |
 | machine | 30125 |
-|  | 26445 |
+|  | 26524 |
 | principles | 23512 |
 | debt | 20191 |
 | opportunities | 15128 |
@@ -267,13 +268,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 500216 |
+| (none) | 500295 |
 | active | 258517 |
 | draft | 253329 |
 | todo | 53132 |
 | in-progress | 10238 |
-| in-review | 10076 |
-| done | 1152 |
+| in-review | 8082 |
+| done | 3333 |
 | on-hold | 1030 |
 
 ### `tokens.largest`
@@ -480,8 +481,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | missions |
 |---|---|
-| not-oracle-state | 46 |
-| anchored | 1 |
+| not-oracle-state | 45 |
+| anchored | 2 |
 
 ## contradictions
 
@@ -505,11 +506,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|
 | active | 148 |
 | draft | 164 |
-| done | 1 |
+| done | 2 |
 | todo | 36 |
 | in-progress | 4 |
 | on-hold | 1 |
-| in-review | 7 |
+| in-review | 6 |
 
 ### `contradictions.status_vocabulary_undeclared`
 
@@ -532,8 +533,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | PRI | 470 |
 | OPS | 201 |
 | ADR | 563 |
+| MIS | 1001 |
 | DES | 154 |
-| MIS | 999 |
 | SYS | 228 |
 | OPP | 33 |
 | DBT | 172 |
