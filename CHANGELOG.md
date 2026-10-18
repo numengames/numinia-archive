@@ -18,6 +18,10 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-18
+- **Fixed** `web/src/layouts/Layout.astro` (site v0.167.0): the top bar now stays put on scroll — `overflow-x-hidden` on `<body>` turned it into its own scroll container, breaking `position: sticky` in Safari; switched to `overflow-x-clip`.
+- **Fixed** `web/src/components/{SiteSearch,Navigation}.astro`: the mobile menu's search glass opened a modal hidden inside the desktop-only wrapper; split into a `trigger`/`modal` pair sharing one modal outside any hidden wrapper.
+- **Changed** `web/src/pages/index.astro`, `web/src/lib/composed-md.ts`: an empty section now names itself ("Nothing filed under &lt;section&gt; yet") instead of a bare "Nothing written yet."
+
 - **Changed** `lore/game/manual/es/` and `en/`, chapters 2 and 5: the two edits pending since #649 — the fifth Oracle's disappearance at the Inversion Rift (ch. 5) and the Threshold's blank symbolism cell, now "Límite, tránsito, acción, manifestación" (the Veil's cell drops "umbral" for "revelación").
 - **Added** `machine/tools/check-visual-header-footer.mjs` + `machine/visual-baselines/`: a Playwright + pixelmatch gate for the home page's nav bar and footer against a committed reference PNG; wired into `.github/workflows/ci.yml` after `build checks` (patch — the App has no `workflows` permission).
 - **Changed** 7 agent `OPERATOR.md` (ursa 1.1.3; byblos, antunj, lexa, senet, doulos 1.1.2; nimrod 0.2.2): dropped the blanket "escalate any push" line that contradicted the PR-slot rule — pushing/opening a PR is allowed when the slot is free; still escalate branch deletion, security, or another's open PR.
