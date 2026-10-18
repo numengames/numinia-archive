@@ -146,6 +146,8 @@ path = [
   "web/public/design/kit/sistema.tokens.json",
   "web/public/design/templates/2026_08_03-Plantilla_Factura-v1.0.0.html",
   "web/tsconfig.json",
+  "machine/visual-baselines/footer.png",
+  "machine/visual-baselines/header.png",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "MIT"
