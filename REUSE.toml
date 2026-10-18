@@ -20,10 +20,7 @@ version = 1
 [[annotations]]
 path = [
   "machine/telemetry/claims.json",
-  "machine/telemetry/docs.json",
   "machine/telemetry/history.jsonl",
-  "machine/telemetry/latest.json",
-  "machine/telemetry/latest.md",
   "machine/templates/ADR-TEMPLATE.md",
   "machine/templates/DES-TEMPLATE.md",
   "machine/templates/PRI-TEMPLATE.md",
