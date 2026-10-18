@@ -78,7 +78,7 @@ const missions = entries
     // standard's word, so a conformant mission is visible instead of having to
     // choose between obeying STD-001 and appearing here at all.
     // `draft` rides along too; ordering is the frontend's concern (MIS-066).
-    const RETIRED_TO_TODO = { draft: "todo", backlog: "todo" };
+    const RETIRED_TO_TODO: Record<string, string> = { draft: "todo", backlog: "todo" };
     const status = (RETIRED_TO_TODO[f.status as string] || f.status) as string;
     const type = (f.executor || "hybrid") as string;
     return {

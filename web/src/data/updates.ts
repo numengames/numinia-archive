@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.168.0",
+    date: "2026-10-18",
+    entries: [
+      { type: "FIX", text: "astro check runs clean again: the two unused shadcn stubs (button.tsx, card.tsx) that pointed at a missing @/lib/utils are gone, a stray historic update-log entry had a typo'd type, and four pages' loose typing (a shelf anchor id, an SVG hidden toggle, a string-keyed status map) is now explicit." },
+    ],
+  },
+  {
     version: "v0.167.0",
     date: "2026-10-18",
     entries: [
@@ -364,7 +371,7 @@ export const UPDATES: readonly UpdateVersion[] = [
     date: "2026-10-02",
     entries: [
       { type: "ADD", text: "A new protocol, Watching for opportunities: from the places where calls are published to the Oracle's yes or no. A watch sweeps and weighs, writes what could fall to its own feed without review, the pipeline page shows it apart, the Oracle decides, and only a reviewed pull request opens the record." },
-      { type: "CHANGE", text: "The sales playbook covers the whole road: it opens with Before the record (the watch, its feed and the Oracle's decision, with the table of a watch's verdicts) and gives a chapter to each kind — a sale, a tender, a grant, a collaboration, a partner — with its stages and the protocol that moves each on." },
+      { type: "CHG", text: "The sales playbook covers the whole road: it opens with Before the record (the watch, its feed and the Oracle's decision, with the table of a watch's verdicts) and gives a chapter to each kind — a sale, a tender, a grant, a collaboration, a partner — with its stages and the protocol that moves each on." },
     ],
   },
   {

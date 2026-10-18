@@ -11,7 +11,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Stack (`web/`)
 
-Astro 7, `output: "static"`, no adapter — fully static, deployed to Cloudflare Workers as static assets (`web/wrangler.toml`, worker `numinia-nwos`, domain `numinia.org`). React 19 islands only where a `client:` directive is used. Tailwind 4 as a Vite plugin (`@tailwindcss/vite`): there is no `tailwind.config.mjs`, the theme is an `@theme` block in `web/src/styles/global.css`, and the RGB triplets in `:root` remain the source every hand-written rule reads. shadcn/ui in `web/src/components/ui/`. Path alias `@/*` → `web/src/*`. Dark-only; the tokens are `STD-008` and the kit `machine/packages/design-kit/`; accent teal `#2DD4BF`, fonts Geist/Geist Mono.
+Astro 7, `output: "static"`, no adapter — fully static, deployed to Cloudflare Workers as static assets (`web/wrangler.toml`, worker `numinia-nwos`, domain `numinia.org`). React 19 islands only where a `client:` directive is used. Tailwind 4 as a Vite plugin (`@tailwindcss/vite`): there is no `tailwind.config.mjs`, the theme is an `@theme` block in `web/src/styles/global.css`, and the RGB triplets in `:root` remain the source every hand-written rule reads. Path alias `@/*` → `web/src/*`. Dark-only; the tokens are `STD-008` and the kit `machine/packages/design-kit/`; accent teal `#2DD4BF`, fonts Geist/Geist Mono.
 
 - **Routes**: `web/src/pages/`. Dynamic routes map over TS modules in `web/src/data/` with `getStaticPaths()`.
 - **Corpus data**: the repository's own folders are the source, read at build time through Astro's Content Layer (`web/src/content.config.ts`). No index file, no client-side GitHub calls — a document added to `missions/` or `standards/` appears because the folder changed.

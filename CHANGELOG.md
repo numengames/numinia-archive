@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-18
+- **Fixed** `web/src/{components/ui,data/updates.ts,pages/*,views/MissionsView.astro}` (site v0.168.0): the 8 remaining `astro check` errors are gone — two unused shadcn stubs needing a missing `@/lib/utils` deleted, a typo'd update-log `type`, four loosely-typed spots now explicit.
 - **Fixed** `web/src/layouts/Layout.astro` (site v0.167.0): the top bar now stays put on scroll — `overflow-x-hidden` on `<body>` turned it into its own scroll container, breaking `position: sticky` in Safari; switched to `overflow-x-clip`.
 - **Fixed** `web/src/components/{SiteSearch,Navigation}.astro`: the mobile menu's search glass opened a modal hidden inside the desktop-only wrapper; split into a `trigger`/`modal` pair sharing one modal outside any hidden wrapper.
 - **Changed** `web/src/pages/index.astro`, `web/src/lib/composed-md.ts`: an empty section now names itself ("Nothing filed under &lt;section&gt; yet") instead of a bare "Nothing written yet."

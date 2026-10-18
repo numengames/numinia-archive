@@ -118,10 +118,10 @@ const shelves = groups
       ...(() => {
         const placed = new Set(groups.flatMap((g) => g.hrefs));
         const rest = docs.filter((d) => !placed.has(d.href.replace(/\/$/, "")));
-        return rest.length ? [{ numeral: "", label: "", line: "", hrefs: [], docs: rest }] : [];
+        return rest.length ? [{ numeral: "", label: "", line: "", hrefs: [], id: undefined as string | undefined, docs: rest }] : [];
       })(),
     ]
-  : [{ numeral: "", label: "", line: "", hrefs: [], docs }];
+  : [{ numeral: "", label: "", line: "", hrefs: [], id: undefined as string | undefined, docs }];
 const here = place(series.prefix);
 const views = SERIES_VIEWS[series.slug] ?? [];
 // The strip at the foot groups every series by function, in the scheme's

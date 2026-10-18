@@ -99,7 +99,7 @@ const grade = (g: Grade) => `pill ${g}`;
           ))}
           <circle class="floor-ring" cx={CX} cy={CY} r="312" />
           <text class="floor-l"><textPath href="#t-floor" startOffset="50%" text-anchor="middle">the floor · what no level grants alone</textPath></text>
-          <g class="marks" hidden>
+          <g class="marks" {...{ hidden: true }}>
             {marks.map((m) => (
               <g data-tip={`${m.name}|${LEVELS[m.level].name} · ${m.note}`}>
                 <circle class:list={["agent-dot", m.ghost && "ghost"]} cx={m.x} cy={m.y} r="5" />
@@ -300,12 +300,12 @@ At your level today (<b>{today.name}</b>) this asks; at Conditional it would go 
     const row = (e.target as Element).closest<HTMLButtonElement>(".row-btn");
     if (row) {
       const tr = row.closest("tr")!; const d = document.getElementById(row.getAttribute("aria-controls")!)!;
-      const open = d.hidden; d.hidden = !open; tr.classList.toggle("open", open); row.setAttribute("aria-expanded", String(open));
+      const open = d.hidden === true; d.hidden = !open; tr.classList.toggle("open", open); row.setAttribute("aria-expanded", String(open));
     }
     const v = (e.target as Element).closest<HTMLElement>("[data-view]");
     if (v) {
       root.querySelectorAll("[data-view]").forEach((b) => b.classList.toggle("on", b === v));
-      root.querySelector<SVGGElement>(".marks")!.hidden = v.dataset.view !== "agents";
+      (root.querySelector(".marks") as unknown as HTMLElement).hidden = v.dataset.view !== "agents";
     }
   });
   rings.forEach((r) => r.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLevel(+r.dataset.l!); } }));
