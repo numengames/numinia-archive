@@ -53,10 +53,20 @@ test('numinia.org sends the security headers on every path', () => {
   assert.equal(h['permissions-policy'], 'camera=(), microphone=(), geolocation=()');
   assert.equal(h['x-frame-options'], 'DENY');
   const csp = h['content-security-policy'] ?? '';
-  for (const d of ["default-src 'self'", "frame-ancestors 'none'", "base-uri 'self'", "form-action 'self'", "object-src 'none'"])
+  for (const d of [
+    "default-src 'self'",
+    "frame-ancestors 'self' https://numinia.com https://*.numinia.com",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "object-src 'none'",
+  ])
     assert.ok(csp.includes(d), `CSP lacks ${d}`);
   assert.doesNotMatch(csp, /'unsafe-eval'/, "the CSP must not allow 'unsafe-eval'");
-  assert.doesNotMatch(csp, /https:(?!\/\/)|\*/, 'the CSP must not allow any host wholesale');
+  // Every directive but frame-ancestors stays closed: no wholesale https:
+  // host or bare wildcard. frame-ancestors alone names the engine's two
+  // hosts (numinia.com and its subdomains), which the line above pins exactly.
+  const withoutFrameAncestors = csp.replace(/frame-ancestors[^;]*/, 'frame-ancestors');
+  assert.doesNotMatch(withoutFrameAncestors, /https:(?!\/\/)|\*/, 'only frame-ancestors may name a host wholesale');
 });
 
 test('the site evaluates no string as code (the CSP refuses it)', () => {
