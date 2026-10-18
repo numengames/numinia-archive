@@ -5,9 +5,9 @@ title: "Numinia Engine, as wired"
 type: documentation
 subtype: reference
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-16T15:05:00Z"
-updated: "2026-10-16T15:05:00Z"
+updated: "2026-10-18T14:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -62,9 +62,11 @@ archive (`MIS-195`), not part of this reference.
 ### The pieces
 
 Layers run from the bottom up: `core → schema → ecs → sim → net → feature →
-{client, instance} → {server, cli}`. `render` talks to three.js and to nothing
-else; `agent` is a separate service. A check, `tools/layers.mjs` with its rules
-in `tools/layers.json`, refuses an import the rules do not allow.
+{client, instance} → agent → server`, and `instance → cli`. `render` talks to
+three.js and to nothing else; `agent` sits on the chain as its own process
+(the service `numinia-habitantes`, below), not apart from it. A check,
+`tools/layers.mjs` with its rules in `tools/layers.json`, refuses an import
+the rules do not allow.
 
 | Piece | What it is | State |
 |---|---|---|
@@ -81,9 +83,20 @@ in `tools/layers.json`, refuses an import the rules do not allow.
 | **cli** | headless runs and the command line | wired |
 | **features/** | what a world does: chat, gestures, environment, elements, missions, placed objects, waking the plaza | wired; each loads through the plug and never touches the simulation |
 | **apps/plaza** | the page: menu, map, builder, camera, chat | wired |
-| **Voice** | spatial voice by proximity | not wired |
+| **Voice** | spatial voice by proximity, server-relayed (Opus or µ-law), never to everyone and never recorded | wired |
 | **WebTransport** | a faster transport behind the same interface | not wired |
-| **Inside the fleet** | the engine as the image of a fleet world | not wired: its branch is open |
+| **Inside the fleet** | the engine as the image of a fleet world | wired: published as `ghcr.io/numengames/numinia-engine:sha-<commit>` on every merge to main; the fleet runs it beside the Hyperfy fork, told apart by image (`SYS-014`) |
+
+### How it ships
+
+Every merge to `main` runs the gates, then publishes a release — the
+installer (`instalar-motor.sh`) and its checksums — and a container image
+built from that same installer, for both amd64 and arm64:
+`ghcr.io/numengames/numinia-engine:sha-<commit>`
+(`.github/workflows/publicar-motor.yml`). A server installed from the
+release can opt into checking every 10 minutes for a new one and
+reinstalling itself, never touching the world's own folder; the image is
+what the worlds fleet runs (`SYS-014`).
 
 ### What decides what
 
@@ -145,3 +158,13 @@ organisation's listing of public repositories.
 - No figure above was re-run for this document; each is the repository's own.
 - The study folder behind the engine's decisions is in no repository, so a
   citation of it cannot be checked (`MIS-195`).
+- Refreshed 2026-10-18 against `328ea0a` (v0.7.0): the layer chain, Voice and
+  "Inside the fleet" rows were stale. `README.md`, `numinia-engine:docs/MAPA.md` and
+  `numinia-engine:docs/JUGADOR.md` (row U10) all show proximity voice wired and `agent` on
+  the chain, not apart from it; `.github/workflows/publicar-motor.yml` ships
+  the image the fleet now runs (numinia-assets `55c75ad`,
+  `open-worlds/machine/README.md`). `numinia-engine:docs/FICHA-TECNICA.md` still reads
+  «voz: aún no implementada» — an internal contradiction of the engine
+  repository against its own README and `numinia-engine:docs/JUGADOR.md`, left for the engine
+  repository to fix; this document follows the code and the test that
+  measures voice traffic (row «Voz por cercanía», `limits.json`).
