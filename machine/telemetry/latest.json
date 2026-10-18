@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "2e44a7c",
-  "corpus_hash": "53460be160056560c401844c3faca08a366981b175da7fa4d138b81585fb5ca5",
+  "head": "235d65b+index",
+  "corpus_hash": "613256fb95158c8c798b5d5fc7ce82299255358239d81f17d8fabd87a2588ecf",
   "root_dirty": 0,
-  "measured_at": "2026-10-18T17:38:08Z",
+  "measured_at": "2026-10-18T18:11:12Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 914,
+      "value": 917,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -33,8 +33,8 @@
         ".jpg": 3,
         ".js": 2,
         ".json": 16,
-        ".md": 420,
-        ".mjs": 134,
+        ".md": 421,
+        ".mjs": 136,
         ".png": 38,
         ".svg": 77,
         ".toml": 3,
@@ -52,12 +52,12 @@
     "corpus.files_by_kind": {
       "value": {
         "Text": {
-          "files": 420,
-          "bytes": 4276582
+          "files": 421,
+          "bytes": 4278915
         },
         "Code": {
-          "files": 279,
-          "bytes": 2520849
+          "files": 281,
+          "bytes": 2527483
         },
         "Image": {
           "files": 119,
@@ -84,12 +84,12 @@
       "definition": "tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted"
     },
     "corpus.md_total": {
-      "value": 420,
+      "value": 421,
       "unit": "files",
       "definition": "tracked `.md` anywhere, including `web/`"
     },
     "corpus.docs_total": {
-      "value": 419,
+      "value": 420,
       "unit": "documents",
       "definition": "tracked `.md` outside `web/` — the corpus every other family measures"
     },
@@ -98,7 +98,7 @@
         "(root)": 8,
         ".github": 3,
         "agents": 48,
-        "debt": 7,
+        "debt": 8,
         "decisions": 24,
         "designs": 13,
         "legal": 4,
@@ -124,7 +124,7 @@
         "adr": 25,
         "agent": 44,
         "design": 14,
-        "documentation": 41,
+        "documentation": 42,
         "entity": 35,
         "legal": 5,
         "meta": 9,
@@ -150,13 +150,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 91,
+      "value": 92,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 91
+        "node": 92
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -169,8 +169,8 @@
     "series.registration": {
       "value": {
         "debt": {
-          "registered": 7,
-          "total": 7,
+          "registered": 8,
+          "total": 8,
           "apparatus": 0,
           "archived": 0,
           "pct": 100
@@ -250,12 +250,12 @@
       "definition": "per series with a naming scheme (rules.json): documents whose filename matches `<PREFIX>-<NNN>-` (or the daily `RPT-<date>` form in reports/) over documents in the series — excluding `_template/`, `reports/evidence/`, apparatus and frozen artefacts (by filename shape). Same predicate as `count-evidence.py matricula`."
     },
     "series.registered_total": {
-      "value": 238,
+      "value": 239,
       "unit": "documents",
       "definition": "sum of `registration[*].registered`"
     },
     "series.registrable_total": {
-      "value": 260,
+      "value": 261,
       "unit": "documents",
       "definition": "sum of `registration[*].total`"
     },
@@ -371,87 +371,37 @@
       "definition": "`started` written in `Z`"
     },
     "tokens.tokenizer": {
-      "value": "cl100k_base sha256:223921b76ee9",
+      "value": null,
       "unit": "identity",
-      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.total": {
-      "value": 1091256,
+      "value": null,
       "unit": "tokens",
-      "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.by_dir": {
-      "value": {
-        "lore": 466704,
-        "standards": 122716,
-        "missions": 74277,
-        "system": 63150,
-        "procedures": 44229,
-        "decisions": 42874,
-        "agents": 38165,
-        "reports": 36728,
-        "operations": 33602,
-        "designs": 31464,
-        "machine": 30125,
-        "": 27264,
-        "principles": 23512,
-        "debt": 20491,
-        "opportunities": 15128,
-        "legal": 13877,
-        "stakeholders": 4011,
-        "objects": 1883,
-        ".github": 1056
-      },
+      "value": null,
       "unit": "tokens",
-      "definition": "tokens per top-level dir, largest first"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.by_status": {
-      "value": {
-        "(none)": 501912,
-        "active": 259092,
-        "draft": 254437,
-        "todo": 53132,
-        "in-progress": 10238,
-        "in-review": 8082,
-        "done": 3333,
-        "on-hold": 1030
-      },
+      "value": null,
       "unit": "tokens",
-      "definition": "tokens per frontmatter status ((none) = no status), largest first"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.missions_share_pct": {
-      "value": 6.81,
-      "unit": "percent",
-      "definition": "100·tokens(missions/)/total, rounded to 0.01"
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.largest": {
-      "value": [
-        [
-          "lore/game/manual/es/06-inventario-y-bestiario.md",
-          51702
-        ],
-        [
-          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
-          38623
-        ],
-        [
-          "lore/game/manual/es/07-construyendo-la-aventura.md",
-          37267
-        ],
-        [
-          "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
-          36881
-        ],
-        [
-          "lore/game/manual/en/06-inventory-and-bestiary.md",
-          36491
-        ]
-      ],
+      "value": null,
       "unit": "tokens",
-      "definition": "the five largest documents as [path, tokens]"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "headers.docs_with_frontmatter": {
-      "value": 374,
+      "value": 375,
       "unit": "documents",
       "definition": "docs whose text opens with a --- block the shared reader parses"
     },
@@ -462,21 +412,21 @@
     },
     "headers.field_usage": {
       "value": {
-        "license": 373,
-        "title": 373,
-        "created": 361,
-        "status": 361,
-        "type": 361,
-        "updated": 361,
-        "version": 361,
-        "author": 357,
-        "owner": 356,
-        "section": 352,
-        "tags": 333,
-        "id": 329,
-        "uid": 273,
-        "related": 210,
-        "guild": 127,
+        "license": 374,
+        "title": 374,
+        "created": 362,
+        "status": 362,
+        "type": 362,
+        "updated": 362,
+        "version": 362,
+        "author": 358,
+        "owner": 357,
+        "section": 353,
+        "tags": 334,
+        "id": 330,
+        "uid": 274,
+        "related": 211,
+        "guild": 128,
         "subtype": 88,
         "derived_from": 81,
         "created_source": 65,
@@ -497,7 +447,7 @@
         "former_id_note": 34,
         "currency": 30,
         "depends_on": 30,
-        "visibility": 27,
+        "visibility": 28,
         "contact_channel": 26,
         "contact_role": 26,
         "digital_source_type": 26,
@@ -532,15 +482,15 @@
         "period": 11,
         "started": 11,
         "supersedes_version": 10,
+        "detected": 9,
+        "severity": 9,
+        "severity_reason": 9,
+        "visibility_reason": 9,
         "confidence": 8,
-        "detected": 8,
-        "severity": 8,
-        "severity_reason": 8,
         "stage": 8,
-        "visibility_reason": 8,
         "closes": 7,
+        "opened_by": 7,
         "in_review_at": 6,
-        "opened_by": 6,
         "call": 5,
         "read_from": 5,
         "scope": 5,
@@ -622,7 +572,7 @@
     "headers.hygiene": {
       "value": {
         "dates_without_time": 0,
-        "empty_values": 307,
+        "empty_values": 308,
         "v_prefixed_versions": 0,
         "placeholders": 41
       },
@@ -631,7 +581,7 @@
     },
     "provenance.authorship": {
       "value": {
-        "ai-persona": 311,
+        "ai-persona": 312,
         "no-frontmatter": 45,
         "other": 34,
         "no-author": 17,
@@ -746,7 +696,7 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 148,
+        "active": 149,
         "draft": 164,
         "done": 2,
         "todo": 36,
@@ -813,13 +763,13 @@
           "3": 565
         },
         "DBT": {
-          "3": 173
+          "3": 175
         },
         "SYS": {
           "3": 235
         },
         "MIS": {
-          "3": 1001,
+          "3": 1002,
           "4": 178
         },
         "DES": {
