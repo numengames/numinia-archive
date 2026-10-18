@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 64704,
+  "chars": 64967,
   "apparatus": false,
   "archived": false,
-  "tokens": 18474
+  "tokens": 18552
  },
  {
   "path": "CLAUDE.md",
@@ -676,10 +676,10 @@
   "series": "debt",
   "type": "documentation",
   "status": "active",
-  "chars": 37832,
+  "chars": 38986,
   "apparatus": false,
   "archived": false,
-  "tokens": 10077
+  "tokens": 10377
  },
  {
   "path": "debt/DBT-023-sources-and-inspirations-without-a-home.md",
