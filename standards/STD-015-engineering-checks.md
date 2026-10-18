@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: standard
 subtype: register
 status: draft
-version: "7.1.0"
+version: "7.2.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-10T11:53:13+02:00"
+updated: "2026-10-18T17:55:00+02:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 59 practices every repository of ours keeps, grouped by
+> **Summary:** The 60 practices every repository of ours keeps, grouped by
 > what they protect, each with its level and its check. A practice checked by
 > hand is debt. A row marked as owed was once called automatic, and nothing
 > runs it.
@@ -59,6 +59,7 @@ SPDX-License-Identifier: CC0-1.0
 | Architecture | ARC-009 | Dependencies reviewed before adoption: maintained, compatibly licensed, Scorecard consulted | SHOULD | `[GATE: github repos/numengames/numinia-archive/dependabot/alerts → a person adopts the dependency]` |
 | Architecture | ARC-011 | The common jobs — secret scan, workflow lint, dependency audit, night watch, Dependabot auto-merge — run as reusable workflows called from the organisation repository `numengames/.github`, pinned by commit; a repository keeps a workflow of its own only for a job specific to it (build, deploy, Scorecard) | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Architecture | ARC-012 | No hand copy of a shared thing: every fact, text or piece of machinery shared between repositories has one original, and a consumer links to it or installs it; a copy still standing is debt listed in `SYS-013` | MUST | `[DEBT: no scan fails when a consumer holds a copy of an original listed in SYS-013 — oracle, 2026-10-09]` |
+| Architecture | ARC-013 | A site never reads this Archive's raw files through the GitHub REST API at request time or build time; the unauthenticated limit of 60 requests an hour tripped three outages, and the Oracle ruled it out in chat on 2026-10-18, so a consumer reads a pinned commit's raw URL, a release asset, or a local clone instead | MUST | `[DEBT: no check scans a consumer site for a request-time or build-time call to api.github.com naming this Archive — oracle, 2026-10-18]` |
 | Traceability | TRC-001 | Repository "About" complete: description, website, topics | MUST | `[AUTO: github repos/numengames/numinia-archive]` |
 | Traceability | TRC-002 | Issue templates and a pull request template with a Definition of Done | MUST | `[AUTO: machine/tools/check-register.mjs]` |
 | Traceability | TRC-003 | Labels standardised across repositories | SHOULD | `[DEBT: no label-sync workflow — oracle, 2026-09-11]` |
