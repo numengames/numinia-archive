@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "1abd257",
-  "corpus_hash": "e6a709d3da310d44832f6dce239c7aca5069a5f77eb3537d8f8b8129dd7390fb",
+  "head": "17a680c",
+  "corpus_hash": "a3713386a9cdc5ebb53ccf8c926728c2fc667c4b8e9eec7e02a36759e3cb0f21",
   "root_dirty": 0,
-  "measured_at": "2026-10-18T15:37:22Z",
+  "measured_at": "2026-10-18T16:25:08Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 911,
+      "value": 914,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,8 +34,8 @@
         ".js": 2,
         ".json": 16,
         ".md": 420,
-        ".mjs": 133,
-        ".png": 36,
+        ".mjs": 134,
+        ".png": 38,
         ".svg": 77,
         ".toml": 3,
         ".ts": 62,
@@ -53,19 +53,19 @@
       "value": {
         "Text": {
           "files": 420,
-          "bytes": 4272081
+          "bytes": 4272386
         },
         "Code": {
-          "files": 278,
-          "bytes": 2514229
+          "files": 279,
+          "bytes": 2520443
         },
         "Image": {
-          "files": 117,
-          "bytes": 3475037
+          "files": 119,
+          "bytes": 3538727
         },
         "Data": {
           "files": 70,
-          "bytes": 291534
+          "bytes": 291616
         },
         "Font": {
           "files": 7,
@@ -376,7 +376,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1090216,
+      "value": 1090291,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -393,7 +393,7 @@
         "operations": 33602,
         "designs": 31464,
         "machine": 30125,
-        "": 27101,
+        "": 27176,
         "principles": 23512,
         "debt": 20491,
         "opportunities": 15128,
@@ -407,7 +407,7 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 500872,
+        "(none)": 500947,
         "active": 259092,
         "draft": 254437,
         "todo": 53132,
