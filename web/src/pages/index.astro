@@ -37,7 +37,12 @@ import { wordAttrs, textAttrs, siteNameAttrs, SITE_NAME } from "@/lib/narrative-
 const { sections, unplaced, unplacedCount, total } = await frontDoor();
 const THESIS = "The archive, by section.";
 const WHAT = "The archive of Numen Games: everything we decide, build and offer, written down and open. Numinia is the story we tell it in — a city where work is a game.";
-const EMPTY = "Nothing written yet.";
+// A section with zero records still gets a line, not a blank gap (the
+// Oracle, 2026-10-03: "gaps are shown, not hidden"). It used to be a bare
+// "Nothing written yet." for every section alike; naming the section gives
+// the reader context — which business function has nothing filed, not just
+// that *something* is empty somewhere on the page.
+const emptyLine = (sectionName: string) => `Nothing filed under ${sectionName} yet.`;
 const brand = BOOKS.find((b) => b.href === "/brand")!;
 ---
 
@@ -108,7 +113,7 @@ const brand = BOOKS.find((b) => b.href === "/brand")!;
             </div>
           </div>
           <div>
-            {s.count === 0 && <p class="text-sm text-muted-foreground" {...textAttrs("home.empty", EMPTY)}>{EMPTY}</p>}
+            {s.count === 0 && <p class="text-sm text-muted-foreground" {...textAttrs("home.empty", emptyLine(s.name))}>{emptyLine(s.name)}</p>}
             {s.groups.map((g) => (
               <div class="mb-6 last:mb-0">
                 <h3 class="mb-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent" {...wordAttrs(g.label)}>{g.label}</h3>
