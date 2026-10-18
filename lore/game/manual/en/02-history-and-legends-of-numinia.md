@@ -850,7 +850,7 @@ While the Veil guards arcane memory and the essential secret, the Threshold mani
 |**Essence**|Concealment and<br>revelation|Manifestation and<br>action|Multiplicity and<br>refraction|
 |**Domain**|Supernatural,<br>psychic, spiritual|Natural, physical,<br>material|Refractive, creative,<br>phenomenal|
 |**Function**|To interpose, filter,<br>protect the<br>unrevealed|To activate, move,<br>mark the<br>borders|To divide, break down,<br>multiply, show<br>facets|
-|**Symbolism**|Mystery, threshold, the<br>forbidden or sacred||Diversity,<br>interpretation,<br>richness of forms|
+|**Symbolism**|Mystery, revelation, the<br>forbidden or sacred|Limit, transit, action,<br>manifestation|Diversity,<br>interpretation,<br>richness of forms|
 |**Relationship to knowledge**|Veiled knowledge,<br>revealed in<br>fragments|Natural<br>knowledge,<br>manifest in<br>nature|Expanded<br>knowledge,<br>unfolded in<br>variations|
 |**Effect on the world**|Changes<br>perception: hides or<br>transfigures|Changes<br>perception:<br>shows and<br>mobilises|Changes<br>perception:<br>multiplies and contrasts|
 |**Physical analogy**|Mist covering a<br>landscape|Wheel that<br>transforms as it<br>moves|Light that passes through a<br>crystal and becomes<br>a spectrum|

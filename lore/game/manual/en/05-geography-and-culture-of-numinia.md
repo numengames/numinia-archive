@@ -521,7 +521,25 @@ In its vicinity anomalies occur that do not seem to belong entirely to Numinia. 
 
 However, the most extraordinary property of the Rift is not what it allows one to cross, but what it lets through.
 
-At irregular intervals, objects, images and fragments of information appear in its surroundings that have no provenance within Numinia: pages torn from unknown books, photographs of people and cities no one recognises, fragments of films, sound recordings, toys, utensils, incomplete maps, advertisements, garments, unusable technological devices or texts written in languages that, at times, prove unsettlingly familiar. Some arrive materialised; others appear for a few seconds on the surface of crystals or are heard as incomplete transmissions before disappearing. No known living being has ever crossed the Rift, and every attempt to send matter through it deliberately has failed. The Rift transmits vestiges, not travellers.
+At irregular intervals, objects, images and fragments of information appear in its surroundings that have no provenance within Numinia: pages torn from unknown books, photographs of people and cities no one recognises, fragments of films, sound recordings, toys, utensils, incomplete maps, advertisements, garments, unusable technological devices or texts written in languages that, at times, prove unsettlingly familiar. Some arrive materialised; others appear for a few seconds on the surface of crystals or are heard as incomplete transmissions before disappearing.
+
+
+The most notorious episode linked to the Inversion Rift is also one of the most unsettling in Numinia's recent history. During a reconnaissance expedition to the Neuma Subvale, one of the five Oracles became separated from the rest of the party when a mineral dust storm unexpectedly swept through the galleries.
+
+
+The recovered records allow only a partial reconstruction of what happened. For several hours, the Oracle kept intermittent communication with the expedition while advancing through a network of galleries near the Rift. Their last messages described alterations in orientation, impossible repetitions of the terrain and a reverberation that seemed to answer their own movements.
+
+
+The last recorded signal placed them facing the Inversion Rift. According to the fragmentary images preserved by the Aleph Section, the Oracle deliberately approached the fracture and ended up entering it. The transmission was lost immediately after.
+
+
+They never returned. Neither their body, their equipment nor any object that could be unequivocally identified as theirs was ever found. Since then, the incident constitutes the only known disappearance of a living being directly associated with the Rift. It is not considered proven that the Oracle ever crossed it: they may have been destroyed, displaced, dematerialised, or have suffered some still-unknown form of inversion.
+
+
+The Aleph Section keeps most of the records of the incident classified. Officially, the fifth Oracle is listed as missing.
+
+
+No known living being has ever crossed the Rift, and every attempt to send matter through it deliberately has failed. The Rift transmits vestiges, not travellers.
 
 The provenance of these materials constitutes one of the great ontological problems of Numinia. The most widely accepted hypothesis holds that they belong to another reality, situated beyond the Akasha and separated from Numinia by a dimensional barrier that the Rift accidentally breaches. Nothing allows that world to be known as a whole: what arrives are residues without context, instants torn from unknown stories, objects separated from those who used them and representations of places whose existence cannot be verified.
 
@@ -705,7 +723,7 @@ A mobile, interdimensional fortress from which defence operations are coordinate
 
 **Creator Body:** **The Fifth Form**
 
-They do not govern, they do not dictate laws, they take no part in the internal conflicts of the districts. The Oracles are five, like the essential elements, and they represent the founding consciousness of Numinia. Their existence precedes all political or social organisation: they are the ones who dreamed the city and opened the way to its reconstruction.
+They do not govern, they do not dictate laws, they take no part in the internal conflicts of the districts. The Oracles were originally five, like the essential elements, and they represent the founding consciousness of Numinia. Their existence precedes all political or social organisation: they are the ones who dreamed the city and opened the way to its reconstruction. Today only four remain in Numinia. The fifth disappeared during an expedition to the Neuma Subvale, after becoming separated from the group in a violent mineral dust storm. The last records place them entering the Inversion Rift. They never returned and no trace of them has been found.
 
   - The Fifth Form is the organising principle they designed: a model of harmonious decentralisation, in which each structure of power responds to a balance between thought, ethics and action.
 

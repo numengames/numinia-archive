@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 65884,
+  "chars": 66187,
   "apparatus": false,
   "archived": false,
-  "tokens": 18826
+  "tokens": 18914
  },
  {
   "path": "CLAUDE.md",
@@ -1369,10 +1369,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 127665,
+  "chars": 127706,
   "apparatus": false,
   "archived": false,
-  "tokens": 26974
+  "tokens": 26985
  },
  {
   "path": "lore/game/manual/en/03-character-creation.md",
@@ -1402,10 +1402,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 118088,
+  "chars": 119894,
   "apparatus": false,
   "archived": false,
-  "tokens": 25953
+  "tokens": 26284
  },
  {
   "path": "lore/game/manual/en/06-inventory-and-bestiary.md",
@@ -1468,10 +1468,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 135885,
+  "chars": 135931,
   "apparatus": false,
   "archived": false,
-  "tokens": 38607
+  "tokens": 38623
  },
  {
   "path": "lore/game/manual/es/03-creacion-del-personaje.md",
@@ -1501,10 +1501,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 122666,
+  "chars": 124600,
   "apparatus": false,
   "archived": false,
-  "tokens": 36362
+  "tokens": 36881
  },
  {
   "path": "lore/game/manual/es/06-inventario-y-bestiario.md",

@@ -1151,7 +1151,40 @@ películas, grabaciones sonoras, juguetes, utensilios, mapas incompletos, anunci
 prendas, dispositivos tecnológicos inutilizables o textos escritos en lenguas que, en
 ocasiones, resultan inquietantemente familiares. Algunos llegan materializados; otros
 aparecen durante unos segundos sobre la superficie de los cristales o se escuchan como
-transmisiones incompletas antes de desaparecer. Nunca ha atravesado la Grieta un ser
+transmisiones incompletas antes de desaparecer.
+
+
+El episodio más célebre relacionado con la Grieta de Inversión es también uno de los más
+inquietantes de la historia reciente de Numinia. Durante una expedición de reconocimiento
+al Subvalle de Neuma, uno de los cinco Oráculos quedó separado del resto de la comitiva
+cuando una tormenta de polvo mineral recorrió inesperadamente las galerías.
+
+
+Los registros recuperados permiten reconstruir solo parcialmente lo ocurrido. Durante
+varias horas, el Oráculo mantuvo comunicación intermitente con la expedición mientras
+avanzaba por una red de galerías próximas a la Grieta. Sus últimos mensajes describían
+alteraciones en la orientación, repeticiones imposibles del terreno y una reverberación que
+parecía responder a sus propios movimientos.
+
+
+La última señal registrada lo situó frente a la Grieta de Inversión. Según las imágenes
+fragmentarias conservadas por la Sección Aleph, el Oráculo se aproximó deliberadamente a
+la fractura y terminó internándose en ella. La transmisión se perdió inmediatamente
+después.
+
+
+Nunca regresó. Tampoco se encontró su cuerpo, su equipo ni ningún objeto que pudiera
+identificarse inequívocamente como suyo. Desde entonces, el incidente constituye la única
+desaparición conocida de un ser vivo asociada directamente a la Grieta. No se considera
+probado que el Oráculo llegara a atravesarla: pudo ser destruido, desplazado,
+desmaterializado o haber sufrido alguna forma de inversión todavía desconocida.
+
+
+La Sección Aleph mantiene clasificados la mayor parte de los registros del incidente.
+Oficialmente, el quinto Oráculo figura como desaparecido.
+
+
+Nunca ha atravesado la Grieta un ser
 vivo conocido y todos los intentos de enviar materia deliberadamente a través de ella han
 fracasado. La Grieta transmite vestigios, no viajeros.
 
@@ -1472,9 +1505,13 @@ Una fortaleza móvil e interdimensional desde la que se coordinan operaciones de
 
 
 No gobiernan, no dictan leyes, no participan de los conflictos internos de los distritos. Los
-Oráculos son cinco, como los elementos esenciales, y representan la conciencia
-fundacional de Numinia. Su existencia precede a toda organización política o social: son
-los que soñaron la ciudad y abrieron el paso a su reconstrucción.
+Oráculos fueron originalmente cinco, como los elementos esenciales, y representan la
+conciencia fundacional de Numinia. Su existencia precede a toda organización política o
+social: son quienes soñaron la ciudad y abrieron el paso a su reconstrucción. En la
+actualidad solo cuatro permanecen en Numinia. El quinto desapareció durante una
+expedición al Subvalle de Neuma, después de quedar aislado de su grupo por una violenta
+tormenta de polvo mineral. Los últimos registros lo sitúan internándose en la Grieta de
+Inversión. Nunca regresó y no se ha encontrado ningún vestigio suyo.
 
 
   - La Quinta Forma es el principio organizativo que diseñaron: un modelo de

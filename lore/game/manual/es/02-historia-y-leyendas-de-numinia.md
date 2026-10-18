@@ -2233,7 +2233,7 @@ diversifica. Comprender su equilibrio es clave para interpretar el tejido mismo 
 |**Esencia**|Ocultamiento y<br>revelación|Manifestación y<br>acción|Multiplicidad y<br>refracción|
 |**Dominio**|Sobrenatural,<br>psíquico, espiritual|Natural, físico,<br>material|Refractario, creativo,<br>fenoménico|
 |**Función**|Interponer, filtrar,<br>proteger lo no<br>revelado|Activar, mover,<br>señalar las<br>fronteras|Dividir, descomponer,<br>multiplicar, mostrar<br>facetas|
-|**Simbolismo**|Misterio, umbral, lo<br>prohibido o sagrado||Diversidad,<br>interpretación,<br>riqueza de formas|
+|**Simbolismo**|Misterio, revelación, lo<br>prohibido o sagrado|Límite, tránsito, acción,<br>manifestación|Diversidad,<br>interpretación,<br>riqueza de formas|
 |**Relación con saber**|Conocimiento<br>velado, revelado en<br>fragmentos|Conocimiento<br>natural,<br>manifiesto en<br>naturaleza|Conocimiento<br>expandido,<br>desplegado en<br>variaciones|
 |**Efecto en el mundo**|Cambia la<br>percepción: oculta o<br>transfigura|Cambia la<br>percepción:<br>muestra y<br>moviliza|Cambia la<br>percepción:<br>multiplica y contrasta|
 |**Analogía física**|Niebla que cubre un<br>paisaje|Rueda que<br>transforma al<br>moverse|Luz que atraviesa un<br>cristal y se convierte<br>en espectro|
