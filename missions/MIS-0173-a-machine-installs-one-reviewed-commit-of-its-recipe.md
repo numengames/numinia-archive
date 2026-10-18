@@ -3,10 +3,10 @@ id: "MIS-173"
 uid: ""
 title: "A machine installs one reviewed commit of its recipe: the bootstrap line names the commit, the machine installs exactly that one and says which it runs"
 type: mission
-status: in-review
-version: "0.2.0"
+status: done
+version: "0.3.0"
 created: "2026-10-12T16:48:26+02:00"
-updated: "2026-10-12T22:13:00+02:00"
+updated: "2026-10-18T19:00:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -17,7 +17,7 @@ priority: high
 effort: S
 executor: hybrid
 assigned_to: null
-completed: null
+completed: "2026-10-18T19:00:00Z"
 
 requires_oracle_approval: true
 context: "2026-10-12T16:48:26+02:00"
@@ -151,4 +151,11 @@ its debts.
 
 ## 3. Closure
 
-*(Fill when the mission closes.)*
+**Closed 2026-10-18 by the Oracle's word ("sí").** Re-verified live before asking:
+`curl -s https://open-1.numinia.com/fleet/v1/machine` answered
+`"recipe": "880ff114c8cf2b4f4705300e8bc0224c7dbf0a41"` — a full 40-character commit,
+the shape the acceptance criteria require. The three criteria of §2 were already
+met and evidenced in the execution log on 2026-10-12; this closure only adds the
+Oracle's explicit approval, which the mission's `requires_oracle_approval: true`
+makes the one missing step. `MIS-174` (the rule on numinia-assets' `main`) stays
+open and deferred, as noted above — a pin is only as good as the commit it names.
