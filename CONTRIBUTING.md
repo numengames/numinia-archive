@@ -29,7 +29,10 @@ This file does not repeat either. If they disagree with it, they win.
 ## Proposing a change
 
 1. Branch from `main`.
-2. Make the change. Commit messages are in English.
+2. Make the change. Commit messages and pull request titles are written in
+   English, whoever or whatever writes them. Product copy that readers see,
+   and documents that are deliberately in another language, may be in that
+   language.
 3. Run `npm test` and `npm run checks -- --rules`; if you touched `web/`,
    run its build too.
 4. Open a pull request that says what changed and why.
