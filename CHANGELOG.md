@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-18
+- **Changed** `STD-042` 0.1.6, `agents/ursa/OPERATOR.md` 1.1.2: row 3 and the *Allowed without asking* section now name the `command_allowlist` grant of 2026-10-15 — heredoc and `-e`/`-c` script execution auto-approve for Ursa on every surface, cron included; `approvals.mode` stays `manual` for the rest.
 - **Debt** `DBT-022` 0.8.0: row 67 and letter question [#67] for counsel — may a balance go negative when a refund or chargeback is resolved against us after the money was spent, and a won dispute restores it (D-004); `ADR-070` and `STD-033` wait for the answer.
 - **Changed** `SYS-013` 0.5.0, `SYS-014` 0.3.0, `SYS-016` 0.2.0: refreshed against numinia-engine `328ea0a` and numinia-assets `55c75ad` — the fleet now runs Numinia Engine's image beside the Hyperfy fork, a world's engine build can change by `UpdateWorld`, and proximity voice is wired.
 - **Changed** `README.md`, `CONTRIBUTING.md`: the README gains a "Run it locally" section (tests, checks, site dev and build); both files now say commit messages and pull request titles are written in English.
