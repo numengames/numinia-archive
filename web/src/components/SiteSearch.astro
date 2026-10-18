@@ -10,49 +10,68 @@ import Icon from "@/components/Icon.astro";
 import { useT } from "@/i18n/ui";
 const t = useT();
 
+// Navigation.astro renders this twice (desktop bar, mobile menu). Each
+// `<button data-search-open>` is wired by the shared script below (it
+// already loops over every match), but a SECOND `data-search-modal` broke
+// the mobile one: the desktop copy lives inside a `hidden lg:flex` wrapper,
+// so at mobile widths the whole modal was display:none at the ancestor and
+// no toggling of its own `hidden` class could ever show it — the mobile
+// menu's magnifying glass opened a modal nobody could see. Fix: render the
+// modal (`modal` prop) ONLY from the one call placed outside any
+// responsive-hidden wrapper (see Navigation.astro); every other call is
+// `modal={false}`, trigger button only, all sharing that single modal.
+interface Props {
+  trigger?: boolean;
+  modal?: boolean;
+}
+const { trigger = true, modal = true } = Astro.props;
 ---
 
-<button
-  data-search-open
-  aria-label={t("search.label")}
-  class="flex items-center gap-1 rounded-full border border-transparent px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-muted-foreground transition-all hover:border-border hover:bg-card hover:text-foreground"
->
-  <Icon name="magnifying-glass" size={14} />
-  <span class="hidden md:inline">{t("search.label")}</span>
-</button>
+{trigger && (
+  <button
+    data-search-open
+    aria-label={t("search.label")}
+    class="flex items-center gap-1 rounded-full border border-transparent px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.15em] text-muted-foreground transition-all hover:border-border hover:bg-card hover:text-foreground"
+  >
+    <Icon name="magnifying-glass" size={14} />
+    <span class="hidden md:inline">{t("search.label")}</span>
+  </button>
+)}
 
-<div
-  data-search-modal
-  class="fixed inset-0 z-[60] hidden items-start justify-center pt-[12vh]"
-  role="dialog"
-  aria-modal="true"
-  aria-label={t("search.aria")}
->
-  <!-- §9.8: the canonical veil, the same piece that founds every modal -->
-  <div data-search-veil class="absolute inset-0" style="background: rgba(20,17,15,.72)"></div>
+{modal && (
+  <div
+    data-search-modal
+    class="fixed inset-0 z-[60] hidden items-start justify-center pt-[12vh]"
+    role="dialog"
+    aria-modal="true"
+    aria-label={t("search.aria")}
+  >
+    <!-- §9.8: the canonical veil, the same piece that founds every modal -->
+    <div data-search-veil class="absolute inset-0" style="background: rgba(20,17,15,.72)"></div>
 
-  <div class="relative mx-4 w-full max-w-xl rounded-[8px] border border-border bg-background shadow-xl">
-    <!-- Input per §9.3: base bg, linea.fuerte border via border-border, Turquesa focus -->
-    <div class="flex items-center gap-3 border-b border-border px-4">
-      <Icon name="magnifying-glass" size={16} class="shrink-0 text-muted-foreground" />
-      <input
-        data-search-input
-        type="search"
-        placeholder={t("search.placeholder")}
-        autocomplete="off"
-        spellcheck="false"
-        class="h-12 w-full bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
-      />
-      <kbd class="hidden rounded-[6px] border border-border px-1.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground sm:inline">ESC</kbd>
-    </div>
+    <div class="relative mx-4 w-full max-w-xl rounded-[8px] border border-border bg-background shadow-xl">
+      <!-- Input per §9.3: base bg, linea.fuerte border via border-border, Turquesa focus -->
+      <div class="flex items-center gap-3 border-b border-border px-4">
+        <Icon name="magnifying-glass" size={16} class="shrink-0 text-muted-foreground" />
+        <input
+          data-search-input
+          type="search"
+          placeholder={t("search.placeholder")}
+          autocomplete="off"
+          spellcheck="false"
+          class="h-12 w-full bg-transparent font-mono text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
+        />
+        <kbd class="hidden rounded-[6px] border border-border px-1.5 py-0.5 font-mono text-[0.6rem] text-muted-foreground sm:inline">ESC</kbd>
+      </div>
 
-    <div data-search-results class="max-h-[50vh] overflow-y-auto overscroll-contain p-2" role="listbox">
-      <p data-search-empty class="px-3 py-6 text-center font-mono text-xs text-muted-foreground">
-        Type to search every published page.
-      </p>
+      <div data-search-results class="max-h-[50vh] overflow-y-auto overscroll-contain p-2" role="listbox">
+        <p data-search-empty class="px-3 py-6 text-center font-mono text-xs text-muted-foreground">
+          Type to search every published page.
+        </p>
+      </div>
     </div>
   </div>
-</div>
+)}
 
 <!-- The Pagefind loader, outside Vite (see ensurePagefind below). The bundle
      only exists after `astro build`, so its path is resolved at run time. -->

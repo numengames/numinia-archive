@@ -60,6 +60,15 @@ export const UPDATES: readonly UpdateVersion[] = [
     ],
   },
   {
+    version: "v0.167.1",
+    date: "2026-10-18",
+    entries: [
+      { type: "FIX", text: "The top bar now stays put while you scroll on every page, on phone and desktop." },
+      { type: "FIX", text: "The search magnifying glass in the mobile menu opens the search box — it used to open nothing." },
+      { type: "CHG", text: "An empty section on the front door now names itself (\"Nothing filed under X yet\") instead of a bare empty line." },
+    ],
+  },
+  {
     version: "v0.166.0",
     date: "2026-10-17",
     entries: [

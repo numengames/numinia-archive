@@ -54,7 +54,7 @@ import wordmark from "@/brand/Numinia_Word.svg?raw";
     <div class="hidden items-center gap-1 lg:flex">
       <a href="/" data-nav="archive" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, (isHome || here || inBook) ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="archive" size={14} /> Archive</a>
       <a href="/map" data-nav="map" class:list={["flex min-h-[44px] items-center gap-2 px-3 transition-colors", etiqueta, isMap ? "text-foreground border-b-2 border-teal" : "text-muted-foreground border-b-2 border-transparent hover:text-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
-      <SiteSearch />
+      <SiteSearch modal={false} />
     </div>
 
     <!-- The sales bell: every open opportunity's next step, ringing from noon of its day. -->
@@ -92,6 +92,15 @@ import wordmark from "@/brand/Numinia_Word.svg?raw";
 
 </nav>
 
+<!--
+  The one search modal shared by both trigger buttons above (desktop bar,
+  mobile menu). Placed here, outside any `hidden`/responsive wrapper, so it
+  is never itself display:none at some viewport width while a trigger
+  inside a *different* wrapper tries to open it (that was the mobile menu's
+  dead magnifying glass — see SiteSearch.astro).
+-->
+<SiteSearch trigger={false} />
+
 <!-- Outside <nav> on purpose: the bar's backdrop-filter makes it the
      containing block of any position:fixed child, which collapsed this
      panel to 0 px on every phone. -->
@@ -106,7 +115,7 @@ import wordmark from "@/brand/Numinia_Word.svg?raw";
     class="fixed inset-x-0 bottom-0 top-14 z-40 hidden overflow-y-auto bg-background/95 backdrop-blur-xl lg:hidden"
   >
     <div class="mx-auto flex max-w-[1100px] flex-col gap-1 px-6 py-4">
-      <div class="mb-2"><SiteSearch /></div>
+      <div class="mb-2"><SiteSearch modal={false} /></div>
       <a href="/" data-nav="archive" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, (isHome || here || inBook) ? "text-foreground" : "text-muted-foreground"]}><Icon name="archive" size={14} /> Archive</a>
       <a href="/map" data-nav="map" class:list={["flex min-h-[44px] items-center gap-2 border-b border-border/50", etiqueta, isMap ? "text-foreground" : "text-muted-foreground"]}><Icon name="crosshair" size={14} /> Map</a>
       <NarrativeDial variant="menu" />

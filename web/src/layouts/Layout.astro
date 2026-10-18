@@ -111,7 +111,17 @@ const ogLocale = "en_US";
 
     <slot name="head" />
   </head>
-  <body class="relative overflow-x-hidden">
+  <!--
+    overflow-x-clip, not overflow-x-hidden: clip does not open a scroll
+    container of its own, hidden does (mixing it with the default
+    overflow-y:visible forces the UA to resolve overflow-y to auto on
+    this element per the CSS overflow spec). On iOS/desktop Safari a body
+    that becomes its own scroll container breaks `position: sticky` on
+    descendants — the top bar (Navigation.astro) stopped sticking to the
+    top of the viewport while scrolling. clip keeps the same "no stray
+    horizontal scrollbar" effect without creating that container.
+  -->
+  <body class="relative overflow-x-clip">
     <!-- The Veil's sky (§2.7.1).
          `width`/`height` are set in JS from window.innerWidth, which on mobile
          includes the scrollbar gutter: measured at 375 px the canvas came back
