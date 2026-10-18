@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "aee1ed2",
-  "corpus_hash": "f9a64567437e631a9105714df7bf9203b2531421ac7eba75750ba4f5b931d56c",
+  "head": "f3e2ee1",
+  "corpus_hash": "9394ddaf5168535be278ac97804bb2c11e48f8487403a6da30ea8b22ce9b15e0",
   "root_dirty": 0,
-  "measured_at": "2026-10-17T07:50:43Z",
+  "measured_at": "2026-10-18T10:57:35Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 420,
-          "bytes": 4262540
+          "bytes": 4263418
         },
         "Code": {
           "files": 278,
@@ -271,8 +271,9 @@
     },
     "missions.by_status": {
       "value": {
+        "done": 1,
         "in-progress": 4,
-        "in-review": 7,
+        "in-review": 6,
         "on-hold": 1,
         "todo": 35
       },
@@ -345,12 +346,12 @@
       "definition": "`status: in-progress` with no `assigned_to`"
     },
     "missions.done_without_closure": {
-      "value": 0,
+      "value": 1,
       "unit": "missions",
       "definition": "`status: done` with no `## Closure` heading (MIS-134 strict form)"
     },
     "missions.done_without_closure_tolerant": {
-      "value": 0,
+      "value": 1,
       "unit": "missions",
       "definition": "`status: done` with none of the five closure headings MIS-134 tolerates"
     },
@@ -375,7 +376,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1087690,
+      "value": 1087956,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -383,7 +384,7 @@
       "value": {
         "lore": 465827,
         "standards": 122646,
-        "missions": 74090,
+        "missions": 74277,
         "system": 62137,
         "procedures": 44229,
         "decisions": 42874,
@@ -392,7 +393,7 @@
         "operations": 33602,
         "designs": 31464,
         "machine": 30125,
-        "": 26445,
+        "": 26524,
         "principles": 23512,
         "debt": 20191,
         "opportunities": 15128,
@@ -406,20 +407,20 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 500216,
+        "(none)": 500295,
         "active": 258517,
         "draft": 253329,
         "todo": 53132,
         "in-progress": 10238,
-        "in-review": 10076,
-        "done": 1152,
+        "in-review": 8082,
+        "done": 3333,
         "on-hold": 1030
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.81,
+      "value": 6.83,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -737,8 +738,8 @@
     },
     "provenance.protocol_anchor": {
       "value": {
-        "not-oracle-state": 46,
-        "anchored": 1
+        "not-oracle-state": 45,
+        "anchored": 2
       },
       "unit": "missions",
       "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
@@ -747,11 +748,11 @@
       "value": {
         "active": 148,
         "draft": 164,
-        "done": 1,
+        "done": 2,
         "todo": 36,
         "in-progress": 4,
         "on-hold": 1,
-        "in-review": 7
+        "in-review": 6
       },
       "unit": "documents",
       "definition": "frontmatter status values in the corpus with counts"
@@ -811,12 +812,12 @@
         "ADR": {
           "3": 563
         },
+        "MIS": {
+          "3": 1001,
+          "4": 178
+        },
         "DES": {
           "3": 154
-        },
-        "MIS": {
-          "3": 999,
-          "4": 178
         },
         "SYS": {
           "3": 228

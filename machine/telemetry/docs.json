@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 63947,
+  "chars": 64206,
   "apparatus": false,
   "archived": false,
-  "tokens": 18249
+  "tokens": 18328
  },
  {
   "path": "CLAUDE.md",
@@ -2237,11 +2237,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 6986,
+  "status": "done",
+  "chars": 7597,
   "apparatus": false,
   "archived": false,
-  "tokens": 1994
+  "tokens": 2181
  },
  {
   "path": "missions/MIS-0174-numinia-assets-main-cannot-change-by-one-hand.md",

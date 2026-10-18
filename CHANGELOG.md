@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-18
+- **Changed** `MIS-173` (0.3.0): closed by the Oracle's word after a live re-check (`https://open-1.numinia.com/fleet/v1/machine` answers a full 40-character `recipe` commit) — the mission's only remaining step was `requires_oracle_approval`.
+
 ### 2026-10-17
 - **Changed** `STD-042` 0.1.5 (site v0.166.0): a new permission, *Merge to a train branch* (`tren/*`, never main), `alone` at `High` and `Full`; merges to `main` stay the person's; the permissions after it move up one number.
 
