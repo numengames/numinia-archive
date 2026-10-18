@@ -362,7 +362,7 @@ export async function homePage(): Promise<ComposedPage> {
       `${s.count} records. APQC: ${s.apqc}.`,
       `Served by: ${s.served.houses.join(" · ") || "no house yet"}.${s.served.gaps.length ? ` No house carries: ${s.served.gaps.join("; ")}.` : ""}`,
       "",
-      ...(s.count === 0 ? ["Nothing written yet.", ""] : []),
+      ...(s.count === 0 ? [`Nothing filed under ${s.name} yet.`, ""] : []),
       ...s.groups.flatMap((g) => [`### ${g.label}`, "", ...g.records.map(record), ""]),
     ]),
     ...(unplacedCount
