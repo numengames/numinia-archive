@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+#
+# machine/telemetry/history.jsonl is append-only (MIS-138, criterion 9: no
+# line ever committed is removed). Two branches that each append a different
+# line to it currently conflict on the same tail line the moment they merge
+# in sequence — a real diff on a file whose only legal edit is "add a line".
+# `merge=union` resolves that automatically: git keeps every line either
+# side added, in whichever order, instead of asking a person to pick.
+machine/telemetry/history.jsonl merge=union

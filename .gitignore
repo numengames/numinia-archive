@@ -24,3 +24,13 @@ web/.translation-cache/
 # MIS-138: cl100k rank file, fetched by `node machine/scripts/telemetry.mjs --fetch-tokenizer`, pinned by sha256 in machine/scripts/lib/cl100k.mjs
 machine/scripts/lib/tokenizer/
 .worktrees/
+
+# MIS-138 (telemetry, no-conflict merges): these three are fully derived from
+# the rest of the tree by machine/scripts/telemetry.mjs, run fresh in CI and
+# before `npm test`/`npm run build` (see machine/telemetry/README.md). A
+# branch no longer commits its own snapshot of them, so two branches that
+# touch different corpus files never conflict here. history.jsonl (the
+# append-only ledger) and claims.json (hand-edited) stay tracked.
+machine/telemetry/latest.json
+machine/telemetry/docs.json
+machine/telemetry/latest.md

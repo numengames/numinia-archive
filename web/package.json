@@ -10,7 +10,7 @@
     "dev": "astro dev",
     "type-check": "astro check",
     "check:license": "node ../machine/checks/rules/std-010-licensing.mjs",
-    "build": "node ../machine/checks/rules/std-010-licensing.mjs && node scripts/share-card.mjs && astro build",
+    "build": "node ../machine/scripts/telemetry.mjs && node ../machine/checks/rules/std-010-licensing.mjs && node scripts/share-card.mjs && astro build",
     "preview": "astro preview",
     "check:responsive": "node ../machine/tools/check-responsive.mjs",
     "astro": "astro"
