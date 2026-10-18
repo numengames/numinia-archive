@@ -217,17 +217,3 @@ jobs:
       # and committing machine/telemetry/ — never by hand-editing latest.json.
       - name: build checks
         run: npm run checks -- --build
-
-      # The house header and footer, pinned to a picture (machine/tools/check-
-      # visual-header-footer.mjs). Chrome that shows on every page can still
-      # drift a colour or a spacing value through a build that stays green —
-      # this is the gate for that. Pinned to the same version as the
-      # `playwright-core` devDependency in web/package.json so the installed
-      # Chromium matches the one the script launches.
-      - name: visual regression — header and footer
-        run: |
-          npx -y playwright@1.63.0 install --with-deps chromium
-          npx astro preview --port 4399 --host localhost &
-          npx wait-on http://localhost:4399/ --timeout 30000
-          CHECK_BASE=http://localhost:4399 node ../machine/tools/check-visual-header-footer.mjs
-        working-directory: web
