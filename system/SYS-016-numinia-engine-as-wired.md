@@ -159,12 +159,12 @@ organisation's listing of public repositories.
 - The study folder behind the engine's decisions is in no repository, so a
   citation of it cannot be checked (`MIS-195`).
 - Refreshed 2026-10-18 against `328ea0a` (v0.7.0): the layer chain, Voice and
-  "Inside the fleet" rows were stale. `README.md`, `docs/MAPA.md` and
-  `docs/JUGADOR.md` (row U10) all show proximity voice wired and `agent` on
+  "Inside the fleet" rows were stale. `README.md`, `numinia-engine:docs/MAPA.md` and
+  `numinia-engine:docs/JUGADOR.md` (row U10) all show proximity voice wired and `agent` on
   the chain, not apart from it; `.github/workflows/publicar-motor.yml` ships
   the image the fleet now runs (numinia-assets `55c75ad`,
-  `open-worlds/machine/README.md`). `docs/FICHA-TECNICA.md` still reads
+  `open-worlds/machine/README.md`). `numinia-engine:docs/FICHA-TECNICA.md` still reads
   «voz: aún no implementada» — an internal contradiction of the engine
-  repository against its own README and `JUGADOR.md`, left for the engine
+  repository against its own README and `numinia-engine:docs/JUGADOR.md`, left for the engine
   repository to fix; this document follows the code and the test that
   measures voice traffic (row «Voz por cercanía», `limits.json`).
