@@ -7,7 +7,7 @@ subtype: reference
 status: draft
 version: "0.2.0"
 created: "2026-10-16T15:05:00Z"
-updated: "2026-10-18T14:00:00+02:00"
+updated: "2026-10-18T23:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 digital_source_type: ai-assisted
@@ -120,6 +120,18 @@ rules, determinism (the same seed gives the same hash), a bandwidth budget of
 70 kbit/s per client at 50 visible, and a plaza of 1,000 with a tick p99 of at
 most 25 ms. The browser check, `tools/auto.sh e2e`, drives two real tabs in
 Chromium and Firefox. A change reaches `main` only when the gates are green.
+
+Three commitments sit behind that gate, matching the industry's highest
+standards for a project this size. The code is typed throughout — erasable
+TypeScript only (no `enum`, no `namespace`, no constructor parameter
+properties), so Node runs the `.ts` files directly and a type never outlives
+what it describes (`numinia-engine:AGENTS.md`, «Style»). Nothing reaches
+`main` without the tests that gate it, run before every commit and again
+before every merge (above). And no jump is silent: a non-additive change — a
+changed layout, a new pinned fingerprint — bumps the format version, re-pins
+the fingerprint in its test, and is written out by name in the diary, never
+folded into an ordinary commit message (`numinia-engine:AGENTS.md`,
+«Autonomy»).
 
 ### What it has measured
 
