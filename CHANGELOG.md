@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-18
+- **Added** `machine/tools/check-visual-header-footer.mjs` + `machine/visual-baselines/`: a Playwright + pixelmatch gate for the home page's nav bar and footer against a committed reference PNG; wired into `.github/workflows/ci.yml` after `build checks` (patch — the App has no `workflows` permission).
 - **Changed** 7 agent `OPERATOR.md` (ursa 1.1.3; byblos, antunj, lexa, senet, doulos 1.1.2; nimrod 0.2.2): dropped the blanket "escalate any push" line that contradicted the PR-slot rule — pushing/opening a PR is allowed when the slot is free; still escalate branch deletion, security, or another's open PR.
 - **Changed** `STD-042` 0.1.6, `agents/ursa/OPERATOR.md` 1.1.2: row 3 and the *Allowed without asking* section now name the `command_allowlist` grant of 2026-10-15 — heredoc and `-e`/`-c` script execution auto-approve for Ursa on every surface, cron included; `approvals.mode` stays `manual` for the rest.
 - **Debt** `DBT-022` 0.8.0: row 67 and letter question [#67] for counsel — may a balance go negative when a refund or chargeback is resolved against us after the money was spent, and a won dispute restores it (D-004); `ADR-070` and `STD-033` wait for the answer.
