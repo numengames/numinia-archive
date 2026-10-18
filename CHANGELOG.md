@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-19
+- **Added** `STD-019` 3.2.0: `VER-025`, the engine's B9 policy from `work/motor-suma/INVENTARIO.md` — a non-additive format change (Numinia Engine's world/save format today) needs no prior `STD-017` approval while the format has no user outside Numen Games, as long as it raises the major number and fixes a test fingerprint; the exemption lapses the day an outside user exists, per Pablo's 2026-10-16 ruling that the clause expires.
+
 ### 2026-10-18
 - **Added** `STD-015` 7.2.0: `ARC-013`, a site never reads this Archive's raw files through the GitHub REST API — the 60-requests-an-hour limit tripped three outages, the Oracle ruled it out 2026-10-18; debt, no scan yet.
 - **Fixed** `web/src/layouts/Layout.astro` (site v0.167.0): the top bar now stays put on scroll — `overflow-x-hidden` on `<body>` turned it into its own scroll container, breaking `position: sticky` in Safari; switched to `overflow-x-clip`.
