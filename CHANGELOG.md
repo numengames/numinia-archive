@@ -78,6 +78,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 - **Added** `PRO-039`: opening the brain to the worlds — a bridge that holds the key and the limits and answers only listed worlds, behind one HTTPS door and a firewall.
 
 ### 2026-10-13
+- **Added** `DBT-027`, restricted to the Oracle: what the first security audit found worth fixing — the numen.games forms can put a visitor's details in a URL when their script fails, the sites' content security policy allows inline code, and the worlds server is not yet audited; no key or way in was found.
 - **Changed** `ADR-070` 0.3.0, from the Oracle's decisions on the prices: sizes are sold by people at once — Small up to 20, Medium up to 50, Large up to 100 — a world asleep because it is empty counts as running, and the figures change from the price room (`MIS-184`).
 - **Changed** `MIS-184` 0.3.0, opened: the Oracle's price room on numinia.com — a calculator with dated costs, each size's cost and margin, an example fleet's monthly profit, and Publish, which schedules a dated tariff version in the till with who and why.
 - **Added** `MIS-189`: the Oracle sees the till's money — collected against consumed in a month, client balances, the month's cross-check with Stripe, adjustments by hand with who and why — split from `MIS-184`, after Stripe (`MIS-180`).

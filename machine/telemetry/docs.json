@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 66853,
+  "chars": 67162,
   "apparatus": false,
   "archived": false,
-  "tokens": 19077
+  "tokens": 19148
  },
  {
   "path": "CLAUDE.md",
@@ -724,6 +724,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1890
+ },
+ {
+  "path": "debt/DBT-027-small-weaknesses-the-first-security-audit-found.md",
+  "dir": "debt",
+  "series": "debt",
+  "type": "documentation",
+  "status": "active",
+  "chars": 3659,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 985
  },
  {
   "path": "decisions/ADR-030-lifecycle-and-deletion.md",
