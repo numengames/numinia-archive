@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67477,
+  "chars": 67734,
   "apparatus": false,
   "archived": false,
-  "tokens": 19227
+  "tokens": 19314
  },
  {
   "path": "CLAUDE.md",
@@ -2601,10 +2601,10 @@
   "series": "operations",
   "type": "procedure",
   "status": "active",
-  "chars": 5384,
+  "chars": 5516,
   "apparatus": false,
   "archived": false,
-  "tokens": 1410
+  "tokens": 1451
  },
  {
   "path": "operations/OPS-011-positioning-and-market.md",

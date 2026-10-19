@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "943d636",
-  "corpus_hash": "6cbe09a5fa69fb40df7af8efb61bdc73717d663785c5796b5a4a6dfdc8b42287",
+  "head": "f589227",
+  "corpus_hash": "476c6b5efa9281349aad99662d825847b5580d37d7d141ae06f115aecef44fba",
   "root_dirty": 0,
-  "measured_at": "2026-10-19T22:52:30Z",
+  "measured_at": "2026-10-19T23:40:55Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 422,
-          "bytes": 4295447
+          "bytes": 4295839
         },
         "Code": {
           "files": 279,
@@ -376,7 +376,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1096052,
+      "value": 1096180,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -390,10 +390,10 @@
         "procedures": 44229,
         "agents": 38165,
         "reports": 36728,
-        "operations": 33602,
+        "operations": 33643,
         "designs": 31464,
         "machine": 30125,
-        "": 27577,
+        "": 27664,
         "principles": 23512,
         "debt": 21476,
         "opportunities": 15128,
@@ -407,8 +407,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 502225,
-        "active": 260077,
+        "(none)": 502312,
+        "active": 260118,
         "draft": 257935,
         "todo": 53132,
         "in-progress": 10238,
@@ -647,7 +647,7 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 12,
+      "value": 1,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
@@ -655,64 +655,9 @@
     "provenance.created_ahead_list": {
       "value": [
         [
-          "agents/kairos/AGENT.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "agents/kairos/OPERATOR.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "agents/kairos/SOUL.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "agents/kairos/SOURCES.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "agents/nimrod/OPERATOR.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/nimrod/SOUL.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/skills/numinia-nwos-pr/SKILL.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "machine/packages/sales-kit/fixtures/card.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
           "machine/packages/sales-kit/fixtures/collateral/OPP-2099-008.md",
           "2099-10-01",
-          "2026-10-02"
-        ],
-        [
-          "machine/packages/sales-kit/fixtures/register.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "procedures/PRO-018-publishing-a-repository.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "reports/RPT-019-2026-w37.md",
-          "2026-09-09",
-          "2026-09-08"
+          "2026-10-15"
         ]
       ],
       "unit": "documents",
@@ -720,7 +665,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 54,
+      "value": 317,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -807,7 +752,7 @@
           "3": 470
         },
         "OPS": {
-          "3": 201
+          "3": 202
         },
         "ADR": {
           "3": 575
