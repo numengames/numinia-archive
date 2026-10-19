@@ -18,7 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-20
-- **Fixed** `operations/OPS-009-secrets-handling.md` (v2.0.3): §4.2 "Org access (numengames)" row described Ursa's access as "PabloFMM — Via existing PAT"; that access is a GitHub App, per-repo token (e.g. `engine` for numinia-engine), issued in the `.env` of the Hermes `ursa` profile on this machine — never a PAT, never on a VPS.
+- **Fixed** `operations/OPS-009-secrets-handling.md` (v2.0.3): §4.2 said Ursa's org access was "Via existing PAT"; it's a GitHub App, per-repo token (`engine` for numinia-engine), key in the Hermes `ursa` profile's `.env`, not a VPS (#731).
 
 ### 2026-10-19
 - **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
