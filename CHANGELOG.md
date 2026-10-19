@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-19
+- **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
+
 ### 2026-10-18
 - **Fixed** `web/src/layouts/Layout.astro` (site v0.167.0): the top bar now stays put on scroll — `overflow-x-hidden` on `<body>` turned it into its own scroll container, breaking `position: sticky` in Safari; switched to `overflow-x-clip`.
 - **Fixed** `web/src/components/{SiteSearch,Navigation}.astro`: the mobile menu's search glass opened a modal hidden inside the desktop-only wrapper; split into a `trigger`/`modal` pair sharing one modal outside any hidden wrapper.
