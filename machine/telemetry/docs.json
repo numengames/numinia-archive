@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67162,
+  "chars": 67477,
   "apparatus": false,
   "archived": false,
-  "tokens": 19148
+  "tokens": 19227
  },
  {
   "path": "CLAUDE.md",
@@ -999,6 +999,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1940
+ },
+ {
+  "path": "decisions/ADR-081-a-zone-is-a-bubble-the-director-places-its-flags-are-objects-and-what-changes-the-world-is-thrown-from-a-capsule.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 13866,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 3498
  },
  {
   "path": "designs/DES-002-business-metrics.md",
