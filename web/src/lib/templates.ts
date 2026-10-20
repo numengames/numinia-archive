@@ -82,6 +82,7 @@ const COMPANIONS: Record<string, { file: string; what: string }[]> = {
 export const ELSEWHERE: { path: string; makes: string; why: string }[] = [
   { path: "agents/_template/", makes: "a digital agent", why: "a folder of files, not one file: the folder's shape is what it scaffolds" },
   { path: "lore/adventures/tabletop/TEMPLATE.md", makes: "a tabletop adventure", why: "game text, in Spanish, with no header: it is played, not filed" },
+  { path: "machine/templates/RESEARCH-QUESTIONNAIRE-TEMPLATE.md", makes: "a research-phase brand & culture questionnaire", why: "a method tool for any organisation, not a document of a series: no header, a filled copy is working notes rather than a record" },
   { path: ".github/PULL_REQUEST_TEMPLATE.md", makes: "a pull request", why: "GitHub reads it from this path; moved, it stops working" },
   { path: ".github/ISSUE_TEMPLATE/task.md", makes: "an issue", why: "GitHub reads it from this path; moved, it stops working" },
   { path: "web/public/design/templates/2026_08_03-Plantilla_Factura-v1.0.0.html", makes: "an invoice", why: "a design piece, served as a file by the site" },

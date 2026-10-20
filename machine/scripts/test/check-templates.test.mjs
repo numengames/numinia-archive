@@ -75,7 +75,7 @@ check('the committed templates hold every destination contract (every template, 
   // The count is read from the folder, never typed: a new series brings a new
   // template, and a hand-typed "12" turned red the day legal/ opened.
   const templates = execFileSync('git', ['-C', ROOT, 'ls-files', 'machine/templates/*.md'], { encoding: 'utf8' })
-    .split('\n').filter((f) => f && !f.endsWith('/README.md')).length;
+    .split('\n').filter((f) => f && !f.endsWith('/README.md') && !f.endsWith('/RESEARCH-QUESTIONNAIRE-TEMPLATE.md')).length;
   const r = run(dir);
   assert.equal(r.code, 0, r.log);
   assert.match(r.out, new RegExp(`${templates} template\\(s\\) · every registered series covered · destination contracts hold`));

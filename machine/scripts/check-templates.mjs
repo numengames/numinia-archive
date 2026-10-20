@@ -76,7 +76,14 @@ const COMPANIONS = {
   // The register every organisation fills first: who answers for each section.
   'STD-TEMPLATE-RESPONSIBLES.md': 'standards',
 };
-const EXEMPT = new Set(['README.md']);
+const EXEMPT = new Set([
+  'README.md',
+  // A method tool, not a document of any series: no header, nothing to
+  // copy into a series folder — a filled copy is working notes, not a
+  // record (see the file's own closing note). Confirmed by Pablo,
+  // brand-culture-ledger.md row C12.
+  'RESEARCH-QUESTIONNAIRE-TEMPLATE.md',
+]);
 
 /* Ring 1, ring 2 and the per-series registry come from lib/rings.mjs — the
    same registry std-004-the-header enforces on the documents. Lifecycles come

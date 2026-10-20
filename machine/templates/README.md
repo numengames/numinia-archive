@@ -34,6 +34,13 @@ One companion of the mission template, a record rather than a template:
 `MIS-TEMPLATE-EXAMPLE.md`, a real mission written with it and closed, to read
 next to the blank one.
 
+One method tool, not a template of any series: `RESEARCH-QUESTIONNAIRE-TEMPLATE.md`,
+the 32-question research-phase questionnaire (key messages' ontological FAQ
+plus internal- and external-aura), for any organisation doing a brand &
+culture pass. No header, exempt from the destination contract below (see
+`check-templates.mjs`'s `EXEMPT` set) — it is filled directly, not copied
+into a series.
+
 Three companions of the report template, one per roll-up level:
 `RPT-TEMPLATE-WEEK.md`, `RPT-TEMPLATE-QUARTER.md`, `RPT-TEMPLATE-YEAR.md`.
 Same nine headings at every level, for a board that does not know the work
