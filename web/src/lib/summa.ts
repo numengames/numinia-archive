@@ -130,6 +130,7 @@ export const SEGMENTS: Segment[] = [
   { id: "world-order", ring: "world", district: "order", word: "Agents", title: "Organise · its world", a: [180, 270], entries: [
     E("Agents", "Humans and digital agents: who does the work", "/agent", "agents"),
     E("Agents' index", "Every agent's file: its role, its operator, its sources", "/agents"),
+    E("The guild handbook", "How someone joins, what each role may do, and how they leave", "/guild-handbook"),
   ] },
   { id: "world-make", ring: "world", district: "make", word: "Objects", title: "Collect · its world", a: [270, 360], entries: [
     E("Objects", "The catalogue of things in the world", "/objects/", "objects"),
@@ -186,7 +187,7 @@ export const BOOKS: Book[] = [
   { label: "The open books", line: "The company's accounts since 16 February 2024: what it spends, who governs it, where the money came from and how long it lasts", href: "/system/open-books", from: "system · operations · the ledgers" },
   { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · procedures · system" },
   { label: "The role-playing manual", line: "The tabletop game of Numinia, chapter by chapter, in Spanish and English", href: "/manual", from: "lore" },
-  { label: "The guild handbook", line: "How someone joins, what each role may do, and how they leave", href: null, from: "principles · standards · procedures", pending: "Not gathered yet: its documents exist (PRI-004, PRO-015, PRO-024, STD-017, STD-042), the book that reads them does not" },
+  { label: "The guild handbook", line: "How someone joins, what each role may do, and how they leave", href: "/guild-handbook", from: "principles · standards · procedures" },
   { label: "The engineering handbook", line: "How the machine is built, checked, secured and published", href: null, from: "standards · procedures", pending: "Not gathered yet: its documents exist (STD-015, STD-022, PRO-011, PRO-016, PRO-018, PRO-034), the book that reads them does not" },
 ];
 
