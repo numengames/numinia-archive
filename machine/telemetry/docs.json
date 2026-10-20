@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67477,
+  "chars": 67728,
   "apparatus": false,
   "archived": false,
-  "tokens": 19227
+  "tokens": 19297
  },
  {
   "path": "CLAUDE.md",
@@ -2975,10 +2975,10 @@
   "series": "principles",
   "type": "principle",
   "status": "active",
-  "chars": 5756,
+  "chars": 6773,
   "apparatus": false,
   "archived": false,
-  "tokens": 1445
+  "tokens": 1674
  },
  {
   "path": "principles/PRI-010-leave-things-better.md",

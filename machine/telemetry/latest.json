@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "943d636",
-  "corpus_hash": "6cbe09a5fa69fb40df7af8efb61bdc73717d663785c5796b5a4a6dfdc8b42287",
+  "head": "9a24b28",
+  "corpus_hash": "36da66132b08172c56c05cb60e709f5300603b026d0bca9e2805825b4419cf87",
   "root_dirty": 0,
-  "measured_at": "2026-10-19T22:52:30Z",
+  "measured_at": "2026-10-20T02:50:32Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 422,
-          "bytes": 4295447
+          "bytes": 4296725
         },
         "Code": {
           "files": 279,
@@ -376,7 +376,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1096052,
+      "value": 1096351,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -393,8 +393,8 @@
         "operations": 33602,
         "designs": 31464,
         "machine": 30125,
-        "": 27577,
-        "principles": 23512,
+        "": 27647,
+        "principles": 23741,
         "debt": 21476,
         "opportunities": 15128,
         "legal": 13877,
@@ -407,8 +407,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 502225,
-        "active": 260077,
+        "(none)": 502295,
+        "active": 260306,
         "draft": 257935,
         "todo": 53132,
         "in-progress": 10238,
@@ -420,7 +420,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.78,
+      "value": 6.77,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -804,7 +804,7 @@
           "3": 1656
         },
         "PRI": {
-          "3": 470
+          "3": 471
         },
         "OPS": {
           "3": 201
