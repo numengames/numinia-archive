@@ -174,6 +174,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 - **Changed** /system/pipeline opens on what is due (Today, 7 days, open, closed), with search, kind and dates; `STD-039` 0.12.0 adds `operation`, `line`, a deadline on any kind and OPP-016, the chance from the line and the house's wins; `OPS-018` lists the lines (site v0.151.0)
 
 ### 2026-10-05
+- **Added** `RPT-031` *Week 40*, the board report for 28 September – 4 October (`PRO-017`): it absorbs the eighteen decisions retired on 28 September (`ADR-048`–`ADR-065`); the week's 74 versions fold into one line on /updates (site v0.168.0)
 - **Changed** Christian's vocabulary answers: `STD-026` (0.9.0) ranks, guild, branch, house, Prism Cell, Adventure and the three design registers take their business words; `DES-007` (1.2.0) and /system/language follow; `STD-030` (0.6.0) adds Tabularium and Emporium and confirms every discipline (site v0.150.0)
 - **Changed** `DES-007` (1.2.0) and /system/language: the narrative dial has three levels, the moon's three stops (Business, Mixed, Numinia), as ruled on 2026-09-29; the five-level scale and its *Functional* and *Narrative* columns are retired (site v0.150.0)
 - **Changed** The game takes its section by folder: `STD-030` (0.5.0) gains *Series that take one section*, `lore/` → Products and services, and its ten published texts leave the front door's *Without a section*; `ADR-066` (0.2.0) admits the one case (site v0.149.0)
