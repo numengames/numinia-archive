@@ -5,9 +5,9 @@ title: "How we treat each other in the commons"
 type: standard
 subtype: standard
 status: draft
-version: "0.2.9"
+version: "0.3.0"
 created: "2026-09-23T20:00:00+02:00"
-updated: "2026-10-03T22:00:00+02:00"
+updated: "2026-10-20T00:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -29,7 +29,8 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** We keep the Contributor Covenant, the code of conduct most
 > open communities share. Moderation climbs from correction to warning,
 > temporary limit and ban. Threats skip the ladder, and illegal content
-> comes down.
+> comes down. Harassing the same person twice also skips the ladder, and
+> every appeal is reviewed jointly by a Sentinel and an Oracle.
 > **Epistemic:** How do we treat each other?
 > **Pragmatic:** Moderate, or be moderated, against a text anyone can read
 > beforehand. This is not legal advice.
@@ -61,6 +62,13 @@ change.
 harms someone, MUST lead straight to a permanent ban. It skips every step of
 the ladder.
 
+**Repeated harassment of the same person ends participation at once.** When
+a Sentinel confirms a second case of harassment against the same person by
+the same participant, the second case MUST lead straight to a permanent
+ban, the same as a threat. It skips every intermediate step of the ladder:
+there is no second warning or temporary limit for a repeat offender against
+one victim.
+
 **A ban comes with its reasons.** Where we host the content, whoever is
 banned or has a post removed MUST receive a short statement: what was done,
 why, and how to contest it. A written reason can be checked and answered.
@@ -69,6 +77,14 @@ why, and how to contest it. A written reason can be checked and answered.
 We then act promptly, and remove it if it is. Linking to material the
 Covenant forbids ends participation, and so does asking anyone for their
 private keys or recovery phrase.
+
+### Appeals
+
+**Sentinels and Oracles review appeals together.** Whoever is banned or
+sanctioned MAY appeal, following the instructions in their ban statement.
+A Sentinel and an Oracle MUST review every appeal jointly; neither body
+decides an appeal alone. They may confirm the sanction, soften it, or lift
+it.
 
 ### Who to ask
 
@@ -91,8 +107,10 @@ row marked law.
 | CMS-001 | We follow the Contributor Covenant | [Contributor Covenant 3.0: pledge, encouraged and restricted behaviours](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand: conduct is judged by people, and the Sentinels are the guild that does it |
 | CMS-005 | Moderation climbs a ladder | [Contributor Covenant 3.0, enforcement ladder](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand, by the Sentinels |
 | CMS-003 | Threats and harm end participation at once | [Contributor Covenant 3.0, permanent ban](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand, by the Sentinels |
+| CMS-009 | Repeated harassment of the same person ends participation at once | [Contributor Covenant 3.0, permanent ban](https://www.contributor-covenant.org/version/3/0/code_of_conduct/) | by hand, by the Sentinels |
 | CMS-008 | A ban comes with its reasons | [Digital Services Act, Regulation (EU) 2022/2065, art. 17](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) — law, any hosting service | nothing yet: no statement-of-reasons template exists |
 | CMS-004 | Nothing illegal | [Digital Services Act, art. 16, notice and action](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) — law | nothing yet: no notice form is published; by hand, by the Sentinels |
+| CMS-010 | Sentinels and Oracles review appeals together | the Oracle's ruling of 2026-10-20: moderation must be checkable by someone who did not impose it | by hand, by the Sentinels and the Oracle together |
 | CMS-007 | Tell a Sentinel | [Contributor Covenant 3.0, reporting](https://www.contributor-covenant.org/version/3/0/code_of_conduct/); [Digital Services Act, arts. 11–12, points of contact](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) — law for the contact | nothing yet: no channel is published; the escalation goes by `PRO-005` |
 | — | No internal complaints system owed | [Digital Services Act, arts. 19–20](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) — micro and small enterprises excluded | the Oracle, if the company grows past small |
 

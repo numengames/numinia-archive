@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-20
+- **Changed** `standards/STD-029-community-conduct.md` (0.2.9 → 0.3.0): repeated harassment of the same person now skips the ladder straight to a permanent ban (`CMS-009`), and appeals are reviewed jointly by a Sentinel and an Oracle, never by one body alone (`CMS-010`).
+
 ### 2026-10-19
 - **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
 
