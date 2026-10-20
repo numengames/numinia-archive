@@ -130,6 +130,7 @@ export const SEGMENTS: Segment[] = [
   { id: "world-order", ring: "world", district: "order", word: "Agents", title: "Organise · its world", a: [180, 270], entries: [
     E("Agents", "Humans and digital agents: who does the work", "/agent", "agents"),
     E("Agents' index", "Every agent's file: its role, its operator, its sources", "/agents"),
+    E("The guild handbook", "How someone joins, what each role may do, and how they leave", "/guild-handbook"),
   ] },
   { id: "world-make", ring: "world", district: "make", word: "Objects", title: "Collect · its world", a: [270, 360], entries: [
     E("Objects", "The catalogue of things in the world", "/objects/", "objects"),
