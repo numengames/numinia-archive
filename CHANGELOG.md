@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-20
+- **Added** `STD-004` 5.0.0 adds `HDR-047`: an agent writes a timestamp (diary, log, commit, header date) in UTC, offset `Z`/`+00:00` explicit (`D-017`, major per `STD-019` VER-023). Mechanical; a value non-UTC before the rule is grandfathered in `non-utc-dates.json` — migrating that backlog is out of scope.
 - **Added** `STD-015` 8.0.0: `SRE-009` — a site reads the Archive's public files by raw content, never through the GitHub REST API, whose per-IP limit (60 requests/hour) has already taken a site down three times (`D-003`).
 
 ### 2026-10-19

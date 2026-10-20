@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67716,
+  "chars": 68219,
   "apparatus": false,
   "archived": false,
-  "tokens": 19303
+  "tokens": 19442
  },
  {
   "path": "CLAUDE.md",
@@ -3734,10 +3734,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 18752,
+  "chars": 19874,
   "apparatus": false,
   "archived": false,
-  "tokens": 5296
+  "tokens": 5592
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
