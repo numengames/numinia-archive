@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67477,
+  "chars": 67731,
   "apparatus": false,
   "archived": false,
-  "tokens": 19227
+  "tokens": 19293
  },
  {
   "path": "CLAUDE.md",
@@ -2508,6 +2508,17 @@
   "tokens": 1320
  },
  {
+  "path": "missions/MIS-0196-trim-what-every-site-carries-to-what-protects-someone.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3929,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1131
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -4053,10 +4064,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 11280,
+  "chars": 11785,
   "apparatus": false,
   "archived": false,
-  "tokens": 2929
+  "tokens": 3036
  },
  {
   "path": "standards/STD-038-the-stages-of-an-opportunity.md",
