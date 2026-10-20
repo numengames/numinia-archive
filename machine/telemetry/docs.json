@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 68210,
+  "chars": 68453,
   "apparatus": false,
   "archived": false,
-  "tokens": 19461
+  "tokens": 19537
  },
  {
   "path": "CLAUDE.md",
@@ -3595,6 +3595,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1939
+ },
+ {
+  "path": "reports/RPT-031-2026-w40.md",
+  "dir": "reports",
+  "series": "reports",
+  "type": "report",
+  "status": "draft",
+  "chars": 8909,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2479
  },
  {
   "path": "stakeholders/README.md",
