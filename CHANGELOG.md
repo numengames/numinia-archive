@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-20
+- **Changed** `STD-007` 2.3.1, `STD-001` 5.17.2 (D-009): page budget is now a strong recommendation, never a block; `machine/scripts/lib/budgets.mjs` feeds both the guard and the new advisory telemetry figure `corpus.docs_over_page_budget`.
+
 ### 2026-10-19
 - **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
 

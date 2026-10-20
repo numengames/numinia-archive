@@ -9,6 +9,7 @@ import { readFileSync, existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT } from '../frontmatter.mjs';
 import { trackedFiles, tally, SEAL_EXEMPT_RE } from '../corpus.mjs';
+import { BUDGET } from '../budgets.mjs';
 
 const CODE_EXT = { '.py': 'python', '.mjs': 'node', '.js': 'node', '.sh': 'shell', '.ts': 'typescript' };
 
@@ -18,6 +19,10 @@ export function measure({ docs, rules }) {
   const scripts = files.filter((f) => f.startsWith('machine/scripts/') && CODE_EXT[ext(f)]);
   const md = docs; // tracked .md outside web/
   return {
+    docs_over_page_budget: {
+      value: docsOverBudget(md).length, unit: 'documents',
+      definition: 'D-009: documents (outside registers) whose body is over their series\' word budget (STD-001 / STD-007 DOC-006) — a strong recommendation (SHOULD), measured here but never enforced; a register (`subtype: register`) is exempt',
+    },
     files_total: { value: files.length, unit: 'files', definition: '`git ls-files` at HEAD, every path' },
     files_by_ext: { value: tally(files, ext), unit: 'files', definition: 'tracked files by lowercase extension; `(none)` when no extension' },
     files_by_kind: { value: byKind(files, ext), unit: 'files · bytes', definition: 'tracked files grouped by kind from the extension (KIND in families/corpus.mjs), each with its count and its size on disk in bytes; an extension not listed is `Other`; manifests, lockfiles and CI workflows (outside the corpus seal) are not counted' },
@@ -31,6 +36,22 @@ export function measure({ docs, rules }) {
     scripts_by_language: { value: tally(scripts, (f) => CODE_EXT[ext(f)]), unit: 'files', definition: 'those scripts by language, from the extension' },
     scripts_in_ci: { value: ciScripts(files).length, unit: 'files', definition: 'checks the runner runs in CI: registered scripts under `machine/scripts/` (ENG-032)' },
   };
+}
+
+/** D-009: which corpus documents are over their series' word budget. A
+ * strong recommendation (SHOULD, STD-007 DOC-006), never a hard rule — a
+ * register (`subtype: register`) is exempt, same as the guard. Counts words
+ * in the raw text (frontmatter included) against the budget, close enough
+ * for a telemetry figure; the guard itself (std-007-one-page.mjs) holds the
+ * exact per-document count that a reader acts on. */
+export function docsOverBudget(docs) {
+  return docs.filter((d) => {
+    const budget = BUDGET[d.dir];
+    if (!budget || d.apparatus) return false;
+    if (d.fm?.subtype === 'register') return false;
+    const words = d.text.trim() ? d.text.trim().split(/\s+/).length : 0;
+    return words > budget;
+  });
 }
 
 /** What a file is, by extension. Tokens mean something for Text and Code only;

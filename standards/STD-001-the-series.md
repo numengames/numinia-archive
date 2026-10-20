@@ -5,9 +5,9 @@ uid: ""
 type: standard
 subtype: register
 status: active
-version: "5.17.1"
+version: "5.17.2"
 created: "2026-08-24T16:00:00Z"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-20T03:23:05Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -65,9 +65,10 @@ SPDX-License-Identifier: CC0-1.0
 The principles, the standards and the procedures are the **normative documents**
 (the *axis* until 2026-10-03): the documents that bind. The rest are
 **registers**. A budget is the number of words a body may hold, counted as
-the one-page standard counts them. The approval level — what a change to a
-document of the series takes, the five values `STD-017` defines — is stated
-here and nowhere else: no document repeats it in its header.
+the one-page standard counts them — a recommendation an author aims for,
+not a norm a check enforces (`STD-007`). The approval level — what a change
+to a document of the series takes, the five values `STD-017` defines — is
+stated here and nowhere else: no document repeats it in its header.
 Which function and activity produced each series is the classification
 scheme's to say, and it says it once; this table only files.
 

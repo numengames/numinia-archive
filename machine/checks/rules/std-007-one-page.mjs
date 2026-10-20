@@ -33,18 +33,11 @@
 import { execute, isMain } from '../lib/guard.mjs';
 import { stripFM, rawFM, isApparatus, isTemplate } from '../../scripts/lib/frontmatter.mjs';
 import { platesIn } from '../../scripts/lib/regime.mjs';
+import { BUDGET } from '../../scripts/lib/budgets.mjs';
 
 export const meta = {
   family: 'DOC',
   plates: ['DOC-001', 'DOC-002', 'DOC-003', 'DOC-004', 'DOC-005', 'DOC-006', 'DOC-007', 'DOC-008'],
-};
-
-// The word budget per series. Moves to the Series register when that exists.
-const BUDGET = {
-  standards: 500, procedures: 500, decisions: 500, missions: 500,
-  debt: 300, guilds: 300,
-  reports: 1000, designs: 1000,
-  principles: 1500,
 };
 const CAP = { title: 5, card: 40, scope: 15, why: 80, refs: 5 };
 const NEEDS_BINDS = new Set(['standards', 'procedures']);

@@ -5,9 +5,9 @@ title: "One page per document"
 type: standard
 subtype: standard
 status: active
-version: "2.3.0"
+version: "2.3.1"
 created: "2026-09-03T10:30:00Z"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-20T03:23:05Z"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -28,7 +28,7 @@ SPDX-License-Identifier: CC0-1.0
 > **Summary:** One question per document, a title that states the rule, a
 > three-part card, a one-line scope. Rules come first, each coded, then the
 > check and the reason. The body fits its shelf's budget. Size limits are
-> SHOULD; form is MUST.
+> a strong recommendation, never a block; form is MUST.
 > **Epistemic:** What shape does a document take?
 > **Pragmatic:** The template to copy, the budgets to aim at, and what the
 > shape check reports on every change.
@@ -77,11 +77,14 @@ a reason. A may is a free choice.
 **The reason is short.** The section giving the reason SHOULD hold at most
 80 words. Longer reasoning belongs in a decision record.
 
-**The body fits its budget.** From the scope line to the references, a
-document SHOULD fit its shelf's budget: 500 words for standards, procedures,
-decisions and missions; 300 for debt and guilds; 1,000 for reports and
-designs; 1,500 for principles. A document over budget says why in one
-sentence.
+**The body fits its budget, as a recommendation.** From the scope line to
+the references, a document SHOULD fit its shelf's budget: 500 words for
+standards, procedures, decisions and missions; 300 for debt and guilds;
+1,000 for reports and designs; 1,500 for principles. This is a strong
+recommendation the author aims for, not a norm a check enforces: no check
+blocks a pull request or a build for a document over budget; the document
+says why it is over in one sentence, and splitting or trimming it stays the
+first option a writer reaches for.
 
 ### Pointing at other documents
 
@@ -124,7 +127,7 @@ Each rule, its code, its source and its check.
 | DOC-004 | Rules come first, and each has its code | [BCP 14](https://www.rfc-editor.org/info/bcp14) (RFC 2119 + RFC 8174); [ISO/IEC/IEEE 29148:2018](https://www.iso.org/standard/72089.html), clause 5.2.5, singular and unambiguous, uniquely identified — ours adds: the rule ID `AAA-NNN` | `machine/checks/rules/std-007-one-page.mjs` — a rule ID in a rule title or the Check table's first column (`platesIn`) |
 | DOC-013 | Obligation words mean one thing | [BCP 14](https://www.rfc-editor.org/info/bcp14) = [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119) + [RFC 8174](https://www.rfc-editor.org/rfc/rfc8174) (capitals only); holds deprecated HDR-046 | by hand, at review |
 | DOC-005 | The reason is short | — | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD |
-| DOC-006 | The body fits its budget | — | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD |
+| DOC-006 | The body fits its budget, as a recommendation | — | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD, never enforced; measured in `machine.telemetry.corpus.docs_over_page_budget` |
 | DOC-007 | Few, necessary references | [ISO 690:2021](https://www.iso.org/standard/72642.html), the reference list — ours adds: only what the text depends on; holds deprecated CIT-051 | `machine/checks/rules/std-007-one-page.mjs` — a SHOULD |
 | DOC-008 | Cite rules, not places | — (stricter than [ISO 690:2021](https://www.iso.org/standard/72642.html), which allows location references); holds the rule `STD-021` CIT-050 enforced | `machine/checks/rules/std-007-one-page.mjs` — bare IDs outside References and Check rows, section pointers, in `standards/`; `machine/checks/rules/std-021-evidence-and-citation.mjs` under CIT-050 — cited sections must exist elsewhere |
 | DOC-009 | Registers are tables | — | `machine/scripts/check-templates.mjs` |
