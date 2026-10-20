@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-20
+- **Changed** `STD-010` 2.4.6: `Unlicense` joins the *Freely* tier (public-domain dedication, more permissive than MIT; needed because the `@anthropic-ai/sdk` bump in nwos-deploy pulls in `fast-sha256` under it).
 - **Fixed** `operations/OPS-009-secrets-handling.md` (v2.0.3): §4.2 said Ursa's org access was "Via existing PAT"; it's a GitHub App, per-repo token (`engine` for numinia-engine), key in the Hermes `ursa` profile's `.env`, not a VPS (#731).
 - **Fixed** `PRO-040` (0.2.1) and `PRO-037` (0.4.1): both called the community's *Agentes* panel a wireframe; it has shipped on numinia.com since 2026-10-16, so both now describe it as live.
 - **Changed** `PRO-019` 0.3.0: a new step 5, "Recognise the act" — merits earned since the last occasion are praised aloud, at the table, where the ritual's purpose allows it, as part of the incentive system, not a gesture alongside it; `PRI-015` now cites a step that exists (D-018).

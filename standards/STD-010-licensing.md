@@ -5,9 +5,9 @@ title: "Licensing"
 type: standard
 subtype: standard
 status: active
-version: "2.4.5"
+version: "2.4.6"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-20T12:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
@@ -151,7 +151,7 @@ of file carries its terms, and where each licence's text is read.
 
 | Tier | Licences | Condition |
 |---|---|---|
-| Freely | `MIT` `ISC` `BSD-2-Clause` `BSD-3-Clause` `Apache-2.0` `0BSD` `CC0-1.0` `CC-BY-4.0` · `OFL-1.1` | OFL for fonts only |
+| Freely | `MIT` `ISC` `BSD-2-Clause` `BSD-3-Clause` `Apache-2.0` `0BSD` `CC0-1.0` `Unlicense` `CC-BY-4.0` · `OFL-1.1` | OFL for fonts only; `Unlicense` is a public-domain dedication, more permissive than MIT |
 | With isolation | `MPL-2.0` `EPL-2.0` `LGPL-3.0-only` `LGPL-3.0-or-later` | file-level boundary kept |
 | With a signed decision | `GPL-3.0-only` `GPL-3.0-or-later` `AGPL-3.0-only` `AGPL-3.0-or-later` | isolated and declared; separate repository if a third party's |
 | Never | `BUSL-1.1` `SSPL-1.0` `Elastic-2.0` · Commons Clause · proprietary · `CC-BY-NC-*` `CC-BY-ND-*` · any package without a `license` field | the *never* tier applies to what is distributed or served (`LIC-006`) |
