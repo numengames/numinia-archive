@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67477,
+  "chars": 67778,
   "apparatus": false,
   "archived": false,
-  "tokens": 19227
+  "tokens": 19316
  },
  {
   "path": "CLAUDE.md",
@@ -3195,10 +3195,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4682,
+  "chars": 5341,
   "apparatus": false,
   "archived": false,
-  "tokens": 1239
+  "tokens": 1399
  },
  {
   "path": "procedures/PRO-020-putting-something-on-sale.md",
