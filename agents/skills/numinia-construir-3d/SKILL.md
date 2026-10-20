@@ -15,7 +15,7 @@ license: "CC0-1.0"
 metadata:
   topic: "construir"
   requires: "build-in-worlds"
-  languages: "en, es (references/es.md)"
+  languages: "en, es (references/spanish.md)"
 registration: exempt
 registration_reason: "a cross-agent skill is identified by its folder name, not by a series number (ADR-005)"
 ---
