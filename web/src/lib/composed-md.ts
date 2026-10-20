@@ -57,6 +57,7 @@ import { playbookMarkdown, PLAYBOOK_SOURCES } from "@/lib/playbook";
 import { lexicon, LEXICON_SOURCE } from "@/lib/lexicon";
 import { brandMarkdown, BRAND_SOURCES } from "@/lib/brand-book";
 import { legalMarkdown, LEGAL_SOURCES } from "@/lib/legal-book";
+import { guildMarkdown, GUILD_SOURCES } from "@/lib/guild-book";
 import { manualMarkdown, MANUAL_SOURCES, manualChapters, chapterMarkdown } from "@/lib/manual";
 import { compiled as designSystemMd, entries as designEntries, documents as designDocuments, REGISTER as DESIGN_REGISTER } from "@/lib/design-system";
 
@@ -1001,6 +1002,10 @@ export function brandPage(): ComposedPage {
 export function legalPlaybookPage(): ComposedPage {
   return { route: "/legal-playbook", filename: "legal-playbook.md", sources: LEGAL_SOURCES, body: preamble(LEGAL_SOURCES) + legalMarkdown() };
 }
+/** /guild-handbook — how someone joins, what each role may do, and how they leave. */
+export function guildHandbookPage(): ComposedPage {
+  return { route: "/guild-handbook", filename: "guild-handbook.md", sources: GUILD_SOURCES, body: preamble(GUILD_SOURCES) + guildMarkdown() };
+}
 /** /manual — the role-playing manual: its two tables of contents. */
 export function manualPage(): ComposedPage {
   return { route: "/manual", filename: "manual.md", sources: MANUAL_SOURCES, body: preamble(MANUAL_SOURCES) + manualMarkdown() };
@@ -1021,7 +1026,7 @@ export function lexiconLetterPage(slug: string): ComposedPage {
 
 export async function allComposedPages(): Promise<ComposedPage[]> {
   const pages: ComposedPage[] = [await homePage(), mapPage(), schemePage(), bindingPage(), automationPage(), configurePage(), designPage(), accountPage(), pipelinePage(), playbookPage(), templatesPage(), corePage()];
-  pages.push(lexiconPage(), brandPage(), legalPlaybookPage(), manualPage(), ...manualChapterPages());
+  pages.push(lexiconPage(), brandPage(), legalPlaybookPage(), guildHandbookPage(), manualPage(), ...manualChapterPages());
   for (const l of lexicon()) pages.push(lexiconLetterPage(l.slug));
   for (const c of coreFlow()) pages.push(corePrinciplePage(c.slug));
   for (const fn of functions()) pages.push(functionPage(fn.slug));
