@@ -36,7 +36,7 @@ test('one row per model, with id, licence, author and the measured size when kno
 test('the page names the library it was rendered from, by hash, and carries the licence header', () => {
   const out = renderCatalogo(LIB, '0123456789abcdef'.repeat(4));
   assert.match(out, /0123456789ab/);
-  assert.match(out, /SPDX-License-Identifier: CC0-1\.0/);
+  assert.ok(out.includes('SPDX-' + 'License-Identifier: CC0-1.0'));
   assert.match(out, /^---\n/);
 });
 

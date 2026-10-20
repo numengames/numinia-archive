@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-20
+- **Added** `agents/skills/numinia-que-es`, `-estar-en-un-mundo`, `-construir-3d` (CC0): what an organization's AI reads on the relay. English body, Spanish in `references/`; the catalogue page is rendered from the engine's library by `machine/tools/skill-catalogo.mjs`. `metadata` joins the `agents/` header fields.
 - **Changed** `STD-010` 2.4.6: `Unlicense` joins the *Freely* tier (public-domain dedication, more permissive than MIT; needed because the `@anthropic-ai/sdk` bump in nwos-deploy pulls in `fast-sha256` under it).
 - **Added** `/guild-handbook` (site v0.168.0): the guild handbook, gathered from `PRI-004`, `PRO-015`, `PRO-024`, `STD-017` and `STD-042`; `summa.ts` drops its `pending` note.
 - **Fixed** `operations/OPS-009-secrets-handling.md` (v2.0.3): §4.2 said Ursa's org access was "Via existing PAT"; it's a GitHub App, per-repo token (`engine` for numinia-engine), key in the Hermes `ursa` profile's `.env`, not a VPS (#731).
