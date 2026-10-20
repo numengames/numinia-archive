@@ -84,6 +84,7 @@ const STANDALONE = new Set([
   '/brand',       // the brand and culture book: six chapters read from principles and records (PRI-002, PRI-008, PRI-010, PRI-013, PRI-015)
   '/lexicon',     // the Lexicon, a book: the operative vocabulary A to Z, one page per letter (STD-026)
   '/legal-playbook', // the legal playbook, a book: what the law asks, read from PRI-005, PRI-012, STD-035, STD-010, PRO-025..027, LEG-001..004, DBT-022
+  '/guild-handbook', // the guild handbook, a book: how someone joins, what each role may do, how they leave (PRI-004, PRO-015, PRO-024, STD-017, STD-042)
   '/manual',      // the role-playing manual, a book: its cover and the chapters of lore/game/manual/ in both editions
   '/playbook',    // the sales playbook, a book: a sale's stages, procedures and collateral (STD-038, STD-047)
   '/automation',  // what an agent may do without asking, level by level — a view over STD-017, PRO-008, PRO-016 and the OPERATOR files

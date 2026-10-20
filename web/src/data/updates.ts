@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.168.0",
+    date: "2026-10-20",
+    entries: [
+      { type: "ADD", text: "The guild handbook joins the shelf, served at /guild-handbook: how someone joins, what a guild and a role are, who may change what, what an agent may do without asking, and how someone leaves — read from PRI-004, PRO-015, PRO-024, STD-017 and STD-042." },
+    ],
+  },
+  {
     version: "v0.167.0",
     date: "2026-10-18",
     entries: [

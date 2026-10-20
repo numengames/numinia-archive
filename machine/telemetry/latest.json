@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "d8509cd",
-  "corpus_hash": "4a9a53c88f83b72b68b6ddce72d316990b28410e2d525802fe2b1c815b5fb416",
-  "root_dirty": 0,
-  "measured_at": "2026-10-20T09:12:48Z",
+  "head": "a51df64",
+  "corpus_hash": "8d3360dcc86aeace03a0c458c28281f95e8ba980736ceda9dbf69fadf03976c0",
+  "root_dirty": 1,
+  "measured_at": "2026-10-20T06:03:43Z",
   "families": [
     "corpus",
     "series",
@@ -16,14 +16,14 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 916,
+      "value": 919,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
     "corpus.files_by_ext": {
       "value": {
         "(none)": 3,
-        ".astro": 73,
+        ".astro": 74,
         ".css": 3,
         ".csv": 4,
         ".docx": 1,
@@ -34,11 +34,11 @@
         ".js": 2,
         ".json": 16,
         ".md": 422,
-        ".mjs": 134,
+        ".mjs": 135,
         ".png": 38,
         ".svg": 77,
         ".toml": 3,
-        ".ts": 62,
+        ".ts": 63,
         ".tsx": 2,
         ".txt": 15,
         ".webp": 1,
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 422,
-          "bytes": 4297315
+          "bytes": 4297197
         },
         "Code": {
-          "files": 279,
-          "bytes": 2523295
+          "files": 282,
+          "bytes": 2532265
         },
         "Image": {
           "files": 119,
@@ -150,13 +150,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 91,
+      "value": 92,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 91
+        "node": 92
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -376,14 +376,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1096588,
+      "value": 1096564,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 466704,
-        "standards": 122736,
+        "standards": 122716,
         "missions": 74277,
         "system": 63150,
         "decisions": 46372,
@@ -393,7 +393,7 @@
         "operations": 33643,
         "designs": 31464,
         "machine": 30125,
-        "": 27877,
+        "": 27873,
         "principles": 23512,
         "debt": 21476,
         "opportunities": 15128,
@@ -407,8 +407,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 502525,
-        "active": 260138,
+        "(none)": 502521,
+        "active": 260118,
         "draft": 258110,
         "todo": 53132,
         "in-progress": 10238,
@@ -798,13 +798,13 @@
     "contradictions.id_form_per_series": {
       "value": {
         "PRO": {
-          "3": 641
+          "3": 643
         },
         "STD": {
-          "3": 1657
+          "3": 1658
         },
         "PRI": {
-          "3": 474
+          "3": 475
         },
         "OPS": {
           "3": 202

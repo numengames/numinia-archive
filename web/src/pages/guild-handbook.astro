@@ -1,0 +1,23 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /guild-handbook — the guild handbook (the Oracle, 2026-10-20): how someone
+// joins, what each role may do, and how they leave, read from PRI-004,
+// PRO-015, PRO-024, STD-017 and STD-042. Nothing here is typed but the frame
+// (BookPage.astro); the chapters are web/src/lib/guild-book.ts.
+import BookPage from "@/components/BookPage.astro";
+import { guildBook, GUILD_GAPS } from "@/lib/guild-book";
+---
+
+<BookPage
+  title="The guild handbook — Numen Games"
+  description="How someone joins, what each role may do, and how they leave. Every word is read from the archive."
+  canonicalPath="/guild-handbook"
+  label="The guild handbook"
+  heading="How someone joins, what each role may do, and how they leave"
+  lead="Five chapters: how someone joins, what a guild and a role are, who may change what, what an agent may do without asking, and how someone leaves. Every word is read from the archive."
+  mdFilename="guild-handbook.md"
+  book={guildBook()}
+  gaps={GUILD_GAPS}
+/>
