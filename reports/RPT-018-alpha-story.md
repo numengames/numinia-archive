@@ -5,11 +5,11 @@ title: "The Alpha story: what missions/ ships while it is the alpha board"
 type: report
 subtype: analysis
 status: active
-version: "0.3.3"
+version: "0.3.4"
 created: "2026-09-08T20:30:00Z"
 created_source: "git:4a60735"
 created_confidence: exact
-updated: "2026-10-03T19:40:00+02:00"
+updated: "2026-10-20T09:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -56,6 +56,6 @@ versioned as its record and the next phase opens its own report.
 
 ## Closed
 
-- 2026-W37 — `RPT-019`: `MIS-146` (normative refoundation) closed; the
+- 2026-W37 — `RPT-030`: `MIS-146` (normative refoundation) closed; the
   standards library is alpha-shaped.
 

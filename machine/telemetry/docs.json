@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 68386,
+  "chars": 68677,
   "apparatus": false,
   "archived": false,
-  "tokens": 19523
+  "tokens": 19619
  },
  {
   "path": "CLAUDE.md",
@@ -3476,17 +3476,6 @@
   "tokens": 728
  },
  {
-  "path": "reports/RPT-019-2026-w37.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "active",
-  "chars": 11923,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 3552
- },
- {
   "path": "reports/RPT-021-four-sites-design-audit.md",
   "dir": "reports",
   "series": "reports",
@@ -3520,81 +3509,15 @@
   "tokens": 3114
  },
  {
-  "path": "reports/RPT-024-2026-w39.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "draft",
-  "chars": 5975,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1603
- },
- {
-  "path": "reports/RPT-025-2026-w33.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "draft",
-  "chars": 5670,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1521
- },
- {
-  "path": "reports/RPT-026-2026-w34.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "draft",
-  "chars": 6062,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1598
- },
- {
-  "path": "reports/RPT-027-2026-w35.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "draft",
-  "chars": 5591,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1477
- },
- {
-  "path": "reports/RPT-028-2026-w36.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "draft",
-  "chars": 5676,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1565
- },
- {
-  "path": "reports/RPT-029-2026-w38.md",
-  "dir": "reports",
-  "series": "reports",
-  "type": "report",
-  "status": "draft",
-  "chars": 6240,
-  "apparatus": false,
-  "archived": false,
-  "tokens": 1668
- },
- {
   "path": "reports/RPT-030-2026-q3.md",
   "dir": "reports",
   "series": "reports",
   "type": "report",
   "status": "draft",
-  "chars": 7123,
+  "chars": 8896,
   "apparatus": false,
   "archived": false,
-  "tokens": 1939
+  "tokens": 2552
  },
  {
   "path": "stakeholders/README.md",

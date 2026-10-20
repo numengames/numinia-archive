@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.169.0",
+    date: "2026-10-20",
+    entries: [
+      { type: "CHG", text: "The quarterly report for 2026-Q3 absorbs its seven weeklies (weeks 33-39): their addresses now redirect to it, and the two folded weeks on this page point there too." },
+    ],
+  },
+  {
     version: "v0.168.0",
     date: "2026-10-20",
     entries: [
@@ -1075,7 +1082,7 @@ export const FOLDED: readonly FoldedWeek[] = [
     last: "v0.71.0",
     releases: 65,
     text: "The map of the archive became the home page; day and night modes; every document can be listened to; search and the phone menu fixed.",
-    report: "/reports/rpt-024-2026-w39",
+    report: "/reports/rpt-030-2026-q3",
   },
   {
     week: "2026-W38",
@@ -1084,7 +1091,7 @@ export const FOLDED: readonly FoldedWeek[] = [
     last: "v0.7.0",
     releases: 11,
     text: "This page and the version in the footer began; one address per document; the archive browsed by function; a cookie policy; no visitor tracking.",
-    report: "/reports/rpt-029-2026-w38",
+    report: "/reports/rpt-030-2026-q3",
   },
 ];
 

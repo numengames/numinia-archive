@@ -415,6 +415,22 @@ export default defineConfig({
 		// rule above sends the old address there — same page, not the report.
 		"/reports/rpt-2026-04-07-gaps-capability-map": "/reports/rpt-008-gaps-capability-map",
 		"/reports/rpt-2026-04-07-wardley-map": "/reports/rpt-003-wardley-map",
+		// → RPT-030 — the seven weeklies of 2026-Q3 (weeks 33-39) are absorbed
+		// into the quarterly roll-up and deleted (PRO-017, STD-012).
+		"/reports/rpt-019-2026-w37": "/reports/rpt-030-2026-q3",
+		"/reports/rpt-019-2026-w37.md": "/reports/rpt-030-2026-q3.md",
+		"/reports/rpt-024-2026-w39": "/reports/rpt-030-2026-q3",
+		"/reports/rpt-024-2026-w39.md": "/reports/rpt-030-2026-q3.md",
+		"/reports/rpt-025-2026-w33": "/reports/rpt-030-2026-q3",
+		"/reports/rpt-025-2026-w33.md": "/reports/rpt-030-2026-q3.md",
+		"/reports/rpt-026-2026-w34": "/reports/rpt-030-2026-q3",
+		"/reports/rpt-026-2026-w34.md": "/reports/rpt-030-2026-q3.md",
+		"/reports/rpt-027-2026-w35": "/reports/rpt-030-2026-q3",
+		"/reports/rpt-027-2026-w35.md": "/reports/rpt-030-2026-q3.md",
+		"/reports/rpt-028-2026-w36": "/reports/rpt-030-2026-q3",
+		"/reports/rpt-028-2026-w36.md": "/reports/rpt-030-2026-q3.md",
+		"/reports/rpt-029-2026-w38": "/reports/rpt-030-2026-q3",
+		"/reports/rpt-029-2026-w38.md": "/reports/rpt-030-2026-q3.md",
 		// → lore — adventures split into tabletop/ and virtual-worlds/ (2026-09-24)
 		"/lore/adventures/el-espejo-roto": "/lore/adventures/tabletop/el-espejo-roto",
 		"/lore/adventures/session-zero": "/lore/adventures/virtual-worlds/session-zero",
