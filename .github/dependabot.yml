@@ -8,6 +8,9 @@
 # Cooldown (2026-10-15): a version is proposed only after it has been public
 # for 7 days, so a hijacked or broken release is usually flagged by others
 # before it reaches this repository. Security updates ignore the cooldown.
+# Grouping (2026-10-20): each ecosystem sends ONE pull request with all its updates
+# (group `all-dependencies`), so there is never a pile of separate ones. Dependabot cannot
+# group across ecosystems, so npm / github-actions / pip each still open their own.
 version: 2
 updates:
   - package-ecosystem: npm
@@ -25,11 +28,8 @@ updates:
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
     groups:
-      # One PR per family, so a framework release does not arrive as six.
-      astro:
-        patterns: ["astro", "@astrojs/*"]
-      dev-tooling:
-        dependency-type: development
+      all-dependencies:
+        patterns: ["*"]
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
@@ -38,3 +38,6 @@ updates:
       prefix: "ci(deps)"
     cooldown:
       default-days: 7
+    groups:
+      all-dependencies:
+        patterns: ["*"]
