@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-20
+- **Changed** `PRI-009` 1.3.0: narrows "document wins over code" to the document that prescribes, not the one that only describes (D-010); adds FILE OVER APP — the Archive must stay complete enough to rebuild the code from text alone.
+
 ### 2026-10-19
 - **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
 

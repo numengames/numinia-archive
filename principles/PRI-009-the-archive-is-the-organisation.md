@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-009"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: active
-version: "1.2.0"
+version: "1.3.0"
 created: "2026-09-24T16:00:00+02:00"
-updated: "2026-10-12T18:51:02+02:00"
+updated: "2026-10-20T02:48:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -62,10 +62,26 @@ Nothing in this archive is true because it is written here. A document is a
 claim: this is what we believe, this is how we do it, this is what was
 decided. What cannot be argued with is the history — who wrote what, and
 when — because that is the one thing no one can change at any price worth
-paying. So when a document and its history disagree, the history wins; when
-a document and the code disagree, the document wins; and
+paying. So when a document and its history disagree, the history wins; and
 between two documents, the one that costs more agreement to change wins, not
 the one that sounds more important.
+
+Against the code, not every document wins — only the one that prescribes.
+A principle, a standard or a procedure that states what must be true commits
+the code to match it: when they disagree, the code is in breach and the
+document stands. A document that only describes — a design note, a report,
+a reading of what the code happens to do today — has no such power: when it
+disagrees with the code, the code is what happened, and the description is
+what needs correcting. The test is simple: would the sentence still make
+sense if the code it talks about had never been written? If yes, it
+prescribes. If it only holds once the code already exists, it describes.
+
+This is also the measure of how much must be written. FILE OVER APP: imagine
+the code disappears tomorrow — what prescribes must be here, in text, in
+enough detail that the code could be rebuilt from the Archive alone, without
+guessing. The Archive is not a commentary kept beside the code; it is the
+specification the code merely executes, and the day it stops being enough
+for that, it has stopped doing its job.
 
 That is the whole of authority here. No document holds power over another
 by saying so. Cost of change is written down and anyone can check it; a
