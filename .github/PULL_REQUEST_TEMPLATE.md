@@ -25,6 +25,7 @@ longer a rule in force: read each changed document of the series for it. -->
 
 - principles/: it says what is so; it says why; the reader can act on it; the title is a claim; it restates no other principle or standard; a border only where one is real
 - opportunities/: a record says the least needed to pursue the opportunity, on the house's legitimate interest in offering its services, and a lost record keeps nothing that outlives its use
+- VER-022/023, SER-001/002/008, CLS-003, CIT-055, EVI-057, DEF-006 (and CIT-051, retired): no check reads these — `system/SYS-017-the-judgement-rows-standards-leave-by-hand.md` says what to read and where
 
 ## Definition of Done
 

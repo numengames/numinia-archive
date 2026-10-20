@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-20
+- **Added** `SYS-017`: a reviewer's reading list for the ten rows checked "by hand" across five standards, linked from `.github/PULL_REQUEST_TEMPLATE.md`'s "read for" section.
+
 ### 2026-10-19
 - **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
 
