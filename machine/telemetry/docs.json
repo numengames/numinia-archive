@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67477,
+  "chars": 67805,
   "apparatus": false,
   "archived": false,
-  "tokens": 19227
+  "tokens": 19325
  },
  {
   "path": "CLAUDE.md",
@@ -2942,10 +2942,10 @@
   "series": "principles",
   "type": "principle",
   "status": "draft",
-  "chars": 15539,
+  "chars": 11931,
   "apparatus": false,
   "archived": false,
-  "tokens": 3244
+  "tokens": 2596
  },
  {
   "path": "principles/PRI-007-pragmatic-numen-system.md",
