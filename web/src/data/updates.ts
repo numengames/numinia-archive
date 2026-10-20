@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.168.0",
+    date: "2026-10-20",
+    entries: [
+      { type: "ADD", text: "The engineering handbook joins the shelf, served at /engineering-handbook: what we check, secrets, auditing identity and secrets, applying the engineering standard, publishing a repository, and auditing a site's code — read from STD-015, STD-022, PRO-011, PRO-016, PRO-018 and PRO-034." },
+    ],
+  },
+  {
     version: "v0.167.0",
     date: "2026-10-18",
     entries: [

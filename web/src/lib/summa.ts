@@ -187,7 +187,7 @@ export const BOOKS: Book[] = [
   { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · procedures · system" },
   { label: "The role-playing manual", line: "The tabletop game of Numinia, chapter by chapter, in Spanish and English", href: "/manual", from: "lore" },
   { label: "The guild handbook", line: "How someone joins, what each role may do, and how they leave", href: null, from: "principles · standards · procedures", pending: "Not gathered yet: its documents exist (PRI-004, PRO-015, PRO-024, STD-017, STD-042), the book that reads them does not" },
-  { label: "The engineering handbook", line: "How the machine is built, checked, secured and published", href: null, from: "standards · procedures", pending: "Not gathered yet: its documents exist (STD-015, STD-022, PRO-011, PRO-016, PRO-018, PRO-034), the book that reads them does not" },
+  { label: "The engineering handbook", line: "How the machine is built, checked, secured and published", href: "/engineering-handbook", from: "standards · procedures" },
 ];
 
 export const LENSES: { site: string; href: string; who: string; line: string; paints: string[] }[] = [

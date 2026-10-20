@@ -1,0 +1,24 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /engineering-handbook — the engineering handbook (the Oracle,
+// 2026-10-20): how the machine is built, checked, secured and published,
+// read from STD-015, STD-022, PRO-011, PRO-016, PRO-018 and PRO-034.
+// Nothing here is typed but the frame (BookPage.astro); the chapters are
+// web/src/lib/engineering-book.ts.
+import BookPage from "@/components/BookPage.astro";
+import { engineeringBook, ENGINEERING_GAPS } from "@/lib/engineering-book";
+---
+
+<BookPage
+  title="The engineering handbook — Numen Games"
+  description="How the machine is built, checked, secured and published. Every word is read from the archive."
+  canonicalPath="/engineering-handbook"
+  label="The engineering handbook"
+  heading="How the machine is built, checked, secured and published"
+  lead="Six chapters: what we check, secrets, auditing identity and secrets, applying the engineering standard, publishing a repository, and auditing a site's code. Every word is read from the archive."
+  mdFilename="engineering-handbook.md"
+  book={engineeringBook()}
+  gaps={ENGINEERING_GAPS}
+/>
