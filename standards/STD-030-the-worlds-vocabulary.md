@@ -5,9 +5,9 @@ title: "The world's vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.6.0"
+version: "0.6.1"
 created: "2026-09-23T21:00:00+02:00"
-updated: "2026-10-05T16:55:00+02:00"
+updated: "2026-10-20T11:11:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -183,10 +183,9 @@ carries the discipline yet: a gap in the city, not in the company.
 | Systems and product architecture | Technology | Alchemists | Engineers | Architects | stated | |
 | Virtual worlds, artificial intelligence and software | Technology | Alchemists | Engineers | Automatons | stated | the house of digital agents |
 | Memory and history: records, documentation, copywriting | Knowledge and quality | Exegetes | Chroniclers | Logographers | stated | |
-| News, chronicle and communication of the present | Brand and marketing | Exegetes | Chroniclers | Bards | stated | social media is one of its channels |
+| News, chronicle and communication of the present, content and campaigns | Brand and marketing | Exegetes | Chroniclers | Bards | stated | social media is one of its channels |
 | Expert knowledge by field, and passing it on | Knowledge and quality | Exegetes | Scholars | Hierophants | stated | training is also sold, under products and services |
 | Culture, new ideas and strategy | Strategy and governance | Exegetes | Scholars | Thaumaturges | stated | the brand's concept, owned by the Exegetes; the Aesthetes give it form |
-| Communication, content and campaigns | Brand and marketing | Exegetes | Chroniclers | Bards | stated | |
 | Law and compliance | Legal and compliance | Procurators | Legates | Legal Rabbits | stated | |
 | Institutional relations and alliances | Sales and partners | Procurators | Legates | Heralds | stated | |
 | The economy: finance | Finance | Procurators | Trustees | Mercurials | stated | |
