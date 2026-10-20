@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: standard
 subtype: register
 status: draft
-version: "7.1.0"
+version: "7.2.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-10T11:53:13+02:00"
+updated: "2026-10-20T00:00:00+00:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 59 practices every repository of ours keeps, grouped by
+> **Summary:** The 60 practices every repository of ours keeps, grouped by
 > what they protect, each with its level and its check. A practice checked by
 > hand is debt. A row marked as owed was once called automatic, and nothing
 > runs it.
@@ -49,6 +49,7 @@ SPDX-License-Identifier: CC0-1.0
 | Security | SEC-016 | The code is scanned for known kinds of weakness on every change and every week (CodeQL default setup) | MUST | `[AUTO: github repos/numengames/numinia-archive/code-scanning/default-setup]` |
 | Security | SEC-017 | A change to a workflow is read for script injection and unsafe triggers before it merges (actionlint, zizmor) | MUST | `[AUTO: .github/workflows/workflow-lint.yml]` — a caller of the shared job in `numengames/.github`, pinned by commit |
 | Security | SEC-018 | A change that brings in a production dependency with a known high or critical weakness says so before it merges | MUST | `[AUTO: .github/workflows/audit.yml]` — a caller of the shared job in `numengames/.github`, pinned by commit |
+| Security | SEC-019 | A new dependency version is not proposed until 7 days after its publication; a security patch is exempt from the wait | MUST | `[DEBT: no check reads a package's publication date before Dependabot opens a pull request — oracle, 2026-10-20]` |
 | Architecture | ARC-001 | Identical CI pipeline everywhere: `type-check → lint → test → build`; exceptions live in rule severity, never in steps | MUST | `[DEBT: ci.yml has no lint step and its type-check only reports — oracle, 2026-12-31]` |
 | Architecture | ARC-002 | Branch protection on `main`: pull request and status checks required, no force push | MUST | `[AUTO: scorecard Branch-Protection]` |
 | Architecture | ARC-004 | Executable README: clone to green tests in under five minutes; CI and coverage badges | MUST | `[DEBT: no smoke script, no CI or coverage badge in README.md — oracle, 2026-09-11]` |
