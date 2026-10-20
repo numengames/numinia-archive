@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 68599,
+  "chars": 68848,
   "apparatus": false,
   "archived": false,
-  "tokens": 19589
+  "tokens": 19651
  },
  {
   "path": "CLAUDE.md",
@@ -1010,6 +1010,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 3498
+ },
+ {
+  "path": "decisions/ADR-082-the-conditions-inside-a-world-have-three-layers-are-accepted-in-an-entry-bubble-and-the-server-decides-who-enters.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 7852,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1981
  },
  {
   "path": "designs/DES-002-business-metrics.md",
@@ -2506,6 +2517,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1320
+ },
+ {
+  "path": "missions/MIS-0197-build-the-conditions-and-the-entry-bubble-inside-the-worlds.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3287,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 868
  },
  {
   "path": "objects/CHECK.md",
