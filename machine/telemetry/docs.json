@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67477,
+  "chars": 67765,
   "apparatus": false,
   "archived": false,
-  "tokens": 19227
+  "tokens": 19310
  },
  {
   "path": "CLAUDE.md",
@@ -3976,10 +3976,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 5498,
+  "chars": 6749,
   "apparatus": false,
   "archived": false,
-  "tokens": 1438
+  "tokens": 1720
  },
  {
   "path": "standards/STD-030-the-worlds-vocabulary.md",
