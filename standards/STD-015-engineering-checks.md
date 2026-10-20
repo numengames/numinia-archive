@@ -5,9 +5,9 @@ title: "Engineering checks"
 type: standard
 subtype: register
 status: draft
-version: "7.1.0"
+version: "8.0.0"
 created: "2026-08-17T21:55:38+02:00"
-updated: "2026-10-10T11:53:13+02:00"
+updated: "2026-10-20T00:56:16+00:00"
 author: "pablofm"
 owner: "oracle"
 section: "Technology"
@@ -23,7 +23,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Engineering checks
 
-> **Summary:** The 59 practices every repository of ours keeps, grouped by
+> **Summary:** The 60 practices every repository of ours keeps, grouped by
 > what they protect, each with its level and its check. A practice checked by
 > hand is debt. A row marked as owed was once called automatic, and nothing
 > runs it.
@@ -80,6 +80,7 @@ SPDX-License-Identifier: CC0-1.0
 | Operations | SRE-005 | Deploy reproducible from a clean clone | MUST | `[DEBT: CI builds but never deploys from a clean clone — oracle, 2026-09-11]` |
 | Operations | SRE-007 | Incidents produce rules, not culprits: which events call for a written review is decided before any happens, and each review says what happened, what it cost and what changes, never who is at fault; an incident brings in a new practice only through a written decision (Google SRE book, ch. 15) | MUST | `[DEBT: the triggers are not written down, and no template in .github/ asks for a postmortem — oracle, 2026-09-26]` |
 | Operations | SRE-008 | Every public site is probed from outside on a schedule: a failure opens an issue, and the next good probe closes it | MUST | `[AUTO: .github/workflows/monitor.yml]` — a caller of the shared job in `numengames/.github`, pinned by commit |
+| Operations | SRE-009 | A site reads the Archive's public files by raw content, never through the GitHub REST API: the API's per-IP limit (60 requests/hour) has already taken a site down three times (`D-003`) | MUST | `[DEBT: no check reads whether a site's code calls the GitHub Contents/REST API for Archive files instead of a raw-content address — oracle, 2026-10-20]` |
 | Community | OSS-001 | `CONTRIBUTING.md` a stranger can follow | MUST (public) | `[GATE: machine/tools/check-register.mjs → a reviewer reads it as a stranger would]` |
 | Community | OSS-002 | Code of conduct at the root: the Contributor Covenant, as the community conduct standard applies it | MUST (public) | `[AUTO: machine/tools/check-register.mjs]` |
 | Community | OSS-004 | Issue triage cadence declared, and most issues opened in the last two to twelve months answered (OpenSSF Best Practices Badge, report_responses) | SHOULD | `[DEBT: triage cadence is declared nowhere a machine can read — oracle, 2026-09-11]` |
