@@ -18,7 +18,7 @@ import { run, meta } from '../rules/std-004-the-header.mjs';
 
 const GOOD = {
   id: 'DBT-900', title: 'T', type: 'documentation', status: 'active', version: '0.1.0',
-  created: '2026-09-11T10:00:00+02:00', updated: '2026-09-11T11:00:00+02:00', license: 'CC-BY-4.0',
+  created: '2026-09-11T10:00:00Z', updated: '2026-09-11T11:00:00Z', license: 'CC-BY-4.0',
 };
 const yaml = (o) => Object.entries(o).map(([k, v]) => `${k}: ${v === '' ? '""' : JSON.stringify(v)}`).join('\n');
 const doc = (fields, body = 'body') => `---\n${yaml(fields)}\n---\n\n# T\n\n${body}\n`;
@@ -68,7 +68,7 @@ test('HDR-006 / HDR-007: real times, no midnight, updated after created', () => 
   assert.deepEqual(one({ ...GOOD, created: '2026-09-11' }), ['HDR-006']);
   assert.deepEqual(one({ ...GOOD, created: '2026-09-11T00:00:00Z' }), ['HDR-006']);
   assert.deepEqual(one({ ...GOOD, updated: '2026-09-11' }), ['HDR-007']);
-  assert.deepEqual(one({ ...GOOD, updated: '2026-09-11T09:00:00+02:00' }), ['HDR-007']);
+  assert.deepEqual(one({ ...GOOD, updated: '2026-09-11T09:00:00Z' }), ['HDR-007']);
 });
 
 test('HDR-045: every header date carries its hour and offset, not only created and updated', () => {
@@ -78,10 +78,10 @@ test('HDR-045: every header date carries its hour and offset, not only created a
   // an hour with no offset is not a moment either
   assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T09:00' }), ['HDR-045']);
   // the hour and the offset: passes
-  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T09:00:00+02:00' }), []);
-  assert.deepEqual(one({ ...GOOD, id: 'PRO-900', type: 'procedure', review_next: '2027-08-21T10:00:00+02:00' }, 'procedures/PRO-900-a.md'), []);
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T09:00:00Z' }), []);
+  assert.deepEqual(one({ ...GOOD, id: 'PRO-900', type: 'procedure', review_next: '2027-08-21T10:00:00Z' }, 'procedures/PRO-900-a.md'), []);
   // midnight nobody wrote: reported
-  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T00:00:00+02:00' }), ['HDR-045']);
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T00:00:00Z' }), ['HDR-045']);
   // a value that is not a date is not judged
   assert.deepEqual(one({ ...GOOD, tags: ['2026', 'x'] }), []);
   // created and updated keep their own codes
@@ -91,11 +91,29 @@ test('HDR-045: every header date carries its hour and offset, not only created a
 test('HDR-045: midnight passes only where a call\'s own notice wrote it', () => {
   const call = { ...GOOD, id: 'OPP-2099-900', type: 'opportunity', kind: 'grant', read_from: 'notice' };
   const at = (fields) => one(fields, 'opportunities/OPP-2099-900.md').filter((p) => p === 'HDR-045');
-  assert.deepEqual(at({ ...call, opens: '2027-04-08T00:00:00+02:00' }), []);
+  assert.deepEqual(at({ ...call, opens: '2027-04-08T00:00:00Z' }), []);
   const unread = { ...call }; delete unread.read_from;
-  assert.deepEqual(at({ ...unread, opens: '2027-04-08T00:00:00+02:00' }), ['HDR-045']);
+  assert.deepEqual(at({ ...unread, opens: '2027-04-08T00:00:00Z' }), ['HDR-045']);
   // the record's own day is the house's, not the notice's
-  assert.deepEqual(at({ ...call, opened: '2026-10-01T00:00:00+02:00' }), ['HDR-045']);
+  assert.deepEqual(at({ ...call, opened: '2026-10-01T00:00:00Z' }), ['HDR-045']);
+});
+
+test('HDR-047 (D-017): a date field is UTC, except a value grandfathered by its exact string', async () => {
+  // a local offset on a field the ledger does not know: fires
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T09:00:00+02:00' }), ['HDR-047']);
+  // Z and +00:00 both pass
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T09:00:00+00:00' }), []);
+  assert.deepEqual(one({ ...GOOD, detected: '2026-09-07T09:00:00Z' }), []);
+  // a value the ledger lists under this exact file and field is grandfathered
+  const grandfatheredRel = 'debt/DBT-020-declared-automatic-executed-by-nobody.md';
+  const { readFileSync } = await import('node:fs');
+  const path = await import('node:path');
+  const { ROOT } = await import('../../scripts/lib/frontmatter.mjs');
+  const ledger = JSON.parse(readFileSync(path.join(ROOT, 'machine', 'scripts', 'non-utc-dates.json'), 'utf8')).rows;
+  const value = ledger[grandfatheredRel].detected;
+  assert.deepEqual(one({ ...GOOD, detected: value }, grandfatheredRel), []);
+  // the same file:field with a different, still non-UTC value is not grandfathered
+  assert.deepEqual(one({ ...GOOD, detected: value.replace(/T\d\d/, 'T01') }, grandfatheredRel), ['HDR-047']);
 });
 
 test('HDR-009: an empty value is written; uid is the exception', () => {

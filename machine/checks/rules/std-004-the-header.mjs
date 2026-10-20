@@ -23,8 +23,10 @@
 //
 // Run from anywhere: node machine/checks/rules/std-004-the-header.mjs
 
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
 import { execute, isMain } from '../lib/guard.mjs';
-import { loadRules, isTemplate, isApparatus } from '../../scripts/lib/frontmatter.mjs';
+import { loadRules, isTemplate, isApparatus, ROOT } from '../../scripts/lib/frontmatter.mjs';
 import { RING1, RING2, RING3, RING3_ALL } from '../../scripts/lib/rings.mjs';
 import { makeResolver } from './std-012-corpus-does-not-grow.mjs';
 
@@ -33,8 +35,18 @@ export const meta = {
   plates: ['HDR-000', 'HDR-001', 'HDR-002', 'HDR-003', 'HDR-004', 'HDR-005', 'HDR-006', 'HDR-007',
     'HDR-008', 'HDR-009', 'HDR-012', 'HDR-013', 'HDR-014', 'HDR-016', 'HDR-017', 'HDR-018', 'HDR-019', 'HDR-020',
     'HDR-030', 'HDR-031', 'HDR-032', 'HDR-033', 'HDR-034', 'HDR-035', 'HDR-036', 'HDR-037', 'HDR-038',
-    'HDR-040', 'HDR-043', 'HDR-044', 'HDR-045'],
+    'HDR-040', 'HDR-043', 'HDR-044', 'HDR-045', 'HDR-047'],
 };
+
+/* HDR-047: a date field's offset is UTC, `Z` or `+00:00`, going
+   forward — diaries, logs and commits had been mixing Madrid and UTC hours
+   because no rule said which one to write. Every value written with a
+   local offset before the rule bit is grandfathered in non-utc-dates.json
+   by its exact string, so the rule never asks for a historical migration
+   (out of scope) but still catches a field that is touched again and left
+   non-UTC, or a field new to the tree. */
+const NON_UTC_LEDGER = JSON.parse(readFileSync(path.join(ROOT, 'machine', 'scripts', 'non-utc-dates.json'), 'utf8')).rows;
+const UTC_OFFSET = /(Z|[+-]00:?00)$/;
 
 const RULES = loadRules();
 const GOVERNED = new Set(RULES.governed.dirs);
@@ -230,6 +242,16 @@ function rings(corpus, out) {
       if (!ISO_TIME.test(v)) F('HDR-045', rel, `${k} "${v}" has no hour and offset — write the moment; where the source gives no hour, the house's hours card gives it`);
       else if (/T00:00(:00(\.0+)?)?(Z|[+-])/.test(v) && !(CALL_DAYS.includes(k) && fm.read_from))
         F('HDR-045', rel, `${k} "${v}" carries the midnight nobody wrote — a day with no hour takes the house's hour for its kind`);
+    }
+
+    // HDR-047: every date field is UTC, going forward. A value already
+    // carrying a local offset before the rule bit is grandfathered in
+    // non-utc-dates.json by its exact string; anything else non-UTC —
+    // a new field, or an old one rewritten and left non-UTC — fires.
+    if (!tpl) for (const [k, v] of Object.entries(fm)) {
+      if (typeof v !== 'string' || !ISO_TIME.test(v) || UTC_OFFSET.test(v)) continue;
+      if (NON_UTC_LEDGER[rel]?.[k] === v) continue;
+      F('HDR-047', rel, `${k} "${v}" carries a local offset — an agent writes in UTC (\`Z\` or \`+00:00\`); migrate it or, if it predates the rule, add it to non-utc-dates.json`);
     }
 
     if (fm.digital_source_type && !['human', 'ai-assisted', 'ai-generated'].includes(fm.digital_source_type))

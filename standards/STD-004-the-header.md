@@ -5,18 +5,18 @@ title: "The header"
 type: standard
 subtype: standard
 status: active
-version: "4.19.2"
+version: "5.0.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-20T01:42:52Z"
 approved_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
 license: "CC0-1.0"
-tags: [frontmatter, standard, lint, metadata, RFC-3339, YAML, Dublin-Core, PROV, register]
+tags: [frontmatter, standard, lint, metadata, RFC-3339, YAML, Dublin-Core, PROV, register, UTC]
 derived_from: "PRI-009"
 ---
 
@@ -110,6 +110,17 @@ universal time, in that order. Dates then sort as text and read one way;
 no updated date comes before its created date. Where a date's source gives
 no hour, the house's hours card (`OPS-022`) gives it.
 
+**What an agent writes is UTC.** Every timestamp an agent writes — a diary
+entry, a log line, a commit, a telemetry record, a header date — MUST carry
+universal time with its offset made explicit (`Z` or `+00:00`), never a
+local offset (the Oracle's decision in chat, 2026-10-18: diaries, logs and
+commits were mixing Madrid and UTC hours because no rule said which one to
+write). What a person reads converts that moment to their own time zone;
+the record an agent writes never does. This rule names the offset; HDR-045
+already names the shape. Out of scope: migrating a timestamp already
+written before this rule — the check and this rule look only at what is
+written from here on.
+
 This standard runs over its word budget because each rule names the outside
 standard it follows.
 
@@ -136,6 +147,7 @@ then the extensions, with its value, code, series and outside meaning.
 | HDR-016 | Relations live in the header and resolve | [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/): `replaces`, `isReplacedBy`, `relation`, `isPartOf`; [PROV-O](https://www.w3.org/TR/prov-o/) `wasDerivedFrom`; the field map is the outside meaning below | `machine/checks/rules/std-004-the-header.mjs` resolves every relation field against the tree and its history, with the resolver the body's citations use (`DEF-009`) |
 | HDR-002 | Titles are English | [BCP 47](https://www.rfc-editor.org/info/bcp47) — the tag `en` | `machine/checks/rules/std-004-the-header.mjs`: presence, and a title carrying words or marks only Spanish uses is reported |
 | HDR-045 | Dates are written the internet's way | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), a free, exact profile of [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) — ours adds: time required, `updated` ≥ `created`; the hour a source leaves out comes from `OPS-022` | `machine/checks/rules/std-004-the-header.mjs`: `created` and `updated` under HDR-006 and HDR-007; every other header field holding a date must carry its hour and offset, and midnight passes only where a call's notice wrote it |
+| HDR-047 | What an agent writes is UTC | [RFC 3339, section 5.6](https://www.rfc-editor.org/rfc/rfc3339#section-5.6), the `Z` or `+00:00` offset form | `machine/checks/rules/std-004-the-header.mjs`: a date field's offset must be `Z` or `+00:00`; a value already non-UTC when the rule took effect is grandfathered by its exact string in `machine/scripts/non-utc-dates.json`, which only shrinks — no retroactive migration (out of scope) |
 | HDR-001, 003, 006, 007, 012..014, 017..019, 033..038 | each field's own rule, in the tables below | — | `machine/checks/rules/std-004-the-header.mjs`, one rule ID per finding |
 | HDR-010, 011, 015 | author, owner, commissioned by | — | by hand, presence only |
 

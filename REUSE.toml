@@ -97,6 +97,7 @@ path = [
   "machine/scripts/blind-spots.json",
   "machine/scripts/hand-checked-rows.json",
   "machine/scripts/lib/rules.json",
+  "machine/scripts/non-utc-dates.json",
   "machine/scripts/published-urls.json",
   "machine/scripts/retired-plates.json",
   "web/components.json",
