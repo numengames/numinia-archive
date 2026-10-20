@@ -4,9 +4,9 @@ uid: ""
 title: "Rolling up the week"
 type: procedure
 status: draft
-version: "3.4.0"
+version: "3.5.0"
 created: "2026-09-08T22:00:00Z"
-updated: "2026-10-15T10:57:40Z"
+updated: "2026-10-20T06:42:13+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -60,15 +60,18 @@ on the first Monday of a year over four quarterlies. Executor: any agent on
    write it. A Closure the tree does not show is carried as *claimed, not
    delivered*.
 4. **Classify every line.** Mark it with one of `DEF-003`'s three marks —
-   `rule`, `debt`, `address` — or `none`. A line you cannot classify is
-   marked `oracle` and stays until the Oracle rules.
+   `rule`, `debt`, `address` — or `none`; name the mark in the report line
+   itself, so the executor's say is the record (`DEF-003`). A line you
+   cannot classify is marked `oracle` and stays until the Oracle rules.
 5. **Absorb before deleting.** Put the identifier in the report's
    `absorbs:` (both `MIS-NNN` and `MIS-NNNN` forms) and redirect its public
    URL in `web/astro.config.mjs`, both locales.
 6. **Delete the records.** `git rm` every one — including a record you
-   think should stay: mark its line `oracle`; git holds the body. Add one
-   line to the open phase report citing this week's report, not its lines
-   (`DEF-006`).
+   think should stay: mark its line `oracle`; git holds the body. This
+   step is the written authority `DEF-007` asks for: no record leaves the
+   corpus except through it, and the pull request that runs it is the
+   proof the removal was authorised. Add one line to the open phase report
+   citing this week's report, not its lines (`DEF-006`).
 7. **Fold the week on the archive's site.** On numinia.org only, move the
    week's versions out of the updates page into one line that links the
    report; git keeps the entries. The summaries live in the archive alone:
@@ -94,6 +97,8 @@ Carry up only `rule`, `debt`, `address` lines; move `absorbs:` lists whole
 |---|---|
 | Nothing broke | `std-012-corpus-does-not-grow` 0 new · `check-url-lifecycle` 0 dead |
 | Nothing left behind | `node machine/tools/check-deletable.mjs --candidates` empty for the period |
+| Line classified | step 4's mark present on every deleted record (`DEF-003`) |
+| Removal authorised | step 6 ran under this procedure; the pull request is the proof (`DEF-007`) |
 | Nothing lost | `absorbs:` equals the set of deleted identifiers |
 | Nothing grew | `tokens.total` in `machine/telemetry/latest.json` lower than before; if not, the PR says why |
 

@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-20
+- **Changed** `PRO-016` 3.2.0, `PRO-017` 3.5.0: eight hand-checked rows (`HDR-042`, `DEF-003`, `DEF-007`, `GIT-050`, `LIC-001`, `LIC-004`, `LIC-010`, `LIC-012`) moved as `PRO-023` step 7 asks, into the step where the act happens; the debt list's retirement is a separate change.
 - **Added** `SYS-017`: a reviewer's reading list for the ten rows checked "by hand" across five standards, linked from `.github/PULL_REQUEST_TEMPLATE.md`'s "read for" section.
 
 ### 2026-10-19

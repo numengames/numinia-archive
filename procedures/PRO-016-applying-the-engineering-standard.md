@@ -4,9 +4,9 @@ uid: ""
 title: "Applying the engineering standard"
 type: procedure
 status: draft
-version: "3.1.5"
+version: "3.2.0"
 created: "2026-09-08T21:30:00Z"
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-20T06:42:13+02:00"
 author: "ursa"
 owner: "oracle"
 tags: [procedure, engineering, agents]
@@ -14,7 +14,7 @@ license: "CC0-1.0"
 applies_to: [all-agents]
 mandatory: true
 section: "Technology"
-related: ["STD-005", "STD-015", "PRO-005", "PRO-013"]
+related: ["STD-005", "STD-015", "STD-004", "STD-010", "STD-020", "PRO-005", "PRO-013"]
 derived_from: "PRI-010"
 ---
 
@@ -68,11 +68,23 @@ agent on `PRO-001` session. The Oracle enters only at the irreversible tier.
 6. **Never weaken a check to pass.** Lowering a threshold, skipping a
    test, adding an ignore or unpinning an action is a change to the
    standard: it comes as a decision record, never as a side effect.
-7. **Report debt, do not fix it.** `[MANUAL]` violations seen in passing
-   that the task did not touch go to the closing report and the
-   repository's TODO (`TRC-005`), not into the task.
-8. **Run the checks locally.** CI remains the authority (`ENG-001`).
-9. **Report.** If the task is a check, continue in `PRO-013`.
+7. **Confirm it is ours to publish.** Before the pull request, name where
+   every new file, image, text or snippet came from (`LIC-001`); keep a
+   licence or obligation inherited from someone else's work apart, never
+   folded into ours (`LIC-004`); say when the work is a client's and
+   belongs to the client (`LIC-010`); confirm a CC0 gift waives only our
+   part, never a recognisable person's publicity or privacy right
+   (`LIC-012`). A gap here is Oracle tier.
+8. **Register a new header field.** In the same pull request: a row in
+   the field's standard, and a decision record saying why (`HDR-042`).
+9. **Say what you left better.** One line in the pull request naming a
+   debt paid down, a doc clarified or a check tightened, even off-task
+   (`GIT-050`).
+10. **Report debt, do not fix it.** `[MANUAL]` violations seen in passing
+    that the task did not touch go to the closing report and the
+    repository's TODO (`TRC-005`), not into the task.
+11. **Run the checks locally.** CI remains the authority (`ENG-001`).
+12. **Report.** If the task is a check, continue in `PRO-013`.
 
 **Autonomous tier.** Formatting, lint fixes, typos, added tests; mechanical
 `[AUTO]` fixes — pin an action by SHA, add `SECURITY.md` from the template,
@@ -92,6 +104,9 @@ deleting branches or tags on `main`.
 | Test first | the `test(...)` commit precedes the `fix`/`feat` commit in the PR |
 | Checks ran | local run recorded in the closing report; CI green on the PR |
 | Nothing weakened | the diff touches no threshold, ignore, pin or workflow — or a decision record carries the change |
+| Provenance and licence stated | step 7's answer in the PR body (`LIC-001/004/010/012`) |
+| Header field registered | the field's standard gains a row, a decision cites it (`HDR-042`) |
+| Left better, said so | one line in the PR body (`GIT-050`) |
 | Debt reported | `[MANUAL]` seen in passing listed in the report and the TODO |
 
 ## 5. Escalation
@@ -105,5 +120,8 @@ Oracle through `PRO-005`, with the decision record drafted.
 |---|---|---|
 | `STD-005` | When a rule bites | the principles this procedure applies |
 | `STD-015` | Engineering checks | the practice register the rule IDs come from, test-first included |
+| `STD-004` | The header | `HDR-042`: a field's row and decision |
+| `STD-010` | Licensing | `LIC-001/004/010/012`: step 7's confirmation |
+| `STD-020` | Git is the archive | `GIT-050`: the PR says what it left better |
 | `PRO-005` | Escalating to the Oracle | how the Oracle tier is reached |
 | `PRO-013` | Handing a check to CI | continues this when the task is a check |
