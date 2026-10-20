@@ -4,9 +4,9 @@ uid: ""
 title: "Placing an agent in a 3D world"
 type: procedure
 status: draft
-version: "0.4.0"
+version: "0.4.1"
 created: "2026-10-14T13:08:11+02:00"
-updated: "2026-10-15T01:50:08+02:00"
+updated: "2026-10-20T00:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -50,8 +50,7 @@ the **bridge**, a small program on the world's own machine that holds the
 model key (PRO-039) and calls the brain (PRO-038). The script's server half
 calls the bridge; its browser half draws the avatar and the bubble.
 
-This holds **until the platform does it**: PRO-040 moves the panel to
-numinia.com.
+PRO-040 now carries this from numinia.com's panel, live since 2026-10-16.
 
 ---
 
