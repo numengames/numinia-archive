@@ -73,6 +73,10 @@ export const RING3 = {
     // agents/<agent>/skills/*/SKILL.md (AGENTS.md): the portable skill
     // format every agent platform reads. Both fields are required there.
     'name', 'description',
+    // The format's own optional map (agentskills.io/specification): string
+    // keys and string values. Our skills use it for who may see the skill
+    // (`requires`), its topic name and its languages.
+    'metadata',
     // agents/<agent>/AGENT.md, the entity card (agents/INDEX.md): what the
     // agent is and the files it is made of — the same shape as objects/.
     'entity', 'executor', 'forms',
