@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-20
+- **Changed** `PRO-019` 0.3.0: a new step 5, "Recognise the act" — merits earned since the last occasion are praised aloud, at the table, where the ritual's purpose allows it, as part of the incentive system, not a gesture alongside it; `PRI-015` now cites a step that exists (D-018).
+
 ### 2026-10-19
 - **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
 

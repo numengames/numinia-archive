@@ -4,9 +4,9 @@ uid: ""
 title: "Holding a ritual"
 type: procedure
 status: draft
-version: "0.2.7"
+version: "0.3.0"
 created: "2026-09-23T12:00:00+02:00"
-updated: "2026-10-12T13:59:03+02:00"
+updated: "2026-10-20T02:13:15Z"
 author: "ursa"
 owner: "oracle"
 guild: "Sentinels"
@@ -15,7 +15,7 @@ tags: [procedure, rituals, cadence, community]
 license: "CC0-1.0"
 applies_to: [all-agents]
 approved_by: "ADR-048"
-related: ["PRI-001", "PRI-002", "PRI-004", "PRO-005", "PRO-017", "STD-012"]
+related: ["PRI-001", "PRI-002", "PRI-004", "PRI-015", "PRO-005", "PRO-017", "STD-012"]
 derived_from: "PRI-001"
 ---
 
@@ -82,7 +82,14 @@ place of each occasion live in the calendar, never here or in the principles.
    ruling reached at one is not a decision until recorded as one. Hold each
    ritual on its own; never fold a festive ritual into an operational one to
    save an evening — it removes the only space the culture has.
-5. **Record what survives, the same day.** Every decision taken is recorded
+5. **Recognise the act.** Where the ritual's purpose allows it (never at an
+   operational ritual, which decides and moves on), merits earned since the
+   last occasion are praised aloud, at the table, before the others, naming
+   the act and the person who did it — this is part of the incentive
+   system, not a gesture alongside it (`PRI-015`). Nothing is promised in
+   advance to make someone attend; what is recognised is read from what was
+   already done.
+6. **Record what survives, the same day.** Every decision taken is recorded
    as a decision, every work agreed as a card, every
    debt admitted is recorded as a debt. Do not write minutes.
 
@@ -94,7 +101,8 @@ place of each occasion live in the calendar, never here or in the principles.
 |---|---|
 | 2 | The announcement, posted before the day |
 | 3 | The roll-up or the piece committed, dated before the ritual |
-| 5 | The decisions, cards and debts created that day, naming the ritual; no minutes |
+| 5 | The merit and the person named, said that day, at a ritual whose purpose allows it |
+| 6 | The decisions, cards and debts created that day, naming the ritual; no minutes |
 
 A ritual that changed nothing and produced nothing is evidence of its own: it
 is reported to the Oracle, who decides whether the cadence still earns itself.
@@ -114,6 +122,7 @@ without functions.
 |---|---|---|
 | `PRI-001` | You are already in the game | a name without a function is removed |
 | `PRI-002` | We build a game to work better | why play sustains a culture, which the festive rituals are for |
+| `PRI-015` | We recognise the act; we never buy the game | where and how a merit is said aloud |
 | `PRO-017` | Rolling up the week | the material an operational ritual reads |
 | `PRO-005` | Escalating to the Oracle | a cadence that no longer earns itself |
 | `STD-012` | The corpus does not grow | why minutes are not written |
