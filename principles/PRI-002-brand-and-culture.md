@@ -6,11 +6,11 @@ type: principle
 former_id: "CAN-002"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: active
-version: "4.4.0"
+version: "4.4.1"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-12T18:51:02+02:00"
+updated: "2026-10-20T09:01:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -121,7 +121,10 @@ Numinia speaks on three levels, and a piece chooses one deliberately. The
 **colloquial** is the community's daily register, rich in slang and widely
 accessible. The **literary** belongs to the lore and the narrative, and
 invites the reader into fantasy. The **technical** carries Numinia's
-epistemological foundations, with more depth and less reach.
+epistemological foundations, with more depth and less reach. This is the
+**voice**'s three levels, not the narrative dial's three stops below — a
+different setting: how much world vocabulary a piece carries, not which
+register it uses.
 
 ## The name
 
@@ -140,3 +143,4 @@ principle of visual identity's.
 | `PRI-010` | Leave things better than you found them | the one sentence that is the house's ethics |
 | `PRI-013` | A magician who keeps hope, with humans in charge | the brand's personality, emotion and cause |
 | `PRI-006` | The model needs a story | why the game is the form of the work |
+| `STD-026` | Operative vocabulary | the narrative dial, a different setting from the voice |

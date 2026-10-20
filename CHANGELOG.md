@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-20
+- **Changed** `STD-026` (0.12.0), `PRI-002` (4.4.1), `PRI-008` (3.2.1), `PRI-013` (1.0.1): "three levels" named two things, voice's register and the dial's stops; added a **Voice** glossary entry and cross-references so each of the four points to the other sense.
 - **Added** `/guild-handbook` (site v0.168.0): the guild handbook, gathered from `PRI-004`, `PRO-015`, `PRO-024`, `STD-017` and `STD-042`; `summa.ts` drops its `pending` note.
 - **Fixed** `operations/OPS-009-secrets-handling.md` (v2.0.3): §4.2 said Ursa's org access was "Via existing PAT"; it's a GitHub App, per-repo token (`engine` for numinia-engine), key in the Hermes `ursa` profile's `.env`, not a VPS (#731).
 - **Fixed** `PRO-040` (0.2.1) and `PRO-037` (0.4.1): both called the community's *Agentes* panel a wireframe; it has shipped on numinia.com since 2026-10-16, so both now describe it as live.

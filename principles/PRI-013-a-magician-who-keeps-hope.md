@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-013"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: active
-version: "1.0.0"
+version: "1.0.1"
 created: "2026-10-03T16:00:00+02:00"
-updated: "2026-10-12T18:51:02+02:00"
+updated: "2026-10-20T09:01:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -85,7 +85,9 @@ line: **made with agents, for humans.**
 ## Three words at three levels
 
 The same three things are said at the level the listener hears, on the
-narrative dial.
+narrative dial. These are the dial's three stops, named below in the
+operative vocabulary standard — not the voice's three registers, which the
+principle of brand and culture and the principle of visual identity set out.
 
 | | Business | Mixed | Numinia |
 |---|---|---|---|

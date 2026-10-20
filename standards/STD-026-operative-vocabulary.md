@@ -5,9 +5,9 @@ title: "Operative vocabulary"
 type: standard
 subtype: register
 status: active
-version: "0.11.0"
+version: "0.12.0"
 created: "2026-09-18T12:00:00+02:00"
-updated: "2026-10-16T16:25:00+02:00"
+updated: "2026-10-20T09:01:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -42,9 +42,12 @@ SPDX-License-Identifier: CC0-1.0
 > word, never its definition.
 
 The three narrative levels are the dial's business, functional-mixed and
-Numinia settings. The in-world names of each guild, faction and unit of
-activity are a translation, not a definition, and live in the world's
-vocabulary. Each entry ends by naming the convention its word follows, with
+Numinia settings — a different thing from the voice's three levels
+(colloquial, literary, technical; `PRI-002`, `PRI-008`): the dial sets how
+much world vocabulary a piece carries, the voice sets its register. See the
+**Narrative dial** and **Voice** entries below. The in-world names of each
+guild, faction and unit of activity are a translation, not a definition, and
+live in the world's vocabulary. Each entry ends by naming the convention its word follows, with
 its source, and a house word says that the industry has none (`ADR-067`).
 
 ## A
@@ -217,7 +220,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 
 | Term | What it is | What it clears up | What it enables here | At the three levels · also |
 |---|---|---|---|---|
-| **Narrative dial** *(setting)* | How much of the world's vocabulary an organisation takes on, from plain business to full Numinia. | The vocabulary changes; the system underneath stays the same. | Offering the same system to a bank and to a game studio. | Convention: none in the industry; house word — the dial, its three stops and the moon that opens it in the bar. |
+| **Narrative dial** *(setting)* | How much of the world's vocabulary an organisation takes on, from plain business to full Numinia. Not the *Voice*'s three levels below — the dial is about how much vocabulary, the voice is about register. | The vocabulary changes; the system underneath stays the same. | Offering the same system to a bank and to a game studio. | Convention: none in the industry; house word — the dial, its three stops and the moon that opens it in the bar. |
 | **NFT** *(token)* | An entry on a blockchain that says one particular digital object belongs to one wallet. | What is scarce is not the file, which copies, but the title over it. | The intended way for loot and season rewards to be real possessions. |  |
 | **Nomad** *(rank)* | The first rank: a person who has signed in and not yet chosen a guild and a faction. | Arriving is the first step, not yet belonging. | Browsing, downloading and reading one's own sheet before taking a place in the city (`STD-003`). | New member · Nomad · Nómada<br>Convention: new member — the business label, by W3C SKOS (`STD-030`); confirmed by the lore reviewer on 2026-10-05; a dial word. |
 | **Normative documents** *(set of documents)* | The principles, the standards and the procedures: the only documents that oblige. | Everything else records; a sentence binds you only if it lives in a normative document. | Telling whether a sentence obliges you by where it is written. | Also: axis (until 2026-10-03); what binds.<br>Convention: normative, as against informative — ISO/IEC Directives, Part 2; ISO 9001:2015 7.5, documented information to be maintained. |
@@ -360,6 +363,7 @@ its source, and a house word says that the industry has none (`ADR-067`).
 | **Virtual world** *(space)* | A shared digital place people enter as avatars to meet, play or work. | A world is a place, not a web page; people are present in it. | Hosting events and sessions in worlds of our own or of others. |  |
 | **Visibility** *(field)* | The header field saying who may read a document: `public` or `restricted-oracle`. | What the public archive hides is declared, not implied. | Keeping a record out of the public site by one line. | Convention: visibility — GitLab and GitHub usage; `dcterms:accessRights`. |
 | **Visual identity** *(system)* | How the house looks: one foundation that speaks through three forces, the Umbral, the Veil and the Prisma. | Each piece declares its force before its medium. | Recognising the house in a website, an invoice or a world. |  |
+| **Voice** *(register)* | Numinia's three levels of register — colloquial, literary, technical — and the piece that chooses one deliberately (`PRI-002`, `PRI-008`). Not the *Narrative dial* above — the voice is about register, the dial is about how much vocabulary. | A piece has one register, picked on purpose, not a mix nobody chose. | Writing community copy, lore or a contract each in the register it needs. | Convention: none in the industry; house word. |
 | **VRM** *(format)* | An open format for humanoid 3D avatars: one file with the model, its bones and its usage permissions. | Interoperability made format: one avatar for every world is engineering, not promise. | The format of Numinia's avatars, which any compatible world accepts. |  |
 
 ## W

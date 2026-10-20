@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 68386,
+  "chars": 68650,
   "apparatus": false,
   "archived": false,
-  "tokens": 19523
+  "tokens": 19615
  },
  {
   "path": "CLAUDE.md",
@@ -2909,10 +2909,10 @@
   "series": "principles",
   "type": "principle",
   "status": "active",
-  "chars": 5926,
+  "chars": 6190,
   "apparatus": false,
   "archived": false,
-  "tokens": 1485
+  "tokens": 1545
  },
  {
   "path": "principles/PRI-004-role-structure.md",
@@ -2964,10 +2964,10 @@
   "series": "principles",
   "type": "principle",
   "status": "active",
-  "chars": 9503,
+  "chars": 9871,
   "apparatus": false,
   "archived": false,
-  "tokens": 2295
+  "tokens": 2376
  },
  {
   "path": "principles/PRI-009-the-archive-is-the-organisation.md",
@@ -3019,10 +3019,10 @@
   "series": "principles",
   "type": "principle",
   "status": "active",
-  "chars": 4997,
+  "chars": 5197,
   "apparatus": false,
   "archived": false,
-  "tokens": 1289
+  "tokens": 1328
  },
  {
   "path": "principles/PRI-015-we-recognise-the-act.md",
@@ -3943,10 +3943,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 76491,
+  "chars": 77305,
   "apparatus": false,
   "archived": false,
-  "tokens": 18700
+  "tokens": 18893
  },
  {
   "path": "standards/STD-027-the-classification-scheme.md",

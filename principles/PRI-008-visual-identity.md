@@ -6,9 +6,9 @@ type: principle
 former_id: "CAN-008"
 former_id_note: "Renamed by ADR-067 cut 3 (2026-10-03): the series canon/ took the industry's word, principles/, and the prefix CAN- became PRI-."
 status: active
-version: "3.2.0"
+version: "3.2.1"
 created: "2026-09-08T22:30:00+02:00"
-updated: "2026-10-12T18:51:02+02:00"
+updated: "2026-10-20T09:01:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Exegetes"
@@ -173,7 +173,9 @@ and it carries a double heritage — the machine's typewriter and the signal's
 terminal at once, which is what makes it the most Numinian movement in the
 catalogue.
 
-The voice and its three levels are the principle of brand and culture's. What a
+The voice and its three levels are the principle of brand and culture's.
+Those three levels are the voice's register, not the narrative dial's three
+stops below, which set how much world vocabulary a piece carries. What a
 piece does with them: the colloquial for community, product and interface;
 the literary, which is the lore's, for home, covers, events and campaigns;
 the technical for documentation, proposals and contracts. A contract with
@@ -204,3 +206,5 @@ This is how the house looks, not what the house is.
 | `STD-008` | Design tokens | the rules a builder applies |
 | `PRO-014` | Producing a design piece | how a piece is made and reviewed |
 | `PRI-002` | We build a game to work better | the purpose, the values and the voice this identity makes visible |
+| `PRI-013` | A magician who keeps hope, with humans in charge | the narrative dial, a different setting from the voice |
+| `STD-026` | Operative vocabulary | the narrative dial's three stops, as against the voice's three levels |

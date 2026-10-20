@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "a51df64",
+  "head": "9785066",
   "corpus_hash": "8d3360dcc86aeace03a0c458c28281f95e8ba980736ceda9dbf69fadf03976c0",
-  "root_dirty": 1,
-  "measured_at": "2026-10-20T06:03:43Z",
+  "root_dirty": 5,
+  "measured_at": "2026-10-20T09:02:13Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 422,
-          "bytes": 4297197
+          "bytes": 4299121
         },
         "Code": {
           "files": 282,
@@ -376,14 +376,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1096564,
+      "value": 1097029,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 466704,
-        "standards": 122716,
+        "standards": 122909,
         "missions": 74277,
         "system": 63150,
         "decisions": 46372,
@@ -393,8 +393,8 @@
         "operations": 33643,
         "designs": 31464,
         "machine": 30125,
-        "": 27873,
-        "principles": 23512,
+        "": 27965,
+        "principles": 23692,
         "debt": 21476,
         "opportunities": 15128,
         "legal": 13877,
@@ -407,8 +407,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 502521,
-        "active": 260118,
+        "(none)": 502613,
+        "active": 260491,
         "draft": 258110,
         "todo": 53132,
         "in-progress": 10238,
@@ -801,10 +801,10 @@
           "3": 643
         },
         "STD": {
-          "3": 1658
+          "3": 1661
         },
         "PRI": {
-          "3": 475
+          "3": 483
         },
         "OPS": {
           "3": 202
