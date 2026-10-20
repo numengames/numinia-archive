@@ -4,11 +4,11 @@ uid: ""
 title: "Secrets handling — what never enters the repository, and where it lives instead"
 type: procedure
 status: active
-version: "2.0.2"
+version: "2.0.3"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-03T21:00:00+02:00"
+updated: "2026-10-20T00:00:00Z"
 author: "nimrod"
 owner: "oracle"
 section: "Technology"
@@ -80,7 +80,7 @@ untrue elsewhere in the corpus; see §5.
 | Service | Account | Where configured |
 |---------|---------|-----------------|
 | Personal access token (PabloFMM) | PabloFMM | GitHub Settings → Tokens |
-| Org access (numengames) | PabloFMM | Via existing PAT |
+| Org access (numengames) | ursa | GitHub App, per-repo token (e.g. `engine` for numinia-engine) — issued in the `.env` of the Hermes `ursa` profile on this machine, not a PAT and not on a VPS |
 
 ### 4.3 Infrastructure
 

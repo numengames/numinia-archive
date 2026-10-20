@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "943d636",
-  "corpus_hash": "6cbe09a5fa69fb40df7af8efb61bdc73717d663785c5796b5a4a6dfdc8b42287",
+  "head": "13d9d7b",
+  "corpus_hash": "a0c36dbfb795e8e379e995b602b816c963416ab13f0f38cc1ddc1af971a2e090",
   "root_dirty": 0,
-  "measured_at": "2026-10-19T22:52:30Z",
+  "measured_at": "2026-10-20T05:22:58Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 422,
-          "bytes": 4295447
+          "bytes": 4297021
         },
         "Code": {
           "files": 279,
@@ -376,7 +376,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1096052,
+      "value": 1096502,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -387,13 +387,13 @@
         "missions": 74277,
         "system": 63150,
         "decisions": 46372,
-        "procedures": 44229,
+        "procedures": 44404,
         "agents": 38165,
         "reports": 36728,
-        "operations": 33602,
+        "operations": 33643,
         "designs": 31464,
         "machine": 30125,
-        "": 27577,
+        "": 27811,
         "principles": 23512,
         "debt": 21476,
         "opportunities": 15128,
@@ -407,9 +407,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 502225,
-        "active": 260077,
-        "draft": 257935,
+        "(none)": 502459,
+        "active": 260118,
+        "draft": 258110,
         "todo": 53132,
         "in-progress": 10238,
         "in-review": 8082,
@@ -420,7 +420,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 6.78,
+      "value": 6.77,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -798,16 +798,16 @@
     "contradictions.id_form_per_series": {
       "value": {
         "PRO": {
-          "3": 638
+          "3": 641
         },
         "STD": {
           "3": 1656
         },
         "PRI": {
-          "3": 470
+          "3": 474
         },
         "OPS": {
-          "3": 201
+          "3": 202
         },
         "ADR": {
           "3": 575
