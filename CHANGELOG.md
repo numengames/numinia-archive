@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-20
+- **Fixed** `PRO-040` (0.2.1) and `PRO-037` (0.4.1): both called the community's *Agentes* panel a wireframe; it has shipped on numinia.com since 2026-10-16, so both now describe it as live.
+
 ### 2026-10-19
 - **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
 

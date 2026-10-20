@@ -4,9 +4,9 @@ uid: ""
 title: "Configuring an agent from the platform"
 type: procedure
 status: draft
-version: "0.2.0"
+version: "0.2.1"
 created: "2026-10-14T19:48:28+02:00"
-updated: "2026-10-14T20:35:04+02:00"
+updated: "2026-10-20T00:00:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -47,8 +47,9 @@ configured once, on the community's panel at numinia.com, and the platform
 carries it to the worlds. The trigger is a community that wants an AI in its
 worlds, or a change to one.
 
-**Today:** the community panel and its *Agentes* piece are designed, not
-built (wireframe held by Ursa). Until they ship, PRO-037 is the way.
+**Today:** the community panel and its *Agentes* piece are published on
+numinia.com (since 2026-10-16). Where a world's community has not yet
+configured an agent there, PRO-037 remains the way.
 
 | Piece | Where it lives | Why |
 |---|---|---|

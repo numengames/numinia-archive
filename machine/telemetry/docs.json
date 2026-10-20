@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 67477,
+  "chars": 67684,
   "apparatus": false,
   "archived": false,
-  "tokens": 19227
+  "tokens": 19303
  },
  {
   "path": "CLAUDE.md",
@@ -3393,10 +3393,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5582,
+  "chars": 5573,
   "apparatus": false,
   "archived": false,
-  "tokens": 1630
+  "tokens": 1632
  },
  {
   "path": "procedures/PRO-038-raising-the-brain-that-agents-in-worlds-think-with.md",
@@ -3426,10 +3426,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5387,
+  "chars": 5439,
   "apparatus": false,
   "archived": false,
-  "tokens": 1470
+  "tokens": 1483
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
