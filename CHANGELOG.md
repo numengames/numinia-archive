@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-20
+- **Changed** `PRI-006` 2.1.5: trimmed from 2,065 to 1,500 body words (D-015) — every belief kept (the three-ring co-implication, the Peircean object/representamen/interpretant/ground, the Jungian archetype/mythologem analogy), prose tightened only; open for Christian's (owner) and Pablo's review before merge.
+
 ### 2026-10-19
 - **Added** `ADR-081`: a zone is a coloured bubble (safe, PvE, PvP; sphere, box or upward cylinder) the game director places anywhere; its rules are flags planted around it and written into `entorno/zonas.json`; the server resolves overlaps; acts are thrown from capsules out of the director's box.
 
