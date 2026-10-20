@@ -4,9 +4,9 @@ uid: ""
 title: "Legal debts and questions for counsel"
 type: documentation
 status: active
-version: "0.8.0"
+version: "0.9.0"
 created: "2026-09-29T18:00:00+02:00"
-updated: "2026-10-18T14:40:00+02:00"
+updated: "2026-10-20T14:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Procurators"
@@ -19,7 +19,7 @@ detected: "2026-09-29T15:20:00+02:00"
 visibility: "restricted-oracle"
 visibility_reason: "working list for the Oracle and the company's lawyers (ATH21); it names gaps a reader could mistake for commitments"
 opened_by: "ursa"
-related: ["DES-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021", "STD-048", "STD-049", "ADR-070", "MIS-169", "DBT-026"]
+related: ["DES-017", "LEG-001", "LEG-002", "LEG-003", "LEG-004", "PRO-021", "STD-048", "STD-049", "ADR-070", "MIS-169", "DBT-026", "ADR-082", "MIS-197"]
 ---
 
 <!--
@@ -194,6 +194,23 @@ of it yet.
 | 65 | When an organisation, not the house, bans someone, who decides under the Digital Services Act (art. 17, statement of reasons; art. 20, complaints), and must the house offer the banned person a way to appeal? | counsel |
 | 66 | By default any member may top up an organisation's shared balance (`top-up`, `STD-052`), while only owners, administration and finance change its billing details. When a member who is not finance pays, who is the buyer for VAT and for the invoice — the person or the organisation, which may be a company — and should the templates leave topping up to every member? | counsel |
 
+### 1.11 Conditions inside the worlds (`ADR-082`, `MIS-197`)
+
+Numinia is to show its conditions, and those of the organisation that owns a
+world, in an entry bubble inside the world, on PC, phone and VR; the server
+admits nobody until the mandatory acceptance is recorded (`ADR-082`). The
+general conditions of Numinia for people do not exist yet: rows 9 and 14 ask
+for them and stay as they are, and `LEG-002` covers companies only. Until the
+lawyers write them, the bubble can show only the company text. These rows add
+what the bubble raises; they do not replace rows 9, 14 or 15.
+
+| # | Item | Who |
+|---|---|---|
+| 68 | Accepting inside VR. Is a tick given in the bubble, with a headset on, worth the same as one given on the web? What do we keep as proof: who (the pass or the guest), the version of each layer, the optional boxes ticked, the UTC time and the world — and is that enough, or must we also keep the text shown, or the device? | counsel |
+| 69 | Who answers for the conditions an organisation writes for its world: the organisation, or Numen as the platform that publishes them inside the bubble? What changes if the organisation is outside the EU but opens its world to people in the EU (GDPR art. 3.2)? Who is the data controller in that world? | counsel |
+| 70 | What an organisation may not put in its conditions. Our proposal: nothing that contradicts Numinia's general layer; no optional data tied to the right to enter (no cookie wall without an alternative way in); no unfair terms against consumers; no waiver of rights the law grants. Confirm the list, and say whether Numen must review an organisation's text before it is shown, or only remove it when notified (DSA). | counsel |
+| 71 | The sign-in tick on numinia.com (row 15) accepts \"the Terms and the Privacy Policy\" together. The bubble would repeat it: one mandatory step for the rules (contract) and a separate step for each optional use of data, with \"Enter without the optional\" and \"Accept all and enter\" as equal buttons and boxes empty (AEPD cookie guide; EDPB guidelines 05/2020 §39; GDPR art. 7.4). Is that split right, and what exact wording does the tick carry? Row 15 itself is not changed. | counsel |
+
 ## 2. Evidence
 
 ```
@@ -358,6 +375,15 @@ Cada organización de numinia.com tendrá sus propios roles, como un servidor de
 - [#64] ¿Cuánto tiempo podemos guardar el registro de cada organización (quién cambió qué rol, a quién se vetó y por qué), y pueden leerlo sus propietarios cuando un miembro se va?
 - [#65] Cuando veta una organización y no la casa, ¿quién decide a efectos del Reglamento de Servicios Digitales (art. 17, motivación; art. 20, reclamaciones), y tenemos que ofrecer a la persona vetada una vía de recurso?
 - [#66] Por defecto cualquier miembro puede recargar el saldo común de su organización, y solo la propietaria, Administración y Finanzas cambian los datos de facturación. Cuando paga un miembro que no es de Finanzas, ¿quién es el comprador a efectos del IVA y de la factura: esa persona o la organización, que puede ser una empresa? ¿Conviene que por defecto pueda recargar cualquier miembro?
+
+### 11. Condiciones dentro de los mundos (la burbuja de entrada)
+
+Numinia va a enseñar sus condiciones, y las de la organización dueña de cada mundo, en una burbuja al entrar al mundo, en PC, móvil y realidad virtual (VR). El servidor no deja pasar a nadie hasta que queda registrada la aceptación de lo obligatorio. Las condiciones generales de Numinia para personas todavía no existen (son vuestros puntos [#9] y [#14]) y los términos actuales (LEG-002) cubren solo a empresas; hasta que las redactéis, la burbuja solo puede mostrar el texto de empresa. Estas cuatro preguntas son nuevas y no sustituyen a [#9], [#14] ni [#15].
+
+- [#68] ¿Aceptar dentro de la VR, con las gafas puestas, vale lo mismo que aceptar en la web? Guardamos como prueba quién acepta (la persona del pase, o el invitado), la versión de cada capa, las casillas opcionales marcadas, la hora (UTC) y el mundo. ¿Basta con eso, o hay que guardar también el texto que se mostró o el dispositivo?
+- [#69] ¿Quién responde de las condiciones que escribe una organización para su mundo: la propia organización, o Numen como plataforma que las publica dentro de la burbuja? ¿Qué cambia si la organización está fuera de la UE y abre su mundo a gente de la UE (art. 3.2 RGPD)? ¿Quién es responsable del tratamiento en ese mundo?
+- [#70] ¿Qué no pueden poner las organizaciones en sus condiciones? Proponemos: nada que contradiga la capa general de Numinia; ningún dato opcional atado al derecho a entrar (sin muro de cookies si no hay otra forma de entrar); ninguna cláusula abusiva frente a consumidores; ninguna renuncia a derechos que da la ley. ¿Confirmáis la lista? ¿Debemos revisar el texto de una organización antes de mostrarlo, o basta con retirarlo cuando nos avisen (DSA)?
+- [#71] La casilla actual de numinia.com [#15] junta «los Términos y la Política de privacidad». La burbuja la repetiría. Proponemos separar: un paso obligatorio para las normas (contrato) y un paso aparte para cada uso opcional de datos, con dos botones iguales («Entrar sin lo opcional» y «Aceptar todo y entrar») y las casillas vacías (guía de cookies de la AEPD; Directrices 05/2020 del CEPD, §39; art. 7.4 RGPD). ¿Es correcta esa separación y qué texto exacto lleva la casilla? El punto [#15] no se toca.
 
 ### Lo que ya está hecho
 
