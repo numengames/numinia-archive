@@ -20,6 +20,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ### 2026-10-27
 - **Changed** The mission list catches up: 33 missions go from `todo` to `in-progress` and MIS-231 and MIS-260 to `in-review`, per the 2026-10-25 card audit and the boards
 - **Changed** MIS-170 (each world has its own admin code) closes on the Oracle's word: status `done`, criteria ticked; the three live checks were accepted, not re-run
+- **Added** `machine/scripts/generate-hermes-approvals.mjs`: `approvals.mode`/`deny` now generate from each agent's `automation_level` (STD-042 row 7); `hermes-approvals.test.mjs` fails CI on drift. Run: all 12 adapters move `smart`→`manual`; the 10 `assisted` ones also gain a push/PR `deny`.
 
 ### 2026-10-26
 - **Changed** The Oracle no longer lives only in a configuration list: an owner appoints and removes the other Oracles from the census desk, four at most counting the owners, no machine to enter; `STD-003` 3.6.0 (`RNK-003`, `RNK-006`, new `RNK-009`); draft

@@ -13,12 +13,14 @@ terminal:
   home_mode: auto
 
 approvals:
-  mode: smart
+  mode: manual
   denial_breaker_threshold: 2
   deny:
     - "git push --force*"
     - "git push -f*"
     - "rm -rf *"
+    - "git push*"
+    - "gh pr create*"
   smart_policy: |
     Always ESCALATE any command that deletes, overwrites, renames, moves, rewrites,
     or changes permissions on documentary records, repositories, archive trees,

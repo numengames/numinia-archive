@@ -15,11 +15,13 @@ terminal:
   home_mode: auto
 
 approvals:
-  mode: smart
+  mode: manual
   denial_breaker_threshold: 3
   deny:
     - "git push --force*"
     - "git push -f*"
+    - "git push*"
+    - "gh pr create*"
   smart_policy: |
     Always ESCALATE commands that publish, post, send, schedule, upload, or
     otherwise distribute content externally on behalf of a person, brand,
