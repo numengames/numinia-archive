@@ -37,11 +37,42 @@ routes = [
   { pattern = "www.numinia.org", custom_domain = true }
 ]
 
-# Fully static site: no `main` worker script, just static assets.
+# The site is static assets; a small Worker script answers /api/* only
+# (worker/index.mjs — today /api/procyon, the chat bubble; October 2026).
+# run_worker_first lists the only paths that reach the script: every other
+# address is served from dist/ exactly as before, without running any code.
+main = "worker/index.mjs"
+
 # Directory matches Astro's build output (`npm run build` → dist/).
 # not_found_handling (MIS-128): serve the site's own 404.astro build
 # instead of Cloudflare's bare error — DEUDA-404 documents accepted URL
 # breakage, so the 404 a reader actually meets has to offer navigation.
 [assets]
 directory = "./dist"
+binding = "ASSETS"
 not_found_handling = "404-page"
+run_worker_first = ["/api/*"]
+
+# Workers AI, free allocation (10,000 neurons a day): the model Procyon speaks with.
+[ai]
+binding = "AI"
+
+[vars]
+PROCYON_MODEL = "@cf/google/gemma-4-26b-a4b-it"
+
+# Procyon's limits, counted per Cloudflare location. Per visitor (by IP):
+# 6 questions a minute. Everyone together: 30 a minute. Five answers in
+# flight at once is enforced in the script.
+[[ratelimits]]
+name = "PROCYON_PER_VISITOR"
+namespace_id = "1701"
+  [ratelimits.simple]
+  limit = 6
+  period = 60
+
+[[ratelimits]]
+name = "PROCYON_ALL"
+namespace_id = "1702"
+  [ratelimits.simple]
+  limit = 30
+  period = 60

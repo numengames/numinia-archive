@@ -107,11 +107,22 @@ async function documents(): Promise<DocEntry[]> {
   return out.sort((a, b) => a.url.localeCompare(b.url));
 }
 
+/** The page's own name: the first `# ` heading of its markdown. */
+function headingOf(body: string): string | undefined {
+  for (const line of body.split("\n")) {
+    if (line.startsWith("# ")) return line.slice(2).trim() || undefined;
+  }
+  return undefined;
+}
+
 /** The composed pages, which are views of the documents above. */
 async function views(): Promise<ViewEntry[]> {
   return (await allComposedPages())
     .map((p) => ({
       url: p.route === "" ? "/" : p.route,
+      // Named, so a reader of llms.txt (and Procyon) knows what the page is,
+      // not only what it is built from.
+      title: headingOf(p.body),
       sources: p.sources,
     }))
     .sort((a, b) => a.url.localeCompare(b.url));

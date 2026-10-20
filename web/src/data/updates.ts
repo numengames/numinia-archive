@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.169.0",
+    date: "2026-10-20",
+    entries: [
+      { type: "ADD", text: "Ask Procyon: a chat bubble at the bottom left of every page. Procyon, the archive's guide, answers a question in two or three sentences, in your language, and links to the pages that answer it; a link to a page that does not exist is removed before you see it. An experiment on a free AI model: it can be wrong, and nothing you write is kept." },
+    ],
+  },
+  {
     version: "v0.168.0",
     date: "2026-10-20",
     entries: [
@@ -181,15 +188,6 @@ export const UPDATES: readonly UpdateVersion[] = [
     date: "2026-10-07",
     entries: [
       { type: "ADD", text: "The site is now watched from outside: every six hours a check opens the front door, its text version, the map and the lexicon, and raises an alarm for the team when one of them stops answering. Behind it, every change to the code is also scanned for security weaknesses and for vulnerable dependencies." },
-    ],
-  },
-  {
-    version: "v0.151.0",
-    date: "2026-10-07",
-    entries: [
-      { type: "CHG", text: "The pipeline starts with what is due. /system/pipeline opens on four buttons — Today (late steps and the day's own), Next 7 days, All open and Closed, so old records no longer mix with new ones — then a search, the kind and a range of dates (7, 30 or 90 days, or two dates of your own)." },
-      { type: "CHG", text: "Each opportunity is one row of a list grouped by day: what it is about, its next step and how late it runs, its deadline with the days left, its value and how it pays, and its chance. The list can be ordered by date or by chance; Timeline and Asked / we have are the other two views, and the funnel closes the page." },
-      { type: "ADD", text: "Every opportunity says what it is about and the line of the house it falls in; its chance — high, medium or low — is computed from whether that line is one the house sells and whether the house has already won something in it. A deadline can be written on any kind of opportunity, not only on tenders and grants." },
     ],
   },
   {
