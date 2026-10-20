@@ -16,6 +16,11 @@ guild: null             # Sentinels | Alchemists | Exegetes | Procurators (PRI-0
 #     in_use: "{{YYYY-MM-DD}} -> {{YYYY-MM-DD}}"
 #     note: "why"
 
+# person: {{person-id}}  # optional, STD-004/STD-051: set only when this agent is
+#                         # also a member of an organisation — the person who
+#                         # answers for it there, so it never holds more than
+#                         # that person's own permissions
+
 role:
   primary: {{kebab-case-role}}
 

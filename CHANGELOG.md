@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-20
+- **Added** `STD-004` 4.20.0: registers `person` in the `agents/` ring — optional, who answers for an agent where it is also an organisation member, so it never holds more than that person (`STD-051`); example block in `agents/_template/AGENT.yaml`. The field already runs in `rings.mjs` on a local branch; this documents it ahead of that code landing.
+
 ### 2026-10-19
 - **Added** `STD-019` 3.2.0: `VER-025`, the engine's B9 policy from `work/motor-suma/INVENTARIO.md` — a non-additive format change (Numinia Engine's world/save format today) needs no prior `STD-017` approval while the format has no user outside Numen Games, as long as it raises the major number and fixes a test fingerprint; the exemption lapses the day an outside user exists, per Pablo's 2026-10-16 ruling that the clause expires.
 

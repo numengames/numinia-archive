@@ -5,11 +5,11 @@ title: "The header"
 type: standard
 subtype: standard
 status: active
-version: "4.19.2"
+version: "4.20.0"
 created: "2026-08-28T15:10:00Z"
 created_source: "git:4c0a02e"
 created_confidence: exact
-updated: "2026-10-10T11:53:10+02:00"
+updated: "2026-10-20T00:08:27Z"
 approved_by: "ADR-043"
 absorbs: ["STD-016"]
 author: "ursa"
@@ -214,7 +214,7 @@ where the industry's name is the better one.
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `standards/` | `absorbs` |
 | `principles/` | `absorbs` |
-| `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) · `entity` `executor` `forms` (the entity card `AGENT.md`) · `automation_level` (the operator file `OPERATOR.md`: assisted · partial · conditional · high · full) |
+| `agents/` | `role` `platform` `model` `soul` `agent` · `name` `description` (portable `SKILL.md` under `agents/<agent>/skills/`) · `entity` `executor` `forms` (the entity card `AGENT.md`) · `automation_level` (the operator file `OPERATOR.md`: assisted · partial · conditional · high · full) · `person` — optional; who answers for this agent where it is also an organisation member, so it never holds more than that person (`STD-051`) |
 | `debt/` | `severity` `severity_reason` `detected` `refuted` `source_audit` `opened_by` `visibility_reason` |
 | `designs/` `operations/` `legal/` | `extraction_note` `restoration_note` · `designs/` (`blueprints/` until 2026-10-03): `former_id` `former_id_note` |
 | `operations/` | `goods` — an offer's cards on sale, which the site reads its prices from (`STD-033` PAY-003) |
