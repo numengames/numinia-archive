@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-21
+- **Changed** `ursa/OPERATOR.md` 1.2.0, `AGENT.md` 1.1.4: Ursa is operated at `High`, not `Partial` (D-067: 23 scheduled jobs already ran unattended); `approvals.mode` reads `smart` like her adapter; money, personal data, production worlds, remote deletions, others' PRs and security changes still go to the Oracle.
 - **Added** `machine/tools/cut.mjs log` and `site`: the CHANGELOG line goes under the day heading (UTC) and is refused over 320 chars or with an unknown kind; the updates.ts entry opens the next minor once per branch, then joins it. The sentence stays the author's.
 - **Fixed** `machine/tools/cut.mjs gate`: a stale telemetry snapshot is reported as «waits for seal» instead of turning the gate red, since only `seal` (after the content commit) can satisfy it; any other failing check is still red.
 - **Added** `machine/tools/cut.mjs` (`status`, `bump`, `gate`, `seal`): the counting half of a cut in one tool, so a forgotten version bump, changelog line or telemetry commit shows up before the push instead of as a red CI run.
