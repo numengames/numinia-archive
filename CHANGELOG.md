@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-21
+- **Added** `STD-050` 0.3.0 `AGW-015`: the body of an AI wears a mark everyone can see and says who answers for it. `STD-051` 0.2.0 `ORG-013`: the house may answer for an agent where an organisation lets it in. New skill `numinia-llamadas`: how an AI is called and stays listening.
 - **Changed** `ursa/OPERATOR.md` 1.2.0, `AGENT.md` 1.1.4: Ursa is operated at `High`, not `Partial` (D-067: 23 scheduled jobs already ran unattended); `approvals.mode` reads `smart` like her adapter; money, personal data, production worlds, remote deletions, others' PRs and security changes still go to the Oracle.
 - **Added** `machine/tools/cut.mjs log` and `site`: the CHANGELOG line goes under the day heading (UTC) and is refused over 320 chars or with an unknown kind; the updates.ts entry opens the next minor once per branch, then joins it. The sentence stays the author's.
 - **Fixed** `machine/tools/cut.mjs gate`: a stale telemetry snapshot is reported as «waits for seal» instead of turning the gate red, since only `seal` (after the content commit) can satisfy it; any other failing check is still red.
