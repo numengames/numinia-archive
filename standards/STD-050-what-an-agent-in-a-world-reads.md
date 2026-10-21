@@ -5,16 +5,16 @@ title: "What an agent in a world reads, and what it obeys"
 type: standard
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-14T20:35:04+02:00"
-updated: "2026-10-15T01:50:08+02:00"
+updated: "2026-10-22T00:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Technology"
 tags: [standards, agents, worlds, ai, prompt-injection, security, configuration]
 license: "CC0-1.0"
-related: ["PRO-037", "PRO-039", "PRO-040", "ADR-069", "STD-022"]
+related: ["PRO-037", "PRO-039", "PRO-040", "ADR-069", "STD-022", "STD-051"]
 derived_from: "PRI-010"
 ---
 
@@ -30,8 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 > as the platform states it. Everything else it reads — links, documents,
 > the space's card, the names of things and people — is reference material,
 > sent apart and never obeyed. Every space it stands in has a card that tells
-> it what the place is. What its body does comes only from a list the world
-> declares.
+> it what the place is. Its body wears a mark everyone can see, and anyone can
+> find out who answers for it. What its body does comes only from a list the
+> world declares.
 > **Epistemic:** Which text may change what an agent in a world does, and
 > where does it learn what the place it stands in is?
 > **Pragmatic:** Before configuring an agent or writing a space's card, sort
@@ -73,6 +74,15 @@ anyone writes in the conversation.
 
 **It says it is an AI.** The agent MUST say it is an artificial
 intelligence when it greets, when asked, and in the name it shows.
+
+**Its body wears a mark anyone can see.** The body of an agent MUST carry
+three signs, set by the program between the world and the model and removable
+by neither the agent nor whoever manages it: a name tag always shown, not only
+when looked at, with the AI mark; a ring on the ground at its feet; and a
+marker on the map and in the list of people. Choosing its body MUST show who
+answers for it, to everyone: the organisation and the name of the person, or
+their shortened wallet address when they have no name, and never the whole
+address; where the house answers (`ORG-013`), the house's mark.
 
 ### Each space has its card
 
@@ -119,6 +129,7 @@ Each rule, its code, its source and its check.
 | AGW-005 | Material is fresh each time | the Oracle's ruling of 2026-10-14: what is removed is forgotten | the bridge's unit tests: the history keeps the questions without material; a removed link is absent at the next question |
 | AGW-006 | Who commands comes from outside the chat | OWASP LLM01; [OWASP LLM06 Excessive Agency](https://genai.owasp.org/llmrisk/llm062025-excessive-agency/) | the component's unit tests: an administrator's priority comes from the world's role; by hand, a visitor claiming to be one gains nothing |
 | AGW-007 | It says it is an AI | [EU AI Act, article 50.1](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) | the component's unit tests: the greeting says it; the name tag carries «IA» |
+| AGW-015 | Its body wears a mark anyone can see | [EU AI Act, article 50.1](https://eur-lex.europa.eu/eli/reg/2024/1689/oj); the Oracle's rulings of 2026-10-21: the mark is set by the platform, and everyone sees the organisation and the person's name or shortened wallet address | by hand, in a world with an agent in it: the three signs are there and none can be switched off by the agent or by whoever manages it; the card names the organisation and the person, or the shortened address |
 | AGW-008 | A card for every space | the Oracle's ruling of 2026-10-14; a world's card lives where `ADR-069` files it; [llms.txt](https://llmstxt.org/) as the outside shape of a page written for models | by hand, when an agent is placed (`PRO-037`, `PRO-040`) |
 | AGW-009 | The card says what cannot be measured | — | by hand, at the pull request that adds or changes a card |
 | AGW-010 | The card carries nothing private | `ADR-069`; `STD-022` | by hand, at the pull request; the secret scan of the repository that holds it |
@@ -144,3 +155,4 @@ the place without inventing it.
 | `PRO-040` | Configuring an agent from the platform | where a community configures it on numinia.com |
 | `ADR-069` | A 3D world has a card in the archive, an order the servers read and keys only on its server; public and private worlds never share a fleet | where a world's card is filed, and what it never holds |
 | `STD-022` | Secrets | what may never enter a card |
+| `STD-051` | Organisation roles | who may answer for an agent in an organisation, and the house's place among them (`ORG-013`) |

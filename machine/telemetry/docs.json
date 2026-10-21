@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 70797,
+  "chars": 71396,
   "apparatus": false,
   "archived": false,
-  "tokens": 20204
+  "tokens": 20379
  },
  {
   "path": "CLAUDE.md",
@@ -539,6 +539,149 @@
   "tokens": 428
  },
  {
+  "path": "agents/skills/numinia-construir-3d/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 3180,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 950
+ },
+ {
+  "path": "agents/skills/numinia-construir-3d/references/catalogo.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1889,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 627
+ },
+ {
+  "path": "agents/skills/numinia-construir-3d/references/limites-spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1922,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 610
+ },
+ {
+  "path": "agents/skills/numinia-construir-3d/references/limites.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1873,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 534
+ },
+ {
+  "path": "agents/skills/numinia-construir-3d/references/recetas-spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 2782,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1076
+ },
+ {
+  "path": "agents/skills/numinia-construir-3d/references/recetas.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 2627,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 978
+ },
+ {
+  "path": "agents/skills/numinia-construir-3d/references/spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 2945,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 965
+ },
+ {
+  "path": "agents/skills/numinia-estar-en-un-mundo/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 3111,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 846
+ },
+ {
+  "path": "agents/skills/numinia-estar-en-un-mundo/references/oir-spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1422,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 429
+ },
+ {
+  "path": "agents/skills/numinia-estar-en-un-mundo/references/oir.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1372,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 392
+ },
+ {
+  "path": "agents/skills/numinia-estar-en-un-mundo/references/spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 2787,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 861
+ },
+ {
+  "path": "agents/skills/numinia-llamadas/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 3097,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 845
+ },
+ {
+  "path": "agents/skills/numinia-llamadas/references/spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 2909,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 886
+ },
+ {
   "path": "agents/skills/numinia-nwos-pr/SKILL.md",
   "dir": "agents",
   "series": "agents",
@@ -548,6 +691,39 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1248
+ },
+ {
+  "path": "agents/skills/numinia-que-es/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 2635,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 683
+ },
+ {
+  "path": "agents/skills/numinia-que-es/references/lore.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 1413,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 392
+ },
+ {
+  "path": "agents/skills/numinia-que-es/references/spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 2415,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 685
  },
  {
   "path": "agents/skills/tender-screening/SKILL.md",
@@ -4174,10 +4350,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8470,
+  "chars": 9788,
   "apparatus": false,
   "archived": false,
-  "tokens": 2187
+  "tokens": 2516
  },
  {
   "path": "standards/STD-051-organisation-roles.md",
@@ -4185,10 +4361,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 7635,
+  "chars": 8799,
   "apparatus": false,
   "archived": false,
-  "tokens": 1984
+  "tokens": 2279
  },
  {
   "path": "standards/STD-052-organisation-permissions.md",

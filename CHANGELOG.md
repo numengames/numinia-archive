@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-21
+- **Added** `STD-050` 0.3.0 `AGW-015`: the body of an AI wears a mark everyone can see and says who answers for it. `STD-051` 0.2.0 `ORG-013`: the house may answer for an agent where an organisation lets it in. New skill `numinia-llamadas`: how an AI is called and stays listening.
 - **Changed** `ursa/OPERATOR.md` 1.2.0, `AGENT.md` 1.1.4: Ursa is operated at `High`, not `Partial` (D-067: 23 scheduled jobs already ran unattended); `approvals.mode` reads `smart` like her adapter; money, personal data, production worlds, remote deletions, others' PRs and security changes still go to the Oracle.
 - **Added** `machine/tools/cut.mjs log` and `site`: the CHANGELOG line goes under the day heading (UTC) and is refused over 320 chars or with an unknown kind; the updates.ts entry opens the next minor once per branch, then joins it. The sentence stays the author's.
 - **Fixed** `machine/tools/cut.mjs gate`: a stale telemetry snapshot is reported as «waits for seal» instead of turning the gate red, since only `seal` (after the content commit) can satisfy it; any other failing check is still red.
@@ -27,6 +28,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 - **Fixed** `prose-in-code.test.mjs` edited a tracked page of the real tree, so `telemetry.test.mjs` failed at random; it now works on a scratch copy.
 
 ### 2026-10-20
+- **Added** `agents/skills/numinia-que-es`, `-estar-en-un-mundo`, `-construir-3d` (CC0): what an organization's AI reads on the relay. English body, Spanish in `references/`; the catalogue page is rendered from the engine's library by `machine/tools/skill-catalogo.mjs`. `metadata` joins the `agents/` header fields.
 - **Fixed** `PRO-013` 5.1.7: the Pragmatic line said «three moves» over seven steps without showing the grouping; it now names them (steps 1–5 agent, 6 Oracle, 7 agent). Wording only; no step changed.
 - **Fixed** `STD-010` 2.4.7: an explicit sentence now tells «design» (the creative decisions, `CC0-1.0`) apart from «token set» (the machine-readable kit that encodes them as code, `MIT`); `LIC-010` moved from between `LIC-004` and `LIC-005` to its numeric place between `LIC-009` and `LIC-011` in the rule table.
 - **Changed** `STD-010` 2.4.6: `Unlicense` joins the *Freely* tier (public-domain dedication, more permissive than MIT; needed because the `@anthropic-ai/sdk` bump in nwos-deploy pulls in `fast-sha256` under it).

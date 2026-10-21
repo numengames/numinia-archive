@@ -5,16 +5,16 @@ title: "Organisation roles"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.0"
+version: "0.2.0"
 created: "2026-10-14T23:36:00+02:00"
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-22T00:35:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
 section: "Products and services"
 tags: [standards, organisations, roles, permissions, RBAC, multi-tenant, moderation]
 license: "CC0-1.0"
-related: ["ADR-071", "STD-052", "STD-053", "STD-003", "ADR-070", "MIS-179"]
+related: ["ADR-071", "STD-052", "STD-053", "STD-003", "ADR-070", "MIS-179", "STD-050"]
 derived_from: "PRI-004"
 ---
 
@@ -50,8 +50,16 @@ plus what each of their roles allows, and nothing outside their organisation.
 acts reserved to owners, which no role can carry; an organisation always keeps
 at least one owner.
 
-**An agent never goes beyond its person.** A digital agent that is a member
-MUST hold no more than the person who answers for it, and is never an owner.
+**An agent never goes beyond whoever answers for it.** A digital agent that
+is a member MUST hold no more than the person or the house that answers for
+it, and is never an owner.
+
+**The house may answer for an agent.** Where an organisation lets the house
+in (`ORG-007`), the house MAY connect a digital agent there and answer for it.
+That agent MUST show the house's mark in the organisation's panel, the
+connection MUST be written in the organisation's log, its owners MAY remove it
+at any time, and it MUST NOT hold a role that carries `administrator` or
+`manage-roles`.
 
 ### Who may act on whom
 
@@ -102,7 +110,8 @@ Each rule, its code, its source and its check.
 |---|---|---|---|
 | ORG-001 | Roles add up | [NIST role-based access control, the core model](https://csrc.nist.gov/projects/role-based-access-control); `ADR-070`, a team role grants nothing outside its team | by hand: numinia.com's test suite |
 | ORG-002 | Owners are not a role | [Discord, Permissions: the owner holds every permission before any role is read](https://discord.com/developers/docs/topics/permissions); `ADR-070`, the acts only owners sign | by hand: numinia.com's test suite |
-| ORG-011 | An agent never goes beyond its person | `STD-042` | by hand: numinia.com's test suite |
+| ORG-011 | An agent never goes beyond whoever answers for it | `STD-042` | by hand: numinia.com's test suite |
+| ORG-013 | The house may answer for an agent | the Oracle's ruling of 2026-10-20: the house may connect an agent where an organisation lets it in, answers for it, and the owners may remove it; `ORG-007`; `ORG-009` | by hand: numinia.com's test suite: the house's agent shows the house's mark, appears in the log, can be removed by an owner, and is refused a role with `administrator` or `manage-roles` |
 | ORG-003 | Only below your highest role | [NIST SP 800-53 rev. 5, AC-5 separation of duties and AC-6 least privilege](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final); [Discord, permission hierarchy](https://discord.com/developers/docs/topics/permissions#permission-hierarchy) | by hand: numinia.com's test suite |
 | ORG-004 | Nobody changes their own roles | [ISO/IEC 27001:2022, segregation of duties, control A.5.3](https://www.iso.org/standard/27001) (clause unverified) | by hand: numinia.com's test suite |
 | ORG-008 | What is dangerous is signed again | [OWASP ASVS 5.0.0, 8.4.2, administrative interfaces](https://owasp.org/www-project-application-security-verification-standard/) | by hand: numinia.com's test suite |
@@ -120,6 +129,9 @@ among them, whoever may hand out roles can raise themselves to anything;
 without owners above every role, a role could delete a client's world.
 Reading roles on the server at every request makes a role taken away stop at
 once, and the log keeps the house's wide access during the alpha answerable.
+An agent always has someone who answers for it; where an organisation lets
+the house in, the house can be that someone, in plain view and under the
+owners' hand.
 
 ## References
 
@@ -130,3 +142,4 @@ once, and the log keeps the house's wide access during the alpha answerable.
 | `STD-003` | Platform ranks | a rank is not a role: it grants nothing inside an organisation but the house's access |
 | `STD-029` | How we treat each other in the commons | how moderation climbs before a ban |
 | `STD-042` | What an agent may do without asking | how far an agent may go alone |
+| `STD-050` | What an agent in a world reads, and what it obeys | the mark an agent's body wears and who answers for it, shown to everyone (`AGW-015`) |
