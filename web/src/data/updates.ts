@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.169.0",
+    date: "2026-10-21",
+    entries: [
+      { type: "CHG", text: "For agents: /llms.txt is now a short door (4 KB instead of 71 KB) that links one file per series, /llms/<series>.txt; the whole listing in one file moved to /llms-full.txt." },
+    ],
+  },
+  {
     version: "v0.168.0",
     date: "2026-10-20",
     entries: [

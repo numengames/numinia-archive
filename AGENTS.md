@@ -128,6 +128,11 @@ restores them by default.
 
 Run from the repository root; Node ≥ 22.12.
 
+- `npm run setup` — first time in a clone: installs `web/` dependencies, fetches
+  the tokenizer, and says whether the clone is shallow. A shallow clone
+  (`--depth 1`) cannot tell a deleted document from a broken reference, so
+  those two checks stay silent and say so; `git fetch --unshallow` gives the
+  full answer.
 - `npm run checks -- --rules` — every registered check over the corpus
 - `npm test` — the check, script and tool test suites, with coverage
 - `node machine/scripts/telemetry.mjs` — regenerate `machine/telemetry/`

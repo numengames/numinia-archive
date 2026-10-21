@@ -15,11 +15,23 @@
 import test, { after } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync, execSync } from 'node:child_process';
-import { readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { readFileSync, writeFileSync, rmSync, cpSync, mkdtempSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { bindsFor } from '../lib/regime.mjs';
 
-const ROOT = execSync('git rev-parse --show-toplevel').toString().trim();
+const REAL = execSync('git rev-parse --show-toplevel').toString().trim();
+// The test edits files, so it works on a scratch copy of the working tree and
+// never on the real one: other test files read the real tree in parallel, and
+// a page rewritten for a few milliseconds there made `telemetry.test.mjs`
+// ("two runs agree") fail at random. The copy is its own git repository so the
+// guard's `git ls-files` sees it; .git, dependencies and build output stay out.
+const ROOT = mkdtempSync(path.join(os.tmpdir(), 'prose-in-code-'));
+cpSync(REAL, ROOT, {
+  recursive: true,
+  filter: (src) => !/(^|\/)(\.git|node_modules|dist|\.astro)$/.test(src),
+});
+execSync('git init -q && git add -A', { cwd: ROOT });
 const GUARD = path.join(ROOT, 'machine', 'checks', 'rules', 'std-006-plain-text.mjs');
 const SCRATCH = path.join(ROOT, 'web', 'src', 'components', '_ProseFixture.astro');
 // The fixture page moved under pages/system/ on 2026-09-21 with the seven
@@ -33,7 +45,7 @@ const runGuard = (args = []) => {
 const findings = (out) => (out.match(/[·✗] TXT-003 /g) || []).length;
 const measured = (out) => [...out.matchAll(/TXT-003\s+(\d+) characters/g)].reduce((n, m) => n + Number(m[1]), 0);
 
-after(() => rmSync(SCRATCH, { force: true }));
+after(() => rmSync(ROOT, { recursive: true, force: true, maxRetries: 10, retryDelay: 100 }));
 
 const base = runGuard();
 const binding = bindsFor('TXT-003');

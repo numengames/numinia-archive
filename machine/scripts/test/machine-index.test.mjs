@@ -163,23 +163,23 @@ test('llms.txt names the .md convention in its first lines', () => {
   assert.match(head, /numinia\.org/);
 });
 
-test('llms.txt prints each document with its own licence beside it', () => {
+test('llms-full.txt prints each document with its own licence beside it', () => {
   const docs = [
     doc({ url: '/a', license: 'CC0-1.0', title: 'A' }),
     doc({ url: '/b', license: 'LicenseRef-Numen-AllRightsReserved', title: 'B' }),
   ];
-  const txt = ask(`m.llmsTxt({ documents: ${JSON.stringify(docs)}, views: [], version: 'v0.18.0' })`);
+  const txt = ask(`m.llmsFullTxt({ documents: ${JSON.stringify(docs)}, views: [], version: 'v0.18.0' })`);
   assert.match(txt, /CC0-1\.0/);
   assert.match(txt, /LicenseRef-Numen-AllRightsReserved/);
 });
 
-test('llms.txt never claims a licence for a folder', () => {
+test('llms-full.txt never claims a licence for a folder', () => {
   // THE REGRESSION THIS SUITE WAS WRITTEN FOR. Earlier drafts of this work
   // summarised rights as "everything outside lore/ is open" — false, and the
   // kind of false a machine repeats downstream. No sentence may bind a
   // licence to a directory.
   const docs = [doc({ url: '/lore/x', filePath: '../lore/codex/glosario.md', license: undefined })];
-  const txt = ask(`m.llmsTxt({ documents: ${JSON.stringify(docs)}, views: [], version: 'v0.18.0' })`);
+  const txt = ask(`m.llmsFullTxt({ documents: ${JSON.stringify(docs)}, views: [], version: 'v0.18.0' })`);
   const offenders = txt
     .split('\n')
     .filter((l) => /(lore|principles|agents|standards|missions)\/\S*\s/.test(l))
@@ -212,4 +212,42 @@ test('the module touches no collection, so its judgement stays testable', () => 
     !/^\s*import[^;]*["']astro:content["']/m.test(src),
     'machine-index.ts imports astro:content — the pure half must stay loadable outside a build',
   );
+});
+
+// ---------------------------------------------------------------------------
+// The door is short; the series are slices; the full file is everything
+// ---------------------------------------------------------------------------
+
+const many = (n) => Array.from({ length: n }, (_, i) => doc({ url: `/standards/std-${i}`, filePath: `../standards/STD-${i}.md`, title: `Standard number ${i}`, series: i % 2 ? 'standards' : 'principles' }));
+
+test('llms.txt stays a short door however many documents there are', () => {
+  const txt = ask(`m.llmsTxt({ documents: ${JSON.stringify(many(600))}, views: [], version: 'v0.18.0' })`);
+  assert.ok(txt.length < 6000, `the door grew with the corpus: ${txt.length} characters`);
+  assert.doesNotMatch(txt, /Standard number 7\b/, 'the door lists documents; the series files should');
+});
+
+test('llms.txt links one file per series, with its count', () => {
+  const txt = ask(`m.llmsTxt({ documents: ${JSON.stringify(many(10))}, views: [], version: 'v0.18.0' })`);
+  assert.match(txt, /\[standards\]\(https:\/\/numinia\.org\/llms\/standards\.txt\) — 5 documents/);
+  assert.match(txt, /\[principles\]\(https:\/\/numinia\.org\/llms\/principles\.txt\) — 5 documents/);
+  assert.match(txt, /llms-full\.txt/);
+});
+
+test('a series file holds only its own documents, each with its licence', () => {
+  const docs = many(10);
+  const txt = ask(`m.llmsSeriesTxt({ documents: ${JSON.stringify(docs)}, views: [], version: 'v0.18.0' }, 'standards')`);
+  assert.equal((txt.match(/^- \[Standard number/gm) || []).length, 5);
+  assert.match(txt, /CC0-1\.0/);
+});
+
+test('llms-full.txt is the door plus every document', () => {
+  const txt = ask(`m.llmsFullTxt({ documents: ${JSON.stringify(many(10))}, views: [], version: 'v0.18.0' })`);
+  assert.equal((txt.match(/^- \[Standard number/gm) || []).length, 10);
+  assert.match(txt.split('\n').slice(0, 25).join('\n'), /\.md/);
+});
+
+test('every series has a file, and views get one only when there are views', () => {
+  const keys = (views) => JSON.parse(ask(`JSON.stringify(m.llmsSeriesKeys({ documents: ${JSON.stringify(many(4))}, views: ${JSON.stringify(views)} }))`));
+  assert.deepEqual(keys([]), ['principles', 'standards']);
+  assert.deepEqual(keys([{ url: '/map', title: 'Map', sources: ['AGENTS.md'] }]), ['principles', 'standards', 'views']);
 });

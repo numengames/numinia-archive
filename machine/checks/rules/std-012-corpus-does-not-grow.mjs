@@ -87,7 +87,22 @@ const isPlaceholder = (cited) => PLACEHOLDER_RE.test(cited) || /[<>{}]/.test(cit
 
 /** What the tree had: id -> last path that carried it, from deleted .md in
  *  git log. Exported for the test. */
+/** A shallow clone (`git clone --depth 1`, what most agents and CI caches make)
+ *  has no log to read, so "this name was deleted once" cannot be told from
+ *  "this name never existed". Judging anyway reports dozens of false findings
+ *  on a clean tree, so the history-dependent answers become "cannot tell":
+ *  every retired name resolves (run-checks.mjs says so in one line). Exported for the tests,
+ *  which skip when they need the real log. */
+export function isShallow(root) {
+  try {
+    return execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() === 'true';
+  } catch { return false; }   // no repository at all (a test's scratch corpus): nothing to be shallow
+}
+const CANNOT_TELL = { has: () => true, size: 0 };
+const cannotTell = (root) => isShallow(root);   // run-checks.mjs prints the one-line note
+
 export function retiredIds(root) {
+  if (cannotTell(root)) return CANNOT_TELL;
   const retired = new Map();
   // One letter is a prefix too: the old debt, procedure and standard series
   // used one (D-, P-, S-), and their files are in the log.
@@ -117,6 +132,7 @@ function deletedMd(root) {
  *  .md carried it (MEMORY.md, web/DESIGN.md), not only an identified one.
  *  Exported for the test. */
 export function retiredBasenames(root) {
+  if (cannotTell(root)) return CANNOT_TELL;
   return new Set(deletedMd(root).map((p) => path.basename(p)));
 }
 

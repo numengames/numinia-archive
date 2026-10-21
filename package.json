@@ -8,6 +8,7 @@
     "node": ">=22"
   },
   "scripts": {
+    "setup": "node machine/tools/setup.mjs",
     "test": "node --test --experimental-test-coverage --test-coverage-include='machine/scripts/**/*.mjs' --test-coverage-include='machine/checks/**/*.mjs' --test-coverage-include='machine/tools/**/*.mjs' --test-coverage-include='machine/packages/*/*.mjs' --test-coverage-exclude='**/test/**' \"machine/scripts/test/*.test.mjs\" \"machine/checks/test/*.test.mjs\" \"machine/tools/test/*.test.mjs\" \"machine/packages/*/test/*.test.mjs\"",
     "checks": "node machine/scripts/run-checks.mjs"
   }
