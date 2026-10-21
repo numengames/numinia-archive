@@ -202,27 +202,14 @@ function docLine(d: DocEntry): string {
   return `- [${d.title}](${SITE}${mdUrl(d.url)})${bits ? ` — ${bits}` : ""}`;
 }
 
-/**
- * `/llms.txt` — the same facts as prose, for an agent that arrived with no
- * schema and will read exactly one file before deciding whether to stay.
- *
- * Documents are grouped by series because that is how the archive is
- * classified and the grouping costs nothing. It carries NO licence claim of
- * its own: each entry prints the licence of that file, and the heading says
- * only what the folder holds. See the test that fails on any sentence binding
- * a licence to a directory.
- */
-export function llmsTxt(args: Surface & { version?: string }): string {
-  const { documents, views, version } = args;
-  const bySeries = new Map<string, DocEntry[]>();
-  for (const d of documents) {
-    const key = d.series ?? "other";
-    const list = bySeries.get(key) ?? [];
-    list.push(d);
-    bySeries.set(key, list);
-  }
+/** Series key a document is filed under in the llms files. */
+const seriesKey = (d: DocEntry): string => d.series ?? "other";
 
-  const out: string[] = [
+/** The part every llms file opens with: what this is, the .md convention,
+ *  rights, and what `draft` means. Short on purpose — an agent that reads one
+ *  file reads this one. */
+function llmsPreamble(): string[] {
+  return [
     "# numinia.org — the archive of Numen Games",
     "",
     "> Generated at build time from the archive itself. This file is a view, not a record:",
@@ -273,16 +260,26 @@ export function llmsTxt(args: Surface & { version?: string }): string {
     "rather than claimed. A procedure on this site that is `draft` describes a",
     "practice; that page says what is imposed.",
     "",
-    "## Documents",
-    "",
   ];
+}
 
-  for (const [series, docs] of [...bySeries.entries()].sort()) {
-    out.push(`### ${series}`, "");
-    for (const d of docs.sort((a, b) => a.url.localeCompare(b.url))) out.push(docLine(d));
-    out.push("");
-  }
+/** Contact line and site version, the last lines of every llms file. */
+function llmsFoot(version?: string): string[] {
+  const out: string[] = [];
+  out.push(
+    "## Contact",
+    "",
+    "hola@numengames.com — a person answers.",
+    "",
+  );
+  if (version) out.push(`Site ${version}.`, "");
 
+  return out;
+}
+
+/** The composed-views section, shared by the full file and the views file. */
+function viewsBlock(views: ViewEntry[]): string[] {
+  const out: string[] = [];
   if (views.length) {
     out.push(
       "## Composed views",
@@ -297,14 +294,82 @@ export function llmsTxt(args: Surface & { version?: string }): string {
     }
     out.push("");
   }
+  return out;
+}
 
-  out.push(
-    "## Contact",
-    "",
-    "hola@numengames.com — a person answers.",
-    "",
-  );
-  if (version) out.push(`Site ${version}.`, "");
+/**
+ * `/llms.txt` — the door: what the archive is, how to read it with no HTML,
+ * rights, what `draft` means, and one line per series pointing at a file that
+ * holds only that series. An agent loads this (a few KB), then fetches the one
+ * series it needs, instead of paying for every document on arrival. The whole
+ * listing in one file is `/llms-full.txt`.
+ *
+ * It carries NO licence claim of its own: each document entry, in the series
+ * files, prints the licence of that file. See the test that fails on any
+ * sentence binding a licence to a directory.
+ */
+export function llmsTxt(args: Surface & { version?: string }): string {
+  const { documents, views, version } = args;
+  const counts = new Map<string, number>();
+  for (const d of documents) counts.set(seriesKey(d), (counts.get(seriesKey(d)) ?? 0) + 1);
 
+  const out: string[] = [
+    ...llmsPreamble(),
+    "## Documents",
+    "",
+    "Split by series, so you load only what you need. Each file lists its documents,",
+    "one line each: title, address, identifier, state and the licence of that file.",
+    "",
+  ];
+  for (const [series, n] of [...counts.entries()].sort()) {
+    out.push(`- [${series}](${SITE}${llmsSeriesPath(series)}) — ${n} document${n === 1 ? "" : "s"}`);
+  }
+  if (views.length) out.push(`- [views](${SITE}${llmsSeriesPath("views")}) — ${views.length} composed page${views.length === 1 ? "" : "s"}, built from the documents`);
+  out.push("", `Everything in one file (large): ${SITE}/llms-full.txt`, "");
+  out.push(...llmsFoot(version));
+  return out.join("\n");
+}
+
+/** Address of one series' llms file. */
+export const llmsSeriesPath = (series: string): string => `/llms/${encodeURIComponent(series)}.txt`;
+
+/** The series keys that have a file: one per series, plus `views` when there are any. */
+export function llmsSeriesKeys(args: Surface): string[] {
+  const keys = new Set(args.documents.map(seriesKey));
+  if (args.views.length) keys.add("views");
+  return [...keys].sort();
+}
+
+/** `/llms/<series>.txt` — one series, same line shape as the full file. */
+export function llmsSeriesTxt(args: Surface & { version?: string }, series: string): string {
+  const { documents, views, version } = args;
+  const out: string[] = [`# numinia.org — ${series}`, "", `> One series of the archive. Door and rules: ${SITE}/llms.txt. Each entry prints the licence of that single file.`, ""];
+  if (series === "views") out.push(...viewsBlock(views));
+  else {
+    const docs = documents.filter((d) => seriesKey(d) === series).sort((a, b) => a.url.localeCompare(b.url));
+    for (const d of docs) out.push(docLine(d));
+    out.push("");
+  }
+  out.push(...llmsFoot(version));
+  return out.join("\n");
+}
+
+/** `/llms-full.txt` — the door plus every document, in one file. Large: use it when you want everything at once. */
+export function llmsFullTxt(args: Surface & { version?: string }): string {
+  const { documents, views, version } = args;
+  const bySeries = new Map<string, DocEntry[]>();
+  for (const d of documents) {
+    const list = bySeries.get(seriesKey(d)) ?? [];
+    list.push(d);
+    bySeries.set(seriesKey(d), list);
+  }
+  const out: string[] = [...llmsPreamble(), "## Documents", ""];
+  for (const [series, docs] of [...bySeries.entries()].sort()) {
+    out.push(`### ${series}`, "");
+    for (const d of docs.sort((a, b) => a.url.localeCompare(b.url))) out.push(docLine(d));
+    out.push("");
+  }
+  out.push(...viewsBlock(views));
+  out.push(...llmsFoot(version));
   return out.join("\n");
 }

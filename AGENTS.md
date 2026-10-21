@@ -128,6 +128,23 @@ restores them by default.
 
 Run from the repository root; Node ≥ 22.12.
 
+- `npm run setup` — first time in a clone: installs `web/` dependencies, fetches
+  the tokenizer, and says whether the clone is shallow. A shallow clone
+  (`--depth 1`) cannot tell a deleted document from a broken reference, so
+  those two checks stay silent and say so; `git fetch --unshallow` gives the
+  full answer.
+- `node machine/tools/cut.mjs status | bump | gate | seal` — the counting half of a
+  cut. `status` lists what the change still needs (a header whose text moved and
+  version did not, a missing CHANGELOG line, a stale snapshot) and changes
+  nothing; `bump` moves `version` and `updated` on those documents; `gate`
+  builds when `web/` changed, then runs checks and tests and prints one line per
+  step plus the names of what failed; `seal` refreshes the telemetry snapshot
+  and commits it on its own, after the content commit.
+- `node machine/tools/cut.mjs log <Kind> "<sentence>"` puts the CHANGELOG line
+  under today's heading (UTC) and refuses a kind or a length that
+  `changelog-shape` would fail; `cut.mjs site <ADD|CHG|FIX|DEL> "<sentence>"`
+  adds the `web/src/data/updates.ts` entry, opening the next minor version the
+  first time on a branch. The sentences and the commit message stay yours.
 - `npm run checks -- --rules` — every registered check over the corpus
 - `npm test` — the check, script and tool test suites, with coverage
 - `node machine/scripts/telemetry.mjs` — regenerate `machine/telemetry/`

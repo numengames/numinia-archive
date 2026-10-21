@@ -25,7 +25,13 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
 import { buildIndex } from '../../tools/rule-index.mjs';
-import rehypeBindsState, { DRAFT_LABEL } from '../../../web/src/lib/rehype-binds-state.mjs';
+// The plugin imports `unist-util-visit` from web/node_modules. Without
+// `cd web && npm ci` that import throws and took the whole file down, rule
+// index tests included; now only the two plugin tests skip, and say why.
+const plugin = await import('../../../web/src/lib/rehype-binds-state.mjs').catch(() => null);
+const rehypeBindsState = plugin?.default;
+const DRAFT_LABEL = plugin?.DRAFT_LABEL;
+const NEEDS_WEB = plugin ? false : 'needs the web dependencies: cd web && npm ci';
 
 const el = (tagName, children = []) => ({ type: 'element', tagName, properties: {}, children });
 const txt = (value) => ({ type: 'text', value });
@@ -55,12 +61,12 @@ test('the footnote says how many of the rules are in force', () => {
   assert.match(block, new RegExp(`${active} (is|are) in force`), 'the footnote does not count the rules in force');
 });
 
-test('on a draft, the Binds label says it is on trial', () => {
+test('on a draft, the Binds label says it is on trial', { skip: NEEDS_WEB }, () => {
   assert.equal(label(run('draft', el('root', [bindsPara()]))), DRAFT_LABEL);
   assert.match(DRAFT_LABEL, /on trial/i);
 });
 
-test('on an active rule, and on anything that is not a Binds line, nothing changes', () => {
+test('on an active rule, and on anything that is not a Binds line, nothing changes', { skip: NEEDS_WEB }, () => {
   assert.equal(label(run('active', el('root', [bindsPara()]))), 'Binds:');
   const other = el('root', [el('p', [el('strong', [txt('Summary:')]), txt(' x')])]);
   assert.equal(label(run('draft', other)), 'Summary:');
