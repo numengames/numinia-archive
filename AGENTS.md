@@ -133,6 +133,14 @@ Run from the repository root; Node ≥ 22.12.
   (`--depth 1`) cannot tell a deleted document from a broken reference, so
   those two checks stay silent and say so; `git fetch --unshallow` gives the
   full answer.
+- `node machine/tools/cut.mjs status | bump | gate | seal` — the counting half of a
+  cut. `status` lists what the change still needs (a header whose text moved and
+  version did not, a missing CHANGELOG line, a stale snapshot) and changes
+  nothing; `bump` moves `version` and `updated` on those documents; `gate`
+  builds when `web/` changed, then runs checks and tests and prints one line per
+  step plus the names of what failed; `seal` refreshes the telemetry snapshot
+  and commits it on its own, after the content commit. The CHANGELOG sentence
+  and the commit message stay yours.
 - `npm run checks -- --rules` — every registered check over the corpus
 - `npm test` — the check, script and tool test suites, with coverage
 - `node machine/scripts/telemetry.mjs` — regenerate `machine/telemetry/`
