@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 70481,
+  "chars": 70797,
   "apparatus": false,
   "archived": false,
-  "tokens": 20110
+  "tokens": 20204
  },
  {
   "path": "CLAUDE.md",
@@ -610,10 +610,10 @@
   "series": "agents",
   "type": "entity",
   "status": "draft",
-  "chars": 3533,
+  "chars": 3594,
   "apparatus": false,
   "archived": false,
-  "tokens": 936
+  "tokens": 953
  },
  {
   "path": "agents/ursa/OPERATOR.md",
@@ -621,10 +621,10 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1735,
+  "chars": 2260,
   "apparatus": false,
   "archived": false,
-  "tokens": 455
+  "tokens": 575
  },
  {
   "path": "agents/ursa/SOUL.md",
