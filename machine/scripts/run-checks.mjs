@@ -64,6 +64,13 @@ if (LIST) {
   process.exit(0);
 }
 
+// A shallow clone has no log, so the checks that ask "did this name ever
+// exist?" (DEF-009, HDR-016) cannot tell deleted from broken and stay silent.
+// Say it once, here, rather than let a green run look complete.
+if (spawnSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: ROOT, encoding: 'utf8' }).stdout?.trim() === 'true') {
+  console.log('note: shallow clone — references to deleted documents are not judged. `git fetch --unshallow` for the full answer.\n');
+}
+
 let failed = 0;
 for (const g of selected) {
   if (!existsSync(g.script)) { console.log(`?? ${g.name} — registered, no script at ${path.relative(ROOT, g.script)}`); failed += 1; continue; }

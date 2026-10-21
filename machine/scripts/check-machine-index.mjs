@@ -24,7 +24,7 @@
 //   MCH-003  every document row carries a licence — null means the resolver
 //            gave up, which on a rights question is not an acceptable answer
 //   MCH-004  the index is not vacuous (it would pass trivially if empty)
-//   MCH-005  llms.txt exists and names the .md convention
+//   MCH-005  llms.txt exists, names the .md convention, and every slice it links was built
 //
 // A BUILD GUARD, not a rule guard: it verifies an artefact against itself, so
 // it bites whatever state any standard is in (ENG-067 exception).
@@ -110,6 +110,12 @@ export function run() {
     const txt = readFileSync(llmsFile, 'utf8');
     if (!/\.md/.test(txt.split('\n').slice(0, 30).join('\n'))) {
       findings.push({ plate: 'MCH-005', what: 'llms.txt does not name the .md convention in its opening lines — the one fact it exists to state', where: 'web/dist/llms.txt' });
+    }
+    // The door is short and points at slices: every file it points at must exist.
+    for (const m of txt.matchAll(/\]\(https:\/\/numinia\.org(\/llms[^)\s]*\.txt)\)/g)) {
+      if (!existsSync(path.join(DIST, decodeURIComponent(m[1]).slice(1)))) {
+        findings.push({ plate: 'MCH-005', what: `llms.txt links ${m[1]}, which the build did not write`, where: 'web/dist/llms.txt' });
+      }
     }
   }
 

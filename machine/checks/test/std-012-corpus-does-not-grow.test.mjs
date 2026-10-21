@@ -17,7 +17,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { ROOT } from '../../scripts/lib/frontmatter.mjs';
-import { retiredIds, retiredBasenames, run } from '../rules/std-012-corpus-does-not-grow.mjs';
+import { retiredIds, retiredBasenames, isShallow, run } from '../rules/std-012-corpus-does-not-grow.mjs';
 
 const scratch = (files) => ({
   root: ROOT,
@@ -27,11 +27,11 @@ const scratch = (files) => ({
 });
 const def9 = (files) => run(scratch(files)).filter((f) => f.plate === 'DEF-009').map((f) => `${f.where}: ${f.what}`);
 
-test('a renamed one-letter identifier still resolves (P-010 became PRO-010)', () => {
+test('a renamed one-letter identifier still resolves (P-010 became PRO-010)', { skip: isShallow(ROOT) && 'needs the full history: git fetch --unshallow' }, () => {
   assert.ok(retiredIds(ROOT).has('P-010'), 'P-010 is not known as retired');
 });
 
-test('a deleted file with no identifier still resolves by name (MEMORY.md)', () => {
+test('a deleted file with no identifier still resolves by name (MEMORY.md)', { skip: isShallow(ROOT) && 'needs the full history: git fetch --unshallow' }, () => {
   assert.ok(retiredBasenames(ROOT).has('MEMORY.md'), 'MEMORY.md is not known as retired');
 });
 
@@ -43,6 +43,6 @@ test('CHANGELOG.md is a photograph: its entries are not walked', () => {
   assert.deepEqual(def9({ 'CHANGELOG.md': 'Removed nowhere-at-all.md and ZZZ-999.' }), []);
 });
 
-test('a living document citing a file that never existed is still a finding', () => {
+test('a living document citing a file that never existed is still a finding', { skip: isShallow(ROOT) && 'needs the full history: git fetch --unshallow' }, () => {
   assert.equal(def9({ 'system/SYS-900-x.md': 'See nowhere-at-all.md.' }).length, 1);
 });

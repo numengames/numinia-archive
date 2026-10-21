@@ -104,8 +104,11 @@ test('/binding says the system is in alpha and that trying a rule means followin
   }
 });
 
-test("a draft's Binds line reads as a trial, not as a future", async () => {
-  const { DRAFT_LABEL } = await import('../../../web/src/lib/rehype-binds-state.mjs');
+test("a draft's Binds line reads as a trial, not as a future", async (t) => {
+  // The plugin needs web/node_modules (`cd web && npm ci`); without it, skip and say so.
+  const plugin = await import('../../../web/src/lib/rehype-binds-state.mjs').catch(() => null);
+  if (!plugin) return t.skip('needs the web dependencies: cd web && npm ci');
+  const { DRAFT_LABEL } = plugin;
   assert.match(DRAFT_LABEL, /on trial/i);
   assert.doesNotMatch(DRAFT_LABEL, /once in force/i);
 });

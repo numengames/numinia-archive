@@ -24,8 +24,9 @@ files on every push to `main`, so nothing on numinia.org lives anywhere else.
 2. **Changing something, person or agent:** [`AGENTS.md`](AGENTS.md). It
    covers what still holds, the commands to run and a map of the folders. Then
    [`CONTRIBUTING.md`](CONTRIBUTING.md) explains how a change is proposed.
-3. **Reading, agent:** [numinia.org/llms.txt](https://numinia.org/llms.txt).
-   You can add `.md` to any page address to get the file behind it, and
+3. **Reading, agent:** [numinia.org/llms.txt](https://numinia.org/llms.txt), a
+   4 KB door with one file per series (`/llms/<series>.txt`); everything in one
+   file is `/llms-full.txt`. You can add `.md` to any page address to get the file behind it, and
    [index.json](https://numinia.org/index.json) lists every address. You never
    need to read the HTML.
 4. **Reading, person:** [numinia.org](https://numinia.org). The home page is a
@@ -38,6 +39,7 @@ files on every push to `main`, so nothing on numinia.org lives anywhere else.
 You need Node.js 22 or newer. From a clone of this repository:
 
 ```sh
+npm run setup                             # first time only: web dependencies, tokenizer, history hint
 npm test                                  # the test suites for the tooling
 npm run checks                            # the archive checks in machine/checks/
 cd web && npm ci && npm run dev           # the site, with live reload

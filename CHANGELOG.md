@@ -17,6 +17,11 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-21
+- **Changed** `/llms.txt` (site v0.169.0): a 4 KB door that links one file per series (`/llms/<series>.txt`); the full listing moves to `/llms-full.txt`; the build check refuses a link that leads nowhere.
+- **Added** `npm run setup`: web dependencies, tokenizer and a shallow-clone note in one command. In a `--depth 1` clone the history-reading checks stay silent and say so, and the tests that need web dependencies or history skip with their reason instead of failing.
+- **Fixed** `prose-in-code.test.mjs` edited a tracked page of the real tree, so `telemetry.test.mjs` failed at random; it now works on a scratch copy.
+
 ### 2026-10-20
 - **Fixed** `PRO-013` 5.1.7: the Pragmatic line said «three moves» over seven steps without showing the grouping; it now names them (steps 1–5 agent, 6 Oracle, 7 agent). Wording only; no step changed.
 - **Fixed** `STD-010` 2.4.7: an explicit sentence now tells «design» (the creative decisions, `CC0-1.0`) apart from «token set» (the machine-readable kit that encodes them as code, `MIT`); `LIC-010` moved from between `LIC-004` and `LIC-005` to its numeric place between `LIC-009` and `LIC-011` in the rule table.
