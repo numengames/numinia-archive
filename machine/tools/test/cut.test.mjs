@@ -89,3 +89,16 @@ test('a clean tree has nothing missing, and a new file is not bumped', () => {
     assert.equal(s.status, 0, s.stdout);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
+
+test('gate does not call red a check that only seal can satisfy', () => {
+  const dir = scratch();
+  try {
+    writeFileSync(path.join(dir, 'machine/scripts/run-checks.mjs'), "console.log('FAIL telemetry'); process.exit(1);\n");
+    writeFileSync(path.join(dir, 'package.json'), '{"scripts":{"test":"node -e 0"}}');
+    const g = cut(dir, 'gate');
+    assert.match(g.stdout, /wait checks .*telemetry waits for seal/);
+    assert.equal(g.status, 0, g.stdout);
+    writeFileSync(path.join(dir, 'machine/scripts/run-checks.mjs'), "console.log('FAIL std-004'); process.exit(1);\n");
+    assert.equal(cut(dir, 'gate').status, 1, 'any other failing check is still red');
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});

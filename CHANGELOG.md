@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-21
+- **Fixed** `machine/tools/cut.mjs gate`: a stale telemetry snapshot is reported as «waits for seal» instead of turning the gate red, since only `seal` (after the content commit) can satisfy it; any other failing check is still red.
 - **Added** `machine/tools/cut.mjs` (`status`, `bump`, `gate`, `seal`): the counting half of a cut in one tool, so a forgotten version bump, changelog line or telemetry commit shows up before the push instead of as a red CI run.
 - **Changed** `/llms.txt` (site v0.169.0): a 4 KB door that links one file per series (`/llms/<series>.txt`); the full listing moves to `/llms-full.txt`; the build check refuses a link that leads nowhere.
 - **Added** `npm run setup`: web dependencies, tokenizer and a shallow-clone note in one command. In a `--depth 1` clone the history-reading checks stay silent and say so, and the tests that need web dependencies or history skip with their reason instead of failing.

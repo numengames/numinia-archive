@@ -123,15 +123,17 @@ function bump() {
   return 0;
 }
 
-function step(label, cmd, args, cwd = ROOT) {
+function step(label, cmd, args, cwd = ROOT, { pending } = {}) {
   const t0 = Date.now();
   const r = spawnSync(cmd, args, { cwd, encoding: 'utf8', maxBuffer: 1 << 28 });
   const out = (r.stdout || '') + (r.stderr || '');
   const secs = ((Date.now() - t0) / 1000).toFixed(0);
-  const ok = r.status === 0;
-  console.log(`${ok ? 'ok  ' : 'FAIL'} ${label} (${secs}s)`);
+  const names = [...new Set(out.split('\n').filter((l) => /^(FAIL|✖|\?\?) /.test(l)).map((l) => l.replace(/ \(\d+(\.\d+)?ms\)$/, '')))];
+  // A check that only `seal` can satisfy (the snapshot embeds the head) is pending, not red.
+  const waiting = r.status !== 0 && pending && names.length > 0 && names.every((l) => l === `FAIL ${pending}`);
+  const ok = r.status === 0 || waiting;
+  console.log(`${waiting ? 'wait' : ok ? 'ok  ' : 'FAIL'} ${label} (${secs}s)${waiting ? ` — ${pending} waits for seal` : ''}`);
   if (!ok) {
-    const names = [...new Set(out.split('\n').filter((l) => /^(FAIL|✖|\?\?) /.test(l)).map((l) => l.replace(/ \(\d+(\.\d+)?ms\)$/, '')))];
     for (const l of (names.length ? names : out.split('\n').slice(-12)).slice(0, 25)) console.log(`     ${l}`);
   }
   return ok;
@@ -146,7 +148,7 @@ function gate() {
     ok = step('web build', 'npm', ['run', 'build'], path.join(ROOT, 'web')) && ok;
   }
   if (!existsSync(path.join(ROOT, TOKENIZER))) console.log('note no tokenizer: `npm run setup` before `seal`');
-  ok = step('checks', 'node', ['machine/scripts/run-checks.mjs', '--quiet']) && ok;
+  ok = step('checks', 'node', ['machine/scripts/run-checks.mjs', '--quiet'], ROOT, { pending: 'telemetry' }) && ok;
   ok = step('tests', 'npm', ['test']) && ok;
   console.log(ok ? '\ngate green (telemetry reads the HEAD: commit the content, then `cut.mjs seal`)' : '\ngate RED');
   return ok ? 0 : 1;
