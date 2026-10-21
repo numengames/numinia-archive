@@ -4,7 +4,7 @@ uid: ""
 title: "Handing a check to CI"
 type: procedure
 status: draft
-version: "5.1.6"
+version: "5.1.7"
 created: "2026-08-28T15:30:00Z"
 created_source: "git:3d01bc2"
 created_confidence: exact
@@ -34,7 +34,9 @@ SPDX-License-Identifier: CC0-1.0
 > workflow already calls picks it up. The agent still cannot edit the
 > workflow file.
 > **Epistemic:** How does a check an agent wrote come to run in CI?
-> **Pragmatic:** Three moves, two of them the agent's, one the Oracle's.
+> **Pragmatic:** Seven steps in three moves: the agent writes and places the
+> check (steps 1–5), the Oracle reviews and merges it (step 6), the agent
+> reports the run on `main` (step 7).
 > **Audience:** Agents · Oracle
 
 **Binds:** any agent that writes a check script, and the Oracle who wires it.
