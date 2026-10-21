@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 68599,
+  "chars": 69114,
   "apparatus": false,
   "archived": false,
-  "tokens": 19589
+  "tokens": 19755
  },
  {
   "path": "CLAUDE.md",
@@ -3129,10 +3129,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 3648,
+  "chars": 3764,
   "apparatus": false,
   "archived": false,
-  "tokens": 1015
+  "tokens": 1049
  },
  {
   "path": "procedures/PRO-014-producing-a-design-piece.md",
@@ -3800,10 +3800,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 12261,
+  "chars": 12720,
   "apparatus": false,
   "archived": false,
-  "tokens": 3346
+  "tokens": 3459
  },
  {
   "path": "standards/STD-012-corpus-does-not-grow.md",
