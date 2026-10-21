@@ -5,9 +5,9 @@ title: "Licensing"
 type: standard
 subtype: standard
 status: active
-version: "2.4.6"
+version: "2.4.7"
 created: "2026-09-07T10:30:00+02:00"
-updated: "2026-10-20T12:00:00+02:00"
+updated: "2026-10-21T12:09:39+02:00"
 author: "ursa"
 owner: "oracle"
 section: "Legal and compliance"
