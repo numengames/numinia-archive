@@ -139,8 +139,12 @@ Run from the repository root; Node ≥ 22.12.
   nothing; `bump` moves `version` and `updated` on those documents; `gate`
   builds when `web/` changed, then runs checks and tests and prints one line per
   step plus the names of what failed; `seal` refreshes the telemetry snapshot
-  and commits it on its own, after the content commit. The CHANGELOG sentence
-  and the commit message stay yours.
+  and commits it on its own, after the content commit.
+- `node machine/tools/cut.mjs log <Kind> "<sentence>"` puts the CHANGELOG line
+  under today's heading (UTC) and refuses a kind or a length that
+  `changelog-shape` would fail; `cut.mjs site <ADD|CHG|FIX|DEL> "<sentence>"`
+  adds the `web/src/data/updates.ts` entry, opening the next minor version the
+  first time on a branch. The sentences and the commit message stay yours.
 - `npm run checks -- --rules` — every registered check over the corpus
 - `npm test` — the check, script and tool test suites, with coverage
 - `node machine/scripts/telemetry.mjs` — regenerate `machine/telemetry/`

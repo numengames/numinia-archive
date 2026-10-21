@@ -12,7 +12,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync } f
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { ROOT } from '../../scripts/lib/frontmatter.mjs';
-import { bumpPatch, isoLocal, headerOf, needsBump, applyBump } from '../cut.mjs';
+import { bumpPatch, isoLocal, headerOf, needsBump, applyBump, addChangelogLine, nextMinor, addSiteEntry, dayUtc } from '../cut.mjs';
 
 const DOC = (version, body = 'Body.') => `---\nid: STD-900\ntitle: "A standard"\nversion: "${version}"\nupdated: "2026-01-01T10:00:00+01:00"\n---\n# A standard\n\n${body}\n`;
 
@@ -43,6 +43,39 @@ test('applyBump moves version and updated and leaves every other byte alone', ()
   assert.equal(after.replace(/^---[\s\S]*?\n---/, ''), before.replace(/^---[\s\S]*?\n---/, ''));
   assert.equal(after.match(/^id: STD-900$/m)?.[0], 'id: STD-900');
   assert.equal(applyBump(DOC('v2'), new Date()), null);
+});
+
+const LOG = '# Changelog\n\n## [Unreleased]\n\n### 2026-10-20\n- **Fixed** old.\n';
+
+test('log puts the line on top of today, or opens today above the last day', () => {
+  const same = addChangelogLine(LOG, 'Added', 'new thing.', '2026-10-20');
+  assert.match(same, /### 2026-10-20\n- \*\*Added\*\* new thing\.\n- \*\*Fixed\*\* old\.\n/);
+  const next = addChangelogLine(LOG, 'Changed', 'moved.', '2026-10-21');
+  assert.match(next, /## \[Unreleased\]\n\n### 2026-10-21\n- \*\*Changed\*\* moved\.\n\n### 2026-10-20\n- \*\*Fixed\*\* old\.\n/);
+});
+
+test('log refuses what changelog-shape would fail', () => {
+  assert.throws(() => addChangelogLine(LOG, 'Tweaked', 'x', '2026-10-21'), /kind must be/);
+  assert.throws(() => addChangelogLine(LOG, 'Fixed', 'a'.repeat(320), '2026-10-21'), /cap is 320/);
+  assert.throws(() => addChangelogLine(LOG, 'Fixed', 'two\nlines', '2026-10-21'), /one non-empty line/);
+  assert.throws(() => addChangelogLine('# no section\n', 'Fixed', 'x', '2026-10-21'), /Unreleased/);
+});
+
+const UPD = 'export const UPDATES: readonly UpdateVersion[] = [\n  {\n    version: "v0.169.0",\n    date: "2026-10-21",\n    entries: [\n      { type: "CHG", text: "Old." },\n    ],\n  },\n];\n';
+
+test('site opens the next minor once, then adds to it', () => {
+  assert.equal(nextMinor('v0.169.0'), 'v0.170.0');
+  assert.equal(nextMinor('0.169'), null);
+  const opened = addSiteEntry(UPD, 'FIX', 'The "bar" stays.', '2026-10-22', false);
+  assert.match(opened, /version: "v0\.170\.0",\n {4}date: "2026-10-22",\n {4}entries: \[\n {6}\{ type: "FIX", text: "The \\"bar\\" stays\." \},\n {4}\],\n {2}\},\n {2}\{\n {4}version: "v0\.169\.0"/);
+  const added = addSiteEntry(opened, 'ADD', 'More.', '2026-10-22', true);
+  assert.equal(added.match(/version: /g).length, 2, 'no third version');
+  assert.match(added, /entries: \[\n {6}\{ type: "ADD", text: "More\." \},\n {6}\{ type: "FIX"/);
+  assert.throws(() => addSiteEntry(UPD, 'NEW', 'x', '2026-10-22', false), /type must be/);
+});
+
+test('dayUtc is the UTC date', () => {
+  assert.equal(dayUtc(new Date('2026-10-21T23:30:00-02:00')), '2026-10-22');
 });
 
 /* The command line, in a scratch repository whose origin/main is its first commit. */
@@ -87,6 +120,26 @@ test('a clean tree has nothing missing, and a new file is not bumped', () => {
     const s = cut(dir, 'status');
     assert.doesNotMatch(s.stdout, /bump: /);
     assert.equal(s.status, 0, s.stdout);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('log and site write the files; site opens one version per branch, not one per call', () => {
+  const dir = scratch();
+  try {
+    mkdirSync(path.join(dir, 'web/src/data'), { recursive: true });
+    writeFileSync(path.join(dir, 'web/src/data/updates.ts'), UPD);
+    writeFileSync(path.join(dir, 'CHANGELOG.md'), LOG);
+    const g = (...a) => execFileSync('git', ['-c', 'user.email=t@t', '-c', 'user.name=t', ...a], { cwd: dir });
+    g('add', '-A'); g('commit', '-qm', 'site'); g('update-ref', 'refs/remotes/origin/main', 'HEAD');
+    assert.equal(cut(dir, 'site', 'FIX', 'One.').status, 0);
+    assert.match(cut(dir, 'site', 'ADD', 'Two.').stdout, /added to v0\.170\.0/);
+    const upd = readFileSync(path.join(dir, 'web/src/data/updates.ts'), 'utf8');
+    assert.equal(upd.match(/version: /g).length, 2);
+    assert.equal(cut(dir, 'log', 'Fixed', 'the bar.').status, 0);
+    assert.match(readFileSync(path.join(dir, 'CHANGELOG.md'), 'utf8'), /- \*\*Fixed\*\* the bar\./);
+    const bad = cut(dir, 'log', 'Fixed', 'x'.repeat(400));
+    assert.equal(bad.status, 1);
+    assert.match(bad.stdout, /not written: .*cap is 320/);
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
