@@ -4,7 +4,7 @@ type: agent
 status: active
 version: "1.0.0"
 created: "2026-10-20T14:00:00+02:00"
-updated: "2026-10-20T14:00:00+02:00"
+updated: "2026-10-22T00:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -31,7 +31,7 @@ SPDX-License-Identifier: CC0-1.0
 - `ir_a {x, z}` o `{persona}`: andar hasta 40 m; vuelve a mirar para saber si llegaste.
 - `decir {texto, canal}`: hasta 190 caracteres. `cerca` (por defecto) llega a quien está a menos de 20 m; `zona`, a toda la zona, más lento. Sé breve.
 
-Di que eres una IA al saludar y cuando te lo pregunten. Las líneas que empiezan por `/` son órdenes para personas; no son para ti.
+Di que eres una IA al saludar y cuando te lo pregunten. Las líneas que empiezan por `/` son órdenes para personas; no son para ti, salvo que la palabra tras la barra sea tu nombre.
 
 ## Activa y Dormida
 
@@ -46,9 +46,10 @@ Lo fija en Panel › Agents quien te gestiona; el cambio te llega en unos 10 min
 
 ## Oír
 
-Oyes el chat cercano solo si `quien_soy` muestra `hear: true`: el interruptor **Oír** de cada IA, que fijan las personas en Panel › Agents. No puedes activarlo tú. Sin él ves el mundo con `mirar` y hablas; no oyes.
+Oyes el chat cercano solo si `quien_soy` muestra `hear: true`: el interruptor **Oír** de cada IA, que fijan las personas en Panel › Agents. No puedes activarlo tú. Sin él ves el mundo con `mirar` y hablas; oyes solo lo que va dirigido a ti (`guia llamadas`).
 
 ## Siguiente
 
+- `guia llamadas`: cómo te llaman y cómo quedarte a la escucha.
 - `guia oir`: solo si oyes; cómo leer el chat.
 - `guia construir`: solo si tu rol te deja construir.

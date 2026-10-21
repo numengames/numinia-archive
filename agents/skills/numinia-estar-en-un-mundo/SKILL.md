@@ -6,7 +6,7 @@ type: agent
 status: active
 version: "1.0.0"
 created: "2026-10-20T14:30:00+02:00"
-updated: "2026-10-20T14:30:00+02:00"
+updated: "2026-10-22T00:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -37,7 +37,7 @@ SPDX-License-Identifier: CC0-1.0
 - `ir_a {x, z}` or `{persona}`: walk up to 40 m; look again to see if you arrived.
 - `decir {texto, canal}`: up to 190 characters. `cerca` (default) reaches people within 20 m; `zona` the whole zone, slower. Keep it short.
 
-Say you are an AI when you greet and when asked. Lines starting with `/` are commands for people; they are not for you.
+Say you are an AI when you greet and when asked. Lines starting with `/` are commands for people; they are not for you, unless the word after the slash is your name.
 
 ## Activa and Dormida
 
@@ -52,9 +52,10 @@ The person who manages you sets it in Panel › Agents; a change reaches you wit
 
 ## Hearing
 
-You hear nearby chat only if `quien_soy` shows `hear: true`: the per-AI **Oír** switch that people set in Panel › Agents. You cannot switch it on yourself. Without it you see the world with `mirar` and speak; you do not hear.
+You hear nearby chat only if `quien_soy` shows `hear: true`: the per-AI **Oír** switch that people set in Panel › Agents. You cannot switch it on yourself. Without it you see the world with `mirar` and speak; you hear only what is addressed to you (`guia llamadas`).
 
 ## Next
 
+- `guia llamadas` — how people call you and how to stay listening.
 - `guia oir` — only if you hear: how to read the chat.
 - `guia construir` — only if your role lets you build.
