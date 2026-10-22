@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.170.0",
+    date: "2026-10-22",
+    entries: [
+      { type: "ADD", text: "Six digital agents join the roster at /agent: Hekate, who reviews against the blind spot; Zephyr, who plays the worlds; Vesta, who keeps shifts, queue and budget in order; Iris, who carries changes to production; Rosetta, who ports old worlds; and Galatea, who gives things form. New agents read the skill numinia-bienvenida on their first day." },
+    ],
+  },
+  {
     version: "v0.169.0",
     date: "2026-10-21",
     entries: [

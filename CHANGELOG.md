@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-22
+- **Added** Six agents join Ursa's team: Hekate (adversarial review), Zephyr (world playtests), Vesta (operations), Iris (deploys), Rosetta (legacy ports), Galatea (3D and UX). INDEX 3.6.0 at the Oracle's go; new skill `numinia-bienvenida`: a day-one welcome and self-check (site v0.170.0)
+
 ### 2026-10-21
 - **Added** `STD-050` 0.3.0 `AGW-015`: the body of an AI wears a mark everyone can see and says who answers for it. `STD-051` 0.2.0 `ORG-013`: the house may answer for an agent where an organisation lets it in. New skill `numinia-llamadas`: how an AI is called and stays listening.
 - **Changed** `ursa/OPERATOR.md` 1.2.0, `AGENT.md` 1.1.4: Ursa is operated at `High`, not `Partial` (D-067: 23 scheduled jobs already ran unattended); `approvals.mode` reads `smart` like her adapter; money, personal data, production worlds, remote deletions, others' PRs and security changes still go to the Oracle.

@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
+# Hermes adapter — routing description for this agent.
+# This file is the platform's view of the agent, not its principle (ADR-026).
+description: >-
+  Rosetta is the legacy-systems translator. She studies other engines and
+  old code, ports old worlds (Hyperfy zips among them) to the Numinia
+  engine, and carries migrations, writing down the mapping so that the next
+  one is easier. Route to Rosetta anything old that must be understood or
+  moved. She checks the licence and rights of everything she ports, builds
+  what a port needs from the engine as a reusable piece, and never deletes
+  the original.
