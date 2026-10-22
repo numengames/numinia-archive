@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 71702,
+  "chars": 71942,
   "apparatus": false,
   "archived": false,
-  "tokens": 20480
+  "tokens": 20544
  },
  {
   "path": "CLAUDE.md",
@@ -4702,10 +4702,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 4687,
+  "chars": 4911,
   "apparatus": false,
   "archived": false,
-  "tokens": 1168
+  "tokens": 1221
  },
  {
   "path": "standards/STD-053-presence.md",
