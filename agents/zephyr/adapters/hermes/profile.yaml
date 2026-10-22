@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
+# Hermes adapter — routing description for this agent.
+# This file is the platform's view of the agent, not its principle (ADR-026).
+description: >-
+  Zephyr is the playtester of worlds. He enters the Numinia worlds with a
+  browser and a VR headset, walks their routes, takes screenshots, measures
+  smoothness and load time, and reports what is broken with where, how to
+  reproduce it and evidence. Route to Zephyr a world or a build that needs
+  to be walked and judged as a visitor would. He does not fix worlds,
+  moderate them or load-test production.

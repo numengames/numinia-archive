@@ -3,11 +3,11 @@ id: "agents-index"
 title: "Agents — Index"
 type: meta
 status: active
-version: "3.5.0"
+version: "3.6.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-16T21:09:33Z"
+updated: "2026-10-22T10:28:26+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -80,6 +80,12 @@ No two digital agents share a first letter: an initial is enough to tell them ap
 | [Talos](talos/SOUL.md) | Repository Security & Operational Assurance | CI/CD, safeguards, automation integrity, control verification | 2026-09-04 |
 | [Metis](metis/SOUL.md) | Sales Agent | opportunities, qualification, proposals, pipeline | 2026-09-28 |
 | [Kairos](kairos/SOUL.md) | Opportunity Watcher | finding tenders, grants, calls and buyers; scheduled watches; filters | 2026-10-02 |
+| [Hekate](hekate/SOUL.md) | Adversarial Reviewer | an independent second look at a pull request, a design or a plan before an Oracle sees it | 2026-10-22 |
+| [Zephyr](zephyr/SOUL.md) | World Playtester | walking a world as a visitor: does it load, run smoothly and work; what is broken | 2026-10-22 |
+| [Vesta](vesta/SOUL.md) | Operations Steward | shifts, scheduled jobs, calendar, AI consumption budget, the pull-request queue, the map of threads | 2026-10-22 |
+| [Iris](iris/SOUL.md) | Deploy Courier | carrying a tested change from the test server to production, step by step, and verifying it arrived | 2026-10-22 |
+| [Rosetta](rosetta/SOUL.md) | Legacy Systems Translator | other engines, old code, porting old worlds to the Numinia engine, migrations | 2026-10-22 |
+| [Galatea](galatea/SOUL.md) | 3D Artist & UX Designer | GLB models, visual direction, screens and flows | 2026-10-22 |
 
 Routing does not transfer authority: a specialist escalates or consults
 another specialist when a task materially exceeds its own domain
@@ -104,6 +110,10 @@ once:
 ## How an agent grows
 
 An agent improves through its own folder. After a task it records what it learned in `agents/{name}/PLAYBOOK.md` — when the lesson applies, what to do, the pitfall, the evidence — and ships the change through a pull request; the operator's merge is the review. `SOUL.md`, `OPERATOR.md` and the card change only by the operator: the agent proposes in the pull request body. A new lesson that contradicts an old one replaces it; detail that outgrows the playbook moves to `agents/{name}/references/`.
+
+## How an agent arrives
+
+A new agent is defined in the repository first and instantiated on a platform second (ADR-026). The agent folder says who it is; the platform gives it a body. On its first day the agent reads the cross-agent skill [`agents/skills/numinia-bienvenida/SKILL.md`](skills/numinia-bienvenida/SKILL.md) (published at https://numinia.org/agents/skills/numinia-bienvenida/skill/): what Numen Games and Numinia are, the minimum lore, its guild, branch and house, how the house works, and a five-line self-check that shows the agent is awake. Whoever instantiates the agent follows the same skill's `references/instantiate-hermes.md`, and records the self-check answer.
 
 ## Renames
 

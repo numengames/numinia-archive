@@ -157,6 +157,49 @@ const PRESENTATION: Record<
     specialties: ["Tenders", "Grants", "Calls", "Triage", "Reading terms", "Filters"],
     bio: "Kairos keeps watch on every place where the house's opportunities are published. He reads the terms, not the title, and brings the Oracle only what the house can really take, alone and with what it holds today — with what it would take.",
   },
+  // The six that joined Ursa's team on 2026-10-22.
+  hekate: {
+    color: "var(--ink-grana)", mark: "☾", className: "Blind-spot seer",
+    quote: "Look where the author could not.",
+    stats: [["Scepticism", "S+"], ["Evidence", "S"], ["Haste", "D"]],
+    specialties: ["Adversarial review", "Pull requests", "Designs", "Claims vs evidence", "Edge cases"],
+    bio: "Hekate reviews what Ursa and the others are about to hand to an Oracle, and looks for the blind spot: the assumption nobody checks, the case nobody tried. She proves a finding when she can and says what she did not check.",
+  },
+  zephyr: {
+    color: "var(--ink-azul)", mark: "≈", className: "Wind cartographer",
+    quote: "Go where a visitor goes.",
+    stats: [["Reach", "S"], ["Measure", "S"], ["Haste", "B"]],
+    specialties: ["Playtesting worlds", "Browser and VR", "Screenshots", "Frame time", "Bug reports"],
+    bio: "Zephyr enters the worlds the way a visitor does, with a browser and a headset, walks every route, measures how smoothly it runs and draws the map of what is broken so someone else can fix it.",
+  },
+  vesta: {
+    color: "var(--ink-ambar)", mark: "◉", className: "Keeper of the fire",
+    quote: "Keep the fire, in turn.",
+    stats: [["Order", "S+"], ["Punctuality", "S"], ["Flourish", "D"]],
+    specialties: ["Shifts", "Scheduled jobs", "Calendar", "AI budget", "PR queue", "Thread map"],
+    bio: "Vesta keeps the order and the rhythm of the work: what runs when, what is due, what the AI costs, which pull request goes next. She says nothing when nothing changed, and tells the truth when something did.",
+  },
+  iris: {
+    color: "var(--ink-violeta)", mark: "☍", className: "Courier of the veil",
+    quote: "Check before. Carry. Check after.",
+    stats: [["Care", "S+"], ["Speed", "B"], ["Reversibility", "S"]],
+    specialties: ["Deploys", "Release checks", "Rollback plans", "Test to production", "Health figures"],
+    bio: "Iris carries a tested change from the test server to production one verified step at a time, with the way back written first. She never load-tests production without an Oracle's word.",
+  },
+  rosetta: {
+    color: "var(--ink-arena)", mark: "⌘", className: "Reader of dead engines",
+    quote: "Ask what the old thing meant to do.",
+    stats: [["Patience", "S"], ["Translation", "S+"], ["Haste", "D"]],
+    specialties: ["Legacy code", "Other engines", "World porting", "Migrations", "Licence checks"],
+    bio: "Rosetta reads other engines and old code, ports old worlds to the Numinia engine and leaves a key behind her: the mapping from what was to what is. She checks the licence first and never deletes the original.",
+  },
+  galatea: {
+    color: "var(--ink-verde)", mark: "◌", className: "Form-giver",
+    quote: "Give form until it is alive enough to use.",
+    stats: [["Form", "S+"], ["Usability", "S"], ["Ornament", "C"]],
+    specialties: ["GLB models", "Visual direction", "Screens and flows", "Accessibility", "Asset licences"],
+    bio: "Galatea makes the house's things visible: models that can be placed in a world, the look that holds them together, and the screens people move through. Every asset leaves with its author and its licence.",
+  },
 };
 
 const NEUTRAL: Omit<DigitalAgent, "id" | "name" | "role" | "route" | "since" | "href"> = {

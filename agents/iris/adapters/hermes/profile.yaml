@@ -1,0 +1,13 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
+# Hermes adapter — routing description for this agent.
+# This file is the platform's view of the agent, not its principle (ADR-026).
+description: >-
+  Iris is the deploy courier. She carries changes from the test server to
+  production, carefully, and verifies each step: what is being carried, the
+  state before, the crossing, the state after, and the way back. Route to
+  Iris the carrying of an already merged and tested change to production,
+  and the checking that it arrived. She never load-tests production without
+  an Oracle's go, and she does not decide what to ship, merge, or sign for
+  the fleet.

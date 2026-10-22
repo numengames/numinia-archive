@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 71396,
+  "chars": 71702,
   "apparatus": false,
   "archived": false,
-  "tokens": 20379
+  "tokens": 20480
  },
  {
   "path": "CLAUDE.md",
@@ -126,10 +126,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 6615,
+  "chars": 8199,
   "apparatus": true,
   "archived": false,
-  "tokens": 1849
+  "tokens": 2289
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -306,6 +306,138 @@
   "apparatus": false,
   "archived": false,
   "tokens": 320
+ },
+ {
+  "path": "agents/galatea/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 3206,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 914
+ },
+ {
+  "path": "agents/galatea/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2301,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 580
+ },
+ {
+  "path": "agents/galatea/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 5181,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1241
+ },
+ {
+  "path": "agents/galatea/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2318,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 643
+ },
+ {
+  "path": "agents/hekate/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 3229,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 900
+ },
+ {
+  "path": "agents/hekate/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2358,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 582
+ },
+ {
+  "path": "agents/hekate/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 5127,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1207
+ },
+ {
+  "path": "agents/hekate/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2503,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 664
+ },
+ {
+  "path": "agents/iris/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 3163,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 859
+ },
+ {
+  "path": "agents/iris/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2482,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 593
+ },
+ {
+  "path": "agents/iris/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 5110,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1172
+ },
+ {
+  "path": "agents/iris/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2480,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 666
  },
  {
   "path": "agents/kairos/AGENT.md",
@@ -506,6 +638,50 @@
   "tokens": 372
  },
  {
+  "path": "agents/rosetta/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 3400,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 928
+ },
+ {
+  "path": "agents/rosetta/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2405,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 586
+ },
+ {
+  "path": "agents/rosetta/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 5296,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1246
+ },
+ {
+  "path": "agents/rosetta/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2344,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 642
+ },
+ {
   "path": "agents/senet/OPERATOR.md",
   "dir": "agents",
   "series": "agents",
@@ -537,6 +713,72 @@
   "apparatus": false,
   "archived": false,
   "tokens": 428
+ },
+ {
+  "path": "agents/skills/numinia-bienvenida/SKILL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 5516,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1476
+ },
+ {
+  "path": "agents/skills/numinia-bienvenida/references/instantiate-hermes-spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 4704,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1423
+ },
+ {
+  "path": "agents/skills/numinia-bienvenida/references/instantiate-hermes.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 4565,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1230
+ },
+ {
+  "path": "agents/skills/numinia-bienvenida/references/lore-spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 4303,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1298
+ },
+ {
+  "path": "agents/skills/numinia-bienvenida/references/lore.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 4096,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1099
+ },
+ {
+  "path": "agents/skills/numinia-bienvenida/references/spanish.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "active",
+  "chars": 5340,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1600
  },
  {
   "path": "agents/skills/numinia-construir-3d/SKILL.md",
@@ -823,6 +1065,94 @@
   "apparatus": false,
   "archived": false,
   "tokens": 436
+ },
+ {
+  "path": "agents/vesta/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 3502,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 943
+ },
+ {
+  "path": "agents/vesta/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2443,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 597
+ },
+ {
+  "path": "agents/vesta/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 5252,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1240
+ },
+ {
+  "path": "agents/vesta/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2484,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 667
+ },
+ {
+  "path": "agents/zephyr/AGENT.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "entity",
+  "status": "draft",
+  "chars": 3261,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 911
+ },
+ {
+  "path": "agents/zephyr/OPERATOR.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2403,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 602
+ },
+ {
+  "path": "agents/zephyr/SOUL.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 5044,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1212
+ },
+ {
+  "path": "agents/zephyr/SOURCES.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2119,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 572
  },
  {
   "path": "debt/DBT-020-declared-automatic-executed-by-nobody.md",

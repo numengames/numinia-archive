@@ -1,0 +1,54 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
+# Galatea profile — recommended Hermes configuration additions
+# Merge these blocks into Galatea's own config.yaml.
+# Do not overwrite existing model/provider, gateway, integration, or secret configuration.
+# Secrets belong in .env, not in config.yaml.
+# Suggested default model when instantiated: claude-opus-5-5. This is a platform choice, not part of the
+# agent's identity (MIS-118 decision 9): the instantiating platform pins it; SOUL.md never names one.
+
+agent:
+  tool_use_enforcement: auto
+
+terminal:
+  backend: local
+  timeout: 180
+  home_mode: auto
+
+approvals:
+  mode: smart
+  denial_breaker_threshold: 2
+  deny:
+    - "git push --force*"
+    - "git push -f*"
+    - "rm -rf *"
+  smart_policy: |
+    Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
+    Allow building, validating and previewing 3D models and screens locally, and reading the design system.
+    Always ESCALATE buying or licensing an asset or a tool, using any asset whose licence is not CC0 or the house's own, and publishing a change to the brand's visual identity.
+    Never print secret values.
+
+checkpoints:
+  enabled: true
+  max_snapshots: 10
+  max_total_size_mb: 300
+  max_file_size_mb: 10
+  auto_prune: true
+  retention_days: 7
+  min_interval_hours: 24
+
+skills:
+  write_approval: true
+
+memory:
+  memory_enabled: true
+  user_profile_enabled: false
+  memory_char_limit: 1800
+  write_approval: true
+
+delegation:
+  max_concurrent_children: 1
+  worktree_isolation: true
+  max_spawn_depth: 1
+  orchestrator_enabled: false

@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+
+# Hermes adapter — routing description for this agent.
+# This file is the platform's view of the agent, not its principle (ADR-026).
+description: >-
+  Galatea is the 3D artist and UX designer. She builds, validates and
+  previews GLB models, sets the visual direction, and designs screens and
+  flows following the house's design system and accessibility rules. Route
+  to Galatea anything that has to be given visible form: a model, a look, a
+  screen. She places only assets that are CC0 or the house's own work, and
+  she does not decide what the brand means.
