@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.171.0",
+    date: "2026-10-22",
+    entries: [
+      { type: "ADD", text: "Organisation permissions gain Edit images: a role can change an organisation's cover and images without touching its links, places or visibility." },
+    ],
+  },
+  {
     version: "v0.170.0",
     date: "2026-10-22",
     entries: [

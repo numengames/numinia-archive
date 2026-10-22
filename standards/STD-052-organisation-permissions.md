@@ -5,9 +5,9 @@ title: "Organisation permissions"
 type: standard
 subtype: register
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-14T23:36:00+02:00"
-updated: "2026-10-15T10:48:49+02:00"
+updated: "2026-10-22T11:50:00+02:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -25,7 +25,7 @@ SPDX-License-Identifier: CC0-1.0
 
 # Organisation permissions
 
-> **Summary:** What a role in an organisation can carry: seventeen
+> **Summary:** What a role in an organisation can carry: eighteen
 > permissions, the acts no role carries because they belong to the owners,
 > the settings for the house's access, and the roles an organisation is born
 > with. A register: the rules that read it are in *Organisation roles*
@@ -40,9 +40,10 @@ label. A role with no permission is a title.
 | Key | Label | What it lets a member do |
 |---|---|---|
 | `administrator` | Administrator | everything in this table, and nothing reserved to owners |
-| `manage-organization` | Manage the organisation | edit its page, cover, links, places and visibility, how people join, the words it uses and the pieces it switches on |
+| `manage-organization` | Manage the organisation | edit its page, cover and images (the part `edit-images` carries alone), links, places and visibility, how people join, the words it uses and the pieces it switches on |
 | `view-organization-log` | View the log | read who did what in the organisation, and when |
 | `manage-roles` | Manage roles | create, edit, order, give and take away the roles below their own highest role |
+| `edit-images` | Edit images | change the organisation's cover and the images of its page and of its worlds' cards, and nothing else on them |
 | `invite-members` | Invite | send invitations and accept people who ask to join |
 | `remove-members` | Remove members | take out a member below them, who may come back |
 | `ban-members` | Ban | take out a member below them for good, saying why |
@@ -90,5 +91,5 @@ the list down; the base role is always last.
 | Template | For | Roles, and what each carries |
 |---|---|---|
 | Alpha | every organisation the house opens during the alpha | Administration: `administrator` · base role: `enter-worlds`, `top-up` |
-| Team | a studio or a company that pays for worlds | Administration: `administrator` · Finance: `manage-balance` · Member: `enter-worlds`, `start-stop-worlds`, `build-in-worlds` · base role: `view-balance`, `top-up` |
-| Community | a congress, a class, an open group | Administration: `administrator` · Moderation: `remove-members`, `ban-members`, `mute-members`, `manage-rituals` · base role: `enter-worlds`, `top-up` |
+| Team | a studio or a company that pays for worlds | Administration: `administrator` · Finance: `view-balance`, `manage-balance` · Member: `enter-worlds`, `start-stop-worlds`, `build-in-worlds` · base role: `view-balance`, `top-up` |
+| Community | a congress, a class, an open group | Administration: `administrator` · Moderation: `edit-images`, `remove-members`, `ban-members`, `mute-members`, `manage-rituals` · base role: `enter-worlds`, `top-up` |
