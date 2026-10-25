@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.172.0",
+    date: "2026-10-25",
+    entries: [
+      { type: "CHG", text: "The procedure for the living pieces becomes two: Building the night backdrop (the sky and the Veil layer) and Building the reading-aloud player. The old address of the procedure now opens the player." },
+    ],
+  },
+  {
     version: "v0.171.0",
     date: "2026-10-22",
     entries: [

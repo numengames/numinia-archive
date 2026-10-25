@@ -638,8 +638,10 @@ const READING_ORDER: Record<string, string[]> = {
     // 2026-09-27: a draft becomes binding — after publishing, before the
     // pieces that are built under the rules.
     "/procedures/pro-023-bringing-a-rule-into-force",
-    // 2026-09-26: how the sky, the Veil and the reading player are built.
-    "/procedures/pro-022-building-the-living-pieces",
+    // 2026-09-26: how the sky and the Veil are built, and how the reading
+    // player is (2026-10-25: one procedure each, MIS-196).
+    "/procedures/pro-041-building-the-night-backdrop",
+    "/procedures/pro-022-building-the-reading-aloud-player",
     // 2026-09-24 (ADR-065): money, last — something goes on sale, then the
     // month closes on what it brought in.
     "/procedures/pro-020-putting-something-on-sale",

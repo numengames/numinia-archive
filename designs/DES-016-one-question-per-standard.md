@@ -6,9 +6,9 @@ type: design
 former_id: "BLU-016"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.13.0"
+version: "0.13.1"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-15T10:30:03Z"
+updated: "2026-10-25T11:50:00Z"
 author: "ursa"
 owner: "oracle"
 tags: [design, standards, one-question, DITA, external]
@@ -104,7 +104,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-020` | How does a change reach the main line? | — |
 | `STD-021` | What makes a claim checkable? | — |
 | `STD-022` | How does a secret stay out? | — (settings in the environment arrived from `STD-005`) |
-| `STD-023` | Which are the design values? | — (how the sky, the Veil and the reading player are built is `PRO-022`, a procedure; recipes are procedures, never designs) |
+| `STD-023` | Which are the design values? | — (how the sky and the Veil are built is `PRO-041` and the reading player `PRO-022`, procedures; recipes are procedures, never designs) |
 | `STD-024` | Which series is a document in, and does it bind? | — |
 | `STD-025` | What is a mission? | — |
 | `STD-026` | What do our operative words mean? | register |

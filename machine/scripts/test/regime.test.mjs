@@ -702,6 +702,33 @@ check('tree: joining and leaving are in force — PRO-015 and PRO-024 are active
   return true;
 });
 
+/* The living pieces split in two (2026-10-25, MIS-196): the sky and the Veil
+   are the night backdrop; the reading-aloud player is a tool the reader
+   uses. A procedure attacks one thing (STD-007), so each has its own. */
+check('tree: the backdrop and the player are two procedures in force — PRO-041 and PRO-022, named in the regime (2026-10-25)', () => {
+  const dir = path.join(ROOT, 'procedures');
+  const agents = readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf-8');
+  const inForce = /^In force:([^\n]*(?:\n(?!\n)[^\n]*)*)/m.exec(agents)?.[1] ?? '';
+  const read = (id) => {
+    const f = readdirSync(dir).find((n) => n.startsWith(`${id}-`));
+    return f ? readFileSync(path.join(dir, f), 'utf-8') : null;
+  };
+  const backdrop = read('PRO-041');
+  const player = read('PRO-022');
+  if (!backdrop) return 'PRO-041 does not exist';
+  if (!/^title:\s*"Building the night backdrop"/m.test(backdrop)) return 'PRO-041 is not "Building the night backdrop"';
+  if (!/^title:\s*"Building the reading-aloud player"/m.test(player)) return 'PRO-022 is not "Building the reading-aloud player"';
+  if (!/### 3\.1 The sky/.test(backdrop) || !/### 3\.2 The Veil layer/.test(backdrop)) return 'the backdrop does not hold the sky and the Veil layer';
+  if (/The reader leads|Dry the ink/.test(backdrop)) return 'the backdrop still holds the reading player';
+  if (!/The reader leads/.test(player) || !/Dry the ink/.test(player)) return 'the player lost its steps';
+  if (/### 3\.\d The (sky|Veil)/.test(player)) return 'the player still holds the sky or the Veil layer';
+  for (const [id, text] of [['PRO-041', backdrop], ['PRO-022', player]]) {
+    if (!/^status:\s*"?active/m.test(text.slice(0, 2000))) return `${id} is not active`;
+    if (!inForce.includes(`\`${id}\``)) return `AGENTS.md does not name ${id} in force`;
+  }
+  return true;
+});
+
 check('tree: one question per standard — the record, who is named and which calls are recorded each have one holder (2026-10-15)', () => {
   // STD-039 answered three questions in one document. The record keeps OPP;
   // naming took NAM and the public call took CAL. The plates of a judgement

@@ -122,7 +122,9 @@ check('STD-023: the recipes of built pieces live in a procedure, not in the valu
   const s = STD023();
   const recipes = ['The reader leads', 'What the voice has passed', 'Ceilings and placement', 'reseeding on resize'];
   const here = recipes.filter((r) => s.includes(r));
-  const pro = readFileSync(path.join(ROOT, 'procedures/PRO-022-building-the-living-pieces.md'), 'utf8');
+  // The recipes live in two procedures: the backdrop (PRO-041) and the player (PRO-022).
+  const pro = ['PRO-041-building-the-night-backdrop.md', 'PRO-022-building-the-reading-aloud-player.md']
+    .map((f) => readFileSync(path.join(ROOT, 'procedures', f), 'utf8')).join('\n');
   const lost = recipes.filter((r) => !pro.includes(r));
-  return (here.length === 0 && lost.length === 0) || `in STD-023: ${here.join(', ')}; missing from PRO-022: ${lost.join(', ')}`;
+  return (here.length === 0 && lost.length === 0) || `in STD-023: ${here.join(', ')}; missing from PRO-041 and PRO-022: ${lost.join(', ')}`;
 });
