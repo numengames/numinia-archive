@@ -20,6 +20,7 @@ budget_minutes: 145
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-230", "MIS-231", "MIS-232", "MIS-233", "MIS-234", "MIS-235", "MIS-236"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-202 — Prove the engine on real devices: Quest, iPhone and Android
 
-> **Summary:** A parent mission. Its children are the 29 cards on the
-> Hermes boards whose title starts with `MIS-202 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 7 child missions
+> (MIS-230, MIS-231, MIS-232, MIS-233, MIS-234, MIS-235, MIS-236); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-202 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ Fixing what the checks find: each fix is a card of the mission that owns the fea
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-202 · …` is open on the Hermes boards — today 29 are open
+- [ ] Its 7 child missions are done — today none is
 - [ ] Every figure in the engine's performance notes says the device it was measured on — today several come from a desktop emulator
 - [ ] Each check that waits for the Oracle's device names the date it was run — today they say «espera a Pablo»
 

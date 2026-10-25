@@ -20,6 +20,7 @@ budget_minutes: 180
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-262", "MIS-263", "MIS-264", "MIS-265", "MIS-266", "MIS-267", "MIS-268", "MIS-269"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-214 — Polish the worlds and communities screens of numinia.com
 
-> **Summary:** A parent mission. Its children are the 36 cards on the
-> Hermes boards whose title starts with `MIS-214 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 8 child missions
+> (MIS-262, MIS-263, MIS-264, MIS-265, MIS-266, MIS-267, MIS-268, MIS-269); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-214 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ Conditions (their own mission); the AIs of a community (their own mission).
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-214 · …` is open on the Hermes boards — today 36 are open
+- [ ] Its 8 child missions are done — today none is
 - [ ] Worlds are listed switched-on first, then by people inside — today they are not ordered
 - [ ] The bazaar's filters live in the URL and can be shared — today they are lost on reload
 

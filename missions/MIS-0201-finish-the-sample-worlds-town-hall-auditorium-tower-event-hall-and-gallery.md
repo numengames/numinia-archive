@@ -20,6 +20,7 @@ budget_minutes: 140
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-224", "MIS-225", "MIS-226", "MIS-227", "MIS-228", "MIS-229"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-201 — Finish the sample worlds: Town Hall, Auditorium, Tower, Event Hall and Gallery
 
-> **Summary:** A parent mission. Its children are the 28 cards on the
-> Hermes boards whose title starts with `MIS-201 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 6 child missions
+> (MIS-224, MIS-225, MIS-226, MIS-227, MIS-228, MIS-229); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-201 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ Engine features they need (they belong to the engine missions); the wishes marke
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-201 · …` is open on the Hermes boards — today 28 are open
+- [ ] Its 6 child missions are done — today none is
 - [ ] Each of the five sample worlds downloads as a zip with its README and runs locally — today the Town Hall's story 6 is still open
 - [ ] The Event Hall shows «Piezas reunidas 3/3» when the group is complete — today it never shows
 

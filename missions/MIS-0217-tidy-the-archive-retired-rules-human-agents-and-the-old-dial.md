@@ -20,6 +20,7 @@ budget_minutes: 45
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-280", "MIS-281", "MIS-282"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-217 — Tidy the archive: retired rules, human agents and the old dial
 
-> **Summary:** A parent mission. Its children are the 9 cards on the
-> Hermes boards whose title starts with `MIS-217 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 3 child missions
+> (MIS-280, MIS-281, MIS-282); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-217 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ New standards.
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-217 · …` is open on the Hermes boards — today 9 are open
+- [ ] Its 3 child missions are done — today none is
 - [ ] No file in numinia.org mentions the old dial's guard, plate or threshold — today some do
 - [ ] /agents/pablo renders a human agent — today it does not exist
 

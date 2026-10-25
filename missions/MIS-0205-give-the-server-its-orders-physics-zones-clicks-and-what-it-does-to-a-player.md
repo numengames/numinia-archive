@@ -20,6 +20,7 @@ budget_minutes: 45
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-243", "MIS-244"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-205 — Give the server its orders: physics, zones, clicks and what it does to a player
 
-> **Summary:** A parent mission. Its children are the 9 cards on the
-> Hermes boards whose title starts with `MIS-205 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 2 child missions
+> (MIS-243, MIS-244); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-205 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ Movement feel in VR (the comfort mission).
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-205 · …` is open on the Hermes boards — today 9 are open
+- [ ] Its 2 child missions are done — today none is
 - [ ] A player cannot walk through a GLB scene's walls — today they can
 - [ ] A world can teleport, freeze or seat a player through a server order — today only the client moves the player
 

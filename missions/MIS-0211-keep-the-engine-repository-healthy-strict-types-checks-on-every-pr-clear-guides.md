@@ -20,6 +20,7 @@ budget_minutes: 50
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-255", "MIS-256"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-211 — Keep the engine repository healthy: strict types, checks on every PR, clear guides
 
-> **Summary:** A parent mission. Its children are the 10 cards on the
-> Hermes boards whose title starts with `MIS-211 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 2 child missions
+> (MIS-255, MIS-256); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-211 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ Tests of each feature (they belong to its mission).
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-211 · …` is open on the Hermes boards — today 10 are open
+- [ ] Its 2 child missions are done — today none is
 - [ ] `tsc --noEmit` runs in the engine's checks and passes — today it is not run
 - [ ] The engine's checks run on pull requests to every base branch — today they skip some
 
