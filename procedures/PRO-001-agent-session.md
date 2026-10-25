@@ -4,11 +4,11 @@ uid: ""
 title: "Opening and closing a session"
 type: procedure
 status: draft
-version: "2.1.6"
+version: "2.1.7"
 created: "2026-04-08T06:02:27Z"
 created_source: "git:a5b6a0d"
 created_confidence: exact
-updated: "2026-10-10T12:20:00+02:00"
+updated: "2026-10-25T17:12:52+01:00"
 author: "nimrod"
 owner: "oracle"
 section: "People and culture"
@@ -102,7 +102,9 @@ persistence.
 16. **Commit and push the branch.** Without commit and push there is no
     valid close.
 17. **Open the pull request.** The trunk is reached by pull request
-    (`STD-020`); never merge it yourself.
+    (`STD-020`); never merge it yourself. Write its title, body, commit
+    messages and comments in English (`STD-007` `DOC-011`), in every
+    repository; only the chat with the operator may use the operator's language.
 18. **Declare the close** — agent, timestamp, missions still active,
     recommended next step — and tell the operator in chat what changed,
     what is verified and what is left, with the pull request's web address.
