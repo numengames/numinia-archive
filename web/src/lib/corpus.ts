@@ -833,7 +833,7 @@ export const SERIES_VIEWS: Record<string, SeriesView[]> = {
 // section gets one line of prose above its rows, in the same voice as the
 // blurb: what the sequence is doing, so the order reads as a choice.
 export const READING_NOTE: Record<string, string> = {
-  principles: "Four shelves, in the order a stranger needs them: where you are, who is here, how anything gets done, and — last, once you have walked the city — why it works.",
+  principles: "Six shelves, one for each part of a company a principle rules: strategy and governance first, then brand, people, finance, the law and technology.",
   decisions: "The life of a document, in the order the archive had to settle it: where it lives, what to call it, what the words mean, what it must declare, and how it is allowed to die.",
   standards: "Five shelves, from the person to the ground: living together, writing it down, showing it, what leaves the house, and what makes it last. Under each title, the one question that standard answers.",
   procedures: "One working day, in order: you sit down, you take a mission, you need a ruling, you get stuck, you file the result — and then you hand the checking to a machine that never forgets.",
