@@ -348,64 +348,81 @@ export interface ReadingGroup {
   label: string;
   line: string;
   hrefs: string[];
+  /** the STD-030 section the shelf is, so the page can name the houses that serve it */
+  section?: string;
   /** anchor of the shelf, so the menu can open the index at it (/lore/#codex) */
   id?: string;
 }
 
+// 2026-10-25 (MIS-283, the Oracle): the principles are shelved in a company's
+// words — one shelf per section a principle declares in its header (STD-030),
+// in the order STD-030 gives the sections. The label and the line are that
+// standard's; at the full moon the page shows the houses that serve the
+// section instead (translator.servedBy), so no company word shows there and
+// no word is invented. Inside a shelf the order is the story's order.
 const READING_GROUPS_PRINCIPLES: ReadingGroup[] = [
   {
     numeral: "I",
-    label: "The city",
-    line: "Nobody joins. One day you notice you were already inside.",
-    hrefs: ["/principles/pri-001-welcome-to-numinia"],
+    label: "Strategy and governance",
+    line: "Why we exist, who decides, and what we have decided.",
+    section: "Strategy and governance",
+    hrefs: [
+      "/principles/pri-001-welcome-to-numinia",
+      "/principles/pri-002-brand-and-culture",
+      "/principles/pri-010-leave-things-better",
+      "/principles/pri-009-the-archive-is-the-organisation",
+      "/principles/pri-007-pragmatic-numen-system",
+      "/principles/pri-006-epistemic-relations",
+    ],
   },
   {
     numeral: "II",
-    label: "The citizens",
-    line: "Who lives here, and the terms they live by.",
-    // What a citizen is made of comes first, so the reader meets themselves
-    // before they meet anyone in particular. Then one citizen in full — the
-    // house that keeps this archive: what it believes, how it looks, what it
-    // gives away, what stays each citizen's own, and the sentence it closes on.
+    label: "Brand and marketing",
+    line: "How we look and sound, and how people come to hear of us.",
+    section: "Brand and marketing",
     hrefs: [
-      "/principles/pri-004-role-structure",
-      "/principles/pri-002-brand-and-culture",
       "/principles/pri-013-a-magician-who-keeps-hope",
       "/principles/pri-008-visual-identity",
-      "/principles/pri-005-licensing",
-      // 2026-09-26: after what the house gives away, what stays the
-      // citizen's own — and why leaving is easy. Before the closing sentence.
-      "/principles/pri-012-what-is-yours-stays-with-you",
-      // 2026-10-03: what a citizen earns, and how it is recognised.
-      "/principles/pri-015-we-recognise-the-act",
-      // 2026-10-16: what the engine owes whoever comes to it — legible to
-      // anyone, kind to the device they own, honest about its limits.
-      "/principles/pri-016-what-a-machine-can-read-anyone-can-use",
-      "/principles/pri-017-a-device-that-heats-up-has-been-asked-too-much",
-      "/principles/pri-018-a-limit-nobody-can-check-is-a-promise",
-      "/principles/pri-010-leave-things-better",
     ],
   },
   {
     numeral: "III",
-    label: "The Summa",
-    line: "The city keeps its memory in writing. To act is to write.",
-    // 2026-09-24 (ADR-063): the principle of money follows the archive principle —
-    // it is that principle applied to a payment: a charge not written does not
-    // exist.
+    label: "People and culture",
+    line: "Who works here, human or AI, and how we treat and reward each other.",
+    section: "People and culture",
     hrefs: [
-      "/principles/pri-009-the-archive-is-the-organisation",
-      "/principles/pri-011-value-makes-a-bond",
+      "/principles/pri-004-role-structure",
+      "/principles/pri-015-we-recognise-the-act",
     ],
   },
   {
     numeral: "IV",
-    label: "The ground",
-    line: "The theory underneath. Walk the city first.",
-    // The plainer argument first, the denser second.
+    label: "Finance",
+    line: "Where the money comes from and where it goes, grants and loans included.",
+    section: "Finance",
     hrefs: [
-      "/principles/pri-007-pragmatic-numen-system",
-      "/principles/pri-006-epistemic-relations",
+      "/principles/pri-011-value-makes-a-bond",
+    ],
+  },
+  {
+    numeral: "V",
+    label: "Legal and compliance",
+    line: "The laws we follow, the policies we publish and the risks we watch.",
+    section: "Legal and compliance",
+    hrefs: [
+      "/principles/pri-005-licensing",
+      "/principles/pri-012-what-is-yours-stays-with-you",
+    ],
+  },
+  {
+    numeral: "VI",
+    label: "Technology",
+    line: "The systems and sites we run, and how we keep them secure.",
+    section: "Technology",
+    hrefs: [
+      "/principles/pri-016-what-a-machine-can-read-anyone-can-use",
+      "/principles/pri-017-a-device-that-heats-up-has-been-asked-too-much",
+      "/principles/pri-018-a-limit-nobody-can-check-is-a-promise",
     ],
   },
 ];

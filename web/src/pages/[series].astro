@@ -31,7 +31,8 @@ import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
 import { SERIES, getSeriesDocs, countWithheld, READING_NOTE, READING_GROUPS, SERIES_VIEWS } from "@/lib/corpus";
-import { placeOf, functions } from "@/lib/classification";
+import { placeOf } from "@/lib/classification";
+import { servedBy } from "@/lib/translator.mjs";
 
 // The site's own pages under a series, checked against the folder that
 // holds them — see SERIES_VIEWS in @/lib/corpus. `import.meta.glob` is
@@ -114,7 +115,7 @@ const groups = READING_GROUPS[series.slug];
 const byHref = new Map(docs.map((d) => [d.href.replace(/\/$/, ""), d]));
 const shelves = groups
   ? [
-      ...groups.map((g) => ({ ...g, docs: g.hrefs.map((h) => byHref.get(h)).filter(Boolean) as typeof docs })),
+      ...groups.map((g) => ({ ...g, houses: g.section ? servedBy(g.section).houses : [], docs: g.hrefs.map((h) => byHref.get(h)).filter(Boolean) as typeof docs })),
       ...(() => {
         const placed = new Set(groups.flatMap((g) => g.hrefs));
         const rest = docs.filter((d) => !placed.has(d.href.replace(/\/$/, "")));
@@ -124,13 +125,6 @@ const shelves = groups
   : [{ numeral: "", label: "", line: "", hrefs: [], docs }];
 const here = place(series.prefix);
 const views = SERIES_VIEWS[series.slug] ?? [];
-// The strip at the foot groups every series by function, in the scheme's
-// order — the same six drawers the bar shows, so a reader who came in
-// through one door sees the others from any index.
-const strip = functions().map((fn) => ({
-  fn,
-  series: fn.activities.flatMap((a) => a.series).map((s) => SERIES.find((sec) => sec.prefix === s.folder)).filter(Boolean),
-})).filter((g) => g.series.length > 0);
 ---
 
 <Layout
@@ -257,9 +251,9 @@ const strip = functions().map((fn) => ({
           {shelf.label && (
             <div class="pt-4 pb-1">
               <p class="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-accent">
-                <span class="mr-3">{shelf.numeral}</span>{shelf.label}
+                <span class="mr-3">{shelf.numeral}</span><span class:list={[shelf.houses?.length > 0 && "shelf-co"]}>{shelf.label}</span>{shelf.houses?.length > 0 && <span class="shelf-houses">{shelf.houses.join(" · ")}</span>}
               </p>
-              <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{shelf.line}</p>
+              <p class:list={[shelf.houses?.length > 0 && "shelf-co", "mt-1 text-sm leading-relaxed text-muted-foreground"]}>{shelf.line}</p>
             </div>
           )}
           {shelf.docs.map((item) => (
@@ -367,44 +361,17 @@ const strip = functions().map((fn) => ({
           </p>
         </div>
       )}
-
-      <nav class="border-t border-border/50 pt-6 space-y-4" aria-label="Sections by function">
-        <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent">
-          The other drawers
-        </h2>
-        {strip.map((g) => (
-          <div class="flex flex-wrap items-center gap-2">
-            <a
-              href={g.fn.href}
-              class={
-                "inline-flex min-h-[44px] items-center font-mono text-[0.6rem] uppercase tracking-[0.15em] mr-1 transition-colors " +
-                (g.fn.slug === here.fnSlug ? "text-foreground border-b-2 border-yellow" : "text-dim hover:text-foreground")
-              }
-            >
-              {g.fn.name}
-            </a>
-            {g.series.map((s) => (
-              <a
-                href={`/${s!.slug}/`}
-                class={
-                  "inline-flex min-h-[44px] items-center rounded-[6px] border px-3 font-mono text-[0.7rem] transition-colors " +
-                  (s!.slug === series.slug
-                    ? "border-accent/40 bg-accent/10 text-accent"
-                    : "border-border bg-card text-dim hover:bg-card-hover")
-                }
-              >
-                {s!.label}
-              </a>
-            ))}
-          </div>
-        ))}
-        <a
-          href="/"
-          class="inline-flex min-h-[44px] items-center font-mono text-[0.65rem] uppercase tracking-[0.15em] text-dim hover:text-foreground transition-colors"
-        >
-          ← How the archive is classified
-        </a>
-      </nav>
     </div>
   </section>
 </Layout>
+
+<style is:global>
+  /* A shelf of principles is named in the company's words (STD-030). At the
+     half moon the houses that serve it stand beside the name; at the full
+     moon they replace it, so no company word shows there. */
+  .shelf-houses { display: none; }
+  html[data-narrative="bridge"] .shelf-houses { display: inline; }
+  html[data-narrative="bridge"] .shelf-houses::before { content: " — "; }
+  html[data-narrative="numinia"] .shelf-houses { display: inline; }
+  html[data-narrative="numinia"] .shelf-co { display: none; }
+</style>

@@ -130,6 +130,11 @@ test('every principle sits on the shelf named after its own section', () => {
     label: b.match(/label: "([^"]+)"/)?.[1],
     hrefs: [...b.matchAll(/"\/principles\/(pri-\d{3})/g)].map((m) => m[1].toUpperCase()),
   }));
+  const std030 = readFileSync(path.join(ROOT, 'standards/STD-030-the-worlds-vocabulary.md'), 'utf8');
+  const lineOf = (name) => std030.match(new RegExp(`^\\| ${name} \\| ([^|]+) \\|`, 'm'))?.[1].trim();
+  const offLine = block.split(/\n  \{\n/).slice(1).map((b) => [b.match(/label: "([^"]+)"/)?.[1], b.match(/line: "([^"]+)"/)?.[1]])
+    .filter(([label, line]) => line !== lineOf(label)).map(([label]) => label);
+  assert.deepEqual(offLine, [], `these shelves do not carry the line STD-030 gives their section: ${offLine.join(', ')}`);
   const wrong = principles.map((f) => {
     const id = f.match(/PRI-\d{3}/)[0];
     const section = read(f).match(/^section: "([^"]+)"/m)?.[1];
