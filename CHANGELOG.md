@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-25
+- **Added** The mission book: /mission-book reads every mission file, PRO-003 and ADR-083 — each area's parent with its children, their weight, budget and status; the missions on their own; what is done and what it taught
 - **Changed** The living pieces split in two, as the Oracle ruled (one procedure, one thing): `PRO-041` builds the night backdrop (the sky and the Veil layer), `PRO-022` the reading-aloud player; both in force at 1.0.0 (header only), the old address opens the player (site v0.172.0, MIS-196)
 
 ### 2026-10-22

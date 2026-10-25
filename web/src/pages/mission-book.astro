@@ -1,0 +1,23 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// /mission-book — the mission book (the Oracle, 2026-10-25): what we are
+// doing and why, read from the mission files, PRO-003 and ADR-083. Nothing
+// here is typed but the frame (BookPage.astro); the chapters are
+// web/src/lib/mission-book.ts.
+import BookPage from "@/components/BookPage.astro";
+import { missionBook, MISSION_GAPS } from "@/lib/mission-book";
+---
+
+<BookPage
+  title="The mission book — Numen Games"
+  description="What we are doing and why: each area with its missions, the story behind each one and what it may cost. Every word is read from the archive."
+  canonicalPath="/mission-book"
+  label="The mission book"
+  heading="What we are doing, for whom, and what it may cost"
+  lead="Five chapters: how a mission runs, how it is budgeted, what is open by area, the missions on their own, and what is done with what it taught. Every word is read from the mission files."
+  mdFilename="mission-book.md"
+  book={missionBook()}
+  gaps={MISSION_GAPS}
+/>
