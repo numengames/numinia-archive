@@ -5,15 +5,15 @@ title: "Design values"
 type: standard
 subtype: register
 status: active
-version: "1.12.0"
+version: "1.12.1"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-12T18:48:00+02:00"
+updated: "2026-10-25T11:50:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
 tags: [design, register, tokens, palette, typography, motion]
 license: "CC0-1.0"
-related: ["STD-008", "STD-034", "PRI-008", "ADR-044", "PRO-022"]
+related: ["STD-008", "STD-034", "PRI-008", "ADR-044", "PRO-022", "PRO-041"]
 derived_from: "PRI-008"
 ---
 
@@ -232,7 +232,7 @@ The star background of `numinia.org` is not decoration: **the sky's distribution
 | Epic | 4 | 0.8–2.5 px | Purple `#A98BE0` |
 | Legendary | 1 | 1.0–3.0 px | Ámbar `#EFA517` |
 
-How the sky moves, and where it may not appear, is `PRO-022`.
+How the sky moves, and where it may not appear, is `PRO-041`.
 
 
 ## 16. Pixel grids
@@ -292,7 +292,7 @@ came here from the visual identity principle, which now holds none.
 | `velo.lectura` | `blur(2.2px)` + mask `0→90 %` | — | What lies beyond the Umbral is seen and not read (`DES-011`) |
 
 **Ceilings:** grid ≤ 3 % alpha, fog ≤ 8 % — more is scenery. How each layer
-is placed is `PRO-022`.
+is placed is `PRO-041`.
 
 
 ## 21. Motion and 3D budgets

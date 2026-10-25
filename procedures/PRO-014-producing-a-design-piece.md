@@ -4,9 +4,9 @@ uid: ""
 title: "Producing a design piece"
 type: procedure
 status: draft
-version: "3.1.5"
+version: "3.1.6"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-10-10T11:53:13+02:00"
+updated: "2026-10-25T11:50:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -30,8 +30,8 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The order in which design decisions are taken, where the
 > values come from, and the checklist every piece passes before delivery.
-> The recipe for each medium is its design; how the sky, the Veil and
-> the reading player are built is `PRO-022`.
+> The recipe for each medium is its design; how the sky and the Veil
+> are built is `PRO-041`, and the reading player `PRO-022`.
 > **Epistemic:** In what order does an agent take the design decisions of a piece, and what does it check before delivering?
 > **Pragmatic:** Followed literally by an agent producing a piece.
 > **Audience:** Agents
@@ -110,4 +110,5 @@ decision — the Oracle's.
 |---|---|---|
 | `STD-008` | Design tokens | the rules this order applies |
 | `STD-023` | Design values | where the values are read |
-| `PRO-022` | Building the living pieces | the sky, the Veil and the reading player |
+| `PRO-041` | Building the night backdrop | the sky and the Veil |
+| `PRO-022` | Building the reading-aloud player | the reading player |

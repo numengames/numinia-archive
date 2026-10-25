@@ -6,9 +6,9 @@ type: design
 former_id: "BLU-011"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: active
-version: "1.1.7"
+version: "1.1.8"
 created: "2026-09-09T11:00:00+02:00"
-updated: "2026-10-05T16:55:00+02:00"
+updated: "2026-10-25T11:50:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Brand and marketing"
@@ -148,6 +148,6 @@ PORTADA                                CAPÍTULO
 After the general checklist in step 6 of `PRO-014`, and before delivering:
 
 - [ ] Veil: only alphas over canonicals; grid ≤3 %, fog ≤8 %; atmosphere behind the content, never on cards or elevated surfaces; glass only with atmosphere behind and text ≥ secondary; no Veil in Diurno; one dominant matter per view; animations 10–11 only here; still one orchestrated moment.
-- [ ] Sky built as `PRO-022` §3.1; grain (§2) only on paper, ≤5 %, never with relief or grid.
+- [ ] Sky built as `PRO-041` §3.1; grain (§2) only on paper, ≤5 %, never with relief or grid.
 - [ ] Living paper: third voice only in the book (roman body, SC drop cap and titles, italic lore, no synthetic small caps); bar that yields but does not disappear; glossary with a source per definition; moon as bookmark; `abierto / tras el Umbral` states; .md/pdf/epub visible; literary opening separated; full colophon with the scarab.
 - [ ] The invoice inherits none of it (`DES-013`).
