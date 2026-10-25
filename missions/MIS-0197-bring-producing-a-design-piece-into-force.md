@@ -3,10 +3,10 @@ id: "MIS-197"
 uid: ""
 title: "Bring PRO-014, producing a design piece, into force"
 type: mission
-status: in-progress
-version: "0.1.0"
+status: in-review
+version: "0.2.0"
 created: "2026-10-25T11:54:00Z"
-updated: "2026-10-25T11:54:00Z"
+updated: "2026-10-25T12:20:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -20,6 +20,7 @@ assigned_to: "ursa"
 completed: null
 
 started: "2026-10-25T11:54:00Z"
+in_review_at: "2026-10-25T12:20:00Z"
 context: "2026-10-25T11:54:00Z"
 requires_oracle_approval: true
 paths: [procedures/PRO-014-producing-a-design-piece.md, AGENTS.md]
@@ -70,4 +71,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 3. Closure
 
-*(Filled when the mission closes.)*
+- **What was done:** the Epistemic line of `PRO-014` was reduced to the order of the decisions (the delivery checklist stays in the Summary and steps). Every document and tool it cites was read to exist: `DES-009` to `DES-015`, `sistema.prompt.txt`, `generate-design-kit.mjs --check` (passes), `STD-023` §20 (the ceilings it points at are there), `PRO-041` and `PRO-022`. Active at 3.2.0 in a header-only commit, named in `AGENTS.md`. A test in `regime.test.mjs` holds it, seen failing first.
+- **What diverged, and why:** the earlier review said `PRO-014` pointed at a wrong section of `STD-023`; reading it, `§20` is the right one (the texture ceilings), so nothing was changed there. `STD-008` (draft) cites step 4 of this procedure as the way its `DSN-010` is checked by hand, and the verification row of `PRO-014` names `ACC-004` of `STD-034` (draft): both documents are still on trial.
+- **Evidence:** `npm test` 0 fail; `--rules` 12 checks, 0 failed; `--build` all ok after telemetry; `web/dist/binding` lists `PRO-014` in force.
+- **Closed:** pending the Oracle's review · **by:** ursa
