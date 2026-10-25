@@ -1518,6 +1518,17 @@
   "tokens": 3498
  },
  {
+  "path": "decisions/ADR-083-a-mission-is-budgeted-twice-by-weight-and-by-time.md",
+  "dir": "decisions",
+  "series": "decisions",
+  "type": "adr",
+  "status": "draft",
+  "chars": 6685,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1780
+ },
+ {
   "path": "designs/DES-002-business-metrics.md",
   "dir": "designs",
   "series": "designs",
@@ -2326,10 +2337,10 @@
   "series": null,
   "type": "mission",
   "status": "done",
-  "chars": 4212,
+  "chars": 3787,
   "apparatus": true,
   "archived": false,
-  "tokens": 1152
+  "tokens": 1100
  },
  {
   "path": "machine/templates/MIS-TEMPLATE.md",
@@ -2337,10 +2348,10 @@
   "series": null,
   "type": "mission",
   "status": "todo",
-  "chars": 6073,
+  "chars": 8762,
   "apparatus": true,
   "archived": false,
-  "tokens": 1567
+  "tokens": 2356
  },
  {
   "path": "machine/templates/OPP-TEMPLATE.md",
@@ -3025,6 +3036,28 @@
   "tokens": 1341
  },
  {
+  "path": "missions/MIS-0198-give-the-mission-template-a-story-two-budgets-and-an-invoice.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3638,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1058
+ },
+ {
+  "path": "missions/MIS-0199-run-one-real-mission-end-to-end-on-the-boards.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3132,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 855
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -3602,10 +3635,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "active",
-  "chars": 4438,
+  "chars": 4820,
   "apparatus": false,
   "archived": false,
-  "tokens": 1172
+  "tokens": 1272
  },
  {
   "path": "procedures/PRO-005-escalation.md",
@@ -4262,10 +4295,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 18752,
+  "chars": 19306,
   "apparatus": false,
   "archived": false,
-  "tokens": 5296
+  "tokens": 5503
  },
  {
   "path": "standards/STD-005-when-a-rule-bites.md",
