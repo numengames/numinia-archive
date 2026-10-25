@@ -729,6 +729,19 @@ check('tree: the backdrop and the player are two procedures in force — PRO-041
   return true;
 });
 
+/* PRO-014 brought into force (2026-10-25, MIS-197): one procedure, one question. */
+check('tree: PRO-014 asks one question and is in force, named in the regime (2026-10-25)', () => {
+  const dir = path.join(ROOT, 'procedures');
+  const f = readdirSync(dir).find((n) => n.startsWith('PRO-014-'));
+  const text = readFileSync(path.join(dir, f), 'utf-8');
+  const epistemic = /^> \*\*Epistemic:\*\*([^\n]*)/m.exec(text)?.[1] ?? '';
+  if ((epistemic.match(/\?/g) ?? []).length !== 1 || /,\s+and\s+(what|how|who|which|where|when)\b/i.test(epistemic)) return 'the Epistemic line asks more than one question';
+  if (!/^status:\s*"?active/m.test(text.slice(0, 2000))) return 'PRO-014 is not active';
+  const agents = readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf-8');
+  const inForce = /^In force:([^\n]*(?:\n(?!\n)[^\n]*)*)/m.exec(agents)?.[1] ?? '';
+  return inForce.includes('`PRO-014`') || 'AGENTS.md does not name PRO-014 in force';
+});
+
 check('tree: one question per standard — the record, who is named and which calls are recorded each have one holder (2026-10-15)', () => {
   // STD-039 answered three questions in one document. The record keeps OPP;
   // naming took NAM and the public call took CAL. The plates of a judgement
