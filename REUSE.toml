@@ -148,6 +148,7 @@ path = [
   "web/tsconfig.json",
   "machine/visual-baselines/footer.png",
   "machine/visual-baselines/header.png",
+  "web/src/icons/money-wings.svg",
 ]
 SPDX-FileCopyrightText = "2026 Numen Games S.L."
 SPDX-License-Identifier = "MIT"
