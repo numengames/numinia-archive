@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-25T19:56:28Z"
+updated: "2026-10-25T19:56:39Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `111a99b`  · corpus_hash: `e75990d27a6eed19…`  · measured_at: 2026-10-25T19:56:28Z  · root_dirty: 0
+- head: `f447164`  · corpus_hash: `3f1cc65cbdc81ce0…`  · measured_at: 2026-10-25T19:56:39Z  · root_dirty: 0
 
 ## corpus
 
@@ -71,7 +71,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files | bytes |
 |---|---|---|
-| Text | 557 | 4659799 |
+| Text | 557 | 4660687 |
 | Code | 291 | 2597581 |
 | Image | 120 | 3539152 |
 | Data | 82 | 316765 |
@@ -180,8 +180,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | missions |
 |---|---|
 | done | 1 |
-| in-progress | 5 |
-| in-review | 8 |
+| in-progress | 4 |
+| in-review | 9 |
 | on-hold | 1 |
 | todo | 119 |
 
@@ -249,10 +249,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 1199653 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 1199887 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 10.94 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 10.96 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -260,7 +260,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 466704 |
-| missions | 131270 |
+| missions | 131504 |
 | standards | 123768 |
 | agents | 78794 |
 | system | 63150 |
@@ -287,8 +287,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | active | 283049 |
 | draft | 278630 |
 | todo | 107670 |
-| in-progress | 11083 |
-| in-review | 10481 |
+| in-review | 11560 |
+| in-progress | 10238 |
 | done | 3281 |
 | on-hold | 1030 |
 
@@ -390,11 +390,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | forms | 10 |
 | supersedes_version | 10 |
 | detected | 9 |
+| in_review_at | 9 |
 | severity | 9 |
 | severity_reason | 9 |
 | visibility_reason | 9 |
 | confidence | 8 |
-| in_review_at | 8 |
 | name | 8 |
 | stage | 8 |
 | closes | 7 |
@@ -528,9 +528,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | draft | 189 |
 | done | 2 |
 | todo | 120 |
-| in-progress | 5 |
+| in-progress | 4 |
 | on-hold | 1 |
-| in-review | 8 |
+| in-review | 9 |
 
 ### `contradictions.status_vocabulary_undeclared`
 
@@ -549,7 +549,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | 3 |
 |---|---|
 | PRO | 718 |
-| STD | 1761 |
+| STD | 1762 |
 | PRI | 485 |
 | OPS | 205 |
 | ADR | 634 |

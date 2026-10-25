@@ -3975,11 +3975,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 3091,
+  "status": "in-review",
+  "chars": 3979,
   "apparatus": false,
   "archived": false,
-  "tokens": 845
+  "tokens": 1079
  },
  {
   "path": "objects/CHECK.md",

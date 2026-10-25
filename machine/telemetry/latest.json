@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "111a99b",
-  "corpus_hash": "e75990d27a6eed19be6a18fab3037889fbaa522c45ca7ef6361d2a04b32441cf",
+  "head": "f447164",
+  "corpus_hash": "3f1cc65cbdc81ce0f11129264edf4e92af884d9e4d9dd579acdf68baccb4e6fd",
   "root_dirty": 0,
-  "measured_at": "2026-10-25T19:56:28Z",
+  "measured_at": "2026-10-25T19:56:39Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 557,
-          "bytes": 4659799
+          "bytes": 4660687
         },
         "Code": {
           "files": 291,
@@ -272,8 +272,8 @@
     "missions.by_status": {
       "value": {
         "done": 1,
-        "in-progress": 5,
-        "in-review": 8,
+        "in-progress": 4,
+        "in-review": 9,
         "on-hold": 1,
         "todo": 119
       },
@@ -391,14 +391,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1199653,
+      "value": 1199887,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 466704,
-        "missions": 131270,
+        "missions": 131504,
         "standards": 123768,
         "agents": 78794,
         "system": 63150,
@@ -426,8 +426,8 @@
         "active": 283049,
         "draft": 278630,
         "todo": 107670,
-        "in-progress": 11083,
-        "in-review": 10481,
+        "in-review": 11560,
+        "in-progress": 10238,
         "done": 3281,
         "on-hold": 1030
       },
@@ -435,7 +435,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 10.94,
+      "value": 10.96,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -554,11 +554,11 @@
         "forms": 10,
         "supersedes_version": 10,
         "detected": 9,
+        "in_review_at": 9,
         "severity": 9,
         "severity_reason": 9,
         "visibility_reason": 9,
         "confidence": 8,
-        "in_review_at": 8,
         "name": 8,
         "stage": 8,
         "closes": 7,
@@ -775,9 +775,9 @@
         "draft": 189,
         "done": 2,
         "todo": 120,
-        "in-progress": 5,
+        "in-progress": 4,
         "on-hold": 1,
-        "in-review": 8
+        "in-review": 9
       },
       "unit": "documents",
       "definition": "frontmatter status values in the corpus with counts"
@@ -826,7 +826,7 @@
           "3": 718
         },
         "STD": {
-          "3": 1761
+          "3": 1762
         },
         "PRI": {
           "3": 485
