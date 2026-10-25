@@ -3,10 +3,10 @@ id: "MIS-191"
 uid: ""
 title: "Retire a lost opportunity's file at the quarterly roll-up, after 90 days"
 type: mission
-status: in-review
-version: "0.1.0"
+status: done
+version: "0.2.0"
 created: "2026-10-15T10:55:00Z"
-updated: "2026-10-15T10:55:00Z"
+updated: "2026-10-25T18:00:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Sales and partners"
@@ -17,7 +17,7 @@ priority: medium
 effort: S
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-15T11:17:07Z"
 
 started: "2026-10-15T10:55:00Z"
 requires_oracle_approval: true
@@ -60,13 +60,13 @@ putting `STD-039` in force.
 
 ## 2. Acceptance criteria
 
-- [ ] `node machine/packages/sales-kit/pipeline.mjs <records> --json` has a
+- [x] `node machine/packages/sales-kit/pipeline.mjs <records> --json` has a
   `leaving` list; a record lost 91 days ago is in it and one lost 90 days
   ago is not. Today: the key does not exist.
-- [ ] The report has a section for what is ready to leave. Today: it has none.
-- [ ] `STD-039` says 90 days and the quarterly roll-up in `PRO-017` removes
+- [x] The report has a section for what is ready to leave. Today: it has none.
+- [x] `STD-039` says 90 days and the quarterly roll-up in `PRO-017` removes
   those files. Today: neither says it.
-- [ ] `npm test` and both check sets pass.
+- [x] `npm test` and both check sets pass.
 
 ---
 
@@ -87,4 +87,4 @@ putting `STD-039` in force.
   that (they said "told and did not object").
 - **Evidence:** `npm test` all green (three new tests on the 90-day
   boundary, the report section and the tree); both check sets pass.
-- **Closed:** pending the Oracle's review · **by:** ursa
+- **Closed:** 2026-10-15, when the Oracle merged #701 · **by:** the Oracle

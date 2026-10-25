@@ -3,10 +3,10 @@ id: "MIS-198"
 uid: ""
 title: "Give the mission template a story, two budgets and an invoice"
 type: mission
-status: in-review
+status: done
 version: "0.1.0"
 created: "2026-10-25T13:00:00Z"
-updated: "2026-10-25T13:30:00Z"
+updated: "2026-10-25T18:00:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -20,7 +20,7 @@ budget_usd: 6.00
 budget_minutes: 30
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-25T13:13:51Z"
 
 started: "2026-10-25T13:00:00Z"
 in_review_at: "2026-10-25T13:30:00Z"
@@ -110,4 +110,4 @@ dollars of each card.
 *(Pasted at merge from the board's measurement.)*
 
 - **Evidence:** this pull request.
-- **Closed:** · **by:**
+- **Closed:** 2026-10-25, when the Oracle merged #754 · **by:** the Oracle

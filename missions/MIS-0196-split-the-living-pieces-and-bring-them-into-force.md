@@ -3,10 +3,10 @@ id: "MIS-196"
 uid: ""
 title: "Split the living pieces into two procedures and bring both into force"
 type: mission
-status: in-review
-version: "0.2.0"
+status: done
+version: "0.3.0"
 created: "2026-10-25T11:34:00Z"
-updated: "2026-10-25T12:45:00Z"
+updated: "2026-10-25T18:00:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -17,7 +17,7 @@ priority: medium
 effort: M
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-25T11:51:31Z"
 
 started: "2026-10-25T11:34:00Z"
 in_review_at: "2026-10-25T12:45:00Z"
@@ -69,10 +69,10 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 2. Acceptance criteria
 
-- [ ] No procedure holds both the sky and the reading player: `grep -l "Reading aloud" procedures/*.md` and `grep -l "The sky" procedures/*.md` list different files (today: both in `PRO-022`).
-- [ ] `PRO-022` and `PRO-041` are `status: active` and named in `AGENTS.md` (today: `PRO-022` is draft, `PRO-041` does not exist).
-- [ ] `/procedures/pro-022-building-the-living-pieces` still answers, by redirect (today: it is the page itself).
-- [ ] `npm test`, `npm run checks -- --rules` and the web build pass.
+- [x] No procedure holds both the sky and the reading player: `grep -l "Reading aloud" procedures/*.md` and `grep -l "The sky" procedures/*.md` list different files (today: both in `PRO-022`).
+- [x] `PRO-022` and `PRO-041` are `status: active` and named in `AGENTS.md` (today: `PRO-022` is draft, `PRO-041` does not exist).
+- [x] `/procedures/pro-022-building-the-living-pieces` still answers, by redirect (today: it is the page itself).
+- [x] `npm test`, `npm run checks -- --rules` and the web build pass.
 
 ---
 
@@ -81,4 +81,4 @@ SPDX-License-Identifier: CC0-1.0
 - **What was done:** `PRO-041` *Building the night backdrop* holds the sky and the Veil layer; `PRO-022` is now *Building the reading-aloud player*. Steps 3.1, 3.2 and the seven player steps moved without a word of a step changed; the framing sections (purpose, preconditions, verification) were split to match. Citers repointed: `STD-023` (sky and Veil placement to `PRO-041`), `DES-011`, `DES-016`, `PRO-014`, the token-coverage test in `rules.test.mjs`, the reading order in `corpus.ts`. The old address redirects to the player. Both procedures are `active` at 1.0.0 in a header-only commit, named in `AGENTS.md`. A test in `regime.test.mjs` holds it (seen failing first: \"PRO-041 does not exist\").
 - **What diverged, and why:** the first reading of `PRO-022` (an agent review, then mine) called it ready to activate unchanged, because its Epistemic line asks one question. The Oracle saw that it holds two things, a backdrop and a tool the reader uses; the split followed. Lesson for the next activations: read the steps, not the question line. `STD-031` reports 5 findings on `PRI-006` (Charles Peirce's name, two years), on trial and not enforced.
 - **Evidence:** `npm test` 1005 tests, 1003 pass, 0 fail, 2 skipped; `--rules` 12 checks, 0 failed; `--build` all ok; `web/dist/binding/index.html` lists `PRO-022` and `PRO-041` in force; `web/dist/procedures/` answers all four old and new addresses.
-- **Closed:** pending the Oracle's review · **by:** ursa
+- **Closed:** 2026-10-25, when the Oracle merged #752 · **by:** the Oracle
