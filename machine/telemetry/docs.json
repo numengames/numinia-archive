@@ -3019,10 +3019,10 @@
   "series": "missions",
   "type": "mission",
   "status": "in-review",
-  "chars": 4566,
+  "chars": 4590,
   "apparatus": false,
   "archived": false,
-  "tokens": 1331
+  "tokens": 1341
  },
  {
   "path": "objects/CHECK.md",

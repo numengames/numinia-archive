@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "5c252d0",
-  "corpus_hash": "626da023bb416c3344d1c3fd60ec88c19f0ded1e3f387b83cf67ab30cbb138d6",
+  "head": "bb79e15",
+  "corpus_hash": "b0547de1185c23e0108baa65dce7ca16dfd149cee26f778744690b7e0f52557c",
   "root_dirty": 0,
-  "measured_at": "2026-10-25T11:38:11Z",
+  "measured_at": "2026-10-25T11:39:05Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 470,
-          "bytes": 4461845
+          "bytes": 4461869
         },
         "Code": {
           "files": 289,
@@ -376,7 +376,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1141425,
+      "value": 1141435,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -385,7 +385,7 @@
         "lore": 466704,
         "standards": 123528,
         "agents": 78794,
-        "missions": 75608,
+        "missions": 75618,
         "system": 63150,
         "decisions": 46372,
         "procedures": 44941,
@@ -412,7 +412,7 @@
         "draft": 277498,
         "todo": 53132,
         "in-progress": 10238,
-        "in-review": 9413,
+        "in-review": 9423,
         "done": 3333,
         "on-hold": 1030
       },
