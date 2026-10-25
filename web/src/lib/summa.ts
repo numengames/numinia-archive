@@ -100,7 +100,6 @@ export const SEGMENTS: Segment[] = [
   { id: "production", ring: "work", word: "Production", title: "Production", a: [0, 120], entries: [
     E("Designs", "The plans for every piece", "/designs/", "designs"),
     E("Missions", "The work in progress, as cards", "/missions", "missions"),
-    E("The mission book", "What we are doing and why: each area, its missions, their story and budget", "/mission-book"),
   ] },
   { id: "assurance", ring: "work", word: "Assurance", title: "Assurance", a: [120, 240], entries: [
     E("Reports", "What we observed", "/reports", "reports"),
@@ -189,8 +188,8 @@ export const BOOKS: Book[] = [
   { label: "The design system", line: "Everything a piece of ours is made of, on one page and in one download", href: "/design", from: "standards · procedures · system" },
   { label: "The role-playing manual", line: "The tabletop game of Numinia, chapter by chapter, in Spanish and English", href: "/manual", from: "lore" },
   { label: "The guild handbook", line: "How someone joins, what each role may do, and how they leave", href: "/guild-handbook", from: "principles · standards · procedures" },
-  // 2026-10-25 (the Oracle): the missions get a book of their own.
-  { label: "The mission book", line: "What we are doing and why: each area with its missions, the story behind each one, what it may cost, and how a mission runs", href: "/mission-book", from: "missions · procedures · decisions" },
+  // 2026-10-25 (the Oracle): the mission book IS the mission board.
+  { label: "The mission book", line: "What we are doing and why: each area with its missions, the story behind each one, what it may cost, and the board of every mission", href: "/missions", from: "missions" },
   { label: "The engineering handbook", line: "How the machine is built, checked, secured and published", href: null, from: "standards · procedures", pending: "Not gathered yet: its documents exist (STD-015, STD-022, PRO-011, PRO-016, PRO-018, PRO-034), the book that reads them does not" },
 ];
 

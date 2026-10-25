@@ -29,6 +29,9 @@ export default defineConfig({
 	// before push (72bff4c): the URL never went live, and the entry is about
 	// page weight, not a broken link. See DBT-004.
 	redirects: {
+		// 2026-10-25 (the Oracle): the mission book is the mission board.
+		"/mission-book": "/missions",
+		"/mission-book.md": "/missions.md",
 		// Every rule here is a promise that a retired address still leads to the
 		// document answering the question it answered (STD-028 URL-005). Nothing
 		// else belongs in this block.

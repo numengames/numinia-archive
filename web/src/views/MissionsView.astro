@@ -11,6 +11,7 @@ import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
 import { getCollection } from "astro:content";
 import { useT } from "@/i18n/ui";
+import { areas as readAreas, firstSentence, statusWord } from "@/lib/mission-book";
 const t = useT();
 
 const HUMAN_COST: Record<string, number> = { XS: 130, S: 520, M: 1560, L: 3900, XL: 7800 };
@@ -65,6 +66,12 @@ const STATUS_ID_COLOR: Record<string, string> = {
   "done": "text-green",
 };
 
+// 2026-10-25 (the Oracle): the mission book IS this board. It opens with the
+// areas: each open parent mission, its story, how many of its children are
+// done, and the children themselves with their weight and budget.
+const areas = readAreas();
+const money = (n: number) => "$" + n.toFixed(2);
+
 const entries = await getCollection("missions");
 const missions = entries
   .map((e) => {
@@ -87,6 +94,7 @@ const missions = entries
       status,
       priority: (f.priority as string) || "medium",
       effort,
+      weight: f.weight != null && f.weight !== "" ? String(f.weight) : null,
       guild: (f.guild as string) || "—",
       assignedTo: f.assigned_to && f.assigned_to !== "null" ? (f.assigned_to as string) : null,
       type,
@@ -203,6 +211,53 @@ const stats = [
           lang="en"
         />
       </div>
+
+      <!-- The areas: the mission book (the Oracle, 2026-10-25) -->
+      <section id="areas" aria-labelledby="areas-title" class="mb-14">
+        <h2 id="areas-title" class="font-display text-2xl text-foreground">What we are doing, by area</h2>
+        <p class="mt-1 mb-5 max-w-[68ch] text-sm text-muted-foreground">Each area is a parent mission: who it is for and why, how much of it is done, and the smaller missions it was split into. Open one to see them; the board of every mission follows below.</p>
+        <div class="flex flex-col gap-2">
+          {areas.map((a) => {
+            const pct = (n: number) => (a.children.length ? (100 * n) / a.children.length : 0);
+            return (
+              <details class="area rounded-[8px] border border-border bg-card">
+                <summary class="grid cursor-pointer list-none grid-cols-[1fr_auto] gap-x-4 gap-y-2 p-4 sm:p-5">
+                  <span>
+                    <span class="font-mono text-[0.75rem] uppercase tracking-[0.1em] text-dim">{a.parent.id} · {a.children.length} missions</span>
+                    <span class="mt-0.5 block text-[1rem] font-semibold leading-snug text-foreground">{a.parent.title}</span>
+                    <span class="mt-1 block text-sm text-muted-foreground">{a.parent.story || firstSentence(a.parent.summary)}</span>
+                  </span>
+                  <span class="whitespace-nowrap text-right font-mono text-[0.875rem] text-dim"><span class="text-foreground">{a.done}</span>/{a.children.length} done</span>
+                  <span class="col-span-2 flex flex-wrap items-center gap-x-4 gap-y-1">
+                    <span class="flex h-2 min-w-[160px] max-w-[360px] flex-1 overflow-hidden rounded-full bg-border" role="img" aria-label={`${a.done} of ${a.children.length} done, ${a.moving} moving`}>
+                      <i class="block h-full bg-green" style={`width:${pct(a.done)}%`}></i>
+                      <i class="block h-full bg-accent" style={`width:${pct(a.moving)}%`}></i>
+                    </span>
+                    {a.usd > 0 && <span class="font-mono text-[0.75rem] uppercase tracking-[0.1em] text-dim">budget {money(a.usd)} · {a.minutes} min</span>}
+                  </span>
+                </summary>
+                <ol class="border-t border-border px-4 pb-3 sm:px-5">
+                  {a.children.map((k) => (
+                    <li class="grid grid-cols-[2.25rem_1fr_auto] items-start gap-3 border-b border-border/60 py-3 last:border-b-0">
+                      <span class={"grid h-11 w-8 place-items-center rounded-[6px] border font-mono text-sm font-semibold " + (k.weight ? "border-muted-foreground text-foreground" : "border-dashed border-border text-dim")} title={k.weight ? `Weight ${k.weight}` : "Weight not voted yet"}>{k.weight || "?"}</span>
+                      <span>
+                        <a href={k.href} class="text-[0.95rem] font-semibold text-foreground hover:text-accent">{k.title}</a>
+                        <span class="mt-0.5 block text-sm text-muted-foreground">{k.story || firstSentence(k.summary)}</span>
+                      </span>
+                      <span class="whitespace-nowrap text-right font-mono text-[0.75rem] uppercase tracking-[0.1em] text-dim">
+                        <span class="block">{statusWord(k)}</span>
+                        {(k.usd || k.minutes) && <span class="block">{k.usd ? "$" + k.usd : ""}{k.usd && k.minutes ? " · " : ""}{k.minutes ? k.minutes + " min" : ""}</span>}
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            );
+          })}
+        </div>
+      </section>
+
+      <h2 class="mb-4 font-display text-2xl text-foreground">Every mission</h2>
 
       <!-- Stats -->
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-3 mb-10">
@@ -354,7 +409,7 @@ const stats = [
                       <span class={PRIORITY_TEXT[m.priority] || "text-dim"}>{m.priority}</span>
                       <span class="inline-flex items-center gap-1">
                         <Icon name={TYPE_ICON[m.type] || "git-branch"} size={11} />
-                        {m.effort}
+                        {m.weight != null ? "weight " + m.weight : m.effort}
                       </span>
                       <span>{m.guild}</span>
                       {m.assignedTo && (
@@ -537,3 +592,9 @@ for (const key of ["freeze"]) {
   });
 }
 </script>
+
+<style>
+  .area > summary::-webkit-details-marker { display: none; }
+  .area[open] > summary { border-bottom: 0; }
+  .area > summary:hover .text-foreground { color: rgb(var(--accent)); }
+</style>

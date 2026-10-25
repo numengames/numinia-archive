@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.175.0",
+    date: "2026-10-25",
+    entries: [
+      { type: "CHG", text: "The mission book is the mission board: the shelf's card opens /missions, which now begins with each area — a parent mission with its story, how much is done, and its child missions with their weight and budget; cards show their weight. /mission-book leads to /missions." },
+    ],
+  },
+  {
     version: "v0.174.0",
     date: "2026-10-25",
     entries: [
