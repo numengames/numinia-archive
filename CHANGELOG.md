@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-25
+- **Changed** The living pieces split in two, as the Oracle ruled (one procedure, one thing): `PRO-041` builds the night backdrop (the sky and the Veil layer), `PRO-022` the reading-aloud player; both in force at 1.0.0 (header only), the old address opens the player (site v0.172.0, MIS-196)
+
 ### 2026-10-22
 - **Added** `STD-052` 0.3.0: a permission of its own, `edit-images`, to change a cover and the images of a page and its worlds' cards; Moderation carries it in the community template, Finance carries `view-balance` besides `manage-balance`
 - **Added** Six agents join Ursa's team: Hekate (adversarial review), Zephyr (world playtests), Vesta (operations), Iris (deploys), Rosetta (legacy ports), Galatea (3D and UX). INDEX 3.6.0 at the Oracle's go; new skill `numinia-bienvenida`: a day-one welcome and self-check (site v0.170.0)
