@@ -3,10 +3,10 @@ id: "PRO-022"
 uid: ""
 title: "Building the reading-aloud player"
 type: procedure
-status: draft
-version: "0.3.0"
+status: active
+version: "1.0.0"
 created: "2026-09-26T18:00:00+02:00"
-updated: "2026-10-25T11:40:00Z"
+updated: "2026-10-25T12:05:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"

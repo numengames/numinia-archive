@@ -43,7 +43,8 @@ escalation names its mission. The procedures of selling, since 2026-10-15 —
 (watching for opportunities): an opportunity's record moves only by their
 steps. `PRO-015` (joining Numinia) and `PRO-024` (leaving Numinia), since
 2026-10-15: nobody starts before the agreement is signed, and nobody is
-gone before their access list is closed. And the principles and standards whose header says
+gone before their access list is closed. `PRO-022` (building the reading-aloud player) and
+`PRO-041` (building the night backdrop), since 2026-10-25. And the principles and standards whose header says
 `active`:
 `PRI-001` you are already in the game ·
 `PRI-002` we build a game to work better ·
@@ -226,7 +227,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-019` | Holding a ritual | draft | whoever convokes, prepares or records a… |
 | `PRO-020` | Putting something on sale | draft | whoever prepares, approves, creates or… |
 | `PRO-021` | Closing the month | draft | whoever brings the month's documents,… |
-| `PRO-022` | Building the reading-aloud player | draft | whoever builds, changes or reviews the… |
+| `PRO-022` | Building the reading-aloud player | in force | whoever builds, changes or reviews the… |
 | `PRO-023` | Bringing a rule into force | in force | whoever proposes, prepares or approves… |
 | `PRO-024` | Leaving Numinia | in force | whoever lets a person go from Numinia,… |
 | `PRO-025` | Handling a personal data breach | draft | whoever learns of a possible breach of… |
@@ -245,7 +246,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-038` | Choosing the brain that agents in worlds… | draft | the Oracle who holds the brain's key.… |
 | `PRO-039` | Opening the brain to the worlds | draft | the Oracle who holds the brain's key… |
 | `PRO-040` | Configuring an agent from the platform | draft | whoever manages a community's agents,… |
-| `PRO-041` | Building the night backdrop | draft | whoever builds, changes or reviews the… |
+| `PRO-041` | Building the night backdrop | in force | whoever builds, changes or reviews the… |
 | `STD-001` | The series | in force | every tracked document of the archive |
 | `STD-003` | Platform ranks | draft | the Numinia digital-goods platform —… |
 | `STD-004` | The header | in force | every document's header, and every date… |
@@ -295,7 +296,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
 | `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded… |
 
-98 rule documents, of which 48 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+98 rule documents, of which 50 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

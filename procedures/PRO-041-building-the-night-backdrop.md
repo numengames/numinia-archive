@@ -3,10 +3,10 @@ id: "PRO-041"
 uid: ""
 title: "Building the night backdrop"
 type: procedure
-status: draft
-version: "0.1.0"
+status: active
+version: "1.0.0"
 created: "2026-10-25T11:40:00Z"
-updated: "2026-10-25T11:40:00Z"
+updated: "2026-10-25T12:05:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
