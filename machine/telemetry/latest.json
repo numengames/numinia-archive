@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "4143cb1",
-  "corpus_hash": "f4b33e4b70cf03ac92f8001f69659e80c67eeb60107e34b2a9fd2300c28168e6",
-  "root_dirty": 1,
-  "measured_at": "2026-10-25T14:20:49Z",
+  "head": "f0ac7bc",
+  "corpus_hash": "294a99dac843b1912ba19957b242a5e17acf94a7072fdec16025cb9d6e79d8df",
+  "root_dirty": 0,
+  "measured_at": "2026-10-25T14:33:37Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 1072,
+      "value": 1073,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -36,7 +36,7 @@
         ".md": 556,
         ".mjs": 140,
         ".png": 38,
-        ".svg": 77,
+        ".svg": 78,
         ".toml": 3,
         ".ts": 65,
         ".tsx": 2,
@@ -53,19 +53,19 @@
       "value": {
         "Text": {
           "files": 556,
-          "bytes": 4658818
+          "bytes": 4659238
         },
         "Code": {
           "files": 289,
-          "bytes": 2582989
+          "bytes": 2583461
         },
         "Image": {
-          "files": 119,
-          "bytes": 3538727
+          "files": 120,
+          "bytes": 3539152
         },
         "Data": {
           "files": 82,
-          "bytes": 316684
+          "bytes": 316765
         },
         "Font": {
           "files": 7,
@@ -391,7 +391,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1199066,
+      "value": 1199189,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -399,7 +399,7 @@
       "value": {
         "lore": 466704,
         "missions": 130425,
-        "standards": 123735,
+        "standards": 123768,
         "agents": 78794,
         "system": 63150,
         "decisions": 48152,
@@ -408,7 +408,7 @@
         "operations": 33643,
         "designs": 31465,
         "machine": 30862,
-        "": 29424,
+        "": 29514,
         "principles": 23512,
         "debt": 21476,
         "opportunities": 15128,
@@ -422,8 +422,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 504072,
-        "active": 283016,
+        "(none)": 504162,
+        "active": 283049,
         "draft": 279278,
         "todo": 107670,
         "in-review": 10481,
@@ -826,7 +826,7 @@
           "3": 717
         },
         "STD": {
-          "3": 1754
+          "3": 1755
         },
         "PRI": {
           "3": 483

@@ -15,6 +15,7 @@
 import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
+import SalesDue from "@/components/SalesDue.astro";
 import { playbook } from "@/lib/playbook";
 
 const book = playbook();
@@ -50,9 +51,12 @@ const stageCount = book.kinds.reduce((n, k) => n + k.stages.length, 0);
       </p>
 
       <nav aria-label="Chapters" class="mb-10 flex flex-wrap gap-2">
+        <a href="#steps-due" class:list={[etiqueta, "rounded-full border border-accent px-2.5 py-1 text-accent"]}>Steps due</a>
         <a href="#before-the-record" class:list={[etiqueta, "rounded-full border border-accent px-2.5 py-1 text-accent"]}>Before the record</a>
         {book.kinds.map((k) => <a href={`#kind-${k.kind}`} class:list={[etiqueta, "rounded-full border border-border px-2.5 py-1 text-foreground"]}>{k.title}</a>)}
       </nav>
+
+      <SalesDue />
 
       <section id="before-the-record" data-before-record class="mb-14 rounded-[8px] border border-dashed border-accent/60 p-5 sm:p-6">
         <div class:list={[etiqueta, "text-dim mb-1"]}>Chapter 0 · before the record</div>

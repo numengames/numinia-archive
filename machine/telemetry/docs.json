@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 72250,
+  "chars": 72563,
   "apparatus": false,
   "archived": false,
-  "tokens": 20637
+  "tokens": 20727
  },
  {
   "path": "CLAUDE.md",
@@ -5384,10 +5384,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 30427,
+  "chars": 30533,
   "apparatus": false,
   "archived": false,
-  "tokens": 9178
+  "tokens": 9211
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",

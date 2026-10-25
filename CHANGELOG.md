@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-25
+- **Changed** `/playbook` (site v0.173.0): the sales steps due leave the bell in the top bar and open the sales playbook, under its chapter links; the icon is a new `money-wings` glyph (a banknote with wings, drawn for us), so `STD-023` 1.13.0 names seventy-four glyphs and the kit's `icon.subconjunto` lists it.
 - **Changed** The living pieces split in two, as the Oracle ruled (one procedure, one thing): `PRO-041` builds the night backdrop (the sky and the Veil layer), `PRO-022` the reading-aloud player; both in force at 1.0.0 (header only), the old address opens the player (site v0.172.0, MIS-196)
 
 ### 2026-10-22
