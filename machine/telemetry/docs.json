@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 73344,
+  "chars": 73614,
   "apparatus": false,
   "archived": false,
-  "tokens": 20927
+  "tokens": 20994
  },
  {
   "path": "CLAUDE.md",
@@ -3969,6 +3969,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 596
+ },
+ {
+  "path": "missions/MIS-0283-shelve-the-principles-by-company-section-and-drop-the-drawer-strip.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-progress",
+  "chars": 3091,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 845
  },
  {
   "path": "objects/CHECK.md",

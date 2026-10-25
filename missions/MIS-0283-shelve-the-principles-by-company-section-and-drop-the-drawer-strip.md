@@ -3,10 +3,10 @@ id: "MIS-283"
 uid: ""
 title: "Shelve the principles by company section and drop the drawer strip"
 type: mission
-status: in-progress
-version: "0.1.0"
+status: in-review
+version: "0.2.0"
 created: "2026-10-25T15:30:00Z"
-updated: "2026-10-25T15:30:00Z"
+updated: "2026-10-25T16:20:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -20,6 +20,7 @@ assigned_to: "ursa"
 completed: null
 
 started: "2026-10-25T15:30:00Z"
+in_review_at: "2026-10-25T16:20:00Z"
 context: "2026-10-25T15:30:00Z"
 requires_oracle_approval: true
 paths: ["web/src/lib/corpus.ts", "web/src/pages/[series].astro", "machine/scripts/test/standards-index.test.mjs"]
@@ -79,7 +80,7 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 3. Closure
 
-- **What was done:** pending.
-- **What diverged, and why:** pending.
-- **Evidence:** pending.
-- **Closed:** pending · **by:** ursa
+- **What was done:** `READING_GROUPS_PRINCIPLES` is six shelves, one per section the principles declare, with `STD-030`'s name and line; each principle is on the shelf of its own header. The page names the houses that serve each shelf (`translator.servedBy`) and shows them beside the name at the half moon and in its place at the full moon. The strip "The other drawers" is gone from every series page. The page's introduction said "four shelves"; it now says six.
+- **What diverged, and why:** the plan said the full moon would show the city's four old names; they grouped differently from the sections and no document names the six, so the houses stand in (the Oracle chose this, 2026-10-25).
+- **Evidence:** `npm test` 1013 tests, 1011 pass, 0 fail, 2 skipped; `--rules` 12 checks, 0 failed; web build ok; built `/principles` shows the six shelves at the three moons (checked in a browser) and no strip on any series page.
+- **Closed:** pending the Oracle's review · **by:** ursa
