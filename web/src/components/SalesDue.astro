@@ -1,0 +1,127 @@
+---
+// SPDX-FileCopyrightText: 2026 Numen Games S.L.
+// SPDX-License-Identifier: MIT
+//
+// The sales steps due (the Oracle, 25 October 2026): a panel in the sales
+// playbook that says how many sales steps are due, and lists them — each a
+// link to the opportunity it moves. It was a bell in the bar of every page;
+// it distracted there and said little to a reader who came from the front
+// door. Only selling: every item is an open opportunity's next step from the
+// pipeline tool (src/lib/sales-due.ts).
+//
+// Every item is rendered here, with its address, at build time (the link
+// guard reads hrefs from the built HTML). The script only decides which
+// items are due — a day's steps fall due at RING_HOUR on that day, reader's
+// clock — and counts them for the badge. Without JavaScript the panel lists
+// every open step, nearest first.
+import Icon from "@/components/Icon.astro";
+import { dueItems, RING_HOUR } from "@/lib/sales-due";
+
+const items = dueItems();
+const etiqueta = "font-mono text-[0.7rem] uppercase tracking-[0.15em]";
+---
+
+<section
+  id="steps-due"
+  data-sales-due
+  data-ring-hour={RING_HOUR}
+  aria-labelledby="steps-due-title"
+  class="sales-due mb-10 overflow-hidden rounded-[8px] border border-border bg-card"
+>
+  <div class="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3">
+    <h2 id="steps-due-title" class:list={[etiqueta, "flex items-center gap-2 text-foreground"]}>
+      <Icon name="money-wings" size={30} class="due-icon text-accent" />
+      Steps due
+      <span data-due-count class="due-count hidden" aria-live="polite"></span>
+    </h2>
+    <a href="/system/pipeline" class:list={[etiqueta, "text-accent hover:underline"]}>The whole pipeline →</a>
+  </div>
+  <p data-due-empty class="hidden px-4 py-5 text-sm text-muted-foreground">
+    Nothing due yet. The next steps fall due at {RING_HOUR}:00 on their day.
+  </p>
+  <ul class="max-h-[60vh] overflow-y-auto">
+    {items.map((it) => (
+      <li data-due-item data-date={it.date} class="border-b border-border/50 last:border-b-0">
+        <a href={it.url} class="block px-4 py-3 transition-colors hover:bg-background">
+          <span class="flex items-center justify-between gap-3">
+            <span class:list={[etiqueta, "text-muted-foreground"]}>{it.kindLabel} · {it.id}</span>
+            <span data-due-when class:list={[etiqueta, "text-muted-foreground"]}>{it.date}</span>
+          </span>
+          <span class="mt-1 block text-sm font-medium text-foreground">{it.title}</span>
+          <span class="mt-1 block text-sm text-muted-foreground">{it.action}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .due-count {
+    min-width: 20px;
+    height: 20px;
+    padding: 0 5px;
+    border-radius: 999px;
+    background: rgb(var(--red));
+    color: #fff;
+    font: 600 0.72rem/20px var(--font-mono, ui-monospace, monospace);
+    text-align: center;
+  }
+  .due-count:not(.hidden) { display: inline-block; }
+  [data-due-when] { white-space: nowrap; }
+  [data-due-item][data-overdue] [data-due-when] {
+    color: rgb(var(--red));
+  }
+  /* The wings beat once when a step is due, never for a reader who asked for stillness. */
+  @media (prefers-reduced-motion: no-preference) {
+    .sales-due[data-due] :global(.due-icon) {
+      animation: due-flutter 1.2s ease-in-out 2;
+    }
+  }
+  @keyframes due-flutter {
+    0%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-3px); }
+    60% { transform: translateY(1px); }
+  }
+</style>
+
+<script>
+  // Which steps are due: a step dated D falls due at RING_HOUR on D, reader's
+  // local clock, and stays until its record moves on. Not yet due: hidden.
+  const root = document.querySelector<HTMLElement>("[data-sales-due]");
+  if (root) {
+    const ringHour = Number(root.dataset.ringHour ?? "12");
+    const count = root.querySelector<HTMLElement>("[data-due-count]")!;
+    const empty = root.querySelector<HTMLElement>("[data-due-empty]")!;
+    const items = [...root.querySelectorAll<HTMLElement>("[data-due-item]")];
+
+    const pad = (n: number) => String(n).padStart(2, "0");
+    const iso = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+
+    const refresh = () => {
+      const now = new Date();
+      const today = iso(now);
+      const afterRing = now.getHours() >= ringHour;
+      let due = 0;
+      for (const li of items) {
+        const d = li.dataset.date ?? "";
+        const has = d < today || (d === today && afterRing);
+        li.hidden = !has;
+        if (has) due++;
+        if (d < today) li.dataset.overdue = "";
+        else delete li.dataset.overdue;
+        const when = li.querySelector<HTMLElement>("[data-due-when]");
+        if (when) when.textContent = d < today ? `overdue · ${d}` : d === today ? "today" : d;
+      }
+      count.textContent = String(due);
+      count.setAttribute("aria-label", `${due} step${due === 1 ? "" : "s"} due`);
+      count.classList.toggle("hidden", due === 0);
+      empty.classList.toggle("hidden", due > 0);
+      if (due > 0) root.dataset.due = "";
+      else delete root.dataset.due;
+    };
+
+    refresh();
+    // A page left open across noon updates without a reload.
+    setInterval(refresh, 60_000);
+  }
+</script>

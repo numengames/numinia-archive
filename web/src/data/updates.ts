@@ -53,10 +53,19 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
-    version: "v0.173.0",
+    version: "v0.174.0",
     date: "2026-10-25",
     entries: [
       { type: "ADD", text: "The mission book joins the shelf, served at /mission-book: how a mission runs and is budgeted, each area with the story of its parent mission and the table of its children (weight, budget, status), the missions on their own, and what is done — read from the mission files, PRO-003 and ADR-083." },
+    ],
+  },
+  {
+    version: "v0.173.0",
+    date: "2026-10-25",
+    entries: [
+      { type: "CHG", text: "The sales steps due moved from the bell in the top bar to the top of the sales playbook, where selling is explained. They no longer follow you down every page; from the playbook, each step still opens the opportunity it moves." },
+      { type: "CHG", text: "The bell is now a banknote with wings, which says \"opportunities\" at a glance." },
+      { type: "DEL", text: "The bell in the top bar, and with it the red count on every page." },
     ],
   },
   {

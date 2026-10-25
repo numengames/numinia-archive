@@ -98,7 +98,7 @@ const ctx = await browser.newContext({
 });
 const page = await ctx.newPage();
 await page.goto(`${BASE}/`, { waitUntil: "networkidle" });
-// The mode switch, the narrative dial and the sales bell animate in; give
+// The mode switch and the narrative dial animate in; give
 // them a beat to settle so the screenshot is deterministic.
 await page.waitForTimeout(300);
 

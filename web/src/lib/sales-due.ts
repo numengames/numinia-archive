@@ -1,25 +1,29 @@
 // SPDX-FileCopyrightText: 2026 Numen Games S.L.
 // SPDX-License-Identifier: MIT
 //
-// The sales bell in the bar: every open opportunity's next step, as the
-// pipeline tool computes it (its `due` list, through src/lib/pipeline.ts).
-// Nothing here is typed: the date and the step are each record's `next`
-// line, the address is the record's page.
+// The sales steps due, shown in the sales playbook: every open opportunity's
+// next step, as the pipeline tool computes it (its `due` list, through
+// src/lib/pipeline.ts). Nothing here is typed: the date and the step are each
+// record's `next` line, the address is the record's page.
+//
+// They were a bell in the bar of every page until 25 October 2026 (the
+// Oracle: it distracted, and a reader coming from the front door met a list
+// with no context; the playbook is where selling is explained).
 //
 // A static site is built once and read on many days, so the build cannot
-// know which steps are due "today". The bell ships every open step with its
+// know which steps are due "today". The panel ships every open step with its
 // day; the reader's browser shows a step from NOON of its day onwards
 // (RING_HOUR, the Oracle's choice of 1 October 2026: the day's sales
 // notifications arrive at 12) and keeps showing it, as overdue, until the
 // record's timeline moves on.
 //
-// Read once per build: the bar is on every page, the tool runs once.
+// Read once per build.
 import { pipeline, KIND_LABEL, type Kind } from "@/lib/pipeline";
 
 /** The hour, reader's local time, at which a day's steps ring. */
 export const RING_HOUR = 12;
 
-export interface BellItem {
+export interface DueItem {
   id: string;
   kind: Kind;
   kindLabel: string;
@@ -31,10 +35,10 @@ export interface BellItem {
   url: string;
 }
 
-let cached: BellItem[] | null = null;
+let cached: DueItem[] | null = null;
 
 /** Every open record's next step, earliest first. */
-export function bellItems(): BellItem[] {
+export function dueItems(): DueItem[] {
   if (cached) return cached;
   const F = pipeline();
   const byId = Object.fromEntries(F.records.map((r) => [r.id, r]));
