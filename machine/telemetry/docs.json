@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20580,
+  "chars": 20643,
   "apparatus": false,
   "archived": false,
-  "tokens": 5368
+  "tokens": 5391
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 72250,
+  "chars": 72467,
   "apparatus": false,
   "archived": false,
-  "tokens": 20637
+  "tokens": 20702
  },
  {
   "path": "CLAUDE.md",
@@ -3025,6 +3025,17 @@
   "tokens": 1341
  },
  {
+  "path": "missions/MIS-0197-bring-producing-a-design-piece-into-force.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 3345,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1018
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -3656,11 +3667,11 @@
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 4711,
+  "status": "active",
+  "chars": 4670,
   "apparatus": false,
   "archived": false,
-  "tokens": 1292
+  "tokens": 1284
  },
  {
   "path": "procedures/PRO-015-joining.md",
