@@ -118,3 +118,28 @@ test('every principle is on a reading shelf', () => {
   const off = principles.map((f) => f.match(/PRI-(\d{3})/)[1]).filter((n) => !shelved.has(n)).map((n) => `PRI-${n}`);
   assert.deepEqual(off, [], `these principles are on no reading shelf in web/src/lib/corpus.ts: ${off.join(', ')}`);
 });
+
+/* ---- Principles are shelved in a company's words (the Oracle, 2026-10-25) ----
+   Each principle declares its section in its header (STD-030). The shelf it sits on is named after
+   that section, so someone from any organisation finds it where they would look. */
+test('every principle sits on the shelf named after its own section', () => {
+  const corpusTs = readFileSync(path.join(ROOT, 'web/src/lib/corpus.ts'), 'utf8');
+  const start = corpusTs.indexOf('const READING_GROUPS_PRINCIPLES');
+  const block = corpusTs.slice(start, corpusTs.indexOf('\n];', start));
+  const shelves = block.split(/\n  \{\n/).slice(1).map((b) => ({
+    label: b.match(/label: "([^"]+)"/)?.[1],
+    hrefs: [...b.matchAll(/"\/principles\/(pri-\d{3})/g)].map((m) => m[1].toUpperCase()),
+  }));
+  const wrong = principles.map((f) => {
+    const id = f.match(/PRI-\d{3}/)[0];
+    const section = read(f).match(/^section: "([^"]+)"/m)?.[1];
+    const shelf = shelves.find((s) => s.hrefs.includes(id));
+    return shelf?.label === section ? null : `${id}: section "${section}", shelf "${shelf?.label}"`;
+  }).filter(Boolean);
+  assert.deepEqual(wrong, [], `a principle is on a shelf that is not its section:\n  ${wrong.join('\n  ')}`);
+});
+
+test('no series page ends with the strip of the other drawers', () => {
+  const page = readFileSync(path.join(ROOT, 'web/src/pages/[series].astro'), 'utf8');
+  assert.ok(!/The other drawers|Sections by function/.test(page), 'web/src/pages/[series].astro still carries the strip');
+});
