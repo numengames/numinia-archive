@@ -137,6 +137,8 @@ test('HDR-033..038: closed vocabularies, template comment stripped', () => {
   assert.deepEqual(one({ ...GOOD, section: 'Mars' }), ['HDR-036']);
   assert.deepEqual(one({ ...GOOD, id: 'MIS-0900', type: 'mission', status: 'todo', priority: 'urgent' }, 'missions/MIS-0900-a.md'), ['HDR-037']);
   assert.deepEqual(one({ ...GOOD, id: 'MIS-0900', type: 'mission', status: 'todo', effort: 'XXL' }, 'missions/MIS-0900-a.md'), ['HDR-038']);
+  assert.deepEqual(one({ ...GOOD, id: 'MIS-0900', type: 'mission', status: 'todo', weight: '4' }, 'missions/MIS-0900-a.md'), ['HDR-038']);
+  assert.deepEqual(one({ ...GOOD, id: 'MIS-0900', type: 'mission', status: 'todo', weight: '8', model_planned: 'sonnet', budget_usd: '4.00', budget_minutes: '30' }, 'missions/MIS-0900-a.md'), []);
   assert.deepEqual(one({ ...GOOD, guild: 'Sentinels  # Sentinels|Alchemists' }), []);
 });
 

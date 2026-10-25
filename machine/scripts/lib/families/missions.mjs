@@ -9,7 +9,8 @@
 import { tally } from '../corpus.mjs';
 
 const STRICT = /^## Closure\b/m;
-const TOLERANT = /^## (Closure|Execution Reality|Real execution|What shipped|Premisas verificadas)\b/mi;
+// ADR-083: the template closes with «## 6. Invoice»; the numbered form counts too.
+const TOLERANT = /^## (\d+\. )?(Closure|Invoice|Execution Reality|Real execution|What shipped|Premisas verificadas)\b/mi;
 const NULLS = new Set(['', 'null', 'none', '~', '-', 'n/a', 'tba']);
 
 export function missionDocs(docs) {
@@ -26,7 +27,8 @@ export function measure({ docs }) {
     by_guild: { value: tally(ms, (d) => val(d, 'guild')), unit: 'missions', definition: 'by frontmatter `guild`; `(none)` when absent or null-like' },
     by_section: { value: tally(ms, (d) => val(d, 'section')), unit: 'missions', definition: 'by frontmatter `section` (ADR-066; was `territory`); `TBA` folds into `(none)`, reported separately as `section_tba`' },
     by_priority: { value: tally(ms, (d) => val(d, 'priority')), unit: 'missions', definition: 'by frontmatter `priority`' },
-    by_effort: { value: tally(ms, (d) => val(d, 'effort')), unit: 'missions', definition: 'by frontmatter `effort`' },
+    by_effort: { value: tally(ms, (d) => val(d, 'effort')), unit: 'missions', definition: 'by frontmatter `effort` (written before ADR-083)' },
+    by_weight: { value: tally(ms, (d) => val(d, 'weight')), unit: 'missions', definition: 'by frontmatter `weight`, the card of the deck (ADR-083)' },
     by_assignee: { value: tally(ms, (d) => val(d, 'assigned_to')), unit: 'missions', definition: 'by frontmatter `assigned_to`; `(none)` = unassigned' },
     section_tba: { value: ms.filter((d) => (d.fm.section ?? '').trim().toUpperCase() === 'TBA').length, unit: 'missions', definition: '`section: TBA` (ADR-028 deferral; owner MIS-124 closed 2026-09-09, zero TBA remains)' },
     unassigned: { value: ms.filter((d) => val(d, 'assigned_to') === null).length, unit: 'missions', definition: '`assigned_to` absent or null-like' },

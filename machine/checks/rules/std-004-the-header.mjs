@@ -80,9 +80,12 @@ const VOCAB = {
   section: ['Strategy and governance', 'Products and services', 'Brand and marketing', 'Sales and partners', 'Operations', 'People and culture', 'Finance', 'Legal and compliance', 'Technology', 'Knowledge and quality'],
   priority: ['critical', 'high', 'medium', 'low'],
   effort: ['XS', 'S', 'M', 'L', 'XL'],
+  // the weight deck: how much thinking, which picks the model. `effort` stays
+  // legal on the cards written before it.
+  weight: ['0', '1', '2', '3', '5', '8', '13', '20', '40', '100', 'inf', '?'],
 };
 const VOCAB_PLATE = { guild: 'HDR-033', executor: 'HDR-034', visibility: 'HDR-035',
-  section: 'HDR-036', priority: 'HDR-037', effort: 'HDR-038' };
+  section: 'HDR-036', priority: 'HDR-037', effort: 'HDR-038', weight: 'HDR-038' };
 
 const ISO_TIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})$/;
 /* The days a call's notice sets: the one place a written midnight is a source's. */

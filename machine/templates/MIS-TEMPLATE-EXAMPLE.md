@@ -4,105 +4,113 @@ uid: ""
 title: "Example — a real small mission written with this template"
 type: mission
 status: done
-version: "1.2.0"
-created: "2026-08-25T09:00:00+02:00"
-created_source: "git:c2ee691"
-created_confidence: exact
-updated: "2026-09-28T09:00:00+02:00"
+version: "2.0.0"
+created: "2026-10-17T09:00:00Z"
+updated: "2026-10-25T12:00:00Z"
 author: "ursa"
 owner: "person-responsible"
-section: "Knowledge and quality"
-tags: [web, archive, example]
+section: "Technology"
+tags: [engine, vr, example]
 license: "CC0-1.0"
 
-priority: medium
-effort: S
+priority: high
+weight: 8
+model_planned: sonnet
+budget_usd: 4.00
+budget_minutes: 30
 executor: agent
 assigned_to: "ursa"
-completed: "2026-08-25T09:00:00+02:00"
-
-context: "2026-08-25T09:00:00+02:00"
-paths: [web/dist/print/, web/package.json, web/astro.config.mjs]
+completed: "2026-10-17T11:00:00Z"
 ---
-# MIS-EXAMPLE — Retire the /print/ intermediates from the served site
+# MIS-EXAMPLE — Make VR movement go where you look, at a human pace
 
-> **Summary:** stop serving 278 PDF-generation intermediates that were meant to
-> be deleted at build time.
-> **Epistemic:** what a filled-in mission looks like, including a `Closure` that
-> contradicts its own plan without editing it.
+> **Summary:** after a snap turn the stick moved you sideways, and half the
+> stick already ran; now it follows your gaze and walks.
+> **Epistemic:** what a filled-in mission looks like, with both budgets and a
+> real invoice that shows why one budget is not enough.
 > **Pragmatic:** copy this shape, not this content.
 > **Audience:** Agents · People responsible
 
 ---
 
 > **This document is an example, not a mission.** It is filled with a real,
-> measured case so the template is read one way instead of five. It carries
-> `id: MIS-EXAMPLE` rather than a number, so it consumes no identifier, and it
-> lives beside the template, not in `missions/`, so the board never counts it.
->
-> It is shown **closed**, because the parts that go wrong are the ones written
-> at closing time.
+> measured case: one card of the `motor-vr` board, closed on 2026-10-17. The
+> invoice is real (the board's runs and their session cost). The budget and
+> the round of cards are written as they would have been: nobody estimated
+> this card at the time. It carries `id: MIS-EXAMPLE`, so it consumes no
+> identifier, and it lives beside the template, so the board never counts it.
 
 ---
 
-## 1. Scope
+## 1. Story
 
-`web/dist/print/**` and the site that serves it. Only the serving of those
-routes — **not** the PDF pipeline itself, and **not** `generate-pdfs.mjs`.
+As a visitor wearing VR goggles, I want the stick to take me where I look and
+at walking pace, so that I can move around a world without feeling sick.
 
-The 278 `/print/*` routes exist because `build:pdf` never runs in the automated
-build (`D-035`). They are already excluded from the sitemap; this mission is
-about them being reachable.
+---
+
+## 2. Scope
+
+The direction of movement after a snap turn, and the travel and speed of the
+stick in VR. One repository: `numinia-engine`.
 
 ### Out of scope
 
-Fixing `build:pdf`. Whether the PDFs should exist at all is the decision in
-`D-035`, and it is the person responsible's — this mission holds regardless of which of the
-three options is chosen there.
+The fog (the Oracle likes it). Choosing a movement mode is another mission.
 
 ---
 
-## 2. Acceptance criteria
+## 3. Acceptance criteria
 
-*(Every line states what it returns TODAY, so it is visibly false at the base
-commit `c2ee691`. A criterion that already passed would graduate nothing.)*
-
-- [ ] `curl -s -o /dev/null -w '%{http_code}' https://numinia.org/print/missions/mis-109/`
-      returns **404** — today it returns **200**
-- [ ] `find web/dist/print -name index.html | wc -l` returns **0** after a clean
-      build — today it returns **247**
-- [ ] `curl -s https://numinia.org/sitemap-0.xml | grep -c '/print/'` still
-      returns **0** — today **0**, and this must not regress
-- [ ] `npm run build` exits 0 and the page count drops by exactly **247**
+- [x] After three snap turns right and the stick forward, you move forward —
+      today you move to the left (a test covers both turn directions)
+- [x] Half the stick walks; only the end of its travel runs — today half the
+      stick runs
+- [x] In VR you walk at about 1.5 m/s and run at about 4 m/s — today 6 m/s
 
 ---
 
-## 3. Closure
+## 4. Budget
 
-*(Written at closing. Nothing above this line was edited — the plan says 247
-and stays saying 247, even though the number turned out to be wrong.)*
+**Weight — how much thinking it needs**
+- Card: 8 «hace sudar», sealed in round 2. Round 1: Doulos 5 · Talos 8 ·
+  Senet 3, no agreement. Round 2, after the reasons: Doulos 5 · Talos 8 ·
+  Senet 5 — neighbours, the higher card.
+- Why this card: a bug only seen in real goggles, on one side only, with no
+  test that reproduces it.
+- Process: Sonnet with an Opus rescue, about $4.
 
-- **What was done:** `/print/**` excluded from the published output. The routes
-  now return 404 and the sitemap still reports 0.
+**Time — how much work there is**
+- 30 minutes, in 1 board card.
+- Like: no VR bug measured before.
+- Biggest risk: it cannot be reproduced without the goggles.
 
-- **What diverged, and why:** the criterion said the page count would drop by
-  exactly **247**, measured on 2026-08-25 at `c2ee691`. **That figure was already
-  stale when it was written.** An earlier measurement the same day had recorded
-  **278**; three template documents added in between changed the count, because
-  every published document generates a `/print/` intermediate. The criterion was
-  written from the older number and corrected only when it was re-run.
+---
 
-  **The lesson is not the thirty-one pages.** It is that a criterion carrying an
-  exact figure has a shelf life, and this one expired between being written and
-  being checked. *"Drops by exactly N"* is falsifiable — which is right — but it
-  is fragile in a way that *"`find web/dist/print` returns 0"* is not.
-  **Prefer criteria that assert a final state over criteria that assert a delta.**
+## 5. What we learned
 
-  Had the brief been edited to say 247 as if it had always said so, this
-  paragraph would not exist and the next mission would repeat the mistake.
+- **What was done:** the move after a turn reads the fresh direction; the
+  stick walks until the end of its travel; walking and running speeds are
+  human.
+- **What diverged, and why:** the card blamed the sign of the turn. The cause
+  was elsewhere: three.js refreshes the XR camera only inside `render()`, so a
+  move right after a turn read the direction from before it. The symptom was
+  right; the hypothesis was wrong.
+- **For the next similar mission:** the goggles emulator (IWER) against a
+  real local server reproduces it. No goggles needed next time.
 
-- **Evidence:** `find web/dist/print -name index.html | wc -l` → `0`
-  (`247` before); `curl` on three sampled `/print/` routes → 404;
-  `grep -c '/print/' dist/sitemap-0.xml` → `0`, unchanged.
+  One estimator alone would have played 5, and the invoice would have read
+  2.1 on weight. The round raised it to 8, and the invoice reads 1.06.
 
-- **Closed:** 2026-08-25 · **by:** ursa
+---
+
+## 6. Invoice
+
+| | Budget | Actual | Ratio |
+|---|---|---|---|
+| Time | 30 min | 21.8 min in 1 run | 0.73 |
+| Weight | card 8 · sonnet · $4.00 | claude-sonnet-5 · $4.24 · 14,085,208 tokens | 1.06 |
+
+- **Was the card right?** yes.
+- **Evidence:** commit `060a3c2` on branch `vr/giro-y-velocidad`, `numinia-engine`.
+- **Closed:** 2026-10-17 · **by:** ursa

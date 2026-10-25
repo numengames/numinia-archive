@@ -209,7 +209,7 @@ where the industry's name is the better one.
 
 | Series | Registered fields |
 |---|---|
-| `missions/` | `priority` (HDR-037) `effort` (HDR-038) `assigned_to` `started` `completed` `executor` (HDR-034) `hold_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
+| `missions/` | `priority` (HDR-037) `weight` (HDR-038) `model_planned` `budget_usd` `budget_minutes` `effort` (HDR-038, written before 2026-10-25) `assigned_to` `started` `completed` `executor` (HDR-034) `hold_reason` `in_review_at` `depends_on` `parent_mission` `sub_missions` `blocked_by` `requires_oracle_approval` `human_approval_score` `paths` `context` `divergence_log` |
 | `reports/` | `severity` `period` `subtype` `model` `agent` `week` `scope` `former_id` `former_id_note` `absorbs` |
 | `decisions/` | `deciders` `consulted` `outcome` `decision` `absorbs` `amends` |
 | `standards/` | `absorbs` |
@@ -242,6 +242,9 @@ key never used) and the other field names from the Spanish era (`ADR-067`).
 | `executor` | `agent` · `human` · `hybrid` — who carries the work out (ISO/IEC 22989's *human* and *AI agent*; until 2026-10-03 `type_execution: digital · biological · hybrid`) | HDR-034 |
 | `visibility` | `public` · `restricted-oracle` | HDR-035 |
 | `section` | the ten sections of the front door, as written in `STD-030` (`ADR-066`) | HDR-036 |
+| `priority` | `critical` · `high` · `medium` · `low` | HDR-037 |
+| `weight` | a card of the deck: `0` · `1` · `2` · `3` · `5` · `8` · `13` · `20` · `40` · `100` · `inf` · `?` — how much thinking a mission needs, which picks the model; the time it takes goes in `budget_minutes` (`ADR-083`, 2026-10-25) | HDR-038 |
+| `effort` | `XS` · `S` · `M` · `L` · `XL` — the size field before `weight`; legal on the cards that carry it, not written on new ones | HDR-038 |
 
 A value marked as to be announced is allowed in a field with a closed list,
 and is reported only once. On a template, the comment at the end of a line is

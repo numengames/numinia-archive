@@ -25,8 +25,17 @@ license: "CC0-1.0"
 # rest have defaults, and a card that leaves them out is painted wrong.
 # priority: critical | high | medium | low
 priority: medium
-# effort: XS | S | M | L | XL
-effort: S
+# THE BUDGET — two of them, written when the mission opens and never edited (ADR-083).
+# weight = how much thinking it needs (difficulty, risk, judgement), one card of
+# the deck. It picks the model: 0-2 haiku · 3-5 sonnet · 8 sonnet with an opus
+# rescue · 13 and above is split before it starts · inf is an idea · ? is unclear.
+# weight: 0 | 1 | 2 | 3 | 5 | 8 | 13 | 20 | 40 | 100 | inf | ?
+weight: 3
+# the model the card picks, and the dollars it should cost, from the closest closed example
+model_planned: sonnet
+budget_usd: 1.00
+# time = how much work there is: minutes; over 30 means split it into more missions
+budget_minutes: 20
 # executor: agent = an agent can do it; human = needs a person; hybrid
 executor: agent
 # agent-id, or null while unassigned
@@ -58,9 +67,20 @@ completed: null
 
 ---
 
-## 1. Scope
+## 1. Story
 
-What this mission touches, and where it stops. Concrete: files, folders,
+As a {who will notice}, I want {what}, so that {why}.
+
+One sentence, with someone who would notice the change. If nobody would
+notice it, it is not a mission: it is a card of another one (ADR-083).
+
+---
+
+## 2. Scope
+
+What this mission touches, and where it stops. **One repository**: a mission
+fits in one pull request; what does not is a parent mission with children,
+each in one repository (ADR-083). Concrete: files, folders,
 series, routes. If a boundary matters, say it — *"only `numinia-nwos`"*,
 *"the glob, not the documents"*.
 
@@ -75,7 +95,7 @@ What someone would reasonably expect to be included and is not, and why. -->
 
 ---
 
-## 2. Acceptance criteria
+## 3. Acceptance criteria
 
 > **Every criterion must be FALSE at the base commit.** One that already
 > passes before the work starts graduates nothing — it is decoration. If a
@@ -99,16 +119,49 @@ What someone would reasonably expect to be included and is not, and why. -->
 
 ---
 
-## 3. Closure
+## 4. Budget
 
-*(Fill when the mission closes. Not before, and not with intentions. Add here
-— never edit Scope or the criteria to match what happened.)*
+*(Written when the mission opens, with the header's four budget fields, and
+never edited. A new estimate is a new dated line under the old one.)*
+
+**Weight — how much thinking it needs**
+- Card: N «name», sealed in round R: estimator N · estimator N · estimator N
+  (cards 0, 1 and 2 carry one card only, the orchestrator's: round 0)
+- Why this card: difficulty, risk and judgement, in one sentence
+- Process: model, about $X (closest closed example: what it cost with this card)
+
+**Time — how much work there is**
+- N minutes, in K board cards titled `MIS-NNN · …`
+- Like: the closest closed mission or card, and how long it took
+- Biggest risk: what would make it longer
+
+---
+
+## 5. What we learned
+
+*(Written while doing it and at the end — between the budget and the
+invoice. Not before, and not with intentions.)*
 
 - **What was done:** the real state, not the planned one.
 - **What diverged, and why:** the difference between the plan and what
   happened. **This is the paragraph that produces knowledge** — a mission that
   went exactly as planned teaches nothing the plan did not already say.
-- **Evidence:** command, figure, commit, or route that proves it.
+- **For the next similar mission:** what it should know before it starts.
+
+---
+
+## 6. Invoice
+
+*(Pasted by the invoice script from what the board measured — minutes,
+dollars, tokens and models of every card titled `MIS-NNN · …`. Not typed.)*
+
+| | Budget | Actual | Ratio |
+|---|---|---|---|
+| Time | N min | N min in R runs | actual ÷ budget |
+| Weight | card N · model · $X | model(s) · $Y · tokens | actual ÷ budget |
+
+- **Was the card right?** yes · no, it behaved like an N
+- **Evidence:** pull request, commit, command or route that proves it.
 - **Closed:** YYYY-MM-DD · **by:** agent-id
 
 <!--
@@ -125,13 +178,20 @@ them onto the value.
 VERSION opens at 0.1.0. Every artefact starts there; only the person responsible promotes
 to 1.0.0.
 
-OPTIONAL SECTIONS — add only when they earn their place.
+THE DECK — the weight cards, with the names the Oracle gave them:
+0 «ojos cerrados» (eyes closed) · 1 «manos a la obra» (hands on) ·
+2 «pequeña» (small) · 3 «criterio de diseño» (design judgement) ·
+5 «sube el nivel» (levels you up) · 8 «hace sudar» (makes you sweat) ·
+13 «quema las manos» (burns your hands) · 20 «bestia grande» (big beast) ·
+40 «la otra bestia» (the other beast) · 100 «bestia legendaria» (legendary
+beast) · inf «idea fascinante» (fascinating idea) · ? «he perdido el hilo»
+(I lost the thread).
+Weight measures difficulty, never hours: renaming 200 files is long and easy
+(weight 1, many minutes); a bug only seen in VR goggles is short and hard
+(weight 8, few minutes). Estimators play their cards face down; the highest
+and the lowest say why; two rounds at most; neighbours take the higher card.
 
-## Story
-As a {persona}, I want {goal}, so that {benefit}.
-Useful for product missions and anything involving a real user. For a small
-technical mission it forces inventing a fictional persona to say "take debt/
-out of the glob" — omit it there.
+OPTIONAL SECTIONS — add only when they earn their place.
 
 ## Epistemic value
 ONLY when the mission claims it learns something. Then with a hypothesis and
