@@ -20,6 +20,7 @@ budget_minutes: 70
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-237", "MIS-238", "MIS-239"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-203 — Make the engine work by touch on a phone, building included
 
-> **Summary:** A parent mission. Its children are the 14 cards on the
-> Hermes boards whose title starts with `MIS-203 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 3 child missions
+> (MIS-237, MIS-238, MIS-239); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-203 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ Building in VR and on PC (another mission); measuring on real phones (the device
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-203 · …` is open on the Hermes boards — today 14 are open
+- [ ] Its 3 child missions are done — today none is
 - [ ] On a 360 px wide phone, no HUD button covers another nor the selected object's bar — today they overlap
 - [ ] An object can be placed, moved, turned and scaled by touch alone — today turning and scaling need a keyboard
 

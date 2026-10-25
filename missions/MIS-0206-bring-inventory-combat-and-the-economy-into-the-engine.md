@@ -20,6 +20,7 @@ budget_minutes: 90
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-245", "MIS-246", "MIS-247", "MIS-248"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-206 — Bring inventory, combat and the economy into the engine
 
-> **Summary:** A parent mission. Its children are the 18 cards on the
-> Hermes boards whose title starts with `MIS-206 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 4 child missions
+> (MIS-245, MIS-246, MIS-247, MIS-248); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-206 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ New creatures' art beyond one procedural prototype.
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-206 · …` is open on the Hermes boards — today 18 are open
+- [ ] Its 4 child missions are done — today none is
 - [ ] A creature moves towards the player and hits, and the player can fall, decided by the server — today the creature stands still
 - [ ] The inventory, combat, economy simulator, Graboso and Asimov branches are merged or closed — today they wait to be rebased
 

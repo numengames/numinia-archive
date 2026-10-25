@@ -20,6 +20,7 @@ budget_minutes: 65
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-251", "MIS-252", "MIS-253", "MIS-254"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-210 — Make worlds look better where they can and load fast where they must
 
-> **Summary:** A parent mission. Its children are the 13 cards on the
-> Hermes boards whose title starts with `MIS-210 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 4 child missions
+> (MIS-251, MIS-252, MIS-253, MIS-254); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-210 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ Measuring on real devices (the devices mission).
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-210 · …` is open on the Hermes boards — today 13 are open
+- [ ] Its 4 child missions are done — today none is
 - [ ] The engine's checks fail when the client exceeds 300 kB gzipped — today there is no gate
 - [ ] Distant VRM avatars cost one draw call each — today they cost their full mesh
 

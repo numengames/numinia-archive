@@ -20,6 +20,7 @@ budget_minutes: 55
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-257", "MIS-258", "MIS-259"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-212 — Make playing in a world feel complete: menu, character sheet, avatar and news
 
-> **Summary:** A parent mission. Its children are the 11 cards on the
-> Hermes boards whose title starts with `MIS-212 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 3 child missions
+> (MIS-257, MIS-258, MIS-259); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-212 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ Inventory and combat (their own mission).
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-212 · …` is open on the Hermes boards — today 11 are open
+- [ ] Its 3 child missions are done — today none is
 - [ ] A player chooses a house avatar or uploads a VRM, and it is kept with them — today the avatar is not saved
 - [ ] Every world template opens with a first quest loaded — today some open empty
 

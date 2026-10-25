@@ -20,6 +20,7 @@ budget_minutes: 130
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-218", "MIS-219", "MIS-220", "MIS-221", "MIS-222", "MIS-223"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-200 — Make VR comfortable: the wrist menu, smooth entry and movement you choose
 
-> **Summary:** A parent mission. Its children are the 26 cards on the
-> Hermes boards whose title starts with `MIS-200 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 6 child missions
+> (MIS-218, MIS-219, MIS-220, MIS-221, MIS-222, MIS-223); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-200 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ New VR features beyond comfort and the menu; the sample worlds' own content.
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-200 · …` is open on the Hermes boards — today 26 are open
+- [ ] Its 6 child missions are done — today none is
 - [ ] Settings, map and missions open from the wrist menu inside VR, with the hand or the controller — today settings open only outside VR
 - [ ] Entering VR and turning the head show no flicker — today they flicker
 

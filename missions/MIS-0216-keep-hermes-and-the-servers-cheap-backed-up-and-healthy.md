@@ -20,6 +20,7 @@ budget_minutes: 80
 executor: agent
 assigned_to: "ursa"
 completed: null
+sub_missions: ["MIS-274", "MIS-275", "MIS-276", "MIS-277", "MIS-278", "MIS-279"]
 ---
 
 <!--
@@ -29,9 +30,9 @@ SPDX-License-Identifier: CC0-1.0
 
 # MIS-216 — Keep Hermes and the servers cheap, backed up and healthy
 
-> **Summary:** A parent mission. Its children are the 16 cards on the
-> Hermes boards whose title starts with `MIS-216 · `; each becomes one pull
-> request, budgeted on its own when it opens.
+> **Summary:** A parent mission, split into 6 child missions
+> (MIS-274, MIS-275, MIS-276, MIS-277, MIS-278, MIS-279); each child holds the board cards
+> titled with its own number.
 > **Epistemic:** What the boards held on 2026-10-25 for this area, gathered
 > into one mission so that the archive shows the work the boards carry.
 > **Pragmatic:** Pick a card titled `MIS-216 · …`, seal its weight, open its
@@ -61,7 +62,7 @@ The invoice of missions (its own mission).
 
 ## 3. Acceptance criteria
 
-- [ ] No card titled `MIS-216 · …` is open on the Hermes boards — today 16 are open
+- [ ] Its 6 child missions are done — today none is
 - [ ] A nightly copy of the worlds' machine exists for each of the last 14 days — today there is none
 - [ ] A gateway restart does not cancel a running cron — today it does
 
