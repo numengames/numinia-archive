@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 73344,
+  "chars": 73591,
   "apparatus": false,
   "archived": false,
-  "tokens": 20927
+  "tokens": 20994
  },
  {
   "path": "CLAUDE.md",
@@ -4537,10 +4537,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 5617,
+  "chars": 5797,
   "apparatus": false,
   "archived": false,
-  "tokens": 1561
+  "tokens": 1605
  },
  {
   "path": "procedures/PRO-003-mission-cycle.md",
