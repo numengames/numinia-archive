@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20364,
+  "chars": 20580,
   "apparatus": false,
   "archived": false,
-  "tokens": 5306
+  "tokens": 5368
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 71942,
+  "chars": 72250,
   "apparatus": false,
   "archived": false,
-  "tokens": 20544
+  "tokens": 20637
  },
  {
   "path": "CLAUDE.md",
@@ -1567,10 +1567,10 @@
   "series": "designs",
   "type": "design",
   "status": "active",
-  "chars": 15316,
+  "chars": 15311,
   "apparatus": false,
   "archived": false,
-  "tokens": 4161
+  "tokens": 4158
  },
  {
   "path": "designs/DES-012-presentation-deck.md",
@@ -1622,10 +1622,10 @@
   "series": "designs",
   "type": "design",
   "status": "draft",
-  "chars": 11610,
+  "chars": 11622,
   "apparatus": false,
   "archived": false,
-  "tokens": 3082
+  "tokens": 3086
  },
  {
   "path": "designs/DES-017-legal-obligations-to-confirm.md",
@@ -3014,6 +3014,17 @@
   "tokens": 1320
  },
  {
+  "path": "missions/MIS-0196-split-the-living-pieces-and-bring-them-into-force.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 4566,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1331
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -3646,10 +3657,10 @@
   "series": "procedures",
   "type": "procedure",
   "status": "draft",
-  "chars": 4650,
+  "chars": 4711,
   "apparatus": false,
   "archived": false,
-  "tokens": 1276
+  "tokens": 1292
  },
  {
   "path": "procedures/PRO-015-joining.md",
@@ -3729,15 +3740,15 @@
   "tokens": 1446
  },
  {
-  "path": "procedures/PRO-022-building-the-living-pieces.md",
+  "path": "procedures/PRO-022-building-the-reading-aloud-player.md",
   "dir": "procedures",
   "series": "procedures",
   "type": "procedure",
-  "status": "draft",
-  "chars": 5637,
+  "status": "active",
+  "chars": 4096,
   "apparatus": false,
   "archived": false,
-  "tokens": 1527
+  "tokens": 1086
  },
  {
   "path": "procedures/PRO-023-bringing-a-rule-into-force.md",
@@ -3936,6 +3947,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1483
+ },
+ {
+  "path": "procedures/PRO-041-building-the-night-backdrop.md",
+  "dir": "procedures",
+  "series": "procedures",
+  "type": "procedure",
+  "status": "active",
+  "chars": 3250,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 928
  },
  {
   "path": "reports/RPT-003-wardley-map.md",
@@ -4416,10 +4438,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 30421,
+  "chars": 30427,
   "apparatus": false,
   "archived": false,
-  "tokens": 9176
+  "tokens": 9178
  },
  {
   "path": "standards/STD-024-a-series-is-a-function.md",
