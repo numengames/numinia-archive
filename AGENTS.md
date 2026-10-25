@@ -44,7 +44,8 @@ escalation names its mission. The procedures of selling, since 2026-10-15 —
 steps. `PRO-015` (joining Numinia) and `PRO-024` (leaving Numinia), since
 2026-10-15: nobody starts before the agreement is signed, and nobody is
 gone before their access list is closed. `PRO-022` (building the reading-aloud player) and
-`PRO-041` (building the night backdrop), since 2026-10-25. And the principles and standards whose header says
+`PRO-041` (building the night backdrop), since 2026-10-25,
+and `PRO-014` (producing a design piece), since 2026-10-25. And the principles and standards whose header says
 `active`:
 `PRI-001` you are already in the game ·
 `PRI-002` we build a game to work better ·
@@ -219,7 +220,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRO-008` | Requesting approval, issuing rulings | draft | any agent requesting approval; any… |
 | `PRO-011` | Auditing identity, authorization and secrets | draft | any agent running a security audit over… |
 | `PRO-013` | Handing a check to CI | draft | any agent that writes a check script,… |
-| `PRO-014` | Producing a design piece | draft | any agent producing a design piece in… |
+| `PRO-014` | Producing a design piece | in force | any agent producing a design piece in… |
 | `PRO-015` | Joining Numinia | in force | whoever brings a person into Numinia to… |
 | `PRO-016` | Applying the engineering standard | draft | any agent executing a task in a… |
 | `PRO-017` | Rolling up the week | draft | any agent executing a weekly, quarterly… |
@@ -296,7 +297,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
 | `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded… |
 
-98 rule documents, of which 50 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+98 rule documents, of which 51 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

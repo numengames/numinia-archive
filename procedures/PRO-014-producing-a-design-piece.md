@@ -3,10 +3,10 @@ id: "PRO-014"
 uid: ""
 title: "Producing a design piece"
 type: procedure
-status: draft
-version: "3.1.7"
+status: active
+version: "3.2.0"
 created: "2026-09-07T14:00:00+02:00"
-updated: "2026-10-25T12:00:00Z"
+updated: "2026-10-25T12:05:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
