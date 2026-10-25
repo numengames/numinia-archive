@@ -22,7 +22,7 @@ completed: null
 started: "2026-10-25T15:30:00Z"
 context: "2026-10-25T15:30:00Z"
 requires_oracle_approval: true
-paths: [web/src/lib/corpus.ts, web/src/pages/[series].astro, machine/scripts/test/standards-index.test.mjs]
+paths: ["web/src/lib/corpus.ts", "web/src/pages/[series].astro", "machine/scripts/test/standards-index.test.mjs"]
 related: ["STD-030", "STD-007", "PRI-001"]
 ---
 
