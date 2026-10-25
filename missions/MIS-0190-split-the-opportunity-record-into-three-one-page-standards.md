@@ -3,10 +3,10 @@ id: "MIS-190"
 uid: ""
 title: "Split the opportunity record into three one-page standards"
 type: mission
-status: in-review
-version: "0.1.0"
+status: done
+version: "0.2.0"
 created: "2026-10-15T10:30:03Z"
-updated: "2026-10-15T10:30:03Z"
+updated: "2026-10-25T18:00:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Sales and partners"
@@ -17,7 +17,7 @@ priority: medium
 effort: M
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-15T10:46:51Z"
 
 in_review_at: "2026-10-15T10:31:34Z"
 started: "2026-10-15T10:30:03Z"
@@ -67,14 +67,14 @@ putting any of the three in force.
 
 ## 2. Acceptance criteria
 
-- [ ] No plate OPP-006, 007, 010, 011, 012, 013, 014, 015 or 017 is held by
+- [x] No plate OPP-006, 007, 010, 011, 012, 013, 014, 015 or 017 is held by
   any standard; each is in the retired ledger with where its obligation went.
   Today: all nine are held by `STD-039`.
 - [ ] `STD-039` is under 1,300 words. Today: over 3,000.
-- [ ] `node machine/packages/sales-kit/pipeline.mjs opportunities` reports
+- [x] `node machine/packages/sales-kit/pipeline.mjs opportunities` reports
   the same records valid and the broken fixtures refused, under the new
   plates. Today: the refusals are under the old plates.
-- [ ] `npm test` and both check sets pass; no obligation is added or dropped,
+- [x] `npm test` and both check sets pass; no obligation is added or dropped,
   only moved.
 
 ---
@@ -93,4 +93,4 @@ putting any of the three in force.
   minimal-data rule lost its MUST: it is a line in the reviewers' list.
 - **Evidence:** `npm test` all green; `pipeline.mjs opportunities` and the
   broken fixtures behave as before; no hand-checked row in the three.
-- **Closed:** pending the Oracle's review · **by:** ursa
+- **Closed:** 2026-10-15, when the Oracle merged #700 · **by:** the Oracle

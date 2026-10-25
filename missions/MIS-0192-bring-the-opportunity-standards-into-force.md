@@ -3,10 +3,10 @@ id: "MIS-192"
 uid: ""
 title: "Bring the four opportunity standards into force"
 type: mission
-status: in-review
-version: "0.1.0"
+status: done
+version: "0.2.0"
 created: "2026-10-15T12:01:28Z"
-updated: "2026-10-15T12:03:26Z"
+updated: "2026-10-25T18:00:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Sales and partners"
@@ -17,7 +17,7 @@ priority: medium
 effort: S
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-15T12:20:29Z"
 
 started: "2026-10-15T12:01:28Z"
 requires_oracle_approval: true
@@ -61,11 +61,11 @@ Out of scope: any other draft; any change to what the four standards say.
 
 ## 2. Acceptance criteria
 
-- [ ] `loadHolders().status` reads `active` for the four, and a plate of
+- [x] `loadHolders().status` reads `active` for the four, and a plate of
   each of `STD-039`, `STD-054` and `STD-055` binds. Today: all four `draft`.
-- [ ] `AGENTS.md` names the four in force and `door-resolves.test.mjs`
+- [x] `AGENTS.md` names the four in force and `door-resolves.test.mjs`
   passes. Today: none named.
-- [ ] `npm test`, both check sets, the web build and `rule-index --check`
+- [x] `npm test`, both check sets, the web build and `rule-index --check`
   pass; `web/dist/binding/index.html` shows the four as in force.
 
 ---
@@ -87,4 +87,4 @@ Out of scope: any other draft; any change to what the four standards say.
   failed; `--build` 10 checks, 0 failed; `web/dist/binding/index.html`
   shows the four as *in force*; `pipeline.mjs opportunities --proposals`
   exits 0 on the records as they stand.
-- **Closed:** pending the Oracle's review · **by:** ursa
+- **Closed:** 2026-10-15, when the Oracle merged #702 · **by:** the Oracle

@@ -3,10 +3,10 @@ id: "MIS-194"
 uid: ""
 title: "Bring joining and leaving into force"
 type: mission
-status: in-review
-version: "0.1.0"
+status: done
+version: "0.2.0"
 created: "2026-10-15T12:34:02Z"
-updated: "2026-10-15T12:34:44Z"
+updated: "2026-10-25T18:00:00Z"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
@@ -17,7 +17,7 @@ priority: medium
 effort: XS
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-15T12:44:45Z"
 
 started: "2026-10-15T12:34:02Z"
 requires_oracle_approval: true
@@ -63,11 +63,11 @@ the two procedures say.
 
 ## 2. Acceptance criteria
 
-- [ ] The two headers read `active` and `AGENTS.md` names them in force;
+- [x] The two headers read `active` and `AGENTS.md` names them in force;
   `agent-context.test.mjs` passes. Today: both `draft`, neither named.
-- [ ] Each procedure read whole against the regime: no step asks for
+- [x] Each procedure read whole against the regime: no step asks for
   something the regime suspends. Today: not recorded.
-- [ ] `npm test`, both check sets, the web build and `rule-index --check`
+- [x] `npm test`, both check sets, the web build and `rule-index --check`
   pass; `web/dist/binding/index.html` shows the two as in force.
 
 ---
@@ -87,4 +87,4 @@ the two procedures say.
 - **Evidence:** `npm test` all green; `--rules` 12 checks, 0 failed;
   `--build` 10 checks, 0 failed; `web/dist/binding/index.html` lists 12
   procedures in force.
-- **Closed:** pending the Oracle's review · **by:** ursa
+- **Closed:** 2026-10-15, when the Oracle merged #705 · **by:** the Oracle
