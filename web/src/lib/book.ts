@@ -54,7 +54,7 @@ function field(text: string, name: string): string {
   return m ? m[1] : "";
 }
 
-function summaryOf(text: string): string {
+export function summaryOf(text: string): string {
   const out: string[] = [];
   let on = false;
   for (const line of text.split("\n")) {

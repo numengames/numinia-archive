@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.174.0",
+    date: "2026-10-25",
+    entries: [
+      { type: "ADD", text: "The mission book joins the shelf, served at /mission-book: how a mission runs and is budgeted, each area with the story of its parent mission and the table of its children (weight, budget, status), the missions on their own, and what is done — read from the mission files, PRO-003 and ADR-083." },
+    ],
+  },
+  {
     version: "v0.173.0",
     date: "2026-10-25",
     entries: [
