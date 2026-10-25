@@ -26,6 +26,10 @@ export const RING2 = ['author', 'owner', 'digital_source_type', 'created_source'
 /** STD-004 Ring 3: the per-series extension registry. A field in no ring is HDR-030. */
 export const RING3 = {
   'missions': ['priority', 'effort', 'assigned_to', 'started',
+    // ADR-083 (2026-10-25): two budgets written at opening — weight (a card of
+    // the deck: how much thinking, which model, which dollars) and time
+    // (minutes). `weight` replaces `effort`, which stays legal on old cards.
+    'weight', 'model_planned', 'budget_usd', 'budget_minutes',
     // mission_id retired 2026-09-02 (missions/ normalisation): it duplicated
     // `id` in 58/58 files and now appears in none.
     // type_execution → executor and freeze_reason → hold_reason (2026-10-03):

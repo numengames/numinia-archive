@@ -4,11 +4,11 @@ uid: ""
 title: "Running a mission"
 type: procedure
 status: active
-version: "5.2.0"
+version: "5.3.0"
 created: "2026-04-06T18:48:56Z"
 created_source: "git:84a9f71"
 created_confidence: exact
-updated: "2026-10-15T10:12:00Z"
+updated: "2026-10-25T13:00:00Z"
 author: "nimrod"
 owner: "oracle"
 section: "Operations"
@@ -73,17 +73,23 @@ Executor: the agent; the Oracle at open, review and close.
    `on-hold` with its reason (`MSN-039`) and tell the Oracle.
 5. **Stop at a contradiction with the principles.** Escalate (`PRO-005`)
    rather than execute against them.
-6. **Announce a mission of effort M or larger,** or one worked live with the
-   Oracle: state the mission, the estimate and the first action. Smaller work
-   may start silently.
+6. **Budget it, then announce it.** Write both budgets (`ADR-083`): weight,
+   the card the estimators seal (weight 3 and above is played face down;
+   0 to 2 carries the orchestrator's card), and time in minutes. Announce a
+   mission of weight 5 or above, or one worked live with the Oracle: the
+   mission, both budgets and the first action. Smaller work may start
+   silently.
 7. **Activate the card.** `in-progress`, `started`, and commit it
    (`MSN-002`). No work begins before this commit (`MSN-036`).
 8. **Execute and record.** Progress and every change of plan go in the card.
    Agents coordinate through commits, pull requests and the card; there is no
-   real-time channel. Agents do not assign each other work, and an ambiguity
-   is escalated, never settled by overwriting another's work.
+   real-time channel. Board cards start their title with `MIS-NNN · `. The
+   orchestrator assigns the cards; other agents do not assign each other
+   work. Improvised work goes under the umbrella mission of its area and
+   week. An ambiguity is escalated, never settled by overwriting another's
+   work.
 9. **Verify and ask for review.** Verify every acceptance criterion, fill
-   Closure with what was done, what diverged and the evidence, then set
+   What we learned and paste the Invoice the board measured, then set
    `in-review` and `in_review_at`. The request is scored (`PRO-008`).
 10. **Close (Oracle).** `done` with `completed`, or back to `in-progress` with
     the changes requested.
@@ -98,7 +104,7 @@ Freezing and unfreezing a card: `MSN-039`. Deleting a closed card: `MSN-004`.
 |---|---|
 | 3 | The three answers in the card or in the opening message |
 | 7 | The activation commit predates the first work commit |
-| 9 | Every criterion marked with its command; Closure dated |
+| 9 | Every criterion marked with its command; the Invoice pasted and dated |
 
 ---
 
