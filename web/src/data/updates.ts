@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.173.0",
+    date: "2026-10-25",
+    entries: [
+      { type: "CHG", text: "Producing a design piece, the order in which an agent takes the design decisions of a piece and the checklist it passes before delivery, now binds." },
+    ],
+  },
+  {
     version: "v0.172.0",
     date: "2026-10-25",
     entries: [

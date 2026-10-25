@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-25
+- **Changed** `PRO-014` (producing a design piece) is in force at 3.2.0, header only, after its Epistemic line was reduced to one question; the second draft procedure brought in one at a time (site v0.173.0, MIS-197)
 - **Changed** The living pieces split in two, as the Oracle ruled (one procedure, one thing): `PRO-041` builds the night backdrop (the sky and the Veil layer), `PRO-022` the reading-aloud player; both in force at 1.0.0 (header only), the old address opens the player (site v0.172.0, MIS-196)
 
 ### 2026-10-22
