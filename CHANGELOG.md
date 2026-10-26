@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-25
+- **Changed** Seven missions close, since the Oracle merged their pull requests: MIS-190, 191, 192, 193, 194 (the opportunity standards and the selling procedures), MIS-196 (the living pieces split in two) and MIS-198 (the mission template); status `done`, completion dates, ticked criteria. MIS-195 stays open.
 - **Changed** The principles index is shelved in a company's words, one shelf per section each principle declares (`STD-030`); at the full moon each shelf reads as the houses that serve it; the strip "The other drawers" leaves every series page (site v0.176.0, MIS-283)
 - **Changed** `PRI-006` 2.1.5: trimmed from 2,065 to 1,500 body words (D-015) — every belief kept (the three-ring co-implication, the Peircean object/representamen/interpretant/ground, the Jungian archetype/mythologem analogy), prose tightened only; open for Christian's (owner) and Pablo's review before merge.
 - **Changed** The mission book is the mission board, as the Oracle ruled: /missions opens with each area (parent mission, story, progress, children with weight and budget); the shelf card opens it and /mission-book redirects there

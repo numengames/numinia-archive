@@ -3,10 +3,10 @@ id: "MIS-193"
 uid: ""
 title: "Bring the seven selling procedures into force"
 type: mission
-status: in-review
-version: "0.1.0"
+status: done
+version: "0.2.0"
 created: "2026-10-15T12:21:57Z"
-updated: "2026-10-15T12:26:21Z"
+updated: "2026-10-25T18:00:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Sales and partners"
@@ -17,7 +17,7 @@ priority: medium
 effort: S
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-15T12:33:24Z"
 
 started: "2026-10-15T12:21:57Z"
 requires_oracle_approval: true
@@ -65,11 +65,11 @@ seven procedures say.
 
 ## 2. Acceptance criteria
 
-- [ ] The seven headers read `active` and `AGENTS.md` names them in force;
+- [x] The seven headers read `active` and `AGENTS.md` names them in force;
   `agent-context.test.mjs` passes. Today: all seven `draft`, none named.
-- [ ] Each procedure read whole against the regime: no step asks for
+- [x] Each procedure read whole against the regime: no step asks for
   something the regime suspends. Today: not recorded.
-- [ ] `npm test`, both check sets, the web build and `rule-index --check`
+- [x] `npm test`, both check sets, the web build and `rule-index --check`
   pass; `web/dist/binding/index.html` shows the seven as in force.
 
 ---
@@ -92,4 +92,4 @@ seven procedures say.
 - **Evidence:** `npm test` 967 tests, 0 failed; `--rules` 12 checks, 0
   failed; `--build` 10 checks, 0 failed; `web/dist/binding/index.html`
   lists 10 procedures in force.
-- **Closed:** pending the Oracle's review · **by:** ursa
+- **Closed:** 2026-10-15, when the Oracle merged #704 · **by:** the Oracle
