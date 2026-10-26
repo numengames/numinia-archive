@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 74207,
+  "chars": 74464,
   "apparatus": false,
   "archived": false,
-  "tokens": 21167
+  "tokens": 21242
  },
  {
   "path": "CLAUDE.md",
@@ -5208,10 +5208,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8748,
+  "chars": 9777,
   "apparatus": false,
   "archived": false,
-  "tokens": 2144
+  "tokens": 2405
  },
  {
   "path": "standards/STD-004-the-header.md",
