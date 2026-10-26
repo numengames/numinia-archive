@@ -5,9 +5,9 @@ title: "Organisation roles"
 type: standard
 subtype: standard
 status: draft
-version: "0.2.0"
+version: "0.3.0"
 created: "2026-10-14T23:36:00+02:00"
-updated: "2026-10-22T00:35:00+02:00"
+updated: "2026-10-26T12:00:00+01:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -36,8 +36,9 @@ SPDX-License-Identifier: CC0-1.0
 > **Audience:** Agents · Oracles
 
 **Binds:** numinia.com's organisations — their panel, their list of members
-and the service that keeps members and roles — and the house when it enters
-one of them.
+and the service that keeps members and roles —, the server of its worlds when
+it decides what a person may do there, and the house when it enters one of
+them.
 
 ## Rules
 
@@ -86,11 +87,24 @@ working at the next request.
 **One organisation never reaches another.** Every read and every change MUST
 name its organisation and touch nothing outside it.
 
+**A person without a pass has what the base role has.** In a world, someone who
+comes without a numinia.com pass MUST be allowed exactly what the base role
+allows. The base role MUST NOT carry `build-in-worlds` unless someone holding
+`manage-organization` has chosen it, in a setting the panel shows together with
+what it lets a stranger do.
+
 ### The house
 
-**The house enters as the organisation allows.** The house's staff MAY enter
-an organisation with an administrator's reach, never an owner's: every
-organisation during the alpha, and afterwards as each one's setting allows.
+**The house keeps an organisation while it helps set it up.** During the
+alpha the house's staff MAY enter any organisation and MAY do what its owners
+do, including the acts reserved to owners (`STD-052`), only to support it.
+Every such act MUST be written in the organisation's log under the house's
+name and the person's, and the house MUST show in the organisation's list of
+members as the house. The house needs no second signature and no second
+person: the log answers for it, and the owners, once there are any, MUST be
+able to read it. The house MUST hand the organisation over, naming its owners,
+when the organisation asks or when the alpha ends; from then on it enters only
+as the organisation's setting for the house allows (`STD-052`).
 
 ### Keeping it true
 
@@ -118,7 +132,8 @@ Each rule, its code, its source and its check.
 | ORG-010 | A ban says why | [Digital Services Act, Regulation (EU) 2022/2065, art. 17](https://eur-lex.europa.eu/eli/reg/2022/2065/oj) | by hand: numinia.com's test suite |
 | ORG-005 | On the server, every time | [OWASP ASVS 5.0.0, 8.3.1 and 8.3.2](https://owasp.org/www-project-application-security-verification-standard/); [OWASP Authorization Cheat Sheet, deny by default and check every request](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) | by hand: numinia.com's test suite |
 | ORG-006 | One organisation never reaches another | [OWASP ASVS 5.0.0, 8.4.1, cross-tenant controls](https://owasp.org/www-project-application-security-verification-standard/) | by hand: numinia.com's test suite |
-| ORG-007 | The house enters as the organisation allows | the Oracle's ruling of 2026-10-14: the house enters every organisation during the alpha, and each decides afterwards (`ADR-071`) | by hand: numinia.com's test suite |
+| ORG-014 | A person without a pass has what the base role has | [OWASP Authorization Cheat Sheet, deny by default](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html); `ADR-075`, decision 3: a visitor without a pass has what the base role has | by hand: numinia-engine's test suite |
+| ORG-007 | The house keeps an organisation while it helps set it up | the Oracle's ruling of 2026-10-26: during the alpha the house supports every organisation with an owner's reach and hands the keys back, as a person asked to set up another's community server does; [NIST SP 800-53 rev. 5, AC-6(9)](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) and [OWASP Logging Vocabulary, `authz_admin`](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html) are what keep it answerable | by hand: numinia.com's test suite |
 | ORG-009 | Every change is written down | [OWASP ASVS 5.0.0, 16.3.2](https://owasp.org/www-project-application-security-verification-standard/); [OWASP Logging Vocabulary, `authz_change` and `authz_admin`](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html); NIST SP 800-53 rev. 5, AC-6(9) | by hand: numinia.com's test suite |
 | ORG-012 | The code and the register move together | [OWASP ASVS 5.0.0, 8.1.1, authorization documentation](https://owasp.org/www-project-application-security-verification-standard/) | by hand: a numinia.com pull request that changes the permissions without a change to `STD-052` |
 
@@ -131,7 +146,11 @@ Reading roles on the server at every request makes a role taken away stop at
 once, and the log keeps the house's wide access during the alpha answerable.
 An agent always has someone who answers for it; where an organisation lets
 the house in, the house can be that someone, in plain view and under the
-owners' hand.
+owners' hand. The house sets an organisation up and gives the keys back; the
+log and the handover are what make that safe, so no second signature stands
+between the house and the help it gives. A stranger without a pass holds only
+what the base role holds, so what a world lets anyone do is a choice its
+owners can see.
 
 ## References
 

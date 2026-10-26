@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 73926,
+  "chars": 74207,
   "apparatus": false,
   "archived": false,
-  "tokens": 21071
+  "tokens": 21167
  },
  {
   "path": "CLAUDE.md",
@@ -5208,10 +5208,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8626,
+  "chars": 8748,
   "apparatus": false,
   "archived": false,
-  "tokens": 2117
+  "tokens": 2144
  },
  {
   "path": "standards/STD-004-the-header.md",
@@ -5670,10 +5670,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 8799,
+  "chars": 10679,
   "apparatus": false,
   "archived": false,
-  "tokens": 2279
+  "tokens": 2754
  },
  {
   "path": "standards/STD-052-organisation-permissions.md",
@@ -5681,10 +5681,10 @@
   "series": "standards",
   "type": "standard",
   "status": "draft",
-  "chars": 4911,
+  "chars": 5085,
   "apparatus": false,
   "archived": false,
-  "tokens": 1221
+  "tokens": 1265
  },
  {
   "path": "standards/STD-053-presence.md",
