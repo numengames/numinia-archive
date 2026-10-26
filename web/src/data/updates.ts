@@ -53,6 +53,14 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.176.0",
+    date: "2026-10-25",
+    entries: [
+      { type: "CHG", text: "The principles are shelved the way a company would shelve them: Strategy and governance, Brand and marketing, People and culture, Finance, Legal and compliance, Technology — each principle on the shelf of its own section. At the full moon each shelf reads as the houses that serve it, with no company word." },
+      { type: "DEL", text: "The strip \"The other drawers\" leaves the foot of every series page; the way into the other series is the top bar and the front door." },
+    ],
+  },
+  {
     version: "v0.175.0",
     date: "2026-10-25",
     entries: [
