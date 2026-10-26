@@ -5,9 +5,9 @@ title: "Organisation permissions"
 type: standard
 subtype: register
 status: draft
-version: "0.4.0"
+version: "0.5.0"
 created: "2026-10-14T23:36:00+02:00"
-updated: "2026-10-26T12:00:00+01:00"
+updated: "2026-10-26T12:30:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -70,6 +70,10 @@ No role carries these; every owner holds them all:
 - closing the organisation or handing it over;
 - naming or removing owners;
 - setting the house's access.
+
+Where an organisation has two owners or more, each of these is a proposal
+until another owner signs it, or until seven days pass and no owner has
+stopped it (`STD-051`, *Two owners, two hands*).
 
 During the alpha the house may do these too, only to support an organisation
 (`STD-051`, *The house*).

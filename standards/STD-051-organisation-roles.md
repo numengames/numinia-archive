@@ -5,9 +5,9 @@ title: "Organisation roles"
 type: standard
 subtype: standard
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-10-14T23:36:00+02:00"
-updated: "2026-10-26T12:00:00+01:00"
+updated: "2026-10-26T12:30:00Z"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -30,6 +30,7 @@ SPDX-License-Identifier: CC0-1.0
 > each of their roles allows; owners stand above every role and alone do
 > what cannot be undone. Nobody acts on anyone at or above their own highest
 > role, nobody changes their own roles, and every change is written down.
+> Where there are two owners or more, no owner does those acts alone.
 > **Epistemic:** What may each member do inside their organisation?
 > **Pragmatic:** Build or audit an organisation's permission check, its role
 > editor and what one member may do to another, without asking anyone.
@@ -50,6 +51,18 @@ plus what each of their roles allows, and nothing outside their organisation.
 **Owners are not a role.** An owner MUST be allowed everything, including the
 acts reserved to owners, which no role can carry; an organisation always keeps
 at least one owner.
+
+**Two owners, two hands.** Where an organisation has two owners or more, an
+act reserved to owners (`STD-052`) MUST be a proposal that does nothing until
+another owner signs it, with a new signature from their wallet that names the
+act (`ORG-008`); the owner who proposes it signs it so too. Every other owner
+MUST be told of a proposal when it is made, and any of them MAY stop it. If
+nobody signs and nobody stops it, the owner who proposed it MAY carry it out
+alone, signed again, seven days after the others were told. A proposal MUST
+lapse when the organisation's owners change before it is carried out. Every
+proposal, signature, stop and act MUST be written in the organisation's log.
+With one owner, the owner acts alone; the house's acts during the alpha are
+not proposals (`ORG-007`).
 
 **An agent never goes beyond whoever answers for it.** A digital agent that
 is a member MUST hold no more than the person or the house that answers for
@@ -124,6 +137,7 @@ Each rule, its code, its source and its check.
 |---|---|---|---|
 | ORG-001 | Roles add up | [NIST role-based access control, the core model](https://csrc.nist.gov/projects/role-based-access-control); `ADR-070`, a team role grants nothing outside its team | by hand: numinia.com's test suite |
 | ORG-002 | Owners are not a role | [Discord, Permissions: the owner holds every permission before any role is read](https://discord.com/developers/docs/topics/permissions); `ADR-070`, the acts only owners sign | by hand: numinia.com's test suite |
+| ORG-015 | Two owners, two hands | the Oracle's ruling of 2026-10-22: a single wallet must not be able to take a community; [NIST SP 800-53 rev. 5, AC-3(2) dual authorization](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final); [OpenZeppelin, `TimelockController`: a delay between proposing and executing](https://docs.openzeppelin.com/contracts/5.x/api/governance#TimelockController) | by hand: numinia.com's test suite: one owner proposes removing the other and nothing changes until a second owner signs; unsigned and unstopped, it runs after seven days; stopped, it never runs |
 | ORG-011 | An agent never goes beyond whoever answers for it | `STD-042` | by hand: numinia.com's test suite |
 | ORG-013 | The house may answer for an agent | the Oracle's ruling of 2026-10-20: the house may connect an agent where an organisation lets it in, answers for it, and the owners may remove it; `ORG-007`; `ORG-009` | by hand: numinia.com's test suite: the house's agent shows the house's mark, appears in the log, can be removed by an owner, and is refused a role with `administrator` or `manage-roles` |
 | ORG-003 | Only below your highest role | [NIST SP 800-53 rev. 5, AC-5 separation of duties and AC-6 least privilege](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final); [Discord, permission hierarchy](https://discord.com/developers/docs/topics/permissions#permission-hierarchy) | by hand: numinia.com's test suite |
@@ -142,6 +156,11 @@ Each rule, its code, its source and its check.
 Roles let an organisation run itself without the house. Without an order
 among them, whoever may hand out roles can raise themselves to anything;
 without owners above every role, a role could delete a client's world.
+Where there are several owners, one stolen wallet could still remove the
+others and keep the organisation; a second signature makes that take two
+people, and the seven days keep an owner left alone from being locked out
+while giving the others time to stop it. Two signatures are two people only
+when each wallet shows what it signs.
 Reading roles on the server at every request makes a role taken away stop at
 once, and the log keeps the house's wide access during the alpha answerable.
 An agent always has someone who answers for it; where an organisation lets
