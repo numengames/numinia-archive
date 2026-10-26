@@ -5,11 +5,11 @@ uid: ""
 type: standard
 subtype: standard
 status: draft
-version: "3.5.0"
+version: "3.6.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-26T12:00:00+01:00"
+updated: "2026-10-26T13:00:00+01:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -58,8 +58,8 @@ up and down, with no one's hand involved.
 
 ### Who may move whom
 
-**No more than four Oracles.** The list of Oracles MUST NOT name more than
-four people.
+**No more than four Oracles.** The owners and the Oracles they appoint
+MUST NOT come to more than four people.
 
 **Nobody acts upward.** An Archon MUST NOT act on another Archon or on an
 Oracle, and nobody can ban an Oracle, whether in storage, through the
@@ -68,7 +68,13 @@ privileged action an Oracle takes is logged instead.
 
 **Moving someone by hand has a ceiling.** An Archon MAY promote or demote
 anyone up to Vernacular, and an Oracle anyone up to Archon. The Oracles
-change only when the list of Oracles is edited.
+change only by an owner: the owners are named in the platform's
+configuration, which no screen edits, and an owner appoints or removes the
+other Oracles from the census desk. An owner is never removed from a screen, and an Oracle
+MUST NOT act on an owner or on their own rank. Appointing or removing an
+Oracle is signed again by the owner at the moment, as the other dangerous acts
+are (`ORG-008`), and an appointed Oracle holds the rank only while the owner
+who appointed them is still an owner.
 
 **The top two are judged, not counted.** A promotion to Vernacular or
 Archon MUST be decided against the profiles below, never against how much
@@ -108,12 +114,13 @@ seasons, read the global statistics and the audit log, publish to permanent
 storage, ban and unban, and appoint Vernaculars. They enter no organisation
 and no world through the house: that reach is the Oracles'.
 
-An Oracle is named on the list of Oracles. They may appoint and remove
-Archons, change what each rank may do, configure the system, and create,
+An Oracle is an owner, named in the platform's configuration, or was
+appointed by an owner. They may appoint and remove Archons, change what each rank may do, configure the system, and create,
 stop, start, download and delete the house's 3D worlds from the worlds
 room. They may enter any organisation to support it: during the alpha with an
 owner's reach, and afterwards as that organisation's access for the house
-allows; every act there is written in its log. They cannot be banned.
+allows; every act there is written in its log. They cannot be banned. Only an owner appoints
+or removes an Oracle; an appointed Oracle holds every other power of an owner.
 
 ### Keeping this page true
 
@@ -140,6 +147,7 @@ code, in the system reference listed below.
 | RNK-003 | No more than four Oracles | — | by hand: the platform's test suite |
 | RNK-004 | Nobody acts upward | [NIST SP 800-53 rev. 5, AC-5 separation of duties, AC-6 least privilege, AC-6(9) log use of privileged functions](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final) | by hand: the platform's test suite; nothing yet checks that Oracle actions are logged |
 | RNK-006 | Moving someone by hand has a ceiling | — | by hand: the platform's test suite |
+| RNK-009 | Only an owner appoints an Oracle, signed again | [NIST SP 800-53 rev. 5, AC-5 separation of duties and AC-6 least privilege](https://csrc.nist.gov/pubs/sp/800/53/r5/upd1/final); [OWASP ASVS 5.0.0, 8.4.2, administrative interfaces](https://owasp.org/www-project-application-security-verification-standard/) | by hand: the platform's test suite |
 | RNK-008 | The top two are judged, not counted | — | by hand: an Archon or an Oracle, at each promotion |
 | RNK-007 | The permissions and this page move together | [OWASP ASVS 5.0, V8.1.1, authorization documentation](https://owasp.org/www-project-application-security-verification-standard/) | by hand: a platform pull request that changes the permissions without a change here |
 
@@ -150,7 +158,7 @@ code, in the system reference listed below.
 | Pilgrim | purchases any digital good | `data/seasons/*-progress.json` or `data/purchases/` | purchased premium content; burn ritual; seasonal adventures; purchase history |
 | Vernacular | promoted by an Archon or Oracle | `data/system/rank-overrides.json` | upload, edit, delete own assets and see their statistics; creator panel; portfolio |
 | Archon | promoted by an Oracle | `data/system/rank-overrides.json` | any asset; seasons; global statistics; audit log; sync to R2 / IPFS / Arweave; ban and unban; appoint Vernaculars |
-| Oracle | listed in the overrides file | `data/system/rank-overrides.json` | appoint and remove Archons; edit the matrix; system configuration; the worlds room; cannot be banned; every privileged action logged |
+| Oracle | owner in the platform's configuration, or appointed by an owner in the census | `data/system/rank-overrides.json` | appoint and remove Archons; edit the matrix; system configuration; the worlds room; cannot be banned; every privileged action logged |
 
 ## Why
 
