@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 73614,
+  "chars": 73926,
   "apparatus": false,
   "archived": false,
-  "tokens": 20994
+  "tokens": 21071
  },
  {
   "path": "CLAUDE.md",
@@ -2963,55 +2963,55 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 3924,
+  "status": "done",
+  "chars": 3955,
   "apparatus": false,
   "archived": false,
-  "tokens": 1121
+  "tokens": 1144
  },
  {
   "path": "missions/MIS-0191-retire-a-lost-opportunitys-file-at-the-quarterly-roll-up.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 3490,
+  "status": "done",
+  "chars": 3521,
   "apparatus": false,
   "archived": false,
-  "tokens": 1021
+  "tokens": 1045
  },
  {
   "path": "missions/MIS-0192-bring-the-opportunity-standards-into-force.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 3468,
+  "status": "done",
+  "chars": 3499,
   "apparatus": false,
   "archived": false,
-  "tokens": 1045
+  "tokens": 1068
  },
  {
   "path": "missions/MIS-0193-bring-the-selling-procedures-into-force.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 3880,
+  "status": "done",
+  "chars": 3911,
   "apparatus": false,
   "archived": false,
-  "tokens": 1138
+  "tokens": 1161
  },
  {
   "path": "missions/MIS-0194-bring-joining-and-leaving-into-force.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 3267,
+  "status": "done",
+  "chars": 3298,
   "apparatus": false,
   "archived": false,
-  "tokens": 1003
+  "tokens": 1026
  },
  {
   "path": "missions/MIS-0195-gather-the-engines-rules-into-the-summa-by-kind.md",
@@ -3029,22 +3029,22 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 4590,
+  "status": "done",
+  "chars": 4621,
   "apparatus": false,
   "archived": false,
-  "tokens": 1341
+  "tokens": 1365
  },
  {
   "path": "missions/MIS-0198-give-the-mission-template-a-story-two-budgets-and-an-invoice.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 3638,
+  "status": "done",
+  "chars": 3702,
   "apparatus": false,
   "archived": false,
-  "tokens": 1058
+  "tokens": 1086
  },
  {
   "path": "missions/MIS-0199-run-one-real-mission-end-to-end-on-the-boards.md",
