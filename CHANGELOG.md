@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-26
+- **Changed** The house supports organisations with an owner's reach in the alpha and hands the keys back, no second signature, as the Oracle ruled: `STD-051` 0.3.0 (`ORG-007`; a stranger holds the base role, `ORG-014`), `STD-052` 0.4.0, `STD-003` 3.5.0; all draft
+
 ### 2026-10-25
 - **Changed** Seven missions close, since the Oracle merged their pull requests: MIS-190, 191, 192, 193, 194 (the opportunity standards and the selling procedures), MIS-196 (the living pieces split in two) and MIS-198 (the mission template); status `done`, completion dates, ticked criteria. MIS-195 stays open.
 - **Changed** The principles index is shelved in a company's words, one shelf per section each principle declares (`STD-030`); at the full moon each shelf reads as the houses that serve it; the strip "The other drawers" leaves every series page (site v0.176.0, MIS-283)

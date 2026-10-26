@@ -5,11 +5,11 @@ uid: ""
 type: standard
 subtype: standard
 status: draft
-version: "3.4.0"
+version: "3.5.0"
 created: "2026-04-07T12:34:04Z"
 created_source: "git:f765b99"
 created_confidence: inferred
-updated: "2026-10-14T23:36:00+02:00"
+updated: "2026-10-26T12:00:00+01:00"
 author: "Centinela-01"
 owner: "oracle"
 guild: "Alchemists"
@@ -105,14 +105,15 @@ a portfolio.
 
 An Archon was promoted by an Oracle. They may act on any piece of work, run
 seasons, read the global statistics and the audit log, publish to permanent
-storage, ban and unban, and appoint Vernaculars.
+storage, ban and unban, and appoint Vernaculars. They enter no organisation
+and no world through the house: that reach is the Oracles'.
 
 An Oracle is named on the list of Oracles. They may appoint and remove
 Archons, change what each rank may do, configure the system, and create,
 stop, start, download and delete the house's 3D worlds from the worlds
-room. They may enter any organisation with an administrator's reach, as
-that organisation's access for the house allows, and every act there is
-written in its log. They cannot be banned.
+room. They may enter any organisation to support it: during the alpha with an
+owner's reach, and afterwards as that organisation's access for the house
+allows; every act there is written in its log. They cannot be banned.
 
 ### Keeping this page true
 

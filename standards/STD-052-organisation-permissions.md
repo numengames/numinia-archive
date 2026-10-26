@@ -5,9 +5,9 @@ title: "Organisation permissions"
 type: standard
 subtype: register
 status: draft
-version: "0.3.0"
+version: "0.4.0"
 created: "2026-10-14T23:36:00+02:00"
-updated: "2026-10-22T11:50:00+02:00"
+updated: "2026-10-26T12:00:00+01:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -71,6 +71,9 @@ No role carries these; every owner holds them all:
 - naming or removing owners;
 - setting the house's access.
 
+During the alpha the house may do these too, only to support an organisation
+(`STD-051`, *The house*).
+
 An organisation holds at most 250 roles besides the base role, which every
 member holds and nobody can delete.
 
@@ -78,7 +81,7 @@ member holds and nobody can delete.
 
 | Setting | What it means |
 |---|---|
-| `alpha` | during the alpha, in every organisation: the house's staff enter with an administrator's reach, and the organisation cannot change it |
+| `alpha` | during the alpha, in every organisation: the house's staff enter with an owner's reach to support it and hand it over, naming its owners, when it asks or the alpha ends; the organisation cannot change it |
 | `always` | the house's staff enter when they need to |
 | `on-request` | the house asks; an owner signs a leave that lasts 72 hours and closes by itself |
 | `never` | the house does not enter, save what the law requires — illegal content or an attack — with the reason signed, a second Oracle, and the owners told afterwards |
