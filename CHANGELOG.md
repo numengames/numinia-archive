@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-27
+- **Changed** The mission list catches up: 33 missions go from `todo` to `in-progress` and MIS-231 and MIS-260 to `in-review`, per the 2026-10-25 card audit and the boards
 - **Changed** MIS-170 (each world has its own admin code) closes on the Oracle's word: status `done`, criteria ticked; the three live checks were accepted, not re-run
 
 ### 2026-10-26

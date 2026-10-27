@@ -3,10 +3,10 @@ id: "MIS-248"
 uid: ""
 title: "Land the economy, Asimov tribute, 3D dice and the game event book"
 type: mission
-status: todo
+status: in-progress
 version: "0.1.0"
 created: "2026-10-25T16:00:00Z"
-updated: "2026-10-25T16:00:00Z"
+updated: "2026-10-27T03:30:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
