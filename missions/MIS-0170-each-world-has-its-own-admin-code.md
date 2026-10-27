@@ -3,10 +3,10 @@ id: "MIS-170"
 uid: ""
 title: "Each world has its own admin code, and an Oracle changes it with one signature: a client's code opens the client's world and nothing else"
 type: mission
-status: in-review
-version: "0.2.0"
+status: done
+version: "0.3.0"
 created: "2026-10-12T16:48:26+02:00"
-updated: "2026-10-12T22:13:00+02:00"
+updated: "2026-10-27T02:30:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -17,7 +17,7 @@ priority: high
 effort: S
 executor: agent
 assigned_to: null
-completed: null
+completed: "2026-10-27T02:30:00Z"
 
 depends_on: []
 requires_oracle_approval: true
@@ -94,30 +94,33 @@ pinned recipe (`MIS-173`).
 
 ## 2. Acceptance criteria
 
-- [ ] A signed `ShowWorldCode` answers that world's code, and two worlds on
+- [x] A signed `ShowWorldCode` answers that world's code, and two worlds on
   the same machine answer different codes. Today: the machine's reconciler
   (numinia-assets `reconcile.py`) names `/etc/fleet/admin-code` as the one
   code "every world keyed here gets".
-- [ ] A signed `RotateWorldCode` answers a new code that opens build mode in
+  *Accepted on the Oracle's word, 2026-10-27; the live check was not run again (see §3).*
+- [x] A signed `RotateWorldCode` answers a new code that opens build mode in
   that world (`/admin <code>` in its chat), the old code no longer does, and
   the world's JWT secret is unchanged. Today: no request changes a code —
   the machine understands CreateWorld, DeleteWorld, StopWorld, StartWorld,
   DownloadWorld and ShowAdminCode (numinia-assets `walletsig.py`).
-- [ ] A rotation restarts that world's container and no other, and a stopped
+  *Accepted on the Oracle's word, 2026-10-27; the live check was not run again (see §3).*
+- [x] A rotation restarts that world's container and no other, and a stopped
   world takes its new code and stays stopped; the machine's tests hold both.
   Today: the reconciler never touches a key file that exists, so no world
   is ever restarted for its keys.
-- [ ] After the new reconciler's first run on open-1, `prueba` and `pablofm`
+- [x] After the new reconciler's first run on open-1, `prueba` and `pablofm`
   still open build mode with the code they had, and `/etc/fleet/codes/`
   holds one file per world. Today: the bootstrap makes one code for the
   whole machine, `/etc/fleet/admin-code`, and no folder of codes
   (`grep -c codes bootstrap.sh` returns 0).
-- [ ] In the worlds room, each world card shows and changes its own code,
+  *Accepted on the Oracle's word, 2026-10-27; the live check was not run again (see §3).*
+- [x] In the worlds room, each world card shows and changes its own code,
   and the machine line has no admin-code button. Today: the code sits on the
   machine line — an *Admin code* button (`data-metric="worlds-admin-code"`)
   whose dialog signs `ShowAdminCode` for the whole machine (numinia-web
   `main` at `7f06254`).
-- [ ] Both repositories hold the same vectors file, and each one's tests
+- [x] Both repositories hold the same vectors file, and each one's tests
   pass on it, the two new requests included. Today: the shared vectors
   (`tests/fleet_vectors.json`) cover the six request types above, none of
   them about a world's code.
@@ -193,4 +196,10 @@ code stays one — a debt in `DBT-025`, which `MIS-175` pays.
 
 ## 3. Closure
 
-*(Fill when the mission closes.)*
+**Closed 2026-10-27 by the Oracle's word.** Pablo said the numinia.org missions can
+close now. The build, the machine's tests and the room's code were already evidenced in the
+execution log of 2026-10-12 (criteria 3, 5 and 6). Criteria 1, 2 and 4 are the live check
+(*Show* on two worlds, *Change code* then `/admin <code>`, *Show* on `pablofm`); it needs the
+Oracle's signature and was not run again, so they are ticked on his acceptance, not on a new
+measurement. Read today at 02:21 UTC, open-1's door answers `"recipe": "dbf95bb…"` and its
+last run was `ok`, so the machine runs a newer recipe than the one the log measured.

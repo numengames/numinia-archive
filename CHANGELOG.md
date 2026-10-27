@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-27
+- **Changed** MIS-170 (each world has its own admin code) closes on the Oracle's word: status `done`, criteria ticked; the three live checks were accepted, not re-run
+
 ### 2026-10-26
 - **Changed** The Oracle no longer lives only in a configuration list: an owner appoints and removes the other Oracles from the census desk, four at most counting the owners, no machine to enter; `STD-003` 3.6.0 (`RNK-003`, `RNK-006`, new `RNK-009`); draft
 - **Changed** The house supports organisations with an owner's reach in the alpha and hands the keys back, no second signature, as the Oracle ruled: `STD-051` 0.3.0 (`ORG-007`; a stranger holds the base role, `ORG-014`), `STD-052` 0.4.0, `STD-003` 3.5.0; all draft
