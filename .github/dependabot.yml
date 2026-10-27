@@ -8,9 +8,11 @@
 # Cooldown (2026-10-15): a version is proposed only after it has been public
 # for 7 days, so a hijacked or broken release is usually flagged by others
 # before it reaches this repository. Security updates ignore the cooldown.
-# Grouping (2026-10-20): each ecosystem sends ONE pull request with all its updates
-# (group `all-dependencies`), so there is never a pile of separate ones. Dependabot cannot
-# group across ecosystems, so npm / github-actions / pip each still open their own.
+# Grouping (2026-10-27): each ecosystem sends ONE pull request with all its minor and
+# patch updates (group `minor-and-patch`), and every major update comes alone, so a
+# major that breaks the build holds back only itself, not the safe updates. Dependabot
+# cannot group across ecosystems, so npm / github-actions each still open their own.
+# (Before, 2026-10-20: one group `all-dependencies` with majors inside.)
 version: 2
 updates:
   - package-ecosystem: npm
@@ -28,8 +30,8 @@ updates:
       - dependency-name: "typescript"
         update-types: ["version-update:semver-major"]
     groups:
-      all-dependencies:
-        patterns: ["*"]
+      minor-and-patch:
+        update-types: ["minor", "patch"]
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
@@ -39,5 +41,5 @@ updates:
     cooldown:
       default-days: 7
     groups:
-      all-dependencies:
-        patterns: ["*"]
+      minor-and-patch:
+        update-types: ["minor", "patch"]
