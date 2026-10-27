@@ -3,10 +3,10 @@ id: "MIS-228"
 uid: ""
 title: "Finish the Gallery and let each world set its own Ancestors hall"
 type: mission
-status: todo
+status: in-progress
 version: "0.1.0"
 created: "2026-10-25T16:00:00Z"
-updated: "2026-10-25T16:00:00Z"
+updated: "2026-10-27T03:30:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"

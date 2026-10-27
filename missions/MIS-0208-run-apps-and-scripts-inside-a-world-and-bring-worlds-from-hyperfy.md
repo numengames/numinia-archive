@@ -3,10 +3,10 @@ id: "MIS-208"
 uid: ""
 title: "Run apps and scripts inside a world, and bring worlds from Hyperfy"
 type: mission
-status: todo
+status: in-progress
 version: "0.1.0"
 created: "2026-10-25T15:30:00Z"
-updated: "2026-10-25T15:30:00Z"
+updated: "2026-10-27T03:30:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
