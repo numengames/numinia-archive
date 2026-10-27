@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 74464,
+  "chars": 74647,
   "apparatus": false,
   "archived": false,
-  "tokens": 21242
+  "tokens": 21293
  },
  {
   "path": "CLAUDE.md",
@@ -2743,11 +2743,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 9962,
+  "status": "done",
+  "chars": 10835,
   "apparatus": false,
   "archived": false,
-  "tokens": 2754
+  "tokens": 3036
  },
  {
   "path": "missions/MIS-0171-a-clients-own-domain-is-added-with-one-signature.md",

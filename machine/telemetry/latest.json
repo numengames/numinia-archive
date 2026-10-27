@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "5765f92",
-  "corpus_hash": "9d98f701826cee077190b0014c65b5c35fd884fabf379273b7ca8f5bd275a25e",
+  "head": "4e628b3+index",
+  "corpus_hash": "e4fb53e3d91af20baaddf8869a5047a155e02e6046fbad9a6d6e85ab9834f04e",
   "root_dirty": 0,
-  "measured_at": "2026-10-26T10:15:36Z",
+  "measured_at": "2026-10-27T02:21:55Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 557,
-          "bytes": 4664992
+          "bytes": 4666053
         },
         "Code": {
           "files": 291,
@@ -271,9 +271,9 @@
     },
     "missions.by_status": {
       "value": {
-        "done": 8,
+        "done": 9,
         "in-progress": 4,
-        "in-review": 2,
+        "in-review": 1,
         "on-hold": 1,
         "todo": 119
       },
@@ -361,7 +361,7 @@
       "definition": "`status: in-progress` with no `assigned_to`"
     },
     "missions.done_without_closure": {
-      "value": 8,
+      "value": 9,
       "unit": "missions",
       "definition": "`status: done` with no `## Closure` heading (MIS-134 strict form)"
     },
@@ -391,14 +391,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1201110,
+      "value": 1201443,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 466704,
-        "missions": 131672,
+        "missions": 131954,
         "standards": 124575,
         "agents": 78794,
         "system": 63150,
@@ -408,7 +408,7 @@
         "operations": 33643,
         "designs": 31465,
         "machine": 30862,
-        "": 30029,
+        "": 30080,
         "principles": 22864,
         "debt": 21476,
         "opportunities": 15128,
@@ -422,20 +422,20 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 504677,
+        "(none)": 504728,
         "active": 283049,
         "draft": 279437,
         "todo": 107670,
-        "done": 11176,
+        "done": 14212,
         "in-progress": 10238,
-        "in-review": 3833,
+        "in-review": 1079,
         "on-hold": 1030
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 10.96,
+      "value": 10.98,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -763,8 +763,8 @@
     },
     "provenance.protocol_anchor": {
       "value": {
-        "not-oracle-state": 125,
-        "anchored": 9
+        "not-oracle-state": 124,
+        "anchored": 10
       },
       "unit": "missions",
       "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
@@ -773,11 +773,11 @@
       "value": {
         "active": 173,
         "draft": 189,
-        "done": 9,
+        "done": 10,
         "todo": 120,
         "in-progress": 4,
         "on-hold": 1,
-        "in-review": 2
+        "in-review": 1
       },
       "unit": "documents",
       "definition": "frontmatter status values in the corpus with counts"
@@ -838,7 +838,7 @@
           "3": 634
         },
         "MIS": {
-          "3": 1726,
+          "3": 1727,
           "4": 178
         },
         "DBT": {
