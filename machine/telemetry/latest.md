@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-27T02:21:55Z"
+updated: "2026-10-27T02:51:16Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `4e628b3+index`  · corpus_hash: `e4fb53e3d91af20b…`  · measured_at: 2026-10-27T02:21:55Z  · root_dirty: 0
+- head: `3f4cb88`  · corpus_hash: `5d01b4a04b906bbd…`  · measured_at: 2026-10-27T02:51:16Z  · root_dirty: 0
 
 ## corpus
 
@@ -71,7 +71,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files | bytes |
 |---|---|---|
-| Text | 557 | 4666053 |
+| Text | 557 | 4666728 |
 | Code | 291 | 2597581 |
 | Image | 120 | 3539152 |
 | Data | 82 | 316765 |
@@ -180,10 +180,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | missions |
 |---|---|
 | done | 9 |
-| in-progress | 4 |
-| in-review | 1 |
+| in-progress | 37 |
+| in-review | 3 |
 | on-hold | 1 |
-| todo | 119 |
+| todo | 84 |
 
 ### `missions.by_guild`
 
@@ -249,10 +249,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 1201443 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 1201633 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 10.98 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 10.99 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -260,7 +260,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 466704 |
-| missions | 131954 |
+| missions | 132027 |
 | standards | 124575 |
 | agents | 78794 |
 | system | 63150 |
@@ -270,7 +270,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | operations | 33643 |
 | designs | 31465 |
 | machine | 30862 |
-|  | 30080 |
+|  | 30197 |
 | principles | 22864 |
 | debt | 21476 |
 | opportunities | 15128 |
@@ -283,13 +283,13 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 504728 |
+| (none) | 504845 |
 | active | 283049 |
 | draft | 279437 |
-| todo | 107670 |
+| todo | 85817 |
+| in-progress | 30922 |
 | done | 14212 |
-| in-progress | 10238 |
-| in-review | 1079 |
+| in-review | 2321 |
 | on-hold | 1030 |
 
 ### `tokens.largest`
@@ -385,12 +385,12 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | started | 14 |
 | related_missions | 13 |
 | evidence_script | 11 |
+| in_review_at | 11 |
 | mandatory | 11 |
 | period | 11 |
 | forms | 10 |
 | supersedes_version | 10 |
 | detected | 9 |
-| in_review_at | 9 |
 | severity | 9 |
 | severity_reason | 9 |
 | visibility_reason | 9 |
@@ -463,7 +463,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | dates_without_time | 0 |
 | empty_values | 398 |
 | v_prefixed_versions | 0 |
-| placeholders | 125 |
+| placeholders | 90 |
 
 ## provenance
 
@@ -527,10 +527,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | active | 173 |
 | draft | 189 |
 | done | 10 |
-| todo | 120 |
-| in-progress | 4 |
+| todo | 85 |
+| in-progress | 37 |
 | on-hold | 1 |
-| in-review | 1 |
+| in-review | 3 |
 
 ### `contradictions.status_vocabulary_undeclared`
 
@@ -553,7 +553,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | PRI | 485 |
 | OPS | 205 |
 | ADR | 634 |
-| MIS | 1727 |
+| MIS | 1730 |
 | DBT | 176 |
 | SYS | 249 |
 | DES | 161 |
@@ -575,7 +575,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `figures.live` | 344 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
+| `figures.live` | 345 | lines | lines in non-apparatus docs outside machine/telemetry/ (frontmatter and code fences excluded) that state a corpus-shaped figure — "N tokens\|documents\|files\|missions", "N/M", "N %" — with no `@ <7-hex head>` on the line. A detector, not a verdict: dated tables and closed records legitimately carry such lines |
 | `figures.live_by_doc` | (table below) | lines | the fifteen docs with most such lines |
 | `figures.cited` | 0 | citations | citations in the §10.5 form `key = value @ head` across the corpus |
 | `figures.stale_citations` | (table below) | citations | cited `key = value @ head` whose value in latest.json at this HEAD differs from the cited value: [where, key, cited, current]. A stale citation is not an error — the head beside it says when it was true |
@@ -587,7 +587,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | standards/STD-023-design-values.md | 21 |
 | operations/OPS-005-simulations.md | 19 |
 | reports/RPT-008-gaps-capability-map.md | 19 |
-| CHANGELOG.md | 14 |
+| CHANGELOG.md | 15 |
 | lore/game/manual/es/03-creacion-del-personaje.md | 12 |
 | operations/OPS-018-the-house-card.md | 12 |
 | lore/game/manual/en/03-character-creation.md | 10 |

@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 74647,
+  "chars": 74999,
   "apparatus": false,
   "archived": false,
-  "tokens": 21293
+  "tokens": 21410
  },
  {
   "path": "CLAUDE.md",
@@ -3150,11 +3150,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2492,
+  "status": "in-progress",
+  "chars": 2499,
   "apparatus": false,
   "archived": false,
-  "tokens": 701
+  "tokens": 702
  },
  {
   "path": "missions/MIS-0209-give-worlds-their-voice-and-sound-spatial-audio-sources-and-event-voice.md",
@@ -3260,44 +3260,44 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2130,
+  "status": "in-progress",
+  "chars": 2137,
   "apparatus": false,
   "archived": false,
-  "tokens": 634
+  "tokens": 635
  },
  {
   "path": "missions/MIS-0219-open-settings-map-and-missions-from-the-wrist-in-vr.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2077,
+  "status": "in-progress",
+  "chars": 2084,
   "apparatus": false,
   "archived": false,
-  "tokens": 621
+  "tokens": 622
  },
  {
   "path": "missions/MIS-0220-move-the-way-you-like-in-vr-gaze-controller-sideways-jump-and-teleport.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2041,
+  "status": "in-progress",
+  "chars": 2048,
   "apparatus": false,
   "archived": false,
-  "tokens": 617
+  "tokens": 618
  },
  {
   "path": "missions/MIS-0221-talk-to-npcs-cast-the-rod-and-play-darts-in-vr-without-glitches.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2136,
+  "status": "in-progress",
+  "chars": 2143,
   "apparatus": false,
   "archived": false,
-  "tokens": 645
+  "tokens": 646
  },
  {
   "path": "missions/MIS-0222-record-photograph-paint-and-place-artworks-from-inside-vr.md",
@@ -3315,11 +3315,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2023,
+  "status": "in-progress",
+  "chars": 2030,
   "apparatus": false,
   "archived": false,
-  "tokens": 600
+  "tokens": 601
  },
  {
   "path": "missions/MIS-0224-finish-the-town-hall-clean-room-own-models-one-place-per-ball.md",
@@ -3359,33 +3359,33 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2047,
+  "status": "in-progress",
+  "chars": 2054,
   "apparatus": false,
   "archived": false,
-  "tokens": 623
+  "tokens": 624
  },
  {
   "path": "missions/MIS-0228-finish-the-gallery-and-let-each-world-set-its-own-ancestors-hall.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2001,
+  "status": "in-progress",
+  "chars": 2008,
   "apparatus": false,
   "archived": false,
-  "tokens": 616
+  "tokens": 617
  },
  {
   "path": "missions/MIS-0229-add-the-small-delights-clock-real-sun-rowing-fishing-and-eye-colour.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2116,
+  "status": "in-progress",
+  "chars": 2123,
   "apparatus": false,
   "archived": false,
-  "tokens": 632
+  "tokens": 633
  },
  {
   "path": "missions/MIS-0230-start-a-quest-video-recording-automatically-when-a-vr-session-begins.md",
@@ -3403,11 +3403,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 1974,
+  "status": "in-review",
+  "chars": 2016,
   "apparatus": false,
   "archived": false,
-  "tokens": 599
+  "tokens": 619
  },
  {
   "path": "missions/MIS-0232-test-the-engine-on-a-real-quest-iphone-and-android.md",
@@ -3469,154 +3469,154 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2150,
+  "status": "in-progress",
+  "chars": 2157,
   "apparatus": false,
   "archived": false,
-  "tokens": 627
+  "tokens": 628
  },
  {
   "path": "missions/MIS-0238-build-worlds-by-touch-on-a-phone.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 1888,
+  "status": "in-progress",
+  "chars": 1895,
   "apparatus": false,
   "archived": false,
-  "tokens": 586
+  "tokens": 587
  },
  {
   "path": "missions/MIS-0239-give-the-phone-interface-glass-touch-feel-quiet-hud-and-tabbed-settings.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2091,
+  "status": "in-progress",
+  "chars": 2098,
   "apparatus": false,
   "archived": false,
-  "tokens": 623
+  "tokens": 624
  },
  {
   "path": "missions/MIS-0240-select-group-snap-and-move-objects-with-mouse-or-vr-ray.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2159,
+  "status": "in-progress",
+  "chars": 2166,
   "apparatus": false,
   "archived": false,
-  "tokens": 642
+  "tokens": 643
  },
  {
   "path": "missions/MIS-0241-make-the-builder-clear-and-safe-pin-sinking-objects-list-and-feet.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2027,
+  "status": "in-progress",
+  "chars": 2034,
   "apparatus": false,
   "archived": false,
-  "tokens": 615
+  "tokens": 616
  },
  {
   "path": "missions/MIS-0242-let-only-people-with-the-builder-role-build-and-say-so-when-the-library-is-empty.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2063,
+  "status": "in-progress",
+  "chars": 2070,
   "apparatus": false,
   "archived": false,
-  "tokens": 619
+  "tokens": 620
  },
  {
   "path": "missions/MIS-0243-make-the-scenery-solid-with-relief-terrain-and-fast-physics.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2091,
+  "status": "in-progress",
+  "chars": 2098,
   "apparatus": false,
   "archived": false,
-  "tokens": 628
+  "tokens": 629
  },
  {
   "path": "missions/MIS-0244-let-the-server-click-teleport-freeze-push-and-command-players.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2103,
+  "status": "in-progress",
+  "chars": 2110,
   "apparatus": false,
   "archived": false,
-  "tokens": 625
+  "tokens": 626
  },
  {
   "path": "missions/MIS-0245-fight-creatures-in-the-engine-they-move-hit-back-and-hurt.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2109,
+  "status": "in-progress",
+  "chars": 2116,
   "apparatus": false,
   "archived": false,
-  "tokens": 631
+  "tokens": 632
  },
  {
   "path": "missions/MIS-0246-carry-weapons-and-relics-a-working-inventory-in-the-engine.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2086,
+  "status": "in-progress",
+  "chars": 2093,
   "apparatus": false,
   "archived": false,
-  "tokens": 619
+  "tokens": 620
  },
  {
   "path": "missions/MIS-0247-record-a-clip-from-inside-the-world-with-graboso-only-if-you-hold-the-relic.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2009,
+  "status": "in-progress",
+  "chars": 2016,
   "apparatus": false,
   "archived": false,
-  "tokens": 616
+  "tokens": 617
  },
  {
   "path": "missions/MIS-0248-land-the-economy-asimov-tribute-3d-dice-and-the-game-event-book.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2062,
+  "status": "in-progress",
+  "chars": 2069,
   "apparatus": false,
   "archived": false,
-  "tokens": 640
+  "tokens": 641
  },
  {
   "path": "missions/MIS-0249-let-a-world-list-create-and-remove-ai-inhabitants-and-see-what-they-do.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2118,
+  "status": "in-progress",
+  "chars": 2125,
   "apparatus": false,
   "archived": false,
-  "tokens": 628
+  "tokens": 629
  },
  {
   "path": "missions/MIS-0250-add-an-ai-to-a-community-on-numinia-com-and-have-it-answer-for-real.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2148,
+  "status": "in-progress",
+  "chars": 2155,
   "apparatus": false,
   "archived": false,
-  "tokens": 644
+  "tokens": 645
  },
  {
   "path": "missions/MIS-0251-confirm-with-data-that-grouping-calls-cut-the-circles-spend.md",
@@ -3645,11 +3645,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2089,
+  "status": "in-progress",
+  "chars": 2096,
   "apparatus": false,
   "archived": false,
-  "tokens": 633
+  "tokens": 634
  },
  {
   "path": "missions/MIS-0254-write-the-research-plans-for-adaptive-quality-competitive-mode-and-procedural-gates.md",
@@ -3700,44 +3700,44 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 1958,
+  "status": "in-progress",
+  "chars": 1965,
   "apparatus": false,
   "archived": false,
-  "tokens": 595
+  "tokens": 596
  },
  {
   "path": "missions/MIS-0259-show-what-is-new-reward-progress-and-let-the-director-change-the-table-map.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2026,
+  "status": "in-progress",
+  "chars": 2033,
   "apparatus": false,
   "archived": false,
-  "tokens": 608
+  "tokens": 609
  },
  {
   "path": "missions/MIS-0260-block-world-entry-in-the-engine-until-the-visitor-accepts-the-conditions.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2066,
+  "status": "in-review",
+  "chars": 2108,
   "apparatus": false,
   "archived": false,
-  "tokens": 603
+  "tokens": 623
  },
  {
   "path": "missions/MIS-0261-let-an-organisation-write-publish-and-pass-on-its-conditions-on-numinia-com.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2104,
+  "status": "in-progress",
+  "chars": 2111,
   "apparatus": false,
   "archived": false,
-  "tokens": 613
+  "tokens": 614
  },
  {
   "path": "missions/MIS-0262-close-the-design-of-conditions-in-worlds-with-pablos-examples.md",
@@ -3777,55 +3777,55 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2130,
+  "status": "in-progress",
+  "chars": 2137,
   "apparatus": false,
   "archived": false,
-  "tokens": 629
+  "tokens": 630
  },
  {
   "path": "missions/MIS-0266-give-each-community-its-own-cover-owners-and-presence.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2202,
+  "status": "in-progress",
+  "chars": 2209,
   "apparatus": false,
   "archived": false,
-  "tokens": 648
+  "tokens": 649
  },
  {
   "path": "missions/MIS-0267-publish-and-pin-engine-releases-for-the-fleet-from-the-worlds-room.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2156,
+  "status": "in-progress",
+  "chars": 2163,
   "apparatus": false,
   "archived": false,
-  "tokens": 633
+  "tokens": 634
  },
  {
   "path": "missions/MIS-0268-polish-the-landing-city-bar-create-flow-bazaar-calendar-and-settings.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2190,
+  "status": "in-progress",
+  "chars": 2197,
   "apparatus": false,
   "archived": false,
-  "tokens": 657
+  "tokens": 658
  },
  {
   "path": "missions/MIS-0269-make-numinia-com-safer-and-available-in-japanese-korean-and-brazilian-portuguese.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 2126,
+  "status": "in-progress",
+  "chars": 2133,
   "apparatus": false,
   "archived": false,
-  "tokens": 627
+  "tokens": 628
  },
  {
   "path": "missions/MIS-0270-give-prs-towards-tren-a-real-ci-run.md",
@@ -3865,11 +3865,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 1812,
+  "status": "in-progress",
+  "chars": 1819,
   "apparatus": false,
   "archived": false,
-  "tokens": 576
+  "tokens": 577
  },
  {
   "path": "missions/MIS-0274-report-hermes-wrong-restart-button-false-usage-warning-and-session-refresh.md",
