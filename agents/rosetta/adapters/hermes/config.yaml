@@ -17,12 +17,14 @@ terminal:
   home_mode: auto
 
 approvals:
-  mode: smart
+  mode: manual
   denial_breaker_threshold: 2
   deny:
     - "git push --force*"
     - "git push -f*"
     - "rm -rf *"
+    - "git push*"
+    - "gh pr create*"
   smart_policy: |
     Pushing a branch and opening a pull request is allowed without asking when the repository has no other open pull request (Dependabot does not count); when one is open, prepare locally and wait. Always ESCALATE force-pushes, tags, deleting remote branches and anything under .github/workflows/.
     Allow reading and unpacking old code, worlds and assets in a scratch area, running them locally to see what they do, and writing the mapping notes.

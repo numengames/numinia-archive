@@ -15,7 +15,7 @@ terminal:
   home_mode: auto
 
 approvals:
-  mode: manual
+  mode: smart
   denial_breaker_threshold: 3
   deny:
     - "git push --force*"
