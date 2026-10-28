@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "6455854",
+  "head": "a3728ed",
   "corpus_hash": "1c9f4145759b1c5659e4b95274ef689cef62c917d0d7cc3f7b26268b2380ac7e",
   "root_dirty": 0,
-  "measured_at": "2026-10-28T05:39:11Z",
+  "measured_at": "2026-10-28T05:44:40Z",
   "families": [
     "corpus",
     "series",
@@ -617,7 +617,7 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 2,
+      "value": 13,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
@@ -625,14 +625,69 @@
     "provenance.created_ahead_list": {
       "value": [
         [
+          "agents/kairos/AGENT.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
+        [
+          "agents/kairos/OPERATOR.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
+        [
+          "agents/kairos/SOUL.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
+        [
+          "agents/kairos/SOURCES.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
+        [
+          "agents/nimrod/OPERATOR.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/nimrod/SOUL.md",
+          "2026-09-04",
+          "2026-04-07"
+        ],
+        [
+          "agents/skills/numinia-nwos-pr/SKILL.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "machine/packages/sales-kit/fixtures/card.md",
+          "2026-10-02",
+          "2026-10-01"
+        ],
+        [
           "machine/packages/sales-kit/fixtures/collateral/OPP-2099-008.md",
           "2099-10-01",
-          "2026-10-16"
+          "2026-10-02"
+        ],
+        [
+          "machine/packages/sales-kit/fixtures/register.md",
+          "2026-10-02",
+          "2026-10-01"
         ],
         [
           "machine/templates/MIS-TEMPLATE-EXAMPLE.md",
           "2026-10-17",
-          "2026-10-16"
+          "2026-09-05"
+        ],
+        [
+          "procedures/PRO-018-publishing-a-repository.md",
+          "2026-09-10",
+          "2026-09-09"
+        ],
+        [
+          "reports/RPT-019-2026-w37.md",
+          "2026-09-09",
+          "2026-09-08"
         ]
       ],
       "unit": "documents",
@@ -640,7 +695,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 338,
+      "value": 69,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
