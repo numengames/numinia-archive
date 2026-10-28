@@ -23,7 +23,7 @@ concurrency:
 
 jobs:
   probe:
-    uses: numengames/.github/.github/workflows/monitor.yml@c87e85e17306324752a59426f899e48059d42609
+    uses: numengames/.github/.github/workflows/monitor.yml@3d2cca44cebc8ef7420f1bee3451d7227d55d8ce
     permissions:
       issues: write
     with:
