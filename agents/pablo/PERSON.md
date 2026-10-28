@@ -52,3 +52,13 @@ Las Rozas de Madrid · [pablofm.com](https://pablofm.com) · [LinkedIn](https://
 - [Working with Pablo](WORKING-WITH.md)
 - [CV](CV.md) — PDF to come
 - [Projects](PROJECTS.md)
+
+## Pending
+
+This page is a draft. Still to do, none of it resolved here:
+
+- **Why, in his own words** — `WHO.md` § Why is a placeholder for Pablo to write.
+- **Photo** — `photo: TODO`.
+- **CV PDF** — `cv_pdf` points to a file that is not generated yet.
+- **Shareholding unverified** — `shares` is TODO and `shares_pct: 80` is Pablo's estimate; check it against the register of shareholders or deeds before publishing.
+- **Consent evidence** — `consent.evidence: TODO`, kept outside the public archive.
