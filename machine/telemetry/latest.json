@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "bebade3",
-  "corpus_hash": "c2c511140acf185218cdaa63e8518f9c53aca1249c0aadf77f1005edfd6e70f2",
+  "head": "6455854",
+  "corpus_hash": "1c9f4145759b1c5659e4b95274ef689cef62c917d0d7cc3f7b26268b2380ac7e",
   "root_dirty": 0,
-  "measured_at": "2026-10-27T06:28:27Z",
+  "measured_at": "2026-10-28T05:39:11Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 1076,
+      "value": 1079,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,7 +34,7 @@
         ".js": 2,
         ".json": 16,
         ".md": 557,
-        ".mjs": 141,
+        ".mjs": 144,
         ".png": 38,
         ".svg": 78,
         ".toml": 3,
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 557,
-          "bytes": 4666540
+          "bytes": 4666836
         },
         "Code": {
-          "files": 291,
-          "bytes": 2597581
+          "files": 294,
+          "bytes": 2612997
         },
         "Image": {
           "files": 120,
@@ -65,7 +65,7 @@
         },
         "Data": {
           "files": 82,
-          "bytes": 316765
+          "bytes": 319150
         },
         "Font": {
           "files": 7,
@@ -150,13 +150,13 @@
       "definition": "corpus documents classified apparatus by rules.json (`type: meta`, listed basename, or template path)"
     },
     "corpus.scripts_total": {
-      "value": 93,
+      "value": 96,
       "unit": "files",
       "definition": "files under `machine/scripts/` with a code extension (.py .mjs .js .sh .ts)"
     },
     "corpus.scripts_by_language": {
       "value": {
-        "node": 93
+        "node": 96
       },
       "unit": "files",
       "definition": "those scripts by language, from the extension"
@@ -386,84 +386,34 @@
       "definition": "`started` written in `Z`"
     },
     "tokens.tokenizer": {
-      "value": "cl100k_base sha256:223921b76ee9",
+      "value": null,
       "unit": "identity",
-      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
+      "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.total": {
-      "value": 1201567,
+      "value": null,
       "unit": "tokens",
-      "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.by_dir": {
-      "value": {
-        "lore": 466704,
-        "missions": 132027,
-        "standards": 124575,
-        "agents": 78794,
-        "system": 63150,
-        "decisions": 48152,
-        "procedures": 45041,
-        "reports": 36728,
-        "operations": 33643,
-        "designs": 31465,
-        "machine": 30862,
-        "": 30131,
-        "principles": 22864,
-        "debt": 21476,
-        "opportunities": 15128,
-        "legal": 13877,
-        "stakeholders": 4011,
-        "objects": 1883,
-        ".github": 1056
-      },
+      "value": null,
       "unit": "tokens",
-      "definition": "tokens per top-level dir, largest first"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.by_status": {
-      "value": {
-        "(none)": 504779,
-        "active": 283049,
-        "draft": 279437,
-        "todo": 85817,
-        "in-progress": 30922,
-        "done": 14212,
-        "in-review": 2321,
-        "on-hold": 1030
-      },
+      "value": null,
       "unit": "tokens",
-      "definition": "tokens per frontmatter status ((none) = no status), largest first"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.missions_share_pct": {
-      "value": 10.99,
-      "unit": "percent",
-      "definition": "100·tokens(missions/)/total, rounded to 0.01"
+      "value": null,
+      "unit": "tokens",
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "tokens.largest": {
-      "value": [
-        [
-          "lore/game/manual/es/06-inventario-y-bestiario.md",
-          51702
-        ],
-        [
-          "lore/game/manual/es/02-historia-y-leyendas-de-numinia.md",
-          38623
-        ],
-        [
-          "lore/game/manual/es/07-construyendo-la-aventura.md",
-          37267
-        ],
-        [
-          "lore/game/manual/es/05-geografia-y-cultura-de-numinia.md",
-          36881
-        ],
-        [
-          "lore/game/manual/en/06-inventory-and-bestiary.md",
-          36491
-        ]
-      ],
+      "value": null,
       "unit": "tokens",
-      "definition": "the five largest documents as [path, tokens]"
+      "definition": "unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer"
     },
     "headers.docs_with_frontmatter": {
       "value": 511,
@@ -667,7 +617,7 @@
       "definition": "docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed)"
     },
     "provenance.created_ahead_of_commit": {
-      "value": 13,
+      "value": 2,
       "unit": "documents",
       "definition": "created day later than the day the file was first added to git (dates-vs-commits.py \"DISCREPA\", over the whole corpus, not the post-tag set)",
       "volatile": "commit-date"
@@ -675,69 +625,14 @@
     "provenance.created_ahead_list": {
       "value": [
         [
-          "agents/kairos/AGENT.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "agents/kairos/OPERATOR.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "agents/kairos/SOUL.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "agents/kairos/SOURCES.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
-          "agents/nimrod/OPERATOR.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/nimrod/SOUL.md",
-          "2026-09-04",
-          "2026-04-07"
-        ],
-        [
-          "agents/skills/numinia-nwos-pr/SKILL.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "machine/packages/sales-kit/fixtures/card.md",
-          "2026-10-02",
-          "2026-10-01"
-        ],
-        [
           "machine/packages/sales-kit/fixtures/collateral/OPP-2099-008.md",
           "2099-10-01",
-          "2026-10-02"
-        ],
-        [
-          "machine/packages/sales-kit/fixtures/register.md",
-          "2026-10-02",
-          "2026-10-01"
+          "2026-10-16"
         ],
         [
           "machine/templates/MIS-TEMPLATE-EXAMPLE.md",
           "2026-10-17",
-          "2026-09-05"
-        ],
-        [
-          "procedures/PRO-018-publishing-a-repository.md",
-          "2026-09-10",
-          "2026-09-09"
-        ],
-        [
-          "reports/RPT-019-2026-w37.md",
-          "2026-09-09",
-          "2026-09-08"
+          "2026-10-16"
         ]
       ],
       "unit": "documents",
@@ -745,7 +640,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 69,
+      "value": 338,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -826,7 +721,7 @@
           "3": 718
         },
         "STD": {
-          "3": 1769
+          "3": 1770
         },
         "PRI": {
           "3": 485
