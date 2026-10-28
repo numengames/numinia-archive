@@ -32,7 +32,7 @@ SPDX-License-Identifier: CC0-1.0
 
 > **Summary:** The umbrella mission for what is improvised in Hermes
 > during week 2026-W44 (2026-10-26 to 2026-11-01), opened in advance so that
-> no improvised board card is left without a mission (D-094).
+> no improvised board card is left without a mission.
 > **Epistemic:** Which improvised cards Hermes and the servers took in that week.
 > **Pragmatic:** A card started on the spot is titled `JAZZ-MIS-287 · …`;
 > what turns out to last becomes a mission of its own.
