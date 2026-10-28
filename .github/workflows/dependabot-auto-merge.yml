@@ -13,7 +13,7 @@ permissions: read-all
 
 jobs:
   auto-merge:
-    uses: numengames/.github/.github/workflows/dependabot-auto-merge.yml@c87e85e17306324752a59426f899e48059d42609
+    uses: numengames/.github/.github/workflows/dependabot-auto-merge.yml@3d2cca44cebc8ef7420f1bee3451d7227d55d8ce
     permissions:
       contents: write
       pull-requests: write
