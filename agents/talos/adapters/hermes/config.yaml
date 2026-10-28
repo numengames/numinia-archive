@@ -13,7 +13,7 @@ terminal:
   home_mode: auto
 
 approvals:
-  mode: smart
+  mode: manual
   denial_breaker_threshold: 2
   deny:
     - "git push --force*"
@@ -21,6 +21,8 @@ approvals:
     - "git reset --hard*"
     - "git clean -fd*"
     - "rm -rf *"
+    - "git push*"
+    - "gh pr create*"
   smart_policy: |
     Allow read-only repository inspection, git log/show/diff/status, workflow
     and configuration review, static analysis, dependency review, and safe

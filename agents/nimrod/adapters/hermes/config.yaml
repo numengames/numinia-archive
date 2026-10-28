@@ -13,13 +13,15 @@ terminal:
   home_mode: auto
 
 approvals:
-  mode: smart
+  mode: manual
   denial_breaker_threshold: 3
   deny:
     - "git push --force*"
     - "git push -f*"
     - "git reset --hard*"
     - "git clean -fd*"
+    - "git push*"
+    - "gh pr create*"
   smart_policy: |
     Allow ordinary read-only inspection, repository search, tree traversal,
     cross-reference analysis, source comparison, git log/show/diff/history

@@ -685,6 +685,33 @@
         }
       ]
     },
+    "generate-hermes-approvals": {
+      "script": "machine/scripts/generate-hermes-approvals.mjs",
+      "manual": "writes agents/*/adapters/hermes/config.yaml and takes --check; run by hand or from the divergence test (machine/scripts/test/hermes-approvals.test.mjs), not by run-checks.mjs (ENG-032's registry-discovery scope)",
+      "sees": "each agent's automation_level, as declared in its own OPERATOR.md, against the approvals.mode and push/PR deny patterns actually written in its adapters/hermes/config.yaml",
+      "blind_to": [
+        {
+          "spot": "whether the level itself is the right one for what the agent actually does — it reads what OPERATOR.md says, never what the agent's sessions show. A level set once and never revisited is invisible to this script",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "any approval surface outside approvals.mode and the push/PR deny list — terminal.backend, checkpoints, memory.write_approval, delegation limits and each agent's own smart_policy prose are never touched or checked, even where they also bear on what a level should allow",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "whether `manual` or `smart` in Hermes actually enforces what STD-042's grades promise at runtime — it checks that the YAML says the right word, not that the running agent obeys it",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "untracked files — it enumerates OPERATOR.md through `git ls-files`, so a new agent's level, written but not yet `git add`ed, is invisible to the divergence check",
+          "covered_by": null,
+          "debt": "D-049"
+        }
+      ]
+    },
     "generate-design-kit": {
       "script": "machine/tools/generate-design-kit.mjs",
       "build_check": "verifies a generated artefact against its source, not a rule in prose — a published kit that differs from the package misleads every site that loads it, whatever any standard says (ENG-067 exception)",
