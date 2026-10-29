@@ -59,8 +59,8 @@ The rest of MIS-206: its other children.
 ## 3. Acceptance criteria
 
 - [ ] No card titled `MIS-248 · …` is open on the Hermes boards — today 4 are open
-- [x] The economy simulator with Prestigio and Relics and the Asimov tribute are rebased on main with PRs open — today both are off main
-- [x] 3D dice fall into the tower tray (part 1 of 3) and an opt-in game event book records adventures, fights and creatures — today there are no 3D dice and no event book
+- [ ] The economy simulator with Prestigio and Relics and the Asimov tribute are rebased on main with PRs open — today both are off main
+- [ ] 3D dice fall into the tower tray (part 1 of 3) and an opt-in game event book records adventures, fights and creatures — today there are no 3D dice and no event book
 
 ---
 
@@ -77,7 +77,7 @@ The rest of MIS-206: its other children.
 
 ## 5. What we learned
 
-**Closure proposed 2026-10-29 by ursa, for the Oracle's word.** Evidence: numinia-engine #289 (book of events, merged 2026-10-28, 128429f9); the Asimov tribute is in apps/plaza/ancestros.ts on main. The criterion about open cards on the Hermes boards was not checked by ursa and stays unticked.
+**Closure proposed 2026-10-29 by ursa, for the Oracle's word.** Evidence: numinia-engine #289 (book of events, merged 2026-10-28, 128429f9); the Asimov tribute is in apps/plaza/ancestros.ts on main. Not proven by ursa, so left unticked: the economy simulator, the 3D dice and the criterion about open cards on the Hermes boards was not checked by ursa and stays unticked.
 
 ---
 
