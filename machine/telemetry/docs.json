@@ -4037,6 +4037,61 @@
   "tokens": 1079
  },
  {
+  "path": "missions/MIS-0284-cover-the-improvised-cards-of-engine-in-week-2026-w44.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2455,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 722
+ },
+ {
+  "path": "missions/MIS-0285-cover-the-improvised-cards-of-numinia-com-in-week-2026-w44.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2448,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 725
+ },
+ {
+  "path": "missions/MIS-0286-cover-the-improvised-cards-of-archive-in-week-2026-w44.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2491,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 726
+ },
+ {
+  "path": "missions/MIS-0287-cover-the-improvised-cards-of-hermes-in-week-2026-w44.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2451,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 717
+ },
+ {
+  "path": "missions/MIS-0288-cover-the-improvised-cards-of-numen-games-in-week-2026-w44.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 2451,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 727
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
