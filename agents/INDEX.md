@@ -60,7 +60,7 @@ A roster is a register; the principle says what the house is, not who staffs it.
 | Clio Beruete | Oracle |
 | Daniel Garrido | Oracle |
 | Christian Märtens | Oracle |
-| Pablo Fernández-Maquieira | Oracle |
+| [Pablo Fernández-Maquieira](pablo/PERSON.md) | Oracle |
 
 ## Roster
 
