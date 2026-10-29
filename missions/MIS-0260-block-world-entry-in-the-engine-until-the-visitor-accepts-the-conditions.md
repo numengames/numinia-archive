@@ -3,10 +3,10 @@ id: "MIS-260"
 uid: ""
 title: "Block world entry in the engine until the visitor accepts the conditions"
 type: mission
-status: in-review
+status: in-progress
 version: "0.1.0"
 created: "2026-10-25T16:00:00Z"
-updated: "2026-10-27T03:30:00Z"
+updated: "2026-10-29T09:25:00Z"
 in_review_at: "2026-10-27T03:30:00Z"
 author: "ursa"
 owner: "oracle"

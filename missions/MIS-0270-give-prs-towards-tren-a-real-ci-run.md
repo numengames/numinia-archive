@@ -3,10 +3,10 @@ id: "MIS-270"
 uid: ""
 title: "Give PRs towards tren/* a real CI run"
 type: mission
-status: todo
+status: on-hold
 version: "0.1.0"
 created: "2026-10-25T16:00:00Z"
-updated: "2026-10-25T16:00:00Z"
+updated: "2026-10-29T09:25:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -21,6 +21,7 @@ budget_minutes: 5
 executor: agent
 assigned_to: "ursa"
 completed: null
+hold_reason: "cancelled: it asked for a real CI run on PRs towards tren/* branches; the train was retired on 2026-10-28 and the merge queue replaced it"
 parent_mission: "MIS-215"
 ---
 
