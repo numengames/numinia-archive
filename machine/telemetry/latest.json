@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "c598d2b",
-  "corpus_hash": "24746aa61a4253a0a11a75f523b2a066fb828f56d879832350319fc55329cad5",
+  "head": "9693d44",
+  "corpus_hash": "723a72af9509b60a11bfe7a5e35c86cb5ea6541a90dbbae40b0180b2d62a9641",
   "root_dirty": 1,
-  "measured_at": "2026-10-29T10:21:46Z",
+  "measured_at": "2026-10-29T11:51:22Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 567,
-          "bytes": 4689047
+          "bytes": 4690122
         },
         "Code": {
           "files": 294,
@@ -271,11 +271,11 @@
     },
     "missions.by_status": {
       "value": {
-        "done": 9,
-        "in-progress": 37,
+        "done": 12,
+        "in-progress": 34,
         "in-review": 3,
-        "on-hold": 1,
-        "todo": 89
+        "on-hold": 2,
+        "todo": 88
       },
       "unit": "missions",
       "definition": "by frontmatter `status`"
@@ -361,7 +361,7 @@
       "definition": "`status: in-progress` with no `assigned_to`"
     },
     "missions.done_without_closure": {
-      "value": 9,
+      "value": 12,
       "unit": "missions",
       "definition": "`status: done` with no `## Closure` heading (MIS-134 strict form)"
     },
@@ -391,14 +391,14 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1208059,
+      "value": 1208435,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
     "tokens.by_dir": {
       "value": {
         "lore": 466704,
-        "missions": 135644,
+        "missions": 136020,
         "standards": 124575,
         "agents": 81578,
         "system": 63150,
@@ -425,17 +425,17 @@
         "(none)": 504870,
         "active": 283058,
         "draft": 282212,
-        "todo": 89434,
-        "in-progress": 30922,
-        "done": 14212,
-        "in-review": 2321,
-        "on-hold": 1030
+        "todo": 88926,
+        "in-progress": 29075,
+        "done": 16778,
+        "in-review": 1871,
+        "on-hold": 1645
       },
       "unit": "tokens",
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 11.23,
+      "value": 11.26,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -546,10 +546,10 @@
         "door": 15,
         "offer": 15,
         "evidence_head": 14,
+        "in_review_at": 14,
         "started": 14,
         "related_missions": 13,
         "evidence_script": 11,
-        "in_review_at": 11,
         "mandatory": 11,
         "period": 11,
         "forms": 10,
@@ -587,6 +587,7 @@
         "disclosure": 2,
         "estimated": 2,
         "goods": 2,
+        "hold_reason": 2,
         "human_approval_score": 2,
         "instrument": 2,
         "model": 2,
@@ -601,7 +602,6 @@
         "decider_role": 1,
         "follows": 1,
         "gives_back": 1,
-        "hold_reason": 1,
         "labels": 1,
         "language_note": 1,
         "next_date": 1,
@@ -645,7 +645,7 @@
         "dates_without_time": 0,
         "empty_values": 403,
         "v_prefixed_versions": 0,
-        "placeholders": 95
+        "placeholders": 94
       },
       "unit": "values",
       "definition": "frontmatter-census.py §4: created/updated without time; empty values; version with v prefix; values matching TODO|TBD|FIXME|{{|<…>|xxx"
@@ -746,7 +746,7 @@
       "volatile": "commit-date"
     },
     "provenance.created_behind_commit": {
-      "value": 74,
+      "value": 79,
       "unit": "documents",
       "definition": "created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged",
       "volatile": "commit-date"
@@ -764,8 +764,8 @@
     },
     "provenance.protocol_anchor": {
       "value": {
-        "not-oracle-state": 129,
-        "anchored": 10
+        "not-oracle-state": 125,
+        "anchored": 14
       },
       "unit": "missions",
       "definition": "P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible"
@@ -774,10 +774,10 @@
       "value": {
         "active": 173,
         "draft": 194,
-        "done": 10,
-        "todo": 90,
-        "in-progress": 37,
-        "on-hold": 1,
+        "done": 13,
+        "todo": 89,
+        "in-progress": 34,
+        "on-hold": 2,
         "in-review": 3
       },
       "unit": "documents",

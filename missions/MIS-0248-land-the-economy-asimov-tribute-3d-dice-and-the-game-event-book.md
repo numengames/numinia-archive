@@ -3,10 +3,10 @@ id: "MIS-248"
 uid: ""
 title: "Land the economy, Asimov tribute, 3D dice and the game event book"
 type: mission
-status: in-progress
-version: "0.1.0"
+status: done
+version: "0.2.0"
 created: "2026-10-25T16:00:00Z"
-updated: "2026-10-27T03:30:00Z"
+updated: "2026-10-29T09:25:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -20,7 +20,7 @@ budget_usd: 5.00
 budget_minutes: 30
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-29T09:25:00Z"
 parent_mission: "MIS-206"
 ---
 
@@ -76,6 +76,8 @@ The rest of MIS-206: its other children.
 ---
 
 ## 5. What we learned
+
+**Closure proposed 2026-10-29 by ursa, for the Oracle's word.** Evidence: numinia-engine #289 (book of events, merged 2026-10-28, 128429f9); the Asimov tribute is in apps/plaza/ancestros.ts on main. Not proven by ursa, so left unticked: the economy simulator, the 3D dice and the criterion about open cards on the Hermes boards was not checked by ursa and stays unticked.
 
 ---
 

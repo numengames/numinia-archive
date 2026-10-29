@@ -3458,8 +3458,8 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 2016,
+  "status": "in-progress",
+  "chars": 2018,
   "apparatus": false,
   "archived": false,
   "tokens": 619
@@ -3579,11 +3579,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 2070,
+  "status": "in-review",
+  "chars": 2105,
   "apparatus": false,
   "archived": false,
-  "tokens": 620
+  "tokens": 639
  },
  {
   "path": "missions/MIS-0243-make-the-scenery-solid-with-relief-terrain-and-fast-physics.md",
@@ -3634,22 +3634,22 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 2016,
+  "status": "in-review",
+  "chars": 2051,
   "apparatus": false,
   "archived": false,
-  "tokens": 617
+  "tokens": 636
  },
  {
   "path": "missions/MIS-0248-land-the-economy-asimov-tribute-3d-dice-and-the-game-event-book.md",
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 2069,
+  "status": "done",
+  "chars": 2453,
   "apparatus": false,
   "archived": false,
-  "tokens": 641
+  "tokens": 763
  },
  {
   "path": "missions/MIS-0249-let-a-world-list-create-and-remove-ai-inhabitants-and-see-what-they-do.md",
@@ -3777,8 +3777,8 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 2108,
+  "status": "in-progress",
+  "chars": 2110,
   "apparatus": false,
   "archived": false,
   "tokens": 623
@@ -3854,11 +3854,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 2163,
+  "status": "todo",
+  "chars": 2156,
   "apparatus": false,
   "archived": false,
-  "tokens": 634
+  "tokens": 633
  },
  {
   "path": "missions/MIS-0268-polish-the-landing-city-bar-create-flow-bazaar-calendar-and-settings.md",
@@ -3887,11 +3887,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 1779,
+  "status": "on-hold",
+  "chars": 1935,
   "apparatus": false,
   "archived": false,
-  "tokens": 573
+  "tokens": 615
  },
  {
   "path": "missions/MIS-0271-fix-the-numengames-web-lint-step-so-it-blocks-bad-code.md",
@@ -3920,11 +3920,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-progress",
-  "chars": 1819,
+  "status": "in-review",
+  "chars": 1854,
   "apparatus": false,
   "archived": false,
-  "tokens": 577
+  "tokens": 596
  },
  {
   "path": "missions/MIS-0274-report-hermes-wrong-restart-button-false-usage-warning-and-session-refresh.md",
@@ -3975,11 +3975,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "todo",
-  "chars": 1910,
+  "status": "done",
+  "chars": 2198,
   "apparatus": false,
   "archived": false,
-  "tokens": 568
+  "tokens": 664
  },
  {
   "path": "missions/MIS-0279-judge-the-two-youtube-shorts-pablo-shared.md",
@@ -4030,11 +4030,11 @@
   "dir": "missions",
   "series": "missions",
   "type": "mission",
-  "status": "in-review",
-  "chars": 3979,
+  "status": "done",
+  "chars": 4124,
   "apparatus": false,
   "archived": false,
-  "tokens": 1079
+  "tokens": 1139
  },
  {
   "path": "missions/MIS-0284-cover-the-improvised-cards-of-engine-in-week-2026-w44.md",

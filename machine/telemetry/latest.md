@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-10-29T10:21:46Z"
+updated: "2026-10-29T11:51:22Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `c598d2b`  · corpus_hash: `24746aa61a4253a0…`  · measured_at: 2026-10-29T10:21:46Z  · root_dirty: 1
+- head: `9693d44`  · corpus_hash: `723a72af9509b60a…`  · measured_at: 2026-10-29T11:51:22Z  · root_dirty: 1
 
 ## corpus
 
@@ -71,7 +71,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files | bytes |
 |---|---|---|
-| Text | 567 | 4689047 |
+| Text | 567 | 4690122 |
 | Code | 294 | 2613206 |
 | Image | 120 | 3539152 |
 | Data | 82 | 319150 |
@@ -169,7 +169,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `missions.section_tba` | 0 | missions | `section: TBA` (ADR-028 deferral; owner MIS-124 closed 2026-09-09, zero TBA remains) |
 | `missions.unassigned` | 38 | missions | `assigned_to` absent or null-like |
 | `missions.in_progress_unassigned` | 0 | missions | `status: in-progress` with no `assigned_to` |
-| `missions.done_without_closure` | 9 | missions | `status: done` with no `## Closure` heading (MIS-134 strict form) |
+| `missions.done_without_closure` | 12 | missions | `status: done` with no `## Closure` heading (MIS-134 strict form) |
 | `missions.done_without_closure_tolerant` | 0 | missions | `status: done` with none of the five closure headings MIS-134 tolerates |
 | `missions.without_author` | 0 | missions | frontmatter `author` absent or null-like |
 | `missions.started_with_offset` | 3 | missions | `started` written with a UTC offset instead of `Z` |
@@ -179,11 +179,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | missions |
 |---|---|
-| done | 9 |
-| in-progress | 37 |
+| done | 12 |
+| in-progress | 34 |
 | in-review | 3 |
-| on-hold | 1 |
-| todo | 89 |
+| on-hold | 2 |
+| todo | 88 |
 
 ### `missions.by_guild`
 
@@ -249,10 +249,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 1208059 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 1208435 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
-| `tokens.missions_share_pct` | 11.23 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.missions_share_pct` | 11.26 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
 | `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
@@ -260,7 +260,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | tokens |
 |---|---|
 | lore | 466704 |
-| missions | 135644 |
+| missions | 136020 |
 | standards | 124575 |
 | agents | 81578 |
 | system | 63150 |
@@ -286,11 +286,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | (none) | 504870 |
 | active | 283058 |
 | draft | 282212 |
-| todo | 89434 |
-| in-progress | 30922 |
-| done | 14212 |
-| in-review | 2321 |
-| on-hold | 1030 |
+| todo | 88926 |
+| in-progress | 29075 |
+| done | 16778 |
+| in-review | 1871 |
+| on-hold | 1645 |
 
 ### `tokens.largest`
 
@@ -382,10 +382,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | door | 15 |
 | offer | 15 |
 | evidence_head | 14 |
+| in_review_at | 14 |
 | started | 14 |
 | related_missions | 13 |
 | evidence_script | 11 |
-| in_review_at | 11 |
 | mandatory | 11 |
 | period | 11 |
 | forms | 10 |
@@ -423,6 +423,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | disclosure | 2 |
 | estimated | 2 |
 | goods | 2 |
+| hold_reason | 2 |
 | human_approval_score | 2 |
 | instrument | 2 |
 | model | 2 |
@@ -437,7 +438,6 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | decider_role | 1 |
 | follows | 1 |
 | gives_back | 1 |
-| hold_reason | 1 |
 | labels | 1 |
 | language_note | 1 |
 | next_date | 1 |
@@ -464,7 +464,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | dates_without_time | 0 |
 | empty_values | 403 |
 | v_prefixed_versions | 0 |
-| placeholders | 95 |
+| placeholders | 94 |
 
 ## provenance
 
@@ -474,7 +474,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | `provenance.dates_vs_commits_compared` | 488 | documents | docs with a created date AND a first-add commit found by one `git log --diff-filter=AR -M` walk (renames followed) |
 | `provenance.created_ahead_of_commit` | 13 | documents | created day later than the day the file was first added to git (dates-vs-commits.py "DISCREPA", over the whole corpus, not the post-tag set) |
 | `provenance.created_ahead_list` | (table below) | documents | [path, created, first-add] for created_ahead_of_commit |
-| `provenance.created_behind_commit` | 74 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
+| `provenance.created_behind_commit` | 79 | documents | created day earlier than the first-add commit — expected for migrated or backdated documents; counted, not judged |
 | `provenance.regime_crossings` | 0 | renames | renames in history (git -M) whose source and target resolve to different REUSE.toml licences (last matching annotation wins); regime-crossings.py |
 | `provenance.regime_crossings_list` | (table below) | renames | [from, to, regime change, date] |
 | `provenance.protocol_anchor` | (table below) | missions | P-003 rule as protocol-anchor.py applies it: status ∈ {done,frozen,cancelled,backlog} is Oracle-set → anchored if owner=oracle, anchored-weak if another owner, anchored-no-owner if none; other states not-oracle-state. The CYCLE_* timestamp evidence it also used lived in /tmp and is not reproducible |
@@ -502,8 +502,8 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | missions |
 |---|---|
-| not-oracle-state | 129 |
-| anchored | 10 |
+| not-oracle-state | 125 |
+| anchored | 14 |
 
 ## contradictions
 
@@ -527,10 +527,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 |---|---|
 | active | 173 |
 | draft | 194 |
-| done | 10 |
-| todo | 90 |
-| in-progress | 37 |
-| on-hold | 1 |
+| done | 13 |
+| todo | 89 |
+| in-progress | 34 |
+| on-hold | 2 |
 | in-review | 3 |
 
 ### `contradictions.status_vocabulary_undeclared`

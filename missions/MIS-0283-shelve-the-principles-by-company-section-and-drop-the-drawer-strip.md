@@ -3,10 +3,10 @@ id: "MIS-283"
 uid: ""
 title: "Shelve the principles by company section and drop the drawer strip"
 type: mission
-status: in-review
-version: "0.2.0"
+status: done
+version: "0.3.0"
 created: "2026-10-25T15:30:00Z"
-updated: "2026-10-25T16:20:00Z"
+updated: "2026-10-29T09:25:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -17,7 +17,7 @@ priority: medium
 effort: S
 executor: agent
 assigned_to: "ursa"
-completed: null
+completed: "2026-10-29T09:25:00Z"
 
 started: "2026-10-25T15:30:00Z"
 in_review_at: "2026-10-25T16:20:00Z"
@@ -71,10 +71,10 @@ SPDX-License-Identifier: CC0-1.0
 
 ## 2. Acceptance criteria
 
-- [ ] Every principle is on the shelf named after its own `section` header (today: four shelves in the city's words).
-- [ ] `web/src/pages/[series].astro` has no "The other drawers" strip (today: it ends every series page).
-- [ ] At the full moon no shelf shows a company word; at the new moon none shows a house name.
-- [ ] `npm test`, `npm run checks -- --rules` and the web build pass.
+- [x] Every principle is on the shelf named after its own `section` header (today: four shelves in the city's words).
+- [x] `web/src/pages/[series].astro` has no "The other drawers" strip (today: it ends every series page).
+- [x] At the full moon no shelf shows a company word; at the new moon none shows a house name.
+- [x] `npm test`, `npm run checks -- --rules` and the web build pass.
 
 ---
 
@@ -83,4 +83,4 @@ SPDX-License-Identifier: CC0-1.0
 - **What was done:** `READING_GROUPS_PRINCIPLES` is six shelves, one per section the principles declare, with `STD-030`'s name and line; each principle is on the shelf of its own header. The page names the houses that serve each shelf (`translator.servedBy`) and shows them beside the name at the half moon and in its place at the full moon. The strip "The other drawers" is gone from every series page. The page's introduction said "four shelves"; it now says six.
 - **What diverged, and why:** the plan said the full moon would show the city's four old names; they grouped differently from the sections and no document names the six, so the houses stand in (the Oracle chose this, 2026-10-25).
 - **Evidence:** `npm test` 1013 tests, 1011 pass, 0 fail, 2 skipped; `--rules` 12 checks, 0 failed; web build ok; built `/principles` shows the six shelves at the three moons (checked in a browser) and no strip on any series page.
-- **Closed:** pending the Oracle's review · **by:** ursa
+- **Closed:** proposed 2026-10-29 on numinia-archive #763 (merged 2026-10-26): READING_GROUPS_PRINCIPLES in web/src/lib/corpus.ts, no drawer strip; pending the Oracle's word · **by:** ursa
