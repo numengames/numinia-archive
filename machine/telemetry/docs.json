@@ -126,10 +126,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 8199,
+  "chars": 8218,
   "apparatus": true,
   "archived": false,
-  "tokens": 2289
+  "tokens": 2298
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -603,6 +603,61 @@
   "apparatus": false,
   "archived": false,
   "tokens": 813
+ },
+ {
+  "path": "agents/pablo/CV.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2721,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 789
+ },
+ {
+  "path": "agents/pablo/PERSON.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2338,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 705
+ },
+ {
+  "path": "agents/pablo/PROJECTS.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 2007,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 572
+ },
+ {
+  "path": "agents/pablo/WHO.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 1409,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 396
+ },
+ {
+  "path": "agents/pablo/WORKING-WITH.md",
+  "dir": "agents",
+  "series": "agents",
+  "type": "agent",
+  "status": "draft",
+  "chars": 1099,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 313
  },
  {
   "path": "agents/procyon/OPERATOR.md",
