@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-30
+- **Changed** `STD-051` 0.4.0 goes from `draft` to `active` (`approved_by: ADR-071`) and every check row links to its test in numinia-web or numinia-engine; `ORG-010` stays checked by hand. `STD-052` and `STD-053` follow in their own pull requests
+
 ### 2026-10-27
 - **Changed** The mission list catches up: 33 missions go from `todo` to `in-progress` and MIS-231 and MIS-260 to `in-review`, per the 2026-10-25 card audit and the boards
 - **Changed** MIS-170 (each world has its own admin code) closes on the Oracle's word: status `done`, criteria ticked; the three live checks were accepted, not re-run

@@ -290,7 +290,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-048` | Reaching someone who did not ask | draft | every first contact made in Numen… |
 | `STD-049` | The doors, by country | draft | register — scope belongs to the standard that cites it |
 | `STD-050` | What an agent in a world reads, and what it… | draft | every agent placed in a world of ours… |
-| `STD-051` | Organisation roles | draft | numinia.com's organisations — their… |
+| `STD-051` | Organisation roles | active | numinia.com's organisations — their… |
 | `STD-052` | Organisation permissions | draft | register — scope belongs to the standard that cites it |
 | `STD-053` | Presence | draft | numinia.com's status menu, its lists of… |
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
