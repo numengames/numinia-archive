@@ -9,7 +9,7 @@ updated: "2026-10-08T12:40:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
-automation_level: partial
+automation_level: high
 tags: [agents, kairos, opportunities, watch]
 license: "CC0-1.0"
 registration: exempt

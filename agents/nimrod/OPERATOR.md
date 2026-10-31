@@ -9,7 +9,7 @@ updated: "2026-10-18T17:35:08+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
-automation_level: assisted
+automation_level: high
 tags: [agents, nimrod, repository, navigation, provenance]
 license: "CC0-1.0"
 registration: exempt

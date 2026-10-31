@@ -24,7 +24,9 @@
 // skills, memory or delegation — those are not what automation_level
 // governs, and they carry per-agent wording nobody asked this script to
 // regenerate. A baseline deny (force-push, rm -rf) is kept wherever it
-// already exists; nothing is ever removed.
+// already exists; nothing is ever removed. Every agent but the orchestrator
+// also carries the specialist house rules (SPECIALIST_DENY, the Oracle,
+// 2026-10-31).
 //
 // Usage:
 //   node machine/scripts/generate-hermes-approvals.mjs           apply and print a report
@@ -33,7 +35,7 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ruleFor } from './lib/hermes-approval-levels.mjs';
+import { ruleForAgent } from './lib/hermes-approval-levels.mjs';
 import { declareBlindSpots } from './lib/blindness.mjs';
 declareBlindSpots('generate-hermes-approvals');
 
@@ -116,7 +118,7 @@ function processAgent(agent) {
   const configPath = path.join(ROOT, 'agents', agent, 'adapters', 'hermes', 'config.yaml');
   if (!existsSync(configPath)) return { agent, skipped: 'no adapters/hermes/config.yaml' };
   const level = field(readFileSync(operatorPath, 'utf8'), 'automation_level');
-  const rule = ruleFor(level);
+  const rule = ruleForAgent(agent, level);
   const original = readFileSync(configPath, 'utf8');
   const { text: afterMode, before: modeBefore } = setMode(original, rule.mode);
   const { text: finalText, added } = ensureDeny(afterMode, rule.requiredDeny);

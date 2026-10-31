@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 75377,
+  "chars": 75701,
   "apparatus": false,
   "archived": false,
-  "tokens": 21522
+  "tokens": 21598
  },
  {
   "path": "CLAUDE.md",
@@ -126,10 +126,10 @@
   "series": "agents",
   "type": "meta",
   "status": "active",
-  "chars": 8218,
+  "chars": 8790,
   "apparatus": true,
   "archived": false,
-  "tokens": 2298
+  "tokens": 2438
  },
  {
   "path": "agents/_template/OPERATOR.md",
@@ -170,7 +170,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1435,
+  "chars": 1431,
   "apparatus": false,
   "archived": false,
   "tokens": 359
@@ -203,7 +203,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1572,
+  "chars": 1568,
   "apparatus": false,
   "archived": false,
   "tokens": 397
@@ -236,7 +236,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1872,
+  "chars": 1868,
   "apparatus": false,
   "archived": false,
   "tokens": 437
@@ -269,7 +269,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1214,
+  "chars": 1210,
   "apparatus": false,
   "archived": false,
   "tokens": 317
@@ -324,7 +324,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2301,
+  "chars": 2297,
   "apparatus": false,
   "archived": false,
   "tokens": 580
@@ -368,7 +368,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2358,
+  "chars": 2354,
   "apparatus": false,
   "archived": false,
   "tokens": 582
@@ -412,7 +412,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2482,
+  "chars": 2478,
   "apparatus": false,
   "archived": false,
   "tokens": 593
@@ -456,7 +456,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1777,
+  "chars": 1774,
   "apparatus": false,
   "archived": false,
   "tokens": 464
@@ -489,7 +489,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1368,
+  "chars": 1364,
   "apparatus": false,
   "archived": false,
   "tokens": 347
@@ -533,7 +533,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 1969,
+  "chars": 1965,
   "apparatus": false,
   "archived": false,
   "tokens": 490
@@ -566,7 +566,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2084,
+  "chars": 2080,
   "apparatus": false,
   "archived": false,
   "tokens": 476
@@ -665,7 +665,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1223,
+  "chars": 1219,
   "apparatus": false,
   "archived": false,
   "tokens": 315
@@ -709,7 +709,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2405,
+  "chars": 2401,
   "apparatus": false,
   "archived": false,
   "tokens": 586
@@ -742,7 +742,7 @@
   "series": "agents",
   "type": "agent",
   "status": "active",
-  "chars": 1397,
+  "chars": 1393,
   "apparatus": false,
   "archived": false,
   "tokens": 356
@@ -1039,7 +1039,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2712,
+  "chars": 2708,
   "apparatus": false,
   "archived": false,
   "tokens": 604
@@ -1138,7 +1138,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2443,
+  "chars": 2440,
   "apparatus": false,
   "archived": false,
   "tokens": 597
@@ -1182,7 +1182,7 @@
   "series": "agents",
   "type": "agent",
   "status": "draft",
-  "chars": 2403,
+  "chars": 2399,
   "apparatus": false,
   "archived": false,
   "tokens": 602

@@ -15,14 +15,43 @@ terminal:
   home_mode: auto
 
 approvals:
-  mode: manual
+  mode: smart
   denial_breaker_threshold: 3
   deny:
-    - "git push --force*"
-    - "git push -f*"
-    - "git push*"
-    - "gh pr create*"
+    - "*git push*--force*"
+    - "*git push -f*"
+    - "*git push*--delete*"
+    - "*git push origin :*"
+    - "*git push* main"
+    - "*git push*:main"
+    - "*git push*:refs/heads/main*"
+    - "*gh pr merge*"
+    - "*rm -rf /"
+    - "*rm -rf / *"
+    - "*rm -rf ~*"
+    - "*rm -rf $home*"
+    - "*systemctl*"
+    - "*hermes config set*"
+    - "*hermes plugins *"
+    - "*hermes cron *"
+    - "*hermes gateway *"
+    - "*hermes auth*"
+    - "*.env"
+    - "*.env *"
+    - "*.env.local*"
+    - "*.env.production*"
+    - "*auth.json*"
+    - "*.pem*"
+    - "*/secrets/*"
   smart_policy: |
+    HOUSE RULES FOR SPECIALISTS (Oracle, 2026-10-31; they override any line below that says otherwise):
+    - Push only to your own branches (the branch of your task); never to main, never a force-push, never delete a remote branch. Pushing your branch and opening a draft pull request from it is allowed without asking.
+    - DENY, without asking: deleting anything outside your own working copy or your scratch folder; systemctl and any start, stop or restart of a service; changing configuration (Hermes config.yaml, plugins, scheduled jobs, the gateway, git configuration outside your copy); reading, printing, copying or changing secrets (.env files, auth files, keys, tokens).
+    - ALLOW, without asking, the routine work of your trade inside your own working copy: read, build, test, lint, format and commit.
+    HOUSE RULES FOR SPECIALISTS (Oracle, 2026-10-31; they override any line below that says otherwise):
+    - Push only to your own branches (the branch of your task); never to main, never a force-push, never delete a remote branch. Pushing your branch and opening a draft pull request from it is allowed without asking.
+    - DENY, without asking: deleting anything outside your own working copy or your scratch folder; systemctl and any start, stop or restart of a service; changing configuration (Hermes config.yaml, plugins, scheduled jobs, the gateway, git configuration outside your copy); reading, printing, copying or changing secrets (.env files, auth files, keys, tokens).
+    - ALLOW, without asking, the routine work of your trade inside your own working copy: read, build, test, lint, format and commit.
     Always ESCALATE commands that send, post, upload, schedule, or otherwise
     transmit content to a client or prospect, including e-mail and messaging.
     Always ESCALATE any action that records a price, discount, deadline, or

@@ -9,7 +9,7 @@ updated: "2026-10-03T19:40:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
-automation_level: assisted
+automation_level: high
 tags: [agents, calliope, copywriting, writing]
 license: "CC0-1.0"
 registration: exempt

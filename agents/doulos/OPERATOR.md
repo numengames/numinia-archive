@@ -11,7 +11,7 @@ updated: "2026-10-18T17:35:08+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
-automation_level: assisted
+automation_level: high
 tags: [agents, doulos]
 license: "CC0-1.0"
 registration: exempt

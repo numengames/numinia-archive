@@ -9,7 +9,7 @@ updated: "2026-10-03T21:00:00+02:00"
 author: "antunj"
 owner: "oracle"
 section: "People and culture"
-automation_level: assisted
+automation_level: high
 tags: [agents, talos, security, assurance, ci, compliance]
 license: "CC0-1.0"
 registration: exempt

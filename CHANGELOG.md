@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-31
+- **Changed** Specialist agents' Hermes adapters (and the agent template) move from manual approvals to the guardian, as the machine already runs them: push only to their own branches, never main; hard deny of force or delete pushes, merges, systemctl, Hermes configuration and secrets (Oracle, 2026-10-31).
+
 ### 2026-10-30
 - **Changed** `STD-051` 0.4.0 goes from `draft` to `active` (`approved_by: ADR-071`) and every check row links to its test in numinia-web or numinia-engine; `ORG-010` stays checked by hand. `STD-052` and `STD-053` follow in their own pull requests
 
