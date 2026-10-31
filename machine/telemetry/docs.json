@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20580,
+  "chars": 20664,
   "apparatus": false,
   "archived": false,
-  "tokens": 5368
+  "tokens": 5390
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 75113,
+  "chars": 75377,
   "apparatus": false,
   "archived": false,
-  "tokens": 21435
+  "tokens": 21522
  },
  {
   "path": "CLAUDE.md",
@@ -5779,11 +5779,11 @@
   "dir": "standards",
   "series": "standards",
   "type": "standard",
-  "status": "draft",
-  "chars": 10679,
+  "status": "active",
+  "chars": 14381,
   "apparatus": false,
   "archived": false,
-  "tokens": 2754
+  "tokens": 3734
  },
  {
   "path": "standards/STD-052-organisation-permissions.md",

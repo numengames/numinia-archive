@@ -80,6 +80,7 @@ gone before their access list is closed. `PRO-022` (building the reading-aloud p
 `STD-031` a principle states ·
 `STD-038` the stages of an opportunity ·
 `STD-039` an opportunity has a record ·
+`STD-051` a member of an organisation does what their roles allow, and no more ·
 `STD-054` a client is named by consent ·
 `STD-055` only a call that passes is recorded.
 
@@ -290,13 +291,13 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-048` | Reaching someone who did not ask | draft | every first contact made in Numen… |
 | `STD-049` | The doors, by country | draft | register — scope belongs to the standard that cites it |
 | `STD-050` | What an agent in a world reads, and what it… | draft | every agent placed in a world of ours… |
-| `STD-051` | Organisation roles | draft | numinia.com's organisations — their… |
+| `STD-051` | Organisation roles | in force | numinia.com's organisations — their… |
 | `STD-052` | Organisation permissions | draft | register — scope belongs to the standard that cites it |
 | `STD-053` | Presence | draft | numinia.com's status menu, its lists of… |
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
 | `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded… |
 
-98 rule documents, of which 50 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+98 rule documents, of which 51 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
