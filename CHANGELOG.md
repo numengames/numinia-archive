@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-10-31
+- **Added** MIS-289 (make the public pages of the four sites work at phone width) opens as `todo`: the surface is the public pages, not the 3D worlds; six criteria, each false today, with the measured state
+
 ### 2026-10-30
 - **Changed** `STD-051` 0.4.0 goes from `draft` to `active` (`approved_by: ADR-071`) and every check row links to its test in numinia-web or numinia-engine; `ORG-010` stays checked by hand. `STD-052` and `STD-053` follow in their own pull requests
 
