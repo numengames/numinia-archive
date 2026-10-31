@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.177.0",
+    date: "2026-10-31",
+    entries: [
+      { type: "ADD", text: "Oracles with a card now have a page of their own at /agents/<name> (Pablo first): the card, who, working with, CV and projects, with a markdown twin; the roster links their names." },
+    ],
+  },
+  {
     version: "v0.176.0",
     date: "2026-10-25",
     entries: [

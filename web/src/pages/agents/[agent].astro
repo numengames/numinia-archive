@@ -20,13 +20,43 @@ import Layout from "@/layouts/Layout.astro";
 import PageHero from "@/components/PageHero.astro";
 import DocToolbar from "@/components/DocToolbar.astro";
 import { repoFileUrl } from "@/lib/build-info";
-import { digitalAgents } from "@/lib/agents";
+import { render } from "astro:content";
+import { digitalAgents, humanAgents } from "@/lib/agents";
 import { getPublicCorpus } from "@/lib/corpus";
 
+// HUMAN AGENTS (MIS-281). An Oracle whose row in agents/INDEX.md links to
+// `<id>/PERSON.md` gets the same front-door address as a digital agent. The
+// page is the card (PERSON.md's header and body) plus the person's other
+// parts, in the reading order of the folder; it reads nothing the archive
+// does not publish, and `shares` never appears here (it is unverified
+// personal-economic data, see the card's `shares_verified`).
 export async function getStaticPaths() {
+  // Declared inside: Astro hoists getStaticPaths out of the module scope.
+  const PERSON_PARTS = ["person", "who", "working-with", "cv", "projects"];
   const corpus = await getPublicCorpus();
 
-  return digitalAgents().map((agent) => {
+  const people = humanAgents()
+    .filter((h) => h.id)
+    .map((h) => {
+      const parts = corpus
+        .filter((e) => e.id.startsWith(`agents/${h.id}/`))
+        .sort((a, b) => {
+          const rank = (e: { id: string }) => {
+            const i = PERSON_PARTS.indexOf((e.id.split("/").pop() ?? "").toLowerCase());
+            return i === -1 ? 99 : i;
+          };
+          return rank(a) - rank(b) || a.id.localeCompare(b.id);
+        });
+      const card = parts.find((e) => e.id.endsWith("/person"));
+      if (!card) {
+        throw new Error(
+          `agents/INDEX.md links ${h.name} to agents/${h.id}/PERSON.md but the corpus does not publish it.`,
+        );
+      }
+      return { params: { agent: h.id as string }, props: { kind: "human" as const, person: h, parts, agent: undefined, docs: [] } };
+    });
+
+  const digital = digitalAgents().map((agent) => {
     // The agent's own documents: everything under agents/<id>/ that the site
     // publishes. `entry.id` is the address minus the leading slash, which is
     // why the href below is a plain concatenation and not a second mapping.
@@ -55,8 +85,10 @@ export async function getStaticPaths() {
         return rank(a.leaf) - rank(b.leaf) || a.leaf.localeCompare(b.leaf);
       });
 
-    return { params: { agent: agent.id }, props: { agent, docs } };
+    return { params: { agent: agent.id }, props: { kind: "digital" as const, agent, docs, person: undefined, parts: [] } };
   });
+
+  return [...digital, ...people];
 }
 
 // What each file is FOR, in one line. The filename says what it is called,
@@ -68,12 +100,94 @@ const WHAT_IT_HOLDS: Record<string, string> = {
   agent: "The entity card: status, the forms this agent takes, and how work routes to it.",
 };
 
-const { agent, docs } = Astro.props;
+const { kind, agent, docs, person, parts } = Astro.props;
 const roster = digitalAgents();
-const others = roster.filter((a) => a.id !== agent.id);
-const position = roster.findIndex((a) => a.id === agent.id) + 1;
+const others = agent ? roster.filter((a) => a.id !== agent.id) : roster;
+const position = agent ? roster.findIndex((a) => a.id === agent.id) + 1 : 0;
+
+// Human page: the card header and every part rendered in order.
+const card = (parts[0]?.data ?? {}) as Record<string, any>;
+const info = (card.person ?? {}) as Record<string, any>;
+const links = (info.links ?? {}) as Record<string, string>;
+const rendered = await Promise.all(
+  parts.map(async (e) => {
+    const { Content } = await render(e);
+    const leaf = e.id.split("/").pop() ?? e.id;
+    const f = e.data as Record<string, unknown>;
+    return { Content, leaf, href: `/${e.id}`, title: typeof f.title === "string" ? f.title : leaf };
+  }),
+);
+const humans = humanAgents();
+const otherPeople = person ? humans.filter((h) => h.id && h.id !== person.id) : [];
 ---
 
+{kind === "human" ? (
+<Layout
+  title={`${person!.name} — ${person!.role} · Numinia`}
+  description={`${person!.name}, ${person!.role} of Numinia. ${info.headline ?? ""}`}
+  canonicalPath={`/agents/${person!.id}`}
+  activeNav="agents/"
+>
+  <PageHero label={`Oracle · ${info.rank ?? person!.role}`} title={info.short_name ? person!.name : person!.name} description={info.headline ?? person!.role} />
+
+  <section class="pb-24">
+    <div class="mx-auto max-w-[800px] px-6 space-y-10">
+      <DocToolbar
+        mdUrl={`/agents/${person!.id}.md`}
+        filename={`${person!.id}.md`}
+        repoUrl={repoFileUrl(`agents/${person!.id}/PERSON.md`)}
+        lang="en"
+      />
+
+      <div class="rounded-[8px] border border-border bg-card px-5 py-4 space-y-2" data-person-card>
+        {Array.isArray(info.titles) && info.titles.length > 0 && (
+          <p class="text-sm text-foreground leading-snug">{info.titles.join(" · ")}</p>
+        )}
+        <p class="font-mono text-[0.7rem] text-dim">
+          {info.base}{info.since ? ` · with Numinia since ${info.since}` : ""}
+        </p>
+        <p class="flex flex-wrap gap-3 font-mono text-[0.7rem]">
+          {links.personal && <a href={links.personal} class="text-accent">Website</a>}
+          {links.linkedin && <a href={links.linkedin} class="text-accent">LinkedIn</a>}
+          {links.github && <a href={links.github} class="text-accent">GitHub</a>}
+        </p>
+        {card.status === "draft" && (
+          <p class="text-xs leading-relaxed text-muted-foreground">
+            This page is a draft: some parts are placeholders for the person to write in their own words.
+          </p>
+        )}
+      </div>
+
+      <nav aria-label="Parts of this page" class="flex flex-wrap gap-2">
+        {rendered.slice(1).map((r) => (
+          <a href={`#${r.leaf.toLowerCase()}`} class="inline-flex min-h-[44px] items-center rounded-[8px] border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors">
+            {r.leaf.replace(/-/g, " ")}
+          </a>
+        ))}
+      </nav>
+
+      {rendered.map((r, i) => (
+        <article id={i === 0 ? "card" : r.leaf.toLowerCase()} class="person-md rounded-[8px] border border-border bg-card p-6 sm:p-8">
+          <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-dim mb-3">
+            <a href={r.href} class="text-accent">{r.leaf}</a>
+          </p>
+          <r.Content />
+        </article>
+      ))}
+
+      <nav class="border-t border-border/50 pt-6">
+        <h2 class="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-accent mb-3">The other agents</h2>
+        <div class="flex flex-wrap gap-2">
+          {otherPeople.map((h) => (
+            <a href={h.href} class="inline-flex min-h-[44px] items-center rounded-[8px] border border-border bg-card px-3 font-mono text-[0.7rem] text-dim hover:bg-card-hover transition-colors">{h.name}</a>
+          ))}
+          <a href="/agent" class="inline-flex min-h-[44px] items-center rounded-[8px] border border-accent/40 bg-accent/10 px-3 font-mono text-[0.7rem] text-accent hover:bg-accent/20 transition-colors">The whole roster</a>
+        </div>
+      </nav>
+    </div>
+  </section>
+</Layout>
+) : agent && (
 <Layout
   title={`${agent.name} — ${agent.role} · Numinia`}
   description={`${agent.name}: ${agent.role}. Route here for ${agent.route}. The agent's own documents — soul, operator and sources — as the archive holds them.`}
@@ -214,3 +328,13 @@ const position = roster.findIndex((a) => a.id === agent.id) + 1;
     </div>
   </section>
 </Layout>
+)}
+
+<style is:global>
+  .person-md > h1:first-of-type { display: none; }
+  .person-md h2 { font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: rgb(var(--accent)); margin: 1.5rem 0 0.75rem; }
+  .person-md h3 { font-size: 0.95rem; color: rgb(var(--text)); margin: 1.25rem 0 0.5rem; }
+  .person-md p, .person-md li { font-size: 0.875rem; line-height: 1.7; color: rgb(var(--text-muted)); margin: 0.4rem 0; }
+  .person-md ul { list-style: disc; padding-left: 1.25rem; }
+  .person-md a { color: rgb(var(--accent)); }
+</style>
