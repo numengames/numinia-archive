@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "971783e",
-  "corpus_hash": "db9b6d74de071604b6904c85f470d05a7a680865d25d3df6662bcdfcc6e64c49",
+  "head": "56a54bb",
+  "corpus_hash": "78d211852e458ba093f4ed27243bcfa72faa4c54ada7383e3775a65e6b6f9042",
   "root_dirty": 0,
-  "measured_at": "2026-10-31T09:22:41Z",
+  "measured_at": "2026-10-31T10:18:52Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 567,
-          "bytes": 4694189
+          "bytes": 4695019
         },
         "Code": {
           "files": 294,
-          "bytes": 2613206
+          "bytes": 2615562
         },
         "Image": {
           "files": 120,
@@ -65,7 +65,7 @@
         },
         "Data": {
           "files": 82,
-          "bytes": 319150
+          "bytes": 357085
         },
         "Font": {
           "files": 7,
@@ -391,7 +391,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1209524,
+      "value": 1209740,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -400,7 +400,7 @@
         "lore": 466704,
         "missions": 136020,
         "standards": 125555,
-        "agents": 81578,
+        "agents": 81718,
         "system": 63150,
         "decisions": 48152,
         "procedures": 45041,
@@ -408,7 +408,7 @@
         "operations": 33643,
         "designs": 31465,
         "machine": 30862,
-        "": 30331,
+        "": 30407,
         "principles": 22864,
         "debt": 21476,
         "opportunities": 15128,
@@ -422,8 +422,8 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 504979,
-        "active": 286792,
+        "(none)": 505055,
+        "active": 286932,
         "draft": 279458,
         "todo": 88926,
         "in-progress": 29075,
@@ -435,7 +435,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 11.25,
+      "value": 11.24,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
