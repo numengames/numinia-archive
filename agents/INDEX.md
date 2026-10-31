@@ -106,6 +106,14 @@ once:
 - **Traceability.** Changes to authoritative content travel through Git —
   commits, reviews, the pull request. History is not sacrificed for
   convenience.
+- **Permissions (the Oracle, 2026-10-31).** Every specialist works at
+  `High` under the Hermes guardian (`approvals.mode: smart`): it pushes only
+  to its own branch, never to `main`, and opens the pull request without
+  asking; the Oracle merges. The guardian never clears, whatever the level:
+  deleting anything outside its own copy, `systemctl`, changing the Hermes
+  configuration, and touching secrets. The list lives in
+  `machine/scripts/lib/hermes-approval-levels.mjs` (`SPECIALIST_DENY`) and the
+  generator writes it into every adapter but the orchestrator's.
 
 ## How an agent grows
 

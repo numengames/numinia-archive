@@ -9,7 +9,7 @@ updated: "2026-10-22T10:30:00+02:00"
 author: "ursa"
 owner: "oracle"
 section: "People and culture"
-automation_level: partial
+automation_level: high
 tags: [agents, vesta, operations, schedule, budget, queue]
 license: "CC0-1.0"
 registration: exempt

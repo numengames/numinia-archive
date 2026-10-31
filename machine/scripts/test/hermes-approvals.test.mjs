@@ -28,7 +28,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { LEVEL_RULES, LEVEL_ORDER, ruleFor } from '../lib/hermes-approval-levels.mjs';
+import { LEVEL_RULES, LEVEL_ORDER, ruleFor, ruleForAgent, ORCHESTRATOR, SPECIALIST_DENY } from '../lib/hermes-approval-levels.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
@@ -103,4 +103,14 @@ test('every adapter\'s approvals.mode and push/PR deny match what its own OPERAT
 
 test('the generator exists on the path this test and the npm script both call', () => {
   assert.ok(existsSync(GENERATOR), 'machine/scripts/generate-hermes-approvals.mjs is missing');
+});
+
+test('every specialist carries the house deny list; the orchestrator keeps its own (the Oracle, 2026-10-31)', () => {
+  const spec = ruleForAgent('galatea', 'high');
+  for (const p of ['*git push* main', '*systemctl*', '*hermes config set*', '*.env', '*gh pr merge*']) {
+    assert.ok(spec.requiredDeny.includes(p), `specialist deny lacks ${p}`);
+  }
+  assert.ok(!spec.requiredDeny.some((p) => p === 'git push*' || p === 'gh pr create*'), 'a specialist may push its own branch and open a pull request');
+  assert.deepEqual(ruleForAgent(ORCHESTRATOR, 'high').requiredDeny, ruleFor('high').requiredDeny);
+  assert.ok(SPECIALIST_DENY.length > 0);
 });

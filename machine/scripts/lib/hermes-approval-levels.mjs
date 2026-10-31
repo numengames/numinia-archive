@@ -68,6 +68,33 @@ export const LEVEL_ORDER = ['assisted', 'partial', 'conditional', 'high', 'full'
  *  (force-push and a recursive delete) — the generator never removes these. */
 export const BASELINE_DENY = ['git push --force*', 'git push -f*', 'rm -rf *'];
 
+/** The orchestrator. It assigns the specialists' work and keeps its own
+ *  approvals block, so the specialist house rules below do not apply to it. */
+export const ORCHESTRATOR = 'ursa';
+
+/** The house rules every specialist carries whatever its level (the Oracle,
+ *  2026-10-31): the guardian (`smart`) decides the rest, these it never
+ *  clears. Push only to its own branch, never main, never force or delete;
+ *  no merges; nothing deleted outside its own copy; no systemctl; no change
+ *  to the Hermes configuration; no touching secrets. Hermes matches each
+ *  pattern against the whole command, case-insensitively. */
+export const SPECIALIST_DENY = [
+  '*git push*--force*', '*git push -f*', '*git push*--delete*', '*git push origin :*',
+  '*git push* main', '*git push*:main', '*git push*:refs/heads/main*', '*gh pr merge*',
+  '*rm -rf /', '*rm -rf / *', '*rm -rf ~*', '*rm -rf $home*',
+  '*systemctl*', '*hermes config set*', '*hermes plugins *', '*hermes cron *', '*hermes gateway *', '*hermes auth*',
+  '*.env', '*.env *', '*.env.local*', '*.env.production*', '*auth.json*', '*.pem*', '*/secrets/*',
+];
+
+/** What an agent's adapter must carry: its level's rule, plus the specialist
+ *  house rules for every agent but the orchestrator. */
+export function ruleForAgent(agent, level) {
+  const rule = ruleFor(level);
+  if (agent === ORCHESTRATOR) return rule;
+  const requiredDeny = [...SPECIALIST_DENY, ...rule.requiredDeny.filter((p) => !SPECIALIST_DENY.includes(p))];
+  return { ...rule, requiredDeny };
+}
+
 export function ruleFor(level) {
   const key = String(level || '').trim().toLowerCase();
   const rule = LEVEL_RULES[key];
