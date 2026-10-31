@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "9693d44",
-  "corpus_hash": "723a72af9509b60a11bfe7a5e35c86cb5ea6541a90dbbae40b0180b2d62a9641",
-  "root_dirty": 1,
-  "measured_at": "2026-10-29T11:51:22Z",
+  "head": "e2a9815",
+  "corpus_hash": "db9b6d74de071604b6904c85f470d05a7a680865d25d3df6662bcdfcc6e64c49",
+  "root_dirty": 0,
+  "measured_at": "2026-10-31T09:22:16Z",
   "families": [
     "corpus",
     "series",
@@ -53,7 +53,7 @@
       "value": {
         "Text": {
           "files": 567,
-          "bytes": 4690122
+          "bytes": 4694189
         },
         "Code": {
           "files": 294,
@@ -391,7 +391,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1208435,
+      "value": 1209524,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -399,7 +399,7 @@
       "value": {
         "lore": 466704,
         "missions": 136020,
-        "standards": 124575,
+        "standards": 125555,
         "agents": 81578,
         "system": 63150,
         "decisions": 48152,
@@ -408,7 +408,7 @@
         "operations": 33643,
         "designs": 31465,
         "machine": 30862,
-        "": 30222,
+        "": 30331,
         "principles": 22864,
         "debt": 21476,
         "opportunities": 15128,
@@ -422,9 +422,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 504870,
-        "active": 283058,
-        "draft": 282212,
+        "(none)": 504979,
+        "active": 286792,
+        "draft": 279458,
         "todo": 88926,
         "in-progress": 29075,
         "done": 16778,
@@ -435,7 +435,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 11.26,
+      "value": 11.25,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -531,7 +531,7 @@
         "sector": 26,
         "source": 26,
         "value": 26,
-        "approved_by": 24,
+        "approved_by": 25,
         "deciders": 24,
         "category": 22,
         "absorbs": 21,
@@ -772,8 +772,8 @@
     },
     "contradictions.status_vocabulary_used": {
       "value": {
-        "active": 173,
-        "draft": 194,
+        "active": 174,
+        "draft": 193,
         "done": 13,
         "todo": 89,
         "in-progress": 34,
@@ -827,7 +827,7 @@
           "3": 718
         },
         "STD": {
-          "3": 1770
+          "3": 1774
         },
         "PRI": {
           "3": 485
@@ -836,7 +836,7 @@
           "3": 205
         },
         "ADR": {
-          "3": 639
+          "3": 641
         },
         "MIS": {
           "3": 1759,
