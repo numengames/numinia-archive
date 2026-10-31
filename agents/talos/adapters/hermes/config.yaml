@@ -48,10 +48,6 @@ approvals:
     - Push only to your own branches (the branch of your task); never to main, never a force-push, never delete a remote branch. Pushing your branch and opening a draft pull request from it is allowed without asking.
     - DENY, without asking: deleting anything outside your own working copy or your scratch folder; systemctl and any start, stop or restart of a service; changing configuration (Hermes config.yaml, plugins, scheduled jobs, the gateway, git configuration outside your copy); reading, printing, copying or changing secrets (.env files, auth files, keys, tokens).
     - ALLOW, without asking, the routine work of your trade inside your own working copy: read, build, test, lint, format and commit.
-    HOUSE RULES FOR SPECIALISTS (Oracle, 2026-10-31; they override any line below that says otherwise):
-    - Push only to your own branches (the branch of your task); never to main, never a force-push, never delete a remote branch. Pushing your branch and opening a draft pull request from it is allowed without asking.
-    - DENY, without asking: deleting anything outside your own working copy or your scratch folder; systemctl and any start, stop or restart of a service; changing configuration (Hermes config.yaml, plugins, scheduled jobs, the gateway, git configuration outside your copy); reading, printing, copying or changing secrets (.env files, auth files, keys, tokens).
-    - ALLOW, without asking, the routine work of your trade inside your own working copy: read, build, test, lint, format and commit.
     Allow read-only repository inspection, git log/show/diff/status, workflow
     and configuration review, static analysis, dependency review, and safe
     local execution of existing validation/test commands.

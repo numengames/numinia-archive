@@ -18,6 +18,7 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-10-31
+- **Fixed** Specialist Hermes adapters state the house rules once in smart_policy; #784 wrote them twice, and a test now fails on any repeat
 - **Added** MIS-289 (make the public pages of the four sites work at phone width) opens as `todo`: the surface is the public pages, not the 3D worlds; six criteria, each false today, with the measured state
 - **Changed** Specialist agents' Hermes adapters (and the agent template) move from manual approvals to the guardian, as the machine already runs them: push only to their own branches, never main; hard deny of force or delete pushes, merges, systemctl, Hermes configuration and secrets (Oracle, 2026-10-31).
 

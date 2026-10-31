@@ -114,3 +114,14 @@ test('every specialist carries the house deny list; the orchestrator keeps its o
   assert.deepEqual(ruleForAgent(ORCHESTRATOR, 'high').requiredDeny, ruleFor('high').requiredDeny);
   assert.ok(SPECIALIST_DENY.length > 0);
 });
+
+test('each specialist adapter states the house rules once, not repeated (the Oracle, 2026-10-31)', () => {
+  const adapters = execFileSync('git', ['-C', ROOT, 'ls-files', 'agents/*/adapters/hermes/config.yaml'], { encoding: 'utf8' })
+    .split('\n').filter((f) => f && !f.startsWith(`agents/${ORCHESTRATOR}/`));
+  assert.ok(adapters.length > 0);
+  for (const f of adapters) {
+    const text = readFileSync(path.resolve(ROOT, f), 'utf8');
+    const n = text.split('HOUSE RULES FOR SPECIALISTS').length - 1;
+    assert.equal(n, 1, `${f} states the house rules ${n} times`);
+  }
+});
