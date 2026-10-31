@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 75377,
+  "chars": 75600,
   "apparatus": false,
   "archived": false,
-  "tokens": 21522
+  "tokens": 21583
  },
  {
   "path": "CLAUDE.md",
@@ -4090,6 +4090,17 @@
   "apparatus": false,
   "archived": false,
   "tokens": 727
+ },
+ {
+  "path": "missions/MIS-0289-make-the-public-pages-of-the-four-sites-work-at-phone-width.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 7758,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 2123
  },
  {
   "path": "objects/CHECK.md",
