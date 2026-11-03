@@ -59,6 +59,14 @@ export interface DigitalAgent {
 export interface HumanAgent {
   name: string;
   role: string;
+  /**
+   * Folder id under agents/, present only when the Oracle's row in
+   * agents/INDEX.md links to a `<id>/PERSON.md` card. A person who has not
+   * consented to a page of their own (DBT-022) or whose card is not written
+   * yet stays a plain name: no page, no link.
+   */
+  id?: string;
+  href?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -298,7 +306,12 @@ export function humanAgents(): HumanAgent[] {
     if (!c || c.length < 2) continue;
     if (/^name$/i.test(c[0])) continue;   // header row
     if (!/oracle/i.test(c[1])) continue;
-    out.push({ name: c[0], role: c[1] });
+    const link = linkCell(c[0]);
+    if (link && /^[a-z0-9-]+\/PERSON\.md$/.test(c[0].match(/\(([^)]+)\)/)?.[1] ?? "")) {
+      out.push({ name: link.name, role: c[1], id: link.id, href: `/agents/${link.id}` });
+    } else {
+      out.push({ name: c[0], role: c[1] });
+    }
   }
 
   if (out.length === 0) {

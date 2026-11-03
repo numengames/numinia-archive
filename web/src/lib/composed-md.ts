@@ -38,7 +38,7 @@ import { ENISA, ENISA_INTEREST_TOTAL } from "@/data/enisa";
 import { getCollection } from "astro:content";
 import { functions, counts, allSeries, RELATIONS } from "@/lib/classification";
 import { SERIES, getSeriesDocs, countWithheld } from "@/lib/corpus";
-import { digitalAgents, agentById } from "@/lib/agents";
+import { digitalAgents, humanAgents, agentById } from "@/lib/agents";
 import { transitionRegime, lifecycle, inForce, BINDING_SOURCES } from "@/lib/binding";
 import { LEVELS, PERMISSIONS, agentMarks, SOURCES, GRADE_LABEL, AUTOMATION_SOURCES } from "@/lib/automation-levels";
 import { bookLines, bookLines2026, payrollLines, saleLines, cashBooks, BOOK_CATEGORIES, BOOKS_SOURCES } from "@/lib/books";
@@ -629,6 +629,32 @@ export function agentPage(id: string): ComposedPage {
 }
 
 /**
+ * `/agents/<id>.md` for an Oracle with a card (MIS-281): the roster line and
+ * where the person's parts live. The parts are documents of the corpus with
+ * their own markdown; this twin only points at them.
+ */
+export function humanAgentPage(id: string): ComposedPage {
+  const person = humanAgents().find((h) => h.id === id);
+  if (!person) {
+    throw new Error(`humanAgentPage("${id}"): no such Oracle with a card in agents/INDEX.md.`);
+  }
+  const body = [
+    preamble([AGENTS_DOC]),
+    `# ${person.name}`,
+    "",
+    `*${person.role}*`,
+    "",
+    "## Their documents",
+    "",
+    ...["person", "who", "working-with", "cv", "projects"].map((p) => `- [${p}](/agents/${id}/${p})`),
+    "",
+    `Served at \`/agents/${id}\`.`,
+    "",
+  ].join("\n");
+  return { route: `/agents/${id}`, filename: `${id}.md`, sources: [AGENTS_DOC], body };
+}
+
+/**
  * `/design` — the design system whole. Unlike the other views, its markdown is
  * not a table of the registers but the documents themselves, compiled: the
  * reader asked for the system in one file, and a list of links is not that.
@@ -1034,5 +1060,6 @@ export async function allComposedPages(): Promise<ComposedPage[]> {
   pages.push(await collectionIndexPage("missions"));
   pages.push(await collectionIndexPage("reports"));
   for (const a of digitalAgents()) pages.push(agentPage(a.id));
+  for (const h of humanAgents()) if (h.id) pages.push(humanAgentPage(h.id));
   return pages;
 }

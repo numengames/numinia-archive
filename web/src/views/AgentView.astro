@@ -62,7 +62,7 @@ const CATEGORY: Record<string, string> = {
         {oracles.map((person) => (
           <li class="oracle">
             <span class="oracle-initial" aria-hidden="true">{person.name.charAt(0)}</span>
-            <span class="oracle-name">{person.name}</span>
+            <span class="oracle-name">{person.href ? <a href={person.href}>{person.name}</a> : person.name}</span>
             <span class="oracle-role">{person.role}</span>
           </li>
         ))}
@@ -145,7 +145,7 @@ const CATEGORY: Record<string, string> = {
   .oracle-list { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1px; background: rgb(var(--border)); border: 1px solid rgb(var(--border)); }
   .oracle { background: rgb(var(--bg-card)); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: .9rem; flex-wrap: wrap; }
   .oracle-initial { width: 34px; height: 34px; flex: none; display: grid; place-items: center; border: 1px solid rgba(239,165,23,.45); color: rgb(var(--ambar, var(--accent))); font: 1rem var(--font-mono); }
-  .oracle-name { color: rgb(var(--text)); font-size: .95rem; }
+  .oracle-name { color: rgb(var(--text)); font-size: .95rem; } .oracle-name a { color: rgb(var(--accent)); text-decoration: underline; text-underline-offset: 3px; }
   .oracle-role { color: rgb(var(--text-dim)); font: .58rem var(--font-mono); text-transform: uppercase; letter-spacing: .14em; margin-left: auto; }
   .oracle-source { margin-top: 1rem; color: rgb(var(--text-dim)); font: .62rem/1.6 var(--font-mono); } .oracle-source a { color: rgb(var(--accent)); }
   .roster-section { padding-top: 6rem; padding-bottom: 6rem; } .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 3rem; } .section-heading h2 { margin-top: 1.2rem; } .section-intro { max-width: 350px; color: rgb(var(--text-muted)); line-height: 1.6; font-size: .92rem; }
