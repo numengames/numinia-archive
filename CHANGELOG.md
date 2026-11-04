@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-11-04
+- **Changed** `STD-019` 3.2.0 adds `VER-026`: where several changes are open at once, a change SHOULD add a file naming its kind instead of editing the version number or the shared log, and the number moves once, at release; Binds widens to every versioned repository of the house (MIS-290)
+
 ### 2026-10-31
 - **Added** Site: /agents/<name> renders human agents from agents/<name>/ (PERSON, WHO, WORKING-WITH, CV, PROJECTS), starting with Pablo; the roster links Oracles that have a card (MIS-281).
 - **Fixed** Specialist Hermes adapters state the house rules once in smart_policy; #784 wrote them twice, and a test now fails on any repeat
