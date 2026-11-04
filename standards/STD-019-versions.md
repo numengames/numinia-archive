@@ -5,9 +5,9 @@ title: "Versions"
 type: standard
 subtype: standard
 status: active
-version: "3.1.5"
+version: "3.2.0"
 created: "2026-09-03T22:10:00Z"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-11-04T10:24:00+01:00"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -30,10 +30,11 @@ SPDX-License-Identifier: CC0-1.0
 > the middle, and rewording raises the last.
 > **Epistemic:** What does a version number promise?
 > **Pragmatic:** Choose the new number from what changed, not from the mood.
+> Write it once, at release.
 > **Audience:** Agents · Oracles
 
-**Binds:** every registered document, and everything else the archive
-versions.
+**Binds:** every registered document, and every repository of the house that
+carries a version number.
 
 ## Rules
 
@@ -61,6 +62,14 @@ recommendation, a new permission or a wider scope that leaves all
 conforming work still conforming MUST raise the middle number. A change of
 wording that asks nothing new raises only the last.
 
+### When the number is written
+
+**The number moves once, at release.** Where several changes are open at
+once, a change SHOULD NOT edit the version number or the shared log. It
+SHOULD add a file of its own that names its kind, major, minor or patch, and
+carries its log entry. A release step then joins those files, moves the
+number once by the highest kind and writes the log.
+
 ## Check
 
 Each rule, its code, its source and its check.
@@ -71,13 +80,16 @@ Each rule, its code, its source and its check.
 | VER-024 | The header and the log agree | — | `machine/checks/rules/std-019-versions.mjs` |
 | VER-023 | Breaking conformance is a major | [Semantic Versioning 2.0.0, item 8](https://semver.org/spec/v2.0.0.html) | by hand: deciding that a change breaks conformance is the judgement itself |
 | VER-022 | Offering more without breaking is a minor; rewording is a patch | [Semantic Versioning 2.0.0, items 6 and 7](https://semver.org/spec/v2.0.0.html) | by hand, as above |
+| VER-026 | The number moves once, at release | [Changesets](https://github.com/changesets/changesets), a file per change names its kind and the release joins them; [towncrier](https://towncrier.readthedocs.io/), a news fragment per change | by repository: numinia-engine `test/cambios.test.ts` |
 
 ## Why
 
 A version is a promise about compatibility. For a document, compatibility
 means that work which obeyed it yesterday still obeys it today. Semantic
 Versioning's first number checks exactly that, so a new requirement is a
-major, not the minor our old rule called it.
+major, not the minor our old rule called it. Where every change writes the
+number, all open changes edit the same lines and the first to merge puts the
+rest in conflict.
 
 ## References
 
