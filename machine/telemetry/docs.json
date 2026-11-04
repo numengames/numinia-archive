@@ -38,10 +38,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 20664,
+  "chars": 20670,
   "apparatus": false,
   "archived": false,
-  "tokens": 5390
+  "tokens": 5391
  },
  {
   "path": "CHANGELOG.md",
@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 76240,
+  "chars": 76547,
   "apparatus": false,
   "archived": false,
-  "tokens": 21734
+  "tokens": 21819
  },
  {
   "path": "CLAUDE.md",
@@ -4103,6 +4103,17 @@
   "tokens": 2123
  },
  {
+  "path": "missions/MIS-0290-say-in-the-versions-standard-when-a-version-number-is-written.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "in-review",
+  "chars": 4281,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1225
+ },
+ {
   "path": "objects/CHECK.md",
   "dir": "objects",
   "series": null,
@@ -5472,10 +5483,10 @@
   "series": "standards",
   "type": "standard",
   "status": "active",
-  "chars": 3345,
+  "chars": 4198,
   "apparatus": false,
   "archived": false,
-  "tokens": 883
+  "tokens": 1092
  },
  {
   "path": "standards/STD-020-git-is-the-archive.md",

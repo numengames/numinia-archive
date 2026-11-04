@@ -262,7 +262,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-015` | Engineering checks | draft | register — scope belongs to the standard that cites it |
 | `STD-017` | Who may change what | draft | every change to a registered document |
 | `STD-018` | One document, one identifier | in force | every registered document of the archive |
-| `STD-019` | Versions | in force | every registered document, and… |
+| `STD-019` | Versions | in force | every registered document, and every… |
 | `STD-020` | Git is the archive | in force | every commit to this repository |
 | `STD-021` | Evidence and citation | in force | every document that cites, claims… |
 | `STD-022` | Secrets | in force | every file in this repository, and… |
