@@ -3,10 +3,10 @@ id: "MIS-290"
 uid: ""
 title: "Say in the versions standard when a version number is written"
 type: mission
-status: in-progress
+status: in-review
 version: "0.1.0"
 created: "2026-11-04T09:20:00Z"
-updated: "2026-11-04T09:20:00Z"
+updated: "2026-11-04T09:24:00Z"
 author: "ursa"
 owner: "oracle"
 section: "Knowledge and quality"
@@ -23,6 +23,7 @@ assigned_to: "ursa"
 completed: null
 
 started: "2026-11-04T09:20:00Z"
+in_review_at: "2026-11-04T09:24:00Z"
 paths: ["standards/STD-019-versions.md"]
 related: ["MIS-0273"]
 context: "2026-11-04T10:20:00+01:00"
@@ -93,3 +94,7 @@ worker's mission. Moving this archive's own `CHANGELOG.md` to fragments
 ## 5. What we learned
 
 *(Written at the end.)*
+
+- **What was done:** `STD-019` 3.2.0, one new rule (`VER-026`, «The number moves once, at release»), one new Check row, a wider **Binds** line. Local branch `docs/std-019-release-step`, not pushed.
+- **What diverged, and why:** the plate. `VER-025` is absent from main but was used by a 3.2.0 draft of 2026-10-19 (the B9 non-additive-format exemption) in the closed, unmerged PR #728, so it is not reused and the new rule is `VER-026`. The archive's own changelog fragments (`changelog.d/`) are not on main yet, so the standard cites Changesets and towncrier, not the archive, as its examples. The Check row points to a test in `numinia-engine` that was still on an unmerged branch when this was written.
+- **For the next similar mission:** search `git log --all -p` for a plate before taking it, closed PRs included; keep a mission card free of ids that are not archive documents (`DEF-009` fails otherwise).
