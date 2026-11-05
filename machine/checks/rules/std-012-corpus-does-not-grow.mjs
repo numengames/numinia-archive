@@ -67,8 +67,9 @@ const IGNORED_PREFIX = /^(CON|FLAG|SEC|ARC|G|MISSION|BP)-/;
 const WEB_ADR_RANGE = (n) => n >= 6 && n <= 22;
 const isExample = (id) => id === 'MIS-999';
 // A path qualified by a sibling repository lives elsewhere, not gone —
-// like the web ADR range above.
-const ELSEWHERE = /^(numinia-web|numengames-web|nwos-deploy|numinia-assets)\//;
+// like the web ADR range above. A renamed repository keeps its old name here:
+// what was written before the rename still points elsewhere (SYS-013).
+const ELSEWHERE = /^(numinia-web|numinia-platform|numinia-engine|numinia-assets|numinia-fleet|numengames-web|numengames-experiments|numengames-lab|nwos-deploy|soundsinme-web)\//;
 // CHANGELOG.md is a photograph entry by entry: each is closed the day it is
 // written and names what the tree had that day (CIT-053, a closed record's
 // broken link may stand). Rewriting history to satisfy a resolver would

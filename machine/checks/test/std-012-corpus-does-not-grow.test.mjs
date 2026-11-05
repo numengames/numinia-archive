@@ -39,6 +39,12 @@ test('a path in a sibling repository is elsewhere, not gone', () => {
   assert.deepEqual(def9({ 'system/SYS-900-x.md': 'See numinia-web/docs/nowhere-at-all.md for the rest.' }), []);
 });
 
+test('a sibling repository is elsewhere under its new name too (numinia-platform, numinia-fleet, numengames-lab)', () => {
+  for (const repo of ['numinia-platform', 'numinia-fleet', 'numengames-lab', 'numinia-engine', 'soundsinme-web']) {
+    assert.deepEqual(def9({ 'system/SYS-900-x.md': `See ${repo}/docs/nowhere-at-all.md for the rest.` }), [], repo);
+  }
+});
+
 test('CHANGELOG.md is a photograph: its entries are not walked', () => {
   assert.deepEqual(def9({ 'CHANGELOG.md': 'Removed nowhere-at-all.md and ZZZ-999.' }), []);
 });

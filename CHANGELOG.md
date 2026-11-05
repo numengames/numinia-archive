@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-11-05
+- **Fixed** STD-012 treats a path in numinia-platform, numinia-fleet, numengames-lab, numinia-engine or soundsinme-web as elsewhere, not gone, and keeps the old names, so the renames of 2026-11 do not read as broken links.
+
 ### 2026-11-04
 - **Changed** `STD-019` 3.2.0 adds `VER-026`: where several changes are open at once, a change SHOULD add a file naming its kind instead of editing the version number or the shared log, and the number moves once, at release; Binds widens to every versioned repository of the house (MIS-290)
 
