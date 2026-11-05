@@ -101,7 +101,9 @@ export function loadRepos(root = ROOT) {
 
 /* ---------- the tables ---------- */
 
-export const cell = (s) => String(s).replace(/\|/g, '\\|').replace(/\s*\n\s*/g, ' ').trim();
+/** One table cell: a backslash is escaped before the pipe, or text ending in a
+ *  backslash would cancel the escape of the pipe and close its own cell. */
+export const cell = (s) => String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|').replace(/\s*\n\s*/g, ' ').trim();
 const or = (s, dash = '—') => (s === null || s === undefined || s === '' ? dash : cell(s));
 
 /** "repo: what" → ["repo", "what"]. */
