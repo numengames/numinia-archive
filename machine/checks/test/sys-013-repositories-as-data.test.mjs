@@ -140,17 +140,17 @@ test('every repository in the data appears in the table, once as a row of each t
 test('--check bites: when the data moves and the document does not, it exits 1 and names the repository', () => {
   const dir = scratch();
   const file = path.join(dir, DATA);
-  writeFileSync(file, readFileSync(file, 'utf8').replace('state: to-create', 'state: active'));
+  writeFileSync(file, readFileSync(file, 'utf8').replace('state: deprecated', 'state: archived'));
   const r = run(dir, '--check');
   assert.equal(r.code, 1, 'the check stayed green after the data changed');
   assert.match(r.out, /DRIFTED/);
-  assert.match(r.out, /numinia-fleet|numinia-hermes-plugin/);
+  assert.match(r.out, /nwos-deploy/);
 });
 
 test('the tool rewrites the block, and --check is green again', () => {
   const dir = scratch();
   const file = path.join(dir, DATA);
-  writeFileSync(file, readFileSync(file, 'utf8').replace('state: to-create', 'state: active'));
+  writeFileSync(file, readFileSync(file, 'utf8').replace('state: deprecated', 'state: archived'));
   assert.equal(run(dir).code, 0);
   assert.equal(run(dir, '--check').code, 0);
 });
