@@ -1,0 +1,340 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: CC0-1.0
+#
+# The repositories of the numengames organisation, as data (SYS-013).
+#
+# ONE ENTRY PER REPOSITORY. This file is the source: the two tables in
+# SYS-013 are generated from it by machine/tools/repos-table.mjs, and a test
+# (machine/checks/test/sys-013-repositories-as-data.test.mjs) fails when they
+# differ. Edit here, run `node machine/tools/repos-table.mjs`, commit both.
+#
+# A new repository gets its entry HERE FIRST, with state `to-create` and
+# `id: null`; the GitHub id is filled in when it exists (SYS-013, «Joining and
+# leaving»).
+#
+# Fields
+#   id            GitHub's numeric id; it survives a rename. null only while to-create.
+#   name          the name today.
+#   former_names  names it had (a rename keeps the id; the old name resolves to this entry).
+#   state         active | deprecated | to-archive | archived | to-create
+#   project       the project it belongs to (null when it belongs to none).
+#   board         the Kanban board its cards go to (null when it has none).
+#   owner         the human who answers for it.
+#   description   GitHub's description, as GitHub shows it (null when GitHub has none).
+#   homepage      GitHub's homepage field, as GitHub shows it (null when empty).
+#   publishes     what it puts in front of people: a site, an image.
+#   is            what it is.
+#   is_not        what it is NOT: the neighbour a reader might take it for.
+#   licence       its licence regime.
+#   reads         what it reads from another repository, each "<repository>: <what>".
+#                 Who READS a repository is not written: the table works it out.
+#
+# Format: a restricted subset of YAML that machine/tools/repos-table.mjs reads
+# without a library (guards run before any dependency is installed): one list
+# `repositories:` of flat mappings; a value is a double-quoted string, a bare
+# word or number, `null`, `[]` or a block list of double-quoted strings.
+
+repositories:
+
+  # ── Summa ──────────────────────────────────────────────────────────────────
+  - id: 1203054116
+    name: numinia-archive
+    former_names: []
+    state: active
+    project: Summa
+    board: numinia-org
+    owner: "Pablo (@PabloFMM)"
+    description: "The Summa, Numinia's source of truth: canon, standards, missions and records, and the numinia.org site built from them."
+    homepage: "https://numinia.org/"
+    publishes: "numinia.org"
+    is: "The memory of the house: the principles, standards, procedures, decisions, missions, the game, operations and the legal texts, as Markdown; the site numinia.org in `web/`; and `machine/` (checks, tools, telemetry, the design-kit and sales-kit packages)."
+    is_not: "Not the code of numinia.com (numinia-platform), not the heavy files (numinia-assets), not what automation finds before anyone has read it (numinia-archive-feed)."
+    licence: "Per file, declared in `REUSE.toml`: documents CC0-1.0 or CC-BY-4.0, tools MIT, fonts OFL-1.1, legal texts and the brand reserved."
+    reads:
+      - "numinia-archive-feed: the tender radar's board, shown marked unreviewed"
+      - ".github: reusable workflows, pinned by commit"
+
+  - id: 1401546865
+    name: numinia-archive-feed
+    former_names: []
+    state: active
+    project: Summa
+    board: numinia-org
+    owner: "Pablo (@PabloFMM)"
+    description: "What Numen Games’ automation finds, unreviewed; nothing here is a record until a reviewed PR moves it into the archive."
+    homepage: null
+    publishes: null
+    is: "What the house’s automation finds, unreviewed: today the tender radar’s board (`radar/board.json`). Machines write to it without review (`STD-017` AUT-069)."
+    is_not: "Not a record: nothing in it is canon until a reviewed pull request writes it into numinia-archive."
+    licence: "No licence file; the data is CC0-1.0, by its README. No `REUSE.toml`."
+    reads: []
+
+  - id: 1411945320
+    name: .github
+    former_names: []
+    state: active
+    project: Summa
+    board: numinia-org
+    owner: "Pablo (@PabloFMM)"
+    description: "Shared CI workflows and community defaults for every Numen Games"
+    homepage: null
+    publishes: null
+    is: "The organisation’s common CI as reusable workflows (secrets, workflow-lint, audit, monitor, dependabot-auto-merge) and the default community files (the pull request template). A merge needs the Oracle’s approval (`STD-017` AUT-070)."
+    is_not: "Not any repository’s own workflow: each repository keeps its own and calls these, pinned by commit."
+    licence: "Workflows MIT (its `LICENSE`); README and pull request template CC0-1.0."
+    reads: []
+
+  - id: 1446959562
+    name: numengames-repo-template
+    former_names: []
+    state: active
+    project: Summa
+    board: numinia-org
+    owner: "Pablo (@PabloFMM)"
+    description: "Starting point for every new Numen Games repository: entry file, license and shared CI hooks."
+    homepage: null
+    publishes: null
+    is: "The GitHub template every new repository of the organisation is born from. Created 2026-11-05."
+    is_not: "Not a dependency and not a library: a new repository starts from it once and lives on its own after that."
+    licence: "None yet: a README is all it holds today."
+    reads: []
+
+  # ── numinia.com ────────────────────────────────────────────────────────────
+  - id: 1203234383
+    name: numinia-platform
+    former_names:
+      - "numinia-web"
+    state: active
+    project: numinia.com
+    board: numinia-com
+    owner: "Pablo (@PabloFMM)"
+    description: "numinia.com, the Numinia platform: store, profiles, worlds room, notifications and the prepaid till."
+    homepage: "https://numinia.com/"
+    publishes: "numinia.com. The Cloudflare Worker is still called numinia-web on purpose: renaming it would create a new Worker without the domain and secrets."
+    is: "numinia.com: an npm-workspaces monorepo (`apps/`: com, mcp, store, till; shared packages). Also the home of the Tower (see alchemists-tower) and of what merges from nwos-deploy."
+    is_not: "Not the archive (numinia-archive), not the 3D engine (numinia-engine), not the company site (numengames-web)."
+    licence: "Per directory, in `REUSE.toml`: apps AGPL-3.0-only, packages and root configuration MIT, documentation CC-BY-4.0, fixtures CC0-1.0, legal texts reserved."
+    reads:
+      - "numinia-archive: the lore paths and one operations record, fetched from main on every deploy, and `objects/catalogue.json`"
+      - ".github: reusable workflows, pinned by commit"
+
+  # ── Assets and the fleet ───────────────────────────────────────────────────
+  - id: 1375678942
+    name: numinia-assets
+    former_names: []
+    state: active
+    project: Assets
+    board: assets
+    owner: "Pablo (@PabloFMM)"
+    description: "Numinia's open content depot: models, avatars, images and audio, licensed file by file."
+    homepage: "https://numinia.org"
+    publishes: null
+    is: "The heavy files (images, audio, models, avatars) whose records live in the archive. Until numinia-fleet exists it also holds the fleet recipe, `open-worlds/machine`, which each machine of the public 3D worlds fleet installs its programs from (`ADR-069`, `SYS-014`)."
+    is_not: "Not the records of those files (they are cards in the archive’s `objects/`), and not an application."
+    licence: "Per file (`REUSE.toml`, headers or `.license` notices); no repository-wide grant."
+    reads:
+      - "numinia-engine: the published image the fleet recipe runs (`ghcr.io/numengames/numinia-engine:sha-<commit>`)"
+      - ".github: reusable workflows, pinned by commit"
+
+  - id: null
+    name: numinia-fleet
+    former_names: []
+    state: to-create
+    project: Flota
+    board: "assets (cards prefixed [flota]; the project has no board of its own yet)"
+    owner: "Pablo (@PabloFMM)"
+    description: null
+    homepage: null
+    publishes: null
+    is: "The recipe of the machines of the public 3D worlds fleet, moved out of numinia-assets. Not yet a repository: until it exists the recipe is in numinia-assets, `open-worlds/machine`."
+    is_not: "Not the engine the machines run (numinia-engine), and not the worlds’ orders, which each machine keeps."
+    licence: "To decide when it is created (`STD-010`); the orders are CC0-1.0 today (`ADR-069`)."
+    reads: []
+
+  # ── Motor ──────────────────────────────────────────────────────────────────
+  - id: 1421008084
+    name: numinia-engine
+    former_names: []
+    state: active
+    project: Motor
+    board: motor-vr
+    owner: "Pablo (@PabloFMM)"
+    description: "The engine of Numinia’s 3D worlds: multiplayer, social, and yours to download, run locally or host anywhere."
+    homepage: "https://numinia.com"
+    publishes: "The image `ghcr.io/numengames/numinia-engine:sha-<commit>`, built on every merge to main."
+    is: "Numinia Engine: the web 3D/XR engine in TypeScript, in layered packages (`core` to `server`, `render`, `agent`), game features in `features/` and the plaza page in `apps/plaza`. It carries its own agent rules, gates and work queue in `AGENTS.md` and `docs/` until `MIS-195` moves them to the archive. The unattended shift never pushes and never opens a pull request."
+    is_not: "Not numinia.com’s store, profiles or till (numinia-platform), and not the Hyperfy fork (numinia-hyperfy2, archived)."
+    licence: "AGPL-3.0-only, by its `LICENSE`; dependencies MIT, Apache-2.0, BSD or ISC; bundled world assets CC0 or CC-BY, by its README. No `REUSE.toml`."
+    reads:
+      - ".github: the secrets workflow, pinned by commit"
+
+  # ── Numen Games ────────────────────────────────────────────────────────────
+  - id: 771993604
+    name: numengames-web
+    former_names: []
+    state: active
+    project: Numen Games
+    board: numen-games
+    owner: "Pablo (@PabloFMM)"
+    description: "numen.games, the website of Numen Games S.L."
+    homepage: "https://numen.games"
+    publishes: "numen.games"
+    is: "The company site, numen.games."
+    is_not: "Not numinia.com (numinia-platform) and not Sounds In Me (soundsinme-web)."
+    licence: "AGPL-3.0-only for code, CC0-1.0 for public assets, CC-BY-4.0 for documentation, legal texts reserved, by its `REUSE.toml`. Its `LICENSE` file holds the GPL-3.0 text: they disagree, and the `REUSE.toml` says it awaits an Oracle ruling."
+    reads:
+      - ".github: reusable workflows, pinned by commit"
+
+  - id: 1321980666
+    name: numengames-lab
+    former_names:
+      - "numengames-experiments"
+    state: active
+    project: Numen Games
+    board: numen-games
+    owner: "Pablo (@PabloFMM)"
+    description: "Numen Games’ lab: one folder per experiment, dated and owned; what works graduates to its own repository."
+    homepage: null
+    publishes: null
+    is: "The lab: one folder per experiment, dated and owned, some tested live. What works graduates to its own repository."
+    is_not: "Not a product: nothing in it is promised to run or to last."
+    licence: "All rights reserved, by its `LICENSE`; third-party dependencies and fonts keep their own, listed in its `NOTICE.md`."
+    reads: []
+
+  - id: 1428255758
+    name: soundsinme-web
+    former_names: []
+    state: active
+    project: Numen Games
+    board: numen-games
+    owner: "Pablo (@PabloFMM)"
+    description: "Website of Sounds In Me, a project about music, memory and sound: an independent organisation supported by Numen Games."
+    homepage: "https://www.soundsinme.com"
+    publishes: "soundsinme.com"
+    is: "The website of Sounds In Me, soundsinme.com."
+    is_not: "Not a Numen Games site: Sounds In Me is an independent organisation that Numen Games supports."
+    licence: "No licence file."
+    reads: []
+
+  - id: null
+    name: numinia-hermes-plugin
+    former_names: []
+    state: to-create
+    project: Numen Games
+    board: null
+    owner: "Pablo (@PabloFMM)"
+    description: null
+    homepage: null
+    publishes: null
+    is: "The plugin for the Hermes plugins hackathon. The name is provisional, and the repository is temporary until 2026-11-11."
+    is_not: "Not a product of the house: it ends with the hackathon."
+    licence: "To decide when it is created (`STD-010`)."
+    reads: []
+
+  # ── Leaving ────────────────────────────────────────────────────────────────
+  - id: 1334087785
+    name: nwos-deploy
+    former_names: []
+    state: deprecated
+    project: numinia.com
+    board: nwos
+    owner: "Pablo (@PabloFMM)"
+    description: "NWOS workspace generator, being merged into numinia-platform."
+    homepage: "https://nwos.numen.games"
+    publishes: "nwos.numen.games"
+    is: "NWOS as a service: a landing page and a generator that creates an organisation’s workspace from a private template. It merges partly into numinia-platform and is archived at the end. Contributions need the CLA."
+    is_not: "Not a place for new work: it is going away."
+    licence: "AGPL-3.0-only for the application, per path in `REUSE.toml`."
+    reads:
+      - "numinia-archive: the design kit, installed from a release"
+      - ".github: reusable workflows, pinned by commit"
+
+  - id: 1111654664
+    name: alchemists-tower
+    former_names: []
+    state: to-archive
+    project: numinia.com
+    board: numinia-com
+    owner: "Pablo (@PabloFMM)"
+    description: "An open-source platform for managing and renewing virtual worlds within the Numen ecosystem."
+    homepage: null
+    publishes: null
+    is: "The Tower: the back office that managed the worlds on the earlier infrastructure. numinia-platform now holds the Tower (Pablo, 2026-11-05); this repository waits to be archived until Pablo has spoken with César."
+    is_not: "Not receiving new work."
+    licence: "GPL-3.0, by its `LICENSE`."
+    reads: []
+
+  - id: 923071268
+    name: numinia-docs
+    former_names: []
+    state: archived
+    project: null
+    board: null
+    owner: "Pablo (@PabloFMM)"
+    description: null
+    homepage: "https://docs.numen.games/"
+    publishes: null
+    is: "A Docusaurus site. Archived on 2026-11-05."
+    is_not: "Not maintained."
+    licence: "No licence file."
+    reads: []
+
+  - id: 937117410
+    name: numinia-hyperfy2
+    former_names: []
+    state: archived
+    project: null
+    board: null
+    owner: "Pablo (@PabloFMM)"
+    description: "World building for everyone"
+    homepage: null
+    publishes: null
+    is: "A fork of Hyperfy 2, the earlier 3D world engine."
+    is_not: "Not the current engine (numinia-engine)."
+    licence: "GPL-3.0, inherited from the original."
+    reads: []
+
+  - id: 963604317
+    name: hyperfy-components
+    former_names: []
+    state: archived
+    project: null
+    board: null
+    owner: "Pablo (@PabloFMM)"
+    description: "A collection of reusable components for Hyperfy virtual worlds. These plug-and-play solutions enhance your Hyperfy projects with features like player respawn systems and interactive elements. All components are well-documented and ready to use in any Hyperfy world."
+    homepage: null
+    publishes: null
+    is: "Reusable components for Hyperfy worlds (visibility, rotation, translation, emitters, teleport)."
+    is_not: "Not part of the current engine (numinia-engine)."
+    licence: "MIT."
+    reads: []
+
+  - id: 935410408
+    name: numinia-terragrunt
+    former_names: []
+    state: archived
+    project: null
+    board: null
+    owner: "Pablo (@PabloFMM)"
+    description: null
+    homepage: null
+    publishes: null
+    is: "The earlier AWS infrastructure as code."
+    is_not: "Not the infrastructure running today."
+    licence: "GPL-3.0."
+    reads: []
+
+  - id: 930477994
+    name: numinia-k8s
+    former_names: []
+    state: archived
+    project: null
+    board: null
+    owner: "Pablo (@PabloFMM)"
+    description: null
+    homepage: null
+    publishes: null
+    is: "The earlier AWS infrastructure (EKS), paused for cost."
+    is_not: "Not the infrastructure running today."
+    licence: "AGPL-3.0."
+    reads: []
