@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "fc0e7b0",
-  "corpus_hash": "cec4ae8f00cc6fb90380852d9a79fb684ebfd95436ec502d2289503481688eed",
+  "head": "576abc3",
+  "corpus_hash": "8636704f12c25a78029247fda077a584e83615ca62ba242bae79c804c3d53e7a",
   "root_dirty": 0,
-  "measured_at": "2026-11-05T12:48:47Z",
+  "measured_at": "2026-11-05T13:03:33Z",
   "families": [
     "corpus",
     "series",
@@ -53,11 +53,11 @@
       "value": {
         "Text": {
           "files": 569,
-          "bytes": 4717105
+          "bytes": 4717524
         },
         "Code": {
           "files": 297,
-          "bytes": 2647072
+          "bytes": 2647054
         },
         "Image": {
           "files": 120,
@@ -65,7 +65,7 @@
         },
         "Data": {
           "files": 83,
-          "bytes": 360752
+          "bytes": 361192
         },
         "Font": {
           "files": 7,
@@ -391,7 +391,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1215812,
+      "value": 1215939,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -401,14 +401,14 @@
         "missions": 139368,
         "standards": 125764,
         "agents": 81718,
-        "system": 65309,
+        "system": 65394,
         "decisions": 48152,
         "procedures": 45041,
         "reports": 36728,
         "operations": 33643,
         "designs": 31465,
         "machine": 30862,
-        "": 30763,
+        "": 30805,
         "principles": 22864,
         "debt": 21476,
         "opportunities": 15128,
@@ -422,9 +422,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 505411,
+        "(none)": 505453,
         "active": 287141,
-        "draft": 281617,
+        "draft": 281702,
         "todo": 91049,
         "in-progress": 29075,
         "done": 16778,
@@ -827,10 +827,10 @@
           "3": 718
         },
         "STD": {
-          "3": 1789
+          "3": 1788
         },
         "PRI": {
-          "3": 485
+          "3": 488
         },
         "OPS": {
           "3": 205
@@ -839,7 +839,7 @@
           "3": 640
         },
         "SYS": {
-          "3": 248
+          "3": 249
         },
         "MIS": {
           "3": 1768,

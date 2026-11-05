@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-11-05T12:48:47Z"
+updated: "2026-11-05T13:03:33Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `fc0e7b0`  · corpus_hash: `cec4ae8f00cc6fb9…`  · measured_at: 2026-11-05T12:48:47Z  · root_dirty: 0
+- head: `576abc3`  · corpus_hash: `8636704f12c25a78…`  · measured_at: 2026-11-05T13:03:33Z  · root_dirty: 0
 
 ## corpus
 
@@ -71,10 +71,10 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | files | bytes |
 |---|---|---|
-| Text | 569 | 4717105 |
-| Code | 297 | 2647072 |
+| Text | 569 | 4717524 |
+| Code | 297 | 2647054 |
 | Image | 120 | 3539152 |
-| Data | 83 | 360752 |
+| Data | 83 | 361192 |
 | Font | 7 | 684444 |
 | Other | 6 | 4920 |
 | Office | 1 | 43026 |
@@ -249,7 +249,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | key | value | unit | definition |
 |---|---|---|---|
 | `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
-| `tokens.total` | 1215812 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.total` | 1215939 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
 | `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
 | `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
 | `tokens.missions_share_pct` | 11.46 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
@@ -263,14 +263,14 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | missions | 139368 |
 | standards | 125764 |
 | agents | 81718 |
-| system | 65309 |
+| system | 65394 |
 | decisions | 48152 |
 | procedures | 45041 |
 | reports | 36728 |
 | operations | 33643 |
 | designs | 31465 |
 | machine | 30862 |
-|  | 30763 |
+|  | 30805 |
 | principles | 22864 |
 | debt | 21476 |
 | opportunities | 15128 |
@@ -283,9 +283,9 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | | tokens |
 |---|---|
-| (none) | 505411 |
+| (none) | 505453 |
 | active | 287141 |
-| draft | 281617 |
+| draft | 281702 |
 | todo | 91049 |
 | in-progress | 29075 |
 | done | 16778 |
@@ -550,11 +550,11 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 | | 3 |
 |---|---|
 | PRO | 718 |
-| STD | 1789 |
-| PRI | 485 |
+| STD | 1788 |
+| PRI | 488 |
 | OPS | 205 |
 | ADR | 640 |
-| SYS | 248 |
+| SYS | 249 |
 | MIS | 1768 |
 | DBT | 176 |
 | DES | 161 |
