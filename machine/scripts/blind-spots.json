@@ -732,6 +732,38 @@
           "debt": null
         }
       ]
+    },
+    "repos-table": {
+      "script": "machine/tools/repos-table.mjs",
+      "manual": "takes arguments (--check, --print, --json) and is run by hand or by its test, not by run-checks.mjs (ENG-032's registry-discovery scope)",
+      "sees": "system/repos.yaml, and whether the two tables between the repos-table markers in SYS-013 are exactly what it generates",
+      "blind_to": [
+        {
+          "spot": "whether the data is TRUE of GitHub. It never calls GitHub: a rename, an archive or a new repository that nobody writes into system/repos.yaml is invisible to it, and so are the description and homepage fields going stale",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "the prose of SYS-013 outside the markers (the copies-as-debt table, the Accuracy section): a repository named there by an old name is caught by std-012-corpus-does-not-grow, a stale claim about it is not",
+          "covered_by": "std-012-corpus-does-not-grow (names only)",
+          "debt": null
+        },
+        {
+          "spot": "the 90-day rule of «Joining and leaving»: nothing reads a repository's commits or deploys, so a repository gone quiet is noticed by a person or not at all",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "consumers of the data outside this repository — Hermes keeps its own list (repos_numen.py) with the same ids and names, and nothing compares the two",
+          "covered_by": null,
+          "debt": null
+        },
+        {
+          "spot": "untracked files — the tool reads the working tree, so an entry written and not committed is in the tables and not in the archive",
+          "covered_by": null,
+          "debt": null
+        }
+      ]
     }
   }
 }

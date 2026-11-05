@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 76786,
+  "chars": 77012,
   "apparatus": false,
   "archived": false,
-  "tokens": 21891
+  "tokens": 21953
  },
  {
   "path": "CLAUDE.md",
@@ -5967,10 +5967,10 @@
   "series": "system",
   "type": "documentation",
   "status": "draft",
-  "chars": 11550,
+  "chars": 19250,
   "apparatus": false,
   "archived": false,
-  "tokens": 3060
+  "tokens": 5219
  },
  {
   "path": "system/SYS-014-the-worlds-fleet-as-wired.md",
