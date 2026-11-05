@@ -198,7 +198,7 @@ repositories:
     publishes: null
     is: "The lab: one folder per experiment, dated and owned, some tested live. What works graduates to its own repository."
     is_not: "Not a product: nothing in it is promised to run or to last."
-    licence: "All rights reserved, by its `LICENSE`; third-party dependencies and fonts keep their own, listed in its `NOTICE.md`."
+    licence: "All rights reserved, by its `LICENSE`; third-party dependencies and fonts keep their own, listed in its notice file."
     reads: []
 
   - id: 1428255758
