@@ -1,9 +1,9 @@
 {
   "instrument": "machine/scripts/telemetry.mjs v0.5.0",
-  "head": "c71958b",
-  "corpus_hash": "9a8b34ba3bef3d5443c327ade78755e2a29dafcd6f8b55c428e9cf8762e92dba",
+  "head": "9b50cda",
+  "corpus_hash": "54bc519092391ad5598f9eec0e77385835c9f29bb970ff6d78211b583380f7bf",
   "root_dirty": 0,
-  "measured_at": "2026-11-05T10:26:05Z",
+  "measured_at": "2026-11-05T12:43:04Z",
   "families": [
     "corpus",
     "series",
@@ -16,7 +16,7 @@
   ],
   "figures": {
     "corpus.files_total": {
-      "value": 1092,
+      "value": 1095,
       "unit": "files",
       "definition": "`git ls-files` at HEAD, every path"
     },
@@ -34,7 +34,7 @@
         ".js": 2,
         ".json": 16,
         ".md": 569,
-        ".mjs": 145,
+        ".mjs": 147,
         ".png": 38,
         ".svg": 78,
         ".toml": 3,
@@ -43,7 +43,7 @@
         ".txt": 15,
         ".webp": 1,
         ".woff2": 7,
-        ".yaml": 48,
+        ".yaml": 49,
         ".yml": 8
       },
       "unit": "files",
@@ -53,19 +53,19 @@
       "value": {
         "Text": {
           "files": 569,
-          "bytes": 4709040
+          "bytes": 4717105
         },
         "Code": {
-          "files": 295,
-          "bytes": 2628304
+          "files": 297,
+          "bytes": 2646483
         },
         "Image": {
           "files": 120,
           "bytes": 3539152
         },
         "Data": {
-          "files": 82,
-          "bytes": 342379
+          "files": 83,
+          "bytes": 360752
         },
         "Font": {
           "files": 7,
@@ -391,7 +391,7 @@
       "definition": "rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test"
     },
     "tokens.total": {
-      "value": 1213591,
+      "value": 1215812,
       "unit": "tokens",
       "definition": "Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included)"
     },
@@ -401,14 +401,14 @@
         "missions": 139368,
         "standards": 125764,
         "agents": 81718,
-        "system": 63150,
+        "system": 65309,
         "decisions": 48152,
         "procedures": 45041,
         "reports": 36728,
         "operations": 33643,
         "designs": 31465,
         "machine": 30862,
-        "": 30701,
+        "": 30763,
         "principles": 22864,
         "debt": 21476,
         "opportunities": 15128,
@@ -422,9 +422,9 @@
     },
     "tokens.by_status": {
       "value": {
-        "(none)": 505349,
+        "(none)": 505411,
         "active": 287141,
-        "draft": 279458,
+        "draft": 281617,
         "todo": 91049,
         "in-progress": 29075,
         "done": 16778,
@@ -435,7 +435,7 @@
       "definition": "tokens per frontmatter status ((none) = no status), largest first"
     },
     "tokens.missions_share_pct": {
-      "value": 11.48,
+      "value": 11.46,
       "unit": "percent",
       "definition": "100·tokens(missions/)/total, rounded to 0.01"
     },
@@ -827,7 +827,7 @@
           "3": 718
         },
         "STD": {
-          "3": 1786
+          "3": 1789
         },
         "PRI": {
           "3": 485
@@ -836,7 +836,10 @@
           "3": 205
         },
         "ADR": {
-          "3": 642
+          "3": 640
+        },
+        "SYS": {
+          "3": 248
         },
         "MIS": {
           "3": 1768,
@@ -844,9 +847,6 @@
         },
         "DBT": {
           "3": 176
-        },
-        "SYS": {
-          "3": 249
         },
         "DES": {
           "3": 161
