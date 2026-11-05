@@ -101,7 +101,7 @@ export function loadRepos(root = ROOT) {
 
 /* ---------- the tables ---------- */
 
-const cell = (s) => String(s).replace(/\|/g, '\\|').replace(/\s*\n\s*/g, ' ').trim();
+export const cell = (s) => String(s).replace(/\|/g, '\\|').replace(/\s*\n\s*/g, ' ').trim();
 const or = (s, dash = '—') => (s === null || s === undefined || s === '' ? dash : cell(s));
 
 /** "repo: what" → ["repo", "what"]. */

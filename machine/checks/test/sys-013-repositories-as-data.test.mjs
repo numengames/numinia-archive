@@ -190,3 +190,12 @@ test('SYS-013 says how a repository joins and how it leaves', () => {
   assert.match(doc, /system\/repos\.yaml/);
   assert.match(doc, /90 days/);
 });
+
+/* ---------- THE CELL ---------- */
+
+test('a cell escapes the backslash before the pipe, so text cannot close its own cell', async () => {
+  const { cell } = await import('../../tools/repos-table.mjs');
+  assert.equal(cell('a|b'), 'a\\|b');
+  assert.equal(cell('a\\|b'), 'a\\\\\\|b', 'a backslash already in the text must not cancel the escape of the pipe');
+  assert.equal(cell('a\nb'), 'a b');
+});
