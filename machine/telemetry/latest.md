@@ -6,7 +6,7 @@ type: meta
 status: active
 version: "0.5.0"
 created: "2026-09-02T14:30:00Z"
-updated: "2026-11-06T12:56:47Z"
+updated: "2026-11-06T13:00:18Z"
 author: "machine/scripts/telemetry.mjs"
 owner: "oracle"
 license: "CC0-1.0"
@@ -20,7 +20,7 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 > **Epistemic:** A figure here is true of the tree at `head` / `corpus_hash` and of nothing else. Other documents cite a key and a `HEAD`; they do not restate values (STD-001 §10.5, MIS-138 D5).
 > **Pragmatic:** Re-run `node machine/scripts/telemetry.mjs` and compare `corpus_hash`; a conflict on any file under `machine/telemetry/` is resolved by re-running, never by hand.
 
-- head: `eaa5e91`  · corpus_hash: `e9b51c025d45a434…`  · measured_at: 2026-11-06T12:56:47Z  · root_dirty: 0
+- head: `cb1db13`  · corpus_hash: `e9b51c025d45a434…`  · measured_at: 2026-11-06T13:00:18Z  · root_dirty: 0
 
 ## corpus
 
@@ -249,36 +249,53 @@ registration_reason: "generated dataset view — rebuilt by the instrument, neve
 
 | key | value | unit | definition |
 |---|---|---|---|
-| `tokens.tokenizer` | (table below) | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test — rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.total` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.by_dir` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.by_status` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.missions_share_pct` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-| `tokens.largest` | (table below) | tokens | unavailable: rank file absent: machine/scripts/lib/tokenizer/cl100k_base.tiktoken — run telemetry.mjs --fetch-tokenizer |
-
-### `tokens.tokenizer`
-
-(none — 0 rows)
-
-### `tokens.total`
-
-(none — 0 rows)
+| `tokens.tokenizer` | cl100k_base sha256:223921b76ee9 | identity | rank file cl100k_base.tiktoken, sha256 223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7 (the hash tiktoken itself pins); encoder machine/scripts/lib/cl100k.mjs, equal to tiktoken.encode_ordinary over every document by test |
+| `tokens.total` | 1226711 | tokens | Σ tokens over the corpus (every tracked .md outside web/, whole file, frontmatter included) |
+| `tokens.by_dir` | (table below) | tokens | tokens per top-level dir, largest first |
+| `tokens.by_status` | (table below) | tokens | tokens per frontmatter status ((none) = no status), largest first |
+| `tokens.missions_share_pct` | 12.22 | percent | 100·tokens(missions/)/total, rounded to 0.01 |
+| `tokens.largest` | (table below) | tokens | the five largest documents as [path, tokens] |
 
 ### `tokens.by_dir`
 
-(none — 0 rows)
+| | tokens |
+|---|---|
+| lore | 466704 |
+| missions | 149948 |
+| standards | 125764 |
+| agents | 81718 |
+| system | 65394 |
+| decisions | 48152 |
+| procedures | 45041 |
+| reports | 36728 |
+| operations | 33643 |
+| designs | 31465 |
+|  | 30997 |
+| machine | 30862 |
+| principles | 22864 |
+| debt | 21476 |
+| opportunities | 15128 |
+| legal | 13877 |
+| stakeholders | 4011 |
+| objects | 1883 |
+| .github | 1056 |
 
 ### `tokens.by_status`
 
-(none — 0 rows)
-
-### `tokens.missions_share_pct`
-
-(none — 0 rows)
+| | tokens |
+|---|---|
+| (none) | 505645 |
+| active | 287141 |
+| draft | 281702 |
+| todo | 101629 |
+| in-progress | 29075 |
+| done | 16778 |
+| in-review | 3096 |
+| on-hold | 1645 |
 
 ### `tokens.largest`
 
-(none — 0 rows)
+5 rows (tokens) — in `latest.json`.
 
 ## headers
 
