@@ -49,10 +49,10 @@
   "series": null,
   "type": null,
   "status": null,
-  "chars": 77165,
+  "chars": 77815,
   "apparatus": false,
   "archived": false,
-  "tokens": 21995
+  "tokens": 22187
  },
  {
   "path": "CLAUDE.md",
@@ -4112,6 +4112,116 @@
   "apparatus": false,
   "archived": false,
   "tokens": 1225
+ },
+ {
+  "path": "missions/MIS-0291-show-on-numinia-com-which-engine-each-world-runs-and-what-it-can-do.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3474,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 978
+ },
+ {
+  "path": "missions/MIS-0292-publish-every-engine-release-with-its-semantic-version-and-its-notes.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3969,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1112
+ },
+ {
+  "path": "missions/MIS-0293-publish-a-catalogue-of-the-engine-features-and-the-way-into-each.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4144,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1170
+ },
+ {
+  "path": "missions/MIS-0294-show-per-machine-each-world-engine-version-and-what-it-brought.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4042,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1137
+ },
+ {
+  "path": "missions/MIS-0295-list-the-engine-features-in-the-worlds-room.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3503,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 996
+ },
+ {
+  "path": "missions/MIS-0296-create-a-world-from-a-template-the-engine-ships.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3140,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 871
+ },
+ {
+  "path": "missions/MIS-0297-let-a-machine-create-a-world-from-a-named-engine-template.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4070,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1190
+ },
+ {
+  "path": "missions/MIS-0298-offer-the-engine-templates-in-the-new-world-wizard.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3468,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 991
+ },
+ {
+  "path": "missions/MIS-0299-make-the-nomad-the-avatar-every-new-world-starts-with.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 4040,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 1198
+ },
+ {
+  "path": "missions/MIS-0300-decide-the-avatar-format-and-how-a-person-chooses-an-avatar.md",
+  "dir": "missions",
+  "series": "missions",
+  "type": "mission",
+  "status": "todo",
+  "chars": 3434,
+  "apparatus": false,
+  "archived": false,
+  "tokens": 937
  },
  {
   "path": "objects/CHECK.md",
