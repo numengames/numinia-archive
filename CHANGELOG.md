@@ -18,9 +18,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 ## [Unreleased]
 
 ### 2026-11-06
-- **Added** MIS-291 (show on numinia.com which engine each world runs and what that engine can do) opens as `todo`, a parent of four: MIS-292 and MIS-293 in numinia-engine (each release carries its semantic version, its notes and a catalogue of features with the way into each), MIS-294 and MIS-295 in numinia-platform (the Worlds room shows them per machine). Points sealed in a blind round: 5, 5, 5, 3.
-- **Added** MIS-296 (create a world on numinia.com from a template the engine ships) opens as `todo`, a parent of two: MIS-297 in numinia-assets (a signed `CreateWorldFromTemplate` that sets `MOTOR_PLANTILLA`) and MIS-298 in numinia-platform (the wizard offers the templates). Points: 5 and 8.
-- **Added** MIS-299 (make the Nomad the avatar every new world starts with, numinia-engine, 5 points) and MIS-300 (decide the avatar format and how a person chooses an avatar, a design in this archive, 5 points) open as `todo`. MIS-299 waits for the Oracle to name the Nomad's file and its licence.
+- **Added** MIS-291 opens as `todo`: numinia.com shows which engine each world runs and what it can do. Children MIS-292, MIS-293 (numinia-engine) and MIS-294, MIS-295 (numinia-platform); points 5, 5, 5, 3.
+- **Added** MIS-296 opens as `todo`: create a world from an engine template. Children MIS-297 (numinia-assets, a signed `CreateWorldFromTemplate`) and MIS-298 (numinia-platform, the wizard); points 5 and 8.
+- **Added** MIS-299 (the Nomad as every new world's avatar, numinia-engine, 5 points; waits for the Oracle to name the file and its licence) and MIS-300 (the avatar-format study, a design here, 5 points) open as `todo`.
 
 ### 2026-11-05
 - **Changed** SYS-013: numinia-fleet and numinia-hermes-plugin exist now (ids, descriptions, licences); nwos-deploy's cards go to the numinia-com board.

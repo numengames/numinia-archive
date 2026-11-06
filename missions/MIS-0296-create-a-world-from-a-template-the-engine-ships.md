@@ -22,6 +22,7 @@ executor: agent
 assigned_to: "ursa"
 completed: null
 
+sub_missions: ["MIS-297", "MIS-298"]
 context: "2026-11-06T12:45:00Z"
 related: ["MIS-0297", "MIS-0298", "MIS-0293"]
 ---
