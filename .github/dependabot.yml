@@ -13,13 +13,17 @@
 # major that breaks the build holds back only itself, not the safe updates. Dependabot
 # cannot group across ecosystems, so npm / github-actions each still open their own.
 # (Before, 2026-10-20: one group `all-dependencies` with majors inside.)
+# Weekly (2026-11-10): one batch of pull requests on Mondays, at most three open at a time, so the merge queue is not
+# filled with dependency bumps (11 of the last 50 commits were Dependabot). Security updates are not scheduled: they open
+# the same day, whatever this file says.
 version: 2
 updates:
   - package-ecosystem: npm
     directory: "/web"
     schedule:
-      interval: daily
-    open-pull-requests-limit: 10
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 3
     commit-message:
       prefix: "chore(deps)"
     cooldown:
@@ -35,7 +39,9 @@ updates:
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: daily
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 3
     commit-message:
       prefix: "ci(deps)"
     cooldown:
