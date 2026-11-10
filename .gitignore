@@ -24,3 +24,13 @@ web/.translation-cache/
 # MIS-138: cl100k rank file, fetched by `node machine/scripts/telemetry.mjs --fetch-tokenizer`, pinned by sha256 in machine/scripts/lib/cl100k.mjs
 machine/scripts/lib/tokenizer/
 .worktrees/
+
+# Telemetry: generated, never committed (machine/telemetry/README.md).
+# `node machine/scripts/telemetry.mjs` writes these four; the web build runs it, so the
+# /telemetry page and telemetry.json describe the commit that is published. The ledger
+# (history.jsonl) lives on the data branch `data/telemetry`, written after every merge by
+# .github/workflows/telemetry-history.yml. claims.json is written by people and stays in git.
+machine/telemetry/latest.json
+machine/telemetry/latest.md
+machine/telemetry/docs.json
+machine/telemetry/history.jsonl

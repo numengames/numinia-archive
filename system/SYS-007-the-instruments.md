@@ -5,9 +5,9 @@ title: "The tooling: what checks, measures and templates the archive"
 type: documentation
 subtype: reference
 status: active
-version: "0.1.6"
+version: "0.1.7"
 created: "2026-09-21T18:00:00+02:00"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-10-31T13:47:54+01:00"
 author: "ursa"
 owner: "oracle"
 tags: [system, reference, tooling, checks, tools, scripts, telemetry, templates]
@@ -104,11 +104,13 @@ written by `machine/scripts/telemetry.mjs`; nothing is typed by hand except
 `claims.json`, the register of figures other documents cite. `latest.json`
 carries every figure with the head and corpus hash it was measured under;
 `docs.json` one row per document; `history.jsonl` one line per distinct
-tree ever measured. The dataset is rendered at `/telemetry`, which is where a
-reader meets it.
+tree ever measured. Only `claims.json` is committed: the web build generates
+the rest, so a pull request never carries a snapshot, and the ledger lives on
+the branch `data/telemetry`, extended after every merge. The dataset is
+rendered at `/telemetry`, which is where a reader meets it.
 
-Run: `node machine/scripts/telemetry.mjs` (measure) · `--check` (is
-`latest.json` HEAD's?).
+Run: `node machine/scripts/telemetry.mjs` (measure) · `--print` (the
+instrument runs, nothing is written; what CI asks).
 Read: [machine/telemetry/](https://github.com/numengames/numinia-archive/tree/main/machine/telemetry)
 · [/telemetry](/telemetry)
 
