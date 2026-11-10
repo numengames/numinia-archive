@@ -29,6 +29,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ensureDataset } from './dataset-helper.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..', '..', '..');
@@ -36,6 +37,8 @@ const MODULE = path.resolve(ROOT, 'web', 'src', 'lib', 'telemetry-panel.ts');
 const PAGE = path.resolve(ROOT, 'web', 'src', 'pages', 'telemetry.astro');
 const PANEL = path.resolve(ROOT, 'web', 'src', 'components', 'TelemetryPanel.astro');
 const read = (p) => readFileSync(p, 'utf8');
+// machine/telemetry/ is generated and gitignored: make sure it is there before anything reads it.
+ensureDataset();
 const latest = () => JSON.parse(read(path.join(ROOT, 'machine', 'telemetry', 'latest.json')));
 
 function ask(expression) {

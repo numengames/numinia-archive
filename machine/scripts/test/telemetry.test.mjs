@@ -14,6 +14,9 @@ import { existsSync, mkdirSync, mkdtempSync, writeFileSync, readFileSync, readdi
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { ROOT } from '../lib/frontmatter.mjs';
+import { RANK_PATH } from '../lib/cl100k.mjs';
+import { appendRow, parseLedger, fromLegacy, LEGACY_PATH } from '../lib/history.mjs';
+import { ensureDataset } from './dataset-helper.mjs';
 
 /* Removing a scratch clone races anything git left running in it: a detached
    `gc --auto` from the fixture commits can still be writing under .git/objects
@@ -48,6 +51,7 @@ check('tokens: cl100k.mjs equals tiktoken over every tracked .md (criterion 6)',
   const py = process.env.TIKTOKEN_PY ?? '/tmp/tiktoken-venv/bin/python3';
   if (!existsSync(py)) return `skipped: no ${py}`;
   if (t1.figures['tokens.total'].value === null) return `skipped: ${t1.figures['tokens.total'].definition}`;
+  ensureDataset();
   const rows = JSON.parse(readFileSync(path.join(ROOT, 'machine/telemetry/docs.json'), 'utf8'));
   const script = "import json,sys,tiktoken\ne=tiktoken.get_encoding('cl100k_base')\nrows=json.load(sys.stdin)\nbad=[r['path'] for r in rows if len(e.encode_ordinary(open(r['path'],encoding='utf-8').read()))!=r['tokens']]\nprint(json.dumps(bad))";
   const bad = JSON.parse(execFileSync(py, ['-c', script], { cwd: ROOT, input: JSON.stringify(rows), encoding: 'utf8', env: { ...process.env, TIKTOKEN_CACHE_DIR: '/tmp/tk' } }));
@@ -74,17 +78,135 @@ check('contradictions: claims.json states follow the tree (open → resolved / m
   } finally { rmTree(c); }
 });
 
-// The ledger passed 1 MiB on 2026-09-08 and execFileSync's default maxBuffer is exactly that, so
-// git show started throwing ENOBUFS instead of asserting. Same 64 MiB ceiling as provenance.mjs.
-// Criterion 9: the ledger only grows. Every line ever committed in history.jsonl is still in it,
-// in order — a ship step that deletes machine/telemetry/ before measuring would truncate it (it did, #211–#213).
-check('history.jsonl: no line ever committed has been removed', () => {
-  const past = execFileSync('git', ['-C', ROOT, 'log', '--reverse', '--format=%h', '--', 'machine/telemetry/history.jsonl'], { encoding: 'utf8', maxBuffer: 1 << 26 }).trim().split('\n').filter(Boolean);
-  if (!past.length) return 'skipped: no committed history';
-  const now = readFileSync(path.join(ROOT, 'machine/telemetry/history.jsonl'), 'utf8').split('\n').filter(Boolean).map((l) => JSON.parse(l).corpus_hash);
-  const missing = new Set();
-  for (const c of past) for (const l of execFileSync('git', ['-C', ROOT, 'show', `${c}:machine/telemetry/history.jsonl`], { encoding: 'utf8', maxBuffer: 1 << 26 }).split('\n').filter(Boolean)) { const h = JSON.parse(l).corpus_hash; if (!now.includes(h)) missing.add(h.slice(0, 12)); }
-  return missing.size === 0 || `removed: ${[...missing].join(', ')}`;
+// The ledger (history.jsonl) is not in main any more: it lives on the data branch `data/telemetry`,
+// extended by the post-merge workflow with `telemetry.mjs --history <file>`. Criterion 9 — the ledger
+// only grows, in order, one line per corpus_hash — is therefore held where the append happens.
+const ROW = (n) => ({ head: `h${n}`, corpus_hash: `${String(n).padStart(64, '0')}`, measured_at: `2026-10-0${n}T10:00:00Z`, values: { 'corpus.docs_total': n } });
+const LEDGER = (...ns) => ns.map((n) => JSON.stringify(ROW(n))).join('\n') + '\n';
+
+check('ledger: appendRow only appends — every existing byte stays, in order — and a known corpus_hash adds nothing', () => {
+  const base = LEDGER(1, 2, 3);
+  const a = appendRow(base, ROW(4));
+  if (!(a.added && a.text.startsWith(base) && a.text === base + JSON.stringify(ROW(4)) + '\n')) return 'a new hash was not appended after the existing bytes';
+  const b = appendRow(a.text, ROW(2));
+  if (b.added || b.text !== a.text) return 'a hash already in the ledger changed it';
+  const c = appendRow(base.slice(0, -1), ROW(4));   // a ledger whose last line lacks its newline
+  if (c.text !== base + JSON.stringify(ROW(4)) + '\n') return 'a missing final newline was not repaired by the append alone';
+  const d = appendRow('', ROW(1));
+  return (d.added && parseLedger(d.text).length === 1) || 'an empty ledger did not take its first line';
+});
+check('ledger: a corrupt line is an error, never silently extended', () => {
+  try { appendRow('{"corpus_hash":"a"}\nnot json\n', ROW(1)); } catch (e) { return /not JSON/.test(e.message) || `wrong error: ${e.message}`; }
+  return 'a corrupt ledger was extended';
+});
+check('ledger: `--history F` extends F by exactly one line, keeps every old byte, and a second run adds nothing', () => {
+  const clone = scratchClone();
+  try {
+    // outside the clone: an untracked file inside it would make the tree dirty, and a dirty tree adds no line
+    const F = path.join(clone, '..', `ledger-${path.basename(clone)}.jsonl`);
+    const base = LEDGER(1, 2, 3); writeFileSync(F, base);
+    const go = () => execFileSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs'), '--history', F], { cwd: clone, encoding: 'utf8' });
+    const out1 = go(); const after = readFileSync(F, 'utf8');
+    if (!after.startsWith(base)) return 'the old bytes moved';
+    const added = parseLedger(after.slice(base.length));
+    const hash = run(clone).corpus_hash;
+    if (added.length !== 1 || added[0].corpus_hash !== hash) return `expected one new line for ${hash.slice(0, 8)}, got ${added.length}: ${out1.trim().slice(0, 160)}`;
+    go();
+    const same = readFileSync(F, 'utf8') === after;
+    rmSync(F, { force: true });
+    return same || 'the second run on the same corpus changed the ledger';
+  } finally { rmTree(clone); }
+});
+check('ledger: a dirty tree leaves the ledger untouched (no stable hash to cite)', () => {
+  const clone = scratchClone();
+  try {
+    const F = path.join(clone, '..', `ledger-${path.basename(clone)}.jsonl`); const base = LEDGER(1); writeFileSync(F, base);
+    writeFileSync(path.join(clone, 'debt/untracked-fixture.md'), '---\nid: "X"\n---\n# f\n');   // untracked, not ignored → root_dirty > 0
+    execFileSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs'), '--history', F], { cwd: clone, stdio: 'ignore' });
+    const same = readFileSync(F, 'utf8') === base;
+    rmSync(F, { force: true });
+    return same || 'a dirty measurement reached the ledger';
+  } finally { rmTree(clone); }
+});
+check('ledger: a new data branch is seeded from the last commit that tracked history.jsonl, then extended', () => {
+  const clone = scratchClone();
+  const git = (...a) => execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', ...a], { stdio: 'ignore' });
+  try {
+    const old = LEDGER(1, 2, 3);
+    mkdirSync(path.join(clone, 'machine/telemetry'), { recursive: true });
+    // 1. still tracked at HEAD (the day before the ledger moves)
+    writeFileSync(path.join(clone, LEGACY_PATH), old); git('add', '-f', '-A'); git('commit', '-q', '-m', 'ledger on main');
+    if (fromLegacy(clone)?.text !== old) return 'a tracked ledger at HEAD was not found';
+    // 2. deleted (the commit that moves it): the parent still has it
+    git('rm', '-q', '-f', LEGACY_PATH); git('commit', '-q', '-m', 'ledger leaves main');
+    const seed = fromLegacy(clone);
+    if (seed?.text !== old) return `the ledger of the deleting commit's parent was not found: ${JSON.stringify(seed)}`;
+    // 3. the workflow's first run: no data branch, an absent file → seeded, then one line added
+    const F = path.join(clone, '..', `ledger-${path.basename(clone)}.jsonl`);
+    execFileSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs'), '--history', F], { cwd: clone, stdio: 'ignore' });
+    const got = readFileSync(F, 'utf8'); rmSync(F, { force: true });
+    if (!got.startsWith(old)) return 'the seed is not the start of the new ledger';
+    const added = parseLedger(got.slice(old.length));
+    return (added.length === 1 && added[0].corpus_hash === run(clone).corpus_hash) || `expected the seed plus one line, got ${added.length} new line(s)`;
+  } finally { rmTree(clone); }
+});
+check('--build in a checkout with no origin still measures (the ledger falls back to the seed) and writes the four files', () => {
+  const clone = scratchClone();
+  try {
+    if (!giveRanks(clone)) return 'skipped: no rank file in this tree (npm run setup)';
+    const r = spawnSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs'), '--build'], { cwd: clone, encoding: 'utf8' });
+    if (r.status !== 0) return `--build failed: ${r.stderr.trim().slice(0, 200)}`;
+    const missing = ['latest.json', 'docs.json', 'latest.md', 'history.jsonl'].filter((f) => !existsSync(path.join(clone, 'machine/telemetry', f)));
+    return missing.length === 0 || `not written: ${missing.join(', ')}`;
+  } finally { rmTree(clone); }
+});
+check('--build in a depth-1 checkout asks origin for the log BEFORE measuring, and stops (writing nothing) when it cannot', () => {
+  const origin = scratchClone();
+  const git = (cwd, ...a) => execFileSync('git', ['-C', cwd, '-c', 'user.name=t', '-c', 'user.email=t@t', ...a], { stdio: 'ignore' });
+  const dirs = [origin];
+  try {
+    writeFileSync(path.join(origin, 'debt/DBT-997-fixture.md'), '---\nid: "DBT-997"\ntype: documentation\nstatus: active\n---\n# f\n');
+    // A root commit alone is never "shallow". The second one is dated later, so that a log cut to it
+    // dates every document's first add there: provenance figures then differ from the full log's.
+    git(origin, 'add', '-A');
+    execFileSync('git', ['-C', origin, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'second'], { stdio: 'ignore', env: { ...process.env, GIT_AUTHOR_DATE: '2027-06-01T12:00:00+00:00', GIT_COMMITTER_DATE: '2027-06-01T12:00:00+00:00' } });
+    const clone = (name) => { const d = path.join(tmpdir(), `${name}-${path.basename(origin)}`); dirs.push(d); execFileSync('git', ['clone', '-q', '--depth', '1', `file://${origin}`, d], { stdio: 'ignore' }); return d; };
+    const shallow = (d) => execFileSync('git', ['-C', d, 'rev-parse', '--is-shallow-repository'], { encoding: 'utf8' }).trim();
+    const a = clone('cf-ok');
+    if (shallow(a) !== 'true') return 'the fixture is not shallow';
+    if (!giveRanks(a)) return 'skipped: no rank file in this tree (npm run setup)';
+    const r = spawnSync('node', [path.join(a, 'machine/scripts/telemetry.mjs'), '--build'], { cwd: a, encoding: 'utf8' });
+    if (r.status !== 0) return `--build failed in a shallow checkout with a reachable origin: ${r.stderr.trim().slice(0, 200)}`;
+    if (shallow(a) !== 'false') return 'the checkout is still shallow after --build';
+    const built = JSON.parse(readFileSync(path.join(a, 'machine/telemetry/latest.json'), 'utf8'));
+    giveRanks(origin);
+    const full = run(origin);
+    const diff = Object.keys(full.figures).filter((k) => JSON.stringify(full.figures[k].value) !== JSON.stringify(built.figures[k]?.value));
+    if (diff.length) return `measured on a log that was still cut short: ${diff.join(', ')}`;
+    const b = clone('cf-no');
+    giveRanks(b);
+    git(b, 'remote', 'set-url', 'origin', 'file:///nonexistent');
+    const r2 = spawnSync('node', [path.join(b, 'machine/scripts/telemetry.mjs'), '--build'], { cwd: b, encoding: 'utf8' });
+    if (r2.status !== 1 || !/shallow/.test(r2.stderr)) return `expected exit 1 naming the shallow checkout, got ${r2.status}: ${r2.stderr.trim().slice(0, 160)}`;
+    return !existsSync(path.join(b, 'machine/telemetry/latest.json')) || 'it wrote a dataset anyway';
+  } finally { for (const d of dirs) rmTree(d); }
+});
+check('--build without the tokenizer rank file and without a way to fetch it stops and writes nothing', () => {
+  const clone = scratchClone();
+  try {
+    // a download that fails at once (nothing listens on port 9), online or not
+    const r = spawnSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs'), '--build'], { cwd: clone, encoding: 'utf8', env: { ...process.env, TELEMETRY_RANK_URL: 'http://127.0.0.1:9/cl100k_base.tiktoken' } });
+    return (r.status === 1 && /tokenizer/.test(r.stderr) && !existsSync(path.join(clone, 'machine/telemetry/latest.json'))) || `expected a stop naming the tokenizer, got ${r.status}: ${r.stderr.trim().slice(0, 200)}`;
+  } finally { rmTree(clone); }
+});
+check('the generated files are gitignored and claims.json is not (people write it)', () => {
+  const ign = (f) => spawnSync('git', ['-C', ROOT, 'check-ignore', '-q', f]).status === 0;
+  const gen = ['latest.json', 'latest.md', 'docs.json', 'history.jsonl'].filter((f) => !ign(`machine/telemetry/${f}`));
+  const tracked = execFileSync('git', ['-C', ROOT, 'ls-files', 'machine/telemetry'], { encoding: 'utf8' }).split('\n').filter(Boolean);
+  const committed = tracked.filter((f) => /\/(latest\.json|latest\.md|docs\.json|history\.jsonl)$/.test(f));
+  if (gen.length) return `not ignored: ${gen.join(', ')}`;
+  if (committed.length) return `generated files are tracked again: ${committed.join(', ')}`;
+  return (!ign('machine/telemetry/claims.json') && tracked.includes('machine/telemetry/claims.json')) || 'claims.json must stay tracked and unignored';
 });
 
 check('fixture: an added done mission without Closure moves missions.total and done_without_closure by exactly 1', () => {
@@ -111,7 +233,7 @@ check('fixture: corpus_hash changes when a tracked file changes, and --check the
   try {
     execFileSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs')], { cwd: clone, stdio: 'ignore' });
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'telemetry'], { stdio: 'ignore' });
+    execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '--allow-empty', '-m', 'telemetry'], { stdio: 'ignore' });
     let r = spawnSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs'), '--check'], { cwd: clone, encoding: 'utf8' });
     if (r.status !== 0) return `expected OK on a fresh dataset: ${r.stderr.trim()}`;
     const before = JSON.parse(readFileSync(path.join(clone, 'machine/telemetry/latest.json'), 'utf8')).corpus_hash;
@@ -129,7 +251,7 @@ check('fixture: a dependency bump (web/package-lock.json) leaves corpus_hash unc
   try {
     execFileSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs')], { cwd: clone, stdio: 'ignore' });
     execFileSync('git', ['-C', clone, 'add', '-A'], { stdio: 'ignore' });
-    execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '-m', 'telemetry'], { stdio: 'ignore' });
+    execFileSync('git', ['-C', clone, '-c', 'user.name=t', '-c', 'user.email=t@t', 'commit', '-q', '--allow-empty', '-m', 'telemetry'], { stdio: 'ignore' });
     const before = JSON.parse(readFileSync(path.join(clone, 'machine/telemetry/latest.json'), 'utf8')).corpus_hash;
     const lock = path.join(clone, 'web/package-lock.json');
     writeFileSync(lock, readFileSync(lock, 'utf8') + '\n');
@@ -141,6 +263,15 @@ check('fixture: a dependency bump (web/package-lock.json) leaves corpus_hash unc
     return run(clone).corpus_hash === before || 'corpus_hash changed on a manifest-only commit';
   } finally { rmTree(clone); }
 });
+
+/* --build fetches the tokenizer when it is absent. A fixture must not reach the network: give the clone this
+   tree's rank file, or say there is none to give (a named skip). */
+function giveRanks(clone) {
+  if (!existsSync(RANK_PATH)) return false;
+  const dest = path.join(clone, path.relative(ROOT, RANK_PATH));
+  mkdirSync(path.dirname(dest), { recursive: true }); cpSync(RANK_PATH, dest);
+  return true;
+}
 
 function scratchClone() {
   // Fresh repo, never the worktree's .git pointer: a fixture `git add` must touch only the clone.
@@ -176,7 +307,7 @@ check('--check stays OK when the commits are squashed to a later date (first-add
     writeFileSync(path.join(clone, 'debt/DBT-998-fixture.md'), '---\nid: "DBT-998"\ntype: documentation\nstatus: active\ncreated: "2026-03-01T10:00:00+02:00"\n---\n# f\n');
     git('add', '-A'); git('commit', '-q', '-m', 'doc');
     execFileSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs')], { cwd: clone, stdio: 'ignore' });
-    git('add', '-A'); git('commit', '-q', '-m', 'telemetry');
+    git('add', '-A'); git('commit', '-q', '--allow-empty', '-m', 'telemetry');
     let r = spawnSync('node', [path.join(clone, 'machine/scripts/telemetry.mjs'), '--check'], { cwd: clone, encoding: 'utf8' });
     if (r.status !== 0) return `expected OK on the branch: ${r.stderr.trim()}`;
     // the squash-merge, one day later: same tree, one commit, dated at the merge

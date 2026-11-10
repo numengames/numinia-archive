@@ -87,8 +87,6 @@ function scratch() {
   cpSync(path.join(ROOT, 'machine/tools/cut.mjs'), path.join(dir, 'machine/tools/cut.mjs'));
   writeFileSync(path.join(dir, 'standards/STD-900-a.md'), DOC('1.0.0'));
   writeFileSync(path.join(dir, 'CHANGELOG.md'), '# Changelog\n');
-  // a stand-in telemetry instrument that reports "current", so `status` isolates the other findings
-  writeFileSync(path.join(dir, 'machine/scripts/telemetry.mjs'), 'process.exit(0);\n');
   const g = (...a) => execFileSync('git', ['-c', 'user.email=t@t', '-c', 'user.name=t', ...a], { cwd: dir });
   g('init', '-q'); g('add', '-A'); g('commit', '-qm', 'base'); g('update-ref', 'refs/remotes/origin/main', 'HEAD');
   return dir;
@@ -143,15 +141,42 @@ test('log and site write the files; site opens one version per branch, not one p
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
-test('gate does not call red a check that only seal can satisfy', () => {
+test('gate is red for any failing check, telemetry included: nothing waits for a seal any more', () => {
   const dir = scratch();
   try {
-    writeFileSync(path.join(dir, 'machine/scripts/run-checks.mjs'), "console.log('FAIL telemetry'); process.exit(1);\n");
     writeFileSync(path.join(dir, 'package.json'), '{"scripts":{"test":"node -e 0"}}');
-    const g = cut(dir, 'gate');
-    assert.match(g.stdout, /wait checks .*telemetry waits for seal/);
-    assert.equal(g.status, 0, g.stdout);
-    writeFileSync(path.join(dir, 'machine/scripts/run-checks.mjs'), "console.log('FAIL std-004'); process.exit(1);\n");
-    assert.equal(cut(dir, 'gate').status, 1, 'any other failing check is still red');
+    writeFileSync(path.join(dir, 'machine/scripts/run-checks.mjs'), "console.log('FAIL telemetry'); process.exit(1);\n");
+    const red = cut(dir, 'gate');
+    assert.equal(red.status, 1, red.stdout);
+    assert.match(red.stdout, /FAIL checks/);
+    assert.doesNotMatch(red.stdout, /seal/);
+    writeFileSync(path.join(dir, 'machine/scripts/run-checks.mjs'), "console.log('ok'); process.exit(0);\n");
+    const green = cut(dir, 'gate');
+    assert.equal(green.status, 0, green.stdout);
+    assert.match(green.stdout, /gate green\n?$/);
+    assert.doesNotMatch(green.stdout, /seal/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('status does not run the telemetry instrument and does not ask for a snapshot', () => {
+  const dir = scratch();
+  try {
+    // no machine/scripts/telemetry.mjs in the scratch repository at all: status must not need it
+    writeFileSync(path.join(dir, 'standards/STD-900-a.md'), DOC('1.0.0', 'A new sentence.'));
+    const s = cut(dir, 'status');
+    assert.doesNotMatch(s.stdout, /telemetry|seal|snapshot/);
+  } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('seal is retired: it says why, changes nothing and exits 0', () => {
+  const dir = scratch();
+  try {
+    const before = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' });
+    const r = cut(dir, 'seal');
+    assert.equal(r.status, 0, r.stderr);
+    assert.match(r.stdout, /seal is retired/);
+    assert.match(r.stdout, /data\/telemetry/);
+    assert.equal(execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' }), before, 'no commit was made');
+    assert.equal(execFileSync('git', ['status', '--porcelain'], { cwd: dir, encoding: 'utf8' }), '', 'no file was touched');
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });

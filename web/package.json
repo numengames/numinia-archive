@@ -7,9 +7,11 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "predev": "node ../machine/scripts/telemetry.mjs",
     "dev": "astro dev",
     "type-check": "astro check",
     "check:license": "node ../machine/checks/rules/std-010-licensing.mjs",
+    "prebuild": "node ../machine/scripts/telemetry.mjs --build",
     "build": "node ../machine/checks/rules/std-010-licensing.mjs && node scripts/share-card.mjs && astro build",
     "preview": "astro preview",
     "check:responsive": "node ../machine/tools/check-responsive.mjs",

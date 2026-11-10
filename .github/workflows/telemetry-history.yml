@@ -1,0 +1,123 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
+#
+# The telemetry ledger. After every merge to main this measures the new main and appends one
+# line to history.jsonl on the data branch `data/telemetry`. It never writes to main.
+#
+# Why it exists: the ledger (one line per distinct corpus_hash, append-only, 5.7 MB) used to be
+# committed by every pull request, so any two open pull requests conflicted on it. The rest of the
+# dataset (latest.json, docs.json, latest.md) is no longer committed at all: the web build generates
+# it. The ledger is the only part that needs the earlier measurements, so it is the only part that
+# lives anywhere, and it lives here. See machine/telemetry/README.md.
+#
+# How it reads: the web build and CI fetch `origin/data/telemetry` (machine/scripts/lib/history.mjs).
+# The first run, when the branch does not exist yet, seeds it from the last commit of main that
+# still carried machine/telemetry/history.jsonl, so no measurement is lost in the move.
+#
+# Writing needs `contents: write`, and only this job has it. The token is handed to git for the
+# push alone (an environment config, never written to .git/config); GITHUB_TOKEN pushes do not
+# start other workflows, so the data branch triggers nothing.
+#
+# Runs are queued, not cancelled. GitHub keeps at most one run waiting: if three merges land while
+# one run is going, the middle one is skipped and its measurement is not in the ledger. The ledger
+# is a series of measured trees, not an audit of merges, and the next run measures the newest main.
+#
+# Actions are pinned by commit SHA, not by tag.
+name: telemetry-history
+
+on:
+  push:
+    branches: [main]
+
+permissions: {}
+
+concurrency:
+  group: telemetry-history
+  cancel-in-progress: false
+
+jobs:
+  append:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      # Full history: the instrument reads git history (first-add dates, renames), and the seed
+      # on the first run is found in it.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+
+      # Without the rank file the token figures are null and the line would record a collapse
+      # that never happened.
+      - name: telemetry — tokenizer rank file
+        run: node machine/scripts/telemetry.mjs --fetch-tokenizer
+
+      # The ledger as the data branch holds it. No branch yet = no file: the instrument then
+      # seeds it from the commit that last tracked it on main.
+      - name: the ledger so far
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/ledger"
+          if git fetch --quiet --no-tags origin '+refs/heads/data/telemetry:refs/remotes/origin/data/telemetry'; then
+            git show refs/remotes/origin/data/telemetry:history.jsonl > "$RUNNER_TEMP/ledger/history.jsonl"
+            echo "data/telemetry holds $(wc -l < "$RUNNER_TEMP/ledger/history.jsonl") lines"
+          else
+            echo "data/telemetry does not exist yet: the first measurement seeds it from main's last copy of the ledger"
+          fi
+
+      # Measures main at this commit and appends one line to the ledger file, unless a line with
+      # this corpus_hash is already there. Red means: the instrument fails on main.
+      - name: telemetry — measure main, extend the ledger
+        run: node machine/scripts/telemetry.mjs --history "$RUNNER_TEMP/ledger/history.jsonl"
+
+      # Builds the commit with git plumbing, so the working tree (main) is never touched, and
+      # pushes it as a fast-forward of data/telemetry (or creates the branch as an orphan).
+      - name: publish to data/telemetry
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MAIN_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          ledger="$RUNNER_TEMP/ledger/history.jsonl"
+          test -s "$ledger"
+
+          cat > "$RUNNER_TEMP/ledger/README.md" <<'EOF'
+          # data/telemetry
+
+          Data, not code. `history.jsonl` is the telemetry ledger of numengames/numinia-archive:
+          one line per distinct `corpus_hash` measured on a clean tree of main, append-only.
+
+          Written only by `.github/workflows/telemetry-history.yml` after each merge to main.
+          Read by the web build and by CI (`machine/scripts/lib/history.mjs`).
+          Never merged into main. See `machine/telemetry/README.md` on main.
+          EOF
+
+          export GIT_INDEX_FILE="$RUNNER_TEMP/ledger/index"
+          rm -f "$GIT_INDEX_FILE"
+          git update-index --add --cacheinfo "100644,$(git hash-object -w "$ledger"),history.jsonl"
+          git update-index --add --cacheinfo "100644,$(git hash-object -w "$RUNNER_TEMP/ledger/README.md"),README.md"
+          tree="$(git write-tree)"
+          unset GIT_INDEX_FILE
+
+          parent="$(git rev-parse --verify --quiet refs/remotes/origin/data/telemetry || true)"
+          if [ -n "$parent" ] && [ "$(git rev-parse "$parent^{tree}")" = "$tree" ]; then
+            echo "the ledger already holds this tree: nothing to publish"
+            exit 0
+          fi
+
+          commit="$(git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit-tree "$tree" ${parent:+-p "$parent"} -m "telemetry: ledger after ${MAIN_SHA:0:7}")"
+
+          # The token reaches git as an environment config for this one push.
+          auth="$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
+          echo "::add-mask::$auth"
+          GIT_CONFIG_COUNT=1 \
+          GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
+          GIT_CONFIG_VALUE_0="AUTHORIZATION: basic $auth" \
+            git push origin "$commit:refs/heads/data/telemetry"
+          echo "data/telemetry is now ${commit:0:7}"

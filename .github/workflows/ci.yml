@@ -33,9 +33,10 @@ jobs:
       # Checkout of the PR head, pinned by SHA.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          # Full history, not a shallow clone: the telemetry check reads git
-          # history (first-add dates, renames). A depth-1 checkout measures a
-          # different repository and the comparison below fails as ALTERED.
+          # Full history, not a shallow clone: the telemetry instrument reads
+          # git history (first-add dates, renames). A depth-1 checkout measures
+          # a different repository. Full history also brings the data branch
+          # `data/telemetry`, where the telemetry ledger lives.
           fetch-depth: 0
           persist-credentials: false
 
@@ -51,6 +52,15 @@ jobs:
       # fails. Needs network egress to the tokenizer host.
       - name: telemetry — tokenizer rank file
         run: node machine/scripts/telemetry.mjs --fetch-tokenizer
+
+      # The telemetry dataset is generated, never committed (machine/telemetry/
+      # README.md): this writes latest.json, docs.json, latest.md and a local
+      # copy of the ledger (history.jsonl, read from the data branch) under
+      # machine/telemetry/, where the tests and `astro check` below read them.
+      # Red means: the instrument itself fails on this tree. It compares
+      # nothing with anything committed, so no pull request can be stale.
+      - name: telemetry — the instrument runs
+        run: node machine/scripts/telemetry.mjs
 
       # Every rule check named by machine/scripts/blind-spots.json (ENG-032), wherever
       # its script sits. Each reports every finding it sees; whether one fails
@@ -211,10 +221,10 @@ jobs:
         run: node scripts/share-card.mjs --check
         working-directory: web
 
-      # Every build check: the built site and the committed telemetry are what
-      # HEAD produces. These bite regardless of any standard's state. Red
-      # means: a page, a link, a redirect or the dataset is broken. Fix a
-      # telemetry red by running `node machine/scripts/telemetry.mjs` on the branch
-      # and committing machine/telemetry/ — never by hand-editing latest.json.
+      # Every build check: the built site is what HEAD produces. These bite
+      # regardless of any standard's state. Red means: a page, a link, a
+      # redirect is broken, or the telemetry instrument fails on this tree
+      # (`node machine/scripts/telemetry.mjs --print`). There is no committed
+      # telemetry to refresh: the build above generated the dataset it shows.
       - name: build checks
         run: npm run checks -- --build
