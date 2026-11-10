@@ -98,7 +98,8 @@ What still holds, because each rule protects something that can be seen:
   pull request);
 - every pull request that changes a site adds its `/updates` entry and
   raises the version (`machine/scripts/check-version-bump.mjs`);
-- a `CHANGELOG.md` entry for what changed in this archive;
+- a changelog line for what changed in this archive, as a fragment in
+  `changelog.d/` (`cut.mjs log`), never an edit of `CHANGELOG.md`;
 - the test before the code: for a feature, a fix or a refactor, the test
   that describes the change is written first, run, and seen to fail for the
   right reason; then the code that makes it pass; then the clean-up with
@@ -142,9 +143,11 @@ Run from the repository root; Node ≥ 22.12.
   changed, then runs checks and tests and prints one line per step plus the
   names of what failed. (`seal` is retired: it said "commit a telemetry
   snapshot", and there is none to commit any more.)
-- `node machine/tools/cut.mjs log <Kind> "<sentence>"` puts the CHANGELOG line
-  under today's heading (UTC) and refuses a kind or a length that
-  `changelog-shape` would fail; `cut.mjs site <ADD|CHG|FIX|DEL> "<sentence>"`
+- `node machine/tools/cut.mjs log <Kind> "<sentence>"` writes the changelog line
+  into this branch's fragment `changelog.d/<branch>.md` (CHANGELOG.md stays
+  untouched) and refuses a kind or a length that `changelog-shape` would fail;
+  `cut.mjs fold` (maintainers, not pull requests) folds the fragments into
+  CHANGELOG.md under their UTC day; `cut.mjs site <ADD|CHG|FIX|DEL> "<sentence>"`
   adds the `web/src/data/updates.ts` entry, opening the next minor version the
   first time on a branch. The sentences and the commit message stay yours.
 - `npm run checks -- --rules` — every registered check over the corpus
