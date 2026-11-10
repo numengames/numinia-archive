@@ -12,7 +12,7 @@ import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync } f
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { ROOT } from '../../scripts/lib/frontmatter.mjs';
-import { bumpPatch, isoLocal, headerOf, needsBump, applyBump, addChangelogLine, nextMinor, addSiteEntry, dayUtc } from '../cut.mjs';
+import { bumpPatch, isoLocal, headerOf, needsBump, applyBump, addChangelogLine, fragmentName, changelogLine, appendFragmentLine, fragmentLines, FRAGMENT_HEADER, insertChangelogLine, foldFragments, nextMinor, addSiteEntry, dayUtc } from '../cut.mjs';
 
 const DOC = (version, body = 'Body.') => `---\nid: STD-900\ntitle: "A standard"\nversion: "${version}"\nupdated: "2026-01-01T10:00:00+01:00"\n---\n# A standard\n\n${body}\n`;
 
@@ -133,8 +133,13 @@ test('log and site write the files; site opens one version per branch, not one p
     assert.match(cut(dir, 'site', 'ADD', 'Two.').stdout, /added to v0\.170\.0/);
     const upd = readFileSync(path.join(dir, 'web/src/data/updates.ts'), 'utf8');
     assert.equal(upd.match(/version: /g).length, 2);
+    g('checkout', '-qb', 'feat/the-bar');
     assert.equal(cut(dir, 'log', 'Fixed', 'the bar.').status, 0);
-    assert.match(readFileSync(path.join(dir, 'CHANGELOG.md'), 'utf8'), /- \*\*Fixed\*\* the bar\./);
+    assert.equal(readFileSync(path.join(dir, 'CHANGELOG.md'), 'utf8'), LOG, 'log leaves CHANGELOG.md alone');
+    assert.equal(readFileSync(path.join(dir, 'changelog.d/feat-the-bar.md'), 'utf8'), FRAGMENT_HEADER + '- **Fixed** the bar.\n');
+    assert.equal(cut(dir, 'log', 'Added', 'a baz.').status, 0);
+    assert.equal(readFileSync(path.join(dir, 'changelog.d/feat-the-bar.md'), 'utf8'), FRAGMENT_HEADER + '- **Fixed** the bar.\n- **Added** a baz.\n');
+    assert.doesNotMatch(cut(dir, 'status').stdout, /changelog: /);
     const bad = cut(dir, 'log', 'Fixed', 'x'.repeat(400));
     assert.equal(bad.status, 1);
     assert.match(bad.stdout, /not written: .*cap is 320/);
@@ -179,4 +184,40 @@ test('seal is retired: it says why, changes nothing and exits 0', () => {
     assert.equal(execFileSync('git', ['rev-parse', 'HEAD'], { cwd: dir, encoding: 'utf8' }), before, 'no commit was made');
     assert.equal(execFileSync('git', ['status', '--porcelain'], { cwd: dir, encoding: 'utf8' }), '', 'no file was touched');
   } finally { rmSync(dir, { recursive: true, force: true }); }
+});
+
+test('a fragment name is the branch with / as -, and a detached HEAD has none', () => {
+  assert.equal(fragmentName('feat/changelog-fragments'), 'feat-changelog-fragments.md');
+  assert.equal(fragmentName('fix/a/b c'), 'fix-a-b-c.md');
+  assert.throws(() => fragmentName('HEAD'), /no branch name/);
+  assert.throws(() => fragmentName(''), /no branch name/);
+});
+
+test('a fragment line is validated like a log line', () => {
+  assert.equal(changelogLine('Fixed', ' x. '), '- **Fixed** x.');
+  assert.throws(() => changelogLine('Tweaked', 'x'), /kind must be/);
+  assert.throws(() => changelogLine('Fixed', 'a'.repeat(320)), /cap is 320/);
+  assert.equal(appendFragmentLine('', '- **Fixed** a.'), '- **Fixed** a.\n');
+  assert.equal(appendFragmentLine('- **Fixed** a.\n', '- **Added** b.'), '- **Fixed** a.\n- **Added** b.\n');
+  assert.deepEqual(fragmentLines(FRAGMENT_HEADER + '- **Fixed** a.\n'), ['- **Fixed** a.']);
+  assert.deepEqual(fragmentLines('note\n- **Fixed** a.\n\n- **Added** b.\n'), ['- **Fixed** a.', '- **Added** b.']);
+});
+
+test('fold: newest first, a new day heading in date order, lines on top of an existing day', () => {
+  const base = '# C\n\n## [Unreleased]\n\n### 2026-10-22\n- **Fixed** c.\n\n### 2026-10-20\n- **Fixed** old.\n\n## [0.5.0]\n- x\n';
+  const out = foldFragments(base, [
+    { name: 'b.md', day: '2026-10-22', text: '- **Added** b1.\n- **Added** b2.\n' },
+    { name: 'a.md', day: '2026-10-21', text: '- **Changed** a.\n' },
+    { name: 'z.md', day: '2026-10-23', text: '- **Debt** z.\n' },
+    { name: 'o.md', day: '2026-10-19', text: '- **Removed** o.\n' },
+  ]);
+  assert.equal(out, '# C\n\n## [Unreleased]\n\n### 2026-10-23\n- **Debt** z.\n\n### 2026-10-22\n- **Added** b2.\n- **Added** b1.\n- **Fixed** c.\n\n### 2026-10-21\n- **Changed** a.\n\n### 2026-10-20\n- **Fixed** old.\n\n### 2026-10-19\n- **Removed** o.\n\n## [0.5.0]\n- x\n');
+  assert.throws(() => foldFragments(base, [{ name: 'k.md', day: '2026-10-22', text: '- **Fixed** ' + 'a'.repeat(330) + '\n' }]), /cap is 320/);
+  assert.equal(foldFragments(base, []), base);
+});
+
+test('fold into an Unreleased with no day yet, and at the end of the file', () => {
+  assert.equal(insertChangelogLine('# C\n\n## [Unreleased]\n\n## [0.5.0]\n', '- **Fixed** a.', '2026-10-20'), '# C\n\n## [Unreleased]\n\n### 2026-10-20\n- **Fixed** a.\n\n## [0.5.0]\n');
+  assert.equal(insertChangelogLine('# C\n\n## [Unreleased]\n', '- **Fixed** a.', '2026-10-20'), '# C\n\n## [Unreleased]\n\n### 2026-10-20\n- **Fixed** a.\n');
+  assert.throws(() => insertChangelogLine('# none\n', '- **Fixed** a.', '2026-10-20'), /Unreleased/);
 });

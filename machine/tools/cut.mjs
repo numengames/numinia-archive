@@ -10,8 +10,10 @@
 //                                       one line per step, the names of what failed, nothing else
 //   node machine/tools/cut.mjs seal     retired: telemetry is generated at build time and no longer committed; prints why, changes nothing
 //   node machine/tools/cut.mjs log <Kind> "<sentence>"
-//                                       put the sentence as the newest CHANGELOG line under today's
-//                                       day heading; refuses an unknown kind or a line over 320 chars
+//                                       add the line to this branch's fragment changelog.d/<branch>.md
+//                                       (CHANGELOG.md is not touched); refuses an unknown kind or a line over 320 chars
+//   node machine/tools/cut.mjs fold     fold every changelog.d/*.md fragment into CHANGELOG.md under
+//                                       [Unreleased], on the day each was first committed (UTC), then delete them
 //   node machine/tools/cut.mjs site <ADD|CHG|FIX|DEL> "<sentence>"
 //                                       add the sentence to web/src/data/updates.ts: the first time on
 //                                       this branch it opens the next minor version, then it adds to it
@@ -25,7 +27,7 @@
 // Base for "what changed" is the merge-base with origin/main, so an old branch
 // is judged by what it adds, not by how far main has moved.
 import { execFileSync, spawnSync } from 'node:child_process';
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, mkdirSync, unlinkSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -87,11 +89,7 @@ export const LOG_MAX = 320;
 
 /** The CHANGELOG with `- **Kind** sentence` as the newest line of `day` under [Unreleased]. Throws on a bad kind or a long line. */
 export function addChangelogLine(text, kind, sentence, day) {
-  if (!LOG_KINDS.includes(kind)) throw new Error(`kind must be one of ${LOG_KINDS.join(', ')}`);
-  const s = (sentence ?? '').trim();
-  if (!s || /\n/.test(s)) throw new Error('the sentence is one non-empty line');
-  const line = `- **${kind}** ${s}`;
-  if (line.length > LOG_MAX) throw new Error(`the line is ${line.length} chars, the cap is ${LOG_MAX}: shorten it`);
+  const line = changelogLine(kind, sentence);
   const head = '## [Unreleased]\n';
   const at = text.indexOf(head);
   if (at < 0) throw new Error('CHANGELOG.md has no "## [Unreleased]" section');
@@ -103,6 +101,75 @@ export function addChangelogLine(text, kind, sentence, day) {
     return text.slice(0, cut) + line + '\n' + text.slice(cut);
   }
   return text.slice(0, after) + `\n### ${day}\n${line}\n` + rest;
+}
+
+export const FRAG_DIR = 'changelog.d';
+
+/** feat/changelog-fragments -> feat-changelog-fragments.md (anything outside [A-Za-z0-9._-] becomes "-"). */
+export function fragmentName(branch) {
+  const slug = String(branch ?? '').trim().replace(/[^A-Za-z0-9._-]+/g, '-').replace(/^[-.]+|-+$/g, '');
+  if (!slug || slug === 'HEAD') throw new Error('no branch name (detached HEAD?): check out a branch to write a fragment');
+  return `${slug}.md`;
+}
+
+/** The validated `- **Kind** sentence` line, shared by `log` and the fragment. Throws on a bad kind, an empty or multi-line sentence, or a long line. */
+export function changelogLine(kind, sentence) {
+  if (!LOG_KINDS.includes(kind)) throw new Error(`kind must be one of ${LOG_KINDS.join(', ')}`);
+  const s = (sentence ?? '').trim();
+  if (!s || /\n/.test(s)) throw new Error('the sentence is one non-empty line');
+  const line = `- **${kind}** ${s}`;
+  if (line.length > LOG_MAX) throw new Error(`the line is ${line.length} chars, the cap is ${LOG_MAX}: shorten it`);
+  return line;
+}
+
+/** What a new fragment opens with: a fragment has no front matter, but REUSE wants every file to declare its licence (the same as CHANGELOG.md). */
+export const FRAGMENT_HEADER = '<!--\nSPDX-FileCopyrightText: 2026 Numen Games S.L.\nSPDX-License-Identifier: CC-BY-4.0\n-->\n';
+
+/** The fragment text with `line` appended (a fragment is just entry lines, one per line). */
+export function appendFragmentLine(text, line) {
+  const base = (text ?? '').replace(/\s+$/, '');
+  return (base ? base + '\n' : '') + line + '\n';
+}
+
+/** The entry lines of a fragment (`- **Kind** ...`), in file order; other lines are ignored. */
+export function fragmentLines(text) {
+  return (text ?? '').split('\n').map((l) => l.trimEnd()).filter((l) => /^- \*\*\w+\*\* \S/.test(l));
+}
+
+/** The CHANGELOG with `line` as the newest line of `day` under [Unreleased]; a missing day heading is created in date order (newest first). */
+export function insertChangelogLine(text, line, day) {
+  const head = '## [Unreleased]\n';
+  const at = text.indexOf(head);
+  if (at < 0) throw new Error('CHANGELOG.md has no "## [Unreleased]" section');
+  const after = at + head.length;
+  const nextRel = text.indexOf('\n## [', after);
+  const end = nextRel < 0 ? text.length : nextRel + 1;
+  const body = text.slice(after, end);
+  const re = /^### (\d{4}-\d{2}-\d{2})\n/gm;
+  let m, place = null;
+  while ((m = re.exec(body))) {
+    if (m[1] === day) return text.slice(0, after) + body.slice(0, m.index + m[0].length) + line + '\n' + body.slice(m.index + m[0].length) + text.slice(end);
+    if (m[1] < day && place === null) place = m.index;
+  }
+  const block = `### ${day}\n${line}\n\n`;
+  if (place !== null) return text.slice(0, after) + body.slice(0, place) + block + body.slice(place) + text.slice(end);
+  const tail = body.replace(/\n*$/, '');
+  return text.slice(0, after) + (tail ? tail + '\n\n' : '\n') + block.replace(/\n+$/, '\n') + (end < text.length ? '\n' : '') + text.slice(end);
+}
+
+/**
+ * The CHANGELOG with every fragment folded in. `fragments` = [{ name, day, text }].
+ * Oldest day first, then by name, lines in file order, each put on top of its day:
+ * so the newest day, the later file and the later line end up highest.
+ */
+export function foldFragments(text, fragments) {
+  const order = [...fragments].sort((a, b) => (a.day < b.day ? -1 : a.day > b.day ? 1 : a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+  let out = text;
+  for (const f of order) for (const line of fragmentLines(f.text)) {
+    changelogLine(line.match(/^- \*\*(\w+)\*\* /)[1], line.replace(/^- \*\*\w+\*\* /, ''));
+    out = insertChangelogLine(out, line, f.day);
+  }
+  return out;
 }
 
 export const SITE_TYPES = ['ADD', 'CHG', 'FIX', 'DEL'];
@@ -164,8 +231,10 @@ function status() {
   const files = changedFiles();
   const todo = [];
   for (const f of staleHeaders(files)) todo.push(`bump: ${f} changed and its version did not (cut.mjs bump)`);
-  const meaningful = files.filter((f) => f !== 'CHANGELOG.md');
-  if (meaningful.length && !files.includes('CHANGELOG.md')) todo.push('changelog: CHANGELOG.md has no new line for this change (cut.mjs log <Kind> "<sentence>")');
+  const isFragment = (f) => f.startsWith(`${FRAG_DIR}/`) && f.endsWith('.md') && f !== `${FRAG_DIR}/README.md`;
+  const meaningful = files.filter((f) => f !== 'CHANGELOG.md' && !f.startsWith(`${FRAG_DIR}/`));
+  const hasLine = files.includes('CHANGELOG.md') || files.some((f) => isFragment(f) && existsSync(path.join(ROOT, f)));
+  if (meaningful.length && !hasLine) todo.push('changelog: no changelog line for this change: no fragment in changelog.d/ (cut.mjs log <Kind> "<sentence>")');
   if (files.some((f) => /^web\/src\//.test(f)) && !files.includes('web/src/data/updates.ts')) todo.push('site version: web/src changed but web/src/data/updates.ts has no new entry (cut.mjs site <TYPE> "<sentence>")');
   console.log(`${files.length} file(s) changed against ${base().slice(0, 7)}`);
   if (!todo.length) { console.log('nothing missing'); return 0; }
@@ -219,10 +288,39 @@ function gate() {
 const TOKENIZER = 'machine/scripts/lib/tokenizer/cl100k_base.tiktoken';
 
 function log(kind, sentence) {
-  const p = path.join(ROOT, 'CHANGELOG.md');
-  try { writeFileSync(p, addChangelogLine(readFileSync(p, 'utf8'), kind, sentence, dayUtc())); }
+  let line, name;
+  try { line = changelogLine(kind, sentence); name = fragmentName(git('rev-parse', '--abbrev-ref', 'HEAD')); }
   catch (e) { console.log(`not written: ${e.message}`); return 1; }
-  console.log(`CHANGELOG.md: ${kind} line added under ${dayUtc()}`);
+  const dir = path.join(ROOT, FRAG_DIR);
+  const p = path.join(dir, name);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(p, appendFragmentLine(existsSync(p) ? readFileSync(p, 'utf8') : FRAGMENT_HEADER, line));
+  console.log(`${FRAG_DIR}/${name}: ${kind} line added (CHANGELOG.md is untouched; cut.mjs fold folds the fragments)`);
+  return 0;
+}
+
+/** The UTC day a file was first committed, or today (UTC) if git does not know it. */
+function fragmentDay(rel) {
+  try {
+    const out = git('log', '--diff-filter=A', '--format=%aI', '--', rel).split('\n').filter(Boolean);
+    const d = new Date(out[out.length - 1]);
+    if (!Number.isNaN(d.getTime())) return dayUtc(d);
+  } catch { /* fall through */ }
+  return dayUtc();
+}
+
+function fold() {
+  const dir = path.join(ROOT, FRAG_DIR);
+  const names = existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith('.md') && n !== 'README.md').sort() : [];
+  if (!names.length) { console.log('no fragments in changelog.d/: nothing to fold'); return 0; }
+  const fragments = names.map((n) => ({ name: n, day: fragmentDay(`${FRAG_DIR}/${n}`), text: readFileSync(path.join(dir, n), 'utf8') }));
+  const p = path.join(ROOT, 'CHANGELOG.md');
+  let out;
+  try { out = foldFragments(readFileSync(p, 'utf8'), fragments); }
+  catch (e) { console.log(`not folded: ${e.message}`); return 1; }
+  writeFileSync(p, out);
+  for (const f of fragments) unlinkSync(path.join(dir, f.name));
+  console.log(`folded ${fragments.reduce((n, f) => n + fragmentLines(f.text).length, 0)} line(s) from ${names.length} fragment(s) into CHANGELOG.md`);
   return 0;
 }
 
@@ -250,7 +348,7 @@ function seal() {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const cmd = process.argv[2];
-  const table = { status, bump, gate, seal, log, site };
+  const table = { status, bump, gate, seal, log, fold, site };
   if (!table[cmd]) { console.error('usage: cut.mjs status | bump | gate | seal | log <Kind> "<sentence>" | site <TYPE> "<sentence>"'); process.exit(2); }
   process.exit(table[cmd](...process.argv.slice(3)));
 }
