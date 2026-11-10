@@ -17,6 +17,9 @@ per entry — its kind, what changed in words, the pull request. Entries before
 
 ## [Unreleased]
 
+### 2026-11-10
+- **Added** CI: a pull request title must be a Conventional Commits title, type(scope): subject, checked by the pr-title workflow; the PR template asks for it. missions:, standards:, web: become docs(missions):, docs(standards):, feat(web):
+
 ### 2026-11-06
 - **Added** MIS-291 opens as `todo`: numinia.com shows which engine each world runs and what it can do. Children MIS-292, MIS-293 (numinia-engine) and MIS-294, MIS-295 (numinia-platform); points 5, 5, 5, 3.
 - **Added** MIS-296 opens as `todo`: create a world from an engine template. Children MIS-297 (numinia-assets, a signed `CreateWorldFromTemplate`) and MIS-298 (numinia-platform, the wizard); points 5 and 8.

@@ -1,0 +1,21 @@
+# SPDX-FileCopyrightText: 2026 Numen Games S.L.
+# SPDX-License-Identifier: MIT
+#
+# The pull request title is a Conventional Commits title: `type(scope): subject`
+# (STD-020 GIT-026). The title is the subject of the squash commit on main, and
+# the tag a release gets will be decided from these types. The job lives once,
+# in numengames/.github; this file only says when it runs.
+name: pr-title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  title:
+    uses: numengames/.github/.github/workflows/pr-title.yml@017d1ce877d752104f51ea226e5e8854540516ed # pr-title, numengames/.github#4
+    permissions:
+      contents: read

@@ -28,6 +28,7 @@ longer a rule in force: read each changed document of the series for it. -->
 
 ## Definition of Done
 
+- [ ] The PR title is `type(scope): subject` (Conventional Commits): `docs(missions): …`, `docs(standards): …`, `feat(web): …`, `fix(machine): …`; the `pr-title` check reads it
 - [ ] CI green (licence guard + build)
 - [ ] The test commit precedes the code commit, and the test failed before the code existed (DEV-008)
 - [ ] No content weakened a check to pass (§7.2.6)
