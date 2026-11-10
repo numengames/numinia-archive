@@ -4,9 +4,9 @@ uid: ""
 title: "Decide the avatar format and how a person chooses an avatar in a world"
 type: mission
 status: todo
-version: "0.1.0"
+version: "0.1.1"
 created: "2026-11-06T12:45:00Z"
-updated: "2026-11-06T12:45:00Z"
+updated: "2026-11-10T14:46:23+01:00"
 author: "ursa"
 owner: "oracle"
 section: "Technology"
@@ -79,8 +79,8 @@ Building the selection flow or converting avatars: missions after the decision.
 
 ## 3. Acceptance criteria
 
-- [ ] A design in `designs/` compares at least three formats on the six criteria above, each claim with its source (today: no such document).
-- [ ] The design ends with one recommendation, and the decisions backlog holds the matching question for the Oracle.
+- [x] A design in `designs/` (`DES-020`) compares at least three formats on the six criteria above, each claim with its source (today: no such document).
+- [x] The design ends with one recommendation, and the decisions backlog holds the matching question for the Oracle.
 - [ ] `npm run checks` passes on the pull request.
 
 ---
@@ -101,10 +101,22 @@ Building the selection flow or converting avatars: missions after the decision.
 
 ## 5. What we learned
 
-*(Written at the end.)*
+- VRM is the right avatar format; plain glTF has no ratified humanoid rig yet, and the engine reads VRM only.
+- The format was not the problem. The picker refuses any dropped avatar that is not CC0, and VRoid avatars rarely are; the decisions backlog asks the Oracle to change that.
+- Load measured on the three house avatars: 189–250 kB, 2 130–2 880 triangles. Not measured: a phone or a Quest, since none was at hand. `limits.json` still lists the old 1 MB weights.
+- Design is `DES-020`; a stale line in `limits.json` is left for an engine mission.
 
 ---
 
 ## 6. Invoice
 
-*(Pasted by the invoice script.)*
+| | Budget | Actual | Ratio |
+|---|---|---|---|
+| Time | 30.0 min | 0 min in 0 runs | 0.00 |
+| Weight | — | — · $0.00 · 0 tokens | — |
+
+- Cards: numinia-org/t_229dfb73
+- Helper sessions counted: 0 (via parent_session_id)
+- Context summaries: 0 (compression flags: 0) · tool calls: 0 · model calls: 0
+
+*(Read while the card was still running, so the actuals read zero; the card's run history holds the real time.)*
