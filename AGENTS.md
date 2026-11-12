@@ -60,6 +60,7 @@ gone before their access list is closed. `PRO-022` (building the reading-aloud p
 `PRI-016` what a machine can read, anyone can use ·
 `PRI-017` a device that heats up has been asked too much ·
 `PRI-018` a limit nobody can check is a promise ·
+`PRI-019` copy, transform, combine ·
 `STD-001` the series ·
 `STD-004` the header every document opens with ·
 `STD-005` when a rule bites ·
@@ -218,6 +219,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `PRI-016` | What a machine can read, anyone can use | in force | whoever builds, runs or changes Numinia… |
 | `PRI-017` | A device that heats up has been asked too much | in force | whoever builds, runs or changes Numinia… |
 | `PRI-018` | A limit nobody can check is a promise | in force | whoever builds, runs or changes Numinia… |
+| `PRI-019` | Copy, transform, combine | in force | whoever makes or changes anything in… |
 | `PRO-001` | Opening and closing a session | draft | every agent, in every session, whatever… |
 | `PRO-003` | Running a mission | in force | any agent assigned a mission, and the… |
 | `PRO-005` | Escalating to the Oracle | in force | any agent facing a decision it may not,… |
@@ -301,7 +303,7 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
 | `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded… |
 
-98 rule documents, of which 51 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+99 rule documents, of which 52 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes

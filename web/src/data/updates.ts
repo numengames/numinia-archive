@@ -53,6 +53,13 @@ export interface PendingItem {
 
 export const UPDATES: readonly UpdateVersion[] = [
   {
+    version: "v0.178.0",
+    date: "2026-11-12",
+    entries: [
+      { type: "ADD", text: "A new principle, PRI-019 «Copy, transform, combine»: we make new things by copying what exists, changing the copy and joining it to other pieces, and we keep each source's licence and name. It sits on the Technology shelf." },
+    ],
+  },
+  {
     version: "v0.177.0",
     date: "2026-10-31",
     entries: [
