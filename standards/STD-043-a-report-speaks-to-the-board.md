@@ -5,9 +5,9 @@ title: "A report speaks to the board"
 type: standard
 subtype: standard
 status: draft
-version: "0.1.4"
+version: "0.2.0"
 created: "2026-09-29T19:30:00+02:00"
-updated: "2026-10-03T22:30:00+02:00"
+updated: "2026-11-12T02:36:44+01:00"
 author: "ursa"
 owner: "oracle"
 guild: "Alchemists"
@@ -58,7 +58,11 @@ to say keeps its place and says so in one line.
 
 **Money is never left out.** The money heading MUST give the period's
 income, spend and cash from the ledger, or state plainly that the ledger
-does not yet feed the report.
+does not yet feed the report. A figure the ledger does not yet hold MAY
+appear as an estimate, but only if it is labelled `estimate` beside the
+figure, says how it was computed from ledger lines, and is never mixed
+into a total with real or declared figures without that label. Every
+money figure carries one label: real, declared or estimate.
 
 **The annual report tells the story.** An annual report MUST open with the
 organisation's history from its founding to the end of that year, told by
@@ -85,7 +89,7 @@ and an annual three, apart from the annual's history.
 | RPR-001 | The reader is the board | [IFRS Practice Statement 1, management commentary](https://www.ifrs.org/issued-standards/management-commentary-practice-statement/): written for the primary users of the financial reports | by hand, at the pull request |
 | RPR-002 | The conclusion comes first | Minto, *The Pyramid Principle* (1987) — the answer before its support | by hand |
 | RPR-003 | The whole organisation, nine headings | [Spanish Companies Act, art. 262](https://www.boe.es/buscar/act.php?id=BOE-A-2010-10544#a262), the management report: the business's development, position, risks and outlook; the nine headings are ours | by hand, against the report template |
-| RPR-004 | Money is never left out | the ledger of the one-account standard | by hand |
+| RPR-004 | Money is never left out; an estimate is labelled | the ledger of the one-account standard (`STD-036`): every step says whether it is real, declared or an estimate | by hand |
 | RPR-005 | The annual report tells the story | — | by hand |
 | RPR-006 | Every figure is measured | the evidence standard: `evidence_script`, `evidence_head` | `machine/checks/rules/std-021-evidence-and-citation.mjs` where the fields are declared |
 | RPR-007 | Every figure has its comparison | IFRS Practice Statement 1, comparative information and consistent measures | by hand |
