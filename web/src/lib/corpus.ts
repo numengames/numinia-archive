@@ -423,6 +423,7 @@ const READING_GROUPS_PRINCIPLES: ReadingGroup[] = [
       "/principles/pri-016-what-a-machine-can-read-anyone-can-use",
       "/principles/pri-017-a-device-that-heats-up-has-been-asked-too-much",
       "/principles/pri-018-a-limit-nobody-can-check-is-a-promise",
+      "/principles/pri-019-copy-transform-combine",
     ],
   },
 ];
