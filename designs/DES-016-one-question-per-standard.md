@@ -6,9 +6,9 @@ type: design
 former_id: "BLU-016"
 former_id_note: "Renamed by ADR-067 cut 4 (2026-10-03): the series blueprints/ took the industry's word, designs/, and the prefix BLU- became DES-."
 status: draft
-version: "0.13.1"
+version: "0.13.2"
 created: "2026-09-25T13:00:00+02:00"
-updated: "2026-10-25T11:50:00Z"
+updated: "2026-11-24T17:55:13+01:00"
 author: "ursa"
 owner: "oracle"
 tags: [design, standards, one-question, DITA, external]
@@ -134,6 +134,7 @@ keeps the rule, and each standard's epistemic line keeps its question.
 | `STD-053` | Who may see whether a person is connected? | — |
 | `STD-054` | Who may be named in the record of an opportunity, and when? | — |
 | `STD-055` | Which tenders and grants does the house record? | — |
+| `STD-056` | How must a person who works for Numen Games behave? | — |
 
 Three repetitions were weighed and kept, because each governs a different
 object: English for titles, for bodies and for addresses.
