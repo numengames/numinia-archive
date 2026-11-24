@@ -302,8 +302,9 @@ adding a dependency, changing a LICENSE or making anything public.
 | `STD-053` | Presence | draft | numinia.com's status menu, its lists of… |
 | `STD-054` | A client is named by consent | in force | every record of an opportunity kept in… |
 | `STD-055` | Only a call that passes is recorded | in force | every tender and every grant recorded… |
+| `STD-056` | A code of conduct binds us | draft | every person who works for Numen Games,… |
 
-99 rule documents, of which 52 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
+100 rule documents, of which 52 are in force; a `draft` is on trial until promoted: followed, warns, never blocks; 10 are registers and take their scope from the standard that cites them; every other document names whom it binds.
 <!-- rule-index:end -->
 
 ## Canonical changes
